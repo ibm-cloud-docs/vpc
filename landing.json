@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2023-03-23",
+    "lastupdated": "2023-04-27",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
@@ -31,19 +31,19 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
-          "date": "23 March 2023",
-          "title": "New network latency dashboard",
-          "description": "Provides visibility into network latency between all regions to help you plan the optimal selection for your cloud deployment and plan for scenarios, such as data residency and performance. This dashboard provides the average network round-trip latency (round-trip time or RTT) for all pairs of regions in IBM Cloud over a 30-day period. You can view and monitor performance in the following IBM Cloud regions: Dallas, Toronto, Washington DC, Frankfurt, London, Osaka, Sydney, Tokyo and São Paulo."
+          "date": "27 April 2023", 
+          "title": "Export custom images (GA)",
+          "description": "The ability to export custom images to {{site.data.keyword.cos_full_notm}}, a feature previously available in beta, is now generally available."
         },
         {
-          "date": "21 March 2023",
-          "title": "Instance provision by volume",
-          "description": "You can now reuse an existing boot volume to provision a virtual server instance. The specified volume must be unattached, be in the same zone as the instance profile, and must have an operating system with the same architecture as the instance profile. By default, a boot volume created as part of provisioning a virtual server instance is deleted when the instance is deleted. You can control this behavior when creating or updating an instance."
+          "date": "27 April 2023", 
+          "title": "UI update to enable deletion of nested resources",
+          "description": "When you delete a resource, such as a VPC or a subnet, any attached resources must be deleted first before you can delete the VPC. The UI is updated to display a side panel listing all the resources still attached to the VPC that must be deleted. You can delete these resources from this side panel and then continue with deleting the VPC."
         },
         {
-          "date": "21 March 2023", 
-          "title": "Designating VPC route priority",
-          "description": "When multiple VPC routes exist for a given destination, you can now control the priority of these routes (from 0 to 4). New and existing routes, created without a priority value, are automatically set to the default priority (2). Smaller values have higher priority."
+          "date": "27 April 2023", 
+          "title": "Documentation enhancement: Deploying an application for financial transactions with Confidential Computing on Hyper Protect Virtual Server for VPC",
+          "description": "The newly added Deploying an application on Hyper Protect Virtual Server for VPC tutorial walks you through how to deploy the PayNow application with Confidential Computing on Hyper Protect Virtual Server for VPC."
         }
       ]
     }

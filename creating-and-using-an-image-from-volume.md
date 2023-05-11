@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-02-10"
+lastupdated: "2023-04-26"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance, instances, virtual servers, creating virtual servers, virtual server instances, virtual machines, Virtual Servers for VPC, compute, vsi, vpc, creating, UI, console
 
@@ -65,8 +65,8 @@ You can use the UI to create an image from a volume that is attached to an avail
 Complete the following actions to import your custom image in the UI.
 
 1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Images**.
-2. On the **Custom images** tab, click **Create**. The Import custom image page is displayed.
-3. Complete the following required fields on the Import custom images page.
+2. On the **Custom images** tab, click **Create**. The Custom image provision page is displayed.
+3. Complete the following required fields on the Custom image provision page.
 
 | Field | Value |
 |-------|-------|
@@ -74,19 +74,19 @@ Complete the following actions to import your custom image in the UI.
 | Resource group | Image resources |
 | Tags | Custom image |
 | Region | Dallas 2 |
-| Source | [Virtual server instance boot volume](#import-custom-boot-image-vsi) (default) |
-{: caption="Table 1. Import custom image user interface fields" caption-side="bottom"}
+| Source | [Virtual server instance boot volume](#import-custom-image-vsi) (default) |
+{: caption="Table 1. Custom image provision user interface fields" caption-side="bottom"}
 
 ### Create an image from a virtual server instance boot volume
 {: #import-custom-boot-image-vsi}
 
 When you select **Virtual server instance boot volume** as the source of your custom image, a list of instances is displayed. Complete the following actions to create an image from the instance's boot volume.
 
-1. On the **Import custom image** page, select **Virtual server instance boot volume** (default).
+1. On the **Custom image provision** page, select **Virtual server instance boot volume** (default).
 2. Select an instance from the list. You're selecting the boot volume of the instance.
 3. Make sure that the instance is not running. You can stop a running instance by clicking the overflow menu (ellipsis) and click **Stop**.
 4. Select IBM-managed encryption as the encryption type.
-5. On the side panel, click **Import custom image**.
+5. On the side panel, click **Create custom image**.
 
 ## Creating virtual server instances in the UI
 {: #creating-virtual-servers-ifv}

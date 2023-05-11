@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-02-09"
+lastupdated: "2023-05-03"
 
 keywords: VPC, virtual private cloud
 
@@ -43,9 +43,7 @@ To increase a quota for a particular resource, [contact support](/unifiedsupport
 | Storage optimized (ox2) instance storage | 96 TB per region |
 {: caption="Table 1. Quotas for virtual server instances" caption-side="bottom"}
 
-When you provision virtual server instances and dedicated hosts, the vCPU associated with these resources counts toward the vCPU quotas per region. Instances that are provisioned on dedicated hosts do not count against the vCPU quota.
-
-When you provision virtual server instances, the RAM and instance storage, along with vCPU, that is associated with the instances count toward the vCPU, RAM, and instance storage quotas per region.
+When you provision virtual server instances dedicated hosts, the vCPU, RAM, and solid-state drives, which are associated with the instances count toward the vCPU, RAM, and instance storage quotas per region. Instances that are provisioned on dedicated hosts do not count against the vCPU quota. For more information, see [About instance storage](/docs/vpc?topic=vpc-instance-storage).
 
 Bare metal servers use physical cores and don't count toward your vCPU quota.
 {: note} 

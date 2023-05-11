@@ -3,7 +3,8 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-03-29"
+
+lastupdated: "2023-05-09"
 
 keywords:
 
@@ -23,12 +24,69 @@ content-type: release-note
 Use the release notes to learn the latest updates to {{site.data.keyword.vpc_full}} that are grouped by date.
 {: shortdesc}
 
-For more information about changes to the {{site.data.keyword.vpc_short}} API , see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
+For more information about changes to the {{site.data.keyword.vpc_short}} API, see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-cli-rn).
 
+## May 2023
+{: #vpc-may23}
+
+### 9 May 2023
+{: #vpc-may0923}
+{: release-note}
+
+New `-a100` GPU profile is available (LA)
+:   There is a new profile available for customers with special approval to preview this service that is for provisioning instances based on NVIDIA's A100 Amperere GPU attached to a single virtual server instance. The `gx2-80x1280x8a100` profile supports artificial intelligence and machine language frameworks and includes instance storage. Only Redhat and Ubuntu are supported for this profile. This profile is currently only available in the Washington DC region. For more information, see [GPU profiles](https://test.cloud.ibm.com/docs/vpc?topic=vpc-profiles&interface=ui#gpu). To request access to this profile, you must open a [support case](https://cloud.ibm.com/unifiedsupport/supportcenter).
+
+## April 2023
+{: #vpc-apr23}
+
+### 27 April 2023
+{: #vpc-april2723}
+{: release-note}
+
+Export custom images (GA)
+:   The ability to export custom images to {{site.data.keyword.cos_full_notm}}, a feature previously available in beta, is now generally available. For more information, see [Exporting a custom image to IBM Cloud Object Storage](/docs/vpc?topic=vpc-managing-custom-images&interface=ui#custom-image-export-to-cos).
+
+UI update to enable deletion of nested resources
+:    When you delete a resource, such as a VPC or a subnet, any attached resources must be deleted first before you can delete the VPC. The UI is updated to display a side panel listing all the resources still attached to the VPC that must be deleted. You can delete these resources from this side panel and then continue with deleting the VPC.
+
+Documentation enhancement: Deploying an application for financial transactions with Confidential Computing on Hyper Protect Virtual Server for VPC
+:   The newly added [**Deploying an application on Hyper Protect Virtual Server for VPC** tutorial](/docs/vpc?topic=vpc-financial-transaction-confidential-computing-on-hyper-protect-virtual-server-for-vpc) walks you through how to deploy the PayNow application with Confidential Computing on Hyper Protect Virtual Server for VPC.
+
+### 6 April 2023
+{: #vpc-april0623}
+{: release-note}
+
+Image lifecycle management for custom images (beta)
+:   For customers with special access to this feature, you can use the UI, CLI, and API to manage the lifecycle of your custom images with the following three statuses. You can move the image back and forth through all the statuses. You can also schedule status changes to manage the entire lifecycle of the image. For more information, see [Custom image lifecycle](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#custom-image-lifecycle) in [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images&interface=ui).
+    * `available`: The image can be used to create an instance.
+    * `deprecated`: The image can be used to create an instance. Using the `deprecated` status can discourage use of the image before the status changes to `obsolete`.
+    * `obsolete`: The image can't be used to create an instance.
+
+### 4 April 2023
+{: #vpc-apr04}
+{: release-note}
+
+{{site.data.keyword.filestorage_vpc_short}} defined-performance profile (beta)
+:    For customers with special access to this feature, you can now create file shares using the **dp2** defined-performance profile. This profile provides higher IOPS and greater capacity than earlier profiles. You can also modify existing file shares to use this profile. For more information, see the [file share profiles overview](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#file-storage-profile-overview).
+
 ## March 2023
 {: #vpc-mar23}
+
+### 31 March 2023
+{: #vpc-march3123}
+{: release-note}
+
+New network latency dashboard to view latency between zones in a multi-zone region (MZR)
+:   Not only can you view inter-region latency metrics, but you can now view inter-AZ metrics between all regions and availability zones (AZs) to help you plan the optimal selection for your cloud deployment. To view performance metrics, see the [Network latency dashboards](/docs/vpc?topic=vpc-network-latency-dashboard).
+
+### 30 March 2023
+{: #vpc-march3023}
+{: release-note}
+
+Documentation enhancement: Encrypting log messages for {{site.data.keyword.hpvs}} for VPC
+:   The newly added [**Encrypting log messages** tutorial](/docs/vpc?topic=vpc-encrypt-log-messages-for-hyper-protect-virtual-servers-for-vpc) walks you through how to encrypt log messages that are generated by your container workload in your Hyper Protect Virtual Server for VPC instance. You can use the tutorial as reference to encrypt log messages if your workload produces sensitive information.
 
 ### 29 March 2023
 {: #vpc-march2923}
@@ -44,6 +102,9 @@ VCPU manufacturer support for instances and dedicated hosts (LA)
 Private DNS zones for network load balancers
 :    You can now use IBM Cloud Application and Network Load Balancers for VPC to bind DNS zones from [IBM Cloud DNS Services](/docs/dns-svcs?topic=dns-svcs-getting-started), which you can use to move all DNS resolutions into private networks. Private DNS zones are resolvable only on IBM Cloud, and only from explicitly permitted networks in an account or with cross account access. For more information, see [Integrating a load balancer with IBM Cloud DNS Services](/docs/vpc?topic=vpc-lb-dns).
 
+Enhancements to viewing profiles - number of supported network interfaces
+:   In {{site.data.keyword.cloud_notm}} console, when you click **View all profiles** on the **Create virtual server instance** page, the **Bandwidth** column values include a tool tip. The tool tip now includes the number of network interfaces that can be attached for the profile. A similar feature is now available in the API when you list instance profiles. For more information, see [Network interface configuration for instance profiles](/docs/vpc?topic=vpc-api-change-log&interface=cli#28-march-2023-all-version-dates).
+
 ### 23 March 2023
 {: #vpc-march2323}
 {: release-note}
@@ -52,7 +113,7 @@ New network latency dashboard
 :   Provides visibility into network latency between all regions to help you plan the optimal selection for your cloud deployment and plan for scenarios, such as data residency and performance. This dashboard provides the average network round-trip latency (round-trip time or RTT) for all pairs of regions in {{site.data.keyword.cloud_notm}} over a 30-day period.
 
    You can view and monitor performance in the following {{site.data.keyword.cloud_notm}} regions: Dallas, Toronto, Washington DC, Frankfurt, London, Osaka, Sydney, Tokyo and São Paulo.
-   
+
    To view performance metrics, see the [Network latency dashboard](/docs/vpc?topic=vpc-network-latency-dashboard).
 
 ### 21 March 2023
@@ -65,7 +126,7 @@ Instance provision by volume
 Designating VPC route priority
 :   When multiple VPC routes exist for a given destination, you can now control the priority of these routes (from `0` to `4`). New and existing routes, created without a priority value, are automatically set to the default priority (`2`). Smaller values have higher priority. For more information, see [Determining route preference](/docs/vpc?topic=vpc-about-custom-routes#cr-determining-route-preference).
 
-   The route priority is considered on identical destinations only. 
+   The route priority is considered on identical destinations only.
    {: note}
 
 Modifying the next hop for VPC routes
@@ -82,10 +143,10 @@ IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1
    - [Intermediate certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-9-intermediate.crt){: external}
 
    Two partitions in new data volume
-   - For new {{site.data.keyword.hpvs}} instances, the data volume is partitioned into two parts. The first partition (100Mib) is reserved for internal metadata; the second partition remains as the data volume for workload. Only new volumes are partitioned, and you can't use the partitioned volume with an older version of the HPCR image. Provisioning with an existing encrypted volume also works. The difference is that the existing volume does not get partitioned, and you can also go back to an older image with this volume. 
+   - For new {{site.data.keyword.hpvs}} instances, the data volume is partitioned into two parts. The first partition (100Mib) is reserved for internal metadata; the second partition remains as the data volume for workload. Only new volumes are partitioned, and you can't use the partitioned volume with an older version of the HPCR image. Provisioning with an existing encrypted volume also works. The difference is that the existing volume does not get partitioned, and you can also go back to an older image with this volume.
 
    Support for using a dynamic registry reference
-   - There exist usecases in which the registry is **not known** when the workload section is pre-encrypted, for example, when the workload provider wants to allow the deployer to use a registry mirror or a private container registry. In such a case, it's possible to dynamically override the registry as well as the pull credentials. This is a coordinated effort between the workload provider and the deployer. For more information, see [Using a dynamic registry reference](/docs/vpc?topic=vpc-hyper-protect-virtual-server-use-dynamic-registry-reference).
+   - There exist use cases in which the registry is **not known** when the workload section is pre-encrypted, for example, when the workload provider wants to allow the deployer to use a registry mirror or a private container registry. In such a case, it's possible to dynamically override the registry as well as the pull credentials. This is a coordinated effort between the workload provider and the deployer. For more information, see [Using a dynamic registry reference](/docs/vpc?topic=vpc-hyper-protect-virtual-server-use-dynamic-registry-reference).
 
 ### 16 March 2023
 {: #vpc-march1623}
@@ -186,7 +247,7 @@ New region (Tokyo) for LinuxONE Bare Metal Servers (s390x processor architecture
 {: release-note}
 
 Application Load Balancer and VPN for VPC
-:    As a reminder, end of support for IBM Cloud Certificate Manager was 31 December 2022. Remaining instances of Certificate Manager have been deleted. If you have any user-provided Ingress secrets stored in Certificate Manager, they are no longer valid. 
+:    As a reminder, end of support for IBM Cloud Certificate Manager was 31 December 2022. Remaining instances of Certificate Manager have been deleted. If you have any user-provided Ingress secrets stored in Certificate Manager, they are no longer valid.
 
 End of support (EOS) for deprecated VPN for VPC IKE and IPsec ciphers
 :    On 20 September 2022, the following VPN IKE and IPsec ciphers were deprecated:
@@ -569,7 +630,7 @@ File Storage for VPC
 Secrets Manager for application load balancers
 :    Application load balancers now support [IBM Secrets Manager](/docs/secrets-manager?topic=secrets-manager-getting-started). With Secrets Manager, you can create, lease, and centrally manage secrets that are used in {{site.data.keyword.cloud}} services or your custom-built applications.
 
-:    As a reminder, end of support for IBM Cloud Certificate Manager was 31 December 2022. Remaining instances of Certificate Manager have been deleted. If you have any user-provided Ingress secrets stored in Certificate Manager, they are no longer valid. 
+:    As a reminder, end of support for IBM Cloud Certificate Manager was 31 December 2022. Remaining instances of Certificate Manager have been deleted. If you have any user-provided Ingress secrets stored in Certificate Manager, they are no longer valid.
 
 ### 17 May 2022
 {: #vpc-may1722}

@@ -15,13 +15,13 @@ subcollection: vpc
 # Using a dynamic registry reference
 {: #hyper-protect-virtual-server-use-dynamic-registry-reference}
 
-The documentation walks you through how to use a dynamic registry reference.
+The documentation walks you through how to use a dynamic registry reference in the [contract](/docs/vpc?topic=vpc-about-contract_se).
 {: shortdesc}
 
 ## Explicit registry reference
 {: #explicit-registry-reference}
 
-Typically, the docker registry is referenced via the full docker URL in the compose file. For example:
+Typically, the docker registry is referenced via the full docker URL in the compose file. For example,
 
 ```yaml
 services:
@@ -66,9 +66,9 @@ Now the workload provider can prepare (encrypt) the workload section **without**
 
 The deployer fills in the missing information about the registry and the associated pull secrets.
 
-The registry is set as an environment variable. Both the deployer and the workload provider can provide pieces to the overall environment and these are overlayed (with workload taking precedence).
+The registry is set as an environment variable. Both the deployer and the workload provider can provide pieces to the overall environment and these are overlaid (with workload taking precedence).
 
-The pull credentials are passed in via an `auth` section in the environment part of the contract. Just as environment variables, these sections are overlayed with the workload section taking precedence.
+The pull credentials are passed in via an `auth` section in the environment part of the contract. Just as environment variables, these sections are overlaid with the workload section taking precedence.
 
 ```yaml
 ---

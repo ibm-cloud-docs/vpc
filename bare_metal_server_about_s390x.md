@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-01-16"
+lastupdated: "2023-04-11"
 
 keywords: linuxone bare metal servers, s390x bare metal servers
 

@@ -17,6 +17,12 @@ subcollection: vpc
 
 Access control lists (ACLs) and security groups can be configured on the VPN gateway's subnet where the VPN gateway is deployed, and other VPC subnets that communicate over the VPN tunnel.
 
+The following diagram illustrates packet flow through VPC network ACLs. 
+
+   ![Packet flow through VPC ACLs](images/vpc-traffic-flow.png){: caption="Figure 1. Packet flow through VPC ACLs" caption-side="bottom"}
+
+Encapsulated, bidirectional traffic flows from the peer gateway (1) to the VPC resources that are a part of the encrypted domain. Unencapsulated packets then leave the VPN subnet and enter the VSI subnet (2). They travel back to the VPN subnet (3), where they then return to the peer gateway (4).
+
 If you configure ACLs or security groups on the VPN gateway's subnet, make sure that the following rules are in place to allow management traffic and VPN tunnel traffic. For more information, see [Setting up network ACLs](/docs/vpc?topic=vpc-using-acls) and [About security groups](/docs/vpc?topic=vpc-using-security-groups).
 
 | Inbound/Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |

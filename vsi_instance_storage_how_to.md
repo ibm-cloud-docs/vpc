@@ -41,7 +41,7 @@ After the instance is created, [associate a floating IP address to the instance]
 {: #instance-storage-create-vsi-cli}
 {: cli}
 
-To provision a virtual server instance with instance storage, follow the instructions for [Creating virtual servers by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers-cli). Choose a profile that includes an instance storage disk. For more information about profiles, see [Instance profiles](/docs/vpc?topic=vpc-profiles).
+To provision a virtual server instance with instance storage, follow the instructions for [Creating virtual servers by using the CLI](docs/vpc?topic=vpc-creating-virtual-servers&interface=cli). Choose a profile that includes an instance storage disk. For more information about profiles, see [Instance profiles](/docs/vpc?topic=vpc-profiles).
 
 ## Provisioning a Virtual Server Instance with instance storage with the API
 {: #instance-storage-create-vsi-api}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-01-16"
+lastupdated: "2023-04-11"
 
 keywords:  network overview of s390x bare metal servers
 
@@ -17,6 +17,7 @@ subcollection: vpc
 
 s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the Washington DC (us-east), London (eu-gb), Tokyo (jp-tok), Toronto (ca-tor), and São Paulo (br-sao) regions.
 {: preview}
+
 
 The following information is an overview of the networking features of s390x bare metal servers and how it supports VPC networking. It is recommended that you go through this information before you build an s390x bare metal server. s390x bare metal servers on VPC provide full support for VPC networking features. The network is fully software-defined, so you can configure it through the API.
 {: shortdesc}

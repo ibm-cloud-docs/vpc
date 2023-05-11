@@ -56,8 +56,6 @@ Use the assigned FQDN to send traffic to the private application load balancer t
 {: #choosing-application-load-balancer}
 
 If you have public and private workloads and layer 7 traffic, use an application load balancer. 
-
-![Choosing a load balancer](/images/loadbalancer_decision_tree.svg){: caption="Figure 1: Choosing an application load balancer" caption-side="bottom"} 
  
 ## Load-balancing methods
 {: #load-balancing-methods}
@@ -167,7 +165,7 @@ To obtain the CRN, you must have permission to access the Secrets Manager instan
 
 To find a certificate's CRN, follow these steps:
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > Resource list**. 
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu icon ![Navigation Menu icon](../icons/icon_hamburger.svg) > Resource list**. 
 1. Click to expand **Services and software**, then select the Secrets Manager that you want to find the CRN for.
 1. Select anywhere in the table row of the certificate to open the Certificate details side panel. The certificate CRN is listed. 
 

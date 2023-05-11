@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-03-15"
+lastupdated: "2023-04-25"
 
 keywords: Backup for VPC, backup snapshot, create backups for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -37,14 +37,7 @@ While you're not required to create a backup plan when you create a backup polic
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Backup policies**. The **Create** tab is selected by default.
 
-   The UI is set up to evaluate whether the correct service-to-service authorizations are enabled for your account. If one or more authorizations are incorrect or missing, a notification message with the three required services and their matching roles are displayed. Click **Authorize ->** for each item to display a side panel. The minimum required permission is preselected. Click **Review**, then confirm that the correct role is selected and click **Assign**.
-
-   | Field | Description |
-   |-------|-------------|
-   | Block storage for VPC: Operator |  **Target service** Block Storage for VPC \n **Access** _Operator_ access. |
-   | Block storage snapshots for VPC: Editor | **Target service** Block Storage Snapshots for VPC \n **Access** _Editor_ access. |
-   | Virtual server for VPC: Operator | **Target service** Virtual Server for VPC \n **Access** _Operator_ access. |
-   {: caption="Table 1. Service-to-service authorizations for creating backup policies" caption-side="bottom"}
+   The UI diplays a notification message when service-to-service authorizations are incorrect or missing on your account.
 
    If your account does not allow for the required service-to-service authorizations and user access roles to create a backup policy, [contact IBM support](/docs/vpc?topic=vpc-getting-help&interface=ui) for help.
    {: note}
@@ -92,7 +85,7 @@ You can schedule backups in your plan on a daily, weekly, or monthly basis by us
 3. Specify a **Retention type** for the backups. You can specify either how long to keep them by number of days or the total number to retain.
 
    * For **Age**, specify the number of days that you want to retain the backups. A default value for the maximum number of days to keep a backup is not provided.
-   * For **Count**, provide the number of backups that you want to keep. You can retain up to 750 snapshots for a volume.
+   * For **Count**, provide the number of backups that you want to keep.
    
    To keep costs down, set a retention period or snapshots count adequate to your needs. For example, setting 7 for **Age** retains a week's worth of backups.
 
@@ -121,7 +114,7 @@ Use the cost estimator to see what your backups might cost based on the rate of 
 
    * Average amount of data per volume (in GBs). For example, you might associate two volumes with a policy. The first volume has 4 GB of data and the second 20 GB. An average of the two would be 12 GB.
 
-   * Number of backups per volume per month. Consider the backup frequency that you set in your backup plan. You can take a maximum of 750 backup snapshots per volume.
+   * Number of backups per volume per month. You can take a maximum of 750 backup snapshots per volume.
 
    * Percent of incremental change after the initial backup. For example, 15 percent increase in size for each subsequent backup.
 

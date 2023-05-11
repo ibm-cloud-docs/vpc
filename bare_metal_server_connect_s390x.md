@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-01-16"
+lastupdated: "2023-04-11"
 
 keywords: connecting to s390x bare metal server, floating IP, serial console, vnc console
 
@@ -19,10 +19,10 @@ s390x Bare Metal Servers for VPC is available for customers with special approva
 {: preview}
 
 
-After your s390x bare metal server is running, you can connect to the server by using your private SSH key through a floating IP.
+After your s390x bare metal server is running, you can connect to the server by using your private SSH key through a floating IP. You can also connect to the server by using a serial console.
 {: shortdesc}
 
-You can't use a VNC console or a serial console to connect to s390x bare metal servers.
+You can't use a VNC console to connect to s390x bare metal servers.
 {: note}
 
 ## Accessing the s390x bare metal server by using a floating IP

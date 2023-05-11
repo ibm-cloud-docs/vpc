@@ -33,18 +33,18 @@ In this tutorial, we use Log Analysis as the logging service. The process also a
 This tutorial deploys a Docker container as a Hyper Protect Virtual Server for VPC. Inside the [`/example-files` folder](https://github.com/ibm-hyper-protect/hyper-protect-virtual-server-samples/tree/main/log-encryption/example-files){: external}, you can find the following materials:
 
 1. A `docker-compose.yaml` file under the `/compose` directory, which deploys and manages the container application to be used in this tutorial. The image that we use is the official Ubuntu image from [DockerHub](https://hub.docker.com/_/ubuntu){: external}.
-2. Within the Docker Compose file, there is a `command: ` instruction to tell Docker to run a Shell script that prints a line of plain text, and a line of encrypted message to the standard output. This `example.sh` file exists in the `/compose/bin` directory.
+2. Within the Docker Compose file, there is a `command:` instruction to tell Docker to run a Shell script that prints a line of plain text, and a line of encrypted message to the standard output. This `example.sh` file exists in the `/compose/bin` directory.
 3. A public key `logging.pub` is required for encrypting the log message. This file must exist in the `/compose` folder. This tutorial will show an example of generating a key pair encrypted via AES with a passphrase using openssl.
-4. The `volumes: ` instruction tells Docker to mount the `compose` volume with the public key and the simple logging application to `/var/logging` inside the container. The Ubuntu image will start as a container later and run `example.sh` as its main application.
+4. The `volumes:` instruction tells Docker to mount the `compose` volume with the public key and the simple logging application to `/var/logging` inside the container. The Ubuntu image will start as a container later and run `example.sh` as its main application.
 
 The [contract](/docs/vpc?topic=vpc-about-contract_se) is a YAML file to specify the Hyper Protect Virtual Server for VPC instance that you want to create. In this tutorial, a dedicated public and private key pair is used to encrypt and decrypt the selected log messages.
 - The private key is kept by you to decrypt the downloaded logs later.
 - The public key must be embedded into the contract, which is a special approach for our case. The public key `logging.pub` is stored under the `/example-files` folder along with the `docker-compose.yml` file. As mentioned in the preparation of the [`workload` section](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_workload) of the contract, the `archive` subsection contains the `base64` encoded TGZ file archive of `docker-compose.yml`. The `logging.pub` file in our example will undergo the same encoding and compression since it's stored in the same folder. As a result, the created instance will acquire the public key for subsequent log encryption.
 
-This tutorial also provides sample files such as `env.yaml`, `workload.yaml` and `user-data.yaml`. They are only meant as references for correct schema.
+This tutorial also provides sample files such as `env.yaml`, `workload.yaml`, and `user-data.yaml`. They are only meant as references for correct schema.
 
 ## Before you begin
-{: #before-you-begin}
+{: #hpvs-prereq}
 
 1. Install [OpenSSL](https://www.openssl.org/){: external} for encryption. This tutorial uses version 3.0 or later.
 2. Set up your logging instance by following the [documentation](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc).
@@ -59,20 +59,21 @@ As recommended in the [documentation](/docs/vpc?topic=vpc-about-contract_se#hpcr
 
 1. Get the hostname and the ingestion key of your Log Analysis instance. See [Logging for Hyper Protect Virtual Servers for VPC](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc).
 
-2. Create and encrypt the `env` section. Refer to the `env.yaml` file in the `example-files` folder. Replace the content with your logging hostname and ingestion key. Run the `encrypt-basic.sh` script to obtain the encrypted `env` section of the contract.
-   ```
+2. Create and encrypt the `env` section. Refer to the `env.yaml` file in the `example-files` folder for the correct schema. Replace the content with your logging hostname and ingestion key. Run the `encrypt-basic.sh` script to obtain the encrypted `env` section of the contract.
+   ```sh
    cat env.yaml | ./encrypt-basic.sh hpcr.crt
    ```
    {: codeblock}
 
-3. Create the `workload` section. Refer to the `workload.yaml` sample file in the `example-files` folder. In this example, the docker compose file in the `example-files` folder will be used for the `compose` subsection.
+3. Create the `workload` section. Refer to the `workload.yaml` sample file in the `example-files` folder for the correct schema. In this example, the docker compose file in the `example-files` folder will be used for the `compose` subsection.
 
    In addition, provide the public key for encrypting the log messages. Run the following commands to generate a key pair. We will proceed with the public key. Note that `logEncrypt` is the passphrase to generate keys, you may use your own.
-   ```
+   ```sh
    openssl genrsa -aes128 -passout pass:logEncrypt -out logging 4096
    ```
    {: codeblock}
-   ```
+
+   ```sj
    openssl rsa -in logging -passin pass:logEncrypt -pubout -out logging.pub
    ```
    {: codeblock}
@@ -80,18 +81,18 @@ As recommended in the [documentation](/docs/vpc?topic=vpc-about-contract_se#hpcr
 4. A sample output can be found in the `compose` folder under `example-files`. Keep in mind that the `logging.pub` file containing the public key must be stored in the `compose` folder along with `docker-compose.yml`.
 
    Compress and encrypt the folder, as the `compose` subsection requires this for the `archive` value. Use the following command to obtain the `base64` encoded archive as a file named `compose.b64`. Use the raw content of `compose.b64` for the value of `archive` under the `compose` subsection.
-   ```
+   ```sh
    tar czvf - -C <COMPOSE_FOLDER> . | base64 -w0 > compose.b64
    ```
    {: codeblock}
 
 5. Run the `encrypt-basic.sh` script to obtain the encrypted `workload` section of the contract.
-   ```
+   ```sh
    cat workload.yaml | ./encrypt-basic.sh hpcr.crt
    ```
    {: codeblock}
 
-6. Complete the `user-data.yaml` with the output of of Step 2 and 5. Refer to the sample `user-data.yaml` for correct schema. Note the `hyper-protect-basic` token approach to implement hybrid encryption, as it's used throughout IBM Cloud Hyper Protect Virtual Server for VPC.
+6. Complete the `user-data.yaml` with the output of Step 2 and 5. Refer to the sample `user-data.yaml` for the correct schema. Note the `hyper-protect-basic` token approach to implement hybrid encryption, as it's used throughout IBM Cloud Hyper Protect Virtual Server for VPC.
 
 ## Create your Hyper Protect Virtual Server instance 
 {: #create-virtual-server}
@@ -106,7 +107,7 @@ The quickest way is to use the [UI](/docs/vpc?topic=vpc-about-se&interface=ui#cr
 Monitor the serial console. When the virtual server instance is up and running, go to the Log Analysis instance that you provisioned. Open the dashboard and find the ciphertext, which is your encrypted log message.
 
 Use `decrypt-basic.sh` along with the private key that you generated to decipher the encrypted log message.
-```
+```sh
 echo hyper-protect-basic.rdf...EqM | decrypt-basic.sh logging
 ```
 {: codeblock}

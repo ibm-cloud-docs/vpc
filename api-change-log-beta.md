@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-03-28"
+lastupdated: "2023-05-02"
 
 keywords: api, change log, beta
 
@@ -26,6 +26,21 @@ There are no backward-compatibility guarantees as a feature progresses through i
 
 To review the change log of generally available API features, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log).
 
+## 11 April 2023
+{: #11-april-2023-beta}
+
+### For all version dates
+{: #11-april-2023-all-version-dates-beta}
+
+**Image lifecycle management.** Accounts that have been granted special approval to preview this feature can now [deprecate](/apidocs/vpc-beta#deprecate-image) or [obsolete](/apidocs/vpc-beta#obsolete-image) custom images directly. Alternatively, you can schedule transition at a later date by specifying the `deprecated_at` or `obsoleted_at` properties when [creating](/apidocs/vpc-beta#create-image) or [updating](/apidocs/vpc-beta#update-image) an image. If you need to revert a status change, you can transition `deprecated` or `obsolete` images back to `available`. For more information, see [Managing custom images](/docs/vpc?topic=vpc-managing-custom-images&interface=api#custom-images-list-api).
+
+`deprecated` custom images remain usable, while `obsolete` images cannot be used to provision instances or bare metal servers.
+{: note}
+
+**Revised file storage profiles.** For users with accounts that have access to file shares, a new `dp2` profile is now available when [creating](/apidocs/vpc-beta#create-share) and [updating](/apidocs/vpc-beta#update-share) a file share. Profiles in the existing `custom` and `tiered` families have been deprecated and will remain available only to accounts that have already provisioned file shares with those profiles. The deprecated profiles also will not be included in the upcoming general availability release for file shares.
+
+The `dp2` profile belongs to a new `defined_performance` file share profile family, which provides similar functionality to the deprecated `custom` file share profile family. While existing file shares using profiles in the `custom` and `tiered` families will continue to work, you are encouraged to update all your file shares to the new `dp2` profile in preparation for general availability of the file share service. Bulk migration of existing file shares is not supported. For more information, see [dp2 file storage profile](/docs/vpc?topic=vpc-file-storage-profiles#dp2-profile).
+
 ## 14 February 2023
 {: #14-february-2023-beta}
 
@@ -35,6 +50,8 @@ To review the change log of generally available API features, see the [VPC API c
 **Exporting custom images.** Accounts that have been granted special approval to preview this feature can now [export custom images](/apidocs/vpc-beta#create-image-export-job) to an authorized IBM Cloud Object Storage bucket. Specify the target `storage_bucket` to export the image to.   The image will be exported as `qcow2` unless you specify another value using the `format` property. 
 
 For more information, see [Exporting a custom image to IBM Cloud Object Storage](/docs/vpc?topic=vpc-managing-custom-images&interface=api#custom-image-export-to-cos-api), or start using the new [export jobs](/apidocs/vpc-beta#list-image-export-jobs) methods.
+
+This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#2-may-2023).
 
 ## 20 December 2022
 {: #20-december-2022-beta}
@@ -100,7 +117,7 @@ The following updates have been made since the [beta release](#24-august-2021):
 You can also change a share between the `tiered` and `custom` profile families so long as the requested `iops` and `size` are supported by the requested profile. For more information about file share profiles, see [File Storage for VPC profiles](/docs/vpc?topic=vpc-file-storage-profiles). For information about adjusting IOPS with a profile, or changing between `tiered` and `custom` profiles, see [Adjusting file share IOPS](/docs/vpc?topic=vpc-adjusting-share-iops&interface=api).
 
 ## 31 May 2022
-{: #31-may-2022}
+{: #31-may-2022-beta}
 
 ### For all version dates
 {: #31-may-2022-all-version-dates-beta}

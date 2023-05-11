@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-01-27"
+lastupdated: "2023-03-31"
 
 keywords: delete, resources, ui, console, cli, infrastructure, command line interface
 
@@ -112,7 +112,7 @@ The status of the VPN gateway changes to `deleting` immediately, but it still ap
 #### Delete all load balancers in the subnet, if any
 {: #deleting-lbs-cli}
 
-To list alllLoad balancers in your account, run the following command:
+To list alll Load balancers in your account, run the following command:
 
 ```sh
 ibmcloud is load-balancers
@@ -394,6 +394,3 @@ curl -X DELETE "$vpc_api_endpoint/v1/vpcs/$vpc?version=$version&generation=2" \
 {: pre}
 
 The status of the VPC changes to `deleting` immediately, but it might take a few minutes for the VPC to be deleted and it no longer appears in the list queries.
-
-
-

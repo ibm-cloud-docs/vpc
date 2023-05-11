@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-01-16"
+lastupdated: "2023-04-11"
 
 keywords: s390x bare metal server storage, s390x bare metal storage, linuxone bare metal storage
 

@@ -62,7 +62,7 @@ For more information, see [Creating virtual server instances by using the UI](/d
 
 During instance create or patch, the following attributes can be used to set the host failure policy.
 
-For more information, see [Creating virtual server instances by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers-cli) and [Managing virtual server instances](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=cli).
+For more information, see [Creating virtual server instances by using the CLI](docs/vpc?topic=vpc-creating-virtual-servers&interface=cli) and [Managing virtual server instances](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=cli).
 
 | Host failure policy | Policy attribute |
 |---------|---------|
