@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-03-31"
+lastupdated: "2023-05-11"
 
 keywords: connecting, linux
 
@@ -86,6 +86,9 @@ Optionally, you can locate the floating IP address that is associated to the ins
    ssh -i <path to your private key file> root@<floating ip address>
    ```
    {: pre}
+
+   The user login 'root' is disabled by default in Fedora Core OS. The user login 'core' can be used to log in to Fedora Core OS instances.
+   {: note}
 
    You receive a response similar to the following example. When prompted to continue connecting, type `yes`.
    ```json
