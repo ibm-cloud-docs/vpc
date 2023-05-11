@@ -27,9 +27,6 @@ toc:
        - link:
           label: Architecture Center VPC Resources
           href: https://www.ibm.com/cloud/architecture/architectures/virtual-private-cloud/resources
-       - link:
-          label: Pricing
-          href: https://www.ibm.com/cloud/vpc/pricing
        - about-vpc.md
        - quotas.md
        - topicgroup:
@@ -83,14 +80,15 @@ toc:
                label: Confidential computing with LinuxONE
                topics:
                - about-confidential-computing.md
-               - about-attestation.md
-               - about-contract.md
                - certificate_validate.md
+               - about-contract.md
+               - about-attestation.md
                - hpvs-logging.md
                - hpvs-encrypt-log-message.md
                - hpvs-disks-encryption-validate.md
                - about-hp-securebuild.md
                - hpvs-override-registry.md
+               - hpvs-deploy-pay-now.md
            - host-failure-recovery.md
        - topicgroup:
            label: Storage
@@ -545,7 +543,6 @@ toc:
             topics:
             - architecture-workload-isolation.md
             - data-security.md
-            - manage-scc.md
             - cbr.md
             - storagedurability.md
         - topicgroup:

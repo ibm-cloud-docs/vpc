@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-01-04"
+lastupdated: "2023-04-11"
 
 keywords: creating bare metal servers
 subcollection: vpc

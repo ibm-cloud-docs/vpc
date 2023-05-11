@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-03-31"
+lastupdated: "2023-04-13"
 
 keywords: view instance details, restart, stop, instance details, delete
 
@@ -257,6 +257,9 @@ For the steps to resize a virtual server instance using the CLI, see [Resizing a
 
 From the *Virtual server instances* page in {{site.data.keyword.cloud_notm}} console, click **Delete**.
 
+If the instance has a floating IP address, it must be unassociated or released before the instance is deleted. The account associated with the floating IP will continue to be charged if it is not released.
+{: important}
+
 The delete action permanently removes an instance and its connected vNIC, and data from your account. The instance boot volume is also deleted if the volume auto-delete setting is configured to be deleted when the attached instance is deleted. If an existing boot volume is attached as part of provisioning a virtual server instance, the volume is preserved by default when the instance is deleted. If a boot volume created as part of provisioning a virtual server instance, the volume will be deleted by default when the instance is deleted. After you confirm the delete action, the process to delete the instance and its associated vNIC, boot volume, and data begins. The delete action can take up to 30  minutes, but when the process is complete, the instance no longer appears on the virtual server instances page.
 
 ## Delete a virtual server instance using the CLI
@@ -264,6 +267,9 @@ The delete action permanently removes an instance and its connected vNIC, and da
 {: cli}
 
 You can delete the virtual server instance in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI).
+
+If the instance has a floating IP address, it must be unassociated or released before the instance is deleted. The account associated with the floating IP will continue to be charged if it is not released.
+{: important}
 
 To delete the virtual server instance by using the CLI, use the **`ibmcloud is instance-delete`** command. Specify the ID or name of the virtual server instance that you want to delete by using the `INSTANCE` variable.
 
@@ -281,6 +287,9 @@ The delete action permanently removes an instance and its connected vNIC, and da
 {: api}
 
 You can delete the virtual server instance in your {{site.data.keyword.vpc_short}} by using the API.
+
+If the instance has a floating IP address, it must be unassociated or released before the instance is deleted. The account associated with the floating IP will continue to be charged if it is not released.
+{: important}
 
 The following example deletes an instance.
 
@@ -315,7 +324,7 @@ By default, a boot volume created as part of provisioning a virtual server insta
 {: #viewing-virtual-server-instances-ui}
 {: ui}
 
-You can view a summary of all instances on the *Virtual server instances* page. You can access the details page for an instance clicking an individual instance name to view details and make changes. From the instance details page, you can also view the associated network interface, access its subnet, toggle the auto-delete setting, and reserve or delete a floating IP address.
+You can view a summary of all instances on the *Virtual server instances* page. You can access the details page for an instance clicking an individual instance name to view details and make changes. From the instance details page, you can also view the associated network interface, access its subnet, toggle the auto-delete setting, and reserve or release a floating IP address.
 
 ## Viewing instance details using the CLI
 {: #viewing-virtual-server-instances-cli}

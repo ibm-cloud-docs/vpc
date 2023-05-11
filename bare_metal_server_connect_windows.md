@@ -3,12 +3,11 @@
 copyright:
   years: 2023
 
-lastupdated: "2023-03-29"
+lastupdated: "2023-04-05"
 
 keywords: connecting, windows, bare metal, bare metal server
 
 subcollection: vpc
-
 
 ---
 
@@ -17,10 +16,10 @@ subcollection: vpc
 # Connecting to a Windows bare metal server
 {: #bare_metal_server_connecting_windows}
 
-After you create your Windows bare metal server, you can connect to it by completing the following steps.
+After you create your Windows bare metal server, you can connect to it by using the following steps.
 {: shortdesc}
 
-Windows servers aren't supported for LinuxONE s390x processor architecture.
+Windows servers don't support the LinuxONE s390x processor architecture.
 {: note}
 
 ## Before you begin
@@ -51,8 +50,6 @@ Complete the following prerequisites:
    |-----------|------|------|------|
    | TCP| Any | <cidr_range> | Any port|
    {: caption="Table 2. Configuration information for outbound rules" caption-side="bottom"}
-
-1. Make sure that you reserve and associate a floating IP address to your Windows server.
 
 ## Connecting to your Windows bare metal server
 {: #bare_metal_server_connect_windows}
@@ -94,7 +91,7 @@ After you create your Windows server and complete the prerequisites, use the fol
    ```
    {: pre}
 
-4. You now have a decrypted password and a floating IP address to connect to your Windows server. Use your preferred Remote Desktop client to connect to your server. To connect to your server, provide the floating IP address and the decrypted password. The username is `Administrator` by default. (If you are connecting from a client that is running the Windows Administrator account, use `.\Administrator` as the user ID to log on to RDP.)
+4. You now have a decrypted password and a floating IP address to connect to your Windows server. Use your preferred Remote Desktop client to connect to your server. To connect to your server, provide the floating IP address and the decrypted password. The username is `Administrator` by default. (If you are connecting from a client that is running the Windows Administrator account, use `.\administrator` as the user ID to log on to RDP.)
 
 ## Next steps
 {: #next-manage-vsi-bms-win}

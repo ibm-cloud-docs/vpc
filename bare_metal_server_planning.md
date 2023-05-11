@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-01-16"
+lastupdated: "2023-04-11"
 
 keywords: planning bare metal servers
 
@@ -33,6 +33,7 @@ When you are planning to create a bare metal server on {{site.data.keyword.vpc_f
 
    s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the Washington DC (us-east), London (eu-gb), Tokyo (jp-tok), Toronto (ca-tor), and São Paulo (br-sao) regions.
    {: preview}
+
 
 ## Next steps
 {: #next-steps-bare-metal-servers-on-vpc}

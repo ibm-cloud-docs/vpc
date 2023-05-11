@@ -55,7 +55,7 @@ After you locate or generate an SSH key, it's time to plan for and create a serv
 Virtual servers
 * [Planning for virtual servers](/docs/vpc?topic=vpc-vsi_best_practices)
 * [Creating a virtual server by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers)
-* [Creating a virtual server by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers-cli)
+* [Creating a virtual server by using the CLI](docs/vpc?topic=vpc-creating-virtual-servers&interface=cli)
 
 Bare metal servers
 * [Planning for Bare Metal Servers on VPC](/docs/vpc?topic=vpc-planning-for-bare-metal-servers)

@@ -75,7 +75,7 @@ Creating, deleting, or resizing a virtual server instance sends metric events fo
 - instance-vcpu
 - instance-memory
    - For more information, see:
-      - [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers) or [Creating virtual server instances by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers-cli).
+      - [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers) or [Creating virtual server instances by using the CLI](docs/vpc?topic=vpc-creating-virtual-servers&interface=cli).
       - [Managing virtual server instances](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui).
       - [Resizing a virtual server instance](/docs/vpc?topic=vpc-resizing-an-instance&interface=ui).
 

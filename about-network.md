@@ -101,6 +101,8 @@ Floating IP addresses are IP addresses that are provided by the system and are r
 
 You can reserve a floating IP address from the pool of available addresses that are provided by IBM, and you can associate it with a network interface of any instance in the same zone. That interface also has a private IP address. Each floating IP address can be associated with only one interface. 
 
-**Notes:**
+#### Notes
+{: #fip-notes}
+
 * Associating a floating IP address with an instance removes the instance from the public gateway's Many-to-1 NAT.
 * Currently, floating IP supports only IPv4 addresses.

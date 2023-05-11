@@ -279,8 +279,6 @@ To do so, follow these steps:
    If you do not have an existing load balancer, see [Creating an IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancer) to provision one.
    {: tip}
 
-   ![Region](images/metrics_1.png "Region"){: caption="Figure 1. Region" caption-side="bottom}
-
    The region should match the location of your existing load balancer.
    {: important}
 
@@ -294,8 +292,6 @@ To do so, follow these steps:
    {: important}
 
 1. Optionally, select a resource group. A resource group is a way to organize account resources in customizable groupings. Any account resource that is managed by using IBM Cloud Identity and Access Management (IAM) access control belongs to a resource group within your account.
-
-   ![Resource group](images/metrics_2.png "Resource group"){: caption="Figure 2. Resource group" caption-side="bottom}
 
    If you do not have any pre-configured resource groups, or no reason to share this resource selectively, use the default selection.
    {: note}
@@ -325,8 +321,6 @@ To view and work with your metrics, follow these steps:
 
 1. Eleven main metrics in the dashboard are shown: Throughput, Active Connections, Connection Rate, Request Count, Request Latency, HTTP_2xx Response Count, HTTP_3xx Response Count, HTTP_4xx Response Count, HTTP_5xx Response Count, Total Members and Active Members. You must create a custom dashboard to modify parameters and segment of your metrics by load balancer ID or listener port.
 
-   ![{{site.data.keyword.mon_full_notm}} dashboard](images/metrics_3.png "{{site.data.keyword.mon_full_notm}} dashboard"){: caption="Figure 3. {{site.data.keyword.mon_full_notm}} dashboard" caption-side="bottom}
-
    You can choose what time window you'd like to see your metrics displayed for, using the bar at the end.
    {: tip}
 
@@ -342,8 +336,6 @@ To customize your dashboard, follow these steps:
 1. Click **View IBM Cloud Monitoring** next to the service name of the monitoring instance you want to work with. The dashboard displays.
 
 1. On the left sidebar, select **Dashboards**. Then, click the green **+** sign in the panel.
-
-   ![Add dashboard](images/metrics_custom_db.png "Add dashboard"){: caption="Figure 4. Add dashboard" caption-side="bottom}
 
 1. Select **Blank dashboard**, then select the type of visual representation you want.
 
@@ -383,8 +375,6 @@ After creating your monitoring instance, you must collect the following two piec
 To collect this information and work with your monitoring instance using metric query API, follow these steps:
 
 1. Access the [Monitoring home page](/observe/monitoring){: external}, and click **Open Dashboard** next to the instance you want to work with. After the dashboard displays, select your Account Profile icon on the left sidebar, then select **Settings**. Your account settings display.
-
-   ![Settings](images/metrics_settings.png "Settings"){: caption="Figure 5. Settings" caption-side="bottom}
 
 1. Your Monitor API token is an alphanumeric string that is located in the **Monitor API Token** field. Click the **Copy** button to the right of the key to transfer it to your clipboard.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-13"
+lastupdated: "2023-04-11"
 
 keywords: virtual private endpoints, endpoint gateway, VPE
 subcollection: vpc
@@ -11,11 +11,15 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# VPE supported services
+# VPE-enabled services
 {: #vpe-supported-services}
 
-{{site.data.keyword.cloud}} Virtual Private Endpoints (VPE) for VPC supports the following {{site.data.keyword.cloud_notm}} services.
+The following IBM Cloud services are enabled for Virtual Private Endpoints (VPE) gateway connectivity.
 {: shortdesc}
+
+When configuring a VPE gateway, you are shown a customized list of common services and any services that were provisioned
+with your account.
+{: note}
 
 * {{site.data.keyword.appconfig_short}} ([Endpoint URLs](/apidocs/app-configuration#endpoints-list-all))
 * Catalog Management ([Endpoint URLs](/apidocs/resource-catalog/private-catalog#endpoint-url))

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-03-17"
+lastupdated: "2023-04-06"
 
 keywords:
 
@@ -18,7 +18,7 @@ subcollection: vpc
 Individual resources are suspended if a resource is suspected of malicious or fraudulent activity.
 {: shortdesc}
 
-When an instance or Bare Metal server is suspended it is powered off. Changes cannot be made to an instance or Bare Metal server in this state.
+When an instance or bare metal server is suspended it is powered off. Changes cannot be made to an instance or bare metal server in this state.
 
 ## Restoring access
 {: #restore-access}

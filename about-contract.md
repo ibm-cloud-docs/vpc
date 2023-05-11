@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-03-20"
+lastupdated: "2023-04-21"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -113,7 +113,12 @@ auths:
 
 It consists of an archive subsection. The archive subsection contains the Base64 encoded TGZ file archive of the `docker-compose.yaml` file. As the Hyper Protect Container Runtime image uses Docker Engine and Docker Compose to start the container, the information about the container must first be created by using a standard docker-compose file. This file is then archived and base64 encoded and the output of this is provided as the value to the archive subsection, within the compose section. For more information, see [Overview of Docker Compose](https://docs.docker.com/compose/).
 
-The mount points specified under the volumes information of the docker-compose file might be aligned with the volume mount point that is specified in the workload section of the contract. Both "yaml" and "yml" formats are supported for docker-compose file. This is an example of a docker-compose file.
+The mount points specified under the volumes information of the docker-compose file might be aligned with the volume mount point that is specified in the workload section of the contract. 
+
+Executing a build as part of a docker compose file is not supoprted. Make sure your docker compose file doesn't have a `build` section.
+{: note}
+
+Both "yaml" and "yml" formats are supported for docker-compose file. This is an example of a docker-compose file.
 
 ```yaml
 version: '3'
@@ -133,6 +138,9 @@ Use the following command to get the base64 encoded archive file. The base64 out
 tar czvf - -C <COMPOSE_FOLDER> . | base64 -w0 > compose.b64
 ```
 {: pre}
+
+Make sure that the compose tgz file only contains directories and regular files. Links or pipes are not supported.
+{: note}
 
 Copy the content of compose.b64 as a value of compose -> archive.
 ```buildoutcfg
@@ -209,7 +217,7 @@ Here you can learn how the "seed" can be provided in the workload section of the
 The following snippet is an example for the volumes section:
 ```yaml
 volumes:
-  test:
+  hpsb:
     filesystem: ext4
     mount: /mnt/data
     seed: workload phrase
@@ -255,10 +263,13 @@ Read the [workload - volumes](#hpcr_contract_volumes) subsection of the workload
 This is an example of the `env` - `volumes` subsection:
 ```yaml
 volumes:
-  test:
+  hpsb:
     seed: env phrase
 ```
 {: codeblock}
+
+The name of the volume must be the same as that in the [workload - volumes](#hpcr_contract_volumes) subsection.
+{: note}
 
 ### `signingKey` subsection
 {: #hpcr_contract_env_signkey}
@@ -446,7 +457,7 @@ Complete the following steps on an Ubuntu system, to create the contract signatu
        ingestionKey: cfae1522876e860e58f5844a33bdcaa8
        port: 6514
    volumes:
-     test:
+     hpsb:
        seed: hogwarts
    signingKey: "-----BEGIN PUBLIC KEY-----\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAvLaeSA8Nc3p99HNUMwon\n5lMMALAsIxRRpWUaEZ5IcUky2sgCi/rSmxU2sm6FK/BmCftk33f5W2BsYHdY9R/0\nELZ9A4POQcJsPF3ronU2QHwnRjcqYuUFXmf1VqfPPLpELriFNoCb2FN2zCa+VUmu\n+fGhroZ3Fr9kBPwJhGr917E5jeCQ+MzsGkulcTvr0SfvThiZQQ/KlU0R35ThamF3\n8C0F5IQBpqDUwDFmWvD5lF2SmprpluDBFEj8LLfLxvW9M2Qwku6nGUnnFReg3vNH\n7IF0SRr1K1AdO5hEmevCdyG9hgTdUY6dXcjntiN/kbqXErILknvzDnb4jyPZZRdK\ndrOzVt8hjbdmkS396SrMFtA++QrV3GNZl5zCscpn6d8S7BEA8mDzroo2UAbrypVP\n9l9AmzUnmnPCpZQySUUHoY0xG2vgMSA50CWH7Uwjmpixr02Td4/LU8fE7NWCO6ci\nx4++ANSaxu+uuZ2Pe1OjjgV98r06ZUs38eaxptLZqLpn3N6w8WAJxGwSLapZwNtP\ng2spUXu2Eh/TN5t4/ly5iXOsyIy8IPtTrUPX7rpaaqFZ72P6BJLj3WLEvOG/eF/8\nBTjrsZAjb8YjkO1uGk10IPa63sniZWe5vlm9w9UKy2uGuy6RhWxwoVHRRbfhboQF\nsO20dsVwgTZn8c46HMD2PoMCAwEAAQ==\n-----END PUBLIC KEY----"
    ```
@@ -573,7 +584,7 @@ tar -czvf compose.tgz docker-compose.yaml
 {: pre}
 
 ```sh
-base64 -i compose.tgz -o compose.b64
+base64 -i compose.tgz > compose.b64
 ```
 {: pre}
 
@@ -586,8 +597,10 @@ base64 -i compose.tgz -o compose.b64
 ```
 {: codeblock}
 
-### 6. Populate the workload section. Ensure that you do not miss the pipe symbol (|) if you are using a plain text contract
+### 6. Populate the workload section
 {: #step6}
+
+Ensure that you do not miss the pipe symbol (|) if you are using a plain text contract.
 
 ```yaml
 workload: |

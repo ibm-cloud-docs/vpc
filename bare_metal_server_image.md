@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-12-15"
+  years: 2021, 2023
+lastupdated: "2023-04-25"
 
 subcollection: vpc
 
@@ -51,11 +51,7 @@ By default, the release lock feature for RHEL 8.4 is disabled. To prevent the RH
 ### Special considerations for VMware ESXi images
 {: #bare-metal-images-vmware-esxi-considerations}
 
-You can specify how a bare metal server is licensed with VMware&reg; ESXi by either bringing your own license (_ESXi 7.x BYOL_), or you can rent a license through {{site.data.keyword.cloud}} (_ESXi 7.x_).
-
 * If you want to use TPM with a ESXi image, make sure that secure boot mode is enabled.
-
-* The _ESXi 7.x BYOL_ option provides ESXi in an evaluation mode. The evaluation period is 60 days and begins at the time of provisioning. Anytime during the 60-day evaluation period, you can convert from evaluation mode to licensed mode with your appropriate license that you provide.
 
 * The _ESXi 7.x_ option provides ESXi in licensed mode and is activated during the provisioning process. Billing applies for {{site.data.keyword.cloud}} rented licenses.
 
