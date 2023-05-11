@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-03-31"
+lastupdated: "2023-05-11"
 
 keywords:
 
@@ -492,8 +492,8 @@ File Storage for VPC is available for customers with special approval to preview
 | shares  | is.share.share.read   | One or more file shares were retrieved  |
 | shares  | is.share.share.update   | File share was updated  |
 | shares  | is.share.share.delete | File share was deleted  |
-| shares  | is.share.replica.split | Replication relationship is removed between two file shares |
-| shares  | is.share.replica.failover | Replication relationship is reversed between two file shares |
+| shares  | is.share.share.split | Replication relationship is removed between two file shares |
+| shares  | is.share.share.failover | Replication relationship is reversed between two file shares |
 | share mount targets  | is.share.target.create  | Mount target for a file share was created  |
 | share mount targets  | is.share.target.read  | One mount target for a file share was retrieved  |
 | share mount targets  | is.share.target.list  | List of all mount targets for a file share was retrieved  |
