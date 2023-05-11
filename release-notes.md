@@ -91,7 +91,7 @@ Image lifecycle management for custom images (beta)
 New network latency dashboard to view latency between zones in a multi-zone region (MZR)
 :   Not only can you view inter-region latency metrics, but you can now view inter-AZ metrics between all regions and availability zones (AZs) to help you plan the optimal selection for your cloud deployment. To view performance metrics, see the [Network latency dashboards](/docs/vpc?topic=vpc-network-latency-dashboard).
 
-## 30 March 2023
+### 30 March 2023
 {: #vpc-march3023}
 {: release-note}
 
