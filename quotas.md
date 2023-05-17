@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-05-03"
+lastupdated: "2023-05-17"
 
 keywords: VPC, virtual private cloud
 
@@ -147,6 +147,14 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 Each route has a destination property, which includes a prefix length (`/24` in `10.2.0.0/24`). The number of unique prefix lengths that are supported per custom routing table is 14. Multiple routes with the same prefix count as only one unique prefix.
 {: note}
 
+### Reserved IP addresses
+{: #reserved-ip-quotas}
+
+|Resource|Quota|
+|--------|-----|
+| Reserved IP addresses| 20,000 per region |
+{: caption="Table 10. Quotas for reserved IP addresses" caption-side="bottom"}
+
 ### Block storage volumes and snapshots
 {: #block-storage-quotas}
 
@@ -154,7 +162,7 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 |--------|-----|
 | Boot and secondary volumes | 300 total VPC volumes per account in a region |
 | Snapshots and backup snapshots | Up to 750 per volume in a region |
-{: caption="Table 10. Quotas for block storage volumes and snapshots" caption-side="bottom"}
+{: caption="Table 11. Quotas for block storage volumes and snapshots" caption-side="bottom"}
 
 ### File shares
 {: #file-storage-quotas}
@@ -162,7 +170,7 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 |Resource|Quota|
 |--------|-----|
 | File shares | 300 total file shares per account in a region |
-{: caption="Table 11. Quotas for file shares" caption-side="bottom"}
+{: caption="Table 12. Quotas for file shares" caption-side="bottom"}
 
 ### Placement groups
 {: #placement-group-quotas}
@@ -172,7 +180,7 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 | Placement groups | 100 placement groups per account in a region |
 | Instances | 12 instances per placement group per region with host_spread placement group strategy. |
 | Instances | 4 instances per placement group per region with power_spread placement group strategy. |
-{: caption="Table 12. Quotas for placement groups" caption-side="bottom"}
+{: caption="Table 13. Quotas for placement groups" caption-side="bottom"}
 
 The quotas for placement groups are set and can't be adjusted.
 {: note}
@@ -194,4 +202,4 @@ The following table displays current VPC service limits. Unlike quotas, these li
 | Instance groups for auto scale and more | 200 per account|
 | Instance group memberships  | 1000 per instance group|
 | Image export jobs | 5 active jobs per image, 10 total per image, 20 active jobs per account, per region|
-{: caption="Table 13. Limits for VPC resources" caption-side="bottom"}
+{: caption="Table 14. Limits for VPC resources" caption-side="bottom"}
