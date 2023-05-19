@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-03-31"
+lastupdated: "2023-05-19"
 
 keywords:
 
@@ -545,7 +545,7 @@ A successful response looks like the following example.
 ### Add mount target to a file share with the API
 {: #add-mount-target-api}
 
-Make a `POST /shares/{share_ID}/targets` call to create a mount target for an existing file share. You must specify a VPC in the request. For example:
+Make a `POST /shares/{share_ID}/mount_targets` call to create a mount target for an existing file share. You must specify a VPC in the request. For example:
 
 ```curl
 curl -X POST \
@@ -586,11 +586,11 @@ A successful response looks like the following example.
 ### Rename a mount target of a file share with the API
 {: #rename-mount-target-api}
 
-Make a `PATCH /shares/$share_id/targets/$target_id` call to rename a mount target of a file share. For example:
+Make a `PATCH /shares/$share_id/mount_targets/$mount_target_id` call to rename a mount target of a file share. For example:
 
 ```curl
 curl -X PATCH \
-"$vpc_api_endpoint/v1/shares/$share_id/targets/$target_id?version=2023-01-06&generation=2" \
+"$vpc_api_endpoint/v1/shares/$share_id/mount_targets/$mount_target_id?version=2023-01-06&generation=2" \
   -H "Authorization: Bearer ${API_TOKEN}" \
   -d '{
     "name": "target-renamed1"
@@ -653,7 +653,7 @@ For example:
 
 ```curl
 curl -X DELETE \
-"$vpc_api_endpoint/v1/shares/$share_id/targets/$target_id?version=2023-01-06&generation=2" \
+"$vpc_api_endpoint/v1/shares/$share_id/mount_targets/$mount_target_id?version=2023-01-06&generation=2" \
   -H "Authorization: Bearer ${API_TOKEN}"
 ```
 {: pre}
