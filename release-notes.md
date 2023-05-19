@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2023
 
 
-lastupdated: "2023-05-09"
+lastupdated: "2023-05-19"
 
 keywords:
 
@@ -31,6 +31,18 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## May 2023
 {: #vpc-may23}
 
+### 19 May 2023
+{: #vpc-may1923}
+{: release-note}
+
+Removal of weak VPN for VPC ciphers
+:   Effective 18 May 2023, the following VPN IKE and IPsec ciphers are now removed:
+    * Authentication algorithms `md5` and `sha1`
+    * Encryption algorithm `triple_des`
+    * Diffie–Hellman groups `2` and `5`    
+
+   After this date, you cannot create an IKE/IPsec policy or connection that includes a weak cipher, but you can still [upgrade weak cipher suites](/docs/vpc?topic=vpc-upgrading-weak-ciphers&interface=ui) on an existing policy or connection. Starting 10 July 2023, any existing connections with customized IKE or IPsec policies that contain weak ciphers will be disabled, and any connections with auto IKE or IPsec policies that were created before September 20, 2022 will be forced to upgrade to the [enhanced auto-negotiation policy](/docs/vpc?topic=vpc-using-vpn#policy-negotiation).
+ 
 ### 11 May 2023
 {: #vpc-may1123}
 {: release-note}
