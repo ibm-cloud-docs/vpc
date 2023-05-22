@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-11-08"
+lastupdated: "2023-05-22"
 
 keywords: bare metal server connect esxi, connect to esxi, connect to esxi, bare metal connect esxi, bare metal esxi, windows serial console, connect to windows console, connect to windows serial console, serial console, connect to serial console
 
@@ -162,7 +162,7 @@ You can optionally use a serial console to access ESXi DCUI. You must first manu
 
 6. Press **ESC** if ESXi DCUI doesn’t show up in the terminal. You see ESXi DCUI in your terminal.
    
-You can use other methods to enable the serial console. For more information, see [Redirecting the Direct Console to a Serial Port](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-C65306C0-DA37-4F45-8A50-31F8D109BB1D.html){: external}.
+You can use other methods to enable the serial console. For more information, see [VMware Docs Home](https://docs.vmware.com/){: external}.
 {: note}
 
 ## Accessing the ESXi web client by using floating IP
