@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-05-01"
+lastupdated: "2023-05-22"
 
 keywords: confidential computing, secure execution, hyper protect virtual server for vpc, terraform, tutorial, financial transaction
 
@@ -94,7 +94,7 @@ Completing this tutorial takes approximately 60 minutes.
 
 1. Prepare for contract creation:
    1. Make sure to have the OpenSSL binary installed. For more information, see [OpenSSL](https://github.com/ibm-hyper-protect/linuxone-vsi-automation-samples){: external}. 
-   2. Install the [terraform CLI](https://developer.hashicorp.com/terraform/tutorialsaws-get-started/install-cli){: external} for your environment. 
+   2. Install the Terraform CLI for your environment with the [Terraform documentation](https://developer.hashicorp.com/terraform){: external}. 
 
 2. Create the contract:
    1. Use Git to clone the [repo](https://github.com/ibm-hyper-protect/linuxone-vsi-automation-samples){: external}. 
