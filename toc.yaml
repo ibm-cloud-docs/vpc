@@ -43,8 +43,7 @@ toc:
                label: Networking overview for bare metal servers
                topics:
                - bare_metal_server_network.md
-               - bare_metal_server_network_s390x.md
-       - topicgroup:
+     - topicgroup:
            label: Compute
            topics:
            - vsi_is_about_vpc.md
@@ -52,7 +51,6 @@ toc:
                label: About bare metal servers
                topics:
                - bare_metal_server_about.md
-               - bare_metal_server_about_s390x.md
            - suspend-billing.md
            - topicgroup:
                label: Images
@@ -61,7 +59,6 @@ toc:
                - s390x-vsi-images.md
                - os-lifecycle.md
                - bare_metal_server_image.md
-               - bare_metal_server_image_s390x.md
            - topicgroup:
                label: Profiles
                topics:
@@ -69,7 +66,6 @@ toc:
                - s390x-vsi-profiles.md
                - vsi_is_dh_profile.md
                - bare_metal_server_profile.md
-               - bare_metal_server_profile_s390x.md
                - profiles_benchmark.md
            - vsi_is_ssh_keys_about.md
            - vpc-secure-boot.md
@@ -98,7 +94,6 @@ toc:
                label: Storage overview for bare metal servers
                topics:
                - bare_metal_server_storage.md
-               - bare_metal_server_storage_s390x.md
            - topicgroup:
                label: File storage
                topics:
@@ -213,7 +208,6 @@ toc:
             - bare_metal_server_create.md
             - bare_metal_server_connect.md
             - bare_metal_server_connect_windows.md
-            - bare_metal_server_connect_s390x.md
             - bare-metal-server-connect-serial-console-windows.md
             - bare_metal_server_manage_nic.md
             - bare_metal_server_manage.md
@@ -625,7 +619,6 @@ toc:
                 label: FAQs for bare metal servers
                 topics:
                 - bare_metal_server_faq.md
-                - bare_metal_server_faq_s390x.md
             - backup_service_vpc_faq.md
             - faq-dedicated-host.md
             - topicgroup:
@@ -651,7 +644,6 @@ toc:
                 label: Troubleshooting bare metal servers
                 topics:
                 - bare_metal_server_troubleshoot.md
-                - bare_metal_server_troubleshoot_s390x.md
             - topicgroup:
                 label: Troubleshooting Hyper Protect Virtual Servers for VPC
                 topics:
