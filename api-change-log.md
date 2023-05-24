@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-05-02"
+lastupdated: "2023-05-23"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -53,6 +53,20 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 23 May 2023
+{: #23-may-2023}
+
+### For all version dates
+{: #23-may-2023-all-version-dates}
+
+**Removal of weak VPN for VPC ciphers.** Effective 18 May 2023, the following VPN IKE and IPsec ciphers are removed:
+
+- Authentication algorithms `md5` and `sha1`
+- Encryption algorithm `triple_des`
+- Diffie–Hellman groups `2` and `5`
+
+As a result, you will no longer be able to create an IKE/IPsec policy or VPN connection that includes a weak cipher, but you can still [upgrade weak cipher suites](/docs/vpc?topic=vpc-upgrading-weak-ciphers&interface=ui) on an existing policy or connection. For more information, see [Upgrading weak cipher suites on a VPN gateway](/docs/vpc?topic=vpc-upgrading-weak-ciphers&interface=api).
 
 ## 2 May 2023
 {: #2-may-2023}
