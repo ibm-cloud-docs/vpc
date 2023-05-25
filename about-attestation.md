@@ -59,6 +59,9 @@ Use the following procedure to validate the attestation record and hashes:
    ```
    {: pre}
 
+   Signature verification must be done on a [decrypted attestation file](#decrypt_attest_record).
+   {: note}
+
 * You can now use the hashes from the attestation record for validation.
 
 In case you provided a public key for encrypting the attestation record, the following script might help in decrypting the record.
