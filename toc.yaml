@@ -218,7 +218,7 @@ toc:
         - topicgroup:
             label: Images - Stock images
             topics:
-            - vsi_is_about_vpc_images.md
+            - vsi_is_getting_started_vpc_stock_images.md
             - vsi_is_create_server_with_image.md
             - os-lifecycle.md
             - vsi-images.md
@@ -228,7 +228,7 @@ toc:
         - topicgroup:
             label: Images - Custom images
             topics:
-            - vsi_is_about_vpc_images.md
+            - vsi_is_getting_started_vpc_custom_images.md
             - vsi_is_create_server_with_image.md
             - os-lifecycle.md
             - topicgroup:
@@ -254,10 +254,7 @@ toc:
                 - vsi_is_prepare_custom_image_import.md
                 - vsi_is_import_custom_image_COS.md
                 - vsi_is_import_images.md
-            - topicgroup:
-                label: Managing custom images
-                topics:
-                 - vsi_is_manage_images.md
+            - vsi_is_manage_images.md
             - topicgroup:
                 label: Image from volume
                 topics:
@@ -267,7 +264,7 @@ toc:
         - topicgroup:
             label: Images - Catalog 
             topics:
-            - vsi_is_about_vpc_images.md
+            - vsi_is_getting_started_vpc_catalog_images.md
             - vsi_is_create_server_with_image.md
             - os-lifecycle.md        
             - vsi_is_private_catalog_custom_images.md
