@@ -219,7 +219,6 @@ toc:
             label: Images - Stock images
             topics:
             - vsi_is_getting_started_vpc_stock_images.md
-            - vsi_is_create_server_with_image.md
             - os-lifecycle.md
             - vsi-images.md
             - s390x-vsi-images.md
@@ -228,13 +227,10 @@ toc:
         - topicgroup:
             label: Images - Custom images
             topics:
-            - vsi_is_getting_started_vpc_custom_images.md
-            - vsi_is_create_server_with_image.md
-            - os-lifecycle.md
+            - vsi_is_about_custom_images.md
             - topicgroup:
                 label: Planning for custom images
                 topics:
-                - vsi_is_about_custom_images.md
                 - vsi_is_object_storage_auth.md
                 - vsi_is_byol_about.md
                 - image-rbac-permissions.md
@@ -251,7 +247,6 @@ toc:
             - topicgroup:
                 label: Importing and exporting custom images
                 topics:
-                - vsi_is_prepare_custom_image_import.md
                 - vsi_is_import_custom_image_COS.md
                 - vsi_is_import_images.md
             - vsi_is_manage_images.md
@@ -265,10 +260,7 @@ toc:
             label: Images - Catalog 
             topics:
             - vsi_is_getting_started_vpc_catalog_images.md
-            - vsi_is_create_server_with_image.md
-            - os-lifecycle.md        
             - vsi_is_private_catalog_custom_images.md
-
         - topicgroup:
             label: DNS Services
             topics:

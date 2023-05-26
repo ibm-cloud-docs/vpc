@@ -54,7 +54,7 @@ To see all of the operating system versions from the API, make a `GET /operating
 For more information about creating and importing Linux custom images, see:
 
 * [Creating a Linux custom image](/docs/vpc?topic=vpc-create-linux-custom-image)
-* [Importing a custom image](/docs/vpc?topic=vpc-managing-images#import-custom-image)
+* [Importing a custom image](/docs/vpc?topic=vpc-custom-image-using-COS)
 
 ## BYOL for Windows operating systems
 {: #byol-vpc-windows}

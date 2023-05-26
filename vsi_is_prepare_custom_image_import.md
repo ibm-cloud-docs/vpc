@@ -24,7 +24,6 @@ Use one of the following procedures to create a custom image.
 * [Creating a Linux custom image](/docs/vpc?topic=vpc-create-linux-custom-image)
 * [Creating a Windows custom image](/docs/vpc?topic=vpc-create-windows-custom-image)
 * [Migrating a virtual server from the classic infrastructure](/docs/vpc?topic=vpc-migrate-vsi-to-vpc)
-* [Creating an image from a volume](/docs/vpc?topic=vpc-create-ifv&interface=ui)
 * [Creating a z/OS Wazi aaS custom image](/docs/vpc?topic=vpc-create-zos-custom-image)
 
 Did you know that you can use the {{site.data.keyword.cloud}} [Packer plug-in](https://github.com/IBM/packer-plugin-ibmcloud){: external} to create and manage custom images on {{site.data.keyword.cloud}}? For more information, see this [blog post](https://www.ibm.com/cloud/blog/build-hardened-and-pre-configured-vpc-custom-images-with-packer){: external} for an example of how to use the {{site.data.keyword.cloud}} plug-in for Packer.
