@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-03-31"
+lastupdated: "2023-05-30"
 
 keywords:
 
@@ -132,7 +132,7 @@ The following example creates a file share with a mount target, and specifies th
 
    ```curl
    curl -X POST \
-   "$vpc_api_endpoint/v1/shares?version=2023-02-06&generation=2" \
+   "$vpc_api_endpoint/v1/shares?version=2023-05-30&generation=2" \
    -H "Authorization: $iam_token" \
    -d '{
        "encryption_key": {
@@ -147,7 +147,7 @@ The following example creates a file share with a mount target, and specifies th
            "id": "678523bcbe2b4eada913d32640909956"
          },
         "size": 100,
-        "targets": [
+        "mount_targets": [
           {
             "name": "my-share-target",
             "subnet": {
@@ -166,7 +166,7 @@ A successful response looks like the following example.
 
    ```json
    {
-     "created_at": "2023-02-07T22:58:49.000Z",
+     "created_at": "2023-05-30T22:58:49.000Z",
      "crn": "crn:[...]",
      "encryption": "customer_managed",
      "encryption_key": {
@@ -190,9 +190,9 @@ A successful response looks like the following example.
      },
      "resource_type": "share",
      "size": 100,
-     "targets": [
+     "mount_targets": [
        {
-         "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/a0c07083-f411-446c-9316-7b08d6448c86/targets/   1b5571cb-536d-48d0-8452-81c05c6f7b80",
+         "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/a0c07083-f411-446c-9316-7b08d6448c86/mount_targets/   1b5571cb-536d-48d0-8452-81c05c6f7b80",
          "id": "1b5571cb-536d-48d0-8452-81c05c6f7b80",
          "name": "my-share-target",
          "resource_type": "share_target",

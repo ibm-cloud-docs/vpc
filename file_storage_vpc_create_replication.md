@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-01-13"
+lastupdated: "2023-05-30"
 
 keywords:
 
@@ -63,6 +63,14 @@ On the File share replica create page, review the source file share details, and
 
 Use the CLI to create a file share with replication, or update a file share to include replication.
 
+As of 30 May 2023, you can use `--mount-targets` instead of `-targets` option. To see and use the updated option, set the feature environment variable `IBMCLOUD_IS_FEATURE_FILESHARE_CHANGE_TO_MOUNT_TARGETS` to true.
+{: beta}
+
+   ```text
+   export IBMCLOUD_IS_FEATURE_FILESHARE_CHANGE_TO_MOUNT_TARGETS=true
+   ```
+   {: pre}
+
 ### Create a file share with replication from the CLI
 {: #fs-create-new-share-replica-cli}
 
@@ -77,13 +85,13 @@ Run the `ibmcloud is share-create` command and specify the following properties 
 
 Syntax:
 
-```zsh
+```sh
 ibmcloud is share-create \
   --zone ZONE_NAME \
   --profile PROFILE \
   [--name NAME] \
   [--iops IOPS] \
-  [--targets TARGETS_JSON | @TARGETS_JSON_FILE] \
+  [--mount_targets TARGETS_JSON | @TARGETS_JSON_FILE] \
   [--replica-share-profile REPLICA_SHARE_PROFILE \
   --replica-cron-spec REPLICA_CRON_SPEC \
   --replica-zone ZONE_NAME \
@@ -111,7 +119,7 @@ Profile              tier-5iops
 Size(GB)             40
 IOPS                 3000
 Encryption           provider_managed
-Targets              ID                          Name   VPC ID   VPC Name
+Mount targets        ID                          Name   VPC ID   VPC Name
                      No mounted targets found.
 
 Resource group       ID                                 Name
@@ -135,13 +143,13 @@ Source share         ID   Name   Resource type
 
 Run the `ibmcloud is share-create` command and specify the source share by ID or name.
 
-```zsh
+```sh
 ibmcloud is share-replica-create \
    --zone ZONE_NAME \
    -profile PROFILE \
    [--name NAME] \
    [--iops IOPS] \
-   [--targets TARGETS_JSON | @TARGETS_JSON_FILE] \
+   [--mount-targets TARGETS_JSON | @TARGETS_JSON_FILE] \
    [--replication-cron-spec REPLICATION_CRON_SPEC \
    --source-share SOURCE_SHARE] \
    [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] \
@@ -165,7 +173,7 @@ Profile                 tier-5iops
 Size(GB)                40
 IOPS                    3000
 Encryption              provider_managed
-Targets                 ID                          Name   VPC ID   VPC Name
+Mount targets           ID                          Name   VPC ID   VPC Name
                         No mounted targets found.
 
 Resource group          ID                                 Name
@@ -199,7 +207,7 @@ The following example creates the replica `test-replica-001` for the source shar
 
 ```curl
 curl -X POST\
-"$rias_endpoint/v1/shares?version=2022-09-06&generation=2\
+"$rias_endpoint/v1/shares?version=2023-05-30&generation=2\
 -H "Authorization: $iam_token"\
 -d '{
     "name": "source-share-001",
@@ -207,7 +215,7 @@ curl -X POST\
        "name":"tier-3iops"
     },
     "size":10,
-    "targets":[
+    "mount-targets":[
        {
           "vpc":{
               "id":"08669c86-4c8a-4bfa-8ddc-37071f955c52"
@@ -226,11 +234,12 @@ curl -X POST\
         "zone":{
             "name":"us-south-3"
         },
-        "targets":[
+        "mount-targets":[
            {
               "vpc":{
-                "id":"9380990e-4b3b-4d79-80fe-ee052fb9772a"
-              }
+                  "id":"9380990e-4b3b-4d79-80fe-ee052fb9772a"
+              },
+              "transit_encryption": "none",
            }
         ]
       }
@@ -247,15 +256,14 @@ Other required properties are the `profile`, `zone`, and `replication_cron_spec`
 
 ```curl
 curl -X POST\
-"$rias_endpoint/v1/shares?version=2022-09-08&generation=2\
+"$rias_endpoint/v1/shares?version=2023-05-30&generation=2\
 -H "Authorization: $iam_token"\
 -d '{
     "source_share": {
         "id": "4aafd9c9-5555-4bdb-902d-d63d4dcf5adc"
      },
     "name": "replica-share-1",
-        "profile": "tier-3iops"
-     },
+    "profile": "tier-3iops",
      "zone": {
         "name": "us-south-1"
      },

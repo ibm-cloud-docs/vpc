@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-03-31"
+lastupdated: "2023-05-30"
 
 keywords:
 
@@ -54,8 +54,7 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share and
 | Resource Group | Use the default resource group or specify a [resource group](/docs/vpc?topic=vpc-iam-getting-started#resources-and-resource-groups). Resource groups help organize your account resources for access control and billing purposes. |
 | Tags | Enter user tags to apply to this file share. As you type, existing tags appear that you can select. For more information about tags, see [Add user tags to a file share](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-add-user-tags). |
 | Access Management Tags | Enter access management tags that you created in IAM to apply them to this file share. For more information about access management tags, see [Access management tags for file shares](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-about-mgt-tags). |
-| Mount targets (Optional) | Click **Create** to create a new [mount target](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-share-mount-targets) for the file share. You can create one mount target per VPC per file share. Provide a name for the mount target and select a VPC in that zone. You can add as many mount targets as you have VPCs. If you don't have one, first [create a VPC](/docs/vpc?topic=vpc-getting-started#create-and-configure-vpc). For more information about creating mount targets as a separate operation, see [Create a mount target](#fs-create-mount-target-ui). |
-| Profile | Select a profile for the file share. The profile that you select determines the input/output performance of the file share. For more information about the dp2, IOPS tier, or Custom profiles, see [File storage profiles](/docs/vpc?topic=vpc-file-storage-profiles). |
+| Profile | Select an IOPS tier or Custom IOPS for file share. The profile that you select determines the input/output performance of a file share. For more information about file storage IOPS tier and Custom profiles, see [File storage profiles](/docs/vpc?topic=vpc-file-storage-profiles). |
 | Size | Specify the size for the file share. You can later [increase this size](/docs/vpc?topic=vpc-file-storage-expand-capacity), depending on the file share profile. |
 | Encryption | Encryption with IBM-managed keys is enabled by default when you create a new file share. You can also choose **Customer Managed** and use your own encryption key. For more information about creating encrypted file shares, see [Creating file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption). If you create a replica share when you provision a new file share, the encryption is inherited. You can't encrypt a replica with a different key. If you change the encryption on the source share, the replica is updated. |
 | Asynchronous replica | Informational field that says that you can create a replica after the file share is created. |
@@ -102,6 +101,14 @@ You can create one or several mount targets for an existing file share.
 
 4. Make sure that you [created an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-cli#create-a-vpc-cli).
 
+As of 30 May 2023, you can use `--mount-targets` instead of `-targets` option. To see and use the updated option, set the feature environment variable `IBMCLOUD_IS_FEATURE_FILESHARE_CHANGE_TO_MOUNT_TARGETS` to true.
+{: beta}
+
+   ```text
+   export IBMCLOUD_IS_FEATURE_FILESHARE_CHANGE_TO_MOUNT_TARGETS=true
+   ```
+   {: pre}
+
 ### Gathering information to create file storage from the CLI
 {: #fs-vpc-getinfo-cli}
 
@@ -113,7 +120,7 @@ Review the following information:
 | -------- | ------------------|-------------------|
 | File shares | `ibmcloud is shares` | List all shares in a region. |
 | File share details | `ibmcloud is share SHARE_ID`  | Review details of a share. |
-| Mount targets  | `ibmcloud is share-targets SHARE_ID` | List all mount targets for a file share. |
+| Mount targets  | `ibmcloud is share-mount-targets SHARE_ID` | List all mount targets for a file share. |
 | File share profiles   | `ibmcloud is share-profiles` | List all file share profiles in a region. |
 | File share profile details | `ibmcloud is share-profile PROFILE_NAME` | List details of a file share profile. Profile names are `tier-3iops`, `tier-5iops`, `tier-10iops`, `custom`, and `dp2`. |
 {: caption="Table 1. Details for creating file shares." caption-side="top"}
@@ -132,6 +139,8 @@ ibmcloud is share-create
   --profile PROFILE
   --size SIZE
   [--name NAME]
+  [--initial-owner-gid INITIAL_OWNER_GID ]
+  [--initial-owner-uid INITIAL_OWNER_UID]
   [--user-tags USER_TAGS]
   [--mount-targets TARGETS_JSON | @TARGETS_JSON_FILE]
   [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME]
@@ -161,24 +170,24 @@ Mount Targets     ID                                       Name           VPC ID
 
 Resource Group    ID                                 Name
                   bdd96715c2a44f2bb60df4ff14a543f5   Default
-Created           2022-09-17T15:26:21+05:30
+Created           2023-05-30T15:26:21+05:30
 ```
 {: screen}
 
 ### Create a mount target for an existing file share from the CLI
 {: #fs-create-mount-target-cli}
 
-Run the `share-target-create` command with the file share and VPC ID or name to create a mount target on the file share. The VPC must be unique to each mount target.
+Run the `share-mount-target-create` command with the file share and VPC ID or name to create a mount target on the file share. The VPC must be unique to each mount target.
 
 ```sh
-ibmcloud is share-target-create SHARE_ID [SHARE_NAME] --vpc VPC_ID [NAME] [--output JSON] [-q, --quiet]
+ibmcloud is share-mount-target-create SHARE_ID [SHARE_NAME] --vpc VPC_ID [NAME] [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
 This example command creates a mount target for a file share and VPC specified by name.
 
 ```text
-ibmcloud is share-target-create my-fileshare-1 --vpc test-vpc-1
+ibmcloud is share-mount-target-create my-fileshare-1 --vpc test-vpc-1
 Mounting target 55251a2e-d6d4-4233-97b2-b5f8e8d1f479 under account test-vpcp1 as user user@mycompany.com...
 
 ID                78ff9c4c97d013fb2a95b21abcde7758
@@ -188,7 +197,7 @@ VPC               ID                                          Name
 
 Lifecycle State   pending
 Mount path        dal1051b-fz.adn.networklayer.com:/nxg_s_voll_mz0717_fde90e26_8796_4a5e_8147_dd14976d6e9f
-Created           2022-09-17T18:05:18+05:30
+Created           2023-05-30T18:05:18+05:30
 ```
 {: screen}
 
@@ -223,7 +232,7 @@ The following example shows a request to create a 4800 GB file share with a 10 I
 
 ```curl
 curl -X POST \
-"$rias_endpoint/v1/shares?version=2023-03-28&generation=2"\
+"$vpc_api_endpoint/v1/shares?version=2023-05-30&generation=2"\
 -H "Authorization: $iam_token" \
 -d '{
     "size": 4800,
@@ -242,10 +251,10 @@ A successful response looks like the following example.
 
 ```json
 {
-  "created_at": "2023-03-28T22:31:50Z",
+  "created_at": "2023-05-30T22:31:50Z",
   "crn": "crn": "crn:[...]",
   "encryption": "provider_managed",
-  "href": "https://us-south-1.cloud.ibm.com/v1/shares/acd96d70-b8d3-4b56-ad7f-9c1035df93b2",
+  "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/acd96d70-b8d3-4b56-ad7f-9c1035df93b2",
   "id": "acd96d70-b8d3-4b56-ad7f-9c1035df93b2",
   "initial_owner": {
     "gid": 0,
@@ -255,7 +264,7 @@ A successful response looks like the following example.
   "lifecycle_state": "pending",
   "name": "myshare-1",
   "profile": {
-    "href": "https://us-south-1.cloud.ibm.com/v1/share/profiles/tier-10iops",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/share/profiles/tier-10iops",
     "name": "tier-10iops",
     "resource_type": "share_profile"
   },
@@ -263,16 +272,16 @@ A successful response looks like the following example.
   "replication_status": "none",
   "replication_status_reasons": [],
   "resource_group": {
-    "crn": "crn:v1:staging:public:resource-controller::a/e2f80b84-bc75-4f53-8737-8193ef1d1a7b::resource-group:e96d1fa9-76f2-4c87-a737-dbab3a947b24",
+    "crn": "crn:v1:public:resource-controller::a/e2f80b84-bc75-4f53-8737-8193ef1d1a7b::resource-group:e96d1fa9-76f2-4c87-a737-dbab3a947b24",
     "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/e96d1fa9-76f2-4c87-a737-dbab3a947b24",
     "id": "e96d1fa9-76f2-4c87-a737-dbab3a947b24",
     "name": "Default"
   },
   "resource_type": "share",
   "size": 4800,
-  "targets": [],
+  "mount_targets": [],
   "zone": {
-    "href": "https://us-south-1.cloud.ibm.com/v1/regions/us-south/zones/us-south-1",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-1",
     "name": "us-south-1"
   }
 }
@@ -282,16 +291,18 @@ A successful response looks like the following example.
 ### Create a file share and mount target together with the API
 {: #fs-create-share-target-api}
 
-This request creates a file share and a mount target, and adds [user tags](/docs/vpc?topic=vpc-file-storage-managing&interface=api#fs-add-user-tags) to the share.
+This request creates a new file share and mount target. It also adds [user tags](/docs/vpc?topic=vpc-file-storage-managing&interface=api#fs-add-user-tags) to the share. 
+
+Access to the mount target is VPC wide; all users in the VPC have access to this file share.
 
 ```curl
 curl -X POST \
-"$rias_endpoint/v1/shares?version=2023-03-28&generation=2"\
+"$vpc_api_endpoint/v1/shares?version=2023-05-30&generation=2"\
 -H "Authorization: Bearer $iam_token"\
 -H 'Content-Type: application/json' \
 -d '{
     "size": 4800,
-    "targets": [
+    "mount_targets": [
       {
         "name": "mount-target-name1",
         "vpc": {
@@ -318,19 +329,19 @@ A successful response looks like the following example.
 
 ```json
 {
-  "created_at": "2023-03-28T23:31:59Z",
+  "created_at": "2023-05-30T23:31:59Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
-  "href": "$vpc_api_endpoint/v1/shares/ff859972-8c39-4528-91df-eb9160eae918",
+  "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/ff859972-8c39-4528-91df-eb9160eae918",
   "id": "ff859972-8c39-4528-91df-eb9160eae918",
   "iops": 48000,
   "lifecycle_state": "stable",
   "name": "share-name1",
   "profile": {
-    "href": "$vpc_api_endpoint/v1/share/profiles/tier-10iops",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/share/profiles/tier-10iops",
     "name": "tier-10iops",
     "resource_type": "share_profile"
-  },
+    },
   "replication_role": "none",
   "replication_status": "none",
   "replication_status_reasons": [],
@@ -339,18 +350,18 @@ A successful response looks like the following example.
     "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/6b45d0aa-e0a6-478b-a5d9-bb45b106676d",
     "id": "6b45d0aa-e0a6-478b-a5d9-bb45b106676d",
     "name": "Default"
-  },
+    },
   "resource_type": "share",
   "size": 4800,
-  "targets": [
+  "mount_targets": [
     {
-      "href": "$vpc_api_endpoint/v1/shares/ff859972-8c39-4528-91df-eb9160eae918/targets/9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
+      "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/ff859972-8c39-4528-91df-eb9160eae918/mount_targets/9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
       "id": "9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
       "name": "mount-target-name1",
       "resource_type": "share_target",
       "vpc": {
         "crn": "crn:[...]",
-        "href": "$vpc_api_endpoint/v1/vpcs/e6ff7b61-feb4-4c87-94aa-277d6f93e164",
+        "href": "https://us-south.iaas.cloud.ibm.com/v1/vpcs/e6ff7b61-feb4-4c87-94aa-277d6f93e164",
         "id": "e6ff7b61-feb4-4c87-94aa-277d6f93e164",
         "name": "vpc-name1",
         "resource_type": "vpc"
@@ -362,21 +373,21 @@ A successful response looks like the following example.
     "env:prod"
    ],
   "zone": {
-    "href": "$vpc_api_endpoint/v1/regions/us-south/zones/us-south-1",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-1",
     "name": "us-south-1"
   }
 }
 ```
 {: codeblock}
 
-### Create a mount target with the API
+### Create a mount target for an existing file share with the API
 {: #fs-create-mount-target-api}
 
 This request creates or adds a mount target to an existing file share.
 
 ```curl
 curl -X POST \
-"$rias_endpoint/v1/shares/$share_id/targets?version=2023-03-28&generation=2"\
+"$vpc_api_endpoint/v1/shares/$share_id/mount_targets?version=2023-05-30&generation=2"\
 -H "Authorization: Bearer $iam_token"\
 -H 'Content-Type: application/json'\
 -d '{
@@ -392,8 +403,8 @@ A successful response looks like the following example.
 
 ```json
 {
-  "created_at": "2023-03-28T23:31:59Z",
-  "href": "$vpc_api_endpoint/v1/shares/ff859972-8c39-4528-91df-eb9160eae918/targets/9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
+  "created_at": "2023-05-30T23:31:59Z",
+  "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/ff859972-8c39-4528-91df-eb9160eae918/mount_targets/9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "id": "9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "lifecycle_state": "pending",
   "mount_path": "domain.com:/vol_xyz_2891fd0a_63aa_4deb_9ed5_1159e37cb5aa",
@@ -401,7 +412,7 @@ A successful response looks like the following example.
   "resource_type": "share_target",
   "vpc": {
     "crn": "crn:[...]",
-    "href": "$vpc_api_endpoint/v1/vpcs/e6ff7b61-feb4-4c87-94aa-277d6f93e164",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/vpcs/e6ff7b61-feb4-4c87-94aa-277d6f93e164",
     "id": "e6ff7b61-feb4-4c87-94aa-277d6f93e164",
     "name": "vpc-name1",
     "resource_type": "vpc"
@@ -438,7 +449,7 @@ To set supplemental IDs when you create a share, make a `POST /shares` call and 
 
 ```curl
 curl -X POST \
-"$rias_endpoint/v1/shares?version=2023-03-28&generation=2\
+"$vpc_api_endpoint/v1/shares?version=2023-05-06&generation=2\
 -H "Authorization: $iam_token" \
 -d '{
     "initial_owner": {
