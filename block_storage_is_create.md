@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-02-07"
+lastupdated: "2023-05-30"
 
 keywords: vpc block storage, provision block storage for vpc, bootable snapshots, create volume from snapshot, fast restore
 
@@ -46,7 +46,7 @@ Use the {{site.data.keyword.cloud_notm}} console to create a {{site.data.keyword
    | Auto Delete | Enable this feature to automatically delete this volume when the attached virtual server instance is deleted. You can change this setting later on the virtual server details page. |
    | Size | Enter a volume size in GBs. Volume sizes can be 10 - 16,000 GB. |
    | Profile | Select [Tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) and select the IOPS tier list. If your performance requirements don't fall within a predefined IOPS tier, select [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) and select an IOPS value within the range for that volume size. |
-   | Encryption | Provider-managed encryption with IBM-managed keys is enabled by default on all volumes. You can also choose a Key Management Service by selecting either ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}), and then specify your own encryption key. For a one-time setup procedure, see [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-encryption-prereqs). |
+   | Encryption | Provider-managed encryption with IBM-managed keys is enabled by default on all volumes. \n You can also choose a Key Management Service by selecting either {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}, and then specify your own encryption key. \n For a one-time setup procedure, see [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-encryption-prereqs). \n For more information about locating up the CRN for an existing key, see [{{site.data.keyword.keymanagementserviceshort}} - Retrieving your instance ID and cloud resource name (CRN)](/docs/key-protect?topic=key-protect-retrieve-instance-ID) and [{{site.data.keyword.hscrypto}} - Viewing details about a key](/docs/hs-crypto?topic=hs-crypto-view-key-details). |
    {: caption="Table 1. {{site.data.keyword.block_storage_is_short}} volume values to be specified during instance provisioning." caption-side="bottom"}
 
    If you created volume snapshots previously, the option to import one becomes available. Click the **Snapshots** toggle, and select a snapshot from the list. You can filter this list for snapshots with fast restore. Then, complete the required fields and click **Create** to provision the volume. A {{site.data.keyword.block_storage_is_short}} volume is created and attached to the virtual server instance. On the instance details page, the Data volumes list is updated to show the new volume
@@ -125,27 +125,41 @@ You can create {{site.data.keyword.block_storage_is_short}} volumes by using the
 ### Before you begin
 {: #before-creating-block-storage-cli}
 
-1. Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
+Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
+{: requirement}
 
-2. After you install the VPC CLI plug-in, set the target to generation 2 by running the `ibmcloud is target --gen 2` command.
+1. Log in to the IBM Cloud.
+   ```sh
+   ibmcloud login --sso -a cloud.ibm.com
+   ```
+   {: pre}
 
-3. Make sure that you [created an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-cli#create-a-vpc-cli).
+   This command returns a URL and prompts for a passcode. Go to that URL in your browser and log in. If successful, you get a one-time passcode. Copy this passcode and paste it as a response on the prompt. After successful authentication, you are prompted to choose your account. If you have access to multiple accounts, select the account that you want to log in as. Respond to any remaining prompts to finish logging in.
+
+2. Select the current generation of VPC. 
+   ```sh
+   ibmcloud is target --gen 2
+   ```
+   {: pre}
+
+To use your own encryption key to protect your new volume, provision a key management service (KMS). For a one-time setup procedure, see [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-encryption-prereqs). For more information about locating the CRN of an existing key, see [{{site.data.keyword.keymanagementserviceshort}} - Retrieving your instance ID and cloud resource name (CRN)](/docs/key-protect?topic=key-protect-retrieve-instance-ID) and [{{site.data.keyword.hscrypto}} Viewing details about a key](/docs/hs-crypto?topic=hs-crypto-view-key-details).
+{: tip}
 
 ### Create a {{site.data.keyword.block_storage_is_short}} volume from the CLI
 {: #create-vol-cli}
 {: help}
 {: support}
 
-Run the following command to create a {{site.data.keyword.block_storage_is_short}} volume. Provide a volume name, profile name, and the name of the availability zone in your region. For more information about {{site.data.keyword.block_storage_is_short}} profiles, see [Profiles](/docs/vpc?topic=vpc-block-storage-profiles). Optional parameters are shown in brackets.
+Run the following command to create a {{site.data.keyword.block_storage_is_short}} volume. Provide a volume name, profile name, and the name of the availability zone in your region. For more information about {{site.data.keyword.block_storage_is_short}} profiles, see [Profiles](/docs/vpc?topic=vpc-block-storage-profiles). Extra options are shown in brackets.
 
-```zsh
+```sh
 ibmcloud is volume-create VOLUME_NAME PROFILE_NAME ZONE_NAME [--capacity CAPACITY] [--iops IOPS] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--tags  TAG_NAME1,TAG_NAME2,...] [--json]
 ```
 {: pre}
 
 See the following example.
 
-```sh
+```bash
 $ ibmcloud is volume-create demovolume1 custom us-south-1 --capacity 500 --iops 3000 --tags env:test,env:prod
 Creating volume demovolume1 in resource group Default under account VPC 01 as user rtuser1@mycompany.com...
 
@@ -185,7 +199,7 @@ User tags are added to identify the volume resource. When these tags are matched
 ### Create a stand-alone {{site.data.keyword.block_storage_is_short}} volume from a snapshot with the CLI
 {: #create-vol-from-snapshot-cli}
 
-Run the `ibmcloud is volume-create` command and specify the `source-snapshot` parameter with the name or ID of the snapshot you're using to create the new volume. The volume is unattached, as indicated by the attachment state in the response.
+Run the `ibmcloud is volume-create` command and specify the `--snapshot` option with the name or ID of the snapshot you're using to create the new volume. The volume is unattached, as indicated by the attachment state in the response.
 
 This example creates the new volume from a snapshot that is specified by name.
 
@@ -221,12 +235,12 @@ Tags
 {: #create-instance-vol-cli}
 {: cli}
 
-You can specify user tags for boot and data volumes when you create a virtual server instance. Run the `instance-create` command and specify user tags in the `user_tags` parameter. You can also edit the tags later or add more tags to the specified volume. For more information, see the [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference&interface=ui).
+You can specify user tags for boot and data volumes when you create a virtual server instance. Run the `instance-create` command and specify user tags in the `user_tags` option. You can also edit the tags later or add more tags to the specified volume. For more information, see the [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference&interface=ui).
 
 In the example command,
 
-* The boot volume is defined by the `boot_volume` parameter that specifies the user tags `env:test4` and `env:dev4`.
-* The data volume attachment is defined by the `volume-attach` parameter and specifies the same user tags.
+* The boot volume is defined by the `--boot-volume` option that specifies the user tags `env:test4` and `env:dev4`.
+* The data volume attachment is defined by the `--volume-attach` option and specifies the same user tags.
 
 You can see the user tags when you look at the details of the boot or data volume after the instance is created.
 
@@ -324,10 +338,12 @@ ibmcloud is instance-template-create --template my-tpl-1 --name my-vsi-3 --boot-
 
 You can create {{site.data.keyword.block_storage_is_short}} volumes by directly calling the [VPC REST APIs](/apidocs/vpc){: external}. For more information about the file shares VPC API, see the [VPC API reference](/apidocs/vpc).
 
-### Before you begin – Set up your API environment
+### Before you begin
 {: #block-storage-api-prereqs}
 
 Define variables for the IAM token, API endpoint, and API version. For instructions, see [Setting up your API and CLI environment](/docs/vpc?topic=vpc-set-up-environment).
+
+To use your own encryption key to protect your new volume, provision a key management service (KMS). For a one-time setup procedure, see [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-encryption-prereqs). For more information about locating the CRN of an existing key, see [{{site.data.keyword.keymanagementserviceshort}} - Retrieving your instance ID and cloud resource name (CRN)](/docs/key-protect?topic=key-protect-retrieve-instance-ID) and [{{site.data.keyword.hscrypto}} Viewing details about a key](/docs/hs-crypto?topic=hs-crypto-view-key-details).
 
 A good way to learn more about the API is to click **Get sample API call** on the provisioning pages in {{site.data.keyword.cloud_notm}} console. You can view the correct sequence of API requests and better understand actions and their dependencies.
 {: tip}
@@ -340,8 +356,7 @@ Make a `POST /instances` request to create an instance, and define the volume by
 This example specifies customer-managed encryption and user tags for the boot and data volumes.
 
 ```curl
-curl -X POST "$vpc_api_endpoint/v1/instances?version=2023-02-07&generation=2" -H "Authorization: $iam_token" -d 
-'{
+curl -X POST "$vpc_api_endpoint/v1/instances?version=2022-06-14&generation=2" -H "Authorization: $iam_token" -d '{
   "boot_volume_attachment": {
     "volume": {
       "encryption_key": {
@@ -404,7 +419,7 @@ curl -X POST "$vpc_api_endpoint/v1/instances?version=2023-02-07&generation=2" -H
   }
 }'
 ```
-{: codeblock}
+{: pre}
 
 A successful response looks like this:
 
@@ -425,7 +440,7 @@ A successful response looks like this:
       "name": "my-boot-volume"
     }
   },
-  "created_at": "2023-02-07T16:11:57Z",
+  "created_at": "2022-06-15T16:11:57Z",
   "crn": "crn:[...]",
   "dedicated_host": {
     "crn": "crn:[...]",
@@ -547,7 +562,7 @@ Make a `POST /volumes` request to create a volume. Specify a name, IOPS, capacit
 This example also specifies customer-managed encryption and a resource group.
 
 ```curl
-curl -X POST "$vpc_api_endpoint/v1/volumes?version=2023-02-07&generation=2" \
+curl -X POST "$vpc_api_endpoint/v1/volumes?version=2022-06-14&generation=2" \
 -H "Authorization: $iam_token" \
 -d '{
       "name": "my-volume-4",
@@ -567,7 +582,7 @@ curl -X POST "$vpc_api_endpoint/v1/volumes?version=2023-02-07&generation=2" \
       }
     }'
 ```
-{: codeblock}
+{: pre}
 
 A successful response looks like this:
 
