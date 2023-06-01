@@ -30,8 +30,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## June 2023
 {: #vpc-jun23}
 
-### 08 June 2023
-{: #vpc-june0823}
+### 30 June 2023
+{: #vpc-june3023}
 {: release-note}
 
 Very High Memory (vx2d) profile family now available in all regions
