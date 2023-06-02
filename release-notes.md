@@ -34,7 +34,7 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: release-note}
 
 UI Enhancement to the List view:
-:    You can now download all UI pages with the current table column format.
+:    You can now export table data with the current table column format. The supported export formats are CSV and Microsoft Excel.
 
 ## May 2023
 {: #vpc-may23}
