@@ -28,9 +28,10 @@ For more information about changes to the {{site.data.keyword.vpc_short}} API, s
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-cli-rn).
 
 ## June 2023
+{: #vpc-jun23}
 
 ### 01 June 2023
-{: #vpc-jun23}
+{: #vpc-jun0123}
 {: release-note}
 
 UI Enhancement to the List view:
