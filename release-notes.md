@@ -31,7 +31,7 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## June 2023
 {: #vpc-jun23}
 
-### 13 June 2023
+### 20 June 2023
 {: #vpc-jun1323}
 {: release-note}
 
