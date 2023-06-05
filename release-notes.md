@@ -32,7 +32,7 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-jun23}
 
 ### 20 June 2023
-{: #vpc-jun1323}
+{: #vpc-jun2023}
 {: release-note}
 
 Instance group integration with network load balancers (GA):
