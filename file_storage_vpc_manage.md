@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-03-31"
+lastupdated: "2023-05-30"
 
 keywords:
 
@@ -76,15 +76,15 @@ Valid mount target names can include a combination of lowercase alpha-numeric ch
 ### Update a file share profile in the UI
 {: #fs-update-profile-ui}
 
-You can change the [file share profile](/docs/vpc?topic=vpc-file-storage-profiles) from the current profile to another **IOPS tier** profile, to a **custom** profile, or to a high performance **dp2** profile. Your billing adjusts based on the type of profile you choose.
+You can change the profile for a file share from the current profile to another **IOPS tier** profile, to a **custom** profile, or to a high performance **dp2** profile. Your billing adjusts based on the type of profile you choose.
 
-1. Navigate to the [file shares details](/docs/vpc?topic=vpc-file-storage-view&interface=ui#fs-view-single-share-ui) page. The **Profile, size, and IOPS** tile contains the current profile information.
+1. Navigate to the [file shares details](/docs/vpc?topic=vpc-file-storage-view&interface=ui#fs-view-single-share-ui) page.
 
-2. Click **Edit** or use the **Actions** menu to select **Edit profile and size**. A side panel shows the current profile, file share size, and maximum IOPS.
+2. Click the pencil icon next to the current profile or use the **Actions** menu and select **Edit IOPS profile**. A side panel shows the current profile, file share size, and maximum IOPS.
 
-3. For **Profile**, **Performance characteristics**, select **dp2**, a different IOPS tier, or a custom profile. For **dp2** or **Custom IOPS**, specify a new max IOPS based on the file share size. The allowable range is indicated. The file share price is automatically calculated based on your seletion.
+3. For **New profile**, click the down arrow. You can select a new IOPS tier, a custom profile, or dp2. For **Custom IOPS** or **dp2**, specify a new max IOPS based on the file share size. The file share price is automatically calculated based on your seletion.
 
-4. Click **Save**.
+4. Click **Save and continue**.
 
 ### Delete file shares and mount targets in the UI
 {: #delete-targets-shares-ui}
@@ -229,7 +229,7 @@ The following example modifies a file share that's identified by ID by renaming 
 
 ```curl
 curl -X PATCH\
-"$rias_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?version=2023-01-06&generation=2"\
+"$rias_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?version=2023-05-06&generation=2"\
 -H "Authorization: $iam_token" \
 -d '{
     "name": "myshare-patch-1",
@@ -248,7 +248,7 @@ Response:
     "created_at": "2023-01-28T22:31:50Z",
     "crn": "crn": "crn:[...]",
     "encryption": "provider_managed",
-    "href": "https://us-south-stage01.iaasdev.cloud.ibm.com/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3",
+    "href": "https://us-south-1.cloud.ibm.com/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3",
     "id": "432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3",
     "initial_owner": {
       "gid": 0,
@@ -258,7 +258,7 @@ Response:
     "lifecycle_state": "stable",
     "name": "myshare-patch-1",
     "profile": {
-      "href": "https://us-south-stage01.iaasdev.cloud.ibm.com/v1/share/profiles/tier-3iops",
+      "href": "https://us-south-1.cloud.ibm.com/v1/share/profiles/tier-3iops",
       "name": "tier-3iops",
       "resource_type": "share_profile"
     },
@@ -279,7 +279,7 @@ Response:
       "ut9"
     ],
     "zone": {
-      "href": "https://us-south-stage01.iaasdev.cloud.ibm.com/v1/regions/us-south/zones/us-south-1",
+      "href": "https://us-south-1.cloud.ibm.com/v1/regions/us-south/zones/us-south-1",
       "name": "us-south-1"
     }
   }
@@ -296,7 +296,7 @@ To modify existing user tags that are added to a file share, you first make a `G
 1. Make a `GET /shares/{share_id}` call and copy the hash string from `ETag` property in the response header. Use need the hash string value for when you specify `If-Match` in the `PATCH /shares/{share_id}` request to modify user tags for the share in step 2.
 
    ```curl
-   curl -sSL -D GET\ "https://us-south.iaas.cloud.ibm.com/v1/shares/{share_id}?version=2023-01-06&generation=2"\
+   curl -sSL -D GET\ "https://us-south.cloud.ibm.com/v1/shares/{share_id}?version=2023-01-09&generation=2"\
    -H "Authorization: Bearer $TOKEN" -o /dev/null
    ```
    {: codeblock}
@@ -329,7 +329,7 @@ To modify existing user tags that are added to a file share, you first make a `G
 
    ```curl
    curl -X PATCH\
-   "$vpc_api_endpoint/v1/shares/50fda9c3-eecd-4152-b473-a98018ccfb10?version=2023-01-06&generation=2"\
+   "$vpc_api_endpoint/v1/shares/50fda9c3-eecd-4152-b473-a98018ccfb10?version=2023-05-30&generation=2"\
       -H "Authorization: Bearer"\
       -H "If-Match: W/xxxyyyzzz123"\
       -d `{
@@ -385,13 +385,21 @@ When you look at the specific resources for the VPC infrastructure and specify {
 {: #file-storage-manage-cli}
 {: cli}
 
-Using the CLI, you can:
+By using the CLI, you can:
 
 * [Rename a file share](#rename-file-share-cli).
 * [Rename a mount target of a file share](#rename-mount-target-cli).
 * [Delete mount target of a file share](#delete-mount-target-cli).
 * [Delete a file share](#delete-file-share-cli).
 * [Update a file share profile](#fs-update-profile-cli)
+
+As of 30 May 2023, you can use `--mount-targets` instead of `--targets` option. To see and use the updated option, set the feature environment variable `IBMCLOUD_IS_FEATURE_FILESHARE_CHANGE_TO_MOUNT_TARGETS` to true.
+{: beta}
+
+   ```text
+   export IBMCLOUD_IS_FEATURE_FILESHARE_CHANGE_TO_MOUNT_TARGETS=true
+   ```
+   {: pre}
 
 ### Rename a file share from the CLI
 {: #rename-file-share-cli}
@@ -408,10 +416,10 @@ Valid file share names can include a combination of lowercase alpha-numeric char
 ### Rename a mount target of a file share from the CLI
 {: #rename-mount-target-cli}
 
-Run the `ibmcloud is share-target-update` command. Identify the file share by its name or ID. Identify the mount target by its name or ID. Also, provide the new mount target name with the `--name` option.
+Run the `ibmcloud is share-mount-target-update` command with the file share name or ID. Specify a new mount target name.
 
 ```sh
-ibmcloud is share-target-update SHARE TARGET --name NEW_NAME [--output JSON] [-q, --quiet]
+ibmcloud is share-mount-target-update SHARE/SHARE_ID MOUNT_TARGET_ID --name NEW_NAME [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
@@ -420,7 +428,7 @@ Valid mount target names can include a combination of lowercase alpha-numeric ch
 ### Update a file share profile from the CLI
 {: #fs-update-profile-cli}
 
-Use the `share-update` command with the `--profile` parameter to indicate the new file share profile by name.
+Use the `ibmcloud is share-update` command with the `--profile` parameter to indicate the new file share profile by name.
 
 ```sh
 ibmcloud is share-update SHARE_NAME --profile PROFILE_NAME
@@ -429,18 +437,21 @@ ibmcloud is share-update SHARE_NAME --profile PROFILE_NAME
 
 This example updates a file share profile to a dp2 profile.
 
-```bash
+```sh
 ibmcloud is share-update my-file-share --profile dp2
 Updating file share my-file-share under account VPC1 as user user1@mycompany.com...
 
 ID                e1180bae-6799-4156-8bb7-e4d24013cda2
 Name              my-file-share
-CRN               crn:v1:staging:public:is:us-south-1:a/0ef3f509-04f4-465e-88c6-2d60b164d805::share:e1180bae-6799-4156-8bb7-e4d24013cda2
+CRN               crn:v1:public:is:us-south-1:a/0ef3f509-04f4-465e-88c6-2d60b164d805::share:e1180bae-6799-4156-8bb7-e4d24013cda2
 Lifecycle state   updating
 Zone              us-south-1
 Profile           dp2
+.
+.
+.
 ```
-{: codeblock}
+{: screen}
 
 ### Delete file shares and mount targets from the CLI
 {: #delete-share-targets-cli}
@@ -453,10 +464,10 @@ If the file share is configured for replication, there are extra steps. For more
 #### Delete a mount target of a file share from the CLI
 {: #delete-mount-target-cli}
 
-Run the `share-target-delete` command and specify the file share ID and mount target ID. To delete a mount target, the file share must be in a `stable` state.
+Run the `share-mount-target-delete` command and specify the file share ID and mount target ID. To delete a mount target, the file share must be in a `stable` state.
 
 ```sh
-ibmcloud is share-target-delete <SHARE_ID> <TARGET_ID>
+ibmcloud is share-mount-target-delete <SHARE_ID> <MOUNT_TARGET_ID>
 ```
 {: pre}
 
@@ -500,7 +511,7 @@ Make a `PATCH /shares/$share_id` call to rename a specific file share. For examp
 
 ```curl
 curl -X PATCH \
-"$vpc_api_endpoint/v1/shares/$share_id?version=2023-01-06&generation=2" \
+"$vpc_api_endpoint/v1/shares/$share_id?version=2023-03-30&generation=2" \
   -H "Authorization: Bearer ${API_TOKEN}" \
   -d '{
     "name": "share-renamed1"
@@ -512,7 +523,7 @@ A successful response looks like the following example.
 
 ```json
 {
-  "created_at": "2023-01-15T23:31:59Z",
+  "created_at": "2023-03-30T23:31:59Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "$vpc_api_endpoint/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8",
@@ -545,11 +556,11 @@ A successful response looks like the following example.
 ### Add mount target to a file share with the API
 {: #add-mount-target-api}
 
-Make a `POST /shares/{share_ID}/targets` call to create a mount target for an existing file share. You must specify a VPC in the request. For example:
+Make a `POST /shares/{share_ID}/mount_targets` call to create a mount target for an existing file share.
 
 ```curl
 curl -X POST \
-"$rias_endpoint/v1/shares/$share_id/mount_targets?version=2023-01-06&generation=2\
+"$rias_endpoint/v1/shares/$share_id/mount_targets?version=2023-05-30&generation=2\
 -H "Authorization: $iam_token" \
 -H 'Content-Type: application/json' \
 -d '{
@@ -565,7 +576,7 @@ A successful response looks like the following example.
 
 ```json
 {
-  "created_at": "2023-01-15T23:31:59Z",
+  "created_at": "2023-05-30T23:31:59Z",
   "href": "$vpc_api_endpoint/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8/mount_targets/9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "id": "9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "lifecycle_state": "pending",
@@ -586,11 +597,11 @@ A successful response looks like the following example.
 ### Rename a mount target of a file share with the API
 {: #rename-mount-target-api}
 
-Make a `PATCH /shares/$share_id/targets/$target_id` call to rename a mount target of a file share. For example:
+Make a `PATCH /shares/$share_id/mount_targets/$target_id` call to rename a mount target of a file share. For example:
 
 ```curl
 curl -X PATCH \
-"$vpc_api_endpoint/v1/shares/$share_id/targets/$target_id?version=2023-01-06&generation=2" \
+"$vpc_api_endpoint/v1/shares/$share_id/mount_targets/$target_id?version=2023-05-30&generation=2" \
   -H "Authorization: Bearer ${API_TOKEN}" \
   -d '{
     "name": "target-renamed1"
@@ -602,7 +613,7 @@ A successful response looks like the following example.
 
 ```json
 {
-  "created_at": "2023-01-15T23:31:59Z",
+  "created_at": "2023-05-30T23:31:59Z",
   "href": "$vpc_api_endpoint/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8/mount_targets/9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "id": "9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "lifecycle_state": "stable",
@@ -626,7 +637,7 @@ A successful response looks like the following example.
 Make a `PATCH /shares/{share_ID}` call and specify the profile name in the `profile` property. For example, to change the profile to a `dp2` profile, make a call like this:
 
 ```curl
-curl -X PATCH "$rias_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?version=2023-03-24&generation=2" \
+curl -X PATCH "$rias_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?version=2023-05-30&generation=2" \
 -H "Authorization: $iam_token" \
 -d '{
     "profile": {
@@ -647,33 +658,32 @@ If the file share is configured for replication, there are additional steps. For
 #### Delete mount target of a file share with the API
 {: #delete-mount-target-api}
 
-Make a `DELETE /shares/{share_ID}/targets/{target_id}` call to delete a mount target of a file share. The file share must be in a `stable` state.
+Make a `DELETE /shares/{share_ID}/mount_targets/{target_id}` call to delete a mount target of a file share. The file share must be in a `stable` state.
 
 For example:
 
 ```curl
 curl -X DELETE \
-"$vpc_api_endpoint/v1/shares/$share_id/targets/$target_id?version=2023-01-06&generation=2" \
+"$vpc_api_endpoint/v1/shares/$share_id/mount_targets/$target_id?version=2023-05-30&generation=2" \
   -H "Authorization: Bearer ${API_TOKEN}"
 ```
 {: pre}
 
-A successful response has a confirmation of acceptance for deletion and response that contains the target information. Status of mount target ia updated to _pending_deletion_.
-
-Example:
+A successful response has a confirmation of acceptance for deletion and response that contains the target information. Status of mount target shows _deleting_ while the deletion is underway.
 
 ```json
 {
-  "created_at": "2023-01-15T23:31:59Z",
+  "created_at": "2023-05-30T01:59:46.000Z",
   "href": "$vpc_api_endpoint/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8/mount_targets/9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "id": "9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
-  "lifecycle_state": "pending_deletion",
+  "lifecycle_reasons": [],
+  "lifecycle_state": "deleting",
   "mount_path": "domain.com:/vol_xyz_2891fd0a_63aa_4deb_9ed5_1159e37cb5aa",
   "name": "target-name1",
   "resource_type": "share_target",
   "vpc": {
     "crn": "crn:[...]",
-    "href": "$vpc_api_endpoint/v1/vpcs8c95b3c1-fe3c-45c-97a6-e43d14088287",
+    "href": "$vpc_api_endpoint/v1/vpcs/8c95b3c1-fe3c-45c-97a6-e43d14088287",
     "id": "82a7b841-9586-43b4-85dc-c0ab5e8b1c7a",
     "name": "vpc-name1",
     "resource_type": "vpc"
@@ -695,7 +705,7 @@ Example:
 
 ```curl
 curl -X DELETE \
-"$vpc_api_endpoint/v1/shares/$share_id?version=05-03-15&generation=2" \
+"$vpc_api_endpoint/v1/shares/$share_id?version=2023-05-30&generation=2" \
   -H "Authorization: Bearer ${API_TOKEN}"
 ```
 {: codeblock}
@@ -706,7 +716,7 @@ Example:
 
 ```json
 {
-  "created_at": "2023-01-15T23:31:59Z",
+  "created_at": "2023-05-30T23:31:59Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "$vpc_api_endpoint/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8",

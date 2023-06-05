@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-04-11"
+lastupdated: "2023-05-30"
 
 keywords: creating bare metal servers
 subcollection: vpc
@@ -23,9 +23,11 @@ Use the following information to create a bare metal server on your {{site.data.
 
 Use the following steps to create a bare metal server by using the {{site.data.keyword.cloud}} console. You can also check out the following [video](https://mediacenter.ibm.com/media/t/1_j2pdfua6){: external} to learn more about creating a bare metal server.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Bare metal servers**
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Bare metal servers**.
 
 1. Click **Create** and enter the information that is in Table 1.
+
+1. For Advanced options, you can choose to complete additional server configurations. See Table 2 for more information. 
 
 1. Review the configuration **Summary** and click **Create bare metal server**.
 
@@ -36,13 +38,20 @@ Use the following steps to create a bare metal server by using the {{site.data.k
 | Name | A name is required for your bare metal server. |
 | Resource group | Select a resource group for the server. |
 | Tags | You can assign labels to your server so that you can easily filter resources in your resource list. |
+| Access management tags | Access management tags help you apply flexible access policies on specific resources. |
 | Operating system | Select the operating system and version from an image.  \n - For x86 architecture, `ibm-esxi-7-amd64-1` installs a licensed ESXi 7.x hypervisor. `ibm-esxi-7-byol-amd64-1` installs bring-your-own-license ESXi 7.x and control the licensing for your bare metal server.  \n - For s390x architecture, `sles-15-sp3-metal-s390x` installs a licensed SUSE Linux Enterprise Server 15 SP3 (s390x). `red-8-metal-s390x` installs Red Hat Enterprise Linux 8.x - Minimal Install (s390x) for your bare metal server. |
 | Profile | Select from popular profiles or from all available vCPU and RAM combinations. The profile families are Balanced, Compute, and Memory. For more information, see [Bare metal servers profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile) or [s390x bare metal server profiles](/docs/vpc?topic=vpc-s390x-bare-metal-servers-profile). |
 | SSH key | Select an existing public SSH key or click **New SSH key** to add a new one. You must specify at least one SSH key.  \n - For x86 architecture, the SSH key is used to automatically generate a password that is required for accessing VMware&reg; ESXi Direct Console User Interface (DCUI) and the ESXi web client.  \n - For s390x architecture, SSH keys are used to securely connect to the server after it's running. |
-| User data | Paste your user data to the **User data (optional)** field or click **Import user data** to upload from your user data. For example, you can enable SSH by adding the following script to the **User data (optional)** field. For more information about user data, see [User data](/docs/vpc?topic=vpc-user-data).|
 | Virtual private cloud | Specify the VPC where you want to create your server. You can use the default VPC, another existing VPC, or you can create a new VPC. |
 | Network interfaces | By default the bare metal server is created with a single primary network interface. You can click the pencil icon to edit the details of the network interface. For example, the subnet or security group that's associated with the interface. To include extra secondary network interfaces, click **New interface**.  \n - For x86 architecture, you can create and assign up to eight PCI network interfaces and up to 20 PCI + VLAN network interfaces for each server. For more information about advanced networking configurations, see [Managing network interfaces for a bare metal server](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers).  \n - For s390x architecture, you can attach up to two network interfaces based on the profile that you choose. For more information, see [Managing network interfaces for a bare metal server](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers). |
 {: caption="Table 1. Bare metal server provisioning selections" caption-side="bottom"}
+
+| Advanced option | Value |
+|---|---|
+| User data | Paste your user data to the **User data (optional)** field or click **Import user data** to upload from your user data. For example, you can enable SSH by adding the following script to the **User data (optional)** field. For more information about user data, see [User data](/docs/vpc?topic=vpc-user-data).|
+| Trusted Platform Module (TPM) | Click the toggle to enable Trusted Platform Module capabilities. Then select the mode that you want to use. For more information, see [Secure boot with Trusted Platform Module (TPM)](/docs/vpc?topic=vpc-secure-boot-tpm&interface=ui). |
+| Secure boot | Click the toggle to enable secure boot. For more information, see [Secure boot with Trusted Platform Module (TPM)](/docs/vpc?topic=vpc-secure-boot-tpm&interface=ui). |
+{: caption="Table 2. Bare metal server advanced options" caption-side="bottom"}
 
    s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the Washington DC (us-east), London (eu-gb), Tokyo (jp-tok), Toronto (ca-tor), and São Paulo (br-sao) regions.
    {: preview}
@@ -370,7 +379,7 @@ You can use the CLI to create a bare metal server. Use the following steps to cr
 1. Make sure that you set up your [CLI environment](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 1. Make sure that you create a VPC and a subnet before you create a bare metal server.
 
-For more information, see [Using the CLI to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
+For more information, see [Using the CLI to create VPC resources](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli#creating-a-vpc-using-cli).
 
 ### Gathering information to create a bare metal server
 {: #bare-metal-server-cli-gather-info}

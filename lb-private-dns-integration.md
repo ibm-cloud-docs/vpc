@@ -23,6 +23,9 @@ subcollection: vpc
 Do not remove or modify the DNS records created by the load balancer service. Doing so can result in your private DNS and load balancer configurations becoming out of sync, which can cause data path issues.
 {: attention}
 
+For information on linking your own private DNS record name to a load balancer, refer to the solution tutorial [Team based privacy using IAM, VPC, Transit Gateway and DNS](/docs/vpc?topic=vpc-vpc-tg-dns-iam&interface=ui).
+{: tip}
+
 ## Before you begin
 {: #prerequisite-integration-with-dns-service}
 

@@ -77,7 +77,7 @@ The application load balancer can also be configured to span multiple zones. The
 
 A client makes a request by using the FQDN that is registered to the load balancer instance. A DNS server handles the request and distributes the traffic in a round robin fashion to the back-end servers (server instances hosting the application). Eventually the back-end server responds, and the response flows back through the load balancer, then back to the client.
 
-![ALB traffic flow](images/alb-datapath.png){: caption="Figure 1. Application load balancer traffic flow" caption-side="bottom}
+![ALB traffic flow](images/alb-datapath.svg){: caption="Figure 1. Application load balancer traffic flow" caption-side="bottom}
 
 ## Network load balancer data flow
 {: #nlb-data-flow}

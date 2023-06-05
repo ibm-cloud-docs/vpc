@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-08-06"
+  years: 2020, 2023
+lastupdated: "2023-05-11"
 
 keywords: flow logs, getting started
 
@@ -37,9 +37,6 @@ Flow logs can help with a number of tasks, including:
 * Built-in fault tolerance
 * Pricing is metered per GB of metadata that is collected per flow log target
 
-   See [Pricing for IBM Cloud Flow Logs on VPC](https://www.ibm.com/cloud/vpc/pricing#product-faq-section){: external} for details.
-   {: note}
-
 ## Configuring flow log collectors
 {: #configuring-fl-collectors}
 
@@ -71,7 +68,7 @@ Each flow log target can have a single flow log collector, which can lead to ove
 If an overlap exists, the most targeted flow log collector takes precedence. This precedence is important because each flow log collector might log to a different {{site.data.keyword.cos_short}} bucket, and where flow log data is stored, can change over the lifetime of a virtual server instance.
 
 ## Getting started
-{: #fl-getting-started}  
+{: #fl-getting-started}
 
 To get started using flow log collectors, follow these steps:
 
@@ -106,13 +103,13 @@ The following diagram shows possible ways that you can configure flow log collec
 ### Use case 3: Troubleshooting security groups and network ACLs
 {: #troubleshooting-perf-problems-example}
 
-Similar to use case 2, this use case illustrates how to set the granularity of flow log collectors for different target scopes. It also goes one step further to depict how flow logs can help you troubleshoot by using security groups and network ACLs (NACLs).  
+Similar to use case 2, this use case illustrates how to set the granularity of flow log collectors for different target scopes. It also goes one step further to depict how flow logs can help you troubleshoot by using security groups and network ACLs (NACLs).
 
 Scenario:
 
-1. NACL 2 on Subnet 3 is preventing you from running a web server there. Notice that this network ACL allows ingress, but denies egress.  
+1. NACL 2 on Subnet 3 is preventing you from running a web server there. Notice that this network ACL allows ingress, but denies egress.
 2. A virtual server instance on Subnet 2 (NACL 1 allows ingress and egress) tries to query the web server that you are running on Subnet 3.
-3. The query gets through and you see that the traffic is accepted on the ingress path to Subnet 3 into virtual server instance 31.  
+3. The query gets through and you see that the traffic is accepted on the ingress path to Subnet 3 into virtual server instance 31.
 4. When virtual server instance 31 receives the request, it generates a reply and tries to send it. Unfortunately, the response cannot be returned and your connection hangs on Subnet 2 until it times out.
 5. Flow logs show that the request was sent and that it was accepted on virtual server instance 31. Flow logs show that the response traffic was rejected.
 
@@ -133,7 +130,7 @@ These links provide additional information about {{site.data.keyword.cloud_notm}
 * [Flow logs CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#flow-logs-cli-ref)
 * [Flow logs API reference](/apidocs/vpc#list-flow-log-collectors)
 * [FAQs for flow log collectors](/docs/vpc?topic=vpc-fl-faq)
-* [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-flow-logs) 
+* [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-flow-logs)
 * [Blog: Time Series Analytics for IBM Virtual Private Cloud (VPC) Flows Using Grafana](https://www.ibm.com/cloud/blog/time-series-analytics-for-ibm-virtual-private-cloud-flows-using-grafana){: external}
 * [Blog: Use IBM Log Analysis to Analyze VPC Network Traffic from IBM Cloud Flow Logs for VPC](https://www.ibm.com/cloud/blog/use-ibm-log-analysis-with-logdna-to-analyze-vpc-network-traffic-from-ibm-cloud-flow-logs-for-vpc){: external}
-* [Blog: Indexing and Searching VPC Flow Logs in IBM Cloud Databases for Elasticsearch](https://www.ibm.com/cloud/blog/indexing-and-searching-vpc-flow-logs-in-ibm-cloud-databases-for-elasticsearch){: external} 
+* [Blog: Indexing and Searching VPC Flow Logs in IBM Cloud Databases for Elasticsearch](https://www.ibm.com/cloud/blog/indexing-and-searching-vpc-flow-logs-in-ibm-cloud-databases-for-elasticsearch){: external}

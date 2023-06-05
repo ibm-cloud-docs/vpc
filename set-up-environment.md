@@ -222,4 +222,4 @@ If you run into unexpected results, add the `--verbose` (debug) flag after the `
     ```
     {: pre}
 
-To learn how to create resources by using the API, see [Creating VPC resources with CLI and API](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=api).
+To learn how to create resources by using the API, see [Creating VPC resources with CLI and API](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli).
