@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-11"
+lastupdated: "2023-06-06"
 
 keywords: virtual private endpoints, endpoint gateway, VPE
 subcollection: vpc
@@ -26,6 +26,7 @@ with your account.
 * Cloud Object Storage
 * Code Engine ([Instructions](/docs/codeengine?topic=codeengine-vpe))
 * {{site.data.keyword.registryshort_notm}} ([Instructions](/docs/Registry?topic=Registry-registry_vpe))
+* Context-based restrictions ([Endpoint URLs](/apidocs/context-based-restrictions#endpoint-urls))
 * Databases ([Instructions](/docs/cloud-databases?topic=cloud-databases-vpes))
 * Direct Link ([Instructions](/docs/dl?topic=dl-vpe-connection))
 * DNS Services ([Instructions](/docs/dns-svcs?topic=dns-svcs-vpe-for-dns-svcs#vpe-for-dns-svcs))
