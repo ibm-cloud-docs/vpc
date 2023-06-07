@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-06-01"
+lastupdated: "2023-06-08"
 
 keywords:
 
@@ -29,6 +29,16 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## June 2023
 {: #vpc-jun23}
+
+### 08 June 2023
+{: #vpc-jun0823}
+{: release-note}
+
+New stock images for bare metal servers
+:    The following stock images are now available for bare metal servers:
+    * CentOS 7.x is now supported as an image when you provision a bare metal server.
+    * CentOS Stream (8.x and 9.x) is now supported as an image when you provision a bare metal server.
+      For more information, see [Bare metal server images](/docs/vpc?topic=vpc-bare-metal-image).
 
 ### 01 June 2023
 {: #vpc-jun0123}
