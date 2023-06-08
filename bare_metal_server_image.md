@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-05-31"
+lastupdated: "2023-06-08"
 
 subcollection: vpc
 
@@ -23,6 +23,8 @@ The following operating systems are available as images when you create a bare m
 
 | Image | Architecture |
 |---|---|
+| CentOS 7.x | x86-64 |
+| CentOS Stream 8.x, 9.x | x86-64 |
 | [Custom image](#bare-metal-custom-images) | x86-64 |
 | Debian 11 | x86-64 |
 | Microsoft Windows 2016 Full standard, 2019 Full standard, 2022 Full standard | x86-64 |
