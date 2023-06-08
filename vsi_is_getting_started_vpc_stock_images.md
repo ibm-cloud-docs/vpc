@@ -3,7 +3,7 @@
 copyright:
   years: 2022, 2023
 
-lastupdated: "2023-05-26"
+lastupdated: "2023-06-08"
 
 keywords:
 
@@ -24,7 +24,7 @@ In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Menu 
 There are 3 different types of images for VPC.
 * [Custom images](/docs/vpc?topic=vpc-planning-custom-images) (includes [Image from volume](/docs/vpc?topic=vpc-image-from-volume-vpc))
 * Stock images
-* [Catalog images](/docs/vpc?topic=vpc-images-on-vpc-catalog)
+* [Catalog images](/docs/vpc?topic=vpc-getting-started-images-on-vpc-catalog)
 
 ## Images on VPC - Stock images
 {: #images-on-vpc-stock-images}
