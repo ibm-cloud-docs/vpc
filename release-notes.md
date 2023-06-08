@@ -37,7 +37,7 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 New stock images for bare metal servers
 :    The following stock images are now available for bare metal servers:
     * CentOS 7.x is now supported as an image when you provision a bare metal server.
-    * CentOS Stream (8.x and 9.x) is now supported as an image when you provision a bare metal server.
+    * CentOS Stream 9.x is now supported as an image when you provision a bare metal server.
       For more information, see [Bare metal server images](/docs/vpc?topic=vpc-bare-metal-image).
 
 ### 01 June 2023
