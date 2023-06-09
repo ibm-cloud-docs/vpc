@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-11-08"
+  years: 2022, 2023
+lastupdated: "2023-06-09"
 
 keywords: VPC File Storage, file for VPC, NSF, replica,
 
@@ -78,7 +78,7 @@ Make a `DELETE /shares/{replica_id}/source` request to remove the replication re
 
 ```curl
 curl -X DELETE \
-"$vpc_api_endpoint/v1/shares/$replica_id/source?version=2022-09-06&generation=2"\
+"$vpc_api_endpoint/v1/shares/$replica_id/source?version=2022-09-06&generation=2&maturity=beta"\
 -H "Authorization: $iam_token"\
 ```
 {: pre}
@@ -127,7 +127,7 @@ You can use the API to verify that the replication succeeded, is pending, or fai
 
 ```curl
 curl -X GET \
-"$vpc_api_endpoint/v1/shares/$replica_id?version=2022-09-06&generation=2"\
+"$vpc_api_endpoint/v1/shares/$replica_id?version=2022-09-06&generation=2&maturity=beta"\
 -H "Authorization: $iam_token"
 ```
 {: pre}

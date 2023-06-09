@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-03-31"
+lastupdated: "2023-06-09"
 
 keywords:
 
@@ -137,7 +137,7 @@ This request example expands a file share with a capacity of 50 GB to 2500 GB fo
 
 ```curl
 curl -X PATCH \
- "$vpc_api_endpoint/v1/shares/$share_id?version=2023-02-06&generation=2" \
+ "$vpc_api_endpoint/v1/shares/$share_id?version=2023-02-06&generation=2&maturity=beta" \
  -H "Authorization: $iam_token" \
  -d '{
       "size": 2500
