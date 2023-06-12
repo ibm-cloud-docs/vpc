@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-09-19"
+  years: 2022, 2023
+lastupdated: "2023-05-11"
 
 keywords: image, stock image, linuxone image, hpcr, container runtime, virtual private cloud, virtual server, generation 2, gen 2, wazi aas
 
@@ -65,15 +65,14 @@ You can access details about each operating system, such as the url for the oper
 
 All IBM-provided stock, public images are named by using the following convention:
 
-```
+```sh
 ibm-<family>-<version>-<type>-<architecture>-<build>
 ```
 
 The following example shows the image naming convention.
 
-
-```
-ibm-hyper-protect-container-runtime-1-0-s390x-5
+```sh
+ibm-hyper-protect-container-runtime-1-0-s390x-10
 ```
 
 The following list explains the variables that make up the components of the image name:
@@ -122,4 +121,4 @@ Storage costs are incurred for storing custom images. This charge is separate fr
 After you choose a profile, it's time to plan for and create an instance.
 * [Planning for instances](/docs/vpc?topic=vpc-vsi_best_practices)
 * [Creating an instance by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers)
-* [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers-cli)
+* [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli)

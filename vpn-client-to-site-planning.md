@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-07-07"
+  years: 2021, 2023
+lastupdated: "2023-01-13"
 
 keywords:
 
@@ -59,9 +59,6 @@ When you create a VPN server, you can specify either high-availability or stand-
 
 ### VPN server authentication
 {: #server-authentication}
-
-As of February 2022, IBM Cloud Certificate Manager is deprecated. The strategic alternative for managing certificates in IBM Cloud is Secrets Manager. Secrets Manager is a separate product that incurs added costs separate from Client VPN for VPC billing. For more information, see [Migrating certificates from Certificate Manager](/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager).
-{: important}
 
 You must specify a VPN server certificate during provisioning. You can create a certificate using the {{site.data.keyword.cloud_notm}} Secrets Manager, or use one of your own.
 

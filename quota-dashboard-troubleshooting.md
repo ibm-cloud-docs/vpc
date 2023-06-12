@@ -2,7 +2,7 @@
 
 copyright:
   years:  2021, 2022
-lastupdated: "2022-03-10"
+lastupdated: "2022-02-15"
 
 keywords: IBM Cloud monitoring troubleshooting, quota monitoring troubleshooting
 
@@ -10,24 +10,15 @@ subcollection: cloud-infrastructure
 
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:codeblock: .codeblock}
-{:tip: .tip}
-{:download: .download}
-{:important: .important}
-{:note: .note}
+{{site.data.keyword.attribute-definition-list}}
 
 # Troubleshooting for quota dashboard
-{: quota-troubleshooting}
+{: #quota-troubleshooting}
 
-If the quota dashboard does not display metrics as expected, the following methods are used for troubleshooting. 
+If the quota dashboard does not display metrics as expected, the following methods are used for troubleshooting.
 
 ## Adjust the time range of the dashboard’s view
-{: time-range}
+{: #time-range}
 
 When an event that generates a metric is not visible on the dashboard, first check the time interval set for the dashboard. If the interval is too large, or the event is out of the interval's scope, events are not visible.
 
@@ -39,11 +30,11 @@ To adjust the time interval for the dashboard
 4. Save the values. The dashboard refreshes.
 
 ## Generating a metric
-{: generate-metric}
+{: #generate-metric}
 
 
 ### Create or delete a resource
-{: create-delete-instance}
+{: #create-delete-instance}
 
 Creating or deleting one of the following resources sends metric events for the associated quota resource name.
 
@@ -67,43 +58,41 @@ Creating or deleting one of the following resources sends metric events for the 
    - For more information, see [Creating block storage volumes](/docs/vpc?topic=vpc-creating-block-storage) and [Delete a block storage data volume](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#delete).
 
 ### Add or remove a rule
-{: change-rule}
+{: #change-rule}
 
 Adding or removing a rule for one of the following resources sends metric events for the associated quota resource name.
 
 - network-acl-rule
-   - [Working with ACLs and ACL rules](/docs/vpc?topic=vpc-using-acls#working-with-acls-and-acl-rules).
+   - For more information, see [Working with ACLs and ACL rules](/docs/vpc?topic=vpc-using-acls#working-with-acls-and-acl-rules).
 - security-group-rule
-   - [About security groups](/docs/vpc?topic=vpc-using-security-groups&interface=ui).
+   - For more information, see [About security groups](/docs/vpc?topic=vpc-using-security-groups&interface=ui).
 
 ### Create, delete, or resize an instance
-{: update-instance}
+{: #update-instance}
 
 Creating, deleting, or resizing a virtual server instance sends metric events for the following quota resource names.
 
 - instance-vcpu
 - instance-memory
-
-For more information, see:
-   - [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers) or [Creating virtual server instances by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers-cli).
-   - [Managing virtual server instances](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui).
-   - [Resizing a virtual server instance](/docs/vpc?topic=vpc-resizing-an-instance&interface=ui).
+   - For more information, see:
+      - [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers) or [Creating virtual server instances by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli).
+      - [Managing virtual server instances](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui).
+      - [Resizing a virtual server instance](/docs/vpc?topic=vpc-resizing-an-instance&interface=ui).
 
 ### Create or delete a dedicated host
-{: create-delete-dedicated-host}
+{: #create-delete-dedicated-host}
 
 Creating or deleting a dedicated host generates a metric for the 'instance-vcpu' resource.
 
 - instance-vcpu
-   For more information, see:
-   - [Creating dedicated hosts and groups](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances&interface=ui) and [Managing dedicated hosts and groups](/docs/vpc?topic=vpc-manage-dedicated-hosts-groups&interface=ui).
-   
+   - For more information, see [Creating dedicated hosts and groups](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances&interface=ui) and [Managing dedicated hosts and groups](/docs/vpc?topic=vpc-manage-dedicated-hosts-groups&interface=ui).
+
 ### Create or delete a file share
-{: create-delete-file-shares}
+{: #create-delete-file-shares}
 
 Creating or deleting a file share generates a metric for the 'share' resource.
 
 - share
-  - For more information, see:
-   - [Creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create&interface=ui).
-   - [Delete a file share](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#delete-file-share-ui)
+   - For more information, see:
+      - [Creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create&interface=ui).
+      - [Delete a file share](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#delete-file-share-ui)

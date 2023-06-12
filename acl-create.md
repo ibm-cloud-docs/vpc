@@ -1,11 +1,11 @@
 ---
 
 copyright:
-  years: 2019, 2020
+  years: 2019, 2022
 
-lastupdated: "2020-04-04"
+lastupdated: "2022-11-11"
 
-keywords:  
+keywords:
 
 subcollection: vpc
 
@@ -24,40 +24,53 @@ Each subnet can be attached to only one ACL. However, each ACL can be attached t
 
 Before you begin, ensure that you have created a VPC and subnet.
 
-## Creating a network ACL by using the UI
+## Creating a network ACL in the UI
 {: #configuring-the-acl}
 {: ui}
 
-To configure an ACL using the IBM Cloud console, follow these steps:
+To configure an ACL in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
-1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} and log in to your account.
-1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) from the upper left of the page, then click **VPC Infrastructure > Access control lists** in the Network section.
-1. Click **Create** in the upper right of the page.
-1. In the order form, complete the following information:
-   * Select a Geography and Region for your ACL. 
-   * Type a unique name for your ACL.
-   * Select a resource group. Use the default group, or select from the list (if defined for your account). Remember that you cannot change the resource group after the ACL is created.
-   * Add Tags (optional). Remember that user tags are visible account-wide. 
-   * Select a VPC. 
-   * Click **Create** to configure inbound and outbound rules that define what traffic is allowed in or out of the subnet. For each rule, specify the following information:
+1. Go to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} and log in to your account.
+
+1. Select the menu icon ![menu icon](../../icons/icon_hamburger.svg), then click **VPC Infrastructure > Access control lists** in the Network section.
+1. Click the **Create +** button.
+1. Select the **Edit location** icon ![Edit location icon](../icons/edit-tagging.svg "Edit location") and enter values for the following fields:
+
+   * **Geography** - Select a continent for your access control list.
+   * **Region** - Select a region for your access control list.
+
+1. Enter values for the following fields under details:
+
+   * **Public gateway name** - Type a unique name for your access control list.
+   * **Resource group** -  Select a resource group for your access control list. You can use the default group for this access control list, or select from the resource group list (if defined). For more information, see [Best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup).
+
+   After provisioning is complete, you cannot change the resource group.
+   {: important}
+
+   * **Tags** - Add user tags. User tags are visible account-wide. For more information, see [Working with tags](/docs/account?topic=account-tag).
+   * **Access management tags** - Add access management tags to help organize access control relationships. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
+   * **VPC** - Select a VPC. You can use the default VPC for this public gateway, or select from the list (if defined). For more information, see [Getting started with Virtual Private Cloud](/docs/vpc?topic=vpc-getting-started&interface=ui).
+
+1. Under Rules, click the **Create +** button to configure inbound and outbound rules that define what traffic is allowed in or out of the subnet. For each rule, specify the following information:
       * Select whether to allow or deny the specified traffic.
-      * Select the protocol to which the rule applies.  
+      * Select the protocol to which the rule applies.
       * For the source and destination of the rule, specify the IP range and ports for which the rule applies. For example, if you want all inbound traffic to be allowed to the IP range `192.168.0.0/24` in your subnet, specify **Any** as the source and `192.168.0.0/24` as the destination. However, if you want to allow inbound traffic only from `169.168.0.0/24` to your entire subnet, specify `169.168.0.0/24` as the source and **Any** as the destination for the rule.
-      * Specify the rule's priority. Rules with lower numbers are evaluated first and override rules with higher numbers. For example, if a rule with priority `2` allows HTTP traffic and a rule with priority `5` denies all traffic, HTTP traffic is still allowed.   
-      * Click **Create** 
-   * Select a subnet to attach to this ACL. Click **Attach** to attach additional subnets.  
+      * Specify the rule's priority. Rules with lower numbers are evaluated first and override rules with higher numbers. For example, if a rule with priority `2` allows HTTP traffic and a rule with priority `5` denies all traffic, HTTP traffic is still allowed.
+      * Click **Create**.
+      * Select a subnet to attach to this ACL. Click **Attach** to attach additional subnets.
 
       If the subnet has an existing ACL connection, the ACL is replaced by the ACL being created.
       {: note}
-1. View your Total estimated cost in the Summary menu in the lower right of the page. 
 
-## Creating a network ACL by using the CLI
-{: #cr-using-the-cli}
+1. View your Total estimated cost in the Summary menu in the lower right of the page.
+
+## Creating a network ACL from the CLI
+{: #cr-using-the-cli-acl}
 {: cli}
 
 Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 
-To create a network ACL by using the CLI, run the following command:
+To create a network ACL from the CLI, run the following command:
 {: shortdesc}
 
 ```sh
@@ -70,22 +83,22 @@ ibmcloud is network-acl-create ACL_NAME VPC \
 
 Where:
 
-* **ACL_NAME** is the name of the network ACL.
-* **VPC** is the ID of the VPC.
-* **--rules** are the rules for the ACL in JSON or JSON file.
-* **--source-acl-id** is the ID of the network ACL to copy rules from.
-* **--resource-group-id** is the ID of the resource group. This option is mutually exclusive with **--resource-group-name**.
-* **--resource-group-name** is the name of the resource group. This option is mutually exclusive with **--resource-group-id**.
-* **--output** specifies output in JSON format.
-* **-q, --quiet** suppresses verbose output.
+* `ACL_NAME` is the name of the network ACL.
+* `VPC` is the ID of the VPC.
+* `--rules` are the rules for the ACL in JSON or JSON file.
+* `--source-acl-id` is the ID of the network ACL to copy rules from.
+* `--resource-group-id` is the ID of the resource group. This option is mutually exclusive with `--resource-group-name`.
+* `--resource-group-name` is the name of the resource group. This option is mutually exclusive with `--resource-group-id`.
+* `--output` specifies output in JSON format.
+* `-q, --quiet` suppresses verbose output.
 
 For example:
 
 - `ibmcloud is network-acl-create my-acl 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479`
 - `ibmcloud is network-acl-create my-acl 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 --source-acl-id 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3`
 
-## Creating a network ACL by using the API
-{: #cr-using-the-api}
+## Creating a network ACL with the API
+{: #cr-using-the-api-acl}
 {: api}
 
 To create a network ACL by using the API, follow these steps:
@@ -99,7 +112,7 @@ To create a network ACL by using the API, follow these steps:
     ```
     {: pre}
 
-1. Create a network ACL:  
+1. Create a network ACL:
 
    ```sh
    curl -X POST -sH "Authorization:${iam_token}" \
@@ -120,9 +133,9 @@ For example, you can configure the following inbound rules:
 | Priority | Allow/Deny | Protocol | Source | Destination |
 |--------------|-----------|------|------|------|
 | 1 | Allow | TCP | Any IP, ports 80 - 80 |Any IP, any port|
-| 2 | Allow | ALL | 10.10.20.0/24, any port |Any IP, any port|
+| 2 | Allow | ALL | `10.10.20.0/24`, any port |Any IP, any port|
 | 3 | Deny| ALL | Any IP, any port |Any IP, any port|
-{: caption="Table 1. Information for configuring inbound rules" caption-side="bottom"}
+{: caption="Table 1. Information for configuring inbound rules." caption-side="bottom"}
 
 Then, configure the following outbound rules:
 
@@ -133,6 +146,6 @@ Then, configure the following outbound rules:
 | Priority | Allow/Deny | Protocol | Source | Destination |
 |--------------|-----------|------|------|------|
 | 1 | Allow | TCP | Any IP, any port |Any IP, ports 80 - 80  |
-| 2 | Allow | ALL | Any IP, any port | 10.10.20.0/24, any port |
+| 2 | Allow | ALL | Any IP, any port | `10.10.20.0/24`, any port |
 | 3 | Deny| ALL | Any IP, any port |Any IP, any port|
-{: caption="Table 2. Information for configuring outbound rules" caption-side="bottom"}
+{: caption="Table 2. Information for configuring outbound rules." caption-side="bottom"}

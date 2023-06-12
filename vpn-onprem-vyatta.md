@@ -13,7 +13,6 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # Connecting to a Vyatta peer
-
 {: #vyatta-config}
 
 You can use IBM Cloud VPN for VPC to securely connect your VPC to an on-prem network through a VPN tunnel. This topic provides guidance about how to configure your Vyatta VPN gateway to connect to VPN for VPC.

@@ -30,7 +30,7 @@ To initiate sending VPN logs to {{site.data.keyword.la_full_notm}}, you need the
    After the VPN gateway gets provisioned, note the ID and region.
    {: tip}
 
-## Sending VPN logs to {{site.data.keyword.la_full_notm}} by using the UI
+## Sending VPN logs to {{site.data.keyword.la_full_notm}} in the UI
 {: #sending-vpn-logs}
 {: ui}
 
@@ -51,9 +51,6 @@ To view the {{site.data.keyword.cloud_notm}} {{site.data.keyword.vpn_vpc_short}}
 1. Open the {{site.data.keyword.la_full_notm}} instance dashboard. 
 1. Apply the source filter for **is.vpn** to filter logs from {{site.data.keyword.vpn_vpc_short}}.
 1. Click the **Sources** filter menu.
-
-![Source filter](images/vpc-vpn-logdna-source-filter.png){: caption="Source filter" caption-side="bottom"}
-
 1. Click **Apply**.
 
 Additionally, you can enter the VPN gateway ID in the Search field to filter the logs specific to a VPN gateway.

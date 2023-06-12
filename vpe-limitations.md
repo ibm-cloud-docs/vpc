@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-06-25"
+  years: 2020, 2023
+lastupdated: "2023-06-01"
 
 keywords: VPE, virtual private endpoints, limitations, endpoint gateway
 
@@ -13,15 +13,12 @@ keywords: VPE, virtual private endpoints, limitations, endpoint gateway
 # Virtual private endpoint limitations
 {: #limitations-vpe}
 
-* The following items are not supported for {{site.data.keyword.cloud_notm}} Virtual Private Endpoints for VPC:
+* The following items are not supported for {{site.data.keyword.cloud}} Virtual Private Endpoints for VPC:
 
-   * VPE access over {{site.data.keyword.cloud}} Direct Link is not supported. VPE access from another VPC, or other environments connected via Transit Gateway, is also not supported. VPE is accessible only from within the VPC where it is created.
-
-      As a workaround, you can use a private application load balancer to access VPE from Direct Link, or other environments connected via Transit Gateway. For more information, see [Accessing private API endpoints from an on-premises network using IBM Cloud Direct Link](/docs/vpc?topic=vpc-end-to-end-private-connectivity).
-      {: note}
-      
+   * Services that are in zones and regions other than [IBM Cloud Multi-Zone Regions (MZRs)](/docs/overview?topic=overview-locations#mzr-table) 
    * {{site.data.keyword.cloud_notm}} Flow Logs for VPC
-   * Services that are in zones and regions other than [IBM Cloud Multi-Zone Regions (MZRs)](/docs/overview?topic=overview-locations#mzr-table)
+   * {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC
+   * VPE for User Datagram Protocol (UDP) services, for example, Network Time Protocol (NTP), is not accessible over {{site.data.keyword.cloud_notm}} Direct Link and {{site.data.keyword.cloud_notm}} Transit Gateway.
 
 * The following items are architectural restrictions:
 

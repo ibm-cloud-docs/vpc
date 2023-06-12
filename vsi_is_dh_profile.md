@@ -1,30 +1,15 @@
 ---
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-03-09"
+  years: 2020, 2023
+lastupdated: "2023-03-28"
 
-keywords: dedicated host profiles, balanced, compute, memory, very high memory, ultra high memory, generation 2, gen 2, OLTP, OLAP, SAP, NetWeaver, HANA, cascade lake
+keywords: dedicated host profiles, balanced, compute, memory, ultra high memory, generation 2, gen 2
 
 subcollection: vpc
 
-
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:note: .note}
-{:beta: .beta}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
-{:download: .download}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Dedicated host profiles
 {: #dh-profiles}
@@ -49,6 +34,9 @@ The following profile families are available:
 |[Ultra High Memory with instance storage](#uhm-is-dh-pr) | Best for in-memory OLTP databases, such as SAP. The Ultra High Memory profile offers the highest vCPU to memory ratios with 1 vCPU to 28 GiB of RAM, is hosted exclusively on the Intel® Xeon® Platinum Cascade Lake server, and includes instance storage for temporary swap space or cache|
 {: caption="Table 1. Dedicated host family selections" caption-side="bottom"}
 
+Profiles with AMD manufactured processors are available in the Toronto region.
+{: preview}
+
 ## Balanced
 {: #balanced-dh-pr}
 
@@ -69,14 +57,23 @@ The following Balanced profiles are available for dedicated hosts.
 {: tab-title="Intel x86-64"}
 {: tab-group="DH Balanced"}
 {: class="simple-tab-table"}
-{: summary="Dedicated Host Balanced profiles options for Intel x86-64 virtual server instances."}
+{: summary="Dedicated Host Balanced profiles options for Intel&reg; x86-64 virtual server instances."}
+
+| Dedicated host profile | vCPU | GiB RAM | 
+|---------|---------|---------|
+| bx2a-host-228x912 | 228 | 912 |
+{: caption="Table 2. AMD x86-64 balanced profile for dedicated hosts" caption-side="bottom"}
+{: #dh-balanced-amd-x86-64}
+{: tab-title="AMD x86-64"}
+{: tab-group="DH Balanced"}
+{: class="simple-tab-table"}
+{: summary="Dedicated Host Balanced profiles options for AMD x86-64 virtual server instances."}
 
 For supported instance profiles in the Balanced family, see [balanced profiles](/docs/vpc?topic=vpc-profiles#balanced). Instance profiles that are provisioned on a dedicated host in the Balanced family must include a *bx2* prefix in the instance profile name. Profiles with instance storage include *d* in the profile name, for example *bx2d*.
 
 Dedicated hosts have a network performance cap of 80 Gbps. Instances provisioned on the host share bandwidth across the
 instances.  
 {: note}
-
 
 ## Compute
 {: #compute-dh-pr}
@@ -168,7 +165,6 @@ The Ultra High Memory with instance storage profile is best for in-memory OLTP d
 The Ultra High Memory profile is hosted exclusively on the latest generation Intel® Xeon® Platinum 8280L Cascade Lake server with 112 cores that are running a base speed of 2.7 GHz and an all-core turbo frequency of 4.0 GHz. The Ultra High Memory profile is provisioned with temporary SSD-backed [Instance Storage](/docs/vpc?topic=vpc-instance-storage) at no additional charge.
 
 If you provision a dedicated host with an Ultra High Memory profile, any virtual server instances that are provisioned on the dedicated host must also be provisioned with an Ultra High Memory profile. All Ultra High Memory profiles include instance storage that is designated by the *d* in the profile name, for example *ux2d*.
-
 {: #callout-note}
 
 The following Ultra High Memory profile is available for dedicated hosts.
@@ -190,12 +186,12 @@ instances.
 {: note}
 
 ## Viewing profile configurations
-{: #popular-profiles}
+{: #dh-popular-profiles}
 
 You can view available profile configurations by using the {{site.data.keyword.cloud_notm}} console or the CLI. In the {{site.data.keyword.cloud_notm}} console, you can select from popular profile configurations that support most common use cases.
 
 ### Understanding profiles
-{: #profiles-naming-rule}
+{: #dh-profiles-naming-rule}
 
 The following example describes the individual parts that make up a dedicated host profile name, for this example, `bx2d-host-152x608`. The prefix, `bx2d` is composed of the family, architecture, generation, and specialty. Together this information comprises the profile *class*.   
 
@@ -214,6 +210,7 @@ The first character represents the profile family. Different profile families ha
 
 The second character represents the CPU architecture.
 - "x": x86_64
+
 <!-- * "z": System Z -->
 
 The third character represents the generation of VPC the profile is for.
@@ -229,7 +226,7 @@ The field after the second hyphen "-" represents the number of vCPU and the size
 For the “bx2d-host-152x608” profile, you can know from the name that it is a Balanced Instance Storage host profile with a 1:4 CPU to memory ratio (152 vCPU and 608 GB RAM). The CPU architecture is x86_64 and this profile is for second-generation hardware.
 
 ### Using the IBM Cloud console
-{: #profiles-using-console}
+{: #dh-profiles-using-console}
 {: ui}
 
 1. In the {{site.data.keyword.cloud_notm}} console, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Dedicated hosts**.
@@ -237,21 +234,22 @@ For the “bx2d-host-152x608” profile, you can know from the name that it is a
 3. You can select from available profile configurations.
 
 ### Using the CLI
-{: #profiles-using-cli}
+{: #dh-profiles-using-cli}
 {: cli}
 
 To view the list of available profiles by using the CLI, run the following command:
-```
-$ ibmcloud is dedicated-host-profiles
+```sh
+ibmcloud is dedicated-host-profiles
 ```
 {: codeblock}
 
 ## Intel Hyper-Threading Technology
+{: #intel-hyper-threading}
 
 All Intel&reg;-based servers operate with the Intel&reg; Hyper-Threading Technology enabled. Hyper-Threading Technology provies 2 vCPUs for every physical core in the box. Hyper-Threading Technology can also be disabled if needed. For more information, see [Disabling Intel Hyper-Threading Technology](/docs/vpc?topic=vpc-disabling-hyper-threading).
 
 ## Next steps
-{: nextsteps-profiles}
+{: #dh-nextsteps-profiles}
 
 After you choose a profile, it's time to create a dedicated host.
 

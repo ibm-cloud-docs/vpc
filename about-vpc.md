@@ -1,16 +1,15 @@
 ---
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-03-28"
+  years: 2017, 2023
+lastupdated: "2023-05-11"
 
-keywords: vpc, virtual private cloud, private cloud network, quick provisioning, logical isolation, security, cloud-native, workloads, BYOIP, high availability, ACL, Access control list, block storage volumes, generation 2, gen 2
+keywords: vpc, virtual private cloud, private cloud network, quick provisioning, logical isolation, security, cloud-native, workloads, BYOIP, high availability, ACL, Access control list, block storage volumes
 
 subcollection: vpc
 
 ---
 
 {{site.data.keyword.attribute-definition-list}}
-{:DomainName: data-hd-keyref="DomainName"}
 
 # Overview
 {: #about-vpc}
@@ -26,7 +25,7 @@ VPC gives your applications logical isolation from other networks, while providi
 ## Quick instance provisioning with high network performance
 {: #about-vpc-quick-instance-provisioning}
 
-You can quickly provision scalable generation 2 compute resources in your VPC by creating *virtual server instances* with the core and RAM configuration that's best for your workload. You can select from the supported stock images or custom images that were imported from {{site.data.keyword.cos_full_notm}}. All images are cloud-init enabled. You can connect to your instance without using a password by adding *SSH keys*.
+You can quickly provision scalable compute resources in your VPC by creating *virtual server instances* with the core and RAM configuration that's best for your workload. You can select from the supported stock images or custom images that were imported from {{site.data.keyword.cos_full_notm}}. All images are cloud-init enabled. You can connect to your instance without using a password by adding *SSH keys*.
 
 You can create instances with up to 80 Gbps network bandwidth per instance. Each instance can be multi-homed, that is, you can create multiple network interfaces per instance.
 
@@ -35,11 +34,10 @@ You can create instances with up to 80 Gbps network bandwidth per instance. Each
 
 You can choose to create *virtual server instances* with different operating systems on x86_64 or s390x processor architecture. For more information, see [Images](/docs/vpc?topic=vpc-about-images).
 
-
 ## Storage capabilities
 {: #about-vpc-storage-capabilities}
 
-When you create an instance, at least 100 GB block storage volume is automatically attached as a primary boot volume. To add secondary data volumes to your instance, create *block storage* volumes.
+When you create an instance, a 100 GB block storage volume is automatically attached as a primary boot volume. To add secondary data volumes to your instance, create *block storage* volumes.
 
 ## External connectivity
 {: #about-vpc-external-connectivity}
@@ -57,7 +55,7 @@ For instance-level protection, use *security groups* that act as virtual firewal
 ## High availability
 {: #about-vpc-high-availability}
 
-A *region* is the geographical location where you deploy the VPC's services, resources, and applications. Each region contains *zones*, which are logically isolated data centers with independent infrastructures. You can deploy resources in multiple zones to achieve fault tolerance and high availability.  
+A *region* is the geographical location where you deploy the VPC's services, resources, and applications. Each region contains *zones*, which are logically isolated data centers with independent infrastructures. You can deploy resources in multiple zones to achieve fault tolerance and high availability.
 
 Use load balancers to distribute your network traffic across a set of virtual server instances to improve performance and availability. You can set up a load balancer to distribute incoming application traffic across instances in a single zone or across multiple zones within a region.
 
@@ -73,7 +71,6 @@ To get started using the API and CLI, [set up your environment](/docs/vpc?topic=
 To learn how to create VPC resources, see these tutorials:
 
 * [Using the {{site.data.keyword.cloud_notm}} console to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console)
-* [Using the CLI to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-cli)
-* [Using the REST APIs to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis)
+* [Creating VPC resources with CLI and API](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli)
 
 For a list of features not yet supported in VPC, see [Limitations](/docs/vpc?topic=vpc-limitations).

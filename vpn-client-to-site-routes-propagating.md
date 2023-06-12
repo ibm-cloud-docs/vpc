@@ -24,5 +24,3 @@ Select `VPN server` in the following cases:
 1. For troubleshooting purposes, you can select or deselect `VPN server` to check routes that were added by the VPN server.
 
 When you create a routing table, make sure to select `VPN server` if you want VPN server routes propagated to it. For the default routing table, `VPN server` is selected by default.
-
-![VPN server accepts routes from](images/vpn-server-routes-propagating.png){: caption="VPN server accepts routes from" caption-side="bottom"}

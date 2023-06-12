@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021,2022
-lastupdated: "2022-10-11"
+  years: 2021, 2023
+lastupdated: "2023-04-11"
 
 keywords: s390x bare metal server storage, s390x bare metal storage, linuxone bare metal storage
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Storage overview for s390x bare metal servers
 {: #s390x-bare-metal-servers-storage}
 
-s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the Washington DC (us-east) and São Paulo (br-sao) regions. 
+s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the Washington DC (us-east), London (eu-gb), Tokyo (jp-tok), Toronto (ca-tor), and São Paulo (br-sao) regions.
 {: preview}
 
 Storage for both boot and data volumes for s390x bare metal servers are provided through Fibre Channel Protocol (FCP) that is connected to IBM FlashSystems 9200.
@@ -27,5 +27,6 @@ s390x bare metal servers don't encrypt the data at rest and data in transit for 
 {: important}
 
 The following network-attached storages aren't supported:
+
 * Block Storage for VPC
 * File Storage for VPC

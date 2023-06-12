@@ -3,7 +3,7 @@
 copyright:
   years: 2020, 2022
 
-lastupdated: "2022-01-21"
+lastupdated: "2022-12-15"
 
 keywords: troubleshooting bare metal servers, hardware issues, firmware
 
@@ -12,25 +12,7 @@ subcollection: vpc
 
 ---
 
-{:codeblock: .codeblock}
-{:important: .important}
-{:note: .note}
-{:pre: .pre}
-{:preview: .preview}
-{:screen: .screen}
-{:shortdesc: .shortdesc}
-{:tip: .tip}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
-{:external: target="_blank" .external}
-{:support: data-reuse='support'}
-{:table: .aria-labeledby="caption"}
-{:important: .important}
-{:tsSymptoms: .tsSymptoms}
-{:tsCauses: .tsCauses}
-{:tsResolve: .tsResolve}
-{:troubleshoot: data-hd-content-type='troubleshoot'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Troubleshooting Bare Metal Servers for VPC
 {: #troubleshoot_bare_metal}
@@ -64,3 +46,12 @@ When the issues are fixed, the server is handed back to you and the state return
 {: support} 
 
 Firmware for bare metal servers is managed by IBM. Manual firmware changes aren’t supported on the disk controller or disk drives without direction from IBM.
+
+## Why did my custom image fail to boot?
+{: #bare-metal-troubleshoot-custom-image-fail-boot}
+{: troubleshoot}
+{: support}
+
+If your custom image fails to boot, open the console and debug the operating system boot sequence. The following are common issues that can cause a custom image boot failure.
+* An unsigned operating system. Disable secure boot and try starting the system again.
+* UEFI boot not support. Verify that the image has an EFI disk partition with an EFI boot loader.

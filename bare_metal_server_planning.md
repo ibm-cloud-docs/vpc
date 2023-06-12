@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-10-11"
+  years: 2021, 2023
+lastupdated: "2023-04-11"
 
 keywords: planning bare metal servers
 
@@ -28,11 +28,12 @@ When you are planning to create a bare metal server on {{site.data.keyword.vpc_f
 | Subnet | ___ Determine which subnets that you want the server to connect to. |
 | Profile | - For x86 architecture, select a [profile](/docs/vpc?topic=vpc-bare-metal-servers-profile) that fits your workload. Main considerations include the number of vCPU, amount of RAM, and whether NVMe drives are needed.  \n - For s390x architecture, select a [profile](/docs/vpc?topic=vpc-s390x-bare-metal-servers-profile) that fits your workload. |
 | Naming | ___ Make sure that you use a unique name for the server. |
-| Network interfaces | ___ Determine how many network interfaces that you need.  \n - For x86 architecture, you can attach PCI and VLAN network interfaces to support the VMware networking topology. By default, each server is attached with one PCI network interface as the primary network interface. For more information about the bare metal server network, see [Networking overview for Bare Metal Servers on VPC ](/docs/vpc?topic=vpc-bare-metal-servers-network).  \n - For s390x architecture, each server is attached with one hipersocket network interface. For more information about the s390x bare metal server network, see [Networking overview for s390x bare metal servers ](/docs/vpc?topic=vpc-s390x-bare-metal-servers-network). |
+| Network interfaces | ___ Determine how many network interfaces that you need.  \n - For x86 architecture, you can attach PCI and VLAN network interfaces to support the VMware networking topology. By default, each server is attached with one PCI network interface as the primary network interface. For more information about the bare metal server network, see [Networking overview for Bare Metal Servers on VPC](/docs/vpc?topic=vpc-bare-metal-servers-network).  \n - For s390x architecture, each server is attached with one hipersocket network interface. For more information about the s390x bare metal server network, see [Networking overview for s390x bare metal servers](/docs/vpc?topic=vpc-s390x-bare-metal-servers-network). |
 {: caption="Table 1. Planning checklist to create a bare metal server" caption-side="bottom"}
-   
-   s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the Washington DC (us-east) and São Paulo (br-sao) regions. 
-   {: preview} 
+
+   s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the Washington DC (us-east), London (eu-gb), Tokyo (jp-tok), Toronto (ca-tor), and São Paulo (br-sao) regions.
+   {: preview}
+
 
 ## Next steps
 {: #next-steps-bare-metal-servers-on-vpc}

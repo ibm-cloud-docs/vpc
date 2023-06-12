@@ -2,34 +2,26 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-09-15"
+lastupdated: "2022-11-08"
 
 subcollection: vpc
 
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:download: .download}
-{:faq: data-hd-content-type='faq'}
-{:support: data-reuse='support'}
+{{site.data.keyword.attribute-definition-list}}
 
 # FAQs for the instance metadata service
 {: #faqs-for-rmds}
 
-The following questions often arise about the VPC Instance Metadata service. If you have other questions you'd like to see answered here, provide feedback by using the **Open Issue** or **Edit Topic** links.
+The following questions often arise about the VPC Instance Metadata service. If you have other questions you'd like to see answered here, provide feedback by using the **Open doc issue** or **Edit topic** links.
 {: shortdesc}
 
 ## What is the instance metadata service?
 {: #faq-rmds-1}
 {: faq}
 
-The instance metadata service is free service that provides a REST API you invoke within an instance to get information about that instance. Access to the API is unavailable from outside the instance. Before you can access the metadata, the service lets you generate an instance identity access token, for accessing the metadata service. You can optionally get an IAM token from this token to access all IAM-enabled services. 
+The instance metadata service is free service that provides a REST API you invoke within an instance to get information about that instance. Access to the API is unavailable from outside the instance. Before you can access the metadata, the service lets you generate an instance identity access token, for accessing the metadata service. You can optionally get an IAM token from this token to access all IAM-enabled services.
 
 The metadata service uses well-known IP address to retrieve instance metadata such as the instance name, CRN, resource groups, user data, as well as SSH key and placement group information. Use the initialization metadata to configure and launch new instances. For more information, see [About Instance Metadata for VPC](/docs/vpc?topic=vpc-imd-about).
 
@@ -59,11 +51,11 @@ For this release, for instances created with metadata services disabled at time 
 
 The metadata service provides information about your running virtual server instance: instance initialization data, network interface, volume attachment, public SSH key, and placement group information. For a complete list of all information provided, see [Summary of data returned by the metadata service](/docs/vpc?topic=vpc-imd-metadata-summary).
 
-## What is the instance identity token service? 
+## What is the instance identity token service?
 {: #faq-rmds-4}
 {: faq}
 
-The instance identity token service lets you generate an instance identity access token that provides a security credential for accessing the metadata. To interact with the instance identity token service, you make a REST API call to the service using a well-known, non-routable IP address. You access the token from within the instance. For more information, see [Instance identity token service](/docs/vpc?topic=vpc-imd-about#imd-vpc-access-token). 
+The instance identity token service lets you generate an instance identity access token that provides a security credential for accessing the metadata. To interact with the instance identity token service, you make a REST API call to the service using a well-known, non-routable IP address. You access the token from within the instance. For more information, see [Instance identity token service](/docs/vpc?topic=vpc-imd-about#imd-vpc-access-token).
 
 You can also generate an IAM token from the instance identity access token, and then use the IAM token to access all IAM-enabled services. For more information, see [Generate an IAM token from an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=cli#imd-token-exchange).
 
@@ -80,10 +72,9 @@ Metadata is retrieved only from the instance to which you have access. Data comm
 ## What is a compute resource identity and how does it relate to the metadata service?
 {: #faq-rdms-9}
 
-Compute resource identities assign an IBM Cloud IAM identity to an individual compute resource. Instead of having to create a service ID, generate an API key, get the application to store and validate that key, you can assign IAM identity directly to the instance and acquire access tokens. 
+Compute resource identities assign an IBM Cloud IAM identity to an individual compute resource. Instead of having to create a service ID, generate an API key, get the application to store and validate that key, you can assign IAM identity directly to the instance and acquire access tokens.
 
 ## What is a trusted profile?
-{: faq-rdms-trusted-profile}
+{: #faq-rdms-trusted-profile}
 
 A trusted profile is an IAM object created by the compute resource identity service, against which you assign access rights to enable the instance to call IAM-enabled service. You can use a trusted profile when accessing the instance metadata service. For more information, see [Using a trusted profile to call IAM-enabled services](/docs/vpc?topic=vpc-imd-trusted-profile-metadata).
-

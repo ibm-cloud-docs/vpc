@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2022
-lastupdated: "2022-10-11"
+  years: 2018, 2023
+lastupdated: "2023-03-21"
 
 
 keywords: known issues, bugs, defects
@@ -25,7 +25,7 @@ Known issues might change over time, so check back occasionally.
 **Issue:** When you create a listener for a network load balancer, you can specify a `protocol` of `tcp` or `udp`. However, each listener in the network load balancer must have a unique `port`. For network load balancer limitations, see [IBM Cloud Network Load Balancer for VPC limitations](/docs/vpc?topic=vpc-nlb-limitations).
 
 ## `resource_type` known issues
-{: resource-type-known-issues}
+{: #resource-type-known-issues}
 
 **Issue**: Currently, not all operations that return responses with embedded `VPCReference` and `SubnetReference` schemas include the documented `resource_type` sub-property.
 
@@ -53,11 +53,6 @@ The floating IP associated with a bare metal network interface is not available 
 **Workarounds:**
 - Wait for the bare metal server network interfaces to be `available` before listing the floating IPs on the interfaces.
 - [List all floating IPs](/apidocs/vpc#list-floating-ips) to view those associated with bare metal server interfaces that are not yet `available`.
-
-## Instance metadata service Activity Tracker events issues
-{: #instance-metadata-activity-tracker-event-known-issues}
-
-**Issue:** Activity Tracker events for the metadata service are undergoing changes and might not match the [events as documented](/docs/vpc?topic=vpc-at-events#events-metadata). The documented events are still useful for audit purposes but must not be used for automation.
 
 ## Network load balancers fail if port settings fall outside the supported range
 {: #nlb-port-range}
@@ -88,15 +83,6 @@ Currently, the `port_min` and `port_max` properties are supported only when rout
 Because all bare metal profiles are VMware&reg; certified, the `supported_image_flags` image property and `required_image_flags` profile property that expressed this ability during the beta period are discontinued. These properties might still be visible to API and CLI consumers, but they aren't supported and must not be used. These properties will be removed entirely in a future release.
 {: note}
 
-## Backup for VPC (beta) known issues
-{: #backup-as-a-service-known-issues}
-
-The following issues are currently present in the Cloud Console with no known workaround.
-
-**Issue:** Backup policy details show zero (0) as the number of applied resources, even though the backup is still applied to the list of volumes.
-
-**Issue:** The block storage details page might not show all the matched backup policies if the volume has more than one user tag.
-
 ## VSI monitoring known issues
 {: #vsi-monitoring-known-issues}
 
@@ -116,3 +102,22 @@ The following issues are currently present in the Cloud Console with no known wo
 {: #RCS-4957}
 
 **Issue:** If you set a [config rule](/docs/vpc?topic=vpc-manage-security-compliance&interface=ui#govern-vpc) for a virtual server instance with the `metadata_service_enabled` property set to *is_false*, the compliance policy currently has no effect.
+
+## Additional authorizations beyond those defined in the API specification
+{: #api-spec-auth-known-issue}
+
+**Issue:** Some API implementations have required authorizations that are different from the authorizations requirements that are defined in the [API specification](/apidocs/vpc/latest). The following table lists such APIs and the extra permissions that are required in addition to what is already defined in the specification. This table will be continually updated as these issues are resolved.
+
+| API | Additional access requirements | Action name|
+| ----------- | ---------------------------------- | -----------------------------------------|
+| PATCH /instances/{instance-id}  | Dedicated Host Operator, Dedicated Host Group Operator | is.dedicated-host.dedicated-host-group.operate (conditional)  \n is.dedicated-host.dedicated-host.operate (conditional) |
+| POST /instances | Subnet Editor| is.subnet.subnet.update (conditional) |
+| POST /instances/{instance-id}/actions | Instance Editor | is.instance.instance.update |
+| POST /instances/{instance-id}/volume\_attachments | Instance Editor | is.instance.instance.update |
+| DELETE /instances/{instance-id}/volume\_attachments/{vol-attach-id} | Instance Editor | is.instance.instance.update |
+| GET /network\_acls/{nacl-id} | VPC Viewer | is.vpc.vpc.read |
+| POST /network\_acls/{nacl-id}/rules | VPC Viewer | is.vpc.vpc.read |
+| GET /subnets/{subnet-id}/network\_acl | VPC Viewer | is.vpc.vpc.read |
+| PUT /subnets/{subnet-id}/network\_acl | VPC Viewer | is.vpc.vpc.read |
+| PATCH /floating\_ips/{fip-id} | Subnet Operator | is.subnet.subnet.operate |
+{: caption="Table 1. API additional authorization requirements" caption-side="bottom"}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-10-03"
+lastupdated: "2022-11-08"
 
 keywords:
 
@@ -58,8 +58,7 @@ If you want to add a floating IP address to a primary network interface to allow
 
 1. If you are adding a floating IP address to the virtual server instance for the first time, identify the primary network interface in the **Network interfaces** section of the **Instance details** page. By default, the first interface is named `eth0`. Initially associating the floating IP address with the primary network interface helps establish the data path. Later, you can associate the floating IP to a different primary network interface.
 2. Click the pencil icon to edit the primary network interface.
-3. On the **Edit network interface** page, locate the **Floating IP address** field. You can select **Reserve a new floating IP** or you can select an existing
-floating IP address.
+3. On the **Edit network interface** page, locate the **Floating IP address** field. You can select **Reserve a new floating IP** or you can select an existing floating IP address.
 4. After you make your selection, click **Save**.
 
 ### Adding a network interface
@@ -112,6 +111,7 @@ Example virtual server setup:
 | `net_1_1` | `gw_ip_1_1` | `cidr_1_1` | `ip_1_1` |
 | `net_2_0` | `gw_ip_2_0` | `cidr_2_0` | `ip_2_0` |
 | `net_2_1` | `gw_ip_2_1` | `cidr_2_1` | `ip_2_1` |
+{: caption="Table 1. Example of a virtual server instance with multiple interfaces" caption-side="bottom"}
 
 ### Adding a static route for the second interface
 {: #adding-static-route-second-interface}
@@ -120,14 +120,14 @@ This solution makes one subnet the default gateway (automatically by virtual ser
 
 * On `Virtual-server-1`:
 
-   ```
+   ```sh
    ip route add cidr_2_1 via gw_ip_1_1 dev eth1
    ```
    {: pre}
 
 * On `Virtual-server-2`:
 
-   ```
+   ```sh
    ip route add cidr_1_1 via gw_ip_2_1 dev eth1
    ```
    {: pre}
@@ -137,7 +137,7 @@ This solution makes one subnet the default gateway (automatically by virtual ser
 
 * On `Virtual-server-1`:
 
-```
+```sh
    echo 201 eth1tab >> /etc/iproute2/rt_tables
    ip route add cidr_1_1 dev eth1 proto kernel scope link src ip_1_1 table eth1tab
    ip route add default via gw_1_1 dev eth1 table eth1tab
@@ -146,7 +146,7 @@ This solution makes one subnet the default gateway (automatically by virtual ser
 
 * On `Virtual-server-2`:
 
-```
+```sh
 echo 201 eth1tab >> /etc/iproute2/rt_tables
 ip route add cidr_2_1 dev eth1 proto kernel scope link src ip_2_1 table eth1tab
 ip route add default via gw_2_1 dev eth1 table eth1tab

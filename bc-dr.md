@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-05-12"
+  years: 2022, 2023
+lastupdated: "2023-01-27"
 
 keywords: disaster recovery for VPC, failover for VPC, BC for VPC, DR for VPC, business continuity for VPC, disaster recovery for VPC
 
@@ -21,7 +21,7 @@ subcollection: vpc
 ## Responsibilities
 {: #bc-dr-responsibilities}
 
-For more information about your responsibilities when using IBM Cloud VPC, see [Understanding your responsibilities when using Virtual Private Cloud](/docs/vpc?topic=vpc-responsibilities-vpc).
+For more information about your responsibilities, see [Understanding your responsibilities when you use Virtual Private Cloud](/docs/vpc?topic=vpc-responsibilities-vpc).
 
 ## Disaster recovery strategy 
 {: #bc-dr-strategy}

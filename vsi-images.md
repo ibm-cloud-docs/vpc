@@ -1,23 +1,13 @@
 ---
 
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-09-12"
+  years: 2019, 2023
+lastupdated: "2023-03-31"
 
 subcollection: vpc
 
 ---
-
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:note: .note}
-{:important: .important}
-{:tip: .tip}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:external: target="_blank" .external}
+{{site.data.keyword.attribute-definition-list}}
 
 
 # x86 virtual server images
@@ -36,12 +26,12 @@ The following operating systems are available as stock images when you create a 
 
 | Image | Architectures |
 |---------|---------|
-| CentOS 7.x, 8.x | x86-64 |
-| Debian 9.x, 10.x, 11.x | x86-64 |
-| Red Hat Enterprise Linux 7.x, 8.x | x86-64 |
+| CentOS 7.x, 8.x, 9.x | x86-64 |
+| Debian 10.x, 11.x | x86-64 |
+| Red Hat Enterprise Linux 7.x, 8.x, 9.x | x86-64 |
 | Rocky Linux 8.5 | x86-64 |
 | SUSE Linux Enterprise Server 12.x, 15.x | x86-64 |
-| Ubuntu 18.04.x, 20.04.x, 22.04.x | x86-64 |
+| Ubuntu 20.04.x, 22.04.x | x86-64 |
 | Windows 2012, 2012 R2, 2016, 2019, 2022 | x86-64 |
 | Fedora Core OS | x86-64 |
 {: caption="Table 1. Supported x86_64 stock image operating systems" caption-side="top"}
@@ -69,13 +59,13 @@ You can access details about each operating system, such as the url for the oper
 
 All IBM-provided stock, public images are named by using the following convention:
 
-```
+```sh
 ibm-<family>-<version>-<type>-<architecture>-<build>
 ```
 
 For example,
 
-```
+```sh
 ibm-centos-7-6-minimal-amd64-2
 ```
 
@@ -87,7 +77,7 @@ The following list explains the variables that make up the components of the ima
 * The `architecture` component provides the vCPU architecture that is supported by the operating system image, such as *amd64*.
 * The `build` component is a small, non-negative integer that is incremented each time a new build of the operating system is created. For image names that are otherwise identical, the image with the highest build value is the most recent image for that operating system.
 
-You can obtain the current list of images, including stock images, by running the following command in the command-line interface: [ibmcloud is images](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#images).
+You can obtain the current list of images, including stock images, by running the following command in the command-line interface: [ibmcloud is images](/docs/vpc?topic=vpc-vpc-reference#compute-images).
 
 The image naming convention is subject to change. The list of image names is not intended to be programmatically parsed or interpreted. You can use the [GET /images](/apidocs/vpc#get-image) API to obtain metadata in a structured format.
 {: important}
@@ -115,10 +105,10 @@ For more information about custom images, see [Planning for custom images](/docs
 
 Storage costs are incurred for storing custom images. This charge is separate from charges for storing images in {{site.data.keyword.cos_full_notm}}.-->
 
- ## Next steps
+## Next steps
 {: #next-steps-images}
 
 After you choose a profile, it's time to plan for and create an instance.
 * [Planning for instances](/docs/vpc?topic=vpc-vsi_best_practices)
 * [Creating an instance by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers)
-* [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers-cli)
+* [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli)

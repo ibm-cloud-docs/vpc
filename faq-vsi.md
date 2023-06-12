@@ -1,12 +1,10 @@
 ---
 
 copyright:
-  years: 2018, 2021
-
-lastupdated: "2021-09-22"
+  years: 2018, 2023
+lastupdated: "2023-03-21"
 
 subcollection: vpc
-
 
 ---
 
@@ -24,7 +22,7 @@ Yes, a vNIC on a virtual server instance has a private IP and can be attached to
 ## Instance1 has two vNICs, called vNIC1 and vNIC2. Can these two vNICs be attached to the same subnet?
 {: #faq-vsi-1}
 {: faq}
- 
+ 
 Yes, you can attach multiple network interfaces of an instance to the same subnet.
 
 ## Can an instance be created without a subnet, such as with only a floating IP address?
@@ -44,7 +42,7 @@ No, a virtual server instance can be provisioned in only one VPC.
 {: #faq-vsi-4}
 {: faq}
 
-Yes. Initially, assigning the floating IP to the primary network interface of a server helps establish the data path. Later, you can associate the floating IP to a different network interface if you desire. Alternatively, you can manually configure routing for the interface in the guest operating system. For more information, see [Adding or editing network interfaces](/docs/vpc?topic=vpc-using-instance-vnics#editing-network-interfaces). 
+Yes. Initially, assigning the floating IP to the primary network interface of a server helps establish the data path. Later, you can associate the floating IP to a different network interface if you want. Alternatively, you can manually configure routing for the interface in the guest operating system. For more information, see [Adding or editing network interfaces](/docs/vpc?topic=vpc-using-instance-vnics#editing-network-interfaces). 
 
 ## Imagine that instance1 in a VPC has only vNIC1 and it is attached to Subnet1. Subnet1 is attached to a Public Gateway (PGW). Can a customer still assign a floating IP to instance1?
 {: #faq-vsi-6}
@@ -64,7 +62,7 @@ You can create virtual server instances for {{site.data.keyword.vpc_full}} in Da
 {: faq}
 {: support}
 
-You can migrate a virtual server instance from the classic infrastructure to a VPC. You need to create an image template, export it to IBM Cloud Object Storage, and then customize the image to meet the requirements of the VPC infrastructure. For more information, see [Migrating a virtual server from the classic infrastructure](/docs/vpc?topic=vpc-migrate-vsi-to-vpc).
+You can migrate a virtual server instance from the classic infrastructure to a VPC. You need to create an image template, export it to {{site.data.keyword.cos_full_notm}}, and then customize the image to meet the requirements of the VPC infrastructure. For more information, see [Migrating a virtual server from the classic infrastructure](/docs/vpc?topic=vpc-migrate-vsi-to-vpc).
 
 ## What virtual server families are supported in {{site.data.keyword.vpc_short}}?
 {: #faq-vsi-10}
@@ -85,7 +83,7 @@ You can issue a command to force the instance to stop. Use the {{site.data.keywo
 {: faq}
 {: support}
 
-Edit the file "`/boot/grub/menu.lst`" by changing `# groot=LABEL...` into `# groot=(hd0)`. Then, run following command, `sudo update-grub-legacy-ec2`. For more information, see [Error: groot must be grub root device on ubuntu](https://developer.ibm.com/answers/questions/462237/error-groot-must-be-grub-root-device-on-ubuntu/){: external}.
+Edit the file "`/boot/grub/menu.lst`" by changing `# groot=LABEL...` into `# groot=(hd0)`. Then, run following command, `sudo update-grub-legacy-ec2`. For more information, see [Error: groot must be grub root device on Ubuntu](https://developer.ibm.com/answers/questions/462237/error-groot-must-be-grub-root-device-on-ubuntu/){: external}.
 
 ## In what cases is my virtual server migrated to a different host?
 {: #faq-vsi-13}
@@ -93,11 +91,11 @@ Edit the file "`/boot/grub/menu.lst`" by changing `# groot=LABEL...` into `# gro
 
 In limited cases a virtual server might need to be migrated to a different host. If a migration is required, the virtual server is shut down, migrated, and then restarted. A virtual server might be migrated in the following cases:
 
-* Infrastructure [maintenance](/docs/vpc?topic=vpc-about-cloud-maintenance). You might receive an email indicating that [maintenance](/docs/vpc?topic=vpc-about-cloud-maintenance) is required on a system that is hosting your virtual server. Your virtual server might need to be migrated as part of the infrastructure [maintenance](/docs/vpc?topic=vpc-about-cloud-maintenance).
-* An unplanned host outage. The following actions apply if there is an unexpected host failure:
+* Infrastructure [maintenance](/docs/vpc?topic=vpc-about-cloud-maintenance). You might receive an email that's indicating that [maintenance](/docs/vpc?topic=vpc-about-cloud-maintenance) is required on a system that is hosting your virtual server. Your virtual server might need to be migrated as part of the infrastructure [maintenance](/docs/vpc?topic=vpc-about-cloud-maintenance).
+* An unplanned host outage. The following actions apply if an unexpected host failure occurs:
     * The virtual servers that were running on the host are stopped when the outage is detected. 
     * The virtual servers are automatically reassigned and restarted on a different compute host in the same multi-region zone. 
-    * The virtual servers that are restarted use the same boot volume, and the same data volume(s) as the original virtual server.  
+    * The virtual servers that are restarted use the same boot volume, and the same data volumes as the original virtual server.  
     * The virtual server that was restarted is assigned the same floating IP, static IP, and dynamic IP addresses on the new node.  
     * If the virtual server cannot be scheduled to run on another compute node, it is placed in a `FAILED` state.
 
@@ -111,7 +109,7 @@ Yes, you can encrypt a supported custom image with LUKS encryption and your own 
 {: #faq-vsi-15}
 {: faq}
 
-Yes, for certain versions of RedHat Enterprise Linux (RHEL) and Windows operating systems, you can bring your own license (BYOL) to the IBM Cloud VPC when you import a custom image. These images are registered and licensed by you. You maintain control over your license and incur no additional costs by using your license. For more information, see [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about).
+Yes, for certain versions of Red Hat Enterprise Linux (RHEL) and Windows operating systems, you can bring your own license (BYOL) to the IBM Cloud VPC when you import a custom image. These images are registered and licensed by you. You maintain control over your license and incur no additional costs by using your license. For more information, see [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about).
 
 ## How does IBM handle maintenance?
 {: #faq-vsi-16}
@@ -129,14 +127,15 @@ For more information, see [Understanding Cloud Maintenance Operations](/docs/vpc
 {: #faq-vsi-18}
 {: faq}
 
-When you provision a Windows virtual server instance with a stock image, disk manager might show unexpected disks. After a new Windows instance is provisioned from a stock image, a cloud-init disk and a swap disk are present. The cloud-init disk might display a size of 378 KB. The swap disk might display a size of 44 KB; the swap disk is turned off eventually. These small disks are working as designed. You should not attempt to delete or format either of these disks that are associated with your new Windows virtual server instance. 
+When you provision a Windows virtual server instance with a stock image, disk manager might show unexpected disks. After a new Windows instance is provisioned from a stock image, a cloud-init disk and a swap disk are present. The cloud-init disk might display a size of 378 KB. The swap disk might display a size of 44 KB; the swap disk is turned off eventually. These small disks are working as designed. You are not to attempt to delete or format either of these disks that are associated with your new Windows virtual server instance. 
 
 ## What is _image from volume_ and how does it relate to virtual server instances?
 {: #faq-vsi-19}
+{: faq}
 
-Image from volume lets you create a custom image from a boot volume attached to a virtual server instance. You then use the custom image to provision new virtual server instances. For more information, see [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc).
+You can create a custom image from a boot volume that is attached to a virtual server instance. Then, you can use the custom image to provision new virtual server instances. For more information, see [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc).
 
-## What are the virtual server instance identifier and SMBIOS system-uuid?
+## What is the virtual server instance identifier and SMBIOS system-uuid?
 {: #faq-vsi-20}
 {: faq}
 
@@ -147,16 +146,28 @@ For more information, including how to retrieve this information from within you
 ## Can I access metadata about my virtual server instances?
 {: #faq-vsi-21}
 
-Yes, if your account has been granted special approval, you can access the instance metadata service to get information about your VPC compute resources. The metadata service is a REST API that you invoke using a well-known URI to retrieve instance-specific information from the metadata server. For more information, see For more information, see [About Instance Metadata for VPC (Beta)](/docs/vpc?topic=vpc-imd-about).
+Yes, if your account is granted special approval, you can access the instance metadata service to get information about your VPC compute resources. The metadata service is a REST API that you invoke by using a well-known URI to retrieve instance-specific information from the metadata server. For more information, see For more information, see [About Instance Metadata for VPC (Beta)](/docs/vpc?topic=vpc-imd-about).
 
 ## Can I use the same operating system image for more than one account?
 {: #faq-vsi-22}
 {: faq}
 
-Yes, when you create a custom image for {{site.data.keyword.vpc_short}}, you can import those images into a private catalog for use among multiple accounts. A private catalog provides a way for you to manage access to products for multiple accounts, as long as those accounts are within the same enterprise. You must first complete all the steps to import the custom image into {{site.data.keyword.vpc_short}} before importing the image into a private catalog. For more information about private catalog considerations and limitations, see [Getting started with custom images](/docs/vpc?topic=vpc-about-custom-images).
+Yes, when you create a custom image for {{site.data.keyword.vpc_short}}, you can import those images into a private catalog for use among multiple accounts. A private catalog provides a way for you to manage access to products for multiple accounts, if those accounts are within the same enterprise. You must first complete all the steps to import the custom image into {{site.data.keyword.vpc_short}} before you can import the image into a private catalog. For more information about private catalog considerations and limitations, see [Getting started with custom images](/docs/vpc?topic=vpc-about-custom-images).
 
 ## Can I use a custom image in a private catalog with an instance group?
 {: #faq-vsi-23}
 {: faq}
 
-Yes, you can use a custom image in a private catalog with an instance group. However, you must first create a service-to-service policy to `globalcatalog-collection.instance.retrieve` before you can create the instance group. See [Using a custom image in a private catalog with an instance group](/docs/vpc?topic=vpc-private-catalog-image-instance-group&interface=ui) for more information.
+Yes, you can use a custom image in a private catalog with an instance group. However, you must first create a service-to-service policy to `globalcatalog-collection.instance.retrieve` before you can create the instance group. For more information, see [Using a custom image in a private catalog with an instance group](/docs/vpc?topic=vpc-private-catalog-image-instance-group&interface=ui).
+
+## Can I change the boot volume associated with my resource group after creating the resource group?
+{: #faq-vsi-24}
+{: faq}
+
+No. The resource group of a volume is set at resource creation and cannot be changed. This behavior is shared by all VPC resources.
+
+## Can I move my volume to another region or zone?
+{: #faq-vsi-25}
+{: faq}
+
+No, a volume is restricted to the zone it was created in. However, you can move the volume's data by creating a new snapshot from the volume, and creating a new volume from that snapshot in a different zone.

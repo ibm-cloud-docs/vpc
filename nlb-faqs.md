@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-02-24"
+lastupdated: "2023-02-23"
 
 keywords: load balancer, network, faqs
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# FAQs for {{site.data.keyword.cloud_notm}} {{site.data.keyword.nlb_full}}
+# FAQs for network load balancers
 {: #nlb-faqs}
 
 This section contains answers to some frequently asked questions about the {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB).
@@ -58,38 +58,15 @@ No. A network load balancer is not horizontally scalable. However, it comes with
 
 Make sure that the proper ACL rules are in place to allow incoming traffic for configured listener ports and traffic between a network load balancer and back-end instances should also be allowed.
 
-## Why am I receiving a `401 Unauthorized Error` code?
-{: #nlb-401-unauthorized-error}
-{: faq}
-
-If you are receiving a `401` error code for your network load balancer, check the following access policies for your user:
-* The access policy for the load balancer resource type
-* The access policy for the resource group
-
-## Why is my network load balancer in `maintenance_pending` state?
-{: #nlb-maintenance-pending}
-{: faq}
-
-An NLB enters a `maintenance_pending` state during various maintenance activities, such as:
-* Recovery activities
-* Load balancer failover
-* Upgrades to address vulnerabilities and apply security patches
-
-## Why is the back-end member health under my pool `unknown`?
-{: #back-end-member-health-unknown}
-{: faq}
-
-The pool might not associated with any listeners, or configuration changes were made to the pool or its associated listener.
-
 ## What are the default settings and allowed values for health check parameters?
 {: #what-are-the-default-settings-and-allowed-values-for-health-check-parameters}
 {: faq}
 
 The following default settings apply to network load balancer health check parameters:
 
-* **Health check interval:** Five seconds, and the range is 2 - 60 seconds
-* **Health check response timeout:** Two seconds, and the range is 1 - 59 seconds
-* **Maximum retry attempts:** Two retry attempts, and the range is 1-10 retries
+* **Health check interval:** Five seconds, and the range is 2 - 60 seconds.
+* **Health check response timeout:** Two seconds, and the range is 1 - 59 seconds.
+* **Maximum retry attempts:** Two retry attempts, and the range is 1-10 retries.
 
 The health check response timeout value must be less than the health check interval value.
 {: tip}
@@ -98,7 +75,7 @@ The health check response timeout value must be less than the health check inter
 {: #is-the-network-load-balancer-ip-address-fixed}
 {: faq}
 
-Yes. The NLB IP address is fixed.
+The IP address is fixed for both public and private network load balancers. However, route mode NLBs toggle between primary and standby appliance IPs throughput their lifetime.
 
 ## Does IBM complete quarterly ASV scans of data-plane LBaaS appliances?  
 {: #lbaas-asv}

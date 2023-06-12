@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2021
-lastupdated: "2021-08-03"
+  years: 2018, 2023
+lastupdated: "2023-01-30"
 
 keywords: application load balancer, alb, polices, rules
 
@@ -45,30 +45,30 @@ URL | The URL to which the request is redirected, if the action is set to `redir
 HTTP status code | Status code of the response returned by the application load balancer when the action is set to `redirect` or `https_redirect`. The acceptable values are: `301`, `302`, `303`, `307`, or `308`.
 Target | The back-end pool of virtual server instances to which the request is forwarded, if the action is set to `forward`.
 Listener | The HTTPS listener to which the request is redirected, if the action is set to `https_redirect`.
-URI | The relative URI to which the request is redirected, if the action is `https_redirect`. This is an optional property.
+URI | The relative URI to which the request is redirected, if the action is `https_redirect`. This property is optional.
 {: caption="Table 1. Description of policy properties" caption-side="bottom"}
 
 ## Rules
 {: #layer-7-rules}
 
-A layer 7 rule defines how a request should be matched. Both URI based routing and parameter based routing are supported. Five types of rules are supported, described in Table 2.
+A layer 7 rule defines how a request is to be matched. Both URI-based routing and parameter-based routing are supported. Five types of rules are supported, described in Table 2.
 
 Type      |  Description
 ----------| -----------------------
 `hostname` | The request matches the specified `hostname`, such as `api.my_company.com`.
 `header`    | The request matches an HTTP `header` field and value, such as `Cookie: xxxx`.
 `path`     | The request matches the `path` in the URL after the `hostname`, such as `/index.html`.
-`query`    | The request matches the `query` in the URL, for example `x=y`. The `query` string must be percent-encoded, and it is case sensitive.
-`body`     | If the request `body` of the `POST` request is form encoding. The request matches the body, for example `key=value`. It is case sensitive.
+`query`    | The request matches the `query` in the URL, for example `x=y`. The `query` string must be percent-encoded, and it is case-sensitive.
+`body`     | If the request `body` of the `POST` request is form encoding. The request matches the body, for example `key=value`. It is case-sensitive.
 {: caption="Table 2. Layer 7 rules" caption-side="bottom"}
 
 To match a request, a `condition` statement must be defined in a rule. Three conditions are supported, described in Table 3.
 
 Condition |  Type of evaluation
 ----------------|---------------------
-`contains`        |  Verify whether the value extracted based on the `type` contains the string specified in the `value`.
+`contains`        |  Verify whether the value extracted based on the `type` contains the string that is specified in the `value`.
 `equals`        |  Verify whether the value extracted based on the `type` is identical to the string specified in the `value`.
-`matches_regex`           |  Match the value extracted based on the `type` with the regular expression specified in the `value`.
+`matches_regex`           |  Match the value extracted based on the `type` with the regular expression that is specified in the `value`.
 {: caption="Table 3. Condition statements defined in a rule" caption-side="bottom"}
 
 ## Rule properties
@@ -78,7 +78,7 @@ Table 4 describes layer 7 policy rule properties.
 
 Property  | Description
 ------------- | -------------
-`type` | Specifies the type of rule. The acceptable values are `hostname`, `header`, `path`, `query` or `body`.
+`type` | Specifies the type of rule. The acceptable values are `hostname`, `header`, `path`, `query`, or `body`.
 `condition` | Specifies the condition with which a rule is evaluated. Condition can be: `contains`, `equals`, or `matches_regex`.
 `field` | Specifies the field name. This field is applicable only to the `header` `query` and `body` rule type and does not support regular expression and wildcard characters. For example, to match a cookie in the HTTP header, the field can be set to `cookie`. When the rule type is `query` and `body`, this field is optional.
 `value` | The string to be matched. Does not support wildcard characters. Supports regular expression if the `condition` is set to `matches_regex`.

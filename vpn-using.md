@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-09-20"
+lastupdated: "2022-11-20"
 
 keywords: VPN, VPN gateways, encryption, IKE, IPsec, gateway, auto-negotiation, Diffie-Hellman, dead peer detection, PFS
 
@@ -24,20 +24,22 @@ Route-based VPN is now available in addition to policy-based VPN. To get started
 ## VPN for VPC features
 {: #vpn-features}
 
-The IBM Cloud VPN for VPC service includes the following features:
+The IBM Cloud VPN for VPC service includes the following features: 
 
-* **Authentication** - IBM Cloud VPN for VPC supports a pre-shared key for Phase 1 peer authentication. Supported authentication algorithms for both phases include MD-5, SHA-1, SHA-256, SHA-384, and SHA-512.
+MD-5 and SHA-1 authentication algorithms, 2 and 5 DH groups, and the 3-DES encryption algorithm were deprecated on 20 September 2022 and are no longer supported in the UI. If you currently use these ciphers, you must [upgrade weak cipher suites on a VPN gateway](/docs/vpc?topic=vpc-upgrading-weak-ciphers&interface=ui) before end of support is announced for use with the CLI and API.
+{: deprecated}
+
+* **Authentication** - IBM Cloud VPN for VPC supports a pre-shared key for Phase 1 peer authentication. Supported authentication algorithms for both phases include SHA-256, SHA-384, and SHA-512.  
 * **Dead peer detection** - Configurable mechanism to detect availability of an IPsec peer.
-* **Diffie-Hellman (DH)** - Key exchange protocol used in Phase 1 to generate a shared secret key between VPN peers. Optionally, users can enable Perfect Forward Secrecy (PFS) and a DH Group for Phase 2 IPsec negotiation. IBM Cloud VPN for VPC supports DH Groups 2, 5, 14-24 and 31.
-* **Encryption** - IBM Cloud VPN for VPC supports 3-DES, AES-128, AES-192, and AES-256 for data encryption during both IKE Phase 1 and Phase 2.
+* **Diffie-Hellman (DH)** - Key exchange protocol used in Phase 1 to generate a shared secret key between VPN peers. Optionally, users can enable Perfect Forward Secrecy (PFS) and a DH group for Phase 2 IPsec negotiation. IBM Cloud VPN for VPC supports DH groups 14-24 and 31. 
+* **Encryption** - IBM Cloud VPN for VPC supports AES-128, AES-192, and AES-256 for data encryption during both IKE Phase 1 and Phase 2.    
 * **High availability** - IBM Cloud VPN for VPC is built on two VPN devices to provide appliance-level redundancy. A policy-based VPN operates in Active-Standby mode with a single VPN gateway IP shared between the members, while a route-based VPN offers Active-Active redundancy with two VPN gateway IPs.
 
    A static, route-based VPN deploys in Active-Active redundancy mode. Two VPN tunnels are connected with the peer VPN gateway; however, the IBM gateway always uses the tunnel with the small public IP as the primary egress path. The tunnel with the large public IP is the secondary egress path. Traffic from the IBM VPC to the on-prem network goes through the primary egress path if both tunnels are active. Traffic goes through the secondary egress path if the primary egress path is disabled. The on-prem VPN gateway must use route priority to choose the same preferred path. {: #important-notice}
    {: important}
 
-* **Internet Key Exchange (IKE)** - IKE is a part of the IPsec protocol that is used to establish VPN connections. In IKE Phase 1, VPN peers use Diffie-Hellman (DH) key exchange to create a secure, authenticated communication channel. In IKE Phase 2, the peers use the secure channel from Phase 1 to negotiate parameters for IPsec tunnels. IBM Cloud VPN for VPC supports both IKEv1 (main mode) and IKEv2. See [About policy negotiation](#policy-negotiation) for the supported combinations.
+* **Internet Key Exchange (IKE)** - IKE is a part of the IPsec protocol that is used to establish VPN connections. In IKE Phase 1, VPN peers use Diffie-Hellman (DH) key exchange to create a secure, authenticated communication channel. In IKE Phase 2, the peers use the secure channel from Phase 1 to negotiate parameters for IPsec tunnels. IBM Cloud VPN for VPC supports both IKEv1 (main mode) and IKEv2. See [About policy negotiation](/docs/vpc?topic=vpc-using-vpn#policy-negotiation) for the supported combinations.
 * **IPsec** - Protocol suite that provides secure communication between devices. IBM Cloud VPN for VPC uses UDP Encapsulation of IPsec Encapsulating Security Protocol (ESP) Packets in tunnel mode, which offers authentication and entire packet encryption.
-
 * **Modes** - IBM Cloud VPN for VPC offers static-route-based, and policy-based VPN modes. With a policy-based VPN, traffic that matches negotiated CIDR ranges passes through the VPN. For a static-route-based VPN, virtual tunnel interfaces are created and any traffic that is routed toward these logical interfaces with custom routes passes through the VPN. Both VPN options provide the same features.
 * **Perfect Forward Secrecy (PFS)** - PFS makes sure that DH-generated keys aren't used again during IPsec renegotiation. If a key is compromised, only data in transit during the protected security association's lifetime is accessible.
 
@@ -69,26 +71,6 @@ To create a VPN gateway, follow these general steps:
 This diagram illustrates an example VPN setup with multiple on-premises networks. The VPN is configured on a subnet within a user's VPC, but can be shared by instances on all subnets within the zone. The IKE and IPsec policies also can be used by one or more VPN connections.
 
 ![VPN setup example](images/vpn-setup.png){: caption="VPN setup example" caption-side="bottom"}
-
-## {{site.data.keyword.vpn_vpc_short}} use cases
-{: #vpn-use-cases}
-
-### Use case 1: VPN connection to single remote peer device of the same type that is associated with one or more peer networks
-{: #use-case-1-vpn}
-
-Both route-based and policy-based VPNs allow users to connect to a single remote peer device associated with one or more networks.
-
-This use case does not apply for connections between a policy-based VPN and a route-based VPN. For more information, see [Known limitations](/docs/vpc?topic=vpc-vpn-limitations).
-{: important}
-
-![Single peer VPN use case](images/vpn-single-peer.png){: caption="Single peer VPN use case" caption-side="bottom"}
-
-### Use case 2: VPN connections to multiple remote peer devices
-{: #use-case-2-vpn}
-
-Both policy-based and route-based VPNs allow users to connect to multiple remote peer devices associated with different VPCs/environments by using multiple VPN connections
-
-![Multiple peers VPN use case](images/vpn-multiple-peers.png){: caption="Mulitple Peers VPN use case" caption-side="bottom"}
 
 ## About policy negotiation
 {: #policy-negotiation}
@@ -141,6 +123,26 @@ By default, PFS is disabled for IBM Cloud VPN for VPC. Some vendors require PFS 
 | 3  | aes256gcm16 | Disabled | Disabled  |
 {: caption="Table 3. Combined-mode encryption options for IPsec auto-negotiation Phase 2" caption-side="bottom"}
 
+## {{site.data.keyword.vpn_vpc_short}} use cases
+{: #vpn-use-cases}
+
+### Use case 1: VPN connection to single remote peer device of the same type that is associated with one or more peer networks
+{: #use-case-1-vpn}
+
+Both route-based and policy-based VPNs allow users to connect to a single remote peer device associated with one or more networks.
+
+This use case does not apply for connections between a policy-based VPN and a route-based VPN. For more information, see [Known limitations](/docs/vpc?topic=vpc-vpn-limitations).
+{: important}
+
+![Single peer VPN use case](images/vpn-single-peer.png){: caption="Single peer VPN use case" caption-side="bottom"}
+
+### Use case 2: VPN connections to multiple remote peer devices
+{: #use-case-2-vpn}
+
+Both policy-based and route-based VPNs allow users to connect to multiple remote peer devices associated with different VPCs/environments by using multiple VPN connections
+
+![Multiple peers VPN use case](images/vpn-multiple-peers.png){: caption="Multiple Peers VPN use case" caption-side="bottom"}
+
 ## Related links
 {: #vpn-related-links}
 
@@ -152,5 +154,5 @@ These links provide additional information about IBM Cloud VPN for VPC:
 * [Required permissions for VPN resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls)
 * [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-vpns)
 * [FAQs for VPN gateways](/docs/vpc?topic=vpc-faqs-vpn)
-* [Troubleshooting VPN gateways](/docs/vpc?topic=vpc-troubleshoot-unable-to-establish-vpn-connection)
+* [Troubleshooting VPN gateways](/docs/vpc?topic=vpc-troubleshoot-gateway-unable-to-establish-vpn-connection)
 * [VPN gateway quotas](/docs/vpc?topic=vpc-quotas#vpn-quotas)

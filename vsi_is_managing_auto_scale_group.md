@@ -11,15 +11,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:table: .aria-labeledby="caption"}
+{{site.data.keyword.attribute-definition-list}}
 
 # Managing an instance group
 {: #managing-instance-group}
@@ -29,8 +21,7 @@ When you have an instance group created, you can duplicate it, delete it, or edi
 
 To manage your instance group from the Instance groups for VPC page, complete the following steps.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) >
-VPC Infrastructure > Auto scale > Instance groups**.
+1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Auto scale > Instance groups**.
 2. On the Instance groups for VPC page, click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for the instance group that you want to manage and select from the options, **Duplicate** or **Delete**. 
 3. To edit or view the details of an instance group, click the instance group that you want to edit or view to access the **Instance group details** page. 
 

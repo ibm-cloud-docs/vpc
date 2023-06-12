@@ -23,11 +23,11 @@ A flow log collector publishes data to a {{site.data.keyword.cos_full_notm}} buc
 Take immediate action to prevent further loss of data.
 {: important}
 
-The Cloud Object Storage bucket is not created, or is not accessible by the flow log collector: 
+The {{site.data.keyword.cos_short}} bucket is not created, or is not accessible by the flow log collector: 
    `is.flow-log-collector.00001E: Failed to write Flow Log file for the past 24 hours. Dropping flow log for Virtual Server <VSICRN>`
 {: tsSymptoms}
 
-The Cloud Object Storage bucket does not exist, or does not have correct permissions.
+The {{site.data.keyword.cos_short}} bucket does not exist, or does not have correct permissions.
 {: tsCauses}
 
 Before this error message was logged, you received one of the following error messages each hour for 24 hours. Follow the resolution procedure for the error message that you received.

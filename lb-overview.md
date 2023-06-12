@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2022
-lastupdated: "2022-06-15"
+  years: 2018, 2023
+lastupdated: "2023-04-20"
 
 keywords: listener, pool, round-robin, weighted, layer 7, datapath logging, http2, websocket
 
@@ -12,23 +12,18 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# About {{site.data.keyword.cloud_notm}} {{site.data.keyword.alb_full}}
-{: #load-balancers}
+# About application load balancers
+{: #load-balancers-about}
 
 Use {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) to distribute traffic among multiple server instances within the same region of your VPC.
 {: shortdesc}
 
-The following diagram illustrates the deployment architecture for the ALB.
-
-![Application load balancer for VPC](images/alb_arc.png "Application load balancer"){: caption="Application load balancer" caption-side="bottom"}
-
-In this diagram, "Client Resources" represents the resources (VPCs and subnets, for instance) that belong to the client ecosystem.
-{: note}
+If you have public and private workloads and layer 7 traffic, use an application load balancer. 
 
 ## Types of application load balancers
 {: #types-load-balancer}
 
-You can create a public or private ALB. Table 1 shows a comparison of public versus private features.
+As discussed in the [Load balancers for VPC overview](/docs/vpc?topic=vpc-nlb-vs-elb&interface=ui), you can create a public or private ALB. Table 1 shows a comparison of public versus private features.
 
 | Feature | Public load balancer | Private load balancer |
 |--------|-------|-------|
@@ -98,7 +93,7 @@ HTTPS redirect listeners redirect the traffic from an HTTP listener to an HTTPS 
 
 For instance, if a service listens on port 443 with HTTPS and a user tries to access the service on port 80 using HTTP, then the request automatically redirects to port 443 with HTTPS.
 
-If policies are present on the HTTPS redirect listener, then the policies are evaluated first. If thre are no policy matches, then the request redirects to a configured HTTPS listener.
+If policies are present on the HTTPS redirect listener, then the policies are evaluated first. If there are no policy matches, then the request redirects to a configured HTTPS listener.
 
 ### HTTPS redirect listener properties
 {: #https_redirect_listener_properties}
@@ -121,10 +116,7 @@ URI | The relative URI to which a request redirects. This is an optional propert
 * HTTP and HTTPS listeners and pools are interchangeable. 
 * You can only configure a TCP front-end listener with a TCP back-end pool.
 * You can attach up to 50 virtual server instances to a back-end pool. Traffic is sent to each instance on its specified data port. This data port does not need to be the same one as the front-end listener port.
-* "Private only" endpoints for Certificate Manager are not supported with HTTPS listeners. To configure an HTTPS listener in an ALB, you must upload your TLS certificates to a "Public and private" endpoint.
-
-Effective 31st July 2021, application load balancers will convert all HTTP request and response headers to lower case. This applies to all traffic handled by HTTP and HTTPS listeners. This is being done to provide support for HTTP2, but will be applied to older HTTP 1.x versions as well for uniformity. For most applications this will not require changes, but any application that depends on the case sensitivity of headers needs to be updated to handle them irrespective of capitalization. This is in accordance to networking standards (RFC 2616 Sec 4.2 and RFC 7230 Sec 3.2) which state that HTTP headers are case insensitive.
-{: important}
+* "Private only" endpoints for Secrets Manager are not supported with HTTPS listeners. To configure an HTTPS listener in an ALB, you must upload your TLS certificates to a "Public and private" endpoint.
 
 ## Elasticity
 {: #alb-elasticity}
@@ -140,12 +132,9 @@ When an HTTPS listener is configured with an HTTP pool, the HTTPS request is ter
 
 SSL offloading requires you to provide an SSL certificate for the application load balancer to perform SSL offloading tasks. You can manage the SSL certificates through the [{{site.data.keyword.secrets-manager_full_notm}}](/docs/secrets-manager?topic=secrets-manager-getting-started). 
 
-Application load balancer will continue to support [{{site.data.keyword.cloudcerts_full_notm}}](/docs/certificate-manager?topic=certificate-manager-getting-started) until September 30 2022. Please see the [deprecation announcement](/docs/certificate-manager?topic=certificate-manager-getting-started) for more information. In order to update the certificates hosted in {{site.data.keyword.cloudcerts_full_notm}} with ones hosted in Secrets Manager, the listener configuration must be updated with the new certificate CRN.
-{: deprecated}
-
 {{site.data.content.load-balancer-grant-service-auth}} 
 
-To prevent errors, you must establish the required authorization between your load balancer and {{site.data.keyword.secrets-manager_full_notm}}.
+To prevent errors, you must establish the required authorization between your load balancer and {{site.data.keyword.secrets-manager_full_notm}}. In addition, updating certificates in Secrets Manager does not automatically update your ALB. For your load balancer to reflect any changes in the certificate, make a small update (such as changing the health check interval or timeout value) to cause a refresh. This will update the certificate on your load balancer to match the certificate in Secrets Manager. You can then revert any changes you made back to their original values.
 {: important}
 
 Transport Layer Security (TLS) 1.2 and 1.3 are supported. However, TLS 1.3 is used by default unless you specifically configure the client side to utilize 1.2. Application load balancers honor all supported TLS 1.3 ciphers sent by the client-side request.
@@ -153,6 +142,9 @@ Transport Layer Security (TLS) 1.2 and 1.3 are supported. However, TLS 1.3 is us
 
 The following lists the supported ciphers (in order of precedence):
 
+* `TLS_AES_256_GCM_SHA384`
+* `TLS_CHACHA20_POLY1305_SHA256`
+* `TLS_AES_128_GCM_SHA256`
 * `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`
 * `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`
 * `TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256`
@@ -163,18 +155,16 @@ The following lists the supported ciphers (in order of precedence):
 ### Locating the certificate CRN 
 {: #locating-alb-crn}
 
-When configuring authentication for an application load balancer during provisioning using the UI, you can choose to specify the certificate manager and SSL certificate, or the certificate's CRN. You might want to do this if you cannot view the certificate manager in the drop-down menu, which means you don't have access to the certificate manager instance. Keep in mind that you must enter the CRN if using the API to create an ALB.
+When configuring authentication for an application load balancer during provisioning using the UI, you can choose to specify the Secrets Manager and SSL certificate, or the certificate's CRN. You might want to do this if you cannot view the Secrets Manager in the drop-down menu, which means you don't have access to the Secrets Manager instance. Keep in mind that you must enter the CRN if using the API to create an ALB.
 
-To obtain the CRN, you must have permission to access the certificate manager instance.
+To obtain the CRN, you must have permission to access the Secrets Manager instance.
 {: note}
 
 To find a certificate's CRN, follow these steps:
 
-1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > Resource list**. 
-1. Click to expand **Services and software**, then select the certificate manager that you want to find the CRN for.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu icon ![Navigation Menu icon](../icons/icon_hamburger.svg) > Resource list**. 
+1. Click to expand **Services and software**, then select the Secrets Manager that you want to find the CRN for.
 1. Select anywhere in the table row of the certificate to open the Certificate details side panel. The certificate CRN is listed. 
-
-   ![Service instance CRN](images/vpn-crn.png "Service instance CRN"){: caption="Service instance CRN" caption-side="bottom"}
 
 ## End-to-end SSL encryption
 {: #end-to-end-ssl-encryption}
@@ -213,11 +203,23 @@ With datapath logging enabled, load balancer logs are forwarded to the [{{site.d
 
 ## HTTP2 support
 {: #http2-support}
+
 Application load balancers support end-to-end HTTP2 traffic, and works with listener protocols set as either HTTPS or TCP.
 
 ## WebSocket support
 {: #websocket-support}
+
 WebSocket provides full-duplex communication channels over a single TCP connection. Application load balancers support WebSocket with every type of listener protocol (HTTP/HTTPS/TCP). 
+
+## Architecture
+{: #nlb-architecture}
+
+The following diagram illustrates the deployment architecture for the ALB.
+
+![Application load balancer for VPC](images/alb_arc.png "Application load balancer"){: caption="Application load balancer" caption-side="bottom"}
+
+In this diagram, "Client Resources" represents the resources (VPCs and subnets, for instance) that belong to the client ecosystem.
+{: note}
 
 ## Related links
 {: #permissions-related-links-alb}
@@ -229,4 +231,3 @@ WebSocket provides full-duplex communication channels over a single TCP connecti
 * [{{site.data.keyword.cloudaccesstraillong_notm}} events](/docs/vpc?topic=vpc-at-events#events-load-balancers)
 * [FAQs for application load balancers](/docs/vpc?topic=vpc-load-balancer-faqs)
 * [Quotas](/docs/vpc?topic=vpc-quotas#load-balancer-quotas)
-* [VPC SOC 3 report on security and availability](https://www.ibm.com/downloads/cas/ZVYQK9N5){: external}

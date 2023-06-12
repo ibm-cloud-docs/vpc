@@ -19,19 +19,17 @@ You can suspend and resume a flow log collector by using the UI, the CLI, or the
 After you create a flow log collector, its default state is `Active`.
 {: note}
 
-## Suspending and resuming a flow log collector by using the UI
+## Suspending and resuming a flow log collector in the UI
 {: #fl-managing-ui}
 {: ui}
 
-To suspend an `Active` flow log collector, click the overflow menu ![overflow menu](images/overflow.png) and select **Suspend**. Suspending the flow log stops the flow log from writing to the Cloud Object Storage (COS) bucket.  
+To suspend an `Active` flow log collector, click the Actions menu ![Actions menu](images/overflow.png) and select **Suspend**. 
 
-![Suspend](/images/flow-log-suspend.png){: caption="Figure 1. Suspend flow log" caption-side="bottom}
+Suspending the flow log stops the flow log from writing to the {{site.data.keyword.cos_full}} bucket.   
 
-To resume a suspended flow log, select **Resume** from the overflow menu ![overflow menu](images/overflow.png).
+To resume a suspended flow log, select **Resume** from the Actions menu ![Actions menu](images/overflow.png). 
 
-![Resume](/images/flow-log-resume.png){: caption="Figure 2. Resume flow log" caption-side="bottom}
-
-## Suspending and resuming a flow log collector by using the CLI
+## Suspending and resuming a flow log collector from the CLI
 {: #fl-managing-cli}
 {: cli}
 
@@ -50,7 +48,7 @@ Where:
 * **--active** is the intended `active` status after the update. Set to **true** to resume or **false** to suspend.
 * **--json** formats the output in JSON.
 
-## Suspending and resuming a flow log collector by using the API
+## Suspending and resuming a flow log collector with the API
 {: #fl-managing-api}
 {: api}
 

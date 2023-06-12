@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-09-23"
+  years: 2021, 2023
+lastupdated: "2023-06-08"
 
 subcollection: vpc
 
@@ -23,41 +23,22 @@ The following operating systems are available as images when you create a bare m
 
 | Image | Architecture |
 |---|---|
+| CentOS 7.x | x86-64 |
+| CentOS Stream 9.x | x86-64 |
+| [Custom image](#bare-metal-custom-images) | x86-64 |
 | Debian 11 | x86-64 |
-| Microsoft Windows 2016 Core, 2016 Full standard, 2019 Core, 2019 Full standard, 2022 Full standard | x86-64 |
-| [Red Hat Enterprise Linux](#bare-metal-images-rhel-considerations) 8.4 | x86-64 |
+| Microsoft Windows 2016 Full standard, 2019 Full standard, 2022 Full standard | x86-64 |
+| [Red Hat Enterprise Linux](#bare-metal-images-rhel-considerations) 8.4, 8.6 | x86-64 |
 | Red Hat Enterprise Linux for SAP | x86-64 |
 | SUSE Red Hat Enterprise Linux for SAP  \n  \n For more information about SAP and bare metal servers, see [SAP fast path for IBM Cloud Intel bare metal servers](/docs/sap?topic=sap-fast-path-site-map-intel-bm). | x86-64 |
-| [Ubuntu 20.04, 18.04](#bare-metal-images-ubuntu-considerations) 20.04, 18.04 | x86-64 |
+| [Ubuntu](#bare-metal-images-ubuntu-considerations) 22, 20.04 | x86-64 |
 | [VMware ESXi](#bare-metal-images-vmware-esxi-considerations) | x86-64 |
 {: caption="Table 1. Bare metal server images" caption-side="bottom"}
-
-Support for custom images is planned. 
-{: note}
-
-<!--## Custom images
-{: #bare-metal-custom-images}-->
-
-<!--You can import an image from IBM Cloud Object Storage that you can use to create a bare metal server.-->
-
-<!--### Custom image considerations
-{: #bare-metal-custom-images-requirements}-->
-
-<!--Custom images must meet the following requirements:-->
-
-<!--* Must support UEFI boot mode
-* A Pensando driver for networking
-* Support x86 architecture-->
-
-<!--Custom images have the following limitations:-->
-
-<!--* Supports only QCOW2 images
-* Encrypted images aren't supported-->
 
 ### Special considerations for Red Hat Enterprise Linux 8.4
 {: #bare-metal-images-rhel-considerations}
 
-* By default, the release lock feature for Red Hat Enterprise Linux 8.4 is disabled. To prevent the Red Hat Enterprise Linux from going beyond version 8.4 when you run an update, run the following commands from the command line:
+By default, the release lock feature for RHEL 8.4 is disabled. To prevent the RHEL from going beyond version 8.4 when you run an update, run the following commands from the command line:
 
    ```text
    # subscription-manager release --set=8.4
@@ -69,23 +50,18 @@ Support for custom images is planned.
    ```
    {: codeblock}
 
-### Special considerations for VMware ESXi images 
+### Special considerations for VMware ESXi images
 {: #bare-metal-images-vmware-esxi-considerations}
 
-You can specify how a bare metal server is licensed with VMware&reg; ESXi by either bringing your own license (_ESXi 7.x BYOL_), or you can rent a license through {{site.data.keyword.cloud}} (_ESXi 7.x_)
-
-* The _ESXi 7.x BYOL_ option provides ESXi in an evaluation mode. The evaluation period is 60 days and begins at the time of provisioning. Anytime during the 60-day evaluation period, you can convert from evaluation mode to licensed mode with your appropriate license that you provide.
+* If you want to use TPM with a ESXi image, make sure that secure boot mode is enabled.
 
 * The _ESXi 7.x_ option provides ESXi in licensed mode and is activated during the provisioning process. Billing applies for {{site.data.keyword.cloud}} rented licenses.
 
-ESXi on Bare Metal Servers for VPC is charged monthly and is calculated per CPU based on the selected profile. If you choose to rent VMware ESXi with your server, you are subject to a prorated monthly cost for the license instead of an hourly rate. Proration amount is variable based on your billing anniversary date.
-{: note}
+* ESXi on Bare Metal Servers for VPC is charged monthly and is calculated per CPU based on the selected profile. If you choose to rent VMware ESXi with your server, you are subject to a prorated monthly cost for the license instead of an hourly rate. Proration amount is variable based on your billing anniversary date.
 
 For more information about how to license ESXi, see [Licensing ESXi hosts](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-28D25806-748B-49C0-97A1-E7DE5CB335A9.html){: external}.
 
-You can view and manage your VMWare licenses [here](https://cloud.ibm.com/classic/devices/vmwarelicenses){: external}.
-
-### Special considerations for Ubuntu images 
+### Special considerations for Ubuntu images
 {: #bare-metal-images-ubuntu-considerations}
 
 Ubuntu images don't include the VMD device driver in the standard kernel package that is needed to view attached NVMe drives on the system. To obtain this driver, install the `linux-modules-extra-ibm` package and then run `modprobe vmd`.
@@ -94,9 +70,30 @@ Ubuntu images don't include the VMD device driver in the standard kernel package
 # export DEBIAN_FRONTEND=noninteractive
 # apt update
 # apt install -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" linux-modules-extra-ibm linux-modules-extra-$(uname -r)
-# modprobe vmd 
+# modprobe vmd
 ```
 {: codeblock}
+
+## Custom images
+{: #bare-metal-custom-images}
+
+You can import an image from {{site.data.keyword.cos_full_notm}} that you can use to create a bare metal server.
+
+### Custom image considerations
+{: #bare-metal-custom-images-requirements}
+
+Custom images for a bare metal server must meet the following requirements:
+
+* Support UEFI boot mode
+* A Pensando driver for networking
+* Support x86 architecture
+
+### Custom images have the following limitations
+{: #bare-metal-custom-images-limitations}
+
+Custom images for a bare metal server don't support encrypted images.
+
+For more information about custom images, see [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images).
 
 ## Next steps
 {: #bare-metal-images-next-steps}

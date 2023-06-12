@@ -1,27 +1,15 @@
 ---
 
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-07-26"
+  years: 2019, 2023
+lastupdated: "2023-04-13"
 
 keywords: view instance details, restart, stop, instance details, delete
 
 subcollection: vpc
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:tip: .tip}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:note: .note}
-{:preview: .preview} 
-{:table: .aria-labeledby="caption"}
-{:external: target="_blank" .external}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Managing virtual server instances
 {: #managing-virtual-server-instances}
@@ -46,7 +34,7 @@ To manage your instances, complete the following steps.
 | Start | Start an instance that is stopped. This action is not available if the instance status is Running. |
 | Reboot | Immediately powers off a running instance and then powers it back on again. |
 | Resize | Vertically scale virtual server instances to any supported profile size. For more information, see [Resizing a virtual server instance](/docs/vpc?topic=vpc-resizing-an-instance).
-| Delete | To delete an instance, the instance must have a powered off status. If the instance has a floating IP address, it must be unassociated or released before the instance is deleted. The delete action permanently removes an instance and its connected vNIC, boot volume, and data from your account. |
+| Delete | To delete an instance, the instance must have a powered off status. If the instance has a floating IP address, it must be unassociated or released before the instance is deleted. The delete action permanently removes an instance and its connected vNIC, boot volume, and data from your account. If auto-delete is enabled, the associated boot volume is also deleted. |
 | Host failure auto restart | Toggle on or off the host failure restart policy for an instance. For more information, see [Host failure recovery policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=api). |
 {: caption="Table 1. Actions available for virtual server instances" caption-side="top"}
 
@@ -60,18 +48,18 @@ From the *Virtual server instances* page in {{site.data.keyword.cloud_notm}} con
 {: #rename-virtual-server-instances-CLI}
 {: cli}
 
-You can rename the virtual server instance in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI).
+You can rename a virtual server instance in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI).
 
-To rename the virtual server instance by using the CLI, use the **ibmcloud is instance-update** command. Specify the new name of the instance disk in `--name`.
+To rename a virtual server instance by using the CLI, use the `ibmcloud is instance-update INSTANCE` command. Specify the new name of the instance with the `--name NEW_NAME` option.
 
-The following example renames an instance with a current ID of `72251a2e-d6c5-42b4-97b0-b5f8e8d1f479` to a new name of `my-instance`.
+The following example renames a virtual server with the name of `my-instance-name` to `my-instance-name-new`.
 
-```
-ibmcloud is instance-update 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 --name my-instance
+```sh
+ibmcloud is instance-update my-instance-name --name my-instance-name-new
 ```
 {: pre}
 
-For more information, see [ibmcloud is instance-update](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-update) in the VPC CLI reference page.
+For a full list of command options, see [ibmcloud is instance-update](/docs/vpc?topic=vpc-vpc-reference#instance-update).
 
 ## Rename a virtual server instance using the API
 {: #rename-virtual-server-instances-API}
@@ -99,7 +87,7 @@ The start action starts a virtual server instance that is in a stopped state.
 
 From the *Virtual server instances* page in {{site.data.keyword.cloud_notm}} console, click **Stop** or **Start**.
 
-_For z/OS virtual server instances only_: You must shut down all the subsystems in the z/OS system to halt the virtual server instance. For more information, see [Shutting down z/OS virtual server instances](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=vpc-shutting-down-zos-virtual-server-instances){: external}.
+*For z/OS virtual server instances only*: You must shut down all the subsystems in the z/OS system to halt the virtual server instance. For more information, see [Shutting down z/OS virtual server instances](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=vpc-shutting-down-zos-virtual-server-instances){: external}.
 {: note}
 
 ## Stop a virtual server instance using the CLI
@@ -108,20 +96,18 @@ _For z/OS virtual server instances only_: You must shut down all the subsystems 
 
 You can stop the virtual server instance in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI).
 
-To stop the virtual server instance by using the CLI, use the **ibmcloud is instance-stop** command. Specify the ID of the instance that is being stopped.
+To stop the virtual server instance by using the CLI, use the **`ibmcloud is instance-stop`** command. Specify the ID or name of the virtual server instance that you want to stop with the `INSTANCE` variable.
 
-The following example stops an instance with an ID of `INSTANCE`.
-
-```
-ibmcloud is instance-stop INSTANCE [--no-wait] [-f, --force] [--output JSON] [-q, --quiet]
+```sh
+ibmcloud is instance-stop INSTANCE
 ```
 {: pre}
 
 The stop action shuts down the guest operating system and then the virtual server instance is deprovisioned. This change frees the instance resources that were being consumed. The virtual server instance is transitioned to the Stop state. If the instance is stopped, the instance remains in the stopped state and must be started manually. Billing is [suspended](/docs/vpc?topic=vpc-suspend-billing) for some compute resources while the instance is stopped. You cannot interact with an instance if it is stopped, but volumes remain provisioned. If the instance is started, normal interaction and billing continues.
 
-The following example stops an instance without requesting confirmation. The instance has an ID of `0777_e7af506a-35d4-451d-aa9e-59330e62b77e`. The `--force` option indicates that the request for confirmation is skipped. 
+The following example stops an instance without requesting confirmation. The virtual server instance has an ID of `0777_e7af506a-35d4-451d-aa9e-59330e62b77e`. The `--force` option indicates that the request for confirmation is skipped. 
 
-```
+```sh
 ibmcloud is instance-stop 0777_e7af506a-35d4-451d-aa9e-59330e62b77e --force
 ```
 {: pre}
@@ -131,12 +117,12 @@ A Force stop action triggers a power cycle reset of the virtual server instance.
 
 If you have an instance that gets stuck in a *stopping* state, you can use the following example command with the `--force` and `--no-wait` options specified to stop the instance immediately without confirmation. The instance has an ID of `0757_5446c277-3190-48dd-ac67-5f02fab39ed5`. The `--force` option indicates that the request for confirmation is skipped. The `--no-wait` option runs the command immediately, dropping any queued actions. 
 
-```
+```sh
 ibmcloud is instance-stop 0757_5446c277-3190-48dd-ac67-5f02fab39ed5 --force --no-wait
 ```
 {: pre}
 
-For more information, see [ibmcloud is instance-stop](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-stop) on the VPC CLI reference page.
+For a full list of command options, see [ibmcloud is instance-stop](/docs/vpc?topic=vpc-vpc-reference#instance-stop).
 
 ## Start a virtual server instance using the CLI
 {: #start-virtual-server-instances-cli}
@@ -144,16 +130,14 @@ For more information, see [ibmcloud is instance-stop](/docs/vpc?topic=vpc-infras
 
 You can start a virtual server instance that is stopped in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI).
 
-To start the virtual server instance by using the CLI, use the **ibmcloud is instance-start** command. Specify the ID of the instance that is being started.
+To start the virtual server instance by using the CLI, use the **`ibmcloud is instance-start`** command. Specify the ID or name of the virtual server instance that you want to start by using the `INSTANCE` variable.
 
-The following example starts an instance with an ID of `INSTANCE`.
-
-```
-ibmcloud is instance-start INSTANCE [--output JSON] [-q, --quiet]
+```sh
+ibmcloud is instance-start INSTANCE 
 ```
 {: pre}
 
-For more information, see [ibmcloud is instance-start](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-start) on the VPC CLI reference page.
+For a full list of command options, see [ibmcloud is instance-start](/docs/vpc?topic=vpc-vpc-reference#instance-start).
 
 ## Stop a virtual server instance using the API
 {: #stop-virtual-server-instances-api}
@@ -211,21 +195,19 @@ From the *Virtual server instances* page in {{site.data.keyword.cloud_notm}} con
 
 The reboot action triggers a guest operating system reboot. The virtual server instance remains in a running state while the guest operating system is rebooting. Billing continues.
 
-A Force reboot action triggers a power cycle reset of the virtual server instance.
+A Force reboot action, by using the `--force` option, triggers a power cycle reset of the virtual server instance.
 {: note}
 
 You can reboot the virtual server instance in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI).
 
-To reboot the virutal server instance by using the CLI, use the **ibmcloud is instance-reboot** command. Specify the ID of the instance that is being rebooted.
-
-The following example reboots an instance with an ID of `INSTANCE`.
+To reboot the virtual server instance by using the CLI, use the **`ibmcloud is instance-reboot`** command. Specify the ID or name of the virtual server instance that you want to reboot by using the `INSTANCE` variable.
 
 ```sh
-ibmcloud is instance-reboot INSTANCE [--no-wait] [-f, --force] [--output JSON] [-q, --quiet]
+ibmcloud is instance-reboot INSTANCE 
 ```
 {: pre}
 
-For more information, see [ibmcloud is instance-reboot](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-reboot) on the VPC CLI reference page.
+For a full list of command options, see [ibmcloud is instance-reboot](/docs/vpc?topic=vpc-vpc-reference#instance-reboot).
 
 ## Reboot a virtual server instance using the API
 {: #reboot-virtual-server-instances-api}
@@ -275,7 +257,10 @@ For the steps to resize a virtual server instance using the CLI, see [Resizing a
 
 From the *Virtual server instances* page in {{site.data.keyword.cloud_notm}} console, click **Delete**.
 
-The delete action permanently removes an instance and its connected vNIC, and data from your account. The instance boot volume is also deleted if it was configured to be deleted when the attached instance is deleted. If the instance has one or more attached data volumes, those volumes are preserved unless the default setting is changed to auto-delete. After you confirm the delete action, the process to delete the instance and its associated vNIC, boot volume, and data begins. The delete action can take up to 30  minutes, but when the process is complete, the instance no longer appears on the virtual server instances page.
+If the instance has a floating IP address, it must be unassociated or released before the instance is deleted. The account associated with the floating IP will continue to be charged if it is not released.
+{: important}
+
+The delete action permanently removes an instance and its connected vNIC, and data from your account. The instance boot volume is also deleted if the volume auto-delete setting is configured to be deleted when the attached instance is deleted. If an existing boot volume is attached as part of provisioning a virtual server instance, the volume is preserved by default when the instance is deleted. If a boot volume created as part of provisioning a virtual server instance, the volume will be deleted by default when the instance is deleted. After you confirm the delete action, the process to delete the instance and its associated vNIC, boot volume, and data begins. The delete action can take up to 30  minutes, but when the process is complete, the instance no longer appears on the virtual server instances page.
 
 ## Delete a virtual server instance using the CLI
 {: #delete-virtual-server-instances-cli}
@@ -283,22 +268,28 @@ The delete action permanently removes an instance and its connected vNIC, and da
 
 You can delete the virtual server instance in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI).
 
-To delete the virtual server instance by using the CLI, use the **ibmcloud is instance-delete** command. Specify the ID of the instance that is being deleted.
+If the instance has a floating IP address, it must be unassociated or released before the instance is deleted. The account associated with the floating IP will continue to be charged if it is not released.
+{: important}
 
-The following example deletes 2 instances with an IDs of `INSTANCE1` and `INSTANCE2`.
+To delete the virtual server instance by using the CLI, use the **`ibmcloud is instance-delete`** command. Specify the ID or name of the virtual server instance that you want to delete by using the `INSTANCE` variable.
 
-```
-ibmcloud is instance-delete (INSTANCE1 INSTANCE2 ...) [--output JSON] [-f, --force] [-q, --quiet]
+```sh
+ibmcloud is instance-delete INSTANCE 
 ```
 {: pre}
 
-The delete action permanently removes an instance and its connected vNIC, and data from your account. The instance boot volume is also deleted if it was configured to be deleted when the attached instance is deleted. If the instance has one or more attached data volumes, those volumes are preserved unless the default setting is changed to auto-delete. After you confirm the delete action, the process to delete the instance and its associated vNIC, boot volume, and data begins. The delete action can take up to 30  minutes, but when the process is complete, the instance no longer appears on the virtual server instances page.
+For a full list of command options, see [ibmcloud is instance-delete](/docs/vpc?topic=vpc-vpc-reference#instance-delete). 
+
+The delete action permanently removes an instance and its connected vNIC, and data from your account. The instance boot volume is also deleted if the volume auto-delete setting is configured to be deleted when the attached instance is deleted. If an existing boot volume is attached as part of provisioning a virtual server instance, the volume is preserved by default when the instance is deleted. If a boot volume created as part of provisioning a virtual server instance, the volume will be deleted by default when the instance is deleted. After you confirm the delete action, the process to delete the instance and its associated vNIC, boot volume, and data begins. The delete action can take up to 30  minutes, but when the process is complete, the instance no longer appears on the virtual server instances page.
 
 ## Delete a virtual server instance using the API
 {: #delete-virtual-server-instances-api}
 {: api}
 
 You can delete the virtual server instance in your {{site.data.keyword.vpc_short}} by using the API.
+
+If the instance has a floating IP address, it must be unassociated or released before the instance is deleted. The account associated with the floating IP will continue to be charged if it is not released.
+{: important}
 
 The following example deletes an instance.
 
@@ -307,28 +298,44 @@ curl -X DELETE "$vpc_api_endpoint/v1/instances/$instance_id?version=2021-06-22&g
 ```
 {: pre}
 
-The delete action permanently removes an instance and its connected vNIC, and data from your account. The instance boot volume is also deleted if it was configured to be deleted when the attached instance is deleted. If the instance has one or more attached data volumes, those volumes are preserved unless the default setting is changed to auto-delete. After you confirm the delete action, the process to delete the instance and its associated vNIC, boot volume, and data begins. The delete action can take up to 30  minutes, but when the process is complete, the instance no longer appears on the virtual server instances page.
+The delete action permanently removes an instance and its connected vNIC, and data from your account. The instance boot volume is also deleted if the volume auto-delete setting is configured to be deleted when the attached instance is deleted. If an existing boot volume is attached as part of provisioning a virtual server instance, the volume is preserved by default when the instance is deleted. If a boot volume created as part of provisioning a virtual server instance, the volume will be deleted by default when the instance is deleted. After you confirm the delete action, the process to delete the instance and its associated vNIC, boot volume, and data begins. The delete action can take up to 30  minutes, but when the process is complete, the instance no longer appears on the virtual server instances page.
 
 For more information, see the [Delete an instance](/apidocs/vpc#delete-instance) in the Virtual Private Cloud API documentation.
+
+## Toggle the auto-deletion of boot volumes attached to an instance using the UI
+{: #auto-delete-toggle-ui}
+{: ui}
+
+By default, a boot volume created as part of provisioning a virtual server instance is deleted when the instance is deleted. If an existing boot volume is attached as part of provisioning a virtual server instance, the volume is preserved by default when the instance is deleted. You can control this by setting the auto-delete option on the Edit boot volume panel when creating an instance. For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui).
+
+## Toggle the auto-deletion of boot volumes attached to an instance using the CLI
+{: #auto-delete-toggle-cli}
+{: cli}
+
+By default, a boot volume created as part of provisioning a virtual server instance is deleted when the instance is deleted. If an existing boot volume is attached as part of provisioning a virtual server instance, the volume is preserved by default when the instance is deleted. You can control this by specifying the `auto_delete` property when creating the instance or updating the boot volume attachment. For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli).
+
+## Toggle the auto-deletion of boot volumes attached to an instance using the API
+{: #auto-delete-toggle-api}
+{: api}
+
+By default, a boot volume created as part of provisioning a virtual server instance is deleted when the instance is deleted. If an existing boot volume is attached as part of provisioning a virtual server instance, the volume is preserved by default when the instance is deleted. You can control this by specifying the `delete_volume_on_instance_delete` property when [creating the instance](/apidocs/vpc/latest#create-instance) or updating the [boot volume attachment](/apidocs/vpc/latest#update-instance-volume-attachment). For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=api).
 
 ## Viewing instance details using the UI
 {: #viewing-virtual-server-instances-ui}
 {: ui}
 
-You can interact with instances by viewing the summary of all instances on the *Virtual server instances* page, or by clicking an individual instance name to view details and make changes. From the instance details page, you can also view the associated network interface, access its subnet, and reserve or delete a floating IP address.
+You can view a summary of all instances on the *Virtual server instances* page. You can access the details page for an instance clicking an individual instance name to view details and make changes. From the instance details page, you can also view the associated network interface, access its subnet, toggle the auto-delete setting, and reserve or release a floating IP address.
 
 ## Viewing instance details using the CLI
 {: #viewing-virtual-server-instances-cli}
 {: cli}
 
-You can view the virtual server instance details in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI).
+You can view the virtual server instance details in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI). 
 
-To view the virtual server instance details by using the CLI, use the **ibmcloud is instance** command. Specify the ID of the instance that is being viewed.
+To view the virtual server instance details by using the CLI, use the **`ibmcloud is instance`** command. Specify the ID or name of the virtual server instance that you want to view by using the `INSTANCE` variable.
 
-The following example views the details of the virtual server instance with the ID `INSTANCE`.
-
-```
-ibmcloud is instance INSTANCE [--output JSON] [-q, --quiet]
+```sh
+ibmcloud is instance INSTANCE 
 ```
 {: pre}
 
@@ -358,6 +365,7 @@ To adjust the bandwidth of an instance:
 1. Navigate to a virtual service instance.
 2. Select Bandwidth allocation.
 3. On the Edit bandwidth allocation screen, adjust the value for Storage bandwidth. You can increase the bandwidth allocated for your block storage boot and attached data volumes. For information about how storage bandwidth is allocated, see [Bandwidth allocation for block storage volumes](/docs/vpc?topic=vpc-block-storage-bandwidth).
+
 After you set storage bandwidth, network bandwidth is automatically adjusted so the total bandwidth of the instance equals the displayed Total bandwidth value. The value for Network bandwidth or Storage bandwidth cannot be set less than 500 Mbps.
 
 To view the new bandwidth allocation, you must either stop and start the instance, or detach and reattach secondary volumes.
@@ -369,9 +377,10 @@ To view the new bandwidth allocation, you must either stop and start the instanc
 
 You can adjust the allocation of your instance's total bandwidth between network bandwidth and storage bandwidth using the CLI.
 
-To reallocate instance bandwidth by using the CLI, run the `instance-update {id}` command and specify the total storage bandwidth in megabits per second (Mbps) for the `total-volume-bandwidth` parameter. Use this syntax:
-```
-ibmcloud is instance-update {id} --total-volume-bandwidth VALUE
+To reallocate instance bandwidth by using the CLI, run the `instance-update` command and specify the total storage bandwidth in megabits per second (Mbps) for the `total-volume-bandwidth` parameter. Here, INSTANCE can be ID or Name of the instance. Use this syntax:
+
+```sh
+ibmcloud is instance-update INSTANCE --total-volume-bandwidth VALUE
 ```
 {: pre}
 
@@ -403,14 +412,14 @@ From within your virtual server, you can retrieve the instance identifier in one
 
 Linux
 
-```
+```sh
 dmidecode -s system-family
 ```
 {: pre}
 
 Windows
 
-```
+```sh
 Get-WmiObject Win32_ComputerSystem | Select-Object -ExpandProperty SystemFamily
 ```
 {: pre}
@@ -419,16 +428,16 @@ From within your virtual server, you can retrieve the SMBIOS system-uuid in one 
 
 Linux
 
-```
+```sh
 dmidecode -s system-uuid
 ```
 {: pre}
 
 Windows
 
+```sh
+Get-WmiObject Win32_ComputerSystemProduct | Select-Object -ExpandProperty UUID
 ```
- Get-WmiObject Win32_ComputerSystemProduct | Select-Object -ExpandProperty UUID
- ```
 {: pre}
 
 ## Viewing instance status and lifecycle_state in the API
@@ -455,10 +464,10 @@ For more information, see [Host failure recovery policies](/docs/vpc?topic=vpc-h
 {: #set-recovery-policy-cli}
 {: cli}
 
-You can update an instance in your IBM Cloud VPC with and change the availability policy on host failure by using the command-line interface (CLI). Run the ibmcloud `instance-update` command and set the `--host-failure-policy` property to `start` or `stop`. The host failure policy service is set to `restart` by default.
+You can update an instance in your IBM Cloud VPC with and change the availability policy on host failure by using the command-line interface (CLI). Run the ibmcloud `instance-update` command and set the `--host-failure-policy` property to `start` or `stop`. The host failure policy service is set to `restart` by default. Here, INSTANCE can be ID or Name of the Instance.
 
-```
-ibmcloud is instance-update {id} --total-volume-bandwidth VALUE --host-failure-policy stop
+```sh
+ibmcloud is instance-update INSTANCE --total-volume-bandwidth VALUE --host-failure-policy stop
 ```
 {: pre}
 

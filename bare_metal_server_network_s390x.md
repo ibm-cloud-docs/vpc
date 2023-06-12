@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-10-11"
+  years: 2022, 2023
+lastupdated: "2023-04-11"
 
 keywords:  network overview of s390x bare metal servers
 
@@ -15,8 +15,9 @@ subcollection: vpc
 # Networking overview for s390x bare metal servers
 {: #s390x-bare-metal-servers-network}
 
-s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the Washington DC (us-east) and São Paulo (br-sao) regions. 
+s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the Washington DC (us-east), London (eu-gb), Tokyo (jp-tok), Toronto (ca-tor), and São Paulo (br-sao) regions.
 {: preview}
+
 
 The following information is an overview of the networking features of s390x bare metal servers and how it supports VPC networking. It is recommended that you go through this information before you build an s390x bare metal server. s390x bare metal servers on VPC provide full support for VPC networking features. The network is fully software-defined, so you can configure it through the API.
 {: shortdesc}
@@ -30,7 +31,7 @@ Based on the profile that you select, the supported bandwidth can be 2 or 10 Gbp
 For more information about managing network interfaces, see [Managing network interfaces for a bare metal server](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers).
 
 ## s390x bare metal server network interfaces
-{: #bare-metal-servers-nics-intro}
+{: #bare-metal-servers-nics-intro-s390x}
 
 You can create only one type of network interface on an s390x bare metal server:
 
@@ -40,7 +41,7 @@ You can create only one type of network interface on an s390x bare metal server:
 {: caption="Table 1. Types of network interfaces for s390x bare metal servers" caption-side="bottom"}
 
 ### Characteristics of the HiperSocket interface
-{: #bare-metal-servers-interface-characteristics}
+{: #bare-metal-servers-interface-characteristics-s390x}
 
 The following information highlights characteristics of the HiperSocket interface.
 
@@ -55,10 +56,10 @@ The following information highlights characteristics of the HiperSocket interfac
 * You can attach security groups to HiperSockets interfaces to manage incoming and outgoing traffic to the network interface.
 
 ### Limitations of network interfaces on s390x bare metal servers
-{: #nic-limits}
+{: #nic-limits-s390x}
 
-Keep the following limitation in mind when you create a network interface.  
+Keep the following limitation in mind when you create a network interface.
 
 * You can attach maximum two network interfaces to each s390x bare metal server based on the profile you choose.
 * PCI and VLAN aren't supported.
-* To add or remove HiperSockets interfaces, the server must be **STOPPED**. 
+* To add or remove HiperSockets interfaces, the server must be **STOPPED**.

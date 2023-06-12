@@ -37,8 +37,7 @@ instances on the host. If you no longer need a dedicated host or dedicated group
 To complete management tasks on your dedicated hosts, complete the following steps.
 
 1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Dedicated hosts**.
-2. On the Dedicated hosts tab of the Dedicated hosts for VPC page, click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for the dedicated host that you want to manage. You can select 
-from the following actions:
+2. On the Dedicated hosts tab of the Dedicated hosts for VPC page, click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for the dedicated host that you want to manage. You can select from the following actions:
 
 | Action | Description |
 |--------|-------------|
@@ -64,10 +63,8 @@ When you have a dedicated group created, you can create new dedicated hosts with
 
 To complete management tasks on your dedicated groups, complete the following steps.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) >
-VPC Infrastructure > Dedicated hosts**.
-2. Click the **Dedicated groups** tab on the Dedicated hosts for VPC page. Then click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for the dedicated host that you want to manage. You can select 
-from the following actions:
+1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Dedicated hosts**.
+2. Click the **Dedicated groups** tab on the Dedicated hosts for VPC page. Then click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for the dedicated host that you want to manage. You can select from the following actions:
 
 | Action | Description |
 |--------|-------------|

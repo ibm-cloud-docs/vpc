@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-01-21"
+  years: 2020, 2023
+lastupdated: "2023-01-23"
 
 keywords: data encryption, data storage, bring your own keys, BYOK, key management, key encryption, personal data, data deletion, data security
 
@@ -10,28 +10,22 @@ subcollection: vpc
 
 ---
 
-{:external: target="_blank" .external}
-{:shortdesc: .shortdesc}
-{:table: .aria-labeledby="caption"}
-{:tip: .tip}
-{:important: .important}
-{:note: .note}
-{:term: .term}
+{{site.data.keyword.attribute-definition-list}}
 
 # Securing your data in VPC
 {: #mng-data}
 
-To ensure that you can securely manage your data when you use {{site.data.keyword.vpc_full}}, it's important to know exactly what data is stored and encrypted and how you can delete any stored personal data. Data encryption using your own root keys is available by using a supported key management service (KMS).
+To ensure that you can securely manage your data when you use {{site.data.keyword.vpc_full}}, it's important to know exactly what data is stored and encrypted and how you can delete any stored personal data. Data encryption with your own root keys is available by using a supported key management service (KMS).
 {: shortdesc}
 
-{{site.data.keyword.vpn_vpc_short}} does not store any customer data other than what is required to configure VPN gateways, connections, and policies. Data transmitted through a VPN gateway is not encrypted by IBM. Data about your specific VPN and policy configurations are encrypted in transit and at rest. VPN configuration data is deleted upon your request through API or User Interface.  
+{{site.data.keyword.vpn_vpc_short}} does not store any customer data other than what is required to configure VPN gateways, connections, and policies. Data that is transmitted through a VPN gateway is not encrypted by IBM. Data about your specific VPN and policy configurations are encrypted in transit and at rest. VPN configuration data is deleted upon your request through API or User Interface.
 
 ## How your data is stored and encrypted in VPC
 {: #data-storage}
 
 All block storage volumes are encrypted by default with IBM-managed encryption. {{site.data.keyword.IBM}}-managed keys are generated and securely stored in a block storage vault that is backed by Consul and maintained by {{site.data.keyword.cloud}} operations.
 
-For more security and control, you can protect your data by using your own root keys (also called a customer root key or CRK). This feature is commonly called Bring Your Own Key, or BYOK. Root keys encrypt the keys that safeguard your data. You can import your root keys to {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}, or have either key management service create one for you.
+For more security and control, you can protect your data with your own root keys (also called a customer root key or CRK). This feature is commonly called Bring Your Own Key, or BYOK. Root keys encrypt the keys that safeguard your data. You can import your root keys to {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}, or have either key management service create one for you.
 
 The KMS stores your key and makes it available during volume and custom image encryption. Key Protect provides FIPS 140-2 Level 3 compliance. Hyper Protect Crypto Services offers the highest level of security with FIPS 140-2 Level 4 compliance. Your key material is protected in transit (when it's transported) and at rest (when it is stored).
 
@@ -41,19 +35,18 @@ Images and volumes are often referred to as being encrypted with a root key when
 
 For example, if you provision two volumes by using the same root key, unique passphrases are generated for each volume, which are then encrypted with the root key. Envelope encryption provides more protection for your data, and ensures that the root key can be rotated without having to reencrypt the data. For more information about envelope encryption, see [Protecting your sensitive data in VPC](#data-encryption).
 
-All your interaction with {{site.data.keyword.vpn_vpc_short}} is encrypted. For example, when you use an API or interact with the service through the User Interface to configure VPN gateways and VPN connections, all such interactions are encrypted end-to-end. Likewise, data elements related to your configuration are encrypted in transit and at rest. No personal or sensitive data is stored, processed, or transmitted. Data at rest is stored in an encrypted database.
+All your interaction with {{site.data.keyword.vpn_vpc_short}} is encrypted. For example, when you use an API or interact with the service through the User Interface to configure VPN gateways and VPN connections, all such interactions are encrypted end-to-end. Likewise, data elements that are related to your configuration are encrypted in transit and at rest. No personal or sensitive data is stored, processed, or transmitted. Data at rest is stored in an encrypted database.
 
 After the {{site.data.keyword.vpn_vpc_short}} is provisioned and the network connections are created, the encryption of data that you choose to transmit across the network is your responsibility.
 
 ### Instance storage data isolation and encryption
 {: #instance-storage-isolation}
 
-The instance storage disk or disks, attached to the virtual server instance, cannot be shared with any other virtual servers and cannot be accessed by any other virtual servers in the future. They are one-time use, single-attach, for the virtual server that requested the instance storage. 
+The instance storage disk or disks, which are attached to the virtual server instance, cannot be shared with any other virtual servers and cannot be accessed by any other virtual servers in the future. They are one-time use, single-attach, for the virtual server that requested the instance storage.
 
-Instance storage data is secured with on-disk encryption. The physical disks used for instance storage are self-encrypting with the strong AES-256 encryption standard. The data is automatically decrypted when your instance accesses the data. When your instance is shut down or deleted, the underlying storage space is erased and unrecoverable. At that point, the data is unrecoverable. For more information, see [Introduction to encryption](/docs/key-protect?topic=key-protect-basics).
+Instance storage data is secured with on-disk encryption. The physical disks that are used for instance storage are self-encrypting with the strong AES-256 encryption standard. The data is automatically decrypted when your instance accesses the data. When your instance is shut down or deleted, the underlying storage space is erased and unrecoverable. At that point, the data is unrecoverable. For more information, see [Introduction to encryption](/docs/key-protect?topic=key-protect-basics).
 
 Data is automatically encrypted on the physical media at the drive level. However, customer-managed keys are not supported for instance storage. For sensitive data, it is strongly recommended that users utilize software-based file system encryption such as LUKS for Linux&reg; or BitLocker for Windows&reg;. This technology allows end users to encrypt entirely within the instance, and can provide additional protection for sensitive data in-transit between the instances and the physical drive media. Some operating systems also provide FIPS certified encryption algorithms that may also be used. See [Encrypting block devices using LUKS](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/security_hardening/encrypting-block-devices-using-luks_security-hardening) for an example of how to encrypt on Red Hat Enterprise Linux&reg; however, refer to the Operating System documentation or specific information on how to encrypt each device.
-
 
 ## Protecting your sensitive data in VPC
 {: #data-encryption}
@@ -64,16 +57,16 @@ Data is automatically encrypted on the physical media at the drive level. Howeve
 
 You control access to your root keys stored in KMS instances within {{site.data.keyword.cloud}} by using {{site.data.keyword.iamlong}} (IAM). You grant access to a service to use your keys. You can also revoke access at any time, for example, if you suspect your keys might be compromised, or [delete your root keys](#delete-root-keys).
 
-{{site.data.keyword.vpn_vpc_short}}: Customer-provided preshared keys are encrypted before being stored in database. All other data VPN gateway and VPN policy configuration is encrypted at rest at the database level.
+{{site.data.keyword.vpn_vpc_short}}: Customer-provided preshared keys are encrypted before they are stored in database. All other data VPN gateway and VPN policy configuration is encrypted at rest at the database level.
 
 ### About customer-managed keys
 {: #about-encryption}
 
 For block storage volumes and encrypted images, you can rotate the root keys for more security. When you rotate a root key by schedule or on demand, the original key material is replaced. The old key remains active to decrypt existing resources but can't be used to encrypt new ones. For more information, see [Key rotation for VPC resources](/docs/vpc?topic=vpc-vpc-key-rotation).
 
-There are also regional and cross-regional considerations to take into account when using customer-managed encryption. For more information, see [Regional and cross regional considerations](/docs/vpc?topic=vpc-vpc-encryption-about#byok-cross-region-keys).
+Consider regional and cross-regional implications when you choose to use customer-managed encryption. For more information, see [Regional and cross regional considerations](/docs/vpc?topic=vpc-vpc-encryption-about#byok-cross-region-keys).
 
-With Key Protect or HPCS you can create, import, and manage your root keys. You can assign access policies to the keys, assign users or service IDs to the keys, or give the key access only to a specific service. The first 20 keys are free.
+With Key Protect or HPCS you can create, import, and manage your root keys. You can assign access policies to the keys, assign users or service IDs to the keys, or give the key access only to a specific service. The first 20 keys are without cost.
 
 ### About customer-managed encrypted volumes and images
 {: #about-encryption_volumes-images}
@@ -95,7 +88,7 @@ See the following procedures for creating block storage volumes with customer-ma
 ### Working with customer-managed keys for VPC
 {: #working-with-keys}
 
-For information about managing data encryption, see [Managing data encryption](/docs/vpc?topic=vpc-vpc-encryption-managing), and the section on temporarily revoking access by [removing service authorization to a root key](/docs/vpc?topic=vpc-vpc-encryption-managing#instance-byok-inaccessible-data).
+For more information about managing data encryption, see [Managing data encryption](/docs/vpc?topic=vpc-vpc-encryption-managing), and the section on temporarily revoking access by [removing service authorization to a root key](/docs/vpc?topic=vpc-vpc-encryption-managing#instance-byok-inaccessible-data).
 
 Encryption of the link between a customer's workload that's outside of {{site.data.keyword.cloud_notm}}, and a workload that's inside {{site.data.keyword.cloud_notm}}, is the customer’s responsibility. See _Encryption_ in [Security and regulation compliance](/docs/vpc?topic=vpc-responsibilities-vpc#security-compliance).
 {: note}
@@ -106,22 +99,24 @@ Encryption of the link between a customer's workload that's outside of {{site.da
 ### Deleting root keys
 {: #delete-root-keys}
 
-For information about deleting root keys, see [Deleting root keys](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-delete-root-keys).
+For more information about deleting root keys, see [Deleting root keys](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-delete-root-keys).
 
 ### Deleting a block storage volume
 {: #data-delete-volume}
 
-For information about deleting block storage volumes, see this FAQ: [What happens to my data when I delete a block storage data volume?](/docs/vpc?topic=vpc-block-storage-vpc-faq#faq-block-storage-16).
+For more information about deleting block storage volumes, see this FAQ: [What happens to my data when I delete a block storage data volume?](/docs/vpc?topic=vpc-block-storage-vpc-faq#faq-block-storage-16).
 
 ### Deleting a custom image
 {: #delete-custom-images}
 
-For information about deleting custom images, see [Managing custom images](/docs/vpc?topic=vpc-managing-images#managing-custom). Be aware of any virtual server instances that you provisioned with a custom image. To remove all data associated with a specific custom image, make sure that you also delete any instances provisioned from the custom image, along with associated boot volumes.
+For more information about deleting custom images from {{site.data.keyword.vpc_short}}, see [Managing custom images](/docs/vpc?topic=vpc-managing-custom-images&interface=ui). Be aware of any virtual server instances that you provisioned with a custom image. To remove all data associated with a specific custom image, make sure that you also delete any instances provisioned from the custom image, along with associated boot volumes.
+
+{{site.data.content.delete-custom-image-private-catalog}}
 
 ### Deleting VPC instances
 {: #service-delete}
 
-For information about deleting a VPC and its associated resources, see [Deleting a VPC and its associated resources](/docs/vpc?topic=vpc-deleting-a-vpc-and-its-associated-resources&interface=ui).
+For more information about deleting a VPC and its associated resources, see [Deleting a VPC](/docs/vpc?topic=vpc-deleting).
 
 The VPC data retention policy describes how long your data is stored after you delete the service. The data retention policy is included in the {{site.data.keyword.vpc_full}} service description, which you can find in the [{{site.data.keyword.cloud_notm}} Terms and Notices](/docs/overview?topic=overview-terms).
 
@@ -137,10 +132,11 @@ You can restore deleted root keys that you imported to the KMS within 30 days of
 
 ### Deleting all VPC data
 {: #delete-all-data}
+
 To delete all persisted data that {{site.data.keyword.vpc_short}} stores, choose one of the following options.
 
 Removing your personal and sensitive information requires all of your {{site.data.keyword.vpc_short}} resources to be deleted as well. Make sure that you back up your data before you proceed.
 {: note}
 
-* Open an {{site.data.keyword.cloud_notm}} support case. Contact IBM Support to remove your personal and sensitive information from {{site.data.keyword.vpc_short}}. For more information, see [Getting support](https://cloud.ibm.com/docs/get-support?topic=get-support-getting-customer-support).
+* Open an {{site.data.keyword.cloud_notm}} support case. Contact IBM Support to remove your personal and sensitive information from {{site.data.keyword.vpc_short}}. For more information, see [Getting support](/docs/get-support?topic=get-support-getting-customer-support).
 * End your {{site.data.keyword.cloud_notm}} subscription. After you end your {{site.data.keyword.cloud_notm}} subscription, {{site.data.keyword.vpc_short}} deletes all service resources that you created, which includes all persisted data that is associated with those resources.

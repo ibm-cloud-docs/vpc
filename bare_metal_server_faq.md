@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-08-15"
+  years: 2021, 2023
+lastupdated: "2023-02-28"
 
 subcollection: vpc
 
@@ -45,7 +45,7 @@ Comparing IBM Cloud Classic and VPC infrastructure environments](/docs/cloud-inf
 {: #faq-bare-metal-1}
 {: faq}
 
-Currently, only VMware ESXi 7.0 and RHEL 8.4 are supported. Support for Windows, Linux, and custom images is planned.
+Currently, VMware ESXi, Windows, RHEL, RHELfor SAP, Debian GNU, SUSE Linux Enterprise, Ubuntu Linux, and custom images are supported.
 
 ## What storage options are available?
 {: #faq-bare-metal-2}

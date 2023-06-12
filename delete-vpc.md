@@ -1,25 +1,16 @@
 ---
 
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-01-21"
+  years: 2019, 2023
+lastupdated: "2023-01-27"
 
 keywords: delete, resources
 
 subcollection: vpc
+
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:important: .important}
-{:note: .note}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
+{{site.data.keyword.attribute-definition-list}}
 
 # Considerations when deleting a VPC
 {: #deleting}
@@ -35,7 +26,7 @@ The following table summarizes the types of VPC resources and the relationships 
 | Subnet | All instances and any network interfaces in subnet must be deleted. | Any public gateway that serves the subnet is detached. Any network ACL associated with the subnet is detached. |
 | Instance | ---- | All network interfaces are deleted automatically and the boot volume is deleted with the instance. Secondary data volumes are preserved unless the default setting is changed to auto-delete. A floating IP address must be unassociated or released before the instance is deleted.  |
 | Network interface | ---- | Any floating IP attached to the network interface is released. |
-| Key | ---- | After you delete a key, it can no longer be used to provision a new instance or to perform an OS reload on an existing instance. However, the key is still available on any instances that you provisioned with it, and you can continue using it to log in.  |
+| Key | ---- | After you delete a key, it can no longer be used to provision a new instance, or to perform an OS reload on an existing instance. However, the key is still available on any instances that you provisioned with it, and you can continue to use it to log in.  |
 | Image | ---- | The image cannot be used to provision a new instance, but existing instances with the image are not affected. |
 | Volume | The volume must be detached from all instances. | ---- |
 | Network ACL | The network ACL must be detached from all subnets. Default network ACLs for a VPC cannot be deleted.  | ---- |
@@ -61,7 +52,7 @@ A VPC contains subnets and public gateways. A public gateway can be attached to 
 Follow this order when you delete a VPC:
 
 1. Delete all VPN gateways that are provisioned in any subnet of the VPC.
-2. Detach all load balancers that are provisioned in any subnet of the VPC.
+1. Detach all load balancers that are provisioned in any subnet of the VPC.
 1. Delete all instances that have network interfaces in any subnet of the VPC. Any Floating IP associated with a network interface is automatically detached from the network interface when the instance is deleted.
 1. Delete all subnets in the VPC. Any public gateway attached to a subnet is automatically detached from the subnet when the subnet is deleted.
 1. Delete all public gateways in the VPC.
@@ -107,7 +98,7 @@ An instance can have multiple network interfaces, and those network interfaces c
 ### Instance
 {: #deleting-instance}
 
-No prerequisites are required for deleting an instance. When the instance is deleted, all its network interfaces are deleted automatically. The instance's boot volume and all of its volume attachments are deleted. Any Floating IPs attached to any of its network interfaces are released automatically. Any block storage volume attached to the instance is deleted automatically if the volume was created with the flag  `delete_volume_on_instance_delete` set to true. Otherwise, the instance is detached from the volume, but the volume remains. If any security group is attached to any of the instance's network interfaces, the security group is detached automatically as well, when the network interfaces are deleted.
+No prerequisites are required for deleting an instance. When the instance is deleted, all its network interfaces are deleted automatically. The instance's boot volume and all of its volume attachments are deleted. Any Floating IP addresses attached to any of its network interfaces are released automatically. Any block storage volume attached to the instance is deleted automatically if the volume was created with the flag `delete_volume_on_instance_delete` set to true. Otherwise, the instance is detached from the volume, but the volume remains. If any security group is attached to any of the instance's network interfaces, the security group is detached automatically as well, when the network interfaces are deleted.
 
 | In Instance | Can contain | Can attach to | Has Status? | Automatically deleted when instance is deleted | Automatically detached when deleted |
 | ---------------- | ----------------------------------------- | --------------------------- | ------ | ---------------------------------------------- | ----------------------------------- |
@@ -150,7 +141,7 @@ Boot volumes exist within an instance, and they are not considered to be separat
 #### Deleting data volumes
 {: #deleting-data-volumes}
 
-Block storage data volumes can be provisioned and managed separately from their associated virtual server instances. You can attach a data volume as secondary storage to one virtual server instance. You can't delete a data volume that is attached to an instance (that is, if the volume is "active"). You must first detach the volume from the instance, and then you can delete the volume.
+Block storage data volumes can be provisioned and managed separately from their associated virtual server instances. You can attach a data volume as auxiliary storage to one virtual server instance. You can't delete a data volume that is attached to an instance (that is, if the volume is "active"). You must first detach the volume from the instance, and then you can delete the volume.
 
 A data volume has an attribute (or flag) called `delete_volume_on_instance_delete` in the API and `Auto Delete` in the CLI and UI. If this flag is set to `true` (`Enabled` in the UI), when the instance with the attached volume is deleted, the volume is detached and deleted automatically. If the volume's flag is set to `false` (`Disabled` in the UI), the instance is detached from the volume, but the volume is not deleted when the attached instance is deleted. The volume can be attached to another instance.
 
@@ -167,7 +158,7 @@ Deleting a VPC deletes all security groups in that VPC, automatically.
 ### Network ACLs
 {: #deleting-netacl}
 
-A network ACL cannot be deleted if it is being used by a subnet, or if it is the default network ACL of a VPC. Before you delete the network ACL, detach the network ACL from all subnets and make sure that the network ACL is not being used as the default network ACL of a VPC.
+A network ACL cannot be deleted if it is being used by a subnet, or if it is the default network ACL of a VPC. Before you delete the network ACL, detach the network ACL from all subnets, and make sure that the network ACL is not being used as the default network ACL of a VPC.
 
 When any VPC is created, it requires a default network ACL. If an existing network ACL is not specified as the default when the VPC is created, a new network ACL is created and set as the default. This default network ACL is deleted automatically when the VPC is deleted, if the ACL is not in use anywhere else.
 
@@ -180,3 +171,4 @@ Unlike security groups, network ACLs can be assigned across VPCs. Therefore, del
 The following topics provide more examples on how to delete VPC resources by using the IBM Cloud Console, CLI, or API.
 
 * [Deleting a VPC and its associated resources](/docs/vpc?topic=vpc-deleting-a-vpc-and-its-associated-resources&interface=ui)
+

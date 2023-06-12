@@ -24,15 +24,15 @@ Given that VPCs are regional constructs, the following questions quickly arise:
 
 IBM has the following offerings that can help you interconnect a VPC with an on-premises network.
 
-* IBM Cloud Direct Link (2.0)
+* **{{site.data.keyword.dl_full_notm}}**
 
    You can interconnect a VPC with an on-prem network through both Direct Link Dedicated and Connect offerings. Keep in mind that you can connect direct links to either a local or remote IBM Cloud Transit Gateway, which allows the on-prem network to access all networks connected to the transit gateway.
 
    * **{{site.data.keyword.dl_full_notm}} Dedicated** provides low-latency, high-throughput connections between {{site.data.keyword.cloud_notm}} VPC networks direct to a service provider-managed WAN, or a client-managed cloud backbone. You can optimize egress traffic from your VPC network and reduce your egress costs. If you can’t connect at an {{site.data.keyword.cloud_notm}} data center, or don’t need more than 5 Gbps of bandwidth on a Virtual Network Connection, you can use {{site.data.keyword.dl_full_notm}} Connect to connect to {{site.data.keyword.cloud_notm}} through a supported service provider.
 
-   With {{site.data.keyword.dl_full_notm}} Global Routing capabilities, you can connect to all {{site.data.keyword.cloud_notm}} regions worldwide from a single {{site.data.keyword.dl_full_notm}} connection. You can also take advantage of {{site.data.keyword.dl_full_notm}} service provider partners to establish more secure hybrid connections for your workloads across the globe, as well as easily provision multiple connections as your capacity requirements increase.   
+      With {{site.data.keyword.dl_full_notm}} Global Routing capabilities, you can connect to all {{site.data.keyword.cloud_notm}} regions worldwide from a single {{site.data.keyword.dl_full_notm}} connection. You can also take advantage of {{site.data.keyword.dl_full_notm}} service provider partners to establish more secure hybrid connections for your workloads across the globe, as well as easily provision multiple connections as your capacity requirements increase.   
 
-   ![Sample Direct Link on-premises interconnect use case](/images/direct-link-dedicated.png){: caption="Example Direct Link on-premises interconnect use case" caption-side="bottom"}
+      ![Sample Direct Link on-premises interconnect use case](/images/direct-link-dedicated.png){: caption="Example Direct Link on-premises interconnect use case" caption-side="bottom"}
 
    * **{{site.data.keyword.dl_full_notm}} Connect** provides connectivity between your on-premises and {{site.data.keyword.cloud_notm}} VPC networks through a supported service provider. A service provider connection is useful if your data center is in a physical location that can't reach a dedicated colocation facility, or if your data needs don't warrant a 5 Gbps+ connection. Connect service providers  are often used to facilitate multicloud connectivity (public clouds from multiple vendors) through their network. Connect service providers offer layer 2 connectivity, layer 3 connectivity, or both. Work with your service provider to understand their offerings and requirements.
 
@@ -115,7 +115,7 @@ Using IANA ranges works only with custom routes having the `Delegate-VPC` action
 ### Use case 1: VPC connected to an Enterprise with {{site.data.keyword.cloud_notm}} Direct Link
 {: #use-case-vpc-enterprise-direct-link}
 
-![VPC connected to an Enterprise with Direct Link use case](images/vpc-enterprise.png "VPC connected to an Enterprise with Direct Link use case")
+![VPC connected to an Enterprise with Direct Link use case](/images/vpc-enterprise.png){: caption="VPC connected to an Enterprise with Direct Link use case" caption-side="bottom"}
 
 | IP | Origin |
 |---|---|
@@ -123,9 +123,9 @@ Using IANA ranges works only with custom routes having the `Delegate-VPC` action
 | `13.100.0.0/24` | from VPC A subnet |
 | `10.101.0.0/24` | from VPC B through Transit Gateway (local) |
 | `13.101.0.0/24` | from VPC B through Transit Gateway (local) |
-| `10.0.0.0/8` | from an Enterprise through Direct Link 2.0 |
-| `172.16.0.0/12` | from an Enterprise through Direct Link 2.0 |
-| `13.0.0.0/8` | from an Enterprise through Direct Link 2.0 |
+| `10.0.0.0/8` | from an Enterprise through Direct Link |
+| `172.16.0.0/12` | from an Enterprise through Direct Link |
+| `13.0.0.0/8` | from an Enterprise through Direct Link |
 {: class="simple-tab-table"}
 {: caption="Table 4. VPC A Networks" caption-side="bottom"}
 {: #simpletabtable4}
@@ -138,9 +138,9 @@ Using IANA ranges works only with custom routes having the `Delegate-VPC` action
 | `13.101.0.0/24` | from VPC B subnet |
 | `10.100.0.0/24` | from VPC A through Transit Gateway (local) |
 | `13.100.0.0/24` | from VPC A through Transit Gateway (local) |
-| `10.0.0.0/8` | from an Enterprise through Direct Link 2.0 |
-| `172.16.0.0/12` | from an Enterprise through Direct Link 2.0 |
-| `13.0.0.0/8` | from an Enterprise through Direct Link 2.0 |
+| `10.0.0.0/8` | from an Enterprise through Direct Link |
+| `172.16.0.0/12` | from an Enterprise through Direct Link  |
+| `13.0.0.0/8` | from an Enterprise through Direct Link  |
 {: caption="Table 5. VPC B Networks" caption-side="bottom"}
 {: #simpletabtable5}
 {: tab-title="VPC B Networks"}
@@ -172,7 +172,7 @@ Using IANA ranges works only with custom routes having the `Delegate-VPC` action
 ### Use case 2: VPC-to-VPC connected with {{site.data.keyword.cloud_notm}} Transit Gateway
 {: #use-case-vpc-vpc-transit-gateway}
 
-![VPC-to-VPC connected with Transit Gateway use case](images/vpc-vpc-transit-gateway.png){: caption="VPC-to-VPC connected with Transit Gateway" caption-side="bottom"}
+![VPC-to-VPC connected with Transit Gateway use case](/images/vpc-vpc-transit-gateway.png){: caption="VPC-to-VPC connected with Transit Gateway" caption-side="bottom"}
 
 | IP | Origin |
 |---|---|
@@ -248,7 +248,7 @@ Using IANA ranges works only with custom routes having the `Delegate-VPC` action
 ### Use case 3: VPC-to-classic and BCR peering with {{site.data.keyword.cloud_notm}} Transit Gateway
 {: #use-case-vpc-classic-transit-gateway}
 
-![VPC-to-classic and BCR peering with Transit Gateway use case](images/vpc-classic-transit-gateway.png){: caption="VPC-to-classic and BCR peering with Transit Gateway use case" caption-side="bottom"}
+![VPC-to-classic and BCR peering with Transit Gateway use case](/images/vpc-classic-transit-gateway.png){: caption="VPC-to-classic and BCR peering with Transit Gateway use case" caption-side="bottom"}
 
 | IP | Origin |
 |---|---|
@@ -277,6 +277,6 @@ Using IANA ranges works only with custom routes having the `Delegate-VPC` action
 
 To learn about these offerings:
 
-* [Get started with {{site.data.keyword.dl_full_notm}} 2.0](/docs/dl?topic=dl-get-started-with-ibm-cloud-dl)
+* [Get started with {{site.data.keyword.dl_full_notm}}](/docs/dl?topic=dl-get-started-with-ibm-cloud-dl)
 * [Get started with {{site.data.keyword.tg_full_notm}}](/docs/transit-gateway)
 * [Get started with {{site.data.keyword.vpn_vpc_short}}](/docs/vpc?topic=vpc-using-vpn)

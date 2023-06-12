@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-03-15"
+  years: 2020, 2022
+lastupdated: "2022-11-15"
 
 keywords: custom routes
 
@@ -18,19 +18,17 @@ subcollection: vpc
 You can delete a route for an IBM Cloud service by using the UI, CLI, or API.
 {: shortdesc}
 
-## Deleting a route by using the UI
+## Deleting a route in the UI
 {: #cr-delete-using-the-ui}
 {: ui}
 
-To delete a route by using the {{site.data.keyword.cloud_notm}} console, follow these steps:
+To delete a route in the UI, follow these steps:
 
-1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the Menu icon ![Menu icon](/images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appear.
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the Navigation Menu ![Navigation Menu](/images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appear.
 2. Click the number of routes, or the routing table name that contains the route.
-3. Click the overflow menu ![overflow menu](images/overflow.png) next to the route that you want to delete, then click **Delete**. Click **Delete** again to confirm the deletion.
+3. Click the Actions menu ![Actions menu](images/overflow.png) next to the route that you want to delete, then click **Delete**. Click **Delete** again to confirm the deletion.
 
-   ![Deleting a route](./images/cr-routing-table-route-delete.png){: caption="Figure 1. Deleting a route" caption-side="bottom}
-
-## Deleting a route by using the CLI
+## Deleting a route from the CLI
 {: #cr-delete-using-the-cli}
 {: cli}
 
@@ -50,11 +48,11 @@ Where:
 * **ROUTE** is the ID of the VPC route.
 * **-f, --force** forces the operation without confirmation.
 
-## Deleting a route by using the API
+## Deleting a route with the API
 {: #cr-delete-using-the-api}
 {: api}
 
-To delete a route by using the API, follow these steps:
+To delete a route with the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
 2. Store the following values in variables to be used in the API command:

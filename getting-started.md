@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-03-01"
+lastupdated: "2022-11-08"
 
 keywords: Getting started with Virtual Private Cloud (VPC), VPC, vpc, virtual private cloud, IBM Cloud, Virtual Private Cloud, getting started, permissions, infrastructure, iaas, IaaS, Infrastructure as a Service, SSH key, CLI, API, console, public gateway, floating IP, IP ranges, BYoIP, generation 2, gen 2, gen2, virtual servers, virtual server instances, instances. vsi, virtual machines, server, get started
 
@@ -31,11 +31,11 @@ With {{site.data.keyword.vpc_full}} (VPC), you can use the UI, CLI, and API to q
 ## Before you begin
 {: #prereqs}
 
-1. Set up your account to access VPC. Make sure that your account is [upgraded to a paid account](/docs/account?topic=account-accountfaqs#changeacct){: new_window}. 
+1. Set up your account to access VPC. Make sure that your account is [upgraded to a paid account](/docs/account?topic=account-accountfaqs#changeacct){: external}. 
 
 2. Make sure that you have a public SSH key, which is used to connect to the virtual server instance. For example, generate an SSH key on your Linux server by running the following command:
 
-    ```
+    ```sh
     ssh-keygen -t rsa
     ``` 
     {: pre}

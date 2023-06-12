@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2022-01-11"
+  years: 2022, 2023
+lastupdated: "2023-01-27"
 
 keywords:
 
@@ -15,10 +15,10 @@ subcollection: vpc
 # Configuring security groups
 {: #configure-security-groups}
 
-The Virtual Network Function (VNF) data network interface is attached to a VPC security group. Ensure that the security group has inbound rules that allow traffic on the pool health port set up between the NLB and the VNF. For example, if the health check is set up for TCP on port 80 (HTTP), then create an inbound rule for that security group. Additionally, you can create rules to allow or restrict data traffic.
+The Virtual Network Function (VNF) data network interface is attached to a VPC security group. Ensure that the security group has inbound rules that allow traffic on the pool health port that is set up between the NLB and the VNF. For example, if the health check is set up for TCP on port 80 (HTTP), then create an inbound rule for that security group. Additionally, you can create rules to allow or restrict data traffic.
 {: shortdesc}
  
 ## Next step
-{: #deploy-vnf}
+{: #next-step-deploy-vnf}
 
 [Deploying a supported VNF](/docs/vpc?topic=vpc-deploy-vnf)

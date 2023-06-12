@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-04-18"
+lastupdated: "2022-11-11"
 
 keywords:  
 
@@ -12,27 +12,29 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Creating an {{site.data.keyword.cloud_notm}} {{site.data.keyword.alb_full}}
-{: #load-balancer}
+# Creating an application load balancer
+{: #load-balancers}
 
-You can create an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) to distribute inbound traffic across multiple instances. IBM supports virtual server instances, bare metal server instances, and other devices that are reachable to the application load balancer with a device IP address, such as Power Systems™ Virtual Server instances connected over Direct Link (2.0).
+You can create an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) to distribute inbound traffic across multiple instances. IBM supports virtual server instances, bare metal server instances, and other devices that are reachable to the application load balancer with a device IP address, such as Power Systems™ Virtual Server instances connected over {{site.data.keyword.cloud_notm}} Direct Link.
 {: shortdesc}
 
-## Creating an application load balancer by using the UI
+## Creating an application load balancer in the UI
 {: #lb-ui-creating-network-load-balancer}
 {: ui}
 
 To create an ALB:
 
-1. In the navigation pane, click **Network > Load balancers**.
-1. On the Load balancers page, click **Create**. The Load balancer for VPC provisioning page is shown.
+1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
+1. Select the Navigation Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers**.
+1. On the Load balancers page, click **Create +**. The Load balancer for VPC provisioning page is shown.
 1. In the Location section, edit the following fields, if necessary.
    * **Geography**: Indicates the geography where you want the load balancer created.
    * **Region**: Indicates the region where you want the load balancer created.
 1. In the Details section, complete the following information:
    * **Name**: Enter a name for the load balancer, such as `my-load-balancer`.    
    * **Resource group**: Select a resource group for the load balancer.
-   * **Tags**: (Optional) Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).    
+   * **Tags**: (Optional) Add tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).   
+   * **Access management tags**: (Optional) Add access management tags to resources to help organize access control relationships. The only supported format for access management tags is `key:value`. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
    * Select the **Application Load Balancer (ALB)** tile. 
    * **Virtual private cloud**: Select your VPC.
    * **Type**: Select the load balancer type.
@@ -56,7 +58,7 @@ To create an ALB:
        * **Health protocol**: The protocol used by the load balancer to send health check messages to the instances in the pool.
        * **Health port**: The port on which to send health check requests. By default, health checks are sent on the same port on which traffic is sent to the instance.
        * **Interval**: Interval in seconds between two consecutive health check attempts. By default, health checks are sent every 5 seconds.
-       * **Timeout**: Maximum amount of time the system waits for a response from a health check request. By default, the load balancer waits 2 seconds for a response.
+       * **Timeout (sec)**: Maximum amount of time the system waits for a response from a health check request. By default, the load balancer waits 2 seconds for a response.
        * **Max retries**: Maximum number of health check attempts that the load balancer makes before an instance is declared unhealthy. By default, an instance is no longer considered healthy after two failed health checks.
 
        Although the load balancer stops sending connections to unhealthy instances, the load balancer continues monitoring the health of these instances and resumes their use if they're found healthy again (that is, if they successfully pass two consecutive health check attempts).
@@ -99,6 +101,8 @@ To create an ALB:
     * **Back-end pool**: The default back-end pool to which this listener forwards traffic.
     * **Max connections** (optional): Maximum number of concurrent connections the listener allows.
     * **SSL certificate**: If HTTPS is the selected protocol for this listener, you must select an SSL certificate. Make sure that the load balancer is authorized to access the SSL certificate.
+    * **Timeout (sec)** (optional): The maximum timeout after which the load balancer closes the connection if no data has been sent or received by the time that the idle timeout period elapses. The minimum and maximum timeout value is 50 seconds and 2 hours respectively.
+    
 1. Click **Create** to create the front-end listener.
 1. In the Security groups section, select the security groups that you want to attach to your load balancer, or click **Create** to create a new security group to attach to your ALB.
 
@@ -145,7 +149,7 @@ To create an ALB:
         * **Value**: The value to be matched.
         * **Key**: The name of the HTTP header field to evaluate, if the rule type is **Header**. For example, to match a cookie in the HTTP header, enter **Cookie** for the key.
   
-## Creating an application load balancer by using the CLI
+## Creating an application load balancer from the CLI
 {: #lb-cli-creating-network-load-balancer}
 {: cli}
 
@@ -260,14 +264,15 @@ To create an application load balancer by using the CLI, follow these steps:
     ```sh
     Creating listener of load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 under account IBM Cloud Network Services as user test@ibm.com...
 
-    ID                     r134-2847a948-f9b6-4fc1-91c6-f1c49dac3eba
-    Certificate instance   -
-    Connection limit       -
-    Port                   7070
-    Protocol               tcp
-    Default pool           r134-3b66d605-6aa5-4166-9f66-b16054da3cb0
-    Provision status       create_pending
-    Created                2020-08-27T15:16:08.643-05:00
+    ID                      r134-2847a948-f9b6-4fc1-91c6-f1c49dac3eba
+    Certificate instance    -
+    Connection limit        -
+    Idle connection timeout 50
+    Port                    7070
+    Protocol                tcp
+    Default pool            r134-3b66d605-6aa5-4166-9f66-b16054da3cb0
+    Provision status        create_pending
+    Created                 2020-08-27T15:16:08.643-05:00
     ```
     {: screen}
 
@@ -307,7 +312,7 @@ To create an application load balancer by using the CLI, follow these steps:
     ```
     {: screen}
 
-## Creating an application load balancer by using the API
+## Creating an application load balancer with the API
 {: #lb-api-creating-network-load-balancer}
 {: api}
 

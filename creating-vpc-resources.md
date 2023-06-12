@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2018, 2022
+  years: 2018, 2023
 
-lastupdated: "2022-10-03"
+lastupdated: "2023-05-11"
 
 keywords:
 
@@ -14,6 +14,7 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # Creating VPC resources with CLI and API
+{: #creating-vpc-resources-with-cli-and-api}
 
 In addition to creating a VPC, you can also create VPC resources such as an instance, a subnet, and a block storage volume.
 
@@ -38,6 +39,7 @@ To create and configure your virtual private cloud (VPC) and other attached reso
 
 ### Before you begin
 {: #before-cli-tutorial}
+
 Make sure that you set up your CLI [environment](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 <!--Good place to mention the IBM Cloud SHell? -->
 
@@ -86,7 +88,7 @@ The previous example does not create a VPC with classic access. If you require t
 {: important}
 
 ### Create a private catalog
-{: #cli-create-private-catalog}
+{: #cli-create-private-catalog-optional}
 
 This step is optional. If you plan share images from a private catalog, the private catalog must be created first. If you select a catalog image that belongs to a different account, there are additional considerations and limitations to review. See [Using cross-account image references in a private catalog in the UI](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#private-catalog-image-reference-vpc-ui). To create a private catalog, see the tutorial [Onboarding software to your catalog by using the CLI](/docs/account?topic=account-create-private-catalog&interface=cli#create-cicd-product).
 
@@ -112,7 +114,7 @@ ibmcloud is subnet-create my-subnet $vpc us-south-3 --ipv4-cidr-block "10.0.1.0/
 
 From the output that's returned, save the ID in a variable so you can use it later, for example:
 
-```
+```sh
 subnet="0738-658756a4-1106-4914-969a-3b43b338524a"
 ```
 {: pre}
@@ -146,7 +148,7 @@ gateway="0738-446c0c63-f0b1-4043-b30d-644f55fde391"
 To attach the public gateway to your subnet, run the following command:
 
 ```sh
-ibmcloud is subnet-update $subnet --public-gateway-id $gateway
+ibmcloud is subnet-update $subnet --pgw $gateway
 ```
 {: pre}
 
@@ -399,7 +401,7 @@ For Windows images, make sure the security group that is associated with the ins
 Create a floating IP address if you want your instance to be reachable from the internet.
 
 ```sh
-ibmcloud is floating-ip-reserve my-fip --nic-id $nic
+ibmcloud is floating-ip-reserve my-fip --nic $nic
 ```
 {: pre}
 
@@ -419,6 +421,9 @@ For example, on Linux you can use a command of this form:
 ssh -i $HOME/.ssh/id_rsa root@$address
 ```
 {: pre}
+
+The user login 'root' is disabled by default in Fedora Core OS. The user login 'core' can be used to log in to Fedora Core OS instances.
+{: note}
 
 When you're prompted to continue connecting, type `yes`.
 
@@ -914,7 +919,7 @@ curl -X GET "$vpc_api_endpoint/v1/vpcs/$vpc/default_security_group?version=$api_
 
 Save the ID of the security group in a variable, for example:
 
-```
+```sh
 sg=0738-2d364f0a-a870-42c3-a554-000000981149
 ```
 {: pre}

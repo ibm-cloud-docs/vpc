@@ -1,36 +1,22 @@
 ---
 
 copyright:
-  years: 2020, 2021 
-lastupdated: "2021-09-22"
+  years: 2020, 2023
+lastupdated: "2023-01-23"
 
-keywords: create instance template, vsis, virtual server instance
+keywords:
 
 subcollection: vpc
 
-
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:preview: .preview}
-{:table: .aria-labeledby="caption"}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
+
 
 # Creating an instance template
 {: #create-instance-template}
 
-You can create an instance template to define instance details for provisioning one or more virtual servers. When your 
-instance template is created, you can use it to provision single virtual server instances, or you can provision multiple instances 
-at the same time as part of an instance group. 
+You can create an instance template to define instance details for provisioning one or more virtual servers. When your instance template is created, you can use it to provision single virtual server instances, or you can provision multiple instances at the same time as part of an instance group. 
 
 ## Creating an instance template with the UI
 {: #instance-template-ui}
@@ -39,12 +25,11 @@ at the same time as part of an instance group.
 The instance template defines the details of the virtual server instances that are created from the template. For example, specify the profile (vCPU and memory), image, attached volumes, and network interfaces for the image template. 
 
 To create an instance template, complete the following steps.
-1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Auto scale > Instance templates**. 
+1. In the [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to **menu icon ![menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Auto scale > Instance templates**. 
 2. Click **New instance template** and enter the information in Table 1.
 3. Click **Create instance template** when the information is complete.
 
-When you create an instance template, validation steps are performed that ensure you can use your template to provision a 
-virtual server instance. 
+When you create an instance template, validation steps are performed that ensure you can use your template to provision a virtual server instance. 
 {: tip}
 
 {{site.data.content.create-instance-template-table}}
@@ -53,7 +38,7 @@ virtual server instance.
 {: #solo-instance-template-cli}
 {: cli}
 
-You can create one or more instance templates in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI). For information on creating a virtual server instance using a custom image shared from a private catalog, see [Creating VPC resources with CLI and API](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli).
+You can create one or more instance templates in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI). For more information about creating a virtual server instance with a custom image shared from a private catalog, see [Creating VPC resources with CLI and API](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli).
 
 ### Before you begin
 {: #before-instance-cli}
@@ -64,8 +49,7 @@ and your [{{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-us
 ### Gathering information to create an instance template
 {: #cli-options-instance-template-create}
 
-Ready to create an instance template? Before you can run the `ibmcloud is instance-template-create` command, you need to know 
-the details you want to include for your instance template and command options, such as what profile and image you want to use. Follow these steps to prepare for running the command.
+Ready to create an instance template? Before you can run the `ibmcloud is instance-template-create` command, you need to know the details that you want to include for your instance template and command options. Such as what profile and image that you want to use. Follow these steps to prepare for running the command.
 
 Gather the following required instance template details.
 
@@ -76,50 +60,48 @@ Gather the following required instance template details.
 | Profile | `ibmcloud is instance-profiles` |
 | Subnet | `ibmcloud is subnets` |
 | Image | `ibmcloud is images` |
-| Placement groups | `ibmcloud is placement-groups`   |
-{: caption="Table 1. Required instance template details" caption-side="top"}
+| **Reviewers** Placement groups      | `ibmcloud is placement-groups`   |
+{: caption="Table 1. Required instance template details" caption-side="bottom"}
 
 Use the following commands to determine the required information for creating a new instance template.
 
 1. List the {{site.data.keyword.vpc_short}}s that are associated with your account.
-   ```
+   ```sh
    ibmcloud is vpcs
    ```
    {: pre}
 
    For this example, you'd see a response similar to the following output:
-   ```
+   ```sh
    ID                                          Name                                  Default          Status      Tags
    0738-xxx1xx23-4xx5-6789-12x3-456xx7xx123x   my-vpc                                yes              available   -
    0738-xxxx1234-5678-9x12-x34x-567x8912x3xx   my-other-vpc                          no               available   -
    ```
    {: screen}
 
-   If you don't have one available, you can create an {{site.data.keyword.vpc_short}} by using the `ibmcloud is vpc-create` 
-   command. For more information about creating an {{site.data.keyword.vpc_short}}, see 
-   [IBM Cloud VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#vpcs).
+   If you don't have one available, you can create an {{site.data.keyword.vpc_short}} by using the `ibmcloud is vpc-create` command. For more information about creating an {{site.data.keyword.vpc_short}}, see [IBM Cloud VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#vpcs).
 
 2. List the regions associated with your account.
-   ```
+   ```sh
    ibmcloud is regions
    ```
    {: pre}
 
    For this example, you'd see a response similar to the following output:
-   ```
+   ```sh
    Name       Endpoint               Status   
    us-south   /v1/regions/us-south   available
    ```
    {: screen}
 
 3. List the zones associated with the region.
-   ```
+   ```sh
    ibmcloud is zones us-south
    ```
    {: pre}
 
    For this example, you'd see a response similar to the following output:
-   ```
+   ```sh
    Name         Region     Status   
    us-south-1   us-south   available   
    us-south-3   us-south   available   
@@ -127,13 +109,13 @@ Use the following commands to determine the required information for creating a 
    {: screen}
 
 4. List the available profiles for creating your instance template.
-   ```
+   ```sh
    ibmcloud is instance-profiles
    ```
    {: pre}
 
    For this example, you'd see a response similar to the following output:
-   ```
+   ```sh
    Name           Architecture   Family     vCPUs   Memory(G)   Network Performance (Gbps)   GPUs   
    bx2-2x8        amd64          balanced   2       8           4                            -   
    bx2-4x16       amd64          balanced   4       16          8                            -   
@@ -153,13 +135,13 @@ Use the following commands to determine the required information for creating a 
    {: screen}
 
 5. List the subnets that are associated with the {{site.data.keyword.vpc_short}}.
-   ```
+   ```sh
    ibmcloud is subnets
    ```
    {: pre}
 
    For this example, you'd see a response similar to the following output:
-   ```
+   ```sh
    ID                                          Name                     Status
    0076-2249dabc-8c71-4a54-bxy7-953701ca3999   subnet1                  available
    0767-173bn4aa-060b-47e7-am45-b3395a593897   subnet2                  available
@@ -168,18 +150,16 @@ Use the following commands to determine the required information for creating a 
    
    For the best performance of an instance group, ensure that you use a subnet size of 32 or greater.
 
-   If you don't have a subnet available, you can create one by using the `ibmcloud is subnet-create` command. For more 
-   information about creating a subnet, see 
-   [IBM Cloud VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#subnets).
+   If you don't have a subnet available, you can create one by using the `ibmcloud is subnet-create` command. For more information about creating a subnet, see [IBM Cloud VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#subnets).
 
 6. List the available images for creating your instance template.
-   ```
+   ```sh
    ibmcloud is images   
    ```
    {: pre}
 
    For this example, you'd see a response similar to the following output:
-   ```
+   ```sh
    ID                                          Name                                               Status       Arch
    r007-60d279a0-b328-40eb-a379-595ca53bff89   ibm-redhat-7-6-amd64-sap-hana-1                    available    amd64
    r008-54e9238a-feaa-4f90-9742-7424cb2b9ff1   ibm-windows-server-2016-full-standard-amd64-3      available    amd64
@@ -187,14 +167,14 @@ Use the following commands to determine the required information for creating a 
    {: screen}
    
 7. List all the available placement groups that you can associate with your instance.
-    ```
+    ```sh
     ibmcloud is placement-groups
     ```
     {: pre}
 
     For this example, you'd see a response similar to the following output.
     
-    ```
+    ```sh
     Listing placement groups for generation 2 compute in all resource groups and region us-east under account vpcdemo as user    yaohaif@cn.ibm.com...
     ID                                            Name                             State    Strategy       Resource Group   
     c5f1f366-b92a-4080-991a-aa5c2e33d96b          placement-group-region-us-east   stable   power_spread       5018a8564e8120570150b0764d39ebcc   
@@ -204,13 +184,19 @@ Use the following commands to determine the required information for creating a 
     ```
     {: screen}
 
-For example, if you create an instance template that is called _my-instance-template_ in _us-south-3_ and use the 
-_bx2-2x8_ profile, your `instance-template-create` command would look similar to the following sample.
+After you know these values, use them to run the `instance-template-create` command. In addition to the information that you gathered, you must specify a name for the instance. 
 
+```sh
+ibmcloud is instance-template-create INSTANCE_TEMPLATE_NAME VPC ZONE_NAME PROFILE_NAME SUBNET --image-id IMAGE_ID
 ```
+{: pre}
+
+For example, if you create an instance template that is called _my-instance-template_ in _us-south-3_ and use the _bx2-2x8_ profile, your `instance-template-create` command would look similar to the following sample.
+
+```sh
 ibmcloud is instance-template-create my-instance-template 0738-xxx1xx23-4xx5-6789-12x3-456xx7xx123x us-south-3 bx2-2x8 0076-2249dabc-8c71-4a54-bxy7-953701ca3999 --image-id r008-54e9238a-feaa-4f90-9742-7424cb2b9ff1 --placement-group r134-953db18c-068c-4a11-9b07-645684b444b2
 ```
-{: screen}
+{: pre}
 
 Where:
    - `INSTANCE_TEMPLATE_NAME` is _my-instance-template_
@@ -226,7 +212,7 @@ For this example, you'd see a response similar to the following output
 The following response varies depending on what values you use.
 {: note}
 
-```
+```sh
 ID                             0738-c3809e5b-8d48-4629-b258-33d5b14fa84f   
 Name                           my-instance-template   
 CRN                            crn:v1:staging:public:is:us-south-3:a/2d1bace7b46e4815a81e52c6ffeba5cf::instance-template:0738-c3809e5b-8d48-4629-b258-33d5b14fa84f   
@@ -241,12 +227,9 @@ Placement         ID                                          Name    Resource t
 ```
 {: screen}
 
-
 For more examples of the `ibmcloud is instance-template-create` command, see the [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-template-create).
 
-When you create an instance template, validation steps are performed that ensure you can use your template to provision a 
-virtual server instance. Need more help? You can always run `ibmcloud is help instance-template-create` to display help for 
-creating an instance template.
+When you create an instance template, validation steps are performed that ensure you can use your template to provision a virtual server instance. Need more help? You can always run `ibmcloud is help instance-template-create` to display help for creating an instance template.
 {: tip}
 
 ### Next steps 

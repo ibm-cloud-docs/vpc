@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2020
-lastupdated: "2020-10-30"
+  years: 2018, 2023
+lastupdated: "2023-01-27"
 
 keywords: VPE, virtual private endpoint, troubleshooting
 
@@ -28,8 +28,10 @@ To check the `Health` and `Lifecycle` states of your VPE, you can use the UI, or
 ```sh
 ibmcloud is endpoint-gateway <endpoint_gateway_id>
 ```
+{: pre}
 
 To list all endpoint gateways, run this command:
 ```sh
 ibmcloud is egs
 ```
+{: pre}

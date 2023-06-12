@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-02-28"
+  years: 2020, 2023
+lastupdated: "2023-01-12"
 
 keywords: public isolation for VPC, compute isolation for VPC, VPC architecture, workload isolation in VPC
 
@@ -10,12 +10,7 @@ subcollection: vpc
 
 ---
 
-{:external: target="_blank" .external}
-{:shortdesc: .shortdesc}
-{:table: .aria-labeledby="caption"}
-{:tip: .tip}
-{:important: .important}
-{:note: .note}
+{{site.data.keyword.attribute-definition-list}}
 
 # Learning about VPC workload isolation architecture and dependencies
 {: #vpc-isolation}
@@ -42,7 +37,7 @@ For more information about network traffic isolation, see [VPC behind the curtai
 | VPC control plane agent services | A small set of VPC control plane agents is deployed across hypervisor nodes in the region. For example, agents are used to create new virtual server instances on the nodes, and to forward logs, metrics, and alerts off the node for use by the broader VPC control plane services. All communication between control plane services occurs over a secure, encrypted network. |
 | VPC control plane data store | Your VPC resources are persisted in a data store that is replicated across all zones in the region. This store contains metadata about these resources only, and does not contain your data. For example, this store contains information about each VPC Image resource, such as its name, CRN, and creation date. However, it does not contain the image data itself, which is hosted on the storage devices. All communication between control plane services and the control plane data store is secure and encrypted. |
 | Block Storage | Each zone of each region contains a set of replicated storage devices, which host the data for your VPC volumes. Your data is always encrypted at rest, and is isolated to your account. In addition, you can use [Customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about) and your own root keys for end-to-end encryption of your boot and data volumes. Regional buckets use Key Protect for data encrytion at rest. Storage data flows between storage devices and hypervisor nodes only, and does not flow to control nodes.|
-| Snapshots | Snapshots that you create of your volumes are stored in Cloud Object Storage (COS) and available for regional restoration. Your snapshots are protected using Key Protect for data encrytion at rest. Snapshot data flows between COS and hypervisor nodes only, and does not flow to control nodes. |
+| Snapshots | Snapshots that you create of your volumes are stored in {{site.data.keyword.cos_full}} and available for regional restoration. Your snapshots are protected using Key Protect for data encrytion at rest. Snapshot data flows between {{site.data.keyword.cos_short}} and hypervisor nodes only, and does not flow to control nodes. |
 {: caption="Table 1. VPC components" caption-side="bottom"}
 
 ## VPC dependencies
@@ -55,7 +50,6 @@ The {{site.data.keyword.vpc_full}} (VPC) depends upon various {{site.data.keywor
 * Storing and backing up service data (including VPC resource metadata)
 * Logging and auditing service events.
 {: shortdesc}
-
 
 The following table lists the main dependencies of the VPC service and the purpose of each one:
 
@@ -91,7 +85,7 @@ The following table lists the main dependencies of the VPC service and the purpo
 | Ops Dashboard | Allows IBM's operations team to track the inventory and consumption of VPC resources. |
 | {{site.data.keyword.databases-for-elasticsearch_full_notm}} | Houses tracing data that is used for debugging, troubleshooting, and performance monitoring of the internal components of the VPC service. |
 | {{site.data.keyword.mon_full_notm}} | Sends metrics to {{site.data.keyword.mon_full}}. These metrics are used to debug, troubleshoot, and monitor performance of the VPC service. You can also use {{site.data.keyword.mon_full_notm}} to monitor the health and performance of your virtual private cloud. For more information, see [Monitoring metrics](/docs/vpc?topic=virtual-servers-sysdig-monitoring-metrics). |
-| {{site.data.keyword.cloudcerts_full_notm}} | Stores and manages certificates that are used to securely deploy VPC components, and to secure communication between VPC components. |
+| IBM Cloud Secrets Manager | Stores and manages certificates that are used to securely deploy VPC components, and to secure communication between VPC components. |
 | Digicert | Issuer of cloud.ibm.com SSL certificates. |
 | DNS Services | Maps IBM Cloud services FQDN to IP addresses that provides access to those services within the customer's VPC. |
 | Pulsar | Notifies of encryption key changes at IBM Key Protect or Hyper Protect Crypto Services that affect volumes, instances, or images in VPC. |

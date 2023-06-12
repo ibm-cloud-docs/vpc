@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2018, 2022
-lastupdated: '2022-03-29'
+lastupdated: "2022-03-29"
 
 keywords: port, range, nlb, configuring, udp
 
@@ -27,9 +27,9 @@ For information about limitations, see [IBM Cloud Network Load Balancer for VPC 
 
 You can configure UDP when [creating a network load balancer](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer), or afterwards using the following procedure:
 
-1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} and log in to your account.
+1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 
-2. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers**.
+2. Select the Navigation Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers**.
 
 3. Click the NLB that you want to change.
 
@@ -52,7 +52,7 @@ You can configure UDP when [creating a network load balancer](/docs/vpc?topic=vp
 {: cli}
 
 You can configure the UDP using the CLI when [creating a network load balancer](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer&interface=cli) using the `udp` option.
- 
+
 ## Configuring UDP using the API
 {: #udp-api}
 {: api}

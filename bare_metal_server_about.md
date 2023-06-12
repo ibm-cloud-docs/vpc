@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-03-28"
+  years: 2021, 2023
+lastupdated: "2023-01-27"
 
 keywords: bare metal servers, baremetal, what is bare metal, about bare metal, bare metal features, bare metal benefits
 
@@ -10,21 +10,7 @@ subcollection: vpc
 
 ---
 
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:preview: .preview}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
-{:table: .aria-labeledby="caption"}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # About Bare Metal Servers for VPC
 {: #about-bare-metal-servers}
@@ -49,12 +35,12 @@ You can choose different bare metal server profiles to match your individual wor
 For more information, see [Profiles for Bare Metal Servers for VPC](/docs/vpc?topic=vpc-bare-metal-servers-profile).
 
 ### Advanced Intel® Xeon® CPUs 
-{: #bare-metal-advanced-intel-xeon}
+{: #bare-metal-advanced-intel-xeon-cpu}
 
-IBM Cloud Bare Metal Servers for VPC Infrastructure are deployed only with second Gen Intel® Xeon® Platinum 8260 Processors that are built for cloud-enterprise applications, HPC workloads, IoT workloads, enhanced networking, and security. 
+IBM Cloud Bare Metal Servers for VPC Infrastructure are deployed only with second Gen Intel® Xeon® Platinum 8260 processors that are built for cloud-enterprise applications, HPC workloads, IoT workloads, enhanced networking, and security. 
 
-### SmartNIC technology
-{: #bare-metal-smart-nic}  
+### SmartNIC technology  
+{: #bare-metal-smart-nic}
 
 Get 4x faster network throughput up to 100 Gbps. 
 
@@ -69,14 +55,14 @@ Renting licenses can get expensive. Bringing your own license is an option for I
 ### Rapid scaling
 {: #bare-metal-rapid-scaling-benefit}
 
-Scale your dedicated, bare metal server environment for your needs quickly. Often, in 10 minutes or less when resources are available.
+Scale your dedicated, bare metal server environment for your needs quickly. Often, in 10 minutes or less when resources are available. 
 
 ### Network orchestration 
 {: #bare-metal-network-orchestration-benefit}
 
 A network orchestration layer handles the networking for all bare metal servers that are within an IBM Cloud VPC across regions and zones. Create multiple, virtual private clouds in multizone regions. Network orchestration also helps improve security, reduce latency, and increase high availability. 
 
-You are responsible for security on your bare metal server. That means upgrading or patching the operating system as needed to make sure that vulnerabilities are addressed in a timely manner. Bare metal servers with associated floating IPs are internet-facing and you need to take appropriate precautions. For more information, see [Understanding your responsibilities](/docs/vpc?topic=vpc-responsibilities-vpc#security-compliance).
+You are responsible for security on your bare metal server. That means upgrading or patching the operating system as needed to make sure that vulnerabilities are addressed in a timely manner. Bare metal servers with associated floating IP addresses are internet-facing and you need to take appropriate precautions. For more information, see [Understanding your responsibilities](/docs/vpc?topic=vpc-responsibilities-vpc#security-compliance).
 {: note}
 
 ## Pricing options
@@ -91,7 +77,7 @@ For more information about pricing, see [Pricing](https://www.ibm.com/cloud/vpc/
 
 With {{site.data.keyword.bm_is_short}}, you can enjoy the security and performance of the private cloud with the flexibility and scalability of the public cloud. Compared to the classic bare metal infrastructures, {{site.data.keyword.bm_is_short}} provides better connectivity and networking throughput by using VPC concepts. 
 
-{{site.data.keyword.bm_is_short}} has local NVMe which you can use to create VMWare vSAN. For more information about file storage, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about). 
+{{site.data.keyword.bm_is_short}} has local NVMe, which you can use to create VMWare vSAN. For more information about file storage, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about). 
 
 ### Bare metal servers versus virtual server instances
 {: #bare-metal-vs-virtual-servers}

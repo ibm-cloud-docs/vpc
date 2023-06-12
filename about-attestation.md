@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-07-24"
+  years: 2022, 2023
+lastupdated: "2023-05-11"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -40,17 +40,27 @@ The encryption and attestation certificates are signed by the IBM intermediate c
 
 Use the following procedure to validate the attestation record and hashes:
 
-* Get the attestation record `se-checksums.txt` and the signature file `se-signature.bin` from your instance.
-* Get the IBM attestation certificate [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-5-attestation.crt){: external}, for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-5`.
-  For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-4`, you can download the IBM attestation certificate [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-4-attestation.crt){: external}
-  {: note}
+* Obtain the attestation record `se-checksums.txt` and the signature file `se-signature.bin` from your {{site.data.keyword.hpvs}} for VPC instance. To do so, you can implement your container to provide the attestation record and the signature file. The attestation record and the signature file are made available to your container in the `/var/hyperprotect` directory.
+* Get the IBM attestation certificate [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-10-attestation.crt){: external} for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-10`.
+   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-9`, you can download the IBM attestation certificate [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-9-attestation.crt){: external}.
+   {: note}
 
 * Validate the attestation certificate by following the instructions [here](/docs/vpc?topic=vpc-cert_validate#validate_attest_cert).
 * Extract the encryption public key from the encryption certificate by using the following command:
-  ```sh
-  openssl x509 -pubkey -noout -in ibm-hyper-protect-container-runtime-1-0-s390x-5-attestation.crt > contract-public-key.pub
-  ```
-  {: pre}
+
+   ```sh
+   openssl x509 -pubkey -noout -in ibm-hyper-protect-container-runtime-1-0-s390x-10-attestation.crt > contract-public-key.pub
+   ```
+   {: pre}
+
+* Verify the signature of the attestation record:
+   ```sh
+   openssl sha256 -verify contract-public-key.pub -signature se-signature.bin se-checksums.txt
+   ```
+   {: pre}
+
+   Signature verification must be done on a [decrypted attestation file](#decrypt_attest_record).
+   {: note}
 
 * You can now use the hashes from the attestation record for validation.
 

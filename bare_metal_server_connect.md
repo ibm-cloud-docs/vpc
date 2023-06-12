@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-01-21"
+lastupdated: "2023-05-22"
 
 keywords: bare metal server connect esxi, connect to esxi, connect to esxi, bare metal connect esxi, bare metal esxi, windows serial console, connect to windows console, connect to windows serial console, serial console, connect to serial console
 
@@ -10,21 +10,7 @@ subcollection: vpc
 
 ---
 
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:preview: .preview}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
-{:table: .aria-labeledby="caption"}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Connecting to ESXi with Bare Metal Servers on VPC
 {: #connect-to-ESXi-bare-metal-servers}
@@ -153,7 +139,7 @@ By default, you don't have SSH access to the ESXi bare metal server. You can ena
 
 You can also enable SSH when you provision a bare metal server by passing in the following script content as user data:
 
-```
+```sh
 vim-cmd hostsvc/enable_ssh
 vim-cmd hostsvc/start_ssh
 ```
@@ -176,7 +162,7 @@ You can optionally use a serial console to access ESXi DCUI. You must first manu
 
 6. Press **ESC** if ESXi DCUI doesn’t show up in the terminal. You see ESXi DCUI in your terminal.
    
-You can use other methods to enable the serial console. For more information, see [Redirecting the Direct Console to a Serial Port](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-C65306C0-DA37-4F45-8A50-31F8D109BB1D.html){: external}.
+You can use other methods to enable the serial console. For more information, see [VMware Docs Home](https://docs.vmware.com/){: external}.
 {: note}
 
 ## Accessing the ESXi web client by using floating IP

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-03-16"
+lastupdated: "2022-03-15"
 
 keywords: region, zone, deploy, datacenter, data, center, federated, CLI, API, account, failover, disaster, recovery, DR, data center
 
@@ -10,19 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Creating a VPC in a different region
 {: #creating-a-vpc-in-a-different-region}
@@ -34,10 +22,10 @@ The {{site.data.keyword.cloud}} VPC service is regional. To allow for disaster r
 
 Virtual Private Cloud is available in the following {{site.data.keyword.cloud}} regions.
 
-|   Location     | Region | API Endpoint | 
+|   Location     | Region | API Endpoint |
 | ------- | :------: | :------: |
-| US South (Dallas) | us-south | `us-south.iaas.cloud.ibm.com`| 
-| US East (Washington DC) | us-east | `us-east.iaas.cloud.ibm.com`| 
+| US South (Dallas) | us-south | `us-south.iaas.cloud.ibm.com`|
+| US East (Washington DC) | us-east | `us-east.iaas.cloud.ibm.com`|
 | Brazil (São Paulo) | br-sao | `br-sao.iaas.cloud.ibm.com` |
 | Canada (Toronto) | ca-tor | `ca-tor.iaas.cloud.ibm.com` |
 {: class="simple-tab-table"}
@@ -47,10 +35,10 @@ Virtual Private Cloud is available in the following {{site.data.keyword.cloud}} 
 {: tab-group="vpc-regions-api-endpoint"}
 {: #vpc-north-america-regions}
 
-|   Location     | Region | API Endpoint | 
+|   Location     | Region | API Endpoint |
 | ------- | :------: | :------: |
 | United Kingdom (London) | eu-gb | `eu-gb.iaas.cloud.ibm.com`|
-| EU Germany (Frankfurt) | eu-de | `eu-de.iaas.cloud.ibm.com`| 
+| EU Germany (Frankfurt) | eu-de | `eu-de.iaas.cloud.ibm.com`|
 {: class="simple-tab-table"}
 {: tab-title="Europe"}
 {: caption="Table 1. IBM Cloud regions for Europe" caption-side="bottom"}
@@ -58,7 +46,7 @@ Virtual Private Cloud is available in the following {{site.data.keyword.cloud}} 
 {: tab-group="vpc-regions-api-endpoint"}
 {: #vpc-europe-regions}
 
-|   Location     | Region | API Endpoint | 
+|   Location     | Region | API Endpoint |
 | ------- | :------: | :------: |
 | Japan (Tokyo) | jp-tok | `jp-tok.iaas.cloud.ibm.com` |
 | Japan (Osaka) | jp-osa | `jp-osa.iaas.cloud.ibm.com` |
@@ -81,14 +69,14 @@ When you log in to {{site.data.keyword.cloud}}, you can specify a region or choo
 
 For a federated account,
 
-```
+```sh
 ibmcloud login -a https://cloud.ibm.com -r us-south --sso
 ```
 {: pre}
 
 For a non-federated account,
 
-```
+```sh
 ibmcloud login -a https://cloud.ibm.com -r us-south
 ```
 {: pre}
@@ -97,7 +85,7 @@ To choose the region later, do not specify the `-r <region>` parameter and the C
 
 Example output:
 
-```
+```json
 API endpoint: cloud.ibm.com
 
 Get One Time Code from https://identity-2.eu-central.iam.cloud.ibm.com/identity/passcode to proceed.
@@ -126,14 +114,14 @@ Enter a number> 5
 Targeted region us-south
 
 
-API endpoint:      https://cloud.ibm.com   
-Region:            us-south   
-User:              first.last@email.com   
-Account:           TeamAccount (2bb222bb2b22222bbb2b2222bb2bb222) <-> 7654321  
-Resource group:    Default   
-CF API endpoint:      
-Org:                  
-Space:                
+API endpoint:      https://cloud.ibm.com
+Region:            us-south
+User:              first.last@email.com
+Account:           TeamAccount (2bb222bb2b22222bbb2b2222bb2bb222) <-> 7654321
+Resource group:    Default
+CF API endpoint:
+Org:
+Space:
 
 ...
 ```
@@ -145,32 +133,32 @@ Space:
 
 To get the latest status of the VPC regions, run the following command:
 
-```
+```sh
 ibmcloud is regions
 ```
 {: pre}
 
 To switch to a different region, run the `ibmcloud target -r <region>` command. For example, to switch to the Washington DC region, run the following command:
 
-```
+```sh
 ibmcloud target -r us-east
 ```
 {: pre}
 
 To check your current location, run the following command:
 
-```
+```sh
 ibmcloud target
 ```
 {: pre}
 
-## Switch regions by using the API  
+## Switch regions by using the API
 {: #switch-regions-using-the-api}
 {: api}
 
 To interact with the Regional VPC API by using REST, direct your request to the API endpoint that is associated with the region in which you want to create resources. The region's API endpoint is shown in the previous table. You also can find the endpoints that are associated with the regions by running the following command:
 
-```
+```sh
 ibmcloud is regions
 ```
 {: pre}
@@ -178,7 +166,7 @@ ibmcloud is regions
 
 For example, to get the list of VPCs in the `us-south` region, run the following command:
 
-```
+```curl
 curl "https://us-south.iaas.cloud.ibm.com/v1/vpcs?version=$api_version&generation=2" -H "Authorization: $iam_token"
 ```
 {: pre}
@@ -190,7 +178,7 @@ curl "https://us-south.iaas.cloud.ibm.com/v1/vpcs?version=$api_version&generatio
 
 To get the list of zones available for each region, run the command `ibmcloud is zones <region>`. For example, to get the list of zones in region `us-south`, run the following command:
 
-```
+```sh
 ibmcloud is zones us-south
 ```
 {: pre}

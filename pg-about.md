@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2022
-lastupdated: "2022-08-19"
+  years: 2022, 2023
+lastupdated: "2023-02-13"
 
 keywords: 
 
@@ -12,7 +12,7 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # About public gateways
-{: #public-gateways}
+{: #about-public-gateways}
 
 A public gateway enables a subnet and all its attached virtual server instances to connect to the internet. By default, subnets do not have access to the public internet. After a subnet is attached to a public gateway, all instances in that subnet can connect to the internet. 
 {: shortdesc}
@@ -44,7 +44,7 @@ To get started using {{site.data.keyword.cloud}} public gateways, follow these s
 
 1. Complete any [prerequisites](/docs/vpc?topic=vpc-create-public-gateways&interface=ui#pg-before-you-begin) before creating or connecting to a public gateway.
 1. Decide if you need a public gateway and [Create your public gateway](/docs/vpc?topic=vpc-create-public-gateways&interface=ui#pg-creating-api). 
-1. Review the public gateway that you've created in the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external}.
+1. Review the public gateway that you've created in the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
 
 ## Public gateway use cases 
 {: #pg-use-cases}
@@ -54,7 +54,7 @@ Creating a public gateway is a standard way for a customer to acquire external c
 ### Use case 1: External connectivity
 {: #pg-use-case-external-connectivity}
 
-You can create and assign a public gateway to a virtual server instance to provide your service with outbound connectivity to a third-party vendor service or external login service. One public gateway can be assigned to multiple virtual server instances and subnets. 
+You can create and assign a public gateway to a virtual server instance to provide your service with outbound connectivity to a third-party vendor service or external logging service. One public gateway can be assigned to multiple virtual server instances and subnets. 
 
 The following diagram demonstrates the difference in applying external connectivity to a service through a public gateway and a floating IP address. In this scenario, three virtual server instances are connecting to services and customers through a public gateway and floating IP address.
 

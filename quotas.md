@@ -1,11 +1,10 @@
 ---
 
 copyright:
-  years: 2018, 2022
+  years: 2018, 2023
+lastupdated: "2023-05-17"
 
-lastupdated: "2022-09-28"
-
-keywords:
+keywords: VPC, virtual private cloud
 
 subcollection: vpc
 
@@ -40,12 +39,11 @@ To increase a quota for a particular resource, [contact support](/unifiedsupport
 | Floating IP addresses | 40 per zone |
 | SSH keys | 200 per account |
 | GPU | 16 per account |
-| Dedicated host groups | 100 per region | 
+| Dedicated host groups | 100 per region |
+| Storage optimized (ox2) instance storage | 96 TB per region |
 {: caption="Table 1. Quotas for virtual server instances" caption-side="bottom"}
 
-When you provision virtual server instances and dedicated hosts, the vCPU associated with these resources counts toward the vCPU quotas per region. Instances that are provisioned on dedicated hosts do not count against the vCPU quota.
-
-When you provision virtual server instances, the RAM and instance storage, along with vCPU, that is associated with the instances count toward the vCPU, RAM, and instance storage quotas per region.
+When you provision virtual server instances dedicated hosts, the vCPU, RAM, and solid-state drives, which are associated with the instances count toward the vCPU, RAM, and instance storage quotas per region. Instances that are provisioned on dedicated hosts do not count against the vCPU quota. For more information, see [About instance storage](/docs/vpc?topic=vpc-instance-storage).
 
 Bare metal servers use physical cores and don't count toward your vCPU quota.
 {: note} 
@@ -149,6 +147,14 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 Each route has a destination property, which includes a prefix length (`/24` in `10.2.0.0/24`). The number of unique prefix lengths that are supported per custom routing table is 14. Multiple routes with the same prefix count as only one unique prefix.
 {: note}
 
+### Reserved IP addresses
+{: #reserved-ip-quotas}
+
+|Resource|Quota|
+|--------|-----|
+| Reserved IP addresses| 20,000 per region |
+{: caption="Table 10. Quotas for reserved IP addresses" caption-side="bottom"}
+
 ### Block storage volumes and snapshots
 {: #block-storage-quotas}
 
@@ -156,8 +162,7 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 |--------|-----|
 | Boot and secondary volumes | 300 total VPC volumes per account in a region |
 | Snapshots and backup snapshots | Up to 750 per volume in a region |
-
-{: caption="Table 10. Quotas for block storage volumes and snapshots" caption-side="bottom"}
+{: caption="Table 11. Quotas for block storage volumes and snapshots" caption-side="bottom"}
 
 ### File shares
 {: #file-storage-quotas}
@@ -165,7 +170,7 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 |Resource|Quota|
 |--------|-----|
 | File shares | 300 total file shares per account in a region |
-{: caption="Table 11. Quotas for file shares" caption-side="bottom"}
+{: caption="Table 12. Quotas for file shares" caption-side="bottom"}
 
 ### Placement groups
 {: #placement-group-quotas}
@@ -175,7 +180,7 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 | Placement groups | 100 placement groups per account in a region |
 | Instances | 12 instances per placement group per region with host_spread placement group strategy. |
 | Instances | 4 instances per placement group per region with power_spread placement group strategy. |
-{: caption="Table 12. Quotas for placement groups" caption-side="bottom"}
+{: caption="Table 13. Quotas for placement groups" caption-side="bottom"}
 
 The quotas for placement groups are set and can't be adjusted.
 {: note}
@@ -196,4 +201,5 @@ The following table displays current VPC service limits. Unlike quotas, these li
 | Secondary volumes per instance | Up to 12 secondary volumes |
 | Instance groups for auto scale and more | 200 per account|
 | Instance group memberships  | 1000 per instance group|
-{: caption="Table 13. Limits for VPC resources" caption-side="bottom"}
+| Image export jobs | 5 active jobs per image, 10 total per image, 20 active jobs per account, per region|
+{: caption="Table 14. Limits for VPC resources" caption-side="bottom"}

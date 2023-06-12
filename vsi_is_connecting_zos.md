@@ -12,18 +12,9 @@ subcollection: vpc
 
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:important: .important}
-{:screen: .screen}
-{:pre: .pre}
-{:tip: .tip}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
-{:preview: .preview}
-{:external: target="_blank" .external}
+{{site.data.keyword.attribute-definition-list}}
 
+<!-- DO NOT MOVE WAZI AAS TO PUBLISH-->
 
 # Connecting to z/OS virtual server instances
 {: #vsi_is_connecting_zos}
@@ -31,12 +22,12 @@ subcollection: vpc
 A z/OS virtual server instance is typically a private backend infrastructure component that must never be directly accessed from the outside world. Even environments that are used for development, testing, or demonstration must follow good practices for logical isolation.
 {: shortdesc}
 
-You can refer to the solution tutorial [Public frontend and private backend in a Virtual Private Cloud](/docs/vpc?topic=solution-tutorials-vpc-public-app-private-backend) to learn how to use subnets to isolate and control traffic to backend infrastructure such as a z/OS virtual server instance.
+You can refer to the solution tutorial [Public front end and private backend in a Virtual Private Cloud](/docs/vpc?topic=solution-tutorials-vpc-public-app-private-backend) to learn how to use subnets to isolate and control traffic to backend infrastructure such as a z/OS virtual server instance.
 
 Additionally, good practices be can be used to securely connect to a VPC subnet by containing a z/OS virtual server instance.
 
 *  [Securely access remote instances with a bastion host](/docs/vpc?topic=solution-tutorials-vpc-secure-management-bastion-server)
-*  [About client-to-site VPN servers](/docs/vpc?topic=vpc-vpn-client-to-site-overview)
+*  [Using client-to-site VPN servers (Beta)](/docs/vpc?topic=vpc-vpn-client-to-site-overview)
 
 After you connected to the VPC network by using the client-to-site VPN server, you can access the z/OS virtual server instance by using the private IP address.
 
@@ -55,14 +46,14 @@ If you are using your z/OS Wazi aaS custom images, you do not need to configure 
 
 1. Log in to the z/OS UNIX shell environment by using your SSH private key and the default user ID. Note that `vsi ip address` in the following code snippets represent the private IP address of your z/OS virtual server instance.
 
-   ```
+   ```sh
    ssh -i <path to your private key file> ibmuser@<vsi ip address>
    ```
    {: pre}
 
    You receive a response similar to the following example. When prompted to continue connecting, type `yes`.
    
-   ```
+   ```json
    The authenticity of host 'xxx.xxx.xxx.xxx (xxx.xxx.xxx.xxx)' can't be established.
    ECDSA key fingerprint is SHA256:xxxxxxxxxxxxxxxxxxxxxx.
    Are you sure you want to continue connecting (yes/no)? yes
@@ -72,8 +63,7 @@ If you are using your z/OS Wazi aaS custom images, you do not need to configure 
 
 2. Use the `tsocmd` shell command to configure your own password for the z/OS instance. For example, the new password is `system12`.
 
-   ```
-   bash
+   ```sh
    tsocmd 'ALTUSER IBMUSER PASSWORD(system12) NOEXPIRE RESUME'
    ```
    {: codeblock}
@@ -89,7 +79,7 @@ If you are using your z/OS Wazi aaS custom images, you do not need to configure 
    For more information about the commands, see [tsocmd - Run a TSO/E command from the shell (including authorized commands)](https://www.ibm.com/docs/en/zos/2.4.0?topic=scd-tsocmd-run-tsoe-command-from-shell-including-authorized-commands){: external} and [ALTUSER (Alter user profile)](https://www.ibm.com/docs/en/zos/2.4.0?topic=syntax-altuser-alter-user-profile){: external}.
 
 ## Step 2. Getting connected
-{: #getting-connected}
+{: #getting-connected-zos}
 
 You can interact with your z/OS virtual server instance with the following approaches.
 
@@ -197,7 +187,7 @@ To allow others to access your z/OS virtual server instance by using their own z
 
    To create a user profile with these values, you can run the following commands:
    
-    ```
+    ```sh
     ADDUSER STEVEH DFLTGRP(DEPTA) OWNER(DEPTA) NAME('Steve H.')
         PASSWORD(R315VQX) TSO(ACCTNUM(123456) PROC(PROC01))
     ```
@@ -216,7 +206,7 @@ For more information about the authorized_key file and z/OS user profiles, see [
 
 
 ## Next steps
-{: #connect-zos-next}
+{: #next-manage-vsi-zos}
 
 After you connected to your virtual server instance, you can [manage your instance](/docs/vpc?topic=vpc-managing-virtual-server-instances). 
 

@@ -2,9 +2,9 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-04-19"
+lastupdated: "2022-10-31"
 
-keywords: 
+keywords:
 
 subcollection: vpc
 
@@ -12,30 +12,34 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Bare metal server profiles
+# x86-64 bare metal server profiles
 {: #bare-metal-servers-profile}
 
-When you create a bare metal server, you can select from a profile family that best fits your needs. A profile provides a different combination of hardware configurations that include the number of vCPUs, amount of RAM, and local storage size. The attributes define the size and capabilities of the bare metal server that you provision. 
+When you create a bare metal server, you can select from a profile family that best fits your needs. A profile provides a different combination of hardware configurations that include the number of vCPUs, amount of RAM, and local storage size. The attributes define the size and capabilities of the bare metal server that you provision.
 {: shortdesc}
 
 ## About profile families
 {: #profile-familiy}
 
-Profiles are grouped by the _vCPUs:Memory_ ratio across all the VPC compute offerings. You can choose from three profile families:
+Profiles are grouped by the _vCPUs:Memory_ ratio across all the VPC compute offerings. You can choose from the following profile families:
 
-| Families | vCPU:Memory ratio | Description |
+| Family | vCPU:Memory ratio | Description |
 |-----|-----|-----|
 | Balanced | 1:4 | Best for midsize databases and common cloud applications with moderate traffic. |
 | Compute | 1:2 | Best for CPU-intensive demands with moderate to high web traffic, such as production batch processing and front-end web servers. |
 | Memory | 1:8 or 1:6 | Best for memory intensive workloads, such as large caching workloads, large database applications, or in-memory analytics workloads. |
+| Very High Memory | 1:16 | Best for running small to medium in-memory databases and OLAP workloads, such as SAP BW/4 HANA. |
 {: caption="Table 1. Profile families" caption-side="bottom"}
+
+Very High Memory profiles are available for customers with special approval. Contact your IBM Sales representative if you are interested in getting access.
+{: preview}
 
 ## Profile configurations
 {: #bare-metal-servers-profile-list}
 
 See the following table to see the available profile configurations.
 
-| Name | vCPU | Memory (GiB) | Local storage | Total network bandwidth (Gbps) | 
+| Name | vCPU | Memory (GiB) | Local storage | Total network bandwidth (Gbps) |
 |---------|---------|---------|---------|---------|
 | bx2-metal-96x384 | 96 | 384 | 960 GB | 100 |
 | bx2d-metal-96x384  | 96 | 384  | 960 GB  \n 25.6 TB secondary storage (allocation of 8 x 3200) | 100 |
@@ -70,26 +74,36 @@ See the following table to see the available profile configurations.
 {: class="simple-tab-table"}
 {: summary="Use the buttons before the table to change the context of the table. The column headers identify the hardware class."}
 
+| Name | vCPU | Memory (GiB) | Local storage | Total network bandwidth (Gbps) |
+|---------|---------|---------|---------|---------|
+| vx2d-metal-96x1536 | 96 | 1536 | 960 GB   \n 25.6 TB secondary storage (allocation of 8 x 3200) | 100 |
+{: caption="Table 2. Profile families" caption-side='top"}
+{: #bare-metal-memory-profiles}
+{: tab-title="Very High Memory profile"}
+{: tab-group="profile-configurations"}
+{: class="simple-tab-table"}
+{: summary="Use the buttons before the table to change the context of the table. The column headers identify the hardware class."}
+
 ### Understanding the naming rule of the profiles
 {: #profile-naming-rule}
 
 The following information describes the naming rule of the profiles.
 
-* *b* represents *Balanced* family profile - *c* represents the *Compute* family profile - *m* represents the "Memory family profile
+* *b* represents *Balanced* family profile - *c* represents the *Compute* family profile - *m* represents the *Memory* family profile - *v* represents the *Very High Memory* family profile.
 * *x* represents the *x86_64* CPU architecture.
 * *2* represents the current generation of processors (Cascade Lake).
 * *d* represents support for *NVMe U.2* SSDs.
 * "metal" denotes that the profile is a bare metal server.
 * The last position that contains numbers shows amount of vCPUs and the amount of memory (GB). For example, *192x768* means that this profile has 192 vCPUs and 768 GiB of memory.
 
-Using “bx2d-metal-192x768” as an example, it's a *Balanced* bare metal profile with *192 vCPUs and 768 GiB memory*, has the Cascade Lake processors, and NVMe U.2 SSDs.
+Using “bx2d-metal-192x768” as an example, it's a *Balanced* bare metal profile with *192 vCPUs and 768 GiB memory*, has Cascade Lake processors, and NVMe U.2 SSDs.
 
 Bare metal profiles are dedicated servers that provide physical cores. vCPU measurements are used in profile naming only. vCPU to physical cores are a 2:1 ratio (e.g 192 vCPU = 96 physical cores).
 
 ## Profile availability by region
 {: #bare-metal-profile-availability-by-region}
 
-See the following table to see what bare metal profiles are available by region. 
+See the following table to see what bare metal profiles are available by region.
 
 | Profile |  us-south-1 | us-south-2 | us-south-3 | us-east-2 |
 | ------- | ----------- | ---------- | ---------- | --------- |
@@ -101,6 +115,7 @@ See the following table to see what bare metal profiles are available by region.
 | mx2d-metal-96x768  | ![Checkmark icon](../icons/checkmark-icon.svg) |  |  ![Checkmark icon](../icons/checkmark-icon.svg)|  |
 | bx2-metal-192x768  | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | bx2d-metal-192x768 | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| vx2d-metal-96x1536 | ![Checkmark icon](../icons/checkmark-icon.svg) |  | ![Checkmark icon](../icons/checkmark-icon.svg) |  |
 {: caption="Table 3. Bare metal profiles availability by region" caption-side='top"}
 {: #bare-metal-profiles-americas}
 {: tab-title="Americas"}
@@ -109,7 +124,7 @@ See the following table to see what bare metal profiles are available by region.
 {: summary="Use the buttons before the table to change the context of the table. The column headers identify the hardware class."}
 
 | Profile | eu-de-1 | eu-de-2 |
-| ------- | ----------- | ---------- | 
+| ------- | ----------- | ---------- |
 | cx2-metal-96x192    | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | cx2d-metal-96x192   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | bx2-metal-96x384    | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
@@ -118,6 +133,7 @@ See the following table to see what bare metal profiles are available by region.
 | mx2d-metal-96x768   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | bx2-metal-192x768   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | bx2d-metal-192x768  | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| vx2d-metal-96x1536 |  ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 {: caption="Table 3. Bare metal profiles availability by region" caption-side='top"}
 {: #bare-metal-profiles-europe}
 {: tab-title="Europe"}
@@ -136,7 +152,7 @@ You can view available profile configurations by using the UI, [CLI](#view-bare-
 
 Use the following steps to view available bare metal profiles by using the UI.
 
-1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Bare metal servers**.
+1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](/login), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Bare metal servers**.
 2. From the **Bare metal servers for VPC** page, click **Create**.
 3. On the **New bare metal server for VPC** page, you can view and select profiles under **Profile**.
 

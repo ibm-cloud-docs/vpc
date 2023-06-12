@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-05-21"
+  years: 2020, 2022
+lastupdated: "2022-11-15"
 
 keywords: custom routes
 
@@ -18,32 +18,29 @@ subcollection: vpc
 You can list routing tables for a VPC by using the UI, CLI, or API.
 {: shortdesc}
 
-## Listing routing tables for a VPC by using the UI
+## Listing routing tables for a VPC in the UI
 {: #cr-list-tables-using-the-ui}
 {: ui}
 
-To list the routing tables for a VPC by using the {{site.data.keyword.cloud_notm}} console, follow these steps:
+To list the routing tables for a VPC in the UI, follow these steps:
 
-1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the Menu icon ![Menu icon](/images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appears.
-
-   ![Routing tables for VPC page](./images/cr-routing-tables-page.png){: caption="Figure 1. Routing tables for VPC page" caption-side="bottom}
-
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the Navigation Menu ![Navigation Menu](/images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appears.
 1. From the Virtual private cloud drop-down list, select the VPC that you want to list routing tables for.
 
    Column descriptions are as follows:
 
    * **Name** - Indicates the name of the routing table. Click this link to see the details of the routing table. You can also edit and change this name.
    * **Default** - Specifies the default routing table of the specified VPC.
-   * **Date created** - Shows the date that the routing table was created.
+   * **Traffic type** - Specifies the type of traffic.  For example, **Egress**. 
    * **Routes** - States the number of routes that are attached to the routing table.
    * **Attached subnets** - Indicates the number of subnets that are attached to the routing table.
 
 1. From the Routing tables for VPC page, you can create, delete, and view the details of a routing table.
 
-The overflow menu ![overflow menu](images/overflow.png) is used to delete a routing table. Keep in mind that you can do this action only on routing tables without attached subnets.
+The Actions menu ![Actions menu](images/overflow.png) is used to delete a routing table. Keep in mind that you can do this action only on routing tables without attached subnets.
 {: note}
 
-## Listing routing tables for a VPC by using the CLI
+## Listing routing tables for a VPC from the CLI
 {: #cr-list-tables-using-the-cli}
 {: cli}
 
@@ -61,8 +58,7 @@ Where:
 * **VPC** is the ID of the VPC.
 * **--json** formats output in JSON.
 
-
-## Listing routing tables for a VPC by using the API
+## Listing routing tables for a VPC with the API
 {: #cr-list-tables-using-the-api}
 {: api}
 
@@ -75,12 +71,3 @@ To list the routing tables for a VPC by using the API, follow these steps:
     export VpcId=<your_vpc_id>
     ```
     {: pre}
-
-1. List the routing tables for a VPC:
-
-   ```sh
-   curl -X GET "$vpc_api_endpoint/v1/vpcs/$VpcId/routing_tables?version=$api_version&generation=2" \
-     -H "Authorization: $iam_token"
-
-   ```
-   {: codeblock}

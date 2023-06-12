@@ -10,14 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
+{{site.data.keyword.attribute-definition-list}}
 
 # Required permissions
 {: #resource-authorizations-required-for-api-and-cli-calls}
@@ -176,10 +169,8 @@ For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?t
 | VPN gateway ike_policies, ipsec_policies and connections|View, List  | Viewer for the VPN gateway |
 {: caption="Table 1. Minimum IAM roles for VPC actions" caption-side="top"}
 
-
-{: #vpn-server-authorizations-required-for-api-and-cli-calls}
-
-**Client-to-site VPN server tasks (Beta)**
+## Client-to-site VPN server tasks
+{: #client-to-site-vpn-server-tasks}
 
 The following table lists tasks that are associated with the client-to-site VPN server service, the minimum IAM role required to complete the task, and the associated API method.
 

@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Integrating an IBM Cloud Application Load Balancer for VPC with security groups
+# Integrating an application load balancer with security groups
 {: #alb-integration-with-security-groups}
 
 The {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) allows you to attach [security groups](/docs/vpc?topic=vpc-using-security-groups) to enhance your application's security.
@@ -103,8 +103,8 @@ Ensure that the security groups exist that you want to attach to your ALB. Also 
 
 To create a security group using the UI:
 
-1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} and log in to your account.
-1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Security Groups** in the Network section.
+1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
+1. Select the Navigation Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Security Groups** in the Network section.
 1. Click **Create**.
 1. Provide a unique name for your security group.
 1. Select the VPC for your security group.
@@ -122,7 +122,7 @@ To create a security group using the UI:
 1. Click **Create security group** after you finish creating rules.
 
 #### Security group example
-{: #security-group-example}
+{: #lb-security-group-example}
 
 For example, configure the following inbound rules, which allow all traffic on port 80 for an HTTP listener (TCP port 80).
 
@@ -144,8 +144,8 @@ Then, configure outbound rules that allow TCP traffic to your back-end target:
 
 To attach security groups when [creating your application load balancer](/docs/vpc?topic=vpc-load-balancer), follow these steps:
 
-1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} and log in to your account.
-1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers** in the Network section.
+1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
+1. Select the Navigation Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers** in the Network section.
 1. Click **Create**.
 1. Configure the name, VPC, type, subnet, listeners, and pools as needed.
 1. Select the checkboxes of the security groups that you want to attach from the security group table.
@@ -162,8 +162,8 @@ To attach a security group to an existing load balancer, follow these steps:
 Load balancers created prior to 25 February 2021 do not have a security group attached and allow all inbound and outbound traffic. If you attach a security group to a load balancer that does not have a security group, you cannot revert back to having no security groups. You can revert to the previous "allow all inbound and outbound traffic" behavior by attaching a security group with rules for allowing all inbound and outbound traffic. However, such a rule is inherently less secure than having a more restrictive security group in place, and is not recommended.
 {: important}
 
-1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} and log in to your account.
-1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers** in the Network section.
+1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
+1. Select the Navigation Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers** in the Network section.
 1. From the list of load balancers, select the load balancer to view its details page.
 1. Click the **Attached security groups** tab to view attached security groups.
 1. To attach one or more security groups, click **Attach**.
@@ -173,8 +173,8 @@ Load balancers created prior to 25 February 2021 do not have a security group at
 
 To detach a security group from a load balancer, follow these steps:
 
-1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} and log in to your account.
-1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers** in the Network section.
+1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
+1. Select the Navigation Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers** in the Network section.
 1. From the list of load balancers, select the load balancer to view its details page.
 1. Click the **Attached security groups** tab to view attached security groups.
 1. To detach a security group, click the security group's Action menu ![Actions icon](../icons/action-menu-icon.svg).

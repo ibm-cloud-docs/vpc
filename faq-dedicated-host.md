@@ -1,23 +1,14 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2022-04-01"
+  years: 2020, 2023
+lastupdated: "2023-01-27"
 
 subcollection: vpc
 
-
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:download: .download}
-{:faq: data-hd-content-type='faq'}
-{:support: data-reuse='support'}
+{{site.data.keyword.attribute-definition-list}}
 
 # FAQs for dedicated hosts
 {: #faqs-dedicated-host}
@@ -37,7 +28,7 @@ For more information, see [Creating dedicated hosts and groups](/docs/vpc?topic=
 
 When you create a dedicated host, you are billed by the usage of the host on an hourly basis. You are not billed for the vCPU and RAM associated with instances that are running on the host. 
  
-## Why can I only create one dedicated host per region?
+## Why can I create only one dedicated host per region?
 {: #faq-dedicated-host-2}
 {: faq}
 
@@ -61,7 +52,7 @@ In IBM Cloud console, if you look at the details page of a dedicated host that w
 {: #faq-dedicated-host-5}
 {: faq}
 
-In case of a hardware failure, the dedicated host and instances running on it are migrated to a new hardware node.
+In case of a hardware failure, the dedicated host and the instances that are running on it are migrated to a new hardware node.
 
 If a host hardware failure occurs, the instances that you initially provisioned to a dedicate host group might be migrated to another existing dedicated host in the group if capacity is available.
 

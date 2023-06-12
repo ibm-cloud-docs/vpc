@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-08-25"
+  years: 2021, 2023
+lastupdated: "2023-01-17"
 
 keywords: ike policy
 
@@ -18,7 +18,7 @@ subcollection: vpc
 You can use custom Internet Key Exchange (IKE) policies to define security parameters to use during Phase 1 of IKE negotiation. In this phase, the VPN and peer device exchange credentials and security policies to authenticate each other and establish a secure communication channel to be used for Phase 2 negotiation.
 {: shortdesc}
 
-## Creating an IKE policy by using the UI
+## Creating an IKE policy in the UI
 {: #vpn-using-ui-create-ike-policy}
 {: ui}
 
@@ -37,7 +37,7 @@ To create an IKE policy using the UI, follow these steps:
 1. Click **Create IKE policy**.
 1. From the **VPN connection details** page, set the **IKE policies** field to use the wanted IKE policy.
 
-## Creating an IKE policy by using the CLI
+## Creating an IKE policy from the CLI
 {: #vpn-using-cli-create-ike-policy}
 {: cli}
 
@@ -55,10 +55,13 @@ ibmcloud is ike-policy-create IKE_POLICY_NAME AUTHENTICATION_ALGORITHM DH_GROUP 
 
 Where:
 
+`md-5` and `sha-1` authentication algorithms, `2` and `5` DH groups, and the `triple_des` encryption algorithm were deprecated on 20 September 2022 and are no longer supported in the UI. If you currently use these ciphers, you must [upgrade weak cipher suites on a VPN gateway](/docs/vpc?topic=vpc-upgrading-weak-ciphers&interface=ui) before end of support is announced for use with the CLI and API.
+{: deprecated}
+
 - **IKE_POLICY_NAME** - Name of the IKE policy.
-- **AUTHENTICATION_ALGORITHM** - The authentication algorithm. One of: `md5`, `sha1`, `sha256`, `sha384`, `sha512`.
-- **DH_GROUP** - The Diffie-Hellman group. One of: `2`, `5`, `14`, `15`, `16`, `17`, `18`, `19`, `20`, `21`, `22`, `23`, `24`, `31`.
-- **ENCRYPTION_ALGORITHM** - The encryption algorithm. One of: `triple_des`, `aes128`, `aes192`, `aes256`.
+- **AUTHENTICATION_ALGORITHM** - The authentication algorithm. One of: `sha256`, `sha384`, `sha512`.
+- **DH_GROUP** - The Diffie-Hellman group. One of: `14`, `15`, `16`, `17`, `18`, `19`, `20`, `21`, `22`, `23`, `24`, `31`.
+- **ENCRYPTION_ALGORITHM** - The encryption algorithm. One of: `aes128`, `aes192`, `aes256`.
 - **IKE_VERSION** - The IKE protocol version. One of: `1`, `2`.
 - **--key-lifetime value** - The key lifetime in seconds. Maximum: `86400`, Minimum: `1800`. The default value is `28800`.
 - **--resource-group-id value** - ID of the resource group. This option is mutually exclusive with **--resource-group-name**.
@@ -73,10 +76,10 @@ Where:
    - `ibmcloud is ike-policy-create my-ike-policy sha256 14 aes128 2`
 - Create an IKE policy with the same parameters and a 3600-seconds lifetime:
    - `ibmcloud is ipsec-policy-create my-ipsec-policy sha256 14 aes128 2 --key-lifetime 3600`
-- CCreate an IKE policy with the same parameters and a resource group ID:
+- Create an IKE policy with the same parameters and a resource group ID:
    - `ibmcloud is ipsec-policy-create my-ipsec-policy sha256 14 aes128 2 --resource-group-id fee82deba12e4c0fb69c3b09d1f12345 --output JSON`
 
-## Creating an IKE policy by using the API
+## Creating an IKE policy with the API
 {: #vpn-using-api-create-ike-policy}
 {: api}
 

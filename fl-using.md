@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-08-06"
+  years: 2020, 2023
+lastupdated: "2023-05-11"
 
 keywords: flow logs, getting started
 
@@ -32,18 +32,15 @@ Flow logs can help with a number of tasks, including:
 * Availability in all {{site.data.keyword.cloud_notm}} Multi-Zone Regions (MZRs) worldwide, providing global solutions
 * Network-centric lifecycle and operations management
 * Suspend (stop) and resume (start) collector activity
-* Conveniently stores collector output in IBM Cloud Object Storage (COS)
+* Conveniently stores collector output in {{site.data.keyword.cos_full}}
 * No impact to network performance
 * Built-in fault tolerance
 * Pricing is metered per GB of metadata that is collected per flow log target
 
-   See [Pricing for IBM Cloud Flow Logs on VPC](https://www.ibm.com/cloud/vpc/pricing#product-faq-section){: external} for details.
-   {: note}
-
 ## Configuring flow log collectors
 {: #configuring-fl-collectors}
 
-You can configure flow log collectors with different collection scopes. For example, a collector that targets a VPC and aggregates in-transit data from _all_ network interfaces within that VPC. Or, a collector that targets a virtual server instance and aggregates in-transit data from _only_ that virtual server instance's network interfaces. After data is collected, flow logs are stored in a Cloud Object Storage (COS) bucket, which you configure when you create the flow log collector.
+You can configure flow log collectors with different collection scopes. For example, a collector that targets a VPC and aggregates in-transit data from _all_ network interfaces within that VPC. Or, a collector that targets a virtual server instance and aggregates in-transit data from _only_ that virtual server instance's network interfaces. After data is collected, flow logs are stored in an {{site.data.keyword.cos_full}} bucket, which you configure when you create the flow log collector.
 
 You can set the granularity of a flow log collector for the following target scopes. Keep in mind that if you create a flow log for a subnet or VPC, each network interface in that subnet or VPC is monitored.
 
@@ -55,7 +52,7 @@ You can set the granularity of a flow log collector for the following target sco
 | Interface | Collects data for a specific network interface on a specific virtual server. |
 {: caption="Table 1. Flow log target scopes" caption-side="bottom}
 
-During each collector upload interval, there are two flow logs (ingress and egress) per network interface that are written to the designated COS bucket.
+During each collector upload interval, there are two flow logs (ingress and egress) per network interface that are written to the designated {{site.data.keyword.cos_short}} bucket.
 {: note}
 
 ### Finest granularity wins
@@ -68,10 +65,10 @@ Each flow log target can have a single flow log collector, which can lead to ove
 * The subnet that the virtual server instance is attached to might have its own flow log collector.
 * The VPC that the subnet is part of might have its own flow log collector.
 
-If an overlap exists, the most targeted flow log collector takes precedence. This precedence is important because each flow log collector might log to a different COS bucket, and where flow log data is stored, can change over the lifetime of a virtual server instance.
+If an overlap exists, the most targeted flow log collector takes precedence. This precedence is important because each flow log collector might log to a different {{site.data.keyword.cos_short}} bucket, and where flow log data is stored, can change over the lifetime of a virtual server instance.
 
 ## Getting started
-{: #fl-getting-started}  
+{: #fl-getting-started}
 
 To get started using flow log collectors, follow these steps:
 
@@ -90,7 +87,7 @@ With IBM Cloud Flow Logs for VPC, you can validate that network connections and 
 ### Use case 1: Analyzing flow logs
 {: #analyzing-flow-logs-using-example}
 
-You can review and download a [flow log example solution](https://github.com/IBM-Cloud/vpc-flowlogs-logdna){: external} of how to use a trigger function to read a flow log COS object and write it to IBM Log Analysis.
+You can review and download a [flow log example solution](https://github.com/IBM-Cloud/vpc-flowlogs-logdna){: external} of how to use a trigger function to read a flow log {{site.data.keyword.cos_short}} object and write it to IBM Log Analysis.
 
 ### Use case 2: Setting up finest granularity wins
 {: #finest-granularity-wins-example}
@@ -106,13 +103,13 @@ The following diagram shows possible ways that you can configure flow log collec
 ### Use case 3: Troubleshooting security groups and network ACLs
 {: #troubleshooting-perf-problems-example}
 
-Similar to use case 2, this use case illustrates how to set the granularity of flow log collectors for different target scopes. It also goes one step further to depict how flow logs can help you troubleshoot by using security groups and network ACLs (NACLs).  
+Similar to use case 2, this use case illustrates how to set the granularity of flow log collectors for different target scopes. It also goes one step further to depict how flow logs can help you troubleshoot by using security groups and network ACLs (NACLs).
 
 Scenario:
 
-1. NACL 2 on Subnet 3 is preventing you from running a web server there. Notice that this network ACL allows ingress, but denies egress.  
+1. NACL 2 on Subnet 3 is preventing you from running a web server there. Notice that this network ACL allows ingress, but denies egress.
 2. A virtual server instance on Subnet 2 (NACL 1 allows ingress and egress) tries to query the web server that you are running on Subnet 3.
-3. The query gets through and you see that the traffic is accepted on the ingress path to Subnet 3 into virtual server instance 31.  
+3. The query gets through and you see that the traffic is accepted on the ingress path to Subnet 3 into virtual server instance 31.
 4. When virtual server instance 31 receives the request, it generates a reply and tries to send it. Unfortunately, the response cannot be returned and your connection hangs on Subnet 2 until it times out.
 5. Flow logs show that the request was sent and that it was accepted on virtual server instance 31. Flow logs show that the response traffic was rejected.
 
@@ -121,7 +118,7 @@ Scenario:
 ### Use case 4: Detecting port vulnerabilities
 {: #detect-port-vulnerabilities-example}
 
-Consider a scenario where an attacker initiates connections to different TCP ports. In turn, these connections are blocked by the security group filter. Flow logs collect all the flows that were rejected by the security group and reports them to Cloud Object Storage (COS).
+Consider a scenario where an attacker initiates connections to different TCP ports. In turn, these connections are blocked by the security group filter. Flow logs collect all the flows that were rejected by the security group and reports them to {{site.data.keyword.cos_full}}.
 
 ![Example of detecting port vulnerabilities](/images/fl-attack.png "Example of detecting port vulnerabilities"){: caption="Figure 3. Example of detecting port vulnerabilities" caption-side="bottom}
 
@@ -133,7 +130,7 @@ These links provide additional information about {{site.data.keyword.cloud_notm}
 * [Flow logs CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#flow-logs-cli-ref)
 * [Flow logs API reference](/apidocs/vpc#list-flow-log-collectors)
 * [FAQs for flow log collectors](/docs/vpc?topic=vpc-fl-faq)
-* [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-flow-logs) 
+* [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-flow-logs)
 * [Blog: Time Series Analytics for IBM Virtual Private Cloud (VPC) Flows Using Grafana](https://www.ibm.com/cloud/blog/time-series-analytics-for-ibm-virtual-private-cloud-flows-using-grafana){: external}
 * [Blog: Use IBM Log Analysis to Analyze VPC Network Traffic from IBM Cloud Flow Logs for VPC](https://www.ibm.com/cloud/blog/use-ibm-log-analysis-with-logdna-to-analyze-vpc-network-traffic-from-ibm-cloud-flow-logs-for-vpc){: external}
-* [Blog: Indexing and Searching VPC Flow Logs in IBM Cloud Databases for Elasticsearch](https://www.ibm.com/cloud/blog/indexing-and-searching-vpc-flow-logs-in-ibm-cloud-databases-for-elasticsearch){: external} 
+* [Blog: Indexing and Searching VPC Flow Logs in IBM Cloud Databases for Elasticsearch](https://www.ibm.com/cloud/blog/indexing-and-searching-vpc-flow-logs-in-ibm-cloud-databases-for-elasticsearch){: external}

@@ -10,15 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:table: .aria-labeledby="caption"}
+{{site.data.keyword.attribute-definition-list}}
 
 # Using the Veeam Agent
 {: #using-veeam-agent}
@@ -27,7 +19,7 @@ The [Veeam Agent for Linux](https://www.veeam.com/linux-cloud-server-backup-agen
 {: shortdesc}
 
 The Veeam Agent is not supported for LinuxONE (s390x processor architecture).
-{:note}
+{: note}
 
 The following example provides information on installing, configuring, and using the Linux Agent on a virtual server instance that is provisioned with CentOS. Similar instructions apply to the other operating system types, although you need to replace any OS-specific commands. The example provides instructions on how to perform a volume backup and restore. If you prefer to do file and folder backup and restore operations, you use a similar procedure. The wanted restore point is mounted, and the wanted backup files are copied to the virtual server instance.
 
@@ -48,21 +40,21 @@ After you provisioned your instance and configured the secondary volume, [downlo
 
 1. Install the downloaded package:
 
-   ```
+   ```sh
    yum install ./veeam-release-el7-1.0.7-1.x86_64.rpm
    ```
    {: pre}
 
 2. After the package is installed, install the Veeam Linux agent:
 
-   ```
+   ```sh
    yum install veeam
    ```
    {: pre}
 
 3. Transfer the Veeam license ID file to the instance. The Veeam Linux agent is configured by the Veeam configuration tool. From the command line, enter the following command:
 
-   ```
+   ```sh
    veeamconfig ui
    ```
    {: pre}
@@ -71,6 +63,7 @@ After you provisioned your instance and configured the secondary volume, [downlo
 
 ## Backing up
 {: #backing-up-veeam-agent}
+
 To perform a backup operation of a volume on the CentOS virtual server instance, complete the steps that are outlined in the [Veeam Agent for Linux 4.0 guide](https://helpcenter.veeam.com/docs/agentforlinux/userguide/backup_job_create_gui.html?ver=40){: external}.
 
 To begin, select _Configure_ from the initial menu. As you go through the Veeam Agent control windows, be sure to make the following selections:
@@ -102,7 +95,7 @@ The following example shows how you can restore files from a volume backup to th
 
 1. Log in to the CentOS virtual server instance. From the command line, start the Veeam configuration tool:
 
-   ```
+   ```sh
    veeamconfig ui
    ```
    {: pre}
@@ -121,7 +114,7 @@ The following example shows how you can take a secondary volume that holds a Vee
 
 The original CentOS instance for VPC needs to be shut down so that it doesn't have access to the secondary volume. The secondary volume can be detached through the {{site.data.keyword.cloud_notm}} CLI:
 
-```
+```sh
 ibmcloud is in-vold <Original VPC instance ID> <volume attachment ID>
 ```
 {: pre}
@@ -131,7 +124,7 @@ ibmcloud is in-vold <Original VPC instance ID> <volume attachment ID>
 
 The secondary volume is then attached to the new CentOS instance for VPC by running:
 
-```
+```sh
 ibmcloud is in-vola <volume attachment name> <New VPC instance ID> <volume  ID>
 ```
 {: pre}
@@ -143,8 +136,8 @@ After the secondary volume is attached to the new CentOS instance, you need to v
 
 Use the following example:
 
-```
-# lsblk
+```sh
+$ lsblk
 NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
 vda    253:0    0  100G  0 disk
 ├─vda1 253:1    0    1G  0 part /boot
@@ -153,7 +146,7 @@ vdb    253:16   0  368K  0 disk
 vdc    253:32   0   44K  0 disk [SWAP]
 vdd    253:48   0  300G  0 disk
 ```
-{:screen}
+{: screen}
 
 In this example, the secondary volume is the `vdd` device.
 
@@ -162,7 +155,7 @@ In this example, the secondary volume is the `vdd` device.
 
 Make a mount point directory and mount the volume.
 
-```
+```sh
 mkdir /veeam_disk
 mount /dev/vdd /veeam_disk
 ```
@@ -175,21 +168,21 @@ The secondary volume is now ready for the Veeam Agent to import the backup repos
 
 1. Start the Veeam Agent:
 
-   ```
+   ```sh
    veeamconfig ui
    ```
    {: pre}
 
 2. Select _Recover Files_, _Import backup_, then select the backup location. In this example, it is:
 
-   ```
+   ```sh
    vdd	virtio /veeam_disk
    ```
    {: screen}
 
 3. In _Browse for backup files_, select the appropriate backup job file directory and then select the backup job file.  In this example, this file is the backup job file:
 
-   ```
+   ```sh
    BackupJob1.vdm
    ```
    {: screen}

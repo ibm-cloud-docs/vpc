@@ -25,7 +25,7 @@ Each flow log object contains individual flow logs. To view or analyze the flow 
 
 1. Ensure that you created an instance of {{site.data.keyword.sqlquery_full}}. To create a service instance, see [Getting started with IBM Cloud Data Engine](/docs/sql-query).
    
-   Cloud Object Storage offers Lite (free) and Standard pricing plans. If you are using the Lite plan, you will not be able to perform tasks that are available with the Standard plan, such as creating tables or using SQL queries. Instead, see [Viewing generated flow log object files from the COS bucket](/docs/vpc?topic=vpc-fl-analyze&interface=ui#viewing-generated-flow-log-object-files-from-the-cos-bucket) and alternative methods documented in the following procedures.
+   {{site.data.keyword.cos_full_notm}} offers Lite (free) and Standard pricing plans. If you are using the Lite plan, you will not be able to perform tasks that are available with the Standard plan, such as creating tables or using SQL queries. Instead, see [Viewing generated flow log object files from the {{site.data.keyword.cos_short}} bucket](/docs/vpc?topic=vpc-fl-analyze&interface=ui#viewing-generated-flow-log-object-files-from-the-cos-bucket) and alternative methods documented in the following procedures.
    {: note}
    
 1. Launch {{site.data.keyword.sqlquery_full}}.
@@ -50,7 +50,7 @@ Each flow log object contains individual flow logs. To view or analyze the flow 
 1. Use the preview to inspect the content of the object.
 1. Refine your query to analyze specific aspects of your flow logs by using [SQL](/docs/sql-query?topic=sql-query-sql-reference "SQL Query Language Reference").
 
-Flow logs are periodically written to Cloud Object Storage (COS) about every 5 minutes. Flow logs are published more frequently in cases where the flow log collector reaches 100 KB flows.
+Flow logs are periodically written to {{site.data.keyword.cos_full}} about every 5 minutes. Flow logs are published more frequently in cases where the flow log collector reaches 100 KB flows.
 {: note}
 
 ## Flow log data format
@@ -61,7 +61,7 @@ Flow log traffic summaries contain the following information:
 - Byte/packet counts, separately for RX (receive) and TX (transmit).
 - Whether a connection starts or stops in the time window.
 
-Because a flow log reflects network traffic in a limited window of time, a long-running connection might cause multiple flow logs to be emitted. For every connection processed by a vNIC, a time-ordered sequence of flow logs emits (not including failures). These flow logs appear in one or more COS objects.
+Because a flow log reflects network traffic in a limited window of time, a long-running connection might cause multiple flow logs to be emitted. For every connection processed by a vNIC, a time-ordered sequence of flow logs emits (not including failures). These flow logs appear in one or more {{site.data.keyword.cos_short}} objects.
 
 The `initiator_ip` in a flow log is defined to be the `source_ip` that appears in the first packet of its connection that reached the vNIC. At the implementation level, this packet is typically the one that causes the new connection to be added to the connection table. Similarly, the `target_ip` in the flow log is set to the `dest_ip` field in that same packet.
 
@@ -77,7 +77,7 @@ The `start_time` and `end_time` in a flow log reflects:
 
 It's possible that the flow log does not reflect all traffic (for example, in the data path) between a flow log `start_time` and `end_time`. In other words, it might be that packets sent and received by the vNIC toward the end of the capture window are reflected only in a flow log with the later `start_time` window.
 
-**Flow logs reflect actual traffic on connections**: If traffic does not occur on a connection in a capture window, no flow log appears for it in the COS object for that window. Meaning that the sequence of flow logs for a connection might be mapped to a sequence of non-consecutive COS objects.
+**Flow logs reflect actual traffic on connections**: If traffic does not occur on a connection in a capture window, no flow log appears for it in the {{site.data.keyword.cos_short}} object for that window. Meaning that the sequence of flow logs for a connection might be mapped to a sequence of non-consecutive {{site.data.keyword.cos_short}}objects.
 
 The flow logs array within an object does not need to be sorted in any specific order.
 {: note}
@@ -96,7 +96,7 @@ Flows are tagged as rejected if their packets were blocked by security group or 
 ## Flow log object format
 {: #flow-log-object-format}
 
-Flow logs are written to the user-specified COS bucket in the following naming convention:
+Flow logs are written to the user-specified {{site.data.keyword.cos_short}} bucket in the following naming convention:
 
 ```sh
 ibm_vpc_flowlogs_v1/account={account}/region={region}/vpc-id={vpc-id}/subnet-id={subnet-id}/endpoint-type=vnics/instance-id={vsi-id}/vnic-id={vnic-id}/record-type={all|ingress|egress}/year={xxxx}/month={yy}/day={zz}/hour={hh}/stream-id={stream-id}/{sequence-number}.gz
@@ -116,11 +116,11 @@ Where:
 Any instances of URL-unsafe characters in the path are URL-encoded.
 {: note}
 
-A flow log's COS object contains a single valid JSON object. The COS object is `.gz` compressed.
+A flow log's {{site.data.keyword.cos_short}} object contains a single valid JSON object. The {{site.data.keyword.cos_short}} object is `.gz` compressed.
 
-The object header fields that are specified in the following table are written to the COS object metadata.
+The object header fields that are specified in the following table are written to the {{site.data.keyword.cos_short}} object metadata.
 
-### Flow logs object header fields (per COS object)
+### Flow logs object header fields (per {{site.data.keyword.cos_short}}S object)
 {: #flow-logs-object-header-fields}
 
 | Field                  | Type   | Description       |
@@ -134,9 +134,9 @@ The object header fields that are specified in the following table are written t
 | `capture_start_time`     | string | RFC 3339 Date and Time (Coordinated Universal Time) |
 | `capture_end_time`       | string | RFC 3339 Date and Time (Coordinated Universal Time) |
 | `state`                  | string |  Indicates the operational state of the flow log collector. `OK` means that data is being collected and shipped without any errors. `skip data` indicates data that was lost during this collection interval (for example, because of high rate of rejected SYN packets). |
-| `number_of_flow_logs`    | uin32  | The number of elements in a `flow_logs` array. Since this number is highly variable, it's useful as a quick reference of the number of flow logs contained in a single COS object, without needing to download the object first. |
+| `number_of_flow_logs`    | uin32  | The number of elements in a `flow_logs` array. Since this number is highly variable, it's useful as a quick reference of the number of flow logs contained in a single {{site.data.keyword.cos_short}} object, without needing to download the object first. |
 | `flow_logs`              | array of JSON objects | This can be an empty array, which indicates `no traffic`.|
-{: caption="Table 1. Flow logs object header fields (per COS object)" caption-side="bottom"}
+{: caption="Table 1. Flow logs object header fields (per {{site.data.keyword.cos_short}} object)" caption-side="bottom"}
 
 ### Flow log fields
 {: #flow-log-fields}
@@ -216,7 +216,7 @@ In most cases, you can find the direction field by comparing the vNIC’s privat
 ### Analyzing flow logs by using IBM Cloud SQL Query
 {: #analyzing-flow-logs-for-vpc-using-sql}
 
-You can analyze flow logs with SQL that uses {{site.data.keyword.sqlquery_full}} by using the path to the objects on COS in the FROM clause of your SQL query. (For an example, see Step 3 in [Viewing flow log objects](/docs/vpc?topic=vpc-fl-analyze). However, for a more convenient way of querying, it is recommended that you create table and view definitions that give you a flattened view on your flows. For more information about table catalog functions and benefits, see [Getting started with the catalog](/docs/sql-query?topic=sql-query-getting_started_catalog).
+You can analyze flow logs with SQL that uses {{site.data.keyword.sqlquery_full}} by using the path to the objects on {{site.data.keyword.cos_short}} in the FROM clause of your SQL query. (For an example, see Step 3 in [Viewing flow log objects](/docs/vpc?topic=vpc-fl-analyze). However, for a more convenient way of querying, it is recommended that you create table and view definitions that give you a flattened view on your flows. For more information about table catalog functions and benefits, see [Getting started with the catalog](/docs/sql-query?topic=sql-query-getting_started_catalog).
 
 The view flattens the flow log data structure; thus, making it easier to analyze your flows.
 
@@ -243,7 +243,7 @@ To analyze flow logs, follow these steps:
     capture_start_time timestamp,
     capture_end_time timestamp,
     number_of_flow_logs int,
-    flow_logs array<struct>
+    flow_logs array<struct<
          start_time: string,
          end_time: string,
          connection_start_time: string,
@@ -301,7 +301,7 @@ You can verify that flow log data is being collected by using IBM Cloud Monitori
 #### Optimizing flow logs layout with {{site.data.keyword.sqlquery_full}}
 {: #optimizing-flow-logs-layout}
 
-When large amounts of flow logs are analyzed, it is recommended to convert flow logs to a layout optimal for queries. This conversion improves query execution time by at least one order of magnitude. For more information about data optimization on COS, see [How to Layout Big Data in IBM Cloud Object Storage for Spark SQL](https://www.ibm.com/cloud/blog/big-data-layout){: external}.
+When large amounts of flow logs are analyzed, it is recommended to convert flow logs to a layout optimal for queries. This conversion improves query execution time by at least one order of magnitude. For more information about data optimization on {{site.data.keyword.cos_short}}, see [How to Layout Big Data in {{site.data.keyword.cos_full_notm}} for Spark SQL](https://www.ibm.com/cloud/blog/big-data-layout){: external}.
 
 The following SQL statement is an ETL job addresses two aspects that contribute significantly to query execution time:
 
@@ -345,7 +345,7 @@ To optimize flow logs layout with {{site.data.keyword.sqlquery_full}}, follow th
 
 1. Use the table `FLOW_PARQUET` instead of `FLOW_FLAT`.  
 
-   For more information about how data layout influences query execution times, see [How to Layout Big Data in IBM Cloud Object Storage for Spark SQL](https://www.ibm.com/cloud/blog/big-data-layout "data layout"){: external}.
+   For more information about how data layout influences query execution times, see [How to Layout Big Data in {{site.data.keyword.cos_full_notm}} for Spark SQL](https://www.ibm.com/cloud/blog/big-data-layout "data layout"){: external}.
 
 #### Example queries for flow logs with {{site.data.keyword.sqlquery_full}}
 {: #example-queries-for-flow-logs-with-sql}
@@ -419,23 +419,17 @@ ORDER BY `bytes` DESC LIMIT 5
 ### Example solution: Analyzing flow logs
 {: #example-analyzing-flow-logs}
 
-You can download an example solution of how to use IBM Log Analysis to analyze flow logs from [https://github.com/IBM-Cloud/vpc-flowlogs-logdna](https://github.com/IBM-Cloud/vpc-flowlogs-logdna){: external}. This project ([Readme file](https://github.ibm.com/portfolio-solutions/vpc-flowlogs-logdna/blob/master/README.md){: external}) shows how to use a trigger function to read a flow log COS object and write it to IBM Log Analysis.
+You can download an example solution of how to use IBM Log Analysis to analyze flow logs from [https://github.com/IBM-Cloud/vpc-flowlogs-logdna](https://github.com/IBM-Cloud/vpc-flowlogs-logdna){: external}. This project ([Readme file](https://github.ibm.com/portfolio-solutions/vpc-flowlogs-logdna/blob/master/README.md){: external}) shows how to use a trigger function to read a flow log {{site.data.keyword.cos_short}} object and write it to IBM Log Analysis.
 
-### Viewing generated flow log files from the COS bucket
-{: alternative-method}
+### Viewing generated flow log files from the {{site.data.keyword.cos_short}} bucket
+{: #alternative-method}
 
-If you use the Lite (free) pricing plan for Cloud Object Storage, you cannot use an SQL query to confirm the creation of flow log objects in the COS bucket without purchasing the Standard pricing plan. As an alternative, you can access generated flow log object files directly from the COS bucket to verify that the files were created successfully and that the objects are being generated.
+If you use the Lite (free) pricing plan for {{site.data.keyword.cos_full_notm}}, you cannot use an SQL query to confirm the creation of flow log objects in the {{site.data.keyword.cos_short}} bucket without purchasing the Standard pricing plan. As an alternative, you can access generated flow log object files directly from the {{site.data.keyword.cos_short}} bucket to verify that the files were created successfully and that the objects are being generated.
 
-To view generated flow log files from the COS bucket, follow these steps:
+To view generated flow log files from the {{site.data.keyword.cos_short}} bucket, follow these steps:
 
-1. To ensure that the flow logs are being captured, check the COS bucket. For example, check the `ibm_vpc_flowlogs_v1` entry as shown:
- 
-   ![Viewing flow log files in a COS bucket](images/fl-objects.png){: caption="Viewing flow log files in a COS bucket" caption-side="bottom"}
-
+1. To ensure that the flow logs are being captured, check the {{site.data.keyword.cos_short}} bucket.
 1. Navigate in the folder to find your VPC or the resource where you configured monitoring.
-
-   ![Viewing flow log files in a COS bucket](images/flow-logs-cos1.png){: caption="Viewing flow log files in a COS bucket" caption-side="bottom"}
-   
 1. Drill-down into the resource to find the network resource that you are monitoring. 
 
    If configured correctly, you should see several gzip files for each log entry.

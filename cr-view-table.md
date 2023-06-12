@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-08-10"
+  years: 2020, 2022
+lastupdated: "2022-11-15"
 
 keywords: custom routes
 
@@ -18,34 +18,33 @@ subcollection: vpc
 You can view details of a routing table by using the UI, CLI, or API. From the Routing table details page, you can also view details of attached routes and subnets, as well as navigate to other pages to view VPC details, manage address prefixes, and more.
 {: shortdesc}
 
-## Viewing details of a routing table by using the UI
+## Viewing details of a routing table in the UI
 {: #cr-routing-table-using-the-ui}
 {: ui}
 
-To view the details of a routing table by using the {{site.data.keyword.cloud_notm}} console, follow these steps:
+To view the details of a routing table in the UI, follow these steps:
 
-1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the Menu icon ![Menu icon](/images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appears.
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the Navigation Menu ![Navigation Menu](/images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appears.
 
 1. Click the name of the routing table that you want details for. The Routing table details page appears.
-
-    ![Routing table details](./images/cr-routing-table-details.png){: caption="Figure 1. Routing table details" caption-side="bottom}
 
 Field descriptions are as follows.
 
 | Field | Description |
 |-------|-------------|
 | Name | Click the Edit icon ![Edit icon](/images/edit.png) to update the name. |
-| Routes | The number of destination routes. |
+| Routing table ID | The ID of this routing table. |
 | Virtual private cloud | The VPC for this routing table. |
-| Created | The origination date of the routing table.|
-| Attached subnets | The number of attached subnets. Click to see the subnet details. |
-| ID | The ID of this routing table. |
+| Created date | The origination date of the routing table.|
+| Routes | The number of destination routes. |
+| Default | Indicates whether this is the default routing table. |
+| Attached subnets | The number of attached subnets. Click the Subnets tab to see subnet details. |
 {: caption="Table 1. Routing table details" caption-side="bottom"}
 
 For descriptions of the routing table columns, see [Listing routes of a routing table](/docs/vpc?topic=vpc-list-routes-routing-table).
 {: note}
 
-## Viewing details of a routing table by using the CLI
+## Viewing details of a routing table from the CLI
 {: #cr-routing-table-using-the-cli}
 {: cli}
 
@@ -77,7 +76,7 @@ Where:
 * **SUBNET** is the ID of the subnet.
 * **--json** formats output in JSON.
 
-## Viewing details of a routing table by using the API
+## Viewing details of a routing table with the API
 {: #cr-routing-table-using-the-api}
 {: api}
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-01-07"
+  years: 2019, 2023
+lastupdated: "2023-03-31"
 
 keywords: delete, resources, ui, console, cli, infrastructure, command line interface
 
@@ -14,6 +14,7 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # Deleting a VPC and its associated resources
+{: #deleting-vpc-resources}
 
 Before you can delete an {{site.data.keyword.vpc_full}} in the {{site.data.keyword.cloud_notm}} console, you must delete all of the VPC's public gateways, subnets, and attached resources.
 {: shortdesc}
@@ -31,17 +32,17 @@ To delete a VPC by using the console:
     Although the resource's status immediately changes to **Deleting**, it can take up to 30 minutes for the delete operation to complete. The subnet can't be deleted until all attached resources are no longer displayed in the console.
     {: tip}
 
-4. After all attached resources are deleted, go back to the subnet's details page and click the delete icon.
-5. After you delete all subnets, go back to the details page for the VPC and click the delete icon. The VPC and any public gateways are deleted.
+4. After all attached resources are deleted, go back to the subnet's details page, and click the delete icon.
+5. After you delete all subnets, go back to the details page for the VPC, and click the delete icon. The VPC and any public gateways are deleted.
 
 ## Deleting a VPC by using the IBM Cloud CLI
 {: #deleting-using-cli}
 {: cli}
 
-This topic provides examples of how to delete resources from your {{site.data.keyword.vpc_full}}, for every VPC resource, in the suggested order.
+The following examples show how to delete resources from your {{site.data.keyword.vpc_full}}, for every VPC resource, in the suggested order.
 {: shortdesc}
 
-Here are some key facts to remember about deletion:
+The following key facts are important to remember about deletion:
 
 * A VPC cannot be deleted until it is empty. 
 * All containing resources must be deleted successfully before the parent resource can be deleted. 
@@ -52,33 +53,33 @@ Here are some key facts to remember about deletion:
 If the status of the resource changes from `deleting` to `failed`, you can try to delete the resource again. If you cannot delete a resource in `failed` status, [Contact support](/docs/vpc-on-classic?topic=vpc-on-classic-getting-help-and-support).
 {: tip}
 
-### Step 1: Find all subnets within the VPC you want to delete
+### Step 1: Find all subnets within the VPC that you want to delete
 {: #deleting-find-subnets-cli}
 
-Before a VPC can be deleted, each of its subnets must be deleted. Get the ID of the VPC you want to delete by running the following command and looking at the `ID` value:
+Before a VPC can be deleted, each of its subnets must be deleted. Get the ID of the VPC that you want to delete by running the following command and looking at the `ID` value:
 
-```
+```sh
 ibmcloud is vpcs
 ```
 {: pre}
 
 Save the ID of the VPC in a variable so it can be used later, for example:
 
-```
+```sh
 vpc="0738-3524fef5-da35-4622-bf9a-31614964649d"
 ```
 {: pre}
 
 To get the list of all subnets in your account, run the following command:
 
-```
+```sh
 ibmcloud is subnets
 ```
 {: pre}
 
 Look at the `VPC` value to determine the subnets that need to be deleted. Save the ID of the subnet in a variable so it can be used later, for example:
 
-```
+```sh
 subnet="0738-d31ce469-9b0f-44e1-87ce-0fc77d8b0e53"
 ```
 {: pre}
@@ -94,14 +95,14 @@ If the VPC you want to delete has multiple subnets, repeat these steps to delete
 
 To list all VPN gateways in your account, run the following command:
 
-```
+```sh
 ibmcloud is vpn-gateways
 ```
 {: pre}
 
 For each VPN gateway in the subnet you want like to delete, run the following command, where `$vpnid` is the ID of the VPN gateway.
 
-```
+```sh
 ibmcloud is vpn-gateway-delete $vpnid
 ```
 {: pre}
@@ -111,16 +112,16 @@ The status of the VPN gateway changes to `deleting` immediately, but it still ap
 #### Delete all load balancers in the subnet, if any
 {: #deleting-lbs-cli}
 
-To list alllLoad balancers in your account, run the following command:
+To list alll Load balancers in your account, run the following command:
 
-```
+```sh
 ibmcloud is load-balancers
 ```
 {: pre}
 
 For each load balancer in the subnet you want to delete, run the following command, where `$lbid` is the ID of the load balancer.
 
-```
+```sh
 ibmcloud is load-balancer-delete $lbid
 ```
 {: pre}
@@ -137,14 +138,14 @@ The only way to delete a network interface in a subnet is to delete the instance
 
 To list all network interfaces of an instance, run the following command:
 
-```
+```sh
 ibmcloud is instance-network-interfaces $vsi
 ```
 {: pre}
 
 To list all instances in your account, run the following command:
 
-```
+```sh
 ibmcloud is instances
 ```
 {: pre}
@@ -154,7 +155,7 @@ If you are deleting all instances in the VPC, you can run the following command 
 Instances must be stopped before you can delete them. To stop an instance, run the `ibmcloud is instance-stop` command.
 {: tip}
 
-```
+```sh
 ibmcloud is instance-delete $vsi
 ```
 {: pre}
@@ -171,7 +172,7 @@ If a secondary network interface exists in the subnet you are trying to delete, 
 
 After all the resources inside the subnet were deleted, which means that they are not returned in a list query result, run the following command to delete the subnet:
 
-```
+```sh
 ibmcloud is subnet-delete $subnet
 ```
 {: pre}
@@ -183,14 +184,14 @@ The status of the subnet changes to `deleting` immediately, but it might take a 
 
 To list all public gateways in your account, run the following command:
 
-```
+```sh
 ibmcloud is public-gateways
 ```
 {: pre}
 
 For each public gateway in the VPC you want to delete, run the following command to delete the public gateway, where `$gateway` is the public gateway ID.
 
-```
+```sh
 ibmcloud is public-gateway-delete $gateway
 ```
 {: pre}
@@ -201,7 +202,7 @@ ibmcloud is public-gateway-delete $gateway
 
 After all subnets and public gateways in the VPC are deleted, run the following command to delete the VPC, where `$vpc` is the ID of the VPC you are deleting.
 
-```
+```sh
 ibmcloud is vpc-delete $vpc
 ```
 {: pre}
@@ -215,9 +216,9 @@ The status of the VPC changes to `deleting` immediately, but it might take a few
 Deleting an {{site.data.keyword.vpc_full}} by using the REST APIs follows the same general steps in the
 [deleting](/docs/vpc-on-classic?topic=vpc-on-classic-deleting) process as deletion by using the [CLI](/docs/vpc-on-classic?topic=vpc-on-classic-deleting-using-cli).
 
-Here are the main steps in the process:
+The following steps are the main parts in the process:
 
-1. Find all subnets in the VPC you want to delete.
+1. Find all subnets in the VPC that you want to delete.
 2. Delete each subnet in the VPC, which means:
     - Delete all VPN gateways in the subnet.
     - Delete all Load Balancers in the subnet.
@@ -228,10 +229,10 @@ Here are the main steps in the process:
 
 The following sections provide some example API calls that you can run to delete a VPC.
 
-### Step 1: Find all subnets in the VPC you want to delete
+### Step 1: Find all subnets in the VPC that you want to delete
 {: #deleting-find-subnets-api}
 
-Before a VPC can be deleted, each of its subnets must be deleted. Get the ID of the VPC you want to delete by running the following command and looking at the `id` value:
+Before a VPC can be deleted, each of its subnets must be deleted. Get the ID of the VPC that you want to delete by running the following command and looking at the `id` value:
 
 Add ` | json_pp ` or ` | jq ` after the curl command to get a readable JSON string.
 {: tip}
@@ -244,7 +245,7 @@ curl -X GET "$vpc_api_endpoint/v1/vpcs?version=$version&generation=2" \
 
 Save the ID of the VPC in a variable so you can use it later, for example:
 
-```
+```sh
 vpc="0738-3524fef5-da35-4622-bf9a-31614964649d"
 ```
 {: pre}
@@ -259,7 +260,7 @@ curl -X GET "$vpc_api_endpoint/v1/subnets?version=$version&generation=2" \
 
 Look at the `vpc` value to determine the subnets that need to be deleted. Save the ID of the subnet in a variable for later use, for example:
 
-```
+```sh
 subnet="0738-d31ce469-9b0f-44e1-87ce-0fc77d8b0e53"
 ```
 {: pre}
@@ -281,7 +282,7 @@ curl -X GET "$rias_endpoint/v1/vpn_gateways?version=$version&generation=2" \
 ```
 {: pre}
 
-Run the following command for each VPN gateway in the subnet you want to delete, where `$vpnid` is the ID of the VPN gateway.
+Run the following command for each VPN gateway in the subnet that you want to delete, where `$vpnid` is the ID of the VPN gateway.
 
 ```bash
 curl -X DELETE "$rias_endpoint/v1/vpn_gateways/$vpnid?version=$version&generation=2" \     
@@ -289,7 +290,7 @@ curl -X DELETE "$rias_endpoint/v1/vpn_gateways/$vpnid?version=$version&generatio
 ```
 {: pre}
 
-The status of the VPN gateway changes to `deleting` immediately, but it is still returned when you do a list query. The deletion of a VPN gateway can take up to 30 minutes. You can request other subnet resources to be deleted in parallel while you wait for the VPN gateway to be deleted, but the subnet can't be deleted until the VPN gateway and all other resources in the subnet no longer appear in the list queries.
+The status of the VPN gateway changes to `deleting` immediately, but it is still returned when you do a list query. The deletion of a VPN gateway can take up to 30 minutes. You can request other subnet resources to be deleted in parallel while you wait for the VPN gateway to be deleted. However, the subnet can't be deleted until the VPN gateway and all other resources in the subnet no longer appear in the list queries.
 
 #### Delete all load balancers in the subnet, if any
 {: #deleting-lbs-api}
@@ -302,7 +303,7 @@ curl -X GET "$rias_endpoint/v1/load_balancers?version=$version&generation=2" \
 ```
 {: pre}
 
-Run the following command for each load balancer in the subnet you want to delete, where `$lbid` is the ID of the load balancer.
+Run the following command for each load balancer in the subnet that you want to delete, where `$lbid` is the ID of the load balancer.
 
 ```bash
 curl -X DELETE "$rias_endpoint/v1/load_balancers/$lbid?version=$version&generation=2" \     
@@ -310,7 +311,7 @@ curl -X DELETE "$rias_endpoint/v1/load_balancers/$lbid?version=$version&generati
 ```
 {: pre}
 
-The status of the load balancer changes to `deleting` immediately, but it is still returned when you do a list query. The deletion of a load balancer can take up to 30 minutes. You can request other subnet resources to be deleted in parallel while you wait for the load balancer to be deleted, but the subnet can't be deleted until the load balancer and all other resources in the subnet no longer appear in the list queries.
+The status of the load balancer changes to `deleting` immediately, but it is still returned when you do a list query. The deletion of a load balancer can take up to 30 minutes. You can request other subnet resources to be deleted in parallel while you wait for the load balancer to be deleted. However, the subnet can't be deleted until the load balancer and all other resources in the subnet no longer appear in the list queries.
 
 #### Delete all network interfaces in the subnet, if any
 {: #deleting-nics-api}
@@ -346,7 +347,7 @@ curl -X DELETE "$vpc_api_endpoint/v1/instances/$vsi?version=$version&generation=
 ```
 {: pre}
 
-The status of the instance changes to `deleting` immediately, but it still might be displayed in the results of a list query. The deletion of an instance can take up to 30 minutes. You can request other subnet resources to be deleted in parallel while you wait for the instance to be deleted, but the subnet can't be deleted until the instance and all other resources in the subnet no longer appear in the list queries.
+The status of the instance changes to `deleting` immediately, but it still might be displayed in the results of a list query. The deletion of an instance can take up to 30 minutes. You can request other subnet resources to be deleted in parallel while you wait for the instance to be deleted. However, the subnet can't be deleted until the instance and all other resources in the subnet no longer appear in the list queries.
 
 #### Delete the subnet
 {: #deleting-subnet-api}
@@ -393,6 +394,3 @@ curl -X DELETE "$vpc_api_endpoint/v1/vpcs/$vpc?version=$version&generation=2" \
 {: pre}
 
 The status of the VPC changes to `deleting` immediately, but it might take a few minutes for the VPC to be deleted and it no longer appears in the list queries.
-
-
-

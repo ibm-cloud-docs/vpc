@@ -12,26 +12,26 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Deleting an {{site.data.keyword.cloud_notm}} {{site.data.keyword.alb_full}}
+# Deleting an application load balancer
 {: #alb-deleting}
 
-You can delete an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) by using the UI, CLI, or API.
+You can delete an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) with the UI, CLI, or API.
 {: shortdesc}
 
-## Deleting an application load balancer by using the UI
+## Deleting an application load balancer in the UI
 {: #alb-deleting-ui}
 {: ui}
 
-To delete an ALB by using the IBM Cloud console, perform the following procedure:
+To delete an ALB by in the IBM Cloud console, perform the following procedure:
 
-1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external}.
-1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg), then click **VPC Infrastructure > Load balancers** from the Network section.
+1. Log in to the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
+1. Select the Navigation Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **VPC Infrastructure > Load balancers** from the Network section.
 1. Select the Region of your load balancer.
-1. Click the overflow menu ![overflow menu](images/overflow.png) next to the load balancer that you want to delete, then select **Delete**.
+1. Click the Actions menu ![Actions menu](images/overflow.png) next to the load balancer that you want to delete, then select **Delete**.
 
 The Status for the load balancer now shows **Deleting**. Refresh the page to confirm that the load balancer was deleted.
 
-## Deleting an application load balancer by using the CLI
+## Deleting an application load balancer from the CLI
 {: #alb-deleting-cli}
 {: cli}
 
@@ -60,7 +60,7 @@ Deletion request for load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 was
 ```
 {: screen}
 
-## Deleting an application load balancer by using the API
+## Deleting an application load balancer with the API
 {: #alb-deleting-api}
 {: api}
 

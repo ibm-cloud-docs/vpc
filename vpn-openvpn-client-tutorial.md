@@ -110,13 +110,13 @@ If your administrator provided a client certificate for certificate-based authen
    
    _Tunnelblick example:_
    * Click **VPN Details**.
-   ![Tunnelblick UI](images/vpn-c2s-vpn-details.png "Tunnelblick UI"){: caption="Tunnelblick UI" caption-side="bottom"}   
+      ![Tunnelblick UI](images/vpn-c2s-vpn-details.png "Tunnelblick UI"){: caption="Tunnelblick UI" caption-side="bottom"}   
    * Drag and drop the `.ovpn` file in the Configurations section.
-   ![Configurations window](images/vpn-c2s-configurations.png "Configurations window"){: caption="Configurations window" caption-side="bottom"}   
+      ![Configurations window](images/vpn-c2s-configurations.png "Configurations window"){: caption="Configurations window" caption-side="bottom"}   
    * Click **OK**.   
-   ![Add a Configuration window](images/vpn-c2s-ok.png "Add a Configuration window"){: caption="Add a Configuration window" caption-side="bottom"}   
+      ![Add a Configuration window](images/vpn-c2s-ok.png "Add a Configuration window"){: caption="Add a Configuration window" caption-side="bottom"}   
    * Select **Only Me** and provide your system username and system password. This is typically your IBMid and password. Then, click **OK**.
-   ![Install Configuration For All Users window](images/vpn-c2s-only-me.png "Install Configuration For All Users window"){: caption="Install Configuration For All Users window" caption-side="bottom"}   
+      ![Install Configuration For All Users window](images/vpn-c2s-only-me.png "Install Configuration For All Users window"){: caption="Install Configuration For All Users window" caption-side="bottom"}   
      
 1. If you are only configuring a client certificate, skip to [Step 3: Connect to the VPN server](/docs/vpc?topic=vpc-setting-up-vpn-client#connect-vpn-server). If you are also configuring a user ID and passcode, complete the steps in the next section.
 

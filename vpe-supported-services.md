@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-09-22"
+  years: 2020, 2023
+lastupdated: "2023-06-07"
 
 keywords: virtual private endpoints, endpoint gateway, VPE
 subcollection: vpc
@@ -11,19 +11,24 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# VPE supported services
+# VPE-enabled services
 {: #vpe-supported-services}
 
-{{site.data.keyword.cloud}} Virtual Private Endpoints (VPE) for VPC supports the following {{site.data.keyword.cloud_notm}} services.
+The following IBM Cloud services are enabled for Virtual Private Endpoints (VPE) gateway connectivity.
 {: shortdesc}
+
+When configuring a VPE gateway, you are shown a customized list of common services and any services that were provisioned
+with your account.
+{: note}
 
 * {{site.data.keyword.appconfig_short}} ([Endpoint URLs](/apidocs/app-configuration#endpoints-list-all))
 * Catalog Management ([Endpoint URLs](/apidocs/resource-catalog/private-catalog#endpoint-url))
 * Cloud Object Storage
-* Code Engine  ([Instructions](/docs/codeengine?topic=codeengine-vpe))
+* Code Engine ([Instructions](/docs/codeengine?topic=codeengine-vpe))
 * {{site.data.keyword.registryshort_notm}} ([Instructions](/docs/Registry?topic=Registry-registry_vpe))
+* Context-based restrictions ([Endpoint URLs](/apidocs/context-based-restrictions#endpoint-urls))
 * Databases ([Instructions](/docs/cloud-databases?topic=cloud-databases-vpes))
-* Direct Link (2.0) ([Instructions](/docs/dl?topic=dl-vpe-for-ibm-cloud-direct-link))
+* Direct Link ([Instructions](/docs/dl?topic=dl-vpe-connection))
 * DNS Services ([Instructions](/docs/dns-svcs?topic=dns-svcs-vpe-for-dns-svcs#vpe-for-dns-svcs))
 * Enterprise Billing Units ([Endpoint URLs](/apidocs/enterprise-apis/billing-unit#endpoint-urls))
 * Enterprise Management ([Endpoint URLs](/apidocs/enterprise-apis/enterprise#endpoint-urls))
@@ -41,10 +46,10 @@ subcollection: vpc
 * IAM Policy Management ([Endpoint URLs](/apidocs/iam-policy-management#endpoint-urls))
 * Key Protect ([Instructions](/docs/key-protect?topic=key-protect-virtual-private-endpoints))
 * Network Time Protocol
-* Resource Controller ([Endpoint URLs](/apidocs/resource-controller/resource-controller#endpoint-url)) 
+* Resource Controller ([Endpoint URLs](/apidocs/resource-controller/resource-controller#endpoint-url))
 * Resource Manager ([Endpoint URLs](/apidocs/resource-controller/resource-manager#endpoint-urls))
 * Schematics ([Instructions](/docs/schematics?topic=schematics-private-endpoints#endpoint-setup))
-* {{site.data.keyword.secrets-manager_short}} ([Instructions](/docs/secrets-manager?topic=secrets-manager-virtual-private-endpoint))
+* {{site.data.keyword.secrets-manager_short}} ([Instructions](/docs/secrets-manager?topic=secrets-manager-endpoints))
 * Transit Gateway ([Instructions](/docs/transit-gateway?topic=transit-gateway-vpe-for-ibm-cloud-transit-gateway))
 * Usage Metering ([Endpoint URLs](/apidocs/usage-metering#endpoint))
 * Usage Reports ([Endpoint URLs](/apidocs/metering-reporting#endpoint))

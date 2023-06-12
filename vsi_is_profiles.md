@@ -1,7 +1,8 @@
 ---
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-09-23"
+  years: 2019, 2023
+
+lastupdated: "2023-06-05"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, very high memory, gpu, sap, olap, oltp, nvidia, cascade lake
 
@@ -15,7 +16,7 @@ subcollection: vpc
 # x86 instance profiles
 {: #profiles}
 
-When you provision {{site.data.keyword.vsi_is_full}}, you can select from six families of profiles: Balanced, Compute, Memory, Very High Memory, Ultra High Memory, and GPU.
+When you provision {{site.data.keyword.vsi_is_full}}, you can select from six families of profiles: Balanced, Compute, Memory, Very High Memory, Ultra High Memory, Storage Optimized, and GPU.
 
 A profile is a combination of instance attributes, such as the number of vCPUs, amount of RAM, network bandwidth, and default bandwidth allocation. The attributes define the size and capabilities of the virtual server instance that is provisioned. In the {{site.data.keyword.Bluemix_notm}} console, you can select the most recently used profile or click **View All Profiles** to choose the profile that best fits your needs.
 {: shortdesc}
@@ -31,16 +32,20 @@ The following profile families are available:
 | [Memory](#memory) | Memory profiles offer a core to RAM ratio 1 vCPU to 8 GiB of RAM ratio and are best for memory caching and real-time analytics workloads. Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads. |
 | [Very High Memory](#vhmemory) | Very High Memory profiles offer a core to RAM ratio of 1 vCPU to 14 GiB of RAM. This family is optimized for running small to medium in-memory databases and OLAP workloads, such as SAP BW/4 HANA. |
 | [Ultra High Memory](#uhmemory) | Ultra High Memory profiles offer the most memory per core with 1 vCPU to 28 GiB of RAM. These profiles are optimized to run large in-memory databases and OLTP workloads, such as SAP S/4 HANA.|
-| [GPU](#gpu) | GPU enabled profiles provide on-demand access to NVIDIA V100 GPUs to accelerate AI, high-performance computing, data science, and graphics workloads. |
+| [GPU](#gpu) | GPU enabled profiles provide on-demand access to NVIDIA V100 and A100 GPUs to accelerate AI, high-performance computing, data science, and graphics workloads.|
+| [Storage Optimized](#storageopt) | Storage Optimized profiles offer temporary SSD instance storagedisks at a ratio of 1 vCPU to 300 GB instance storage with a lower price point per GB. These profiles are designed for storage-dense workloads and offer `virtio` interface type for attached disks. |
 {: caption="Table 2. Virtual server family selections" caption-side="bottom"}
 
 Profiles with instance storage and profiles with 64 or more vCPUs are deployed exclusively on the Intel&reg;'s second-generation quad processor Xeon&reg; Platinum 8260 Cascade Lake with 96 cores that are running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz or Intel&reg;'s quad processor Xeon&reg; Gold 6248 Cascade Lake with 80 cores that are running at a base speed of 2.5 GHz and an all-core turbo frequency of 3.1 GHz.
 {: note}
 
+Profiles with AMD manufactured processors are available in the Toronto region.
+{: preview}
+
 ## Balanced
 {: #balanced}
 
-Balanced profiles provide a mix of performance and scalability for more common workloads with a ratio of 4 GiB of memory for every 1 vCPU of compute. The Balanced profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Balanced profiles available for Intel&reg; x86-64  processors.
+Balanced profiles provide a mix of performance and scalability for more common workloads with a ratio of 4 GiB of memory for every 1 vCPU of compute. The Balanced profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Balanced profiles available for Intel&reg; x86-64, and AMD x86-64 processors.
 
 Balanced profiles with the bx2d prefix are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions.
 {: preview}
@@ -63,14 +68,33 @@ Balanced profiles with the bx2d prefix are available in the US South (Dallas), U
 | bx2d-64x256 | 64 | 32 | 256 | 80 | 2x1200 |
 | bx2-96x384 | 96 | 48 | 384 | 80 | - |
 | bx2d-96x384 | 96 | 48 | 384 | 80 | 2x1800 |
-| bx2-128x512 | 128 | 114 | 512 | 80 | - |
-| bx2d-128x512 | 128 | 114 | 512 | 80 | 2x400 |
+| bx2-128x512 | 128 | 64 | 512 | 80 | - |
+| bx2d-128x512 | 128 | 64 | 512 | 80 | 2x2400 |
 {: caption="Table 3. Balance profiles options for Intel x86-64 instances" caption-side="bottom"}
 {: #balanced-intel-x86-64}
 {: tab-title="Intel x86-64"}
 {: tab-group="Balanced"}
 {: class="simple-tab-table"}
 {: summary="Balanced profiles options for Intel x86-64 virtual server instances."}
+
+| Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
+|---------|---------|---------|---------|---------| ---------|
+| bx2a-2x8 | 2 | 1 | 8 | 2 | - |
+| bx2a-4x16 | 4 | 2 |  16 | 4 | - |
+| bx2a-8x32 | 8 | 4 | 32 | 8 | - |
+| bx2a-16x64 | 16 | 8 | 64 | 16 | - |
+| bx2a-32x128	| 32 | 16 | 128 | 32 | - |
+| bx2a-48x192	| 48 | 24 | 192 | 48 | - |
+| bx2a-64x256	| 64 | 32 | 256 | 64 | - |
+| bx2a-96x384	| 96 | 48 | 384 | 80 | - |
+| bx2a-128x512	| 128 | 64 | 512 | 80 | - |
+| bx2a-228x912 | 228 | 114 | 912 | 80 | - |
+{: caption="Table 3. Balance profiles options for x86-64 instances" caption-side="bottom"}
+{: #balanced-amd-x86-64}
+{: tab-title="AMD x86-64"}
+{: tab-group="Balanced"}
+{: class="simple-tab-table"}
+{: summary="Balanced profiles options for AMD x86-64 virtual server instances."}
 
 ## Compute
 {: #compute}
@@ -142,11 +166,6 @@ Memory profiles with the mx2d prefix are available in the US South (Dallas), US 
 {: class="simple-tab-table"}
 {: summary="Memory profiles options for Intel x86-64 virtual server instances."}
 
-
-{: #callout-note}
-
-{: #callout-beta}
-
 ## Very High Memory
 {: #vhmemory}
 
@@ -205,14 +224,25 @@ The following Ultra High Memory profiles are available for x86-64 processors:
 ## GPU
 {: #gpu}
 
-GPU profiles include 1 or 2 NVIDIA V100 PCIe 16GB GPUs. All OS images are supported on the GPU profiles. NVIDIA GPU drivers must be installed separately.
+The GPU profile family includes both `-v100` and `-a100` profiles. The GPU profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage).
 
-| Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Number of GPUs |
-|---------|---------|---------|---------|---------|---------|
-| gx2-8x64x1v100 | 8 | 4 | 64 | 16 | 1 |
-| gx2-16x128x1v100 | 16 | 8 | 128 | 32 | 1 |
-| gx2-16x128x2v100 | 16 | 8 | 128 | 32 | 2 |
-| gx2-32x256x2v100 | 32 | 16 | 256 | 64 | 2 |
+* GPU `-v100` profiles include 1 or 2 NVIDIA V100 PCIe 16 GB GPUs. All OS images are supported on these GPU profiles.  
+* GPU `-a100` profile includes 8 NVIDIA A100 NVlink 80 GB GPUs. This GPU profile supports only Linux OS images Ubuntu or RHEL. 
+
+The `gx2-80x1280x8a100` profile is available for select customers. Contact IBM Sales or open a [support case](https://cloud.ibm.com/unifiedsupport/supportcenter) if you are interested in this offering.
+{: preview}
+
+See [Download drivers](https://www.nvidia.com/Download/index.aspx?lang=en-us) to review the most current versions that are supported. NVIDIA GPU drivers must be installed separately. 
+
+| Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Number of GPUs | Instance storage (GB) |
+|---------|---------|---------|---------|---------|---------|---------|
+| **V100** 16 GB GPU profiles | | | | | | |
+| gx2-8x64x1v100 | 8 | 4 | 64 | 16 | 1 | - |
+| gx2-16x128x1v100 | 16 | 8 | 128 | 32 | 1 | - |
+| gx2-16x128x2v100 | 16 | 8 | 128 | 32 | 2 | - |
+| gx2-32x256x2v100 | 32 | 16 | 256 | 64 | 2 | - |
+| **A100** 80 GB GPU profiles | | | | | | |
+| gx2-80x1280x8a100 | 80 | 40 | 1280 | 200 | 8 | 4x3200 |
 {: caption="Table 8. GPU profile options" caption-side="bottom"}
 {: #gpu-intel-x86-64}
 {: tab-title="Intel x86-64"}
@@ -225,9 +255,43 @@ GPU profiles include 1 or 2 NVIDIA V100 PCIe 16GB GPUs. All OS images are suppor
 
 When you create a GPU profile, keep the following recommendations in mind.
 
+- During {{site.data.keyword.Bluemix_notm}} periodic maintenance, GPU workloads aren't secure live migrated. Instead, the virtual server instance is restarted. You are notified 30 days in advance of any maintenance where the virtual server instance will be restarted. For more information, see [Understanding cloud maintenance operations](/docs/vpc?topic=vpc-about-cloud-maintenance).
 - If you are using GPU profiles, you need to install the NVIDA driver onto your virtual server instance. For more information, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
 - If you are using GPU profiles, you might need to install the CUDA toolkit onto your virtual server instance. For more information, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
 - For more information about persistent storage options, see [Storage notes for profiles](#storage-notes-for-profiles).
+
+Considerations specific to the GPU `-a100` profile:
+- Only Redhat and Ubuntu are supported.
+- This profile is not certified for {{site.data.keyword.Bluemix_notm}} for Financial Service&reg;. While you can configure flow logs for the VPC, instance, interface, or subnets, data is not captured for the `-a100` profile.
+- You can't [resize a virtual server instance](/docs/vpc?topic=vpc-resizing-an-instance&interface=ui) that was created with this profile.
+- You can't attach new NICs or volumes to an existing, running virtual server instance. You must first stop the virtual server instance, make the changes, and then restart the virtual server instance.
+
+## Storage Optimized
+{: #storageopt}
+
+Storage Optimized profiles are hosted exclusively on Intel® Xeon® Platinum Cascade Lake servers. This profile family offers our highest vCPU to [instance storage](/docs/vpc?topic=vpc-instance-storage) ratio with 300 GB of storage for every 1 vCPU and is optimized for running data lake and other workloads requiring more intensive data capabilities. All storage optimized profiles are provisioned with temporary SSD-backed instance storage at no additional charge. For more information, see [Lifecycle of instance storage](/docs/vpc?topic=vpc-instance-storage#instance-storage-lifecycle).
+
+Storage Optimized profiles are available in the US East (Washington) and Japan (Osaka) regions.
+{: preview}
+
+The following Storage Optimized profiles are available for x86-64 processors:
+
+| Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) | Interface Type |
+|---------|---------|---------|---------|---------|---------|--------|
+| ox2-2x16     | 2    | 1  | 16    | 4     | 1x600   | virtio_blk   |
+| ox2-4x32     | 4    | 2  | 32    | 8     | 1x1200  | virtio_blk   |
+| ox2-8x64     | 8    | 4  | 64    | 16    | 2x1200  | virtio_blk   |
+| ox2-16x128   | 16   | 8  | 128   | 32    | 2x2400  | virtio_blk   |
+| ox2-32x256   | 32   | 16 | 256   | 64    | 3x3200  | virtio_blk   |
+| ox2-64x512   | 64   | 32 | 512   | 80    | 6x3200  | virtio_blk   |
+| ox2-96x768   | 96   | 48 | 768   | 80    | 9x3200  | virtio_blk   |
+| ox2-128x1024 | 128  | 64 | 1024  | 80    | 12x3200 | virtio_blk   |
+{: caption="Table 8. Storage Optimized profiles options for x86-64 instances" caption-side="bottom"}
+{: #storageopt-intel-x86-64}
+{: tab-title="Intel x86-64"}
+{: tab-group="Storage Optimized"}
+{: class="simple-tab-table"}
+{: summary="Storage Optimized profiles options for Intel x86-64 virtual server instances."}
 
 ## Bandwidth allocation
 {: #bandwidth-allocation}
@@ -282,15 +346,17 @@ You can view available profile configurations by using the {{site.data.keyword.c
 The following information describes the naming rule of the profiles.
 
 The first character represents the profile families. Different profile families have different ratios of vCPU to memory and other characteristics that are designed for different workloads.
--	"b": balanced family of profiles, 1 vCPU to 4 GiB of memory ratio
--	"c": compute family of profiles (higher on the CPUs), 1 vCPU to 2 GiB of memory ratio
--	"m": memory family of profiles (higher on the memory), 1 vCPU to 8 GiB of memory ratio
+- "b": balanced family of profiles, 1 vCPU to 4 GiB of memory ratio
+- "c": compute family of profiles (higher on the CPUs), 1 vCPU to 2 GiB of memory ratio
+- "m": memory family of profiles (higher on the memory), 1 vCPU to 8 GiB of memory ratio
 - "u": ultra high memory family of profiles, 1 vCPU to 28 GiB of memory ratio
 - "v": very high memory family of profiles, 1 vCPU to 14 GiB of memory ratio
--  "g" is GPU, which is a 1:8 or 1:16 ratio
+- "g": GPU profiles, which is a 1:8 or 1:16 ratio
+- "o": storage optimized family of profiles, 1 vCPU to 8 GiB memory ratio and 1 vCPU to 300 GB instance storage ratio
 
 The second character represents the CPU architecture.
 - "x": x86_64
+
 <!-- * POWER deprecates on Aug. 22 -->
 
 The third character represents the generation of the IBM Cloud infrastructure where the profile is provisioned.
@@ -318,9 +384,9 @@ Using “bx2-4x16” as an example, you can know from the name that it is a bala
 To view the list of available instance profiles by using the CLI, run the following command:
 
 ```sh
-$ ibmcloud is instance-profiles
+ibmcloud is instance-profiles
 ```
-{: codeblock}
+{: pre}
 
 ### Viewing instance profiles with the API
 {: #profiles-using-api}
@@ -354,11 +420,12 @@ All Intel&reg; x86-64 servers have Hyper-Threading enabled by default. Intel&reg
 If you want to disable Intel&reg; Hyper-Threading, see [Disabling Intel Hyper-Threading Technology](/docs/vpc?topic=vpc-disabling-hyper-threading).
 
 ## Next steps
-{: nextsteps-profiles}
+{: #nextsteps-profiles}
 
 After you choose a profile, it's time to create an instance.
 
-* [Creating an instance by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers)
-* [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers-cli)
+* [Creating an instance by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#creating-virtual-servers-ui)
+* [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli#creating-virtual-servers-cli)
 * [Creating an instance by using the API](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis#select-profile-and-image)
+* [Creating an instance by using Terraform](/docs/vpc?topic=vpc-creating-virtual-servers&interface=terraform#create-instance-terraform)
 * [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus)

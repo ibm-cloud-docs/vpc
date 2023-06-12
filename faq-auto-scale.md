@@ -1,23 +1,15 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-08-11"
+  years: 2020, 2022
+lastupdated: "2022-11-08"
 
 subcollection: vpc
 
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:download: .download}
-{:faq: data-hd-content-type='faq'}
-{:support: data-reuse='support'}
+{{site.data.keyword.attribute-definition-list}}
 
 # FAQs for auto scale
 {: #faqs-auto-scale}
@@ -48,7 +40,7 @@ policies that you define determine when virtual server instances are added or re
 
 Auto scale uses the following computation to determine how many instances are running at any given time:
 
-```
+```bash
 Σ(Current average utilization of each instance)/target utilization = membership count
 ```
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-09-29"
+lastupdated: "2022-11-04"
 
 subcollection: vpc
 
@@ -48,6 +48,7 @@ You can't create certain instance actions if the status of your instance is in c
 | Not running | reboot     | yes      |
 | Not paused  | resume     | yes      |
 | Paused      | Any action other than resume | yes      |
+{: caption="Table 1.Instance status conflicts" caption-side="bottom"}
 
 ## Instance not responding to `instance-reboot` request
 {: #troubleshooting-instance-not-responding}
@@ -64,14 +65,14 @@ If you try to add an SSH key to your account and get an error that the key can't
 {: #troubleshooting-reregister-RHEL-VSI}
 
 If you see this error message:
-```
+```sh
 This system is not registered with an entitlement server.
 ```
 {: pre}
 
 Your REHL virtual server instance was unregistered from the capsule server. To resolve this issue, run the `reregister-ng-rhel-vsi.sh` script to reregister the virtual server instance.
 
-```
+```sh
 #!/bin/bash
 ##
 ## =============================================================================

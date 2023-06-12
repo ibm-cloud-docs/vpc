@@ -21,7 +21,7 @@ You can add connections when you create an IBM Cloud VPN for VPC, or after you p
 The IKE Phase 1 and Phase 2 (IPsec) security options that you specify for the connection must be the same options that are set on the peer gateway for the network outside your VPC.
 {: important}
 
-## Adding a connection by using the UI
+## Adding a connection in the UI
 {: #vpn-using-ui-add-connection}
 {: ui}
 
@@ -49,7 +49,7 @@ To add a VPN connection to an existing VPN gateway, follow these steps:
    * Select **Auto** if you want the gateway to try to automatically establish the connection.
    * Select or create custom policies if you need to enforce particular security requirements, or if the VPN gateway for the other network doesn't support the security proposals that are tried by auto-negotiation.
 
-## Adding a connection by using the CLI
+## Adding a connection from the CLI
 {: #vpn-using-cli-add-connection}
 {: cli}
 
@@ -95,7 +95,7 @@ Where:
    `ibmcloud is vpn-gateway-connection-create my-connection fee82deba12e4c0fb69c3b09d1f12345 169.21.50.5 lkj14b1oi0alcniejkso --local-cidr 10.240.0.0/24 --peer-cidr 192.168.1.0/24 --ipsec-policy 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 --ike-policy 72251a2e-d6c5-42b4-97b0-b5f8e8d1f480`
 
 
-## Adding a local CIDR to a VPN gateway connection by using the CLI
+## Adding a local CIDR to a VPN gateway connection from the CLI
 {: #vpn-using-cli-vpn-gateway-connection-local-cidr-add}
 {: cli}
 
@@ -126,7 +126,7 @@ Where:
 - Add a local CIDR for a specific connection name with required configuration values:
    `ibmcloud is vpn-gateway-connection-local-cidr-add my-vpn-gateway my-connection 3.3.3.0 24`
 
-## Adding a peer CIDR to a VPN gateway connection by using the CLI
+## Adding a peer CIDR to a VPN gateway connection from the CLI
 {: #vpn-using-cli-vpn-gateway-connection-peer-cidr-add}
 {: cli}
 
@@ -157,7 +157,7 @@ Where:
 - Add a peer CIDR for a specific connection name with required configuration values:
    `ibmcloud is vpn-gateway-connection-peer-cidr-add my-vpn-gateway my-connection 4.4.4.0 24`
 
-## Adding a connection by using the API
+## Adding a connection with the API
 {: #vpn-using-api-add-connection}
 {: api}
 
@@ -218,7 +218,7 @@ To create a VPN connection by using the API, follow these steps:
    ```
    {: codeblock}
 
-## Adding a local CIDR to a VPN gateway connection by using the API
+## Adding a local CIDR to a VPN gateway connection with the API
 {: #vpn-using-api-vpn-gateway-connection-local-cidr-add}
 {: api}
 
@@ -245,14 +245,14 @@ This API is supported only by policy mode VPN gateway.
       ```
       {: pre}
     
-    * `cidr_prefix` - The prefix address part of the CIDR
+   * `cidr_prefix` - The prefix address part of the CIDR
    
       ```sh
       export cidr_prefix=<your_cidr_prefix>
       ```
       {: pre}
     
-    * `prefix_length` - The prefix length part of the CIDR.
+   * `prefix_length` - The prefix length part of the CIDR.
    
       ```sh
       export prefix_length=<your_prefix_length>
@@ -268,7 +268,7 @@ This API is supported only by policy mode VPN gateway.
    ```
    {: codeblock}
 
-## Adding a peer CIDR to a VPN gateway connection by using the API
+## Adding a peer CIDR to a VPN gateway connection with the API
 {: #vpn-using-api-vpn-gateway-connection-peer-cidr-add}
 {: api}
 
@@ -295,14 +295,14 @@ This API is supported only by policy mode VPN gateway.
       ```
       {: pre}
     
-    * `cidr_prefix` - The prefix address part of the CIDR
+   * `cidr_prefix` - The prefix address part of the CIDR
    
       ```sh
       export cidr_prefix=<your_cidr_prefix>
       ```
       {: pre}
     
-    * `prefix_length` - The prefix length part of the CIDR.
+   * `prefix_length` - The prefix length part of the CIDR.
    
       ```sh
       export prefix_length=<your_prefix_length>

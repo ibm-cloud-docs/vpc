@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-09-22"
+  years: 2020, 2023
+lastupdated: "2023-03-29"
 
 keywords: auto scale, autoscale, virtual server instance, creating, UI, console, instance group
 
@@ -31,13 +31,13 @@ As an example, imagine that the fictitious company, Acme Web Retailer, sets up a
 
 Auto scale uses the following computation to determine how many instances are running at any time:
 
-```
+```text
 Σ(Current average utilization of each instance)/target utilization = membership count
 ```
 
 If Acme Web Retailer has four virtual server instances that are running when the aggregation window elapses, the formula looks like this: *VSI1 + VSI2 + VSI3 + VSI4 / 70% = membership count*. CPU utilization for the four running instances is 80%, 70%, 65%, and 85%, so the following computation takes place:
 
-```
+```text
 80% + 70% + 65% + 85% / 70% = 4.29 
 ```
 
@@ -84,7 +84,6 @@ To create an instance template, complete the following steps.
 **Important:** Instance groups do not support instance templates that have the following configurations:
 - Secondary network interfaces are not supported. Only one, primary network interface for an instance template is supported in an instance group.
 - A primary IP address or floating IP addresses assigned to the primary interface is not supported.
-- - An instance template that uses a custom image that is managed by a private catalog isn't supported.
 
 When you create an instance template, validation steps are performed to ensure that you can use this template to provision a virtual server instance. 
 {: tip}
@@ -139,7 +138,7 @@ To add scaling policies, complete the following fields on the **New instance gro
 You can create an instance group in your {{site.data.keyword.vpc_short}} to auto scale according to your requirements by using the {{site.data.keyword.cloud_notm}} CLI.
 
 ### Before you begin
-{: #before-cli-tutorial}
+{: #before-cli-tutorial-autoscale}
 
 Make sure that you set up your [{{site.data.keyword.cloud}} CLI environment](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup) and your [{{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
 {: important}
@@ -177,13 +176,13 @@ Gather the following required instance template details.
 Use the following commands to determine the required information for creating a new instance template.
 
 1. List the {{site.data.keyword.vpc_short}}s that are associated with your account.
-   ```
+   ```sh
    ibmcloud is vpcs
    ```
    {: pre}
 
    For this example, you see a response similar to the following output:
-   ```
+   ```sh
    ID                                          Name                                  Default          Status      Tags
    0738-xxx1xx23-4xx5-6789-12x3-456xx7xx123x   my-vpc                                yes              available   -
    0738-xxxx1234-5678-9x12-x34x-567x8912x3xx   my-other-vpc                          no               available   -
@@ -193,26 +192,26 @@ Use the following commands to determine the required information for creating a 
    If you don't have one available, you can create an {{site.data.keyword.vpc_short}} by using the `ibmcloud is vpc-create` command. For more information about creating an {{site.data.keyword.vpc_short}}, see [IBM Cloud VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#vpcs).
 
 2. List the regions associated with your account.
-   ```
+   ```sh
    ibmcloud is regions
    ```
    {: pre}
 
    For this example, you see a response similar to the following output:
-   ```
+   ```sh
    Name       Endpoint               Status   
    us-south   /v1/regions/us-south   available
    ```
    {: screen}
 
 3. List the zones associated with the region.
-   ```
+   ```sh
    ibmcloud is zones us-south
    ```
    {: pre}
 
    For this example, you see a response similar to the following output:
-   ```
+   ```sh
    Name         Region     Status   
    us-south-1   us-south   available   
    us-south-3   us-south   available   
@@ -220,13 +219,13 @@ Use the following commands to determine the required information for creating a 
    {: screen}
 
 4. List the available profiles for creating your instance template.
-   ```
+   ```sh
    ibmcloud is instance-profiles
    ```
    {: pre}
 
    For this example, you see a response similar to the following output:
-   ```
+   ```sh
    Name           Architecture   Family     vCPUs   Memory(G)   Network Performance (Gbps)   GPUs   
    bx2-2x8        amd64          balanced   2       8           4                            -   
    bx2-4x16       amd64          balanced   4       16          8                            -   
@@ -246,13 +245,13 @@ Use the following commands to determine the required information for creating a 
    {: screen}
 
 5. List the subnets that are associated with the {{site.data.keyword.vpc_short}}.
-   ```
+   ```sh
    ibmcloud is subnets
    ```
    {: pre}
 
    For this example, you see a response similar to the following output:
-   ```
+   ```sh
    ID                                          Name                     Status
    0076-2249dabc-8c71-4a54-bxy7-953701ca3999   subnet1                  available
    0767-173bn4aa-060b-47e7-am45-b3395a593897   subnet2                  available
@@ -374,14 +373,14 @@ Gather the following information.
 
 After you know these values, use them to run the `instance-group-create` command. In addition to the information that you gathered, you must specify a name for the instance group. 
 
-```
+```sh
 ibmcloud is instance-group-create INSTANCE_GROUP_NAME --instance-template INSTANCE_TEMPLATE --subnet-ids IDS --membership-count MEMBERS
 ```
 {: pre}
 
 For example, if you create an instance group that is called _my-instance-group_ with instance template ID _72251a2e-d6c5-42b4-97b0-b5f8e8d1f479_ and _1_ member initially, your `instance-group-create` command would look similar to the following sample.
 
-```
+```sh
 ibmcloud is instance-group-create my-instance-group --instance-template 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 --subnet-ids 0076-2249dabc-8c71-4a54-bxy7-953701ca3999,0767-173bn4aa-060b-47e7-am45-b3395a593897 --membership-count 1
 ```
 {: pre}
@@ -394,7 +393,7 @@ Where:
 
 For this example, you see a response similar to the following output:
 
-```
+```sh
 ID                  r134-4f7d0010-33f5-40bf-9f21-ab5bee04fd71   
 Name                my-instance-group   
 Status              healthy   
@@ -430,14 +429,14 @@ Gather the following information.
 
 After you know these values, use them to run the `instance-group-manager-create` command.
 
-```
+```sh
 ibmcloud is instance-group-manager-create INSTANCE_GROUP --max-members MAX_MEMBERS
 ```
 {: pre}
 
 For example, if you create an instance group manager with instance group ID _72251a2e-d6c5-42b4-97b0-b5f8e8d1f479_ and options --max-members = _20_, your `instance-group-manager-create` command would look similar to the following sample.
 
-```
+```sh
 ibmcloud is instance-group-manager-create 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 --max-members 20
 ```
 {: pre}
@@ -448,7 +447,7 @@ Where:
 
 For this example, you see a response similar to the following output:
 
-```
+```sh
 ID                     r134-bcf54494-f63a-41a7-8368-9f7d002c9020   
 Status                 enabled  
 Max Membership Count   20   
@@ -480,13 +479,13 @@ Gather the following information.
 Use the following commands to determine the required information for creating a new instance template.
 
 1. List the available instance groups for creating your scaling policy.
-   ```
+   ```sh
    ibmcloud is instance-groups   
    ```
    {: pre}
 
    For this example, you see a response similar to the following output:
-   ```
+   ```sh
    ID                                          Name                     Status           Instances
    72251a2e-d6c5-42b4-97b0-b5f8e8d1f479        my-instance-group        healthy          1
    72271a2e-d6c7-64b6-99c7-ac7426ew3495        my-other-instance-group  healthy          1
@@ -495,7 +494,7 @@ Use the following commands to determine the required information for creating a 
    {: screen}
 
 2. List the available instance groups managers for creating your scaling policy.
-   ```
+   ```sh
    ibmcloud is instance-group-managers 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479
    ```
    {: pre}
@@ -505,7 +504,7 @@ Use the following commands to determine the required information for creating a 
 
    For this example, you see a response similar to the following output:
 
-   ```
+   ```sh
    ID                                          Status    Aggregation Window   Cooldown   Max Membership Count   Min Membership Count   
    72b27b5c-f4b0-48bb-b954-5becc7c1dcb3        enabled   90                   300        20                     1   
 
@@ -514,14 +513,14 @@ Use the following commands to determine the required information for creating a 
 
 After you know these values, run the following command to create a scaling policy.
 
-```
+```sh
 ibmcloud is instance-group-manager-policy-create INSTANCE_GROUP MANAGER --metric-type METRIC_TYPE --metric-value METRIC_VALUE
 ```
 {: pre}
 
 For example, if you create a scaling policy with instance group ID _72251a2e-d6c5-42b4-97b0-b5f8e8d1f479_ and manager ID _72b27b5c-f4b0-48bb-b954-5becc7c1dcb3_ with options --metric-type _cpu_ and --metric-value = _50_, your `ibmcloud is instance-group-manager-policy-create` command would look similar to the following sample.
 
-```
+```sh
 ibmcloud is instance-group-manager-policy-create 2251a2e-d6c5-42b4-97b0-b5f8e8d1f479 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3 --metric-type cpu --metric-value 50
 ```
 {: pre}
@@ -534,7 +533,7 @@ Where:
 
 For this example, you see a response similar to the following output:
 
-```
+```sh
 ID             r134-5f5c1127-da5c-4c7a-a8ae-9a539b56fa56   
 Metric Type    cpu   
 Metric Value   50   

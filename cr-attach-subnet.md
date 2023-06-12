@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-03-02"
+  years: 2020, 2022
+lastupdated: "2022-11-15"
 
 keywords: custom routes
 
@@ -21,30 +21,26 @@ By default, any subnet not associated with a routing table is associated with th
 
 You can attach a subnet to a routing table, or reassign a routing table to a particular subnet by using the UI, CLI, or API.
 
-## Attaching subnets to a routing table using the UI
+## Attaching subnets to a routing table in the UI
 {: #cr-attach-subnet-ui}
 {: ui}
 
-To attach a routing table to a subnet by using the {{site.data.keyword.cloud_notm}} console, follow these steps:
+To attach a routing table to a subnet in the UI, follow these steps:
 
-1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the Menu icon ![Menu icon](/images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appear.
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the Navigation Menu ![Navigation Menu](/images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appear.
 1. Click the name of the routing table in which you want to view subnet details. Alternatively, you can click the number of attached subnets.  
 1. From the Subnets tab, click **Attach subnet**. The Attach subnets to routing table side panel shows.
 1. Select a subnet from the drop-down list. The current routing table, IP range, and location of the subnet shows.
-1. Click **Attach**.   
-
-   ![Attaching subnets to routing table side panel](/images/attach-subnet-routing-table.png "Attaching subnets to routing table side panel"){: caption="Figure 1. Attaching subnets to routing table side panel" caption-side="bottom"}
+1. Click **Attach**.
 
 To reassign a routing table to a subnet, follow these steps:
 
 1. From the routing table details page, click the Subnets tab.
-1. Click the overflow menu ![overflow menu](images/overflow.png) next to the subnet, then click **Reassign routing table**.
+1. Click the Actions menu ![Actions menu](images/overflow.png) next to the subnet, then click **Reassign routing table**.
 1. From the Reassign subnet routing table side panel, click the subnet that you want to assign to this routing table.
 1. Click **Reassign**.
-
-   ![Reassign routing table side panel](/images/reassign-routing-table.png "Reassign routing table side panel"){: caption="Figure 2. Reassign routing table side panel" caption-side="bottom"}
    
-## Attaching subnets to a routing table by using the CLI
+## Attaching subnets to a routing table from the CLI
 {: #cr-attach-subnets-using-the-cli}
 {: cli}
 
@@ -61,8 +57,7 @@ Where:
 * **SUBNET_ID** - Is the ID of the subnet you want to update.  
 * **ROUTING_TABLE_ID** - Is the ID of the routing table that you want to assign the subnet to. 
 
-
-## Attaching subnets to a routing table using the API
+## Attaching subnets to a routing table with the API
 {: #cr-attach-subnets-using-the-api}
 {: api}
 

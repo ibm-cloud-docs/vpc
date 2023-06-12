@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-09-15"
+  years: 2022, 2023
+lastupdated: "2023-01-23"
 
 keywords:
 
@@ -11,106 +11,99 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:preview: .preview}
-{:table: .aria-labeledby="caption"}
-{:DomainName: data-hd-keyref="APPDomain"}
-{:DomainName: data-hd-keyref="DomainName"}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # Accessing metadata from an instance
 {: #imd-access-instance-metadata}
 
-Most often, you'll want to access metadata from a running instance and use that metadata to bootstrap an instance. This topic describes the general procedure for enabling the metadata service, creating an instance identity access token, and accessing the metadata.
-
+Most often, you want to access metadata from a running instance and use it to bootstrap an instance. This topic describes the general procedure for enabling the metadata service, creating an instance identity access token, and accessing the metadata.
 {: shortdesc}
 
 ## Before you begin
-{: #imd-byb-identities-procedure}
+{: #imd-prereq-byb-identities-procedure}
 
-1. Install the IBM Cloud CLI and the VPC CLI plug-in (see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup)).
+1. Install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 
-2. After you install the VPC CLI plug-in, set the target to generation 2 by running the `ibmcloud is target --gen 2` command.
-   
+2. After the installation of the VPC CLI plug-in, set the target to generation 2 by running the `ibmcloud is target --gen 2` command.
+
 3. Make sure that you [created an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-cli#create-a-vpc-cli).
 
-4. Configure a floating IP so that you can ping the virtual servers over the floating IP address and SSH into them.
+4. Configure a floating IP so that you can SSH into the virtual servers over the floating IP address.
 
 ## General procedure to access instance metadata
 {: #imd-gen-procedure}
 
-Table 1 describes the steps involved to access instance metadata. The information provides the context for each step and links to specific information for completing the step. In an actual environment, steps 3 through 5 would more likely be invoked by your instance's initialization software at start up or using cloud-init.
+Table 1 describes the steps that are involved in accessing instance metadata. The information provides the context for each step and links to specific information for completing the step. In an actual environment, steps 3 - 5 would more likely be started by your instance's initialization software at startup or by using cloud-init.
 
 | Step | Context | Service Called | User Action |
 |------|---------|----------------|-------------|
-| 1    | IBM Cloud | VPC UI, CLI, API | Create a virtual server instance and enable the metadata service on it. (The service is disabled by default.) You can also enable the service on an existing instance, using the [UI](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-enable-on-instance-ui) or API. From the API, make a call to create a virtual server instance configured with the [metadata service](/docs/vpc?topic=vpc-imd-configure-service) enabled. Customer user data is specified on instance creation. |
-| 2    | IBM Cloud | -- | Sign on to the instance using the normal startup operations. |
+| 1    | IBM Cloud | VPC UI, CLI, API | Create a virtual server instance and enable the metadata service on it. (The service is disabled by default.) You can also enable the service on an existing instance, in the [UI](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-enable-on-instance-ui) or with the API. With the API, make a call to create a virtual server instance that is configured with the [metadata service](/docs/vpc?topic=vpc-imd-configure-service) enabled. Customer user data is specified on instance creation. |
+| 2    | IBM Cloud | - | Sign on to the instance by using the normal startup operations. |
 | 3    | VPC instance | Metadata service | Provide a `curl` command to call the metadata token service to [acquire an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-json-token). |
-| 4    | VPC instance | Metadata service | Provide a `curl` command to [call the metadata service](/docs/vpc?topic=vpc-imd-get-metadata#imd-retrieve-instance-data). The token from the previous step is passed and the metadata is returned.| 
-| 5    | VPC instance | -- | Parse the JSON returned in the previous step to acquire the user data. |
+| 4    | VPC instance | Metadata service | Provide a `curl` command to [call the metadata service](/docs/vpc?topic=vpc-imd-get-metadata#imd-retrieve-instance-data). The token from the previous step is passed and the metadata is returned.|
+| 5    | VPC instance | - | Parse the JSON returned in the previous step to acquire the user data. |
 {: caption="Table 1. General procedure for accessing instance metadata" caption-side="bottom"}
 
 ## End-to-end procedure for accessing metadata from an instance
 {: #imd-access-md-ex}
 
-1. Log into IBM Cloud CLI.
+1. Log in to IBM Cloud CLI.
 
-2. Go to an existing instance. Use `ibmcloud is instances` to locate a running instance in which to enable the metadata service. The instance must have a VPC associated with it.
+2. Go to an existing instance. Use the following command to locate a running instance in which to enable the metadata service. The instance must have a VPC that is associated with it.
 
-3. List security group rules so you can ping the virtual servers over the floating IP address:
-
-   ```
-   ibmcloud is security-group-rules {id}
+   ```sh
+   ibmcloud is instance {instance_id}
    ```
    {: pre}
 
-4.	SSH to get a connection into the virtual server to issue the APIs for the metadata service.
+3. List security group rules so you can SSH into the virtual servers over the floating IP address:
 
-5.	Log into the virtual server. You can be running a stock image or custom image. The metadata service is supported on all stock and custom images, and CPU profiles. At this point, the floating IP has been assigned, the security groups are there, and you're now working within the virtual server.
-
-6.	Make a call to the metadata token service to retrieve an instance identity access token.  Specify how long the token is valid, for example 3600 seconds (1hour). In this example, the command is run through the `jq` parser to format the JSON response. You can choose the parser that you prefer.
-
+   ```sh
+   ibmcloud is security-group-rules {security_group_id}
    ```
-   instance_identity_token=`curl -X PUT "http://169.254.169.254/instance_identity/v1/token?version=2021-12-28"\
+   {: pre}
+
+4. SSH to get a connection into the virtual server to issue the APIs for the metadata service.
+
+5. Log in to the virtual server. You can be running a stock image or custom image. The metadata service is supported on all stock and custom images, and CPU profiles. Now, the floating IP is assigned. The security groups are in place, and you're now working within the virtual server.
+
+6. Make an API call to the metadata token service to retrieve an instance identity access token. Specify how long the token is valid, for example 3600 seconds (1 hour). In this example, the command is run through the `jq` parser to format the JSON response. You can choose the parser that you prefer.
+
+   ```json
+   export instance_identity_token=`curl -X PUT "http://169.254.169.254/instance_identity/v1/token?version=2022-03-01"\
      -H "Metadata-Flavor: ibm"\
      -H "Accept: application/json"\
-     -d '{ 
-           "expires_in": 3600 
-         }' | jq -r '(.instance_identity_token)'`
+     -d '{
+           "expires_in": 3600
+         }' | jq -r '(.access_token)'`
    ```
-   {: pre}
+   {: codeblock}
 
-   The response is the instance identity access token payload. 
+   The response is the instance identity access token payload.
 
-7. You can now make a call to the metadata service. The first call is to initialization information:
+7. You can now make an API call to the metadata service. The first call is for the initialization information:
 
-   ```
-   curl -X GET "http://169.254.169.254/metadata/v1/instance/initialization?version=2021-12-28"\
-      -H "Accept: application/json"\
-      -H "Authorization: Bearer $instance_identity_token"
-      | jq -r
-   ```
-   {: pre}
-
-   Information in the response shows the SSH key and user data specified when the virtual server was provisioned. If you configured passwords, that information is also returned.
-
-8.	Access metadata about the instance, such as volume attachments, dedicated hosts, memory, vCPUs, and so on.
-
-   ```
-   curl -X GET "http://169.254.169.254/metadata/v1/instance?version=2021-12-28"\
+   ```curl
+   curl -X GET "http://169.254.169.254/metadata/v1/instance/initialization?version=2022-03-01"\
       -H "Accept: application/json"\
       -H "Authorization: Bearer $instance_identity_token"\
       | jq -r
    ```
-   {: pre}
+   {: codeblock}
 
-9. Continue by making calls for other metadata for the instance, SSH keys, and placement groups by issuing REST APIs all within the instance. For more information, see [Use the instance metadata service](/docs/vpc?topic=vpc-imd-get-metadata).
+   Information in the response shows the SSH key and user data that was specified when the virtual server was provisioned. If you configured passwords, that information is also returned.
+
+8. Access metadata about the instance, such as volume attachments, dedicated hosts, memory, vCPUs, and so on.
+
+   ```curl
+   curl -X GET "http://169.254.169.254/metadata/v1/instance?version=2022-03-01"\
+      -H "Accept: application/json"\
+      -H "Authorization: Bearer $instance_identity_token"\
+      | jq -r
+   ```
+   {: codeblock}
+
+9. Continue by making calls for other metadata for the instance, SSH keys, and placement groups by issuing REST API calls within the instance. For more information, see [Use the instance metadata service](/docs/vpc?topic=vpc-imd-get-metadata).
 
 ## Next steps
 {: #imd-access-md-next-steps}

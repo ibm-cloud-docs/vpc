@@ -28,7 +28,7 @@ To see the IAM permissions required for reserved IPs, see [Subnets calls](/docs/
 VPC does not support fragmented IP packets. Fragmented packets are dropped at the edge.
 {: note}
 
-## Creating reserved IPs by using the UI
+## Creating reserved IPs in the UI
 {: #using-ui}
 {: ui}
 
@@ -62,7 +62,7 @@ To delete (release) a reserved IP using the UI, navigate to  **Subnets > Reserve
 <!--If a reserved IP has the auto-delete option enabled, unbinding the reserved IP deletes the reserved IP with no further action needed.
 When the auto-delete option is disabled, unbinding causes the reserved IP to become unbound, but it remains associated with the subnet. You might need to refresh the UI to view the changes.-->
 
-## Working with reserved IPs by using the CLI
+## Working with reserved IPs from the CLI
 {: #cli-reserved-ip}
 {: cli}
 
@@ -70,7 +70,7 @@ You can use the CLI to create, update, and delete reserved IP addresses.
 
 Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 
-### Creating a reserved IP by using the CLI
+### Creating a reserved IP from the CLI
 {: #cli-create-reserved-ip}
 
 To reserve a VPC private IP address using the CLI, run the following command:
@@ -89,7 +89,7 @@ Where:
 - **--output** specifies the output format; only JSON is supported.
 - **-q, --quiet** suppresses verbose output.
 
-### Updating a reserved IP by using the CLI
+### Updating a reserved IP from the CLI
 {: #cli-update-reserved-ip}
 
 To update a reserved IP by using the CLI, run the following command:
@@ -108,7 +108,7 @@ Where:
 - **--output** specifies the output format; only JSON is supported.
 - **-q, --quiet** suppresses verbose output.
 
-### Deleting a reserved IP by using the CLI
+### Deleting a reserved IP from the CLI
 {: #cli-delete-reserved-ip}
 
 To delete a reserved IP by using the CLI, the reserved IP must be unbound. After unbinding the reserved IP, run the following command to delete it:

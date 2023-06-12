@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-08-09"
+  years: 2021, 2023
+lastupdated: "2023-01-17"
 
 keywords: vpn, ipsec policy
 
@@ -18,7 +18,7 @@ subcollection: vpc
 You can use custom IPsec policies to define security parameters to use during Phase 2 of IKE negotiation. In this phase, the VPN and peer device use the security association that is established during Phase 1 to negotiate what traffic to send and how to authenticate and encrypt that traffic.
 {: shortdesc}
 
-## Creating an IPsec policy by using the UI
+## Creating an IPsec policy in the UI
 {: #vpn-using-ui-create-ipsec-policy}
 {: ui}
 
@@ -37,7 +37,7 @@ To create an IPsec policy by using the UI, follow these steps:
 1. Click **Create IPsec policy**.
 1. From the **VPN connection details** page, set the **IPsec policies** field to use the wanted IPsec policy.
 
-## Creating an IPsec policy by using the CLI
+## Creating an IPsec policy from the CLI
 {: #vpn-using-cli-create-ipsec-policy}
 {: cli}
 
@@ -55,10 +55,13 @@ ibmcloud is ipsec-policy-create IPSEC_POLICY_NAME AUTHENTICATION_ALGORITHM ENCRY
 
 Where:
 
+`md-5` and `sha-1` authentication algorithms, `group_2` and `group_5` DH groups, and the `triple_des` encryption algorithm were deprecated on 20 September 2022 and are no longer supported in the UI. If you currently use these ciphers, you must [upgrade weak cipher suites on a VPN gateway](/docs/vpc?topic=vpc-upgrading-weak-ciphers&interface=ui) before end of support is announced for use with the CLI and API.
+{: deprecated}
+
 - **IPSEC_POLICY_NAME** - Name of the IPsec policy.
-- **AUTHENTICATION_ALGORITHM** - The authentication algorithm. One of: `md5`, `sha1`, `sha256`, `sha384`, `sha512`, `disabled`.
-- **ENCRYPTION_ALGORITHM** - The encryption algorithm. One of: `triple_des`, `aes128`, `aes192`, `aes256`, `aes128gcm16`, `aes192gcm16`, `aes256gcm16`.
-- **PFS** - The Diffie-Hellman group. One of: `disabled`, `group_2`, `group_5`, `group_14`, `group_15`, `group_16`, `group_17`, `group_18`, `group_19`, `group_20`, `group_21`, `group_22`, `group_23`, `group_24`, `group_31`.
+- **AUTHENTICATION_ALGORITHM** - The authentication algorithm. One of: `sha256`, `sha384`, `sha512`, `disabled`. 
+- **ENCRYPTION_ALGORITHM** - The encryption algorithm. One of: `aes128`, `aes192`, `aes256`, `aes128gcm16`, `aes192gcm16`, `aes256gcm16`. 
+- **PFS** - The Diffie-Hellman group. One of: `disabled`, `group_14`, `group_15`, `group_16`, `group_17`, `group_18`, `group_19`, `group_20`, `group_21`, `group_22`, `group_23`, `group_24`, `group_31`.
 - **--key-lifetime value** - The key lifetime in seconds. Maximum: `86400`, Minimum: `1800`. The default value is `3600`.
 - **--resource-group-id value** - ID of the resource group. This option is mutually exclusive with **--resource-group-name**.
 - **--resource-group-name value** - Name of the resource group. This option is mutually exclusive with **--resource-group-id**.
@@ -78,7 +81,7 @@ The `AUTHENTICATION_ALGORITHM` must be `disabled` if and only if `ENCRYPTION_ALG
 - Create an IPsec policy with the same parameters and a resource group ID:
    `ibmcloud is ipsec-policy-create my-ipsec-policy sha256 aes128 group_14 --resource-group-id fee82deba12e4c0fb69c3b09d1f12345 --output JSON`
 
-## Creating an IPsec policy by using the API
+## Creating an IPsec policy with the API
 {: #vpn-using-api-create-ipsec-policy}
 {: api}
 
@@ -129,7 +132,7 @@ In the following example, you can create a IPsec policy using Terraform:
 ```
 {: codeblock}
 
-See the [Terraform registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_ipsec_policy)for more information.
+See the [Terraform registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_ipsec_policy) for more information.
 
 ## Next steps
 {: #vpn-create-ipsec-next-steps}

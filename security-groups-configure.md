@@ -3,9 +3,9 @@
 copyright:
   years: 2018, 2022
 
-lastupdated: "2022-09-09"
+lastupdated: "2022-11-11"
 
-keywords:  
+keywords:
 
 subcollection: vpc
 
@@ -13,31 +13,50 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Set up a security group for your resource
-{: #configuring-the-security-group} 
+# Setting up a security group for your resource
+{: #configuring-the-security-group}
 
-You can configure security groups to define the inbound and outbound traffic that they allow for your resource. For example, after you configure ACL rules for the subnet based on your company's security policies, you can further restrict traffic for specific instances depending on their workloads.
+You can configure security groups to define the inbound and outbound traffic that is allowed for your resource. For example, after you configure ACL rules for the subnet based on your company's security policies, you can further restrict traffic for specific instances depending on their workloads.
 {: shortdesc}
 
-## Setting up the security groups for your virtual server instance by using the UI
+## Setting up the security groups for your resource in the UI
 {: #sgg-using-ui}
 {: ui}
 
-To configure your security group using the UI: 
-1. In the navigation pane, click **Compute > Virtual server instances**.
-1. Click your instance to view its details.
-1. In the **Network interfaces** section, click the name of the security group.
-1. On the **Rules** tab of the security group details page, click **Create** to configure inbound and outbound rules that define what type of traffic is allowed to and from the instance. For each rule, specify the following information:  
-   * Select the protocols and ports to which the rule applies.    
-   * Specify a CIDR block or IP address for the permitted traffic. Alternatively, you can specify a security group in the same VPC to allow traffic to or from all instances that are attached to the selected security group. 
-   **Tips:**  
+To configure your security group by using the UI, follow these steps:
+
+1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
+1. Select the Menu icon ![Menu icon](../icons/icon_hamburger.svg), then click **VPC Infrastructure**.
+1. Click **Security groups**.
+1. Click **Create +** on the security groups list table.
+1. In the Location section, provide the following information:
+   * **Geography** - Indicate the general area where you want the security group created.
+   * **Region** - Indicate the region where you want the security group created.
+1. In the Details section, provide the following information:
+   * **Name** - Enter a unique identifier for the security group, such as `my-security-group`.
+   * **Resource group**: Select a resource group for the security group.
+
+   After provisioning is complete, you cannot change the resoure group.
+   {: important}
+
+   * **Tags** - Add user tags. User tags are visible account-wide. For more information, see [Working with tags](/docs/account?topic=account-tag).
+
+   User tags are visible account-wide. Avoid including sensitive data in the tag name.
+   {: note}
+
+   *  _Optional:_ **Access management tags** - Add access management tags to help organize access control relationships. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
+   * _Optional:_ **Virtual private cloud** - Select your VPC.
+1. Under Rules, click **Create** to configure inbound and outbound rules that define what type of traffic is allowed to and from the instance. For each rule, specify the following information:
+   * Select the protocols and ports to which the rule applies.
+   * Specify a CIDR block or IP address for the permitted traffic. Alternatively, you can specify a security group in the same VPC to allow traffic to or from all instances that are attached to the selected security group.
+
+   **Tips:**
    * All rules are evaluated, regardless of the order in which they're added.
    * Rules are stateful, which means that return traffic in response to allowed traffic is automatically permitted. For example, you created a rule that allows inbound TCP traffic on port 80. That rule also allows replying outbound TCP traffic on port 80 back to the originating host, without the need for another rule.
    * For Windows images, make sure that the security group that is associated with the instance allows inbound and outbound Remote Desktop Protocol traffic (TCP port 3389).
-1. _Optional:_ To view interfaces that are attached to the security group, click **Attached resources** tab and review the Attached interfaces section.
-1. When you finish creating rules, click the **Security groups** breadcrumb at the beginning of the page.
+1. _Optional:_ Attach interfaces, bare metal interfaces, load balancers, virtual private endpoint gateways, and VPN servers in the remaining sections if these targets are available to attach.
 
-## Setting up the security groups for your virtual server instance by using the CLI
+## Setting up the security groups for your resource from the CLI
 {: #sg-using-cli}
 {: cli}
 
@@ -56,7 +75,7 @@ The security group rules for `my_vpc_sg` include the basic functions of SSH, PIN
 
 Notice that you must create the security group first, with the `ibmcloud is sgc` command, and then create the resource that uses this security group.
 
-You must enter `ibmcloud plugin install vpc-infrastructure` to get access to `ibmcloud is`. For detailed information about creating a VPC and subnet, see [Creating a VPC by using the CLI](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
+You must enter `ibmcloud plugin install vpc-infrastructure` to get access to `ibmcloud is`. For detailed information about creating a VPC and subnet, see [Creating VPC resources with the CLI](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli).
 {: tip}
 
 You can copy and paste commands from this example CLI code to begin creating an instance with an attached security group. System responses are not shown completely in this sample code. You must update your commands with the correct resource IDs for your VPC, subnet, image, key, and the correct security group ID number.
@@ -119,7 +138,7 @@ ibmcloud is security-group-rule-add $sg inbound icmp --icmp-type 8 --icmp-code 0
 
 For more information on setting up security groups by using the CLI, see [Security groups](https://cloud.ibm.com/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#security-groups-cli-ref){: external}.
 
-## Setting up the security groups for your virtual server instance by using the API
+## Setting up the security groups for your resource with the API
 {: #sg-using-api}
 {: api}
 

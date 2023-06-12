@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-06-28"
+  years: 2021, 2023
+lastupdated: "2023-01-31"
 
 keywords: virtual private network, VPN, VPN server, troubleshooting
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Why do I get an authentication error "User authentication failed" when connecting to VPN server?
+# Why do I get an authentication error "User authentication failed" when I try connecting to VPN server?
 {: #troubleshooting-authentication-error}
 {: troubleshoot}
 
@@ -22,8 +22,8 @@ The VPN connection attempts result in a `User authentication failed` error messa
 The authentication credentials do not have the correct access group or roles assigned.
 {: tsCauses}
 
-For user ID/password based authentication, follow these steps to resolve this issue:
+For user ID and password-based authentication, follow these steps to resolve this issue:
 {: tsResolve}
 
-1. Verify that the client being connected is added to the correct access group with sufficient access policies to the specific VPN server. See [Creating an access group](/docs/vpc?topic=vpc-create-iam-access-group) for more details.
+1. Verify that the client that's being connected is added to the correct access group with sufficient access policies to the specific VPN server. See [Creating an access group](/docs/vpc?topic=vpc-create-iam-access-group) for more details.
 1. Verify that the **Users of the VPN Server need this role to connect to the VPN server** checkbox is selected in the Service access section.

@@ -18,21 +18,19 @@ subcollection: vpc
 You can delete a routing table for an IBM Cloud service by using the UI, CLI, or API.
 {: shortdesc}
 
-## Deleting a routing table by using the UI
+## Deleting a routing table in the UI
 {: #cr-delete-table-using-the-ui}
 {: ui}
 
 To delete a routing table by using the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the Menu icon ![Menu icon](/images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The routing tables for VPC page appear.
-2. Click the overflow menu ![overflow menu](images/overflow.png) next to the routing table that you want to delete, then click **Delete**. Click **Delete** again to confirm the deletion. Alternatively, you can click **Actions > Delete** from the routing table details page.
+2. Click the Actions menu ![Actions menu](images/overflow.png) next to the routing table that you want to delete, then click **Delete**. Click **Delete** again to confirm the deletion. Alternatively, you can click **Actions > Delete** from the routing table details page.
 
-   ![Deleting routing tables for VPC](./images/cr-routing-table-delete.png){: caption="Figure 1. Deleting routing tables for VPC" caption-side="bottom}
-
-   You can delete only a routing table that does not have an attached subnet. If the routing table that you want to delete is attached to a subnet, you can detach it by either reassigning the routing table to another subnet (by using the overflow menu ![overflow menu](images/overflow.png)), or by deleting the subnet (click the subnet name, then click **Delete** from the overflow menu ![overflow menu](images/overflow.png).
+   You can delete only a routing table that does not have an attached subnet. If the routing table that you want to delete is attached to a subnet, you can detach it by either reassigning the routing table to another subnet (by using the Actions menu ![Actions menu](images/overflow.png)), or by deleting the subnet (click the subnet name, then click **Delete** from the Actions menu ![Actions menu](images/overflow.png).
    {: important}
 
-## Deleting a routing table by using the CLI
+## Deleting a routing table from the CLI
 {: #cr-delete-table-using-the-cli}
 {: cli}
 
@@ -51,7 +49,7 @@ Where:
 * **ROUTING_TABLE** is the ID of the VPC routing table.
 * **-f, --force** forces the operation without confirmation.
 
-## Deleting a routing table by using the API
+## Deleting a routing table with the API
 {: #cr-delete-table-using-the-api}
 {: api}
 

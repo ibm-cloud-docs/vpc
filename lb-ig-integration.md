@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-05-25"
+  years: 2020, 2023
+lastupdated: "2023-01-30"
 
 keywords: load balancer, autoscaling, instance groups, managed pool, load balancer for vpc, pool
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Integrating an {{site.data.keyword.cloud_notm}} {{site.data.keyword.alb_full}} with instance groups
+# Integrating an application load balancer with instance groups
 {: #lbaas-integration-with-instance-groups}
 
 {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) is used to attach [instance groups](/docs/vpc?topic=vpc-creating-auto-scale-instance-group) to a load balancer pool.
@@ -37,7 +37,7 @@ The maximum number of back-end members that are allowed in a load balancer pool 
 
 To create a managed pool, first create a regular pool and make sure that no members are attached to it. You can then attach an instance group.
 
-To create an instance group:
+To create an instance group, complete the following steps.
 
 1. [Create an instance group template](/docs/vpc?topic=vpc-creating-auto-scale-instance-group#creating-instance-template).
 
@@ -47,8 +47,8 @@ To create an instance group:
 
     For an existing instance group, you can update it with the load balancer pool identity. You need to also choose a scaling method. You can choose from the following options:
 
-    * A static method that allows a fixed number of back-end members
-    * A dynamic method for utilization based scaling
+    * A static method that allows a fixed number of back-end members.
+    * A dynamic method for utilization-based scaling.
 
 1. Finally, [create your instance group scaling policies](/docs/vpc?topic=vpc-creating-auto-scale-instance-group#creating-scaling-policies).
 

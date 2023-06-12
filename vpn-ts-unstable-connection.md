@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2020
-lastupdated: "2020-11-13"
+  years: 2018, 2023
+lastupdated: "2023-01-31"
 
 keywords: virtual private network, VPN, VPN gateway, troubleshooting
 
@@ -23,12 +23,12 @@ If you notice that your connection is going up and down occasionally, it might b
 My connection is not stable and keeps going down.
 {: tsSymptoms}
 
-There might be a rekey timing conflict.  
+A rekey timing conflict might exist.  
 {: tsCauses}
 
 Follow the steps to resolve any timing issues:
 {: tsResolve}
 
-1. Make sure NAT-Traversal is enabled on the peer, if it is a configurable option.
-1. If you are using IKEv2, try using different lifetimes so that the side with the shorter lifetime always initiates the rekeying process. 
-1. Try disabling and re-enabling the connection.
+1. Make sure that NAT-Traversal is enabled on the peer, if it is a configurable option.
+1. If you are using IKEv2, try different lifetimes so that the side with the shorter lifetime always initiates the rekeying process. 
+1. Try disabling and reenabling the connection.

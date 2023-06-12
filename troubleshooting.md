@@ -1,32 +1,16 @@
 ---
 
 copyright:
-  years: 2018, 2022
+  years: 2018, 2021
 lastupdated: "2022-01-21"
 
 keywords: vpc, troubleshoot, tips, error, bearer, API, CLI, problem, debug, token, trace
 
 subcollection: vpc
 
-
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:download: .download}
-{:troubleshoot: .troubleshoot}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
-{:support: data-reuse='support'}
-{:tsSymptoms: .tsSymptoms}
-{:tsCauses: .tsCauses}
-{:tsResolve: .tsResolve}
-{:troubleshoot: data-hd-content-type='troubleshoot'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Troubleshooting your VPC
 {: #troubleshooting-vpc}
@@ -58,7 +42,7 @@ To turn on `TRACE` (debug) mode when you use the CLI, set `IBMCLOUD_TRACE=true` 
 
 For example:
 
- ```
+```sh
 IBMCLOUD_TRACE=true ibmcloud is pubgws
 ```
 
@@ -68,7 +52,7 @@ IBMCLOUD_TRACE=true ibmcloud is pubgws
 
 To change the VPC API endpoint that the {{site.data.keyword.cloud}} CLI uses by default, set the environment variable `IBMCLOUD_IS_API_ENDPOINT` before you use the CLI. For example,
 
-```
+```sh
 export IBMCLOUD_IS_API_ENDPOINT=api.dev.domain.com
 ```
 {: pre}
@@ -82,7 +66,7 @@ Here are a few difficulties you might encounter.
 ### Not authorized (401 or 403 error)
 {: #troubleshoot-not-authorized}
 
-Your account might not be authorized for VPC. Make sure that you are using an account that has been onboarded. 
+Your account might not be authorized for VPC. Make sure that you are using an account that has been onboarded.
 
 ### IAM token expired
 {: #troubleshoot-token-expired}
@@ -104,7 +88,7 @@ If the API is no longer returning any JSON, it is likely your IAM token has expi
 ## Cannot delete resources
 {: #troubleshoot-cannot-delete}
 
-Certain operations--creating and deleting virtual server instances, and creating and deleting subnets, for example--are completed asynchronously through the API. Because of this fact, it is recommended to poll the resources you're deleting, to check for deletion before proceeding. 
+Certain operations--creating and deleting virtual server instances, and creating and deleting subnets, for example--are completed asynchronously through the API. Because of this fact, it is recommended to poll the resources you're deleting, to check for deletion before proceeding.
 
 It can take several minutes for resources to be deleted from the system, due to these asynchronous operations. To facilitate deletion, the best practice is to do things in this order:
 
@@ -113,7 +97,7 @@ It can take several minutes for resources to be deleted from the system, due to 
 3. Delete your subnets
 4. Delete your VPCs
 
-For more information, see [Deleting a VPC and its associated resources](/docs/vpc?topic=vpc-deleting-a-vpc-and-its-associated-resources&interface=ui).
+For more information, see [Deleting a VPC](/docs/vpc?topic=vpc-deleting).
 
 ## Trace ID is blank
 {: #troubleshoot-trace-id-blank}
@@ -121,13 +105,13 @@ For more information, see [Deleting a VPC and its associated resources](/docs/vp
 Usually, when the Trace ID is blank, it is because the JSON returned doesn't match what is expected from the API. Try running the command `RIAAS_DEBUG=yes ibmcloud is server-rm 3fb7c1eb-45fd-4c85-962e-617f216e7393` (substitute your correct server ID token) and check the output.
 
 ## VPC public gateway drops connection
-{: troubleshoot-public-gateway}
+{: #troubleshoot-public-gateway}
 
 The TCP connection between the IKS cluster and back-end database is dropped by the VPC public gateway during the TCP idle time (for example, 5 minutes).
 {: tsSymptoms}
 
-The VPC public gateway has a fixed 4-minute timeout for TCP connections, and it is not configurable. This problem occurs because the Linux default timeout for idle time is 2 hours (only if connection is idle for 2 hours, TCP keep-alive packets are being sent).  
+The VPC public gateway has a fixed 4-minute timeout for TCP connections, and it is not configurable. This problem occurs because the Linux default timeout for idle time is 2 hours (only if connection is idle for 2 hours, TCP keep-alive packets are being sent).
 {: tsCauses}
 
-Set the idle time to less than 4 minutes (for example, 180 seconds). 
+Set the idle time to less than 4 minutes (for example, 180 seconds).
 {: tsResolve}

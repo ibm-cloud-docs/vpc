@@ -13,7 +13,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# FAQs for {{site.data.keyword.cloud_notm}} {{site.data.keyword.alb_full}}
+# FAQs for application load balancers
 {: #load-balancer-faqs}
 
 The following sections contain answers to some frequently asked questions about the {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB).
@@ -53,23 +53,6 @@ Yes. The {{site.data.keyword.alb_full}} automatically adjusts its capacity based
 
 Make sure that the proper ACL rules are in place to allow incoming traffic for configured listener ports. Traffic between the application load balancer and back-end instances need also be allowed.
 
-## Why am I receiving an error message: `certificate instance not found`?
-{: #error-certificate-instance}
-{: faq}
-
-* The Secrets Manager instance CRN might not be valid.
-* You probably don't have authorization granted service-to-service. See [SSL offloading](#ssl-offloading-and-required-authorizations) for details.
-
-## Why am I receiving a `401 Unauthorized Error` code?
-{: #alb-401-unauthorized-error}
-{: faq}
-
-Check the following access policies for your user:
-
-* The access policy for the ALB resource type
-* The access policy for the resource group
-* If `HTTPS` listeners are used, also check the service-to-service authorization for the Secrets Manager instance.
-
 ## Why is my application load balancer in `maintenance_pending` state?
 {: #lb-maintenance-pending}
 {: faq}
@@ -91,24 +74,6 @@ The {{site.data.keyword.alb_full}} (ALB) is Multi-Zone Region (MZR) ready. Load 
 {: faq}
 
 It is recommended to allocate 8 extra IPs per MZR to accommodate horizontal scaling and maintenance operations. If you provision your application load balancer with one subnet, allocate 16 extra IPs.
-
-## Why is back-end member health under my pool `unknown`?
-{: #member-health-unknown}
-{: faq}
-
-Either the pool is not associated with any listeners, or configuration changes were made to the pool or its associated listener.
-
-## Why is back-end member health under my pool `faulted`?
-{: #member-health-failing}
-{: faq}
-
-Verify the following configurations:
-
-* Does the port of the configured back-end protocol match the port that the application is listening on?
-* Does the configured health-check have the correct protocol (TCP or HTTP), port, and URL (for HTTP) information? For HTTP, make sure that your application responds with `200 OK` for the configured health check URL.
-* Is the back-end server a virtual server with an enabled security group? If so, make sure that the security group rules allow traffic between the load balancer and the virtual server.
-
-For more information, see[Health Checks](#health-checks).
 
 ## What are the default settings and allowed values for health check parameters?
 {: #alb-health-check-parameters}
@@ -145,53 +110,29 @@ Check for these possibilities:
 * The provided certificate CRN might not be valid.
 * The certificate instance in the Secrets Manager might not have an associated private key.
 
-### What is the role of application load balancer front-end listeners?
+## What is the role of application load balancer front-end listeners?
 {: #role-load-balancer-listeners}
 {: faq}
 
 Load balancer front-end listeners are the listening ports for the application. They act as proxies for back-end pools.
 
-### Why are there only 2 IPs instead of 3?
+## Why are there only 2 IPs instead of 3?
 {: #why-only-2-ips}
 {: faq}
 
 The {{site.data.keyword.alb_full}} (ALB) operates in ACTIVE-ACTIVE mode, a configuration that makes it highly available. Horizontal scaling might further add extra appliances when your load increases. The recommendation is that you choose subnets in different zones to make your load balancers support MZR. This way, if a zone is negatively impacted, a new load balancer is provisioned in a different zone.
 
-### Why am I receiving a 409 Conflict Error code when I update or delete a load balancer?
-{: #409-lbaas-conflict-error}
-{: faq}
-
-If you are receiving the HTTP status code `409`, it might be for one of the following reasons:
-* You cannot `update` the load balancer configuration if the load balancer status is not `ACTIVE`.
-* You cannot `delete` a load balancer if the load balancer status is not `ACTIVE` or `ERROR`.
-* You cannot `delete` a load balancer that is already in `DELETE_PENDING` state.
-* You cannot `delete` a load balancer if it has one or more pools that are attached to instance groups.
-* You cannot `delete` a load balancer pool if it is attached to an instance group.
-* You cannot `add`/`delete`/`update` members to a pool that is managed by an instance group.
-
-
-### If a pool is attached to an instance group, what is the maximum number of back-end members that I can have in a pool?
+## If a pool is attached to an instance group, what is the maximum number of back-end members that I can have in a pool?
 {: #lbaas-ig-pool-member}
 {: faq}
 
 The maximum number of back-end members that are allowed in a pool is 50. So if an instance group is attached to a pool, the number of instances in the group can't scale up beyond this limit.
 
-### Why is my listener not receiving traffic?
+## Why is my listener not receiving traffic?
 {: #lbaas-listener-security-group}
 {: faq}
 
 Make sure that the security group rules that are attached to your load balancer allow incoming ingress and outgoing egress traffic on your listener's port. Security groups attached to your load balancer can be found on your load balancer's overview page. Locate the `Attached security groups` tab from the load balancer overview, then select the security groups that you want to view and modify their rules.
-
-### Why is traffic not reaching my back-end members?
-{: #lbaas-member-security-group}
-{: faq}
-
-Ensure that:
-
-* Your back-end pool health checks are succeeding
-* Your back-end member application is up and running
-* Your load balancer security group rules allow outgoing traffic from load balancers on your back-end member port
-* Your back-end member's security group rules, if any, allow all incoming traffic from the load balancer
 
 ## Does IBM complete quarterly ASV scans of data-plane LBaaS appliances?
 {: #alb-asv}
@@ -199,14 +140,14 @@ Ensure that:
 
 Approved Scanning Vendor (ASV) quarterly scanning is a requirement of the Payment Card Industry (PCI) Security Standards Council. ASV scanning of LBaaS data-plane appliances is solely a customer responsibility. IBM does not use ASVs to scan data-plane appliances because these scans can negatively impact customer workload functions and performance.
 
-## How can I migrate from Certificate Manager to Secrets Manager for my existing HTTPS listeners?
-{: #migrate-to-secrets-manager}
-{: faq}
-
-Application load balancer will continue to support [IBM Certificate Manager](/docs/certificate-manager?topic=certificate-manager-getting-started) until September 30 2022. To migrate your existing certificates to Secrets Manager, refer to the information in [this topic](/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager). After your certificates are migrated, you must then update the existing listener configuration with the new certificate CRN.
-
 ## How are active connections handled when a load balancer is scaled down?
 {: #faqs-active-connections}
 {: faq}
 
 When a load balancer appliance undergoes a scale down due to horizontal scaling or maintenance, the service waits for the active connections to close to allow for traffic to move to other appliances. After 24 hours, the service will complete its scale down event, which may terminate any active connections on those scaled down appliances.
+
+## How does the load balancer account disablement policy work?
+{: #account-disablement-policy}
+{: faq}
+
+If you receive a notification that your load balancer service has been suspended, then any load balancers on your account will be deleted. If the suspension on your account is removed, your previous load balancers will be restored only if their pre-requisite resources are still active, such as VPCs, subnets, and security groups. If these resources are no longer available, then you will need to provision a new load balancer.

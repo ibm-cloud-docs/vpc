@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Monitoring {{site.data.keyword.nlb_full}} metrics
+# Monitoring network load balancer metrics
 {: #nlb_monitoring-metrics}
 
 {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} monitoring metrics are provided with {{site.data.keyword.mon_full_notm}}, a monitoring service that specializes in data aggregation, usage alerts, and in-depth visualizations. For more information, see [IBM Cloud Monitoring](/docs/monitoring).
@@ -120,14 +120,12 @@ To receive monitoring metrics, you must set up {{site.data.keyword.mon_full_notm
 
 To do so, follow these steps:
 
-1. Navigate to the [metrics monitoring portal](https://cloud.ibm.com/observe/monitoring){: external}, then click **Create a monitoring instance**.
+1. Navigate to the [metrics monitoring portal](/observe/monitoring){: external}, then click **Create a monitoring instance**.
 
 2. Select a region for your monitoring instance.
 
    If you do not have an existing load balancer, see [Creating a network load balancer](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer) to provision one.
    {: tip}
-
-   ![Region](images/metrics_1.png "Region"){: caption="Figure 1. Region" caption-side="bottom}
 
    The region should match the location of your existing load balancer.
    {: important}
@@ -138,8 +136,6 @@ To do so, follow these steps:
 
 4. Provide a unique service name for your instance.
 5. Optionally, select a resource group. A resource group is a way to organize account resources in customizable groupings. Any account resource that is managed by using IBM Cloud Identity and Access Management (IAM) access control belongs to a resource group within your account.
-
-   ![Resource group](images/metrics_2.png "Resource group"){: caption="Figure 2. Resource group" caption-side="bottom}
 
    If you do not have any pre-configured resource groups, or no reason to share this resource selectively, use the default selection.
    {: note}
@@ -158,7 +154,7 @@ Within a few minutes, your new monitoring instance is displayed with several con
 
 To view and work with your monitoring metrics, follow these steps:
 
-1. Navigate to the [metrics monitoring portal](https://cloud.ibm.com/observe/monitoring){: external}.
+1. Navigate to the [metrics monitoring portal](/observe/monitoring){: external}.
 
 2. Click **Open Dashboard** next to the service name of the monitoring instance that you want to work with.
 
@@ -168,8 +164,6 @@ To view and work with your monitoring metrics, follow these steps:
 3. Select **Dashboards** on the left sidebar to open the IBM Load Balancer Monitoring Metrics dashboard. Then, click **Default Dashboards > IBM > Load Balancer Monitoring Metrics**. The default dashboard is not editable.
 
 4. Two main metrics in the dashboard are shown: Active Connections, and Connection Rate. To modify parameters and segment your metrics by load balancer ID or listener port, you must create a custom dashboard.
-
-   ![{{site.data.keyword.mon_full_notm}} dashboard](images/metrics_nlb.png "{{site.data.keyword.mon_full_notm}} dashboard"){: caption="Figure 3. {{site.data.keyword.mon_full_notm}} dashboard" caption-side="bottom}
 
    You can choose what time window you'd like to see your metrics displayed for, using the bar on the bottom.
    {: tip}
@@ -181,13 +175,11 @@ You can create your own dashboard to customize your monitoring metrics, such as 
 
 To customize your dashboard, follow these steps:
 
-1. Navigate to the [metrics monitoring portal](https://cloud.ibm.com/observe/monitoring){: external}.
+1. Navigate to the [metrics monitoring portal](/observe/monitoring){: external}.
 
 2. Click **Open Dashboard** next to the service name of the monitoring instance you want to work with. The dashboard displays.
 
 3. On the left sidebar, select **Dashboards**. Then, click the green **+** sign in the panel.
-
-   ![Add dashboard](images/metrics_custom_db.png "Add dashboard"){: caption="Figure 4. Add dashboard" caption-side="bottom}
 
 4. Select **Blank dashboard**, then select the type of visual representation you want.
 
@@ -225,9 +217,7 @@ After creating your {{site.data.keyword.mon_full_notm}} instance, you must colle
 
 To collect this information and start working with your monitoring instance using metric query API, follow these steps:
 
-1. Access the [Monitoring home page](https://cloud.ibm.com/observe/monitoring){: external}, and click **Open Dashboard** next to the instance you want to work with. After the {{site.data.keyword.mon_full_notm}} dashboard displays, select your Account Profile icon on the left sidebar, then select **Settings**. Your account settings display.
-
-   ![Settings](images/metrics_settings.png "Settings"){: caption="Figure 5. Settings" caption-side="bottom}
+1. Access the [Monitoring home page](/observe/monitoring){: external}, and click **Open Dashboard** next to the instance you want to work with. After the {{site.data.keyword.mon_full_notm}} dashboard displays, select your Account Profile icon on the left sidebar, then select **Settings**. Your account settings display.
 
 2. Your Monitor API token is an alphanumeric string that is located in the **Monitor API Token** field. Click the **Copy** button to the right of the key to transfer it to your clipboard.
 

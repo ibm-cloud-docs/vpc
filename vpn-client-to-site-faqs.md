@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-07-07"
+lastupdated: "2022-10-27"
 
 keywords: VPN server, faq, faqs, frequently asked questions, vpn, VPN
 
@@ -185,3 +185,10 @@ Supply the following content in your [IBM Support case](/docs/get-support?topic=
 
    To view the common name of your client certificate, use the OpenSSL command `openssl x509 -noout -text -in your_client_certificate_file` in the `subject` section.
    {: tip}
+
+## How do I assign the `VPN client` role using IAM access management tags in the API?
+{: #faq-vpn-server-access-tag-mgmt}
+{: faq}
+{: support}
+
+When you manage user access using access management tags on a client-to-site VPN and enable the `UserId and Passcode` mode for `Client Authentication`, you must attach the `VPN Client` role with an access tag. Otherwise, the VPN client cannot connect to the VPN server. For more information, see [Granting users access to tag IAM-enabled resources by using the API](/docs/account?topic=account-access&interface=api#iam-managed-api) and set the `role_id` to `crn:v1:bluemix:public:is::::serviceRole:VPNClient` to grant access.

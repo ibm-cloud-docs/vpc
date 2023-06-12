@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2018, 2021
-lastupdated: "2021-07-27"
+  years: 2018, 2022
+lastupdated: "2022-11-08"
 
 keywords: classic, access, classic access, VRF, peering
 
@@ -9,23 +9,11 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:tip: .tip}
-{:important: .important}
-{:download: .download}
-{:table: .aria-labeledby="caption"}
-{:DomainName: data-hd-keyref="DomainName"}
-{:external: target="_blank" .external}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Setting up access to classic infrastructure
 {: #setting-up-access-to-classic-infrastructure}
+
 [comment]: # (linked help topic)
 
 You can set up access from a VPC to your {{site.data.keyword.cloud}} classic infrastructure, including {{site.data.keyword.cloud_notm}} Direct Link connectivity. Only one VPC per region can communicate with classic resources.
@@ -64,7 +52,7 @@ On the **New virtual private cloud** page, select **Enable access to classic res
 
 Use the flag `--classic-access` when you create the VPC, for example:
 
-```
+```sh
 ibmcloud is vpc-create my-access-vpc --classic-access
 ```
 {: pre}

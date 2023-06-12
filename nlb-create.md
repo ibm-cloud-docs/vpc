@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2022-01-11"
+  years: 2020, 2022
+lastupdated: "2022-11-11"
 
 keywords: network load balancer, public, listener, pool, round-robin
 
@@ -15,29 +15,48 @@ subcollection: vpc
 # Creating a {{site.data.keyword.nlb_full}}
 {: #nlb-ui-creating-network-load-balancer}
 
-You can create an {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) by using the UI, CLI, or API. To order and start using the Network Load Balancer for VPC, you require two main items:
+You can create an {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) with the UI, CLI, or API. To order and start using the Network Load Balancer for VPC, you require two main items:
 
 * An [IBMid](https://www.ibm.com/account/us-en/signup/register.html){: external} account.
 * A VPC in which to deploy the network load balancer.
+
+The NLB service may add rules to custom routing tables to ensure service availability for some failure conditions. As a result, if the client is outside the zone and/or VPC of the NLB, you must add an ingress custom routing table to the VPC where the NLB resides with the proper traffic source selected.
+{: important}
+
+For Private NLB, depending on the location of the clients, you must ensure that ingress routing tables exist (as described in Table 1).
+
+| Client location | Routing table type | Traffic source |
+|----|----|----|
+| On-prem | Ingress | Direct link |
+| Another VPC or classic infrastructure | Ingress | Transit gateway |
+| Another availability zone of the same VPC | Ingress | VPC zone |
+{: caption="Table 1: Traffic sources that require ingress custom routing tables." caption-side="bottom"}
+
+For more information, see [About routing tables and routes](/docs/vpc?topic=vpc-about-custom-routes).
+{: note}
 
 ## Creating a network load balancer using the UI
 {: #nlb-ui}
 {: ui}
 
-To create and configure {{site.data.keyword.nlb_full}} by using the {{site.data.keyword.cloud_notm}} console, follow these steps:
+To create and configure {{site.data.keyword.nlb_full}} in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
-1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} and log in to your account.
-1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers**.
-1. Click **New load balancer +** in the upper right of the page.
-1. In the order form, complete the following information:
-   * Type a unique name for your load balancer and select a VPC.
-   * Select a resource group. Use the default group, or select from the list (if defined for your account). You cannot change the resource group after the load balancer is created.   
-   * Optionally, add tags.
+1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
+1. Select the Navigation Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers**.
+1. Click **Create ++** in the upper right of the page.
+1. In the Location section, edit the following fields, if necessary.
+   * **Geography**: Indicates the geography where you want the load balancer created.
+   * **Region**: Indicates the region where you want the load balancer created.
+1. In the Details section, complete the following information:
+   * **Name**: Enter a name for the load balancer, such as `my-load-balancer`.    
+   * **Resource group**: Select a resource group for the load balancer.
+   * **Tags**: (Optional) Add tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
+   * **Access management tags**: (Optional) Add access management tags to resources to help organize access control relationships. The only supported format for access management tags is `key:value`. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
    * Select the **Network Load Balancer (NLB)** tile and the subnet where you want to deploy the load balancer.
    * Select type: **Public** or **Private**.
-1. **For Private type only**, you have the option to enable routing mode, which is used to deploy highly available virtual network functions (VNFs). For use cases and end-to-end instructions, see [About HA virtual network function deployments](/docs/vpc?topic=vpc-about-vnf-ha).
-1. Select a subnet from the list.
-1. Click **New Pool** and specify the following information to create a back-end pool. You can create one or more pools.
+4. **For Private type only**, you have the option to enable routing mode, which is used to deploy highly available virtual network functions (VNFs). For use cases and end-to-end instructions, see [About HA virtual network function deployments](/docs/vpc?topic=vpc-about-vnf-ha).
+5. Select a subnet from the list.
+6. Click **New Pool** and specify the following information to create a back-end pool. You can create one or more pools.
    * Type a name for the pool, such as `my-pool`.
    * Select a protocol for your instances in this pool. The protocol of the pool must match the protocol of its associated listener. For example, if the listener is TCP, the protocol of the pool must be TCP. Or, if the listener is UDP, the protocol of the pool must also be UDP.
    * Select the method, which is the load-balancing algorithm. The follow options are shown.
@@ -50,7 +69,7 @@ To create and configure {{site.data.keyword.nlb_full}} by using the {{site.data.
      * **Health protocol** - The protocol used by the load balancer to send health check messages to the instances in the pool.
      * **Health port** - The port on which to send health check requests. By default, health checks are sent on the same port on which traffic is sent to the instance.
      * **Interval** - Interval in seconds between two consecutive health check attempts. By default, health checks are sent every 5 seconds.
-     * **Timeout** - Maximum amount of time the system waits for a response from a health check request. By default, the load balancer waits 2 seconds for a response.
+     * **Timeout (sec)** - Maximum amount of time the system waits for a response from a health check request. By default, the load balancer waits 2 seconds for a response.
      * **Max retries** - Maximum number of health check attempts that the load balancer makes before an instance is declared unhealthy. By default, an instance is no longer considered healthy after two failed health checks.
 
        Although the load balancer stops sending connections to unhealthy instances, the load balancer continues monitoring the health of these instances and resumes their use if they're found healthy again (that is, if they successfully pass two consecutive health check attempts).
@@ -72,7 +91,7 @@ To create and configure {{site.data.keyword.nlb_full}} by using the {{site.data.
 
 The following example illustrates using the CLI to create a {{site.data.keyword.nlb_full}} (NLB). In this example, it is in front of one VPC virtual server instance (ID `0716_6acdd058-4607-4463-af08-d4999d983945`) running a TCP server that listens on port `9090`. The load balancer has a front-end listener, which allows secure access to the TCP server.
 
-To create a network load balancer by using the CLI, follow these steps:
+To create a network load balancer with the CLI, follow these steps:
 
 1. Set up your [CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 
@@ -272,7 +291,7 @@ The following example illustrates using the API to create a network load balance
 The example skips the [prerequisite steps](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis) for using the API to provision a VPC, subnets, and instances.
 {: note}
 
-To create a network load balancer by using the API, follow these steps:
+To create a network load balancer with the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
 

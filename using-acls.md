@@ -5,7 +5,7 @@ copyright:
 
 lastupdated: "2021-08-09"
 
-keywords:  
+keywords:
 
 subcollection: vpc
 
@@ -14,24 +14,24 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # About network ACLs
-{: #using-acls} 
+{: #using-acls}
 
 You can use an access control list (ACL) to control all incoming and outgoing traffic in {{site.data.keyword.vpc_full}}. An ACL is a built-in, virtual firewall, similar to a security group. In contrast to security groups, ACL rules control traffic to and from the _subnets_, rather than to and from the _instances_.
 
 For a comparison of the characteristics of security groups and ACLs, see the [comparison table](/docs/vpc?topic=vpc-security-in-your-vpc#compare-security-groups-and-access-control-lists).
 {: tip}
 
-The example that is presented in this document shows how to create network ACLs in your VPC by using the CLI. For more information about how to set up ACLs in the {{site.data.keyword.cloud_notm}} console, see [Configuring ACLs by using the UI](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#configuring-the-acl).
+The example that is presented in this document shows how to create network ACLs in your VPC by using the CLI. For more information about how to set up ACLs in the {{site.data.keyword.cloud_notm}} console, see [Configuring ACLs in the UI](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#configuring-the-acl-ct).
 
 ## Working with ACLs and ACL rules
 {: #working-with-acls-and-acl-rules}
 
 To make your ACLs effective, create rules that determine how to handle your inbound and outbound network traffic. You can create multiple inbound and outbound rules. For more information about rules quotas, see [Quotas](/docs/vpc?topic=vpc-quotas#acl-quotas).
 
-* With inbound rules, you can allow or deny traffic from a source IP range, with specified protocols and ports. 
+* With inbound rules, you can allow or deny traffic from a source IP range, with specified protocols and ports.
 * With outbound rules, you can allow or deny traffic to a destination IP range, with specified protocols and ports.
 * ACL rules are prioritized and considered in sequence. Higher priority rules are evaluated first and override lower priority rules.
-* Inbound rules are separated from outbound rules.  
+* Inbound rules are separated from outbound rules.
 * If no rules are specified, then **implicit deny** is the default behavior.
 
 For more information about using ICMP, TCP, and UDP protocols in your ACL rules, see [Understanding internet communication protocols](/docs/vpc?topic=vpc-understanding-icp#understanding-icp).
@@ -101,7 +101,7 @@ This example illustrates general cases only. In your scenarios, you might want t
 ### Example steps
 {: #acl-example-steps}
 
-The following example steps skip the prerequisite steps of using the CLI to create a VPC, which must be done first. For more information, see [Creating a VPC by using the CLI](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
+The following example steps skip the prerequisite steps of using the CLI to create a VPC, which must be done first. For more information, see [Using the CLI to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
 
 #### Step 1. Create the ACLs
 {: #step-1-create-the-acls}
@@ -275,7 +275,7 @@ ibmcloud is network-acl-rule-add 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3 allow inbo
 These links provide additional information about {{site.data.keyword.cloud_notm}} ACLs for VPC.
 
 * [Network ACL CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#network-acls)
-* [Network ACL API reference](https://{DomainName}/apidocs/vpc#list-network-acls)
+* [Network ACL API reference](/apidocs/vpc#list-network-acls)
 * [Network ACL required permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls#network-acl-authorizations-required-for-api-and-cli-calls)
 * [Network ACL Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-network-acl)
 * [Network ACL quotas](/docs/vpc?topic=vpc-quotas#acl-quotas)

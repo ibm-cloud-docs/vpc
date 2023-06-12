@@ -8,7 +8,6 @@ keywords: vsi, virtual server instances, profile, profiles, balanced, compute, m
 
 subcollection: vpc
 
-
 ---
 
 {{site.data.keyword.attribute-definition-list}}
@@ -226,8 +225,8 @@ Using “bz2-4x16” as an example, you can know from the name that it is a bala
 {: cli}
 
 To view the list of available instance profiles by using the CLI, run the following command:
-```
-$ ibmcloud is instance-profiles
+```sh
+ibmcloud is instance-profiles
 ```
 {: codeblock}
 
@@ -261,5 +260,5 @@ When you create secondary data volumes, you select a volume profile that best me
 After you choose a profile, it's time to create an instance.
 
 * [Creating an instance by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers)
-* [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers-cli)
+* [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli)
 * [Creating an instance by using the API](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis#select-profile-and-image)

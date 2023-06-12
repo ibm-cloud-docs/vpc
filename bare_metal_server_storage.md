@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-01-21"
+  years: 2021, 2023
+lastupdated: "2023-02-20"
 
 keywords: 
 
@@ -10,21 +10,7 @@ subcollection: vpc
 
 ---
 
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:preview: .preview}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
-{:table: .aria-labeledby="caption"}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Storage overview for Bare Metal Servers for VPC
 {: #bare-metal-servers-storage}
@@ -34,12 +20,9 @@ All profiles of Bare Metal Servers for VPC provide one 0.96 TB SATA M.2 mirrored
 
 Storage for Bare Metal Servers for VPC is unmanaged. You are responsible for encryption and backing up your data.
 {: important}
+
 <!--The total size of the NVMe SSD set varies depending on the profile you select. The NVMe drives are empty by default.-->
 
 The following network-attached storages are not supported:
 * Block Storage for VPC
-* File Storage for VPC (select availability)
-
-File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Sydney, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access. 
-{: preview}
-  
+* File Storage for VPC
