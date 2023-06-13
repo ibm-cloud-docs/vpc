@@ -140,6 +140,7 @@ toc:
             - vpc-user-permissions.md
             - api-auth-correlation.md
             - resource-attributes.md
+            - iam-custom-routes.md
         - topicgroup:
             label: Managing a VPC
             topics:
