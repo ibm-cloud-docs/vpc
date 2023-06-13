@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2023
 lastupdated: "2023-06-13"
 
-keywords: block storage profiles, Block Storage for VPC
+keywords: block storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
 subcollection: vpc
 
@@ -19,11 +19,6 @@ When you provision {{site.data.keyword.block_storage_is_short}} volumes by using
 {: shortdesc}
 
 IOPS values are based on 16 K IO size with a 50-50 read/write random workload. The throughput for the 3 IOPS/GB and 5 IOPS/GB tiers is computed by using 16 K IO size times the provisioned IOPS value. The throughput for 10 IOPS/GB tier and the custom profile is computed by using 256 K IO Size and the provisioned IOPS value, limited to a maximum of 1024 MB/s.
-
-<!--- Acadia closed beta
-A new software-defined storage backend is introduced to support the {{site.data.keyword.block_storage_is_short}} offering in July 2023. The Acadia platform is built by using Red Hat Ceph software-defined storage. You can provision storage on this new platform by selecting the `sdp` profile. For more information about this Beta offering, see [About the Acadia platform for {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-block-storage-acadia-about).
-{: beta}
---->
 
 ## Block storage profiles overview
 {: #block-storage-profile-overview}
