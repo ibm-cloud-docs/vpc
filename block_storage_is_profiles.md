@@ -35,11 +35,11 @@ Choose the profile that provides optimal performance for your compute workloads.
 Max IOPS for all tiers starts at 3,000 IOPS. Max IOPS then increases, based on the storage tier and volume size, up to the Max IOPS in Table 1.
 {: note}
 
-| Family |  Name	| Purpose | IOPS rate	| Capacity range (GB)	| Min IOPS	Max IOPS	| Blocksize |
-|--------|--------|---------|-------|-----------------------------|---------------------|-----------|
-|Tiered| 	`general-purpose`	| Workloads that host small databases for web applications or store virtual machine disk images for a hypervisor. | 3 IOPS/GB  | 10 -	16,000 | 3,000	- 48,000 | 16 KB |
-|Tiered| 	`5iops-tier`	|High I/O intensity workloads - Workloads characterized by a large percentage of active data, such as transactional and other performance-sensitive databases.| 5 IOPS/GB | 10 - 9,600 | 3,000 - 48,000 | 16 KB |
-|Tiered| 	`10iops-tier`	| Demanding storage workloads - Data intensive workloads created by NoSQL databases, data processing for video, machine learning, and analytics. Bandwidth limits are calculated by using a 256 KB block size.| 10 IOPS/GB | 10 GB - 4.800 | 3000 - 48,000 | 256 KB | 
+|  Name	| Purpose | IOPS rate	| Capacity range (GB)	| Min IOPS	Max IOPS	| Blocksize |
+|--------|---------|-------|-----------------------------|---------------------|-----------|
+| 	`general-purpose`	| Workloads that host small databases for web applications or store virtual machine disk images for a hypervisor. | 3 IOPS/GB  | 10 -	16,000 | 3,000	- 48,000 | 16 KB |
+| 	`5iops-tier`	|High I/O intensity workloads - Workloads characterized by a large percentage of active data, such as transactional and other performance-sensitive databases.| 5 IOPS/GB | 10 - 9,600 | 3,000 - 48,000 | 16 KB |
+| 	`10iops-tier`	| Demanding storage workloads - Data intensive workloads created by NoSQL databases, data processing for video, machine learning, and analytics. Bandwidth limits are calculated by using a 256 KB block size.| 10 IOPS/GB | 10 - 4,800 | 3000 - 48,000 | 256 KB | 
 {: caption="Table 1. IOPS tier profiles and performance levels for each tier" caption-side="bottom"}
 
 ### Custom IOPS profile
