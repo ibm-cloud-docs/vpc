@@ -440,7 +440,7 @@ Get-WmiObject Win32_ComputerSystemProduct | Select-Object -ExpandProperty UUID
 ```
 {: pre}
 
-For z/OS virtual server instances, you can SSH into the instance, and then run the `DISPLAY IPLINFO` command. When the [IEE254I ![External link icon](./icons/launch-glyph.svg "External link icon")](https://www.ibm.com/docs/en/zos/2.5.0?topic=iee399i-iee254i) message is displayed, the ID is included in the `VM EXT NAME`.
+For z/OS virtual server instances, you can SSH into the instance, and then run the `DISPLAY IPLINFO` command. When the [IEE254I](https://www.ibm.com/docs/en/zos/2.5.0?topic=iee399i-iee254i){: external} message is displayed, the ID is included in the `VM EXT NAME`.
 
 
 ## Viewing instance status and lifecycle_state in the API
