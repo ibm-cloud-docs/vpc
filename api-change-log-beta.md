@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-05-30"
+lastupdated: "2023-06-13"
 
 keywords: api, change log, beta
 
@@ -25,6 +25,14 @@ There are no backward-compatibility guarantees as a feature progresses through i
 {: important}
 
 To review the change log of generally available API features, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log).
+
+## 13 June 2023
+{: #13-june-2023-beta}
+
+### For all version dates
+{: #13-june-2023-all-version-dates-beta}
+
+**Image lifecycle management property name changes.** For accounts that have been granted special approval to preview the image lifecycle management feature, the `deprecated_at` and `obsoleted_at` properties for [images](/apidocs/vpc-beta#create-image) requests have been renamed `deprecation_at` and `obsolescence_at`, respectively. Original property names `deprecated_at` and `obsoleted_at` will continue to be supported until further notice, but support will be removed when the feature becomes generally available. Requests that specify the original and revised property names simultaneously will be rejected.
 
 ## 30 May 2023
 {: #23-may-2023-beta}
