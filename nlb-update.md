@@ -12,16 +12,16 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Updating an {{site.data.keyword.cloud_notm}} {{site.data.keyword.nlb_full}}
+# Updating a network load balancer
 {: #nlb-updating}
 
-You can update an {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) by using the UI, CLI, or API.
+You can update an {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) with the UI, CLI, or API.
 
 ## Updating a network load balancer in the UI
 {: #nlb-updating-ui}
 {: ui}
 
-To update an NLB by using the {{site.data.keyword.cloud_notm}} console, perform the following procedure:
+To update an NLB in the {{site.data.keyword.cloud_notm}} console, perform the following procedure:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 1. Select the Navigation Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers**.
@@ -92,7 +92,7 @@ Sample output:
 
 The following example illustrates how to use the API to update the front-end listener port of a {{site.data.keyword.nlb_full}} (NLB). For example, if the front-end listener port was set to 80 and you want to update the port value to 90.
 
-To update an NLB by using the API, perform the following procedure:
+To update an NLB by with the API, perform the following procedure:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
 1. Use the following example to get the listener ID that you need for the update:

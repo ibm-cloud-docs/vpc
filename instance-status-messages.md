@@ -149,7 +149,7 @@ To resolve this error, try to start the instance again after the image creation 
 
 If you still need help with the error, contact [support](/docs/vpc?topic=vpc-getting-help).
 
-For more information about creating images, see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers) or [Creating virtual server instances by using the CLI](docs/vpc?topic=vpc-creating-virtual-servers&interface=cli).
+For more information about creating images, see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers) or [Creating virtual server instances by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli).
 
 ## Error: `stopped_by_host_failure`
 {: #stopped-by-host-failure}

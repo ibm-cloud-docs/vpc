@@ -12,17 +12,17 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Deleting an {{site.data.keyword.cloud_notm}} {{site.data.keyword.alb_full}}
+# Deleting an application load balancer
 {: #alb-deleting}
 
-You can delete an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) by using the UI, CLI, or API.
+You can delete an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) with the UI, CLI, or API.
 {: shortdesc}
 
 ## Deleting an application load balancer in the UI
 {: #alb-deleting-ui}
 {: ui}
 
-To delete an ALB by using the IBM Cloud console, perform the following procedure:
+To delete an ALB by in the IBM Cloud console, perform the following procedure:
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
 1. Select the Navigation Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **VPC Infrastructure > Load balancers** from the Network section.
