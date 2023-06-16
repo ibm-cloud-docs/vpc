@@ -30,6 +30,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## June 2023
 {: #vpc-jun23}
 
+### 20 June 2023
+{: #vpc-june2023}
+{: release-note}
+
+Virtual network interface (beta)
+:  Virtual network interfaces are now available in a beta release for use with file share mount targets. For more information see [About virtual network interfaces](/docs/vpc?topic=vpc-vni-about).
+
 ### 16 June 2023
 {: #vpc-june1623}
 {: release-note}
