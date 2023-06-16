@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-05-02"
+lastupdated: "2023-06-13"
 
 keywords: api, change log, beta
 
@@ -25,6 +25,33 @@ There are no backward-compatibility guarantees as a feature progresses through i
 {: important}
 
 To review the change log of generally available API features, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log).
+
+## 13 June 2023
+{: #13-june-2023-beta}
+
+### For all version dates
+{: #13-june-2023-all-version-dates-beta}
+
+**Image lifecycle management property name changes.** For accounts that have been granted special approval to preview the image lifecycle management feature, the `deprecated_at` and `obsoleted_at` properties for [images](/apidocs/vpc-beta#create-image) requests have been renamed `deprecation_at` and `obsolescence_at`, respectively. Original property names `deprecated_at` and `obsoleted_at` will continue to be supported until further notice, but support will be removed when the feature becomes generally available. Requests that specify the original and revised property names simultaneously will be rejected.
+
+## 30 May 2023
+{: #23-may-2023-beta}
+
+### For version `2023-05-30` or later
+{: #version-2023-05-30-beta}
+
+This release introduces the following features for users with accounts that have access to file shares.
+
+**File shares property and request path name changes.** When making API requests using a `version` query parameter of `2023-05-30` or later, the shares `targets` property has been changed to `mount_targets`. This change applies when [creating](/apidocs/vpc-beta#create-share), [updating](/apidocs/vpc-beta#update-share), [listing](/apidocs/vpc-beta#list-shares), and [retrieving](/apidocs/vpc-beta#get-share) a file share, and when [listing all mount targets for a file share](/apidocs/vpc-beta#list-share-mount-targets).
+
+The name change also applies to the method paths: Requests using a `version` query parameter of `2023-05-30` or later must use `/shares/{share_id}/mount_targets` (instead of `/shares/{share_id}/targets`) in the request URL. This change applies when [creating](/apidocs/vpc-beta#create-share-mount-target), [updating](/apidocs/vpc-beta#update-share-mount-target), [listing](/apidocs/vpc-beta#list-share-mount-targets), [retrieving](/apidocs/vpc-beta#get-share-mount-target), and [deleting](/apidocs/vpc-beta#delete-share-mount-target) share mount targets.
+
+See [`2023-05-30` API migration (file shares)](/docs/vpc?topic=vpc-2023-05-30-migration-file-shares) for guidance on migrating from `targets` to  `mount_targets`.
+
+### For all version dates
+{: #30-may-2023-all-version-dates-beta}
+
+**Enforcement of file shares beta API requests.** Starting with API version `2023-05-30`, all requests made for [shares methods](/apidocs/vpc-beta#list-shares) must include the [`maturity=beta`](/apidocs/vpc-beta#maturity-query-parameter) query parameter. Requests that omit the `maturity=beta` query parameter will be regarded as requests against the [VPC GA API](/apidocs/vpc), which does not yet support shares. As a result, those requests will fail.
 
 ## 11 April 2023
 {: #11-april-2023-beta}
