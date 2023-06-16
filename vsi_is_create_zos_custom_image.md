@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-06-13"
+lastupdated: "2023-06-16"
 
 keywords: z/OS custom image, wazi image builder
 

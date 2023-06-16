@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-04-13"
+lastupdated: "2023-06-16"
 
 keywords: view instance details, restart, stop, instance details, delete
 
