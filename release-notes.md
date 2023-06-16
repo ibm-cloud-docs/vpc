@@ -290,13 +290,6 @@ IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1
 Context-based restrictions
 :   Context-based restrictions are now available for {{site.data.keyword.vpc_short}} resources. With context-based restrictions, account owners and administrators can define and enforce network access policies. For more information, see [Protecting Virtual Private Cloud (VPC) Infrastructure Services with context-based restrictions](/docs/vpc?topic=vpc-cbr).
 
-### 18 January 2023
-{: #vpc-jan1823}
-{: release-note}
-
-New region (Tokyo) for LinuxONE Bare Metal Servers (s390x processor architecture) (LA)
-:   LinuxONE Bare Metal Servers are now available in the Tokyo region. For more information, see [About LinuxONE Bare Metal Servers](/docs/vpc?topic=vpc-about-linuxone-bare-metal-servers).
-
 ### 17 January 2023
 {: #vpc-jan1723}
 {: release-note}
@@ -311,13 +304,6 @@ End of support (EOS) for deprecated VPN for VPC IKE and IPsec ciphers
    - Diffie–Hellman groups `2` and `5`
 
    Effective today, these ciphers are no longer supported in the UI and EOS for use with the CLI and API is forthcoming. If you didn't upgrade to more secure ciphers, do so now. For more information, see [Upgrading weak cipher suites on a VPN gateway](/docs/vpc?topic=vpc-upgrading-weak-ciphers).
-
-### 05 January 2023
-{: #vpc-jan0523}
-{: release-note}
-
-New region (London) for LinuxONE Bare Metal Servers (s390x processor architecture) (LA)
-:   LinuxONE Bare Metal Servers are now available in the London (eu-gb) region. For more information, see [About LinuxONE Bare Metal Servers](/docs/vpc?topic=vpc-about-linuxone-bare-metal-servers).
 
 ## December 2022
 {: #vpc-dec22}
@@ -357,9 +343,6 @@ Bare metal servers now support custom images
 ### 13 December 2022
 {: #vpc-dec1322}
 {: release-note}
-
-New region (Toronto) for LinuxONE Bare Metal Servers (s390x processor architecture) (LA)
-:   LinuxONE Bare Metal Servers are now available in the Toronto (ca-tor) region. For more information, see [About LinuxONE Bare Metal Servers](/docs/vpc?topic=vpc-about-linuxone-bare-metal-servers).
 
 Volume creation from a block storage snapshot
 :   You can now use the UI and CLI, in addition to the VPC API, to create a stand-alone block storage volume from a snapshot. Stand-alone data volumes can be attached to a virtual server instance at any time. You can select a snapshot of a boot volume and use it to boot a new virtual server instance. For more information, see
@@ -428,13 +411,6 @@ Context-based restrictions (limited availability)
 Windows BYOL for multi-tenant hosts
 :   You can now bring your own license for Windows operating systems with a custom image to provision virtual server instances on multi-tenant hosts. Previously Windows BYOL was limited to dedicated hosts. For more information, see [Bring your Own License](/docs/vpc?topic=vpc-byol-vpc-about) and [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images).
 
-### 12 October 2022
-{: #vpc-oct1222}
-{: release-note}
-
-New region (Washington DC) for LinuxONE Bare Metal Servers (s390x processor architecture) (LA)
-:   LinuxONE Bare Metal Servers are now available in the Washington DC (us-east) region. For more information, see [About LinuxONE Bare Metal Servers](/docs/vpc?topic=vpc-about-linuxone-bare-metal-servers).
-
 ## 3 October 2022
 {: #vpc-oct0322}
 
@@ -455,13 +431,6 @@ Flow Logs for VPC
 
 ## September 2022
 {: #vpc-september22}
-
-### 27 September 2022
-{: #vpc-september2722}
-{: release-note}
-
-IBM&reg; LinuxONE Bare Metal Servers (s390x processor architecture) (LA)
-:   Accounts with access to the profiles for s390x bare metal servers can now create LinuxONE Bare Metal Server instances. These profiles have a `cpu_architecture` of `s390x` and must be used with Red Hat Enterprise Linux for s390x and SUSE Linux Enterprise Server (SLES) for s390x. Each LinuxONE Bare Metal Server is equivalent to a logical partition (LPAR) on the IBM LinuxONE or IBM Z with dedicated s390x CPU cores, memory, and I/O devices for your Linux workloads. For more information, see [About LinuxONE Bare Metal Servers](/docs/vpc?topic=vpc-about-linuxone-bare-metal-servers).
 
 
 ### 23 September 2022
