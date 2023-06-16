@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-05-25"
+lastupdated: "2023-07-14"
 
 keywords:
 
@@ -27,11 +27,11 @@ For more information about changes to the {{site.data.keyword.vpc_short}} API, s
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-cli-rn).
 
-## June 2023
-{: #vpc-jun23}
+## July 2023
+{: #vpc-jul23}
 
-### 30 June 2023
-{: #vpc-june3023}
+### 14 July 2023
+{: #vpc-july1423}
 {: release-note}
 
 Very High Memory (vx2d) profile family now available in all regions
