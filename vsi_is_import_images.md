@@ -27,7 +27,7 @@ You can also create a custom image of a boot volume that is attached to a server
 
 To complete this task, you must have an instance of {{site.data.keyword.cos_full}} available. You must also create an authorization so that the Image Service for VPC can access images in {{site.data.keyword.cos_full_notm}}. For more information, see [Granting access to {{site.data.keyword.cos_full_notm}} to import images](/docs/vpc?topic=vpc-object-storage-prereq).
 
-{{site.data.content.custom-image-requirements-list}}
+For more information about custom images, see [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images).
 
 Keep the following considerations to keep in mind when you import a custom image:
 

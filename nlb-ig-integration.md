@@ -31,7 +31,7 @@ When you attach an instance group with a pool, it becomes a managed pool, and yo
 The maximum number of back-end members that are allowed in a load balancer pool is 50, you cannot configure an instance group membership count beyond that limit.
 {: important}
 
-When you configure a listener with a [range of ports](docs/vpc?topic=vpc-nlb-port-ranges), the instance group's application port is only used for checking the health status of back-end members.
+When you configure a listener with a [range of ports](/docs/vpc?topic=vpc-nlb-port-ranges), the instance group's application port is only used for checking the health status of back-end members.
 {: note}
 
 ## Creating managed pools and instance groups

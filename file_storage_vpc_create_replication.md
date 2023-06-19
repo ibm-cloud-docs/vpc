@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-05-30"
+lastupdated: "2023-06-09"
 
 keywords:
 
@@ -207,7 +207,7 @@ The following example creates the replica `test-replica-001` for the source shar
 
 ```curl
 curl -X POST\
-"$rias_endpoint/v1/shares?version=2023-05-30&generation=2\
+"$rias_endpoint/v1/shares?version=2023-05-30&generation=2&maturity=beta"\
 -H "Authorization: $iam_token"\
 -d '{
     "name": "source-share-001",
@@ -256,7 +256,7 @@ Other required properties are the `profile`, `zone`, and `replication_cron_spec`
 
 ```curl
 curl -X POST\
-"$rias_endpoint/v1/shares?version=2023-05-30&generation=2\
+"$rias_endpoint/v1/shares?version=2023-05-30&generation=2&maturity=beta"\
 -H "Authorization: $iam_token"\
 -d '{
     "source_share": {

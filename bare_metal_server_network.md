@@ -176,13 +176,12 @@ DHCP doesn't work with a custom MAC address because a {{site.data.keyword.cloud}
 
 Turning on infrastructure NAT allows the VPC infrastructure to perform any needed NAT operations. If infrastructure NAT is off, the packet passes unmodified to and from the network interface, allowing the workload to perform NAT operations. The default is on. You must have the Advanced Network Operator IAM role to modify this configuration. Allow IP spoofing must be turned off if `Enable infrastructure NAT` is turned off.
 
-   Enable infrastructure NAT isn't supported on s390x Bare Metal Servers.
-   {: important}
+
 
 ### Multiple floating IPs
 {: #bare-metal-servers-multiple-floating-ips}
 
-To associate multiple floating IPs to a network interface, make sure that both Allow IP spoofing and Enable infrastructure NAT are disabled on the network interface. Enable infrastructure NAT isn't supported on s390x Bare Metal Servers. For more information, see [Associating floating IPs with a network interface](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers#bare-metal-add-fips-to-nic).
+To associate multiple floating IPs to a network interface, make sure that both Allow IP spoofing and Enable infrastructure NAT are disabled on the network interface. For more information, see [Associating floating IPs with a network interface](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers#bare-metal-add-fips-to-nic).
 
 ### Virtual IP (VIP)
 {: #bare-metal-servers-vip}
