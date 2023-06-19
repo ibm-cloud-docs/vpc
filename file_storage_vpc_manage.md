@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-05-30"
+lastupdated: "2023-06-09"
 
 keywords:
 
@@ -199,7 +199,7 @@ Make a `POST /shares` request and specify the `user_tags` property. This example
 
 ```curl
 curl -X POST \
-"$rias_endpoint/v1/shares?version=2023-01-06&generation=2"\
+"$rias_endpoint/v1/shares?version=2023-01-06&generation=2&maturity=beta"\
     -H "Authorization: Bearer $iam_token"\
     -H 'Content-Type: application/json'\
     -d '{
@@ -229,7 +229,7 @@ The following example modifies a file share that's identified by ID by renaming 
 
 ```curl
 curl -X PATCH\
-"$rias_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?version=2023-05-06&generation=2"\
+"$rias_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?version=2023-05-06&generation=2&maturity=beta"\
 -H "Authorization: $iam_token" \
 -d '{
     "name": "myshare-patch-1",
@@ -296,7 +296,7 @@ To modify existing user tags that are added to a file share, you first make a `G
 1. Make a `GET /shares/{share_id}` call and copy the hash string from `ETag` property in the response header. Use need the hash string value for when you specify `If-Match` in the `PATCH /shares/{share_id}` request to modify user tags for the share in step 2.
 
    ```curl
-   curl -sSL -D GET\ "https://us-south.cloud.ibm.com/v1/shares/{share_id}?version=2023-01-09&generation=2"\
+   curl -sSL -D GET\ "https://us-south.cloud.ibm.com/v1/shares/{share_id}?version=2023-01-09&generation=2&maturity=beta"\
    -H "Authorization: Bearer $TOKEN" -o /dev/null
    ```
    {: codeblock}
@@ -329,7 +329,7 @@ To modify existing user tags that are added to a file share, you first make a `G
 
    ```curl
    curl -X PATCH\
-   "$vpc_api_endpoint/v1/shares/50fda9c3-eecd-4152-b473-a98018ccfb10?version=2023-05-30&generation=2"\
+   "$vpc_api_endpoint/v1/shares/50fda9c3-eecd-4152-b473-a98018ccfb10?version=2023-05-30&generation=2&maturity=beta"\
       -H "Authorization: Bearer"\
       -H "If-Match: W/xxxyyyzzz123"\
       -d `{
@@ -511,7 +511,7 @@ Make a `PATCH /shares/$share_id` call to rename a specific file share. For examp
 
 ```curl
 curl -X PATCH \
-"$vpc_api_endpoint/v1/shares/$share_id?version=2023-03-30&generation=2" \
+"$vpc_api_endpoint/v1/shares/$share_id?version=2023-03-30&generation=2&maturity=beta" \
   -H "Authorization: Bearer ${API_TOKEN}" \
   -d '{
     "name": "share-renamed1"
@@ -560,7 +560,7 @@ Make a `POST /shares/{share_ID}/mount_targets` call to create a mount target for
 
 ```curl
 curl -X POST \
-"$rias_endpoint/v1/shares/$share_id/mount_targets?version=2023-05-30&generation=2\
+"$rias_endpoint/v1/shares/$share_id/mount_targets?version=2023-05-30&generation=2&maturity=beta"\
 -H "Authorization: $iam_token" \
 -H 'Content-Type: application/json' \
 -d '{
@@ -601,7 +601,7 @@ Make a `PATCH /shares/$share_id/mount_targets/$target_id` call to rename a mount
 
 ```curl
 curl -X PATCH \
-"$vpc_api_endpoint/v1/shares/$share_id/mount_targets/$target_id?version=2023-05-30&generation=2" \
+"$vpc_api_endpoint/v1/shares/$share_id/mount_targets/$target_id?version=2023-05-30&generation=2&maturity=beta" \
   -H "Authorization: Bearer ${API_TOKEN}" \
   -d '{
     "name": "target-renamed1"
@@ -637,7 +637,7 @@ A successful response looks like the following example.
 Make a `PATCH /shares/{share_ID}` call and specify the profile name in the `profile` property. For example, to change the profile to a `dp2` profile, make a call like this:
 
 ```curl
-curl -X PATCH "$rias_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?version=2023-05-30&generation=2" \
+curl -X PATCH "$rias_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?version=2023-05-30&generation=2&maturity=beta" \
 -H "Authorization: $iam_token" \
 -d '{
     "profile": {
@@ -664,7 +664,7 @@ For example:
 
 ```curl
 curl -X DELETE \
-"$vpc_api_endpoint/v1/shares/$share_id/mount_targets/$target_id?version=2023-05-30&generation=2" \
+"$vpc_api_endpoint/v1/shares/$share_id/mount_targets/$target_id?version=2023-05-30&generation=2&maturity=beta" \
   -H "Authorization: Bearer ${API_TOKEN}"
 ```
 {: pre}
@@ -705,7 +705,7 @@ Example:
 
 ```curl
 curl -X DELETE \
-"$vpc_api_endpoint/v1/shares/$share_id?version=2023-05-30&generation=2" \
+"$vpc_api_endpoint/v1/shares/$share_id?version=2023-05-30&generation=2&maturity=beta" \
   -H "Authorization: Bearer ${API_TOKEN}"
 ```
 {: codeblock}

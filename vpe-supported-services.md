@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-11"
+lastupdated: "2023-06-07"
 
 keywords: virtual private endpoints, endpoint gateway, VPE
 subcollection: vpc
@@ -26,6 +26,7 @@ with your account.
 * Cloud Object Storage
 * Code Engine ([Instructions](/docs/codeengine?topic=codeengine-vpe))
 * {{site.data.keyword.registryshort_notm}} ([Instructions](/docs/Registry?topic=Registry-registry_vpe))
+* Context-based restrictions ([Endpoint URLs](/apidocs/context-based-restrictions#endpoint-urls))
 * Databases ([Instructions](/docs/cloud-databases?topic=cloud-databases-vpes))
 * Direct Link ([Instructions](/docs/dl?topic=dl-vpe-connection))
 * DNS Services ([Instructions](/docs/dns-svcs?topic=dns-svcs-vpe-for-dns-svcs#vpe-for-dns-svcs))
@@ -45,7 +46,7 @@ with your account.
 * IAM Policy Management ([Endpoint URLs](/apidocs/iam-policy-management#endpoint-urls))
 * Key Protect ([Instructions](/docs/key-protect?topic=key-protect-virtual-private-endpoints))
 * Network Time Protocol
-* Resource Controller ([Endpoint URLs](/apidocs/resource-controller/resource-controller#endpoint-url)) 
+* Resource Controller ([Endpoint URLs](/apidocs/resource-controller/resource-controller#endpoint-url))
 * Resource Manager ([Endpoint URLs](/apidocs/resource-controller/resource-manager#endpoint-urls))
 * Schematics ([Instructions](/docs/schematics?topic=schematics-private-endpoints#endpoint-setup))
 * {{site.data.keyword.secrets-manager_short}} ([Instructions](/docs/secrets-manager?topic=secrets-manager-endpoints))

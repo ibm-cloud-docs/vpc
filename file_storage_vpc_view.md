@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-05-30"
+lastupdated: "2023-06-09"
 
 keywords:
 
@@ -225,7 +225,7 @@ Make a `GET /shares` request to list all file shares for a region.
 
 ```curl
 curl -X GET \
-"$vpc_api_endpoint/v1/shares?version=2023-05-30?limit=50&generation=2"\
+"$vpc_api_endpoint/v1/shares?version=2023-05-30?limit=50&generation=2&maturity=beta"\
 -H "Authorization: $iam_token"
 ```
 {: pre}
@@ -294,7 +294,7 @@ Make a `GET /shares/{share_id}` request to get details about a single file share
 
 ```curl
 curl -X GET \
-"$vpc_api_endpoint/v1/shares/$share_id?version=2023-05-30&generation=2"\
+"$vpc_api_endpoint/v1/shares/$share_id?version=2023-05-30&generation=2&maturity=beta"\
 -H "Authorization: $iam_token"
 ```
 {: pre}
@@ -362,7 +362,7 @@ For example,
 
 ```curl
 curl -X GET \
-"$vpc_api_endpoint/v1/shares/$share_id/mount_targets?version=2023-05-30?limit=50&generation=2"\
+"$vpc_api_endpoint/v1/shares/$share_id/mount_targets?version=2023-05-30?limit=50&generation=2&maturity=beta"\
 -H "Authorization: $iam_token"
 ```
 {: pre}
@@ -408,7 +408,7 @@ Fpr example,
 
 ```curl
 curl -X GET \
-"$vpc_api_endpoint/v1/shares/$share_id/mount_targets/$mount_target_id?version=2023-05-30&generation=2"\
+"$vpc_api_endpoint/v1/shares/$share_id/mount_targets/$mount_target_id?version=2023-05-30&generation=2&maturity=beta"\
 -H "Authorization: $iam_token"
 ```
 {: pre}
@@ -443,7 +443,7 @@ Make a `GET /shares/{replica_id}/source` request and specify the replica share I
 
 ```curl
 curl -X GET \
-"$vpc_api_endpoint/v1/shares/$replica_id/source?version=2023-05-30&generation=2"\
+"$vpc_api_endpoint/v1/shares/$replica_id/source?version=2023-05-30&generation=2&maturity=beta"\
 -H "Authorization: $iam_token"\
 ```
 {: pre}

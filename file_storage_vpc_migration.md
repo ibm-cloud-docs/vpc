@@ -46,7 +46,7 @@ Before specifying `version` query parameter of `2023-05-30` or later, follow the
 ### Client migration
 {: #client-migration-mount-target}
 
-Before migrating a client to API version `2023-05-30` or later, review your code for use of the `targets` property. Change all instances of `targets` to `mount_targets` in the manner appropriate for your programming language. Changes are required in all relevant request paths, as well as request and response JSON field name formats. For more information, see the [Beta API change log](/docs/vpc?topic=vpc-api-change-log-beta##version-2023-05-30-beta).
+Before migrating a client to API version `2023-05-30` or later, review your code for use of the `targets` property. Change all instances of `targets` to `mount_targets` in the manner appropriate for your programming language. Changes are required in all relevant request paths, as well as request and response JSON field name formats. For more information, see the [Beta API change log](/docs/vpc?topic=vpc-api-change-log-beta#version-2023-05-30-beta).
 
 ## Examples
 {: #examples-mount-target}

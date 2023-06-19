@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2023-06-02",
+    "lastupdated": "2023-06-08",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
@@ -31,19 +31,19 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
+          "date": "date": "15 June 2023", 
+          "title": "VPC routing table authorizations",
+          "description": "You can use the new VPC routing table authorizations to allow users to administer VPC routing tables but not allow them to administer the broader VPC."
+        },
+        {
+          "date": "08 June 2023", 
+          "title": "New stock images for bare metal servers",
+          "description": "The following stock images are now available for bare metal servers. CentOS 7.x is now supported as an image when you provision a bare metal server. Also, CentOS Stream 9.x is now supported as an image when you provision a bare metal server."
+        },
+        {
           "date": "01 June 2023", 
-          "title": "UI Enhancement to the List view:",
-          "description": "You can now export table data with the current table column format. The supported export formats are CSV and Microsoft Excel."
-        },
-        {
-          "date": "30 May 2023", 
-          "title": "File Storage for VPC file share activity tracker event name changes (beta)",
-          "description": "For users with accounts that have access to file shares, when making API requests using a version query parameter of 2023-05-30 or later, the shares targets property was changed to mount_targets. This change affects file share Activity Tracker events. Events generated when creating, listing, retrieving, deleting, and updating mount targets for a file share are now is.share.mount-target.create, is.share.mount-target.list,is.share.mount-target.read, is.share.mount-target.delete, and is.share.mount-target.update. Events for is.share.target.create, is.share.target.list, is.share.target.read, is.share.target.delete, and is.share.target.update are deprecated and will be removed in a future API release per the VPC beta API versioning policy."
-        },
-        {
-          "date": "19 May 2023", 
-          "title": "Removal of weak VPN for VPC ciphers",
-          "description": "Effective 18 May 2023, the Authentication algorithms md5 and sha1, Encryption algorithm triple_des, and Diffie–Hellman groups 2 and 5 VPN IKE and IPsec ciphers are now removed. After this date, you cannot create an IKE/IPsec policy or connection that includes a weak cipher, but you can still upgrade weak cipher suites on an existing policy or connection. Starting 10 July 2023, any existing connections with customized IKE or IPsec policies that contain weak ciphers will be disabled, and any connections with auto IKE or IPsec policies that were created before September 20, 2022 will be forced to upgrade to the enhanced auto-negotiation policy."
+          "title": "UI Enhancement to the List view",
+          "description": "You can now export table data with the current table column format. The supported export formats are CSV and Microsoft Excel 30 or later, the shares targets property was changed to mount_targets. This change affects file share Activity Tracker events. Events generated when creating, listing, retrieving, deleting, and updating mount targets for a file share are now is.share.mount-target.create, is.share.mount-target.list,is.share.mount-target.read, is.share.mount-target.delete, and is.share.mount-target.update. Events for is.share.target.create, is.share.target.list, is.share.target.read, is.share.target.delete, and is.share.target.update are deprecated and will be removed in a future API release per the VPC beta API versioning policy."
         }
       ]
     }

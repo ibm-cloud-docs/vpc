@@ -31,8 +31,8 @@ To add a floating IP to a network interface to allow internet traffic to access 
 establish the data path. Later, you can associate the floating IP to a different network interface if you desire.
 
 1. Click the pencil icon to edit the primary network interface.
-1. On the **Edit network interface** page, locate the **Floating IP address** field. 
-1. You can select an existing floating IP address to add to the network interface, or you can reserve a new floating IP and add it to the network interface. To do so: 
+1. On the **Edit network interface** page, locate the **Floating IP address** field.
+1. You can select an existing floating IP address to add to the network interface, or you can reserve a new floating IP and add it to the network interface. To do so:
    1. Select **Reserve a new floating IP**.
    1. Enter your geography, region, and zone information.
    1. Provide the details for the floating IP, including its name and resource group.
@@ -46,13 +46,13 @@ establish the data path. Later, you can associate the floating IP to a different
 
 To add your floating IP to a network interface to allow internet traffic to access your Bare Metal server, perform the following procedure:
 
-To associate multiple floating IPs to a network interface, make sure that both **Allow IP spoofing** and **Enable infrastructure NAT** are disabled on the network interface. Note that **Enable infrastructure NAT** is not supported on LinuxONE Bare Metal servers.
+To associate multiple floating IPs to a network interface, make sure that both **Allow IP spoofing** and **Enable infrastructure NAT** are disabled on the network interface.
 {: important}
 
 1. In the {{site.data.keyword.cloud_notm}} console, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Bare Metal server**.
 1. Under the **Network interfaces** section of the **Bare metal server details** page, click the pencil icon of the interface you want to associate the floating IP with.
 1. On the **Edit network interface** page, locate the **Floating IP address** field.
-1. You can select an existing floating IP address to add to the network interface, or you can reserve a new floating IP and add it to the network interface. To do so: 
+1. You can select an existing floating IP address to add to the network interface, or you can reserve a new floating IP and add it to the network interface. To do so:
    1. Select **Reserve a new floating IP**.
    1. Enter your geography, region, and zone information.
    1. Provide the details for the floating IP, including its name and resource group.
@@ -69,4 +69,4 @@ To associate multiple floating IPs to a network interface, make sure that both *
 
 A public gateway allows all attached resources to communicate with the public internet. Your public gateway automatically assigns a floating IP to a subnet to allow internet traffic to access it.
 
-To create a public gateway with a floating IP, refer to [Creating public gateways](/docs/vpc?topic=vpc-create-public-gateways&interface=ui). 
+To create a public gateway with a floating IP, refer to [Creating public gateways](/docs/vpc?topic=vpc-create-public-gateways&interface=ui).

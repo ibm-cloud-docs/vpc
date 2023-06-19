@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-05-30"
+lastupdated: "2023-06-09"
 
 keywords:
 
@@ -232,7 +232,7 @@ The following example shows a request to create a 4800 GB file share with a 10 I
 
 ```curl
 curl -X POST \
-"$vpc_api_endpoint/v1/shares?version=2023-05-30&generation=2"\
+"$vpc_api_endpoint/v1/shares?version=2023-05-30&generation=2&maturity=beta"\
 -H "Authorization: $iam_token" \
 -d '{
     "size": 4800,
@@ -297,7 +297,7 @@ Access to the mount target is VPC wide; all users in the VPC have access to this
 
 ```curl
 curl -X POST \
-"$vpc_api_endpoint/v1/shares?version=2023-05-30&generation=2"\
+"$vpc_api_endpoint/v1/shares?version=2023-05-30&generation=2&maturity=beta"\
 -H "Authorization: Bearer $iam_token"\
 -H 'Content-Type: application/json' \
 -d '{
@@ -387,7 +387,7 @@ This request creates or adds a mount target to an existing file share.
 
 ```curl
 curl -X POST \
-"$vpc_api_endpoint/v1/shares/$share_id/mount_targets?version=2023-05-30&generation=2"\
+"$vpc_api_endpoint/v1/shares/$share_id/mount_targets?version=2023-05-30&generation=2&maturity=beta"\
 -H "Authorization: Bearer $iam_token"\
 -H 'Content-Type: application/json'\
 -d '{
@@ -449,7 +449,7 @@ To set supplemental IDs when you create a share, make a `POST /shares` call and 
 
 ```curl
 curl -X POST \
-"$vpc_api_endpoint/v1/shares?version=2023-05-06&generation=2\
+"$vpc_api_endpoint/v1/shares?version=2023-05-06&generation=2&maturity=beta"\
 -H "Authorization: $iam_token" \
 -d '{
     "initial_owner": {
