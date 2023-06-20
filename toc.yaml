@@ -398,7 +398,7 @@ toc:
                 - lb-layer-7-policies-rules.md
                 - lb-updating-subnets.md
                 - lb-monitoring-metrics.md
-                - lb-ig-integration.md
+                - lb-ig-integration.md 
                 - lb-sg-integration.md
                 - lb-private-dns-integration.md
                 - lb-datapath-logging.md
