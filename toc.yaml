@@ -43,7 +43,7 @@ toc:
                label: Networking overview for bare metal servers
                topics:
                - bare_metal_server_network.md
-     - topicgroup:
+       - topicgroup:
            label: Compute
            topics:
            - vsi_is_about_vpc.md
