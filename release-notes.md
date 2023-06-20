@@ -3,7 +3,8 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-06-15"
+lastupdated: "2023-06-20"
+
 
 keywords:
 
@@ -29,6 +30,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## June 2023
 {: #vpc-jun23}
+
+### 20 June 2023
+{: #vpc-jun2023}
+{: release-note}
+
+Instance group integration with network load balancers
+:    IBM Cloud Network Load Balancer (NLB) for VPC now integrates with instance groups to improve pool member scaling. When you create or update an instance group for auto scaling, you can specify an NLB pool for the instance group to manage. Attaching an instance group to a load balancer allows your pool back-end members to automatically scale up or down depending upon your usage and requirements. For more information see [Integrating an IBM Cloud Network Load Balancer for VPC with instance groups](/docs/vpc?topic=vpc-nlb-integration-with-instance-groups).
 
 ### 16 June 2023
 {: #vpc-june1623}
@@ -72,7 +80,7 @@ Removal of weak VPN for VPC ciphers
 :   Effective 18 May 2023, the following VPN IKE and IPsec ciphers are now removed:
     * Authentication algorithms `md5` and `sha1`
     * Encryption algorithm `triple_des`
-    * Diffie–Hellman groups `2` and `5`    
+    * Diffie–Hellman groups `2` and `5`
 
    After this date, you cannot create an IKE/IPsec policy or connection that includes a weak cipher, but you can still [upgrade weak cipher suites](/docs/vpc?topic=vpc-upgrading-weak-ciphers&interface=ui) on an existing policy or connection. Starting 10 July 2023, any existing connections with customized IKE or IPsec policies that contain weak ciphers will be disabled, and any connections with auto IKE or IPsec policies that were created before September 20, 2022 will be forced to upgrade to the [enhanced auto-negotiation policy](/docs/vpc?topic=vpc-using-vpn#policy-negotiation).
 
