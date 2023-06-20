@@ -4,7 +4,7 @@ copyright:
 
   years: 2022, 2023
 
-lastupdated: "2023-05-08"
+lastupdated: "2023-06-16"
 
 
 keywords: operating system end of support (eos)
@@ -18,7 +18,7 @@ subcollection: vpc
 # Lifecycle for guest operating systems
 {: #guest-os-lifecycle}
 
-In the lifecycle of an operating system, end of support (EOS) is the last date that {{site.data.keyword.cloud}} delivers standard support for a version or release of a product. The EOS date is aligned to the vendor and community support dates. It is also the effective date that the product ceases to exist (is deprecated) and can no longer be ordered or purchased.
+In the lifecycle of an operating system, end of support (EOS) is the last date that {{site.data.keyword.cloud}} delivers standard support for a version or release of a product. The end of support date is aligned to the vendor and community support dates. It is also the effective date that the product ceases to exist (is deprecated) and can no longer be ordered or purchased.
 {: shortdesc}
 
 A stock image starts out in available status. When a newer version of the image becomes available, the status of the older image changes to deprecated. A deprecated image can still be used to provision a virtual server instance, but such use is discouraged. If an image moves to obsolete status, such as when the image operating system reaches EOS, it can't be used to provision new virtual server instances.
@@ -99,10 +99,10 @@ The following table describes the end of support date and license model for Red 
 |-----------------|----------------|---------------|
 | RHEL 9.0 minimal | 31 May 2024    | Pay-as-you-Go / BYOL  |
 | RHEL 9.0 (SAP HANA and SAP applications) | 31 May 2026    | Pay-as-you-Go |
-| RHEL 8.6 minimal | 30 May 2024 | Pay-as-you-Go / BYOL |
+| RHEL 8.6 minimal | 31 May 2024 | Pay-as-you-Go / BYOL |
 | RHEL 8.6 (SAP HANA and SAP applications) | 31 May 2026 | Pay-as-you-Go |
-| RHEL 8.4 minimal | 30 May 2023 | Pay-as-you-Go / BYOL |
-| RHEL 8.4 (SAP HANA and SAP applications) | 30 May 2025 | Pay-as-you-Go |
+| RHEL 8.4 minimal | 31 May 2023 | Pay-as-you-Go / BYOL |
+| RHEL 8.4 (SAP HANA and SAP applications) | 31 May 2025 | Pay-as-you-Go |
 | RHEL 8.3 minimal | 30 April 2021 | Pay-as-you-Go / BYOL |
 | RHEL 8.2 minimal | 30 April 2022 |  Pay-as-you-Go / BYOL |
 | RHEL 8.2 (SAP HANA and SAP applications) | 28 February 2023 | Pay-as-you-Go |

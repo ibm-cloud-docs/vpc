@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-03-31"
+lastupdated: "2023-06-09"
 
 keywords:
 
@@ -67,10 +67,11 @@ The following table describes the information on files shares details page.
 | Encryption instance | For customer-managed encryption, link to the {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} instance. |
 | Key ID |  Copiable customer root key ID. |
 | ID | For customer-managed encryption, the UUID generated when you created the file share. |
-| Created date | Date the file share was created. |
+| Size | File share size in GB. |
+| Created | Date the file share was created. |
 | **Profile, size, and IOPS**| |
 | Size | File share size in GB. |
-| IOPS tier | Storage [profile](/docs/vpc?topic=vpc-file-storage-profiles) that defines the file share performance. For example, a 3 IOPS/GB general-purpose profile. |
+| IOPS tier | IOPS tier [profile](/docs/vpc?topic=vpc-file-storage-profiles) defining the file share performance. For example, a 3 IOPS/GB general-purpose profile. |
 | Max IOPS | Maximum IOPS for the specified profile. |
 | **Mount targets** | Number of mount targets associated with the file share. You can have one mount target per VPC per file share. You can create more mount targets for other VPCs. |
 | Name | Name of the mount target. |
@@ -101,13 +102,21 @@ You can see all file shares that have a mount target to a VPC by viewing the VPC
 {: #file-storage-view-shares-targets-cli}
 {: cli}
 
-### View mount targets for a file share from the CLI
-{: #fs-view-targets-shares-cli}
+As of 30 May 2023, you can use `--mount-targets` instead of `--targets` option. To see and use the updated option, set the feature environment variable `IBMCLOUD_IS_FEATURE_FILESHARE_CHANGE_TO_MOUNT_TARGETS` to true.
+{: beta}
 
-Run the `ibmcloud is share-targets` command and specify the file share ID to see all mount targets for a file share.
+   ```text
+   export IBMCLOUD_IS_FEATURE_FILESHARE_CHANGE_TO_MOUNT_TARGETS=true
+   ```
+   {: pre}
+
+### View mount targets for a file share from the CLI
+{: #fs-view-mount-shares-cli}
+
+Run the `ibmcloud is share-mount-targets` command and specify the file share ID to see all mount targets for a file share.
 
 ```sh
-ibmcloud is share-targets SHARE_ID [--output JSON] [-q, --quiet]
+ibmcloud is share-mount-targets SHARE_ID [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
@@ -158,7 +167,7 @@ Mount Targets     ID                                          Name           VPC
 Resource Group    ID                                 Name
                   bdd96715c2a44f2bb60df4ff14a543f5   Default
 
-Created           2023-03-07T15:21:35+05:30
+Created           2023-05-30T15:21:35+05:30
 ```
 {: screen}
 
@@ -193,8 +202,8 @@ Mount targets        ID                          Name   VPC ID   VPC Name
 Resource group       ID                                 Name
                      11caaa983d9c4beb82690daab08717e9   Default
 
-Created              2023-03-07T18:13:04+05:30
-Last sync at         2023-03-06T05:53:28+05:53
+Created              2023-05-07T18:13:04+05:30
+Last sync at         2023-05-06T05:53:28+05:53
 Latest job           succeeded
 Replication share    ID                                          Name                Resource type
                      0bb9c083-2ac5-43d5-962a-757f69d5e6c8        replica-p-share-4   share
@@ -216,31 +225,32 @@ Make a `GET /shares` request to list all file shares for a region.
 
 ```curl
 curl -X GET \
-"$vpc_api_endpoint/v1/shares?version=2023-03-06&generation=2"\
+"$vpc_api_endpoint/v1/shares?version=2023-05-30?limit=50&generation=2&maturity=beta"\
 -H "Authorization: $iam_token"
 ```
 {: pre}
 
-A successful response looks like the following example:
+A successful response looks like the following example. In the example, the `limit` query parameter specifies a limit of 50 file shares, all though there is only one in the response.
 
 ```json
 {
   "first": {
-    "href": "$vpc_api_endpoint/v1/shares?limit=50"
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/shares?limit=50"
   },
   "limit": 50,
   "shares": [
     {
-      "created_at": "2023-03-07T13:02:17Z",
+      "created_at": "2023-05-30T13:02:17Z",
       "crn": "crn:[...]",
       "encryption": "provider_managed",
-      "href": "$vpc_api_endpoint/v1/shares/51bba578-0dce-4f8a-aa6e-f06c899e2c8e",
+      "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/51bba578-0dce-4f8a-aa6e-f06c899e2c8e",
       "id": "51bba578-0dce-4f8a-aa6e-f06c899e2c8e",
       "iops": 3000,
       "lifecycle_state": "stable",
       "name": "share-name1",
       "profile": {
-        "href": "$vpc_api_endpoint/v1/share/profiles/tier-10iops",
+        "family": "tiered",
+        "href": "https://us-south.iaas.cloud.ibm.com/v1/share/profiles/tier-10iops",
         "name": "tier-10iops",
         "resource_type": "share_profile"
       },
@@ -252,15 +262,15 @@ A successful response looks like the following example:
       },
       "resource_type": "share",
       "size": 40,
-      "targets": [
+      "mount_targets": [
         {
-          "href": "$vpc_api_endpoint/v1/shares/51bba578-0dce-4f8a-aa6e-f06c899e2c8e/targets/d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
+          "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/51bba578-0dce-4f8a-aa6e-f06c899e2c8e/mount_targets/d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
           "id": "d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
           "name": "mount-target-name1",
           "resource_type": "share_target",
           "vpc": {
             "crn": "crn:[...]",
-            "href": "$vpc_api_endpoint/v1/vpcs/c2d941de-27f5-432c-b4d0-37a8491c3216",
+            "href": "https://us-south.iaas.cloud.ibm.com/v1/vpcs/c2d941de-27f5-432c-b4d0-37a8491c3216",
             "id": "c2d941de-27f5-432c-b4d0-37a8491c3216",
             "name": "vpc-name1",
             "resource_type": "vpc"
@@ -268,7 +278,7 @@ A successful response looks like the following example:
         }
       ],
       "zone": {
-        "href": "$vpc_api_endpoint/v1/regions/us-south/zones/us-south-1",
+        "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-1",
         "name": "us-south-1"
       }
     }
@@ -284,69 +294,75 @@ Make a `GET /shares/{share_id}` request to get details about a single file share
 
 ```curl
 curl -X GET \
-"$vpc_api_endpoint/v1/shares/$share_id?version=2021-10-04&generation=2"\
+"$vpc_api_endpoint/v1/shares/$share_id?version=2023-05-30&generation=2&maturity=beta"\
 -H "Authorization: $iam_token"
 ```
 {: pre}
 
-A successful response looks like the following example:
+A successful response looks like the following example. In this example, the share was created based on a `dp2` profile.
 
 ```json
 {
-  "created_at": "2023-03-07T23:31:59Z",
+  "created_at": "2023-05-07T22:58:49.000Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
-  "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63",
+  "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63",
   "id": "199d78ec-b971-4a5c-a904-8f37ae710c63",
-  "iops": 3000,
+  "iops": 14400,
   "lifecycle_state": "stable",
-  "name": "share-name1",
-  "profile": {
-    "href": "$vpc_api_endpoint/v1/share/profiles/tier-10iops",
-    "name": "tier-10iops",
-    "resource_type": "share_profile"
-  },
-  "resource_group": {
-    "crn": "crn:[...]",
-    "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/678523bcbe2b4eada913d32640909956",
-    "id": "678523bcbe2b4eada913d32640909956",
-    "name": "Default"
-  },
-  "resource_type": "share",
-  "size": 100,
-  "mount-targets": [
+  "mount_targets": [
     {
-      "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63/targets/d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
+      "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63/mount_targets/d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
       "id": "d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
-      "name": "mount-target-name1",
-      "resource_type": "share_target",
+      "name": "my-share-mount-target",
+      "resource_type": "share_mount_target",
       "vpc": {
         "crn": "crn:[...]",
-        "href": "$vpc_api_endpoint/v1/vpcs/c2d941de-27f5-432c-b4d0-37a8491c3216",
+        "href": "https://us-south.iaas.cloud.ibm.com/v1/vpcs/c2d941de-27f5-432c-b4d0-37a8491c3216",
         "id": "c2d941de-27f5-432c-b4d0-37a8491c3216",
-        "name": "vpc-name1",
+        "name": "my-vpc",
         "resource_type": "vpc"
       }
     }
   ],
+  "name": "my-share",
+  "profile": {
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/share/profiles/dp2",
+    "family": "defined-performance",
+    "name": "dp2",
+    "resource_type": "share_profile"
+  },
+  "replication_role": "none",
+  "replication_status": "none",
+  "replication_status_reasons": [],
+  "resource_group": {
+    "crn": "crn:[...]",
+    "href": "https://us-south.iaas.cloud.ibm.com/v2/resource_groups/678523bcbe2b4eada915d32640909956",
+    "id": "678523bcbe2b4eada915d32640909956",
+    "name": "Default"
+  },
+  "resource_type": "share",
+  "size": 4800,
+  "user_tags": [],
   "zone": {
-    "href": "$vpc_api_endpoint/v1/regions/us-south/zones/us-south-1",
-    "name": "us-south-1"
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-1",
+    "name": "us-south-1",
+    "resource_type": "zone"
   }
 }
 ```
-{: pre}
+{: codeblock}
 
 ### List all mount targets of a file share with the API
 {: #fs-list-targets-api}
 
-Make a `GET /shares/{share_id}/targets` request to list all mount targets of a file share.
+Make a `GET /shares/{share_id}/mount_targets` request to list all mount targets of a file share.
 
 For example,
 
 ```curl
 curl -X GET \
-"$vpc_api_endpoint/v1/shares/$share_id/targets?version=2023-03-06&generation=2"\
+"$vpc_api_endpoint/v1/shares/$share_id/mount_targets?version=2023-05-30?limit=50&generation=2&maturity=beta"\
 -H "Authorization: $iam_token"
 ```
 {: pre}
@@ -356,23 +372,24 @@ A successful response looks like the following example:
 ```json
 {
   "first": {
-    "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63/targets?limit=50"
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63/mount_targets?limit=50"
   },
   "limit": 50,
-  "targets": [
+  "mount_targets": [
     {
-      "created_at": "2023-03-07T23:31:59Z",
-      "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63/targets/d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
-      "id": "d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
+      "created_at": "2023-05-30T01:59:46.000Z",
+      "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63/mount_targets/r134-1b5571cb-536d-48d0-8452-81c05c6f7b80",
+      "id": "r134-1b5571cb-536d-48d0-8452-81c05c6f7b80",
+      "lifecycle_reasons": [],
       "lifecycle_state": "stable",
-      "mount_path": "domain.com:/abc_2891fd0a_63aa_4deb_9ed5_1159e37cb5aa",
-      "name": "mount-target-name1",
-      "resource_type": "share_target",
+      "mount_path": "fsf-dal1099a-fz.adn.networklayer.com:/nxg_s_voll_mz0716_a4cc07a3_4425_4adf_aed6_0d7e142bee0c",
+      "name": "my-target",
+      "resource_type": "share_mount_target",
       "vpc": {
         "crn": "crn:[...]",
-        "href": "$vpc_api_endpoint/v1/vpcs/c2d941de-27f5-432c-b4d0-37a8491c3216",
-        "id": "c2d941de-27f5-432c-b4d0-37a8491c3216",
-        "name": "vpc-name1",
+        "href": "https://us-south.iaas.cloud.ibm.com/v1/vpcs/4c0bb0df-5ca2-43ca-a3de-a4f86010a906",
+        "id": "4c0bb0df-5ca2-43ca-a3de-a4f86010a906",
+        "name": "my-vpc",
         "resource_type": "vpc"
       }
     }
@@ -385,36 +402,37 @@ A successful response looks like the following example:
 ### View a single mount target with the API
 {: #fs-get-target-api}
 
-Make a `GET /shares/{share_id}/targets/{mount_target_id}` request to information of a single mount target of a file share. This call includes mount path information. Use the mount path to attach a file share to an instance.
+Make a `GET /shares/{share_id}/mount_targets/{mount_target_id}` request to information of a single mount target of a file share. This call includes mount path information. Use the mount path to attach a file share to an instance.
 
-See the following example.
+Fpr example,
 
 ```curl
 curl -X GET \
-"$vpc_api_endpoint/v1/shares/$share_id/targets/$mount_target_id?version=2023-03-06&generation=2"\
+"$vpc_api_endpoint/v1/shares/$share_id/mount_targets/$mount_target_id?version=2023-05-30&generation=2&maturity=beta"\
 -H "Authorization: $iam_token"
 ```
 {: pre}
 
-A successful response looks like the following example:
+A successful response looks like the following example.
 
 ```json
 {
-  "created_at": "2023-03-07T23:31:59Z",
-  "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63/targets/d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
-  "id": "d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
-  "lifecycle_state": "stable",
-  "mount_path": "domain.com:/vol_xyz_2891fd0a_64ea_4deb_9ed5_1159e37cb5aa",
-  "name": "mount-target-name1",
-  "resource_type": "share_target",
-  "vpc": {
-    "crn": "crn:[...]",
-    "href": "$vpc_api_endpoint/v1/vpcs/c2d941de-27f5-432c-b4d0-37a8491c3216",
-    "id": "c2d941de-27f5-432c-b4d0-37a8491c3216",
-    "name": "vpc-name1",
-    "resource_type": "vpc"
+    "created_at": "2023-05-30T01:59:46.000Z",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/shares//199d78ec-b971-4a5c-a904-8f37ae710c63/mount_targets/d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
+    "id": "d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
+    "lifecycle_reasons": [],
+    "lifecycle_state": "stable",
+    "mount_path": "fsf-dal1099a-fz.adn.networklayer.com:/nxg_s_vol_xyz_2891fd0a_64ea_4deb_9ed5_1159e37cb5aa",
+    "name": "my-mount-target2",
+    "resource_type": "share_mount_target",
+    "vpc": {
+      "crn": "crn:[...]",
+      "href": "https://us-south.iaas.cloud.ibm.com/v1/vpcs/5821d0c4-a089-4957-b5fa-03b7ac636c15",
+      "id": "5821d0c4-a089-4957-b5fa-03b7ac636c15",
+      "name": "my-vpc",
+      "resource_type": "vpc"
+    }
   }
-}
 ```
 {: codeblock}
 
@@ -425,7 +443,7 @@ Make a `GET /shares/{replica_id}/source` request and specify the replica share I
 
 ```curl
 curl -X GET \
-"$vpc_api_endpoint/v1/shares/$replica_id/source?version=2023-03-06&generation=2"\
+"$vpc_api_endpoint/v1/shares/$replica_id/source?version=2023-05-30&generation=2&maturity=beta"\
 -H "Authorization: $iam_token"\
 ```
 {: pre}
@@ -434,51 +452,53 @@ A successful response provides details of the source file share. Notice that the
 
 ```json
 {
-  "created_at": "2023-03-07T22:58:49.000Z",
-  "crn": "crn:[...]",
-  "encryption": "provider_managed",
-  "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/a1b07083-f411-446d-9116-8c08d6448c86",
-  "id": "a1b07083-f411-446d-9116-8c08d6448c86",
-  "iops": 14400,
-  "lifecycle_state": "stable",
-  "name": "my-share",
-  "profile": {
-    "href": "https://us-south.iaas.cloud.ibm.com/v1/share/profiles/tier-3iops",
-    "name": "tier-3iops",
-    "resource_type": "share_profile"
-  },
-  "replication_role": "source",
-  "replication_status": "active",
-  "replication_status_reasons": [],
-  "resource_group": {
+    "created_at": "2023-05-30T22:58:49.000Z",
     "crn": "crn:[...]",
-    "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/678523bcbe2b4eada913d32640909956",
-    "id": "678523bcbe2b4eada913d32640909956",
-    "name": "Default"
-  },
-  "resource_type": "share",
-  "size": 4800,
-  "targets": [
-    {
-      "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/a1b07083-f411-446d-9116-8c08d6448c86/targets/r134-1b5571cb-536d-48d0-8452-81c05c6f7b80",
-      "id": "r134-1b5571cb-536d-48d0-8452-81c05c6f7b80",
-      "name": "my-mount-target",
-      "resource_type": "share_target",
-      "vpc": {
-        "crn": "crn:[...]",
-        "href": "https://us-south.iaas.cloud.ibm.com/v1/vpcs/21bc28fc-856d-4902-813b-cd065d1ed084",
-        "id": "21bc28fc-856d-4902-813b-cd065d1ed084",
-        "name": "my-vpc",
-        "resource_type": "vpc"
+    "encryption": "provider_managed",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/207721a9-aff9-4b16-9823-fe68096aeac3",
+    "id": "207721a9-aff9-4b16-9823-fe68096aeac3",
+    "iops": 14400,
+    "lifecycle_state": "stable",
+    "mount_targets": [
+      {
+        "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/207721a9-aff9-4b16-9823-fe68096aeac3/mount_targets/ce244454-0919-45e2-b14b-f4285afcd856",
+        "id": "ce244454-0919-45e2-b14b-f4285afcd856",
+        "name": "my-share-mount-target",
+        "resource_type": "share_mount_target",
+        "vpc": {
+          "crn": "crn:[...]",
+          "href": "https://us-south.iaas.cloud.ibm.com/v1/vpcs/c8b8fa2d-ccf7-4f42-9d38-df6d123c867d",
+          "id": "c8b8fa2d-ccf7-4f42-9d38-df6d123c867d",
+          "name": "my-vpc",
+          "resource_type": "vpc"
+        }
       }
+    ],
+    "name": "my-share-3",
+    "profile": {
+      "family": "defined-performance",
+      "href": "https://us-south.iaas.cloud.ibm.com/v1/share/profiles/dp2",
+      "name": "dp2",
+      "resource_type": "share_profile"
+    },
+    "replication_role": "source",
+    "replication_status": "active",
+    "replication_status_reasons": [],
+    "resource_group": {
+      "crn": "crn:[...]",
+      "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/678523bcbe2b4eada915d32640909956",
+      "id": "678523bcbe2b4eada915d32640909956",
+      "name": "Default"
+    },
+    "resource_type": "share",
+    "size": 4800,
+    "user_tags": [],
+    "zone": {
+      "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-1",
+      "name": "us-south-1",
+      "resource_type": "zone"
     }
-  ],
-  "zone": {
-    "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-1",
-    "name": "us-south-1",
-    "resource_type": "zone"
   }
-}
 ```
 {: codeblock}
 
