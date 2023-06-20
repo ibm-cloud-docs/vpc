@@ -81,6 +81,7 @@ toc:
                - about-attestation.md
                - hpvs-logging.md
                - hpvs-encrypt-log-message.md
+               - hpvs-data-security.md
                - hpvs-disks-encryption-validate.md
                - about-hp-securebuild.md
                - hpvs-override-registry.md

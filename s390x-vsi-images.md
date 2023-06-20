@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-05-11"
+lastupdated: "2023-06-20"
 
 keywords: image, stock image, linuxone image, hpcr, container runtime, virtual private cloud, virtual server, generation 2, gen 2, wazi aas
 
@@ -19,7 +19,7 @@ subcollection: vpc
 When you provision {{site.data.keyword.vsi_is_full}} on IBM Z (s390x processor architecture) in IBM Cloud, you can select from the supported stock images. Now, *IBM Hyper Protect* is also supported as an operating system and the associated *IBM Hyper Protect Container Runtime* image can be provisioned for your {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} instance.
 {: shortdesc}
 
-The IBM Hyper Protect Container Runtime image has container runtime support and the image is not SSH enabled (is a locked down image). Even if you select and pass in an SSH key, it will not be used and the key cannot be used to connect to the instance. Currently only one container is supported. Container details are provided at instance creation through the contract, specified in the **User Data** field on the order form. Once the containers start, you can interact with the workload that is brought up on the containers. For more information, see [Contract](/docs/vpc?topic=vpc-about-contract_se).
+The IBM Hyper Protect Container Runtime image has container runtime support and the image is not SSH enabled (is a locked down image). Even if you select and pass in an SSH key, it will not be used and the key cannot be used to connect to the instance. Container details are provided at instance creation through the contract, specified in the **User Data** field on the order form. Once the containers start, you can interact with the workload that is brought up on the containers. For more information, see [Contract](/docs/vpc?topic=vpc-about-contract_se).
 {: note}
 
 ## Stock images
@@ -72,7 +72,7 @@ ibm-<family>-<version>-<type>-<architecture>-<build>
 The following example shows the image naming convention.
 
 ```sh
-ibm-hyper-protect-container-runtime-1-0-s390x-10
+ibm-hyper-protect-container-runtime-1-0-s390x-11
 ```
 
 The following list explains the variables that make up the components of the image name:
