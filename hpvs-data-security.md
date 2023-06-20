@@ -89,7 +89,7 @@ Check logs in Log Analysis if your instance shuts down.
 
 2. When you prepare the [contract](/docs/vpc?topic=vpc-about-contract_se), add `kms` details in the `env` - `volumes` section, and then use the contract to [create](/docs/vpc?topic=vpc-about-se&interface=ui#create-hyper-protect-virtual-servers-for-vpc-instance) a Hyper Protect Virtual Server for VPC instance. For example:
 
-    ```json
+    ```yaml
     env: |
       logging:
       logDNA:
