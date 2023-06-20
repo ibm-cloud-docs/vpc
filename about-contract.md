@@ -502,15 +502,15 @@ The name of the volume must be the same as that in the [workload - volumes](#hpc
 
 As mentioned, you can integrate with Hyper Protect Crypto Services to generate a third seed and wrap it with your root key. See the following example. For more information, See [Securing your data](/docs/vpc?topic=vpc-hyper-protect-virtual-server-mng-data).
 
-```json
+```yaml
 volumes:
  test:   
    kms:   
-     - apiKey: "gh2zjxxxxgHWBRGbxxxx2ErgeyRaJ6DzeI_Bxm8R-xxx"   
-       crn: "crn:v1:bluemix:public:hs-crypto:us-south:a/b3fabd5a6aaf4af09142ad425ffeaee8:cbe0caff-cfb6-4082-b0ae-c31bc3164bd7:key:795b174c-d6dd-4cba-b4bc-1f96172ecf35"   
+     - apiKey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"   
+       crn: "crn:v1:bluemix:public:hs-crypto:us-south:a/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:key:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"  
        type: "public"
-     - apiKey: "gh2zjxxxxgHWBRGbxxxx2ErgeyRaJ6DzeI_Bxm8R-xxx"   
-       crn: "crn:v1:bluemix:public:hs-crypto:us-south:a/b3fabd5a6aaf4af09142ad425ffeaee8:cbe0caff-cfb6-6666-b0ae-c31bc3164bd7:key:795b174c-xxx-4cba-b4bc-1f96172exxxx"  
+     - apiKey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"   
+       crn: "crn:v1:bluemix:public:hs-crypto:us-south:a/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:key:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"  
        type: "private"
    seed:"seed1"   
    kmsTimeout: "10"  
