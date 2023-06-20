@@ -137,7 +137,7 @@ Instance groups can fail to create instances for various reasons. You can use Ac
 
 If you set a port range for the network load balancer listener, then the instance group's application port will only be used for checking the health status of back-end members if you did not set a health check port for the pool.
 
-# How do I know which load balancer offerings support auto scaling?
+## How do I know which load balancer offerings support auto scaling?
 {: #faq-auto-scale-15}
 {: faq}
 
