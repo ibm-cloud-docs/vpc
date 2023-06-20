@@ -5,7 +5,6 @@ copyright:
 
 lastupdated: "2023-06-20"
 
-
 keywords:
 
 subcollection: vpc
@@ -32,8 +31,12 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-jun23}
 
 ### 20 June 2023
-{: #vpc-jun2023}
+
+{: #vpc-june2023}
 {: release-note}
+
+Virtual network interface (beta)
+:  Virtual network interfaces are now available in a beta release for use with file share mount targets. For more information see [About virtual network interfaces](/docs/vpc?topic=vpc-vni-about).
 
 Instance group integration with network load balancers
 :    IBM Cloud Network Load Balancer (NLB) for VPC now integrates with instance groups to improve pool member scaling. When you create or update an instance group for auto scaling, you can specify an NLB pool for the instance group to manage. Attaching an instance group to a load balancer allows your pool back-end members to automatically scale up or down depending upon your usage and requirements. For more information see [Integrating an IBM Cloud Network Load Balancer for VPC with instance groups](/docs/vpc?topic=vpc-nlb-integration-with-instance-groups).
