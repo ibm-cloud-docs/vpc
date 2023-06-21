@@ -54,14 +54,7 @@ This tutorial is intended for software developers and system administrators who 
 
 Set up your account to access VPC. Make sure that your account is [upgraded to a paid account](/docs/account?topic=account-accountfaqs#changeacct){: external}.
 
-Make sure that you have an SSH key. The key is used to connect to the virtual server instance. For example, generate an SSH key on your Linux server or Mac system by running the following command:
-
-```sh
-ssh-keygen -t rsa -C "user_ID"
-```
-{: pre}
-
-This command generates two files. The generated public key is in the `id_rsa.pub` file under an ``.ssh`` directory in your home directory, for example, ``/Users/<USERNAME>/.ssh/id_rsa.pub``. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys).
+You can use an existing SSH key, upload a new SSH key, or you can create an SSH key when you create the virtual server instance. For this tutorial, you can either select an existing key or create a new key when you create the virtual server. For more information about uploading an SSH key or creeating an SSH key in {{site.data.keyword.vpc_short}}, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys).
 
 If you plan to create an [application load balancer](/docs/vpc?topic=vpc-load-balancers) and use HTTPs for the listener, an SSL certificate is required. You can manage certificates with [IBM Secrets Manager](/docs/secrets-manager?topic=secrets-manager-getting-started).
 
@@ -166,7 +159,7 @@ To create a virtual server instance in the newly created subnet:
     After you create your instance, you can't update the profile.
     {: important}
 
-3. Select an existing SSH key or add an SSH key that is to be used to access the virtual server instance. To add an SSH key, click **Create key** and name the key. After you enter your previously generated public key value, click **Add SSH key**.
+3. Select an existing SSH key or create an SSH key that is to be used to access the virtual server instance. To create an SSH key, click **Create an SSH key** and name the key. Select **Generate a key pair for me**, click **Save private key**, then **Save public key**. When this action completes, click **Create**.
 4. _Optional:_ Enter user data to run common configuration tasks when your instance starts. For example, you can specify cloud-init directives or shell scripts for Linux images. For more information, see [User Data](/docs/vpc?topic=vpc-user-data).
 5. Note the boot volume. _Auto Delete_ is enabled for the volume; the boot volume is deleted automatically if the instance is deleted.
 6. In the **Data volumes** area, click **Create** to attach a block storage volume to your instance if you want more storage. In this tutorial, we'll create a block storage volume and attach it to the instance later.
