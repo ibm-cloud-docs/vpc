@@ -43,7 +43,7 @@ toc:
                label: Networking overview for bare metal servers
                topics:
                - bare_metal_server_network.md
-     - topicgroup:
+       - topicgroup:
            label: Compute
            topics:
            - vsi_is_about_vpc.md
@@ -74,6 +74,7 @@ toc:
                - about-attestation.md
                - hpvs-logging.md
                - hpvs-encrypt-log-message.md
+               - hpvs-data-security.md
                - hpvs-disks-encryption-validate.md
                - about-hp-securebuild.md
                - hpvs-override-registry.md
@@ -390,7 +391,7 @@ toc:
                 - lb-layer-7-policies-rules.md
                 - lb-updating-subnets.md
                 - lb-monitoring-metrics.md
-                - lb-ig-integration.md
+                - lb-ig-integration.md 
                 - lb-sg-integration.md
                 - lb-private-dns-integration.md
                 - lb-datapath-logging.md
@@ -406,6 +407,7 @@ toc:
                 - nlb-delete.md
                 - nlb-health-checks.md
                 - nlb-listeners.md
+                - nlb-ig-integration.md
                 - nlb-udp.md
                 - nlb-port-range.md
                 - nlb-pools.md
@@ -493,6 +495,7 @@ toc:
             - file_storage_vpc_create.md
             - file_storage_vpc_view.md
             - file_storage_vpc_manage.md
+            - file_storage_vpc_eit.md
             - topicgroup:
                 label: Modifying file share size and IOPS
                 topics:
@@ -734,7 +737,7 @@ toc:
         - topicgroup:
             label: Migration
             topics:
-            - file_storage_vpc_migration.md
+            - file_storage_API_migration_mount_targets.md
             - 2022-03-29-migration.md
         - limitations.md
         - known-issues.md
