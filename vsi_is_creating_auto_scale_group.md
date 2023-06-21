@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-06-08"
+lastupdated: "2023-06-22"
 
 keywords: auto scale, autoscale, virtual server instance, creating, UI, console, instance group
 
@@ -45,7 +45,7 @@ Based on this calculation, the instance group manager rounds **4.29** up to **5*
 
 ![Image showing an instance that is being added to an instance group](images/VPC_Autoscaling_Docs.png "Image showing an instance that is being added to an instance group after computation"){: caption="Figure 1. Auto scale instance group adds new instance" caption-side="bottom"}
 
-When an instance group scales up to create an instance, a subnet is selected randomly from the subnets that are defined for the instance group. When an instance group scales down to remove instances, it uses a first in first out (FIFO) strategy. The oldest instances are deleted first. If at any time an instance in the instance group fails, it is replaced with a new instance. 
+When an instance group scales up to create an instance, a subnet is selected randomly from the subnets that are defined for the instance group. When an instance group scales down to remove instances, it uses a first in first out (FIFO) strategy. The oldest instances are deleted first. If at any time an instance in the instance group fails, it is replaced with a new instance.
 
 You can configure your instance group with a load balancer to balance incoming requests across instances. With a load balancer, you can configure specific health checks for the pool members that are associated with instances in your instance group. If an instance fails health checks, a new instance is created in the instance group to replace the failed membership. When the new instance is available, the instance that failed health checks is deleted.
 
