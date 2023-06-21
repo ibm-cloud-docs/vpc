@@ -513,7 +513,7 @@ volumes:
        crn: "crn:v1:bluemix:public:hs-crypto:us-south:a/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:key:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"  
        type: "private"
    seed:"seed1"   
-   kmsTimeout: "10"  
+   kmsTimeout: 10  
 ```
 {: codeblock}
 
