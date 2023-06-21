@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-10-17"
+  years: 2019, 2023
+lastupdated: "2023-06-22"
 
 keywords: resource, storage, connection, COS, object, endpoints, cross-region, regional, data center
 
@@ -71,6 +71,7 @@ Buckets that are created at a regional endpoint distribute data across three dat
 | ------- | ------ | ------ | 
 | United Kingdom (London) | eu-gb | `s3.direct.eu-gb.cloud-object-storage.appdomain.cloud`|
 | EU Germany (Frankfurt) | eu-de | `s3.direct.eu-de.cloud-object-storage.appdomain.cloud`|
+| Spain (Madrid)       | eu-es | `s3.direct.eu-es.cloud-object-storage.appdomain.cloud` |
 {: class="simple-tab-table"}
 {: tab-title="Europe"}
 {: caption="Table 1. VPC regional endpoints for Europe" caption-side="bottom"}
