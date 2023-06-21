@@ -53,13 +53,6 @@ toc:
                - bare_metal_server_about.md
            - suspend-billing.md
            - topicgroup:
-               label: Images
-               topics:
-               - vsi-images.md
-               - s390x-vsi-images.md
-               - os-lifecycle.md
-               - bare_metal_server_image.md
-           - topicgroup:
                label: Profiles
                topics:
                - vsi_is_profiles.md
