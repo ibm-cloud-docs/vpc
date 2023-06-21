@@ -31,7 +31,7 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-jun23}
 
 ### 22 June 2023
-{: #vpc-jun2223}
+{: #vpc-june2223}
 {: release-note}
 
 Madrid multi zone region (MZR)
