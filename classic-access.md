@@ -78,6 +78,9 @@ curl -X POST "$rias_endpoint/v1/vpcs?version=$api_version&generation=2" \
 ### Classic access VPC default address prefixes
 {: #classic-access-default-address-prefixes}
 
+Classic Virtual Servers aren't available in the Madrid MZR.
+{: important}
+
 When a classic access VPC is created, the default address prefixes are assigned based on the zone as follows:
 
 Zone         | Address Prefix
