@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-05-11"
+lastupdated: "2023-06-20"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -41,15 +41,15 @@ The encryption and attestation certificates are signed by the IBM intermediate c
 Use the following procedure to validate the attestation record and hashes:
 
 * Obtain the attestation record `se-checksums.txt` and the signature file `se-signature.bin` from your {{site.data.keyword.hpvs}} for VPC instance. To do so, you can implement your container to provide the attestation record and the signature file. The attestation record and the signature file are made available to your container in the `/var/hyperprotect` directory.
-* Get the IBM attestation certificate [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-10-attestation.crt){: external} for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-10`.
-   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-9`, you can download the IBM attestation certificate [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-9-attestation.crt){: external}.
+* Get the IBM attestation certificate [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-11-attestation.crt){: external} for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-11`.
+   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-10`, you can download the IBM attestation certificate [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-10-attestation.crt){: external}.
    {: note}
 
 * Validate the attestation certificate by following the instructions [here](/docs/vpc?topic=vpc-cert_validate#validate_attest_cert).
 * Extract the encryption public key from the encryption certificate by using the following command:
 
    ```sh
-   openssl x509 -pubkey -noout -in ibm-hyper-protect-container-runtime-1-0-s390x-10-attestation.crt > contract-public-key.pub
+   openssl x509 -pubkey -noout -in ibm-hyper-protect-container-runtime-1-0-s390x-11-attestation.crt > contract-public-key.pub
    ```
    {: pre}
 
@@ -138,18 +138,23 @@ sha256sum <file>
 {: pre}
 
 The following snippet is an example of an attestation document:
-```sh
+```text
 1.0.0
+Machine Type/Plant/Serial: 3932/02/860A8
 71ea00241774e638085af4dc95f9b157ffd6c7bc0e604583cc1e6722ade6f181 baseimage
 2d290fcafca295cd2de49e7246a5a5a080f503cb066d451b008a863b84a82ee1 root.tar.gz
 2d43b2ffeb1c543d3b3a5b0b96d5417f79d8245f1e085f5e3f150390d093fc6b /dev/disk/by-label/cidata
 6dc2640b909f4077b17059f3edc1d0f3c1d286f4afc9f3d28f9ee9e72509ca51 cidata/meta-data
 272aa3529571b4fc592bf89e9242d3f57ae8ff29fb514c4ee6d7ce1eeb2ac1ee cidata/user-data
 baef972e58d4362d97f822d8ff4c5339c5898a0dc184d88d29e5b010b9835ed6 cidata/vendor-data
-7213137f104d4b0ec2eb74c3a88d96b604c840afe549fc2110dfc1e05e2d5f75 user-data.decrypted
 d388326d90583b2140831e821311aedaee1ad4b4e721b458f8769d3f9267b0dc attestationPublicKey
 ```
 {: codeblock}
+
+### `Machine Type/Plant/Serial`
+{: #machine_type_plant_serial}
+
+`Machine Type/Plant/Serial` is the information required to obtain a Host Key Document for the secure execution VM. It reflects on which machine the secure execution VM is currently running.
 
 ### `baseimage`
 {: #base_image}
@@ -164,7 +169,6 @@ The `root.tar.gz` is part of the final secure execution enabled IBM Hyper Protec
 2d290fcafca295cd2de49e7246a5a5a080f503cb066d451b008a863b84a82ee1 root.tar.gz
 ```
 {: pre}
-
 
 ### `/dev/disk/by-label/cidata`
 {: #block_device_cidata}
@@ -181,11 +185,6 @@ All the files in `cidata` copied are from the `/dev/disk/by-label/cidata` block 
 baef972e58d4362d97f822d8ff4c5339c5898a0dc184d88d29e5b010b9835ed6 cidata/vendor-data
 ```
 {: codeblock}
-
-### `user-data.decrypted`
-{: #user_data_decrypted}
-
-The `user-data.decrypted` is `cidata/user-data`, with all encrypted token decrypted.
 
 ### `attestationPublicKey`
 {: #attest_pubkey}
