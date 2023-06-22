@@ -16,6 +16,9 @@ subcollection: vpc
 # About virtual network interfaces
 {: #vni-about}
 
+The beta release is provided for IBM internal users. This information is not published for external customers. 
+{: beta}
+
 A virtual network interface is a logical abstraction of a network interface in a subnet. A virtual network interface has an IP address in a subnet and at least one security group. 
 {: shortdesc}
 
@@ -26,11 +29,9 @@ You can view virtual network interfaces independently of other VPC resources.
 ## Getting started with virtual network interfaces
 {: #vni-getting-started}
 
-Virtual network interfaces must be attached to a file share mount target. You can expect this basic workflow:
+Virtual network interfaces must be attached to a file share mount target. When [creating a file share mount](/docs/vpc?topic=vpc-file-storage-create&interface=ui), specify a subnet or a reserved IP to use for creating a virtual network interface for the file share mount.
 
-1. Create a [file share mount](/docs/vpc?topic=vpc-file-storage-create&interface=ui).
-1. Create a virtual network interface.
-1. Attach the virtual network interface to the file share mount target.
+When the file share mount is deleted, it's virtual network interface will be automatically deleted.
 
 ## Using security groups with virtual network interfaces
 {: #vni-security-groups}
