@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-01-25"
+lastupdated: "2023-06-22"
 
 keywords: dedicated host, dedicated hosts, dedicated host group, access, user access,
 
