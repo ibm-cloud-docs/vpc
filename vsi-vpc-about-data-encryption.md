@@ -77,7 +77,7 @@ Customer-managed encryption has several advantages over IBM-managed encryption.
 
 * Manage the root keys for your file shares by rotating, disabling, or deleting keys. You can restore deleted keys within 30 days after their deletion.
 
-{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
+{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Madrid, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 **Encrypt your custom images:**
