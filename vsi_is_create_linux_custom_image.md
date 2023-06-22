@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-06-09"
+lastupdated: "2023-06-22"
 
 keywords: creating a linux custom image, cloud-init, qcow2
 
