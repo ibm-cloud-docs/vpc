@@ -54,9 +54,6 @@ Use the following steps to create a bare metal server by using the {{site.data.k
 | Secure boot | Click the toggle to enable secure boot. For more information, see [Secure boot with Trusted Platform Module (TPM)](/docs/vpc?topic=vpc-secure-boot-tpm&interface=ui). |
 {: caption="Table 2. Bare metal server advanced options" caption-side="bottom"}
 
-   s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the Washington DC (us-east), London (eu-gb), Tokyo (jp-tok), Toronto (ca-tor), and São Paulo (br-sao) regions.
-   {: preview}
-
 For x86 architecture-based bare metal servers, the DHCP response for all interfaces (PCI or VLAN) includes a gateway. So, if you create multiple interfaces on different subnets, consider a static IP configuration or use separate network namespaces to handle the different gateways.
 {: note}
 
@@ -296,62 +293,6 @@ After you have all the information, use the [Create bare metal server](/apidocs/
     ```
     {: pre}
 
-* For s390x architecture, you create a bare metal server with the following example configuration:
-
-   * s390x image ID: "r134-8c5b280e-5310-4117-90e3-46ebe360e70f"
-   * SSH Key ID: "a6b1a881-2ce8-41a3-80fc-36316a73f803"
-   * Name of the bare metal server: "my-s390x-bare-metal-server"
-   * A primary network interface with the following configurations:
-      * Interface type: "hipersocket"
-      * Name: "my-primary-network-interface"
-      * Subnet ID: "220e-1be7f42a-f2f3-4177-9610-7368389ab971"
-   * Profile name: "mz2d-metal-2x32"
-   * Zone: "toronto-1"
-
-   The API request is similar to:
-
-    ```sh
-    curl -X POST "$URL/v1/bare_metal_servers?version=2021-03-09&generation=2" -H "Authorization:$ACCESS_TOKEN" -d '{
-    "initialization": {
-        "image": {
-        "id": "r134-8c5b280e-5310-4117-90e3-46ebe360e70f"
-        },
-        "keys": [
-        {"id": "a6b1a881-2ce8-41a3-80fc-36316a73f803"}
-        ]
-    },
-    "primary_network_interface": {
-        "interface_type": "hipersocket",
-        "name": "my-primary-network-interface",
-        "subnet": {
-        "id": "220e-1be7f42a-f2f3-4177-9610-7368389ab971"
-        }
-    },
-    "name": "my-s390x-bare-metal-server",
-    "profile": {
-        "name": "mz2d-metal-2x32"
-    },
-    "zone": {
-        "name": "toronto-1"
-    }
-    }' | jq
-    ```
-    {: pre}
-
-    The example request uses the JSON processing utility _jq_ to format the response. You can modify the command to use another parsing tool or remove `" | jq"` to receive an unformatted response.
-    {: note}
-
-    To attach a second network interface to your s390x bare metal server, you can use the following example API request.
-
-    ```sh
-    curl -X POST "$URL/v1/bare_metal_servers/220e-ef3a9818-ea70-4e22-be91-ac2dd5bd5c6a/network_interfaces?generation=2&version=2019-10-01" -H "Authorization: $ACCESS_TOKEN" -d '{
-	     "interface_type": "hipersocket",
-	     "name": "secondary-network-interface",
-	     "enable_infrastructure_nat": true,
-	     "subnet": { "id": "220e-1be7f42a-f2f3-4177-9610-7368389ab971" }
-	  }'| jq
-    ```
-
 The status displays "Pending" until the server is created.
 {: tip}
 
@@ -420,24 +361,6 @@ For example, you can create a bare metal server with the following configuration
 
    ```sh
    ibmcloud is bare-metal-server-create --name my-bare-metal-server --zone us-south-1 --profile mx2-metal-96x768 --image r134-31c8ca90-2623-48d7-8cf7-737be6fc4c3e --keys a6b1a881-2ce8-41a3-80fc-36316a73f803 --pnic-subnet 7ec86020-1c6e-4889-b3f0-a15f2e50f87e –pnic-name my-primary-network-interface --pnic-allowed-vlans 4 --network-interfaces '[{"name": "my-vlan-interface", "interface_type": "vlan", "vlan": 4, "allow_interface_to_float": true, "subnet": {"id":"7ec86020-1c6e-4889-b3f0-a15f2e50f87e"}}]' --output JSON
-   ```
-   {: pre}
-
-* For s390x architecture:
-   * Image ID: "zbm-sles15sp3-s390x-v1"
-   * SSH Key ID: "r134-8dd9283b-c0ca-47b9-8239-217d2d9801fc"
-   * Name of the bare metal server: "my-s390x-bare-metal-server"
-   * A primary network interface with the following configurations:
-
-      * Network interface name: "bm-nic-1
-      * Network interface type: "hipersocket"
-      * Subnet ID: "220e-1be7f42a-f2f3-4177-9610-7368389ab971"
-
-   * Profile name: "mz2d-metal-2x64"
-   * Zone: "toronto-1"
-
-   ```sh
-   ibmcloud is bare-metal-server-create --name my-s390x-bare-metal-server --zone toronto-1 --profile mz2d-metal-2x64 --image zbm-sles15sp3-s390x-v1 --keys r134-8dd9283b-c0ca-47b9-8239-217d2d9801fc --pnic-name bm-nic-1 --pnic-interface-type hipersocket --pnic-subnet 220e-1be7f42a-f2f3-4177-9610-7368389ab971 --pnic-ein true  --network-interfaces '[{"name": "bm-nic-2", "allow_ip_spoofing": true, "enable_infrastructure_nat": true, "interface_type": "hipersocket", "subnet":{"id":"220e-1be7f42a-f2f3-4177-9610-7368389ab971"}}]' --output JSON
    ```
    {: pre}
 
