@@ -2,9 +2,10 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-01-27"
 
-keywords:
+lastupdated: "2023-06-20"
+
+keywords: file share, file storage, mount helper, mount target, mount path, secure connection
 
 subcollection: vpc
 
@@ -24,10 +25,9 @@ Use these instructions to connect a z/OS-based {{site.data.keyword.cloud}} Compu
 ## Before you begin
 {: #fs-zos-prereq}
 
-Before you mount {{site.data.keyword.filestorage_vpc_short}} file shares, you must create a [virtual server instance](/docs/vpc?topic=vpc-about-advanced-virtual-servers) in the same zone as the file share. After you create an instance, get the mount path of the file share from the mount target that you created. You need a mount path for mounting file shares.
-
-Mount path information can be obtained from the **File share details** page in the UI, or through an API or CLI call.
-{: tip}
+1. Verify that the [virtual server instance](/docs/vpc?topic=vpc-about-advanced-virtual-servers) where you want to mount the share is in the same zone as the file share. 
+2. Confirm that a mount target for the share exists for the VPC that the instance resides in. If a new mount target is needed, follow the instructions in [Creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create). 
+3. Get the mount path of the file share from the mount target. Mount path information can be obtained from the File share details page in the UI, from the CLI, with the API or Terraform.
 
 ## Mount the file share
 {: #fs-zos-mount-file-share}
@@ -128,6 +128,6 @@ Follow these steps to mount a file share on a z/OS host.
    ```
    {: pre}
 
-   For more information, see [Additional mount command examples](https://www.ibm.com/docs/en/zos/2.4.0?topic=examples-additional-mount-command){: external}.
+   For more information, see [Additional mount command examples](https://www.ibm.com/docs/en/zos/2.5.0?topic=examples-additional-mount-command){: external}.
 
 4. To verify that the file share is successfully mounted to z/OS, you can run command `df` to display the directory `/u/ibmuser/test`.

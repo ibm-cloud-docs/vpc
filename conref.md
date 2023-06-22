@@ -48,7 +48,7 @@ All custom images must meet the following requirements：
 - The minimum size is 10 GB. For any image that is less than 10 GB, the size is rounded up to 10 GB.
 {: #custom-image-requirements-list}
 
-For more information about custom images, see [Getting started with custom images](/docs/vpc?topic=vpc-about-custom-images).
+For more information about custom images, see [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images).
 {: #custom-image-information-link}
 
 To import a a custom image into a private catalog, see [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui).
