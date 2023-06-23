@@ -2,7 +2,8 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-06-16"
+
+lastupdated: "2023-06-22"
 
 keywords:
 
@@ -54,14 +55,7 @@ This tutorial is intended for software developers and system administrators who 
 
 Set up your account to access VPC. Make sure that your account is [upgraded to a paid account](/docs/account?topic=account-accountfaqs#changeacct){: external}.
 
-Make sure that you have an SSH key. The key is used to connect to the virtual server instance. For example, generate an SSH key on your Linux server or Mac system by running the following command:
-
-```sh
-ssh-keygen -t rsa -C "user_ID"
-```
-{: pre}
-
-This command generates two files. The generated public key is in the `id_rsa.pub` file under an ``.ssh`` directory in your home directory, for example, ``/Users/<USERNAME>/.ssh/id_rsa.pub``. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys).
+You can use an existing SSH key, upload a new SSH key, or you can create an SSH key when you create the virtual server instance. For this tutorial, you can either select an existing key or create a new key when you create the virtual server. For more information about uploading an SSH key or creeating an SSH key in {{site.data.keyword.vpc_short}}, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys).
 
 If you plan to create an [application load balancer](/docs/vpc?topic=vpc-load-balancers) and use HTTPs for the listener, an SSL certificate is required. You can manage certificates with [IBM Secrets Manager](/docs/secrets-manager?topic=secrets-manager-getting-started).
 
@@ -162,9 +156,6 @@ To create a virtual server instance in the newly created subnet:
 
     After you create your instance, you can't update the profile.
     {: important}
-
-    _For z/OS Wazi aaS custom image only:_ z/OS VSIs require a minimum profile of 2 vCPUs x 16 GB RAM (2x16). When you select the profile for any z/OS stock images with RAM smaller than 8 GB, you might encounter the `IAR057D` message. For more information, see [IAR057D](https://www.ibm.com/docs/en/zos/2.5.0?topic=messages-iar057d){: external}.
-    {: note}
 
 1. Select an existing SSH key or add an SSH key that is to be used to access the virtual server instance. To add an SSH key, click **Create key** and name the key. After you enter your previously generated public key value, click **Add SSH key**.
 1. _Optional:_ Enter user data to run common configuration tasks when your instance starts. For example, you can specify cloud-init directives or shell scripts for Linux images. For more information, see [User Data](/docs/vpc?topic=vpc-user-data).

@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2023
 
-lastupdated: "2023-05-11"
+lastupdated: "2023-06-22"
 
 keywords:
 
@@ -155,10 +155,10 @@ ibmcloud is subnet-update $subnet --pgw $gateway
 Only one public gateway per zone is allowed in a VPC, but that public gateway can be attached to multiple subnets in the zone. To find the public gateway for a zone, run the `ibmcloud is public-gateways` command and look for the particular VPC and Zone values.
 {: tip}
 
-### Add an SSH key
+### Adding an SSH key
 {: #add-ssh-key-cli}
 
-Add your public SSH key to your {{site.data.keyword.cloud_notm}} account. This key is specified when you create the instance, and it's needed later to log in to the instance. You can use one key to provision multiple instances.
+Add your public SSH key to your {{site.data.keyword.cloud_notm}} account. This key is specified when you create the instance, and you need it later to log in to the instance. You can use one key to provision multiple instances.
 
 To see the available keys in your IBM Cloud account, run this command:
 
@@ -167,14 +167,14 @@ ibmcloud is keys
 ```
 {: pre}
 
-To add a key, run the following command. Substitute the path to your `id_rsa.pub` file.
+To add a key, run the following command. Substitute the path to your SSH key file. For an RSA SSH key, you can use the path to your `id_rsa.pub` file. For an Ed25519 SSH key, you can use the path to your `id_ed25519.pub` file.
 
 ```sh
 ibmcloud is key-create my-key @$HOME/.ssh/id_rsa.pub
 ```
 {: pre}
 
-From the output that's returned, save the ID in a variable so you can use it later, for example:
+From the returned output, save the ID in a variable so you can use it later, for example:
 
 ```sh
 key="0738-859b4e97-7540-4337-9c64-384792b85653"
@@ -634,10 +634,10 @@ curl -X GET "$vpc_api_endpoint/v1/subnets/$subnet/public_gateway?version=$api_ve
 ```
 {: pre}
 
-### Add an SSH key
+### Adding an SSH key
 {: #add-ssh-key-api-tutorial}
 
-Add your public SSH key to your {{site.data.keyword.cloud_notm}} account. This key is specified when you create the instance, and it's needed later to log in to the instance. You can use one key to provision multiple instances.
+Add your public SSH key to your {{site.data.keyword.cloud_notm}} account. This key is specified when you create the instance, and you need it later to log in to the instance. You can use one key to provision multiple instances.
 
 ```bash
 curl -X POST "$vpc_api_endpoint/v1/keys?version=$api_version&generation=2" \
