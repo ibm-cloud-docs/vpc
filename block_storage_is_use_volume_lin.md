@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-02-06"
+lastupdated: "2023-06-26"
 
 keywords: Block storage for VPC, iscsi for VPC, SAN for VPC
 
@@ -46,24 +46,26 @@ Volume `vdb` is your block storage data volume.
 ## Step 2 - Partition the volume
 {: #linux-procedure-partition-volume}
 
-Run the following command to partition the volume.
+1. Run the following command to partition the volume.
 
-```sh
-fdisk /dev/vdb
-```
-{: pre}
+   ```sh
+   fdisk /dev/vdb
+   ```
+   {: pre}
 
-Type the `n` command for a new partition, then `p` for primary partition.
+2. Type the `n` command for a new partition, then `p` for primary partition.
 
-```sh
-Partition type:
-   p   primary (0 primary, 0 extended, 4 free)
-   e   extended
-Select (default p): p
-```
-{: pre}
+   ```sh
+   Partition type:
+      p   primary (0 primary, 0 extended, 4 free)
+      e   extended
+   Select (default p): p
+   ```
+   {: pre}
 
-Complete the prompts to define the partition's first cylinder number and last cylinder number. After the partition is created, run the `w` command to save changes to the partition table. Restart your system to verify the newly created partition.
+3. Complete the prompts to define the partition's first cylinder number and last cylinder number. You can use the default value for the first cylinder number. For the last cylinder, you can either define an absolute value for the last sector or you can define a relative value to the start sector, by using the + symbol followed by the partition size. The size can be specified in kibibytes (K), mebibytes (M), gibibytes (G), tebibytes (T), or pebibytes (P). For example, to set the partition size to 100GiB, enter +100G.
+
+4. After the partition is created, run the `w` command to save changes to the partition table. Restart your system to verify the newly created partition.
 
 ## Step 3 - Format the volume partition
 {: #linux-procedure-format-volume}
