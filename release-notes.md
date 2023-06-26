@@ -34,10 +34,10 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-jun2723}
 {: release-note}
 
-Snapshots for VPC Cross Regional Copy GA:
+Snapshots for VPC Cross Regional Copy (GA)
 :   Customers can now create a copy of a snapshot in a different region, and later use that copy to restore a volume in the new region. This feature can be beneficial in disaster recovery scenarios when the customer needs to start their virtual server instance and data volumes in a different region. Customers can also use the remote copy to create storage volumes in a new region and expand their VPC in new locations. For more information, see [Cross Regional Snapshot copies](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_crossregion_copy).
 
-Backup for VPC Cross Regional Copy GA:
+Backup for VPC Cross Regional Copy (GA)
 :   Customers can now save a copy of their backup in a different region. Customers can copy the backup snapshot to another region manually or add the copy option to their backup policy plans. Customers can manage and use the cross-regional copy in the target region independently from the parent volume or the original backup. For more information, see [Cross Regional backup copies](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-crc).
 
 ### 22 June 2023
