@@ -12,15 +12,15 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Deploying an application on Hyper Protect Virtual Server for VPC
+# Deploying a sample application on Hyper Protect Virtual Server for VPC
 {: #financial-transaction-confidential-computing-on-hyper-protect-virtual-server-for-vpc}
 
-This tutorial walks you through how to deploy the PayNow application with Confidential Computing on Hyper Protect Virtual Server for VPC.  
+This tutorial walks you through the steps to deploy a sample application on Hyper Protect Virtual Server for VPC, which highlights how Confidential Computing can help protect Personally Identifiable Information (PII).
 
 ## Introduction
 {: #hpvs-ftcc-introduction}
 
-Confidential Computing is the protection of data-in-use through a hardware-based technique. By using Confidential Computing on {{site.data.keyword.hpvs}}, you can protect Personally Identifiable Information (PII) and credit card information that is used in financial transactions.
+Confidential Computing is the protection of data-in-use through a hardware-based technique. The sample application "PayNow" obtains and processes PII and credit card information for a financial transaction.
 
 You can provision {{site.data.keyword.hpvs}} with the advantage of [IBM Secure Execution for Linux](https://www.ibm.com/docs/en/linux-on-systems?topic=virtualization-introducing-secure-execution-linux){: external} on IBM Cloud Virtual Private Cloud (VPC) or On-Premises. In this tutorial, we use Hyper Protect Virtual Servers for VPC.
 
