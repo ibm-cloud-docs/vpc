@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-02-24"
+lastupdated: "2023-06-27"
 
-keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, view backup lists,
+keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data, view backup lists,
 
 subcollection: vpc
 
@@ -81,7 +81,7 @@ ibmcloud is backup-policy-jobs POLICY [--volume VOLUME] [--snapshot SNAPSHOT] [-
 ```
 {: pre}
 
-In the first example, the name of the backup policy is used to lists the jobs of that backup policy.
+In the first example, the name of the backup policy is used to list the jobs of that backup policy.
 
 ```sh
 cloudshell:~$ ibmcloud is backup-policy-jobs new-policy-23
@@ -439,6 +439,54 @@ When you view details of a backup job by making a `GET /backup_policies/{backup_
 * `snapshot_pending`: Indicates that backup snapshot in the `pending` [snapshot lifecycle state](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-status) cannot be deleted.
 * `snapshot_volume_limit`: Indicates that the [snapshot limit](/docs/vpc?topic=vpc-snapshots-vpc-faqs&interface=ui#faq-snapshot-3) for the source volume is reached.
 * `source_volume_busy`: Indicates that the source volume is busy after multiple retries.
+
+
+## View backup jobs with Terraform
+{: #backup-view-jobs-terraform}
+{: terraform}
+
+To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
+{: requirement}
+
+VPC infrastructure services use a regional specific based endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the right region in the provider block in the `provider.tf` file.
+
+See the following example of targeting a region other than the default `us-south`.
+
+```terraform
+provider "ibm" {
+  region = "eu-de"
+}
+```
+{: screen}
+
+### View a list of backup jobs with Terraform
+{: #backup-view-jobs-list-terraform}
+
+Import the list of a collection of backup jobs as a read-only data source.
+
+```terraform
+data "ibm_is_backup_policy_jobs" "example" {
+  backup_policy_id = ibm_is_backup_policy.example.id
+}
+```
+{: codeblock}
+
+For more information about the arguments and attributes, see [ibm_is_backup_policy_jobs](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/ibm_is_backup_policy_jobs){: external}.
+
+### View details of a backup job with Terraform
+{: #backup-view-jobs-details-terraform}
+
+Import the details of a backup job as a read-only data source. 
+
+```terraform
+data "ibm_is_backup_policy_job" "example" {
+    backup_policy_id = ibm_is_backup_policy.example.id
+    identifier = "r138-25828175-2b51-4247-ba01-79c538f68282"
+}
+```
+{: codeblock}
+
+For more information about the arguments and attributes, see [ibm_is_backup_policy_job](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/ibm_is_backup_policy_job){: external}.
 
 ## Next steps
 {: #backup-jobs-next-steps}
