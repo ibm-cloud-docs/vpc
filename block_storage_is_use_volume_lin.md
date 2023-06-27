@@ -63,7 +63,7 @@ Volume `vdb` is your block storage data volume.
    ```
    {: pre}
 
-3. Complete the prompts to define the partition's first cylinder number and last cylinder number. You can use the default value for the first cylinder number. For the last cylinder, you can either define an absolute value for the last sector or you can define a relative value to the start sector, by using the + symbol followed by the partition size. The size can be specified in kibibytes (K), mebibytes (M), gibibytes (G), tebibytes (T), or pebibytes (P). For example, to set the partition size to 100GiB, enter +100G.
+3. Complete the prompts to define the partition's first cylinder number and last cylinder number. You can use the default value for the first cylinder number. For the last cylinder, you can either define an absolute value for the last sector or you can define a relative value to the start sector, by using the + symbol followed by the partition size. The size can be specified in kibibytes (K), mebibytes (M), gibibytes (G), tebibytes (T), or pebibytes (P). For example, to set the partition size to 100 GiB, enter +100G.
 
 4. After the partition is created, run the `w` command to save changes to the partition table. Restart your system to verify the newly created partition.
 
