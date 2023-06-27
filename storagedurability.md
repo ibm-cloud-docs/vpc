@@ -15,7 +15,7 @@ subcollection: vpc
 # Availability and Durability of VPC storage
 {: #storageavailability}
 
-In today's fast-paced economy, companies rely on data in their decision-making. They need secure and immediate access to their data on a moment's notice. Data integrity is top priority because compromised or incomplete data is of no use. Not to mention the dangers that are presented if sensitive data goes missing. When you store your data in {{site.data.keyword.block_storage_is_short}} volumes, snapshots, backups, or in {{site.data.keyword.filestorage_vpc_short}} shares, it's durable, highly available, and encrypted.
+In today's fast-paced economy, companies rely on data in their decision-making. They need secure and immediate access to their data on a moment's notice. Data integrity is of high priority because compromised or incomplete data is of no use. Not to mention the dangers that are presented if sensitive data goes missing. When you store your data in {{site.data.keyword.block_storage_is_short}} volumes, snapshots, backups, or in {{site.data.keyword.filestorage_vpc_short}} shares, it's durable, highly available, and encrypted.
 {: shortdesc}
 
 | {{site.data.keyword.block_storage_is_short}} Storage type | Use Case | Durability | Availability | Encryption |
@@ -37,7 +37,7 @@ In today's fast-paced economy, companies rely on data in their decision-making. 
 | custom | Customers can specify capacity between 10 - 16000 MB with IOPS ranging 100 - 48000. | 99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption, Customer-managed encryption |
 {: caption="Table 2. {{site.data.keyword.filetorage_is_short}} Storage durability and availability chart." caption-side="bottom"}
 
-{{site.data.keyword.filestorage_vpc_short}} file shares are encrypted by using provider-managed encryption or customer-managed encryption keys.
+{{site.data.keyword.filestorage_vpc_short}} shares are encrypted by using provider-managed encryption or customer-managed encryption keys.
 
 ## Durability
 {: #stordurability}
