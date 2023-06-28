@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-02-14"
+lastupdated: "2023-06-27"
 
 
 keywords: api, change log, metadata, new features, restrictions, migration, versioned change
@@ -29,7 +29,15 @@ Some changes, such as new response properties or new optional request parameters
 - Consume only the resources and properties your application needs to function
 - Avoid depending on behavior that is not explicitly documented
 
-## 14 February 2022
+## 27 June 2023
+{: #27-june-2023-metadata}
+
+### For all version dates
+{: #27-june-2023-all-version-dates-metadata}
+
+**Extended SSH key encryption.** The `type` property now includes  `ed25519` when [listing](/apidocs/vpc-metadata#list-keys) and [retrieving](/apidocs/vpc-metadata#get-key) public SSH keys. For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys&interface=api). See also [Extended SSH key encryption](/docs/vpc?topic=vpc-api-change-log#27-june-2023) in the VPC API change log.
+
+## 14 February 2023
 {: #14-february-2023-metadata}
 
 ### For all version dates
