@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2023
 
-lastupdated: "2023-06-22"
+lastupdated: "2023-06-29"
 
 keywords:
 
@@ -137,17 +137,16 @@ For more information, see [About access control lists](/docs/vpc?topic=vpc-using
 {: support}
 {: step}
 
-To create a virtual server instance in the newly created subnet:
+To create a virtual server instance in the newly created subnet, use these steps:
 
 1. Click **Compute > Virtual server instances** in the navigation pane and click **Create**.
+1. Select the processor architecture for the virtual server that you want to create. By default, x86 is selected.
+1. Select the type of virtual server that you want to create. By default, Public is selected.
+1. For the **Location**, select the geography, region, and zone in which to create the instance.
 1. Enter a name for the instance, such as `my-instance`.
-1. Select the VPC that you created.
 1. Select a resource group for the instance.
 1. _Optional:_ Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
-1. In the **Location** field, select the zone in which to create the instance.
-1. Select the type of virtual server that you want to create. By default, Public is selected.
-1. Select the processor architecture for the virtual server that you want to create. By default, x86 is selected.
-1. Select an image (that is, operating system and version), such as Debian GNU/Linux, *ibm-debian-11-3-minimal-amd64-1*. Alternatively, you can select a snapshot.
+1. Select an image (that is, operating system and version), such as Debian GNU/Linux, _ibm-debian-11-7-minimal-amd64-1_. Alternatively, you can select a snapshot or an existing volume.
 
     _For z/OS Wazi aaS custom image only:_ If you use the custom image that is created by using Wazi Image Builder, select **Custom image** for the operating system and the image is called `wazi-custom-image` by default.
     {: note}
@@ -157,20 +156,29 @@ To create a virtual server instance in the newly created subnet:
     After you create your instance, you can't update the profile.
     {: important}
 
-1. Select an existing SSH key or add an SSH key that is to be used to access the virtual server instance. To add an SSH key, click **Create key** and name the key. After you enter your previously generated public key value, click **Add SSH key**.
-1. _Optional:_ Enter user data to run common configuration tasks when your instance starts. For example, you can specify cloud-init directives or shell scripts for Linux images. For more information, see [User Data](/docs/vpc?topic=vpc-user-data).
+1. Select an existing SSH key or create an SSH key that is to be used to access the virtual server instance. To create an SSH key, click **Create an SSH key** and name the key. Select **Generate a key pair for me**, click **Save private key**, then **Save public key**. When this action completes, click **Create**.
 1. Note the boot volume. _Auto Delete_ is enabled for the volume; the boot volume is deleted automatically if the instance is deleted.
-1. In the **Data volumes** area, click **Create** to attach a block storage volume to your instance if you want more storage. In this tutorial, we'll create a block storage volume and attach it to the instance later.
+1. In the **Data volumes** area, click **Create** to attach a block storage volume to your instance if you want more storage. In this tutorial, you create a block storage volume and attach it to the instance later.
 
     _For z/OS Wazi aaS custom image only:_ When you create a z/OS virtual server instance with the z/OS Wazi aaS custom image, you need to add a data volume by selecting `Import from Snapshot`. The snapshot is called `wazi-custom-image-data` by default.
     {: note}
+    
+1. For the Virtual Private Cloud in the **Networking** section, select the VPC that you created.
 
 1. In the **Network interfaces** area, you can edit the network interface and change its name. If you have more than one subnet in the selected zone and VPC, you can attach a different subnet to the interface. If you want the instance to exist in multiple subnets, you can create more interfaces.
 
-    Each interface has a maximum network bandwidth of 16 Gbps. If the profile you selected for this instance has a maximum network bandwidth greater than 16 Gbps, you might want to create more interfaces to optimize network performance. For more information, see [Network performance notes for profiles](/docs/vpc?topic=vpc-profiles#network-perf-notes-for-profiles).
+   Each interface has a maximum network bandwidth of 16 Gbps. If the profile you selected for this instance has a maximum network bandwidth greater than 16 Gbps, you might want to create more interfaces to optimize network performance. For more information, see [Network performance notes for profiles](/docs/vpc?topic=vpc-profiles#network-perf-notes-for-profiles).
    {: tip}
 
-    You can also select which security groups to attach to each interface. By default, the VPC's default security group is attached. The default security group allows inbound SSH and ping traffic, all outbound traffic, and all traffic between instances in the group. All other traffic is blocked; you can configure rules to allow more traffic. If you later edit the rules of the default security group, those updated rules will apply to all current and future instances in the group.
+   You can also select which security groups to attach to each interface. By default, the VPC's default security group is attached. The default security group allows inbound SSH and ping traffic, all outbound traffic, and all traffic between instances in the group. All other traffic is blocked; you can configure rules to allow more traffic. If you later edit the rules of the default security group, those updated rules will apply to all current and future instances in the group.
+
+1. _Optional:_ In the Advanced options section, you can enter user data to run common configuration tasks when your instance starts. For example, you can specify cloud-init directives or shell scripts for Linux images. For more information, see [User Data](/docs/vpc?topic=vpc-user-data).
+
+1. The **Metadata** setting is disabled by default. When the metadata service is enabled, the instance collects instance configuration information and user data. For more information, see [About instance metadata for VPC](/docs/vpc?topic=vpc-imd-about). Metadata isn't supported for {{site.data.keyword.cloud}} Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instances and z/OS virtual server instances.
+
+1. The **Host failure auto restart** setting is enabled by default. To disable host failure auto restart, click the toggle. For more information, see [Host failure recovery policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=ui). 
+
+1. _Optional:_ To **Add instance to a placement group**, click the toggle to enable placement groups. Then, select or create a placement group for the instance. If you add a placement group, the instance is placed according to the placement group policy. For more information, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc).
 
 1. Click **Create virtual server instance**. The status of the instance starts as _Pending_, changes to _Stopped_, and then _Running_. You might need to refresh the page to see the change in status.
 
