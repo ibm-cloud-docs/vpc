@@ -11,6 +11,7 @@ subcollection: vpc
 ---
 
 {{site.data.keyword.attribute-definition-list}}
+
 # Creating a z/OS Wazi aaS custom image
 {: #create-zos-custom-image}
 
