@@ -473,14 +473,6 @@ toc:
                 - block_storage_vpc_resize_boot_volume.md
                 - block_storage_vpc_adjustable_iops.md
         - topicgroup:
-            label: Block storage Acadia platform - Experimental
-            topics:
-            - block_storage_acadia_about.md
-            - block_storage_acadia_getting_started.md
-            - block_storage_acadia_troubleshoot_known_issues.md
-            - block_storage_acadia_support.md
-            - block_storage_acadia_faq.md
-        - topicgroup:
             label: Snapshots
             topics:
             - snapshots_vpc_planning.md
