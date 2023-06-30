@@ -63,7 +63,7 @@ If you are using your z/OS Wazi aaS custom images, you do not need to configure 
 
 2. Use the `tsocmd` command to configure password phrases for the z/OS instance. Replace `YOUR PASSWORD PHRASE` with your own password phrase.
 
-   ```bash
+   ```sh
    tsocmd "ALTUSER IBMUSER PHRASE('YOUR PASSWORD PHRASE') NOEXPIRE RESUME"
    ```
    {: codeblock}
@@ -134,21 +134,21 @@ If you want to import the CA certificate by using IBM Host On-Demand, run the fo
 
 1. Download the certificate file from the z/OS system.
    
-    ```
+    ```sh
     scp ibmuser@<vsi ip address>:/u/ibmuser/common_cacert ./Downloads/common_cacert
     ```
     {: codeblock}
 
 2. Import the downloaded certificate. Use a recognizable alias.
    
-    ```
+    ```sh
     keytool -importcert -alias <alias> -file ./Downloads/common_cacert -keystore /Applications/HostOnDemand/lib/CustomizedCAs.jks -storepass hodpwd 
     ```
     {: codeblock}
 
 3. Check what certificates have been imported.
    
-    ```
+    ```sh
     keytool -list -keystore /Applications/HostOnDemand/lib/CustomizedCAs.jks -storepass hodpwd
     ```
     {: codeblock}
