@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-06-27"
+lastupdated: "2023-06-30"
 
 keywords: Block storage for VPC, iscsi for VPC, SAN for VPC
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Set up your {{site.data.keyword.block_storage_is_short}} data volume for use (Linux)
+# Setting up your {{site.data.keyword.block_storage_is_short}} data volume for use (Linux)
 {: #start-using-your-block-storage-data-volume-lin}
 
 If you want to use your {{site.data.keyword.block_storage_is_full}} volume as a file system, you need to partition the volume, format it, and then mount it as a file system. You can perform this operation after you created a {{site.data.keyword.block_storage_is_short}} volume and attached it to an instance.
@@ -20,7 +20,7 @@ If you want to use your {{site.data.keyword.block_storage_is_full}} volume as a 
 
 Follow this procedure to use your block storage volume on a Linux&reg; system.
 
-## Step 1 - List all storage volumes
+## Step 1 - Listing all storage volumes
 {: #linux-procedure-list-volumes}
 
 Run the following command to list all {{site.data.keyword.block_storage_is_short}} volumes from your instance.
@@ -43,7 +43,7 @@ vdb    202:32   0  100G  0 disk
 
 Volume `vdb` is your block storage data volume.
 
-## Step 2 - Partition the volume
+## Step 2 - Partitioning the volume
 {: #linux-procedure-partition-volume}
 
 1. Run the following command to partition the volume.
@@ -67,7 +67,7 @@ Volume `vdb` is your block storage data volume.
 
 4. After the partition is created, run the `w` command to save changes to the partition table. Restart your system to verify the newly created partition.
 
-## Step 3 - Format the volume partition
+## Step 3 - Formatting the volume partition
 {: #linux-procedure-format-volume}
 
 ```sh
@@ -82,7 +82,7 @@ fdisk -s /dev/vdb1
 ```
 {: pre}
 
-## Step 4 - Update the file systems table
+## Step 4 - Updating the file systems table
 {: #linux-procedure-update-fstab}
 
 Update `/etc/fstab`.
@@ -100,7 +100,7 @@ disk_partition=/dev/vdb1
 ```
 {: codeblock}
 
-## Step 5 - Create a directory
+## Step 5 - Creating a directory
 {: #linux-procedure-mkdir}
 
 ```sh
@@ -109,7 +109,7 @@ mount /dev/vda /myvolumedir
 ```
 {: pre}
 
-## Step 6 - Mount the volume as a file system
+## Step 6 - Mounting the volume as a file system
 {: #linux-procedure-mount-volume}
 
 ```sh
@@ -117,7 +117,7 @@ mount /dev/vdb1 /myvolumedir
 ```
 {: pre}
 
-## Step 7 - Access and use the new file system
+## Step 7 - Accessing the new file system
 {: #linux-procedure-use-file system}
 
 To see your new file system, run the following command.

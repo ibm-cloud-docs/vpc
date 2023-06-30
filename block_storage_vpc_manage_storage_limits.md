@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-06-27"
+lastupdated: "2023-06-30"
 
 keywords: volume, capacity, block storage
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Managing volume count and capacity limits
 {: #manage-storage-limit}
 
-{{site.data.keyword.block_storage_is_short}} offers block-level data storage volumes that can be attached to an instance as either a boot volume or as a data volume. Answer the following questions when you're ordering block storage volumes or requesting an increase in your volume or capacity limits.
+{{site.data.keyword.block_storage_is_short}} offers block-level data storage volumes that can be attached to an instance as either a boot volume or as a data volume. Answer the following questions when you're ordering block storage volumes or requesting an increase in your volume or capacity limits. 
 {: shortdesc}
 
 ## Overview

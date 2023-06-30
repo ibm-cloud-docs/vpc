@@ -308,7 +308,7 @@ The following example creates a backup plan for an existing policy, which is ide
 
 ```sh
 cloudshell:~$ ibmcloud is backup-policy-plan-create my-backup-policy-v1  --attach-tags dev:test --copy-tags true --cron-spec '05 01 * * *' --delete-after 80 --name not-just-another-plan
-Creating plan not-just-another-plan of backup policy my-backup-policy-v1 under account Test Account as user test.userd@ibm.com...
+Creating plan not-just-another-plan of backup policy my-backup-policy-v1 under account Test Account as user test.user@ibm.com...
 
 ID                   r138-4d77d84c-929c-49e9-9f05-952be9486406
 Name                 not-just-another-plan

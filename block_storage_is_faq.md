@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-02-07"
+lastupdated: "2023-06-30"
 
 keywords: faqs, block storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -130,7 +130,7 @@ You can delete a {{site.data.keyword.block_storage_is_short}} data volume only w
 
 When you delete a {{site.data.keyword.block_storage_is_short}} volume, your data immediately becomes inaccessible. All pointers to the data on that volume are removed. The inaccessible data is eventually overwritten as new data is written to the data block. IBM guarantees that data deleted cannot be accessed and that deleted data is eventually overwritten. For more information, see [{{site.data.keyword.block_storage_is_short}} data eradication](/docs/vpc?topic=vpc-managing-block-storage#block-storage-data-eradication).
 
-### I have compliance requirements. What can I do to ensure that my data is inaccessible?
+### I have compliance requirements for data deletion. What can I do to ensure that my data is inaccessible?
 {: faq}
 {: #faq-block-storage-nist}
 
@@ -226,7 +226,7 @@ Data storage contention is a common issue when multiple instances compete for ac
 {: faq}
 {: #faq-block-storage-healthstate}
 
-Volume health state defines whether a volume is performing as expected, given its status. Volume health can be OK, degraded, inapplicable, or faulted, depending on what is happening. For example, a degraded status is displayed when a volume is being restored from a snapshot and the volume is not yet fully restored. For more information about volume health states, see [{{site.data.keyword.block_storage_is_short}} volume health states](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#block-storage-vpc-health-states).
+Volume health state defines whether a volume is performing as expected, given its status. Volume health can be OK, degraded, inapplicable, or faulted, depending on what is happening. For example, a degraded status is displayed when a volume is being restored from a snapshot and the volume is not yet fully restored. For more information about volume health states, see [{{site.data.keyword.block_storage_is_short}} volume health states](/docs/vpc?topic=vpc-block-storage-vpc-monitoring#block-storage-vpc-health-states).
 
 ## Data security and encryption questions
 {: #block-storage-vpc-security-questions}
@@ -307,7 +307,7 @@ When you rotate a root key, a new version of the key is created by generating or
 
 You are not charged extra for creating volumes with customer-managed encryption. However, setting up a {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} instance to import, create, and manage your root keys is not without cost. Contact your IBM customer service representative for details.
 
-### What's the difference between using Key Protect as my KMS compared to HPCS? When would I use one over the other?
+### What's the difference between using {{site.data.keyword.keymanagementserviceshort}} as my KMS compared to {{site.data.keyword.hscrypto}}? When would I use one over the other?
 {: faq}
 {: #faq-block-storage-28}
 
@@ -318,3 +318,9 @@ Both key management systems provide you complete control over your data, managed
 {: #faq-block-storage-29}
 
 No, after you provision a volume and specify the encryption type, you can't change it.
+
+## Is there a way to copy the block storage volume to a different zone?
+{: faq}
+{: #faq-block-storage-30}
+
+No. You can't copy the storage volume to a different zone. However, you can create a copy of a snaphot of a volume in a different zone, and restore a volume from that snapshot.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-01-27"
+lastupdated: "2023-06-30"
 
 keywords: block storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -15,8 +15,10 @@ subcollection: vpc
 # Increasing block storage volume capacity
 {: #expanding-block-storage-volumes}
 
-After you provisioned a {{site.data.keyword.block_storage_is_short}} data volume and attach it to a virtual server instance, you can increase its volume size in the UI, from the CLI, or with the API.
+After you provisioned a {{site.data.keyword.block_storage_is_short}} data volume and attached it to a virtual server instance, you can increase its volume size in the UI, from the CLI, with the API or Terraform. 
 {: shortdesc}
+
+You can't change the volume to a smaller size after you expand its capacity. However, if your requirements change, you can expand the same volume again up to the maximum capacity that's available for its profile.
 
 ## Expand block storage volumes in the UI
 {: #expand-vpc-volumes-ui}
@@ -47,62 +49,121 @@ Follow these steps to expand volume capacity:
 
 Your new block storage allocation is available in a few minutes.
 
-You can't change the volume to a smaller size after you expand its capacity. If your requirements change, you can expand the same volume again.
-{: note}
-
 ## Expand block storage volumes from the CLI
 {: #expand-vpc-volumes-cli}
 {: cli}
 
-From the CLI, use the `volume-update` command with the `--capacity` parameter to indicate the new size of the volume in GBs.
+### Before you begin
+{: #expand-vpc-volumes-cli-prereq}
 
-```zsh
+Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
+{: requirement}
+
+1. Log in to the IBM Cloud.
+   ```sh
+   ibmcloud login --sso -a cloud.ibm.com
+   ```
+   {: pre}
+
+   This command returns a URL and prompts for a passcode. Go to that URL in your browser and log in. If successful, you get a one-time passcode. Copy this passcode and paste it as a response on the prompt. After successful authentication, you are prompted to choose your account. If you have access to multiple accounts, select the account that you want to log in as. Respond to any remaining prompts to finish logging in.
+
+2. Select the current generation of VPC. 
+   ```sh
+   ibmcloud is target --gen 2
+   ```
+   {: pre}
+
+### Expand volume capacity from the CLI
+{: #expand-vol-capacity-cli}
+
+From the CLI, use the `ibmcloud is volume-update` command with the `--capacity` option to indicate the new size of the volume in GBs.
+
+```sh
 ibmcloud is volume-update VOLUME_ID --capacity CAPACITY_GB
 ```
 {: pre}
 
-This example expands the capacity of a volume that is created from a 5 IOPS/GB tier profile to the maximum size for that profile.
+The following example expands the capacity of a `general-purpose` volume to 8,000 MB.
 
-```bash
-$ ibmcloud is volume-update 933c8781-f7f5-4a8f-8a2d-3bfc711788ee --capacity 9600
-Updating volume 933c8781-f7f5-4a8f-8a2d-3bfc711788ee under account MyAccount 01 as user user1@mycompany.com...
-ID                                      0738-933c8781-f7f5-4a8f-8a2d-3bfc711788ee
-Name                                    demo-volume-update
-Capacity                                9600
-IOPS                                    1000
-Profile                                 5iops-tier
-Encryption Key                          -
-Encryption                              provider managed
-Status                                  available
-Created                                 2022-02-25 10:09:28
-Resource Group                          Default(c16d1edde3fd4a71a0130aed371405a0)
-Zone                                    us-south-2
-Resource Group                          Default(c16d1edde3fd4a71a0130aed371405a0)
-Volume Attachment Instance Reference    Vdisk Name    	Vdisk ID
-					Vdisk Type   	Auto Delete
-                                        Vdisk-data1  	0738-fd146b1f-e1bb-4eab-ba78-3109e6bc3a2d
-					data         	true
-    					Instance Name   Instance ID
-       					vsi-test1       0738-8b56da93-7990-4ccf-9dc5-5aee6a5f08f9
+```sh
+$ ibmcloud is volume-update demo-volume-update --capacity 8000
+Updating volume demo-volume-update under account Test Account as user test.user@ibm.com...
+                                          
+ID                                     r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   
+Name                                   demo-volume-update   
+CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a10d63fa66daffc9b9b5286ce1533080::volume:r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   
+Status                                 updating   
+Attachment state                       attached   
+Capacity                               100   
+IOPS                                   3000   
+Bandwidth(Mbps)                        3145   
+Profile                                general-purpose   
+Encryption key                         -   
+Encryption                             provider_managed   
+Resource group                         defaults   
+Created                                2023-06-29T16:14:59+00:00   
+Zone                                   us-east-1   
+Health State                           ok   
+Volume Attachment Instance Reference   Attachment type   Instance ID                                 Instance name   Auto delete   Attachment ID                               Attachment name      
+                                       data              0757_11f5db7f-35a1-4678-bcbd-c85204e09507   kj-test-ro      false         0757-4dfc4384-c4b5-497e-bab3-6415f9c4d44b   otp      
+                                          
+Active                                 true   
+Unattached capacity update supported   false   
+Unattached iops update supported       false   
+Busy                                   false   
+Tags                                   -
 ```
 {: screen}
+
+When the update operation completes, run the `ibmcloud is volume` command to see the updated properties of the volume.
+
+```sh
+$ ibmcloud is volume demo-volume-update
+Getting volume demo-volume-update under account Test Account as user test.user@ibm.com...
+                                          
+ID                                     r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   
+Name                                   demo-volume-update   
+CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a10d63fa66daffc9b9b5286ce1533080::volume:r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   
+Status                                 available   
+Attachment state                       attached   
+Capacity                               8000   
+IOPS                                   24000   
+Bandwidth(Mbps)                        3145   
+Profile                                general-purpose   
+Encryption key                         -   
+Encryption                             provider_managed   
+Resource group                         defaults   
+Created                                2023-06-29T16:14:59+00:00   
+Zone                                   us-east-1   
+Health State                           ok   
+Volume Attachment Instance Reference   Attachment type   Instance ID                                 Instance name   Auto delete   Attachment ID                               Attachment name      
+                                       data              0757_11f5db7f-35a1-4678-bcbd-c85204e09507   kj-test-ro      false         0757-4dfc4384-c4b5-497e-bab3-6415f9c4d44b   otp      
+                                          
+Active                                 true   
+Unattached capacity update supported   false   
+Unattached iops update supported       false   
+Busy                                   false   
+Tags                                   -   
+       					vsi-test1       0738-8b56da93-7990-4ccf-9dc5-5aee6a5f08f9
+```
+{: codeblock}
+
+For more information about available command options, see [`ibmcloud is volume-update`](/docs/cli?topic=cli-vpc-reference#volume-update).
 
 ## Expand block storage volumes with the API
 {: #expand-vpc-volumes-api}
 {: api}
 
-You can expand existing data volumes by calling the Virtual Private Cloud (VPC) API.
-
-Make a `PATCH /volumes` request to increase the capacity of a volume that is attached to an instance.
+You can expand existing data volumes by calling the Virtual Private Cloud (VPC) API. Make a `PATCH /volumes` request to increase the capacity of a volume that is attached to an instance.
 
 You can't update the name of the volume and expand capacity in the same `PATCH /volumes` request. Make two separate `PATCH/volumes` requests.
 {: note}
 
-This example call expands a volume with a capacity of 50 GB to 250 GB.
+This example request expands a volume with a capacity of 50 GB to 250 GB.
 
-```curl
+```sh
 curl -X PATCH \
- "$vpc_api_endpoint/v1/volumes/$volume_id?version=2022-02-25&generation=2" \
+ "$vpc_api_endpoint/v1/volumes/$volume_id?version=2022-02-25&generation=2"\
  -H "Authorization: $iam_token" \
  -d '{
       "capacity": 250
@@ -126,7 +187,7 @@ The volume status shows `updating` while the volume is being expanded. The curre
     .
 }
 ```
-{: codeblock}
+{: screen}
 
 When the volume expansion completes, the new value displays, and the volume status is `available`.
 
@@ -159,7 +220,7 @@ When the volume expansion completes, the new value displays, and the volume stat
 		"id": "<4cbb38bc-57d5-4121-a796-d5b10cf0810aAttachment ID>",
 		"instance": {
 			"crn": "crn:[...]",
-			"href": "https://us-south.iaas.cloud.ibm.com/v1/instances/8f06378c-ed0e-481e-b98c-9a6dfbee1ed5,
+			"href": "https://us-south.iaas.cloud.ibm.com/v1/instances/8f06378c-ed0e-481e-b98c-9a6dfbee1ed5",
 			"id": "8f06378c-ed0e-481e-b98c-9a6dfbee1ed5",
 			"name": "my-instance-1"
 		},
@@ -172,7 +233,25 @@ When the volume expansion completes, the new value displays, and the volume stat
 	}
 }
 ```
+{: screen}
+
+## Expand block storage volumes with Terraform
+{: #expand-vpc-volumes-terraform}
+{: terraform}
+
+To increase the capacity of a volume, use the `ibm_is_volume` resource. When applied, the following example updates the capacity to 8,000 GB.
+
+```terraform
+resource "ibm_is_volume" "storage" {
+  name    = "demo-volume-update"
+  size    = 8000
+  profile = "general-purpose"
+  zone    = "us-south-2"
+}
+```
 {: codeblock}
+
+For more information about the arguments and attributes, see [ibm_is_volume](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_volume){: external}.
 
 ## Next steps
 {: #next-step-expandable-volumes}

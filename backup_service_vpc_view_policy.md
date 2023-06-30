@@ -167,7 +167,7 @@ The following example produces a list of backup policies that have the `dev:test
 
 ```text
 cloudshell:~$ ibmcloud is backup-policies --tag dev:test
-Listing backup policies in all resource groups and region eu-de under account Test Account as user test.userd@ibm.com...
+Listing backup policies in all resource groups and region eu-de under account Test Account as user test.user@ibm.com...
 ID                                          Name                  Status   Resource group
 r138-0521986d-963c-4c18-992d-d6a7a99d115f   backup-policy-v1      stable   defaults
 r138-8c494618-9e4f-4b67-9a08-ee3491404f3b   my-backup-policy-v1   stable   defaults
@@ -361,7 +361,7 @@ The following example specifies the policy and the plan name.
 
 ```sh
 cloudshell:~$ ibmcloud is backup-policy-plan backup-policy-v1 my-policy-plan-a
-Getting plan my-policy-plan-a under account Test Account as user test.userd@ibm.com...
+Getting plan my-policy-plan-a under account Test Account as user test.user@ibm.com...
 
 ID                   r138-2129a79a-5629-4069-bf79-7bb0af3b0bd3
 Name                 my-policy-plan-a

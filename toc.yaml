@@ -458,18 +458,19 @@ toc:
             label: Block storage volumes
             topics:
             - block_storage_is_create.md
-            - block_storage_is_attach.md
-            - block_storage_is_view.md
-            - block_storage_is_manage.md
             - block_storage_vpc_manage_storage_limits.md
-            - modifying-the-linux-os-expanded-boot-volume.md
+            - block_storage_is_attach.md
             - block_storage_is_use_volume_lin.md
             - block_storage_is_use_volume_win.md
+            - block_storage_is_view.md
+            - block_storage_is_manage.md
+            - block_storage_vpc_monitoring.md
             - topicgroup:
                 label: Modifying volume capacity and IOPS
                 topics:
                 - block_storage_vpc_expand_vol_about.md
                 - block_storage_vpc_expandable_volumes.md
+                - modifying-the-linux-os-expanded-boot-volume.md
                 - block_storage_vpc_resize_boot_volume.md
                 - block_storage_vpc_adjustable_iops.md
         - topicgroup:

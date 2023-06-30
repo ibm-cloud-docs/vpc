@@ -180,7 +180,7 @@ The status shows `pending` while the snapshot is created. Issue the `ibmcloud is
 
 ```sh
 cloudshell:~$ ibmcloud is snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146
-Getting snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 under account Test Account as user test.userd@ibm.com...
+Getting snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 under account Test Account as user test.user@ibm.com...
 
 ID                     r138-4463eb2c-4913-43b1-b9bf-62a94f74c146
 Name                   cli-snapshot-test

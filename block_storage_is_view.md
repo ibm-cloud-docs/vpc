@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-02-08"
+lastupdated: "2023-06-30"
 
 keywords:
 
@@ -18,13 +18,13 @@ subcollection: vpc
 View details about a {{site.data.keyword.block_storage_is_short}} volume or summary information about all volumes.
 {: shortdesc}
 
-## View information about {{site.data.keyword.block_storage_is_short}} volumes in the UI
+## Viewing information about {{site.data.keyword.block_storage_is_short}} volumes in the UI
 {: #viewvols}
 {: ui}
 
 List all {{site.data.keyword.block_storage_is_short}} volumes and view details for a single volume. View attached {{site.data.keyword.block_storage_is_short}} volume details in instance details. View all snapshots that were created from the {{site.data.keyword.block_storage_is_short}} volume.
 
-### View information about all {{site.data.keyword.block_storage_is_short}} volumes in the UI
+### Viewing information about all {{site.data.keyword.block_storage_is_short}} volumes in the UI
 {: #viewvols-ui}
 
 Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to the **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
@@ -40,7 +40,7 @@ By default, {{site.data.keyword.block_storage_is_short}} volumes display for all
 | Size | Size of the volume you specified, in GBs.|
 | Attachment type | Data, for a secondary volume attached to an instance, boot when attached as a boot volume, or blank for an unattached volume.|
 | Health | Health monitors the overall health of the volume, such as I/O performance and data consistency. Volume health statuses are `OK` or `degraded`. Volumes in a degraded state have degraded performance, capacity, or experience connection problems. Volumes being restored from a snapshot also show a degraded state. The service displays a possible reason for the degraded state so that you can resolve any issues. For more information, see [{{site.data.keyword.block_storage_is_short}} volume health states](/docs/vpc?topic=vpc-managing-block-storage#block-storage-vpc-health-states). |
-| Encryption | Encryption with IBM-managed keys is enabled by default on all volumes. You can also use your own root keys in a Key Protect or HPCS instance to protect your data. For more information, see [Creating {{site.data.keyword.block_storage_is_short}} volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption). |
+| Encryption | Encryption with IBM-managed keys is enabled by default on all volumes. You can also use your own root keys in a {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} instance to protect your data. For more information, see [Creating {{site.data.keyword.block_storage_is_short}} volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption). |
 | Tags | Number of user tags that are applied to the volume. Click the number in this column to view or edit the tags in the new window. If no tags were applied to the volume, click **Add tags** and add them in the new window. User tags can associate the volume with a [backup policy](/docs/vpc?topic=vpc-backup-about) for creating backups of the volume. For more information, see [Add tags to {{site.data.keyword.block_storage_is_short}} volumes for backup policies](https://test.cloud.ibm.com/docs/vpc?topic=vpc-managing-block-storage&interface=ui#block-storage-add-tags).
 | Actions (...) | Click the icon (...) to display a menu of context-specific actions you can take. For example, an available, unattached volume would have menu options for attaching to an instance, renaming, and deleting the volume. An attached volume would allow for unattaching the volume from an instance and creating an [image from the volume](/docs/vpc?topic=vpc-image-from-volume-vpc).|
 {: caption="Table 1. Details about all volumes" caption-side="bottom"}
@@ -61,7 +61,7 @@ Actions menu selections change, depending on whether the volume is a boot volume
 | | Delete. | Delete the unattached volume. |
 {: caption="Table 2. Actions menu options for volumes." caption-side="bottom"}
 
-### View details about a {{site.data.keyword.block_storage_is_short}} volume
+### Viewing details about a {{site.data.keyword.block_storage_is_short}} volume
 {: #view-vol-details-ui}
 
 To view details about a {{site.data.keyword.block_storage_is_short}} volume, go to the list of all {{site.data.keyword.block_storage_is_short}} volumes and select a volume. By default, the Overview tab is selected for volume details. Click the **Snapshots and Backups** tab to view a list of snapshots that were created manually or by a backup policy.
@@ -86,7 +86,7 @@ The {{site.data.keyword.block_storage_is_short}} volumes details page shows volu
 | Profile | [IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) or [custom IOPS](/docs/vpc?topic=vpc-block-storage-profiles#custom) profile. Click the icon to [adjust IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops) by selecting a different profile. |
 | Max IOPS | Maximum IOPS value for a predefined IOPS tier or the value you specified for custom IOPS. |
 | Throughput | The performance a disk can deliver, measured in Gigabits/second (Gbps). Based on your volume profile, throughput is calculated as the amount of IOPS * 16 K block size.|
-| Encryption | Encryption with IBM-managed keys is enabled by default on all volumes. You can also use your own root keys to protect your data. The Encryption field shows the name of the key management service (KMS) you provisioned (for example, Key Protect) and **customer-managed**. For more information, see [Creating {{site.data.keyword.block_storage_is_short}} volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption).|
+| Encryption | Encryption with IBM-managed keys is enabled by default on all volumes. You can also use your own root keys to protect your data. The Encryption field shows the name of the key management service (KMS) you provisioned (for example, {{site.data.keyword.keymanagementserviceshort}}) and **customer-managed**. For more information, see [Creating {{site.data.keyword.block_storage_is_short}} volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption).|
 | Encryption Instance | _Optional._ A link to the provisioned KMS instance for a customer-managed encryption volume. |
 | Key | _Optional._ The name and copiable ID of the root key that is used to encrypt the passphrase, which secures a customer-managed encryption volume. |
 | Backup policies | The number of backup policies that are associated with the volume. Click the number link to go to the backup policies tab. |
@@ -109,7 +109,7 @@ Table 4 shows Actions menu options from the volume details page.
 | Delete | [Delete](/docs/vpc?topic=vpc-managing-block-storage#delete) the volume. You must first detach the volume from an instance before you attempt to delete it. |
 {: caption="Table 4. Actions menu options one the volume details page." caption-side="bottom"}
 
-### View attached {{site.data.keyword.block_storage_is_short}} volume details in instance details
+### Viewing attached {{site.data.keyword.block_storage_is_short}} volume details in instance details
 {: #view-vol-details-instance-ui}
 
 You can view information about an attached {{site.data.keyword.block_storage_is_short}} volume from the **Virtual server instance details** page:
@@ -118,7 +118,7 @@ You can view information about an attached {{site.data.keyword.block_storage_is_
 
 2. Under **Attached block storage volumes**, click the name of a volume to go to the volume details page.
 
-### View all snapshots that were created from the {{site.data.keyword.block_storage_is_short}} volume
+### Viewing all snapshots that were created from the {{site.data.keyword.block_storage_is_short}} volume
 {: #view-snapshots-for-volume}
 
 If you created snapshots of a {{site.data.keyword.block_storage_is_short}} boot or data volume, you can see the snapshots on the volume details page.
@@ -135,7 +135,7 @@ You can see details for a snapshot, create a new snapshot, and manage snapshots 
 * [Create a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view-snapshot-ui).
 * [Delete all snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-delete-all-ui).
 
-### View all backup policies associated with a volume
+### Viewing all backup policies associated with a volume
 {: #view-backup-policies-for-volume}
 
 View all backup policies associated with a {{site.data.keyword.block_storage_is_short}} volume. All policies that have the user tag that is applied to this volume are listed. To add volumes to a policy, add user tags to the volume that are in the backup policy's tags for target resources. When you remove tags from a volume that are in a backup policy, the volume is no longer be backed up.
@@ -161,141 +161,104 @@ View all backup policies associated with a {{site.data.keyword.block_storage_is_
 
 View details about a {{site.data.keyword.block_storage_is_short}} volume or summary information about all volumes from the CLI.
 
-Before you begin, [install the IBM Cloud CLI and VPC CLI plug-in](/docs/vpc?topic=vpc-creating-block-storage#before-creating-block-storage-cli).
+Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
+{: requirement}
 
-### View details about a {{site.data.keyword.block_storage_is_short}} volume from the CLI
+1. Log in to the IBM Cloud.
+   ```sh
+   ibmcloud login --sso -a cloud.ibm.com
+   ```
+   {: pre}
+
+   This command returns a URL and prompts for a passcode. Go to that URL in your browser and log in. If successful, you get a one-time passcode. Copy this passcode and paste it as a response on the prompt. After successful authentication, you are prompted to choose your account. If you have access to multiple accounts, select the account that you want to log in as. Respond to any remaining prompts to finish logging in.
+
+2. Select the current generation of VPC. 
+   ```sh
+   ibmcloud is target --gen 2
+   ```
+   {: pre}
+
+### Viewing details about a {{site.data.keyword.block_storage_is_short}} volume from the CLI
 {: #viewvol-cli}
 
 Specify this command to show details about a volume.
 
-```zsh
+```sh
 ibmcloud is volume VOLUME_ID [--json]
 ```
 {: pre}
 
 The following example uses the volume ID to show volume details.
 
-```bash
-$ ibmcloud is volume 933c8781-f7f5-4a8f-8a2d-3bfc711788ee
-Getting volume 933c8781-f7f5-4a8f-8a2d-3bfc711788ee under account MyAccount01 as user user1@mycompany.com...
-ID                                     933c8781-f7f5-4a8f-8a2d-3bfc711788ee
-Name                                   volume-1
-CRN                                    crn:v1:staging:public:is:us-south-1/572d5264-ce30-4fa9-9172-75b1c8d1605e::volume:933c8781-f7f5-4a8f-8a2d-3bfc711788ee
-Status                                 available
-Capacity                               100
-IOPS                                   3000
-Bandwidth(Mbps)                        393
-Profile                                general-purpose
-Encryption key                         -
-Encryption                             provider_managed
-Resource group                         Default
-Created                                2022-12-12T10:10:57+05:30
-Zone                                   us-south-1
-Attachment State                       unattached
-Health State                           OK
-Health Reason                          -
-Volume Attachment Instance Reference   -
-Active                                 false
-Busy                                   false
-Tags                                   dev:test
+```sh
+$ ibmcloud is volume demo-volume-update
+Getting volume demo-volume-update under account Test Account as user test.user@ibm.com...
+                                          
+ID                                     r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   
+Name                                   demo-volume-update   
+CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a10d63fa66daffc9b9b5286ce1533080::volume:r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   
+Status                                 available   
+Attachment state                       attached   
+Capacity                               100   
+IOPS                                   3000   
+Bandwidth(Mbps)                        393   
+Profile                                general-purpose   
+Encryption key                         -   
+Encryption                             provider_managed   
+Resource group                         defaults   
+Created                                2023-06-29T16:14:59+00:00   
+Zone                                   us-east-1   
+Health State                           ok   
+Volume Attachment Instance Reference   Attachment type   Instance ID                                 Instance name   Auto delete   Attachment ID                               Attachment name      
+                                       data              0757_11f5db7f-35a1-4678-bcbd-c85204e09507   kj-test-ro      false         0757-4dfc4384-c4b5-497e-bab3-6415f9c4d44b   otp      
+                                          
+Active                                 true   
+Unattached capacity update supported   false   
+Unattached iops update supported       false   
+Busy                                   false   
+Tags                                   -  
 ```
 {: screen}
 
-If your volume is attached to a virtual server instance, the name and ID of the volume attachment and instance is also displayed.
+In the example, the volume is attached to a virtual server instance, so the named and IDd of the volume attachment and instance are also displayed in the command output. The Active property is `true` because the virtual server instance to which the volume is attached is running. The `busy` property with the value `false` indicates that this volume is not performing an operation that must be serialized.
 
-### View all {{site.data.keyword.block_storage_is_short}} volumes from the CLI
+For more information about available command options, see [`ibmcloud is volume`](/docs/cli?topic=cli-vpc-reference#volume).
+
+### Viewing all {{site.data.keyword.block_storage_is_short}} volumes from the CLI
 {: #viewall-vol-cli}
 
 Run this command to list summary information about all volumes:
 
-```zsh
+```sh
 ibmcloud is volumes [--json]
 ```
 {: pre}
 
-The following example shows all volumes for all resource groups in your availability zone.
-
-```bash
-$ ibmcloud is volumes
-Listing volumes under account MyAccount 01 as user user1@mycompany.com...
-ID                                     Name              Capacity   IOPS   Auto Delete   Encryption        Profile         Created               Status      Zone         Resource Group
-0738-a3f4d60a-c9cf-4666-9a2a-0b1d85f92c19   demo_volume1      50         10     Manual        provider managed  generalpurpose   2022-10-14 11:04:46  pending     us-south-1   (c16d1edd-.)
-0738-3aaa0beb-83ac-4b2f-b4f5-eab382d1a5aa   demo_volume2      50         100    Manual        provider managed  custom           2022-10-14 10:26:34  available   us-south-1   (c16d1edd-.)
-0738-6d9713cf-9688-486d-b8c9-d9f1c6e7876c   demo_volume3      50         100    Manual        provider managed  custom           2022-10-14 10:39:24  available   us-south-1   (c16d1edd-.)
-```
-{: screen}
-
-Specifying the resource group ID or name filters the list to volumes that belong to a resource group. When you omit this parameter, it defaults to all resource groups. You can also view all volumes in a particular availability zone.
+Specifying the resource group ID or name filters the list to volumes that belong to a resource group. When you omit this argument, it defaults to all resource groups. You can also view all volumes in a particular availability zone.
 
 By default, the first 25 volumes are displayed per page.
 
-### View details about a volume attachment from the CLI
-{: #viewvol-attachment-cli}
+The following example shows all volumes for all resource groups in your availability zone.
 
-Run the following command to view details of a volume attachment to a virtual server instance:
-
-```zsh
-ibmcloud is instance-volume-attachment INSTANCE_ID VOLUME_ATTACHMENT_ID [--json]
-```
-{: pre}
-
-Specify an instance ID and a volume attachment ID. Optionally, export the details in JSON format.
-
-### View details about all volume attachments from the CLI
-{: #viewvol-all-attachments-cli}
-
-Run the following command to view all volume attachments for a virtual server instance.
-
-```zsh
-ibmcloud is instance-volume-attachments INSTANCE_ID [--json]
-```
-{: pre}
-
-### View volume profiles from the CLI
-{: #viewvol-profiles-cli}
-
-Run the following command to list all volume profiles available in your region.
-
-```zsh
-ibmcloud is volume-profiles [--json]
-```
-{: pre}
-
-Example:
-
-```bash
-$ ibmcloud is volume-profiles
-Listing volume profiles under account MyAccount 01 as user user1@mycompany.com...
-Name             Family   Crn
-generalpurpose1  tiered   crn:v1:public:globalcatalog::::volume.profile:generalpurpose
-generalpurpose2  tiered   crn:v1:public:globalcatalog::::volume.profile:generalpurpose
-custom           custom   crn:v1:public:globalcatalog::::volume.profile:custom
-generalpurpose3  tiered   crn:v1:public:globalcatalog::::volume.profile:generalpurpose
+```sh
+$ ibmcloud is volumes
+Listing volumes in all resource groups and region us-east under account Test Account as user test.user@ibm.com...
+ID                                          Name                                      Status      Capacity   IOPS   Profile           Attachment state   Attachment type   Zone        Resource group   
+r014-0a7c28f3-3612-46e6-b874-51136c7f1def   concurrent-vol-09afy4vz700                unusable    20         3000   general-purpose   unattached         -                 us-east-1   defaults   
+r014-faefcc1d-f899-4688-ae97-67e5079da702   concurrent-vol-1s26tgtqg70                unusable    20         3000   general-purpose   unattached         -                 us-east-1   defaults   
+r014-f0e809bf-9afb-4006-b2a8-274f81f0f34e   concurrent-vol-8xif5f1tid0                unusable    20         3000   general-purpose   unattached         -                 us-east-1   defaults   
+r014-b8e23307-e93e-4f7b-918f-7b2c2b14b132   concurrent-vol-gpwucqfpni0                available   20         3000   general-purpose   attached           data              us-east-1   defaults   
+r014-a64beeee-be50-4c03-8cee-639106cea1e2   concurrent-vol-mh16478vln0                available   20         3000   general-purpose   attached           data              us-east-1   defaults   
+r014-f14f8d39-2cf3-4f5d-b366-1d234f1c74aa   concurrent-vol-n7fcoxmb860                available   20         3000   general-purpose   attached           data              us-east-1   defaults   
+r014-84ff8138-4f4f-434b-bdc3-45d1aaaa4329   csi-boot-vol-pgb1-oqpm7een                available   100        3000   general-purpose   attached           boot              us-east-1   Default   
+r014-a1f6b311-6e4b-4e27-a216-a0b602471268   csi-boot-vol-qgbi-h76dy77d                available   100        3000   general-purpose   attached           boot              us-east-1   Default   
+r014-158e904d-0d48-4090-b6c1-57617c1fcc20   csi-boot-vol-txmz-54wzen5m                available   100        3000   general-purpose   attached           boot              us-east-1   Default   
+r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   demo-volume-update                        available   100        3000   general-purpose   attached           data              us-east-1   defaults   
+r014-eef16365-17e3-4627-bc8b-c7c3dd1d6a81   kj-test-ro-boot-1629867631000             available   100        3000   general-purpose   attached           boot              us-east-1   defaults 
 ```
 {: screen}
 
-### View a specific volume profile from the CLI
-{: #viewvol-profile-cli}
-
-Run this command to view a specific volume profile in your region.
-
-```zsh
-ibmcloud is volume-profile PROFILE_NAME [--json]
-```
-{: pre}
-
-PROFILE_NAME values are 10iops-tier, 5iops-tier, general purpose, and custom.
-
-Example:
-
-```bash
-$ ibmcloud is volume-profile generalpurpose1
-Getting volume profile generalpurpose1 under account MyAccount 01 as user user1@mycompany.com...
-Name     generalpurpose1
-Family   tiered
-Crn      crn:v1:public:globalcatalog::::volume.profile:generalpurpose
-```
-{: screen}
+For more information about available command options, see [`ibmcloud is volumes`](/docs/cli?topic=cli-vpc-reference#volumes).
 
 ## Viewing {{site.data.keyword.block_storage_is_short}} volumes with the API
 {: #viewing-block-storage-api}
@@ -305,18 +268,18 @@ View {{site.data.keyword.block_storage_is_short}} volumes programmatically by ma
 
 Before you begin, make sure that you [set up your API environment](/docs/vpc?topic=vpc-creating-block-storage#block-storage-api-prereqs).
 
-### View all {{site.data.keyword.block_storage_is_short}} volumes with the API
+### Viewing all {{site.data.keyword.block_storage_is_short}} volumes with the API
 {: #viewall-vol-api}
 
 Make a `GET /volumes` call to list summary information about all volumes. See the following example.
 
-```curl
+```sh
 curl -X GET "$vpc_api_endpoint/v1/volumes?version=2022-12-09&generation=2" \
 -H "Authorization: $iam_token"
 ```
 {: pre}
 
-A successful response looks like this. This example shows three data volumes. The first in the list is attached to an instance.
+A successful response looks like the following example. This example shows three data volumes. The first in the list is attached to an instance.
 
 ```json
 {
@@ -443,12 +406,12 @@ A successful response looks like this. This example shows three data volumes. Th
 {: codeblock}
 
 
-### View volume details with the API
+### Viewing volume details with the API
 {: #viewvol-details-api}
 
 Make a `GET /volumes/{id}` call to see details of a volume. See the following example.
 
-```curl
+```sh
 curl -X GET "$vpc_api_endpoint/v1/volumes/$volume_id?version=2022-12-09&generation=2" \
 -H "Authorization: $iam_token"
 ```
@@ -535,51 +498,6 @@ Example response:
 ```
 {: codeblock}
 
-### View volume profiles with the API
-{: #viewvol-profiles-api}
-
-To list all volume profiles available in your region, make a `GET /volume/profiles` call. See the following example.
-
-```curl
-curl -X GET "$vpc_api_endpoint/v1/volume/profiles?version=2022-12-09&generation=2"
--H "Authorization: $iam_token"
-```
-{: pre}
-
-When all volume profiles are available, you can see a response like this:
-
-```json
-{
-  "first": {
-    "href": "https://us-south.iaas.cloud.ibm.com/v1/volume/profiles?limit=50"
-  },
-  "limit": 50,
-  "profiles": [
-    {
-      "family": "tiered",
-      "href": "https://us-south.iaas.cloud.ibm.com/v1/volume/profiles/10iops-tier",
-      "name": "10iops-tier"
-    },
-    {
-      "family": "tiered",
-      "href": "https://us-south.iaas.cloud.ibm.com/v1/volume/profiles/5iops-tier",
-      "name": "5iops-tier"
-    },
-    {
-      "family": "tiered",
-      "href": "https://us-south.iaas.cloud.ibm.com/v1/volume/profiles/general-purpose",
-      "name": "general-purpose"
-    },
-    {
-      "family": "custom",
-      "href": "https://us-south.iaas.cloud.ibm.com/v1/volume/profiles/custom",
-      "name": "custom"
-    }
-  ],
-  "total_count": 4
-}
-```
-{: codeblock}
 
 ## Next steps
 {: #next-step-viewing-block-storage}
