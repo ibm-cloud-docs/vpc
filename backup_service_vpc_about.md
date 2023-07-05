@@ -35,7 +35,7 @@ You must set a [retention period](/docs/vpc?topic=vpc-backup-policy-create&inter
 
 Backups require that the volume that you're backing up is attached to a running virtual server instance. Put another way, you can't back up an unattached volume.
 
-A volume is backed up when a [user-provided tag](#backup-service-about-tags) that is associated with a {{site.data.keyword.block_storage_is_short}} volume match the tags for target resources in a backup policy. The volume must have at least one of the backup policy’s tags for the target resources. When the scheduled backup is triggered by a backup plan, all volumes with matching tags are backed up. You can [view the status of the backup jobs](/docs/vpc?topic=vpc-backup-view-policy-job) in the UI, from the CLI, or the API.
+A volume is backed up when a [user-provided tag](#backup-service-about-tags) that is associated with a {{site.data.keyword.block_storage_is_short}} volume match the tags for target resources in a backup policy. The volume must have at least one of the backup policy’s tags for the target resources. When the scheduled backup is triggered by a backup plan, all volumes with matching tags are backed up. You can [view the status of the backup jobs](/docs/vpc?topic=vpc-backup-view-policy-jobs) in the UI, from the CLI, or the API.
 
 If a volume has multiple tags, only one tag needs to match for a backup to trigger. You can add user tags to boot and data volumes at any time, when you [create a virtual server instance](/docs/vpc?topic=vpc-creating-block-storage&interface=ui#create-from-vsi) or in an instance template.
 
@@ -94,7 +94,7 @@ The interval for creating a backup and its retention period can be the same or t
 
 Backups that are created by the backup plan inherit the parent volume resource group details. You can create up to four plans per backup policy and modify the backup schedule and retention policy anytime. Your four plans can have different frequencies. For example, one can be daily. Another one can be weekly, and so on. All plans apply to the volumes with tags that match the backup policy.
 
-You can [view backup job status](/docs/vpc?topic=vpc-backup-view-policy-job) while backups are being created, modified, or deleted.
+You can [view backup job status](/docs/vpc?topic=vpc-backup-view-policy-jobs) while backups are being created, modified, or deleted.
 
 ### Tags for target resources
 {: #backup-service-about-tags}
