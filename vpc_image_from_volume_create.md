@@ -164,15 +164,19 @@ Use the CLI to create an image from a volume that is attached to an available vi
 ### Create an image from a boot volume that is attached to an instance
 {: #ifv-create-cli}
 
-1. [Stop the running instance](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-stop) before you create the image from the volume.
+ 1. To locate the instance that you want to create an image from, [list the instances](https://test.cloud.ibm.com/docs/vpc?topic=vpc-vpc-reference#instances-list) in the region. Take note of the instance ID in the command output.
+   ```sh
+   ibmcloud is instances
+   ```
+   {: pre}
 
+1. [Stop the running instance](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-stop) before you create the image from the volume.
    ```sh
    ibmcloud is instance-stop INSTANCE_ID
    ```
    {: pre}
 
-2. Run the [`image-create` command](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#image-create) to create an image of a boot volume. Specify the ID of the source volume.
-
+1. Run the [`image-create` command](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#image-create) to create an image of a boot volume. Specify the ID of the source volume.
    ```sh
    ibmcloud is image-create IMAGE_NAME [--source-volume VOLUME_ID]
    ```
