@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-06-30"
+lastupdated: "2023-07-05"
 
 keywords: Block storage for VPC, iscsi for VPC, SAN for VPC
 
@@ -67,7 +67,7 @@ Volume `vdb` is your block storage data volume.
 
 4. After the partition is created, run the `w` command to save changes to the partition table. Restart your system to verify the newly created partition.
 
-## Step 3 - Formatting the volume partition
+## Step 3 - Formating the volume partition
 {: #linux-procedure-format-volume}
 
 ```sh
@@ -105,7 +105,7 @@ disk_partition=/dev/vdb1
 
 ```sh
 mkdir /myvolumedir
-mount /dev/vda /myvolumedir
+mount /dev/vdb1 /myvolumedir
 ```
 {: pre}
 
@@ -139,7 +139,7 @@ tmpfs               5120       0      5120   0% /run/lock
 tmpfs            4084664       0   4084664   0% /sys/fs/cgroup
 /dev/vda1        245679   64360    168212  28% /boot
 tmpfs             817040       0    817040   0% /run/user/0
-/dev/vdb      103081248   61176  97777192   1% /myvolumedir
+/dev/vdb1      103081248   61176  97777192   1% /myvolumedir
 ```
 {: screen}
 
