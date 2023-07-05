@@ -223,7 +223,7 @@ ibmcloud is share-mount-targets SHARE_ID [--output JSON] [-q, --quiet]
 {: pre}
 
 ### View mount target details from the CLI
-{: #fs-get-mounthpath-cli}
+{: #fs-get-mountpath-cli}
 
 Run the `ibmcloud is share-mount-target` command and specify the share ID or name with the mount target name or ID.
 
