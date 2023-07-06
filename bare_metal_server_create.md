@@ -2,7 +2,8 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-05-30"
+lastupdated: "2023-06-22"
+
 
 keywords: creating bare metal servers
 subcollection: vpc
@@ -23,11 +24,11 @@ Use the following information to create a bare metal server on your {{site.data.
 
 Use the following steps to create a bare metal server by using the {{site.data.keyword.cloud}} console. You can also check out the following [video](https://mediacenter.ibm.com/media/t/1_j2pdfua6){: external} to learn more about creating a bare metal server.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Bare metal servers**.
+1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](/login), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Bare metal servers**.
 
 1. Click **Create** and enter the information that is in Table 1.
 
-1. For Advanced options, you can choose to complete additional server configurations. See Table 2 for more information. 
+1. For Advanced options, you can choose to complete extra server configurations. For more information, see Table 2.
 
 1. Review the configuration **Summary** and click **Create bare metal server**.
 
@@ -38,21 +39,18 @@ Use the following steps to create a bare metal server by using the {{site.data.k
 | Name | A name is required for your bare metal server. |
 | Resource group | Select a resource group for the server. |
 | Tags | You can assign labels to your server so that you can easily filter resources in your resource list. |
-| Operating system | Select the operating system and version from an image.  \n - For x86 architecture, `ibm-esxi-7-amd64-1` installs a licensed ESXi 7.x hypervisor. `ibm-esxi-7-byol-amd64-1` installs bring-your-own-license ESXi 7.x and control the licensing for your bare metal server.  \n - For s390x architecture, `sles-15-sp3-metal-s390x` installs a licensed SUSE Linux Enterprise Server 15 SP3 (s390x). |
-| Profile | Select from popular profiles or from all available vCPU and RAM combinations. The profile families are Balanced, Compute, and Memory. For more information, see [Bare metal servers profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile). |
 | Access management tags | Access management tags help you apply flexible access policies on specific resources. |
-| Operating system | Select the operating system and version from an image.  \n - For x86 architecture, `ibm-esxi-7-amd64-1` installs a licensed ESXi 7.x hypervisor. `ibm-esxi-7-byol-amd64-1` installs bring-your-own-license ESXi 7.x and control the licensing for your bare metal server.  \n - For s390x architecture, `sles-15-sp3-metal-s390x` installs a licensed SUSE Linux Enterprise Server 15 SP3 (s390x). `red-8-metal-s390x` installs Red Hat Enterprise Linux 8.x - Minimal Install (s390x) for your bare metal server. |
+| Operating system | Select the operating system and version from an image.  \n - For x86 architecture, `ibm-esxi-7-amd64-1` installs a licensed ESXi 7.x hypervisor. `ibm-esxi-7-byol-amd64-1` installs bring-your-own-license ESXi 7.x and controls the licensing for your bare metal server.  \n - For s390x architecture, `sles-15-sp3-metal-s390x` installs a licensed SUSE Linux Enterprise Server 15 SP3 (s390x). `red-8-metal-s390x` installs Red Hat Enterprise Linux 8.x - Minimal Install (s390x) for your bare metal server. |
 | Profile | Select from popular profiles or from all available vCPU and RAM combinations. The profile families are Balanced, Compute, and Memory. For more information, see [Bare metal servers profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile) or [s390x bare metal server profiles](/docs/vpc?topic=vpc-s390x-bare-metal-servers-profile). |
-| SSH key | Select an existing public SSH key or click **New SSH key** to add a new one. You must specify at least one SSH key.  \n - For x86 architecture, the SSH key is used to automatically generate a password that is required for accessing VMware&reg; ESXi Direct Console User Interface (DCUI) and the ESXi web client.  \n - For s390x architecture, SSH keys are used to securely connect to the server after it's running. |
+| SSH key | Select an existing public SSH key or click **Create an SSH key** to create a new one. For more information about creating an SSH key, see [Creating your SSH key by using the UI](/docs/vpc?topic=vpc-ssh-keys&interface=ui#generate-ssh-keys-ui). You must specify at least one SSH key.  \n - For x86 architecture, the SSH key is used to automatically generate a password that is required for accessing VMware&reg; ESXi Direct Console User Interface (DCUI) and the ESXi web client.  \n  \n **Note:** RSA and Ed25519 are the two types of SSH keys that you can use. However, you can't use the Ed25519 SSH key type with Windows or VMware images. You can use only RSA SSH keys for these images.  \n - For s390x architecture, SSH keys are used to securely connect to the server after it's running. For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
 | Virtual private cloud | Specify the VPC where you want to create your server. You can use the default VPC, another existing VPC, or you can create a new VPC. |
 | Network interfaces | By default the bare metal server is created with a single primary network interface. You can click the pencil icon to edit the details of the network interface. For example, the subnet or security group that's associated with the interface. To include extra secondary network interfaces, click **New interface**.  \n - For x86 architecture, you can create and assign up to eight PCI network interfaces and up to 20 PCI + VLAN network interfaces for each server. For more information about advanced networking configurations, see [Managing network interfaces for a bare metal server](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers).  \n - For s390x architecture, you can attach up to two network interfaces based on the profile that you choose. For more information, see [Managing network interfaces for a bare metal server](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers). |
 {: caption="Table 1. Bare metal server provisioning selections" caption-side="bottom"}
 
-
 | Advanced option | Value |
 |---|---|
 | User data | Paste your user data to the **User data (optional)** field or click **Import user data** to upload from your user data. For example, you can enable SSH by adding the following script to the **User data (optional)** field. For more information about user data, see [User data](/docs/vpc?topic=vpc-user-data).|
-| Trusted Platform Module (TPM) | Click the toggle to enable Trusted Platform Module capabilities. Then select the mode that you want to use. For more information, see [Secure boot with Trusted Platform Module (TPM)](/docs/vpc?topic=vpc-secure-boot-tpm&interface=ui). |
+| Trusted Platform Module (TPM) | Click the toggle to enable Trusted Platform Module capabilities. Then, select the mode that you want to use. For more information, see [Secure boot with Trusted Platform Module (TPM)](/docs/vpc?topic=vpc-secure-boot-tpm&interface=ui). |
 | Secure boot | Click the toggle to enable secure boot. For more information, see [Secure boot with Trusted Platform Module (TPM)](/docs/vpc?topic=vpc-secure-boot-tpm&interface=ui). |
 {: caption="Table 2. Bare metal server advanced options" caption-side="bottom"}
 
@@ -83,7 +81,7 @@ Before you use the API to create bare metal server, see the following table for 
 | Server detail | Listing options |
 |---------|---------|
 | Image | [List all images](/apidocs/vpc#list-images) |
-| Keys | [List all keys](/apidocs/vpc#list-keys) \n \n If you don't have any available SSH keys, use [Create a key](/apidocs/vpc#create-key) to create one. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
+| Keys | [List all keys](/apidocs/vpc#list-keys)  \n  \n If you don't have any available SSH keys, use [Create a key](/apidocs/vpc#create-key) to create one. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys).  \n  \n **Note:** RSA and Ed25519 are the two types of SSH keys that you can use. However, you can't use the Ed25519 SSH key type with Windows or VMware images. You can use only RSA SSH keys for these images. |
 | Subnet | [List all subnets](/apidocs/vpc#list-subnets) |
 | Security groups (optional) | [List all security groups](/apidocs/vpc#list-security-groups) |
 | Profile | [List all bare metal server profiles](/apidocs/vpc#list-bare-metal-server-profiles) |
@@ -101,9 +99,9 @@ After you have all the information, use the [Create bare metal server](/apidocs/
    * SSH Key ID: "a6b1a881-2ce8-41a3-80fc-36316a73f803"
    * Name of the bare metal server: "my-bare-metal-server"
    * A primary network interface with the following configurations:
-     * Allows VLAN with the ID of "4" to be attached
-     * Name: "my-primary-network-interface"
-     * Subnet ID: "7ec86020-1c6e-4889-b3f0-a15f2e50f87e"
+      * Allows VLAN with the ID of "4" to be attached
+      * Name: "my-primary-network-interface"
+      * Subnet ID: "7ec86020-1c6e-4889-b3f0-a15f2e50f87e"
    * A secondary VLAN interface with ID "4". This VLAN interface is floatable.
    * Profile name: "bx2d-metal-192x768"
    * Zone: "us-south-1"
@@ -333,7 +331,7 @@ Before you can use the CLI to create bare metal server, you need to gather the i
 | Server details | Listing options |
 |---------|---------|
 | Image | [List all images](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#images) |
-| Keys | [List all keys](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#keys)  \n  \n If you don't have any available SSH keys, use [Create a key](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#key-create) to create one. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
+| Keys | [List all keys](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#keys)  \n  \n If you don't have any available SSH keys, use [Create a key](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#key-create) to create one.  \n  \n **Note:** RSA and Ed25519 are the two types of SSH keys that you can use. However, you can't use the Ed25519 SSH key type with Windows or VMware images. You can use only RSA SSH keys for these images.  \n For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
 | Subnet | [List all subnets](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#subnets) |
 | Security groups (optional) | [List all security groups](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#security-groups) |
 | Profile | [List all bare metal server profiles](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#bare-metal-server-profiles) |
@@ -348,24 +346,23 @@ After you have all the information ready, you can use the CLI to create a bare m
 For example, you can create a bare metal server with the following configuration:
 
 * For x86 architecture:
-    * ESXi image ID: "r134-31c8ca90-2623-48d7-8cf7-737be6fc4c3e"
-    * SSH Key ID: "a6b1a881-2ce8-41a3-80fc-36316a73f803"
-    * Name of the bare metal server: "my-bare-metal-server"
-    * A primary network interface with the following configurations:
+   * ESXi image ID: "r134-31c8ca90-2623-48d7-8cf7-737be6fc4c3e"
+   * SSH Key ID: "a6b1a881-2ce8-41a3-80fc-36316a73f803"
+   * Name of the bare metal server: "my-bare-metal-server"
+   * A primary network interface with the following configurations:
 
       * VLAN with the ID of "4" to attach to the server
       * Name: "my-primary-network-interface"
       * Subnet ID: "7ec86020-1c6e-4889-b3f0-a15f2e50f87e"
 
-    * A secondary VLAN interface with ID "4". This VLAN interface is floatable.
-    * Profile name: "bx2d-metal-192x768"
-    * Zone: "us-south-1"
+   * A secondary VLAN interface with ID "4". This VLAN interface is floatable.
+   * Profile name: "bx2d-metal-192x768"
+   * Zone: "us-south-1"
 
-    ```sh
-    ibmcloud is bare-metal-server-create --name my-bare-metal-server --zone us-south-1 --profile mx2-metal-96x768 --image r134-31c8ca90-2623-48d7-8cf7-737be6fc4c3e --keys a6b1a881-2ce8-41a3-80fc-36316a73f803 --pnic-subnet 7ec86020-1c6e-4889-b3f0-a15f2e50f87e –pnic-name my-primary-network-interface --pnic-allowed-vlans 4 --network-interfaces '[{"name": "my-vlan-interface", "interface_type": "vlan", "vlan": 4, "allow_interface_to_float": true, "subnet": {"id":"7ec86020-1c6e-4889-b3f0-a15f2e50f87e"}}]' --output JSON
-    ```
-    {: pre}
-
+   ```sh
+   ibmcloud is bare-metal-server-create --name my-bare-metal-server --zone us-south-1 --profile mx2-metal-96x768 --image r134-31c8ca90-2623-48d7-8cf7-737be6fc4c3e --keys a6b1a881-2ce8-41a3-80fc-36316a73f803 --pnic-subnet 7ec86020-1c6e-4889-b3f0-a15f2e50f87e –pnic-name my-primary-network-interface --pnic-allowed-vlans 4 --network-interfaces '[{"name": "my-vlan-interface", "interface_type": "vlan", "vlan": 4, "allow_interface_to_float": true, "subnet": {"id":"7ec86020-1c6e-4889-b3f0-a15f2e50f87e"}}]' --output JSON
+   ```
+   {: pre}
 
 ### Viewing your server
 {: #viewing-bms-cli}
@@ -381,4 +378,6 @@ ibmcloud is bare-metal-server $bare_metal_server_id --output JSON
 {: #next-steps-after-creating-bare-metal-server}
 
 When the bare metal server status changes to **Running**, you can connect to it.
+
 * For x86 architecture, you can connect to VMware ESXi Direct Console User Interface (DCUI) and ESXi's web client. For more information, see [Connecting to ESXi bare metal servers](/docs/vpc?topic=vpc-connect-to-ESXi-bare-metal-servers).
+* For s390x architecture, you can connect to the s390x bare metal server by using the SSH key and its floating IP. For more information, see [Connecting to s390x bare metal servers](/docs/vpc?topic=vpc-connect-to-s390x-bare-metal-servers).

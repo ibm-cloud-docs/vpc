@@ -35,7 +35,7 @@ When you configure a listener with a [range of ports](/docs/vpc?topic=vpc-nlb-po
 {: note}
 
 ## Creating managed pools and instance groups
-{: #creating-pools-groups}
+{: #nlb-creating-pools-groups}
 
 To create a managed pool and attach an instance group, perform the following procedure:
 
@@ -54,11 +54,11 @@ To create a managed pool and attach an instance group, perform the following pro
 
     Configure scaling policies only if you are using a dynamic scaling method.
 
-    When you configure these policies, you define certain metrics (such as the CPU utilization percentage) and the target utilization you want for that metric. Together, the metric and the average target utilization determine when your instance group dynamically adds or removes virtual server instances to or from the group.
+    When you configure these policies, you define certain metrics (such as the CPU utilization percentage) and the target utilization you want for that metric. Together, the metric and the average target utilization determine when your instance group dynamically adds or removes virtual server instances to or from the group. 
     {: tip}
 
 ## Related links
-{: #lbaas-autoscaling-related-links}
+{: #nlb-lbaas-autoscaling-related-links}
 
 * [Creating an instance group template](/docs/vpc?topic=vpc-creating-auto-scale-instance-group#creating-instance-template)
 * [Creating an instance group](/docs/vpc?topic=vpc-creating-auto-scale-instance-group#creating-instance-group)

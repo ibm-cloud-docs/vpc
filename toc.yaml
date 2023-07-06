@@ -43,7 +43,7 @@ toc:
                label: Networking overview for bare metal servers
                topics:
                - bare_metal_server_network.md
-     - topicgroup:
+       - topicgroup:
            label: Compute
            topics:
            - vsi_is_about_vpc.md
@@ -52,13 +52,6 @@ toc:
                topics:
                - bare_metal_server_about.md
            - suspend-billing.md
-           - topicgroup:
-               label: Images
-               topics:
-               - vsi-images.md
-               - s390x-vsi-images.md
-               - os-lifecycle.md
-               - bare_metal_server_image.md
            - topicgroup:
                label: Profiles
                topics:
@@ -81,6 +74,7 @@ toc:
                - about-attestation.md
                - hpvs-logging.md
                - hpvs-encrypt-log-message.md
+               - hpvs-data-security.md
                - hpvs-disks-encryption-validate.md
                - about-hp-securebuild.md
                - hpvs-override-registry.md
@@ -397,7 +391,7 @@ toc:
                 - lb-layer-7-policies-rules.md
                 - lb-updating-subnets.md
                 - lb-monitoring-metrics.md
-                - lb-ig-integration.md
+                - lb-ig-integration.md 
                 - lb-sg-integration.md
                 - lb-private-dns-integration.md
                 - lb-datapath-logging.md
@@ -413,6 +407,7 @@ toc:
                 - nlb-delete.md
                 - nlb-health-checks.md
                 - nlb-listeners.md
+                - nlb-ig-integration.md
                 - nlb-udp.md
                 - nlb-port-range.md
                 - nlb-pools.md
@@ -463,28 +458,21 @@ toc:
             label: Block storage volumes
             topics:
             - block_storage_is_create.md
-            - block_storage_is_attach.md
-            - block_storage_is_view.md
-            - block_storage_is_manage.md
             - block_storage_vpc_manage_storage_limits.md
-            - modifying-the-linux-os-expanded-boot-volume.md
+            - block_storage_is_attach.md
             - block_storage_is_use_volume_lin.md
             - block_storage_is_use_volume_win.md
+            - block_storage_is_view.md
+            - block_storage_is_manage.md
+            - block_storage_vpc_monitoring.md
             - topicgroup:
                 label: Modifying volume capacity and IOPS
                 topics:
                 - block_storage_vpc_expand_vol_about.md
                 - block_storage_vpc_expandable_volumes.md
+                - modifying-the-linux-os-expanded-boot-volume.md
                 - block_storage_vpc_resize_boot_volume.md
                 - block_storage_vpc_adjustable_iops.md
-        - topicgroup:
-            label: Block storage Acadia platform - Experimental
-            topics:
-            - block_storage_acadia_about.md
-            - block_storage_acadia_getting_started.md
-            - block_storage_acadia_troubleshoot_known_issues.md
-            - block_storage_acadia_support.md
-            - block_storage_acadia_faq.md
         - topicgroup:
             label: Snapshots
             topics:
@@ -500,6 +488,7 @@ toc:
             - file_storage_vpc_create.md
             - file_storage_vpc_view.md
             - file_storage_vpc_manage.md
+            - file_storage_vpc_eit.md
             - topicgroup:
                 label: Modifying file share size and IOPS
                 topics:
@@ -741,7 +730,7 @@ toc:
         - topicgroup:
             label: Migration
             topics:
-            - file_storage_vpc_migration.md
+            - file_storage_API_migration_mount_targets.md
             - 2022-03-29-migration.md
         - limitations.md
         - known-issues.md

@@ -93,7 +93,7 @@ for vCPU and memory. To determine space that is available for provisioning addit
 3. A virtual server instance cannot span more than one dedicated host, so the profile for an instance must be able to be provisioned on the remaining capacity of a single dedicated host.
 
 ### Dedicated host maintenance
-{: managing-dh-maintenance}
+{: #managing-dh-maintenance}
 
 {{site.data.keyword.cloud}} performs periodic maintenance on the hosts and dedicated hosts.
 Maintenance includes the live migration of the servers on the host or dedicated host. Host and dedicated host maintenance events can address load balancing, host failures, or other updates.

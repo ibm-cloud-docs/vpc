@@ -2,9 +2,9 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-01-27"
+lastupdated: "2023-07-05"
 
-keywords: mounting VPC file storage, mount file storage,
+keywords: file share, file storage, mount helper, mount target, mount path, secure connection, NFS, mounting share
 
 subcollection: vpc
 
@@ -18,70 +18,73 @@ subcollection: vpc
 Use these instructions to connect a Network File System (NFS) file share to an Ubuntu Linux&reg;-based {{site.data.keyword.cloud}} Compute instance.
 {: shortdesc}
 
-{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
+{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Madrid, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
-## Before you begin - Create a VSI
+## Before you begin
 {: #fs-ubuntu-create-vsi}
 
-Before you mount {{site.data.keyword.filestorage_vpc_short}} file shares, you must create a [virtual server instance](/docs/vpc?topic=vpc-about-advanced-virtual-servers) in the same zone as the file share. After you created the instance, get the mount path of the file share from the mount target that was created.
+1. Verify that the [virtual server instance](/docs/vpc?topic=vpc-about-advanced-virtual-servers) where you want to mount the share is in the same zone as the file share. 
+2. Confirm that a mount target for the share exists for the VPC that the instance resides in. If a new mount target is needed, follow the instructions in [Creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create). 
+3. Get the mount path of the file share from the mount target. Mount path information can be obtained from the File share details page in the [UI](/docs/vpc?topic=vpc-file-storage-view&interface=ui#fs-get-mountpath-ui-vpc), from the [CLI](/docs/vpc?topic=vpc-file-storage-view&interface=cli#fs-get-mountpath-cli), with the [API](/docs/vpc?topic=vpc-file-storage-view&interface=api#fs-get-target-api) or [Terraform](/docs/vpc?topic=vpc-file-storage-view&interface=terraform#fs-view-mount-target-terraform).
+4. If you want to use encryption in transit, you need to obtain an IPsec certificate from the Instance Metadata service. Ensure that encryption in transit is enabled for the mount target. Plus, mount the file share with a secure connection. This feature is only available for file shares with `dp2` profiles and security group access mode. For more information, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit).
+   
+   Install and run the [mount helper utility](/docs/vpc?topic=vpc-file-storage-vpc-eit&interface=ui#fs-mount-helper-utility) to mount file shares with encryption in transit or without an encrypted connection. [New]{: tag-new}
+   {: fast-path}
 
-Mount path information can be obtained from the File share details page in the UI, or through an API or CLI call.
-{: tip}
+{{site.data.keyword.filestorage_vpc_short}} service requires NFS versions v4.1 or higher.
+{: requirement}
 
 ## Mount the file share
 {: #fs-Ubuntu-mount}
 
 SSH into the virtual server instance where you want to mount the file share, then continue with the following steps to mount a file share. This example procedure is based on Ubuntu 20.04.
 
-VPC File Storage service requires NFS versions v4.1 or higher.
-{: note}
-
 1. Update and upgrade the distribution:
 
-    ```zsh
+    ```sh
     apt update && apt upgrade
     ```
     {: pre}
 
 2. Create a `/mnt/nfs` directory.
 
-    ```zsh
+    ```sh
     mkdir -p /mnt/nfs
     ```
     {: pre}
 
 3. Install `nfs-common`:
 
-    ```zsh
+    ```sh
     apt install nfs-common
     ```
     {: pre}
 
 4. Restart your instance:
 
-    ```zsh
+    ```sh
     reboot
     ```
     {: pre}
 
 5. Mount the remote file share:
 
-   ```zsh
+   ```sh
    mount -t nfs4 -o <options> <host:/mount_target> /mnt/nfs
    ```
    {: pre}
 
    See following example.
 
-   ```zsh
+   ```sh
    mount -t nfs4 -o sec=sys,nfsvers=4.1 fsf-dal2433a-dz.adn.networklayer.com:/nxg_s_voll_mz0726_c391f0ba-50ed-4460-8704-a36032c96a4c /mnt/nfs
    ```
    {: pre}
 
 6. Verify that the mount was successful by using the disk file system command `df -h`:
 
-    ```zsh
+    ```sh
     $ df -h
     Filesystem                                                                                    Size  Used Avail Use% Mounted on
     /dev/root                                                                                      97G  1.6G   96G   2% /
@@ -100,17 +103,17 @@ VPC File Storage service requires NFS versions v4.1 or higher.
 
 7. Go to the mount point to create a test file and list all files to verify that the share is mounted as read/write.
 
-   ```zsh
+   ```sh
    touch /mnt/nfs/test.txt
    ```
    {: pre}
 
-   ```zsh
+   ```sh
    ls -al /mnt/nfs
    ```
    {: pre}
 
-   ```zsh
+   ```sh
    touch /mnt/nfs/test.txt
    ls -al /mnt/nfs
    total 12
@@ -121,26 +124,26 @@ VPC File Storage service requires NFS versions v4.1 or higher.
 
 8. Make the configuration persistent by editing the file systems table (`/etc/fstab`). Add the remote share to the list of entries that are automatically mounted on startup:
 
-   ```zsh
+   ```sh
    sudo nano /etc/fstab
    ```
    {: pre}
 
    Add a line with the following syntax to the end of file.
 
-   ```zsh
+   ```sh
    (hostname):/(mount_point) /mnt nfs_version defaults 0 0
    ```
 
    Example
 
-   ```zsh
+   ```sh
    fsf-dal2433a-dz.adn.networklayer.com:/nxg_s_voll_mz0726_c391f0ba-50ed-4460-8704-a36032c96a4c /mnt nfsvers=4.1 defaults 0 0
    ```
 
 9. Verify that the configuration file has no errors.
 
-   ```zsh
+   ```sh
    mount -fav
    ```
    {: pre}
@@ -155,12 +158,12 @@ VPC File Storage service requires NFS versions v4.1 or higher.
 
 To unmount any currently mounted file system on your host, run the `umount` command with disk name or mount point name.
 
-```zsh
+```sh
 umount /dev/sdb
 ```
 {: pre}
 
-```zsh
+```sh
 umount /mnt/nfs
 ```
 {: pre}

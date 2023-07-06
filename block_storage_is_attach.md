@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-03-07"
+lastupdated: "2023-06-30"
 
 keywords: vpc, block storage, block storage for vpc, mounting storing, attaching block storage, vpc instance, data volumes
 
@@ -28,25 +28,44 @@ When you create a {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} 
 
 You can't use the UI to attach {{site.data.keyword.block_storage_is_short}} volumes to {{site.data.keyword.containerfull}} Cluster worker nodes. For more information about using the CLI to attach volumes to cluster nodes, see [Storing data on {{site.data.keyword.block_storage_is_short}}](/docs/containers?topic=containers-vpc-block).
 
-
-## Attach a {{site.data.keyword.block_storage_is_short}} volume to a virtual server instance
+## Attaching a {{site.data.keyword.block_storage_is_short}} volume to a virtual server instance
 {: #attach}
 {: help}
 {: support}
 {: ui}
 
+You can attach a volume to a virtual server instance from the list of block storage volumes, volume details page, or from the instance details page. 
+
+### Attaching a volume to an instance from the list of volumes
+{: #attach-from-vol-list}
+
 From the list of all {{site.data.keyword.block_storage_is_short}} volumes, follow these steps.
 
 1. In the [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to the **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
-1. In the list of volumes, click the ellipsis at the end of a row for an available, unattached volume to display its action menu.
+1. In the list of volumes, identify an available, unattached volume and click the ellipsis for the overflow menu at the end of a row.
 1. Select **Attach to instance**.
-1. Select a compute resource (virtual server instance) from the list of available resources, and then click **Attach**.
+1. Select a virtual server instance from the list of available instances, and then click **Save**.
+    If the lists shows no virtual server instances, click **Create server** to go to the [instance provisioning](/docs/vpc?topic=vpc-creating-virtual-servers) page.  
 1. Messages display on the volume details page to indicate that the volume is being attached to the image. When it completes, the image name appears under **Attached instances**.
 
 When you create a {{site.data.keyword.hpvs}} instance and the contract mentions volumes, you have 15 minutes after the creation of the instance to attach a data volume. Failure to do so causes the instance to go into a shutdown state after the 15-minute window.
 {: note}
 
-You can also attach a {{site.data.keyword.block_storage_is_short}} volume from the virtual server instance details page.
+### Attaching a volume to an instance from the volume details page
+{: #attach-from-volume-details}
+
+From the volume details page, follow these steps:
+
+1. Select an unattached volume from the [list of block storage volumes](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#viewvols-ui). 
+1. From the volume details page, in the **Virtual server instances** tile, click **Attach**.
+1. On the side panel, select a virtual server instance and click **Save**. 
+    If the list shows no virtual server instances, click **Create server** to go to the [instance provisioning](/docs/vpc?topic=vpc-creating-virtual-servers) page. The boot or data volume is shown on the instance provisioning page in their respective fields.
+1. Messages display that the volume is being attached to the image. When it completes, the image name appears under **Attached instances**.
+
+### Attaching a volume to an instance from the instance details page
+{: #attach-from-instance-details}
+
+Attach a {{site.data.keyword.block_storage_is_short}} volume from the virtual server instance details page.
 
 1. In the [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
 1. Select an instance from the list of all virtual server instances. If any {{site.data.keyword.block_storage_is_short}} volumes are attached, they are listed under **Storage volumes**.
@@ -79,7 +98,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    ```
    {: pre}
 
-### Attach a {{site.data.keyword.block_storage_is_short}} volume from the CLI
+### Attaching a {{site.data.keyword.block_storage_is_short}} volume from the CLI
 {: #attach-block-storage-cli}
 {: help}
 {: support}
@@ -91,57 +110,107 @@ ibmcloud is instance-volume-attachment-add NAME INSTANCE_ID VOLUME_ID [--auto-de
 ```
 {: pre}
 
-`NAME` is the name that you provide for the volume attachment and INSTANCE_ID is the ID of the virtual server instance.
+`NAME` is the name that you provide for the volume attachment and INSTANCE_ID is the ID of the virtual server instance. The `VOLUME_ID` specifies the volume that you are attaching. If you want the volume to automatically delete when the virtual server instance is deleted, specify `--auto-delete true`.
 
-The `VOLUME_ID` specifies the volume that you are attaching.
+To see a list of available virtual server instances, run the `ibmcloud is instances` command. Check out the following example.
 
-Specify `--auto-delete true` if you want the volume to automatically delete when the virtual server instance is deleted.
-
-To see a list of available virtual server instances, run the `ibmcloud is instances` command.
-
-Check out the following example.
-
-```text
+```sh
 $ ibmcloud is instances
-Listing instances under account my-account-01 as user rtuser1@mycompany.com...
-ID                                     Name                  Address          Profile   Image                            Created        Status     VPC                               Zone         Resource Group
-0738-916e3ccf-b3af-47a5-b549-c9a3b9815559   instance-test2        192.0.2.1        -         ubuntu-16.04-amd64(7eb4e35b-.)   4 hours ago    running    function-test-vpc1(974e258e-.)    us-south-1   -
-0738-b762f064-26a6-4ffe-bfe4-4a21d92effaf   instance-test1        192.0.2.2        -         ubuntu-16.04-amd64(7eb4e35b-.)   4 hours ago    running    function-test-vpc2(974e258e-.)    us-south-1   -
-0738-ad0ade52-0533-4dc6-a145-f1ad6d5bee2c   vsi-09202             198.51.100.1     -         ubuntu-16.04-amd64(7eb4e35b-.)   5 hours ago    running    vpnaas-test1(2467b0fa-.)          us-south-1   -
-0738-e6353eba-c407-4406-b9f6-c50ee1da8d83   vsi-09201             198.51.100.3     -         ubuntu-16.04-amd64(7eb4e35b-.)   5 hours ago    running    vpnaas-test1(2467b0fa-.)          us-south-1   -
-
+Listing instances in all resource groups and region us-east under account Test Account as user test.user@ibm.com...
+ID                                          Name                             Status    Reserved IP   Floating IP      Profile    Image                                VPC                              Zone        Resource group   
+0757_506a787d-0672-4209-854b-3e280ec50b44   test-pbalak-rhel                 running   10.241.0.4    169.63.96.188    bx2-2x8    ibm-redhat-9-0-minimal-amd64-2       test-pbalak1                     us-east-1   defaults   
+0757_4fc00b09-c967-46bf-9203-d17a08078d1d   test-pbalak-rhel2                running   10.241.0.5    150.239.86.22    bx2-2x8    ibm-redhat-9-0-minimal-amd64-2       test-pbalak1                     us-east-1   defaults   
+0757_11f5db7f-35a1-4678-bcbd-c85204e09507   kj-test-ro                       running   10.241.0.5    -                bx2d-2x8   ibm-ubuntu-18-04-5-minimal-amd64-1   test-vpc-blu-wdc             us-east-1   defaults   
+0767_7ac6da13-c16a-4f58-9981-612d6e33ec53   cbake-test-dfm-vsi-0             running   10.241.64.4   -                bx2-2x8    ibm-centos-7-9-minimal-amd64-3       test-vpc-blu-wdc             us-east-2   defaults   
+0757_ff64452f-7e81-4a48-b938-7fc601597dcd   storage-csi-inst-pgb1-zwqz5elk   running   10.241.14.4   52.116.121.167   mx2-2x16   ibm-ubuntu-20-04-6-minimal-amd64-1   test-vpc-do-not-delete-default   us-east-1   Default   
+0757_337977c1-f1f0-42ad-9de4-16fe0cda2ba9   storage-csi-inst-qgbi-sj9a43as   running   10.241.4.4    52.116.124.193   mx2-2x16   ibm-ubuntu-20-04-6-minimal-amd64-1   test-vpc-do-not-delete-default   us-east-1   Default   
+0757_dee890d9-67da-46cb-a85b-2d064a49ca42   storage-csi-inst-txmz-zuwrddvm   running   10.241.3.4    52.116.122.116   mx2-2x16   ibm-ubuntu-20-04-6-minimal-amd64-1   test-vpc-do-not-delete-default   us-east-1   Default 
 ```
 {: screen}
+
+Then, select the virtual server instance that is in the same zone as the volume that you want to attach.
+
+```sh
+$ ibmcloud is instance-volume-attachment-add otp1 0757_11f5db7f-35a1-4678-bcbd-c85204e09507 demo-volume-update --auto-delete true
+Creating volume attachment otp1 for instance kj-test-ro under account Test Account as user test.user@ibm.com...
+                     
+ID                0757-6757e676-0bf5-4b79-9a5b-29c24e17420c   
+Name              otp1   
+Volume            ID                                          Name      
+                  r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   demo-volume-update      
+                     
+Status            attaching   
+Bandwidth(Mbps)   393   
+Type              data   
+Device            -   
+Auto delete       true   
+Created           2023-06-29T18:14:57+00:00
+```
+{: screen}
+
+For more information about available command options, see [`ibmcloud is instance-volume-attachment-add`](/docs/cli?topic=cli-vpc-reference#instance-volume-attachment-add).
 
 ### Show details of a volume that is attached to a virtual server instance
 {: #show-details-attached-vol}
 
-After you attach a volume, you can display details by specifying the instance ID and volume attachment ID in the `instance-volume-attachment` command.
+After you attach a volume, you can display details by specifying the instance ID or name and the volume attachment ID or name in the `instance-volume-attachment` command.
 
 ```sh
-ibmcloud is instance-volume-attachment INSTANCE_ID VOLUME_ATTACHMENT_ID [--json]
+ibmcloud is instance-volume-attachment INSTANCE VOLUME_ATTACHMENT [--json]
 ```
 {: pre}
+
+```sh
+$ ibmcloud is instance-volume-attachment kj-test-ro otp1
+Getting volume attachment otp1 of instance kj-test-ro under account Test Account as user test.user@ibm.com...
+                     
+ID                0757-6757e676-0bf5-4b79-9a5b-29c24e17420c   
+Name              otp1   
+Volume            ID                                          Name      
+                  r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   demo-volume-update      
+                     
+Status            attached   
+Bandwidth(Mbps)   393   
+Type              data   
+Device            0757-6757e676-0bf5-4b79-9a5b-29c24e17420c-bxsh7   
+Auto delete       true   
+Created           2023-06-29T18:14:57+00:00   
+```
+{: screen}
+
+For more information about available command options, see [`ibmcloud is instance-volume-attachment`](/docs/cli?topic=cli-vpc-reference#instance-volume-attachment).
 
 ### List all volume attachments of a server instance
 {: #list-all-attached-vol}
 
-Use the `instance-volume-attachments` command and specify the instance ID to see all volume attachments for an instance.
+Use the `instance-volume-attachments` command and specify the instance ID or name to see all volume attachments for an instance.
 
 ```sh
-ibmcloud is instance-volume-attachments INSTANCE_ID [--json]
+ibmcloud is instance-volume-attachments INSTANCE [--json]
 ```
 {: pre}
 
-Do you prefer to use the {{site.data.keyword.cloud}} console? For more information, see [Attaching a {{site.data.keyword.block_storage_is_short}} volume in the UI](/docs/vpc?topic=vpc-attaching-block-storage).
-{: tip}
+See the following example.
+
+```sh
+ibmcloud is instance-volume-attachments kj-test-ro
+Listing volume attachments of instance kj-test-ro under account Test Account as user test.user@ibm.com...
+ID                                          Name                                 Volume                          Status     Type   Device                                            Auto delete   
+0757-6757e676-0bf5-4b79-9a5b-29c24e17420c   otp1                                 demo-volume-update              attached   data   0757-6757e676-0bf5-4b79-9a5b-29c24e17420c-bxsh7   true   
+0757-af470ade-9d5c-491e-97b2-f000ed4ee49b   scheming-tipper-shivering-decrease   kj-test-ro-boot-1629867631000   attached   boot   0757-af470ade-9d5c-491e-97b2-f000ed4ee49b-fc4tl   true 
+```
+{: screen}  
+
+For more information about available command options, see [`ibmcloud is instance-volume-attachments`](/docs/cli?topic=cli-vpc-reference#instance-volume-attachments).
 
 ### Create a volume attachment JSON
 {: #volume_attachment_json}
 
-When you provision a virtual server instance from the CLI and create a {{site.data.keyword.block_storage_is_short}} volume as part of the process, you must specify a volume attachment JSON. The volume attachment JSON, specified in the command or as a file, defines the volume parameters. When you [create an instance](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli) and specify the `--volume-attach` option, you specify the volume JSON. For example, `--volume-attach @/Users/myname/myvolume-attachment_create.json`.
+When you provision a virtual server instance from the CLI and create a {{site.data.keyword.block_storage_is_short}} volume as part of the process, you can specify a volume attachment JSON. The volume attachment JSON, specified in the command or as a file, contains the volume parameters. 
 
-The following example shows a volume attachment JSON file that defines a custom volume and specifies user tags.
+In the CLI command that you use to [create an instance](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli), you specify the `--volume-attach` option and the volume JSON file. For example, `--volume-attach @/Users/myname/myvolume-attachment_create.json`.
+
+The following example shows the content of a volume attachment JSON file that defines a custom volume and specifies user tags.
 
 ```json
 [
@@ -168,7 +237,7 @@ The following example shows a volume attachment JSON file that defines a custom 
 {: #attaching-block-storage-api}
 {: api}
 
-### Attach a {{site.data.keyword.block_storage_is_short}} volume with the API
+### Attaching a {{site.data.keyword.block_storage_is_short}} volume with the API
 {: #attach-block-storage-api}
 {: help}
 {: support}

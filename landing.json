@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2023-06-08",
+    "lastupdated": "2023-06-27",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
@@ -31,19 +31,19 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
-          "date": "08 June 2023", 
-          "title": "New stock images for bare metal servers",
-          "description": "The following stock images are now available for bare metal servers. CentOS 7.x is now supported as an image when you provision a bare metal server. Also, CentOS Stream 9.x is now supported as an image when you provision a bare metal server."
+          "date": "27 June 2023", 
+          "title": "Snapshots for VPC Cross Regional Copy (GA)",
+          "description": "Customers can now create a copy of a snapshot in a different region, and later use that copy to restore a volume in the new region. This feature can be beneficial in disaster recovery scenarios when the customer needs to start their virtual server instance and data volumes in a different region. Customers can also use the remote copy to create storage volumes in a new region and expand their VPC in new locations."
         },
         {
-          "date": "01 June 2023", 
-          "title": "UI Enhancement to the List view:",
-          "description": "You can now export table data with the current table column format. The supported export formats are CSV and Microsoft Excel."
+          "date": "27 June 2023", 
+          "title": "Backup for VPC Cross Regional Copy (GA)",
+          "description": "Customers can now save a copy of their backup in a different region. Customers can copy the backup snapshot to another region manually or add the copy option to their backup policy plans. Customers can manage and use the cross-regional copy in the target region independently from the parent volume or the original backup."
         },
         {
-          "date": "30 May 2023", 
-          "title": "File Storage for VPC file share activity tracker event name changes (beta)",
-          "description": "For users with accounts that have access to file shares, when making API requests using a version query parameter of 2023-05-30 or later, the shares targets property was changed to mount_targets. This change affects file share Activity Tracker events. Events generated when creating, listing, retrieving, deleting, and updating mount targets for a file share are now is.share.mount-target.create, is.share.mount-target.list,is.share.mount-target.read, is.share.mount-target.delete, and is.share.mount-target.update. Events for is.share.target.create, is.share.target.list, is.share.target.read, is.share.target.delete, and is.share.target.update are deprecated and will be removed in a future API release per the VPC beta API versioning policy."
+          "date": "22 June 2023", 
+          "title": "New Ed25519 SSH key type is available (GA)",
+          "description": "The Ed25519 SSH key type is a new, supported SSH key type and can be used as an alternative to the RSA SSH key type. The Ed25519 SSH key can be used with Linux operating systems, but is not supported for Windows or VMware images."
         }
       ]
     }

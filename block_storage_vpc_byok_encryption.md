@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-01-25"
+lastupdated: "2023-06-30"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, Block Storage for vpc, customer-managed encryption,
 
@@ -74,36 +74,69 @@ When you create an instance from the UI, you can specify customer-managed encryp
 {: #data-vol-encryption-cli}
 {: cli}
 
-To create a block storage volume with customer-managed encryption from the CLI, use the `ibmcloud is volume-create` command with the `--encryption-key` parameter. The `encryption_key` parameter specifies a valid CRN for the root key in the key management service.
+### Before you begin
+{: #data-vol-encryption-cli-prereq}
+
+Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
+{: requirement}
+
+1. Log in to the IBM Cloud.
+   ```sh
+   ibmcloud login --sso -a cloud.ibm.com
+   ```
+   {: pre}
+
+   This command returns a URL and prompts for a passcode. Go to that URL in your browser and log in. If successful, you get a one-time passcode. Copy this passcode and paste it as a response on the prompt. After successful authentication, you are prompted to choose your account. If you have access to multiple accounts, select the account that you want to log in as. Respond to any remaining prompts to finish logging in.
+
+2. Select the current generation of VPC. 
+   ```sh
+   ibmcloud is target --gen 2
+   ```
+   {: pre}
+
+## Creating customer-managed encryption data volumes
+{: #encrypt-data-vol-cli}
+
+To create a block storage volume with customer-managed encryption from the CLI, use the `ibmcloud is volume-create` command with the `--encryption-key` option. The `encryption_key` option needs to specify a valid CRN for the root key in the key management service.
 
 Follow these steps:
 
 1. Use the procedure in [Step 1 - Obtain service instance and root key information](/docs/vpc?topic=vpc-creating-instances-byok#byok-cli-setup-prereqs) to obtain the ID of your key management service and the CRN of the root key in that service.
 
-2. Specify the `ibmcloud is volume-create` command with the `--encryption-key` parameter to a volume with customer-managed encryption. The `encryption_key` parameter specifies a valid CRN for the root key in the key management service.
+2. Run the `ibmcloud is volume-create` command with the `--encryption-key` option to create a volume with customer-managed encryption. The `encryption_key` parameter specifies a valid CRN for the root key in the key management service.
 
-```bash
+```sh
 ibmcloud is volume-create VOLUME_NAME PROFILE_NAME ZONE_NAME [--encryption-key ENCRYPTION_KEY] [--capacity CAPACITY] [--iops IOPS] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--output JSON]
 ```
 {: pre}
 
-The following example shows a new volume that is created with customer-managed encryption.
+The following example shows a volume that is created with customer-managed encryption.
 
-```bash
-$ ibmcloud is volume-create demo_volume custom us-south-1 --iops 1000 --encryption-key abccorp-kp-vpc-2 5437644a-c4b1-447f-9646-b1a2a4df61382
-Creating volume demovolume in resource group Default under account VPC 01 as user rtuser1@mycompany.com...
-ID                                      933c8781-f7f5-4a8f-8a2d-3bfc711788ee
-Name                                    demo_volume
-Capacity                                100
-IOPS                                    1000
-Profile                                 custom
-Encryption Key                          crn:v1:bluemix:public:kms:us-south:a/8d65fb1cf5e99e86dd7229ddef9e5b7b:b1abf7c5-381d-4f34-836e-5db7193250bc:key:fd57250e-908c-4785-a8a5-1f53176bcd2f
-Encryption                              customer_managed
-Status                                  pending
-Resource Group                          Default(dbb12715c2a22f2bb60df4ffd4a543f2)
-Created                                 2022-06-23 10:09:28
-Zone                                    us-south-1
-Volume Attachment Instance Reference    none
+```sh
+$ ibmcloud is volume-create demo-cli-volume custom us-east-1 --capacity 300 --iops 1500 --encryption-key crn:v1:bluemix:public:kms:us-east:a/a10d63fa66daffc9b9b5286ce1533080:3b05b403-8f51-4dac-9114-c777d0a760d4:key:7a8a2761-08e3-455f-a348-144ed604bba9
+Creating volume demo-cli-volume under account Test Account as user test.user@ibm.com...
+                                          
+ID                                     r014-3984600c-6f4d-4940-82de-519a867fa3c0   
+Name                                   demo-cli-volume   
+CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a10d63fa66daffc9b9b5286ce1533080::volume:r014-3984600c-6f4d-4940-82de-519a867fa3c0   
+Status                                 pending   
+Attachment state                       unattached   
+Capacity                               300   
+IOPS                                   1500   
+Bandwidth(Mbps)                        3145   
+Profile                                custom   
+Encryption key                         crn:v1:bluemix:public:kms:us-east:a/a10d63fa66daffc9b9b5286ce1533080:3b05b403-8f51-4dac-9114-c777d0a760d4:key:7a8a2761-08e3-455f-a348-144ed604bba9   
+Encryption                             user_managed   
+Resource group                         defaults   
+Created                                2023-06-29T20:10:52+00:00   
+Zone                                   us-east-1   
+Health State                           inapplicable   
+Volume Attachment Instance Reference   -   
+Active                                 false   
+Unattached capacity update supported   false   
+Unattached iops update supported       false   
+Busy                                   false   
+Tags                                   - 
 ```
 {: screen}
 
@@ -115,7 +148,7 @@ You can also create volumes with customer-managed encryption during instance pro
 
 You can create data volumes with customer-managed encryption by calling the [Virtual Private Cloud (VPC) API](/apidocs/vpc).
 
-Make a `POST /volumes` request to create a new volume encrypted using your own encryption keys. Use the `encryption_key` parameter to specify your customer root key (CRK), shown in the example as `crn:[...key:...]`.
+Make a `POST /volumes` request to create a volume encrypted using your own encryption keys. Use the `encryption_key` parameter to specify your customer root key (CRK), shown in the example as `crn:[...key:...]`.
 
 You can also specify the CRN of a root key from a different account in the `POST /volumes` call. For more information, see [About cross account key access and use](/docs/vpc?topic=vpc-vpc-byok-cross-acct-key&interface=ui#byok-vol-cross-acct-about).
 {: note}

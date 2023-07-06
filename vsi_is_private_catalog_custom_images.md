@@ -25,7 +25,7 @@ For more information about private catalogs, see the tutorial [Onboarding a virt
 
 Custom images can also be published to the {{site.data.keyword.cloud}} catalog and to other (nonenterprise) accounts. This process requires onboarding to the [{{site.data.keyword.cloud}} Partner Center](/partner-center/sell).
 
-### Prerequisites and limitations
+## Prerequisites and limitations
 {: #private-catalog-custom-image-prerequisites}
 
 Before you can import a custom image into a private catalog, the following items must be completed.
@@ -41,7 +41,7 @@ Custom images in a private catalog have the following restrictions:
 * Can exist in only one version of one catalog product offering in one private catalog at a time
 * Must be in `available` status
 
-### Using cross-account image references in a private catalog in the UI
+## Using cross-account image references in a private catalog in the UI
 {: #private-catalog-image-reference-vpc-ui}
 {: ui}
 
@@ -49,7 +49,7 @@ Instances you provision belong to your account. Images shared to your account th
 
 Additionally, it is possible that the referenced image might have the same name as a custom image in your account. But these image names are for two different images in two different accounts. The ID and CRN each uniquely identifies an image across {{site.data.keyword.cloud}}. To avoid possible retrieval or use of the wrong image, when you cut-and-paste an image’s identity outside of the UI, use its ID or CRN, rather than its name.
 
-### Using cross-account image references in a private catalog in the CLI
+## Using cross-account image references in a private catalog in the CLI
 {: #private-catalog-image-reference-vpc-cli}
 {: cli}
 
@@ -89,7 +89,7 @@ Additionally, it is possible that the referenced image might have the same name 
 
 Verify that your CLI-based automation handles image reference lookup failures gracefully and do not assume that inaccessible images were deleted, even if it runs with full access to your images. To avoid possible retrieval or use of the wrong image by Name, specify the image ID instead.
 
-### Using cross-account image references in a private catalog in the API
+## Using cross-account image references in a private catalog in the API
 {: #private-catalog-image-reference-vpc-api}
 {: api}
 
@@ -127,7 +127,7 @@ Additionally, it is possible that the referenced image might have the same name 
 
 Verify that your clients handle image reference lookup failures gracefully and do not assume that inaccessible images were deleted, even when it runs with full access to your images. To avoid possible retrieval or use of the wrong image by `name`, specify the image `id`, `crn`, or `href` instead.
 
-### Using cross-account image references in a private catalog in Terraform
+## Using cross-account image references in a private catalog in Terraform
 {: #private-catalog-image-reference-vpc-terraform}
 {: terraform}
 
@@ -160,7 +160,7 @@ This error means that the image doesn't exist in your account. If the instance w
 
 Additionally, it is possible that the referenced image might have the same name as a custom image in your account. But these image names are for two different images in two different accounts. While the terraform uses both ID or Name to identify an image, only the ID uniquely identifies an image across {{site.data.keyword.cloud}}. To avoid possible retrieval or use of the wrong image by name, specify the image ID instead. For more information, see [image data source](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_image).
 
-### Deleting a custom image in a private catalog
+## Deleting a custom image in a private catalog
 {: #deleting-private-catalog-custom-image-vpc}
 
 A custom image can't be deleted, reused for a different version, or reused for a different product offering while that custom image is managed from a private catalog.
@@ -171,14 +171,14 @@ If you want to immediately reuse or delete the custom image, make sure that you 
 
 To delete a published or shared custom image from the private catalog, see the tutorial [Deprecating a private product](/docs/account?topic=account-deprecate-product&interface=ui). To delete the entire private catalog, see the tutorial [Deleting a private catalog by using the console](/docs/account?topic=account-restrict-by-user&interface=ui#delete-private-catalog-ui).
 
-### Instance groups and private catalog
+## Instance groups and private catalog
 {: #private-catalog-instance-groups}
 
 You can use a custom image in a private catalog to create an instance group. However, you must first create a service-to-service policy to `globalcatalog-collection.instance.retrieve` before you can create the instance group. For more information, see [Using a custom image in a private catalog with an instance group](/docs/vpc?topic=vpc-private-catalog-image-instance-group&interface=ui).
 
 The information about which custom image that is in a private catalog that was used for provisioning an instance doesn't persist across all {{site.data.keyword.vpc_short}} resources. Information about the custom image in a private catalog isn't available on Snapshot for VPC or Image from Volume. The operating system information, which is required when you provision a virtual server, is available.
 
-### Importing your custom image into a private catalog
+## Importing your custom image into a private catalog
 {: #custom-image-using-private-catalog}
 
 After your custom image is imported into {{site.data.keyword.vpc_short}}, you can import that custom image into a private catalog.

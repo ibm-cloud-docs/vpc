@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-11-08"
+lastupdated: "2022-06-22"
 
 keywords: user data, virtual server username
 
@@ -36,6 +36,9 @@ The size limit of the **User Data** field (or file) is 64 K bytes.
 {: #add-user-ssh-key}
 
 The following cloud-init example shows how a Linux user can add a user and provide the user with an authorized SSH key. The **Name** field has the public key that is added to `~/.ssh/authorized_keys`.
+
+<!--ed25519 note is shared with several other files building-custom-os.md, vsi_is_create_linux_custom_image.md -->
+{{_include-segments/linux-ed25519-ssh-key-type-note.md}}
 
 ```yaml
 #cloud-config

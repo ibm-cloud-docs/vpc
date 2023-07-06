@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-06-13"
+lastupdated: "2023-06-30"
 
 keywords: block storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
@@ -20,34 +20,43 @@ When you provision {{site.data.keyword.block_storage_is_short}} volumes by using
 
 IOPS values are based on 16 K IO size with a 50-50 read/write random workload. The throughput for the 3 IOPS/GB and 5 IOPS/GB tiers is computed by using 16 K IO size times the provisioned IOPS value. The throughput for 10 IOPS/GB tier and the custom profile is computed by using 256 K IO Size and the provisioned IOPS value, limited to a maximum of 1024 MB/s.
 
+
 ## Block storage profiles overview
 {: #block-storage-profile-overview}
 
-When you create a block storage volume, you can select between custom and tiered-IOPS profiles.
+When you create a block storage volume, you can select between custom and tiered-IOPS profiles. All these profiles are backed by solid-state drives (SSDs). The following table shows the available storage profiles. The custom and tiered profiles are available in every region for every customer. 
+
+| Profile           | IOPS            | IOPS per volume| Max throughput | Volume size       | Block size |
+|-------------------|----------------:|---------------:|---------------:|------------------:|-----------:|
+| `general-purpose` | 3 IOPS/GB       | 3,000 - 48,000 | 670 MB/s       | 10 GB - 16,000 GB | 16 KB      |
+| `5iops-tier`      | 5 IOPS/GB       | 3,000 - 48,000 | 768 MB/s       | 10 GB - 9,600 GB  | 16 KB      |
+| `10iops-tier`     | 10 IOPS/GB      | 3,000 - 48,000 | 1024 MB/s      | 10 GB - 4,800 GB  | 256 KB     |
+| `custom`          | 1 - 100 IOPS/GB | 3,000 - 48,000 | 1024 MB/s      | 10 GB - 16,800 GB | 256 KB     |
+{: caption="Table 1. Block storage profiles and performance levels." caption-side="bottom"}
+
+Moving volumes across volume-profiles that belong to different families is not allowed.
+{: restriction}
 
 ### IOPS tiers
 {: #tiers}
 
-When you create your storage volume, you can select from three predefined IOPS tiers. These profiles are backed by solid-state drives (SSDs).
-
-Choose the profile that provides optimal performance for your compute workloads. Table 1 describes the IOPS performance that you can expect for each tier.
-
-Max IOPS for all tiers starts at 3,000 IOPS. Max IOPS then increases, based on the storage tier and volume size, up to the Max IOPS in Table 1.
-{: note}
+When you create your storage volume, you can select from three predefined IOPS tiers. Choose the profile that provides optimal performance for your compute workloads. Table 2 describes the IOPS performance that you can expect for each tier.
 
 |  Name	| Purpose | IOPS rate	| Capacity range (GB)	| Min IOPS	Max IOPS	| Blocksize |
-|--------|---------|-------|-----------------------------|---------------------|-----------|
+|--------|---------|------------:|----------------------:|-------------------:|----------:|
 | 	`general-purpose`	| Workloads that host small databases for web applications or store virtual machine disk images for a hypervisor. | 3 IOPS/GB  | 10 -	16,000 | 3,000	- 48,000 | 16 KB |
 | 	`5iops-tier`	|High I/O intensity workloads - Workloads characterized by a large percentage of active data, such as transactional and other performance-sensitive databases.| 5 IOPS/GB | 10 - 9,600 | 3,000 - 48,000 | 16 KB |
 | 	`10iops-tier`	| Demanding storage workloads - Data intensive workloads created by NoSQL databases, data processing for video, machine learning, and analytics. Bandwidth limits are calculated by using a 256 KB block size.| 10 IOPS/GB | 10 - 4,800 | 3000 - 48,000 | 256 KB | 
-{: caption="Table 1. IOPS tier profiles and performance levels for each tier" caption-side="bottom"}
+{: caption="Table 2. IOPS tier profiles and performance levels for each tier" caption-side="bottom"}
 
-### Custom IOPS profile
+Max IOPS for all tiers starts at 3,000 IOPS. Max IOPS then increases, based on the storage tier and volume size, up to the Max IOPS in Table 2.
+
+### Custom IOPS profiles
 {: #custom}
 
-Custom IOPS is a good option when you have well-defined performance requirements that do not fall within a predefined IOPS tier. You can customize the IOPS by specifying the total IOPS for the volume within the range for its volume size. You can provision volumes with IOPS performance from 100 IOPS to 48,000 IOPS, based on volume size. Custom IOPS profiles are backed by solid-state drives (SSDs).
+Custom IOPS is a good option when you have well-defined performance requirements that do not fall within a predefined IOPS tier. You can customize the IOPS by specifying the total IOPS for the volume within the range for its volume size. You can provision volumes with IOPS performance from 100 IOPS to 48,000 IOPS, based on volume size.
 
-Table 2 shows the available IOPS ranges based on volume capacity.
+Table 2 shows the available IOPS ranges based on volume capacity for the custom profile. 
 
 | Volume size (GB) | IOPS range    |
 |------------------|---------------|
@@ -66,7 +75,7 @@ Table 2 shows the available IOPS ranges based on volume capacity.
 ## Profiles and boot volumes
 {: #vsi-profiles-boot}
 
-Boot volumes are created based on a general-purpose IOPS profile with 100 GB capacity. [Boot volume capacity](/docs/vpc?topic=vpc-resize-boot-volumes) can be increased during instance provisioning or later, by directly modifying the boot volume, up to 250 GB.
+By default, boot volumes are created based on the `general-purpose` IOPS profile with 100 GB capacity during instance provisioning. [Boot volume capacity](/docs/vpc?topic=vpc-resize-boot-volumes) can be increased by modifying the boot volume, up to 250 GB. 
 
 ## How virtual server profiles relate to storage profiles
 {: #vsi-profiles-relate-to-storage}
@@ -105,16 +114,62 @@ ibmcloud is volume-profiles
 ```
 {: pre}
 
+```sh
+$ ibmcloud is volume-profiles
+Listing volume profiles in region us-east under account TEST as user test.user@ibm.com...
+Name              Family   
+general-purpose   tiered   
+5iops-tier        tiered   
+10iops-tier       tiered   
+custom            custom 
+```
+{: codeblock}
+
+To view details of the profile, run the `ibmcloud is volume-profile` command with the name of the profile that you are interested in seeing.
+
+The following example shows the details of the `10iops-tier`.
+
+```sh
+$ ibmcloud is volume-profile 10iops-tier
+Getting volume profile 10iops-tier under account Test Account as user test.user@ibm.com...
+                                          
+Name                                   10iops-tier   
+Family                                 tiered   
+Adjustable IOPS                        false   
+Boot capacity                          Max   Min      
+                                       250   10      
+                                          
+Capacity                               Max    Min   Default   Step      
+                                       4800   10    10        1      
+                                          
+IOPS                                   Max    Min   Default   Step      
+                                       48000  10    10        1      
+                                          
+Unattached capacity update supported   false   
+Unattached iops update supported       false  
+```
+{: screen}
+
+For more information about available command options, see [`ibmcloud is volume-profile`](/docs/cli?topic=cli-vpc-reference#volume-profile).
+
 ### With the API
 {: #using-api-iops-profiles}
 {: api}
 
-The following cURL API request retrieves all volume profiles.
+To see the available profiles, make a `GET /volume/profiles` call.
 
 ```sh
 curl -X GET \
 $vpc_api_endpoint/v1/volume/profiles?$api_version&generation=2 \
 -H "Authorization: $iam_token"
+```
+{: pre}
+
+To see details of a specific profile, make a `GET /volume/profile` request and specify the name of the profile.
+
+```sh
+curl -X GET "https://us-south.iaas.cloud.ibm.com/v1/volume/profiles/custom?version=2023-07-24&generation=2"\
+ -H "Authorization: $iam_token"
 ```
 {: pre}
 

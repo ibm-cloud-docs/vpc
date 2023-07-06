@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2018, 2022
-lastupdated: "2022-11-08"
+lastupdated: "2023-06-22"
 
 keywords: classic, access, classic access, VRF, peering
 
@@ -78,6 +78,9 @@ curl -X POST "$rias_endpoint/v1/vpcs?version=$api_version&generation=2" \
 ### Classic access VPC default address prefixes
 {: #classic-access-default-address-prefixes}
 
+Classic Virtual Servers aren't available in the Madrid MZR.
+{: important}
+
 When a classic access VPC is created, the default address prefixes are assigned based on the zone as follows:
 
 Zone         | Address Prefix
@@ -94,6 +97,9 @@ Zone         | Address Prefix
 `eu-de-1`      | `172.19.0.0/18`
 `eu-de-2`      | `172.19.64.0/18`
 `eu-de-3`      | `172.19.128.0/18`
+`eu-es-1`      | `172.27.0.0/18`
+`eu-es-2`      | `172.27.64.0/18`
+`eu-es-3`      | `172.27.128.0/18`
 `jp-tok-1`     | `172.20.0.0/18`
 `jp-tok-2` 	   | `172.20.64.0/18`
 `jp-tok-3` 	   | `172.20.128.0/18`
@@ -110,6 +116,9 @@ Zone         | Address Prefix
 `br-sao-2`     | `172.26.64.0/18`
 `br-sao-3`     | `172.26.128.0/18`
 {: caption="Table 1. Classic access VPC address prefixes by zone" caption-side="top"}
+
+The Madrid region only supports dedicated host profiles with instance storage. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui).
+{: important}
 
 To prevent address prefixes from being created, you can add the `"address_prefix_management": "manual"` parameter when you create the VPC by using the API:
 

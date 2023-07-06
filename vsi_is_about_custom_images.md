@@ -95,12 +95,12 @@ For more information about bare metal server images, see [Bare metal server imag
 
 You can use IBM Wazi Image Builder to create your own custom z/OS-based {{site.data.keyword.waziaas_full_notm}} (Wazi aaS) image and import the custom image into {{site.data.keyword.vpc_full}}.
 
-IBM Wazi Image Builder is a separately orderable product from [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/){: external}. Extra requirements are needed to use Wazi Image Builder. The image cost is the premium that is applied to cover the cost of technologies that allows for z/OS dev and test images to run on zSystems hardware on IBM’s cloud infrastructure as a service layer.
+IBM Wazi Image Builder is a separately orderable product from [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/){: external}. Extra requirements are needed to use Wazi Image Builder. The image cost is the premium that is applied to cover the cost of technologies that allows for z/OS dev and test images to run on IBM Z hardware in IBM’s cloud infrastructure as a service layer.
 
 The z/OS Wazi aaS custom image must meet the following requirements:
-
 * qcow2 format
 * z/OS 2.4 or z/OS 2.5 operating system
+* See [Hardware and software requirements](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=builder-hardware-software-requirements){: external} for required PTF fixes on z/OS and other IBM software products to allow them to run as a guest of IBM Z Hypervisor as a Service (zHYPaaS).
 
 For more information, see [Bringing your own image with Wazi Image Builder](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=bringing-your-own-image-wazi-image-builder){: external}.
 

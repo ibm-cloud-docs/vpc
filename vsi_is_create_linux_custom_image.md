@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-06-09"
+lastupdated: "2023-06-22"
 
 keywords: creating a linux custom image, cloud-init, qcow2
 
@@ -25,6 +25,9 @@ You can begin with an image template from the {{site.data.keyword.cloud_notm}} C
 {{site.data.content.custom-image-requirements-list}}
 
 To create secure execution-based custom images by using the {{site.data.keyword.cos_full_notm}} option, see [Preparing the workload](https://www.ibm.com/docs/en/linux-on-systems?topic=tasks-prepare-workload). For information about creating secure execution-based images, [IBM Secure Execution for Linux](https://www.ibm.com/docs/en/linux-on-systems?topic=virtualization-introducing-secure-execution-linux).
+
+<!--ed25519 note is shared with several other files building-custom-os.md, vsi_is_create_linux_custom_image.md -->
+{{_include-segments/linux-ed25519-ssh-key-type-note.md}}
 
 Complete the following steps to make sure that you can successfully deploy your own Linux custom image in the {{site.data.keyword.vpc_short}} infrastructure environment. Keep in mind that you can't create an image from an encrypted boot volume (image from a volume) that is not 100 GB. The operation is blocked.
 

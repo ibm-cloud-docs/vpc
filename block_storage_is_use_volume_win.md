@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-06-13"
+lastupdated: "2023-06-30"
 
 keywords: Block storage for VPC, iscsi for VPC, SAN for VPC
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Set up your {{site.data.keyword.block_storage_is_short}} data volume for use (Windows)
+# Setting up your {{site.data.keyword.block_storage_is_short}} data volume for use (Windows)
 {: #start-using-your-block-storage-data-volume-win}
 
 If you want to use your {{site.data.keyword.block_storage_is_full}} volume as a file system, you need to partition the volume, format it, and then mount it as a file system. You can perform this operation after you created a {{site.data.keyword.block_storage_is_short}} volume and attached it to an instance.
@@ -20,7 +20,7 @@ If you want to use your {{site.data.keyword.block_storage_is_full}} volume as a 
 
 Follow this procedure to use your block storage volume on a Windows&reg; system.
 
-## Set up your volume for use with the Disk Management utility
+## Setting up your volume for use with the Disk Management utility
 {: #diskmanagementutil}
 
 1. Log in to your Windows instance by using Remote Desktop. For more information, see [Connecting to Windows instances](/docs/vpc?topic=vpc-vsi_is_connecting_windows).
@@ -44,7 +44,7 @@ Follow this procedure to use your block storage volume on a Windows&reg; system.
 1. Specify a Volume Label and adjust the default settings as necessary, and then choose Next.
 1. Review your settings, and then choose Finish to apply the modifications and close the New Simple Volume wizard.
 
-## Set up your volume for use with Windows PowerShell
+## Setting up your volume for use with Windows PowerShell
 {: #winpowershell}
 
 1. Log in to your Windows instance by using Remote Desktop. For more information, see [Connecting to Windows instances](/docs/vpc?topic=vpc-vsi_is_connecting_windows).

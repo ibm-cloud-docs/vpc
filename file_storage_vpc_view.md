@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-06-09"
+lastupdated: "2023-07-05"
 
-keywords:
+keywords: file storage, file share, view share details, mount targets, view targets, view share
 
 subcollection: vpc
 
@@ -15,10 +15,10 @@ subcollection: vpc
 # Viewing file shares and mount targets
 {: #file-storage-view}
 
-View all file shares and mount targets in the UI, CLI, or API. View details of a single file share or mount target.
+View all file shares and mount targets in the UI, CLI, API, or Terraform. View details of a single file share or mount target.
 {: shortdesc}
 
-{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
+{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Madrid, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 ## View file shares and mount targets in the UI
@@ -40,7 +40,7 @@ View all file shares and mount targets in the UI, CLI, or API. View details of a
 | Mount targets | Number of mount targets that are associated with the file share. You can have one mount target per VPC per file share. |
 | Size | Size of the file share, in GBs. |
 | Replication role | Relationship to the source file share. "Replica of" indicates that the file share a replica of the source share, which is linked. "Source of" indicates that the share the source of the replica, which is linked. "None" indicates that replication is not configured for the file share. |
-| Encryption type | Shows encryption type of the file share, either provider-managed or customer-managed. [Customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption) uses your own root keys to protect your data. The UI also identifies the key management service (KMS), {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. |
+| Encryption type | Shows encryption type of the file share, either provider-managed or customer-managed. [Customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption) uses your own root keys to protect your data. The UI also identifies the key management service (KMS), either {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. |
 | Actions menu| Options for managing the file share, depending on its state. For a file share in a _stable_ state, you can rename the share, create a replica, or delete a file share. **Delete** and **Create replica** are disabled if you set up replication to a replica file share. For more information, see [Creating replica file shares](/docs/vpc?topic=vpc-file-storage-create-replication&interface=ui). |
 {: caption="Table 1. File shares list page." caption-side="bottom"}
 
@@ -69,15 +69,16 @@ The following table describes the information on files shares details page.
 | ID | For customer-managed encryption, the UUID generated when you created the file share. |
 | Size | File share size in GB. |
 | Created | Date the file share was created. |
+| Mount target access mode [New]{: tag-new} | Access to the file share is granted by either a security group within a subnet or to any virtual server instance in the VPC. Click the pencil icon to switch access modes. Security group access is available only to file shares created with the [`dp2` profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile). For more information, see the [Mount target access modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-mount-access-mode). |
 | **Profile, size, and IOPS**| |
 | Size | File share size in GB. |
-| IOPS tier | IOPS tier [profile](/docs/vpc?topic=vpc-file-storage-profiles) defining the file share performance. For example, a 3 IOPS/GB general-purpose profile. |
+| IOPS tier | IOPS tier [profile](/docs/vpc?topic=vpc-file-storage-profiles) that defines the file share performance. For example, a 3 IOPS/GB general-purpose profile. |
 | Max IOPS | Maximum IOPS for the specified profile. |
 | **Mount targets** | Number of mount targets associated with the file share. You can have one mount target per VPC per file share. You can create more mount targets for other VPCs. |
 | Name | Name of the mount target. |
 | Virtual private cloud | Click the name to go to the details page for that VPC, where you can see a [list of file shares](#fs-view-shares-vpc) that have a mount target to the VPC. |
 | Status | Status of the mount target on the VPC. |
-| **File share replication relationship** | Shows the replica file share in relationship to the source file share. If you change to the source file share size or profile that is applied, the replica is updated at the next replication interval. \n Click **Remove replication relationship** to break the replication relationship. The replica file share is now an independent read/write file share. If no replica file shares were created, click **Create replica** to [create one](/docs/vpc?topic=vpc-file-storage-create-replication).|
+| **File share replication relationship** | Shows the replica file share in relationship to the source file share. If you change to the source file share size or profile that is applied, the replica is updated at the next replication interval. \n * To break the replication relationship, click **Remove replication relationship**. Then, the replica file share becomes an independent read/write file share. \n * If no replica file shares were created, click **Create replica** to [create one](/docs/vpc?topic=vpc-file-storage-create-replication).|
 | Replication frequency | Hover over the information icon to see an explanation of the cron replication frequency. |
 | Replication role | Source or replica file share. |
 | File share Name | Click the file share name to see its details. |
@@ -97,6 +98,14 @@ You can see all file shares that have a mount target to a VPC by viewing the VPC
 
 2. On the VPC details page, scroll to **File shares in this VPC**.
 
+### View mount target details in the UI
+{: #fs-get-mountpath-ui-vpc}
+
+1. Go to the list of all file shares. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > File Shares**.
+2. Click the name of a file share to see the details page. 
+3. Scroll to the Mount targets section to see the list of mount targets. The list contains the names and statuses of the mount target, and the VPC that the mount target belongs to.
+4. Click the ellipsis (![Actions menu](images/overflow.png)) to reveal the Actions menu. The Actions menu has 3 options: Rename, View path, and Delete. 
+5. Click View path to see the mount path information that you can copy and paste in your mounting commands.
 
 ## View file share and mount targets from the CLI
 {: #file-storage-view-shares-targets-cli}
@@ -110,17 +119,6 @@ As of 30 May 2023, you can use `--mount-targets` instead of `--targets` option. 
    ```
    {: pre}
 
-### View mount targets for a file share from the CLI
-{: #fs-view-mount-shares-cli}
-
-Run the `ibmcloud is share-mount-targets` command and specify the file share ID to see all mount targets for a file share.
-
-```sh
-ibmcloud is share-mount-targets SHARE_ID [--output JSON] [-q, --quiet]
-```
-{: pre}
-
-
 ### View all file shares from the CLI
 {: #fs-view-all-shares-cli}
 
@@ -131,7 +129,7 @@ ibmcloud is shares [--resource-group-id RESOURCE_GROUP_ID | --resource-group-nam
 ```
 {: pre}
 
-For example,
+See the following example.
 
 ```text
 ibmcloud is shares
@@ -167,7 +165,7 @@ Mount Targets     ID                                          Name           VPC
 Resource Group    ID                                 Name
                   bdd96715c2a44f2bb60df4ff14a543f5   Default
 
-Created           2023-05-30T15:21:35+05:30
+Created           2023-07-05T15:21:35+05:30
 ```
 {: screen}
 
@@ -181,7 +179,7 @@ ibmcloud is share-replica-source REPLICA-SHARE [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
-For example,
+See the following example.
 
 ```text
 ibmcloud is share-replica-source replica-share-4
@@ -214,9 +212,45 @@ Source share         ID   Name   Resource type
 ```
 {: screen}
 
+### View mount targets for a file share from the CLI
+{: #fs-view-mount-shares-cli}
+
+Run the `ibmcloud is share-mount-targets` command and specify the file share ID to see all mount targets for a file share.
+
+```sh
+ibmcloud is share-mount-targets SHARE_ID [--output JSON] [-q, --quiet]
+```
+{: pre}
+
+### View mount target details from the CLI
+{: #fs-get-mountpath-cli}
+
+Run the `ibmcloud is share-mount-target` command and specify the share ID or name with the mount target name or ID.
+
+See the following example.
+
+```sh
+ibmcloud is share-mount-target my-file-share-3 my-target1
+
+Getting mount target ID my-target1 for share ID my-file-share-3 under account Test Account as user test.user@ibm.com...
+                     
+ID                r026-c33d31bd-50e0-4401-abba-9c46ca698cb9   
+Name              my-target1   
+VPC               ID                                          Name      
+                  r026-b403cfe8-917e-4fb8-a72c-bb490c735119   vpc-1006-01      
+                     
+Lifecycle state   stable   
+Mount path        fsf-syd0151a-fz.adn.networklayer.com:/abb3339c_12b2_4e92_914c_02f1018b45d3   
+Created           2023-07-05T17:57:10+05:30
+```
+{: codeblock}
+
 ## View file shares and mount targets with the API
 {: #file-storage-view-shares-targets-api}
 {: api}
+
+As described in the [Beta VPC API](/apidocs/vpc-beta) reference [versioning](/apidocs/vpc-beta#api-versioning-beta) policy, support for older versions of the beta API is limited to 45 days. Therefore, beta API requests must specify a `version` query parameter date value within the last 45 days. You must also provide `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/apidocs/vpc#api-generation-parameter).
+{: requirement}
 
 ### View all file shares with the API
 {: #fs-view-all-shares-api}
@@ -225,12 +259,12 @@ Make a `GET /shares` request to list all file shares for a region.
 
 ```curl
 curl -X GET \
-"$vpc_api_endpoint/v1/shares?version=2023-05-30?limit=50&generation=2&maturity=beta"\
+"$vpc_api_endpoint/v1/shares?version=2023-07-05?limit=50&generation=2&maturity=beta"\
 -H "Authorization: $iam_token"
 ```
 {: pre}
 
-A successful response looks like the following example. In the example, the `limit` query parameter specifies a limit of 50 file shares, all though there is only one in the response.
+A successful response looks like the following example. In the example, the `limit` query parameter specifies a limit of 50 file shares, all though there is only one in the response. The `access_control_mode` property value is `vpc`, which means that the file share can be mounted on all virtual server instances in a VPC.
 
 ```json
 {
@@ -240,7 +274,8 @@ A successful response looks like the following example. In the example, the `lim
   "limit": 50,
   "shares": [
     {
-      "created_at": "2023-05-30T13:02:17Z",
+      "access_control_mode": "vpc",
+      "created_at": "2023-07-05T13:02:17Z",
       "crn": "crn:[...]",
       "encryption": "provider_managed",
       "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/51bba578-0dce-4f8a-aa6e-f06c899e2c8e",
@@ -294,16 +329,17 @@ Make a `GET /shares/{share_id}` request to get details about a single file share
 
 ```curl
 curl -X GET \
-"$vpc_api_endpoint/v1/shares/$share_id?version=2023-05-30&generation=2&maturity=beta"\
+"$vpc_api_endpoint/v1/shares/$share_id?version=2023-07-05&generation=2&maturity=beta"\
 -H "Authorization: $iam_token"
 ```
 {: pre}
 
-A successful response looks like the following example. In this example, the share was created based on a `dp2` profile.
+A successful response looks like the following example. In this example, the share was created based on a `dp2` profile. The `access_ control_mode` property value is `security_group`, which means that access to the share is determined by the rules of a security group.
 
 ```json
 {
-  "created_at": "2023-05-07T22:58:49.000Z",
+  "access_control_mode": "security_group",
+  "created_at": "2023-07-05T22:58:49.000Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63",
@@ -358,11 +394,11 @@ A successful response looks like the following example. In this example, the sha
 
 Make a `GET /shares/{share_id}/mount_targets` request to list all mount targets of a file share.
 
-For example,
+See the following example.
 
 ```curl
 curl -X GET \
-"$vpc_api_endpoint/v1/shares/$share_id/mount_targets?version=2023-05-30?limit=50&generation=2&maturity=beta"\
+"$vpc_api_endpoint/v1/shares/$share_id/mount_targets?version=2023-07-05?limit=50&generation=2&maturity=beta"\
 -H "Authorization: $iam_token"
 ```
 {: pre}
@@ -377,14 +413,46 @@ A successful response looks like the following example:
   "limit": 50,
   "mount_targets": [
     {
-      "created_at": "2023-05-30T01:59:46.000Z",
+      "access_control_mode": "security_group",
+      "created_at": "2023-07-05T01:59:46.000Z",
       "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63/mount_targets/r134-1b5571cb-536d-48d0-8452-81c05c6f7b80",
       "id": "r134-1b5571cb-536d-48d0-8452-81c05c6f7b80",
       "lifecycle_reasons": [],
       "lifecycle_state": "stable",
       "mount_path": "fsf-dal1099a-fz.adn.networklayer.com:/nxg_s_voll_mz0716_a4cc07a3_4425_4adf_aed6_0d7e142bee0c",
       "name": "my-target",
+      "primary_ip": {
+        "address": "192.0.2.0",
+        "href": "https://us-south.iaas.cloud.ibm.com/v1/subnets/35984145-9c3a-4626-8ee7-52c7a8742752/reserved_ips/0716-6fd4925d-7774-4e87-829e-7e5765d454ad",
+        "id": "0716-6fd4925d-7774-4e87-829e-7e5765d454ad",
+        "name": "my-reserved-ip",
+        "resource_type": "subnet_reserved_ip"
+      },
       "resource_type": "share_mount_target",
+      "security_groups": [
+        {
+          "crn": "crn:[...]",
+          "href": "https://us-south.iaas.cloud.ibm.com/v1/security_groups/r134-1dfeccef-3ad6-4760-8653-a202bc795db4",
+          "id": "r134-1dfeccef-3ad6-4760-8653-a202bc795db4",
+          "name": "my-security-group",
+          "resource_type": "security_group"
+        }
+      ],
+      "subnet": {
+        "crn": "crn:[...]",
+        "href": "https://us-south.iaas.cloud.ibm.com/v1/subnets/35984145-9c3a-4626-8ee7-52c7a8742752",
+        "id": "35984145-9c3a-4626-8ee7-52c7a8742752",
+        "name": "my-subnet",
+        "resource_type": "subnet"
+      },
+      "transit_encryption": "none",
+      "virtual_network_interface": {
+        "crn": "crn:[...]",
+        "href": "https://us-south.iaas.cloud.ibm.com/v1/virtual_network_interfaces/388f01db-41bb-42aa-b5cd-34ba41288d47",
+        "id": "388f01db-41bb-42aa-b5cd-34ba41288d47",
+        "name": "my-virtual-network-interface",
+        "resource_type": "virtual_network_interface"
+      },
       "vpc": {
         "crn": "crn:[...]",
         "href": "https://us-south.iaas.cloud.ibm.com/v1/vpcs/4c0bb0df-5ca2-43ca-a3de-a4f86010a906",
@@ -404,27 +472,59 @@ A successful response looks like the following example:
 
 Make a `GET /shares/{share_id}/mount_targets/{mount_target_id}` request to information of a single mount target of a file share. This call includes mount path information. Use the mount path to attach a file share to an instance.
 
-Fpr example,
+See the following example
 
-```curl
+```sh
 curl -X GET \
-"$vpc_api_endpoint/v1/shares/$share_id/mount_targets/$mount_target_id?version=2023-05-30&generation=2&maturity=beta"\
+"$vpc_api_endpoint/v1/shares/$share_id/mount_targets/$mount_target_id?version=2023-07-05&generation=2&maturity=beta"\
 -H "Authorization: $iam_token"
 ```
 {: pre}
 
-A successful response looks like the following example.
+A successful response looks like the following example. In this example, [data encryption in transit](/docs/vpc?topic=vpc-file-storage-vpc-eit) is not enabled. The `transit_encryption` property value is `provider_managed`. 
 
 ```json
 {
-    "created_at": "2023-05-30T01:59:46.000Z",
+    "access_control_mode": "security_group",
+    "created_at": "2023-07-05T01:59:46.000Z",
     "href": "https://us-south.iaas.cloud.ibm.com/v1/shares//199d78ec-b971-4a5c-a904-8f37ae710c63/mount_targets/d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
     "id": "d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
     "lifecycle_reasons": [],
     "lifecycle_state": "stable",
     "mount_path": "fsf-dal1099a-fz.adn.networklayer.com:/nxg_s_vol_xyz_2891fd0a_64ea_4deb_9ed5_1159e37cb5aa",
     "name": "my-mount-target2",
+    "primary_ip": {
+      "address": "192.0.2.0",
+      "href": "https://us-south.iaas.cloud.ibm.com/subnets/c2338e66-dcb5-4e9b-b572-108d47ca479a/reserved_ips/b96d456e-88f7-42a7-b02d-450a6d758534",
+      "id": "b96d456e-88f7-42a7-b02d-450a6d758534",
+      "name": "my-reserved-ip",
+      "resource_type": "subnet_reserved_ip"
+    },
     "resource_type": "share_mount_target",
+    "security_groups": [
+      {
+        "crn": "crn:[...]",
+        "href": "https://us-south.iaas.cloud.ibm.com/v1/security_groups/b79365be-f626-45d4-94ae-83f16fa4edd3",
+        "id": "b79365be-f626-45d4-94ae-83f16fa4edd3",
+        "name": "my-security-group",
+        "resource_type": "security_group"
+      }
+    ],
+    "subnet": {
+      "crn": "crn:[...]",
+      "href": "https://us-south.iaas.cloud.ibm.com/v1/subnets/c2338e66-dcb5-4e9b-b572-108d47ca479a",
+      "id": "c2338e66-dcb5-4e9b-b572-108d47ca479a",
+      "name": "my-subnet",
+      "resource_type": "subnet"
+    },
+    "transit_encryption": "provider_managed",
+    "virtual_network_interface": {
+      "crn": "crn:[...]",
+      "href": "https://us-south.iaas.cloud.ibm.com/v1/virtual_network_interfaces/4551a68d-b45d-4443-b6b3-aba7a4a18c98",
+      "id": "4551a68d-b45d-4443-b6b3-aba7a4a18c98",
+      "name": "my-virtual-network-interface",
+      "resource_type": "virtual_network_interface"
+    },
     "vpc": {
       "crn": "crn:[...]",
       "href": "https://us-south.iaas.cloud.ibm.com/v1/vpcs/5821d0c4-a089-4957-b5fa-03b7ac636c15",
@@ -443,7 +543,7 @@ Make a `GET /shares/{replica_id}/source` request and specify the replica share I
 
 ```curl
 curl -X GET \
-"$vpc_api_endpoint/v1/shares/$replica_id/source?version=2023-05-30&generation=2&maturity=beta"\
+"$vpc_api_endpoint/v1/shares/$replica_id/source?version=2023-07-05&generation=2&maturity=beta"\
 -H "Authorization: $iam_token"\
 ```
 {: pre}
@@ -452,7 +552,8 @@ A successful response provides details of the source file share. Notice that the
 
 ```json
 {
-    "created_at": "2023-05-30T22:58:49.000Z",
+    "access_control_mode": "security_group",
+    "created_at": "2023-07-05T22:58:49.000Z",
     "crn": "crn:[...]",
     "encryption": "provider_managed",
     "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/207721a9-aff9-4b16-9823-fe68096aeac3",
@@ -502,8 +603,100 @@ A successful response provides details of the source file share. Notice that the
 ```
 {: codeblock}
 
+## View file shares and mount targets with Terraform
+{: #file-storage-view-shares-targets-terraform}
+{: terraform}
+
+You can use Terraform to view information about your file share and mount targets.
+
+To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
+{: requirement}
+
+VPC infrastructure services use a regional specific based endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the right region in the provider block in the `provider.tf` file.
+
+See the following example of targeting a region other than the default `us-south`.
+
+```terraform
+provider "ibm" {
+  region = "eu-de"
+}
+```
+{: screen}
+
+### View all file shares with Terraform
+{: #fs-view-all-share-terraform}
+
+Import the list of file shares that belong to an account as a read-only data source. You can filter by share name or resource group ID.
+
+```terraform
+data "ibm_is_shares" "example" {
+}
+```
+{: codeblock}
+
+The attributes that are exported include the total count of shares and the list of shares. The nested attributes include share ID, name, creation date, size, IOPS, CRN, access tags, encryption type and key, lifecycle state, replication role and status, mount target, and other attributes.
+
+For more information, see [ibm_is_shares](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_shares){: external}.
+
+### View file share information with Terraform
+{: #fs-view-share-terraform}
+
+Import the details of a file share as a read-only data source. You must identify the share by ID or name.
+
+```terraform
+data "ibm_is_share" "example" {
+  share = ibm_is_share.example.id
+}
+```
+{: codeblock}
+
+```terraform
+data "ibm_is_share" "example1" {
+  name = ibm_is_share.example.name
+}
+```
+{: codeblock}
+
+The attributes that are exported include ID, name, creation date, size, IOPS, CRN, access tags, encryption type, encryption key, lifecycle state, replication role and status, mount target, and other attributes.
+
+For more information, see [ibm_is_share](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_share){: external}.
+
+### View mount targets that are associated to a file share with Terraform
+{: #fs-view-mount-targets-terraform}
+
+Import the list of mount targets that are associated with a file share as a read-only data source. Identify the file share by its ID.
+
+```terraform
+data "ibm_is_share_targets" "example" {
+  share = ibm_is_share.example.id
+}
+```
+{: codeblock}
+
+The attributes that are exported include the list of mount targets and their IDs, names, creation dates, mount paths, subnet information, and so on.
+
+For more information, see [ibm_is_share_targets](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_share_targets){: external}.
+
+### View mount target information with Terraform
+{: #fs-view-mount-target-terraform}
+
+Import the details of a mount target as a read-only data source. Identify the mount target by specifying the share ID and the mount target ID. Both arguments are required.
+
+```terraform
+data "ibm_is_share_target" "example" {
+  share        = ibm_is_share.example.id
+  share_target = ibm_is_share_target.example.share_target
+}
+```
+{: codeblock}
+
+The attributes that are exported include ID, name, creation date, mount path, subnet information, and other attributes.
+
+For more information, see [ibm_is_share_target](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_share_target){: external}.
+
+
 ## Next steps
 {: #fs-view-next-steps}
 
-* [Create new file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create).
+* [Create file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create).
 * [Manage your file shares](/docs/vpc?topic=vpc-file-storage-managing).

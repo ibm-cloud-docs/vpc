@@ -2,9 +2,9 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-04-11"
+lastupdated: "2023-06-20"
 
-keywords:
+keywords: file storage, file share, performance, IOPS, block size, capacity, range
 
 subcollection: vpc
 
@@ -18,7 +18,7 @@ subcollection: vpc
 When you provision {{site.data.keyword.filestorage_vpc_short}} file shares by using the {{site.data.keyword.cloud_notm}} console, CLI, or API, you specify a file share profile. The profile defines the performance level that you require based on the file share size.
 {: shortdesc}
 
-{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
+{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Madrid, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 ## File storage profiles overview
@@ -42,7 +42,7 @@ Table 1 shows the dp2 profile performance levels compared to the earlier profile
 ## dp2 file storage profile
 {: #dp2-profile}
 
-By using the dp2 profile, you can specify the total IOPS for the file share within the range for a specific file share size, 10 GB (default minimum) to 32,000 GB. You can provision shares with IOPS performance from 100 IOPS (default minumum) to 96,000 IOPS, based on share size. The dp2 profile is based on a block size of 256 KB. Maximum throuput is 1024 MB/s. This profile is backed by solid-state drives (SSDs).
+By using the dp2 profile, you can specify the total IOPS for the file share within the range for a specific file share size, 10 GB (default minimum) to 32,000 GB. You can provision shares with IOPS performance from 100 IOPS (default minimum) to 96,000 IOPS, based on share size. The dp2 profile is based on a block size of 256 KB. Maximum throughput is 1024 MB/s. This profile is backed by solid-state drives (SSDs).
 
 Table 2 shows the available IOPS ranges, based on share size.
 
@@ -143,9 +143,12 @@ tier-5iops    tiered
 
 Use the `GET /share/profiles` request to retrieve information for all share profiles.
 
-```curl
+As described in the [Beta VPC API](/apidocs/vpc-beta) reference [versioning](/apidocs/vpc-beta#api-versioning-beta) policy, support for older versions of the beta API is limited to 45 days. Therefore, beta API requests must specify a `version` query parameter date value within the last 45 days. You must also provide `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/apidocs/vpc#api-generation-parameter).
+{: requirement}
+
+```sh
 curl -X GET \
-$vpc_api_endpoint/v1/share/profiles?$api_version&generation=2 \
+$vpc_api_endpoint/v1/share/profiles?$api_version&generation=2&maturity=beta\
 -H "Authorization: $iam_token"
 ```
 {: pre}

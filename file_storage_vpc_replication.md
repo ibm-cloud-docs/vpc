@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-01-26"
+lastupdated: "2023-06-20"
 
-keywords:
+keywords: file share, file storage, replication, replica, 
 
 subcollection: vpc
 
@@ -18,7 +18,7 @@ subcollection: vpc
 You can create replicas of your file shares by setting up a replication relationship between primary file shares in one zone to replica file shares in another zone. Using replication is a good way to recover from incidents at the primary site, when data becomes inaccessible or applications fail.
 {: shortdesc}
 
-{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
+{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Madrid, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 ## Replication overview
@@ -45,7 +45,7 @@ Data on the replica share is read-only. You can obtain read/write access to the 
 Removing the replication relationship or failing over to the replica does not occur when another operation is being performed on the source or replica file share. (An example of such an operation is expanding the file share size.) The split or failover operations remains pending until the other operation completes.
 {: note}
 
-## Scenarios for using replication
+## Use cases
 {: #fs-replication-scenarios}
 
 You can use replication to address disaster recovery concerns. Replication addresses these scenarios:
@@ -67,8 +67,8 @@ You can use replication to address disaster recovery concerns. Replication addre
 
 The general procedure for establishing replication is:
 
-1. [Create a file share](/docs/vpc?topic=vpc-file-storage-create-replication&interface=ui) and specify a replica file share in the UI, from the CLI, or with the API - For example, with the API, you can make a `POST /shares` call and specify the `replica_share` parameter and define the replica and zone in which it is to be created. In the same call, you can specify the `replication_cron_spec` parameter to define the replication schedule. You can also specify the target zone in which to create the replica file share.
-2. Verify that replication is working by checking the replication status - After the primary and replica file shares are created, you can check to see whether the replication is working. For example, from the API, you can make a `GET /shares/{id}` call. When the replication status is operational, the `replication_status` parameter in the API response indicates `active`.
+1. [Create a file share](/docs/vpc?topic=vpc-file-storage-create-replication) and specify a replica file share in the UI, from the CLI, with the API or Terraform.
+2. Verify that replication is working by checking the replication status - After the primary and replica file shares are created, you can check to see whether the replication is working.
 3. Use the replica file share - If the primary file share fails or becomes unavailable for any reason, you can fail over to the replica file share. When you perform the failover, the replica share becomes the new primary file share, with read and write capability.
 4. Restart the replication with the original file share as scheduled when it's back online. In this case, you can continue to use the replica site as primary, or fail back to the original site.
 
