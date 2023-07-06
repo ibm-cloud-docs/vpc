@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-06-22"
+lastupdated: "2023-07-06"
 
 
 keywords: creating bare metal servers
@@ -40,7 +40,7 @@ Use the following steps to create a bare metal server by using the {{site.data.k
 | Resource group | Select a resource group for the server. |
 | Tags | You can assign labels to your server so that you can easily filter resources in your resource list. |
 | Access management tags | Access management tags help you apply flexible access policies on specific resources. |
-| Operating system | Select the operating system and version from an image.  \n - For x86 architecture, `ibm-esxi-7-amd64-1` installs a licensed ESXi 7.x hypervisor. `ibm-esxi-7-byol-amd64-1` installs bring-your-own-license ESXi 7.x and controls the licensing for your bare metal server.  \n - For s390x architecture, `sles-15-sp3-metal-s390x` installs a licensed SUSE Linux Enterprise Server 15 SP3 (s390x). `red-8-metal-s390x` installs Red Hat Enterprise Linux 8.x - Minimal Install (s390x) for your bare metal server. |
+| Operating system | Select the operating system and version from an image.  \n - For x86 architecture, `ibm-esxi-7-amd64-1` installs a licensed ESXi 7.x hypervisor.  \n - For s390x architecture, `sles-15-sp3-metal-s390x` installs a licensed SUSE Linux Enterprise Server 15 SP3 (s390x). `red-8-metal-s390x` installs Red Hat Enterprise Linux 8.x - Minimal Install (s390x) for your bare metal server. |
 | Profile | Select from popular profiles or from all available vCPU and RAM combinations. The profile families are Balanced, Compute, and Memory. For more information, see [Bare metal servers profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile) or [s390x bare metal server profiles](/docs/vpc?topic=vpc-s390x-bare-metal-servers-profile). |
 | SSH key | Select an existing public SSH key or click **Create an SSH key** to create a new one. For more information about creating an SSH key, see [Creating your SSH key by using the UI](/docs/vpc?topic=vpc-ssh-keys&interface=ui#generate-ssh-keys-ui). You must specify at least one SSH key.  \n - For x86 architecture, the SSH key is used to automatically generate a password that is required for accessing VMware&reg; ESXi Direct Console User Interface (DCUI) and the ESXi web client.  \n  \n **Note:** RSA and Ed25519 are the two types of SSH keys that you can use. However, you can't use the Ed25519 SSH key type with Windows or VMware images. You can use only RSA SSH keys for these images.  \n - For s390x architecture, SSH keys are used to securely connect to the server after it's running. For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
 | Virtual private cloud | Specify the VPC where you want to create your server. You can use the default VPC, another existing VPC, or you can create a new VPC. |
