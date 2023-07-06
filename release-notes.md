@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-07-31"
+lastupdated: "2023-07-14"
 
 keywords:
 
@@ -30,8 +30,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## July 2023
 {: #vpc-jul23}
 
-### 31 July 2023
-{: #vpc-july3123}
+### 14 July 2023
+{: #vpc-july1423}
 {: release-note}
 
 Very High Memory (vx2d) profile family now available in all regions
