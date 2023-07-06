@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-06-20"
+lastupdated: "2023-07-06"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, 
 
@@ -95,8 +95,6 @@ When you create the mount target with a virtual network interface, its IP addres
 
 When the mount target is attached and the share is mounted, the virtual network interface performs security group policy check to ensure only authorized virtual server instances can communicate with the share.
 
-For greater security, [enable encryption in transit](/docs/vpc?topic=vpc-file-storage-vpc-eit) for your file share mount targets.
-
 ### Cross zone mount targets
 {: #fs-cross-zone-mount}
 
@@ -113,13 +111,6 @@ You can bring your own customer root key (CRK) to the cloud for customer-managed
 
 After you specified an encryption type for a file share, you can't change it.
 {: restriction}
-
-## Encryption in transit
-{: #fs-eit}
-
-[New]{: tag-new}
-
-You can establish an encrypted mount connection between the authorized virtual server instance and the storage system by using an IPsec security profile and X.509 certificates. For file shares based on the `dp2` profile, mount targets that are created with a virtual network interface can support the encryption in transit. When you consider choosing this feature, balance your requirements between performance and increased security because encrypting data in transit can decrease data transmission speed. For more information, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit).
 
 ## File share replication and failover
 {: #fs-repl-failover-overview}

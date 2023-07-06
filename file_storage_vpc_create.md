@@ -472,7 +472,7 @@ A successful response looks like the following example.
 
 The following examople creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target that identifies the file share with a reserved IP address and applies the rules of the selected Security group. To create the mount target with the network interface, make a `POST /shares` request and specify a subnet. Specifying the `subnet` property is required when you're not using the [`primary_ip` property](#fs-create-file-share-pni-api) and specifying `address`for a reserved IP.
 
-In this example, the mount target specifies a subnet ID. When the `transit_encryption` property set to `user_managed`, encryption in transit with an instance identity certificate is enabled. The default is none, which disables encryption in transit. The default access control mode is `security_group`, which is shown in the response.
+In this example, the mount target specifies a subnet ID. The default access control mode is `security_group`, which is shown in the response.
 
 ```json
 curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-05-11&generation=2&maturity=beta" \
@@ -493,7 +493,7 @@ curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-05-11&generation=2&maturi
                 },
         },
          "transit_encryption": {
-            "user_managed"
+            "none"
         }
     ]
 }'
@@ -548,7 +548,7 @@ A successful response looks like the following example.
 
 To create the mount target network interface, make a `POST /shares` request and specify a subnet and security group.
 
-In this example, the `mount_targets` property specifies a subnet ID and security group ID. When the `transit_encryption` property is set to `user_managed`, it enables encryption in transit by using an instance identity certificate. The default value is none, which disables encryption in transit.
+In this example, the `mount_targets` property specifies a subnet ID and security group ID.
 
 ```json
 curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-06-11&generation=2&maturity=beta" \
@@ -574,7 +574,7 @@ curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-06-11&generation=2&maturi
             ]
         },
          "transit_encryption": {
-            "user_managed"
+            "none"
         }
     ]
 }'
@@ -666,7 +666,7 @@ curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-05-11&generation=2&maturi
                 }
             },
         "transit_encryption": {
-            "user_managed"
+            "none"
           }
        ]
     }'

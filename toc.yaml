@@ -488,7 +488,6 @@ toc:
             - file_storage_vpc_create.md
             - file_storage_vpc_view.md
             - file_storage_vpc_manage.md
-            - file_storage_vpc_eit.md
             - topicgroup:
                 label: Modifying file share size and IOPS
                 topics:

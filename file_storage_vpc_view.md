@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-07-05"
+lastupdated: "2023-07-06"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -481,7 +481,7 @@ curl -X GET \
 ```
 {: pre}
 
-A successful response looks like the following example. In this example, [data encryption in transit](/docs/vpc?topic=vpc-file-storage-vpc-eit) is not enabled. The `transit_encryption` property value is `provider_managed`. 
+A successful response looks like the following example.
 
 ```json
 {
