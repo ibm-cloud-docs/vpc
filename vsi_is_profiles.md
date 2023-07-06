@@ -2,7 +2,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-06-29"
+lastupdated: "2023-07-06"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, very high memory, gpu, sap, olap, oltp, nvidia, cascade lake
 
@@ -95,6 +95,9 @@ Balanced profiles with the bx2d prefix are available in the US South (Dallas), U
 {: tab-group="Balanced"}
 {: class="simple-tab-table"}
 {: summary="Balanced profiles options for AMD x86-64 virtual server instances."}
+
+AMD based virtual machines use AMD EPYC Milan processors. Compute capabilities are limited to AMD EPYC Rome capabilities.
+{: important}
 
 ## Compute
 {: #compute}
