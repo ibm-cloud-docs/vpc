@@ -38,8 +38,8 @@ IAM enables you to securely authenticate users for platform services and control
 | Create an image from an instance boot volume | is.image.image.create | `POST/images` | Administrator, Editor |
 | List all images | is.image.image.list | `GET/images` | Administrator, Editor, Operator, Viewer |
 | Delete image | is.image.image.delete | `DELETE/images` | Administrator, Editor |
-| Schedule deprecation | is.image.image.deprecate | `POST/images` with `deprecated_at` specified | Administrator, Editor |
-| Schedule obsolescence | is.image.image.obsolete | `POST/images` with `obsoleted_at` specified | Administrator, Editor |
+| Schedule deprecation | is.image.image.deprecate | `POST/images` with `deprecation_at` specified | Administrator, Editor |
+| Schedule obsolescence | is.image.image.obsolete | `POST/images` with `obsolescence_at` specified | Administrator, Editor |
 {: caption="Table 2. IAM user permissions" caption-side="bottom"}
 
 ## Image from volume lifecycle states
@@ -61,9 +61,6 @@ The following table describes the lifecycle states for custom images that are cr
 {: #ifv-schedule-ilm-status-change-ui}
 {: ui}
 
-Image lifecycle status is a beta feature that is available for evaluation and testing purposes.
-{: beta}
-
 You can schedule either a single image lifecycle status change or schedule the status changes for the entire lifecycle of the image.
 
 Use the following steps to schedule a single status change:
@@ -77,9 +74,6 @@ Use the following steps to schedule the entire lifecycle of the image:
 {: #ifv-schedule-ilm-status-change-cli}
 {: cli}
 
-Image lifecycle status is a beta feature that is available for evaluation and testing purposes.
-{: beta}
-
 You can change the lifecycle status of an {{site.data.keyword.vpc_short}} image from volume by using the command-line interface (CLI). You can make an immediate status change by using the **ibmcloud is image-deprecate** or **ibmcloud is image-obsolete** commands. You can also schedule these status changes for a future date and time by using the **ibmcloud is image-update** command. Specify the name or ID of the custom image with the `IMAGE` variable.
 
 <!-- see the -include-segments folder to update this information which is shared with vsi_is_manage_images.md -->
@@ -89,18 +83,12 @@ You can change the lifecycle status of an {{site.data.keyword.vpc_short}} image 
 {: #ifv-reset-ilm-status-change-cli}
 {: cli}
 
-Image lifecycle status is a beta feature that is available for evaluation and testing purposes.
-{: beta}
-
 <!-- see the -include-segments folder to update this information which is shared with vsi_is_manage_images.md -->
 {{_include-segments/ilm-reset-image-lifecycle-status-cli.md}}
 
 ## Changing an image from volume lifecycle status by using the API
 {: #ifv-schedule-ilm-status-change-api}
 {: api}
-
-Image lifecycle status is a beta feature that is available for evaluation and testing purposes.
-{: beta}
 
 You can change the lifecycle status of a {{site.data.keyword.vpc_short}} image from volume by using the application programming interface (API). You can make an immediate status change or schedule a status change to happen later.
 
@@ -110,9 +98,6 @@ You can change the lifecycle status of a {{site.data.keyword.vpc_short}} image f
 ## Removing previously scheduled image from volume lifecycle statuses by using the API
 {: #ifv-reset-ilm-status-change-api}
 {: api}
-
-Image lifecycle status is a beta feature that is available for evaluation and testing purposes.
-{: beta}
 
 <!-- see the -include-segments folder to update this information which is shared with vsi_is_manage_images.md -->
 {{_include-segments/ilm-reset-image-lifecycle-status-api.md}}
