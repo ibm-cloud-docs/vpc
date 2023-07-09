@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-06-20"
+lastupdated: "2023-07-09"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -52,30 +52,9 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
    | Resource Group | Use the default resource group or specify a [resource group](/docs/vpc?topic=vpc-iam-getting-started#resources-and-resource-groups). Resource groups help organize your account resources for access control and billing purposes. |
    | Tags | Enter any user tags to apply to this file share. As you type, existing tags appear that you can select. For more information about tags, see [Add user tags to a file share](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-add-user-tags). |
    | Access Management Tags | Enter access management tags that you created in IAM to apply them to this file share. For more information about access management tags, see [Access management tags for file shares](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-about-mgt-tags). |
-   | Mount target access mode  | Select how you want manage access to this file share: |
-   | [New]{: tag-new} | Security group: Access to the file share is based on security group rules within a subnet. This option can be used to restrict access to specific virtual server instances. You can use this option only with the `dp2` profile. This option is recommended as you have more control over who can access the data that is stored on the file share. |
-   |  | Virtual private cloud: Access to the file share is granted to any virtual server instance in the same VPC. |
    {: caption="Table 1. Values for creating a file share" caption-side="top"}
 
-1. The creation of mount targets is optional. You can skip this step if you do not want to create a mount target now. For more information about creating mount targets as a separate operation, see [Create a mount target](#fs-create-mount-target-ui). Otherwise, click **Create**. You can create one mount target per VPC per file share. 
-
-   - If you selected security group as the access mode, enter the information as described in the Table 2. This action creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target that identifies the file share with a reserved IP address and applies the rules of the selected Security group.
-
-     | Field | Value |
-     |-------|-------|
-     | **Details** | |
-     | Mount target name | Specify a mount target name. The name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. You can later edit the name if you want. |
-     | Zone | Zone is inherited from the file share (for example, Dallas 2). |
-     | VPC | Select an available VPC. The list includes only those VPCs with a subnet in the selected zone. |
-     | Subnet | Select a subnet from the list. |
-     | **Reserved IP address** | Required for the mount target. The IP address cannot be changed afterward. However, you can delete the mount target and create another one with a different IP address. |
-     | Reserving method | You can have the file service select an IP address for you. The reserved IP becomes visible after the mount target is created. Or, specify your own IP. |
-     | Auto-release | Releases the IP address when you delete the mount target. Enabled by default. |
-     | **Security groups** | The security group for the VPC is selected by default, or select from the list. |
-     | **Encryption in transit** | Disabled by default, click the toggle to enable. For more information about this feature, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit). |
-     {: caption="Table 2. Values for creating a mount target." caption-side="top"}
-
-   - If you selected VPC as the access mode, provide a name for the mount target and select the VPC where the file share is to be used in.
+1. The creation of mount targets is optional. You can skip this step if you do not want to create a mount target now. For more information about creating mount targets as a separate operation, see [Create a mount target](#fs-create-mount-target-ui). Otherwise, click **Create**. You can create one mount target per VPC per file share. Provide a name for the mount target and select the VPC where the file share is to be used in.
 
 1. Select the right profile for your workload. The profile that you select determines the input/output performance of a file share. The `dp2` profile provides the most flexibility. For more information about file storage IOPS tier and Custom profiles, see [File storage profiles](/docs/vpc?topic=vpc-file-storage-profiles).
 
@@ -100,34 +79,14 @@ You can create several mount targets for an existing file share if the share is 
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > File shares**.
 
-2. Select a file share from the list.
+1. Select a file share from the list.
 
-3. On the File shares details page, under Mount targets, click **Create**.
+1. On the File shares details page, under Mount targets, click **Create**. Provide a name for the mount target and Select a VPC from the list.
 
    You must have at least one VPC to create a mount target. If you don't have one, first [create a VPC](/docs/vpc?topic=vpc-getting-started#create-and-configure-vpc).
    {: requirement}
 
-4. Depending on the mount target access mode of the share, the **Create mount target** form looks different.
-
-   - If the share has security group as the access mode, enter the following information. This action creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target that identifies the file share with a reserved IP address and applies the rules of the selected Security group.
-
-     | Field | Value |
-     |-------|-------|
-     | **Details** | |
-     | Mount target name | Specify a mount target name. The name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. You can later edit the name if you want. |
-     | Zone | Zone is inherited from the file share (for example, Dallas 2). |
-     | VPC | Select an available VPC. The list includes only those VPCs with a subnet in the selected zone. |
-     | Subnet | Select a subnet from the list. |
-     | **Reserved IP address** | Required for the mount target. The IP address cannot be changed afterward. However, you can delete the mount target and create another one with a different IP address. |
-     | Reserving method | You can have the file service select an IP address for you. The reserved IP becomes visible after the mount target is created. Or, specify your own IP. |
-     | Auto-release | Releases the IP address when you delete the mount target. Enabled by default. |
-     | **Security groups** | The security group for the VPC is selected by default, or select from the list. |
-     | **Encryption in transit** | Disabled by default, click the toggle to enable. For more information about this feature, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit). |
-     {: caption="Table 4. Values for creating a mount target." caption-side="top"}
-
-   - If the share has VPC as the access mode, provide a name for the mount target and Select a VPC from the list.
-
-5. Click **Create**.
+1. Click **Create**.
 
 ## Create a file share from the CLI
 {: #file-storage-create-cli}
@@ -183,14 +142,12 @@ ibmcloud is share-create
   --zone ZONE_NAME
   --profile PROFILE
   --size SIZE
-  --access-control-mode value 
   --mount-targets value
   [--name NAME]
   [--initial-owner-gid INITIAL_OWNER_GID ]
   [--initial-owner-uid INITIAL_OWNER_UID]
   [--user-tags USER_TAGS]
   [--mount-targets TARGETS_JSON | @TARGETS_JSON_FILE]
-  [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME]
   [--output JSON] [-q, --quiet]
 ```
 {: pre}
