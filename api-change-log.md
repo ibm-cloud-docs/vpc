@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-06-27"
+lastupdated: "2023-07-11"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -55,6 +55,17 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
 
 **VPN site-to-site gateway cipher upgrade.** In an upcoming release, connections with auto IKE or IPsec policies that are out of conformance will be automatically upgraded to the [enhanced auto-negotiation policy](/docs/vpc?topic=vpc-using-vpn#policy-negotiation). Connections with customized IKE or IPsec policies that contain weak ciphers will be disabled. For more information, see [Upgrading a VPN from a custom IKE or IPsec policy](/docs/vpc?topic=vpc-upgrading-weak-ciphers&interface=api#upgrade-vpn-with-custom-policy).
+
+## 11 July 2023
+{: #11-july-2023}
+
+### For all version dates
+{: #11-july-2023-all-version-dates}
+
+**Image lifecycle management.** You can now [deprecate](/apidocs/vpc-beta#deprecate-image) or [obsolete](/apidocs/vpc-beta#obsolete-image) custom images directly. Alternatively, you can schedule transition at a later date by specifying the `deprecation_at` or `obsolescence_at` properties when [creating](/apidocs/vpc-beta#create-image) or [updating](/apidocs/vpc-beta#update-image) an image. If you need to revert a status change, you can transition `deprecated` or `obsolete` images back to `available`. For more information, see [Managing custom images](/docs/vpc?topic=vpc-managing-custom-images&interface=api#custom-images-list-api).
+
+`deprecated` custom images remain usable, while `obsolete` images cannot be used to provision instances or bare metal servers.
+{: note}
 
 ## 27 June 2023
 {: #27-june-2023}
