@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2022-04-11"
+lastupdated: "2023-07-10"
 
 subcollection: vpc
 
@@ -21,7 +21,7 @@ After you create a bare metal server, you can add new network interfaces or edit
 ## Overview of bare metal server network interfaces
 {: #overview-bare-metal-network-interfaces}
 
-For x86 bare metal servers, you can create two types of network interfaces - PCI interface and VLAN interface.
+For x86 bare metal servers, you can create two types of network interfaces, PCI interface and VLAN interface.
 
    * A PCI interface is a physical network interface. The VLAN interface is a virtual interface that is associated with a PCI interface. The maximum number of PCI interfaces per bare metal server is eight.
    * The VLAN interface automatically tags traffic that is routed through it with the VLAN ID. Inbound traffic that is tagged with a VLAN ID is directed to the appropriate VLAN interface. The VLAN interface has its own security groups and doesn't inherit security groups from the PCI interface. You aren't limited on the maximum number of VLAN interfaces per bare metal server.
@@ -38,21 +38,21 @@ If you want to control the flow of network traffic in your VPC, you can configur
 ## Network interface configurations
 {: #bare-metal-nic-configurations}
 
-You can specify the following configurations for both PCI and VLAN interfaces:
+You can specify the following configurations for PCI and VLAN interfaces. For VLAN interfaces on x86 architecture-based bare metal servers, you need to specify the **VLAN ID**.
 
 | Field | Value |
 |-----|-----|
 | Name | Name of the interface. |
 | Subnet | Specify the subnet that the network interface is associated with. |
 | Floating IP | After you create the network interface, you can associate one floating IP for external connectivity. |
-| Allow interface floating | Turning on "Allow interface to float" gives the VLAN interface the ability to float to another bare metal server. Example - server migration or virtual IP. |
 | Primary IPv4 address | The primary IPv4 address of the network interface. If specified, it must be an available address on the network interface's subnet. If unspecified, an available address on the subnet is automatically selected. |
 | Allow IP spoofing | Turning IP spoofing _off_ prevents source IP spoofing on an interface. Turning IP spoofing _on_ allows source IP spoofing. The default option is _off_. You must have the **Advanced Network Operator** IAM role to modify this configuration. |
-| Enable infrastructure NAT | Turning on infrastructure NAT allows the VPC infrastructure to perform any needed NAT operations. If infrastructure NAT is off, the packet passes unmodified to and from the network interface, allowing the workload to perform NAT operations. The default option is _on_. You must have the **Advanced Network Operator** IAM role to modify this configuration. **Allow IP spoofing** must be turned off if **Enable infrastructure NAT** is turned _off_. |
-| Security groups | You can select the security groups that are used to control the traffic for the network interface.  \n For VLAN interfaces on x86 architecture-based bare metal servers, you need to specify the following two configurations: 1. **Allow interface to float**: Decide whether the interface needs to float to any other server within the same resource group. If enabled, the interface automatically floats if the network detects a GARP or RARP on another bare metal server within the resource group. The default option is _off_. You can't change this configuration after the VLAN interface is created. 2. **VLAN ID**: You must specify the VLAN ID tag to use for all traffic on this VLAN interface. |
-| Associated PCI interface | If more than one PCI interfaces are created on the bare metal server, you must select a PCI interface to associate to this VLAN interface. Make sure that you associate the VLAN interfaces with the same VLAN ID that is on a bare metal server with one subnet. You can't create two VLAN interfaces with the same ID in two subnets. However, you can associate VLAN interfaces with different VLAN ID with one subnet. |
-| Allowed VLANs (PCI interface only) | Specify the VLAN IDs of the VLAN interfaces that can use the PCI interface. |
-{: caption="Table 1. Bare metal server network interface configurations" caption-side="bottom"}
+| Enable infrastructure NAT | Turning on infrastructure NAT allows the VPC infrastructure to perform any needed NAT operations. If infrastructure NAT is off, the packet passes unmodified to and from the network interface, allowing the workload to perform NAT operations. The default option is _on_. You must have the **Advanced Network Operator** IAM role to modify this configuration. **Allow IP spoofing** must be turned off if **Enable infrastructure NAT** is turned _off_.  \n **Enable infrastructure NAT** is not supported on LinuxONE bare metal servers.|
+| Security groups | You can select the security groups that are used to control the traffic for the network interface. |
+| Allow interfaces to float (VLAN interface only) | You can associate one floating IP with your interface for external connectivity, server migration, or use of a virtual IP. If enabled, the interface automatically floats to any other server within the same resource group if the network detects a GARP or RARP on another bare metal server within the resource group. The default option is _off_. You can't change this configuration after the VLAN interface is created. |
+| VLAN ID (VLAN interface only) | You must specify the VLAN ID tag to use for all traffic on this VLAN interface. The VLAN ID range is between 1 and 4094. |
+| Associated PCI interface (VLAN interface only) | If more than one PCI interfaces are created on the bare metal server, you must select a PCI interface to associate to this VLAN interface. Make sure that you associate the VLAN interfaces with the same VLAN ID that is on a bare metal server with one subnet. You can't create two VLAN interfaces with the same ID in two subnets. However, you can associate VLAN interfaces with different VLAN ID with one subnet. |
+| Allowed VLANs (PCI interface only) | Specify the VLAN IDs of the VLAN interfaces that can use the PCI interface. The VLAN ID range is between 1 and 4094. |
 
 ## Creating a network interface
 {: #bare-metal-create-nic}
