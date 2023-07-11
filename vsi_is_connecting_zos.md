@@ -63,7 +63,7 @@ If you are using your z/OS Wazi aaS custom images, you do not need to configure 
 
 2. Use the `tsocmd` command to configure password phrases for the z/OS instance. Replace `YOUR PASSWORD PHRASE` with your own password phrase.
 
-   ```bash
+   ```sh
    tsocmd "ALTUSER IBMUSER PHRASE('YOUR PASSWORD PHRASE') NOEXPIRE RESUME"
    ```
    {: codeblock}
@@ -122,10 +122,10 @@ You can use the TN3270 terminal emulator to log on to the Time Sharing Option/Ex
     The VSI server certificate only contains the private IP address information of the z/OS virtual server instance. 
     
     Optionally, you can use the IP address of the floating IP as part of the `accepthostname` argument. For example: 
-      ```
-      c3270 -cafile <my local dir>/common_cacert -port 992 -accepthostname <floating ip> <vsi ip address>
-      ```
-      {: codeblock}
+    ```sh
+    c3270 -cafile <my local dir>/common_cacert -port 992 -accepthostname <floating ip> <vsi ip address>
+    ```
+    {: codeblock}
 
 ### Using IBM Host On-Demand
 {: #using-host-on-demand}
@@ -134,21 +134,21 @@ If you want to import the CA certificate by using IBM Host On-Demand, run the fo
 
 1. Download the certificate file from the z/OS system.
    
-    ```
+    ```sh
     scp ibmuser@<vsi ip address>:/u/ibmuser/common_cacert ./Downloads/common_cacert
     ```
     {: codeblock}
 
 2. Import the downloaded certificate. Use a recognizable alias.
    
-    ```
+    ```sh
     keytool -importcert -alias <alias> -file ./Downloads/common_cacert -keystore /Applications/HostOnDemand/lib/CustomizedCAs.jks -storepass hodpwd 
     ```
     {: codeblock}
 
 3. Check what certificates have been imported.
    
-    ```
+    ```sh
     keytool -list -keystore /Applications/HostOnDemand/lib/CustomizedCAs.jks -storepass hodpwd
     ```
     {: codeblock}

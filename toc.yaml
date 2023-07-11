@@ -458,28 +458,21 @@ toc:
             label: Block storage volumes
             topics:
             - block_storage_is_create.md
-            - block_storage_is_attach.md
-            - block_storage_is_view.md
-            - block_storage_is_manage.md
             - block_storage_vpc_manage_storage_limits.md
-            - modifying-the-linux-os-expanded-boot-volume.md
+            - block_storage_is_attach.md
             - block_storage_is_use_volume_lin.md
             - block_storage_is_use_volume_win.md
+            - block_storage_is_view.md
+            - block_storage_is_manage.md
+            - block_storage_vpc_monitoring.md
             - topicgroup:
                 label: Modifying volume capacity and IOPS
                 topics:
                 - block_storage_vpc_expand_vol_about.md
                 - block_storage_vpc_expandable_volumes.md
+                - modifying-the-linux-os-expanded-boot-volume.md
                 - block_storage_vpc_resize_boot_volume.md
                 - block_storage_vpc_adjustable_iops.md
-        - topicgroup:
-            label: Block storage Acadia platform - Experimental
-            topics:
-            - block_storage_acadia_about.md
-            - block_storage_acadia_getting_started.md
-            - block_storage_acadia_troubleshoot_known_issues.md
-            - block_storage_acadia_support.md
-            - block_storage_acadia_faq.md
         - topicgroup:
             label: Snapshots
             topics:
@@ -495,7 +488,6 @@ toc:
             - file_storage_vpc_create.md
             - file_storage_vpc_view.md
             - file_storage_vpc_manage.md
-            - file_storage_vpc_eit.md
             - topicgroup:
                 label: Modifying file share size and IOPS
                 topics:

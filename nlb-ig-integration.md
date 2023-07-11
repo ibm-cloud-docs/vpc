@@ -35,7 +35,7 @@ When you configure a listener with a [range of ports](/docs/vpc?topic=vpc-nlb-po
 {: note}
 
 ## Creating managed pools and instance groups
-{: #creating-pools-groups}
+{: #nlb-creating-pools-groups}
 
 To create a managed pool and attach an instance group, perform the following procedure:
 
@@ -58,7 +58,7 @@ To create a managed pool and attach an instance group, perform the following pro
     {: tip}
 
 ## Related links
-{: #lbaas-autoscaling-related-links}
+{: #nlb-lbaas-autoscaling-related-links}
 
 * [Creating an instance group template](/docs/vpc?topic=vpc-creating-auto-scale-instance-group#creating-instance-template)
 * [Creating an instance group](/docs/vpc?topic=vpc-creating-auto-scale-instance-group#creating-instance-group)

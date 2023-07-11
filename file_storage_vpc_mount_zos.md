@@ -2,8 +2,7 @@
 
 copyright:
   years: 2022, 2023
-
-lastupdated: "2023-06-20"
+lastupdated: "2023-07-05"
 
 keywords: file share, file storage, mount helper, mount target, mount path, secure connection
 
@@ -27,7 +26,7 @@ Use these instructions to connect a z/OS-based {{site.data.keyword.cloud}} Compu
 
 1. Verify that the [virtual server instance](/docs/vpc?topic=vpc-about-advanced-virtual-servers) where you want to mount the share is in the same zone as the file share. 
 2. Confirm that a mount target for the share exists for the VPC that the instance resides in. If a new mount target is needed, follow the instructions in [Creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create). 
-3. Get the mount path of the file share from the mount target. Mount path information can be obtained from the File share details page in the UI, from the CLI, with the API or Terraform.
+3. Get the mount path of the file share from the mount target. Mount path information can be obtained from the File share details page in the [UI](/docs/vpc?topic=vpc-file-storage-view&interface=ui#fs-get-mountpath-ui-vpc), from the [CLI](/docs/vpc?topic=vpc-file-storage-view&interface=cli#fs-get-mountpath-cli), with the [API](/docs/vpc?topic=vpc-file-storage-view&interface=api#fs-get-target-api) or [Terraform](/docs/vpc?topic=vpc-file-storage-view&interface=terraform#fs-view-mount-target-terraform).
 
 ## Mount the file share
 {: #fs-zos-mount-file-share}

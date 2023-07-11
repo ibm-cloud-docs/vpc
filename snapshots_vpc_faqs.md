@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-02-07"
+lastupdated: "2023-06-27"
 
-keywords:
+keywords: block storage, snapshots, cross-regional copy, fast restore, backup, restore volume
 
 subcollection: vpc
 
@@ -12,10 +12,10 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# FAQs for snapshots
+# FAQs for {{site.data.keyword.block_storage_is_short}} Snapshots
 {: #snapshots-vpc-faqs}
 
-The following questions often arise about the Snapshot for VPC offering. If you have other questions you'd like to see answered here, provide feedback by using the **Open doc issue** or **Edit topic** links at the end of the topic.
+The following questions often arise about the {{site.data.keyword.block_storage_is_short}} Snapshots offering. If you have other questions you'd like to see answered here, provide feedback by using the **Open doc issue** or **Edit topic** links at the end of the topic.
 {: shortdesc}
 
 ## What is a snapshot?
@@ -112,3 +112,15 @@ When you use the [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshot
 {: #faq-snapshot-tags}
 
 Depending on the action that you're performing, you can add user tags and access management tags to your snapshots. User tags are used by the backup service to periodically create backup snapshots of the volume. Access management tags help organize access to your {{site.data.keyword.block_storage_is_short}} snapshots. For more information, see [Tags for {{site.data.keyword.block_storage_is_short}} snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#snapshots-about-tags).
+
+### Can I use volume snapshot for disaster recovery?
+{: faq}
+{: #faq-snapshot-dr}
+
+You can use your snapshots and backups to create volumes in case of an emergency. You can also create copies of your snapshot in other regions and use them to create volumes there. However, the snapshot and ackup services do not provide continual backup with automatic failover. Restoring a volume from a backup or snapshot is a manual operation that takes time. If you require a higher level of service for automatic disaster recovery, see IBM's [Cloud disaster recovery solutions](https://www.ibm.com/cloud/disaster-recovery).
+
+### How many copies of my backup can I create in other regions?
+{: faq}
+{: #faq-snapshot-cross-regional-limits}
+
+You can copy a snapshot from one region to another region, and later use that snapshot to restore a volume in the new region. Only one copy of the snapshot can exist in each region. You can't create a copy of the snapshot in the source (local) region.

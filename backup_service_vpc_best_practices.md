@@ -76,7 +76,7 @@ Create a weekly backup plan for archived data:
 
 * Set a longer retention period to have multiple copies of your archive volume. For weekly backups, you might want to retain the backups for a month.
 
-## Next Steps
+## Next steps
 {: #baas-bp-next-steps}
 
 [Plan a strategy](/docs/vpc?topic=vpc-backups-vpc-planning) for backing up your {{site.data.keyword.block_storage_is_short}} volumes.

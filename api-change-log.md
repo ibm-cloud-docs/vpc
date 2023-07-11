@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-06-20"
+lastupdated: "2023-06-27"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -55,6 +55,18 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
 
 **VPN site-to-site gateway cipher upgrade.** In an upcoming release, connections with auto IKE or IPsec policies that are out of conformance will be automatically upgraded to the [enhanced auto-negotiation policy](/docs/vpc?topic=vpc-using-vpn#policy-negotiation). Connections with customized IKE or IPsec policies that contain weak ciphers will be disabled. For more information, see [Upgrading a VPN from a custom IKE or IPsec policy](/docs/vpc?topic=vpc-upgrading-weak-ciphers&interface=api#upgrade-vpn-with-custom-policy).
+
+## 27 June 2023
+{: #27-june-2023}
+
+### For all version dates
+{: #27-june-2023-all-version-dates}
+
+**Copying snapshots and backups across regions.** You can now specify an existing snapshot in one region to [create](/apidocs/vpc/latest#create-snapshot) a copy of the snapshot in another region. When you [list all snapshots](/apidocs/vpc/latest#list-snapshots), you can see the direct snapshot copies in the other regions and you can use them to restore volumes in the other regions. You can create copies in multiple regions, but only one copy of the snapshot can exist in each region. The cross-region snapshot copy contains the same data as the source snapshot, but the cross-region snapshot copy has its own, independent lifecycle and is billed independently. For more information, see [Cross-regional snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_crossregion_copy) and [Cross-regional copy array issue](/docs/vpc?topic=vpc-known-issues#snapshots-CRC-known-issue).
+
+You can now [create a backup policy](/apidocs/vpc/latest#create-backup-policy) that creates backup copies in other regions, in addition to creating a backup snapshot in the current region. [Listing all backup policy plans](/apidocs/vpc/latest#list-backup-policy-plans) or a specific [plan details](/apidocs/vpc/latest#get-backup-policy-plan) shows the `copies` of the snapshot in other regions. For more information, see [Cross-regional backup copies](/docs/vpc?topic=vpc-backup-service-about#backup-service-crc).
+
+**Extended SSH key encryption.** When [creating](/apidocs/vpc/latest#create-key) an SSH key, you can now specify a `type` property value of `ed25519` for the crypto-system used by the key. If `type` is not specified during key creation, the default value `rsa` continues to be used. When [listing all keys](/apidocs/vpc/latest#list-keys) and [retrieving a key](/apidocs/vpc/latest#get-key), the response provides the key `type` used. For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys&interface=api). See also [Extended SSH key encryption](/docs/vpc?topic=vpc-metadata-api-change-log#27-june-2023-metadata) in the VPC Instance Metadata API change log.
 
 ## 20 June 2023
 {: #20-june-2023}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-06-20"
+lastupdated: "2023-07-05"
 
 keywords: file share, file storage, mount helper, mount target, mount path, secure connection, NFS
 
@@ -26,14 +26,7 @@ Use these instructions to connect a Red Hat Enterprise Linux&reg;-based {{site.d
 
 1. Verify that the [virtual server instance](/docs/vpc?topic=vpc-about-advanced-virtual-servers) where you want to mount the share is in the same zone as the file share. 
 2. Confirm that a mount target for the share exists for the VPC that the instance resides in. If a new mount target is needed, follow the instructions in [Creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create). 
-3. Get the mount path of the file share from the mount target. Mount path information can be obtained from the File share details page in the UI, from the CLI, with the API or Terraform.
-4. If you want to use encryption in transit, you need to obtain an IPsec certificate from the Instance Metadata service. Ensure that encryption in transit is enabled for the mount target. Plus, mount the file share with a secure connection. This feature is only available for file shares with `dp2` profiles and security group access mode. For more information, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit).
-   
-   Install and run the [mount helper utility](/docs/vpc?topic=vpc-file-storage-vpc-eit&interface=ui#fs-mount-helper-utility) to mount file shares with encryption in transit or without an encrypted connection. [New]{: tag-new}
-   {: fast-path}
-
-{{site.data.keyword.filestorage_vpc_short}} service requires NFS versions v4.1 or higher.
-{: requirement}
+3. Get the mount path of the file share from the mount target. Mount path information can be obtained from the File share details page in the [UI](/docs/vpc?topic=vpc-file-storage-view&interface=ui#fs-get-mountpath-ui-vpc), from the [CLI](/docs/vpc?topic=vpc-file-storage-view&interface=cli#fs-get-mountpath-cli), with the [API](/docs/vpc?topic=vpc-file-storage-view&interface=api#fs-get-target-api) or [Terraform](/docs/vpc?topic=vpc-file-storage-view&interface=terraform#fs-view-mount-target-terraform).
 
 ## Mount the file share
 {: #fs-RHEL-mount-share}
@@ -116,7 +109,7 @@ SSH into the virtual server instance where you want to mount the file share, the
        ```
        {: pre}
 
-       Example:
+       See the following example.
 
        ```sh
        host fsf-dal2433a-dz.adn.networklayer.com
@@ -133,7 +126,7 @@ SSH into the virtual server instance where you want to mount the file share, the
        ```
        {: pre}
 
-       Example:
+       See the following example.
 
        ```sh
        198.51.100.0 fsf-dal2433a-dz.adn.networklayer.com
@@ -147,7 +140,7 @@ SSH into the virtual server instance where you want to mount the file share, the
        ```
        {: pre}
 
-       Example:
+       See the following example.
 
        ```text
        fsf-dal2433a-dz.adn.networklayer.com:/nxg_s_voll_246a9cb9-4679-4dc5-9522-4a7ed2575136 /mnt/test nfs4 nfsvers=4.1,sec=sys,_netdev 0 0

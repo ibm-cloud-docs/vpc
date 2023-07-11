@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-06-20"
+lastupdated: "2023-07-06"
 
 keywords: file share, file storage, replication, replica, size increase, capacity, encryption, BYOK, security group
 
@@ -207,8 +207,6 @@ You cannot use the UI, CLI, or API to update multiple file shares in a single op
 {: support}
 
 All data-at-rest is encrypted by default with IBM-managed encryption. You can also encrypt your file shares with your own root key, which gives your more control over your data security. For example, you can rotate, suspend, delete, and restore your root keys. For more information, see [Creating file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption).
-
-You can also enable secure end-to-end encryption of your file share data by setting up data encryption in transit. Encryption in transit for your file shares lets you establish an encrypted mount connection between the virtual server instance and storage system using the Internet Security Protocol (IPsec) security profile. For more information, see [Enabling file share encryption in transit secure connections](/docs/vpc?topic=vpc-file-storage-vpc-eit).
 
 ### Is there support for security groups and network ACLs?
 {: faq}

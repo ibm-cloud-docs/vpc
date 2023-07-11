@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2015, 2022
+  years: 2015, 2023
 
-lastupdated: "2022-09-23"
+lastupdated: "2023-06-29"
 
 keywords: 
 
@@ -62,22 +62,22 @@ When you want to delete an {{site.data.keyword.vpc_short}} custom image that is 
 
 | Field | Value |
 |-------|-------|
+| Architecture | Select the processor architecture that your instance is created with. *x86* means x86_64 bit processor, and *s390x* is z Systems or LinuxONE (s390x processor architecture). |
+| Hosting type | A **Public** virtual server instance, created in a multi-tenant environment, is the default selection for a new instance. You can also select a **Dedicated** virtual server instance to create the instance in a single-tenant space. To provision a dedicated instance, you must have a dedicated host available or [create one](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances). z/OS virtual server instances do not support the dedicated type.   |
+| Location | Locations are composed of regions (specific geographic areas) and zones (fault tolerant data centers within a region). Select the geography, region, and zone where you want your virtual server instance to be created. |
 | Name  | A name is required for your virtual server instance. |
-| Virtual private cloud | Specify the IBM Cloud VPC where you want to create your instance. |
 | Resource group | Select a resource group for the instance. |
-| Tags |  You can assign a label to this resource so that you can easily filter resources in your resource list. |
-| Location | Locations are composed of regions (specific geographic areas) and zones (fault tolerant data centers within a region). Select the location where you want your virtual server instance to be created. |
-| Processor architecture |  Select the processor architecture that your instance is created with. *x86* means x86_64 bit processor, and *s390x* is LinuxONE (s390x processor architecture). |
 | Operating system | Select a a stock image, a custom image from your account, or a custom image that was shared with your account from a private catalog. For more information about stock images, see [x86 virtual server images](/docs/vpc?topic=vpc-about-images&interface=ui). \n * A `Custom image` is an image that you create externally and import to {{site.data.keyword.cloud}}, which you can then import into {{site.data.keyword.vpc_short}}. \n * A `Catalog image` is a custom image that is imported into a private catalog. \n For more information about catalog images, see [Custom images in a private catalog](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#custom-image-cloud-private-catalog). \n  **Note** If you select a catalog image that belongs to a different account, there are additional considerations and limitations to review. See [Using cross-account image references in a private catalog in the UI](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#private-catalog-image-reference-vpc-ui). To create a private catalog, see the tutorial [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui). |
 | Profile |  Select from popular profiles or all available vCPU and RAM combinations. The profile families are Balanced, Compute, Memory, and GPU. For more information, see [Profiles](/docs/vpc?topic=vpc-profiles). |
-| SSH Key | You must select an existing SSH key or upload a new SSH key to use before you can create the instance. SSH keys are used to securely connect to the instance after it's running. \n  **Note:** Alpha-numeric combinations are limited to 100 characters. \n For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
-| Metadata | Disabled by default, lets instances created from this template gather metadata about itself. Click the toggle to turn the metadata service on. For more information, see [About Instance Metadata for VPC](/docs/vpc?topic=vpc-imd-about). |
-| User data | You can add user data that automatically performs common configuration tasks or runs scripts. For more information, see [User data](/docs/vpc?topic=vpc-user-data). |
-| Placement group | Select a placement group for the instance. If you add a placement group, the instance is placed according to the placement group strategy. For more information, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc). |
+| SSH Key | You must select an existing public SSH key or click **Create an SSH key** to create a new one. You can create only RSA SSH keys. For Ed25519 SSH keys, you must upload the key information. For more information on creating a SSH key, see [Creating your SSH key using the UI](/docs/vpc?topic=vpc-ssh-keys&interface=ui#generate-ssh-keys-ui). SSH keys are used to securely connect to the instance after it's running. \n  \n  **Note:** Alpha-numeric combinations are limited to 100 characters. SSH keys can either be RSA or Ed25519. Ed25519 can only be used if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images. \n  \n For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
 | Boot volume | The default boot volume size for all profiles is 100 GB. You can specify a larger boot volume capacity, up to 250 GB, depending on what the image allows. You can also specify user tags. |
 | Data volumes | You can add one or more secondary data volumes to be included when you provision the instance. To add volumes, click **Create**. You can specify customer-managed encryption and user tags for the volume. |
 | Virtual private cloud | Specify the IBM Cloud VPC where you want to create your instance. You can use an existing VPC or you can create a new VPC. To create a new VPC, click **New VPC**. |
 | Network interfaces | Defines the networking connection into the IBM Cloud VPC.  |
+| User data | You can add user data that automatically performs common configuration tasks or runs scripts. For more information, see [User data](/docs/vpc?topic=vpc-user-data). |
+| Metadata | Disabled by default, lets instances created from this template gather metadata about itself. Click the toggle to turn the metadata service on. For more information, see [About Instance Metadata for VPC](/docs/vpc?topic=vpc-imd-about). |
+| Host failure auto restart | This setting is enabled by default. To disable host failure auto restart, click the toggle. For more information, see [Host failure recovery policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=ui). |
+| Add instance to placement group | You have the option to select a placement group for the instance. To enable placement groups, click the toggle. Then, select or create a placement group for the instance. If you add a placement group, the instance is placed according to the placement group strategy. For more information, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc). |
 {: caption="Table 1. Instance template selections" caption-side="bottom"}
 {: #create-instance-template-table}
 

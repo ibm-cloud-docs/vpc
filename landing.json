@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2023-06-22",
+    "lastupdated": "2023-06-27",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
@@ -31,19 +31,19 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
+          "date": "27 June 2023", 
+          "title": "Snapshots for VPC Cross Regional Copy (GA)",
+          "description": "Customers can now create a copy of a snapshot in a different region, and later use that copy to restore a volume in the new region. This feature can be beneficial in disaster recovery scenarios when the customer needs to start their virtual server instance and data volumes in a different region. Customers can also use the remote copy to create storage volumes in a new region and expand their VPC in new locations."
+        },
+        {
+          "date": "27 June 2023", 
+          "title": "Backup for VPC Cross Regional Copy (GA)",
+          "description": "Customers can now save a copy of their backup in a different region. Customers can copy the backup snapshot to another region manually or add the copy option to their backup policy plans. Customers can manage and use the cross-regional copy in the target region independently from the parent volume or the original backup."
+        },
+        {
           "date": "22 June 2023", 
           "title": "New Ed25519 SSH key type is available (GA)",
           "description": "The Ed25519 SSH key type is a new, supported SSH key type and can be used as an alternative to the RSA SSH key type. The Ed25519 SSH key can be used with Linux operating systems, but is not supported for Windows or VMware images."
-        },
-        {
-          "date": "22 June 2023", 
-          "title": "Madrid multi zone region (MZR)",
-          "description": "A new MZR is available for VPC and Classic infrastructures. Classic Virtual Servers will not be available in the Madrid MZR. The Madrid region supports only dedicated host profiles with instance storage."
-        },
-        {
-          "date": "20 June 2023", 
-          "title": "IBM Hyper Protect Container Runtime image ibm-hyper-protect-container-runtime-1-0-s390x-11 updates",
-          "description": "For the IBM Hyper Protect Container Runtime image version ibm-hyper-protect-container-runtime-1-0-s390x-11, new certificates are available. See the release notes for full details."
         }
       ]
     }
