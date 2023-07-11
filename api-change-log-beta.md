@@ -38,6 +38,10 @@ The default value of `access_control_mode` depends on the `version` query parame
 
 When [creating a mount target](/apidocs/vpc-beta#create-share-mount-target) for a file share with `access_control_mode` set to `security_group`, you must also create a virtual network interface by using the `virtual_network_interface` property. For more information, see [About virtual network interfaces](/docs/vpc?topic=vpc-vni-about&interface=api) and [Mount target access modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-mount-access-mode). The traffic between the authorized client and the file share can be IPsec encapsulated by the client.
 
+**Data encryption in transit for file shares.** For users with accounts that have access to file shares, you can now enable secure end-to-end encryption of your data in transit between the file share and the authorized client.
+
+When [creating a mount target for a file share](/apidocs/vpc-beta#create-share-mount-target) with a virtual network interface, you can now specify a `transit_encryption` property value of `none` (default) or `user_managed`, which encrypts the data in transit by using mutual SSL connection with an instance identity certificate. For more information, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-eit) and [Creating instance identity certificates](/docs/vpc?topic=vpc-metadata-beta-api-change-log#11-july-2023-metadata-beta) in the Beta VPC Instance Metadata API change log.
+
 ## 13 June 2023
 {: #13-june-2023-beta}
 
