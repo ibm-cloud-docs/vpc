@@ -4,7 +4,7 @@ copyright:
 
   years: 2022, 2023
 
-lastupdated: "2023-06-16"
+lastupdated: "2023-07-11"
 
 
 keywords: operating system end of support (eos)
@@ -18,44 +18,21 @@ subcollection: vpc
 # Lifecycle for guest operating systems
 {: #guest-os-lifecycle}
 
-In the lifecycle of an operating system, end of support (EOS) is the last date that {{site.data.keyword.cloud}} delivers standard support for a version or release of a product. The end of support date is aligned to the vendor and community support dates. It is also the effective date that the product ceases to exist (is deprecated) and can no longer be ordered or purchased.
+In the lifecycle of an operating system, end of support (EOS) is the last date that {{site.data.keyword.cloud}} delivers standard support for a version or release of a product. The end of support date is aligned to the vendor and community support dates. A notification is sent out 90 days before support for an operating system is withdrawn. 
 {: shortdesc}
 
-A stock image starts out in available status. When a newer version of the image becomes available, the status of the older image changes to deprecated. A deprecated image can still be used to provision a virtual server instance, but such use is discouraged. If an image moves to obsolete status, such as when the image operating system reaches EOS, it can't be used to provision new virtual server instances.
+| Image status | Description |
+| -------------- | -------------- |
+| `available` | The most current version of the stock operating system image is `available`. When a new version of an operating system is made `available`, the older version image of that guest operating system changes to `deprecated`. No stock operating system that reaches EOS has an `available` image. |
+| `deprecated` | Older versions of stock operating systems are `deprecated`. Also, any stock operating system that reached EOS is also `deprecated`. The UI doesn't display any `deprecated` images when creating an instance. These images are still visible in the CLI and API. |
+{: caption="Table 1. Image lifecycle status" caption-side="bottom"}
 
-## Viewing the image lifecycle of a stock image by using the UI
-{: #image-lifecycle-ui}
-{: ui}
-
-You can list all of the {{site.data.keyword.vpc_short}} stock images in your region that are in available status by going to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Images**. Click the **Stock Images** tab to see all the available stock images. Images that are in deprecated status are not shown.
-
-## Viewing the image lifecycle of a stock image by using the CLI
-{: #image-lifecycle-cli}
-{: cli}
-
-You can list all of the {{site.data.keyword.vpc_short}} stock images in your region by using the command-line interface (CLI).
-
-To list all stock images by using the CLI, use the **ibmcloud is images** command. Stock images are public, so the `--visibility` option is `public`.
-
-```sh
-ibmcloud is images --visibility public
-```
-{: pre}
-
-## Viewing the image lifecycle of a stock image by using the API
-{: #image-lifecycle-api}
-{: api}
-
-You can list all of the {{site.data.keyword.vpc_short}} stock images in your region by using the application programming interface (API).
-
-Stock images are public, so you can set the `visibility` property to `public` to retrieve only stock images.
-
-```sh
-curl -X GET \
-”$vpc_api_endpoint/v1/images?version=2022-11-21&generation=2&visibility=public" \
--H "Authorization: Bearer $iam_token"
-```
-{: codeblock}
+If you choose to continue to use a `deprecated` stock operating system image after EOS, be aware of the following risks:
+* The operating system no longer receives security patches or updates.
+* The operating system is no longer tested for hardware, drivers, or firmware.
+* There is no support for performance or operational issues on the server.
+* There is no vendor support for the operating system.
+* EOS operating systems are not supported by IBM Cloud Technical Support.
 
 ## CentOS
 {: #centos}
@@ -151,9 +128,11 @@ The following table describes the end of support date and license model for Ubun
 |-----------------|----------------|---------------|
 | Ubuntu 22.04 minimal | 30 April 2027 | Free |
 | Ubuntu 20.04 minimal | 30 April 2025 | Free |
-| Ubuntu 18.04 minimal | 31 May 2023  | Free |
+| Ubuntu 18.04 minimal [^tabletext]| 31 May 2023  | Free |
 | Ubuntu 16.04 minimal | 01 April 2021  | Free |
 {: caption="Table 7. Lifecycle for Ubuntu operating systems" caption-side="bottom"}
+
+[^tabletext]: [Out of standard support. Upgrade to Ubuntu Pro.](https://ubuntu.com/18-04/ibm){: external}
 
 ## Windows Server
 {: #windows-server}

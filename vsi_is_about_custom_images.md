@@ -3,7 +3,7 @@
 copyright:
   years: 2022, 2023
 
-lastupdated: "2023-05-10"
+lastupdated: "2023-07-11"
 
 keywords:
 
@@ -55,9 +55,6 @@ If you plan to import an image from a file, you must provision an instance of {{
 
 ## Custom image lifecycle
 {: #custom-image-lifecycle}
-
-Custom image lifecycle is a beta feature that is available for evaluation and testing purposes.
-{: beta}
 
 <!-- Image life cycle content shared with custom images & image from volume -->
 {{_include-segments/image_lifecycle.md}}

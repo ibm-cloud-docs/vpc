@@ -3,7 +3,7 @@
 copyright:
   years: 2021, 2023
 
-lastupdated: "2023-04-06"
+lastupdated: "2023-07-11"
 
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance
@@ -72,9 +72,6 @@ When you create an image from a volume, you have the following encryption choice
 
 ## Image from volume lifecycle
 {: #ifv-image-lifecycle}
-
-Custom image lifecycle is a beta feature that is available for evaluation and testing purposes.
-{: beta}
 
 <!-- Image life cycle content shared with custom images & image from volume -->
 {{_include-segments/image_lifecycle.md}}
