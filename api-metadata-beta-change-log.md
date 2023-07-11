@@ -32,7 +32,7 @@ To review the change log of generally available metadata API features, see the [
 ### For all version dates
 {: #11-july-2023-all-version-dates-metadata-beta}
 
-**Creating instance identity certificates.** You can now use the instance identity access token and a Certificate Signing Request (CSR) to [create](/apidocs/vpc-metadata-beta#create-certificate) an instance identity certificate. For more information, see [Generating an instance identity certificate by using an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-acquire-certificate). Instance identity certificates can be used when the traffic between an authorized client and the mounted file share is [encrypted in transit](/docs/vpc?topic=vpc-file-storage-vpc-eit). For more information, see [Data encryption in transit for file shares](/docs/vpc?topic=vpc-api-change-log-beta#11-july-2023-beta) in the Beta VPC API change log.
+**Instance identity certificates.** You can now use the instance identity access token and a Certificate Signing Request (CSR) to [create](/apidocs/vpc-metadata-beta#create-certificate) an instance identity certificate. For more information, see [Generating an instance identity certificate by using an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-acquire-certificate). Instance identity certificates can be used when the traffic between an authorized client and the mounted file share is [encrypted in transit](/docs/vpc?topic=vpc-file-storage-vpc-eit). For more information, see [Data encryption in transit for file shares](/docs/vpc?topic=vpc-api-change-log-beta#11-july-2023-beta).
 
 ## 16 August 2022
 {: #16-august-2022-metadata-beta}
