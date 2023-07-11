@@ -32,15 +32,15 @@ To review the change log of generally available API features, see the [VPC API c
 ### For version 2023-07-11 or later
 {: #version-2023-07-11-beta}
 
+**Data encryption in transit for file shares.** For users with accounts that have access to file shares, you can now enable secure end-to-end encryption of your data in transit between the file share and the authorized client.
+
+When [creating a mount target for a file share](/apidocs/vpc-beta#create-share-mount-target) with a virtual network interface, you can now specify a `transit_encryption` property value of `none` (default) or `user_managed`, which encrypts the data in transit by using mutual SSL connection with an instance identity certificate. For more information, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-eit) and [Creating instance identity certificates](/docs/vpc?topic=vpc-metadata-beta-api-change-log#11-july-2023-metadata-beta).
+
 **File share access control modes.** For users with accounts that have access to file shares, you can now control the way a share is accessed when [creating](/apidocs/vpc-beta#create-share) and [updating](/apidocs/vpc-beta#update-share) a file share. Specifying `access_control_mode` property value `security_group` now allows the use of security groups to manage which resources can access the file share. By using security groups, access can now be restricted to specific clients. When you specify `access_control_mode` property value `vpc`, all clients in each mount target's VPC will continue to have access to this share.
 
 The default value of `access_control_mode` depends on the `version` query parameter date and the profile selected. When making API requests with a `version` query parameter of `2023-07-11` or later, the default is `security_group`. For requests that are using a `version` query parameter of `2023-07-10` or earlier, the default is `vpc`. File shares must be based on the [`dp2` profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile) to use the `security_group` value. See [2023-07-11 API migration (file shares)](/docs/vpc?topic=vpc-2023-07-11-migration-file-shares) for guidance on migrating `access_control_mode` from `vpc` to `security_group`.
 
 When [creating a mount target](/apidocs/vpc-beta#create-share-mount-target) for a file share with `access_control_mode` set to `security_group`, you must also create a virtual network interface by using the `virtual_network_interface` property. For more information, see [About virtual network interfaces](/docs/vpc?topic=vpc-vni-about&interface=api) and [Mount target access modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-mount-access-mode). The traffic between the authorized client and the file share can be IPsec encapsulated by the client.
-
-**Data encryption in transit for file shares.** For users with accounts that have access to file shares, you can now enable secure end-to-end encryption of your data in transit between the file share and the authorized client.
-
-When [creating a mount target for a file share](/apidocs/vpc-beta#create-share-mount-target) with a virtual network interface, you can now specify a `transit_encryption` property value of `none` (default) or `user_managed`, which encrypts the data in transit by using mutual SSL connection with an instance identity certificate. For more information, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-eit) and [Creating instance identity certificates](/docs/vpc?topic=vpc-metadata-beta-api-change-log#11-july-2023-metadata-beta) in the Beta VPC Instance Metadata API change log.
 
 ## 13 June 2023
 {: #13-june-2023-beta}
