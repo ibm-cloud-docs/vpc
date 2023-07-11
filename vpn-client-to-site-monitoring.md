@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-06-13"
+lastupdated: "2023-07-11"
 
 keywords:
 
@@ -26,8 +26,8 @@ You can view platform metrics when you enable {{site.data.keyword.mon_full_notm}
 Before you enable {{site.data.keyword.mon_full_notm}} on your platform, keep the following information in mind:
 
 * You can configure only one instance of the {{site.data.keyword.mon_full_notm}} service per region to collect platform metrics.
-* Platform metrics are regional. Metrics are monitored only from {{site.data.keyword.mon_full_notm}} services, which are in the same region of the instance that you want to monitor.
 * Metrics are collected automatically and are available for monitoring through the {{site.data.keyword.mon_full_notm}}-enabled instance.
+* Use the Metrics Router to allow customers to configure which {{site.data.keyword.mon_full_notm}} instance their platform metrics flows to. To learn more about Metrics Router, see [IBM Cloud Metrics Routing](/docs/metrics-router).
 
 ## Metrics available by service plan
 {: #vpn-client-to-site-metrics-by-plan}
