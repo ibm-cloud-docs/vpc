@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years:  2020, 2022
-lastupdated: "2022-09-19"
+  years:  2020, 2023
+lastupdated: "2023-07-11"
 
 keywords: monitoring metrics, platform metrics, metrics, vpc metrics, vpc monitoring metrics
 
