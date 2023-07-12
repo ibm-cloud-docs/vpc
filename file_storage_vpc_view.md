@@ -257,7 +257,7 @@ As described in the [Beta VPC API](/apidocs/vpc-beta) reference [versioning](/ap
 
 Make a `GET /shares` request to list all file shares for a region.
 
-```curl
+```sh
 curl -X GET \
 "$vpc_api_endpoint/v1/shares?version=2023-07-05?limit=50&generation=2&maturity=beta"\
 -H "Authorization: $iam_token"
@@ -327,7 +327,7 @@ A successful response looks like the following example. In the example, the `lim
 
 Make a `GET /shares/{share_id}` request to get details about a single file share.
 
-```curl
+```sh
 curl -X GET \
 "$vpc_api_endpoint/v1/shares/$share_id?version=2023-07-05&generation=2&maturity=beta"\
 -H "Authorization: $iam_token"
@@ -396,7 +396,7 @@ Make a `GET /shares/{share_id}/mount_targets` request to list all mount targets 
 
 See the following example.
 
-```curl
+```sh
 curl -X GET \
 "$vpc_api_endpoint/v1/shares/$share_id/mount_targets?version=2023-07-05?limit=50&generation=2&maturity=beta"\
 -H "Authorization: $iam_token"
@@ -541,7 +541,7 @@ A successful response looks like the following example.
 
 Make a `GET /shares/{replica_id}/source` request and specify the replica share ID to retrieve the source file share details.
 
-```curl
+```sh
 curl -X GET \
 "$vpc_api_endpoint/v1/shares/$replica_id/source?version=2023-07-05&generation=2&maturity=beta"\
 -H "Authorization: $iam_token"\

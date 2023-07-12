@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-06-20"
+lastupdated: "2023-07-11"
 
 keywords: VPC File Storage, file for VPC, NSF, replica, file share, replication, schedule
 
@@ -82,9 +82,9 @@ Make a `DELETE /shares/{replica_id}/source` request to remove the replication re
 As described in the [Beta VPC API](/apidocs/vpc-beta) reference [versioning](/apidocs/vpc-beta#api-versioning-beta) policy, support for older versions of the beta API is limited to 45 days. Therefore, beta API requests must specify a `version` query parameter date value within the last 45 days. You must also provide `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/apidocs/vpc#api-generation-parameter).
 {: requirement}
 
-```curl
+```sh
 curl -X DELETE \
-"$vpc_api_endpoint/v1/shares/$replica_id/source?version=2022-09-06&generation=2&maturity=beta"\
+"$vpc_api_endpoint/v1/shares/$replica_id/source?version=2023-07-11&generation=2&maturity=beta"\
 -H "Authorization: $iam_token"\
 ```
 {: pre}
@@ -142,9 +142,9 @@ Replication status shows when a replica file share is being created, when failov
 
 You can use the API to verify that the replication succeeded, is pending, or failed. Make either a `GET /shares/{share_id}` request or a `GET /shares/{replica_id)` request to see the status. The following example request specifies the replica ID:
 
-```curl
+```sh
 curl -X GET \
-"$vpc_api_endpoint/v1/shares/$replica_id?version=2023-06-20&generation=2&maturity=beta"\
+"$vpc_api_endpoint/v1/shares/$replica_id?version=2023-07-11&generation=2&maturity=beta"\
 -H "Authorization: $iam_token"
 ```
 {: pre}
@@ -152,7 +152,7 @@ curl -X GET \
 In the response, look at the `latest_job` property. The example shows the replication failover succeeded:
 
 ```json
-  "created_at": "2023-06-20T23:31:59Z",
+  "created_at": "2023-07-11T23:31:59Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63",

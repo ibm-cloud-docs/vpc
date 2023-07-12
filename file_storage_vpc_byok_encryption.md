@@ -136,9 +136,9 @@ As described in the [Beta VPC API](/apidocs/vpc-beta) reference [versioning](/ap
 
 The following example creates a file share with a mount target, and specifies the CRN of the root key for customer-managed encryption.
 
-   ```curl
+   ```sh
    curl -X POST \
-   "$vpc_api_endpoint/v1/shares?version=2023-06-20&generation=2&maturity=beta" \
+   "$vpc_api_endpoint/v1/shares?version=2023-07-11&generation=2&maturity=beta" \
    -H "Authorization: $iam_token" \
    -d '{
        "encryption_key": {
@@ -172,7 +172,7 @@ A successful response looks like the following example.
 
    ```json
    {
-     "created_at": "2023-06-20T22:58:49.000Z",
+     "created_at": "2023-07-11T22:58:49.000Z",
      "crn": "crn:[...]",
      "encryption": "customer_managed",
      "encryption_key": {
