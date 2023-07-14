@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-03-31"
+lastupdated: "2023-07-11"
 
-keywords:
+keywords: file share, file storage, IOPS, performance needs, adjust IOPS
 
 subcollection: vpc
 
@@ -20,7 +20,7 @@ For {{site.data.keyword.filestorage_vpc_short}} file shares, you can increase or
 
 Billing for an updated share is automatically updated. The prorated difference of the new price is added to the current billing cycle. The new full amount is then billed in the next billing cycle.
 
-{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
+{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Madrid, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 ## Adjustable IOPS concepts
@@ -28,9 +28,9 @@ Billing for an updated share is automatically updated. The prorated difference o
 
 You can adjust IOPS for your file shares to tailor performance to meet your requirements.
 
-For example, you might find that an application has scaled such that a lower-tier storage profile is now a performance bottleneck. You can change the performance characteristics of the existing file share by increasing IOPS by selecting a higher IOPS tier (for example, 3 IOPS/GB tier to 5 IOPS/GB tier).
+For example, you might find that an application scaled such that a lower-tier storage profile is now a performance bottleneck. You can change the performance characteristics of the existing file share by increasing IOPS by selecting a higher IOPS tier (for example, 3 IOPS/GB tier to 5 IOPS/GB tier).
 
-In another scenario, you might want to initially set your file storage at a higher 10 IOPS/GB performance level to expedite a data upload. After the upload completes, you can reset storage to a lower 5 IOPS/GB for normal operations. Also, you might want to increase your file share's IOPS during peak times for your application and decrease IOPS during off-peak hours.
+In another scenario, you might want to initially set your file storage at a higher 10 IOPS/GB performance level to expedite a data upload. After the upload completes, you can reset storage to 5 IOPS/GB for normal operations. Also, you might want to increase your file share's IOPS during peak times for your application and decrease IOPS during off-peak hours.
 
 By using this feature, you can:
 
@@ -61,7 +61,7 @@ The following limitations apply.
 * A [custom IOPS profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#custom) can expand to the maximum allowed by the custom band. You can't switch custom bands unless you increase file share size and then move to a higher band.
 * A [dp2 profile](/docs/vpc?topic=vpc-file-storage-profiles&nterface=ui#dp2-profile) can expand to the maximum allowed by the dp2 band. You can't switch dp2 bands unless you increase file share size and then move to a higher band.
 * Adjusting IOPS by moving between profiles is restricted by the file share size.
-* When you use a custom or dp2 profile, IOPS can be adjusted multiple times until the maximum or minimum limit is reached.
+* When you use a custom or dp2 profile, IOPS can be adjusted multiple time until the maximum or minimum limit is reached.
 * Maximum IOPS for a file share for all profiles is [96,000 IOPS](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#fs-tiers). For 96,000 IOPS to be realized, a single file share must be accessed by multiple virtual server instances. A single file share in an instance is limited to 48,000 IOPS.
 
 ## Adjust IOPS in the UI
@@ -117,7 +117,7 @@ Profile           custom-iops
 Size(GB)          100
 IOPS              1200
 Encryption        provider_managed
-Targets           ID                          Name   VPC ID   VPC Name
+Mount targets     ID                          Name   VPC ID   VPC Name
                   No mounted targets found.
 
 Resource group    ID                                     Name
@@ -128,7 +128,7 @@ Last sync at      2023-03-26T05:53:28+05:53
 ```
 {: screen}
 
-### Adjust IOPS by specifying a higher or lower IOPS tier profile
+### Adjust IOPS by specifying a different IOPS tier profile
 {: #adjust-profile-cli-file}
 
 From the CLI, use the `share-update` command with the `--profile` property and indicate the name or href of the IOPS tier profile.
@@ -153,7 +153,7 @@ Profile           tier-5iops
 Size(GB)          100
 IOPS              3000
 Encryption        provider_managed
-Targets           ID                          Name   VPC ID   VPC Name
+Mount targets     ID                          Name   VPC ID   VPC Name
                   No mounted targets found.
 
 Resource group    ID                                     Name
@@ -182,9 +182,9 @@ You can't update the name of the file share and adjust IOPS in the same `PATCH /
 
 The following example shows an increase of 100 IOPS to 3,000 IOPS for a 100 GB file share based on a 100 - 499 custom profile. The IOPS range for this custom band is 100 - 6,000 IOPS.
 
-```curl
+```sh
 curl -X PATCH \
- "$vpc_api_endpoint/v1/shares/$share_id?version=2023-03-06&generation=2" \
+ "$vpc_api_endpoint/v1/shares/$share_id?version=2023-07-11&generation=2" \
  -H "Authorization: $iam_token" \
  -d '{
       "iops": 3000
@@ -241,9 +241,9 @@ When the IOPS expansion completes, restart the instance. The new value is displa
   },
   "resource_type": "share",
   "size": 4800,
-  "targets": [
+  "mount_targets": [
     {
-      "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/a0c07083-f411-446c-9316-7b08d6448c86/targets/1b5571cb-536d-48d0-8452-81c05c6f7b80",
+      "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/a0c07083-f411-446c-9316-7b08d6448c86/mount_targets/1b5571cb-536d-48d0-8452-81c05c6f7b80",
       "id": "r134-1b5571cb-536d-48d0-8452-81c05c6f7b80",
       "name": "my-mount-target",
       "resource_type": "share_target",
@@ -266,22 +266,66 @@ When the IOPS expansion completes, restart the instance. The new value is displa
 ```
 {: codeblock}
 
-### Adjust IOPS by specifying a higher or lower IOPS tier profile
+### Adjust IOPS by specifying a different IOPS tier profile
 {: #adjust-profile-api-file}
 
 Make a `PATCH /shares` request and specify the `profile` property and indicate the name or href of the IOPS tier profile.
 
 The following example changes a 3 IOPS/GB profile to 5 IOPS/GB profile. In this case, the file share can't exceed 9,600 GB to move to the higher profile.
 
-```curl
+```sh
 curl -X PATCH \
- "$vpc_api_endpoint/v1/shares/$share_id?version=2023-03-06&generation=2" \
+ "$vpc_api_endpoint/v1/shares/$share_id?version=2023-07-11&generation=2" \
  -H "Authorization: $iam_token" \
  -d '{
       "profile": "5iops-tier"
     }'
 ```
 {: codeblock}
+
+## Adjust IOPS with Terraform
+{: #adjust-vpc-iops-terrafom-file}
+{: terraform}
+
+You can adjust IOPS for existing data file shares in Terraform.
+
+### Adjust IOPS for a Custom or dp2 profile
+{: #adjust-iops-terraform-file}
+
+To modify the performance level of a file share, use the `ibm_is_share` resource and provide the IOPS value that you want. When you specify the IOPS value, make sure it is within the performance range for the size of the file share. For more information, see [dp2 file storage profile](/docs/vpc?topic=vpc-file-storage-profiles#dp2-profile).
+
+When it is applied, the following example updates the share performance to 5000 IOPS.
+
+```terraform
+resource "ibm_is_share" "example" {
+  name    = "my-new-share"
+  size    = 200
+  iops    = 5000
+  profile = "dp2"
+  zone    = "us-south-2"
+}
+```
+{: codeblock}
+
+For more information about the arguments and attributes, see [ibm_is_share](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share){: external}.
+
+### Adjust IOPS by specifying a different IOPS tier profile
+{: #adjust-profile-terraform-file}
+
+To modify the performance level of a file share with an IOPS tier profile, use the `ibm_is_share` resource and specify a different IOPS tier. When it is applied, the following example updates the share performance to 5000 IOPS.
+
+```terraform
+resource "ibm_is_share" "example" {
+  name    = "my-share"
+  size    = 220
+  profile = "tier-5iops"
+  zone    = "us-south-2"
+}
+```
+{: codeblock}
+
+For more information about the arguments and attributes, see [ibm_is_share](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share){: external}.
+
 
 ## Next steps
 {: #next-step-adjustable-iops-file}

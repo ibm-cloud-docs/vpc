@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2023-05-22"
+lastupdated: "2023-06-22"
 
 keywords: bare metal server connect esxi, connect to esxi, connect to esxi, bare metal connect esxi, bare metal esxi, windows serial console, connect to windows console, connect to windows serial console, serial console, connect to serial console
 
@@ -26,6 +26,9 @@ For more information about VMWare deployments, see [Deploying Roll Your Own VMwa
 You need to enter the account name and password to access both ESXi DCUI and the ESXi web client. You can retrieve the account information by using the CLI.   
 
 The password is automatically generated and encrypted by using the first SSH key that was provided when the bare metal server was created. You need to decrypt the password by using this SSH key.
+
+<!--ed25519 note is shared with several other files bare_metal_server_connect_windows.md, vsi)is_connecting_windows.md, bare_metal_server_connect.md, vsi_is_ssh_keys_about.md -->
+{{_include-segments/ed25519-ssh-key-type-note.md}}
 
 1. Use the following command to retrieve the account name and identify the SSH key that you use to decrypt the password.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021 
-lastupdated: "2021-02-23"
+lastupdated: "2023-06-15"
 
 keywords: manage dedicated host, manage dedicated host group, delete dedicated host, disable placement
 
@@ -90,4 +90,12 @@ for vCPU and memory. To determine space that is available for provisioning addit
 
 1. On the Dedicated group details page, locate the existing hosts in the group under the heading, Dedicated hosts in *group*.
 2. Check the vCPU allocated and Memory allocated columns to see what capacity is already used and how much is remaining on the individual hosts. 
-3. A virtual server instance cannot span more than one dedicated host, so the profile for an instance must be able to be provisioned on the remaining capacity of a single dedicated host. 
+3. A virtual server instance cannot span more than one dedicated host, so the profile for an instance must be able to be provisioned on the remaining capacity of a single dedicated host.
+
+### Dedicated host maintenance
+{: #managing-dh-maintenance}
+
+{{site.data.keyword.cloud}} performs periodic maintenance on the hosts and dedicated hosts.
+Maintenance includes the live migration of the servers on the host or dedicated host. Host and dedicated host maintenance events can address load balancing, host failures, or other updates.
+
+For more information, see [Host and dedicated host maintenance](/docs/vpc?topic=vpc-about-cloud-maintenance#types-of-maintenance-host).

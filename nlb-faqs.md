@@ -51,7 +51,7 @@ You can attach a maximum of 50 virtual server instances to your back-end pool fo
 {: #is-the-network-load-balancer-horizontally-scalable}
 {: faq}
 
-No. A network load balancer is not horizontally scalable. However, it comes with a high-availability option and several different sizes (small, medium, and large), which allow you to select a network load balancer size that fits your performance needs.
+No. A network load balancer is not horizontally scalable. 
 
 ## What should I do if I'm using ACLs on the subnets that are used to deploy an NLB?
 {: #what-should-i-do-if-i-am-using-acls-on-the-subnets-that-are-used-to-deploy-the-load-balancer-nlb}

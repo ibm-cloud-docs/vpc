@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-07-26"
+  years: 2019, 2023
+lastupdated: "2023-06-22"
 
 keywords: address prefixes, regions, subnets, zones, IP, ranges, CIDR
 
@@ -37,6 +37,9 @@ London        |`eu-gb-3`      | `10.242.128.0/18`
 Frankfurt     |`eu-de-1`      | `10.243.0.0/18`
 Frankfurt     |`eu-de-2`      | `10.243.64.0/18`
 Frankfurt     |`eu-de-3`      | `10.243.128.0/18`
+Madrid        |`eu-es-1`      | `10.251.0.0/18`
+Madrid        |`eu-es-2`      | `10.251.64.0/18`
+Madrid        |`eu-es-3`      | `10.251.128.0/18`
 Tokyo         |`jp-tok-1`     | `10.244.0.0/18`
 Tokyo         |`jp-tok-2`     | `10.244.64.0/18`
 Tokyo         |`jp-tok-3`     | `10.244.128.0/18`
@@ -53,6 +56,9 @@ Sao Paulo     |`br-sao-1`     | `10.250.0.0/18`
 Sao Paulo     |`br-sao-2`     | `10.250.64.0/18`
 Sao Paulo     |`br-sao-3`     | `10.250.128.0/18`
 {: caption="Table 1. Address prefixes assigned to a zone in a region" caption-side="bottom"}
+
+The Madrid region only supports dedicated host profiles with instance storage. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui).
+{: important}
 
 If you don't want these default address prefixes, you can choose to not assign them when you create your VPC. For example, add the `"address_prefix_management": "manual"` parameter when you create the VPC by using the API.
 

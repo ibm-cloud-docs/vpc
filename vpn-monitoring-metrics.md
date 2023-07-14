@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years:  2020, 2021
-lastupdated: "2021-08-12"
+  years:  2020, 2023
+lastupdated: "2023-07-11"
 
 keywords:
 
@@ -26,23 +26,23 @@ You can view platform metrics when you enable {{site.data.keyword.mon_full_notm}
 Before you enable {{site.data.keyword.mon_full_notm}} on your platform, keep the following information in mind:
 
 * You can configure only one instance of the {{site.data.keyword.mon_full_notm}} service per region to collect platform metrics.
-* Platform metrics are regional. Metrics are monitored only from {{site.data.keyword.mon_full_notm}} services, which are in the same region of the instance that you want to monitor.
 * Metrics are collected automatically and are available for monitoring through the {{site.data.keyword.mon_full_notm}}-enabled instance.
+* Use the Metrics Router to allow customers to configure which {{site.data.keyword.mon_full_notm}} instance their platform metrics flows to. To learn more about Metrics Router, see [IBM Cloud Metrics Routing](/docs/metrics-router).
 
 ## Metrics available by service plan
 {: #vpn-metrics-by-plan}
 
 Metrics available by plan names are as follows:
 
-* [VPN gateway bytes received](#ibm_is_vpn_gateway_bytes_in)
-* [VPN gateway bytes sent](#ibm_is_vpn_gateway_bytes_out)
-* [VPN gateway packets received](#ibm_is_vpn_gateway_packets_in)
-* [VPN gateway packets sent](#ibm_is_vpn_gateway_packets_out)
+* [VPN gateway total bytes input](#ibm_is_vpn_gateway_bytes_in)
+* [VPN gateway total bytes output](#ibm_is_vpn_gateway_bytes_out)
+* [VPN gateway total packets input](#ibm_is_vpn_gateway_packets_in)
+* [VPN gateway total packets output](#ibm_is_vpn_gateway_packets_out)
 * [VPN gateway status](#ibm_is_vpn_gateway_status)
-* [VPN connection bytes received](#ibm_is_vpn_connection_bytes_in)
-* [VPN connection bytes sent](#ibm_is_vpn_connection_bytes_out)
-* [VPN connection packets received](#ibm_is_vpn_connection_packets_in)
-* [VPN connection packets sent](#ibm_is_vpn_connection_packets_out)
+* [VPN connection bytes input](#ibm_is_vpn_connection_bytes_in)
+* [VPN connection bytes output](#ibm_is_vpn_connection_bytes_out)
+* [VPN connection packets input](#ibm_is_vpn_connection_packets_in)
+* [VPN connection packets output](#ibm_is_vpn_connection_packets_out)
 * [VPN connection status](#ibm_is_vpn_connection_status)
 
 These metrics help track the traffic and status for your VPN gateways and can provide insight about peak traffic per minute and overall usage status.
@@ -59,7 +59,7 @@ Each metric is composed of the following metadata types:
 
 The following tables define the basic VPN metrics on {{site.data.keyword.cloud_notm}} for VPC.
 
-### VPN gateway bytes received
+### VPN gateway total bytes input
 {: #ibm_is_vpn_gateway_bytes_in}
 
 Bytes per minute received for a VPN gateway
@@ -70,9 +70,9 @@ Bytes per minute received for a VPN gateway
 | `Metric type` | `gauge` |
 | `Value type`  | `byte` |
 | `Segment by` | `Service instance, Service instance name, VPN name, IBM IS` |
-{: caption="Table 1: VPN gateway bytes received" caption-side="bottom"}
+{: caption="Table 1: VPN gateway total bytes input" caption-side="bottom"}
 
-### VPN gateway bytes sent
+### VPN gateway total bytes output
 {: #ibm_is_vpn_gateway_bytes_out}
 
 Bytes sent per minute for a VPN gateway
@@ -83,9 +83,9 @@ Bytes sent per minute for a VPN gateway
 | `Metric type` | `gauge` |
 | `Value type`  | `byte` |
 | `Segment by` | `Service instance, Service instance name, VPN name, IBM IS` |
-{: caption="Table 2: VPN gateway bytes sent" caption-side="bottom"}
+{: caption="Table 2: VPN gateway total bytes output" caption-side="bottom"}
 
-### VPN gateway packets received
+### VPN gateway total packets input
 {: #ibm_is_vpn_gateway_packets_in}
 
 Packets received per minute for a VPN gateway
@@ -96,9 +96,9 @@ Packets received per minute for a VPN gateway
 | `Metric type` | `gauge` |
 | `Value type`  | `none` |
 | `Segment by` | `Service instance, Service instance name, VPN name, IBM IS` |
-{: caption="Table 3: VPN gateway packets received" caption-side="bottom"}
+{: caption="Table 3: VPN gateway total packets input" caption-side="bottom"}
 
-### VPN gateway packets sent
+### VPN gateway total packets output
 {: #ibm_is_vpn_gateway_packets_out}
 
 Packets sent per minute for a VPN gateway
@@ -109,7 +109,7 @@ Packets sent per minute for a VPN gateway
 | `Metric type` | `gauge` |
 | `Value type`  | `none` |
 | `Segment by` | `Service instance, Service instance name, VPN name, IBM IS` |
-{: caption="Table 4: VPN gateway packets sent" caption-side="bottom"}
+{: caption="Table 4: VPN gateway total packets output" caption-side="bottom"}
 
 ### VPN gateway status
 {: #ibm_is_vpn_gateway_status}
@@ -124,7 +124,7 @@ Status for a VPN gateway (for example, `1`=available, `0`=unavailable)
 | `Segment by` | `Service instance, Service instance name, VPN name, IBM IS` |
 {: caption="Table 5: VPN gateway status" caption-side="bottom"}
 
-### VPN connection bytes received
+### VPN connection bytes input
 {: #ibm_is_vpn_connection_bytes_in}
 
 Bytes received per minute for a VPN gateway's connection
@@ -135,9 +135,9 @@ Bytes received per minute for a VPN gateway's connection
 | `Metric type` | `gauge` |
 | `Value type`  | `byte` |
 | `Segment by` | `Service instance, VPN name, Connection name, Connection ID, IBM IS` |
-{: caption="Table 6: VPN connection bytes received" caption-side="bottom"}
+{: caption="Table 6: VPN connection bytes input" caption-side="bottom"}
 
-### VPN connection bytes sent
+### VPN connection bytes output
 {: #ibm_is_vpn_connection_bytes_out}
 
 Bytes sent per minute for a VPN gateway connection
@@ -148,9 +148,9 @@ Bytes sent per minute for a VPN gateway connection
 | `Metric type` | `gauge` |
 | `Value type`  | `byte` |
 | `Segment by` | `Service instance, VPN name, Connection name, Connection ID, IBM IS` |
-{: caption="Table 7: VPN connection bytes sent" caption-side="bottom"}
+{: caption="Table 7: VPN connection bytes output" caption-side="bottom"}
 
-### VPN connection packets received
+### VPN connection packets input
 {: #ibm_is_vpn_connection_packets_in}
 
 Packets received per minute for a VPN gateway connection
@@ -161,7 +161,7 @@ Packets received per minute for a VPN gateway connection
 | `Metric type` | `gauge` |
 | `Value type`  | `none` |
 | `Segment by` | `Service instance, VPN Name, Connection Name, Connection ID, IBM IS` |
-{: caption="Table 8: VPN connection packets received" caption-side="bottom"}
+{: caption="Table 8: VPN connection packets input" caption-side="bottom"}
 
 ### VPN connection packets output
 {: #ibm_is_vpn_connection_packets_out}
@@ -174,7 +174,7 @@ Packets sent per minute for a VPN gateway connection
 | `Metric type` | `gauge` |
 | `Value type`  | `none` |
 | `Segment by` | `Service instance, VPN name, Connection name, Connection ID, IBM IS` |
-{: caption="Table 9: VPN connection packets sent" caption-side="bottom"}
+{: caption="Table 9: VPN connection packets output" caption-side="bottom"}
 
 ### VPN connection status
 {: #ibm_is_vpn_connection_status}
@@ -194,7 +194,7 @@ Status of a VPN gateway connection (for example, `1`=up, `0`=down)
 
 You can split the metrics that {{site.data.keyword.mon_full_notm}} presents into various visualizations in the {{site.data.keyword.mon_full_notm}} dashboard, allowing views of different metrics based on your preference. For example, if you have multiple VPN gateways or accounts with different VPN gateways in each account, you might want to focus on a particular gateway by name.
 
-As an example, you can segment the `VPN Gateway Bytes Input` by `IBM {{site.data.keyword.vpn_vpc_short}} gateway name` to show how many bytes per minute are received for a VPN gateway. The dashboard shows different lines in different colors where each line represents received bytes per minute for a VPN gateway.
+As an example, you can segment the `VPN Gateway Total Bytes Input` by `IBM {{site.data.keyword.vpn_vpc_short}} gateway name` to show how many bytes per minute are received for a VPN gateway. The dashboard shows different lines in different colors where each line represents received bytes per minute for a VPN gateway.
 
 ### Global attributes
 {: #global-attributes-vpn}
@@ -267,7 +267,7 @@ To receive monitoring metrics, use the following steps:
    Do not give multiple {{site.data.keyword.mon_full_notm}} instances the same name.
    {: important}
 
-5. Optionally, select a resource group. A resource group organizes account resources in customizable groupings. Any account resource that is managed by using IBM Cloud Identity and Access Management (IAM) access control belongs to a resource group within your account. 
+5. Optionally, select a resource group. A resource group organizes account resources in customizable groupings. Any account resource that is managed by using IBM Cloud Identity and Access Management (IAM) access control belongs to a resource group within your account.
 
    If you do not have any pre-configured resource groups, or have no reason to share this resource selectively, use the default selection.
    {: note}
@@ -296,7 +296,7 @@ To view and work with your {{site.data.keyword.mon_full_notm}} metrics, follow t
 
 3. Open the IBM {{site.data.keyword.vpn_vpc_short}} Monitoring Metrics dashboard by selecting **Dashboards**.
 
-4. Click **Default Dashboards > IBM > VPC VPN**. The default dashboard is not editable.
+4. Click **Dashboard Library > IBM > VPC VPN**. The default dashboard is not editable.
 
 5. Ten main metrics in the dashboard are shown. These metrics include Gateway/Connection status, Gateway/Connection bytes input/output, and Gateway/Connection packets input/output. If you want to modify parameters and segment your metrics by VPN gateway name and VPN connection name, you must create a custom dashboard.
 
@@ -349,23 +349,21 @@ After you create your {{site.data.keyword.mon_full_notm}} instance, you must col
 To collect this information and work with your {{site.data.keyword.mon_full_notm}} instance by using metric query API, follow these steps:
 
 1. Access the [Monitoring home page](/observe/monitoring){: external}.
-1. Click **Open Dashboard** next to the instance that you want to work with.
-1. After the {{site.data.keyword.mon_full_notm}} dashboard is displayed, select your Account Profile icon on the sidebar and select **Settings**. You now see your account settings.
-1. Your Monitor API token is an alphanumeric string that is located in the **Monitor API Token** field. Click the **Copy** button to copy the token to your clipboard.
+2. Click **Open Dashboard** next to the instance that you want to work with.
+3. After the {{site.data.keyword.mon_full_notm}} dashboard is displayed, select your Account Profile icon on the sidebar and select **Settings**. You now see your account settings.
+4. Your Monitor API token is an alphanumeric string that is located in the **Sysdig Monitor API Token** field. Click the **Copy** button to copy the token to your clipboard.
 
    Do not share this API token. Anyone who has this API token has full access to your metrics.
    {: important}
 
-1. To get the endpoint of your {{site.data.keyword.mon_full_notm}} instance, go to your main {{site.data.keyword.mon_full_notm}} dashboard in your browser. Then, select the URL to the dashboard, which appears similar to the following example:
+5. The endpoint of your {{site.data.keyword.mon_full_notm}} instance is per region. For example, if your {{site.data.keyword.mon_full_notm}} instance exists in `us-south`, then its endpoint is:
 
    ```sh
-   https://us-south.monitoring.cloud.ibm.com/#/default-dashboard/ibm_vpc_vpn_gen2?last=1209600
+   https://us-south.monitoring.cloud.ibm.com/api/data/batch
    ```
    {: pre}
 
-   The first part of the URL (in this example, `us-south.monitoring.cloud.ibm.com`) is your endpoint. Make note of this URL.
-
-1. After you have both the API token and the endpoint, you can format your POST request. The following POST request is an example, with all the parameters that you can modify. The following are parameters:
+6. After you have both the API token and the endpoint, you can format your POST request. The following POST request is an example, with all the parameters that you can modify. The following are parameters:
 
    * The Monitor API token.
    * The endpoint of your {{site.data.keyword.mon_full_notm}} instance.
@@ -437,7 +435,7 @@ You can view individual VPN gateway metrics and launch the {{site.data.keyword.m
    The **Monitoring preview** panel displays the sum of every metric over the last hour.
 
    You can click **Launch monitoring** to launch the VPN gateway's default {{site.data.keyword.mon_full_notm}} dashboard.
-   
+
 1. Open the VPN gateway's **Monitoring** page. The page displays a VPN gateway's throughput and packets in a time range.
-   
+
    Similarly, you can also launch the VPN gateway's default {{site.data.keyword.mon_full_notm}} dashboard by clicking **Launch monitoring**.

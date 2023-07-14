@@ -3,7 +3,7 @@
 copyright:
   years: 2021, 2023
 
-lastupdated: "2023-04-06"
+lastupdated: "2023-07-11"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance
 
@@ -59,10 +59,6 @@ Use the UI to import your custom image by choosing to create and import an image
 | Source | Select the source for the custom image by choosing either [Virtual server instance boot volume](#import-custom-image-vsi) (default) or [Block storage boot volume](#import-custom-image-vol). |
 | Manage image lifecycle (optional) | Select to schedule status changes for the image. You can schedule a single status change or schedule the complete lifecycle of the images. The image statuses are:  \n  \n * `available`: The image can be used to create an instance.  \n  \n * `deprecated`: The image is still available to use to provision and instance. Using the `deprecated` status can discourage use of the image before the status changes to `obsolete`.  \n * `obsolete`: The image is not available to use to provision an instancce.  \n  \n * Schedule complete lifecycle: You can schedule both the `deprecated` and `obsolete` status changes at the same time.  \n  \n You can move back and forth between the three statuses. Only the statuses you can change to are displayed. You can schedule status changes by using calendar date and time or number of days. The obsolescence date must always be after the deprecation date. |
 {: caption="Table 1. Import custom image user interface fields" caption-side="bottom"}
-
-The Image lifecycle feature is a beta feature that is available for evaluation and testing purposes.
-{: beta}
-
 
 ### Create an image from a virtual server instance boot volume
 {: #import-custom-image-vsi}
@@ -164,15 +160,19 @@ Use the CLI to create an image from a volume that is attached to an available vi
 ### Create an image from a boot volume that is attached to an instance
 {: #ifv-create-cli}
 
-1. [Stop the running instance](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-stop) before you create the image from the volume.
+ 1. To locate the instance that you want to create an image from, [list the instances](https://test.cloud.ibm.com/docs/vpc?topic=vpc-vpc-reference#instances-list) in the region. Take note of the instance ID in the command output.
+   ```sh
+   ibmcloud is instances
+   ```
+   {: pre}
 
+1. [Stop the running instance](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-stop) before you create the image from the volume.
    ```sh
    ibmcloud is instance-stop INSTANCE_ID
    ```
    {: pre}
 
-2. Run the [`image-create` command](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#image-create) to create an image of a boot volume. Specify the ID of the source volume.
-
+1. Run the [`image-create` command](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#image-create) to create an image of a boot volume. Specify the ID of the source volume.
    ```sh
    ibmcloud is image-create IMAGE_NAME [--source-volume VOLUME_ID]
    ```
@@ -206,14 +206,23 @@ Use the CLI to create an image from a volume that is attached to an available vi
 ### Schedule custom image lifecycle status changes by using the CLI
 {: #ifv-import-schedule-ilm-status-change-cli}
 
-Custom image lifecycle is a beta feature that is available for evaluation and testing purposes.
-{: beta}
-
 When you import a custom image by using the command-line interface (CLI), you can also schedule the lifecycle status changes of the {{site.data.keyword.vpc_short}} custom image at the same time by using options of the **`ibmcloud is image-create`** command.
 
 Specify the name of the custom image to be created by using the `IMAGE_NAME` variable and the source by using the `--source-volume` option to indicate that the source is an existing boot volume.
 
-To schedule the `deprecated` or `obsolete` status changes at the same time, use the `--deprecate-at` and `--obsolete-at` options that are specified in the `YYYY-MM-DDThh:mm:ss+hh:mm` format. If you define both the deprecate-at and obsolete-at dates, the obsolete-at date must be after the deprecate-at date. Both dates must be in the future.
+To schedule the `deprecate-at` or `obsolete-at` properties, specify a date in the ISO 8601 (`YYYY-MM-DDThh:mm:ss+hh:mm`) date and time format.
+
+* `YYYY` is the four digit year
+* `MM` is the two digit month
+* `DD` is the two digit day
+* `T` separates the date and time information
+* `hh` is the two digit hours
+* `mm` is the two digit minutes
+* `+hh:mm` or `-hh:mm` is the UTC time zone
+
+Thus, the date of 30 September 2023 at 8:00 p.m. in the North American Central Standard Time Zone (CST) would be `2023-09-30T20:00:00-06:00`
+
+When scheduling the date and time, you can't use your current date and time. For example, if it is 8 a.m. on June 12, then the scheduled date and time must be after 8 a.m. on June 12. If you define both the `deprecate-at` and `obsolete-at` dates and times, the `deprecate-at` date must be after the `obsolete-at` date and time.
 
 ```sh
 ibmcloud is image-create IMAGE_NAME [--source-volume VOLUME_ID] [--deprecate-at YYYY-MM-DDThh:mm:ss+hh:mm] [--obsolete-at YYYY-MM-DDThh:mm:ss+hh:mm]
@@ -496,14 +505,23 @@ $iam_token" -d
 ### Scheduling custom image lifecycle status changes by using the API
 {: #ifv-import-schedule-ilm-status-change-API}
 
-Custom image lifecycle is a beta feature that is available for evaluation and testing purposes.
-{: beta}
-
 When you create an image from volume by using the application programming interface (API), you can schedule the lifecycle status changes of the {{site.data.keyword.vpc_short}} image from volume at the same time.
 
 The `name` can't be used by another image in the region and names that start with `ibm-` are reserved for system-provided images. Specify the `source.volume` subproperty to indicate the source of the image from volume.
 
-To schedule the `deprecated` or `obsolete` status changes at the same time, use the `deprecated_at` and `obsoleted_at` properties that are specified in the `YYYY-MM-DDThh:mm:ss+hh:mm` format. If you define both the deprecated_at and obsoleted_at dates, the obsoleted_at date must be after the deprecated_at date. Both dates must be in the future.
+To schedule the `deprecation_at` or `obsolescence_at` properties, specify a date in the ISO 8601 (`YYYY-MM-DDThh:mm:ss+hh:mm`) date and time format.
+
+* `YYYY` is the four digit year
+* `MM` is the two digit month
+* `DD` is the two digit day
+* `T` separates the date and time information
+* `hh` is the two digit hours
+* `mm` is the two digit minutes
+* `+hh:mm` or `-hh:mm` is the UTC time zone
+
+Thus, the date of 30 September 2023 at 8:00 p.m. in the North American Central Standard Time Zone (CST) would be `2023-09-30T20:00:00-06:00`
+
+When scheduling the date and time, you can't use your current date and time. For example, if it is 8 a.m. on June 12, then the scheduled date and time must be after 8 a.m. on June 12. If you define both the `deprecation_at` and `obsolescence_at` dates and times, the `obsolescence_at` date must be after the `deprecation_at` date and time.
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/images?version=2023-02-21&generation=2" -H "Authorization: Bearer $iam_token" -d '{
@@ -511,8 +529,8 @@ curl -X POST "$vpc_api_endpoint/v1/images?version=2023-02-21&generation=2" -H "A
       "source_volume": {
     	  "id": "4fec84ef-baf9-405d-bf3b-9d5a60e068f7"
       },
-      "deprecated_at": "2023-03-01T06:11:28+05:30",
-      "obsoleted_at": "2023-12-31T06:11:28+05:30"
+      "deprecation_at": "2023-03-01T06:11:28+05:30",
+      "obsolescence_at": "2023-12-31T06:11:28+05:30"
     }'
 ```
 {: pre}

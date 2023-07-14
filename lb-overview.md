@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2022
-lastupdated: "2022-06-15"
+  years: 2018, 2023
+lastupdated: "2023-04-20"
 
 keywords: listener, pool, round-robin, weighted, layer 7, datapath logging, http2, websocket
 
@@ -17,6 +17,8 @@ subcollection: vpc
 
 Use {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) to distribute traffic among multiple server instances within the same region of your VPC.
 {: shortdesc}
+
+If you have public and private workloads and layer 7 traffic, use an application load balancer. 
 
 ## Types of application load balancers
 {: #types-load-balancer}
@@ -52,11 +54,6 @@ Similar to a public application load balancer, your private application load bal
 Use the assigned FQDN to send traffic to the private application load balancer to avoid connectivity problems to your applications during system maintenance or scaling down activities.
 {: important}
 
-## Choosing an application load balancer
-{: #choosing-application-load-balancer}
-
-If you have public and private workloads and layer 7 traffic, use an application load balancer. 
- 
 ## Load-balancing methods
 {: #load-balancing-methods}
 
@@ -137,7 +134,7 @@ SSL offloading requires you to provide an SSL certificate for the application lo
 
 {{site.data.content.load-balancer-grant-service-auth}} 
 
-To prevent errors, you must establish the required authorization between your load balancer and {{site.data.keyword.secrets-manager_full_notm}}.
+To prevent errors, you must establish the required authorization between your load balancer and {{site.data.keyword.secrets-manager_full_notm}}. In addition, updating certificates in Secrets Manager does not automatically update your ALB. For your load balancer to reflect any changes in the certificate, make a small update (such as changing the health check interval or timeout value) to cause a refresh. This will update the certificate on your load balancer to match the certificate in Secrets Manager. You can then revert any changes you made back to their original values.
 {: important}
 
 Transport Layer Security (TLS) 1.2 and 1.3 are supported. However, TLS 1.3 is used by default unless you specifically configure the client side to utilize 1.2. Application load balancers honor all supported TLS 1.3 ciphers sent by the client-side request.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-02-02"
+lastupdated: "2023-06-26"
 
 keywords:
 
@@ -15,18 +15,29 @@ subcollection: vpc
 # Availability and Durability of VPC storage
 {: #storageavailability}
 
-In today's fast-paced economy, companies rely on data in their decision-making. They need secure and immediate access to their data on a moment's notice. Data integrity is top priority because compromised or incomplete data is of no use. Not to mention the dangers that are presented if sensitive data goes missing. When you store your data in {{site.data.keyword.block_storage_is_short}} volumes, snapshots, or in {{site.data.keyword.filestorage_vpc_short}} file shares, it's durable, highly available, and encrypted.
+In today's fast-paced economy, companies rely on data in their decision-making. They need secure and immediate access to their data on a moment's notice. Data integrity is of high priority because compromised or incomplete data is of no use. Not to mention the dangers that are presented if sensitive data goes missing. When you store your data in {{site.data.keyword.block_storage_is_short}} volumes, snapshots, backups, or in {{site.data.keyword.filestorage_vpc_short}} shares, it's durable, highly available, and encrypted.
 {: shortdesc}
 
-| Storage type | Use Case | Durability | Availability | Encryption |
+| {{site.data.keyword.block_storage_is_short}} Storage type | Use Case | Durability | Availability | Encryption |
 |--------------|----------|------------|--------------|------------|
 | 3 IOPS per GB tier| It is designed for general-purpose workloads such as workloads that host small databases for web applications or store virtual machine disk images for a hypervisor. |  99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption, Customer-managed encryption |
 | 5 IOPS per GB tier| It is designed for high I/O intensity workloads that are characterized by a large percentage of active data, such as transactional and other performance-sensitive databases. |  99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption, Customer-managed encryption |
 | 10 IOPS per GB tier| It is designed for demanding storage workloads such as data-intensive workloads created by NoSQL databases, data processing for video, machine learning, and analytics. |  99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption, Customer-managed encryption |
-{: caption="Table 1. Storage durability and availability chart." caption-side="bottom"}
+| custom | Customers can specify capacity between 10 - 16000 MB with IOPS ranging 100 - 48000. | 99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption, Customer-managed encryption |
+{: caption="Table 1. {{site.data.keyword.block_storage_is_short}} Storage durability and availability chart." caption-side="bottom"}
 
-{{site.data.keyword.block_storage_is_short}} volumes are double-encrypted at rest. The double-encryptions includes the underlying volume that holds the customer volumes, and the customer volume. The customer volumes are encrypted by using provider-managed encryption or customer-managed encryption keys. {{site.data.keyword.filestorage_vpc_short}} file shares are encrypted by using provider-managed encryption or customer-managed encryption keys, but no underlying encryption exists.
-{: note}
+{{site.data.keyword.block_storage_is_short}} volumes are double-encrypted at rest. The double-encryptions includes the underlying volume that holds the customer volumes, and the customer volume. The customer volumes are encrypted by using provider-managed encryption or customer-managed encryption keys. 
+
+| {{site.data.keyword.filestorage_vpc_short}} Storage type | Use Case | Durability | Availability | Encryption |
+|--------------|----------|------------|--------------|------------|
+| `dp2` | The most flexible share profile option. Customers can specify capacity between 10 - 32000 MB with IOPS ranging 100 - 96000. | 99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption, Customer-managed encryption |
+| 3 IOPS per GB tier| It is designed for general-purpose workloads such as workloads that host small databases for web applications or store virtual machine disk images for a hypervisor. |  99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption, Customer-managed encryption |
+| 5 IOPS per GB tier| It is designed for high I/O intensity workloads that are characterized by a large percentage of active data, such as transactional and other performance-sensitive databases. |  99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption, Customer-managed encryption |
+| 10 IOPS per GB tier| It is designed for demanding storage workloads such as data-intensive workloads created by NoSQL databases, data processing for video, machine learning, and analytics. |  99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption, Customer-managed encryption |
+| custom | Customers can specify capacity between 10 - 16000 MB with IOPS ranging 100 - 48000. | 99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption, Customer-managed encryption |
+{: caption="Table 2. {{site.data.keyword.filetorage_is_short}} Storage durability and availability chart." caption-side="bottom"}
+
+{{site.data.keyword.filestorage_vpc_short}} shares are encrypted by using provider-managed encryption or customer-managed encryption keys.
 
 ## Durability
 {: #stordurability}
@@ -37,7 +48,7 @@ When people hear the word durability, most of them think of hardware failures of
 
 Other than physical failure, a common source of data loss is accidental deletion or modifications of files by users. {{site.data.keyword.block_storage_is_short}}, Snapshots for VPC, and {{site.data.keyword.filestorage_vpc_short}} are only accessible to authorized hosts within your virtual private network. You control who can access it. For more information, see [Managing security and compliance](/docs/vpc?topic=vpc-manage-security-compliance).
 
-Another measure to protect against accidental deletion and modification of files is a snapshot. If a user accidentally modifies or deletes crucial data from a volume, the data can be easily and quickly restored from a snapshot copy. For more information about this feature, see [About Snapshots for VPC](/docs/vpc?topic=vpc-snapshots-vpc-about).
+Another measure to protect against accidental deletion and modification of files is a snapshot. If a user accidentally modifies or deletes crucial data from a volume, the data can be easily and quickly restored from a snapshot or a backup. For more information about this feature, see [About Snapshots for VPC](/docs/vpc?topic=vpc-snapshots-vpc-about).
 
 The 11 nines durability target applies to a single Availability Zone. To protect against natural or man-made disasters that might destroy an entire Availability Zone, consider storing your most important data in multiple locations. For more information, see [Understanding high availability and disaster recovery](/docs/vpc?topic=vpc-ha-dr-vpc).
 

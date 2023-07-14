@@ -96,6 +96,9 @@ Balanced profiles with the bx2d prefix are available in the US South (Dallas), U
 {: class="simple-tab-table"}
 {: summary="Balanced profiles options for AMD x86-64 virtual server instances."}
 
+AMD based virtual machines use AMD EPYC Milan processors. Compute capabilities are limited to AMD EPYC Rome capabilities.
+{: important}
+
 ## Compute
 {: #compute}
 
@@ -179,7 +182,7 @@ Very High Memory profiles offer 1 vCPU to 14 GiB of RAM to host small to medium 
 | vx2d-16x224| 16 | 8 | 224 | 32 | 1x480 |
 | vx2d-44x616 | 44 | 22 | 616 | 80 | 1x1320 |
 | vx2d-88x1232 | 88 | 44 | 1232 | 80 | 2x1320 |
-| vx2d-72x2016 | 144 | 72 | 2016 | 80 | 2x2160 |
+| vx2d-144x2016 | 144 | 72 | 2016 | 80 | 2x2160 |
 | vx2d-176x2464 | 176 | 88 | 2464 | 80 | 2x2640 |
 {: caption="Table 6. Very High Memory profiles options for x86-64 instances" caption-side="bottom"}
 {: #vhmemory-intel-x86-64}
@@ -221,17 +224,24 @@ The following Ultra High Memory profiles are available for x86-64 processors:
 ## GPU
 {: #gpu}
 
-GPU `-v100` profiles include 1 or 2 NVIDIA V100 PCIe 16GB GPUs. All OS images are supported on these GPU profiles. The GPU `-a100` profile includes 8 NVIDIA A100 NVlink 80 GB GPUs. This GPU profile only supports Linux OS images Ubuntu or RHEL. See [Download drivers](https://www.nvidia.com/Download/index.aspx?lang=en-us) to review the most current versions that are supported. NVIDIA GPU drivers must be installed separately. The GPU profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage).
+The GPU profile family includes both `-v100` and `-a100` profiles. The GPU profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage).
 
-The `gx2-80x1280x8a100` profile is available for select customers. Contact IBM Sales if you are interested in purchasing and using this offering. 
+* GPU `-v100` profiles include 1 or 2 NVIDIA V100 PCIe 16 GB GPUs. All OS images are supported on these GPU profiles.  
+* GPU `-a100` profile includes 8 NVIDIA A100 NVlink 80 GB GPUs. This GPU profile supports only Linux OS images Ubuntu or RHEL. 
+
+The `gx2-80x1280x8a100` profile is available for select customers. Contact IBM Sales or open a [support case](https://cloud.ibm.com/unifiedsupport/supportcenter) if you are interested in this offering.
 {: preview}
+
+See [Download drivers](https://www.nvidia.com/Download/index.aspx?lang=en-us) to review the most current versions that are supported. NVIDIA GPU drivers must be installed separately. 
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Number of GPUs | Instance storage (GB) |
 |---------|---------|---------|---------|---------|---------|---------|
-| gx2-8x64x1v100 | 8 | 4 | 64 | 16 | 1 |
-| gx2-16x128x1v100 | 16 | 8 | 128 | 32 | 1 |
-| gx2-16x128x2v100 | 16 | 8 | 128 | 32 | 2 |
-| gx2-32x256x2v100 | 32 | 16 | 256 | 64 | 2 |
+| **V100** 16 GB GPU profiles | | | | | | |
+| gx2-8x64x1v100 | 8 | 4 | 64 | 16 | 1 | - |
+| gx2-16x128x1v100 | 16 | 8 | 128 | 32 | 1 | - |
+| gx2-16x128x2v100 | 16 | 8 | 128 | 32 | 2 | - |
+| gx2-32x256x2v100 | 32 | 16 | 256 | 64 | 2 | - |
+| **A100** 80 GB GPU profiles | | | | | | |
 | gx2-80x1280x8a100 | 80 | 40 | 1280 | 200 | 8 | 4x3200 |
 {: caption="Table 8. GPU profile options" caption-side="bottom"}
 {: #gpu-intel-x86-64}

@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-04-06"
+lastupdated: "2023-07-11"
 
 keywords:
 
@@ -27,7 +27,7 @@ You can also create a custom image of a boot volume that is attached to a server
 
 To complete this task, you must have an instance of {{site.data.keyword.cos_full}} available. You must also create an authorization so that the Image Service for VPC can access images in {{site.data.keyword.cos_full_notm}}. For more information, see [Granting access to {{site.data.keyword.cos_full_notm}} to import images](/docs/vpc?topic=vpc-object-storage-prereq).
 
-{{site.data.content.custom-image-requirements-list}}
+For more information about custom images, see [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images).
 
 Keep the following considerations to keep in mind when you import a custom image:
 
@@ -43,9 +43,6 @@ Keep the following considerations to keep in mind when you import a custom image
 
 When you have an image available in {{site.data.keyword.cos_full_notm}}, you can import it to {{site.data.keyword.vpc_short}} infrastructure by using the {{site.data.keyword.cloud_notm}} console.
 
-The Image lifecycle feature is a beta feature that is available for evaluation and testing purposes.
-{: beta}
-
 1. Make sure that your compatible custom image is available in {{site.data.keyword.cos_full_notm}}. To upload an image to {{site.data.keyword.cos_full_notm}}, on the **Objects** page of your bucket, click **Upload**. You can use the Aspera high-speed transfer plug-in to upload images larger than 200 MB. For more information, see [Creating a Linux custom image](/docs/vpc?topic=vpc-create-linux-custom-image), [Creating a Windows custom image](/docs/vpc?topic=vpc-create-windows-custom-image), [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about) and [Uploading data](/docs/cloud-object-storage?topic=cloud-object-storage-upload) to {{site.data.keyword.cos_full_notm}}.
 1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Images**.
 1. On the **Custom images** tab, click **Create**.
@@ -53,20 +50,20 @@ The Image lifecycle feature is a beta feature that is available for evaluation a
 
 | Field | Value |
 |-------|-------|
+| Location | Select the specific geographic area and region where you want your custom image to be available for provisioning.|
 | Name  | A name is required for your custom image. |
 | Resource group | Select a resource group for the server. |
 | Tags |  You can assign a label to this resource so that you can easily filter resources in your resource list. |
-| Region | Select the location, or specific geographic area, where you want your custom image to be available for provisioning.|
 | Source | Select **Cloud {{site.data.keyword.cos_short}}** as the source. A list displays from which you select a {{site.data.keyword.cos_full_notm}} service instance where the image that you want to import is stored. \n Do you need to create a custom image from a volume instead? Select the source for the custom image by choosing either **Virtual server instance boot volume** or **Block storage boot volume**. For more information, see [Creating an image from a volume](/docs/vpc?topic=vpc-create-ifv). |
 | Location | Select the specific geographic region where your image is stored. |
 | Bucket | Select the {{site.data.keyword.cos_full_notm}} bucket where your image is stored.|
 | Name | Select the image file in the {{site.data.keyword.cos_full_notm}} service instance that you want to import. If you are importing an encrypted image, the image must be encrypted with LUKS encryption by using QEMU and your own passphrase. For more information, see [Encrypting the image](/docs/vpc?topic=vpc-create-encrypted-custom-image#manually-encrypt-image). |
 | Operating System | Select the operating system that is included in your image. \n \n For custom images with Red Hat Enterprise Linux or Windows operating systems, you can bring your own license (BYOL) or to license through {{site.data.keyword.cloud_notm}}. \n \n For Red Hat Enterprise Linux or Windows [BYOL custom images](/docs/vpc?topic=vpc-byol-vpc-about), you must select the OS with `-byol` appended to the name. For example, if you have a Windows 2019 BYOL custom image, select *Windows-2019-amd64-byol* for the operating system. Failure to select the `-byol` version of the operating system when you import a BYOL custom image might result in a virtual server that is unable to start. \n \n If you configured your Red Hat Enterprise Linux or Windows custom image to license through {{site.data.keyword.cloud_notm}}, you must select the nonbyol operating system. For example, if you have a Windows 2019 custom image that you plan to license through {{site.data.keyword.cloud_notm}}, select *Windows-2019-amd64* as the operating system when you import the custom image. |
-| Manage image lifecycle (optional) | Select to schedule status changes for the image. You can schedule a single status change or schedule the complete lifecycle of the image. The image statuses are:  \n  \n * `available`: The image can be used to create an instance.  \n  \n * `deprecated`: The image is still available to use to provision an instance. Using the `deprecated` status can discourage use of the image before the status changes to `obsolete`.  \n * `obsolete`: The image is not available to use to provision an instance.  \n  \n * Schedule complete lifecycle: You can schedule both the `deprecated` and `obsolete` status changes at the same time.  \n  \n You can move back and forth between the three statuses. Only the statuses you can change to are displayed. You can schedule status changes by using calendar date and time or number of days. The obsolescence date must always be after the deprecation date. |
-| Encryption | The default selection is **No encryption**. If you have not encrypted your image by using QEMU, use the default value, **No encryption**. If you are importing an image that you have encrypted by using QEMU and your own passphrase, select the key management service where your customer root key (CRK) that protects your passphrase is stored. Select either **Key Protect** or **Hyper Protect Crypto Services**. VHD format images are not supported for encryption. |
+| Encryption | The default selection is **Provider managed**. If you have not encrypted your image by using QEMU, use the default value, **Provider managed**. If you are importing an image that you have encrypted by using QEMU and your own passphrase, select the key management service where your customer root key (CRK) that protects your passphrase is stored. Select either **Key Protect** or **Hyper Protect Crypto Services**. VHD format images are not supported for encryption. |
 | Encryption service instance | For an encrypted image, select the specific instance of the key management service where your CRK that wraps your encryption passphrase is stored. For more information, see [Setting up your key management service and keys](/docs/vpc?topic=vpc-create-encrypted-custom-image#kms-prereqs). |
 | Key name | Select the customer root key (CRK) that you used to wrap your encryption passphrase. For more information, see [Setting up your key management service and keys](/docs/vpc?topic=vpc-create-encrypted-custom-image#kms-prereqs). |
 | Wrapped data encryption key | For an encrypted image, specify the ciphertext that is associated with the wrapped data encryption key (WDEK). The WDEK is produced by wrapping the passphrase that you used to encrypt your image with your customer root key. For more information, see [Setting up your key management service and keys](/docs/vpc?topic=vpc-create-encrypted-custom-image#kms-prereqs).|
+| Manage image lifecycle (optional) | Select to schedule status changes for the image. You can schedule a single status change or schedule the complete lifecycle of the image. The image statuses are:  \n  \n * `available`: The image can be used to create an instance.  \n  \n * `deprecated`: The image is still available to use to provision an instance. Using the `deprecated` status can discourage use of the image before the status changes to `obsolete`.  \n * `obsolete`: The image is not available to use to provision an instance.  \n  \n * Schedule complete lifecycle: You can schedule both the `deprecated` and `obsolete` status changes at the same time.  \n  \n You can move back and forth between the three statuses. Only the statuses you can change to are displayed. You can schedule status changes by using calendar date and time or number of days. The obsolescence date must always be after the deprecation date. |
 {: caption="Table 1. Import custom image user interface fields" caption-side="bottom"}
 
 ## Importing a custom image by using the CLI
@@ -96,14 +93,23 @@ For more information, see [ibmcloud is image-create](/docs/vpc?topic=vpc-vpc-ref
 ### Schedule custom image lifecycle status changes by using the CLI
 {: #import-schedule-ilm-status-change-cli}
 
-Custom image lifecycle is a beta feature that is available for evaluation and testing purposes.
-{: beta}
-
 When you import a custom image by using the command-line interface (CLI), you can also schedule the lifecycle status changes of an {{site.data.keyword.vpc_short}} custom image at the same time by using options of the **`ibmcloud is image-create`** command.
 
 Specify the name of the custom image to be created by using the `IMAGE_NAME` variable. You must also specify the source; for example, specify the `--file` option with the image file location. Specify the `--os-name` option with the name of the operating system for the image.
 
-To schedule the `deprecated` or `obsolete` status changes at the same time, use the `--deprecate-at` and `--obsolete-at` options that are specified in the `YYYY-MM-DDThh:mm:ss+hh:mm` format. If you define both the deprecate-at and obsolete-at dates, the obsolete-at date must be after the deprecate-at date. Both dates must be in the future.
+To schedule the `deprecate-at` or `obsolete-at` properties, specify a date in the ISO 8601 (`YYYY-MM-DDThh:mm:ss+hh:mm`) date and time format.
+
+* `YYYY` is the four digit year
+* `MM` is the two digit month
+* `DD` is the two digit day
+* `T` separates the date and time information
+* `hh` is the two digit hours
+* `mm` is the two digit minutes
+* `+hh:mm` or `-hh:mm` is the UTC time zone
+
+Thus, the date of 30 September 2023 at 8:00 p.m. in the North American Central Standard Time Zone (CST) would be `2023-09-30T20:00:00-06:00`
+
+When scheduling the date and time, you can't use your current date and time. For example, if it is 8 a.m. on June 12, then the scheduled date and time must be after 8 a.m. on June 12. If you define both the `deprecate-at` and `obsolete-at` dates and times, the `deprecate-at` date must be after the `obsolete-at` date and time.
 
 
 ```sh
@@ -150,14 +156,23 @@ curl -X POST "$vpc_api_endpoint/v1/images?version=2023-02-21&generation=2" -H "A
 ### Schedule custom image lifecycle status changes by using the API
 {: #import-schedule-ilm-status-change-API}
 
-Custom image lifecycle is a beta feature that is available for evaluation and testing purposes.
-{: beta}
-
 When you import a custom image by using the application programming interface (API), you can also schedule the lifecycle status changes of an {{site.data.keyword.vpc_short}} custom image at the same time by using the [Create an image](/apidocs/vpc/latest#create-image) command.
 
 The `name` can't be used by another image in the region and names that start with `ibm-` are reserved for system-provided images. Specify the `file.href` subproperty with the location of the image. Specify the `operating_system.name` subproperty with the name of the image operating system.
 
-To schedule the `deprecated` or `obsolete` status changes at the same time, use the `deprecated_at` and `obsoleted_at` subproperties that are specified in the `YYYY-MM-DDThh:mm:ss+hh:mm` format. If you define both the deprecated_at and obsoleted_at dates, the obsoleted_at date must be after the deprecated_at date. Both dates must be in the future.
+To schedule the `deprecation_at` or `obsolescence_at` properties, specify a date in the ISO 8601 (`YYYY-MM-DDThh:mm:ss+hh:mm`) date and time format.
+
+* `YYYY` is the four digit year
+* `MM` is the two digit month
+* `DD` is the two digit day
+* `T` separates the date and time information
+* `hh` is the two digit hours
+* `mm` is the two digit minutes
+* `+hh:mm` or `-hh:mm` is the UTC time zone
+
+Thus, the date of 30 September 2023 at 8:00 p.m. in the North American Central Standard Time Zone (CST) would be `2023-09-30T20:00:00-06:00`
+
+When scheduling the date and time, you can't use your current date and time. For example, if it is 8 a.m. on June 12, then the scheduled date and time must be after 8 a.m. on June 12. If you define both the `deprecation_at` and `obsolescence_at` dates and times, the `obsolescence_at` date must be after the `deprecation_at` date and time.
 
 The following example imports a custom image with the name of `my-image`, source location of `cos://us-south/my-bucket/my-image.qcow2`, and the operating system for the image is `debian-9-amd64`. The image is scheduled to be deprecated on `2023-03-01T06:11:28+05:30`. The image is scheduled to be obsolete on `2023-12-31T06:11:28+05:30`.
 
@@ -170,8 +185,8 @@ curl -X POST "$vpc_api_endpoint/v1/images?version=2023-02-21&generation=2" -H "A
       "operating_system": {
         "name": "debian-9-amd64"
       },
-      "deprecated_at": "2023-03-01T06:11:28+05:30",
-      "obsoleted_at": "2023-12-31T06:11:28+05:30"
+      "deprecation_at": "2023-03-01T06:11:28+05:30",
+      "obsolescence_at": "2023-12-31T06:11:28+05:30"
     }'
 ```
 {: pre}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-04-27"
+lastupdated: "2023-07-11"
 
 keywords:
 
@@ -34,9 +34,6 @@ You can manage an image by using the {{site.data.keyword.cloud_notm}} console.
 
 1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Images**.
 2. On the **Custom images** tab, click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for a specific image and select from the available options. Encrypted custom images are identified by a lock icon after the image name. You can select from the following actions:
-
-The Image lifecycle feature is a beta feature that is available for evaluation and testing purposes.
-{: beta}
 
 | Action | Description |
 |--------|-------------|
@@ -412,9 +409,6 @@ This process shares only the custom image to the private catalog. The validation
 {: #schedule-ilm-status-change-ui}
 {: ui}
 
-Custom image lifecycle is a beta feature that is available for evaluation and testing purposes.
-{: beta}
-
 You can schedule either a single image lifecycle status change or schedule the status changes for the entire lifecycle of the image. You can make an immediate status change only if you didn't schedule a future status change.
 
 Follow these steps to schedule a single status change:
@@ -428,9 +422,6 @@ Follow these steps to schedule the entire lifecycle of the image:
 {: #schedule-ilm-status-change-cli}
 {: cli}
 
-Custom image lifecycle is a beta feature that is available for evaluation and testing purposes.
-{: beta}
-
 You can change the lifecycle status of an {{site.data.keyword.vpc_short}} custom image by using the command-line interface (CLI). You can make an immediate status change by using the **ibmcloud is image-deprecate** or **ibmcloud is image-obsolete** commands. You can also schedule these status changes for a future date and time by using the **ibmcloud is image-update** command. Specify the name or ID of the custom image with the `IMAGE` variable.
 
 <!-- see the -include-segments folder to update this information which is shared with vpc_image_from_volume_manage.md -->
@@ -440,18 +431,12 @@ You can change the lifecycle status of an {{site.data.keyword.vpc_short}} custom
 {: #schedule-reset-ilm-status-change-cli}
 {: cli}
 
-Custom image lifecycle is a beta feature that is available for evaluation and testing purposes.
-{: beta}
-
 <!-- see the -include-segments folder to update this information which is shared with vpc_image_from_volume_manage.md -->
 {{_include-segments/ilm-reset-image-lifecycle-status-cli.md}}
 
 ## Change the custom image lifecycle status by using the API
 {: #schedule-ilm-status-change-API}
 {: api}
-
-Custom image lifecycle is a beta feature that is available for evaluation and testing purposes.
-{: beta}
 
 You can change the lifecycle status of an {{site.data.keyword.vpc_short}} custom image by using the application programming interface (API). You can make an immediate status change or schedule a status change to happen later.
 
@@ -461,9 +446,6 @@ You can change the lifecycle status of an {{site.data.keyword.vpc_short}} custom
 ## Remove previously scheduled custom image lifecycle status by using the API
 {: #schedule-ilm-reset-status-change-API}
 {: api}
-
-Custom image lifecycle is a beta feature that is available for evaluation and testing purposes.
-{: beta}
 
 <!-- see the -include-segments folder to update this information which is shared with vpc_image_from_volume_manage.md -->
 {{_include-segments/ilm-reset-image-lifecycle-status-api.md}}

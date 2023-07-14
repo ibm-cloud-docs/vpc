@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-03-01"
+lastupdated: "2023-06-27"
 
-keywords: backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
+keywords: backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
 subcollection: vpc
 
@@ -36,7 +36,7 @@ Apply tags to new or existing {{site.data.keyword.block_storage_is_short}} volum
 * Click **Apply** on the volume details page to associate backup policies with tags.
 * Add user tags to volumes during [instance provisioning](/docs/vpc?topic=vpc-backup-use-policies&interface=api#backup-apply-tags-volumes-api).
 
-### Add tags from the {{site.data.keyword.block_storage_is_short}} volumes list view
+### Adding tags from the {{site.data.keyword.block_storage_is_short}} volumes list view
 {: #backup-tags-volumes-list-ui}
 
 1. Go to the [list of {{site.data.keyword.block_storage_is_short}} volumes](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#viewvols-ui).
@@ -45,7 +45,7 @@ Apply tags to new or existing {{site.data.keyword.block_storage_is_short}} volum
 4. In the new window, type a tag in the User tags text box.
 5. Click **Save**.
 
-### Add tags from the volume details page
+### Adding tags from the volume details page
 {: #backup-tags-vol-details}
 
 1. Go to the [list of {{site.data.keyword.block_storage_is_short}} volumes](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#viewvols-ui).
@@ -78,15 +78,15 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    ```
    {: pre}
 
-### Apply tags to volumes from the CLI
+### Applying tags to volumes from the CLI
 {: #backup-apply-tags-cli}
 
-Issue the `ibmcloud is volume-update VOLUME` command with the `--tags` option to update the user tags of a volume. The volume arguement can be defined by either the volume ID or the volume name.
+Issue the `ibmcloud is volume-update VOLUME` command with the `--tags` option to update the user tags of a volume. The volume argument can be defined by either the volume ID or the volume name.
 
 Use the same option to add tags to a volume when you create a volume by using `ibmcloud is volume-create`.
 {: tip}
 
-The following example adds user tags `env:test` and `bkp:test` to a volume identified by ID. The output shows information such as name, status, capacity, performance profile, location, and so on. The updated tags appear at the end of the response.
+The following example adds user tags `env:test` and `bkp:test` to a volume identified by ID. The output shows information such as name, status, capacity, performance profile, and location. The updated tags appear at the end of the response.
 
 ```sh
 cloudshell:~$ ibmcloud is volume-update r010-bdb8fc70-8afb-4622-826a-d65a9fc477a4 --tags env:test,bkp:test,bcp:test
@@ -120,7 +120,7 @@ Tags                                   env:test,bkp:test,bcp:test
 ```
 {: screen}
 
-## Apply tags to {{site.data.keyword.block_storage_is_short}} volumes with the API
+## Applying tags to {{site.data.keyword.block_storage_is_short}} volumes with the API
 {: #backup-apply-tags-volumes-api}
 {: api}
 
@@ -128,7 +128,7 @@ To apply tags to a {{site.data.keyword.block_storage_is_short}} volume, follow t
 
 1. Make a `GET /volumes/{volume_id}` call and copy the hash string from the `Etag` property in the response header. You need to use the hash string when you specify `If-Match` in the `PATCH /volumes/{volume_id}` request to create user tags for the volume in step 2. To generate the response header information, make an API call similar to the following example:
 
-   ```curl
+   ```sh
    curl -sSL -D GET\
    "https://us-south.iaas.cloud.ibm.com/v1/volumes/{volume_id}?version=2022-04-25&generation=2"\
    -H "Authorization: Bearer $TOKEN" -o /dev/null
@@ -164,7 +164,7 @@ To apply tags to a {{site.data.keyword.block_storage_is_short}} volume, follow t
 
    This example updates the volume by specifying user tags `env:test` and `env:prod`. The value that you obtained from the `Etag` parameter is specified in the `If-Match` header in the call.
 
-   ```curl
+   ```sh
    curl -X PATCH\
    "$vpc_api_endpoint/v1/volumes/50fda9c3-eecd-4152-b473-a98018ccfb10?version=2022-04-25&generation=2"\
       -H "Authorization: Bearer"\
@@ -216,6 +216,39 @@ To apply tags to a {{site.data.keyword.block_storage_is_short}} volume, follow t
    }
    ```
    {: codeblock}
+
+
+## Applying tags to {{site.data.keyword.block_storage_is_short}} volumes with Terraform
+{: #backup-apply-tags-volumes-terraform}
+{: terraform}
+
+To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
+{: requirement}
+
+VPC infrastructure services use a regional specific based endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the right region in the provider block in the `provider.tf` file.
+
+See the following example of targeting a region other than the default `us-south`.
+
+```terraform
+provider "ibm" {
+  region = "eu-de"
+}
+```
+{: screen}
+
+To apply user tags to a volume, use the `ibm_is_volume` resource. The following example specifies the volume `r010-bdb8fc70-8afb-4622-826a-d65a9fc477a4` and the tags `env:test`, `bkp:test`, and `bcp:test` to be attached to the volume.
+
+```terraform
+resource "ibm_is_volume" "example" {
+  name    = "example-volume"
+  profile = "10iops-tier"
+  zone    = "us-south-1"
+  tags = ["dev:test"]
+}
+```
+{: codeblock}
+
+For more information about the arguments and attributes, see [ibm_is_volume](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/ibm_is_volume){: external}.
 
 ## Next steps
 {: #backup-next-steps-use}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-03-29"
+lastupdated: "2023-03-31"
 
 subcollection: vpc
 
@@ -31,7 +31,7 @@ The following operating systems are available as stock images when you create a 
 | Red Hat Enterprise Linux 7.x, 8.x, 9.x | x86-64 |
 | Rocky Linux 8.5 | x86-64 |
 | SUSE Linux Enterprise Server 12.x, 15.x | x86-64 |
-| Ubuntu 18.04.x, 20.04.x, 22.04.x | x86-64 |
+| Ubuntu 20.04.x, 22.04.x | x86-64 |
 | Windows 2012, 2012 R2, 2016, 2019, 2022 | x86-64 |
 | Fedora Core OS | x86-64 |
 {: caption="Table 1. Supported x86_64 stock image operating systems" caption-side="top"}
@@ -111,4 +111,4 @@ Storage costs are incurred for storing custom images. This charge is separate fr
 After you choose a profile, it's time to plan for and create an instance.
 * [Planning for instances](/docs/vpc?topic=vpc-vsi_best_practices)
 * [Creating an instance by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers)
-* [Creating an instance by using the CLI](docs/vpc?topic=vpc-creating-virtual-servers&interface=cli)
+* [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli)

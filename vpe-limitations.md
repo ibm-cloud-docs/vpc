@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-05"
+lastupdated: "2023-06-01"
 
 keywords: VPE, virtual private endpoints, limitations, endpoint gateway
 
@@ -17,6 +17,7 @@ keywords: VPE, virtual private endpoints, limitations, endpoint gateway
 
    * Services that are in zones and regions other than [IBM Cloud Multi-Zone Regions (MZRs)](/docs/overview?topic=overview-locations#mzr-table) 
    * {{site.data.keyword.cloud_notm}} Flow Logs for VPC
+   * {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC
    * VPE for User Datagram Protocol (UDP) services, for example, Network Time Protocol (NTP), is not accessible over {{site.data.keyword.cloud_notm}} Direct Link and {{site.data.keyword.cloud_notm}} Transit Gateway.
 
 * The following items are architectural restrictions:

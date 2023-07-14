@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-11-08"
+  years: 2022, 2023
+lastupdated: "2023-07-11"
 
-keywords: VPC File Storage, file for VPC, NSF, replica,
+keywords: VPC File Storage, file for VPC, NSF, replica, file share, replication, schedule
 
 subcollection: vpc
 
@@ -18,8 +18,11 @@ subcollection: vpc
 Manage replica file shares by removing the replication relationship to create two independent file shares. The replica file share becomes read/write, and you can update and delete the share.
 {: shortdesc}
 
-{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
+{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Madrid, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
+
+You need Administrator or Editor IAM user roles to create and manage file share replicas and the replication relationship. For a list of these roles and actions, see [IAM roles for creating and managing file shares](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#file-storage-vpc-iam).
+{: requirement}
 
 ## Remove the replication relationship
 {: #fs-remove-replication}
@@ -49,7 +52,7 @@ To remove the replication relationship in the UI:
 
 The file share details page indicates no replication relationship.
 
-### Remove the replication relationship in the CLI
+### Remove the replication relationship from the CLI
 {: #fs-remove-replication-cli}
 {: cli}
 
@@ -76,25 +79,44 @@ Replica File share replica-share-3 is disassociated.
 
 Make a `DELETE /shares/{replica_id}/source` request to remove the replication relationship. Splitting a file share removes the replication relationship and creates two independent file shares. After you remove the relationship, you can't reestablish the relationship.
 
-```curl
+As described in the [Beta VPC API](/apidocs/vpc-beta) reference [versioning](/apidocs/vpc-beta#api-versioning-beta) policy, support for older versions of the beta API is limited to 45 days. Therefore, beta API requests must specify a `version` query parameter date value within the last 45 days. You must also provide `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/apidocs/vpc#api-generation-parameter).
+{: requirement}
+
+```sh
 curl -X DELETE \
-"$vpc_api_endpoint/v1/shares/$replica_id/source?version=2022-09-06&generation=2"\
+"$vpc_api_endpoint/v1/shares/$replica_id/source?version=2023-07-11&generation=2&maturity=beta"\
 -H "Authorization: $iam_token"\
 ```
 {: pre}
 
 A successful response indicates that the request to disassociate a replica file share from its source file share was accepted.
 
+### Remove the replication relationship with Terraform
+{: #fs-remove-replication-terraform}
+{: terraform}
+
+Use the `ibm_is_share_replica_operations` resource to split the source and replica shares. Splitting a file share removes the replication relationship and creates two independent file shares. After you remove the relationship, you can't reestablish the relationship.
+
+```terraform
+resource "ibm_is_share_replica_operations" "test" {
+  share_replica = ibm_is_share.replica.id
+  split_share = true
+}
+```
+{: codeblock}
+
+For more information about the arguments and attributes, see [ibm_is_share_replica_operations](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/ibm_is_share_replica_operations){: external}.
+
 ## Deleting a replica file share
 {: #fs-delete-replicas}
 
 The process for deleting a replica file share is similar to deleting a source file share. For example, you need to [delete mount targets](/docs/vpc?topic=vpc-file-storage-managing&interface=api#delete-mount-target-api) for the share before you delete the share. Because the replica file share is in active replication from the source share, the replica file share must be split from the source before the deletion. You can do split the shares in two ways:
 
-* Perform a manual split, which [removes the replication relationship](#fs-remove-replication-ui) and creates two independent, read/write file shares. You can then delete the mount target and the replica file share as a normal file share.
+* Perform a manual split, which removes the replication relationship and creates two independent, read/write file shares. Then, you can delete the mount target and the replica file share as a normal file share.
 
-* Delete the replica file share directly after you deleted the mount targets. A `split` process is automatically executed and run in the background. After the split operation is finished, the replica file share is deleted.
+* Delete the replica file share directly after you deleted the mount targets. A `split` process is automatically initiated in the background. After the split operation is finished, the replica file share is deleted.
 
-You can use the [UI](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#delete-file-share-ui), [CLI](/docs/vpc?topic=vpc-file-storage-managing&interface=cli#delete-file-share-cli), or [API](/docs/vpc?topic=vpc-file-storage-managing&interface=api#delete-file-share-api) to delete a file share.
+You can use the [UI](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#delete-file-share-ui), [CLI](/docs/vpc?topic=vpc-file-storage-managing&interface=cli#delete-file-share-cli), [API](/docs/vpc?topic=vpc-file-storage-managing&interface=api#delete-file-share-api), or [Terraform](/docs/vpc?topic=vpc-file-storage-managing&interface=terraform#delete-file-share-terraform) to delete a file share.
 
 ## Activity tracker events for replication
 {: #fs-at-replication}
@@ -109,11 +131,6 @@ Activity tracker events are triggered when you establish and use file share repl
 | is.share.share.replica.failover | Fail over from the source file share to replica file share. |
 {: caption="Table 1. Actions that generate events for file share replication." caption-side="bottom"}
 
-## User roles for managing replication
-{: #fs-roles-repl}
-
-You need Administrator or Editor IAM user roles to create and manage file share replicas and the replication relationship. For a list of these roles and actions, see [IAM roles for creating and managing file shares](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#file-storage-vpc-iam).
-
 ## Replication statuses
 {: #fs-repl-status}
 
@@ -125,9 +142,9 @@ Replication status shows when a replica file share is being created, when failov
 
 You can use the API to verify that the replication succeeded, is pending, or failed. Make either a `GET /shares/{share_id}` request or a `GET /shares/{replica_id)` request to see the status. The following example request specifies the replica ID:
 
-```curl
+```sh
 curl -X GET \
-"$vpc_api_endpoint/v1/shares/$replica_id?version=2022-09-06&generation=2"\
+"$vpc_api_endpoint/v1/shares/$replica_id?version=2023-07-11&generation=2&maturity=beta"\
 -H "Authorization: $iam_token"
 ```
 {: pre}
@@ -135,7 +152,7 @@ curl -X GET \
 In the response, look at the `latest_job` property. The example shows the replication failover succeeded:
 
 ```json
-  "created_at": "2022-09-07T23:31:59Z",
+  "created_at": "2023-07-11T23:31:59Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63",

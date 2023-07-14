@@ -2,9 +2,9 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-04-11"
+lastupdated: "2023-07-14"
 
-keywords:
+keywords: file storage, file share, performance, IOPS, block size, capacity, range
 
 subcollection: vpc
 
@@ -18,7 +18,7 @@ subcollection: vpc
 When you provision {{site.data.keyword.filestorage_vpc_short}} file shares by using the {{site.data.keyword.cloud_notm}} console, CLI, or API, you specify a file share profile. The profile defines the performance level that you require based on the file share size.
 {: shortdesc}
 
-{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
+{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Madrid, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 ## File storage profiles overview
@@ -32,35 +32,33 @@ Table 1 shows the dp2 profile performance levels compared to the earlier profile
 
 | Profile | Family | IOPS | IOPS per share | Max throughput (MB/s)| Share size (GB) | Block size (KB) |
 |---------|------  |------|----------------|----------------------|-----------------|-----------------|
-| dp2 | defined_performance | 1-100 IOPS/GB | 100-96000 | 1024 | 10-32000 | 256 |
-| tier-3iops | tiered |3 IOPS/GB | 3000-48000 | 670 | 10-16000 |  16 |
-| tier-5iops | tiered | 5 IOPS/GB | 3000-48000 | 768 | 10-9600 | 16 |
-| tier-10iops | tiered | 10 IOPS/GB | 3000-48000 | 1024 | 10-4800 | 256 |
-| custom | custom | 1-100 IOPS/GB | 3000-48000 | 1024 | 10-16800  | 256 |
+| dp2 | defined_performance | 1-100 IOPS/GB | 100-96,000 | 1024 | 10-32,000 | 256 |
+| tier-3iops | tiered |3 IOPS/GB | 3,000-48,000 | 670 | 10-16,000 |  16 |
+| tier-5iops | tiered | 5 IOPS/GB | 3,000-48,000 | 768 | 10-9,600 | 16 |
+| tier-10iops | tiered | 10 IOPS/GB | 3,000-48,000 | 1024 | 10-4,800 | 256 |
+| custom | custom | 1-100 IOPS/GB | 3,000-48,000 | 1024 | 10-16,000  | 256 |
 {: caption="Table 1. Comparison of file share profiles and performance levels" caption-side="top"}
 
 ## dp2 file storage profile
 {: #dp2-profile}
 
-By using the dp2 profile, you can specify the total IOPS for the file share within the range for a specific file share size, 10 GB (default minimum) to 32,000 GB. You can provision shares with IOPS performance from 100 IOPS (default minumum) to 96,000 IOPS, based on share size. The dp2 profile is based on a block size of 256 KB. Maximum throuput is 1024 MB/s. This profile is backed by solid-state drives (SSDs).
+By using the dp2 profile, you can specify the total IOPS for the file share within the range for a specific file share size, 10 GB (default minimum) to 32,000 GB. You can provision shares with IOPS performance from 100 IOPS (default minimum) to 96,000 IOPS, based on share size. The dp2 profile is based on a block size of 256 KB. Maximum throughput is 1024 MB/s. This profile is backed by solid-state drives (SSDs).
 
 Table 2 shows the available IOPS ranges, based on share size.
 
 | Share size (GB) | IOPS range (IOPS) |
 |-----------------|-------------------|
-| 10-39   | 100-1000 |
-| 40-79 | 100-2000 |
-| 80-99 | 100-4000 |
-| 100-499 | 100-6000 |
-| 500-999 | 100-10000 |
-| 1000-1999 | 100-20000 | 
-| 2000-3999  | 200-40000 |
-| 4000-7999 | 300-40000 |
-| 8000-15999  | 500-64000 | 
-| 16000-32000 | 2000-96000&sup1; |
+| 10-39   | 100-1,000 |
+| 40-79 | 100-2,000 |
+| 80-99 | 100-4,000 |
+| 100-499 | 100-6,000 |
+| 500-999 | 100-10,000 |
+| 1,000-1,999 | 100-20,000 | 
+| 2,000-3,999  | 200-40,000 |
+| 4,000-7,999 | 300-40,000 |
+| 8,000-15,999  | 500-64,000 | 
+| 16,000-32,000 | 2,000-96,000 |
 {: caption="Table 2. dp2 file share profile IOPS and capacity ranges" caption-side="top"}
-
-&sup1;For the 96,000 IOPS to be realized, a single file share must be accessed by multiple virtual server instances. A single file share that is accessed by one instance is limited to 48,000 IOPS.
 
 ## Previous version file storage profiles
 {: #fs-v2-profiles}
@@ -72,12 +70,10 @@ Existing file shares can be based on IOPS tiers that you selected when you creat
 
 | IOPS Tier | Workload | Share size (GB) | Max IOPS (IOPS) |
 |-----------|----------|-----------------|-----------------|
-| 3 IOPS/GB | General-purpose workloads - Workloads that host small databases for web applications or store virtual machine disk images for a hypervisor | 10-32000 | 48000/96000&sup1; |
-| 5 IOPS/GB | High I/O intensity workloads - Workloads characterized by a large percentage of active data, such as transactional and other performance-sensitive databases| 10-9600 | 48000 |
-| 10 IOPS/GB | Demanding storage workloads - Data intensive workloads created by NoSQL databases, data processing for video, machine learning, and analytics | 10-4800 | 48000 |
+| 3 IOPS/GB | General-purpose workloads | 10-32,000 | 96,000 |
+| 5 IOPS/GB | High I/O intensity workloads | 10-9,600 | 48,000 |
+| 10 IOPS/GB | Demanding storage workloads | 10-4,800 | 48,000 |
 {: caption="Table 3. IOPS tier profiles and performance levels for each tier" caption-side="bottom"}
-
-&sup1; For the 96,000 IOPS to be realized, a single file share must be accessed by multiple virtual server instances. A single file share that is accessed by one instance is limited to 48,000 IOPS.
 
 The total maximum IOPS is rounded up to the next multiple of 10 when the IOPS calculation results in IOPS less than or equal to 48,000 IOPS. The total maximum IOPS is rounded up to the next multiple of 100 for IOPS calculations that result in IOPS greater than 48,000 IOPS up to 96,000 IOPS.
 {: note}
@@ -91,16 +87,16 @@ Table 4 shows the available IOPS ranges based on file share size.
 
 | File Share size (GB) | IOPS range (IOPS) |
 |----------------------|-------------------|
-| 10-39   | 100-1000 |
-| 40-79 | 100-2000 |
-| 80-99 | 100-4000 |
-| 100-499 | 100-6000 |
-| 500-999 | 100-10000 |
-| 1000-1999 | 100-20000 |
-| 2000-3999 | 200-40000 |
-| 4000-7999 | 300-40000 |
-| 8000-9999 | 500-48000 |
-| 10000-16000 | 1000-48000 |
+| 10 - 39 | 100 - 1,000 |
+| 40 - 79 | 100 - 2,000 |
+| 80 - 99 | 100 - 4,000 |
+| 100 - 499 | 100 - 6,000 |
+| 500 - 999 | 100 - 10,000 |
+| 1,000 - 1,999 | 100 - 20,000 |
+| 2,000 - 3,999 | 200 - 40,000 |
+| 4,000 - 7,999 | 300 - 40,000 |
+| 8,000 - 9,999 | 500 - 48,000 |
+| 10,000-16,000 | 1000-48,000 |
 {: caption="Table 4. Available IOPS based on file share size." caption-side="bottom"}
 
 The total maximum IOPS is rounded up to the next multiple of 10 when the IOPS calculation results in IOPS less than or equal to 48,000 IOPS.
@@ -143,9 +139,12 @@ tier-5iops    tiered
 
 Use the `GET /share/profiles` request to retrieve information for all share profiles.
 
-```curl
+As described in the [Beta VPC API](/apidocs/vpc-beta) reference [versioning](/apidocs/vpc-beta#api-versioning-beta) policy, support for older versions of the beta API is limited to 45 days. Therefore, beta API requests must specify a `version` query parameter date value within the last 45 days. You must also provide `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/apidocs/vpc#api-generation-parameter).
+{: requirement}
+
+```sh
 curl -X GET \
-$vpc_api_endpoint/v1/share/profiles?$api_version&generation=2 \
+$vpc_api_endpoint/v1/share/profiles?$api_version&generation=2&maturity=beta\
 -H "Authorization: $iam_token"
 ```
 {: pre}

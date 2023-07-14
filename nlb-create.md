@@ -15,7 +15,7 @@ subcollection: vpc
 # Creating a {{site.data.keyword.nlb_full}}
 {: #nlb-ui-creating-network-load-balancer}
 
-You can create an {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) by using the UI, CLI, or API. To order and start using the Network Load Balancer for VPC, you require two main items:
+You can create an {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) with the UI, CLI, or API. To order and start using the Network Load Balancer for VPC, you require two main items:
 
 * An [IBMid](https://www.ibm.com/account/us-en/signup/register.html){: external} account.
 * A VPC in which to deploy the network load balancer.
@@ -39,7 +39,7 @@ For more information, see [About routing tables and routes](/docs/vpc?topic=vpc-
 {: #nlb-ui}
 {: ui}
 
-To create and configure {{site.data.keyword.nlb_full}} by using the {{site.data.keyword.cloud_notm}} console, follow these steps:
+To create and configure {{site.data.keyword.nlb_full}} in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 1. Select the Navigation Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers**.
@@ -91,7 +91,7 @@ To create and configure {{site.data.keyword.nlb_full}} by using the {{site.data.
 
 The following example illustrates using the CLI to create a {{site.data.keyword.nlb_full}} (NLB). In this example, it is in front of one VPC virtual server instance (ID `0716_6acdd058-4607-4463-af08-d4999d983945`) running a TCP server that listens on port `9090`. The load balancer has a front-end listener, which allows secure access to the TCP server.
 
-To create a network load balancer by using the CLI, follow these steps:
+To create a network load balancer with the CLI, follow these steps:
 
 1. Set up your [CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 
@@ -291,7 +291,7 @@ The following example illustrates using the API to create a network load balance
 The example skips the [prerequisite steps](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis) for using the API to provision a VPC, subnets, and instances.
 {: note}
 
-To create a network load balancer by using the API, follow these steps:
+To create a network load balancer with the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
 

@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-01-27"
+lastupdated: "2023-06-22"
 
 keywords: CSE, endpoint, service, DNS, resolver, mirror, object, storage, bandwidth, charges
 
@@ -40,12 +40,16 @@ Use one of the following public endpoints to connect to the VPC infrastructure A
 | ------- | ------ | ------ | ------ |
 | United Kingdom (London) | `eu-gb` |  `https://eu-gb.iaas.cloud.ibm.com`    | `https://eu-gb.private.iaas.cloud.ibm.com` |
 | EU Germany (Frankfurt) | `eu-de` | `https://eu-de.iaas.cloud.ibm.com`    | `https://eu-de.private.iaas.cloud.ibm.com` |
+| Spain (Madrid) | `eu-es` | `https://eu-es.iaas.cloud.ibm.com` | `https://eu-es.private.iaas.cloud.ibm.com` |
 {: class="simple-tab-table"}
 {: tab-title="Europe"}
 {: caption="Table 1. VPC API Regional Endpoints for Europe" caption-side="bottom"}
 {: summary="This table displays the VPC API Regional Endpoints."}
 {: tab-group="vpc-api-endpoints"}
 {: #vpc-europe-endpoints}
+
+The Madrid region only supports dedicated host profiles with instance storage. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui).
+{: important}
 
 |   Location     | Region | Public Endpoint | Private Endpoint |
 | ------- | ------ | ------ | ------ |

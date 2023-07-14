@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-02-24"
+lastupdated: "2023-06-27"
 
-keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
+keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
 subcollection: vpc
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Restoring a volume from a backup snapshot
 {: #baas-vpc-restore}
 
-Restoring from a backup snapshot creates a fully provisioned boot or data volume that you can use to boot an instance or attach as auxiliary storage. You can restore volumes during instance creation or when you want to create stand-alone boot or data volumes to be used later. You can restore a data volume to add more storage to an existing instance. You can restore volumes from backup snapshots in the UI, from the CLI, and with the API.
+Restoring from a backup snapshot creates a fully provisioned boot or data volume that you can use to boot an instance or attach as auxiliary storage. You can restore volumes during instance creation or when you want to create stand-alone boot or data volumes to be used later. You can restore a data volume to add more storage to an existing instance. You can use backup snapshots to restore volumes in a different region for business continuity purposes or geographic expansion. You can restore volumes from backup snapshots in the UI, from the CLI, with the API, or Terraform.
 {: shortdesc}
 
 ## About restoring a volume from a backup snapshot
@@ -25,9 +25,9 @@ When you restore a volume from a backup, the service creates another volume. The
 
 Restoring a volume from a backup snapshot creates a boot or data volume, depending on whether the snapshot is bootable or nonbootable. The volume appears first as _pending_ while it's being created. During the restoration, your data is copied from {{site.data.keyword.cos_full}} to {{site.data.keyword.block_storage_is_short}}. After the volume is hydrated (fully provisioned), you can use the new boot or data volume. For more information about how performance is affected during restoration, see [Performance impact when backup snapshots are used](#baas-performance-considerations).
 
-For best performance, use backups with fast restore. You can enable fast restore backup snapshots in multiple regions and use them to restore a volume that is fully provisioned when the volume is created. The fast restore feature can achieve a [recovery time objective](#x3167918){: term} (RTO) quicker than restoring from a regular backup snapshot. For more information, see [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_fast_restore).
+For best performance, use backups with fast restore. You can enable fast restore backup snapshots in multiple zones and use them to restore a volume that is fully provisioned when the volume is created. The fast restore feature can achieve a [recovery time objective](#x3167918){: term} (RTO) quicker than restoring from a regular backup snapshot. For more information, see [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_fast_restore).
 
-To restore a volume, the backup snapshot must be in a _stable_ state. 
+To restore a volume, the backup snapshot must be in a _stable_ state.
 {: requirement}
 
 You can't simultaneously restore a boot and a data volume.
@@ -38,9 +38,8 @@ You can't simultaneously restore a boot and a data volume.
 
 When you restore from a bootable backup snapshot, you create a boot volume that you use to provision another instance. The boot volume uses a general-purpose profile and is limited to 250 GB. Because the bootable backup snapshot is not fully provisioned, in the beginning the performance is slower than when you use a regular boot volume. For more information, see [Performance impact](#baas-boot-perf).
 
-For best performance, use backups with fast restore. You can enable fast restore backup snapshots in multiple regions and use them to restore a volume that is fully provisioned when the volume is created. The fast restore feature can achieve a [recovery time objective](#x3167918){: term} (RTO) quicker than restoring from a regular backup snapshot. For more information, see [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_fast_restore).
-
 You can restore a volume from a backup snapshot of a boot volume in multiple ways.
+
 - You can restore a boot volume when you provision an instance to start the new instance.
 - You can restore a boot volume as a stand-alone volume, and use it later to start a new instance. The restoration process starts when the boot volume is attached to the instance.
 
@@ -48,24 +47,25 @@ You can restore a volume from a backup snapshot of a boot volume in multiple way
 {: #baas-restore-concept-data}
 
 You can restore a volume from a backup snapshot of a data volume in multiple ways.
+
 - You can restore a data volume when you provision an instance. During provisioning, you can select a nonbootable backup snapshot to create a data volume hat is then attached to the instance as auxiliary storage.
 - You can restore a data volume when you want to add more storage to an existing instance.
 - You can restore a data volume to create a stand-alone volume, which you can attach to an instance later.
 
-## Restore a volume from a backup snapshot in the UI
+## Restoring a volume from a backup snapshot in the UI
 {: #baas-vpc-restore-ui}
 {: ui}
 
 Restoring a volume from a backup snapshot in the UI creates a fully provisioned boot or data volume. You can restore a volume from the list of Block storage snapshots and from the snapshot details page.
 
-You can restore a volume from a backup snapshot in the following ways:
+You can restore a volume from a backup snapshot in the following ways.
 
-* When you [provision an instance](#baas-vpc-restore-vol-ui), specify a snapshot of a boot or data volume. Data volumes are automatically attached to the instance as auxiliary storage. Use the restored boot volume to start the new instance.
-* From a snapshot of a [previously created volume](#baas-vpc-create-from-vol-ui). The created volume from snapshot is automatically attached to the instance as auxiliary storage.
-* From the [list of {{site.data.keyword.block_storage_is_short}} snapshots](#baas-vpc-restore-snaphot-list-ui) or [snapshot details page](#baas-vpc-restore-vol-details-ui). 
-* When you [create a stand-alone {{site.data.keyword.block_storage_is_short}} volume](/docs/vpc?topic=vpc-creating-block-storage&interface=ui#create-vol-from-snapshot-ui). You can later attach the volume to an instance.
+- When you [provision an instance](#baas-vpc-restore-vol-ui), specify a snapshot of a boot or data volume. Data volumes are automatically attached to the instance as auxiliary storage. Use the restored boot volume to start the new instance.
+- From a snapshot of a [previously created volume](#baas-vpc-create-from-vol-ui). The created volume from snapshot is automatically attached to the instance as auxiliary storage.
+- From the [list of {{site.data.keyword.block_storage_is_short}} snapshots](#baas-vpc-restore-snaphot-list-ui) or [snapshot details page](#baas-vpc-restore-vol-details-ui).
+- When you [create a stand-alone {{site.data.keyword.block_storage_is_short}} volume](/docs/vpc?topic=vpc-creating-block-storage&interface=ui#create-vol-from-snapshot-ui), you can attach the volume to an instance later.
 
-### Create a volume from the list of snapshots
+### Creating a volume from the list of snapshots
 {: #baas-vpc-restore-snaphot-list-ui}
 
 From the list of {{site.data.keyword.block_storage_is_short}} snapshots, you can create a {{site.data.keyword.block_storage_is_short}} volume and specify whether it is attached to a virtual server instance or unattached (stand-alone). If you choose to attach a volume, you can select an existing virtual server instance or choose to create an instance. The new volumes are added to the [list of {{site.data.keyword.block_storage_is_short}} volumes](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#viewvols-ui).
@@ -78,47 +78,49 @@ From the list of {{site.data.keyword.block_storage_is_short}} snapshots, you can
 
 4. In the side panel, choose whether you want to attach a data volume to an existing instance, a boot volume to a new instance, or leave either volume unattached.
 
-    * To create a stand-alone (unattached) volume, leave **Attach new volume to virtual server** clear and provide the volume details in Table 1.
-    * To attach a data volume to an existing instance, select **Attach volume to virtual server** and provide zone and virtual server instance.
-    * To restore a boot volume, select **Attach volume to virtual server** and click **Configure virtual server**, which takes you to the [virtual server provisioning page](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#creating-virtual-servers-ui).
+   - To create a stand-alone (unattached) volume, leave **Attach new volume to virtual server** clear and specify the volume details that are shown in Table 1.
+   - To attach a data volume to an existing instance, select **Attach volume to virtual server** and provide zone and virtual server instance.
+   - To restore a boot volume, select **Attach volume to virtual server** and click **Configure virtual server**, which takes you to the [virtual server provisioning page](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#creating-virtual-servers-ui).
 
-    The new volume is preselected and is shown in the **Boot volume** or **Data volume** section of the instance provisioning page. Placement depends on whether the volume that you created was from a bootable snapshot or data snapshot.
-    {: note}
+   The new volume is preselected and is shown in the **Boot volume** or **Data volume** section of the instance provisioning page. Placement depends on whether the volume that you created was from a bootable snapshot or data snapshot.
+   {: note}
 
-    Table 1 describes the options on the side panel.
+   Table 1 describes the options on the side panel.
 
-    | Field | Description |
-    |-------|-------------|
-    | Attach new volume to new virtual server. | This option is cleared by default, it creates an unattached volume. When the option is selected, you can either attach the volume to an existing instance, or to a new instance that you must create. |
-    | **Virtual server selection** | The option displays when you choose to attach the volume to a new or existing instance. For an existing instance: |
-    | - Zones | Select a zone within your region from the menu. |
-    | - Virtual server | Select a virtual server instance from the list. |
-    | **Volume details** | Define the new volume (attached or unattached). |
-    | - Name | Enter a name for the new volume. By default, the snapshot name is used and appended with _restore_. |
-    | - Resource group | Use default or select from the list of available groups. |
-    | - Zone | Inherited from the snapshot. |
-    | - Auto-delete | Inherited from the snapshot. |
-    | - Size | Enter a volume size allowed by the profile. The default is the minimum provisioning size based on the snapshot. |
-    | **Profile** | Defaults to the snapshot's IOPS tier or custom profile. You can change the profile. |
-    | - IOPS | For IOPS tiers, specify IOPS tier profile. For custom IOPS, select a range. |
-    | - Size | Enter a volume size allowed by the profile. The default is the minimum size required. |
-    | **Encryption** | Inherited from the snapshot. If the encryption is provider-managed, you can change it to customer-managed encryption and select either Key Protect or HPCS. If the encryption is already customer-managed, you can choose a different key management service but not to provider-managed encryption. |
-    {: caption="Table 1. Create {{site.data.keyword.block_storage_is_short}} volume options." caption-side="bottom"}
+   | Field | Description |
+   |-------|-------------|
+   | Attach new volume to new virtual server. | This option is cleared by default, it creates an unattached volume. When the option is selected, you can either attach the volume to an existing instance, or to a new instance that you must create. |
+   | **Virtual server selection** | The option displays when you choose to attach the volume to a new or existing instance. For an existing instance: |
+   | - Zones | Select a zone within your region from the menu. |
+   | - Virtual server | Select a virtual server instance from the list. |
+   | **Volume details** | Define the volume (attached or unattached). |
+   | - Name | Enter a name for the volume. By default, the snapshot name is used and appended with _restore_. |
+   | - Resource group | Use default or select from the list of available groups. |
+   | - Zone | Inherited from the snapshot. |
+   | - Auto-delete | Inherited from the snapshot. |
+   | - Size | Enter a volume size allowed by the profile. The default is the minimum provisioning size based on the snapshot. |
+   | **Profile** | Defaults to the snapshot's IOPS tier or custom profile. You can change the profile. |
+   | - IOPS | For IOPS tiers, specify IOPS tier profile. For custom IOPS, select a range. |
+   | - Size | Enter a volume size allowed by the profile. The default is the minimum size required. |
+   | **Encryption** | Inherited from the snapshot. If the encryption is provider-managed, you can change it to customer-managed encryption and select either {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. If the encryption is already customer-managed, you can choose a different key management service but not to provider-managed encryption. |
+   {: caption="Table 1. Create {{site.data.keyword.block_storage_is_short}} volume options." caption-side="bottom"}
 
 5. When you're finished, click **Save**. The new volume is created.
 
 Hover over the name of a volume that is attached to an instance in the instance details. The text shows whether the volume was created from a backup or regular snapshot.
 {: tip}
 
-### Create a volume from the snapshot details page
+### Creating a volume from the snapshot details page
 {: #baas-vpc-restore-vol-details-ui}
+
+Use the following steps to create a volume from the snaphots details page.
 
 1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > {{site.data.keyword.block_storage_is_short}} snapshots**.
 
    You can go to the backup snapshots details page in other ways. For example, when you view a list of [backup jobs](/docs/vpc?topic=vpc-backup-view-policy-jobs&interface=ui#backup-view-jobs-ui), you can click the snapshots link for a backup job and go to the details page.
    {: tip}
 
-2. On the volume details page, select the **Snapshots and Backups** tab. A list of snapshots that were created by backup policies or manually is shown in the list.
+2. On the volume details page, select the **Snapshots and Backups** tab. A list of snapshots that were created by backup policies or manually is shown in the list. Cross-regional copies of snapshots are included in the list, too.
 
 3. From the list, click the backup snapshot name to go to its details page.
 
@@ -128,7 +130,7 @@ Hover over the name of a volume that is attached to an instance in the instance 
 
 6. When you're finished, click **Save**. The new volume is created.
 
-### Create a volume from a backup snapshot when you provision a new instance
+### Creating a volume from a backup snapshot when you provision an instance
 {: #baas-vpc-restore-vol-ui}
 
 Follow these steps to create a boot and data volume from snapshots when you provision a new virtual server instance.
@@ -151,7 +153,7 @@ Follow these steps to create a boot and data volume from snapshots when you prov
 
 After the instance is created, you can click the instance name to see the instance details. The boot volume that you restored from the backup snapshot is listed under **Storage volumes**. The camera icon indicates that the volume was created from a snapshot.
 
-### Create a data volume from a backup snapshot for an existing virtual server instance
+### Creating a data volume from a backup snapshot for an existing virtual server instance
 {: #baas-vpc-create-from-vol-ui}
 
 You can create a data volume from a snapshot for an existing instance. Choose from the list of virtual server instances.
@@ -172,7 +174,7 @@ You can create a data volume from a snapshot for an existing instance. Choose fr
 
 The new volume appears in the list of Storage volumes. Hover over the camera icon to see the name of the backup snapshot from which it was created.
 
-## Restore a volume from a snapshot from the CLI
+## Restoring a volume from a snapshot from the CLI
 {: #baas-vpc-restore-CLI}
 {: cli}
 
@@ -180,7 +182,7 @@ Use the CLI to create a boot or data volume from a backup snapshot. The commands
 
 For more information about all backup service commands, see the [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 
-## Restore a volume from a backup snapshot with the API
+## Restoring a volume from a backup snapshot with the API
 {: #baas-vpc-restore-API}
 {: api}
 
@@ -196,21 +198,29 @@ The API requests are the same as the one you use to restore from a manually crea
 
 For more information about using the API and all backup service API methods, see [VPC API reference](/apidocs/vpc/latest).
 
+## Restoring a volume from a snapshot with Terraform
+{: #baas-vpc-restore-terraform}
+{: terraform}
+
+You can create a boot or data volume from a backup snapshot with Terraform. The resource, arguments, and attributes are the same as the ones that are used to restore a volume from a manually created snapshot. For more information, see [Restore a volume from a snapshot with Terraform](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=terraform#snapshots-vpc-restore-terraform).
+
+For more information about the Terraform resources, arguments, and attributes that are used for restoring a volume, see [ibm_is_volume](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_volume){: external}.
+
 ## Performance impact
 {: #baas-performance-considerations}
 
 The performance of boot and data volumes is initially degraded when data is restored from a snapshot. Performance degradation occurs during the restoration because your data is copied from {{site.data.keyword.cos_full}} to {{site.data.keyword.block_storage_is_short}} in the background. After the restoration process is complete, you can realize full IOPS on the new volume.
 
 ### Performance impact when a bootable backup snapshot is used to provision an instance
-{: #baas-boot-perf} 
+{: #baas-boot-perf}
 
-Before you select a backup snapshot of a boot volume to provision an instance, consider the following points:
+Before you select a backup snapshot of a boot volume to provision an instance, consider the following points.
 
-* Because the bootable backup snapshot is not fully hydrated, initial performance is slower than compared to a regular boot volume. Volumes that are restored from fast restore clones do not require hydration. The data is available as soon as the volume is created.
+- Because the bootable backup snapshot is not fully hydrated, initial performance is slower than compared to a regular boot volume. Volumes that are restored from fast restore clones do not require hydration. The data is available when the volume is created.
 
-* To achieve the best performance and efficiency when you provision multiple instances, boot from an existing image. Custom images that you provide are better than stock images for this purpose. Images can have a maximum size of 250 GB.
+- To achieve the best performance and efficiency when you provision multiple instances, boot from an existing image. Custom images that you provide are better than stock images for this purpose. Images can have a maximum size of 250 GB.
 
-## Next Steps
+## Next steps
 {: #baas_vpc_restore_next_steps}
 
-[Manage your backup policies](/docs/vpc?topic=vpc-backup-service-manage&interface=api).
+After you restore a volume, you can [Manage your backup policies](/docs/vpc?topic=vpc-backup-service-manage&interface=api).

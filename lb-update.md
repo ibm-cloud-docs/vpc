@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Updating an {{site.data.keyword.cloud_notm}} {{site.data.keyword.alb_full}}
+# Updating an application load balancer
 {: #alb-updating}
 
 You can update an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) by using the UI, CLI, or API.
@@ -21,7 +21,7 @@ You can update an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (AL
 {: #alb-updating-ui}
 {: ui}
 
-To update an ALB by using the {{site.data.keyword.cloud_notm}} console, perform the following procedure:
+To update an ALB in the {{site.data.keyword.cloud_notm}} console, perform the following procedure:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 1. Select the Navigation Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers**.

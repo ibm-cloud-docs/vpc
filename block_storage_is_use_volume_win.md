@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-02-06"
+lastupdated: "2023-06-30"
 
 keywords: Block storage for VPC, iscsi for VPC, SAN for VPC
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Set up your {{site.data.keyword.block_storage_is_short}} data volume for use (Windows)
+# Setting up your {{site.data.keyword.block_storage_is_short}} data volume for use (Windows)
 {: #start-using-your-block-storage-data-volume-win}
 
 If you want to use your {{site.data.keyword.block_storage_is_full}} volume as a file system, you need to partition the volume, format it, and then mount it as a file system. You can perform this operation after you created a {{site.data.keyword.block_storage_is_short}} volume and attached it to an instance.
@@ -20,7 +20,7 @@ If you want to use your {{site.data.keyword.block_storage_is_full}} volume as a 
 
 Follow this procedure to use your block storage volume on a Windows&reg; system.
 
-## Set up your volume for use with the Disk Management utility
+## Setting up your volume for use with the Disk Management utility
 {: #diskmanagementutil}
 
 1. Log in to your Windows instance by using Remote Desktop. For more information, see [Connecting to Windows instances](/docs/vpc?topic=vpc-vsi_is_connecting_windows).
@@ -31,7 +31,8 @@ Follow this procedure to use your block storage volume on a Windows&reg; system.
 
 1. The Disk Management window shows the attached storage volume as an unknown, offline disk. Bring the volume online. Right-click the left panel for the {{site.data.keyword.block_storage_is_short}} volume. Choose **Online**.
 1. If the disk is not initialized, you must initialize it before you can use it. If the disk is already initialized, skip to the next step.
-   If you're mounting a volume that already has data on it. For example, you restored the volume from a snapshot, do not reformat the volume as that deletes the existing data.
+
+   If you're mounting a volume that already has data on it, do not reformat the volume as that deletes the existing data. For example, if you restored the volume from a snapshot, the volume contains the data from the snapshot. Do not initialize the volume or you lose the data that you restored.
    {: warning}
 
     1. Right-click the left panel for the disk, and choose **Initialize Disk**.
@@ -43,7 +44,7 @@ Follow this procedure to use your block storage volume on a Windows&reg; system.
 1. Specify a Volume Label and adjust the default settings as necessary, and then choose Next.
 1. Review your settings, and then choose Finish to apply the modifications and close the New Simple Volume wizard.
 
-## Set up your volume for use with Windows PowerShell
+## Setting up your volume for use with Windows PowerShell
 {: #winpowershell}
 
 1. Log in to your Windows instance by using Remote Desktop. For more information, see [Connecting to Windows instances](/docs/vpc?topic=vpc-vsi_is_connecting_windows).

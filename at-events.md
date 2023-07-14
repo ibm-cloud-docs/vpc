@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-05-11"
+lastupdated: "2023-05-30"
 
 keywords:
 
@@ -483,8 +483,8 @@ The following table lists the actions that are related to snapshots resources an
 
 The following table lists the actions that are related to file share resources and the generation of events.
 
-File Storage for VPC is available for customers with special approval to preview this service in select regions. Contact your IBM Sales representative if you are interested in getting access.
-{: note}
+{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Madrid, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
+{: preview}
 
 | Resource  | Action  | Description  |
 |:---------------|:-----------------------|:-----------------------|
@@ -494,11 +494,12 @@ File Storage for VPC is available for customers with special approval to preview
 | shares  | is.share.share.delete | File share was deleted  |
 | shares  | is.share.share.split | Replication relationship is removed between two file shares |
 | shares  | is.share.share.failover | Replication relationship is reversed between two file shares |
-| share mount targets  | is.share.target.create  | Mount target for a file share was created  |
-| share mount targets  | is.share.target.read  | One mount target for a file share was retrieved  |
-| share mount targets  | is.share.target.list  | List of all mount targets for a file share was retrieved  |
-| share mount targets  | is.share.target.update  | Mount target for a file share was modified  |
-| share mount targets  | is.share.target.delete | Mount target for a file share was deleted  |
+| shares  | is.share.share.schedule.modification | The replication schedule was modified. |
+| share mount targets  | is.share.mount-target.create  | Mount target for a file share was created  |
+| share mount targets  | is.share.mount-target.read  | One mount target for a file share was retrieved  |
+| share mount targets  | is.share.mount-target.list  | List of all mount targets for a file share was retrieved  |
+| share mount targets  | is.share.mount-target.update  | Mount target for a file share was modified  |
+| share mount targets  | is.share.mount-target.delete | Mount target for a file share was deleted  |
 {: caption="Table 24. Actions that generate events for file storage resources" caption-side="bottom"}
 
 ### Backup service events

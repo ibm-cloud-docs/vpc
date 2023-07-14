@@ -84,19 +84,6 @@ The following feature is not supported:
 * Dedicated hosts
 * VPC Instance Metadata service.
 
-## s390x bare metal server restrictions
-{: #s390x-bm-restrictions}
-
-The following features are not supported:
-
-* Dedicated hosts
-* SmartNIC
-* VNC console
-* Serial console
-* Infrastructure NAT
-* Encryption of data at rest and at flight. You must follow the LUKS disk encryption best practices as an alternative.
-* Block Storage for VPC
-* File Storage for VPC
 
 ## z/OS virtual server instance restrictions
 {: #zos-vsi-restrictions}

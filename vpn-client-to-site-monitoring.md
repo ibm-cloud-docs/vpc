@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-07-14"
+  years: 2021, 2023
+lastupdated: "2023-07-11"
 
 keywords:
 
@@ -26,16 +26,16 @@ You can view platform metrics when you enable {{site.data.keyword.mon_full_notm}
 Before you enable {{site.data.keyword.mon_full_notm}} on your platform, keep the following information in mind:
 
 * You can configure only one instance of the {{site.data.keyword.mon_full_notm}} service per region to collect platform metrics.
-* Platform metrics are regional. Metrics are monitored only from {{site.data.keyword.mon_full_notm}} services, which are in the same region of the instance that you want to monitor.
 * Metrics are collected automatically and are available for monitoring through the {{site.data.keyword.mon_full_notm}}-enabled instance.
+* Use the Metrics Router to allow customers to configure which {{site.data.keyword.mon_full_notm}} instance their platform metrics flows to. To learn more about Metrics Router, see [IBM Cloud Metrics Routing](/docs/metrics-router).
 
 ## Metrics available by service plan
 {: #vpn-client-to-site-metrics-by-plan}
 
 Metrics available by plan names are as follows:
 
-* [VPN server data bytes received](#ibm_is_vpn_server_data_received_bytes)
-* [VPN server data bytes sent](#ibm_is_vpn_server_data_sent_bytes)
+* [VPN server data bytes input](#ibm_is_vpn_server_data_received_bytes)
+* [VPN server data bytes output](#ibm_is_vpn_server_data_sent_bytes)
 * [VPN server CRL days until expiration](#ibm_is_vpn_server_crl_days_expiry)
 * [VPN server authentication failure count](#ibm_is_vpn_server_authentication_failure_count)
 * [VPN server active client count](#ibm_is_vpn_server_active_client_count)
@@ -55,7 +55,7 @@ Each metric is composed of the following metadata types:
 
 The following tables define the basic VPN server metrics on {{site.data.keyword.cloud_notm}} for VPC.
 
-### VPN server data bytes received
+### VPN server data bytes input
 {: #ibm_is_vpn_server_data_received_bytes}
 
 Bytes received per minute for a VPN server
@@ -66,9 +66,9 @@ Bytes received per minute for a VPN server
 | `Metric type` | `gauge` |
 | `Value type`  | `byte` |
 | `Segment by` | `Service instance, Service instance name, VPN server name` |
-{: caption="Table 1: VPN server data bytes received" caption-side="bottom"}
+{: caption="Table 1: VPN server data bytes input" caption-side="bottom"}
 
-### VPN server data bytes sent
+### VPN server data bytes output
 {: #ibm_is_vpn_server_data_sent_bytes}
 
 Bytes sent per minute for a VPN server
@@ -79,7 +79,7 @@ Bytes sent per minute for a VPN server
 | `Metric type` | `gauge` |
 | `Value type`  | `byte` |
 | `Segment by` | `Service instance, Service instance name, VPN server name` |
-{: caption="Table 2: VPN server data bytes sent" caption-side="bottom"}
+{: caption="Table 2: VPN server data bytes output" caption-side="bottom"}
 
 ### VPN server CRL days until expiration
 {: #ibm_is_vpn_server_crl_days_expiry}
@@ -138,7 +138,7 @@ Health status for a VPN server (for example, `2`=ok, `1`=degraded, `0`=faulted/i
 
 You can split the metrics that {{site.data.keyword.mon_full_notm}} presents into various visualizations in the {{site.data.keyword.mon_full_notm}} dashboard, allowing views of different metrics based on your preference. For example, if you have multiple VPN servers or accounts with different VPN servers in each account, you might want to focus on a particular VPN server by name.
 
-As an example, you can segment the `VPN Server Bytes Input` by `IBM {{site.data.keyword.vpn_vpc_short}} server name` to show how many bytes per minute are received for a VPN server. The dashboard shows different lines in different colors where each line represents received bytes per minute for a VPN server.
+As an example, you can segment the `VPN Server Data Bytes Input` by `IBM {{site.data.keyword.vpn_vpc_short}} server name` to show how many bytes per minute are received for a VPN server. The dashboard shows different lines in different colors where each line represents received bytes per minute for a VPN server.
 
 ### Global attributes
 {: #global-attributes-vpn-cts}
@@ -225,14 +225,14 @@ To view and work with your {{site.data.keyword.mon_full_notm}} metrics, follow t
 
 1. Navigate to the [metrics monitoring portal](/observe/monitoring){: external}.
 
-2. Click **Open Dashboard** next to the service name of the {{site.data.keyword.mon_full_notm}} instance that you want to work with.
+1. Click **Open Dashboard** next to the service name of the {{site.data.keyword.mon_full_notm}} instance that you want to work with.
 
    The first time that you access your {{site.data.keyword.mon_full_notm}} instance, several windows display as part of the internal setup. Keep the default entries, and click through the pages until you reach the main {{site.data.keyword.mon_full_notm}} page.
    {: note}
 
-3. Open the IBM {{site.data.keyword.vpn_vpc_short}} Monitoring Metrics dashboard by selecting **Dashboards**.
+1. Open the IBM {{site.data.keyword.vpn_vpc_short}} Monitoring Metrics dashboard by selecting **Dashboards**.
 
-4. Click **DASHBOARD TEMPLATES > IBM > VPC VPN Server**. The default dashboard is not editable.
+1. Click **Dashboard Library > IBM > VPC VPN Server**. The default dashboard is not editable.
 
 5. The dashboard shows six main metrics. These metrics include VPN server health status, VPN server active client count, VPN server authentication failure count, VPN server CRL days until expiration, and VPN server bytes input/output. If you want to modify the parameters and segment your metrics by VPN server name, you must create a custom dashboard.
 
@@ -264,7 +264,7 @@ To customize your dashboard, use the following steps:
 
    * You can also set a segment to compare metrics across the scope that you define. For example, you can look at the VPN server health status for a particular VPN server that is segmented by server name.
 
-6. Click **Save**.
+1. Click **Save**.
 
    By default, the dashboard is named "blank dashboard". You can change the name by selecting **Dashboards** from the sidebar and clicking the pencil icon next to the name.
    {: tip}
@@ -286,24 +286,24 @@ To collect this information and work with your {{site.data.keyword.mon_full_notm
 
 1. Access the [Monitoring home page](/observe/monitoring){: external}.
 
-2. Click **Open Dashboard** next to the instance that you want to work with.
+1. Click **Open Dashboard** next to the instance that you want to work with.
 
-3. After you see the {{site.data.keyword.mon_full_notm}} dashboard, select your Account Profile icon on the sidebar and select **Settings**. You now see your account settings.
-4. Your Monitor API token is an alphanumeric string that is located in the **IBM Cloud Monitor API Token** field. Click the **Copy** button to copy the token to your clipboard.
+1. After you see the {{site.data.keyword.mon_full_notm}} dashboard, select your Account Profile icon on the sidebar and select **Settings**. You now see your account settings.
+1. Your Monitor API token is an alphanumeric string that is located in the **Sysdig Monitor API Token** field. Click the **Copy** button to copy the token to your clipboard.
 
    Do not share this API token. Anyone who has this API token has full access to your metrics.
    {: important}
 
-5. To get the endpoint of your {{site.data.keyword.mon_full_notm}} instance, go to your main {{site.data.keyword.mon_full_notm}} dashboard in your browser. Then, select the URL to the dashboard, which appears similar to the following example:
+1. The endpoint of your {{site.data.keyword.mon_full_notm}} instance is per region. For example, if your {{site.data.keyword.mon_full_notm}} instance exists in `us-south`, then its endpoint is:
 
    ```sh
-   https://us-south.monitoring.cloud.ibm.com/#/default-dashboard/ibm_vpc_vpn_gen2?last=1209600
+   https://us-south.monitoring.cloud.ibm.com/api/data/batch
    ```
    {: pre}
 
    The first part of the URL (in this example, `us-south.monitoring.cloud.ibm.com`) is your endpoint. Make note of this URL.
 
-6. After you have both the API token and the endpoint, you can format your POST request. The following POST request is an example, with all the parameters that you can modify. The following are parameters:
+1. After you have both the API token and the endpoint, you can format your POST request. The following POST request is an example, with all the parameters that you can modify. The following are parameters:
 
    * The Monitor API token.
    * The endpoint of your {{site.data.keyword.mon_full_notm}} instance.

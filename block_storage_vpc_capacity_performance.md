@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-02-08"
+lastupdated: "2023-06-30"
 
 keywords:
 
@@ -67,10 +67,10 @@ The following table provides some examples of how application I/O size and provi
 | 128 | 128 | 16 |
 {: caption="Table 1. Examples of how application I/O size and IOPS affect the throughput" caption-side="top"}
 
-&sup1;If your cap is 1000 IOPS or 16 K average I/O size, the throughput caps at whatever limit is reached first.
+&sup1;If your cap is 1,000 IOPS or 16 K average I/O size, the throughput caps at whatever limit is reached first.
 
 Maximum IOPS can still be obtained when you use smaller I/O sizes, but throughput is less. The following example shows how throughput decreases for smaller average I/O sizes, when max IOPS is maintained.
 
-* 16 KB * 6000 IOPS == ~94 MBps
-* 8 KB * 6000 IOPS == ~47 MBps
-* 4 KB * 6000 IOPS == ~23 MBps
+* 16 KB * 6,000 IOPS == ~94 MBps
+* 8 KB * 6,000 IOPS == ~47 MBps
+* 4 KB * 6,000 IOPS == ~23 MBps

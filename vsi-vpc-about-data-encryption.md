@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-03-10"
+lastupdated: "2023-06-13"
 
 keywords:
 
@@ -28,7 +28,9 @@ IBM-managed encryption uses the following industry standard protocols:
 
 * AES-256 encryption.
 * Keys are managed in-house with Key Management Interoperability Protocol (KMIP).
-* Storage is validated for Federal Information Processing Standard (FIPS) Publication 140-2, Federal Information Security Management Act (FISMA), Health Insurance Portability and Accountability Act (HIPAA). Storage is also validated for Payment Card Industry (PCI), Basel II, California Security Breach Information Act (SB 1386), and EU Data Protection Directive 95/46/EC compliance.
+* The self-encrypting drives in the Storage architecture are validated for Federal Information Processing Standard (FIPS) Publication 140-2 Level 2. 
+* Storage architecture is validated for Federal Information Security Management Act (FISMA), and the Health Insurance Portability and Accountability Act (HIPAA)
+* Storage architecture is also validated for Payment Card Industry (PCI), Basel II, California Security Breach Information Act (SB 1386), and EU Data Protection Directive 95/46/EC compliance.
 
 ## Customer-managed encryption
 {: #vpc-customer-managed-encryption}
@@ -75,7 +77,7 @@ Customer-managed encryption has several advantages over IBM-managed encryption.
 
 * Manage the root keys for your file shares by rotating, disabling, or deleting keys. You can restore deleted keys within 30 days after their deletion.
 
-{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
+{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Madrid, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 **Encrypt your custom images:**

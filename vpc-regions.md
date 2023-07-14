@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-03-15"
+  years: 2020, 2023
+lastupdated: "2023-06-22"
 
 keywords: region, zone, deploy, datacenter, data, center, federated, CLI, API, account, failover, disaster, recovery, DR, data center
 
@@ -39,12 +39,16 @@ Virtual Private Cloud is available in the following {{site.data.keyword.cloud}} 
 | ------- | :------: | :------: |
 | United Kingdom (London) | eu-gb | `eu-gb.iaas.cloud.ibm.com`|
 | EU Germany (Frankfurt) | eu-de | `eu-de.iaas.cloud.ibm.com`|
+| Spain (Madrid) | eu-es | `eu-es.iaas.cloud.ibm.com` |
 {: class="simple-tab-table"}
 {: tab-title="Europe"}
 {: caption="Table 1. IBM Cloud regions for Europe" caption-side="bottom"}
 {: summary="This table displays the IBM Cloud regions and is organized by geographical location. Click on the tab for the geographical location you are interested in. You then see all the IBM Cloud regions for that geographical location."}
 {: tab-group="vpc-regions-api-endpoint"}
 {: #vpc-europe-regions}
+
+The Madrid region only supports dedicated host profiles with instance storage. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui).
+{: important}
 
 |   Location     | Region | API Endpoint |
 | ------- | :------: | :------: |

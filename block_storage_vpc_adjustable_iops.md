@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-02-08"
+lastupdated: "2023-06-30"
 
 keywords: block storage for VPC, boot volume, data volume, volume, data storage, virtual server instance, instance, adjustable volume, iops
 
@@ -96,10 +96,30 @@ Your new IOPS allocation is realized when you restart the instance.
 {: #adjust-vpc-iops-cli-block}
 {: cli}
 
-### Adjust IOPS for a Custom profile
+### Before you begin
+{: #adjust-vpc-iops-cli-block-prereq}
+
+Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
+{: requirement}
+
+1. Log in to the IBM Cloud.
+   ```sh
+   ibmcloud login --sso -a cloud.ibm.com
+   ```
+   {: pre}
+
+   This command returns a URL and prompts for a passcode. Go to that URL in your browser and log in. If successful, you get a one-time passcode. Copy this passcode and paste it as a response on the prompt. After successful authentication, you are prompted to choose your account. If you have access to multiple accounts, select the account that you want to log in as. Respond to any remaining prompts to finish logging in.
+
+2. Select the current generation of VPC. 
+   ```sh
+   ibmcloud is target --gen 2
+   ```
+   {: pre}
+
+### Adjust IOPS for a custom profile
 {: #adjust-iops-cli-block}
 
-From the CLI, use the `volume-update` command with the `--iops` parameter to indicate the new IOPS size for a custom profile. The IOPS that you choose must be within the range for the size of the volume. For more information, see [Custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#custom).
+From the CLI, use the `ibmcloud is volume-update` command with the `--iops` option to indicate the new IOPS size for a custom profile. The IOPS that you choose must be within the range for the size of the volume. For more information, see [Custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#custom).
 
 ```sh
 ibmcloud is volume-update VOLUME_ID --iops IOPS
@@ -108,7 +128,7 @@ ibmcloud is volume-update VOLUME_ID --iops IOPS
 
 This example shows an increase of IOPS from 100 IOPS to 3,000 IOPS for a 100 GB volume based on a 100 - 499 custom profile. The IOPS range for this custom band is 100 - 6,000 IOPS.
 
-```bash
+```sh
 $ ibmcloud is volume-update 933c8781-f7f5-4a8f-8a2d-3bfc711788ee --iops 3000
 Updating volume 933c8781-f7f5-4a8f-8a2d-3bfc711788ee under account MyAccount 01 as user user1@mycompany.com...
 ID                                      0738-933c8781-f7f5-4a8f-8a2d-3bfc711788ee
@@ -128,9 +148,9 @@ Volume Attachment Instance Reference    Vdisk Name    Vdisk ID                  
     									Instance Name   Instance ID
        									vsi-test1       0738-8b56da93-7990-4ccf-9dc5-5aee6a5f08f9
 ```
-{: screen}
+{: codeblock}
 
-### Adjust IOPS by specifying a higher or lower IOPS tier profile
+### Adjust IOPS by specifying a different IOPS tier profile
 {: #adjust-profile-cli}
 
 From the CLI, use the `volume-update` command with the `--profile` parameter and indicate the name or href of the IOPS tier profile.
@@ -142,6 +162,37 @@ ibmcloud is volume-update {volume-id} --profile 5iops-tier
 ```
 {: pre}
 
+```sh
+$ ibmcloud is volume-update demo-volume-update --profile 5iops-tier
+Updating volume demo-volume-update under account Test Account as user test.user@ibm.com...
+                                          
+ID                                     r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   
+Name                                   demo-volume-update   
+CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a10d63fa66daffc9b9b5286ce1533080::volume:r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   
+Status                                 available   
+Attachment state                       attached   
+Capacity                               100   
+IOPS                                   3000   
+Bandwidth(Mbps)                        393   
+Profile                                5iops-tier   
+Encryption key                         -   
+Encryption                             provider_managed   
+Resource group                         defaults   
+Created                                2023-06-29T16:14:59+00:00   
+Zone                                   us-east-1   
+Health State                           ok   
+Volume Attachment Instance Reference   Attachment type   Instance ID                                 Instance name   Auto delete   Attachment ID                               Attachment name      
+                                       data              0757_11f5db7f-35a1-4678-bcbd-c85204e09507   kj-test-ro      false         0757-4dfc4384-c4b5-497e-bab3-6415f9c4d44b   otp      
+                                          
+Active                                 true   
+Unattached capacity update supported   false   
+Unattached iops update supported       false   
+Busy                                   false   
+Tags                                   -
+```
+{: screen}
+
+For more information about available command options, see [`ibmcloud is volume-update`](/docs/cli?topic=cli-vpc-reference#volume-update).
 
 ## Adjust IOPS with the API
 {: #adjust-vpc-iops-api-block}
@@ -159,7 +210,7 @@ You can't update the name of the volume and adjust IOPS in the same `PATCH /volu
 
 This example shows an increase of 100 IOPS to 3,000 IOPS for a 100 GB volume based on a 100 - 499 custom profile. The IOPS range for this custom band is 100 - 6,000 IOPS.
 
-```curl
+```sh
 curl -X PATCH \
  "$vpc_api_endpoint/v1/volumes/$volume_id?version=2022-01-11&generation=2" \
  -H "Authorization: $iam_token" \
@@ -185,7 +236,7 @@ The volume status shows `updating` while the IOPS is being adjusted. The current
     .
 {
 ```
-{: codeblock}
+{: screen}
 
 When the IOPS expansion completes, restart the instance. The new value displays, and the volume status is `available`.
 
@@ -218,7 +269,7 @@ When the IOPS expansion completes, restart the instance. The new value displays,
 		"id": "<4cbb38bc-57d5-4121-a796-d5b10cf0810aAttachment ID>",
 		"instance": {
 			"crn": "crn:[...]",
-			"href": "https://us-south.iaas.cloud.ibm.com/v1/instances/8f06378c-ed0e-481e-b98c-9a6dfbee1ed5,
+			"href": "https://us-south.iaas.cloud.ibm.com/v1/instances/8f06378c-ed0e-481e-b98c-9a6dfbee1ed5",
 			"id": "8f06378c-ed0e-481e-b98c-9a6dfbee1ed5",
 			"name": "my-instance-1"
 		},
@@ -231,16 +282,16 @@ When the IOPS expansion completes, restart the instance. The new value displays,
     }
 }
 ```
-{: codeblock}
+{: screen}
 
-### Adjust IOPS by specifying a higher or lower IOPS tier profile
+### Adjust IOPS by specifying a different IOPS tier profile
 {: #adjust-profile-api-block}
 
 Make a `PATCH /volumes` request and specify the `profile` parameter and indicate the name or href of the IOPS tier profile.
 
 This example changes a 3 IOPS/GB profile to 5 IOPS/GB profile. In this case, the volume can't exceed 9,600 GB to move to the higher profile.
 
-```curl
+```sh
 curl -X PATCH \
  "$vpc_api_endpoint/v1/volumes/$volume_id?version=2022-01-11&generation=2" \
  -H "Authorization: $iam_token" \
@@ -249,6 +300,42 @@ curl -X PATCH \
     }'
 ```
 {: codeblock}
+
+## Adjusting IOPS with Terraform
+{: #adjust-vpc-iops-terraform-block}
+{: terraform}
+
+### Adjust IOPS for a Custom profile
+{: #adjust-iops-custom-terraform}
+
+To modify the IOPS of a volume, use the `ibm_is_volume` resource. When applied, the following example updates the volume IOPS to 24,000.
+
+```terraform
+resource "ibm_is_volume" "storage" {
+  name    = "demo-volume-update"
+  size    = 8000
+  iops    = 24000
+  zone    = "us-south-2"
+}
+```
+{: codeblock}
+
+### Adjust IOPS for a tiered profile
+{: #adjust-iops-tier-terraform}
+
+To modify the IOPS of a volume that was created by using a performance tier, use the `ibm_is_volume` resource and specify a different tier. When applied, the following example updates the volume profile to `5iops-tier`.
+
+```terraform
+resource "ibm_is_volume" "storage" {
+  name    = "demo-volume-update"
+  size    = 8000
+  profile = "5iops-tier"
+  zone    = "us-south-2"
+}
+```
+{: codeblock}
+
+For more information about the arguments and attributes, see [ibm_is_volume](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_volume){: external}.
 
 ## Next steps
 {: #next-step-adjustable-iops-block}

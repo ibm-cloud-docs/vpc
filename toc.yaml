@@ -43,7 +43,6 @@ toc:
                label: Networking overview for bare metal servers
                topics:
                - bare_metal_server_network.md
-               - bare_metal_server_network_s390x.md
        - topicgroup:
            label: Compute
            topics:
@@ -52,16 +51,7 @@ toc:
                label: About bare metal servers
                topics:
                - bare_metal_server_about.md
-               - bare_metal_server_about_s390x.md
            - suspend-billing.md
-           - topicgroup:
-               label: Images
-               topics:
-               - vsi-images.md
-               - s390x-vsi-images.md
-               - os-lifecycle.md
-               - bare_metal_server_image.md
-               - bare_metal_server_image_s390x.md
            - topicgroup:
                label: Profiles
                topics:
@@ -69,7 +59,6 @@ toc:
                - s390x-vsi-profiles.md
                - vsi_is_dh_profile.md
                - bare_metal_server_profile.md
-               - bare_metal_server_profile_s390x.md
                - profiles_benchmark.md
            - vsi_is_ssh_keys_about.md
            - vpc-secure-boot.md
@@ -85,6 +74,7 @@ toc:
                - about-attestation.md
                - hpvs-logging.md
                - hpvs-encrypt-log-message.md
+               - hpvs-data-security.md
                - hpvs-disks-encryption-validate.md
                - about-hp-securebuild.md
                - hpvs-override-registry.md
@@ -98,7 +88,6 @@ toc:
                label: Storage overview for bare metal servers
                topics:
                - bare_metal_server_storage.md
-               - bare_metal_server_storage_s390x.md
            - topicgroup:
                label: File storage
                topics:
@@ -148,6 +137,7 @@ toc:
             - vpc-user-permissions.md
             - api-auth-correlation.md
             - resource-attributes.md
+            - iam-custom-routes.md
         - topicgroup:
             label: Managing a VPC
             topics:
@@ -213,7 +203,6 @@ toc:
             - bare_metal_server_create.md
             - bare_metal_server_connect.md
             - bare_metal_server_connect_windows.md
-            - bare_metal_server_connect_s390x.md
             - bare-metal-server-connect-serial-console-windows.md
             - bare_metal_server_manage_nic.md
             - bare_metal_server_manage.md
@@ -224,32 +213,51 @@ toc:
             - vsi_is_create_dh_instance.md
             - vsi_is_manage_dedicated_host_group.md
         - topicgroup:
-            label: Custom images
+            label: Images - Stock images
             topics:
+            - vsi_is_getting_started_vpc_stock_images.md
+            - os-lifecycle.md
+            - vsi-images.md
+            - s390x-vsi-images.md
+            - bare_metal_server_image.md
+            - bare_metal_server_image_s390x.md  
+        - topicgroup:
+            label: Images - Custom images
+            topics:
+            - vsi_is_about_custom_images.md
             - topicgroup:
                 label: Planning for custom images
                 topics:
-                - vsi_is_about_custom_images.md
-                - vpc_image_from_volume.md
                 - vsi_is_object_storage_auth.md
                 - vsi_is_byol_about.md
                 - image-rbac-permissions.md
             - topicgroup:
-                label: Creating custom images
+                label: Preparing custom images
                 topics:
-                 - vsi_is_create_linux_custom_image.md
-                 - vsi_is_create_windows_custom_image.md
-                 - vsi_is_create_zos_custom_image.md
-                 - vpc_image_from_volume_create.md
-                 - vsi_is_migrate_from_classic_infra.md
-                 - vsi_is_encrypt_custom_image.md
-                 - building-custom-os.md
-            - vsi_is_import_images.md
+                - vsi_is_prepare_custom_image_import.md
+                - vsi_is_create_linux_custom_image.md
+                - vsi_is_create_windows_custom_image.md
+                - vsi_is_create_zos_custom_image.md
+                - vsi_is_migrate_from_classic_infra.md
+                - vsi_is_encrypt_custom_image.md
+                - building-custom-os.md
             - topicgroup:
-                label: Managing custom images
+                label: Importing and exporting custom images
                 topics:
-                 - vsi_is_manage_images.md
-                 - vpc_image_from_volume_manage.md
+                - vsi_is_import_custom_image_COS.md
+                - vsi_is_import_images.md
+            - vsi_is_manage_images.md
+            - topicgroup:
+                label: Image from volume
+                topics:
+                - vpc_image_from_volume.md
+                - vpc_image_from_volume_create.md
+                - vpc_image_from_volume_manage.md
+        - topicgroup:
+            label: Images - Catalog 
+            topics:
+            - vsi_is_getting_started_vpc_catalog_images.md
+            - vsi_is_private_catalog_custom_images.md
         - topicgroup:
             label: DNS Services
             topics:
@@ -383,7 +391,7 @@ toc:
                 - lb-layer-7-policies-rules.md
                 - lb-updating-subnets.md
                 - lb-monitoring-metrics.md
-                - lb-ig-integration.md
+                - lb-ig-integration.md 
                 - lb-sg-integration.md
                 - lb-private-dns-integration.md
                 - lb-datapath-logging.md
@@ -399,6 +407,7 @@ toc:
                 - nlb-delete.md
                 - nlb-health-checks.md
                 - nlb-listeners.md
+                - nlb-ig-integration.md
                 - nlb-udp.md
                 - nlb-port-range.md
                 - nlb-pools.md
@@ -449,28 +458,21 @@ toc:
             label: Block storage volumes
             topics:
             - block_storage_is_create.md
-            - block_storage_is_attach.md
-            - block_storage_is_view.md
-            - block_storage_is_manage.md
             - block_storage_vpc_manage_storage_limits.md
-            - modifying-the-linux-os-expanded-boot-volume.md
+            - block_storage_is_attach.md
             - block_storage_is_use_volume_lin.md
             - block_storage_is_use_volume_win.md
+            - block_storage_is_view.md
+            - block_storage_is_manage.md
+            - block_storage_vpc_monitoring.md
             - topicgroup:
                 label: Modifying volume capacity and IOPS
                 topics:
                 - block_storage_vpc_expand_vol_about.md
                 - block_storage_vpc_expandable_volumes.md
+                - modifying-the-linux-os-expanded-boot-volume.md
                 - block_storage_vpc_resize_boot_volume.md
                 - block_storage_vpc_adjustable_iops.md
-        - topicgroup:
-            label: Block storage Acadia platform - Experimental
-            topics:
-            - block_storage_acadia_about.md
-            - block_storage_acadia_getting_started.md
-            - block_storage_acadia_troubleshoot_known_issues.md
-            - block_storage_acadia_support.md
-            - block_storage_acadia_faq.md
         - topicgroup:
             label: Snapshots
             topics:
@@ -486,6 +488,7 @@ toc:
             - file_storage_vpc_create.md
             - file_storage_vpc_view.md
             - file_storage_vpc_manage.md
+            - file_storage_vpc_eit.md
             - topicgroup:
                 label: Modifying file share size and IOPS
                 topics:
@@ -625,7 +628,6 @@ toc:
                 label: FAQs for bare metal servers
                 topics:
                 - bare_metal_server_faq.md
-                - bare_metal_server_faq_s390x.md
             - backup_service_vpc_faq.md
             - faq-dedicated-host.md
             - topicgroup:
@@ -651,7 +653,6 @@ toc:
                 label: Troubleshooting bare metal servers
                 topics:
                 - bare_metal_server_troubleshoot.md
-                - bare_metal_server_troubleshoot_s390x.md
             - topicgroup:
                 label: Troubleshooting Hyper Protect Virtual Servers for VPC
                 topics:
@@ -729,6 +730,8 @@ toc:
         - topicgroup:
             label: Migration
             topics:
+            - file_storage_API_migration_access_modes.md
+            - file_storage_API_migration_mount_targets.md
             - 2022-03-29-migration.md
         - limitations.md
         - known-issues.md

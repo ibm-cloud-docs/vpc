@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-05-23"
+lastupdated: "2023-07-11"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -53,6 +53,50 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+**VPN site-to-site gateway cipher upgrade.** In an upcoming release, connections with auto IKE or IPsec policies that are out of conformance will be automatically upgraded to the [enhanced auto-negotiation policy](/docs/vpc?topic=vpc-using-vpn#policy-negotiation). Connections with customized IKE or IPsec policies that contain weak ciphers will be disabled. For more information, see [Upgrading a VPN from a custom IKE or IPsec policy](/docs/vpc?topic=vpc-upgrading-weak-ciphers&interface=api#upgrade-vpn-with-custom-policy).
+
+## 11 July 2023
+{: #11-july-2023}
+
+### For all version dates
+{: #11-july-2023-all-version-dates}
+
+**Image lifecycle management.** You can now [deprecate](/apidocs/vpc-beta#deprecate-image) or [obsolete](/apidocs/vpc-beta#obsolete-image) custom images directly. Alternatively, you can schedule transition at a later date by specifying the `deprecation_at` or `obsolescence_at` properties when [creating](/apidocs/vpc-beta#create-image) or [updating](/apidocs/vpc-beta#update-image) an image. If you need to revert a status change, you can transition `deprecated` or `obsolete` images back to `available`. For more information, see [Managing custom images](/docs/vpc?topic=vpc-managing-custom-images&interface=api#custom-images-list-api).
+
+`deprecated` custom images remain usable, while `obsolete` images cannot be used to provision instances or bare metal servers.
+{: note}
+
+## 27 June 2023
+{: #27-june-2023}
+
+### For all version dates
+{: #27-june-2023-all-version-dates}
+
+**Copying snapshots and backups across regions.** You can now specify an existing snapshot in one region to [create](/apidocs/vpc/latest#create-snapshot) a copy of the snapshot in another region. When you [list all snapshots](/apidocs/vpc/latest#list-snapshots), you can see the direct snapshot copies in the other regions and you can use them to restore volumes in the other regions. You can create copies in multiple regions, but only one copy of the snapshot can exist in each region. The cross-region snapshot copy contains the same data as the source snapshot, but the cross-region snapshot copy has its own, independent lifecycle and is billed independently. For more information, see [Cross-regional snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_crossregion_copy) and [Cross-regional copy array issue](/docs/vpc?topic=vpc-known-issues#snapshots-CRC-known-issue).
+
+You can now [create a backup policy](/apidocs/vpc/latest#create-backup-policy) that creates backup copies in other regions, in addition to creating a backup snapshot in the current region. [Listing all backup policy plans](/apidocs/vpc/latest#list-backup-policy-plans) or a specific [plan details](/apidocs/vpc/latest#get-backup-policy-plan) shows the `copies` of the snapshot in other regions. For more information, see [Cross-regional backup copies](/docs/vpc?topic=vpc-backup-service-about#backup-service-crc).
+
+**Extended SSH key encryption.** When [creating](/apidocs/vpc/latest#create-key) an SSH key, you can now specify a `type` property value of `ed25519` for the crypto-system used by the key. If `type` is not specified during key creation, the default value `rsa` continues to be used. When [listing all keys](/apidocs/vpc/latest#list-keys) and [retrieving a key](/apidocs/vpc/latest#get-key), the response provides the key `type` used. For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys&interface=api). See also [Extended SSH key encryption](/docs/vpc?topic=vpc-metadata-api-change-log#27-june-2023-metadata) in the VPC Instance Metadata API change log.
+
+## 20 June 2023
+{: #20-june-2023}
+
+### For all version dates
+{: #20-june-2023-all-version-dates}
+
+**Instance group integration with Network Load Balancer for VPC.** Network load balancer is now integrated with instance groups to improve pool member scaling. When [creating](/apidocs/vpc/latest#create-instance-group) or [updating](/apidocs/vpc/latest#update-instance-group) an instance group for auto scaling, you can now also specify a network load balancer pool for the `load_balancer_pool` property. As before, if `load_balancer_pool` is set, `load_balancer` and `application_port` must also be set. As with application load balancers, the pool must not be used by another instance group in the VPC. When you configure a listener with a range of ports, the instance group's application port is used only for checking the health status of targets. For more information see [Creating an instance group for auto scaling](/docs/vpc?topic=vpc-creating-auto-scale-instance-group).
+
+In the future, load balancer profiles may be introduced that do not support instance groups. To ensure your clients will work reliably in the future, check that the new `instance_groups_supported` property on the [load balancer](/apidocs/vpc#get-load-balancer) is `true` before specifying that load balancer or one of its pools.
+{: important}
+
+## 13 June 2023
+{: #13-june-2023}
+
+### For all version dates
+{: #13-june-2023-all-version-dates}
+
+**VPC routing table authorizations.** You can use the new VPC routing table authorizations to allow users to administer VPC routing tables but not allow them to administer the broader VPC. The VPC API methods that operate on routing tables have been updated to check for these new authorizations, instead of the broader VPC authorizations. The VPC Administrator, Editor, Operator, and Viewer IAM access roles have been updated so that users with those roles will function as before. However, custom roles that require access to routing tables must be updated. For more information, see [IAM actions for VPC routing tables](/docs/vpc?topic=vpc-iam-actions-vpc-routing-tables).
 
 ## 23 May 2023
 {: #23-may-2023}
@@ -244,15 +288,15 @@ Image references may refer to custom images in other accounts. Before using this
 For an existing, running instance with 17 or more vCPUs to take advantage of the new network interface limits, it must be stopped and then started again. A reboot action on the running virtual server does not activate the increased network interface limit.
 {: note}
 
-**IBM&reg; LinuxONE Bare Metal Servers.** Accounts with access to the profiles for s390x bare metal servers can now [create](/apidocs/vpc/latest#create-bare-metal-server) LinuxONE Bare Metal Servers. These profiles have a `cpu_architecture` of `s390x` and must be used with Red Hat Enterprise Linux for s390x and SUSE Linux Enterprise Server (SLES) for s390x. For more information, see [Creating bare metal servers on VPC](/docs/vpc?topic=vpc-creating-bare-metal-servers&interface=ui) and [s390x bare metal server images](/docs/vpc?topic=vpc-s390x-bare-metal-images).
+**IBM&reg; LinuxONE Bare Metal Servers.** Accounts with access to the profiles for s390x bare metal servers can now [create](/apidocs/vpc/latest#create-bare-metal-server) LinuxONE Bare Metal Servers. These profiles have a `cpu_architecture` of `s390x` and must be used with Red Hat Enterprise Linux for s390x and SUSE Linux Enterprise Server (SLES) for s390x. For more information, see [Creating bare metal servers on VPC](/docs/vpc?topic=vpc-creating-bare-metal-servers&interface=api).
 
 In support of s390x bare metal servers, the following enumerations have been expanded:
 
-- Because s390x local disks are attached through Fiber Channel protocol, a value of `fcp` has been added to the `interface_type` enumeration that is returned when you [retrieve](/apidocs/vpc/latest#get-bare-metal-server-disk) or [list](/apidocs/vpc/latest#list-bare-metal-server-disks) the disks for a bare metal server. For more information, see [Storage overview of s390x bare metal servers](/docs/vpc?topic=vpc-s390x-bare-metal-servers-storage).
+- Because s390x local disks are attached through Fiber Channel protocol, a value of `fcp` has been added to the `interface_type` enumeration that is returned when you [retrieve](/apidocs/vpc/latest#get-bare-metal-server-disk) or [list](/apidocs/vpc/latest#list-bare-metal-server-disks) the disks for a bare metal server.
 
-- Because s390x provides TCP/IP connectivity by using HiperSockets, a value of `hipersocket` has been added to the `interface_type` enumeration returned when you [retrieve](/apidocs/vpc/latest#get-bare-metal-server-network-interface) or [list](/apidocs/vpc/latest#list-bare-metal-server-network-interfaces) the network interfaces on an s390x bare metal server. Similarly, when you [create](/apidocs/vpc/latest#create-bare-metal-server) an s390x bare metal server, or [add](/apidocs/vpc/latest#create-bare-metal-server-network-interface) a network interface to an existing s390x bare metal server, you must specify an `interface_type` of `hipersocket`. For more information, see the [_IBM HiperSockets Implementation Guide_](https://www.redbooks.ibm.com/abstracts/sg246816.html){: external} and [Network overview of s390x bare metal servers](/docs/vpc?topic=vpc-s390x-bare-metal-servers-network).
+- Because s390x provides TCP/IP connectivity by using HiperSockets, a value of `hipersocket` has been added to the `interface_type` enumeration returned when you [retrieve](/apidocs/vpc/latest#get-bare-metal-server-network-interface) or [list](/apidocs/vpc/latest#list-bare-metal-server-network-interfaces) the network interfaces on an s390x bare metal server. Similarly, when you [create](/apidocs/vpc/latest#create-bare-metal-server) an s390x bare metal server, or [add](/apidocs/vpc/latest#create-bare-metal-server-network-interface) a network interface to an existing s390x bare metal server, you must specify an `interface_type` of `hipersocket`. For more information, see the [_IBM HiperSockets Implementation Guide_](https://www.redbooks.ibm.com/abstracts/sg246816.html){: external}.
 
-s390x bare metal servers have different network bandwidth and maximum network interface limits from x86 bare metal servers. For more information, see [s390x bare metal server profiles](/docs/vpc?topic=vpc-s390x-bare-metal-servers-profile).
+s390x bare metal servers have different network bandwidth and maximum network interface limits from x86 bare metal servers.
 
 ## 20 September 2022
 {: #20-september-2022}

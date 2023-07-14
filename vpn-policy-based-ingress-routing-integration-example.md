@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-04-10"
+lastupdated: "2023-05-22"
 
 keywords:  network, VPN, VPN gateways, encryption
 
@@ -13,7 +13,7 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # Example - Policy-based ingress routing integration
-{: #vpn-policy-based-ingress-routing-integration-example}  
+{: #vpn-policy-based-ingress-routing-integration-example}
 
 Policy-based VPN gateways can work with ingress routing to forward incoming VPC traffic (for example, traffic from {{site.data.keyword.tg_full}}) to a customer on-prem site by leveraging a VPN gateway.
 {: shortdesc}
@@ -46,12 +46,8 @@ To integrate a policy-based VPN gateway with an ingress routing table, follow th
    Where `vpc-id` is the ID of VPC 1 and `routing-table-id` is the ID of ingress routing table that you created.
 
 1. On the VPN gateway overview page, click **Create** to create a connection. For **Local IBM CIDRs**, enter `192.168.10.0/24` and `192.168.20.0/24`; for **Peer CIDRs**, enter `10.10.0.0/24`.
-
-   Step 3 must be completed before Steps 4 and 5. If you execute Step 3 after Step 5, the UI page displays a `Peer CIDR is invalid` message.
-   {: important}
-
 1. On the VPC 1 details page, click **Manage address prefixes**.
 1. Click **Create** to create an address prefix. Enter the on-prem site CIDR **`10.10.0.0/24`** as the IP range, then select the zone where the VPN gateway is located.
 1. On the Transit Gateway details page, click the **Routes** tab, then click **Generate report**. Check that the routes were generated and ensure that the entry for `10.10.0.0/24` shows.
 1. Go to the on-prem side of the VPN gateway. Then, create a connection to the IBM Cloud side VPN gateway. For the local CIDRs, enter `10.10.0.0/24` and for remote CIDRs, enter `192.168.10.0/24` and `192.168.20.0/24`.
-1. On the {{site.data.keyword.cloud_notm}} console, wait for the connection to state **Active**. Then, go to overview page of the ingress routing table. Ensure that routes with destination `10.10.0.0/24` and a name that is prefixed with `ibm-vpn-gateway-` are shown. 
+1. On the {{site.data.keyword.cloud_notm}} console, wait for the connection to state **Active**. Then, go to overview page of the ingress routing table. Ensure that routes with destination `10.10.0.0/24` and a name that is prefixed with `ibm-vpn-gateway-` are shown.

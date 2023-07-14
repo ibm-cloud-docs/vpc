@@ -71,7 +71,7 @@ Gather the following information:
 The profile family and class must match for the dedicated host and instances that are provisioned on the host. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles).
 {: important}
 
-For more information, see [Gathering information to create an instance by using the CLI](docs/vpc?topic=vpc-creating-virtual-servers&interface=cli#gather-info-to-create-virtual-servers-cli).
+For more information, see [Gathering information to create an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli#gather-info-to-create-virtual-servers-cli).
 
 ### Creating an instance on a dedicated host by using the CLI
 {: #create-dedicated-host-vsi-cli}

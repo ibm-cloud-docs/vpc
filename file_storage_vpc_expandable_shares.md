@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-03-31"
+lastupdated: "2023-07-11"
 
-keywords:
+keywords: file share, file storage, increase capacity, expand capacity, expand share size, file share size
 
 subcollection: vpc
 
@@ -20,7 +20,7 @@ For {{site.data.keyword.filestorage_vpc_short}} file shares, you can increase th
 
 Billing for the file share is automatically updated to add the pro-rated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.
 
-{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
+{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Madrid, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 ## Expandable file share concepts
@@ -38,7 +38,7 @@ File shares that are created from an [IOPS tier profile](/docs/vpc?topic=vpc-fil
 * A 5 IOPS/GB profile can be expanded up to 9,600 GB.
 * A 10 IOPS/GB profile can be expanded up to 4,800 GB.
 
-IOPS is automatically adjusted for tiered file share profiles, based on the size of the file share. For example, if you expand a file share that was created with a 5 IOPS/GB profile from the original size of 250 GB to an expanded size of 1,000 GB, it has a maximum IOPS of 5,000 IOPS (1,000 GB capacity _x_ 5 IOPS). Because a 5 IOPS/GB file share can potentially expand to 9,600 GB, the max IOPS is adjusted to 48,000 IOPS. The capacity and the IOPS are immediately changed and you don't to restart the instance.
+IOPS is automatically adjusted for tiered file share profiles, based on the size of the file share. For example, if you expand a share with a 5 IOPS/GB profile from 250 GB to 1,000 GB, it has a maximum IOPS of 5,000 IOPS (1,000 GB capacity _x_ 5 IOPS). Because a 5 IOPS/GB file share can potentially expand to 9,600 GB, the max IOPS is adjusted to 48,000 IOPS. The capacity and the IOPS are immediately changed and you don't to restart the instance.
 
 You can monitor the progress of your file share expansion from the UI or CLI. You can also use the [Activity Tracker](/docs/vpc?topic=vpc-at-events) to verify that the file share was expanded. After a file share is expanded, you can't reduce capacity.
 
@@ -54,8 +54,8 @@ The following limitations apply to this release.
 
 * File shares can expand, with the following restrictions:
     * If the file share was created with a [Tiered IOPS profile](/docs/vpc?topic=vpc-file-storage-profiles#fs-tiers) that limits capacity to less than 32,000 GB, it can expand only to the allowed capacity for that tier.
-    * If the file share was created with a [Custom IOPS profile](/docs/vpc?topic=vpc-file-storage-profiles#custom) and created in a lower range that doesn't allow expanding to 16,000 GB (custom GB max), it can expand only to its maximum capacity for the specified custom range.
-    * If the file share was created with a [dp2 profile](/docs/vpc?topic=vpc-file-storage-profiles#dp2-profile) and created in a lower range that doesn't allow expanding to 32,000 GB (dp2 GB max), it can expand only to its maximum capacity for the specified dp2 range.
+    * If the file share was created with a [Custom IOPS profile](/docs/vpc?topic=vpc-file-storage-profiles#custom) in an IOPS range that doesn't allow expanding to 16,000 GB (custom GB max), it can expand only to its maximum capacity for the specified custom range.
+    * If the file share was created with a [dp2 profile](/docs/vpc?topic=vpc-file-storage-profiles#dp2-profile) in an IOPS range that doesn't allow expanding to 32,000 GB (dp2 GB max), it can expand only to its maximum capacity for the specified dp2 range.
     * File shares can expand multiple times until maximum capacity is reached.
 * IOPS increase to the maximum allowed by the profile.
 * You can't independently modify IOPS for a file share that was created from an IOPS tier profile. IOPS is adjusted when you expand capacity.
@@ -130,14 +130,17 @@ Created           2023-02-07T02:15:52-06:00
 
 You can expand existing file shares by calling the VPC API.
 
+As described in the [Beta VPC API](/apidocs/vpc-beta) reference [versioning](/apidocs/vpc-beta#api-versioning-beta) policy, support for older versions of the beta API is limited to 45 days. Therefore, beta API requests must specify a `version` query parameter date value within the last 45 days. You must also provide `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/apidocs/vpc#api-generation-parameter).
+{: requirement}
+
 Make a `PATCH /shares/{id}` request and specify the ID of the file share for which you want to increase the size.
 {: note}
 
 This request example expands a file share with a capacity of 50 GB to 2500 GB for a 5 IOPS/GB profile.
 
-```curl
+```sh
 curl -X PATCH \
- "$vpc_api_endpoint/v1/shares/$share_id?version=2023-02-06&generation=2" \
+ "$vpc_api_endpoint/v1/shares/$share_id?version=2023-07-11&generation=2&maturity=beta" \
  -H "Authorization: $iam_token" \
  -d '{
       "size": 2500
@@ -149,7 +152,7 @@ The file share status shows `updating` while the capacity is increased. The curr
 
 ```json
 {
-  "created_at": "2023-02-07T23:31:59Z",
+  "created_at": "2023-07-11T23:31:59Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63",
@@ -171,7 +174,7 @@ When the file share expansion completes, the new value displays, and the status 
 
 ```json
 {
-  "created_at": "2023-02-07T23:31:59Z",
+  "created_at": "2023-07-11T23:31:59Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63",
@@ -198,6 +201,25 @@ When the file share expansion completes, the new value displays, and the status 
 }
 ```
 {: codeblock}
+
+## Expand file shares with Terraform
+{: #expand-vpc-shares-terraform}
+{: terraform}
+
+To increase the capacity of a file share, use the `ibm_is_share` resource. When applied, the following example updates the share capacity to 300 GB.
+
+```terraform
+resource "ibm_is_share" "example" {
+  name    = "my-new-share"
+  size    = 300
+  iops    = 5000
+  profile = "dp2"
+  zone    = "us-south-2"
+}
+```
+{: codeblock}
+
+For more information about the arguments and attributes, see [ibm_is_share](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share){: external}.
 
 ## Next steps
 {: #next-step-expandable-shares}

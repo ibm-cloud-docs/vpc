@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-01-31"
+lastupdated: "2023-06-15"
 
 keywords: virtual server instances, VSI, compute, virtual machines, planning, best practices, instances, virtual servers, virtual server instance, Virtual servers for VPC, gen 2, generation 2, infrastructure, infrastructure as a service, IaaS
 
@@ -18,10 +18,10 @@ subcollection: vpc
 ## Types of maintenance operations that affect your virtual server instances
 {: #types-of-maintenance}
 
-### Host maintenance
+### Host and dedicated host maintenance
 {: #types-of-maintenance-host}
 
-{{site.data.keyword.cloud}} performs periodic maintenance on the underlying server hosts that run virtual servers. This maintenance can be upgraded to the software on the underlying hypervisor, updates to the firmware on the systems or other security and performance updates. In general, users don't experience any issues during these upgrades. Modifications that require host maintenance are applied with no or little impact to running services in most cases. Some infrequent scenarios can occur where the user might need to be involved during those operations, which are discussed in the [possible impacts](#maintenance-impacts) section.
+{{site.data.keyword.cloud}} performs periodic maintenance on the server hosts and dedicated hosts that run virtual servers. This maintenance upgrades the software on the underlying hypervisor, update the firmware on the systems, or other security and performance updates. In general, users don't experience any issues during these upgrades. Modifications that require host maintenance are applied with no or little impact to running services in most cases. Scenarios can occur where the user is involved during maintenance operations, which are discussed in the [Possible impacts to virtual server instances during maintenance operations](#maintenance-impacts) section.
 
 Most updates are done transparently to the host and the virtual servers that run on those hosts do not see any disruption. Nondisruptive changes can occur multiple times per week or even daily if necessary, all without impacting the user experience.
 
@@ -33,9 +33,9 @@ Most updates are done transparently to the host and the virtual servers that run
 ## Possible impacts to virtual server instances during maintenance operations
 {: #maintenance-impacts}
 
-Some changes can require a secure live migration of a virtual server to resolve an underlying issue on the hypervisor or host. These changes can be a firmware update or a rare event where the hypervisor kernel cannot be live patched. The regular live migration process is nondisruptive and use of dedicated hosts and virtual servers is not interrupted.
+Some changes can require a secure live migration of a virtual server to update the hypervisor or host. These changes can be a firmware update, an event where the hypervisor kernel cannot be live patched, or load balancing. The regular live migration process is nondisruptive and use of dedicated hosts and virtual servers is not interrupted.
 
-When nondisruptive live migration occurs, the virtual server experiences a brief pause of around 10 seconds, and in some cases up to 30 seconds. The virtual server instance is not restarted as part of this process.
+When nondisruptive live migration occurs, the virtual server experiences a brief pause of around 10 seconds, and in some cases up to 30 seconds. You are not notified in advance of nondisruptive migration. The virtual server instance is not restarted as part of this process.
 
 In cases where a disruptive migration is required, you are notified 30 days in advance of the scheduled migration. The virtual server instance is restarted as part of this process.
 

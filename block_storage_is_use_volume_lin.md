@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-02-06"
+lastupdated: "2023-07-05"
 
 keywords: Block storage for VPC, iscsi for VPC, SAN for VPC
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Set up your {{site.data.keyword.block_storage_is_short}} data volume for use (Linux)
+# Setting up your {{site.data.keyword.block_storage_is_short}} data volume for use (Linux)
 {: #start-using-your-block-storage-data-volume-lin}
 
 If you want to use your {{site.data.keyword.block_storage_is_full}} volume as a file system, you need to partition the volume, format it, and then mount it as a file system. You can perform this operation after you created a {{site.data.keyword.block_storage_is_short}} volume and attached it to an instance.
@@ -20,7 +20,7 @@ If you want to use your {{site.data.keyword.block_storage_is_full}} volume as a 
 
 Follow this procedure to use your block storage volume on a Linux&reg; system.
 
-## Step 1 - List all storage volumes
+## Step 1 - Listing all storage volumes
 {: #linux-procedure-list-volumes}
 
 Run the following command to list all {{site.data.keyword.block_storage_is_short}} volumes from your instance.
@@ -43,29 +43,31 @@ vdb    202:32   0  100G  0 disk
 
 Volume `vdb` is your block storage data volume.
 
-## Step 2 - Partition the volume
+## Step 2 - Partitioning the volume
 {: #linux-procedure-partition-volume}
 
-Run the following command to partition the volume.
+1. Run the following command to partition the volume.
 
-```sh
-fdisk /dev/vdb
-```
-{: pre}
+   ```sh
+   fdisk /dev/vdb
+   ```
+   {: pre}
 
-Type the `n` command for a new partition, then `p` for primary partition.
+2. Type the `n` command for a new partition, then `p` for primary partition.
 
-```sh
-Partition type:
-   p   primary (0 primary, 0 extended, 4 free)
-   e   extended
-Select (default p): p
-```
-{: pre}
+   ```sh
+   Partition type:
+      p   primary (0 primary, 0 extended, 4 free)
+      e   extended
+   Select (default p): p
+   ```
+   {: pre}
 
-Complete the prompts to define the partition's first cylinder number and last cylinder number. After the partition is created, run the `w` command to save changes to the partition table. Restart your system to verify the newly created partition.
+3. Complete the prompts to define the partition's first cylinder number and last cylinder number. You can use the default value for the first cylinder number. For the last cylinder, you can either define an absolute value for the last sector or you can define a relative value to the start sector. To define a relative value, use the + symbol followed by the partition size. The size can be specified in kibibytes (K), mebibytes (M), gibibytes (G), tebibytes (T), or pebibytes (P). For example, to set the partition size to 100 GiB, enter +100G.
 
-## Step 3 - Format the volume partition
+4. After the partition is created, run the `w` command to save changes to the partition table. Restart your system to verify the newly created partition.
+
+## Step 3 - Formating the volume partition
 {: #linux-procedure-format-volume}
 
 ```sh
@@ -80,7 +82,7 @@ fdisk -s /dev/vdb1
 ```
 {: pre}
 
-## Step 4 - Update the file systems table
+## Step 4 - Updating the file systems table
 {: #linux-procedure-update-fstab}
 
 Update `/etc/fstab`.
@@ -98,16 +100,16 @@ disk_partition=/dev/vdb1
 ```
 {: codeblock}
 
-## Step 5 - Create a directory
+## Step 5 - Creating a directory
 {: #linux-procedure-mkdir}
 
 ```sh
 mkdir /myvolumedir
-mount /dev/vda /myvolumedir
+mount /dev/vdb1 /myvolumedir
 ```
 {: pre}
 
-## Step 6 - Mount the volume as a file system
+## Step 6 - Mounting the volume as a file system
 {: #linux-procedure-mount-volume}
 
 ```sh
@@ -115,7 +117,7 @@ mount /dev/vdb1 /myvolumedir
 ```
 {: pre}
 
-## Step 7 - Access and use the new file system
+## Step 7 - Accessing the new file system
 {: #linux-procedure-use-file system}
 
 To see your new file system, run the following command.
@@ -137,7 +139,7 @@ tmpfs               5120       0      5120   0% /run/lock
 tmpfs            4084664       0   4084664   0% /sys/fs/cgroup
 /dev/vda1        245679   64360    168212  28% /boot
 tmpfs             817040       0    817040   0% /run/user/0
-/dev/vdb      103081248   61176  97777192   1% /myvolumedir
+/dev/vdb1      103081248   61176  97777192   1% /myvolumedir
 ```
 {: screen}
 

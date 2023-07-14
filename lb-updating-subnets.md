@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Updating subnets for existing Application Load Balancers for VPC
+# Updating subnets for existing application load balancers
 {: #alb-updating-subnets}
 
 You can update subnets for an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) by using the UI, CLI, or API. ETag support is added for the load balancer resource, and is required for any resource that allows arrays to be updated.
@@ -21,7 +21,7 @@ You can update subnets for an {{site.data.keyword.cloud}} {{site.data.keyword.al
 {: #alb-updating-subnets-ui}
 {: ui}
 
-To update subnets for an ALB by using the {{site.data.keyword.cloud_notm}} console, perform the following procedure:
+To update subnets for an ALB by in the {{site.data.keyword.cloud_notm}} console, perform the following procedure:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 1. Select the Navigation Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers**.
@@ -79,7 +79,7 @@ To use the CLI to update subnets for your application load balancer, follow thes
 
 The following example illustrates how to use the API to update subnets for an application load balancer.
 
-To update subnets for an application load balancer by using the API, perform the following procedure:
+To update subnets for an application load balancer with the API, perform the following procedure:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
 1. Use the following example to attach a subnet for your application load balancer:

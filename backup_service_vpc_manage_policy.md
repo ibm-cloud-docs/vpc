@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-02-24"
+lastupdated: "2023-06-27"
 
-keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
+keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
 subcollection: vpc
 
@@ -25,13 +25,13 @@ When you delete a backup policy, you also delete the plan that is associated wit
 
 When you delete a backup policy, any backups that were scheduled to be created based on the tags that were defined in the policy are no longer to be taken.
 
-## Manage backup policies in the UI
+## Managing backup policies in the UI
 {: #backup-manage-policy-ui}
 {: ui}
 
 Delete a backup policy, rename a policy, and edit user tags in the UI.
 
-### Rename a backup policy in the UI
+### Renaming a backup policy in the UI
 {: #backup-rename-policy-ui}
 
 You can rename a policy from the list of backup policies or from the backup policies details page.
@@ -40,7 +40,7 @@ You can rename a policy from the list of backup policies or from the backup poli
 
 * From the policy details page, click the pencil icon next to the policy name.
 
-### Edit tags for target resources in the UI
+### Editing tags for target resources in the UI
 {: #backup-edit-tags}
 
 From the Backup policy details page, you can edit the tags for your {{site.data.keyword.block_storage_is_short}} volumes target resources.
@@ -49,29 +49,29 @@ From the Backup policy details page, you can edit the tags for your {{site.data.
 
 2. For **Tags for target resources**, click the pencil icon.
 
-3. In the new window, enter a user tag name. For existing {{site.data.keyword.block_storage_is_short}} volumes with user tags, enter the tag name exactly as it appears in the volume. You can also add a brand new user tag here and then go back and add it to a volume. You need only one tag for a volume to create a backup.
+3. In the new window, enter a user tag name. For existing {{site.data.keyword.block_storage_is_short}} volumes with user tags, enter the tag name exactly as it appears in the volume. You can also add user tag here and then go back and add it to a volume. You need only one tag for a volume to create a backup.
 
 4. Click **Next**.
 
 5. Review the information on the next window. If you're satisfied, check the disclaimer and click **Save changes**.
 
-### Edit or delete a backup plan in the UI
+### Editing or deleting a backup plan in the UI
 {: #backup-edit-delete-plan-ui}
 
 After you provisioned a backup policy and created a backup plan, you can edit the plan details or delete the plan. You must have at least one remaining plan for the policy to create backups.
 
 1. From the [backup plan details](/docs/vpc?topic=vpc-backup-view-policies&interface=ui#backup-view-policy) page, expand the Actions menu for the plan.
 
-2. Select **Edit** or **Delete**. When you edit, the plan details appear in the side panel. You can modify the same information that you specified when you created the plan, such as the name and backup frequency. You can enable or disable fast restore, or change which regions fast restore is available in.
+2. Select **Edit** or **Delete**. When you edit, the plan details appear in the side panel. You can modify the same information that you specified when you created the plan, such as the name and backup frequency. You can enable or disable fast restore, or change which regions fast restore is available in. You can also enable or disable the creation and retention of copies in other regions.
 
 3. Confirm your selections when you're finished.
 
-### Review backup jobs in the UI
+### Reviewing backup jobs in the UI
 {: #backup-jobs-manage}
 
 You can see backup jobs that are running, completed, or failed when a backup is triggered. For more information, see [Viewing backup policy jobs](/docs/vpc?topic=vpc-backup-view-policy-jobs).
 
-### Delete a backup policy in the UI
+### Deleting a backup policy in the UI
 {: #backup-delete-policy}
 {: ui}
 
@@ -83,18 +83,18 @@ You can see backup jobs that are running, completed, or failed when a backup is 
 
    Confirm that the volumes that are associated with the backup policy are no longer to be backed up, and that backups that were created by the policy continue to exist. You must go to the [list of snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-delete-snapshot-ui) and delete each one manually.
 
-4. Type _delete_ to confirm, the click **Delete policy**.
+4. Enter _delete_ to confirm, the click **Delete policy**.
 
 The policy is deleted. Existing backups are retained until their expiration date. No further backups for the volumes are made after you delete the plan.
 
-### Delete a backup plan in the UI
+### Deleting a backup plan in the UI
 {: #backup-delete-plan}
 
 1. Go to the [list of backup policies](/docs/vpc?topic=vpc-backup-view-policies&interface=ui#backup-list-all-policies) and locate the backup policy.
 
 2. On the backup policy details page, select the plan that you want to delete. You can have up to four backup plans per policy.
 
-## Manage backup policies and plan from the CLI
+## Managing backup policies and plan from the CLI
 {: #backup-manage-policy-cli}
 {: cli}
 
@@ -106,7 +106,8 @@ Delete a backup policy, rename a policy, and edit user tags from the CLI.
 Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 {: requirement}
 
-1. Log in to the IBM Cloud.
+1. Log in to {{site.data.keyword.cloud}}.
+
    ```sh
    ibmcloud login --sso -a cloud.ibm.com
    ```
@@ -114,13 +115,14 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 
    This command returns a URL and prompts for a passcode. Go to that URL in your browser and log in. If successful, you get a one-time passcode. Copy this passcode and paste it as a response on the prompt. After successful authentication, you are prompted to choose your account. If you have access to multiple accounts, select the account that you want to log in as. Respond to any remaining prompts to finish logging in.
 
-2. Select the current generation of VPC. 
+2. Select the current generation of VPC.
+
    ```sh
    ibmcloud is target --gen 2
    ```
    {: pre}
 
-### Rename a backup policy from the CLI
+### Renaming a backup policy from the CLI
 {: #backup-rename-policy-cli}
 
 Run the `ibmcloud is backup-policy-update` command and specify the policy ID or policy name, and a new name for the backup policy.
@@ -135,26 +137,26 @@ The following example renames a backup policy that is identified by name:
 ```sh
 cloudshell:~$ ibmcloud is backup-policy-update backup-policy-v1 --name new-policy-23
 Updating backup policy backup-policy-v1 under account Test Account as user test.user@ibm.com...
-                           
-ID                      r138-0521986d-963c-4c18-992d-d6a7a99d115f   
-Name                    new-policy-23   
-CRN                     crn:v1:bluemix:public:is:eu-de:a/a10d63fa66daffc9b9b5286ce1533080::backup-policy:r138-0521986d-963c-4c18-992d-d6a7a99d115f   
-Status                  stable   
-Last job completed at   2023-02-22T20:12:44.000Z   
-Plans                   ID                                          Name               Resource type      
-                        r138-2129a79a-5629-4069-bf79-7bb0af3b0bd3   my-policy-plan-a   backup_policy_plan      
-                        r138-6f4f08ba-e0bb-470f-bbfb-f3a22aebbfa9   my-policy-plan-c   backup_policy_plan      
-                           
-Backup tags             dev:test   
-Backup resource type    volume   
-Resource group          defaults   
-Created at              2023-02-21T22:42:10+00:00   
+
+ID                      r138-0521986d-963c-4c18-992d-d6a7a99d115f
+Name                    new-policy-23
+CRN                     crn:v1:bluemix:public:is:eu-de:a/a10d63fa66daffc9b9b5286ce1533080::backup-policy:r138-0521986d-963c-4c18-992d-d6a7a99d115f
+Status                  stable
+Last job completed at   2023-02-22T20:12:44.000Z
+Plans                   ID                                          Name               Resource type
+                        r138-2129a79a-5629-4069-bf79-7bb0af3b0bd3   my-policy-plan-a   backup_policy_plan
+                        r138-6f4f08ba-e0bb-470f-bbfb-f3a22aebbfa9   my-policy-plan-c   backup_policy_plan
+
+Backup tags             dev:test
+Backup resource type    volume
+Resource group          defaults
+Created at              2023-02-21T22:42:10+00:00
 ```
 {: screen}
 
 For more information about available command options, see [`ibmcloud is backup-policy-update`](/docs/vpc?topic=vpc-vpc-reference#backup-policy-update){: external}.
 
-### Edit tags for target resources from the CLI
+### Editing tags for target resources from the CLI
 {: #backup-edit-tags-CLI}
 
 Run the `ibmcloud is backup-policy-update` command and specify the policy ID or policy name, and the tags that you want to modify.
@@ -169,95 +171,131 @@ The following example updates backup policy user tags of the policy that is iden
 ```sh
 cloudshell:~$ ibmcloud is backup-policy-update r138-0521986d-963c-4c18-992d-d6a7a99d115f --match-tags dev:env,bck:test
 Updating backup policy r138-0521986d-963c-4c18-992d-d6a7a99d115f under account Test Account as user test.user@ibm.com...
-                           
-ID                      r138-0521986d-963c-4c18-992d-d6a7a99d115f   
-Name                    new-policy-23   
-CRN                     crn:v1:bluemix:public:is:eu-de:a/a10d63fa66daffc9b9b5286ce1533080::backup-policy:r138-0521986d-963c-4c18-992d-d6a7a99d115f   
-Status                  stable   
-Last job completed at   2023-02-22T20:12:44.000Z   
-Plans                   ID                                          Name               Resource type      
-                        r138-2129a79a-5629-4069-bf79-7bb0af3b0bd3   my-policy-plan-a   backup_policy_plan      
-                        r138-6f4f08ba-e0bb-470f-bbfb-f3a22aebbfa9   my-policy-plan-c   backup_policy_plan      
-                           
-Backup tags             dev:env,bck:test   
-Backup resource type    volume   
-Resource group          defaults   
-Created at              2023-02-21T22:42:10+00:00  
+
+ID                      r138-0521986d-963c-4c18-992d-d6a7a99d115f
+Name                    new-policy-23
+CRN                     crn:v1:bluemix:public:is:eu-de:a/a10d63fa66daffc9b9b5286ce1533080::backup-policy:r138-0521986d-963c-4c18-992d-d6a7a99d115f
+Status                  stable
+Last job completed at   2023-02-22T20:12:44.000Z
+Plans                   ID                                          Name               Resource type
+                        r138-2129a79a-5629-4069-bf79-7bb0af3b0bd3   my-policy-plan-a   backup_policy_plan
+                        r138-6f4f08ba-e0bb-470f-bbfb-f3a22aebbfa9   my-policy-plan-c   backup_policy_plan
+
+Backup tags             dev:env,bck:test
+Backup resource type    volume
+Resource group          defaults
+Created at              2023-02-21T22:42:10+00:00
 ```
 {: screen}
 
 For more information about available command options, see [`ibmcloud is backup-policy-update`](/docs/vpc?topic=vpc-vpc-reference#backup-policy-update){: external}.
 
-### Update a backup plan from the CLI
+### Updating a backup plan from the CLI
 {: #backup-update-plan-cli}
 
 Run the `ibmcloud is backup-policy-plan-update` command to update a backup plan. Identify the policy and plan by ID or name in the command line. You can update the plan name, `cron-spec` backup schedule, attach user tags, update backup retention period, add, or remove fast restore zones.
 
 The following code snippet shows the command syntax.
 
-```zsh
-ibmcloud is backup-policy-plan-update POLICY PLAN --cron-spec CRON_SPEC [--name NAME] [--active] [--attach-tags ATTACH_TAGS] [--copy-tags true | false] [[--delete-after DELETE_AFTER] [--delete-over-count DELETE_OVER_COUNT]] [[--clone-policy-zones ZONES [--clone-policy-max-snapshots MAX_SNAPSHOTS]]] [--output JSON] [-q, --quiet]
+```sh
+ibmcloud is backup-policy-plan-update POLICY PLAN --cron-spec CRON_SPEC [--name NAME] [--active] [--attach-tags ATTACH_TAGS] [--copy-tags true | false] [--delete-after DELETE_AFTER] [--delete-over-count DELETE_OVER_COUNT] [--clone-policy-zones ZONES] [--clone-policy-max-snapshots MAX_SNAPSHOTS] [--output JSON] [-q, --quiet] [--copy-remote-regions TBD] [--encryption-key TBD]
 ```
 {: pre}
 
-The following example specifies the backup policy and plan by name, and changes the name of the plan from `my-policy-plan-c` to `my-policy-plan-b`.
+To rename the backup plan, run the command like the following example. It specifies the backup policy and plan by name, and changes the name of the plan from `my-policy-plan-c` to `my-policy-plan-b`.
 
 ```sh
 cloudshell:~$ ibmcloud is backup-policy-plan-update new-policy-23 my-policy-plan-c --name my-policy-plan-b
 Updating plan my-policy-plan-c of the backup policy r138-0521986d-963c-4c18-992d-d6a7a99d115f under account Test Account as user test.user@ibm.com...
-                        
-ID                   r138-6f4f08ba-e0bb-470f-bbfb-f3a22aebbfa9   
-Name                 my-policy-plan-b   
-Active               true   
-Lifecycle state      updating   
-Clone policy         Max snapshots   Zones      
-                     3               eu-de-1,eu-de-2      
-                        
-Deletion trigger     Delete after   Delete over count      
-                     20             20      
-                        
-Attached tags        daily-backup-plan   
-Copy tags            true   
-Cron specification   10 20 * * *   
-Created at           2023-02-21T22:42:32+00:00   
+
+ID                   r138-6f4f08ba-e0bb-470f-bbfb-f3a22aebbfa9
+Name                 my-policy-plan-b
+Active               true
+Lifecycle state      updating
+Clone policy         Max snapshots   Zones
+                     3               eu-de-1,eu-de-2
+
+Deletion trigger     Delete after   Delete over count
+                     20             20
+
+Attached tags        daily-backup-plan
+Copy tags            true
+Cron specification   10 20 * * *
+Created at           2023-02-21T22:42:32+00:00
 Resource type        backup_policy_plan
 ```
 {: screen}
 
-The following example specifies the backup policy and plan by their IDs. As only `eu-de-1` is specified in the `--clone-policy-zones` option, fast restore snapshot clones are no longer retained in `eu-de-1`. The update also changes the number of backup clones to be and stored in that zone from three to five.
+To update locations of fast restore clones of backup snapshots, run the command like the following example. It specifies the backup policy and plan by their IDs. Because only `eu-de-1` is specified in the `--clone-policy-zones` option, fast restore snapshot clones are no longer retained in `eu-de-2`. The update also changes the number of backup clones to be created and stored in that zone from three to five.
 
 ```sh
-cloudshell:~$ ibmcloud is backup-policy-plan-update r138-0521986d-963c-4c18-992d-d6a7a99d115f r138-6f4f08ba-e0bb-470f-bbfb-f3a22aebbfa9  --clone-policy-max-snapshots 5 --clone-policy-zones eu-de-1 
+cloudshell:~$ ibmcloud is backup-policy-plan-update r138-0521986d-963c-4c18-992d-d6a7a99d115f r138-6f4f08ba-e0bb-470f-bbfb-f3a22aebbfa9  --clone-policy-max-snapshots 5 --clone-policy-zones eu-de-1
 Updating plan r138-6f4f08ba-e0bb-470f-bbfb-f3a22aebbfa9 of the backup policy r138-0521986d-963c-4c18-992d-d6a7a99d115f under account Test Account as user test.user@ibm.com...
-                        
-ID                   r138-6f4f08ba-e0bb-470f-bbfb-f3a22aebbfa9   
-Name                 my-policy-plan-b   
-Active               true   
-Lifecycle state      updating   
-Clone policy         Max snapshots   Zones      
-                     5               eu-de-1      
-                        
-Deletion trigger     Delete after   Delete over count      
-                     20             20      
-                        
-Attached tags        daily-backup-plan   
-Copy tags            true   
-Cron specification   10 20 * * *   
-Created at           2023-02-21T22:42:32+00:00   
-Resource type        backup_policy_plan      
 
+ID                   r138-6f4f08ba-e0bb-470f-bbfb-f3a22aebbfa9
+Name                 my-policy-plan-b
+Active               true
+Lifecycle state      updating
+Clone policy         Max snapshots   Zones
+                     5               eu-de-1
+
+Deletion trigger     Delete after   Delete over count
+                     20             20
+
+Attached tags        daily-backup-plan
+Copy tags            true
+Cron specification   10 20 * * *
+Created at           2023-02-21T22:42:32+00:00
+Resource type        backup_policy_plan
 ```
+{: screen}
+
+[New]{: tag-new}
+
+To update the backup plan to include the creation of a remote copy of the backup snapshot in a different region, run the `backup-policy-plan-update` command with `--remote-region-policies` option. The following example updates the _my-policy-plan-b_ plan that is part of the _new-policy-23_. It specifies the `us-east` region as the destination of the remote region copy. Optionally, you can add the `--encryption-key` option to provide the CRN of the root key to be used to decrypt the snapshot in the remote region.
+
+```sh
+cloudshell:~$ ibmcloud is backup-policy-plan-update new-policy-23 my-policy-plan-b --remote-region-policies '[
+  {
+    "delete_over_count": 99,
+    "region": {
+      "name": "us-east"
+    }
+  }
+]'
+Updating plan r138-6f4f08ba-e0bb-470f-bbfb-f3a22aebbfa9 of the backup policy r138-0521986d-963c-4c18-992d-d6a7a99d115f under account Test Account as user test.user@ibm.com...
+
+ID                   r138-6f4f08ba-e0bb-470f-bbfb-f3a22aebbfa9
+Name                 my-policy-plan-b
+Active               true
+Lifecycle state      updating
+Clone policy         Max snapshots   Zones
+                     5               eu-de-1
+
+Deletion trigger     Delete after   Delete over count
+                     20             20
+
+Remote Region Policies   Region    Encryption Key   Delete over count
+                         us-east   -                99
+
+Attached tags        daily-backup-plan
+Copy tags            true
+Cron specification   10 20 * * *
+Created at           2023-05-05T22:42:32+00:00
+Resource type        backup_policy_plan
+```
+{: codeblock}
 
 For more information about available command options, see [`ibmcloud is backup-policy-plan-update`](/docs/cli?topic=cli-vpc-reference#backup-policy-plan-update){: external}.
 
-### Delete a backup plan from the CLI
+### Deleting a backup plan from the CLI
 {: #backup-delete-plan-cli}
 
 Run the `ibmcloud is backup-policy-plan-delete` command and specify the backup policy and the plan or plans that you want to delete. You can specify the backup policy and plans by ID or by name.
 
 The following example shows the command syntax.
 
-```zsh
+```sh
 ibmcloud is backup-policy-plan-delete POLICY (PLAN1 PLAN2 ...) [--output JSON] [-f, --force] [-q, --quiet]
 ```
 {: pre}
@@ -275,7 +313,7 @@ Deletion request for plan my-policy-plan-a has been accepted.
 
 For more information about available command options, see [`ibmcloud is backup-policy-plan-delete`](/docs/vpc?topic=vpc-vpc-reference#backup-policy-plan-delete){: external}.
 
-### Delete a backup policy from the CLI
+### Deleting a backup policy from the CLI
 {: #backup-delete-policy-cli}
 
 Run the `backup-policy-delete` command and specify the policy ID or policy name for one or more backup policies. Backup plans that are associated with the policy are also deleted. For more information about backup policy deletion, see [Backup policy deletion overview](#backup-delete).
@@ -306,18 +344,19 @@ cloudshell:~$ ibmcloud is backup-policy-delete r138-5c719085-cf26-456e-9216-9848
         "result": true,
         "Error": null
     }
+]
 ```
 {: screen}
 
 For more information about available command options, see [`ibmcloud is backup-policy-delete`](/docs/vpc?topic=vpc-vpc-reference#backup-policy-delete).
 
-## Manage backup policies and plans with the API
+## Managing backup policies and plans with the API
 {: #backup-manage-policy-api}
 {: api}
 
 You can rename and update a policy, edit user tags, and delete a backup policy with the API.
 
-### Rename a backup policy with the API
+### Renaming a backup policy with the API
 {: #backup-rename-policy-api}
 
 Make a `PATCH /backup_policies/{backup_policies_id}` request and specify a new name for a backup policy. The following example shows how to rename policy `5063bfe5-c16f-4606-ba26-fba0f099b97d` to `my-backup-policy1`.
@@ -332,7 +371,7 @@ curl -X PATCH\
 ```
 {: codeblock}
 
-### Update a backup plan with the API
+### Updating a backup plan with the API
 {: #backup-update-plan-api}
 
 Make a `PATCH /backup_policies/{backup_policy_id}/plans/{plan_id}` request to update the backup plan by specifying the following properties:
@@ -363,10 +402,10 @@ curl -X PATCH\
 ```
 {: codeblock}
 
-### Update a backup policy plan for the fast restore option with the API
+### Updating a backup policy plan for the fast restore option with the API
 {: #baas-update-plan-fast-restore-api}
 
-Make a `PATCH /backup_policies/{backup_policy_id}/plans/{plan_id}` request to update a backup plan. Specify the `clone_policy` property and `zones` subproperty to indicate which zone in your region you want to create the backup snapshot clone. The zone must be different than your source zone. You can specify multiple zones. The plan includes keeping a maximum of two cached backup snapshots in each zone.
+Make a `POST /backup_policies/{backup_policy_id}/plans/{plan_id}` request to update a backup plan. Specify the `clone_policy` property and `zones` subproperty to indicate which zone in your region you want to create the backup snapshot clone. The zone must be different than your source zone. You can specify multiple zones. The plan includes keeping a maximum of two cached backup snapshots in each zone.
 
 This example updates a backup policy to create a backup plan. The new plan defines a clone policy to create snapshot clones in zone _us-south-3_. The plan specifies keeping a maximum of three cached backup snapshots.
 
@@ -434,7 +473,83 @@ A successful response shows that the clone policy is created.
 ```
 {: codeblock}
 
-### Delete a backup policy and plans with the API
+### Updating a backup policy plan to include creation of a copy in another region with the API
+{: #baas-update-plan-crc-api}
+
+[New]{: tag-new}
+
+Make a `PATCH /backup_policies/{backup_policy_id}/plans/{plan_id}` request to update a backup plan. Specify the `remote_region_policies` property and `region` subproperty to indicate the region where you want to create the backup copy.
+
+This example updates a backup policy to create a backup plan that creates backups in the `us-south` region and includes the creation of a remote copy. The following example specifies that the copies are to be created in `us-east` region.
+
+```json
+curl -X PATCH "$vpc_api_endpoint/v1/backup_policies/8758bd18-344b-486a-b606-5b8cb8cdd044/plans?version=2023-05-09&generation=2"\
+   -H "Authorization: $iam_token"\
+   -d '{
+        "active": true,
+        "attach_user_tags": [
+          "daily-backups"
+        ],
+        "copy_user_tags": true,
+        "cron_spec": "30 */2 * * 1-5",
+        "deletion_trigger": {
+          "delete_after": 20,
+          "delete_over_count": 20
+        },
+        "remote_region_policies": {
+          "delete_over_count": 5,
+          "encryption_key": [
+            {
+              "CRN": "crn:v1:bluemix:public:kms:us-south:a/dffc98a0f1f0f95f6613b3b752286b87:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd617"
+            }
+          ],
+          "region": [
+            {
+             "name":"us-east"
+            }
+          ]
+        },
+        "name": "my-daily-plan-2"
+      }'
+```
+{: codeblock}
+
+A successful response shows that the remote region policy is created.
+
+```json
+{
+  "active": true,
+  "attach_user_tags": [
+    "hourly-backups"
+  ],
+  "copy_user_tags": false,
+  "created_at": "2023-05-09T15:16:37Z",
+  "cron_spec": "0 */2 * * *",
+  "deletion_trigger": {
+    "delete_after": 5
+  },
+  "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/8758bd18-344b-486a-b606-5b8cb8cdd044/plans/6e251cfe-6f7b-4638-a6ba-00e9c327b178",
+  "id": "6e251cfe-6f7b-4638-a6ba-00e9c327b178",
+  "lifecycle_state": "stable",
+  "name": "my-hourly-plan-2",
+  "remote_region_policies": {
+    "delete_over_count": 5,
+    "encryption_key": "crn:v1:bluemix:public:kms:us-south:a/dffc98a0f1f0f95f6613b3b752286b87:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd617" ,
+    "region": [
+      {
+        "name": "us-east"
+      },
+      {
+        "href": "https://us-east.iaas.cloud.ibm.com/v1/regions/us-east/zones/us-east-2"
+      }
+     ],
+    },
+  "resource_type": "backup_policy_plan"
+}
+```
+{: codeblock}
+
+### Deleting a backup policy and plans with the API
 {: #backup-delete-policy-api}
 
 Make a `DELETE /backup_policies/{backup_policy_id}` request to delete a backup policy and all associated backup plans. During the deletion, the status shows `deleting`. When the deletion is complete (status = `deleted`), the backup policy and backup plans cannot be recovered.
@@ -450,7 +565,7 @@ curl -X DELETE\
 
 The response indicates that all backup plans are deleted.
 
-### Delete a backup plan with the API
+### Deleting a backup plan with the API
 {: #backup-delete-plan-api}
 
 Make a `DELETE /backup_policies/{backup_policy_id}/plans/{plan_id}` request to delete a specific backup plan from a backup policy. Resources that were created by the plan remain but they are no longer subject to the plan's deletion trigger. During the deletion, the status shows `deleting`. When the deletion is complete (status = `deleted`), the backup plan cannot be recovered.
@@ -482,9 +597,95 @@ The response shows that the backup plan was deleted.
   "lifecycle_state": "deleted",
   "name": "my-policy-plan",
   "resource_type": "backup_policy_plan"
+  }
 }
 ```
 {: screen}
+
+## Managing backup policies and plans with Terraform
+{: #backup-manage-policy-terraform}
+{: terraform}
+
+You can manage backup policies by using Terraform.
+
+To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
+{: requirement}
+
+VPC infrastructure services use a regional specific based endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the right region in the provider block in the `provider.tf` file.
+
+See the following example of targeting a region other than the default `us-south`.
+
+```terraform
+provider "ibm" {
+  region = "eu-de"
+}
+```
+{: screen}
+
+### Updating a backup policy with Terraform
+{: #backup-rename-policy-terraform}
+
+To update a backup policy, use the `ibm_is_backup_policy` resource. The following example identifies the name of the backup policy and the associated tags.
+
+```terraform
+resource "ibm_is_backup_policy" "example" {
+  match_user_tags = ["dev:env","bck:test",]
+  name            = "example-backup-policy"
+}
+```
+{: codeblock}
+
+For more information about the arguments and attributes, see [ibm_is_backup_policy](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_backup_policy){: external}.
+
+### Updating a backup plan with Terraform
+{: #backup-update-plan-terraform}
+
+To update a backup policy, use the `ibm_is_backup_policy_plan` resource. The following example resource identifies the policy by ID, and you can change the plan's name or its schedule by updating the name or the cron_spec arguments.
+
+```terraform
+resource "ibm_is_backup_policy_plan" "example" {
+  backup_policy_id = "r138-0521986d-963c-4c18-992d-d6a7a99d115f"
+  cron_spec        = "10 20 * * *"
+  name             = "example-backup-policy-plan"
+}
+```
+{: codeblock}
+
+The following example is a resource definition that you can use to update the backup plan with fast restore clones in two eu-de zones.
+
+```terraform
+resource "ibm_is_backup_policy_plan" "example" {
+  backup_policy_id = "r138-0521986d-963c-4c18-992d-d6a7a99d115f"
+  cron_spec        = "10 20 * * *"
+  name             = "example-backup-policy-plan"
+  clone_policy {
+    zones          = ["eu-de-1", "eu-de-2"]
+    max_snapshots  = 4
+  }
+}
+```
+{: codeblock}
+
+For more information about the arguments and attributes, see [ibm_is_backup_policy_plan](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_backup_policy_plan){: external}.
+
+### Deleting a backup plan or a backup policy with Terraform
+{: #backup-delete-plan-terraform}
+
+Use the `terraform destroy` command to conveniently destroy a remote object such as a single backup plan or backup policy. The following example destroys the `example-backup-policy-plan`.
+
+```terraform
+terraform destroy --target ibm_is_backup_policy_plan.example.id
+```
+{: codeblock}
+
+The following example deletes the `example-backup-policy`.
+
+```terraform
+terraform destroy --target ibm_is_backup_policy.example.id
+```
+{: codeblock}
+
+For more information, see [terraform destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy){: external}.
 
 ## Backup policy statuses
 {: #backup-policy-statuses}
@@ -525,6 +726,8 @@ When a backup is created, an event is triggered in Activity Tracker for the [Bac
 
 ## Next steps
 {: #backup-next-steps-manage}
+
+You can do the following actions.
 
 * [Apply tags to your resources for backups.](/docs/vpc?topic=vpc-backup-use-policies)
 * [Create more backup policies.](/docs/vpc?topic=vpc-backup-policy-create&interface=ui)

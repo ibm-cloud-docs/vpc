@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2023-05-19",
+    "lastupdated": "2023-06-27",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
@@ -31,19 +31,19 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
-          "date": "19 May 2023", 
-          "title": "Removal of weak VPN for VPC ciphers",
-          "description": "Effective 18 May 2023, the Authentication algorithms md5 and sha1, Encryption algorithm triple_des, and Diffie–Hellman groups 2 and 5 VPN IKE and IPsec ciphers are now removed. After this date, you cannot create an IKE/IPsec policy or connection that includes a weak cipher, but you can still upgrade weak cipher suites on an existing policy or connection. Starting 10 July 2023, any existing connections with customized IKE or IPsec policies that contain weak ciphers will be disabled, and any connections with auto IKE or IPsec policies that were created before September 20, 2022 will be forced to upgrade to the enhanced auto-negotiation policy."
+          "date": "27 June 2023", 
+          "title": "Snapshots for VPC Cross Regional Copy (GA)",
+          "description": "Customers can now create a copy of a snapshot in a different region, and later use that copy to restore a volume in the new region. This feature can be beneficial in disaster recovery scenarios when the customer needs to start their virtual server instance and data volumes in a different region. Customers can also use the remote copy to create storage volumes in a new region and expand their VPC in new locations."
         },
         {
-          "date": "11 May 2023", 
-          "title": "IBM Hyper Protect Container Runtime image ibm-hyper-protect-container-runtime-1-0-s390x-10",
-          "description": "For the IBM Hyper Protect Container Runtime image version ibm-hyper-protect-container-runtime-1-0-s390x-10, new certificates are available."
+          "date": "27 June 2023", 
+          "title": "Backup for VPC Cross Regional Copy (GA)",
+          "description": "Customers can now save a copy of their backup in a different region. Customers can copy the backup snapshot to another region manually or add the copy option to their backup policy plans. Customers can manage and use the cross-regional copy in the target region independently from the parent volume or the original backup."
         },
         {
-          "date": "9 May 2023", 
-          "title": "New -a100 GPU profile is available (LA)",
-          "description": "There is a new profile available for customers with special approval to preview this service that is for provisioning instances based on NVIDIA's A100 Amperere GPU attached to a single virtual server instance. The gx2-80x1280x8a100 profile supports artificial intelligence and machine language frameworks and includes instance storage. Only Redhat and Ubuntu are supported for this profile. This profile is currently only available in the Washington DC region."
+          "date": "22 June 2023", 
+          "title": "New Ed25519 SSH key type is available (GA)",
+          "description": "The Ed25519 SSH key type is a new, supported SSH key type and can be used as an alternative to the RSA SSH key type. The Ed25519 SSH key can be used with Linux operating systems, but is not supported for Windows or VMware images."
         }
       ]
     }

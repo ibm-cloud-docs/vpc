@@ -2,9 +2,9 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-02-17"
+lastupdated: "2023-06-27"
 
-keywords:
+keywords: snapshots, block storage snapshots, manage snapshots, fast restore clone, backup snapshot, remote copy, cross-regional copy
 
 subcollection: vpc
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Managing snapshots
 {: #snapshots-vpc-manage}
 
-You can manage existing snapshots in several ways. Rename existing snapshots to make them easier to identify. Add user tags to snapshots for use by the VPC backup service. Enable of disable fast restore copies of a snapshot. Delete snapshots that you no longer need and free up space for new snapshots. Verify {{site.data.keyword.iamshort}} access. Verify snapshot statuses.
+You can manage existing snapshots in several ways. Rename existing snapshots to make them simplier to identify. Add user tags to snapshots for use by the VPC backup service. Enable of disable fast restore copies of a snapshot. Delete snapshots that you no longer need and free up space for new snapshots. Verify {{site.data.keyword.iamshort}} access. Verify snapshot statuses.
 {: shortdesc}
 
 ## Naming snapshots
@@ -25,16 +25,21 @@ Consider naming the snapshot to indicate the volume that you copied. For example
 
 Snapshot names adhere to the same requirements as volume names. Valid names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. Snapshot names must begin with a lowercase letter and must be unique across the VPC. The UI provides name checking as a convenience. For example, if you end a snapshot name with a hyphen (-), the UI notifies you of the error. It also checks for duplicate names.
 
-## Rename a snapshot in the UI
+[New]{: tag-new}
+When you create a cross-regional copy of a snapshot, the new snapshot is named `[copy]-[source-snapshot-name]`. For example, a cross-regional copy of the snapshot _my-volume-snapshot1_ is automatically named _copy-my-volume-snapshot1_ when it is placed in the target region. Cross-regional copies of snapshots are independent from the source snapshot and the source volume, and the copies can be managed like any other normal snapshot.
+
+## Renaming a snapshot in the UI
 {: #snapshots-vpc-rename-ui}
 {: ui}
+
+Use the following steps to rename a snapshot by using the UI.
 
 1. Go to the list of snapshots. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Snapshots**.
 2. Click the name of a snapshot from the list.
 3. Click the pencil icon.
 4. Provide a [new name](#snapshots-vpc-naming) for the snapshot, save, and confirm your changes.
 
-## Rename a snapshot from the CLI
+## Renaming a snapshot from the CLI
 {: #snapshots-vpc-rename-cli}
 {: cli}
 
@@ -44,7 +49,8 @@ Snapshot names adhere to the same requirements as volume names. Valid names can 
 Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 {: requirement}
 
-1. Log in to the IBM Cloud.
+1. Log in to {{site.data.keyword.cloud}}.
+
    ```sh
    ibmcloud login --sso -a cloud.ibm.com
    ```
@@ -52,20 +58,24 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 
    This command returns a URL and prompts for a passcode. Go to that URL in your browser and log in. If successful, you get a one-time passcode. Copy this passcode and paste it as a response on the prompt. After successful authentication, you are prompted to choose your account. If you have access to multiple accounts, select the account that you want to log in as. Respond to any remaining prompts to finish logging in.
 
-2. Select the current generation of VPC. 
+2. Select the current generation of VPC.
+
    ```sh
    ibmcloud is target --gen 2
    ```
    {: pre}
 
 3. Set the `IBMCLOUD_IS_FEATURE_SNAPSHOT` environment variable to `true`.
-   ```zsh
+
+   ```sh
    export IBMCLOUD_IS_FEATURE_SNAPSHOT=true
    ```
    {: pre}
 
 ### Renaming a snapshot from the CLI
 {: #vpc-rename-snapshot-cli}
+
+You can rename a snapshot from the CLI.
 
 To rename a snapshot, issue the `ibmcloud is snapshot-update` command and provide the snapshot ID and new name.
 
@@ -79,37 +89,39 @@ See the following example.
 ```sh
 cloudshell:~$ ibmcloud is snapshot-update r138-e6664842-b370-496a-9ae7-da3fb647707c --name snappy-snap-snap
 Updating snapshot r138-e6664842-b370-496a-9ae7-da3fb647707c under account Test Account as user test.user@ibm.com...
-                          
-ID                     r138-e6664842-b370-496a-9ae7-da3fb647707c   
-Name                   snappy-snap-snap   
-CRN                    crn:v1:bluemix:public:is:eu-de:a/a10d63fa66daffc9b9b5286ce1533080::snapshot:r138-e6664842-b370-496a-9ae7-da3fb647707c   
-Status                 stable   
-Clones                 Zone      Available   Created      
-                       eu-de-3   true        2023-02-17T20:28:53+00:00      
-                       eu-de-1   true        2023-02-17T18:53:57+00:00      
-                          
-Source volume          ID                                          Name      
-                       r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa   vicky-block-test1      
-                          
-Bootable               false   
-Encryption             provider_managed   
-Encryption key         -   
-Minimum capacity(GB)   20   
-Size(GB)               1   
-Resource group         ID                                 Name      
-                       a0eb5d9062af485fa5bb2c6999c74eac   test-snap      
-                          
-Created                2023-02-17T18:53:57+00:00   
-Captured at            2023-02-17T18:53:57+00:00   
-Tags                   -   
+
+ID                     r138-e6664842-b370-496a-9ae7-da3fb647707c
+Name                   snappy-snap-snap
+CRN                    crn:v1:bluemix:public:is:eu-de:a/a10d63fa66daffc9b9b5286ce1533080::snapshot:r138-e6664842-b370-496a-9ae7-da3fb647707c
+Status                 stable
+Clones                 Zone      Available   Created
+                       eu-de-3   true        2023-02-17T20:28:53+00:00
+                       eu-de-1   true        2023-02-17T18:53:57+00:00
+
+Source volume          ID                                          Name
+                       r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa   vicky-block-test1
+
+Bootable               false
+Encryption             provider_managed
+Encryption key         -
+Minimum capacity(GB)   20
+Size(GB)               1
+Resource group         ID                                 Name
+                       a0eb5d9062af485fa5bb2c6999c74eac   test-snap
+
+Created                2023-02-17T18:53:57+00:00
+Captured at            2023-02-17T18:53:57+00:00
+Tags                   -
 ```
 {: screen}
 
 For more information about available command options, see [`ibmcloud is snapshots`](/docs/vpc?topic=vpc-vpc-reference#snapshots).
 
-## Rename a snapshot with the API
+## Renaming a snapshot with the API
 {: #snapshots-vpc-rename-api}
 {: api}
+
+You can rename a snapshot by using the API.
 
 Make a `PATCH /snapshots` call and specify the snapshot ID and new name of the snapshot.
 
@@ -123,15 +135,48 @@ curl -X PATCH \
 ```
 {: codeblock}
 
+You can use the same call to rename a cross-regional copy. The cross-regional copy is independent from the source snapshot and source volume, and can be managed like any other snaphot.
 
-## Add tags to a snapshot in the UI
+## Updating a snapshot with Terraform
+{: #snapshots-vpc-rename-terraform}
+{: terraform}
+
+To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
+{: requirement}
+
+VPC infrastructure services use a regional specific based endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the right region in the provider block in the `provider.tf` file.
+
+See the following example of targeting a region other than the default `us-south`.
+
+```terraform
+provider "ibm" {
+  region = "eu-de"
+}
+```
+{: screen}
+
+To update a snapshot, use the `ibm_is_snapshot` resource. You can change the name of the snapshot, the fast restore zones, and tags. However, changing `resource_group` and `source_volume` values forces Terraform to destroy the snapshot and create a different snapshot.
+
+```terraform
+resource "ibm_is_snapshot" "example" {
+  name          = "my-snapshot"
+  source_volume = ibm_is_volume.example.id
+  }
+```
+{: codeblock}
+
+For more information about the arguments and attributes, see [ibm_is_snapshot](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_snapshot){: external}.
+
+## Adding tags to a snapshot in the UI
 {: #snapshots-vpc-add-tags-ui}
 {: ui}
 
 You can add [user tags](/docs/vpc?topic=vpc-block-storage-about#storage-about-user-tags) and [access management tags](/docs/vpc?topic=vpc-block-storage-about#storage-about-user-tags) to your {{site.data.keyword.block_storage_is_short}} snapshots. You can add user tags to an existing snapshot or when you create a snapshot. The tags can be used by a backup policy to create backups of the snapshot.
 
-### Add user tags from the snapshots list screen
+### Adding user tags from the snapshots list screen
 {: #snapshots-vpc-add-tags-list-ui}
+
+Use the following steps to add user tags from the snapshots list screen.
 
 1. Go to the [list of snapshots](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=ui#snapshots-vpc-view-list-ui).
 2. Locate an _available_ snapshot created by _user_. (Snapshots that were created by a backup policy are identified as created by _Backup policy_.)
@@ -139,8 +184,10 @@ You can add [user tags](/docs/vpc?topic=vpc-block-storage-about#storage-about-us
 4. In the new window, type a tag in the User tags text box.
 5. Click **Save**.
 
-### Add tags from the snapshot details page
+### Adding tags from the snapshot details page
 {: #snapshots-vpc-add-tags-details-ui}
+
+use the following steps to add tags from the snapshot details page.
 
 1. Go to the [list of snapshots](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=ui#snapshots-vpc-view-list-ui).
 2. Click the name of a snapshot in the list.
@@ -150,9 +197,11 @@ You can add [user tags](/docs/vpc?topic=vpc-block-storage-about#storage-about-us
 
 When the user tags are matched with a backup policy, a backup is triggered based on the backup plan schedule. For more information, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-policy-create).
 
-## Add tags to a snapshot from the CLI
+## Adding tags to a snapshot from the CLI
 {: #snapshots-vpc-add-tags-cli}
 {: cli}
+
+You can add tags to a snapshot from the CLI.
 
 Specify a `snapshot-update` command with the `--tags` option to add user tags to a volume.
 
@@ -164,39 +213,41 @@ The following example adds user tags `env:test` and `env:prod` to a volume that 
 ```sh
 cloudshell:~$ ibmcloud is snapshot-update r138-e6664842-b370-496a-9ae7-da3fb647707c --name snappy-snap-snap --tags env:test,env:prod
 Updating snapshot r138-e6664842-b370-496a-9ae7-da3fb647707c under account Test Account as user test.user@ibm.com...
-                          
-ID                     r138-e6664842-b370-496a-9ae7-da3fb647707c   
-Name                   snappy-snap-snap   
-CRN                    crn:v1:bluemix:public:is:eu-de:a/a10d63fa66daffc9b9b5286ce1533080::snapshot:r138-e6664842-b370-496a-9ae7-da3fb647707c   
-Status                 stable   
-Clones                 Zone      Available   Created      
-                       eu-de-3   true        2023-02-17T20:28:53+00:00      
-                       eu-de-1   true        2023-02-17T18:53:57+00:00      
-                          
-Source volume          ID                                          Name      
-                       r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa   vicky-block-test1      
-                          
-Bootable               false   
-Encryption             provider_managed   
-Encryption key         -   
-Minimum capacity(GB)   20   
-Size(GB)               1   
-Resource group         ID                                 Name      
-                       a0eb5d9062af485fa5bb2c6999c74eac   test-snap      
-                          
-Created                2023-02-17T18:53:57+00:00   
-Captured at            2023-02-17T18:53:57+00:00   
-Tags                   env:test,env:prod   
+
+ID                     r138-e6664842-b370-496a-9ae7-da3fb647707c
+Name                   snappy-snap-snap
+CRN                    crn:v1:bluemix:public:is:eu-de:a/a10d63fa66daffc9b9b5286ce1533080::snapshot:r138-e6664842-b370-496a-9ae7-da3fb647707c
+Status                 stable
+Clones                 Zone      Available   Created
+                       eu-de-3   true        2023-02-17T20:28:53+00:00
+                       eu-de-1   true        2023-02-17T18:53:57+00:00
+
+Source volume          ID                                          Name
+                       r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa   vicky-block-test1
+
+Bootable               false
+Encryption             provider_managed
+Encryption key         -
+Minimum capacity(GB)   20
+Size(GB)               1
+Resource group         ID                                 Name
+                       a0eb5d9062af485fa5bb2c6999c74eac   test-snap
+
+Created                2023-02-17T18:53:57+00:00
+Captured at            2023-02-17T18:53:57+00:00
+Tags                   env:test,env:prod
 ```
 {: screen}
 
 When the user tags are matched with a backup policy, a backup is triggered based on the backup plan schedule. For more information, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-policy-create).
 
-## Add user tags to a snapshot with the API
+## Adding user tags to a snapshot with the API
 {: #snapshots-vpc-add-tags-api}
 {: api}
 
-Make a `PATCH /snapshots` call and specify the snapshot ID and user tags. The following example adds user tags `env:test` and `env:prod` to the snapshot. 
+You can add user tags to a snapshot by using the API.
+
+Make a `PATCH /snapshots` call and specify the snapshot ID and user tags. The following example adds user tags `env:test` and `env:prod` to the snapshot.
 
 ```curl
 curl -X PATCH \
@@ -213,11 +264,11 @@ curl -X PATCH \
 
 When the user tags are matched with a backup policy, a backup is triggered based on the backup plan schedule. For more information, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-policy-create).
 
-## Edit fast restore zones in the UI
+## Editing fast restore zones in the UI
 {: #snapshots-edit-fast-restore}
 {: ui}
 
-You can edit the zones where fast restore clones are stored in the UI. You can add or remove zones as needed.
+Use the following steps to edit the zones where fast restore clones are stored by using the UI. You can add or remove zones as needed.
 
 1. Select a snapshot from the [list of snapshots](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=ui#snapshots-vpc-view-list-ui).
 2. From the overflow menu, click **Edit fast restore**.
@@ -226,7 +277,7 @@ You can edit the zones where fast restore clones are stored in the UI. You can a
 
 Fast restore information is updated when you refresh. Zone information is updated to show enabled or disabled, depending on your changes.
 
-## Create a snapshot clone for fast restore from the CLI
+## Creating a snapshot clone for fast restore from the CLI
 {: #snapshots-fast-restore-cli}
 {: cli}
 
@@ -235,11 +286,11 @@ To create a zonal copy of a snapshot, issue the `ibmcloud is snapshot-clone-crea
 ```sh
 cloudshell:~$ ibmcloud is snapshot-clone-create r138-4463eb2c-4913-43b1-b9bf-62a94f74c146  --zone eu-de-3
 Creating zonal clone of snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 under account Test Account as user test.user@ibm.com...
-               
-Zone        eu-de-3   
-Available   false   
-Created     2023-02-17T20:29:21+00:00   
-Href        https://eu-de.iaas.cloud.ibm.com/v1/regions/eu-de/zones/eu-de-3 
+
+Zone        eu-de-3
+Available   false
+Created     2023-02-17T20:29:21+00:00
+Href        https://eu-de.iaas.cloud.ibm.com/v1/regions/eu-de/zones/eu-de-3
 ```
 {: screen}
 
@@ -248,16 +299,16 @@ The snapshot clone appears to be unavailable while the snapshot clone is created
 ```sh
 cloudshell:~$ ibmcloud is snapshot-cl r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 eu-de-3
 Getting zonal clone eu-de-3 of snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 under account Test Account as user test.user@ibm.com...
-               
-Zone        eu-de-3   
-Available   true   
-Created     2023-02-17T20:29:21+00:00   
+
+Zone        eu-de-3
+Available   true
+Created     2023-02-17T20:29:21+00:00
 ```
 {: screen}
 
 For more information about available command options, see [`ibmcloud is snapshot-clone-create`](/docs/vpc?topic=vpc-vpc-reference#snapshots-cli).
 
-## Delete a snapshot clone from the CLI
+## Deleting a snapshot clone from the CLI
 {: #snapshots-delete-clone-cli}
 {: cli}
 
@@ -274,7 +325,7 @@ Deletion request for zonal snapshot clone eu-de-3 has been accepted.
 
 For more information about available command options, see [`ibmcloud is snapshot-clone-delete`](/docs/vpc?topic=vpc-vpc-reference#snapshots-cli).
 
-## Create a snapshot clone for fast restore with the API
+## Creating a snapshot clone for fast restore with the API
 {: #snapshots-fast-restore-api}
 {: api}
 
@@ -352,14 +403,11 @@ A successful response looks like the following example.
   "encryption_key": {
     "crn": "crn:[...]"
   },
-  .
-  .
-  .
-}  
+}
 ```
 {: codeblock}
 
-## Delete a snapshot clone with the API
+## Deleting a snapshot clone with the API
 {: #snapshots-delete-clone-api}
 {: api}
 
@@ -374,7 +422,254 @@ curl -X DELETE \
 ```
 {: codeblock}
 
-## Delete snapshots in the UI
+## Creating a remote copy in the UI
+{: #napshots-remote-copy-create-ui}
+{: ui}
+
+[New]{: tag-new}
+
+Use the following steps to create cross-regional copies of snapshots from the Snapshots for VPC list or from the snapshot details page.
+
+1. In the console, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage snapshots**.
+2. In the list of snapshots, find the snapshot that you want to duplicate in another region.
+3. click the overflow menu (...) and select **Copy snapshot**.
+4. Select the region where you want to create the copy.
+
+   You can have only one copy per region. If no regions are available for copies, the option Copy Snapshot is disabled.
+   {: restriction}
+
+5. Click **Create**.
+
+Alternatively, click the snapshot's name to view its details. You can either access the **Cop Snapshot** option from the **Actions** menu or you can scroll to the remote copies card and click **Create copy**. The same provisioning panel opens where you can make the region selection.
+
+## Deleting remote region copy in the UI
+{: #napshots-remote-copy-delete-ui}
+{: ui}
+
+[New]{: tag-new}
+
+Snapshot copies in a remote region are independent from the parent snapshot and the parent volume. You can delete them anytime by using the Snapshots for VPC list.
+
+Use the following steps to delete a remote region copy by using the UI.
+
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Snapshots**.
+2. Click the Actions menu (ellipsis) in the row of the snapshot that you want to delete.
+3. Select **Delete**.
+4. Confirm the deletion and click **Delete**.
+
+## Creating a remote region copy from the CLI
+{: #snapshots-remote-copy-create-cli}
+{: cli}
+
+[New]{: tag-new}
+
+You can create a cross-regional copy of a snapshot by using the `snapshot-create` command with the `--source-snapshot-crn` option and the source snapshot CRN, which creates a snapshot in the target region by using the CRN of a snapshot from the source region. The created snapshot uses the customer-defined encryption key if the CRN of an encryption key was also specified.
+
+```sh
+ibmcloud is snapshot-create --name my-cli-snapshot-crc --source-snapshot-crn crn:v1:staging:public:is:us-south:a/2d1bace7b46e4815a81e52c6ffeba5cf::snapshot:r134-b9590a48-63a3-445e-b819-3f2c0b82daf8
+
+Creating snapshot my-cli-snapshot-crc under account Test Account as user test.user@ibm.com...
+
+ID                     r142-bd4532c0-e73c-44f9-a017-89e5368c521a
+Name                   my-cli-snapshot-crc
+CRN                    crn:v1:staging:public:is:us-east:a/2d1bace7b46e4815a81e52c6ffeba5cf::snapshot:r142-bd4532c0-e73c-44f9-a017-89e5368c521a
+Status                 pending
+Clones                 Zone   Available   Created
+
+Source volume          ID                                          Name                   Remote Region
+                       r134-be21061a-4dc6-4c9f-b17d-421838fde399   -remote-421838fde399   us-south
+
+Snapshot Copies        ID   Name   Remote Region   CRN   Resource type
+
+Bootable               true
+Encryption             provider_managed
+Encryption key         -
+Source Snapshot        ID                                          Name                   Remote Region   CRN                                                                                                                        Resource type
+                       r134-b9590a48-63a3-445e-b819-3f2c0b82daf8   cli-snap-crc-test-sn   us-south        crn:v1:staging:public:is:us-south:a/2d1bace7b46e4815a81e52c6ffeba5cf::snapshot:r134-b9590a48-63a3-445e-b819-3f2c0b82daf8   snapshot
+
+Minimum capacity(GB)   100
+Size(GB)               1
+Source Image           ID                                          Name                   Remote Region
+                       r134-24d856e2-6aec-41c2-8f36-5a8a3766f0d6   -remote-5a8a3766f0d6   us-south
+
+Operating system       Name             Vendor   Version                 Family   Architecture   Display name
+                       centos-7-amd64   CentOS   7.x - Minimal Install   CentOS   amd64          CentOS 7.x - Minimal Install (amd64)
+
+Resource group         ID                                 Name
+                       cdc21b72d4e647b195de988b175e3d82   Default
+
+Created                2023-04-24T18:54:29+05:30
+Captured at            2023-04-24T09:48:03+05:30
+Tags                   -
+Service Tags           -
+```
+{: codeblock}
+
+For more information about available command options, see [`ibmcloud is snapshot-create`](/docs/cli?topic=cli-vpc-reference#snapshot-create).
+
+## Deleting a remote region copy from the CLI
+{: #snapshots-remote-copy-delete-cli}
+{: cli}
+
+[New]{: tag-new}
+
+You can delete a cross-regional copy of a snapshot by using the `ibmcloud is snapshot-delete` command with the snapshot ID.
+
+```sh
+cloudshell:~$ ibmcloud is snapshot-delete r142-bd4532c0-e73c-44f9-a017-89e5368c521a
+This will delete snapshot r142-bd4532c0-e73c-44f9-a017-89e5368c521a and cannot be undone. Continue [y/N] ?> y
+Deleting snapshot r142-bd4532c0-e73c-44f9-a017-89e5368c521a under account Test Account as user test.user@ibm.com...
+    OK
+Snapshot r142-bd4532c0-e73c-44f9-a017-89e5368c521a is deleted.
+```
+{: screen}
+
+For more information about available command options, see [`ibmcloud is snapshot-delete`](/docs/cli?topic=cli-vpc-reference#snapshot-delete).
+
+## Creating a remote region copy with the API
+{: #snapshots-remote-copy-create-api}
+{: api}
+
+[New]{: tag-new}
+
+You can create a cross-regional copy of a snapshot by making an API call in the target region. See the following example, where the target region is us-east and the original snapshot is in us-south.
+
+```curl
+POST https://us-east.iaas.cloud.ibm.com/v1/snapshots
+{
+     "name": "my-snapshot",    // required
+     "source_snapshot": {      // required
+      	"crn": "crn:[...]"
+     },
+     "resource_group": {       // optional
+       "id": "2d1bb5a8-40a8-447a-acf7-0eadc8aeb054"
+     },
+     "encryption_key"; "crn:[...]"     // optional
+}
+```
+{: screen}
+
+A successful response looks like the following example:
+
+```json
+{
+  "created_at": "2023-05-18T20:18:18Z",
+  "deletable": false,
+  "encryption": "user_managed",
+  "encryption_key": {
+    "crn": "crn:[...]"
+  },
+  "href": "https://us-east.iaas.cloud.ibm.com/v1/snapshots/r139-f6bfa329-0e36-433f-a3bb-0df632e79263",
+  "id": "r139-f6bfa329-0e36-433f-a3bb-0df632e79263",
+  "lifecycle_state": "pending",
+  "minimum_capacity": 100,
+  "name": "my-snapshot",
+  "operating_system": {
+    "architecture": "amd64",
+    "dedicated_host_only": false,
+    "display_name": "Ubuntu Linux 20.04 LTS Focal Fossa Minimal Install (amd64)",
+    "family": "Ubuntu Linux",
+    "gpu_supported": [],
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/operating_systems/ubuntu-20-04-amd64",
+    "name": "ubuntu-20-04-amd64",
+    "vendor": "Canonical",
+    "version": "20.04 LTS Focal Fossa Minimal Install"
+  },
+  "resource_group": {
+    "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/678523bcbe2b4eada913d32640909956",
+    "id": "678523bcbe2b4eada913d32640909956",
+    "name": "Default"
+  },
+  "resource_type": "snapshot",
+  "service_tags": [],
+  "size": 1,
+  "source_image": {
+    "crn": "crn:[...]",
+    "remote": {
+    	"region": {
+    	   "name": "us-south",
+    	   "hfef": "https://us-east.iaas.cloud.ibm.com/v1/regions/us-south"
+    	}
+    }
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/images/r134-32045dc2-b463-4cda-b424-bc3dcf51dfbb",
+    "id": "r134-32045dc2-b463-4cda-b424-bc3dcf51dfbb",
+    "name": "ibm-ubuntu-20-04-minimal-amd64-1"
+  },
+  "source_snapshot": {
+    "crn": "crn:[...]",
+    "remote": {
+    	"region": {
+    	   "name": "us-south",
+    	   "hfef": "https://us-east.iaas.cloud.ibm.com/v1/regions/us-south"
+    	}
+    }
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/snapshots/r134-511a798c-5816-4082-8ecb-554a440f83de",
+    "id": "r134-511a798c-5816-4082-8ecb-554a440f83de",
+    "name": "my-snapshot-data"
+  }
+  "source_volume": {
+    "crn": "crn:[...]",
+    "remote": {
+    	"region": {
+    	   "name": "us-south",
+    	   "hfef": "https://us-east.iaas.cloud.ibm.com/v1/regions/us-south"
+    	}
+    },
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/volumes/r134-411a798c-5816-4082-8ecb-554a440f83de",
+    "id": "r134-411a798c-5816-4082-8ecb-554a440f83de",
+    "name": "my-instance-data"
+  }
+  "user_tags": []
+}
+```
+{: screen}
+
+## Deleting a remote-region copy of a snapshot with the API
+{: #snapshots-remote-copy-delete-api}
+{: api}
+
+Make a `DELETE /snapshots/{id}`in the target region where the remote copy is located.
+
+```curl
+curl -X DELETE https://us-east.iaas.cloud.ibm.com/v1/snapshots/{id}
+```
+{: pre}
+
+## Creating a cross-regional copy with Terraform
+{: #snapshots-remote-copy-create-terraform}
+{: terraform}
+
+[New]{: tag-new}
+
+To create a copy of snapshot in a remote region, use the `ibm_is_snapshot` resource. The following example creates a copy in the target region by using the ID of the source snapshot. The copy is going to be encrypted by the encryption key that is specified by its CRN.
+
+```terraform
+resource "ibm_is_snapshot" "snapshot" {
+  name 		      = "my-cross-regional-snapshot"
+  source_snapshot = "r138-4463eb2c-4913-43b1-b9bf-62a94f74c146"
+  encryption_key  = "crn:v1:staging:public:kms:us-south:a/df0564dd126042ebb03e0224728ce939:4957299d-0ba0-487f-a1a0-c724a729b8b4:key:0cb88b98-9261-4d07-8329-8f594b6641b5"
+}
+```
+{: codeblock}
+
+For more information about the arguments and attributes, see [ibm_is_snapshot](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_snapshot){: external}.
+
+## Deleting a remote region copy with Terraform
+{: #snapshots-remote-copy-delete-terraform}
+{: terraform}
+
+[New]{: tag-new}
+
+Use the `terraform destroy` command to conveniently destroy a remote object such as a cross-regional copy of a snapshot. The following example shows the syntax for deleting a snapshot. Substitute the actual ID of the snapshot in for `ibm_is_snapshot.example.id`.
+
+```terraform
+terraform destroy --target ibm_is_snapshot.example.id
+```
+{: codeblock}
+
+For more information, see [terraform destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy){: external}.
+
+## Deleting snapshots in the UI
 {: #snapshots-vpc-delete-snapshot-ui}
 {: ui}
 
@@ -386,10 +681,10 @@ You can delete any snapshot for a volume or all snapshots for a volume. To be ab
 An easy way to determine whether you can delete a snapshot is to look in the [console](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view-list-ui) for the list of snapshots and check its status.
 You can delete all snapshots for a volume. Deleting all snapshots requires further confirmation in the UI.
 
-### Delete a single snapshot in the UI
+### Deleting a single snapshot in the UI
 {: #snapshots-vpc-delete-single-snapshot-ui}
 
-You can delete a snapshot from the list of all snapshots.
+You can delete a snapshot from the list of all snapshots by using the following steps.
 
 1. Go to the list of all snapshots. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Snapshots**.
 2. Click the Actions menu (ellipsis) in the row of the snapshot that you want to delete.
@@ -406,7 +701,7 @@ You can also delete a snapshot from the details page of a {{site.data.keyword.bl
 4. Select **Delete**. If the snapshot is actively restoring a volume, the delete operation does not work.
 5. Confirm the deletion.
 
-### Delete all snapshots for a volume in the UI
+### Deleting all snapshots for a volume in the UI
 {: #snapshots-vpc-delete-all-ui}
 
 To delete all snapshots for a volume in the UI, follow these steps.
@@ -416,7 +711,7 @@ To delete all snapshots for a volume in the UI, follow these steps.
 3. From the Actions menu (ellipsis), select **Delete all for volume**.
 4. Confirm the deletion by typing _delete_ and then click **Delete**.
 
-### Delete snapshots from the {{site.data.keyword.block_storage_is_short}} details page in the UI
+### Deleting snapshots from the {{site.data.keyword.block_storage_is_short}} details page in the UI
 {: #snapshots-vpc-delete-from-volume}
 
 You can delete the most recently created snapshot from the list of snapshots from the {{site.data.keyword.block_storage_is_short}} volume details page. Optionally, you can delete all snapshots from this view.
@@ -430,7 +725,7 @@ You can delete the most recently created snapshot from the list of snapshots fro
    2. Select **Delete** from the overflow menu.
    3. Confirm the deletion.
 
-## Delete snapshots from the CLI
+## Deleting snapshots from the CLI
 {: #snapshots-vpc-delete-snapshot-cli}
 {: cli}
 
@@ -439,8 +734,10 @@ You can delete any snapshot for a volume or all snapshots for a volume. To be ab
 * Be in a `stable` or `pending` state.
 * Not be actively restoring a volume.
 
-### Delete a single snapshot from the CLI
+### Deleting a single snapshot from the CLI
 {: #snapshots-vpc-delete-single-snapshot-cli}
+
+Use the followings steps to delete a single snapshot by using the CLI.
 
 1. List the snapshots that are available for a volume to confirm the ID of the snapshot that you want to delete.
 
@@ -452,10 +749,10 @@ You can delete any snapshot for a volume or all snapshots for a volume. To be ab
     ```sh
     cloudshell:~$ ibmcloud is snapshots --volume  r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa
     Listing snapshots in all resource groups and region eu-de under account Test Account as user test.user@ibm.com...
-    ID                                          Name                             Status   Source volume                               Bootable   Resource group   Created   
-    r138-7cac80af-63bb-4a1b-83dd-5f6d550a5db7   bear-peroxide-viewable-oxidant   stable   r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa   false      test-snap        2023-02-17T18:49:48+00:00   
-    r138-4463eb2c-4913-43b1-b9bf-62a94f74c146   cli-snapshot-test                stable   r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa   false      defaults         2023-02-17T20:15:43+00:00   
-    r138-e6664842-b370-496a-9ae7-da3fb647707c   snappy-snap-snap                 stable   r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa   false      test-snap        2023-02-17T18:53:57+00:00   
+    ID                                          Name                             Status   Source volume                               Bootable   Resource group   Created
+    r138-7cac80af-63bb-4a1b-83dd-5f6d550a5db7   bear-peroxide-viewable-oxidant   stable   r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa   false      test-snap        2023-02-17T18:49:48+00:00
+    r138-4463eb2c-4913-43b1-b9bf-62a94f74c146   cli-snapshot-test                stable   r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa   false      defaults         2023-02-17T20:15:43+00:00
+    r138-e6664842-b370-496a-9ae7-da3fb647707c   snappy-snap-snap                 stable   r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa   false      test-snap        2023-02-17T18:53:57+00:00
     ```
     {: screen}
 
@@ -479,8 +776,10 @@ You can delete any snapshot for a volume or all snapshots for a volume. To be ab
 
 For more information about available command options, [`ibmcloud is snaphot-delete`](/docs/vpc?topic=vpc-vpc-reference#snapshot-delete).
 
-### Delete all snapshots from the CLI
-{: #snapshots-vpc-delete-all-snapshot-cli}}
+### Deleting all snapshots from the CLI
+{: #snapshots-vpc-delete-all-snapshot-cli}
+
+Use the following steps to delete all snapshot by using the CLI.
 
 1. List all snapshots.
 
@@ -503,13 +802,13 @@ For more information about available command options, [`ibmcloud is snaphot-dele
    This will delete snapshot by volume r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa and cannot be undone. Continue [y/N] ?> y
    Deleting snapshot by volume r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa under account Test Account as user test.user@ibm.com...
    OK
-   Deletion request for snapshots by volume r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa has been accepted. 
+   Deletion request for snapshots by volume r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa has been accepted.
    ```
    {: screen}
 
 For more information about available command options, [`ibmcloud is snaphot-delete`](/docs/vpc?topic=vpc-vpc-reference#snapshot-delete).
 
-## Delete snapshots with the API
+## Deleting snapshots with the API
 {: #snapshots-vpc-delete-snapshot-api}
 {: api}
 
@@ -518,7 +817,7 @@ You can delete any snapshot for a volume or all snapshots for a volume. To be ab
 * Be in a `stable` or `pending` state.
 * Not be actively restoring a volume.
 
-### Delete a single snapshot with the API
+### Deleting a single snapshot with the API
 {: #snapshots-vpc-delete-single-snapshot-api}
 
 Make a `DELETE /snapshots/{snapshot_ID}` call to delete a specific snapshot by ID.
@@ -530,7 +829,7 @@ curl -X DELETE \
 ```
 {: codeblock}
 
-### Delete all snapshots for a volume with the API
+### Deleting all snapshots for a volume with the API
 {: #snapshots-vpc-delete-all-api}
 
 Make a `DELETE/snapshots` call and specify the source volume ID for the `source_volume.id` parameter in the request.
@@ -541,6 +840,46 @@ curl -X DELETE \
      -H "Authorization: Bearer ${API_TOKEN}"
 ```
 {: codeblock}
+
+## Deleting snapshots with Terraform
+{: #snapshots-vpc-delete-snapshot-terraform}
+{: terraform}
+
+You can delete any snapshot for a volume or all snapshots for a volume. To be able to delete a snapshot, it must meet to the following prerequisites:
+
+* Be in a `stable` or `pending` state.
+* Not be actively restoring a volume.
+
+### Deleting a single snapshot with Terraform
+{: #snapshots-vpc-delete-all-terraform}
+{: terraform}
+
+Use the `terraform destroy` command to conveniently destroy a remote object such as a single snapshot. The following example deletes `my-snapshot`.
+
+```terraform
+terraform destroy --target ibm_is_snapshot.my-snapshot
+```
+{: codeblock}
+
+For more information, see [terraform destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy){: external}.
+
+### Deleting all snapshots for a volume with Terraform
+{: #snapshots-vpc-create-snaphot-copy-terraform}
+{: terraform}
+
+To delete all snapshots of a volume with terraform, use the `ibm_is_volume` resource.
+
+```terraform
+resource "ibm_is_volume" "storage" {
+  name                 = "example-volume"
+  profile              = "general-purpose"
+  zone                 = "us-south-1"
+  delete_all_snapshots = true
+}
+```
+{: codeblock}
+
+For more information about the arguments and attributes, see [ibm_is_volume](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_volume#delete_all_snapshots){: external}.
 
 ## Activity Tracker events for snapshots
 {: #snapshots-vpc-at-events}
@@ -661,7 +1000,7 @@ Snapshots require {{site.data.keyword.iamlong}} (IAM) permissions for role-based
 
 Table 2 describes the snapshot states in the snapshot lifecycle.
 
-| Snapshot Status | Explanation |
+| Snapshot status | Explanation |
 |-----------------|-------------|
 | Stable | The snapshot is available for restoring a volume. |
 | Waiting | Snapshot information is being retrieved. |
@@ -669,7 +1008,7 @@ Table 2 describes the snapshot states in the snapshot lifecycle.
 | Failed | The snapshot failed to br created, the volume can't be restored from a snapshot. |
 | Suspended | Snapshot is temporarily unavailable. |
 | Updating | You changed something about the snapshot and it is being updated. |
-| Deleting | The snapshot is being [deleted](#snapshots-vpc-delete). |
+| Deleting | The snapshot is [deleting](#snapshots-vpc-delete). |
 | Deleted | The snapshot was deleted and is not available to restore volumes. |
 {: caption="Table 2. Snapshot lifecycle states" caption-side="bottom"}
 
@@ -678,9 +1017,9 @@ Table 2 describes the snapshot states in the snapshot lifecycle.
 
 The Snapshot for VPC service is integrated with the {{site.data.keyword.compliance_full}} to help you manage security and compliance for your organization. For snapshots, you can set up a goal that checks whether snapshots are encrypted by using customer-managed keys. By using the {{site.data.keyword.compliance_short}} to validate the snapshot resource configurations in your account against a profile, you can identify potential issues as they arise.
 
-Since snapshots are created from {{site.data.keyword.block_storage_is_short}} volumes, {{site.data.keyword.block_storage_is_short}} goals provide an extra level of security. For more information about monitoring security and compliance for VPC, see [Monitoring security and compliance posture with VPC](/docs/vpc?topic=vpc-manage-security-compliance#monitor-vpc). For more information about creating security and compliance goals, see [Defining rules](/docs/security-compliance?topic=security-compliance-rules-define&interface=ui) in the Security and Compliance documentation.
+Because snapshots are created from {{site.data.keyword.block_storage_is_short}} volumes, {{site.data.keyword.block_storage_is_short}} goals provide an extra level of security. For more information, see [Monitoring security and compliance posture with VPC](/docs/vpc?topic=vpc-manage-security-compliance#monitor-vpc). For more information about creating security and compliance goals, see [Defining rules](/docs/security-compliance?topic=security-compliance-rules-define&interface=ui) in the Security and Compliance Documentation.
 
-## Next Steps
+## Next steps
 {: #snapshots-vpc-manage-next-steps}
 
-* [Restore a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore).
+You can [Restore a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore).

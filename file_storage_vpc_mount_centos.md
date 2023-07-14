@@ -2,9 +2,9 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-01-27"
+lastupdated: "2023-06-20"
 
-keywords:
+keywords: file share, file storage, mount helper, mount target, mount path, secure connection, NFS
 
 subcollection: vpc
 
@@ -18,58 +18,61 @@ subcollection: vpc
 Use these instructions to connect a CentOS Linux&reg;-based {{site.data.keyword.cloud}} Compute Instance to a Network File System (NFS) file share.
 {: shortdesc}
 
-{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
+{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Madrid, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
-## Before you begin - Create a VSI
+## Before you begin
 {: #fs-centos-create-vsi}
 
-First, you must create a [virtual server instance](/docs/vpc?topic=vpc-about-advanced-virtual-servers) in the same zone as the file share. After you created an instance, get the mount path of the file share from the mount target that was created. You need a mount path for mounting file shares.
+1. Verify that the [virtual server instance](/docs/vpc?topic=vpc-about-advanced-virtual-servers) where you want to mount the share is in the same zone as the file share. 
+2. Confirm that a mount target for the share exists for the VPC that the instance resides in. If a new mount target is needed, follow the instructions in [Creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create). 
+3. Get the mount path of the file share from the mount target. Mount path information can be obtained from the File share details page in the [UI](/docs/vpc?topic=vpc-file-storage-view&interface=ui#fs-get-mountpath-ui-vpc), from the [CLI](/docs/vpc?topic=vpc-file-storage-view&interface=cli#fs-get-mountpath-cli), with the [API](/docs/vpc?topic=vpc-file-storage-view&interface=api#fs-get-target-api) or [Terraform](/docs/vpc?topic=vpc-file-storage-view&interface=terraform#fs-view-mount-target-terraform).
+4. If you want to use encryption in transit, you need to obtain an IPsec certificate from the Instance Metadata service. Ensure that encryption in transit is enabled for the mount target. Plus, mount the file share with a secure connection. This feature is only available for file shares with `dp2` profiles and security group access mode. For more information, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit).
+   
+   Install and run the [mount helper utility](/docs/vpc?topic=vpc-file-storage-vpc-eit&interface=ui#fs-mount-helper-utility) to mount file shares with encryption in transit or without an encrypted connection. [New]{: tag-new}
+   {: fast-path}
 
-Mount path information can be obtained from the File share details page in the UI, or through an API or CLI call.
-{: tip}
+{{site.data.keyword.filestorage_vpc_short}} service requires NFS versions v4.1 or higher.
+{: requirement}
 
 ## Mount the file share on CentOS
 {: #fs-mount-CentOS}
 
 Mount a file share on a CentOS host by following these steps. The examples are based on CentOS 8. The steps are similar to the ones that are described on [Mounting file shares on Red Hat Enterprise Linux&reg;](/docs/vpc?topic=vpc-file-storage-vpc-mount-RHEL).
 
-VPC File Storage service requires NFS versions v4.1 or higher.
-{: important}
-
 SSH into the virtual server instance where you want to mount the file share, then continue with these steps:
 
 1. Install the required tools.
 
-   ```zsh
+   ```sh
    yum install nfs-utils
    ```
    {: pre}
 
 2. Create a directory in your instance.
 
-   ```zsh
+   ```sh
    mkdir /mnt/test
    ```
    {: pre}
 
 3. Mount the remote file share.
 
-   ```zsh
+   ```sh
    mount -t nfs4 -o <options> <host:/mount_target> /mnt
    ```
    {: pre}
 
    See following example.
 
-   ```zsh
+   ```sh
    mount -t nfs4 -o sec=sys,nfsvers=4.1 fsf-dal2433a-dz.adn.networklayer.com:/nxg_s_voll_246a9cb9-4679-4dc5-9522-4a7ed2575136 /mnt/test
    ```
    {: pre}
 
 4. Verify that the mount was successful with the disk file system command.
 
-   ```text
+   ```sh
    $ df -h
    Filesystem                                                                                    Size  Used Avail Use% Mounted on
    udev                                                                                          3.9G     0  3.9G   0% /dev
@@ -86,13 +89,13 @@ SSH into the virtual server instance where you want to mount the file share, the
 
 5. Go to the mount point to create a test file and list all files to verify that the share is mounted as read/write.
 
-   ```zsh
+   ```sh
    touch /mnt/test/test.txt
    ls -al /mnt/test
    ```
    {: pre}
 
-   ```zsh
+   ```sh
    $ touch /mnt/test/test.txt
    ls -al /mnt/test
    total 12
@@ -124,12 +127,13 @@ SSH into the virtual server instance where you want to mount the file share, the
 
     2. Edit `/etc/hosts` and add an IP to the hostname entry.
 
-       ```sh
+       ```text
        <IP_Address> hostname.comhostname.com
        ```
        {: pre}
 
        See following example.
+
        ```text
        198.51.100.0 fsf-dal2433a-dz.adn.networklayer.com
        ```
@@ -137,20 +141,21 @@ SSH into the virtual server instance where you want to mount the file share, the
 
     3. Edit the file systems table (`/etc/fstab`) and add an entry.
 
-       ```sh
+       ```text
        (hostname):/(file_share_path) /mnt nfs_version options 0 0
        ```
        {: pre}
 
        See following example.
-       ```sh
+
+       ```text
        fsf-dal2433a-dz.adn.networklayer.com:/nxg_s_voll_246a9cb9-4679-4dc5-9522-4a7ed2575136 /mnt/test nfs4 nfsvers=4.1,sec=sys,_netdev 0 0
        ```
        {: screen}
 
 7. Verify that the configuration file has no errors.
 
-   ```zsh
+   ```sh
    mount -fav
    ```
    {: pre}
@@ -191,12 +196,12 @@ For NFSv4.1, set the nfsv4 domain to: `slnfsv4.com`, and start `rpcidmapd` or a 
 
 To unmount any currently mounted file system on your host, run the `umount` command with disk name or mount point name.
 
-```zsh
+```sh
 umount /dev/sdb
 ```
 {: pre}
 
-```zsh
+```sh
 umount /mnt
 ```
 {: pre}

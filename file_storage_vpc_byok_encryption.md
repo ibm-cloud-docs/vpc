@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-03-31"
+lastupdated: "2023-06-20"
 
-keywords:
+keywords: file share, customer-managed encryption, encryption, byok, KMS, Key Protect, Hyper Protect Crypto Services,
 
 subcollection: vpc
 
@@ -12,13 +12,13 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Creating file shares with customer-managed encryption
+# Creating file shares with customer-managed encryption at rest
 {: #file-storage-vpc-encryption}
 
 By default, {{site.data.keyword.filestorage_vpc_short}} shares are encrypted with IBM-managed encryption. However, you can also create encrypted file shares by using a supported key management service to create or import your own root keys. After you specify the encryption type for a file share, you can't change it.
 {: shortdesc}
 
-{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
+{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Madrid, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 ## Before you begin
@@ -45,7 +45,7 @@ Follow this procedure to specify customer-managed encryption when you create a f
    | Name  | Choose a meaningful name for your file share. The share name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. You can later edit the name if you want. |
    | Resource Group | Specify a [resource group](/docs/vpc?topic=vpc-iam-getting-started#resources-and-resource-groups). Resource groups help organize your account resources for access control and billing purposes. |
    | Location | Choose the zone where you want to create the file share. The zones inherited from the VPC, for example, _US South 3_. |
-   | Mount targets (Optional) | Click **Create** to create a [mount target](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-share-mount-targets) for the file share. You can create one mount target per VPC per file share. Provide a name for the mount target and select a VPC in that zone. You can add as many mount targets as you have VPCs. If you don't have one, first [create a VPC](/docs/vpc?topic=vpc-getting-started#create-and-configure-vpc). (To use the API, see [Creating a VPC by using the REST APIs](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis).) For more information about creating mount targets as a separate operation, see [Create a mount target](#fs-create-mount-target-ui). |
+   | Mount targets (Optional) | Click **Create** to create a [mount target](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-share-mount-targets) for the file share. You can create one mount target per VPC per file share. Provide a name for the mount target and select a VPC in that zone. You can add as many mount targets as you have VPCs. If you don't have one, first [create a VPC](/docs/vpc?topic=vpc-getting-started#create-and-configure-vpc). For more information about creating mount targets as a separate operation, see [Create a mount target](#fs-create-mount-target-ui). |
    | Profile | Select an IOPS tier, custom, or dp2 profile. The profile that you select determines the input/output performance of a file share. For more information, see [file storage profiles](/docs/vpc?topic=vpc-file-storage-profiles). |
    | Size | Specify the size for the file share. |
    | Encryption | Choose **Customer Managed** and use your own encryption key.
@@ -77,6 +77,9 @@ Before you begin, verify that you completed the [prerequisites](/docs/vpc?topic=
 1. Use the procedure in [Step 1 - Obtain service instance and root key information](/docs/vpc?topic=vpc-creating-instances-byok#byok-cli-setup-prereqs) to obtain the ID of your key management service and the CRN of the root key in that service.
 
 2. Specify the `ibmcloud is share-create` command with the `--encryption-key` option to a volume with customer-managed encryption. The `encryption_key` parameter specifies a valid CRN for the root key in the key management service.
+
+As of 30 May 2023, you can use `--mount-targets` instead of `-targets` option. To see and use the updated option, set the feature environment variable `IBMCLOUD_IS_FEATURE_FILESHARE_CHANGE_TO_MOUNT_TARGETS` to true with the `export` command.
+{: beta}
 
 ```bash
 ibmcloud is share-create
@@ -128,11 +131,14 @@ Make a `POST /shares` request and specify the `encryption_key` parameter to iden
 You can also specify the CRN of a root key from a different account in the `POST /shares` call. For more information, see [About cross account key access and use](/docs/vpc?topic=vpc-vpc-byok-cross-acct-key&interface=ui#byok-cross-acct-about).
 {: note}
 
+As described in the [Beta VPC API](/apidocs/vpc-beta) reference [versioning](/apidocs/vpc-beta#api-versioning-beta) policy, support for older versions of the beta API is limited to 45 days. Therefore, beta API requests must specify a `version` query parameter date value within the last 45 days. You must also provide `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/apidocs/vpc#api-generation-parameter).
+{: requirement}
+
 The following example creates a file share with a mount target, and specifies the CRN of the root key for customer-managed encryption.
 
-   ```curl
+   ```sh
    curl -X POST \
-   "$vpc_api_endpoint/v1/shares?version=2023-02-06&generation=2" \
+   "$vpc_api_endpoint/v1/shares?version=2023-07-11&generation=2&maturity=beta" \
    -H "Authorization: $iam_token" \
    -d '{
        "encryption_key": {
@@ -147,7 +153,7 @@ The following example creates a file share with a mount target, and specifies th
            "id": "678523bcbe2b4eada913d32640909956"
          },
         "size": 100,
-        "targets": [
+        "mount_targets": [
           {
             "name": "my-share-target",
             "subnet": {
@@ -166,7 +172,7 @@ A successful response looks like the following example.
 
    ```json
    {
-     "created_at": "2023-02-07T22:58:49.000Z",
+     "created_at": "2023-07-11T22:58:49.000Z",
      "crn": "crn:[...]",
      "encryption": "customer_managed",
      "encryption_key": {
@@ -190,9 +196,9 @@ A successful response looks like the following example.
      },
      "resource_type": "share",
      "size": 100,
-     "targets": [
+     "mount_targets": [
        {
-         "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/a0c07083-f411-446c-9316-7b08d6448c86/targets/   1b5571cb-536d-48d0-8452-81c05c6f7b80",
+         "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/a0c07083-f411-446c-9316-7b08d6448c86/mount_targets/   1b5571cb-536d-48d0-8452-81c05c6f7b80",
          "id": "1b5571cb-536d-48d0-8452-81c05c6f7b80",
          "name": "my-share-target",
          "resource_type": "share_target",

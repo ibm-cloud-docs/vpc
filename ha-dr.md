@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2021
-lastupdated: "2021-07-27"
+  years: 2018, 2023
+lastupdated: "2023-06-22"
 
 keywords: high availability, disaster recovery, SLA, placement group
 
@@ -16,7 +16,7 @@ subcollection: vpc
 {: #ha-dr-vpc}
 
 All {{site.data.keyword.cloud}} general availability (GA) services have a Service Level Agreement of 99.99% availability.
-{{site.data.keyword.vpc_short}} is offered in Dallas, Toronto, Frankfurt, London, Tokyo, Osaka, Sydney, Washington DC, and São Paulo. Each location has three different data centers for redundancy.
+{{site.data.keyword.vpc_short}} is offered in Dallas, Toronto, Frankfurt, London, Madrid, Tokyo, Osaka, Sydney, Washington DC, and São Paulo. Each location has three different data centers for redundancy.
 {: shortdesc}
 
 See [ensure zero downtime](/docs/overview?topic=overview-zero-downtime#zero-downtime) to learn more about the high

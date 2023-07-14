@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023
-lastupdated: "2023-01-31"
+lastupdated: "2023-07-06"
 
 keywords: secure boot, tpm, Trusted Platform Module
 
@@ -11,7 +11,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Secure boot with Trusted Platform Module (TPM)
+# Secure boot with Trusted Platform Module (TPM) for bare metal servers
 {: #secure-boot-tpm}
 
 Secure boot makes sure that your server starts with trusted software by verifying the signatures for all code in the boot process. So, your images need to support secure boot with a signed boot loader. Trusted Platform Module (TPM) provides hardware-based security functions. With supporting software, TPM helps maintain platform integrity and generates cryptographic keys. Generally, TPM is used with secure boot.
