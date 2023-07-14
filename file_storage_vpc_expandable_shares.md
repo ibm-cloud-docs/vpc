@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-06-20"
+lastupdated: "2023-07-11"
 
 keywords: file share, file storage, increase capacity, expand capacity, expand share size, file share size
 
@@ -138,9 +138,9 @@ Make a `PATCH /shares/{id}` request and specify the ID of the file share for whi
 
 This request example expands a file share with a capacity of 50 GB to 2500 GB for a 5 IOPS/GB profile.
 
-```curl
+```sh
 curl -X PATCH \
- "$vpc_api_endpoint/v1/shares/$share_id?version=2023-06-20&generation=2&maturity=beta" \
+ "$vpc_api_endpoint/v1/shares/$share_id?version=2023-07-11&generation=2&maturity=beta" \
  -H "Authorization: $iam_token" \
  -d '{
       "size": 2500
@@ -152,7 +152,7 @@ The file share status shows `updating` while the capacity is increased. The curr
 
 ```json
 {
-  "created_at": "2023-06-20T23:31:59Z",
+  "created_at": "2023-07-11T23:31:59Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63",
@@ -174,7 +174,7 @@ When the file share expansion completes, the new value displays, and the status 
 
 ```json
 {
-  "created_at": "2023-06-20T23:31:59Z",
+  "created_at": "2023-07-11T23:31:59Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63",

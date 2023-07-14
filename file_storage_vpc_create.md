@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-06-20"
+lastupdated: "2023-07-11"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -217,7 +217,7 @@ Mount Targets     ID                                       Name           VPC ID
 
 Resource Group    ID                                 Name
                   bdd96715c2a44f2bb60df4ff14a543f5   Default
-Created           2023-06-20T15:26:21+05:30
+Created           2023-07-11T15:26:21+05:30
 ```
 {: screen}
 
@@ -273,7 +273,7 @@ VPC               ID                                          Name
 
 Lifecycle State   pending
 Mount path        dal1051b-fz.adn.networklayer.com:/nxg_s_voll_mz0717_fde90e26_8796_4a5e_8147_dd14976d6e9f
-Created           2023-06-20T18:05:18+05:30
+Created           2023-07-11T18:05:18+05:30
 ```
 {: screen}
 
@@ -312,9 +312,9 @@ Make a `POST /shares` request to create a file share. Specify the size of the fi
 
 The following example shows a request to create a 4800 GB file share with a 10 IOPS/GB profile. It specifies the access control mode `vpc`, which enables all clients in each mount target's VPC to have access to this file share.
 
-```curl
+```sh
 curl -X POST \
-"$vpc_api_endpoint/v1/shares?version=2023-06-20&generation=2&maturity=beta"\
+"$vpc_api_endpoint/v1/shares?version=2023-07-11&generation=2&maturity=beta"\
 -H "Authorization: $iam_token" \
 -d '{
     "size": 4800,
@@ -335,7 +335,7 @@ A successful response looks like the following example.
 ```json
 {
   "access_control_mode": "vpc",
-  "created_at": "2023-06-20T22:31:50Z",
+  "created_at": "2023-07-11T22:31:50Z",
   "crn": "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/acd96d70-b8d3-4b56-ad7f-9c1035df93b2",
@@ -379,9 +379,9 @@ The following example request creates a file share that has VPC-wide access mode
 
 Access to the mount target is VPC wide; all instances in the VPC have access to this file share. You can also restrict access to a specific virtual server instance in the VPC by specifying a virtual network interface in the mount target definition.
 
-```curl
+```sh
 curl -X POST \
-"$vpc_api_endpoint/v1/shares?version=2023-06-20&generation=2&maturity=beta"\
+"$vpc_api_endpoint/v1/shares?version=2023-07-11&generation=2&maturity=beta"\
 -H "Authorization: Bearer $iam_token"\
 -H 'Content-Type: application/json' \
 -d '{
@@ -414,7 +414,7 @@ A successful response looks like the following example.
 ```json
 {
   "access_control_mode": "vpc",
-  "created_at": "2023-06-20T23:31:59Z",
+  "created_at": "2023-07-11T23:31:59Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/ff859972-8c39-4528-91df-eb9160eae918",
@@ -681,9 +681,9 @@ This request creates or adds a mount target to an existing file share. In this e
 Access control modes must match when a mount target is created for an existing share. Both must be either `vpc` or `security_group`.
 {: important}
 
-```curl
+```sh
 curl -X POST \
-"$vpc_api_endpoint/v1/shares/$share_id/mount_targets?version=2023-06-20&generation=2&maturity=beta"\
+"$vpc_api_endpoint/v1/shares/$share_id/mount_targets?version=2023-07-11&generation=2&maturity=beta"\
 -H "Authorization: Bearer $iam_token"\
 -H 'Content-Type: application/json'\
 -d '{
@@ -701,7 +701,7 @@ A successful response looks like the following example.
 ```json
 {
   "access_control_mode": "vpc",
-  "created_at": "2023-06-20T23:31:59Z",
+  "created_at": "2023-07-11T23:31:59Z",
   "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/ff859972-8c39-4528-91df-eb9160eae918/mount_targets/9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "id": "9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "lifecycle_state": "pending",

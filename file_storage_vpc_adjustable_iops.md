@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-03-22"
+lastupdated: "2023-07-11"
 
 keywords: file share, file storage, IOPS, performance needs, adjust IOPS
 
@@ -182,9 +182,9 @@ You can't update the name of the file share and adjust IOPS in the same `PATCH /
 
 The following example shows an increase of 100 IOPS to 3,000 IOPS for a 100 GB file share based on a 100 - 499 custom profile. The IOPS range for this custom band is 100 - 6,000 IOPS.
 
-```curl
+```sh
 curl -X PATCH \
- "$vpc_api_endpoint/v1/shares/$share_id?version=2023-03-06&generation=2" \
+ "$vpc_api_endpoint/v1/shares/$share_id?version=2023-07-11&generation=2" \
  -H "Authorization: $iam_token" \
  -d '{
       "iops": 3000
@@ -273,9 +273,9 @@ Make a `PATCH /shares` request and specify the `profile` property and indicate t
 
 The following example changes a 3 IOPS/GB profile to 5 IOPS/GB profile. In this case, the file share can't exceed 9,600 GB to move to the higher profile.
 
-```curl
+```sh
 curl -X PATCH \
- "$vpc_api_endpoint/v1/shares/$share_id?version=2023-03-06&generation=2" \
+ "$vpc_api_endpoint/v1/shares/$share_id?version=2023-07-11&generation=2" \
  -H "Authorization: $iam_token" \
  -d '{
       "profile": "5iops-tier"

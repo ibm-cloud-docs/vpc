@@ -730,6 +730,7 @@ toc:
         - topicgroup:
             label: Migration
             topics:
+            - file_storage_API_migration_access_modes.md
             - file_storage_API_migration_mount_targets.md
             - 2022-03-29-migration.md
         - limitations.md

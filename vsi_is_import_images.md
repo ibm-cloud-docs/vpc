@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-06-29"
+lastupdated: "2023-07-11"
 
 keywords:
 
@@ -42,9 +42,6 @@ Keep the following considerations to keep in mind when you import a custom image
 {: ui}
 
 When you have an image available in {{site.data.keyword.cos_full_notm}}, you can import it to {{site.data.keyword.vpc_short}} infrastructure by using the {{site.data.keyword.cloud_notm}} console.
-
-The Image lifecycle feature is a beta feature that is available for evaluation and testing purposes.
-{: beta}
 
 1. Make sure that your compatible custom image is available in {{site.data.keyword.cos_full_notm}}. To upload an image to {{site.data.keyword.cos_full_notm}}, on the **Objects** page of your bucket, click **Upload**. You can use the Aspera high-speed transfer plug-in to upload images larger than 200 MB. For more information, see [Creating a Linux custom image](/docs/vpc?topic=vpc-create-linux-custom-image), [Creating a Windows custom image](/docs/vpc?topic=vpc-create-windows-custom-image), [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about) and [Uploading data](/docs/cloud-object-storage?topic=cloud-object-storage-upload) to {{site.data.keyword.cos_full_notm}}.
 1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Images**.
@@ -96,14 +93,23 @@ For more information, see [ibmcloud is image-create](/docs/vpc?topic=vpc-vpc-ref
 ### Schedule custom image lifecycle status changes by using the CLI
 {: #import-schedule-ilm-status-change-cli}
 
-Custom image lifecycle is a beta feature that is available for evaluation and testing purposes.
-{: beta}
-
 When you import a custom image by using the command-line interface (CLI), you can also schedule the lifecycle status changes of an {{site.data.keyword.vpc_short}} custom image at the same time by using options of the **`ibmcloud is image-create`** command.
 
 Specify the name of the custom image to be created by using the `IMAGE_NAME` variable. You must also specify the source; for example, specify the `--file` option with the image file location. Specify the `--os-name` option with the name of the operating system for the image.
 
-To schedule the `deprecated` or `obsolete` status changes at the same time, use the `--deprecate-at` and `--obsolete-at` options that are specified in the `YYYY-MM-DDThh:mm:ss+hh:mm` format. If you define both the deprecate-at and obsolete-at dates, the obsolete-at date must be after the deprecate-at date. Both dates must be in the future.
+To schedule the `deprecate-at` or `obsolete-at` properties, specify a date in the ISO 8601 (`YYYY-MM-DDThh:mm:ss+hh:mm`) date and time format.
+
+* `YYYY` is the four digit year
+* `MM` is the two digit month
+* `DD` is the two digit day
+* `T` separates the date and time information
+* `hh` is the two digit hours
+* `mm` is the two digit minutes
+* `+hh:mm` or `-hh:mm` is the UTC time zone
+
+Thus, the date of 30 September 2023 at 8:00 p.m. in the North American Central Standard Time Zone (CST) would be `2023-09-30T20:00:00-06:00`
+
+When scheduling the date and time, you can't use your current date and time. For example, if it is 8 a.m. on June 12, then the scheduled date and time must be after 8 a.m. on June 12. If you define both the `deprecate-at` and `obsolete-at` dates and times, the `deprecate-at` date must be after the `obsolete-at` date and time.
 
 
 ```sh
@@ -150,14 +156,23 @@ curl -X POST "$vpc_api_endpoint/v1/images?version=2023-02-21&generation=2" -H "A
 ### Schedule custom image lifecycle status changes by using the API
 {: #import-schedule-ilm-status-change-API}
 
-Custom image lifecycle is a beta feature that is available for evaluation and testing purposes.
-{: beta}
-
 When you import a custom image by using the application programming interface (API), you can also schedule the lifecycle status changes of an {{site.data.keyword.vpc_short}} custom image at the same time by using the [Create an image](/apidocs/vpc/latest#create-image) command.
 
 The `name` can't be used by another image in the region and names that start with `ibm-` are reserved for system-provided images. Specify the `file.href` subproperty with the location of the image. Specify the `operating_system.name` subproperty with the name of the image operating system.
 
-To schedule the `deprecated` or `obsolete` status changes at the same time, use the `deprecated_at` and `obsoleted_at` subproperties that are specified in the `YYYY-MM-DDThh:mm:ss+hh:mm` format. If you define both the deprecated_at and obsoleted_at dates, the obsoleted_at date must be after the deprecated_at date. Both dates must be in the future.
+To schedule the `deprecation_at` or `obsolescence_at` properties, specify a date in the ISO 8601 (`YYYY-MM-DDThh:mm:ss+hh:mm`) date and time format.
+
+* `YYYY` is the four digit year
+* `MM` is the two digit month
+* `DD` is the two digit day
+* `T` separates the date and time information
+* `hh` is the two digit hours
+* `mm` is the two digit minutes
+* `+hh:mm` or `-hh:mm` is the UTC time zone
+
+Thus, the date of 30 September 2023 at 8:00 p.m. in the North American Central Standard Time Zone (CST) would be `2023-09-30T20:00:00-06:00`
+
+When scheduling the date and time, you can't use your current date and time. For example, if it is 8 a.m. on June 12, then the scheduled date and time must be after 8 a.m. on June 12. If you define both the `deprecation_at` and `obsolescence_at` dates and times, the `obsolescence_at` date must be after the `deprecation_at` date and time.
 
 The following example imports a custom image with the name of `my-image`, source location of `cos://us-south/my-bucket/my-image.qcow2`, and the operating system for the image is `debian-9-amd64`. The image is scheduled to be deprecated on `2023-03-01T06:11:28+05:30`. The image is scheduled to be obsolete on `2023-12-31T06:11:28+05:30`.
 
@@ -170,8 +185,8 @@ curl -X POST "$vpc_api_endpoint/v1/images?version=2023-02-21&generation=2" -H "A
       "operating_system": {
         "name": "debian-9-amd64"
       },
-      "deprecated_at": "2023-03-01T06:11:28+05:30",
-      "obsoleted_at": "2023-12-31T06:11:28+05:30"
+      "deprecation_at": "2023-03-01T06:11:28+05:30",
+      "obsolescence_at": "2023-12-31T06:11:28+05:30"
     }'
 ```
 {: pre}

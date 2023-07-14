@@ -210,7 +210,7 @@ The following example creates the replica `test-replica-001` for the source shar
 
 ```sh
 curl -X POST\
-"$rias_endpoint/v1/shares?version=2023-06-20&generation=2&maturity=beta"\
+"$rias_endpoint/v1/shares?version=2023-07-11&generation=2&maturity=beta"\
 -H "Authorization: $iam_token"\
 -d '{
     "name": "source-share-001",
@@ -259,7 +259,7 @@ Other required properties are the `profile`, `zone`, and `replication_cron_spec`
 
 ```sh
 curl -X POST\
-"$rias_endpoint/v1/shares?version=2023-06-20&generation=2&maturity=beta"\
+"$rias_endpoint/v1/shares?version=2023-07-11&generation=2&maturity=beta"\
 -H "Authorization: $iam_token"\
 -d '{
     "source_share": {

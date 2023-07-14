@@ -189,9 +189,9 @@ As described in the [Beta VPC API](/apidocs/vpc-beta) reference [versioning](/ap
 
 Make a `POST /shares` request and specify the `user_tags` property. This example creates a share with three user tags, `env:test1`, `env:test2`, and `env:prod`.
 
-```curl
+```sh
 curl -X POST \
-"$rias_endpoint/v1/shares?version=2023-01-06&generation=2&maturity=beta&maturity=beta"\
+"$rias_endpoint/v1/shares?version=2023-07-11&generation=2&maturity=beta&maturity=beta"\
     -H "Authorization: Bearer $iam_token"\
     -H 'Content-Type: application/json'\
     -d '{
@@ -219,9 +219,9 @@ Add new user tags to an existing file share by making a `PATCH /shares` call and
 
 The following example modifies a file share that is identified by ID by renaming the share and adding user tags.
 
-```curl
+```sh
 curl -X PATCH\
-"$rias_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?version=2023-05-06&generation=2&maturity=beta&maturity=beta"\
+"$rias_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?version=2023-07-11&generation=2&maturity=beta&maturity=beta"\
 -H "Authorization: $iam_token" \
 -d '{
     "name": "myshare-patch-1",
@@ -288,8 +288,8 @@ To modify existing user tags that are added to a file share, you first make a `G
 
 1. Make a `GET /shares/{share_id}` call and copy the hash string from `ETag` property in the response header. Use need the hash string value for when you specify `If-Match` in the `PATCH /shares/{share_id}` request to modify user tags for the share in step 2.
 
-   ```curl
-   curl -sSL -D GET\ "https://us-south.cloud.ibm.com/v1/shares/{share_id}?version=2023-01-06&generation=2&maturity=beta&maturity=beta"\
+   ```sh
+   curl -sSL -D GET\ "https://us-south.cloud.ibm.com/v1/shares/{share_id}?version=2023-07-11&generation=2&maturity=beta&maturity=beta"\
    -H "Authorization: Bearer $TOKEN" -o /dev/null
    ```
    {: codeblock}
@@ -320,9 +320,9 @@ To modify existing user tags that are added to a file share, you first make a `G
 
    This example updates the file share user tags to `env:test` and `env:prod`. The hash string value that you obtained from the `ETag` property (`W/xxxyyyzzz123`) is specified in the `If-Match` header in the call.
 
-   ```curl
+   ```sh
    curl -X PATCH\
-   "$vpc_api_endpoint/v1/shares/50fda9c3-eecd-4152-b473-a98018ccfb10?version=2023-05-06&generation=2&maturity=beta&maturity=beta"\
+   "$vpc_api_endpoint/v1/shares/50fda9c3-eecd-4152-b473-a98018ccfb10?version=2023-07-11&generation=2&maturity=beta&maturity=beta"\
       -H "Authorization: Bearer"\
       -H "If-Match: W/xxxyyyzzz123"\
       -d `{
@@ -503,9 +503,9 @@ To see information about the {{site.data.keyword.filestorage_vpc_short}} API met
 
 Make a `PATCH /shares/$share_id` call to rename a specific file share. See the following example.
 
-```curl
+```sh
 curl -X PATCH \
-"$vpc_api_endpoint/v1/shares/$share_id?version=2023-03-30&generation=2&maturity=beta" \
+"$vpc_api_endpoint/v1/shares/$share_id?version=2023-07-11&generation=2&maturity=beta" \
   -H "Authorization: Bearer ${API_TOKEN}" \
   -d '{
     "name": "share-renamed1"
@@ -553,9 +553,9 @@ A successful response looks like the following example.
 
 Make a `PATCH /shares/$share_id/mount_targets/$target_id` call to rename a mount target of a file share. See the following example.
 
-```curl
+```sh
 curl -X PATCH \
-"$vpc_api_endpoint/v1/shares/$share_id/mount_targets/$target_id?version=2023-05-30&generation=2&maturity=beta" \
+"$vpc_api_endpoint/v1/shares/$share_id/mount_targets/$target_id?version=2023-07-11&generation=2&maturity=beta" \
   -H "Authorization: Bearer ${API_TOKEN}" \
   -d '{
     "name": "target-renamed1"
@@ -592,8 +592,8 @@ A successful response looks like the following example.
 
 Make a `PATCH /shares/{share_ID}` call and specify the profile name in the `profile` property. The following example changes the profile to a `dp2` profile.
 
-```curl
-curl -X PATCH "$rias_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?version=2023-05-30&generation=2&maturity=beta" \
+```sh
+curl -X PATCH "$rias_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?version=2023-07-11&generation=2&maturity=beta" \
 -H "Authorization: $iam_token" \
 -d '{
     "profile": {
@@ -618,9 +618,9 @@ Make a `DELETE /shares/{share_ID}/mount_targets/{target_id}` call to delete a mo
 
 See the following example.
 
-```curl
+```sh
 curl -X DELETE \
-"$vpc_api_endpoint/v1/shares/$share_id/mount_targets/$target_id?version=2023-05-30&generation=2&maturity=beta" \
+"$vpc_api_endpoint/v1/shares/$share_id/mount_targets/$target_id?version=2023-07-11&generation=2&maturity=beta" \
   -H "Authorization: Bearer ${API_TOKEN}"
 ```
 {: pre}
@@ -693,9 +693,9 @@ Make a `DELETE /shares/$share_id` call to delete a file share. The file share mu
 
 Example:
 
-```curl
+```sh
 curl -X DELETE \
-"$vpc_api_endpoint/v1/shares/$share_id?version=2023-05-30&generation=2&maturity=beta" \
+"$vpc_api_endpoint/v1/shares/$share_id?version=2023-07-11&generation=2&maturity=beta" \
   -H "Authorization: Bearer ${API_TOKEN}"
 ```
 {: codeblock}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-06-13"
+lastupdated: "2023-07-11"
 
 keywords: api, change log, beta
 
@@ -26,13 +26,31 @@ There are no backward-compatibility guarantees as a feature progresses through i
 
 To review the change log of generally available API features, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log).
 
+## 11 July 2023
+{: #11-july-2023-beta}
+
+### For version 2023-07-11 or later
+{: #version-2023-07-11-beta}
+
+**Data encryption in transit for file shares.** For users with accounts that have access to file shares, you can now enable secure end-to-end encryption of your data in transit between the file share and the authorized client.
+
+When [creating a mount target for a file share](/apidocs/vpc-beta#create-share-mount-target) with a virtual network interface, you can now specify a `transit_encryption` property value of `none` (default) or `user_managed`, which encrypts the data in transit by using IPsec with an instance identity certificate. For more information, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-eit) and [Creating instance identity certificates](/docs/vpc?topic=vpc-metadata-beta-api-change-log#11-july-2023-metadata-beta).
+
+**File share access control modes.** For users with accounts that have access to file shares, you can now control the way a share is accessed when [creating](/apidocs/vpc-beta#create-share) and [updating](/apidocs/vpc-beta#update-share) a file share. Specifying `access_control_mode` property value `security_group` now allows the use of security groups to manage which resources can access the file share. By using security groups, access can now be restricted to specific clients. When you specify `access_control_mode` property value `vpc`, all clients in each mount target's VPC will continue to have access to this share.
+
+The default value of `access_control_mode` depends on the `version` query parameter date and the profile selected. When making API requests with a `version` query parameter of `2023-07-11` or later, the default is `security_group`. For requests that are using a `version` query parameter of `2023-07-10` or earlier, the default is `vpc`. File shares must be based on the [`dp2` profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile) to use the `security_group` value. See [2023-07-11 API migration (file shares)](/docs/vpc?topic=vpc-2023-07-11-migration-file-shares) for guidance on migrating `access_control_mode` from `vpc` to `security_group`.
+
+When [creating a mount target](/apidocs/vpc-beta#create-share-mount-target) for a file share with `access_control_mode` set to `security_group`, you must also create a virtual network interface by using the `virtual_network_interface` property. For more information, see [About virtual network interfaces](/docs/vpc?topic=vpc-vni-about&interface=api) and [Mount target access modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-mount-access-mode). You must use an `access_control_mode` of `security_group` to enable [Data encryption in transit for file shares](/docs/vpc?topic=vpc-file-storage-vpc-eit).
+
 ## 13 June 2023
 {: #13-june-2023-beta}
 
 ### For all version dates
 {: #13-june-2023-all-version-dates-beta}
 
-**Image lifecycle management property name changes.** For accounts that have been granted special approval to preview the image lifecycle management feature, the `deprecated_at` and `obsoleted_at` properties for [images](/apidocs/vpc-beta#create-image) requests have been renamed `deprecation_at` and `obsolescence_at`, respectively. Original property names `deprecated_at` and `obsoleted_at` will continue to be supported until further notice, but support will be removed when the feature becomes generally available. Requests that specify the original and revised property names simultaneously will be rejected.
+**Image lifecycle management property name changes.** For accounts that have been granted special approval to preview the image lifecycle management feature, the `deprecated_at` and `obsoleted_at` properties for [images](/apidocs/vpc-beta#create-image) requests have been renamed `deprecation_at` and `obsolescence_at`, respectively. Original property names `deprecated_at` and `obsoleted_at` will continue to be supported until the feature becomes generally available. Requests that specify the original and revised property names simultaneously will be rejected.
+
+This feature is now generally available. Support for property names `deprecated_at` and `obsoleted_at` has been removed. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#11-july-2023).
 
 ## 30 May 2023
 {: #23-may-2023-beta}

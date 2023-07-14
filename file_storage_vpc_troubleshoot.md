@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-03-22"
+lastupdated: "2023-07-11"
 
 keywords: troubleshooting, file storage for vpc, CBR errors
 
@@ -89,17 +89,17 @@ Make sure you set execute permission on your script file. In your script:
 
 1. List your file shares in your region by specifying a `GET /shares` request. To keep the operation manageable, you might want to set a limit on the number of shares. 
 
-   ```curl
+   ```sh
    curl -X GET \
-   "$vpc_api_endpoint/v1/shares?limit=20?version=2023-01-24&generation=2"\
+   "$vpc_api_endpoint/v1/shares?limit=20?version=2023-01-11&generation=2&maturity=beta"\
    -H "Authorization: $iam_token"
    ```
    {: codeblock}
 
 2. Parse each file in the list and update each file share by making separate `PATCH/ shares/{share_id}` requests.
 
-   ```curl
-   curl -X PATCH "$rias_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?version=2023-01-24&generation=2" -H "Authorization: $iam_token" -d '{
+   ```sh
+   curl -X PATCH "$rias_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?version=2023-07-11&generation=2&maturity=beta" -H "Authorization: $iam_token" -d '{
    -d '{
         "profile": {
            "name": "dp2"

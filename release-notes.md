@@ -37,6 +37,16 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 Very High Memory (vx2d) profile family now available in all regions
 :   The vx2d profile is now available in the Sao Paolo region. Adding this region makes this profile family available in all regions.
 
+### 11 July 2023
+{: #vpc-jul1123}
+{: release-note}
+
+Image lifecycle management for custom images (GA)
+:   This image lifecycle management feature is now generally available. You can use the UI, CLI, and API to manage the lifecycle of your custom images with the following three statuses. You can move the image back and forth through all the statuses. You can also schedule status changes to manage the entire lifecycle of the image. For more information, see [Custom image lifecycle](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#custom-image-lifecycle) in [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images&interface=ui).
+    * `available`: The image can be used to create an instance.
+    * `deprecated`: The image can be used to create an instance. Using the `deprecated` status can discourage use of the image before the status changes to `obsolete`.
+    * `obsolete`: The image can't be used to create an instance.
+
 ## June 2023
 {: #vpc-jun23}
 

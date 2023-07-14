@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-07-05"
+lastupdated: "2023-06-20"
 
 keywords: file share, file storage, mount helper, mount target, mount path, secure connection, NFS
 

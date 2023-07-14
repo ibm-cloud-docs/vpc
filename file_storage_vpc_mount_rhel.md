@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-07-05"
+lastupdated: "2023-06-20"
 
 keywords: file share, file storage, mount helper, mount target, mount path, secure connection, NFS
 
@@ -116,7 +116,7 @@ SSH into the virtual server instance where you want to mount the file share, the
        ```
        {: pre}
 
-       See the following example.
+       Example:
 
        ```sh
        host fsf-dal2433a-dz.adn.networklayer.com
@@ -133,7 +133,7 @@ SSH into the virtual server instance where you want to mount the file share, the
        ```
        {: pre}
 
-       See the following example.
+       Example:
 
        ```sh
        198.51.100.0 fsf-dal2433a-dz.adn.networklayer.com
@@ -147,7 +147,7 @@ SSH into the virtual server instance where you want to mount the file share, the
        ```
        {: pre}
 
-       See the following example.
+       Example:
 
        ```text
        fsf-dal2433a-dz.adn.networklayer.com:/nxg_s_voll_246a9cb9-4679-4dc5-9522-4a7ed2575136 /mnt/test nfs4 nfsvers=4.1,sec=sys,_netdev 0 0

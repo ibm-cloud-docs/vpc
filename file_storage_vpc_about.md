@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-06-20"
+lastupdated: "2023-07-11"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, 
 
@@ -30,7 +30,7 @@ You create a file share in a zone and create the mount targets for the share per
 
 You can set up [replication](/docs/vpc?topic=vpc-file-storage-replication) between the source file share and a replica file share. So if an outage at the primary site was to occur, you can fail over to the replica file share.
 
-File share data is encrypted by default with IBM-managed encryption for data-at-rest. For added security, you can use your own root keys to protect your file shares with customer-managed encryption. When you specify the security group access mode and attach a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to the file share mount target, you can enable encryption of data in transit. For more information, see [File share encryption](#FS-encryption).
+Data on a file share is encrypted at rest with IBM-managed encryption by default. For added security, you can use your own root keys to protect your file shares with customer-managed keys. When you specify the security group access mode and attach a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to the file share mount target, you can enable encryption of data in transit. For more information, see [File share encryption](#FS-encryption).
 
 You can apply user tags and access management tags to your file shares. Add tags when you create a share or update an existing share with the UI, CLI, API, or Terraform. For more information, see [Tags for file shares](#fs-about-fs-tags).
 
@@ -59,7 +59,7 @@ For more information, see [{{site.data.keyword.filestorage_vpc_short}} profiles]
 ## Mount targets for file shares
 {: #fs-share-mount-targets}
 
-You access file shares from virtual server instances or Kubernetes clusters by way of an NFS mount. To create an NFS mount path, you need to create a mount target.
+To mount a file share on a virtual server instance or to use it in a Kubernetes cluster, you need the NFS mount path. To create an NFS mount path, you need to create a mount target.
 
 A mount target for a file share is a network endpoint. When you create a mount target, an NFS mount path is created for the file share. You use the mount path to attach the file share to virtual server instances or Kubernetes clusters in the same region. Depending on the [access mode](#fs-mount-access-mode) you choose, you can restrict access to a share to a specific instance in the VPC or allow all the virtual server instances to mount the share.
 
@@ -70,7 +70,7 @@ If you want to connect a file share to instances that are running in different V
 
 [New]{: tag-new}
 
-Access to a file share used to be VPC-wide. However, when you create or update a mount target, now you can specify the manner in which you want the mount target to be accessed on the file share. You have two options:
+Access to a file share used to be VPC-wide. However, when you create or update a mount target, you can specify the manner in which you want the mount target to be accessed on the file share. You have two options:
 
 * Use security groups access mode on the file share to authorize access to the file share for a specific virtual server instance or instances within a subnet. This option is available to newer file shares based on the `dp2` profile and communication between authorized virtual server instance and the file share can optionally be IPsec encapsulated. For more information, see [Encryption in Transit](#fs-eit).
 
@@ -102,7 +102,7 @@ For greater security, [enable encryption in transit](/docs/vpc?topic=vpc-file-st
 
 [New]{: tag-new}
 
-When you create a mount target, you can specify a virtual network interface from a different zone in the region. Because the network interface subnet and file share are in different zones, expect slightly slower performance. 
+When you create a mount target, you can specify a mount target from a different zone in the region. Because the network interface subnet and file share are in different zones, performance can be impacted.
 
 ## Encryption at rest
 {: #FS-encryption}
@@ -119,7 +119,7 @@ After you specified an encryption type for a file share, you can't change it.
 
 [New]{: tag-new}
 
-You can establish an encrypted mount connection between the authorized virtual server instance and the storage system by using an IPsec security profile and X.509 certificates. For file shares based on the `dp2` profile, mount targets that are created with a virtual network interface can support the encryption in transit. When you consider choosing this feature, balance your requirements between performance and increased security because encrypting data in transit can decrease data transmission speed. For more information, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit).
+You can [establish an encrypted mount connection](/docs/vpc?topic=vpc-file-storage-vpc-eit) between the authorized virtual server instance and the storage system by using an IPsec security profile. For file shares based on the `dp2` profile, mount targets that are created with a virtual network interface can support the encryption in transit. The mount targets can be for a source or replica share. When you consider choosing this feature, balance your requirements between performance and increased security because encrypting data in transit can decrease data transmission speed.
 
 ## File share replication and failover
 {: #fs-repl-failover-overview}

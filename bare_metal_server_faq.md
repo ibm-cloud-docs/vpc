@@ -2,24 +2,13 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-02-28"
+lastupdated: "2023-07-11"
 
 subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:download: .download}
-{:faq: data-hd-content-type='faq'}
-{:support: data-reuse='support'}
-{:note: .note}
-{:important: .important}
-{:preview: .preview}
+{{site.data.keyword.attribute-definition-list}}
 
 # FAQ for bare metal servers
 {: #bare-metal-server-faq}
@@ -51,15 +40,17 @@ Currently, VMware ESXi, Windows, RHEL, RHELfor SAP, Debian GNU, SUSE Linux Enter
 {: #faq-bare-metal-2}
 {: faq}
 
-VPC Block Storage is not supported. VPC File Storage is compatible when it becomes generally available. Two storage options are available that include secondary local NVMe drives.
-
-File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Sydney, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
-{: preview}
-
+Two storage options are available that include secondary local NVMe drives. 
 * The `bx2-metal-192x768` profile provides mirrored 960 GB SATA M.2 drives as boot storage only. 
 * The `bx2d-metal-192x768` profile provides mirrored 960 GB SATA M.2 drives as boot storage and 16 3.2 TB U.2 NVMe SSDs as secondary local storage to support vSAN, or user-managed RAID. 
 
-For more information about file storage, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about).
+VPC Block Storage is not supported. VPC File Storage is compatible when it becomes generally available. 
+
+Currently, {{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Madrid, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access. For more information about file storage, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about).
+{: preview}
+
+Encryption in transit is not supported on {{site.data.keyword.bm_is_short}}.
+{: restriction}
 
 ## What is required to set up my Bare Metal Servers for VPC? 
 {: #faq-bare-metal-3}
