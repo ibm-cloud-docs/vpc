@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-07-11"
+lastupdated: "2023-07-14"
 
 keywords:
 
@@ -29,6 +29,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## July 2023
 {: #vpc-jul23}
+
+### 14 July 2023
+{: #vpc-july1423}
+{: release-note}
+
+Very High Memory (vx2d) profile family now available in all regions
+:   The vx2d profile is now available in the Sao Paolo region. Adding this region makes this profile family available in all regions.
 
 ### 11 July 2023
 {: #vpc-jul1123}
