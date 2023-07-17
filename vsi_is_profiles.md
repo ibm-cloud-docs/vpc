@@ -2,7 +2,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-07-06"
+lastupdated: "2023-07-14"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, very high memory, gpu, sap, olap, oltp, nvidia, cascade lake
 
@@ -173,9 +173,6 @@ Memory profiles with the mx2d prefix are available in the US South (Dallas), US 
 {: #vhmemory}
 
 Very High Memory profiles offer 1 vCPU to 14 GiB of RAM to host small to medium sized in-memory databases, OLAP services such as SAP NetWeaver, and other memory intensive applications. All Very High Memory profiles are provisioned with temporary SSD-backed [instance storage](/docs/vpc?topic=vpc-instance-storage) at no additional charge. The following Very High Memory profiles are available on Intel&reg; x86 processors.
-
-Very High Memory profiles are available in the US South (Dallas), US East (Washington DC), United Kingdom (London), Canada (Toronto), EU Germany (Frankfurt), and Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions. Additional regions will be added.
-{: preview}
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance storage (GB) |
 |---------|---------|---------|---------|---------|---------|

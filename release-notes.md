@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-07-11"
+lastupdated: "2023-07-14"
 
 keywords:
 
@@ -36,6 +36,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 File Storage for VPC (GA)
 :   NFS-based file shares for a zone within a region are now generally available. You can create and share file storage over multiple virtual service instances within the same zone across multiple VPCs. For more information about this service, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about).
+
+### 14 July 2023
+{: #vpc-july1423}
+{: release-note}
+
+Very High Memory (vx2d) profile family now available in all regions
+:   The vx2d profile is now available in the Sao Paolo region. Adding this region makes this profile family available in all regions.
 
 ### 11 July 2023
 {: #vpc-jul1123}

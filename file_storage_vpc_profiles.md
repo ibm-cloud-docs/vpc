@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-07-11"
+lastupdated: "2023-07-14"
 
 keywords: file storage, file share, performance, IOPS, block size, capacity, range
 
@@ -70,9 +70,9 @@ Existing file shares can be based on IOPS tiers that you selected when you creat
 
 | IOPS Tier | Workload | Share size (GB) | Max IOPS (IOPS) |
 |-----------|----------|-----------------|-----------------|
-| 3 IOPS/GB | General-purpose workloads - Workloads that host small databases for web applications or store virtual machine disk images for a hypervisor | 10-32,000 | 96,000 |
-| 5 IOPS/GB | High I/O intensity workloads - Workloads characterized by a large percentage of active data, such as transactional and other performance-sensitive databases| 10-9,600 | 48,000 |
-| 10 IOPS/GB | Demanding storage workloads - Data intensive workloads created by NoSQL databases, data processing for video, machine learning, and analytics | 10-4,800 | 48,000 |
+| 3 IOPS/GB | General-purpose workloads | 10-32,000 | 96,000 |
+| 5 IOPS/GB | High I/O intensity workloads | 10-9,600 | 48,000 |
+| 10 IOPS/GB | Demanding storage workloads | 10-4,800 | 48,000 |
 {: caption="Table 3. IOPS tier profiles and performance levels for each tier" caption-side="bottom"}
 
 The total maximum IOPS is rounded up to the next multiple of 10 when the IOPS calculation results in IOPS less than or equal to 48,000 IOPS. The total maximum IOPS is rounded up to the next multiple of 100 for IOPS calculations that result in IOPS greater than 48,000 IOPS up to 96,000 IOPS.
