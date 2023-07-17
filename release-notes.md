@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-07-14"
+lastupdated: "2023-07-17"
 
 keywords:
 
@@ -107,6 +107,13 @@ Data encryption in transit for file shares (beta)
 
 VPC routing table authorizations
 :   You can use the new VPC routing table authorizations to allow users to administer VPC routing tables but not allow them to administer the broader VPC. Routing table operations were updated to check for these new authorizations, instead of the broader VPC authorizations. The VPC Administrator, Editor, Operator, and Viewer IAM access roles were updated so that users with those roles function as before. However, custom roles that require access to routing tables must be updated. For more information, see [IAM actions for VPC routing tables](/docs/vpc?topic=vpc-iam-actions-vpc-routing-tables).
+
+### 15 June 2023
+{: #vpc-jun1523}
+{: release-note}
+
+New regions available for Ultra High Memory profiles:
+:   Ultra High Memory (ux2d) profiles are now available in the US East (Washington DC), Canada (Toronto), and EU Germany (Frankfurt) regions. For more information, see the [Ultra High Memory](/docs/vpc?topic=vpc-profiles&interface=ui#uhmemory) profiles documentation.
 
 ### 08 June 2023
 {: #vpc-jun0823}
