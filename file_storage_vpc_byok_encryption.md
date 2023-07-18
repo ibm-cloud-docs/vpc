@@ -78,9 +78,6 @@ Before you begin, verify that you completed the [prerequisites](/docs/vpc?topic=
 
 2. Specify the `ibmcloud is share-create` command with the `--encryption-key` option to a volume with customer-managed encryption. The `encryption_key` parameter specifies a valid CRN for the root key in the key management service.
 
-As of 30 May 2023, you can use `--mount-targets` instead of `-targets` option. To see and use the updated option, set the feature environment variable `IBMCLOUD_IS_FEATURE_FILESHARE_CHANGE_TO_MOUNT_TARGETS` to true with the `export` command.
-{: beta}
-
 ```bash
 ibmcloud is share-create
    --zone ZONE_NAME

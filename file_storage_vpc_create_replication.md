@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-06-20"
+lastupdated: "2023-07-18"
 
 keywords: file share, file storage, source volume, replica share, 
 
@@ -62,14 +62,6 @@ On the File share replica create page, review the source file share details, and
 {: cli}
 
 Use the CLI to create a file share with replication, or update a file share to include replication.
-
-As of 30 May 2023, you can use `--mount-targets` instead of `-targets` option. To see and use the updated option, set the feature environment variable `IBMCLOUD_IS_FEATURE_FILESHARE_CHANGE_TO_MOUNT_TARGETS` to true.
-{: beta}
-
-   ```text
-   export IBMCLOUD_IS_FEATURE_FILESHARE_CHANGE_TO_MOUNT_TARGETS=true
-   ```
-   {: pre}
 
 ### Create a file share with replication from the CLI
 {: #fs-create-new-share-replica-cli}

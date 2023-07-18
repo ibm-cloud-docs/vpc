@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-07-11"
+lastupdated: "2023-07-18"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -138,24 +138,9 @@ You can create several mount targets for an existing file share if the share is 
 
 1. Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 
-2. To use the CLI, set the `IBMCLOUD_IS_FEATURE_FILESHARE` environment variable to `true`. Copy the following code:
+1. After you install the VPC CLI plug-in, set the target to generation 2 by running the `ibmcloud is target --gen 2` command.
 
-   ```text
-   export IBMCLOUD_IS_FEATURE_FILESHARE=true
-   ```
-   {: pre}
-
-3. After you install the VPC CLI plug-in, set the target to generation 2 by running the `ibmcloud is target --gen 2` command.
-
-4. Make sure that you [created an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-cli#create-a-vpc-cli).
-
-As of 30 May 2023, you can use `--mount-targets` instead of `-targets` option. To see and use the updated option, set the feature environment variable `IBMCLOUD_IS_FEATURE_FILESHARE_CHANGE_TO_MOUNT_TARGETS` to true.
-{: beta}
-
-   ```text
-   export IBMCLOUD_IS_FEATURE_FILESHARE_CHANGE_TO_MOUNT_TARGETS=true
-   ```
-   {: pre}
+1. Make sure that you [created an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-cli#create-a-vpc-cli).
 
 ### Gathering information to create file storage from the CLI
 {: #fs-vpc-getinfo-cli}
