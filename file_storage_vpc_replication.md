@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-06-20"
+lastupdated: "2023-07-19"
 
 keywords: file share, file storage, replication, replica, 
 
@@ -26,7 +26,7 @@ You can create replicas of your file shares by setting up a replication relation
 
 When you create a file share, you can set up replication. You create your file share in one zone of the region and a replica share in another zone in the same region. Based on the replication schedule, the service pulls data from the source file share to the replica file share.
 
-You can choose how often you want to sync changes from the source share to the replica. You can specify daily, weekly, or monthly replication schedule conveniently in the UI. Or, you can specify replication by using a `cronspec` expression. Replications must be scheduled at least 1 hour apart. When a replica share is created, the first replica contains the data of the entire share. Thereafter, only the changes that occurred after the previous replication are added.
+You can choose how often you want to sync changes from the source share to the replica. You can specify hourly, daily, weekly, or monthly replication schedule conveniently in the UI. Or, you can specify replication by using a `cronspec` expression. Replications must be scheduled at least 1 hour apart. When a replica share is created, the first replica contains the data of the entire share. Thereafter, only the changes that occurred after the previous replication are added.
 
 Data on the replica share is read-only. You can obtain read/write access to the data in two ways:
 
