@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-07-19"
+lastupdated: "2023-07-20"
 
 keywords: file storage, file share, performance, IOPS, block size, capacity, range
 
@@ -57,8 +57,10 @@ Table 2 shows the available IOPS ranges, based on share size.
 | 2,000-3,999  | 200-40,000 |
 | 4,000-7,999 | 300-40,000 |
 | 8,000-15,999  | 500-64,000 | 
-| 16,000-32,000 | 2,000-96,000 |
+| 16,000-32,000 | 2,000-96,000&sup1; |
 {: caption="Table 2. dp2 file share profile IOPS and capacity ranges" caption-side="top"}
+
+&sup1;For the 96,000 IOPS to be realized, a single file share must be accessed by multiple virtual server instances.
 
 ## Previous version file storage profiles
 {: #fs-v2-profiles}
@@ -70,10 +72,12 @@ Existing file shares can be based on IOPS tiers that you selected when you creat
 
 | IOPS Tier | Workload | Share size (GB) | Max IOPS (IOPS) |
 |-----------|----------|-----------------|-----------------|
-| 3 IOPS/GB | General-purpose workloads | 10-32,000 | 96,000 |
+| 3 IOPS/GB | General-purpose workloads | 10-32,000 | 96,000&sup1; |
 | 5 IOPS/GB | High I/O intensity workloads | 10-9,600 | 48,000 |
 | 10 IOPS/GB | Demanding storage workloads | 10-4,800 | 48,000 |
 {: caption="Table 3. IOPS tier profiles and performance levels for each tier" caption-side="bottom"}
+
+&sup1;For the 96,000 IOPS to be realized, a single file share must be accessed by multiple virtual server instances.
 
 The total maximum IOPS is rounded up to the next multiple of 10 when the IOPS calculation results in IOPS less than or equal to 48,000 IOPS. The total maximum IOPS is rounded up to the next multiple of 100 for IOPS calculations that result in IOPS greater than 48,000 IOPS up to 96,000 IOPS.
 {: note}
