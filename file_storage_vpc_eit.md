@@ -56,6 +56,9 @@ To use the feature, the following requirements need to be met:
       ```
       {: pre}
 
+      You are prompted to enter information about your location (country code, state, locality), your organization, and a common name. Do not enter a common name. When you make the request to the Metadata API, the system applies instance ID values to the subject Common Name for instance identity certificates. Thus CSRs with Common Name specified are rejected. CSRs with `IsCA=true` or `KeyUsage.KeyUsageCertSign=True` extensions are also rejected.
+      {: important}
+
       OpenSSL is an open source command-line toolkit that you can use to work with X.509 certificates, certificate signing requests (CSRs), and cryptographic keys. For more information, see [OpenSSL Documentation](https://www.openssl.org/docs/){: external}.
       {: note}
 
@@ -64,9 +67,6 @@ To use the feature, the following requirements need to be met:
       awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' sslcert.csr
       ```
       {: pre}
-   
-      You are prompted to enter information about your location (country code, state, locality), your organization, and a common name. Do not enter a common name. When you make the request to the Metadata API, the system applies instance ID values to the subject Common Name for instance identity certificates. Thus CSRs with Common Name specified are rejected. CSRs with `IsCA=true` or `KeyUsage.KeyUsageCertSign=True` extensions are also rejected.
-      {: important}
 
 - [Instance metadata service](/docs/vpc?topic=vpc-imd-about) must be enabled for the virtual server instance. 
    - Make a `PUT /instance_identity/v1/token` API call to get a token from Metadata service to be used for subsequent calls. For more information, see [Acquiring an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-json-token).
