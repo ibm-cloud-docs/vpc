@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-07-17"
+lastupdated: "2023-07-20"
 
 keywords:
 
@@ -121,41 +121,22 @@ You can obtain the certificate signing requests (CSRs) from the open-source comm
       ```
       {: pre}
 
+      You are prompted to enter information about your location (country code, state, locality), your organization, and a common name. Do not enter a common name. When you make the request to the Metadata API, the system applies instance ID values to the subject Common Name for instance identity certificates. Thus CSRs with Common Name specified are rejected. CSRs with `IsCA=true` or `KeyUsage.KeyUsageCertSign=True` extensions are also rejected.
+      {: important}
+
    2. Format the csr before you make an API call to metadata service by using the following command.
       ```sh
       awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' sslcert.csr
       ```
       {: pre}
    
-      The system rejects any certificate signing requests with Common Name, and the extensions `IsCA=true` and `KeyUsage.KeyUsageCertSign=True`.
-      {: important}
-
-Then, you can make the API call to the Metadata service. See the following example. The `csr` value is required, the `expires_in` value is optional. The default value for expiration is 3600, which equals 1 hour.
+      
+Then, you can make the API request to the Metadata service. See the following example. The `csr` value is required, the `expires_in` value is optional. The default value for expiration is 3600, which equals 1 hour.
 
 ```sh
-curl -X POST "http://169.254.169.254/instance_identity/v1/certificates?version=2023-06-27&maturity=beta" \
+curl -X POST "http://api.metadata.cloud.ibm.com/instance_identity/v1/certificates?version=2023-06-27&maturity=beta" \
  -H "Authorization: Bearer $instance_identity_token" \
- -d '{
-      "csr": |
-        -----BEGIN CERTIFICATE REQUEST-----
-        MIICzzCCAbcCAQAwgYkxCzAJBgNVBAYTAlVTMRIwEAYDVQQIDAlNaW5uZXNvdGEx
-        EjAQBgNVBAcMCVJvY2hlc3RlcjEMMAoGA1UECgwDSUJNMR4wHAYDVQQLDBVWaXJ0
-        dWFsIFByaXZhdGUgQ2xvdWQxJDAiBgNVBAMMG1ZQQyBFeGFtcGxlIEludGVybWVk
-        aWF0ZSBDQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMY78TrUhSrC
-        SpeLXgS4JF+PpssYQpc9kJoOTJzUPqMocja6WL4xt/jvg60lCik185lkpClP+gSp
-        h0DzXaXeMpm29HBu8JqXFN2I460jRYHf6NwhCvTO/qHyLkLU11zVEFl+a298AahA
-        NU1ms1U2aaYYYXBkPLtN1Uyr6BeEtgyOi926wySdMNQzPSLGmgdpkuuFWDCI94y6
-        8t/a8hhKGKtWtLQuAvXxE91eTZlJyETalQ5xhpGAcv+e1UQAlF8V3ELlunqD2BpO
-        h6N3ipct+HopRdp/cQ/2weNUeDc2sTv9JR6vnGiOa9VpZ017RRPMC6RaGDJLgtKo
-        igXrMrsnn9kCAwEAAaAAMA0GCSqGSIb3DQEBCwUAA4IBAQBCb71iIsm+ak94qO2+
-        n7+WYLkIPCyIDb5mBCqJi5AL1ZC+WqbNVf4NqC6zS9qJbeQGOId5sGVLkdJjcccg
-        f6SrE0mrC1h43ttwkZGNWML+rO0OlEuEDYdfsUQuH24t9KQNf2c6pmdLdchNovFz
-        blhmHdjcUUAVYHHrFPgT0uvQVYEFLLIGa2ZHVeTJvZf4IVW2SiezSt/d6NsHi3s1
-        rVZ8UIXXaFsOkgF65+D14hW+t9GzajSYY/IlU4E5YCRO9lHM/YmlbQRNXJgHDMta
-        /uh2hhK3mMR7sfeBhHYvqs1hxBaLEka5rKOO61q8Px9eCC+WZx2nyHFILp86RyT0
-        mL9R
-        -----END CERTIFICATE REQUEST-----
-    }'
+ -d '{ "csr": "-----BEGIN CERTIFICATE REQUEST-----\nMIICnTCCAYUCAQAwWDELMAkGA1UEBhMCVVMxEjAQBgNVBAgMCU1pbm5lc290YTES\nMBAGA1UEBwwJUm9jaGVzdGVyMSEwHwYDVQQKDBhJbnRlcm5ldCBXaWRnaXRzIFB0\neSBMdGQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCYBvW12cKEkRUu\nyPScs7Xjwu/m+W8pZSQf9wrBa7DBVLFCdh440xOuSnIbsm+BNgYz4wL6/8la+N/K\nff06CdEwy9HLhPYc2z62tECxOBhI1G9gnsRUwb6WHNY71VulZs+37/9Mgd/eQy2n\nKHULNEU7sjNpLYoguKX8GRV3etKDp3tlFQmB6cNGOAgB3aQDmhdAh7K6oftesm0R\n8C7nmFA4SSjaI+855JxoxadlB2cCA5boaQ2gNO6YhYbtuTrMicQb0MTlZmacqzqP\nAxXWD3yFmAuUCpa2tBFBsavSW/kc52m4ldcO60U6hARvOxcXDqrbwu8r1ieY+tcZ\ncqjjBi99AgMBAAGgADANBgkqhkiG9w0BAQsFAAOCAQEAgAqWjtH3yAsX8QfTa9Pv\n3kktYFQKFsBzntmFDdIrOkeGayWRCuSG06f3sHWH0RuGkpq1x/4bedjcyyNVSna7\nxYX6kPOQX5iqf9pISD7A0XIkfS6XAos7gOh/jadjtxSwPCkuztSqIPKObH9OClAE\nU1fYDEtZCaZxsUdLwWJwOzbsivT97g1UVnbJAEzAJrqyaV4cUbv/w/slytHF+GAg\nNoUvPD8NGOQ+VzuI2oQuK515cyHO1SXrJyvkEVwRVVr3SoasqqWIQRrIv6zgzgik\nLN+uQxpzL1EeTB8qKy7xjymo2y1PbmaZzVNQNaBnxJfLE522pfW69evBRJ1qhrby\nTQ==\n-----END CERTIFICATE REQUEST-----\n"}'
 ```
 {: codeblock}
 
