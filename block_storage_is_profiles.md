@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-06-30"
+lastupdated: "2023-07-24"
 
 keywords: block storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
