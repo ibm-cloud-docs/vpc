@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-07-10"
+lastupdated: "2023-07-24"
 
 subcollection: vpc
 
@@ -15,8 +15,6 @@ subcollection: vpc
 
 After you create a bare metal server, you can add new network interfaces or edit existing network interfaces. When you edit a network interface, you can change its name, associate or disassociate a floating IP address, or access the security group that is associated with an interface. For more information about the networking features of Bare Metal Server for VPC, see [Networking overview for bare metal servers on VPC](/docs/vpc?topic=vpc-bare-metal-servers-network).
 {: shortdesc}
-
-
 
 ## Overview of bare metal server network interfaces
 {: #overview-bare-metal-network-interfaces}
@@ -53,6 +51,7 @@ You can specify the following configurations for PCI and VLAN interfaces. For VL
 | VLAN ID (VLAN interface only) | You must specify the VLAN ID tag to use for all traffic on this VLAN interface. The VLAN ID range is between 1 and 4094. |
 | Associated PCI interface (VLAN interface only) | If more than one PCI interfaces are created on the bare metal server, you must select a PCI interface to associate to this VLAN interface. Make sure that you associate the VLAN interfaces with the same VLAN ID that is on a bare metal server with one subnet. You can't create two VLAN interfaces with the same ID in two subnets. However, you can associate VLAN interfaces with different VLAN ID with one subnet. |
 | Allowed VLANs (PCI interface only) | Specify the VLAN IDs of the VLAN interfaces that can use the PCI interface. The VLAN ID range is between 1 and 4094. |
+{: caption="Table 1. Network interface configurations" caption-side="bottom"}
 
 ## Creating a network interface
 {: #bare-metal-create-nic}
