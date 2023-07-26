@@ -52,14 +52,14 @@ When you create your storage volume, you can select from three predefined IOPS t
 | 	`10iops-tier`	| Demanding storage workloads - Data intensive workloads created by NoSQL databases, data processing for video, machine learning, and analytics. Bandwidth limits are calculated by using a 256 KB block size.| 10 IOPS/GB | 10 - 4,800 | 3000 - 48,000 | 256 KB | 
 {: caption="Table 2. IOPS tier profiles and performance levels for each tier" caption-side="bottom"}
 
-Max IOPS for all tiers starts at 3,000 IOPS. Max IOPS then increases, based on the storage tier and volume size, up to the Max IOPS in Table 2.
+Max IOPS for all tiered profiles starts at 3,000 IOPS. Max IOPS then increases, based on the storage tier and volume size, up to the Max IOPS in Table 2.
 
 ### Custom IOPS profiles
 {: #custom}
 
 Custom IOPS is a good option when you have well-defined performance requirements that do not fall within a predefined IOPS tier. You can customize the IOPS by specifying the total IOPS for the volume within the range for its volume size. You can provision volumes with IOPS performance from 100 IOPS to 48,000 IOPS, based on volume size.
 
-Table 2 shows the available IOPS ranges based on volume capacity for the custom profile. 
+The following table shows the available IOPS ranges based on volume capacity for the custom profile. 
 
 | Volume size (GB) | IOPS range    |
 |------------------|---------------|
