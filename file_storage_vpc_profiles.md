@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-07-24"
+lastupdated: "2023-07-27"
 
 keywords: file storage, file share, performance, IOPS, block size, capacity, range
 
@@ -30,16 +30,22 @@ Earlier file shares that were created by using either the [IOPS tier](#fs-tiers)
 
 Table 1 shows the dp2 profile performance levels compared to the earlier profiles. [Table 2](#dp2-profile) presents the IOPS and capacity ranges for the dp2 profile. For more information about the earlier IOPS tiers and custom profiles, see [previous version file storage profiles](#fs-v2-profiles).
 
-| Profile | Family | IOPS | IOPS per share | Max throughput (MB/s)| Share size (GB) | Block size (KB) |
-|---------|------  |------|----------------|----------------------|-----------------|-----------------|
-| dp2 | defined_performance | 1-100 IOPS/GB | 100-96,000 | 1024 | 10-32,000 | 256 |
-| tier-3iops | tiered |3 IOPS/GB | 3,000-96,000 | 670 | 10-32,000 | 16 |
-| tier-5iops | tiered | 5 IOPS/GB | 3,000-48,000 | 768 | 10-9,600 | 16 |
-| tier-10iops | tiered | 10 IOPS/GB | 3,000-48,000 | 1024 | 10-4,800 | 256 |
-| custom | custom | 1-100 IOPS/GB | 3,000-48,000 | 1024 | 10-16,000  | 256 |
-{: caption="Table 1. Comparison of file share profiles and performance levels" caption-side="bottom"}
+Table 1 shows the dp2 profile performance levels compared to the earlier profiles.
 
-## dp2 file storage profile
+| Family   | Profile         | IOPS&sup1;    | IOPS per share | Max throughput&sup2;| Share size   |
+|----------|-----------------|--------------:|---------------:|---------------------|-------------:|
+| `defined_performance`|`dp2`| 1-100 IOPS/GB |     100-96,000 |           1024 MB/s | 10-32,000 GB | 
+| `tiered` | `tier-3iops`    |     3 IOPS/GB |   3,000-96,000 |            670 MB/s | 10-32,000 GB | 
+| `tiered` | `tier-5iops`    |     5 IOPS/GB |   3,000-48,000 |            768 MB/s |  10-9,600 GB | 
+| `tiered` | `tier-10iops`   |    10 IOPS/GB |   3,000-48,000 |           1024 MB/s |  10-4,800 GB | 
+| `custom` | `custom`        | 1-100 IOPS/GB |   3,000-48,000 |           1024 MB/s | 10-16,000 GB | 
+{: caption="Table 1. Comparison of file share profiles and performance levels." caption-side="top"}
+
+&sup1; IOPS values are based on 16k IO size.
+
+&sup2; Baseline throughput is determined by the number of IOPS multiplied by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB or custom IOPS tiers. The higher the IOPS that you specify, the higher the throughput. Maximum throughput is 1024 MBps.
+
+## Defined performance profile
 {: #dp2-profile}
 
 By using the dp2 profile, you can specify the total IOPS for the file share within the range for a specific file share size, 10 GB (default minimum) to 32,000 GB. You can provision shares with IOPS performance from 100 IOPS (default minimum) to 96,000 IOPS, based on share size. The dp2 profile is based on a block size of 256 KB. Maximum throughput is 1024 MB/s. This profile is backed by solid-state drives (SSDs).
