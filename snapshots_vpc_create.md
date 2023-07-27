@@ -57,7 +57,7 @@ In the console, you can create a snapshot of a {{site.data.keyword.block_storage
    | Access management tags | Specify any [access management tags](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#storage-add-access-mgt-tags) for this resource. |
    | Block storage volume | Select a volume from the list. The boot or data volume must be attached to a running virtual server instance. |
    | Encryption | Encryption information for the volume that you selected, either [provider-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about&interface=ui#vpc-provider-managed-encryption) or [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about&interface=ui#vpc-customer-managed-encryption). The snapshot inherits the encryption of the source volume. You can't change the encryption type. |
-   | Optional configurations | [New]{: tag-new} Cross-region snapshot copy. Select Copy Snapshot to a different region. Click **Create**.|
+   | Optional configurations | Cross-region snapshot copy. Select Copy Snapshot to a different region. Click **Create**.|
    {: caption="Table 1. Selections for creating a snapshot" caption-side="bottom"}
 
 3. Click **Create block storage snapshot**. You're returned to the screen that you started from. Messages are displayed while the snapshot is being created and when it's ready, the snapshot is displayed in the list of snapshots. For more information, see [View snapshot details in the UI](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=ui#snapshots-vpc-view-snapshot-ui).
@@ -74,8 +74,6 @@ In the console, you can create a snapshot of a {{site.data.keyword.block_storage
 ## Create cross-regional copy from the Snapshots for VPC list
 {: #crsnapshots-vpc-create-ui}
 {: ui}
-
-[New]{: tag-new}
 
 In the previous section, you saw how to create a cross-regional snapshot copy when you take a new snapshot in the UI. You can also create cross-regional copies of existing snapshots.
 
@@ -240,8 +238,6 @@ Created     2023-02-17T20:29:21+00:00
 ## Creating cross-regional copy of a snapshot from the CLI
 {: #snapshots-vpc-create-crcopy}
 {: cli}
-
-[New]{: tag-new}
 
 To create a copy of a snapshot in another region, run the `ibmcloud is snapshot-create` command with the `--source-snapshot-crn` option and the source snapshot CRN. 
 
@@ -464,8 +460,6 @@ A successful response indicates that the clone was created in the specified zone
 ## Creating a cross-regional copy of a snapshot with the API
 {: #snapshots-vpc-create-snaphot-copy-api}
 {: api}
-
-[New]{: tag-new}
 
 When you create a snapshot, you can also copy the snapshot to another region. By creating a snapshot copy in another region and create new instances with the help of that snapshot, you can expand your VPC to a different region. This feature can be used in disaster recovery scenarios, as well. For more information, see [Cross-regional snapshot copies](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=api#snapshots_vpc_crossregion_copy).
 

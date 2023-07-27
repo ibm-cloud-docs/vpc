@@ -280,8 +280,6 @@ For more information about available command options, see [`ibmcloud is snapshot
 ### Viewing details of a remote region snapshot copy from the CLI
 {: #snapshots-regional-copy-details-cli}
 
-[New]{: tag-new}
-
 You can run the `ibmcloud is snaphot` command to list the details of a specific remote region snapshot copy. The following example shows how to list the details of the remote region snapshot [`my-cli-snapshot-crc`] that resides in the `us-east` region. The response provides information of the parent snapshot and parent volume as well.
 
 ```sh
@@ -606,8 +604,6 @@ A successful response shows the following information about the fast restore sna
 
 ### Viewing details of a remote region snapshot copy with the API
 {: #snapshots-regional-copy-details-api}
-
-[New]{: tag-new}
 
 Make a `GET /v1/snapshots/{id}/` call to get details for snapshot that is a cross region copy.
 

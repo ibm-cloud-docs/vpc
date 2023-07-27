@@ -250,8 +250,6 @@ Resource type        backup_policy_plan
 ```
 {: screen}
 
-[New]{: tag-new}
-
 To update the backup plan to include the creation of a remote copy of the backup snapshot in a different region, run the `backup-policy-plan-update` command with `--remote-region-policies` option. The following example updates the _my-policy-plan-b_ plan that is part of the _new-policy-23_. It specifies the `us-east` region as the destination of the remote region copy. Optionally, you can add the `--encryption-key` option to provide the CRN of the root key to be used to decrypt the snapshot in the remote region.
 
 ```sh
@@ -475,8 +473,6 @@ A successful response shows that the clone policy is created.
 
 ### Updating a backup policy plan to include creation of a copy in another region with the API
 {: #baas-update-plan-crc-api}
-
-[New]{: tag-new}
 
 Make a `PATCH /backup_policies/{backup_policy_id}/plans/{plan_id}` request to update a backup plan. Specify the `remote_region_policies` property and `region` subproperty to indicate the region where you want to create the backup copy.
 
