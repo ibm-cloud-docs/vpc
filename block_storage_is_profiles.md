@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-07-24"
+lastupdated: "2023-07-27"
 
 keywords: block storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
@@ -21,24 +21,26 @@ When you provision {{site.data.keyword.block_storage_is_short}} volumes by using
 ## Block storage profiles overview
 {: #block-storage-profile-overview}
 
-When you create a block storage volume, you can select between custom and tiered-IOPS profiles. All these profiles are backed by solid-state drives (SSDs). The following table shows the available storage profiles. The custom and tiered profiles are available in every region for every customer. 
+When you create a block storage volume, you can select between custom and tiered-IOPS profiles. All these profiles are backed by solid-state drives (SSDs). The following table shows the available storage profiles.
 
-| Profile           | IOPS            | IOPS per volume| Max throughput | Volume size       | IO size |
-|-------------------|----------------:|---------------:|---------------:|-------------------|--------:|
-| `general-purpose` | 3 IOPS/GB       | 3,000 - 48,000 | 670 MB/s       | 10 GB - 16,000 GB | 16 KB   |
-| `5iops-tier`      | 5 IOPS/GB       | 3,000 - 48,000 | 768 MB/s       | 10 GB - 9,600 GB  | 16 KB   |
-| `10iops-tier`     | 10 IOPS/GB      | 3,000 - 48,000 | 1024 MB/s      | 10 GB - 4,800 GB  | 256 KB  |
-| `custom`          | 10 - 100 IOPS/GB | 100 - 48,000 | 1024 MB/s      | 10 GB - 16,000 GB | 256 KB |
+| Profile family | Profile name      | IOPS&sup1;      | IOPS per volume| Max throughput&sup2;| Volume size  |   
+|----------------|-------------------|----------------:|---------------:|---------------:|------------------:|
+| `tiered`       | `general-purpose` | 3 IOPS/GB       | 3,000 - 48,000 | 670 MB/s       | 10 GB - 16,000 GB | 
+| `tiered`       | `5iops-tier`      | 5 IOPS/GB       | 3,000 - 48,000 | 768 MB/s       | 10 GB - 9,600 GB  | 
+| `tiered`       | `10iops-tier`     | 10 IOPS/GB      | 3,000 - 48,000 | 1024 MB/s      | 10 GB - 4,800 GB  |
+| `custom`       | `custom`          | 1 - 100 IOPS/GB |   100 - 48,000 | 1024 MB/s      | 10 GB - 16,800 GB |
 {: caption="Table 1. Block storage profiles and performance levels." caption-side="bottom"}
 
-Moving volumes across volume-profiles that belong to different families is not allowed.
-{: restriction}
+&sup1; IOPS values are based on 16k IO size. 
 
-Baseline throughput is determined by the number of IOPS multiplied by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB or custom IOPS tiers. The higher the IOPS that you specify, the higher the throughput. Maximum throughput is 1024 MBps.
+&sup2; Baseline throughput is determined by the number of IOPS multiplied by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB or custom IOPS tiers. The higher the IOPS that you specify, the higher the throughput. Maximum throughput is 1024 MBps.
 
 The application I/O size directly impacts storage performance. If the application I/O size is smaller than the throughput multiplier that is used by the profile to calculate the volume’s bandwidth limit, the IOPS limit is reached before the throughput limit. Conversely, if the application I/O size is larger, the throughput limit is reached before the IOPS limit.
 
 For more information, see [How block size affects performance](/docs/vpc?topic=vpc-capacity-performance&interface=terraform#how-block-size-affects-performance).
+
+Moving volumes across volume-profiles that belong to different families is not allowed.
+{: restriction}
 
 ### IOPS tiers
 {: #tiers}
