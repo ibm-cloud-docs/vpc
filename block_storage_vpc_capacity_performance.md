@@ -46,7 +46,7 @@ The volume bandwidth available to the instance is apportioned on a per-volume ba
 
 For more information, see [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles).
 
-## How block size affects performance
+## How IO size affects performance
 {: #how-block-size-affects-performance}
 
 IOPS value is based on a 16 KB block size (for all the tiers) with a 50-50 read/write random workload. Each 16 KB of data read/written counts as one read/write operation; a single write of less than 16 KB counts as a single write operation.

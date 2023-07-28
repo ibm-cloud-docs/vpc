@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-07-11"
+lastupdated: "2023-07-20"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -23,15 +23,16 @@ You can establish an encrypted mount connection between the virtual server insta
 {{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Madrid, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
+If you choose to use Encryption-in-transit, you need to balance your requirements between performance and enhanced security. Encrypting data in transit can have some performance impact due to the processing that is needed to encrypt and decrypt the data at the endpoints. The impact depends on the workload characteristics. Workloads that perform synchronous writes or bypass VSI caching, such as databases, might have a substantial performance impact when EIT is enabled. To determine EIT’s performance impact, benchmark your workload with and without EIT. Also, note that even without EIT, the data is moving through a secure data center network.
+
+For more information about network security, see [Security in your VPC](/docs/vpc?topic=vpc-security-in-your-vpc) and [Protecting Virtual Private Cloud (VPC) Infrastructure Services with context-based restrictions](/docs/vpc?topic=vpc-cbr).
+
 ## Overview
 {: #file-storage-eit-overview}
 
 With this feature, you can enable secure end-to-end encryption of your data when you use file shares with security-group-based access control mode and mount targets with virtual network interfaces. When such a mount target is attached and the share is mounted on a virtual server instance, the virtual network interface checks the security group policy to ensure only authorized instances can communicate with the share. The traffic between the authorized virtual server instance and the file share can be IPsec encapsulated by the client. 
 
 IPsec is a group of protocols that together set up encrypted connections between devices. It helps keep data sent over public networks secure. IPsec Encrypts IP packets, and authenticates the source where the packets come from. To configure IPsec on your virtual server instance, you can use [strongSwan](https://www.strongswan.org/){: external}, which is an open source IPsec-based VPN solution. For more information about how strongSwan works, see [Introduction to strongSwan](https://docs.strongswan.org/docs/5.9/howtos/introduction.html){: external} and [IPsec Protocol](https://docs.strongswan.org/docs/5.9/howtos/ipsecProtocol.html){: external}, too.
-
-Encrypting data in transit can have some performance impact due to the processing that is needed to encrypt and decrypt the data at the endpoints.
-{: note}
 
 The IPsec connection requires that you have an X.509 certificate for authentication. X.509 is an international standard format for public key certificates, digital documents that securely associate cryptographic key pairs with identities such as websites, individuals, or organizations. The Instance Metadata service is used to create the certificates.
 
@@ -55,6 +56,9 @@ To use the feature, the following requirements need to be met:
       ```
       {: pre}
 
+      You are prompted to enter information about your location (country code, state, locality), your organization, and a common name. Do not enter a common name. When you make the request to the Metadata API, the system applies instance ID values to the subject Common Name for instance identity certificates. Thus CSRs with Common Name specified are rejected. CSRs with `IsCA=true` or `KeyUsage.KeyUsageCertSign=True` extensions are also rejected.
+      {: important}
+
       OpenSSL is an open source command-line toolkit that you can use to work with X.509 certificates, certificate signing requests (CSRs), and cryptographic keys. For more information, see [OpenSSL Documentation](https://www.openssl.org/docs/){: external}.
       {: note}
 
@@ -63,9 +67,6 @@ To use the feature, the following requirements need to be met:
       awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' sslcert.csr
       ```
       {: pre}
-   
-      The system rejects any certificate signing requests with Common Name, and the extensions `IsCA=true` and `KeyUsage.KeyUsageCertSign=True`.
-      {: important}
 
 - [Instance metadata service](/docs/vpc?topic=vpc-imd-about) must be enabled for the virtual server instance. 
    - Make a `PUT /instance_identity/v1/token` API call to get a token from Metadata service to be used for subsequent calls. For more information, see [Acquiring an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-json-token).
@@ -97,13 +98,13 @@ The utility uses strongSwan and [`swanctl`](https://docs.strongswan.org/docs/5.9
 {{site.data.keyword.filestorage_vpc_short}} IPsec connection requires Mutual SSL. The Mount Helper makes the following calls to generate and configure the certificates at `swanctl`.
 - Mount Helper retrieves the INSTANCE IDENTITY TOKEN:
    ```sh
-   curl -iks -X PUT -H "Metadata-Flavor: ibm" https://169.254.169.254/instance_identity/v1/token?version=2023-06-20
+   curl -iks -X PUT -H "Metadata-Flavor: ibm" https://api.metadata.cloud.ibm.com/instance_identity/v1/token?version=2023-06-27
    ```
    {: pre}
 
 - With the instance identity token, the Mount Helper generates the certificate request with the `csr`.
    ```sh
-   curl -X POST "https://169.254.169.254/instance_identity/v1/certificates?version=2023-07-11" -H "Accept:application/json" \ -H "Authorization: Bearer $IAM_TOKEN" \ --data-raw '{ "csr": "$csr" }'
+   curl -X POST "https://api.metadata.cloud.ibm.com/instance_identity/v1/certificates?version=2023-07-11" -H "Accept:application/json" \ -H "Authorization: Bearer $IAM_TOKEN" \ --data-raw '{ "csr": "$csr" }'
    ```
    {: pre}
 
@@ -149,7 +150,7 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
    ```
    {: codeblock}
 
-   The tar file contains the following contents: install/uninstall scripts, mount helper rpm and deb packages, root CA certificates, and configuration file.
+   The tar file contains the following contents: installation and uninstallation scripts, `mount helper rpm` and `deb` packages, root CA certificates, and configuration file.
 
    Closed environments: To install Mount Helper on a virtual server instance without internet connection, create or update a local repository on the VSI based on the OS. Copy the Mount Helper package along with its dependencies to the local directory.
    {: note}

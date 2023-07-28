@@ -544,8 +544,6 @@ The response shows the clone policy information. In this example, clones are cre
 {: #baas-view-plan-crc}
 {: api}
 
-[New]{: tag-new}
-
 Make a `GET /backup_policy/{backup_policy_id}/plans/{plan_id}` call. In the response, the `remote_region_policies` property shows the remote region where a copy of the backup is created.
 
 See the following example.

@@ -372,8 +372,6 @@ For more information about available command options, see [`ibmcloud is backup-p
 ### Creating a backup plan with cross-regional copy option from the CLI
 {: #backup-create-plan-with-crc-cli}
 
-[New]{: tag-new}
-
 To create a backup plan that also saves a copy of the backup snapshot in another region, run the `backup-policy-plan-create` command with the `--remote-region-policies` option.
 
 If the source snapshot is not encrypted with a customer key, the encryption of the copy remains provider-managed. If the source snapshot is protected by a customer-managed key, you must specify the customer-managed key that you want to use to encrypt the new copy with the `--encryption-key` option. See the following example.
@@ -615,8 +613,6 @@ A successful response shows that the clone policy is created.
 ### Creating a backup plan with cross-regional copy option with the API
 {: #backup-create-plan-with-crc-api}
 
-[New]{: tag-new}
-
 When you create a backup plan, you can choose to create a copy of the backup snapshot in a different region.
 
 If the source snapshot is not encrypted with a customer key, the encryption of the copy remains provider-managed. If the source snapshot is protected by a customer-managed key, you must specify the customer-managed key that you want to use to encrypt the new copy with the `encryption_key` subproperty. See the following example.
@@ -765,8 +761,6 @@ For more information about the arguments and attributes, see [ibm_is_backup_poli
 
 ### Creating a backup plan with cross-regional copy option with Terraform
 {: #backup-create-plan-with-crc-terraform}
-
-[New]{: tag-new}
 
 To create a backup plan with cross-regional copy option, use the `ibm_is_backup_policy_plan` resource. If the source snapshot is not encrypted with a customer key, the encryption of the copy remains provider-managed. If the source snapshot is protected by a customer-managed key, you must specify the customer-managed key that you want to use to encrypt the new copy with the `--encryption-key` option. See the following example.
 

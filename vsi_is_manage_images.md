@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-07-11"
+lastupdated: "2023-07-28"
 
 keywords:
 
@@ -404,6 +404,24 @@ To share a custom image to a private catalog, complete the following steps.
 
 This process shares only the custom image to the private catalog. The validation process occurs within the private catalog. Clicking **Validate image** takes you to a new page and from this screen, you can start with [Step 3: Validate the virtual server image in Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui&locale=en#catalog-vsivpc-review-images) to complete the validation process.
 {: note}
+
+## Sharing a custom image to a private catalog by using the CLI
+{: #sharing-custom-image-private-catalog-cli}
+{: cli}
+
+You can only share a custom image to a private catalog from {{site.data.keyword.vpc_short}} by using the UI. For information on onboarding to a private catalog using the CLI, see [Onboarding software to your account](/docs/account?topic=account-create-private-catalog&interface=cli).
+
+## Sharing a custom image to a private catalog by using the API
+{: #sharing-custom-image-private-catalog-api}
+{: api}
+
+You can only share a custom image to a private catalog from {{site.data.keyword.vpc_short}} by using the UI. For information on onboarding to a private catalog using the API, see [Onboarding software to your account](/docs/account?topic=account-create-private-catalog&interface=api).
+
+## Sharing a custom image to a private catalog by using Terraform
+{: #sharing-custom-image-private-catalog-terraform}
+{: terraform}
+
+You can only share a custom image to a private catalog from {{site.data.keyword.vpc_short}} by using the UI. For information on onboarding to a private catalog using the Terraform, see [Onboarding software to your account](/docs/account?topic=account-create-private-catalog&interface=terraform).
 
 ## Schedule a custom image lifecycle status change in the UI
 {: #schedule-ilm-status-change-ui}

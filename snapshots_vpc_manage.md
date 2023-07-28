@@ -25,7 +25,6 @@ Consider naming the snapshot to indicate the volume that you copied. For example
 
 Snapshot names adhere to the same requirements as volume names. Valid names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. Snapshot names must begin with a lowercase letter and must be unique across the VPC. The UI provides name checking as a convenience. For example, if you end a snapshot name with a hyphen (-), the UI notifies you of the error. It also checks for duplicate names.
 
-[New]{: tag-new}
 When you create a cross-regional copy of a snapshot, the new snapshot is named `[copy]-[source-snapshot-name]`. For example, a cross-regional copy of the snapshot _my-volume-snapshot1_ is automatically named _copy-my-volume-snapshot1_ when it is placed in the target region. Cross-regional copies of snapshots are independent from the source snapshot and the source volume, and the copies can be managed like any other normal snapshot.
 
 ## Renaming a snapshot in the UI
@@ -426,8 +425,6 @@ curl -X DELETE \
 {: #napshots-remote-copy-create-ui}
 {: ui}
 
-[New]{: tag-new}
-
 Use the following steps to create cross-regional copies of snapshots from the Snapshots for VPC list or from the snapshot details page.
 
 1. In the console, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage snapshots**.
@@ -446,8 +443,6 @@ Alternatively, click the snapshot's name to view its details. You can either acc
 {: #napshots-remote-copy-delete-ui}
 {: ui}
 
-[New]{: tag-new}
-
 Snapshot copies in a remote region are independent from the parent snapshot and the parent volume. You can delete them anytime by using the Snapshots for VPC list.
 
 Use the following steps to delete a remote region copy by using the UI.
@@ -460,8 +455,6 @@ Use the following steps to delete a remote region copy by using the UI.
 ## Creating a remote region copy from the CLI
 {: #snapshots-remote-copy-create-cli}
 {: cli}
-
-[New]{: tag-new}
 
 You can create a cross-regional copy of a snapshot by using the `snapshot-create` command with the `--source-snapshot-crn` option and the source snapshot CRN, which creates a snapshot in the target region by using the CRN of a snapshot from the source region. The created snapshot uses the customer-defined encryption key if the CRN of an encryption key was also specified.
 
@@ -511,8 +504,6 @@ For more information about available command options, see [`ibmcloud is snapshot
 {: #snapshots-remote-copy-delete-cli}
 {: cli}
 
-[New]{: tag-new}
-
 You can delete a cross-regional copy of a snapshot by using the `ibmcloud is snapshot-delete` command with the snapshot ID.
 
 ```sh
@@ -529,8 +520,6 @@ For more information about available command options, see [`ibmcloud is snapshot
 ## Creating a remote region copy with the API
 {: #snapshots-remote-copy-create-api}
 {: api}
-
-[New]{: tag-new}
 
 You can create a cross-regional copy of a snapshot by making an API call in the target region. See the following example, where the target region is us-east and the original snapshot is in us-south.
 
@@ -639,8 +628,6 @@ curl -X DELETE https://us-east.iaas.cloud.ibm.com/v1/snapshots/{id}
 {: #snapshots-remote-copy-create-terraform}
 {: terraform}
 
-[New]{: tag-new}
-
 To create a copy of snapshot in a remote region, use the `ibm_is_snapshot` resource. The following example creates a copy in the target region by using the ID of the source snapshot. The copy is going to be encrypted by the encryption key that is specified by its CRN.
 
 ```terraform
@@ -657,8 +644,6 @@ For more information about the arguments and attributes, see [ibm_is_snapshot](h
 ## Deleting a remote region copy with Terraform
 {: #snapshots-remote-copy-delete-terraform}
 {: terraform}
-
-[New]{: tag-new}
 
 Use the `terraform destroy` command to conveniently destroy a remote object such as a cross-regional copy of a snapshot. The following example shows the syntax for deleting a snapshot. Substitute the actual ID of the snapshot in for `ibm_is_snapshot.example.id`.
 

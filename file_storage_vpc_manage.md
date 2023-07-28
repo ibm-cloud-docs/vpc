@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-06-02"
+lastupdated: "2023-07-18"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -386,14 +386,6 @@ By using the CLI, you can:
 * [Delete mount target of a file share](#delete-mount-target-cli).
 * [Delete a file share](#delete-file-share-cli).
 * [Update a file share profile](#fs-update-profile-cli)
-
-As of 30 May 2023, you can use `--mount-targets` instead of `--targets` option. To see and use the updated option, set the feature environment variable `IBMCLOUD_IS_FEATURE_FILESHARE_CHANGE_TO_MOUNT_TARGETS` to true.
-{: beta}
-
-   ```text
-   export IBMCLOUD_IS_FEATURE_FILESHARE_CHANGE_TO_MOUNT_TARGETS=true
-   ```
-   {: pre}
 
 ### Rename a file share from the CLI
 {: #rename-file-share-cli}

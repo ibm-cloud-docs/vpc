@@ -131,8 +131,6 @@ For more information, see [Restoring a volume from a backup snapshot](/docs/vpc?
 ### Cross-regional backup copies
 {: #backup-service-crc}
 
-[New]{: tag-new}
-
 You can copy a backup snapshot from one region to another region, and later use that snapshot to restore a volume in the new region. You can use and manage the cross-regional snapshot in the target region independently from the parent volume or the original snapshot.
 
 If the source snapshot is not encrypted with a customer key, the encryption of the copy remains provider-managed. If the source snapshot is protected by a customer-managed key, you must specify the customer-managed key that you want to use to encrypt the new copy.

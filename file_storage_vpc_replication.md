@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-06-20"
+lastupdated: "2023-07-19"
 
 keywords: file share, file storage, replication, replica, 
 
@@ -26,14 +26,14 @@ You can create replicas of your file shares by setting up a replication relation
 
 When you create a file share, you can set up replication. You create your file share in one zone of the region and a replica share in another zone in the same region. Based on the replication schedule, the service pulls data from the source file share to the replica file share.
 
-You can choose how often you want to sync changes from the source share to the replica. You can specify daily, weekly, or monthly replication schedule conveniently in the UI. Or, you can specify replication by using a `cronspec` expression. Replications must be scheduled at least 1 hour apart. When a replica share is created, the first replica contains the data of the entire share. Thereafter, only the changes that occurred after the previous replication are added.
+You can choose how often you want to sync changes from the source share to the replica. You can specify hourly, daily, weekly, or monthly replication schedule conveniently in the UI. Or, you can specify replication by using a `cronspec` expression. Replications must be scheduled at least 1 hour apart. When a replica share is created, the first replica contains the data of the entire share. Thereafter, only the changes that occurred after the previous replication are added.
 
 Data on the replica share is read-only. You can obtain read/write access to the data in two ways:
 
 * [Fail over to the replication site](/docs/vpc?topic=vpc-file-storage-failover&interface=ui) - The read/writes from the source file share are paused and a final copy of the file share data is pulled into the replica share. The replica share becomes read/write accessible, and a reverse replication relationship is established. The original source file share now becomes the replica share and set to read-only. The service then begins pulling data from the new source file share.
 
    If a source file share is compromised, replica shares are a good way to recover operations. A [failover](/docs/vpc?topic=vpc-file-storage-failover) to a replica share assures no disruption to your services.
-   {: tip}
+   {: tip} 
 
    When you initiate the failover, you can specify what happens to the replication relationship if the failover process times out or fails. This option is commonly used when you have a time requirement for how long your file share can be offline. You must specify what you want to happen if the operation times out or if the replication fails due to the original site, which is degraded or unavailable.
 

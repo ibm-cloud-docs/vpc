@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-07-06"
+lastupdated: "2023-07-18"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -110,14 +110,6 @@ You can see all file shares that have a mount target to a VPC by viewing the VPC
 ## View file share and mount targets from the CLI
 {: #file-storage-view-shares-targets-cli}
 {: cli}
-
-As of 30 May 2023, you can use `--mount-targets` instead of `--targets` option. To see and use the updated option, set the feature environment variable `IBMCLOUD_IS_FEATURE_FILESHARE_CHANGE_TO_MOUNT_TARGETS` to true.
-{: beta}
-
-   ```text
-   export IBMCLOUD_IS_FEATURE_FILESHARE_CHANGE_TO_MOUNT_TARGETS=true
-   ```
-   {: pre}
 
 ### View all file shares from the CLI
 {: #fs-view-all-shares-cli}

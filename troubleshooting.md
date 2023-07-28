@@ -73,7 +73,7 @@ Your account might not be authorized for VPC. Make sure that you are using an ac
 
 The service is no longer returning any JSON, instead of just giving an HTTP "401 Unauthorized" to all requests. This error occurs after about an hour if your IAM token has expired. Refresh your IAM token by rerunning `iam_token=$(ibmcloud iam oauth-tokens | awk '/IAM/{ print $4; }')`.
 
-### Cannot create resources
+### Cannot create VPC or other resources
 {: #troubleshoot-cannot-create}
 
 If you cannot create a VPC or other resources, make sure that the owner of the account has granted you the correct [permissions](/docs/vpc?topic=vpc-managing-user-permissions-for-vpc-resources#managing-user-permissions-for-vpc-resources).
