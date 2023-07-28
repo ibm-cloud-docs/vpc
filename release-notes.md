@@ -27,15 +27,18 @@ For more information about changes to the {{site.data.keyword.vpc_short}} API, s
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-cli-rn).
 
-## July 2023
-{: #vpc-jul23}
+## August 2023
+{: #vpc-aug23}
 
-### 17 July 2023
-{: #vpc-july1723}
+### 08 August 2023
+{: #vpc-august0823}
 {: release-note}
 
 File Storage for VPC (GA)
 :   NFS-based file shares for a zone within a region are now generally available. You can create and share file storage over multiple virtual service instances within the same zone across multiple VPCs. For more information about this service, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about).
+
+## July 2023
+{: #vpc-jul23}
 
 ### 14 July 2023
 {: #vpc-july1423}
