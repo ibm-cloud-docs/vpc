@@ -368,7 +368,7 @@ To update an existing SSH key by using the Terraform, use [ibm_is_ssh_keys](http
     ```
    {: codeblock}
 
-1. Run `terraform apply` to update the resource block with the new name. 
+1. Run `terraform apply` to update the resource with the new name. 
 
 ## Deleting your SSH key by using the CLI
 {: #deleting-ssh-keys-cli}
@@ -398,7 +398,7 @@ curl -X DELETE "$vpc_api_endpoint/v1/keys/$id?version=2023-03-30&generation=2" -
 {: #deleting-ssh-keys-terraform}
 {: terraform}
 
-To delete one or more SSH keys by using the Terraform, use [ibm_is_ssh_keys](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_ssh_key){: external}.
+To delete your SSH key by using the Terraform, use [ibm_is_ssh_keys](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_ssh_key){: external}.
 
 For the `example_sshkey` attribute, replace this with the SSH key you want to delete.
 
