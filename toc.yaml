@@ -60,7 +60,6 @@ toc:
                - vsi_is_dh_profile.md
                - bare_metal_server_profile.md
                - profiles_benchmark.md
-           - vsi_is_ssh_keys_about.md
            - vpc-secure-boot.md
            - vsi_is_provisioning_scripts.md
            - ip-spoofing-about.md
@@ -169,12 +168,16 @@ toc:
                 - vsi_is_connecting_linux_gc.md
                 - vsi_is_connecting_windows.md
                 - vsi_is_connecting_zos.md
+            - topicgroup:
+                label: SSH keys
+                topics:
+                - vsi_is_ssh_keys.md
+                - vsi_is_ssh_keys_about.md
             - vsi_is_configuring_zos.md
             - vsi_is_create_instance_template.md
             - vsi_is_bulk_provision.md
             - vsi_is_connecting_console.md
             - vsi_is_manage_instances.md
-            - vsi_is_ssh_keys.md
             - vsi_is_instance_vnics.md
             - vsi_instance_storage_how_to.md
             - monitoring-vpc-metrics.md
