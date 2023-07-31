@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-06-22"
+lastupdated: "2023-07-31"
 
 keywords: ssh public keys, OpenSSH, add ssh key, ssh key, manage ssh key, generate ssh key, locate ssh key
 
@@ -83,6 +83,30 @@ In the API, you can specify which type of key by using the `type` variable. The 
 ```
 {: pre}
 
+
+## SSH key types: RSA and Ed25519 in the Terraform
+{: #ssh-key-types-terraform}
+{: terraform}
+
+{{site.data.keyword.vpc_full}} supports two different types of public SSH keys.
+
+* RSA
+* Ed25519
+
+On {{site.data.keyword.vpc_short}}, RSA is the default SSH key type. You can select to change the key type to Ed25519. The Ed25519 SSH key type enables a slightly higher performance benefit because it can give the same level of security as the RSA SSH key type with a smaller key. You can create virtual server instances and bare metal servers with a mix of RSA and Ed25519 SSH keys.
+
+* For Windows or VMware images, you must use the RSA SSH key type. The Ed25519 SSH key type can't be used with Windows or VMware images.
+* For Linux images, the Ed25519 SSH key type can be used only if the SSH server for the operating system supports that key type.
+
+You can't create SSH keys within Terraform, you can import only an existing SSH key. You can create an SSH key within the UI. 
+
+In Terraform, you can specify which type of key by using the `type` variable. The default type is `rsa`. If you try to import the Ed25519 SSH key and don't specify the `ed25519` key type, the process fails.
+
+```terraform
+type = "ed25519"
+```
+{: pre}
+
 ## Before you begin
 {: #ssh-key-prereqs}
 
@@ -138,6 +162,17 @@ To list all SSH keys by using the API, use [List all keys](/apidocs/vpc/latest#l
 
 ```sh
 curl -X GET "$vpc_api_endpoint/v1/keys?version=2023-03-30&generation=2" -H "Authorization: Bearer $iam_token"
+```
+{: pre}
+
+## Listing your existing SSH keys by using Terraform
+{: #locating-ssh-keys-terraform}
+{: terraform}
+
+To list all SSH keys by using Terraform, use [ibm_is_ssh_keys](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_ssh_keys){: external}.
+
+```terraform
+data "ibm_is_ssh_keys" keys {}
 ```
 {: pre}
 
@@ -242,6 +277,23 @@ curl -X POST "$vpc_api_endpoint/v1/keys?version=2023-03-30&generation=2" -H "Aut
     }'
 ```
 {: pre}
+
+## Importing your SSH key by using Terraform
+{: #import-ssh-keys-terraform}
+{: terraform}
+
+Create a ssh-key resource or use an existing ssh-key by referring to the ssh-key data source. For more information, see the Terraform documentation on [ibm_is_ssh_keys](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_ssh_keys){: external}
+
+Create a ssh-key resource or use an existing ssh-key by referring to the ssh-key data source. For the `name` property, specify the name of the SSH key. For `public_key` property, enter in the public key information. For the `type` property, specify either `rsa` or `ed25519` for the SSH key type. The default value is `rsa`. You must specify `ed25519` to import an `ed25519` SSH key.
+
+   ```terraform
+   resource "ibm_is_ssh_key" "example_sshkey" {
+      name       = "example-sshkey"
+      public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCKVmnMOlHKcZK8tpt3MP1lqOLAcqcJzhsvJcjscgVERRN7/9484SOBJ3HSKxxNG5JN8owAjy5f9yYwcUg+JaUVuytn5Pv3aeYROHGGg+5G346xaq3DAwX6Y5ykr2fvjObgncQBnuU5KHWCECO/4h8uWuwh/kfniXPVjFToc+gnkqA+3RKpAecZhFXwfalQ9mMuYGFxn+fwn8cYEApsJbsEmb0iJwPiZ5hjFC8wREuiTlhPHDgkBLOiycd20op2nXzDbHfCHInquEe/gYxEitALONxm0swBOwJZwlTDOB7C6y2dzlrtxr1L59m7pCkWI4EtTRLvleehBoj3u7jB4usR"
+      type = "rsa"
+   }
+   ```
+   {: codeblock}
 
 ## Next steps
 {: #next-steps-ssh}

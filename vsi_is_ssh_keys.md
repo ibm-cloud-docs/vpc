@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-06-22"
+lastupdated: "2023-07-31"
 
 keywords:
 
@@ -74,6 +74,12 @@ Make sure that the {{site.data.keyword.cloud_notm}} CLI `vpc-infrastructure` plu
 
 You can also manage your SSH keys by using the API. For more information about the `$vpc_api_endpoint` and `$iam_token` variables in the following examples, see the Authentication and Endpoint URLs sections in [Virtual Private Cloud API Introduction](/apidocs/vpc#about-vpc-api).
 
+## Managing SSH keys by using Terraform
+{: #managing-ssh-keys-by-using-terraform}
+{: terraform}
+
+You can also manage your SSH keys by using Terraform. See [ibm_is_ssh_keys](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_ssh_keys){: external} for more information.
+
 ## Listing all your SSH keys by using the UI
 {: #viewing-all-ssh-keys-ui}
 {: ui}
@@ -104,6 +110,17 @@ To list all SSH keys by using the API, use [List all keys](/apidocs/vpc/latest#l
 
 ```sh
 curl -X GET "$vpc_api_endpoint/v1/keys?version=2023-03-30&generation=2" -H "Authorization: Bearer $iam_token"
+```
+{: pre}
+
+## Listing all your SSH keys by using Terraform
+{: #viewing-all-ssh-keys-terraform}
+{: terraform}
+
+To list all SSH keys by using Terraform, use [ibm_is_ssh_keys](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_ssh_keys){: external}.
+
+```terraform
+data "ibm_is_ssh_keys" keys {}
 ```
 {: pre}
 
@@ -147,6 +164,21 @@ For the `$id` variable, specify the name of the SSH key for which you want to di
 
 ```sh
 curl -X GET "$vpc_api_endpoint/v1/keys/$id?version=2023-03-30&generation=2" -H "Authorization: Bearer $iam_token"
+```
+{: pre}
+
+## Viewing details of your SSH key by using Terraform
+{: #viewing-ssh-keys-terraform}
+{: terraform}
+
+To retrieve information for a specific key by using Terraform, use [ibm_is_ssh_keys](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_ssh_key){: external}.
+
+For the `name` variable, specify the name of the SSH key for which you want to display details.
+
+```terraform
+data "ibm_is_ssh_key" "example" {
+  name = "example-ssh-key"
+}
 ```
 {: pre}
 
@@ -257,6 +289,43 @@ curl -X POST "$vpc_api_endpoint/v1/keys?version=2023-03-30&generation=2" -H "Aut
 ```
 {: pre}
 
+## Importing your SSH key by using Terraform
+{: #importing-ssh-keys-terraform}
+{: terraform}
+
+To import a new SSH key by using Terraform, use [ibm_is_ssh_keys](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_ssh_key#import){: external}.
+
+To import a new SSH key, complete the following steps.
+
+1. Create a resource block type of `ibm_is_ssh_key` with the required values. For the `name` attribute, specify the dummy name of the SSH key. For `public_key` attribute, enter in the dummy public key information.
+
+   ```terraform
+   resource "ibm_is_ssh_key" "example_sshkey" { 
+     name = "my-key"
+     public_key = "public-key"
+   }
+   ```
+   {: pre}
+
+1. After creating the resource, run the following Terraform command to import the SSH key.
+
+  ```terraform
+   terraform import ibm_is_ssh_key.example_sshkey d7bec597-4726-451f-8a63-e62e6f19c32c
+   ```
+   {: pre}
+
+1. Improve the configuration to match the state. Copy over the resource block details to avoid replacing the resource block.
+
+   ```terraform
+   resource "ibm_is_ssh_key" "example_sshkey" {
+      name       = "example-sshkey"
+      public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCKVmnMOlHKcZK8tpt3MP1lqOLAcqcJzhsvJcjscgVERRN7/9484SOBJ3HSKxxNG5JN8owAjy5f9yYwcUg+JaUVuytn5Pv3aeYROHGGg+5G346xaq3DAwX6Y5ykr2fvjObgncQBnuU5KHWCECO/4h8uWuwh/kfniXPVjFToc+gnkqA+3RKpAecZhFXwfalQ9mMuYGFxn+fwn8cYEApsJbsEmb0iJwPiZ5hjFC8wREuiTlhPHDgkBLOiycd20op2nXzDbHfCHInquEe/gYxEitALONxm0swBOwJZwlTDOB7C6y2dzlrtxr1L59m7pCkWI4EtTRLvleehBoj3u7jB4usR"
+      type = "rsa"
+   }
+   ```
+   {: codeblock}
+
+
 ## Updating your SSH key by using the CLI
 {: #updating-ssh-keys-cli}
 {: cli}
@@ -272,7 +341,7 @@ ibmcloud is key-update KEY [--name NEW_NAME]
 {: #updating-ssh-keys-api}
 {: api}
 
-To update an existing SSH key by using the API, use [Update a key](/apidocs/vpc/latest#update-key).
+To update an existing SSH key by using the API, use [Update a key](/apidocs/vpc/latest#update-key). After you update an existing key, the key is renamed immediately.
 
 For the `$id` variable, specify the current name of the SSH key. For the `name` property, specify the new name for the SSH key.
 
@@ -280,6 +349,26 @@ For the `$id` variable, specify the current name of the SSH key. For the `name` 
 curl -X PATCH "$vpc_api_endpoint/v1/keys/$id?version=2023-03-30&generation=2" -H "Authorization: Bearer $iam_token" -d '{ "name": "my-key-1-updated" }'
 ```
 {: pre}
+
+## Updating your SSH key by using Terraform
+{: #updating-ssh-keys-terraform}
+{: terraform}
+
+To update an existing SSH key by using the Terraform, use [ibm_is_ssh_keys](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_ssh_key){: external}. After you update an existing key, the key is renamed immediately.
+
+
+1. Update the SSH key resource block. For the `name` property, specify the new name for the SSH key.
+
+   ```terraform
+      resource "ibm_is_ssh_key" "example_sshkey" {
+      name       = "new-example-sshkey"
+      public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCKVmnMOlHKcZK8tpt3MP1lqOLAcqcJzhsvJcjscgVERRN7/9484SOBJ3HSKxxNG5JN8owAjy5f9yYwcUg+JaUVuytn5Pv3aeYROHGGg+5G346xaq3DAwX6Y5ykr2fvjObgncQBnuU5KHWCECO/4h8uWuwh/kfniXPVjFToc+gnkqA+3RKpAecZhFXwfalQ9mMuYGFxn+fwn8cYEApsJbsEmb0iJwPiZ5hjFC8wREuiTlhPHDgkBLOiycd20op2nXzDbHfCHInquEe/gYxEitALONxm0swBOwJZwlTDOB7C6y2dzlrtxr1L59m7pCkWI4EtTRLvleehBoj3u7jB4usR"
+      type = "rsa"
+   }
+    ```
+   {: codeblock}
+
+1. Run `terraform apply` to update the resource with the new name. 
 
 ## Deleting your SSH key by using the CLI
 {: #deleting-ssh-keys-cli}
@@ -304,3 +393,16 @@ For the `$id` variable, specify the name of the SSH key you want to delete.
 curl -X DELETE "$vpc_api_endpoint/v1/keys/$id?version=2023-03-30&generation=2" -H "Authorization: Bearer $iam_token"
 ```
 {: pre}
+
+## Deleting your SSH key by using Terraform
+{: #deleting-ssh-keys-terraform}
+{: terraform}
+
+To delete your SSH key by using the Terraform, use [ibm_is_ssh_keys](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_ssh_key){: external}.
+
+For the `example_sshkey` attribute, replace this with the SSH key you want to delete.
+
+   ```terraform
+   terraform destroy --target ibm_is_ssh_keys.example_sshkey
+   ```
+   {: pre}
