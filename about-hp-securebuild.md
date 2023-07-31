@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-07-28"
+lastupdated: "2023-07-31"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc, hyper protect secure build, hpsb, sbs
 
@@ -25,8 +25,8 @@ By using Hyper Protect Secure Build, you can build a trusted container image wit
 Ensure that you use the latest Secure Build CLI code from [here](https://github.com/ibm-hyper-protect/secure-build-cli).
 
 1. Complete the following steps to set up the Secure Build Server (SBS) client environment:
-    1. Follow these [instructions](https://github.com/ibm-hyper-protect/secure-build-cli/blob/master/SBS-VPC.md#install-the-secure-build-cli) to install the Secure Build CLI.
-    2. Follow these [instructions](https://github.com/ibm-hyper-protect/secure-build-cli/blob/master/SBS-VPC.md#preparing-the-configuration) to prepare the `sbs-config.json` configuration file.
+    1. Follow these [instructions](https://github.com/ibm-hyper-protect/secure-build-cli/blob/master/HPSB-VPC.md#install-the-secure-build-cli) to install the Secure Build CLI.
+    2. Follow these [instructions](https://github.com/ibm-hyper-protect/secure-build-cli/blob/master/HPSB-VPC.md#preparing-the-configuration) to prepare the `sbs-config.json` configuration file.
 2. Complete the following steps to create the `user-data.yaml`file that is used as the contract.
 
    1. Copy the following `workload` section of the contract that is generated via an automated process, into the `user-data.yaml`file. This `workload` section contains the encrypted details of the HPSB image. Use the following `workload` section of the contract for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-9`.
@@ -49,7 +49,7 @@ Ensure that you use the latest Secure Build CLI code from [here](https://github.
       [This](/docs/vpc?topic=vpc-about-contract_se#step7) is example of a contract.
 
 
-3. Follow these [instructions](https://github.com/ibm-hyper-protect/secure-build-cli/blob/master/HPSB-VPC.md#deploying-the-secure-build-server) to deploy HPSB on {{site.data.keyword.hpvs}} for VPC, by using the certificates and the contract that you created in the previous step.
+3. Follow these [instructions](https://github.com/ibm-hyper-protect/secure-build-cli/blob/master/HPSB-VPC.md#deploying-the-hyper-protect-secure-build-server) to deploy HPSB on {{site.data.keyword.hpvs}} for VPC, by using the certificates and the contract that you created in the previous step.
 
 4. Follow the steps in these [instructions](https://github.com/ibm-hyper-protect/secure-build-cli/blob/master/HPSB-VPC.md#how-to-build-image-by-using-hpsb) to build the container image by using HPSB.
 
