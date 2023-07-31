@@ -278,7 +278,6 @@ curl -X POST "$vpc_api_endpoint/v1/keys?version=2023-03-30&generation=2" -H "Aut
 ```
 {: pre}
 
-
 ## Importing your SSH key by using Terraform
 {: #import-ssh-keys-terraform}
 {: terraform}
