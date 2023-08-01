@@ -487,7 +487,7 @@ $ ibmcloud is instance instance-name -q
 
 ID                                    0716_9cc6d74d-4b77-4cca-b1f4-31cc6edefe01   
 Name                                  instance-name   
-CRN                                   crn:v1:staging:public:is:us-south-1:a/af6443f619a949c9919c1eb1625d6cc5::instance:0716_9cc6d74d-4b77-4cca-b1f4-31cc6edefe01   
+CRN                                   crn:v1:bluemix:public:is:us-south-1:a/af6443f619a949c9919c1eb1625d6cc5::instance:0716_9cc6d74d-4b77-4cca-b1f4-31cc6edefe01   
 Status                                running   
 Availability policy on host failure   restart   
 Startable                             true   

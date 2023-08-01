@@ -106,7 +106,7 @@ Updating share 933c8781-f7f5-4a8f-8a2d-3bfc711788ee under account MyAccount 01 a
 
 ID                0738-933c8781-f7f5-4a8f-8a2d-3bfc711788ee
 Name              demo-share-update
-CRN               crn:v1:staging:public:is:us-south-3:a/c16d1edde3fd4a71a0130aed371405a0::share:0738-933c8781-f7f5-4a8f-8a2d-3bfc711788ee
+CRN               crn:v1:bluemix:public:is:us-south-3:a/c16d1edde3fd4a71a0130aed371405a0::share:0738-933c8781-f7f5-4a8f-8a2d-3bfc711788ee
 Lifecycle State   stable
 Zone              us-south-2
 Profile           tier-5iops

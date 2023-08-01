@@ -110,7 +110,7 @@ Updating file share my-file-share under account VPC1 as user user1@mycompany.com
 
 ID                e1180bae-6799-4156-8bb7-e4d24013cda2
 Name              my-file-share
-CRN               crn:v1:staging:public:is:us-south-1:a/0ef3f509-04f4-465e-88c6-2d60b164d805::share:e1180bae-6799-4156-8bb7-e4d24013cda2
+CRN               crn:v1:bluemix:public:is:us-south-1:a/0ef3f509-04f4-465e-88c6-2d60b164d805::share:e1180bae-6799-4156-8bb7-e4d24013cda2
 Lifecycle state   updating
 Zone              us-south-1
 Profile           custom-iops
@@ -146,7 +146,7 @@ Updating file share my-file-share under account VPC1 as user user@mycompany.com.
 
 ID                ba7c7c8a-c111-4f54-a7fe-bb6d3d66eb2a
 Name              my-file-share
-CRN               crn:v1:staging:public:is:us-south-1:a/0ef3f509-04f4-465e-88c6-2d60b164d805::share:ba7c7c8a-c111-4f54-a7fe-bb6d3d66eb2a
+CRN               crn:v1:bluemix:public:is:us-south-1:a/0ef3f509-04f4-465e-88c6-2d60b164d805::share:ba7c7c8a-c111-4f54-a7fe-bb6d3d66eb2a
 Lifecycle state   updating
 Zone              us-south-1
 Profile           tier-5iops

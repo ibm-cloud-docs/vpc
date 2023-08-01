@@ -372,7 +372,7 @@ This event shows the updated volume after a successful key rotation:
       }
     },
     "target": {
-      "id": "crn:v1:staging:public:is:us-south-1:a/82a90f2e-39e1-4a18-a8dc-6ebc17b61d7f::volume:cc6d2924-3cd2-459c-bb5e-9e84287fb530",
+      "id": "crn:v1:bluemix:public:is:us-south-1:a/82a90f2e-39e1-4a18-a8dc-6ebc17b61d7f::volume:cc6d2924-3cd2-459c-bb5e-9e84287fb530",
       "typeURI": "is.volume/volume",
       "name": "my-at-rewrap-encrypted-volume1",
       "host": {}
@@ -388,7 +388,7 @@ This event shows the updated volume after a successful key rotation:
     "requestData": {
       "account_id": "82a90f2e-39e1-4a18-a8dc-6ebc17b61d7f",
       "action": "is.volume.volume.update",
-      "crn": "crn:v1:staging:public:is:us-south-1:a/82a90f2e-39e1-4a18-a8dc-6ebc17b61d7f::volume:cc6d2924-3cd2-459c-bb5e-9e84287fb530",
+      "crn": "crn:v1:bluemix:public:is:us-south-1:a/82a90f2e-39e1-4a18-a8dc-6ebc17b61d7f::volume:cc6d2924-3cd2-459c-bb5e-9e84287fb530",
       "generation": "gc",
       "id": "cc6d2924-3cd2-459c-bb5e-9e84287fb530",
       "requestPath": "",
@@ -396,7 +396,7 @@ This event shows the updated volume after a successful key rotation:
     },
     "correlationId": "496cbc9b-3758-4eff-bc7d-f71a51be0e1d"
   },
-  "logSourceCRN": "crn:v1:staging:public:is:us-south-1:a/82a90f2e-39e1-4a18-a8dc-6ebc17b61d7f::volume:cc6d2924-3cd2-459c-bb5e-9e84287fb530",
+  "logSourceCRN": "crn:v1:bluemix:public:is:us-south-1:a/82a90f2e-39e1-4a18-a8dc-6ebc17b61d7f::volume:cc6d2924-3cd2-459c-bb5e-9e84287fb530",
   "saveServiceCopy": true
 }
 ```

@@ -226,7 +226,7 @@ The volume status shows `updating` while the IOPS is being adjusted. The current
 {
 	"iops": 100,
 	"created_at": "2022-01-11T09:46:43.000Z",
-	"crn": "crn:v1:staging:public:is:us-south-1:a/<Acc id>::volume:<Volume ID>",
+	"crn": "crn:v1:bluemix:public:is:us-south-1:a/<Acc id>::volume:<Volume ID>",
     .
     .
     .

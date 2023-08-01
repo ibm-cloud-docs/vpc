@@ -216,7 +216,7 @@ Creating instance my-instance-restore1 in resource group under account VP01 as u
 
 ID               7101_eded6dcd-4f3c-4e79-a0cb-00f7c72f38cd
 Name             my-instance-restore1
-CRN              crn:v1:staging:public:is:us-south-1/2d1bace7b46e4815a81e52c6ffeba5cf
+CRN              crn:v1:bluemix:public:is:us-south-1/2d1bace7b46e4815a81e52c6ffeba5cf
                  ::instance:7101_eded6dcd-4f3c-4e79-a0cb-00f7c72f38cd
 Status           pending
 Profile          bx2-2x8

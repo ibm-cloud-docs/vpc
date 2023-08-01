@@ -186,7 +186,7 @@ Use the CLI to create an image from a volume that is attached to an available vi
    Creating image test-ifv-vol1 in resource group  under account DEMO as user user1-mycompany.com...
    ID                 5b2fd4ee-c636-44c4-9673-453fca36832e
    Name               test-ifv-vol1
-   CRN                crn:v1:staging:public:is:us-south:a/2d1bace7b46e4815a81e52c6ffeba5cf::image:5b2fd4ee-c636-44c4-9673-453fca36832e
+   CRN                crn:v1:bluemix:public:is:us-south:a/2d1bace7b46e4815a81e52c6ffeba5cf::image:5b2fd4ee-c636-44c4-9673-453fca36832e
    Status             pending
    Status reason      Code                   Message                                                More info
                       image_request_queued   The image request is accepted and waiting for system   -

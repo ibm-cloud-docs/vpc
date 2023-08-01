@@ -144,7 +144,7 @@ In the response, the CRN of the encryption key is from Account A that owns the k
 ```json
 {
   "created_at": "2022-08-09T23:28:45Z",
-  "crn": "crn:v1:staging:public:is:us-south-1:a/b5c782a8f47a2d1527257e3465f21568::share:r134-fe7219eb-c9a9-4aab-8636-9a57141f0cee",
+  "crn": "crn:v1:bluemix:public:is:us-south-1:a/b5c782a8f47a2d1527257e3465f21568::share:r134-fe7219eb-c9a9-4aab-8636-9a57141f0cee",
   "encryption": "user_managed",
   "encryption_key": {
     "crn": "crn:v1:staging:public:kms:us-south:a/df0564dd126042ebb03e0224728ce939:4957299d-0ba0-487f-a1a0-c724a729b8b4:key:0cb88b98-9261-4d07-8329-8f594b6641b5"

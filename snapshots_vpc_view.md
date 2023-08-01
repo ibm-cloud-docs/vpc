@@ -288,7 +288,7 @@ Getting snapshot my-cli-snapshot-crc-target under account Test Account as user t
 
 ID                     r142-bd4532c0-e73c-44f9-a017-89e5368c521a
 Name                   my-cli-snapshot-crc-target
-CRN                    crn:v1:staging:public:is:us-east:a/2d1bace7b46e4815a81e52c6ffeba5cf::snapshot:r142-bd4532c0-e73c-44f9-a017-89e5368c521a
+CRN                    crn:v1:bluemix:public:is:us-east:a/2d1bace7b46e4815a81e52c6ffeba5cf::snapshot:r142-bd4532c0-e73c-44f9-a017-89e5368c521a
 Status                 stable
 Clones                 Zone   Available   Created
 
@@ -301,7 +301,7 @@ Bootable               true
 Encryption             provider_managed
 Encryption key         -
 Source Snapshot        ID                                          Name                   Remote Region   CRN                                                                                                                        Resource type
-                       r134-b9590a48-63a3-445e-b819-3f2c0b82daf8   cli-snap-crc-test-sn   us-south        crn:v1:staging:public:is:us-south:a/2d1bace7b46e4815a81e52c6ffeba5cf::snapshot:r134-b9590a48-63a3-445e-b819-3f2c0b82daf8   snapshot
+                       r134-b9590a48-63a3-445e-b819-3f2c0b82daf8   cli-snap-crc-test-sn   us-south        crn:v1:bluemix:public:is:us-south:a/2d1bace7b46e4815a81e52c6ffeba5cf::snapshot:r134-b9590a48-63a3-445e-b819-3f2c0b82daf8   snapshot
 
 Minimum capacity(GB)   100
 Size(GB)               2

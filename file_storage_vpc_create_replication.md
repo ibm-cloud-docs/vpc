@@ -104,7 +104,7 @@ Creating file share p-share-3 under account VPC as user myuser@mycompany.com...
 
 ID                   8b08129c-e376-4572-9ef3-68c729b315d5
 Name                 p-share-3
-CRN                  crn:v1:staging:public:is:us-south-1:a/efe5afc483594adaa8325e2b4d1290df::share:8b08129c-e376-4572-9ef3-68c729b315d5
+CRN                  crn:v1:bluemix:public:is:us-south-1:a/efe5afc483594adaa8325e2b4d1290df::share:8b08129c-e376-4572-9ef3-68c729b315d5
 Lifecycle state      pending
 Zone                 us-south-1
 Profile              tier-5iops
@@ -158,7 +158,7 @@ Creating replica file share replica-share-3 under account VPC as user myuser@myc
 
 ID                      4de3d510-b0db-4674-9dea-c9b93e26b1c3
 Name                    replica-share-3
-CRN                     crn:v1:staging:public:is:us-south-3:a/efe5afc483594adaa8325e2b4d1290df::share:4de3d510-b0db-4674-9dea-c9b93e26b1c3
+CRN                     crn:v1:bluemix:public:is:us-south-3:a/efe5afc483594adaa8325e2b4d1290df::share:4de3d510-b0db-4674-9dea-c9b93e26b1c3
 Lifecycle state         pending
 Zone                    us-south-3
 Profile                 tier-5iops

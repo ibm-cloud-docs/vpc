@@ -95,7 +95,7 @@ Creating instance cli-vsi-1 under account VPC1 as user myuser@mycompany.com...
 
 ID                                    0716_84f99419-554d-4c05-bea0-7034d1c40ed3
 Name                                  vsi-1
-CRN                                   crn:v1:staging:public:is:us-south-1:a/efe5afc483594adaa8325e2b4d1290df::instance:0716_84f99419-554d-4c05-bea0-7034d1c40ed3
+CRN                                   crn:v1:bluemix:public:is:us-south-1:a/efe5afc483594adaa8325e2b4d1290df::instance:0716_84f99419-554d-4c05-bea0-7034d1c40ed3
 Status                                pending
 Availability policy on host failure   restart
 Startable                             true
@@ -148,7 +148,7 @@ Updating volume my-boot-vol1 under account VPC1 as user myuser@mycompany.com...
 
 ID                                     9d60ba27-170c-4e2a-9bf6-6dbb11f95c38
 Name                                   my-boot-vol1
-CRN                                    crn:v1:staging:public:is:us-south-1:a/efe5afc483594adaa8325e2b4d1290df::volume:9d60ba27-170c-4e2a-9bf6-6dbb11f95c38
+CRN                                    crn:v1:bluemix:public:is:us-south-1:a/efe5afc483594adaa8325e2b4d1290df::volume:9d60ba27-170c-4e2a-9bf6-6dbb11f95c38
 Status                                 updating
 Capacity                               190
 IOPS                                   3000
