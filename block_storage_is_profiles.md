@@ -37,7 +37,7 @@ When you create a block storage volume, you can select between custom and tiered
 
 The application I/O size directly impacts storage performance. If the application I/O size is smaller than the throughput multiplier that is used by the profile to calculate the volume’s bandwidth limit, the IOPS limit is reached before the throughput limit. Conversely, if the application I/O size is larger, the throughput limit is reached before the IOPS limit.
 
-For more information, see [How block size affects performance](/docs/vpc?topic=vpc-capacity-performance&interface=terraform#how-block-size-affects-performance).
+For more information, see [How block size affects performance](/docs/vpc?topic=vpc-capacity-performance#how-block-size-affects-performance).
 
 Moving volumes across volume-profiles that belong to different families is not allowed.
 {: restriction}
