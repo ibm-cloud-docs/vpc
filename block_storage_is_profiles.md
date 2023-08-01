@@ -25,15 +25,15 @@ When you create a block storage volume, you can select between custom and tiered
 
 | Profile family | Profile name      | IOPS&sup1;      | IOPS per volume| Max throughput&sup2;| Volume size  |   
 |----------------|-------------------|----------------:|---------------:|---------------:|------------------:|
-| `tiered`       | `general-purpose` | 3 IOPS/GB       | 3,000 - 48,000 | 670 MB/s       | 10 GB - 16,000 GB | 
-| `tiered`       | `5iops-tier`      | 5 IOPS/GB       | 3,000 - 48,000 | 768 MB/s       | 10 GB - 9,600 GB  | 
-| `tiered`       | `10iops-tier`     | 10 IOPS/GB      | 3,000 - 48,000 | 1024 MB/s      | 10 GB - 4,800 GB  |
-| `custom`       | `custom`          | 1 - 100 IOPS/GB |   100 - 48,000 | 1024 MB/s      | 10 GB - 16,800 GB |
+| `tiered`       | `general-purpose` | 3 IOPS/GB       | 3,000 - 48,000 | 670 Mbps       | 10 GB - 16,000 GB | 
+| `tiered`       | `5iops-tier`      | 5 IOPS/GB       | 3,000 - 48,000 | 768 Mbps       | 10 GB - 9,600 GB  | 
+| `tiered`       | `10iops-tier`     | 10 IOPS/GB      | 3,000 - 48,000 | 1024 Mbps      | 10 GB - 4,800 GB  |
+| `custom`       | `custom`          | 1 - 100 IOPS/GB |   100 - 48,000 | 1024 Mbps      | 10 GB - 16,800 GB |
 {: caption="Table 1. Block storage profiles and performance levels." caption-side="bottom"}
 
 &sup1; IOPS values are based on 16k IO size. 
 
-&sup2; Baseline throughput is determined by the number of IOPS multiplied by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB or custom IOPS tiers. The higher the IOPS that you specify, the higher the throughput. Maximum throughput is 1024 MBps.
+&sup2; Baseline throughput is determined by the number of IOPS multiplied by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB or custom IOPS tiers. The higher the IOPS that you specify, the higher the throughput. Maximum throughput is 1024 Mbps.
 
 The application I/O size directly impacts storage performance. If the application I/O size is smaller than the throughput multiplier that is used by the profile to calculate the volume’s bandwidth limit, the IOPS limit is reached before the throughput limit. Conversely, if the application I/O size is larger, the throughput limit is reached before the IOPS limit.
 
