@@ -16,7 +16,7 @@ subcollection: vpc
 {: help}
 {: support}
 
-You can create and attach a public gateway to specific Virtual Private Cloud (VPC) subnets and virtual server instances. Before you begin, make sure to review the use cases that are listed in [About public gateways](/docs/vpc?topic=vpc-public-gateways).
+You can create and attach a public gateway to specific Virtual Private Cloud (VPC) subnets and virtual server instances. Before you begin, make sure to review the use cases that are listed in [About public gateways](/docs/vpc?topic=vpc-about-public-gateways).
 {: shortdesc}
 
 ## Before you begin
@@ -52,7 +52,7 @@ To create a public gateway using the {{site.data.keyword.cloud_notm}} console, f
 1. Enter values for the following fields under details:
 
    * **Public gateway name** - Type a unique name for your public gateway.
-   * **Resource group** - Select a resource group for your public gateway collector. You can use the default group for this public gateway, or select from the list (if defined). For more information, see [Best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup). 
+   * **Resource group** - Select a resource group for your public gateway collector. You can use the default group for this public gateway, or select from the list (if defined). For more information, see [Best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup).
       After provisioning is complete, you cannot change the resource group.
       {: important}
 
