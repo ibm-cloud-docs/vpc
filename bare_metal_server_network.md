@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-11-07"
+  years: 2021, 2023
+lastupdated: "2023-08-03"
 
 keywords: bare metal server network, bare metal network, nics, pci, vlan, network overview
 
@@ -100,8 +100,7 @@ The PCI interface of the bare metal server maps to the Uplink in vSphere. When y
 
 After you add a standard vSwitch or distributed vSwitch, you must select one of the available PCI interfaces as the Uplink on the new vSwitch. Therefore, before you add a vSwitch, you need to make sure that at least one PCI interface is used as the Uplink.
 
-The IP of the PCI interface can be used by the VMkernel adapter.
-{: note}
+If the VMkernel adapter uses the same IP address as the PCI interface, the Mac address of the VMkernel adapter must use the same Mac address as the PCI interface.{: note}
 
 The PCI interfaces that are created on a bare metal server are displayed in VMware vSphere as `vmnic0`, `vmnic1`, `vmnic2`, and so on. You can identify the target PCI interface in vSphere through its MAC address.
 
