@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-06-20"
+lastupdated: "2023-08-04"
 
 keywords:
 
@@ -15,9 +15,6 @@ subcollection: vpc
 
 # About virtual network interfaces
 {: #vni-about}
-
-The beta release is provided for IBM internal users. This information is not published for external customers. 
-{: beta}
 
 A virtual network interface is a logical abstraction of a network interface in a subnet. A virtual network interface has an IP address in a subnet and at least one security group. 
 {: shortdesc}
