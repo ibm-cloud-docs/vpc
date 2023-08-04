@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-08-24"
+  years: 2020, 2023
+lastupdated: "2023-08-04"
 
 keywords: dedicated host, dedicated host group
 
@@ -64,13 +64,12 @@ To create a dedicated host:
 
 | Field | Value |
 |-------|-------|
-| Dedicated host name  | A unique resource name within the region is required for your dedicated host. If you don't specify a name, a name is generated and assigned to your dedicated host. |
+| Location | Locations are composed of regions (specific geographic areas) and zones (fault tolerant data centers within a region). Select the location where you want your dedicated host to be created. |
+| Name  | A unique resource name within the region is required for your dedicated host. If you don't specify a name, a name is generated and assigned to your dedicated host. |
 | Resource group | Select the resource group that contains the account resources and users that you want to be able to access the dedicated host. For more information about resource groups, see [Managing resource groups](/docs/account?topic=account-rgs).  |
 | Tags | You can assign a label to this resource so that you can easily filter resources in your resource list. |
-| Location | Locations are composed of regions (specific geographic areas) and zones (fault tolerant data centers within a region). Select the location where you want your dedicated host to be created. |
-| vCPU architecture | x86 architecture is selected by default. |
 | Instance placement | Select whether you want to enable the placement of instances on this dedicated host. The default value of instance placement is set to *On*. If you set the instance placement value to *Off*, no instances can be created on this dedicated host until the value is changed to *On*.|
-| Profile | Select a profile to define the vCPU and memory for the dedicated host. The profile family that you select for the dedicated host determines the profile family that must be used when you provision virtual server instances on the host. If you choose a memory profile for your dedicated host, all instances that are provisioned on the host must also be created with a memory profile. If you choose an [instance storage](/docs/vpc?topic=vpc-instance-storage) profile for the dedicated host (a profile that includes *d* in the prefix, such as *mx2d*), all instances that are provisioned on the dedicated host must be provisioned with an instance storage profile in the corresponding family. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles).  |
+| Profile | Click **Change profile** to select a profile that defines the vCPU and memory for the dedicated host. On the dedicated host profile page, you can select the architecture to use for your dedicated host; x86 architecture is selected by default. The profile family that you select for the dedicated host determines the profile family that must be used when you provision virtual server instances on the host. If you choose a memory profile for your dedicated host, all instances that are provisioned on the host must also be created with a memory profile. If you choose an [instance storage](/docs/vpc?topic=vpc-instance-storage) profile for the dedicated host (a profile that includes *d* in the prefix, such as *mx2d*), all instances that are provisioned on the dedicated host must be provisioned with an instance storage profile in the corresponding family. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles).  |
 | Dedicated group | Select the dedicated group where you want this dedicated host created. Or you can [create a new dedicated group](#creating-dedicated-groups). |
 {: caption="Table 1. Dedicated host provisioning selections" caption-side="bottom"}
 
@@ -79,7 +78,7 @@ To create a dedicated host:
 
 If you don't have a dedicated group, or if you want to create a new dedicated group, you can create one as part of the dedicated host creation process.
 
-1. On the **New dedicated host for VPC** page, click **New dedicated group** near the bottom of the page.
+1. On the **Dedicated host for VPC** page, click **Create dedicated group** near the bottom of the page.
 2. Enter the information in Table 2.
 3. Click **Create** when your dedicated group information is complete.
 
