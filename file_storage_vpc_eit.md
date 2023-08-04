@@ -124,32 +124,48 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
 * The same certificates cannot be used across multiple regions.
 * The Mount Helper is supported for mounting on Linux hosts only.
 
-### Build from source code
-{: #fs-eit-clone-source-code}
-
-1. Clone the source code repo.
-   ```sh
-   git clone https://github.com/IBM/vpc-file-storage-mount-helper.git
-   ```
-   {: pre}
-
-2. Build the artifacts by running the `make` command.
-   ```sh
-   make prod
-   ```
-   {: pre}
-
 ### Installation and configuration of the Mount Helper
 {: #fs-eit-installation}
 
-1. Download the Mount Helper package:
+1. You can either build the mount helper package from source code or download the package directly from GitHub.
 
+    - Build from source code.
+
+       - On Debian based instances, run the following commands:
+       
+         ```sh
+         apt-get update -y
+         apt-get install git make python3 -y
+         git clone git@github.com:IBM/vpc-file-storage-mount-helper.git
+         cd vpc-file-storage-mount-helper
+         make build-deb
+         ```
+         {: pre}
+
+       - On RPM based instances, run the following commands:
+  
+         ```sh
+         yum update -y
+         yum install git make python3 rpm-build -y
+         git clone git@github.com:IBM/vpc-file-storage-mount-helper.git
+         cd vpc-file-storage-mount-helper
+         make build-rpm
+         ```
+         {: pre}
+
+    - Download the Mount Helper package from GitHub. 
+
+      ```sh
+       curl -LO https://github.com/IBM/vpc-file-storage-mount-helper/releases/download/latest/mount.ibmshare-latest.tar.gz 
+       ```
+       {: codeblock}
+
+1. Extract the tar file.
    ```sh
-   curl -LO https://github.com/IBM/vpc-file-storage-mount-helper/releases/download/latest/mount.ibmshare-latest.tar.gz 
    tar -xvf mount.ibmshare-latest.tar.gz
    ```
-   {: codeblock}
-
+   {: pre}
+   
    The tar file contains the following contents: installation and uninstallation scripts, `mount helper rpm` and `deb` packages, root CA certificates, and configuration file.
 
    Closed environments: To install Mount Helper on a virtual server instance without internet connection, create or update a local repository on the VSI based on the OS. Copy the Mount Helper package along with its dependencies to the local directory.
