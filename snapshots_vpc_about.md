@@ -62,7 +62,7 @@ You can also restore a [stand-alone (unattached) data volume from a snapshot](/d
 
 The following limitations apply to this release:
 
-* You can take up to [750 snapshots](#snapshots_vpc_considerations) per volume in a region.
+* You can take up to 750 snapshots per volume in a region.
 * You cannot take a snapshot of a volume in a [degraded state](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#block-storage-vpc-health-states).
 * You can't create a copy of a snapshot in the source (local) region.
 * When you create copies of a snapshot in other regions, only one copy can exist in each region. That means 9 copies globally.

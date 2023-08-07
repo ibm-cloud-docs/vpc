@@ -46,7 +46,7 @@ A [fast restore snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui
 {: faq}
 {: #faq-snapshot-3}
 
-You can take up to 750 snapshots per volume in a region. Deleting snapshots from this quota makes space for more snapshots. A snapshot of a volume cannot be greater than 10 TB. Also, consider how your [billing changes](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_considerations) when you increase the number of snapshots that you take and retain.
+You can take up to 750 snapshots per volume in a region. Deleting snapshots from this quota makes space for more snapshots. A snapshot of a volume cannot be greater than 10 TB. Also, consider how your billing is affected when you increase the number of snapshots that you take and retain.
 
 ## Is there a limit on the size of a volume that I can take a snapshot of?
 {: faq}
