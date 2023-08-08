@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-06-20"
+lastupdated: "2023-08-08"
 
 keywords: file share, file storage, mount helper, mount target, mount path, secure connection, NFS
 
@@ -18,9 +18,6 @@ subcollection: vpc
 Use these instructions to connect a CentOS Linux&reg;-based {{site.data.keyword.cloud}} Compute Instance to a Network File System (NFS) file share.
 {: shortdesc}
 
-{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Madrid, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
-{: preview}
-
 ## Before you begin
 {: #fs-centos-create-vsi}
 
@@ -35,7 +32,7 @@ Use these instructions to connect a CentOS Linux&reg;-based {{site.data.keyword.
 {{site.data.keyword.filestorage_vpc_short}} service requires NFS versions v4.1 or higher.
 {: requirement}
 
-## Mount the file share on CentOS
+## Mounting the file share on CentOS
 {: #fs-mount-CentOS}
 
 Mount a file share on a CentOS host by following these steps. The examples are based on CentOS 8. The steps are similar to the ones that are described on [Mounting file shares on Red Hat Enterprise Linux&reg;](/docs/vpc?topic=vpc-file-storage-vpc-mount-RHEL).
@@ -165,7 +162,7 @@ SSH into the virtual server instance where you want to mount the file share, the
    For NFS 4.1, add `sec=sys` to the mount command to prevent file ownership issues. Use `_netdev` to wait for the storage to get mounted until after all network components are started.
    {: tip}
 
-## Implement `no_root_squash` for NFS (optional)
+## Implementing `no_root_squash` for NFS (optional)
 {: #fs-CentOS-norootsquash}
 
 By default, NFS downgrades any files that were created with the root permissions to the `nobody` user. This security feature prevents privileges from being shared unless they are requested.
@@ -191,7 +188,7 @@ For NFSv4.1, set the nfsv4 domain to: `slnfsv4.com`, and start `rpcidmapd` or a 
 
 2. Run `nfsidmap -c`.
 
-## Unmount the file system
+## Unmounting the file system
 {: #fs-CentOS-umount}
 
 To unmount any currently mounted file system on your host, run the `umount` command with disk name or mount point name.

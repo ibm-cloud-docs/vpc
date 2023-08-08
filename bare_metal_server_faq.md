@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-07-11"
+lastupdated: "2023-08-08"
 
 subcollection: vpc
 
@@ -40,17 +40,14 @@ Currently, VMware ESXi, Windows, RHEL, RHELfor SAP, Debian GNU, SUSE Linux Enter
 {: #faq-bare-metal-2}
 {: faq}
 
-Two storage options are available that include secondary local NVMe drives. 
+Two storage options are available that include secondary local NVMe drives.
+
 * The `bx2-metal-192x768` profile provides mirrored 960 GB SATA M.2 drives as boot storage only. 
 * The `bx2d-metal-192x768` profile provides mirrored 960 GB SATA M.2 drives as boot storage and 16 3.2 TB U.2 NVMe SSDs as secondary local storage to support vSAN, or user-managed RAID. 
 
-VPC Block Storage is not supported. VPC File Storage is compatible when it becomes generally available. 
+VPC Block Storage is not supported. VPC File Storage is compatible. Encryption in transit is not supported between {{site.data.keyword.filestorage_vpc_short}} and {{site.data.keyword.bm_is_short}}.
 
-Currently, {{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Madrid, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access. For more information about file storage, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about).
-{: preview}
-
-Encryption in transit is not supported on {{site.data.keyword.bm_is_short}}.
-{: restriction}
+For more information about file storage, see [About {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-file-storage-vpc-about).
 
 ## What is required to set up my Bare Metal Servers for VPC? 
 {: #faq-bare-metal-3}
@@ -132,7 +129,7 @@ The main difference between virtual server instances and the bare metal servers 
 
 To view your account invoices, follow these steps.
 
-1. Go to the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}), 
+1. Go to the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](/login), 
 2. Then, click **Manage > Billing and Usage**.
 
 Each account receives a single bill. If you need separate billing for different sets of resources, then you need to create multiple accounts.

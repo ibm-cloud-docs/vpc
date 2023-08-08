@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-07-18"
+lastupdated: "2023-08-08"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -18,13 +18,38 @@ subcollection: vpc
 Manage file shares that you created. You can rename a file. You can increase its capacity and modify its IOPS. You can add mount targets to a file share, mount, and unmount a file share from virtual server instances. You can rename or delete a mount target, and you can delete a file share.
 {: shortdesc}
 
-{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Madrid, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
-{: preview}
-
 {{site.data.keyword.filestorage_vpc_short}} service requires IAM permissions for role-based access control. For example, to create a file share, you need to at least editor permissions. For more information, see the [required permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls) for file shares.
 {: requirement}
 
-## Manage file shares and mount points in the UI
+## File share lifecycle states and replication status
+{: #file-storage-vpc-status}
+
+During its lifecycle and normal operations, a file share can be in various states. These states can be observed in UI, from the CLI, or with the API.
+
+Lifecycle state:
+
+| State | Explanation |
+|-----------------|-------------|
+| `stable` | The file share or mount target is stable and available for use. |
+| `pending`| The file share or mount target is being created. |
+| `failed` | The file share or mount target failed to be created. You can delete the failed share and try creating another one. |
+| `deleting` | The file share or mount target is being deleted. |
+| `suspended` | The file share violates {{site.data.keyword.cloud}}’s [Acceptable Use Policy](https://www.ibm.com/services/us/imc/html/aup1.html). A suspended file share cannot be updated or deleted.|
+| `updating`| The file share capacity or IOPS are being updated|
+| `waiting` |  |
+{: caption="Table 1. File storage lifecycle states" caption-side="bottom"}
+
+Replication status:
+| Status | Explanation |
+|-----------------|-------------|
+| `active` | This share is actively participating in replication, and the replica's data is up-to-date with the replication schedule. |
+| `failover_pending` |  This share is performing a replication failover. Or the service is waiting for another operation to complete, such as file share expansion, before the failover can commence. |
+| `initializing` | This share is initializing replication. |
+| `none` | This share is not participating in replication. |
+| `split_pending` | This share is performing a replication split. |
+{: caption="Table 2. File storage replication status" caption-side="bottom"}
+
+## Managing file shares and mount points in the UI
 {: #file-storage-manage-ui}
 {: ui}
 
@@ -38,7 +63,7 @@ In the console, you can:
 * [Delete a file share](#delete-file-share-ui).
 * [Add user tags to file shares](#fs-add-user-tags).
 
-### Rename a file share in the UI
+### Renaming a file share in the UI
 {: #rename-file-share-ui}
 
 1. On the [file shares details](/docs/vpc?topic=vpc-file-storage-view#fs-view-single-share-ui) page, click the pencil icon next to the file share name.
@@ -47,7 +72,7 @@ In the console, you can:
 
 Valid file share names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. File share names must begin with a lowercase letter.
 
-### Add mount target to a file share in the UI
+### Adding mount target to a file share in the UI
 {: #add-mount-target-ui}
 
 To mount a file share to an instance, you must create a mount target by providing a VPC or subnet information. If you want to connect a file share to instances that are running in multiple VPCs in the same zone, you can create multiple mount targets for different VPCs.
@@ -63,7 +88,7 @@ To mount a file share to an instance, you must create a mount target by providin
 
 4. Select a VPC from the list and then click **Create**.
 
-### Rename a mount target of a file share in the UI
+### Renaming a mount target of a file share in the UI
 {: #rename-mount-target-ui}
 
 1. Go to the [file shares details](/docs/vpc?topic=vpc-file-storage-view&interface=ui#fs-view-single-share-ui) page.
@@ -76,7 +101,7 @@ To mount a file share to an instance, you must create a mount target by providin
 
 Valid mount target names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. Mount target names must begin with a lowercase letter.
 
-### Update a file share profile in the UI
+### Updating a file share profile in the UI
 {: #fs-update-profile-ui}
 
 You can change the profile for a file share from the current profile to another **IOPS tier** profile, to a **custom** profile, or to a high-performance **dp2** profile. Your billing adjusts based on the type of profile that you choose.
@@ -89,7 +114,7 @@ You can change the profile for a file share from the current profile to another 
 
 4. Click **Save and continue**.
 
-### Delete file shares and mount targets in the UI
+### Deleting file shares and mount targets in the UI
 {: #delete-targets-shares-ui}
 
 To delete a file share, you must first delete all its associated mount targets.
@@ -97,7 +122,7 @@ To delete a file share, you must first delete all its associated mount targets.
 If the file share is configured for replication, you need to take extra steps. For more information, see [Deleting a replica file share](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=api#fs-delete-replicas).
 {: note}
 
-#### Delete mount target of a file share in the UI
+#### Deleting mount target of a file share in the UI
 {: #delete-mount-target-ui}
 
 To delete a mount target, the file share must be in a `stable` state.
@@ -108,7 +133,7 @@ To delete a mount target, the file share must be in a `stable` state.
 
 3. Click the overflow menu (ellipsis) and select **Delete**.
 
-#### Delete a file share in the UI
+#### Deleting a file share in the UI
 {: #delete-file-share-ui}
 
 Before you delete a file share, make sure that it is [unmounted](#fs-mount-unmount-vsi) from all virtual server instances and that all mount targets that belong to the file share are [deleted](#delete-mount-target-ui).
@@ -119,7 +144,7 @@ The file share must be in a `stable` state or `failed` state (that is, when prov
 
 2. Click the overflow menu at the end of the row and select **Delete**.
 
-## Add user tags to a file share
+## Adding user tags to a file share
 {: #fs-add-user-tags}
 
 You can add user tags to new or existing file shares, modify, and delete tags for a file share with the UI, CLI, API, and Terraform. You can view tags throughout your account by filtering by tags from your resource list. You can also add user tags to replica file shares.
@@ -129,7 +154,7 @@ You can create as many user tags as you like for a file share. However, to keep 
 
 You can manage your tags in the {{site.data.keyword.cloud_notm}} with the [Global Tagging API](/apidocs/tagging). With this API, you can create, delete, search, attach, or detach tags. For more information about managing tags for your account, see [Working with tags](/docs/account?topic=account-tag).
 
-### Add user tags to file share in the UI
+### Adding user tags to file share in the UI
 {: #fs-add-tags-shares-ui}
 {: ui}
 
@@ -145,7 +170,7 @@ You can add user tags to a file share in the UI.
 
 5. Click **Save**.
 
-### Add or modify file share user tags from the CLI
+### Adding or modify file share user tags from the CLI
 {: #fs-add-tags-cli}
 {: cli}
 
@@ -173,25 +198,25 @@ Resource Group    ID                                 Name
                   bdd96715c2a44f2bb60df4ff14a543f5   Default
 User Tags         env:test,env:prod
 
-Created           2023-01-07T15:26:21+05:30
+Created           2023-07-17T15:26:21+05:30
 ```
 {: screen}
 
-### Add or modify file share user tags with the API
+### Adding or modify file share user tags with the API
 {: #fs-add-tags-api}
 {: api}
 
 As described in the [Beta VPC API](/apidocs/vpc-beta) reference [versioning](/apidocs/vpc-beta#api-versioning-beta) policy, support for older versions of the beta API is limited to 45 days. Therefore, beta API requests must specify a `version` query parameter date value within the last 45 days. You must also provide `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/apidocs/vpc#api-generation-parameter).
 {: requirement}
 
-#### Add user tag when a file share is created
+#### Adding user tag when a file share is created
 {: #fs-add-tags-new-share-api}
 
 Make a `POST /shares` request and specify the `user_tags` property. This example creates a share with three user tags, `env:test1`, `env:test2`, and `env:prod`.
 
 ```sh
 curl -X POST \
-"$rias_endpoint/v1/shares?version=2023-07-11&generation=2&maturity=beta&maturity=beta"\
+"$rias_endpoint/v1/shares?version=2023-08-08&generation=2"\
     -H "Authorization: Bearer $iam_token"\
     -H 'Content-Type: application/json'\
     -d '{
@@ -212,7 +237,7 @@ curl -X POST \
 ```
 {: codeblock}
 
-#### Modify user tags for an existing file share
+#### Modifying user tags for an existing file share
 {: #fs-add-tags-share-api}
 
 Add new user tags to an existing file share by making a `PATCH /shares` call and specify the user tags in the `user_tags` property. You can specify new tags for a file share without any tags and the user tags are added. If you specify different tags, the existing tags are modified.
@@ -221,7 +246,7 @@ The following example modifies a file share that is identified by ID by renaming
 
 ```sh
 curl -X PATCH\
-"$rias_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?version=2023-07-11&generation=2&maturity=beta&maturity=beta"\
+"$rias_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?version=2023-08-08&generation=2"\
 -H "Authorization: $iam_token" \
 -d '{
     "name": "myshare-patch-1",
@@ -279,7 +304,7 @@ Response:
 ```
 {: screen}
 
-#### Modify file share user tags with ETag verification
+#### Modifying file share user tags with ETag verification
 {: #fs-modify-etag-api}
 
 To ensure that updates to a file share are valid, you can obtain an `ETag` hash string value and specify it in the `If-Match` header in the `PATCH /shares/{share_id}` call. That confirms that no change happened to the share object between the last observed state and the state at the time of the `PATCH` call.
@@ -289,7 +314,7 @@ To modify existing user tags that are added to a file share, you first make a `G
 1. Make a `GET /shares/{share_id}` call and copy the hash string from `ETag` property in the response header. Use need the hash string value for when you specify `If-Match` in the `PATCH /shares/{share_id}` request to modify user tags for the share in step 2.
 
    ```sh
-   curl -sSL -D GET\ "https://us-south.cloud.ibm.com/v1/shares/{share_id}?version=2023-07-11&generation=2&maturity=beta&maturity=beta"\
+   curl -sSL -D GET\ "https://us-south.cloud.ibm.com/v1/shares/{share_id}?version=2023-08-08&generation=2"\
    -H "Authorization: Bearer $TOKEN" -o /dev/null
    ```
    {: codeblock}
@@ -322,7 +347,7 @@ To modify existing user tags that are added to a file share, you first make a `G
 
    ```sh
    curl -X PATCH\
-   "$vpc_api_endpoint/v1/shares/50fda9c3-eecd-4152-b473-a98018ccfb10?version=2023-07-11&generation=2&maturity=beta&maturity=beta"\
+   "$vpc_api_endpoint/v1/shares/50fda9c3-eecd-4152-b473-a98018ccfb10?version=2023-08-08&generation=2"\
       -H "Authorization: Bearer"\
       -H "If-Match: W/xxxyyyzzz123"\
       -d `{
@@ -334,13 +359,13 @@ To modify existing user tags that are added to a file share, you first make a `G
    ```
    {: codeblock}
 
-## Add access management tags to a file share
+## Adding access management tags to a file share
 {: #fs-add-access-mgt-tags}
 {: ui}
 
 Access management tags are metadata that you can add to your file shares to help organize access control resource relationships. You first create the tag and then add it to an existing file share or when you create a file share. You can apply the same access management tag to multiple file shares. You can assign access to the tag in {{site.data.keyword.iamshort}} (IAM). Optionally, you can create an IAM access group and manage users.
 
-### Step 1 - Create an access management tag in IAM
+### Step 1 - Creating an access management tag in IAM
 {: #fs-create-access-mgt-tag}
 
 In the console:
@@ -353,7 +378,7 @@ From the [Global Search and Tagging API](/docs/account?topic=account-tag&interfa
 
 Make a `POST/ tags` call to [create an access management tag](/apidocs/tagging#create-tag) and specify the tag in the `tag_names` property. For an example, see [Creating access management tags with the API](/docs/account?topic=account-tag&interface=api#create-access-api).
 
-### Step 2 - Add an access management tag to a file share
+### Step 2 - Adding an access management tag to a file share
 {: #fs-add-access-mgt-tag}
 
 Add an access management tag to an existing file share or when you [create a file share](/docs/vpc?topic=vpc-file-storage-create). For an existing file share:
@@ -362,7 +387,7 @@ Add an access management tag to an existing file share or when you [create a fil
 2. In the **Access management tags** field, type the name of an access management tag that you previously created. The tag appears as you type.
 3. Save your changes.
 
-### Step 3 - Create an access group and assign access to users
+### Step 3 - Creating an access group and assign access to users
 {: #fs-access-mgt-additional-steps}
 
 After you create an access management tag and apply it to a file share, complete the following steps to assign access and add users:
@@ -375,7 +400,7 @@ After you create an access management tag and apply it to a file share, complete
 
 When you look at the specific resources for the VPC infrastructure and specify {{site.data.keyword.filestorage_vpc_short}} as the resource type, you can see the access management tags for the file service.
 
-## Manage file shares and mount targets from the CLI
+## Managing file shares and mount targets from the CLI
 {: #file-storage-manage-cli}
 {: cli}
 
@@ -387,7 +412,7 @@ By using the CLI, you can:
 * [Delete a file share](#delete-file-share-cli).
 * [Update a file share profile](#fs-update-profile-cli)
 
-### Rename a file share from the CLI
+### Renaming a file share from the CLI
 {: #rename-file-share-cli}
 
 Run the `share-update` command and specify a new file share name:
@@ -399,7 +424,9 @@ ibmcloud is share-update SHARE_ID --name NEW_NAME [--output JSON] [-q, --quiet]
 
 Valid file share names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. File share names must begin with a lowercase letter.
 
-### Rename a mount target of a file share from the CLI
+For more information about the command options, see [`ibmcloud is share-update`](/docs/vpc?topic=vpc-vpc-reference#share-update).
+
+### Renaming a mount target of a file share from the CLI
 {: #rename-mount-target-cli}
 
 Run the `share-mount-target-update` command with the file share name or ID, and the mount target name. Specify a new mount target name.
@@ -409,9 +436,11 @@ ibmcloud is share-mount-target-update SHARE/SHARE_ID MOUNT_TARGET_ID --name NEW_
 ```
 {: pre}
 
+For more information about the command options, see [`ibmcloud is share-mount-target-update`](/docs/vpc?topic=vpc-vpc-reference#share-mount-target-update).
+
 Valid mount target names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. Mount target names must begin with a lowercase letter.
 
-### Update a file share profile in the CLI
+### Updating a file share profile in the CLI
 {: #fs-update-profile-cli}
 
 Use the `share-update` command with the `--profile` parameter to indicate the new file share profile by name.
@@ -439,7 +468,9 @@ Profile           dp2
 ```
 {: screen}
 
-### Delete file shares and mount targets from the CLI
+For more information about the command options, see [`ibmcloud is share-update`](/docs/vpc?topic=vpc-vpc-reference#share-update).
+
+### Deleting file shares and mount targets from the CLI
 {: #delete-share-targets-cli}
 
 Before you can delete a file share, make sure that all mount targets that belong to the file share are [deleted](#delete-mount-target-cli). The file share must be in a `stable` or `failed` state (that is, when provisioning fails).
@@ -447,7 +478,7 @@ Before you can delete a file share, make sure that all mount targets that belong
 If the file share is configured for replication, you must take extra steps. For more information, see [Deleting a replica file share](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=api#fs-delete-replicas).
 {: note}
 
-#### Delete a mount target of a file share from the CLI
+#### Deleting a mount target of a file share from the CLI
 {: #delete-mount-target-cli}
 
 Run the `share-mount-target-delete` command and specify the file share ID and mount target ID. To delete a mount target, the file share must be in a `stable` state.
@@ -457,7 +488,9 @@ ibmcloud is share-mount-target-delete <SHARE_ID> <MOUNT_TARGET_ID>
 ```
 {: pre}
 
-#### Delete a file share from the CLI
+For more information about the command options, see [`ibmcloud is share-mount-target-delete`](/docs/vpc?topic=vpc-vpc-reference#share-mount-target-delete).
+
+#### Deleting a file share from the CLI
 {: #delete-file-share-cli}
 
 Run the `share_delete` command and specify the file share ID.
@@ -471,7 +504,9 @@ ibmcloud is share-delete <SHARE_ID>
 ```
 {: pre}
 
-## Manage file shares and mount points with the API
+For more information about the command options, see [`ibmcloud is share-delete`](/docs/vpc?topic=vpc-vpc-reference#share-replica-delete).
+
+## Managing file shares and mount points with the API
 {: #file-storage-manage-api}
 {: api}
 
@@ -490,15 +525,15 @@ To see information about the {{site.data.keyword.filestorage_vpc_short}} API met
 {{site.data.keyword.filestorage_vpc_short}} regional API is available for customers with special approval to preview this feature.
 {: beta}
 
-### Rename a file share in the API
+### Renaming a file share with the API
 {: #rename-file-share-api}
 
 Make a `PATCH /shares/$share_id` call to rename a specific file share. See the following example.
 
 ```sh
 curl -X PATCH \
-"$vpc_api_endpoint/v1/shares/$share_id?version=2023-07-11&generation=2&maturity=beta" \
-  -H "Authorization: Bearer ${API_TOKEN}" \
+"$vpc_api_endpoint/v1/shares/$share_id?version=2023-08-08&generation=2"\
+  -H "Authorization: Bearer ${API_TOKEN}"\
   -d '{
     "name": "share-renamed1"
   }'
@@ -510,7 +545,7 @@ A successful response looks like the following example.
 ```json
 {
   "access_control_mode": "vpc",
-  "created_at": "2023-03-30T23:31:59Z",
+  "created_at": "2023-07-17T23:31:59Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "$vpc_api_endpoint/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8",
@@ -540,14 +575,14 @@ A successful response looks like the following example.
 ```
 {: codeblock}
 
-### Rename a mount target of a file share with the API
+### Renaming a mount target of a file share with the API
 {: #rename-mount-target-api}
 
 Make a `PATCH /shares/$share_id/mount_targets/$target_id` call to rename a mount target of a file share. See the following example.
 
 ```sh
 curl -X PATCH \
-"$vpc_api_endpoint/v1/shares/$share_id/mount_targets/$target_id?version=2023-07-11&generation=2&maturity=beta" \
+"$vpc_api_endpoint/v1/shares/$share_id/mount_targets/$target_id?version=2023-08-08&generation=2"\
   -H "Authorization: Bearer ${API_TOKEN}" \
   -d '{
     "name": "target-renamed1"
@@ -560,7 +595,7 @@ A successful response looks like the following example.
 ```json
 {
   "access_control_mode": "vpc",
-  "created_at": "2023-05-30T23:31:59Z",
+  "created_at": "2023-07-18T23:31:59Z",
   "href": "$vpc_api_endpoint/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8/mount_targets/9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "id": "9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "lifecycle_state": "stable",
@@ -579,14 +614,14 @@ A successful response looks like the following example.
 ```
 {: codeblock}
 
-### Update a file share profile in the API
+### Updating a file share profile with the API
 {: #fs-update-profile-api}
 
 Make a `PATCH /shares/{share_ID}` call and specify the profile name in the `profile` property. The following example changes the profile to a `dp2` profile.
 
 ```sh
-curl -X PATCH "$rias_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?version=2023-07-11&generation=2&maturity=beta" \
--H "Authorization: $iam_token" \
+curl -X PATCH "$rias_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?version=2023-08-08&generation=2"\
+-H "Authorization: $iam_token"\
 -d '{
     "profile": {
         "name": "dp2"
@@ -595,36 +630,37 @@ curl -X PATCH "$rias_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?ver
 ```
 {: codeblock}
 
-### Delete file shares and mount targets with the API
+### Deleting file shares and mount targets with the API
 {: #delete-share-targets-api}
 
 Before you can delete a file share, make sure that all mount targets that belong to the file share are [deleted](#delete-mount-target-api). The file share must be in a `stable` or `failed` state (that is, when provisioning fails).
 
-If the file share is configured for replication, you myust take extra steps. For more information, see [Deleting a replica file share](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=api#fs-delete-replicas).
+If the file share is configured for replication, you must take extra steps. For more information, see [Deleting a replica file share](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=api#fs-delete-replicas).
 {: note}
 
-#### Delete mount target of a file share with the API
+#### Deleting mount target of a file share with the API
 {: #delete-mount-target-api}
 
-Make a `DELETE /shares/{share_ID}/mount_targets/{target_id}` call to delete a mount target of a file share. The file share must be in a `stable` state.
+Make a `DELETE /shares/{share_ID}/mount_targets/{target_id}` call to delete a mount target of a file share. The file share must be in a `stable` state. A file share cannot be deleted, if an existing mount target is associated with that file share or if replica operations are in progress.
+
 
 See the following example.
 
 ```sh
 curl -X DELETE \
-"$vpc_api_endpoint/v1/shares/$share_id/mount_targets/$target_id?version=2023-07-11&generation=2&maturity=beta" \
+"$vpc_api_endpoint/v1/shares/$share_id/mount_targets/$target_id?version=2023-08-08&generation=2"\
   -H "Authorization: Bearer ${API_TOKEN}"
 ```
 {: pre}
 
 A successful response has a confirmation of acceptance for deletion and response that contains the target information. Status of mount target shows _deleting_ while the deletion is underway.
 
-The following example deletes a mount target where `access_control_mode` is `security_group`. The response shows the security group and subnet. You can also see the specifics of the reserved IP address that was used for the virtual network interface of the mount target in the `primary_ip` section. By default the virtual network interface is deleted along with the mount target when the mount target is deleted.
+The following example is the response to a delete request of a mount target where `access_control_mode` is `security_group`. The response shows the security group and subnet. You can also see the specifics of the reserved IP address that was used for the virtual network interface of the mount target in the `primary_ip` section. By default the virtual network interface is deleted along with the mount target when the mount target is deleted.
 
 ```json
 {
   "access_control_mode": "security_group",
-  "created_at": "2023-05-30T01:59:46.000Z",
+  "created_at": "2022-08-08T01:59:46.000Z",
   "href": "$vpc_api_endpoint/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8/mount_targets/9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "id": "9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "lifecycle_reasons": [],
@@ -676,18 +712,18 @@ The following example deletes a mount target where `access_control_mode` is `sec
 
 The mount target is deleted in the background. Confirm the deletion by trying to view the mount target information. If you get `_404 Not Found_` error, the mount target is successfully deleted.
 
-#### Delete a file share in the API
+#### Deleting a file share in the API
 {: #delete-file-share-api}
 
 Before you delete a file share, make sure that it is [unmounted](#fs-mount-unmount-vsi) from all virtual server instances and that all mount targets that belong to the file share are [deleted](#delete-mount-target-api). Also, if the file share has a replica file share, you must remove the replication relationship. For more information, see [Remove the replication relationship with the API](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=api#fs-remove-replication-api).
 
-Make a `DELETE /shares/$share_id` call to delete a file share. The file share must be in a `stable` state or `failed` state (that is, when provisioning fails).
+Make a `DELETE /shares/$share_id` call to delete a file share. The file share must be in a `stable` state or `failed` state (that is, when provisioning fails). A file share cannot be deleted, if an existing mount target is associated with that file share or if replica operations are in progress.
 
-Example:
+See the following example.
 
 ```sh
 curl -X DELETE \
-"$vpc_api_endpoint/v1/shares/$share_id?version=2023-07-11&generation=2&maturity=beta" \
+"$vpc_api_endpoint/v1/shares/$share_id?version=2023-08-08&generation=2"\
   -H "Authorization: Bearer ${API_TOKEN}"
 ```
 {: codeblock}
@@ -699,7 +735,7 @@ Example:
 ```json
 {
   "access_control_mode": "vpc",
-  "created_at": "2023-05-30T23:31:59Z",
+  "created_at": "2022-08-08T23:31:59Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "$vpc_api_endpoint/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8",
@@ -734,7 +770,7 @@ The file share is deleted in background. Confirm the deletion by trying to view 
 A `DELETE /shares/$share_id` call can optionally include an `If-Match` header that specifies an `ETag` hash string. Make a `GET /shares/{share_id}` call and copy the `ETag` hash string from the response header. For more information, see [User tags for file shares](/docs/vpc?topic=vpc-file-storage-vpc-abou#fs-about-user-tags).
 {: note}
 
-## Manage file shares and mount targets with Terraform
+## Managing file shares and mount targets with Terraform
 {: #file-storage-manage-terraform}
 {: terraform}
 
@@ -745,7 +781,7 @@ With Terraform, you can:
 * [Change the name of a mount target](#file-storage-mount-target-update-terraform).
 * [Delete a file share or a mount target](#delete-file-share-terraform).
 
-### Update attributes of a file share with Terraform
+### Updating attributes of a file share with Terraform
 {: #file-storage-share-update-terraform}
 
 Update the `ibm_is_share` resource to change any attributes of the file share such as name, size, profile, tags. When applied, the following example updates the share's name to `new_name`.
@@ -763,7 +799,7 @@ resource "ibm_is_share" "example" {
 
 For more information about the arguments and attributes, see [ibm_is_share](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share){: external}.
 
-### Update attributes of a mount target with Terraform
+### Updating attributes of a mount target with Terraform
 {: #file-storage-mount-target-update-terraform}
 
 Update the `is_share_target` resource to change the name of the mount target. When applied, the following resource changes the name of the mount target to `my-new-share-target`.
@@ -779,7 +815,7 @@ resource "is_share_target" "is_share_target" {
 
 For more information about the arguments and attributes, see [ibm_is_share_target](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share_target){: external}.
 
-### Delete a file share or a mount target with Terraform
+### Deleting a file share or a mount target with Terraform
 {: #delete-file-share-terraform}
 
 Use the `terraform destroy` command to conveniently destroy a remote object such as a file share. The following example shows the syntax for deleting a share. Substitute the actual ID of the share in for `ibm_is_share.example.id`. To delete a mount target, use the ID of the mount target.
@@ -791,7 +827,7 @@ terraform destroy --target ibm_is_share.example.id
 
 For more information, see [terraform destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy){: external}.
 
-## Mount and unmount file shares from a virtual server instance
+## Mounting and unmounting file shares on a virtual server instance
 {: #fs-mount-unmount-vsi}
 
 To mount a file share to a virtual server instance, [locate the mount path information](/docs/vpc?topic=vpc-file-storage-view). The mount path is created when you create a mount target for the file share. See the following information for mounting on these Linux operating systems. Other Linux distributions follow similar procedures.

@@ -2,9 +2,9 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-07-11"
+lastupdated: "2023-08-08"
 
-keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, 
+keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
 subcollection: vpc
 
@@ -17,9 +17,6 @@ subcollection: vpc
 
 {{site.data.keyword.filestorage_vpc_full}} is a zonal file storage offering that provides NFS-based file storage services. You create file shares in an availability zone within a region. You can share them with multiple virtual server instances within the same zone or other zones in your region, across multiple VPCs. You can also mount a file share to a specific virtual server instance within a VPC.
 {: shortdesc}
-
-{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Madrid, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
-{: preview}
 
 ## Overview
 {: #file-storage-overview}
@@ -97,12 +94,10 @@ When the mount target is attached and the share is mounted, the virtual network 
 
 For greater security, [enable encryption in transit](/docs/vpc?topic=vpc-file-storage-vpc-eit) for your file share mount targets.
 
-### Cross zone mount targets
+### Cross-zone mount targets
 {: #fs-cross-zone-mount}
 
-[New]{: tag-new}
-
-When you create a mount target, you can specify a mount target from a different zone in the region. Because the network interface subnet and file share are in different zones, performance can be impacted.
+When you create a mount target for a share, you can specify a subnet and reserved IP in the zone of your file share. By using such a mount target, you can mount a file share from zone A to a virtual server instance in zone B. When the virtual server instance and the file share are in different zones, the performance can be impacted.
 
 ## Encryption at rest
 {: #FS-encryption}
@@ -119,7 +114,14 @@ After you specified an encryption type for a file share, you can't change it.
 
 [New]{: tag-new}
 
-You can [establish an encrypted mount connection](/docs/vpc?topic=vpc-file-storage-vpc-eit) between the authorized virtual server instance and the storage system by using an IPsec security profile. For file shares based on the `dp2` profile, mount targets that are created with a virtual network interface can support the encryption in transit. The mount targets can be for a source or replica share. When you consider choosing this feature, balance your requirements between performance and increased security because encrypting data in transit can decrease data transmission speed.
+You can [establish an encrypted mount connection](/docs/vpc?topic=vpc-file-storage-vpc-eit) between the authorized virtual server instance and the storage system by using IPsec. For file shares based on the `dp2` profile, mount targets that are created with a virtual network interface can support the encryption in transit. The mount targets can be for a source or replica share.
+
+If you choose to use Encryption-in-transit, you need to balance your requirements between performance and enhanced security. Encrypting data in transit can have some performance impact due to the processing that is needed to encrypt and decrypt the data at the endpoints. The impact depends on the workload characteristics. Workloads that perform synchronous writes or bypass VSI caching, such as databases, might have a substantial performance impact when EIT is enabled. To determine EIT’s performance impact, benchmark your workload with and without EIT. Also, note that even without EIT, the data is moving through a secure data center network.
+
+For more information about network security, see [Security in your VPC](/docs/vpc?topic=vpc-security-in-your-vpc) and [Protecting Virtual Private Cloud (VPC) Infrastructure Services with context-based restrictions](/docs/vpc?topic=vpc-cbr).
+
+Encryption in transit is available in most regions. Support for EIT is currently not available in the `eu-es` region.
+{: restriction}
 
 ## File share replication and failover
 {: #fs-repl-failover-overview}
@@ -163,23 +165,6 @@ IBM guarantees that data deleted cannot be accessed and that deleted data is eve
 
 Further, when IBM decommissions a physical drive, the drive is destroyed before their disposal. Decommissioned physical drives are unusable and any data on them is inaccessible.
 
-## File share lifecycle states
-{: #file-storage-vpc-status}
-
-Table 1 describes the states in the file share lifecycle.
-
-| Status | Explanation |
-|-----------------|-------------|
-| Stable | The file share or mount target is stable and available for use. |
-| Pending | The file share or mount target is being created. |
-| Failed | The file share or mount target failed to be created. You can delete the failed share and try creating another one. |
-| Deleting | The file share or mount target is being deleted. |
-| Deleted | The file share or mount target is deleted. |
-| Initializing | The file share replica is being created. |
-| Split_pending | The replica file share is being split from the source share. |
-| Failover_pending | The source file share is failing over to the replica file share, which becomes read/write and the new source share. |
-{: caption="Table 1. File storage lifecycle states" caption-side="bottom"}
-
 ## Managing security and compliance
 {: #fs-vpc-manage-security}
 
@@ -192,7 +177,6 @@ For more information, see [Monitoring security and compliance posture with VPC](
 
 The following limitations apply to this release of {{site.data.keyword.filestorage_vpc_short}}.
 
-* File share size cannot be increased after it is created.
 * Previous profiles are not supported when you provision a new file share, which is based on the `dp2` profile. However, earlier version file shares can continue to use existing profiles.
 * Restricting file share access to specific virtual server instances and data encryption in transit is available only for shares that are based on the `dp2` profile.
 * Windows operating systems are not supported.
@@ -200,6 +184,9 @@ The following limitations apply to this release of {{site.data.keyword.filestora
 * Maximum capacity is 32,000 GB per file share.
 * No data retention policy exists for deleted file shares. You cannot undelete a file share after you delete it.
 * Up to 256 hosts per zone per VPC can be concurrently connected to a single file share.
+* You can create up to 300 file shares within your VPC.
+* A file share cannot be deleted by using a `DELETE /shares/<id>` API request, if an existing mount target is associated with that file share or if replica operations are in progress.
+* A file share cannot be split from its replica by using a `DELETE /shares/<id>/source` API request, if the `lifecycle_state` of the file share is `updating` or if replica operations are in progress. 
 
 ## Related information
 {: #related-info-file-storage-vpc}

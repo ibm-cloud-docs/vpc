@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-07-20"
+lastupdated: "2023-08-08"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -15,15 +15,13 @@ subcollection: vpc
 # Encryption in transit - Securing mount connections between file share and virtual server instance
 {: #file-storage-vpc-eit}
 
-[New]{: tag-new}
-
 You can establish an encrypted mount connection between the virtual server instance and storage system by using the Internet Security Protocol (IPsec) security profile and X.509 certificates. By enabling encryption in transit, you create secure end-to-end encryption for your data.
 {: shortdesc}
 
-{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Madrid, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
-{: preview}
+Encryption in transit is available in most regions. Support for EIT is not available in the `eu-es` region yet.
+{: restriction}
 
-If you choose to use Encryption-in-transit, you need to balance your requirements between performance and enhanced security. Encrypting data in transit can have some performance impact due to the processing that is needed to encrypt and decrypt the data at the endpoints. The impact depends on the workload characteristics. Workloads that perform synchronous writes or bypass VSI caching, such as databases, might have a substantial performance impact when EIT is enabled. To determine EIT’s performance impact, benchmark your workload with and without EIT. Also, note that even without EIT, the data is moving through a secure data center network.
+If you choose to use Encryption-in-transit, you need to balance your requirements between performance and enhanced security. Encrypting data in transit can have some performance impact due to the processing that is needed to encrypt and decrypt the data at the endpoints. The impact depends on the workload characteristics. Workloads that perform synchronous writes or bypass VSI caching, such as databases, might have a substantial performance impact when EIT is enabled. To determine EIT’s performance impact, benchmark your workload with and without EIT. Also, even without EIT, the data is moving through a secure data center network.
 
 For more information about network security, see [Security in your VPC](/docs/vpc?topic=vpc-security-in-your-vpc) and [Protecting Virtual Private Cloud (VPC) Infrastructure Services with context-based restrictions](/docs/vpc?topic=vpc-cbr).
 
@@ -52,15 +50,17 @@ To use the feature, the following requirements need to be met:
 - Obtain X.509 certificates are needed for authentication. The same certificates cannot be used across multiple regions.
    1. The following command generates a *Certificate Signing Request* (CSR) and *RSA Key Pair* by using openssl.
       ```sh
-      openssl req -out sslcert.csr -newkey rsa:2048 -nodes -keyout private.key
+      openssl req -sha256 -newkey rsa:4096 -subj '/C=US' -out ./sslcert.csr -keyout file.key -nodes
       ```
       {: pre}
 
-      You are prompted to enter information about your location (country code, state, locality), your organization, and a common name. Do not enter a common name. When you make the request to the Metadata API, the system applies instance ID values to the subject Common Name for instance identity certificates. Thus CSRs with Common Name specified are rejected. CSRs with `IsCA=true` or `KeyUsage.KeyUsageCertSign=True` extensions are also rejected.
-      {: important}
+      When you run the command, replace the country code `US` with your two-digit country code in `'/C=US'`.
 
       OpenSSL is an open source command-line toolkit that you can use to work with X.509 certificates, certificate signing requests (CSRs), and cryptographic keys. For more information, see [OpenSSL Documentation](https://www.openssl.org/docs/){: external}.
       {: note}
+
+      If you're using a different software to create the CSR, you might be prompted to enter information about your location (country code, state, locality), your organization name, organization unit, an email address, and a common name. Only country code and email address are required. Do not enter a common name. When you make the request to the Metadata API, the system applies instance ID values to the subject Common Name for instance identity certificates. Thus CSRs with Common Name specified are rejected. CSRs with `IsCA=true` or `KeyUsage.KeyUsageCertSign=True` extensions are also rejected.
+      {: important}
 
    2. Format the csr before you make an API call to metadata service by using the following command.
       ```sh
@@ -95,18 +95,7 @@ The utility uses strongSwan and [`swanctl`](https://docs.strongswan.org/docs/5.9
 - RHEL_8_6
 - RHEL_9
 
-{{site.data.keyword.filestorage_vpc_short}} IPsec connection requires Mutual SSL. The Mount Helper makes the following calls to generate and configure the certificates at `swanctl`.
-- Mount Helper retrieves the INSTANCE IDENTITY TOKEN:
-   ```sh
-   curl -iks -X PUT -H "Metadata-Flavor: ibm" https://api.metadata.cloud.ibm.com/instance_identity/v1/token?version=2023-06-27
-   ```
-   {: pre}
-
-- With the instance identity token, the Mount Helper generates the certificate request with the `csr`.
-   ```sh
-   curl -X POST "https://api.metadata.cloud.ibm.com/instance_identity/v1/certificates?version=2023-07-11" -H "Accept:application/json" \ -H "Authorization: Bearer $IAM_TOKEN" \ --data-raw '{ "csr": "$csr" }'
-   ```
-   {: pre}
+{{site.data.keyword.filestorage_vpc_short}} IPsec connection requires mutual authentication. The Mount Helper retrieves the instance identity token from the Metadata service, and with the instance identity token.
 
 The Mount Helper makes new certificate requests every 45 minutes, as the lifetime of the certificate is 1 hour. The new certificate is generated before the old certificate expires to ensure seamless connection. The certificates are generated with the shorter life span for security reasons.
 
@@ -229,6 +218,9 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
    The `ibmshare` in the command is a script that creates the certificate signing request(csr) and calls the Metadata service to get the intermediate cert and end peer certificate. It parses the mount command-line arguments and creates `/etc/swanctl/conf.d/type_ibmshare_.conf`. The strongSwan service uses this configuration file to establish the IPsec connection. Then, the script loads the IPsec connection and calls the NFS `mount` command. 
    
    You can also include options such as `vers=4.1` and `sec=sys`.
+
+Adding the mount details to the `/etc/fstab` is not recommended. The IPsec connection might not be established in time for the automated `fstab` mount requests.
+{: note}
 
 ### Updating the Mount Helper
 {: #fs-eit-mount-helper-update}

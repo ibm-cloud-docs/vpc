@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-03-20"
+lastupdated: "2023-08-08"
 
 keywords:
 
@@ -16,10 +16,7 @@ subcollection: vpc
 {: #vpc-byok-cross-acct-key-file}
 
 {{site.data.keyword.filestorage_vpc_short}} supports cross-account customer-managed encryption. {{site.data.keyword.vpc_full}} customers can authorize access to a customer root key (CRK) for users of another account. Then, those users can use the CRK to encrypt a new file share in their own account.
-{: shortdesc}
-
-{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Madrid, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
-{: preview}
+{: shortdesc} 
 
 ## About cross account key access and use
 {: #byok-cross-acct-about}
@@ -51,7 +48,7 @@ To create the IAM policy, Account A must make a `POST /policies` call to the IAM
 * The `resources` section specifies information about Account A that owns the root key and the target key management service (KMS). The `kms` property indicates a {{site.data.keyword.keymanagementserviceshort}} instance. If you use a {{site.data.keyword.hscrypto}} instance, specify `hs-crypto`.
 * The `subjects` section specifies Account B and the file share service that is to access Account A's {{site.data.keyword.keymanagementserviceshort}} instance and use the CRK.
 
-```curl
+```sh
 curl -X "POST" "https://iam.cloud.ibm.com/v1/policies" \
      -H "Authorization: <Auth Token>" \
      -H 'Content-Type: application/json' \
@@ -117,8 +114,8 @@ See the following example.
 
  ```curl
    curl -X POST \
-   "$vpc_api_endpoint/v1/shares?version=2022-08-09&generation=2" \
-   -H "Authorization: $iam_token" \
+   "$vpc_api_endpoint/v1/shares?version=2023-08-18&generation=2"\
+   -H "Authorization: $iam_token"\
    -d '{
        "encryption_key": {
           "crn":"crn:v1:staging:public:kms:us-south:a/df0564dd126042ebb03e0224728ce939:4957299d-0ba0-487f-a1a0-c724a729b8b4:key:0cb88b98-9261-4d07-8329-8f594b6641b5"
@@ -126,7 +123,7 @@ See the following example.
         "iops": 1000,
         "name": "my-encrypted-share",
         "profile": {
-          "name": "tier-5iops"
+          "name": "dp2"
         },
         "resource_group": {
            "id": "678523bcbe2b4eada913d32640909956"
@@ -143,7 +140,7 @@ In the response, the CRN of the encryption key is from Account A that owns the k
 
 ```json
 {
-  "created_at": "2022-08-09T23:28:45Z",
+  "created_at": "2023-08-18T23:28:45Z",
   "crn": "crn:v1:bluemix:public:is:us-south-1:a/b5c782a8f47a2d1527257e3465f21568::share:r134-fe7219eb-c9a9-4aab-8636-9a57141f0cee",
   "encryption": "user_managed",
   "encryption_key": {
@@ -159,8 +156,8 @@ In the response, the CRN of the encryption key is from Account A that owns the k
   "lifecycle_state": "stable",
   "name": "bluitel-test-us-south-1-er5s",
   "profile": {
-    "href": "https://us-south-stage01.iaasdev.cloud.ibm.com/v1/share/profiles/custom-iops",
-    "name": "custom-iops",
+    "href": "https://us-south-stage01.iaasdev.cloud.ibm.com/v1/share/profiles/dp2",
+    "name": "dp2",
     "resource_type": "share_profile"
   },
   "replication_role": "none",

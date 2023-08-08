@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-07-11"
+lastupdated: "2023-08-08"
 
 keywords: file share, file storage, IOPS, performance needs, adjust IOPS
 
@@ -19,9 +19,6 @@ For {{site.data.keyword.filestorage_vpc_short}} file shares, you can increase or
 {: shortdesc}
 
 Billing for an updated share is automatically updated. The prorated difference of the new price is added to the current billing cycle. The new full amount is then billed in the next billing cycle.
-
-{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Madrid, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
-{: preview}
 
 ## Adjustable IOPS concepts
 {: #fs-adj-iops-concepts}
@@ -64,7 +61,7 @@ The following limitations apply.
 * When you use a custom or dp2 profile, IOPS can be adjusted multiple time until the maximum or minimum limit is reached.
 * Maximum IOPS for a file share for all profiles is [96,000 IOPS](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#fs-tiers). For 96,000 IOPS to be realized, a single file share must be accessed by multiple virtual server instances. A single file share in an instance is limited to 48,000 IOPS.
 
-## Adjust IOPS in the UI
+## Adjusting IOPS in the UI
 {: #adjust-vpc-iops-ui-file}
 {: ui}
 
@@ -88,11 +85,11 @@ Follow these steps to adjust IOPS by selecting a new IOPS tier or custom IOPS ba
 
 Your new IOPS allocation is realized when you restart the instance.
 
-## Adjust IOPS from the CLI
+## Adjusting IOPS from the CLI
 {: #adjust-vpc-iops-cli-file}
 {: cli}
 
-### Adjust IOPS for a Custom or dp2 profile
+### Adjusting IOPS for a Custom or dp2 profile
 {: #adjust-iops-cli-file}
 
 From the CLI, use the `share-update` command with the `--iops` property to indicate the new IOPS size for a custom or dp2 profile. The IOPS that you indicate must be within the range for the size of the file share (see [Custom IOPS profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#custom) or [dp2](/docs/vpc?topic=vpc-file-storage-profiles#dp2-profile)).
@@ -104,7 +101,7 @@ ibmcloud is share-update SHARE_NAME --iops IOPS
 
 The following example shows an increase of IOPS from 100 IOPS to 1,200 IOPS for a 100 GB file share based on a 100 - 499 custom profile. (The IOPS range for this custom band is 100 - 6,000 IOPS.)
 
-```bash
+```sh
 ibmcloud is share-update my-file-share --profile custom-iops --iops 1200
 Updating file share my-file-share under account VPC1 as user user1@mycompany.com...
 
@@ -128,7 +125,9 @@ Last sync at      2023-03-26T05:53:28+05:53
 ```
 {: screen}
 
-### Adjust IOPS by specifying a different IOPS tier profile
+For more information about the command options, see [`ibmcloud is share-update my-file-share`](/docs/vpc?topic=vpc-vpc-reference#share-update).
+
+### Adjusting IOPS by specifying a different IOPS tier profile
 {: #adjust-profile-cli-file}
 
 From the CLI, use the `share-update` command with the `--profile` property and indicate the name or href of the IOPS tier profile.
@@ -140,7 +139,7 @@ ibmcloud is share-update SHARE_NAME --profile 5iops-tier
 ```
 {: pre}
 
-```bash
+```sh
 ibmcloud is share-update my-file-share --profile tier-5iops
 Updating file share my-file-share under account VPC1 as user user@mycompany.com...
 
@@ -166,13 +165,15 @@ Latest job        Job status   Job status reasons
 ```
 {: codeblock}
 
-## Adjust IOPS with the API
+For more information about the command options, see [`ibmcloud is share-update my-file-share`](/docs/vpc?topic=vpc-vpc-reference#share-update).
+
+## Adjusting IOPS with the API
 {: #adjust-vpc-iops-api-file}
 {: api}
 
 You can adjust IOPS for existing data file shares by calling the Virtual Private Cloud (VPC) API.
 
-### Adjust IOPS for a Custom or dp2 profile
+### Adjusting IOPS for a Custom or dp2 profile
 {: #adjust-iops-api-file}
 
 Make a `PATCH /shares` request and specify the `iops` property to adjust the IOPS within the allowable range for a custom pr dp2 profile.
@@ -184,7 +185,7 @@ The following example shows an increase of 100 IOPS to 3,000 IOPS for a 100 GB f
 
 ```sh
 curl -X PATCH \
- "$vpc_api_endpoint/v1/shares/$share_id?version=2023-07-11&generation=2" \
+ "$vpc_api_endpoint/v1/shares/$share_id?version=2023-08-086&generation=2" \
  -H "Authorization: $iam_token" \
  -d '{
       "iops": 3000
@@ -196,7 +197,7 @@ The file share status shows `updating` while the IOPS is being adjusted. The cur
 
 ```json
 {
-   "created_at": "2023-03-06T22:58:49.000Z",
+   "created_at": "2023-08-08T22:58:49.000Z",
    "crn": "crn:[...]",
    "encryption": "provider_managed",
    "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/r134-a0c07083-f411-446c-9316-7b08d6448c86",
@@ -209,7 +210,7 @@ The file share status shows `updating` while the IOPS is being adjusted. The cur
     .
     .
     .
-{
+}
 ```
 {: codeblock}
 
@@ -217,7 +218,7 @@ When the IOPS expansion completes, restart the instance. The new value is displa
 
 ```json
 {
-  "created_at": "2023-03-06T22:58:49.000Z",
+  "created_at": "2023-08-08T22:58:49.000Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/a0c07083-f411-446c-9316-7b08d6448c86",
@@ -266,7 +267,7 @@ When the IOPS expansion completes, restart the instance. The new value is displa
 ```
 {: codeblock}
 
-### Adjust IOPS by specifying a different IOPS tier profile
+### Adjusting IOPS by specifying a different IOPS tier profile
 {: #adjust-profile-api-file}
 
 Make a `PATCH /shares` request and specify the `profile` property and indicate the name or href of the IOPS tier profile.
@@ -275,21 +276,21 @@ The following example changes a 3 IOPS/GB profile to 5 IOPS/GB profile. In this 
 
 ```sh
 curl -X PATCH \
- "$vpc_api_endpoint/v1/shares/$share_id?version=2023-07-11&generation=2" \
+ "$vpc_api_endpoint/v1/shares/$share_id?version=2023-07-18&generation=2" \
  -H "Authorization: $iam_token" \
  -d '{
       "profile": "5iops-tier"
     }'
 ```
-{: codeblock}
+{: pre}
 
-## Adjust IOPS with Terraform
+## Adjusting IOPS with Terraform
 {: #adjust-vpc-iops-terrafom-file}
 {: terraform}
 
 You can adjust IOPS for existing data file shares in Terraform.
 
-### Adjust IOPS for a Custom or dp2 profile
+### Adjusting IOPS for a Custom or dp2 profile
 {: #adjust-iops-terraform-file}
 
 To modify the performance level of a file share, use the `ibm_is_share` resource and provide the IOPS value that you want. When you specify the IOPS value, make sure it is within the performance range for the size of the file share. For more information, see [dp2 file storage profile](/docs/vpc?topic=vpc-file-storage-profiles#dp2-profile).
@@ -309,7 +310,7 @@ resource "ibm_is_share" "example" {
 
 For more information about the arguments and attributes, see [ibm_is_share](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share){: external}.
 
-### Adjust IOPS by specifying a different IOPS tier profile
+### Adjusting IOPS by specifying a different IOPS tier profile
 {: #adjust-profile-terraform-file}
 
 To modify the performance level of a file share with an IOPS tier profile, use the `ibm_is_share` resource and specify a different IOPS tier. When it is applied, the following example updates the share performance to 5000 IOPS.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-07-18"
+lastupdated: "2023-08-08"
 
 keywords: file share, file storage, source volume, replica share, 
 
@@ -18,10 +18,7 @@ subcollection: vpc
 Create replica file share in a different zone in your region in the UI, from the CLI, or with the API.
 {: shortdesc}
 
-{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Madrid, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
-{: preview}
-
-## Add replication to a file share in the UI
+## Adding replication to a file share in the UI
 {: #fs-create-replica-ui}
 {: ui}
 
@@ -57,22 +54,22 @@ On the File share replica create page, review the source file share details, and
     * Get sample API call - if you want to get the curl command code to create the replica with these exact settings, click it.
     * Add to estimate - if you want to see how adding a replica impacts your monthly cost, click it. The monthly cost estimate is displayed. You can **Review the estimate** for more billing information and details or **Clear the estimate** and return to the Replica create page.
 
-## Add replication to file share from the CLI
+## Adding replication to file share from the CLI
 {: #fs-create-replica-cli}
 {: cli}
 
-Use the CLI to create a file share with replication, or update a file share to include replication.
+Use the CLI to create a file share with replication, or update a file share to include replication.  
 
-### Create a file share with replication from the CLI
+### Creating a file share with replication from the CLI
 {: #fs-create-new-share-replica-cli}
 
 Run the `ibmcloud is share-create` command and specify the following properties to define the replica share for a new file share:
 
-* `--replica-share-iops`- The maximum input/output operation performance bandwidth per second for the file share; applicable for custom profile file share.
+* `--replica-share-iops`- The maximum input/output operation per second for the file share.
 * `--replica-share-name`- Specify a name for the replica file share.
 * `--replica-share-profile`- The profile the file share uses.
 * `--replica-cron-spec`- The cron specification for the file share replication schedule.
-* `--replica-mount-target`- TARGETS_JSON|@TARGETS_JSON_FILE, specify file share mount targets in JSON or in a JSON file.
+* `--replica-share-mount-target`- TARGETS_JSON|@TARGETS_JSON_FILE, specify file share mount targets in JSON or in a JSON file.
 * `--replica-zone`- The zone in which the replica file share is to be created. This zone must be a different zone in the same region as the source share.
 
 Syntax:
@@ -84,53 +81,91 @@ ibmcloud is share-create \
   [--name NAME] \
   [--iops IOPS] \
   [--mount_targets TARGETS_JSON | @TARGETS_JSON_FILE] \
-  [--replica-share-profile REPLICA_SHARE_PROFILE \
+  [--replica-share-profile REPLICA_SHARE_PROFILE] \
   --replica-cron-spec REPLICA_CRON_SPEC \
   --replica-zone ZONE_NAME \
   [--replica-share-iops REPLICA_SHARE_IOPS] \
   [--replica-share-name REPLICA_SHARE_NAME] \
-  [--replica-mount-target TARGETS_JSON | @TARGETS_JSON_FILE]] \
+  [--replica-share-mount-target TARGETS_JSON | @TARGETS_JSON_FILE] \
   [--size SIZE [--encryption_key ENCRYPTION_KEY]] \
   [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] \
   [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
-In this example, a new share, `p-share-3` is created with a replica file share, `replica-p-share-3`. The replica is created in a different zone in the same region.
+In this example, a new share, `my-fs-cli-1` is created with a replica file share, `my-fs-cli-1-replicate`. The replica is created in a different zone in the same region.
 
-```bash
-ibmcloud is share-create --name p-share-3 --zone us-south-1 --profile tier-5iops --replica-share-profile tier-5iops --replica-cron-spec '55 09 * * *' --replica-zone us-south-3  --replica-share-name replica-p-share-3 --replica-target '[{"name": "my-target1", "vpc": {"id": "af7c3b16-8a59-4434-8c2c-3230e916d441"}}]' --size 40
-Creating file share p-share-3 under account VPC as user myuser@mycompany.com...
+```sh
+$ ibmcloud is share-create --name my-fs-cli-1 --zone br sao-02 --profile dp2 --size 40 --mount-targets `[
+   { 
+      "name": "my-target1"
+      "virtual_network_interface": {
+         "name": "my-fs-cli-1-vni",
+         "primary_ip": {
+            "id": "02u7-177537ff-0732-4cf7-8711-c465a03e680d"
+         },
+         "resource_group": {
+            "id": "bdd96715c2a44f2bb60df4ff14a543f5"
+         },
+         "security_groups": [
+            {
+               "id": "r042-15757ab8-9df9-40f2-9210-405a394fc8d0"
+            }
+         ]
+      }
+   }]` --replica-share-profile dp2 --replica-cron-spec '55 09 * * *' --replica-zone br-sao-3 --replica-share-name my-fs-cli-1-replica --replica-share-mount-target '[
+      {
+         "name": "my-target1",
+         "virtual_network_interface": {
+            "name": "my-fs-cli-1-vni",
+            "primary_ip": {
+               "address": "10.250.128.12"
+               "Auto-delete": true
+               "name": "rip-vni-target"
+               },
+         },      
+         "resource_group": {
+            "id": "bdd96715c2a44f2bb60df4ff14a543f5"
+         },
+         "security_groups": [
+            {
+               "id": "r042-15757ab8-9df9-40f2-9210-405a394fc8d0"
+            }
+         ],
+         "subnet": {
+            "id": "02v7_a08ccb9b-7ac2-4d76-ab5e-b414042e5ff2"
+         }
+      }
+]`   
+Creating file share my-fs-cli-1 under account VPC as user myuser@mycompany.com...
 
-ID                   8b08129c-e376-4572-9ef3-68c729b315d5
-Name                 p-share-3
-CRN                  crn:v1:bluemix:public:is:us-south-1:a/efe5afc483594adaa8325e2b4d1290df::share:8b08129c-e376-4572-9ef3-68c729b315d5
+ID                   r042-90c12f7b-6fbd-489a-9e4-99ad6555ffaf
+Name                 my-fs-cli-1
+CRN                  crn:v1:bluemix:public:is:br-sao-2:a/efe5afc483594adaa8325e2b4d1290df::share:042-90c12f7b-6fbd-489a-9e4-99ad6555ffaf
 Lifecycle state      pending
-Zone                 us-south-1
-Profile              tier-5iops
+Access control mode  security_group
+Zone                 br-sao-2
+Profile              dp2
 Size(GB)             40
-IOPS                 3000
+IOPS                 100
 Encryption           provider_managed
-Mount targets        ID                          Name   VPC ID   VPC Name
-                     No mounted targets found.
+Mount targets        ID                                        Name  
+                     r042-ae28v388-1ab2-45f6-ad3c-54382395baa7 my-target1
 
 Resource group       ID                                 Name
-                     11caaa983d9c4beb82690daab08717e9   Default
+                     bdd96715c2a44f2bb60df4ff14a543f5   Default
 
-Created              2022-09-26T03:19:58+05:30
-Last sync at         2022-09-21T05:53:28+05:53
-Replication share    ID              Name                                        Resource type
-                     ID              de1e70af-c3cb-44c6-a96d-2ece09b51ae3
-                     Name            replica-p-share-3
-                     Resource type   share
+Created              2023-08-08T03:19:58+05:30
+Last sync at         -
+Replication share    ID                                         Name                 Resource type
+                     r042-66b59863-4914-44ea-8dff-bc875c049c0a  my-fs-cli-1-replica  share
 
 Replication role     source
 Replication status   none
-Source share         ID   Name   Resource type
 ```
 {: screen}
 
-### Update an existing file share for replication from the CLI
+### Updating an existing file share for replication from the CLI
 {: #fs-create-share-replica-cli}
 
 Run the `ibmcloud is share-create` command and specify the source share by ID or name.
@@ -149,10 +184,12 @@ ibmcloud is share-replica-create \
 ```
 {: pre}
 
+For more information about the command options, see [`ibmcloud is share-create`](/docs/vpc?topic=vpc-vpc-reference#share-create).
+
 The following example creates a replica file share for a source file share that is identified by ID.
 
-```bash
-ibmcloud is share-replica-create --name replica-share-3 --zone us-south-3 --profile tier-5iops --replication-cron-spec '10 05 * * *' --source-share 2c4c32f9-9d25-43df-9d59-3874a81ec46e
+```sh
+$ ibmcloud is share-replica-create --name replica-share-3 --zone us-south-3 --profile tier-5iops --replication-cron-spec '10 05 * * *' --source-share 2c4c32f9-9d25-43df-9d59-3874a81ec46e
 
 Creating replica file share replica-share-3 under account VPC as user myuser@mycompany.com...
 
@@ -184,13 +221,15 @@ Source share            ID                                          Name        
 ```
 {: screen}
 
-## Add replication to file share with the API
+For more information about the command options, see [`ibmcloud is share-replica-create`](/docs/vpc?topic=vpc-vpc-reference#share-replica-create).
+
+## Adding replication to file share with the API
 {: #fs-create-replica-api}
 {: api}
 
 Use the API to add replication to new or existing file shares. Before you begin, first set up the [API environment](/docs/vpc?topic=vpc-set-up-environment&interface=api). For more information about the file shares VPC API, see the [VPC API reference](/apidocs/vpc-beta).
 
-### Create a file share with replication with the API
+### Creating a file share with replication with the API
 {: #fs-create-new-share-replica-api}
 
 When you create a file share, you can specify that a replica file share is also created in a different zone. Make a `POST /shares` request and specify the `replica_share` property to define the replica file share.
@@ -202,7 +241,7 @@ The following example creates the replica `test-replica-001` for the source shar
 
 ```sh
 curl -X POST\
-"$rias_endpoint/v1/shares?version=2023-07-11&generation=2&maturity=beta"\
+"$rias_endpoint/v1/shares?version=2023-08-08&generation=2"\
 -H "Authorization: $iam_token"\
 -d '{
     "name": "source-share-001",
@@ -242,7 +281,7 @@ curl -X POST\
 ```
 {: pre}
 
-### Update an existing file share to add replication with the API
+### Updating an existing file share to add replication with the API
 {: #fs-create-share-replica-api}
 
 Make a `POST /shares` request to define the replica file share to add to a file share. In the example, `source_share` specifies the ID of the source file share to which you're adding replication. You also need to specify the source share name or CRN.
@@ -251,7 +290,7 @@ Other required properties are the `profile`, `zone`, and `replication_cron_spec`
 
 ```sh
 curl -X POST\
-"$rias_endpoint/v1/shares?version=2023-07-11&generation=2&maturity=beta"\
+"$rias_endpoint/v1/shares?version=2023-08-08&generation=2"\
 -H "Authorization: $iam_token"\
 -d '{
     "source_share": {
@@ -270,7 +309,7 @@ curl -X POST\
 You can use the API to verify that the replication succeeded, is pending, or failed. Make a `GET /shares/{replica_id}` call. Look at the `latest_job` property. For more information, see [Verify replication with the API](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=api#fs-verify-replica-api).
 {: note}
 
-## Add replication to file share with Terraform
+## Adding replication to file share with Terraform
 {: #fs-create-replica-terraform}
 {: terraform}
 
@@ -281,11 +320,28 @@ resource "ibm_is_share" "example-1" {
   zone                  = "us-south-3"
   source_share          = ibm_is_share.example.id
   name                  = "my-replica1"
-  profile               = "tier-3iops"
+  profile               = "dp2"
   replication_cron_spec = "0 */5 * * *"
 }
 ```
 {: codeblock}
+
+The following example creates a file share in `us-south-1` with a replica in `us-south-3`.
+
+```terraform
+resource "ibm_is_share" "example-2" {
+  zone    = "us-south-1"
+  size    = 220
+  name    = "my-share"
+  profile = "dp2"
+  replica_share {
+    name                  = "my-replica"
+    replication_cron_spec = "0 */5 * * *"
+    profile               = "dp2"
+    zone                  = "us-south-3"
+  }
+}
+```
 
 For more information about the arguments and attributes, see [ibm_is_share](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share){: external}.
 

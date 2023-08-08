@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-07-18"
+lastupdated: "2023-08-08"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -18,9 +18,6 @@ subcollection: vpc
 Create file shares and mount targets in the UI, CLI, API, or Terraform.
 {: shortdesc}
 
-{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Madrid, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
-{: preview}
-
 Before you get started, to create mount targets for file shares, make sure that you created a [VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
 {: important}
 
@@ -29,13 +26,13 @@ You can create file shares and mount targets either of the following ways:
 * Create a file share and mount target together,
 * Create a file share and add mount target later.
 
-## Create a file share in the UI
+## Creating  a file share in the UI
 {: #file-storage-create-ui}
 {: ui}
 
 In the {{site.data.keyword.cloud_notm}} console, you can create a file share with or without a mount target. However, you need to create a mount target when you want to mount the share on a virtual server instance. You can create multiple mount targets for the share if it's to be used by hosts in different VPCs.
 
-### Create a file share in the UI
+### Creating  a file share in the UI
 {: #fs-create-share-target-ui}
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > File Shares**. A list of file shares displays.
@@ -93,7 +90,7 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
 
 1. When all the required information is entered, click **Create file share**. You return to the {{site.data.keyword.filestorage_vpc_short}} page, where a message indicates that the file share is provisioning. When the transaction completes, the share status changes to **Active**.
 
-### Create a mount target in the UI
+### Creating  a mount target in the UI
 {: #fs-create-mount-target-ui}
 
 You can create several mount targets for an existing file share if the share is to be used by resources in multiple VPCs. You can create one mount target per VPC per file share. 
@@ -129,7 +126,7 @@ You can create several mount targets for an existing file share if the share is 
 
 5. Click **Create**.
 
-## Create a file share from the CLI
+## Creating  a file share from the CLI
 {: #file-storage-create-cli}
 {: cli}
 
@@ -138,27 +135,24 @@ You can create several mount targets for an existing file share if the share is 
 
 1. Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 
-1. After you install the VPC CLI plug-in, set the target to generation 2 by running the `ibmcloud is target --gen 2` command.
+3. After you install the VPC CLI plug-in, set the target to generation 2 by running the `ibmcloud is target --gen 2` command.
 
-1. Make sure that you [created an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-cli#create-a-vpc-cli).
+4. Make sure that you [created an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-cli#create-a-vpc-cli).
 
 ### Gathering information to create file storage from the CLI
 {: #fs-vpc-getinfo-cli}
 
-Before you run the `ibmcloud is share-create` command, you can view information about other file shares, mount targets, and file storage profiles.
-
-Review the following information:
+Before you run the `ibmcloud is share-create` command, you can gather information you need for provisioning a share by viewing information about other file shares, mount targets, and file storage profiles.
 
 | Details  |  Listing options  | What it provides  |
 | -------- | ------------------|-------------------|
 | File shares | `ibmcloud is shares` | List all shares in a region. |
 | File share details | `ibmcloud is share SHARE_ID`  | Review details of a share. |
 | Mount targets  | `ibmcloud is share-mount-targets SHARE_ID` | List all mount targets for a file share. |
-| File share profiles   | `ibmcloud is share-profiles` | List all file share profiles in a region. `dp2` is recommended. |
-| File share profile details | `ibmcloud is share-profile PROFILE_NAME` | List details of a file share profile. Profile names are `tier-3iops`, `tier-5iops`, `tier-10iops`, `custom`, and `dp2`. |
+| File share profiles   | `ibmcloud is share-profiles` | List all file share profiles in a region. Only `dp2` can be used to create file shares. |
 {: caption="Table 1. Details for creating file shares." caption-side="top"}
 
-### Create a file share and mount target from the CLI
+### Creating a file share and mount target from the CLI
 {: #fs-create-share-target-cli}
 
 Run the following command to create a file share and mount target. Indicate the zone in which to create the file share, [file share profile](/docs/vpc?topic=vpc-file-storage-profiles), file share size, and optional name and user tags. Provide a mount target JSON or JSON file to create the mount target in this command.
@@ -183,7 +177,7 @@ ibmcloud is share-create
 This example creates a file share with two mount targets.
 
 ```sh
-ibmcloud is share-create --name my-file-share-8 --zone us-south-1 --profile tier-3iops --size 40  --user-tags env:dev,env:prod --mount-targets '[{"name": "my-target121","vpc": {"name": "vpcl"}},{"name": "my-target122","vpc": {"name": "vpc2"}}]'
+ibmcloud is share-create --name my-file-share-8 --zone us-south-1 --profile dp2 --size 40 --iops 3000  --user-tags env:dev,env:prod --mount-targets '[{"name": "my-target121","vpc": {"name": "vpcl"}},{"name": "my-target122","vpc": {"name": "vpc2"}}]'
 Creating file share my-file-share-8 under account vpc1 as user user@mycompany.com...
 
 ID                0e04ca62-e02a-4319-9551-380c7f7cd87f
@@ -191,7 +185,7 @@ Name              my-file-share-8
 CRN               crn:[...]
 Lifecycle State   pending
 Zone              us-south-1
-Profile           tier-3iops
+Profile           dp2
 Size(GB)          40
 IOPS              3000
 User Tags         env:dev,env:prod
@@ -206,22 +200,16 @@ Created           2023-07-11T15:26:21+05:30
 ```
 {: screen}
 
-
-```bash
-ibmcloud is share-create --zone us-south-2 --vpc {vpc_id} --name my-encrypted-share --profile tier-5iops --size 100 --encryption key {crn}
-```
-{: pre}
-
 The following example shows a new file share that is created with customer-managed encryption.
 
-```bash
-$ ibmcloud is share-create --zone us-south-2 --vpc {vpc_id} --name my-encrypted-share --profile tier-5iops --encryption key abccorp-kp-vpc-2 fd57250e-908c-4785-a8a5-1f53176bcd2f
+```sh
+$ ibmcloud is share-create --zone us-south-2 --vpc {vpc_id} --name my-encrypted-share --profile dp2 --size 100 --iops 1000 --encryption key abccorp-kp-vpc-2 fd57250e-908c-4785-a8a5-1f53176bcd2f
 Creating volume demovolume in resource group Default under account VPC 01 as user rtuser1@mycompany.com...
 ID                                      339c8781-f7f5-4a8f-8a2d-3bfc711788ee
 Name                                    my-encrypted-share
 Size                                    100
 IOPS                                    1000
-Profile                                 tier-5iops
+Profile                                 dp2
 Encryption Key                          crn:v1:bluemix:public:kms:us-south:a/8d65fb1cf5e99e86dd7229ddef9e5b7b:b1abf7c5-381d-4f34-836e-5db7193250bc:key:fd57250e-908c-4785-a8a5-1f53176bcd2f
 Encryption                              customer_managed
 Status                                  pending
@@ -232,10 +220,12 @@ Mount targets                           none
 ```
 {: screen}
 
+For more information about the command options, see [`ibmcloud is share-create`](/docs/vpc?topic=vpc-vpc-reference#share-create).
+
 To create a file share with replication, see [Create a file share with replication from the CLI](/docs/vpc?topic=vpc-file-storage-create-replication&interface=cli#fs-create-new-share-replica-cli).
 {: note}
 
-### Create a mount target for an existing file share from the CLI
+### Creating a mount target for an existing file share from the CLI
 {: #fs-create-mount-target-cli}
 
 To create a mount target for the file share, run the `share-mount-target-create` command with the file share and VPC ID or name. The VPC must be unique to each mount target. Specify the values for the `vni` options to create a virtual network interface for the mount target.
@@ -262,6 +252,8 @@ Created           2023-07-11T18:05:18+05:30
 ```
 {: screen}
 
+For more information about the command options, see [`ibmcloud is share-mount-target-create`](/docs/vpc?topic=vpc-vpc-reference#share-mount-target-create).
+
 The following example creates a mount target with security group access mode for a file share. This command creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target that identifies the file share with a reserved IP address and applies the rules of the selected Security group.The virtual network interface is defined by specifying the reserved IP address, and the rules of `SECURITY_GROUP1` determine which resources can access the mount target `my-target-3`.
 [New]{: tag-new}
 
@@ -270,7 +262,9 @@ ibmcloud is share-mount-target-create my-new-share --subnet cli-subnet-1 --name 
 ```
 {: codeblock}
 
-## Create a file share with the API
+For more information about the command options, see [`ibmcloud is share-mount-target-create`](/docs/vpc?topic=vpc-vpc-reference#share-mount-target-create).
+
+## Creating  a file share with the API
 {: #file-storage-create-api}
 {: api}
 
@@ -284,13 +278,13 @@ You can create file shares and mount targets by directly calling the REST APIs.
 
 Set up your API environment. Define variables for the IAM token, API endpoint, and API version. For instructions, see [Setting up your API and CLI environment](/docs/vpc?topic=vpc-set-up-environment).
 
-As described in the [Beta VPC API](/apidocs/vpc-beta) reference [versioning](/apidocs/vpc-beta#api-versioning-beta) policy, support for older versions of the beta API is limited to 45 days. Therefore, beta API requests must specify a `version` query parameter date value within the last 45 days. You must also provide `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/apidocs/vpc#api-generation-parameter).
+You must provide `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/apidocs/vpc#api-generation-parameter).
 {: requirement}
 
 A good way to learn more about the API is to click **Get sample API call** on the provisioning pages in {{site.data.keyword.cloud_notm}} console. You can view the correct sequence of API requests and better understand actions and their dependencies.
 {: tip}
 
-### Create a file share with the API
+### Creating  a file share with the API
 {: #fs-create-file-share-api}
 
 Make a `POST /shares` request to create a file share. Specify the size of the file share, a name, the IOPS profile, and zone.
@@ -299,13 +293,14 @@ The following example shows a request to create a 4800 GB file share with a 10 I
 
 ```sh
 curl -X POST \
-"$vpc_api_endpoint/v1/shares?version=2023-07-11&generation=2&maturity=beta"\
+"$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2"\
 -H "Authorization: $iam_token" \
 -d '{
     "size": 4800,
+    "iops": 3000,
     "name": "myshare-1",
     "profile": {
-      "name": "tier-10iops"
+      "name": "dp2"
     },
     "access_control_mode": "vpc",
     "zone": {
@@ -320,7 +315,7 @@ A successful response looks like the following example.
 ```json
 {
   "access_control_mode": "vpc",
-  "created_at": "2023-07-11T22:31:50Z",
+  "created_at": "2023-08-08T22:31:50Z",
   "crn": "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/acd96d70-b8d3-4b56-ad7f-9c1035df93b2",
@@ -333,8 +328,8 @@ A successful response looks like the following example.
   "lifecycle_state": "pending",
   "name": "myshare-1",
   "profile": {
-    "href": "https://us-south.iaas.cloud.ibm.com/v1/share/profiles/tier-10iops",
-    "name": "tier-10iops",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/share/profiles/dp2",
+    "name": "dp2",
     "resource_type": "share_profile"
   },
   "replication_role": "none",
@@ -357,7 +352,7 @@ A successful response looks like the following example.
 ```
 {: codeblock}
 
-### Create a file share and mount target together with the API
+### Creating  a file share and mount target together with the API
 {: #fs-create-share-target-api}
 
 The following example request creates a file share that has VPC-wide access mode and a mount target that can be used by every virtual server instance in the specified VPC. It also adds [user tags](/docs/vpc?topic=vpc-file-storage-managing&interface=api#fs-add-user-tags) to the share. 
@@ -366,11 +361,12 @@ Access to the mount target is VPC wide; all instances in the VPC have access to 
 
 ```sh
 curl -X POST \
-"$vpc_api_endpoint/v1/shares?version=2023-07-11&generation=2&maturity=beta"\
+"$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2\
 -H "Authorization: Bearer $iam_token"\
 -H 'Content-Type: application/json' \
 -d '{
     "size": 4800,
+    "iops": 48000,
     "mount_targets": [
       {
         "name": "mount-target-name1",
@@ -381,7 +377,7 @@ curl -X POST \
     ],
     "name": "share-name1",
     "profile": {
-      "name": "tier-10iops"
+      "name": "dp2"
     },
     "user_tags": [
       "env:test",
@@ -399,7 +395,7 @@ A successful response looks like the following example.
 ```json
 {
   "access_control_mode": "vpc",
-  "created_at": "2023-07-11T23:31:59Z",
+  "created_at": "2023-08-08T23:31:59Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/ff859972-8c39-4528-91df-eb9160eae918",
@@ -408,8 +404,8 @@ A successful response looks like the following example.
   "lifecycle_state": "stable",
   "name": "share-name1",
   "profile": {
-    "href": "https://us-south.iaas.cloud.ibm.com/v1/share/profiles/tier-10iops",
-    "name": "tier-10iops",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/share/profiles/dp2",
+    "name": "dp2",
     "resource_type": "share_profile"
     },
   "replication_role": "none",
@@ -450,7 +446,7 @@ A successful response looks like the following example.
 ```
 {: codeblock}
 
-### Create a file share and mount target by specifying a subnet
+### Creating a file share and mount target by specifying a subnet
 {: #fs-create-file-share-subnet-vni-api}
 
 [New]{: tag-new}
@@ -460,8 +456,8 @@ The following examople creates and attaches a [virtual network interface](/docs/
 In this example, the mount target specifies a subnet ID. When the `transit_encryption` property set to `user_managed`, encryption in transit with an instance identity certificate is enabled. The default is none, which disables encryption in transit. The default access control mode is `security_group`, which is shown in the response.
 
 ```json
-curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-05-11&generation=2&maturity=beta" \
--H "Authorization: $iam_token" \
+curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2"\
+-H "Authorization: $iam_token"\
 -d '{
     "size": 10,
     "name": "myshare-1",
@@ -490,7 +486,7 @@ A successful response looks like the following example.
 ```json
  {
     "access_control_mode": "security_group",
-    "created_at": "2023-05-11T12:15:12Z",
+    "created_at": "2023-08-08T12:15:12Z",
     "href": "$vpc_api_endpoint/v1/shares/90c4bb62-1724-47bd-8c45-f7d37d7c3508/mount_targets/7e5bdb52-676d-43b2-991f-2053cf6855eb",
     "id": "7e5bdb52-676d-43b2-991f-2053cf6855eb",
     "lifecycle_state": "pending",
@@ -536,10 +532,11 @@ To create the mount target network interface, make a `POST /shares` request and 
 In this example, the `mount_targets` property specifies a subnet ID and security group ID. When the `transit_encryption` property is set to `user_managed`, it enables encryption in transit by using an instance identity certificate. The default value is none, which disables encryption in transit.
 
 ```json
-curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-06-11&generation=2&maturity=beta" \
+curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2"\
 -H "Authorization: $iam_token" \
 -d '{
     "size": 20,
+    "iops": 100,
     "name": "myshare-3",
     "profile": {
         "name": "dp2"
@@ -571,7 +568,7 @@ The following response shows that access control mode is `security_group`, which
 ```json
 {
     "access_control_mode": "security_group",
-    "created_at": "2023-06-11T12:55:40Z",
+    "created_at": "2023-08-08T12:55:40Z",
     "crn": "crn:[...]",
     "encryption": "provider_managed",
     "href": "$vpc_api_endpoint/v1/shares/r134-56f91d4a-2801-470a-b368-176bde64e954",
@@ -628,7 +625,7 @@ If you don't specify an address, an available address on the subnet is automatic
 By default, `auto_delete` for the primary IP is set to `true`. When you create a mount target with this option and later delete the target, the primary IP is also deleted. To release the primary IP when the mount target is deleted, set `auto_delete` to `false`. This example releases the primary IP.
 
 ```json
-curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-05-11&generation=2&maturity=beta" \
+curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2" \
 -H "Authorization: $iam_token" \
 -d '{
     "size": 10,
@@ -658,7 +655,7 @@ curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-05-11&generation=2&maturi
  ```
  {: codeblock}
 
-### Create a mount target for an existing file share with the API
+### Creating a mount target for an existing file share with the API
 {: #fs-create-mount-target-api}
 
 This request creates or adds a mount target to an existing file share. In this example, the `vpc` property is specified because the file share's access control mode is `vpc`. Data encryption in transit is not enabled.
@@ -668,7 +665,7 @@ Access control modes must match when a mount target is created for an existing s
 
 ```sh
 curl -X POST \
-"$vpc_api_endpoint/v1/shares/$share_id/mount_targets?version=2023-07-11&generation=2&maturity=beta"\
+"$vpc_api_endpoint/v1/shares/$share_id/mount_targets?version=2023-08-08&generation=2"\
 -H "Authorization: Bearer $iam_token"\
 -H 'Content-Type: application/json'\
 -d '{
@@ -686,7 +683,7 @@ A successful response looks like the following example.
 ```json
 {
   "access_control_mode": "vpc",
-  "created_at": "2023-07-11T23:31:59Z",
+  "created_at": "2023-08-08T23:31:59Z",
   "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/ff859972-8c39-4528-91df-eb9160eae918/mount_targets/9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "id": "9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "lifecycle_state": "pending",
@@ -717,7 +714,7 @@ Make a `POST /shares/{share_id}/mount_targets` request and specify a subnet and 
 This example adds a mount target to an existing file share, which is identified by ID, and provides a subnet and security group to define the network interface. 
 
 ```json
- curl -X POST "$vpc_api_endpoint/v1/shares/f1ab81ef-dd30-459a-85e0-9094164978b1/mount_targets/?version=2023-04-04&generation=2&maturity=beta"\
+ curl -X POST "$vpc_api_endpoint/v1/shares/f1ab81ef-dd30-459a-85e0-9094164978b1/mount_targets/?version=2023-07=18&generation=2"\
  -d '{
      "virtual_network_interface": {
         "subnet": {
@@ -734,7 +731,7 @@ This example adds a mount target to an existing file share, which is identified 
 ```
 {: codeblock}
 
-### Add supplemental IDs when you create a file share with the API
+### Adding supplemental IDs when you create a file share with the API
 {: #fs-add-supplemental-id-api}
 
 With the API, you can set `UID` and `GID` values for the `initial_owner` property to control access to your file shares. Wherever you mount the file share, the root folder uses that user ID and group ID owner. You set the `UID` or `GID`, or both when you create a share in a `POST /shares` call.
@@ -762,7 +759,7 @@ To set supplemental IDs when you create a share, make a `POST /shares` call and 
 
 ```json
 curl -X POST \
-"$vpc_api_endpoint/v1/shares?version=2023-05-06&generation=2&maturity=beta"\
+"$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2"\
 -H "Authorization: $iam_token" \
 -d '{
     "initial_owner": {
@@ -772,7 +769,7 @@ curl -X POST \
     "size": 4800,
     "name": "share-name",
     "profile": {
-    "name": "tier-10iops"
+    "name": "dp2"
      },
     "zone": {
        "name": "us-south-1"
@@ -821,18 +818,18 @@ resource "ibm_is_share" "example" {
 ### Creating a file share with a replica with Terraform
 {: #file-share-create-with-replica-terraform}
 
-To create a file share, use the `ibm_is_share` resource. To add a replica, define the replica share similarly to the following example. It creates a share with 220 GB capacity and the `tier-3iops` performance profile. The `replica_share` argument defines the replica share's name, the frequency of replication (in cron spec), the performance profile, and the zone where the replica share is to be created.
+To create a file share, use the `ibm_is_share` resource. To add a replica, define the replica share similarly to the following example. It creates a share with 220 GB capacity and the `dp2` performance profile. The `replica_share` argument defines the replica share's name, the frequency of replication (in cron spec), the performance profile, and the zone where the replica share is to be created.
 
 ```terraform
 resource "ibm_is_share" "example-2" {
   zone    = "us-south-1"
   size    = "220"
   name    = "my-share"
-  profile = "tier-3iops"
+  profile = "dp2"
   replica_share {
     name                  = "my-replica"
     replication_cron_spec = "0 */5 * * *"
-    profile               = "tier-3iops"
+    profile               = "dp2"
     zone                  = "us-south-3"
   }
 }
@@ -849,7 +846,7 @@ resource "ibm_is_share" "share3" {
     zone    = "us-south-2"
     size    = "700"
     name    = "my-share3"
-    profile = "tier-3iops"
+    profile = "dp2"
     access_control_mode = "vpc" 
     mount_target {
           name = "target"

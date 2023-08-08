@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-07-11"
+lastupdated: "2023-08-08"
 
 keywords: VPC File Storage, file for VPC, NSF, replica, file share, replication, schedule
 
@@ -18,13 +18,10 @@ subcollection: vpc
 Manage replica file shares by removing the replication relationship to create two independent file shares. The replica file share becomes read/write, and you can update and delete the share.
 {: shortdesc}
 
-{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Madrid, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
-{: preview}
-
 You need Administrator or Editor IAM user roles to create and manage file share replicas and the replication relationship. For a list of these roles and actions, see [IAM roles for creating and managing file shares](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#file-storage-vpc-iam).
 {: requirement}
 
-## Remove the replication relationship
+## Removing the replication relationship
 {: #fs-remove-replication}
 
 You can remove replication by removing the replication relationship between the source file share and replica file share. The operation is called _splitting_ the file shares. Data is no longer synced between the file shares. Removing the replication relationship creates two independent, read/write file shares. You can separately manage each file share, expand capacity and adjust IOPS, and create replicas.
@@ -36,7 +33,7 @@ Removing the replication relationship cannot occur when another operation is bei
 When you remove the replication relationship, you can't undo the action. Also, the data on the replica is not synced automatically with the source file before removal of the replication relationship.
 {: note}
 
-### Remove the replication relationship in the UI
+### Removing the replication relationship in the UI
 {: #fs-remove-replication-ui}
 {: ui}
 
@@ -52,19 +49,19 @@ To remove the replication relationship in the UI:
 
 The file share details page indicates no replication relationship.
 
-### Remove the replication relationship from the CLI
+### Removing the replication relationship from the CLI
 {: #fs-remove-replication-cli}
 {: cli}
 
 Run the `ibmcloud is share-replica-split` command and specify the replica file share that you want to split from the source file share. The result of this operation is two independent read/write file shares.
 
-```bash
+```sh
 ibmcloud is share-replica-split <replica-share-ID>
 ```
 {: pre}
 
 Example output:
-```bash
+```sh
 ibmcloud is share-replica-split replica-share-3
 This will disassociate a replica file share replica-share-3 from its source file share and cannot be undone. Continue [y/N] ?> y
 The request to disassociate a replica file share replica-p-share-3 from its source file share was accepted, under account VPC as user myuser@mycompany.com...
@@ -73,25 +70,24 @@ Replica File share replica-share-3 is disassociated.
 ```
 {: codeblock}
 
-### Remove the replication relationship with the API
+For more information about the command options, see [`ibmcloud is share-replica-split`](/docs/vpc?topic=vpc-vpc-reference#share-replica-split).
+
+### Removing the replication relationship with the API
 {: #fs-remove-replication-api}
 {: api}
 
-Make a `DELETE /shares/{replica_id}/source` request to remove the replication relationship. Splitting a file share removes the replication relationship and creates two independent file shares. After you remove the relationship, you can't reestablish the relationship.
-
-As described in the [Beta VPC API](/apidocs/vpc-beta) reference [versioning](/apidocs/vpc-beta#api-versioning-beta) policy, support for older versions of the beta API is limited to 45 days. Therefore, beta API requests must specify a `version` query parameter date value within the last 45 days. You must also provide `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/apidocs/vpc#api-generation-parameter).
-{: requirement}
+Make a `DELETE /shares/{replica_id}/source` request to remove the replication relationship. Splitting a file share removes the replication relationship and creates two independent file shares. After you remove the relationship, you can't reestablish the relationship. A file share cannot be split, if the `lifecycle_state` of the file share is `updating` or if replica operations are in progress.
 
 ```sh
 curl -X DELETE \
-"$vpc_api_endpoint/v1/shares/$replica_id/source?version=2023-07-11&generation=2&maturity=beta"\
+"$vpc_api_endpoint/v1/shares/{replica_share_id}/source?version=2023-08-08&generation=2"\
 -H "Authorization: $iam_token"\
 ```
 {: pre}
 
 A successful response indicates that the request to disassociate a replica file share from its source file share was accepted.
 
-### Remove the replication relationship with Terraform
+### Removing the replication relationship with Terraform
 {: #fs-remove-replication-terraform}
 {: terraform}
 
@@ -136,15 +132,15 @@ Activity tracker events are triggered when you establish and use file share repl
 
 Replication status shows when a replica file share is being created, when failover is underway, and when a split operation is creating independent file shares. For more information, see [File share lifecycle states](/docs/vpc?topic=vpc-file-storage-managing&interface=api#file-storage-vpc-status).
 
-## Verify replication with the API
+## Verifying replication with the API
 {: #fs-verify-replica-api}
 {: api}
 
-You can use the API to verify that the replication succeeded, is pending, or failed. Make either a `GET /shares/{share_id}` request or a `GET /shares/{replica_id)` request to see the status. The following example request specifies the replica ID:
+You can use the API to verify that the replication succeeded, is pending, or failed. You can make the `GET /shares/{share_id}` request to see the status with the share ID of the source or the replica shares.
 
 ```sh
 curl -X GET \
-"$vpc_api_endpoint/v1/shares/$replica_id?version=2023-07-11&generation=2&maturity=beta"\
+"$vpc_api_endpoint/v1/shares/$share_id?version=2023-08-08&generation=2"\
 -H "Authorization: $iam_token"
 ```
 {: pre}
@@ -152,7 +148,7 @@ curl -X GET \
 In the response, look at the `latest_job` property. The example shows the replication failover succeeded:
 
 ```json
-  "created_at": "2023-07-11T23:31:59Z",
+  "created_at": "2023-08-08T23:31:59Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63",
@@ -178,8 +174,6 @@ In the response, look at the `latest_job` property. The example shows the replic
 
 For a replication split, when the replica share is being split from the source share, you can see a `running` status for `latest_job` in the response.
 
-Example:
-
 ```json
 "latest_job": {
     "status": "running",
@@ -193,9 +187,7 @@ Example:
 ```
 {: codeblock}
 
-A replication `failover` or `split` operation cannot happen if any other operation is being performed on the file share, such as expanding size. You can see a 409 error in the response that indicates the issue.
-
-Example:
+A replication `failover` or `split` operation cannot happen if any other operation is being performed on the file share, such as expanding size. You can see a 409 error in the response that indicates the issue. See the following example.
 
 ```json
 "errors": [

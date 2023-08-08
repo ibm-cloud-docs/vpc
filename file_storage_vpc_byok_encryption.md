@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-07-18"
+lastupdated: "2023-08-08"
 
 keywords: file share, customer-managed encryption, encryption, byok, KMS, Key Protect, Hyper Protect Crypto Services,
 
@@ -18,9 +18,6 @@ subcollection: vpc
 By default, {{site.data.keyword.filestorage_vpc_short}} shares are encrypted with IBM-managed encryption. However, you can also create encrypted file shares by using a supported key management service to create or import your own root keys. After you specify the encryption type for a file share, you can't change it.
 {: shortdesc}
 
-{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Madrid, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
-{: preview}
-
 ## Before you begin
 {: #custom-managed-vol-prereqs-file}
 
@@ -28,7 +25,7 @@ To create file shares with customer-managed encryption, you must first provision
 
 For more information, see [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-encryption-prereqs).
 
-## Create file shares with customer-managed encryption in the UI
+## Creating file shares with customer-managed encryption in the UI
 {: #fs-byok-encryption-ui}
 {: ui}
 
@@ -66,7 +63,7 @@ Follow this procedure to specify customer-managed encryption when you create a f
 If you created your {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} instance by using a private endpoint, root keys that were created by using that instance are not shown in the UI. You must use the CLI or API to access and use those root keys.
 {: important}
 
-## Create customer-managed encryption file shares from the CLI
+## Creating customer-managed encryption file shares from the CLI
 {: #fs-byok-cli}
 {: cli}
 
@@ -78,7 +75,7 @@ Before you begin, verify that you completed the [prerequisites](/docs/vpc?topic=
 
 2. Specify the `ibmcloud is share-create` command with the `--encryption-key` option to a volume with customer-managed encryption. The `encryption_key` parameter specifies a valid CRN for the root key in the key management service.
 
-```bash
+```sh
 ibmcloud is share-create
    --zone ZONE_NAME
    --profile PROFILE
@@ -92,14 +89,14 @@ ibmcloud is share-create
 
 For example,
 
-```bash
+```sh
 ibmcloud is share-create --zone us-south-2 --vpc {vpc_id} --name my-encrypted-share --profile tier-5iops --size 100 --encryption key {crn}
 ```
 {: pre}
 
 The following example shows a new file share that is created with customer-managed encryption.
 
-```bash
+```sh
 $ ibmcloud is share-create --zone us-south-2 --vpc {vpc_id} --name my-encrypted-share --profile tier-5iops --encryption key abccorp-kp-vpc-2 fd57250e-908c-4785-a8a5-1f53176bcd2f
 Creating volume demovolume in resource group Default under account VPC 01 as user rtuser1@mycompany.com...
 ID                                      339c8781-f7f5-4a8f-8a2d-3bfc711788ee
@@ -111,13 +108,15 @@ Encryption Key                          crn:v1:bluemix:public:kms:us-south:a/8d6
 Encryption                              customer_managed
 Status                                  pending
 Resource Group                          Default(dbb12715c2a22f2bb60df4ffd4a543f2)
-Created                                 2023-02-07 10:09:28
+Created                                 2023-08-08 10:09:28
 Zone                                    us-south-2
 Mount targets                           none
 ```
 {: screen}
 
-## Create customer-managed encryption file shares with the API
+For more information about the command options, see [`ibmcloud is share-create`](/docs/vpc?topic=vpc-vpc-reference#share-create).
+
+## Creating customer-managed encryption file shares with the API
 {: #fs-byok-api}
 {: api}
 
@@ -128,14 +127,14 @@ Make a `POST /shares` request and specify the `encryption_key` parameter to iden
 You can also specify the CRN of a root key from a different account in the `POST /shares` call. For more information, see [About cross account key access and use](/docs/vpc?topic=vpc-vpc-byok-cross-acct-key&interface=ui#byok-cross-acct-about).
 {: note}
 
-As described in the [Beta VPC API](/apidocs/vpc-beta) reference [versioning](/apidocs/vpc-beta#api-versioning-beta) policy, support for older versions of the beta API is limited to 45 days. Therefore, beta API requests must specify a `version` query parameter date value within the last 45 days. You must also provide `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/apidocs/vpc#api-generation-parameter).
+You must provide `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/apidocs/vpc#api-generation-parameter).
 {: requirement}
 
 The following example creates a file share with a mount target, and specifies the CRN of the root key for customer-managed encryption.
 
    ```sh
    curl -X POST \
-   "$vpc_api_endpoint/v1/shares?version=2023-07-11&generation=2&maturity=beta" \
+   "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2" \
    -H "Authorization: $iam_token" \
    -d '{
        "encryption_key": {
@@ -145,7 +144,7 @@ The following example creates a file share with a mount target, and specifies th
         "name": "my-encrypted-share",
         "profile": {
           "name": "tier-5iops"
-        },
+         },
         "resource_group": {
            "id": "678523bcbe2b4eada913d32640909956"
          },
@@ -169,7 +168,7 @@ A successful response looks like the following example.
 
    ```json
    {
-     "created_at": "2023-07-11T22:58:49.000Z",
+     "created_at": "2023-08-08T22:58:49.000Z",
      "crn": "crn:[...]",
      "encryption": "customer_managed",
      "encryption_key": {

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-06-13"
+lastupdated: "2023-08-08"
 
 keywords:
 
@@ -48,7 +48,8 @@ You can share root keys across accounts by linking accounts. Root keys in a prim
 Customer-managed encryption is available for custom images, boot volumes, data volumes, snapshots, and file shares. 
 - Data in the instance's boot volume is encrypted by using the [custom image encryption](#byok-about-encrypted-images). You can also encrypt the boot volume with a different root key.
 - [Data volumes](/docs/vpc?topic=vpc-block-storage-about#secondary-data-volumes) can be encrypted by using their own root keys when you provision a virtual server instance or when you create a stand-alone volume. Or, you can use the same root key that you specified for the boot volume.
-- Snapshots that are taken of a source volume inherit the encryption from the volume. [File shares](/docs/vpc?topic=vpc-file-storage-vpc-encryption) provide a customer-managed encryption option similar to {{site.data.keyword.block_storage_is_short}} volumes.
+- Snapshots that are taken of a source volume inherit the encryption from the volume. 
+- [File shares](/docs/vpc?topic=vpc-file-storage-vpc-encryption) provide a customer-managed encryption option similar to {{site.data.keyword.block_storage_is_short}} volumes.
 
 ### Advantages of customer-managed encryption
 {: #byok-advantages}
@@ -76,9 +77,6 @@ Customer-managed encryption has several advantages over IBM-managed encryption.
 * You control the number and usage of root keys to use for envelope encryption at the file shares level. That is, you can choose to encrypt all your file shares with same root key or each file share with different keys. Alternatively, you can encrypt some file shares with one root key and others with different root keys. You have complete flexibility to implement your root key usage based on your individual security needs.
 
 * Manage the root keys for your file shares by rotating, disabling, or deleting keys. You can restore deleted keys within 30 days after their deletion.
-
-{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Madrid, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
-{: preview}
 
 **Encrypt your custom images:**
 

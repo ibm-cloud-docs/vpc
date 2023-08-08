@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-07-11"
+lastupdated: "2023-07-17"
 
 keywords: troubleshooting, file storage for vpc, CBR errors
 
@@ -17,9 +17,6 @@ subcollection: vpc
 
 When you create or manage {{site.data.keyword.filestorage_vpc_short}}, you might encounter issues. Often, you can recover by following a few steps. Issues, symptoms, likely causes, and resolutions are described in the following sections.
 {: shortdesc}
-
-{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Madrid, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
-{: preview}
 
 ## CBR error during file share operations
 {: #fs-troubleshoot-1}
@@ -91,7 +88,7 @@ Make sure you set execute permission on your script file. In your script:
 
    ```sh
    curl -X GET \
-   "$vpc_api_endpoint/v1/shares?limit=20?version=2023-01-11&generation=2&maturity=beta"\
+   "$vpc_api_endpoint/v1/shares?limit=20?version=2023-07-17&generation=2"\
    -H "Authorization: $iam_token"
    ```
    {: codeblock}
@@ -99,7 +96,7 @@ Make sure you set execute permission on your script file. In your script:
 2. Parse each file in the list and update each file share by making separate `PATCH/ shares/{share_id}` requests.
 
    ```sh
-   curl -X PATCH "$rias_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?version=2023-07-11&generation=2&maturity=beta" -H "Authorization: $iam_token" -d '{
+   curl -X PATCH "$rias_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?version=2023-07-17&generation=2" -H "Authorization: $iam_token"
    -d '{
         "profile": {
            "name": "dp2"

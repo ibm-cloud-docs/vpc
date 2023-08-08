@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-07-11"
+lastupdated: "2023-08-08"
 
 keywords: file share, file storage, increase capacity, expand capacity, expand share size, file share size
 
@@ -19,9 +19,6 @@ For {{site.data.keyword.filestorage_vpc_short}} file shares, you can increase th
 {: shortdesc}
 
 Billing for the file share is automatically updated to add the pro-rated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.
-
-{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Madrid, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
-{: preview}
 
 ## Expandable file share concepts
 {: #expandable-share-concepts}
@@ -63,7 +60,7 @@ The following limitations apply to this release.
 * Maximum IOPS for a file share is capped at 48,000 IOPS if it is accessed by a single host. For a file share that is accessed by multiple hosts, IOPS can reach up to 96,000 IOPS.
 * After a file share is expanded, you can't reduce its size.
 
-## Expand file share capacity in the UI
+## Expanding file share capacity in the UI
 {: #expand-vpc-shares-ui}
 {: ui}
 
@@ -87,7 +84,7 @@ Your new file storage allocation is available in a few minutes. If your requirem
 
 **Note**: You can't change the file share to a smaller size after you expand its capacity.
 
-## Expand file shares from the CLI
+## Expanding file shares from the CLI
 {: #expand-vpc-shares-cli}
 {: cli}
 
@@ -100,7 +97,7 @@ ibmcloud is share-update SHARE_ID --size SIZE_GB
 
 This example expands the capacity of a file share that is created from a 5 IOPS/GB tier profile to the maximum size for that profile. To get the maximum IOPS of 48,000, you would need to restart the instance.
 
-```bash
+```sh
 $ ibmcloud is share-update 933c8781-f7f5-4a8f-8a2d-3bfc711788ee --size 9600
 Updating share 933c8781-f7f5-4a8f-8a2d-3bfc711788ee under account MyAccount 01 as user user1@mycompany.com...
 
@@ -120,27 +117,21 @@ Mount targets     ID                                          Name              
 Resource Group    ID                                 Name
                   875623bcde2b4ebda924d32640908845   Default
 
-Created           2023-02-07T02:15:52-06:00
+Created           2023-08-08T02:15:52-06:00
 ```
 {: screen}
 
-## Expand file share capacity with the API
+## Expanding file share capacity with the API
 {: #expand-vpc-share-api}
 {: api}
 
-You can expand existing file shares by calling the VPC API.
-
-As described in the [Beta VPC API](/apidocs/vpc-beta) reference [versioning](/apidocs/vpc-beta#api-versioning-beta) policy, support for older versions of the beta API is limited to 45 days. Therefore, beta API requests must specify a `version` query parameter date value within the last 45 days. You must also provide `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/apidocs/vpc#api-generation-parameter).
-{: requirement}
-
-Make a `PATCH /shares/{id}` request and specify the ID of the file share for which you want to increase the size.
-{: note}
+You can expand existing file shares by calling the VPC API. Make a `PATCH /shares/{id}` request and specify the ID of the file share for which you want to increase the size.
 
 This request example expands a file share with a capacity of 50 GB to 2500 GB for a 5 IOPS/GB profile.
 
 ```sh
 curl -X PATCH \
- "$vpc_api_endpoint/v1/shares/$share_id?version=2023-07-11&generation=2&maturity=beta" \
+ "$vpc_api_endpoint/v1/shares/$share_id?version=2023-08-08&generation=2" \
  -H "Authorization: $iam_token" \
  -d '{
       "size": 2500
@@ -152,7 +143,7 @@ The file share status shows `updating` while the capacity is increased. The curr
 
 ```json
 {
-  "created_at": "2023-07-11T23:31:59Z",
+  "created_at": "2023-08-08T23:31:59Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63",
@@ -174,7 +165,7 @@ When the file share expansion completes, the new value displays, and the status 
 
 ```json
 {
-  "created_at": "2023-07-11T23:31:59Z",
+  "created_at": "2023-08-08T23:31:59Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63",
@@ -202,7 +193,7 @@ When the file share expansion completes, the new value displays, and the status 
 ```
 {: codeblock}
 
-## Expand file shares with Terraform
+## Expanding file shares with Terraform
 {: #expand-vpc-shares-terraform}
 {: terraform}
 

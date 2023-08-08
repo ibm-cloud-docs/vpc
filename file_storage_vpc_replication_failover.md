@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-06-20"
+lastupdated: "2023-08-08"
 
 keywords: file storage, file share, replication, replica, source share, failover, 
 
@@ -17,9 +17,6 @@ subcollection: vpc
 
 Failover to the replica file share keeps your file share available if your source file share becomes unavailable. Failover switches the replication relationship so that the replica file share becomes the source file share and the source share becomes the read-only replica file share.
 {: shortdesc}
-
-{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Madrid, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
-{: preview}
 
 ## Replication failover concepts
 {: #fs-failover-concepts}
@@ -69,7 +66,7 @@ These restrictions apply when you perform a failover.
 
 * A failover remains pending when other operations are being performed on the source file share, such as expanding the share size. When the operation completes, the failover resumes.
 
-## Failover in the UI
+## Initiating a failover in the UI
 {: #fs-failover-procedure-ui}
 {: ui}
 
@@ -92,48 +89,49 @@ These restrictions apply when you perform a failover.
 
 The file share details page is updated, and the replication relationship shows the replica file share as the new source file share.
 
-## Failover from the CLI
+## Initiating a failover from the CLI
 {: #fs-failover-procedure-cli}
 {: cli}
 
-Run the `ibmcloud is share-replica-failover` command and specify the `failback-policy` property. You can specify `fail` or `split` for this property.
+Run the `ibmcloud is share-replica-failover` command and specify the `fallback-policy` property. You can specify `fail` or `split` for this property.
 
-This example specifies `fail` for the `failback-policy` property, which indicates that if the failover operation fails or the timeout is reached, the failover operation is unsuccessful.
+This example specifies `fail` for the `fallback-policy` property, which indicates that if the failover operation fails or the timeout is reached, the failover operation is unsuccessful.
 
-```bash
+```sh
 ibmcloud is share-replica-failover dc1e70af-c3cb-44c6-a96d-2ece09b51ae3 --fallback-policy fail
 The file share dc1e70af-c3cb-44c6-a96d-2ece09b51ae3 failover request was accepted under account VPC as user myuser@mycompany.com...
 The file share failover request was accepted.
 ```
 {: screen}
 
-The following example specifies `split` for the `failback-policy` property, which indicates that the replica share is split from the source file share whenever a failover operation fails. The result of this operation is two independent read/write file shares.
+The following example specifies `split` for the `fallback-policy` property, which indicates that the replica share is split from the source file share whenever a failover operation fails. The result of this operation is two independent read/write file shares.
 
-```bash
+```sh
 ibmcloud is share-replica-failover 8b07129c-e376-4572-9ef3-68c729b315d5 --fallback-policy split
 The file share 8b07129c-e376-4572-9ef3-68c729b315d5 failover request was accepted under account VPC as user myuser@mycompany.com...
 The file share failover request was accepted.
 ```
 {: screen}
 
-## Failover with the API
+For more information about the command options, see [`ibmcloud is share-replica-failover`](/docs/vpc?topic=vpc-vpc-reference#share-replica-failover).
+
+## Initiating a failover with the API
 {: #fs-failover-procedure-api}
 {: api}
 
 Make a `POST /shares/{share_id}/failover` request and specify the `timeout` and `fallback_policy` properties. The minimum timeout is 300 seconds and the maximum 3600 seconds. This request fails a source file share over to the replica share, which is specified by the replica file share ID.
 
-By default, the `fallback_policy` property has the value `fail`. In this case, if the failover operation fails or the timeout is reached, the failover operation is unsuccessful.
+The `fallback_policy` property can have the values `split` or `fail`. When `fail` is specified, if the failover operation fails or the timeout is reached, the failover operation is unsuccessful. The replication relationship remains unchanged.
 
-If you specify `split` for the `failback_policy` property, the replica share is split from the source share whenever a failover operation fails. The result is two independent read/write file shares. In this case, because the final file synchronization could not complete, the replica share might not contain all the data of the source file share. Use this option for disaster recovery, when the source file share is known to be unreachable.
+If you specify `split` for the `fallback_policy` property, the replica share is split from the source share whenever a failover operation fails. The result is two independent read/write file shares. In this case, because the final file synchronization could not complete, the replica share might not contain all the data of the source file share. Use this option for disaster recovery, when the source file share is known to be unreachable.
 
-As described in the [Beta VPC API](/apidocs/vpc-beta) reference [versioning](/apidocs/vpc-beta#api-versioning-beta) policy, support for older versions of the beta API is limited to 45 days. Therefore, beta API requests must specify a `version` query parameter date value within the last 45 days. You must also provide `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/apidocs/vpc#api-generation-parameter).
-{: requirement}
+If the `fallback_policy` property is not specified in the request, the system defaults to `split` when the failover operations fails.
 
-This example specifies `fail` for the `fallback_policy` property, which is the default. It's provided here as an example but you could leave it blank. The `timeout` property is also optional. You can use the default timeout.
+This example specifies `fail` for the `fallback_policy` property. The `timeout` property is optional. You can use the default timeout.
 
 ```sh
 curl -X POST \
-"$vpc_api_endpoint/v1/shares/$replica_id?/failover?version=2023-06-20&generation=2"&maturity=beta\
+"$vpc_api_endpoint/v1/shares/$replica_id?/failover?version=2023-08-08&generation=2&maturity=beta""\
 -H "Authorization: $iam_token"\
 -d '{
      "fallback_policy": "fail",
@@ -147,7 +145,7 @@ A successful response indicates that the file share failover request was accepte
 You can use the API to verify that replication failover succeeded, is pending, or failed. Make a `GET /shares/{replica_id}` call. Look at the `latest_job` property. For more information, see [Verify replication with the API](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=api#fs-verify-replica-api).
 {: note}
 
-## Failover with Terraform
+## Initiating a failover with Terraform
 {: #fs-failover-procedure-terraform}
 {: terraform}
 
