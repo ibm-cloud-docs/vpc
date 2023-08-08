@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-07-11"
+lastupdated: "2023-08-08"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -55,6 +55,16 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
 
 **VPN site-to-site gateway cipher upgrade.** In an upcoming release, connections with auto IKE or IPsec policies that are out of conformance will be automatically upgraded to the [enhanced auto-negotiation policy](/docs/vpc?topic=vpc-using-vpn#policy-negotiation). Connections with customized IKE or IPsec policies that contain weak ciphers will be disabled. For more information, see [Upgrading a VPN from a custom IKE or IPsec policy](/docs/vpc?topic=vpc-upgrading-weak-ciphers&interface=api#upgrade-vpn-with-custom-policy).
+
+## 8 August 2023
+{: #8-august-2023}
+
+### For all version dates
+{: #8-august-2023-all-version-dates}
+
+**File storage for VPC.** You can now create NFS-based file shares in a zone in your region. Share file storage over multiple virtual server instances within the same zone across multiple VPCs. Learn about [file shares and mount targets](/docs/vpc?topic=vpc-file-storage-vpc-about), and explore the new [API methods](/apidocs/vpc/latest#list-share-profiles).
+
+Currently, in the `us-south` region, mounting a file share in zones `us-south-2` or `us-south-3` to a virtual server instance in `us-south-1` results in mount failure. The request times out and the mount operation cannot complete. For more information, see [known issues](/docs/vpc?topic=vpc-known-issues#fs-cross-zone-mount-dal-issue) and [limitations](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-limitations) in About File Storage for VPC.
 
 ## 11 July 2023
 {: #11-july-2023}
