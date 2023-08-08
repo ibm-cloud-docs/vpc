@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-07-11"
+lastupdated: "2023-08-08"
 
 keywords: api, change log, beta
 
@@ -42,6 +42,8 @@ The default value of `access_control_mode` depends on the `version` query parame
 
 When [creating a mount target](/apidocs/vpc-beta#create-share-mount-target) for a file share with `access_control_mode` set to `security_group`, you must also create a virtual network interface by using the `virtual_network_interface` property. For more information, see [About virtual network interfaces](/docs/vpc?topic=vpc-vni-about&interface=api) and [Mount target access modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-mount-access-mode). You must use an `access_control_mode` of `security_group` to enable [Data encryption in transit for file shares](/docs/vpc?topic=vpc-file-storage-vpc-eit).
 
+This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#08-august-2023).
+
 ## 13 June 2023
 {: #13-june-2023-beta}
 
@@ -66,6 +68,8 @@ The name change also applies to the method paths: Requests using a `version` que
 
 See [`2023-05-30` API migration (file shares)](/docs/vpc?topic=vpc-2023-05-30-migration-file-shares) for guidance on migrating from `targets` to  `mount_targets`.
 
+This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#08-august-2023). Support for `targets` property name has been removed.
+
 ### For all version dates
 {: #30-may-2023-all-version-dates-beta}
 
@@ -85,6 +89,8 @@ See [`2023-05-30` API migration (file shares)](/docs/vpc?topic=vpc-2023-05-30-mi
 **Revised file storage profiles.** For users with accounts that have access to file shares, a new `dp2` profile is now available when [creating](/apidocs/vpc-beta#create-share) and [updating](/apidocs/vpc-beta#update-share) a file share. Profiles in the existing `custom` and `tiered` families have been deprecated and will remain available only to accounts that have already provisioned file shares with those profiles. The deprecated profiles also will not be included in the upcoming general availability release for file shares.
 
 The `dp2` profile belongs to a new `defined_performance` file share profile family, which provides similar functionality to the deprecated `custom` file share profile family. While existing file shares using profiles in the `custom` and `tiered` families will continue to work, you are encouraged to update all your file shares to the new `dp2` profile in preparation for general availability of the file share service. Bulk migration of existing file shares is not supported. For more information, see [dp2 file storage profile](/docs/vpc?topic=vpc-file-storage-profiles#dp2-profile).
+
+This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#08-august-2023).
 
 ## 14 February 2023
 {: #14-february-2023-beta}
@@ -137,6 +143,8 @@ This feature is now generally available. The `catalog_offering.published` proper
 
 **File storage cross-account encryption.**  Accounts that have been granted special approval to preview this feature can now use cross-account customer-managed encryption keys (CRKs) when [creating a file share](/apidocs/vpc-beta#create-share) with [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption). With this feature, the CRK account owner [invites you](/docs/account?topic=account-iamuserinv) and sets the IAM delegated policy to the CRKs. Afterward, specify your IAM token to create a file share with an `encryption_key` CRN from the CRK account. For more information, see [Cross-account encryption for multitenant file storage resources](/docs/vpc?topic=vpc-vpc-byok-cross-acct-key-file).
 
+This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#08-august-2023).
+
 ## 5 July 2022
 {: #5-july-2022-beta}
 
@@ -160,6 +168,8 @@ The following updates have been made since the [beta release](#24-august-2021):
 **File storage adjustable IOPS.** Accounts that have been granted special approval to preview this feature can now [update the IOPS of an existing file share](/apidocs/vpc-beta#update-share). For a file share using a `custom` profile, specify the `iops` property. For a file share using a profile in the `tiered` profile family, specify another tier within the `tiered` family, which will set the `iops` based on the share's size.
 
 You can also change a share between the `tiered` and `custom` profile families so long as the requested `iops` and `size` are supported by the requested profile. For more information about file share profiles, see [File Storage for VPC profiles](/docs/vpc?topic=vpc-file-storage-profiles). For information about adjusting IOPS with a profile, or changing between `tiered` and `custom` profiles, see [Adjusting file share IOPS](/docs/vpc?topic=vpc-adjusting-share-iops&interface=api).
+
+This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#08-august-2023).
 
 ## 31 May 2022
 {: #31-may-2022-beta}
@@ -199,6 +209,8 @@ The backup jobs API is now generally available. See the [VPC API change log](/do
 - You can now [fail over to the replica file share](/apidocs/vpc-beta#failover-share), which reverses the replication relationship. You can optionally specify `split` for the `fallback_policy` to trigger a split if the failover operation fails or times out. For more information, see [Replication failover](/docs/vpc?topic=vpc-file-storage-failover&interface=api).
 
 **File storage native tagging.** Accounts that have been granted special approval to preview this feature can now specify `user_tags` when [creating a new file share](/apidocs/vpc-beta#create-share) or [updating an existing file share](/apidocs/vpc-beta#update-share). Adding user tags to a file share helps you organize your resources. For details, see [Add user tags to a file share](/docs/vpc?topic=vpc-file-storage-managing&interface=api#fs-add-user-tags).
+
+This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#08-august-2023).
 
 ## 22 March 2022
 {: #22-march-2022-beta}
@@ -257,6 +269,8 @@ This feature is now generally available. See the [VPC API change log](/docs/vpc?
 
 **File storage for VPC.** Accounts that have been granted special approval to preview this feature can now increase file share size in gigabyte increments up to 32 TB (depending on the file share's profile). The increase takes effect immediately. For more information, see [Expanding file share capacity](/docs/vpc?topic=vpc-file-storage-expand-capacity&interface=api). You can also specify the maximum input/output operations per second (IOPS) when [creating](/apidocs/vpc-beta#create-share) a file share, within the range available for its size. For more information, see [Custom IOPS profile](/docs/vpc?topic=vpc-file-storage-profiles#custom).
 
+This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#08-august-2023).
+
 ## 10 August 2021
 {: #10-august-2021-beta}
 
@@ -309,6 +323,8 @@ This feature is now generally available. See the [VPC API change log](/docs/vpc?
 {: #6-april-2021-all-version-dates-beta}
 
 **File storage for VPC.** Accounts that have been granted special approval to preview this feature can now create NFS-based file shares in a zone in your region. Share file storage over multiple virtual service instances within the same zone across multiple VPCs. Learn about [creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-vpc-about), and explore the new [API methods](/apidocs/vpc-beta#list-share-profiles).
+
+This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#08-august-2023).
 
 ## 19 March 2021
 {: #19-march-2021-beta}
