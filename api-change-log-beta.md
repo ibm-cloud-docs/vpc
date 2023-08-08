@@ -104,6 +104,11 @@ This feature is now generally available. See the [VPC API change log](/docs/vpc?
 
 The `dp2` profile belongs to a new `defined_performance` file share profile family, which provides similar functionality to the deprecated `custom` file share profile family. While existing file shares using profiles in the `custom` and `tiered` families will continue to work, you are encouraged to update all your file shares to the new `dp2` profile in preparation for general availability of the file share service. Bulk migration of existing file shares is not supported. For more information, see [dp2 file storage profile](/docs/vpc?topic=vpc-file-storage-profiles#dp2-profile).
 
+**IOPS and size configuration for file share profiles.** New file share properties `size` and `iops` are also provided in the API responses when [retrieving a file share profile](/apidocs/vpc-beta#get-share-profile). The `size` property shows the permitted capacity range (in gigabytes) for a share with the profile. The `iops` property shows the permitted IOPS range for a share with the profile. The maximum IO operations each client that accesses the file can perform is 48,000 IOPS. When multiple clients access the file share, the share can handle a maximum of 96,000 IO operations per second.
+
+This API feature was released to production on 2023-04-11, but an announcement was not included at the time.
+{: note}
+
 This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#08-august-2023).
 
 ## 14 February 2023
