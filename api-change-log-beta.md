@@ -26,6 +26,20 @@ There are no backward-compatibility guarantees as a feature progresses through i
 
 To review the change log of generally available API features, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log).
 
+## 8 August 2023
+{: #8-august-2023-beta}
+
+### For version `2023-08-08` or later
+{: #version-2023-08-08-beta}
+
+This release introduces the following behavior changes for users with accounts that have access to file shares.
+
+**Fail over to replica share.** When making API requests using a `version` query parameter of `2023-08-08` or later, the default value for the  `fallback_policy` property has been changed to `fail`, and the replication relationship between the shares is broken.
+
+**Retrieve source share information for a replica share.** When making API requests using a `version` query parameter of `2023-08-08` or later, requests to [retrieve the source file share for a replica file share](/apidocs/vpc-beta#get-share-source) now return a more concise source share reference, instead of a share.
+
+For more information, see [About file share replication](/docs/vpc?topic=vpc-file-storage-replication) and [2023-08-08` API migration (file shares)](/docs/vpc?topic=vpc-2023-08-08-migration-file-shares).
+
 ## 11 July 2023
 {: #11-july-2023-beta}
 
