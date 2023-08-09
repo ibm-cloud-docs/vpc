@@ -2,7 +2,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-07-17"
+lastupdated: "2023-08-09"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, very high memory, gpu, sap, olap, oltp, nvidia, cascade lake
 
@@ -250,18 +250,27 @@ See [Download drivers](https://www.nvidia.com/Download/index.aspx?lang=en-us) to
 {: class="simple-tab-table"}
 {: summary="GPU profiles options for Intel x86-64 virtual server instances."}
 
-### Considerations for GPU profiles
-{: #considerations-for-gpu}
+### Considerations for v100 and a100 GPU profiles
+{: #considerations-gpu-profiles}
 
-When you create a GPU profile, keep the following recommendations in mind.
+When you create a `-v100` or `-a100` GPU profile, keep the following recommendations in mind.
 
-- During {{site.data.keyword.Bluemix_notm}} periodic maintenance, GPU workloads aren't secure live migrated. Instead, the virtual server instance is restarted. You are notified 30 days in advance of any maintenance where the virtual server instance will be restarted. For more information, see [Understanding cloud maintenance operations](/docs/vpc?topic=vpc-about-cloud-maintenance).
+- During {{site.data.keyword.Bluemix_notm}} periodic maintenance, GPU workloads aren't secure live migrated. Instead, the virtual server instance is restarted. You are notified 30 days in advance of any maintenance where the virtual server instance restarts. For more information, see [Understanding cloud maintenance operations](/docs/vpc?topic=vpc-about-cloud-maintenance).
 - If you are using GPU profiles, you need to install the NVIDA driver onto your virtual server instance. For more information, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
 - If you are using GPU profiles, you might need to install the CUDA toolkit onto your virtual server instance. For more information, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
 - For more information about persistent storage options, see [Storage notes for profiles](#storage-notes-for-profiles).
 
-Considerations specific to the GPU `-a100` profile:
-- Only Redhat and Ubuntu are supported.
+#### Special considerations for GPU `-a100` profile
+{: #considerations-gpu-a100-profiles}
+
+The GPU `-a100` profile includes the following performance enhancements. These enhancements enable GPUDirect RDMA with higher throughput, lower latency, lower CPU utilization for Machine Learning (ML) and Artificial Intelligence (AI), and High-Performance Compute (HPC) applications.
+
+- RoCE (RDMA over converged Ethernet) V2
+- SR-IOV
+
+In addition, the `-a100` profiles have the following restrictions.
+
+- Only Red Hat and Ubuntu are supported.
 - This profile is not certified for {{site.data.keyword.Bluemix_notm}} for Financial Service&reg;. While you can configure flow logs for the VPC, instance, interface, or subnets, data is not captured for the `-a100` profile.
 - You can't [resize a virtual server instance](/docs/vpc?topic=vpc-resizing-an-instance&interface=ui) that was created with this profile.
 - You can't attach new NICs or volumes to an existing, running virtual server instance. You must first stop the virtual server instance, make the changes, and then restart the virtual server instance.
