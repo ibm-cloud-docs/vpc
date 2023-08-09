@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-12-12"
+  years: 2021, 2023
+lastupdated: "2023-08-09"
 
 keywords: bare metal servers, managing, operation, manage bare metal server, manage bare metal, manage server, restart bare metal, stop bare metal, delete bare metal, reboot bare metal, restart server, stop server, delete server
 
@@ -36,7 +36,7 @@ You can perform the following actions by using the UI, API, or CLI:
 
 | Action | Description |
 |--------|-------------|
-| Stop| Stop the server. |
+| Stop| Stop the server using a soft stop or a hard stop.  \n - Soft stop can take a few seconds to several minutes to stop shut down the server, depending on the state of the operating system. If the operating system is not responding and the soft stop can not complete, a hard stop is required.  \n - Hard stop shuts down the bare metal server immediately. This prevents the operating system from shutting down gracefully. |
 | Start | Start a stopped server. This action is not available if the the status is Running. |
 | Reboot | Immediately powers off a running server and then powers it back on. |
 | Delete | To delete a server, the server must be powered off. If the server has a floating IP address, the floating IP address must be unassociated or released before the server is deleted. The delete action permanently removes a server and its connected vNIC, boot volume, and data from your account. |
@@ -80,7 +80,7 @@ The reboot action immediately powers off and powers on the bare metal server.
 
 2. Click the name of the bare metal server that you want to start or stop.
 
-3. Click **Actions...**, then click **Stop** or **Start**.
+3. Click **Actions...**, then click **Stop** or **Start**. When selecting **Stop**, select hard stop or soft stop. The instance will soft stop by default.
 
 Billing continues after the bare metal server is stopped.
 {: note}
