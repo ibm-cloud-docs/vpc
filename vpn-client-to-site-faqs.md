@@ -26,7 +26,7 @@ You might encounter these frequently asked questions when you use {{site.data.ke
 
 Status descriptions are as follows:
 
-* `Heathy` - Indicates that your VPN server is operating correctly.
+* `Healthy` - Indicates that your VPN server is operating correctly.
 * `Degraded` - Indicates that your VPN server has compromised performance, capacity, or connectivity.
 * `Faulted` - Indicates that your VPN server is completely unreachable and inoperative.
 * `Inapplicable` - Indicates that the health state does not apply because of the current lifecycle state. A resource with a lifecycle state of `failed` or `deleting` will have a health state of inapplicable. A `Pending` resource might also have this state.
