@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-07-21"
+lastupdated: "2023-08-08"
 
 keywords:
 
@@ -27,6 +27,15 @@ For more information about changes to the {{site.data.keyword.vpc_short}} API, s
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-cli-rn).
 
+## August 2023
+{: #vpc-aug23}
+
+### 08 August 2023
+{: #vpc-august0823}
+{: release-note}
+
+File Storage for VPC (GA)
+:   NFS-based file shares for a zone within a region are now generally available. You can create and share file storage over multiple virtual service instances within the same zone across multiple VPCs. For more information about this service, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about).
 
 ## July 2023
 {: #vpc-jul23}
@@ -36,7 +45,7 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: release-note}
 
 VPC services using IBM Cloud Metrics Routing
-:    You can use IBM Cloud Metrics Routing to manage metrics at the account-level by configuring targets and routes that define where data points are routed. This platform service can only route metrics that are generated in [supported regions](/docs/metrics-router?topic=metrics-router-regions#regions-metrics-router) by enabled services. Other regions, where IBM Cloud Metrics Routing is not available, continue to manage metrics by using [IBM Cloud Monitoring](/docs/monitoring?topic=monitoring-getting-started).
+:  You can use IBM Cloud Metrics Routing to manage metrics at the account-level by configuring targets and routes that define where data points are routed. This platform service can only route metrics that are generated in [supported regions](/docs/metrics-router?topic=metrics-router-regions#regions-metrics-router) by enabled services. Other regions, where IBM Cloud Metrics Routing is not available, continue to manage metrics by using [IBM Cloud Monitoring](/docs/monitoring?topic=monitoring-getting-started).
 
    For a list of supported IBM Cloud VPC services, see [IBM Cloud services that generate metrics that are managed through IBM Cloud Metrics Routing](/docs/metrics-router?topic=metrics-router-cloud-services-mr#vpc). To learn more about IBM Cloud Metrics Routing, see [Getting started with IBM Cloud Metrics Routing](/docs/metrics-router?topic=metrics-router-getting-started).
 
