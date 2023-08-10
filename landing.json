@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2023-07-21",
+    "lastupdated": "2023-08-10",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
@@ -31,6 +31,11 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
+          "date": "08 August 2023", 
+          "title": "File Storage for VPC (GA)",
+          "description": "NFS-based file shares for a zone within a region are now generally available. You can create and share file storage over multiple virtual service instances within the same zone across multiple VPCs."
+        },
+        {
           "date": "21 July 2023", 
           "title": "VPC services using IBM Cloud Metrics Routing",
           "description": "You can use IBM Cloud Metrics Routing to manage metrics at the account-level by configuring targets and routes that define where data points are routed. This platform service can only route metrics that are generated in supported regions by enabled services. Other regions, where IBM Cloud Metrics Routing is not available, continue to manage metrics by using IBM Cloud Monitoring."
@@ -39,11 +44,6 @@
           "date": "14 July 2023", 
           "title": "Very High Memory (vx2d) profile family now available in all regions",
           "description": "The vx2d profile is now available in the Sao Paolo region. Adding this region makes this profile family available in all regions."
-        },
-        {
-          "date": "11 July 2023", 
-          "title": "Image lifecycle management for custom images (GA)",
-          "description": "This image lifecycle management feature is now generally available. You can use the UI, CLI, and API to manage the lifecycle of your custom images with the following three statuses. You can move the image back and forth through all the statuses. You can also schedule status changes to manage the entire lifecycle of the image."
         }
       ]
     }
