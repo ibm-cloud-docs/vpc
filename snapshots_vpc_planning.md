@@ -21,7 +21,7 @@ When you plan a snapshot strategy for your {{site.data.keyword.block_storage_is_
 ## Planning to create and use snapshots
 {: #planning-for-data-encryption-snap}
 
-Consider the following prerequisites before you create snapshots.
+Consider the following topics and requisites before you create snapshots.
 
 | Item | Considerations |
 |------|----------------|
