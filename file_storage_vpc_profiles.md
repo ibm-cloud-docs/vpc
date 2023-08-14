@@ -60,7 +60,7 @@ Table 2 shows the available IOPS ranges, based on share size.
 | 2,000 - 3,999   | 200 - 40,000 |
 | 4,000 - 7,999   | 300 - 40,000 |
 | 8,000 - 15,999  | 500 - 64,000 | 
-| 16,000 - 32,00  | 2,000 - 96,000^1^|
+| 16,000 - 32,000  | 2,000 - 96,000^1^|
 {: caption="Table 2. dp2 file share profile IOPS and capacity ranges." caption-side="top"}
 
 ^1^ For the 96,000 IOPS to be realized, a single file share must be accessed by multiple virtual server instances. A single file share that is accessed by one client is limited to 48,000 IOPS.
