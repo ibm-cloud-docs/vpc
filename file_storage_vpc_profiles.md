@@ -246,6 +246,31 @@ The response returns the following profiles and related information:
 ```
 {: codeblock}
 
+### With Terraform
+{: #fs-using-terraform-iops-profiles}
+{: terraform}
+
+1. To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
+
+2. VPC infrastructure services use a regional specific based endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the right region in the provider block in the `provider.tf` file. See the following example of targeting a region other than the default `us-south`.
+
+   ```terraform 
+   provider "ibm" {
+      region = "eu-de"
+   }
+   ```
+   {: codeblock}
+
+3. Import the list of available volume profiles as a read-only data source. 
+
+   ```terraform
+   data "ibm_is_share_profiles" "example" {
+   }
+   ```
+   {: codeblock}
+
+   For more information, see [ibm_is_share_profiles](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_share_profiles){: external}.
+
 ## How IO size affects file share performance
 {: #fs-profiles-block-size}
 
