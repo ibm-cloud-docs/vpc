@@ -103,7 +103,7 @@ Table 4 shows the available IOPS ranges based on file share size.
 | 2,000 - 3,999 | 200 - 40,000 |
 | 4,000 - 7,999 | 300 - 40,000 |
 | 8,000 - 9,999 | 500 - 48,000 |
-| 1,0000 - 16,000 | 1000 - 48,000 |
+| 10,000 - 16,000 | 1,000 - 48,000 |
 {: caption="Table 4. Available IOPS based on file share size." caption-side="bottom"}
 
 The total maximum IOPS is rounded up to the next multiple of 10 when the IOPS calculation results in IOPS less than or equal to 48,000 IOPS.
