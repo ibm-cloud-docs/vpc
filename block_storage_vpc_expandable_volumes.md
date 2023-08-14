@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-06-30"
+lastupdated: "2023-08-14"
 
 keywords: block storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -256,9 +256,4 @@ For more information about the arguments and attributes, see [ibm_is_volume](htt
 ## Next steps
 {: #next-step-expandable-volumes}
 
-Create more volumes or manage your existing block storage volumes.
-
-* [Creating block storage volumes](/docs/vpc?topic=vpc-creating-block-storage).
-* [Managing block storage volumes](/docs/vpc?topic=vpc-managing-block-storage).
-
-Optionally, [increase the capacity of boot volumes](/docs/vpc?topic=vpc-resize-boot-volumes).
+The volume expansion takes effect without a reboot. However, to use the increased volume space, you must expand the file system so the increased volume capacity is recognized. For more information about expanding the file system, see your OS Documentation. For example, [RHEL 8 - Modifying Logical Volume](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/modifying-the-size-of-a-logical-volume_configuring-and-managing-logical-volumes){: external} or [Microsoft&reg; - Extend a basic volume](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
