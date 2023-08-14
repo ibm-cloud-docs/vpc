@@ -246,7 +246,7 @@ The response returns the following profiles and related information:
 ```
 {: codeblock}
 
-### With Terraform
+## Viewing profiles with Terraform
 {: #fs-using-terraform-iops-profiles}
 {: terraform}
 
