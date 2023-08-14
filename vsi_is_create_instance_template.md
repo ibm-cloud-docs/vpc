@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-06-22"
+lastupdated: "2023-08-14"
 
 keywords:
 
@@ -61,7 +61,7 @@ Gather the following required instance template details.
 | Profile | `ibmcloud is instances` | [List all virtual server instances](/docs/vpc?topic=vpc-vpc-reference#instances-list) |
 | Subnet | `ibmcloud is subnets` | [List all subnets](/docs/vpc?topic=vpc-vpc-reference#subnets-list) |
 | Image | `ibmcloud is image` | [List all images](/docs/vpc?topic=vpc-vpc-reference#images-list)|
-| Keys | `ibmcloud is keys` | [List all keys](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#keys)  \n  \n If you don't have any available SSH keys, use [Create a key](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#key-create) to create one.  \n  \n **Note:** RSA and Ed25519 are the two types of SSH keys that you can use. However, you can't use the Ed25519 SSH key type with Windows or VMware images. You can use only RSA SSH keys for these images.  \n For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
+| Keys | `ibmcloud is keys` | [List all keys](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#keys)  \n  \n If you don't have any available SSH keys, use [Create a key](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#key-create) to create one.  \n  \n **Note:**  SSH keys can either be RSA or Ed25519. You can generate new RSA key pairs using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images. \n For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
 | Placement groups | `ibmcloud is placement-groups` | [List all placement groups](/docs/vpc?topic=vpc-vpc-reference#placement-groups-list) |
 {: caption="Table 1. Required instance template details" caption-side="bottom"}
 

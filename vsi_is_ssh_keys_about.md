@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-07-31"
+lastupdated: "2023-08-14"
 
 keywords: ssh public keys, OpenSSH, add ssh key, ssh key, manage ssh key, generate ssh key, locate ssh key
 
@@ -34,10 +34,10 @@ On {{site.data.keyword.vpc_short}}, RSA is the default SSH key type. You can sel
 
 In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](/login), you can go to **menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > SSH keys** to manage your SSH keys. From here you can create, rename, or delete keys. If you select to create a key, that key must be an RSA SSH key type. You can upload an Ed25519 SSH key type, you just can't generate one within VPC.
 
-* For Windows or VMware images, you must use the RSA SSH key type. The Ed25519 SSH key type can't be used with Windows or VMware images.
-* For Linux images, the Ed25519 SSH key type can be used only if the SSH server for the operating system supports that key type.
+You can generate new RSA key pairs using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images. 
+{: note}
 
-You can create an RSA SSH key from the UI, but Ed25519 SSH keys must be imported.
+You can generate new RSA key pairs using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. 
 
 ## SSH key types: RSA and Ed25519 in the CLI
 {: #ssh-key-types-cli}
@@ -74,7 +74,7 @@ On {{site.data.keyword.vpc_short}}, RSA is the default SSH key type. You can sel
 * For Windows or VMware images, you must use the RSA SSH key type. The Ed25519 SSH key type can't be used with Windows or VMware images.
 * For Linux images, the Ed25519 SSH key type can be used only if the SSH server for the operating system supports that key type.
 
-You can't create SSH keys within the API, you can import only an existing SSH key. You can create an SSH key within the UI. You have the option when you create an SSH key to copy the API code snippet for that key.
+You can't create SSH keys within the API, you can import only an existing SSH key. You can generate a new RSA SSH key pair within the UI. You have the option when you create an SSH key to copy the API code snippet for that key.
 
 In the API, you can specify which type of key by using the `type` variable. The default `type` is RSA. If you try to import a Ed25519 SSH key and don't specify the `ed25519` key type, the process fails.
 
@@ -98,7 +98,7 @@ On {{site.data.keyword.vpc_short}}, RSA is the default SSH key type. You can sel
 * For Windows or VMware images, you must use the RSA SSH key type. The Ed25519 SSH key type can't be used with Windows or VMware images.
 * For Linux images, the Ed25519 SSH key type can be used only if the SSH server for the operating system supports that key type.
 
-You can't create SSH keys within Terraform, you can import only an existing SSH key. You can create an SSH key within the UI. 
+You can't create SSH keys within Terraform, you can import only an existing SSH key. You can generate a new RSA SSH key pair within the UI.
 
 In Terraform, you can specify which type of key by using the `type` variable. The default type is `rsa`. If you try to import the Ed25519 SSH key and don't specify the `ed25519` key type, the process fails.
 
@@ -191,6 +191,7 @@ Use the following steps to create an SSH key. You can create only an RSA SSH key
    | Resource group | Select a resource group for the SSH key. |
    | Tags | You can assign a user tag to the SSH key so that you can easily filter a list of SSH keys. For more information, see [Working with tags](/docs/account?topic=account-tag&interface=ui).|
    | Access management tags | Access management tags help you apply flexible access policies on specific resources. For more information, see the [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial) UI tutorial. |
+   | SSH key type | The default value is `rsa`.You can generate new RSA key pairs using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images. |
    {: caption="Table 1. Creating an SSH key for VPC selections" caption-side="bottom"}
 
 1. Select **Generate a key pair for me**.

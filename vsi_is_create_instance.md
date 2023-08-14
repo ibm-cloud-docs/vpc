@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-08-04"
+lastupdated: "2023-08-14"
 
 keywords:
 
@@ -57,7 +57,7 @@ Use the following steps to create a virtual server instance.
    | Field | Value |
    |-------|-------|
    | SSH keys | You must select an existing public SSH key or click **Create an SSH key** to create a new one. For more information about creating an SSH key, see [Creating your SSH key by using the UI](/docs/vpc?topic=vpc-ssh-keys&interface=ui#generate-ssh-keys-ui). SSH keys are used to securely connect to the instance after it's running. |
-   | | **Note:** Alpha-numeric combinations are limited to 100 characters. SSH keys can either be RSA or Ed25519. You can create only RSA SSH keys. For an Ed25519 SSH key, you must upload the key information. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images. |
+   | | **Note:**  SSH keys can either be RSA or Ed25519. You can generate new RSA key pairs using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images. |
    | | For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
    | Boot volume | The default boot volume size for most profiles is 100 GB. The default boot volume size for a z/OS virtual server instance is 250 GB. If you're importing a custom image, the boot volume capacity can be 10 - 250 GB, depending on what the image requires. Images that are smaller than 10 GB are rounded up to 10 GB. You can toggle the auto-delete option for the boot volume. |
    | |You can increase the size of the boot volume up to 250 GB by clicking the **Size** pencil icon. In the side panel, increase the boot volume size in the **Create size** field. The size must be more than the current size up to 250 GB. |
@@ -127,7 +127,7 @@ Gather the following information by using the associated commands.
 | Image | `ibmcloud is image` | [List all images](/docs/vpc?topic=vpc-vpc-reference#images-list)|
 | Boot volume | `ibmcloud is volumes` | [List all volumes](/docs/vpc?topic=vpc-vpc-reference#volumes-list) |
 | Profile | `ibmcloud is instances` | [List all virtual server instances](/docs/vpc?topic=vpc-vpc-reference#instances-list) |
-| Keys | `ibmcloud is keys` | [List all keys](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#keys)  \n  \n If you don't have any available SSH keys, use [Create a key](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#key-create) to create one.  \n  \n **Note:** RSA and Ed25519 are the two types of SSH keys that you can use. However, you can't use the Ed25519 SSH key type with Windows or VMware images. You can use only RSA SSH keys for these images.  \n For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
+| Keys | `ibmcloud is keys` | [List all keys](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#keys)  \n  \n If you don't have any available SSH keys, use [Create a key](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#key-create) to create one.  \n  \n **Note:**  SSH keys can either be RSA or Ed25519. You can generate new RSA key pairs using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images.  \n For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
 | VPC | `ibmcloud is vpcs` | [List all VPCs](/docs/vpc?topic=vpc-vpc-reference#vpcs-list) |
 | Subnet | `ibmcloud is subnets` | [List all subnets](/docs/vpc?topic=vpc-vpc-reference#subnets-list) |
 | Zone | `ibmcloud is zones` | [List all regions](/docs/vpc?topic=vpc-vpc-reference#zones-list) |

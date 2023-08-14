@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-06-22"
+lastupdated: "2023-08-14"
 
 keywords: auto scale, autoscale, virtual server instance, creating, UI, console, instance group
 
