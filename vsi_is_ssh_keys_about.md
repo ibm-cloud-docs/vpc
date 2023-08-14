@@ -37,7 +37,7 @@ In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/
 You can generate new RSA key pairs using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images. 
 {: note}
 
-You can create an RSA SSH key from the UI, but Ed25519 SSH keys must be imported.
+You can generate new RSA key pairs using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. 
 
 ## SSH key types: RSA and Ed25519 in the CLI
 {: #ssh-key-types-cli}
@@ -74,7 +74,7 @@ On {{site.data.keyword.vpc_short}}, RSA is the default SSH key type. You can sel
 * For Windows or VMware images, you must use the RSA SSH key type. The Ed25519 SSH key type can't be used with Windows or VMware images.
 * For Linux images, the Ed25519 SSH key type can be used only if the SSH server for the operating system supports that key type.
 
-You can't create SSH keys within the API, you can import only an existing SSH key. You can create an SSH key within the UI. You have the option when you create an SSH key to copy the API code snippet for that key.
+You can't create SSH keys within the API, you can import only an existing SSH key. You can generate a new RSA SSH key pair within the UI. You have the option when you create an SSH key to copy the API code snippet for that key.
 
 In the API, you can specify which type of key by using the `type` variable. The default `type` is RSA. If you try to import a Ed25519 SSH key and don't specify the `ed25519` key type, the process fails.
 
@@ -98,7 +98,7 @@ On {{site.data.keyword.vpc_short}}, RSA is the default SSH key type. You can sel
 * For Windows or VMware images, you must use the RSA SSH key type. The Ed25519 SSH key type can't be used with Windows or VMware images.
 * For Linux images, the Ed25519 SSH key type can be used only if the SSH server for the operating system supports that key type.
 
-You can't create SSH keys within Terraform, you can import only an existing SSH key. You can create an SSH key within the UI. 
+You can't create SSH keys within Terraform, you can import only an existing SSH key. You can generate a new RSA SSH key pair within the UI.
 
 In Terraform, you can specify which type of key by using the `type` variable. The default type is `rsa`. If you try to import the Ed25519 SSH key and don't specify the `ed25519` key type, the process fails.
 
