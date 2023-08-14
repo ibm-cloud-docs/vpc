@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-07-31"
+lastupdated: "2023-08-14"
 
 keywords:
 
@@ -25,8 +25,8 @@ Managing keys by using the {{site.data.keyword.cloud_notm}} console or CLI has n
 * RSA
 * Ed25519
 
-* For Windows or VMware images, you must use the RSA SSH key type. The Ed25519 SSH key type can't be used with Windows or VMware images.
-* For Linux images, the Ed25519 SSH key type can be used only if the SSH server for the operating system supports the key type.
+You can generate new RSA key pairs using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images. 
+{: note}
 
 ## Before you begin
 {: #prereq-ssh-key-available}
@@ -197,7 +197,7 @@ Use the following steps to create a new SSH key. You can create only RSH SSH key
    | Resource group | Select a resource group for the SSH key. |
    | Tags | You can assign a user tag to the SSH key so that you can easily filter a list of SSH keys. For more information, see [Working with tags](/docs/account?topic=account-tag&interface=ui).|
    | Access management tags | Access management tags help you apply flexible access policies on specific resources. For more information, see the [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial) UI tutorial. |
-   | SSH key type | The default value is `rsa`. |
+   | SSH key type | The default value is `rsa`.You can generate new RSA key pairs using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images. |
    {: caption="Table 1. Creating an SSH key for VPC selections" caption-side="bottom"}
 
 1. Select **Generate a key pair for me**.
