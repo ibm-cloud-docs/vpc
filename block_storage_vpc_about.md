@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-06-30"
+lastupdated: "2023-08-15"
 
 keywords:
 
@@ -85,6 +85,11 @@ For more information, see [{{site.data.keyword.block_storage_is_short}} profiles
 {{site.data.keyword.cloud_notm}} takes the need for security seriously and understands the importance of being able to encrypt data to keep it safe. When you create a data volume, you can choose to protect your data by using your own root keys, or use the default IBM-managed encryption. Boot volumes that are created during instance provisioning are encrypted with IBM-managed encryption by default. You can edit the boot volume to use your root keys. After you set up encryption for a boot or data volume, you can't change it.
 
 For more information about data encryption, see [About data encryption for VPC](/docs/vpc?topic=vpc-vpc-encryption-about).
+
+## Block Storage Snapshots for VPC
+{: #vpc-storage-snapshots}
+
+Block Storage Snapshots for VPC are point-in-time copies of your {{site.data.keyword.block_storage_is_short}} boot or data volumes. To protect your data in the unlikely event of a zone or region failure, consider Block Storage Snapshots for VPC. By scheduling snapshots at regular intervals, data can be replicated either to another zone in the same region, or cross-region, so that a copy is available in another region. Snapshots can also be cached for fast restore. With fast restore, you can achieve a recovery time objective that is faster than restoring from a regular snapshot. For more information about Block Storage Snapshots for VPC, see [About Block Storage Snapshots for VPC](/docs/vpc?topic=vpc-snapshots-vpc-about) and [Planning snapshots](/docs/vpc?topic=vpc-snapshots-vpc-planning).
 
 ## Tags for {{site.data.keyword.block_storage_is_short}} volumes
 {: #storage-about-tags}
