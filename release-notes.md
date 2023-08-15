@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-08-08"
+lastupdated: "2023-08-15"
 
 keywords:
 
@@ -29,6 +29,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## August 2023
 {: #vpc-aug23}
+
+### 15 August 2023
+{: #vpc-august1523}
+{: release-note}
+
+Metadata Instance identity certificates
+:   You can now use the instance identity access token and a Certificate Signing Request (CSR) to [create](/apidocs/vpc-metadata-beta#create-certificate) an instance identity certificate with the Metadata API. For more information, see [Generating an instance identity certificate by using an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-acquire-certificate). Instance identity certificates can be used when the traffic between an authorized client and the mounted file share is [encrypted in transit](/docs/vpc?topic=vpc-file-storage-vpc-eit).
 
 ### 08 August 2023
 {: #vpc-august0823}
