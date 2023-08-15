@@ -3,7 +3,7 @@
 copyright:
   years: 2021, 2023
 
-lastupdated: "2023-07-11"
+lastupdated: "2023-08-15"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance
 
@@ -160,19 +160,22 @@ Use the CLI to create an image from a volume that is attached to an available vi
 ### Create an image from a boot volume that is attached to an instance
 {: #ifv-create-cli}
 
- 1. To locate the instance that you want to create an image from, [list the instances](https://test.cloud.ibm.com/docs/vpc?topic=vpc-vpc-reference#instances-list) in the region. Take note of the instance ID in the command output.
+1. To locate the instance that you want to create an image from, [list the instances](https://test.cloud.ibm.com/docs/vpc?topic=vpc-vpc-reference#instances-list) in the region. Take note of the instance ID in the command output.
    ```sh
    ibmcloud is instances
    ```
    {: pre}
 
+
 1. [Stop the running instance](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-stop) before you create the image from the volume.
+
    ```sh
    ibmcloud is instance-stop INSTANCE_ID
    ```
    {: pre}
 
 1. Run the [`image-create` command](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#image-create) to create an image of a boot volume. Specify the ID of the source volume.
+
    ```sh
    ibmcloud is image-create IMAGE_NAME [--source-volume VOLUME_ID]
    ```
@@ -254,13 +257,13 @@ This procedure:
 #### Step 1 - Creating an instance
 {: #ifv-create-instance}
 
-Specify a `POST/instances` request to create an instance and pass the required parameters. See the following example.
+Specify a `POST /instances` request to create an instance and pass the required parameters. See the following example.
 
 ```sh
 curl -X POST \
-"$vpc_api_endpoint/v1/instances?version=2021-05-20 \
-$iam_token" -d
- `{
+"$vpc_api_endpoint/v1/instances?version=2021-05-20"\
+-H "Authorization: Bearer $iam_token"\
+-d '{
    "name":"test-ifv-instance",
    "profile":{
       "name":"bx2-2x8"
@@ -292,8 +295,8 @@ Stop the running instance by specifying the `stop` action in a `POST /instances`
 ```sh
 curl -X POST \
 "$vpc_api_endpoint/v1/instances/{instance-id}/gen/actions?version=2021-05-20"
-$iam_token" -d
-'{
+-H "Authorization: Bearer $iam_token"\
+-d '{
    "type":"stop"
 }'
 ```
@@ -309,13 +312,13 @@ Create an image with a `POST /images` request and pass the boot volume ID of the
 ```sh
 curl -X POST \
 "$vpc_api_endpoint/v1/images?version=2021-05-20"
-$iam_token" -d
-{
+-H "Authorization: Bearer $iam_token"\
+-d '{
     "name": "test-ifv-boot-volume",
     "source_volume": {
     	"id": "4fec84ef-baf9-405d-bf3b-9d5a60e068f7"
     }
-}
+}``
 ```
 {: codeblock}
 
@@ -346,7 +349,7 @@ In the example response, `source_volume` indicates the boot volume that is used 
   },
   "status": "pending",
   "status_reasons": [],
-  "visibility": "private"
+  "visibility": "private",
   "source_volume":  {
     "id": "4fec84ef-baf9-405d-bf3b-9d5a60e068f7",
     "crn": "crn:[...]",
@@ -360,15 +363,15 @@ In the example response, `source_volume` indicates the boot volume that is used 
 ### Creating an image from volume and specifying your own encryption key
 {: #ifv-use-crk}
 
-In this scenario, you're creating an image from a volume and specifying your root key in the `POST/images` call.
+In this scenario, you're creating an image from a volume and specifying your root key in the `POST /images` call.
 
 The example request specifies the CRN of the root key in the `encryption_key` parameter:
 
 ```sh
 curl -X POST \
 "$vpc_api_endpoint/v1/images?version=2021-05-20"
-$iam_token" -d
-{
+-H "Authorization: Bearer $iam_token"\
+-d '{
     "name": "test-ifv-boot-volume",
     "source_volume": {
         "id": "4fec84ef-baf9-405d-bf3b-9d5a60e068f7"
@@ -376,7 +379,7 @@ $iam_token" -d
     "encryption_key":{
       "crn":"crn:[...key:...]"
     },
-}
+}`
 ```
 {: codeblock}
 
@@ -410,7 +413,7 @@ The response includes information about the root key:
   },
   "status": "pending",
   "status_reasons": [],
-  "visibility": "private"
+  "visibility": "private",
   "source_volume":  {
     "id": "4fec84ef-baf9-405d-bf3b-9d5a60e068f7",
     "crn": "crn:[...]",
@@ -437,16 +440,23 @@ Make a `GET /instances` call to list all instances and locate the available, run
 
 ```sh
 curl -X GET \
-"$vpc_api_endpoint/v1/instances/version=2021-05-20&generation=2" \
--H "Authorization: $iam_token"
+"$vpc_api_endpoint/v1/instances?version=2023-08-04&generation=2" \
+-H "Authorization: Bearer $iam_token"
 ```
-{: codeblock}
+{: pre}
 
-Make a `GET /instances/{id}` to view details of a single instance and locate its boot volume ID.
+Take the instance ID from the API response and make a `GET /instances/{id}` request to view details of the instance and locate its boot volume ID.
+
+```sh
+curl -X GET \
+"$vpc_api_endpoint/v1/instances/$instance_id?version=2023-08-04&generation=2"\
+-H "Authorization: Bearer $iam_token"
+```
+{: pre}
 
 The response shows the ID of the boot volume under `volume_attachments`:
 
-```sh
+```json
   "volume_attachments": [
     {
       "device": {
@@ -461,12 +471,10 @@ The response shows the ID of the boot volume under `volume_attachments`:
         "id": "49c5d61b-41e7-4c01-9b7a-1a97366c6916",
         "name": "my-boot-volume"
       }
-    },
+    }
+  ]
 ```
 {: codeblock}
-
-You can also tell whether the instance is running by making a `GET /volumes/{id}` call and specifying the boot volume ID. If you see `active = true` in the response, the instance is running.
-{: tip}
 
 #### Step 2 - Stopping the running instance
 {: #ifv-stop-instance}
@@ -475,14 +483,13 @@ Stop the running instance by specifying the `stop` action in a `POST /instances`
 
 ```sh
 curl -X POST \
-"$vpc_api_endpoint/v1/instances/{instance-id}/gen/actions?version=2021-05-20"
-$iam_token" -d
-'{
-   "type":"stop"
-}'
+"$vpc_api_endpoint/v1/instances/$instance_id/actions?version=2023-08-04&generation=2"\ 
+-H "Authorization: Bearer $iam_token"\
+-d '{
+  "type": "stop"
+  }'
 ```
-{: codeblock}
-
+{: pre}
 
 #### Step 3 - Creating an image and providing the ID of the boot volume image
 {: #ifv-create-image-boot-id}
@@ -492,13 +499,13 @@ Create an image with a `POST /images` request and pass the boot volume ID of the
 ```sh
 curl -X POST \
 "$vpc_api_endpoint/v1/images?version=2021-05-20"
-$iam_token" -d
-{
+-H "Authorization: Bearer $iam_token"\
+-d '{
     "name": "test-ifv-boot-volume",
     "source_volume": {
     	"id": "4fec84ef-baf9-405d-bf3b-9d5a60e068f7"
     }
-}
+}`
 ```
 {: codeblock}
 
@@ -524,7 +531,9 @@ Thus, the date of 30 September 2023 at 8:00 p.m. in the North American Central S
 When scheduling the date and time, you can't use your current date and time. For example, if it is 8 a.m. on June 12, then the scheduled date and time must be after 8 a.m. on June 12. If you define both the `deprecation_at` and `obsolescence_at` dates and times, the `obsolescence_at` date must be after the `deprecation_at` date and time.
 
 ```sh
-curl -X POST "$vpc_api_endpoint/v1/images?version=2023-02-21&generation=2" -H "Authorization: Bearer $iam_token" -d '{
+curl -X POST "$vpc_api_endpoint/v1/images?version=2023-02-21&generation=2"\
+-H "Authorization: Bearer $iam_token"\
+-d '{
       "name": "test-ifv-boot-volume",
       "source_volume": {
     	  "id": "4fec84ef-baf9-405d-bf3b-9d5a60e068f7"
