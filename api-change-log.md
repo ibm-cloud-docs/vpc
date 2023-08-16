@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-08-15"
+lastupdated: "2023-08-08"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -55,14 +55,6 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
 
 **VPN site-to-site gateway cipher upgrade.** In an upcoming release, connections with auto IKE or IPsec policies that are out of conformance will be automatically upgraded to the [enhanced auto-negotiation policy](/docs/vpc?topic=vpc-using-vpn#policy-negotiation). Connections with customized IKE or IPsec policies that contain weak ciphers will be disabled. For more information, see [Upgrading a VPN from a custom IKE or IPsec policy](/docs/vpc?topic=vpc-upgrading-weak-ciphers&interface=api#upgrade-vpn-with-custom-policy).
-
-## 15 August 2023
-{: #15-august-2023-metadata}
-
-### For all version dates
-{: #15-august-2023-all-version-dates-metadata}
-
-**Instance identity certificates.** You can now use the instance identity access token and a certificate signing request (CSR) to [create](/apidocs/vpc-metadata-beta#create-certificate) an instance identity certificate. For more information, see [Generating an instance identity certificate by using an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-acquire-certificate). Instance identity certificates are used when the traffic between an authorized client and the mounted file share is [encrypted in transit](/docs/vpc?topic=vpc-file-storage-vpc-eit).
 
 ## 8 August 2023
 {: #8-august-2023}
