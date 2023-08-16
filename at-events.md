@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-07-23"
+lastupdated: "2023-08-16"
 
 keywords:
 
@@ -300,6 +300,10 @@ The following tables list the actions that are related to compute resources and 
 | instance   | is.instance.console-access-token.create   | A console access token was created   |
 | instance   | is.instance.console.read   | Connection to the console was retrieved   |
 | instance   | is.instance.instance.volume-stop | Instance was stopped because a volume was suspended when its encryption key was deleted  |
+| instance   | is.instance.instance-template.create   | Instance template was created  |
+| instance   | is.instance.instance-template.delete   | Instance template was deleted  |
+| instance   | is.instance.instance-template.update   | Instance template was updated     |
+| instance   | is.instance.instance-template.read     | Instance template was retrieved     |
 | instance   | is.instance.network-interface_floating-ip.attach  | Floating IP was associated to instance network interface  |
 | instance   | is.instance.network-interface_floating-ip.detach  | Floating IP was disassociated from instance network interface |
 | instance   | is.instance.volume-attachment.create   | Instance volume attachment was created  |
