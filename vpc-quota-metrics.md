@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years:  2021, 2022
-lastupdated: "2022-03-16"
+  years:  2021, 2023
+lastupdated: "2023-08-17"
 
 keywords: IBM Cloud monitoring, platform metrics, metrics, vpc metrics, vpc monitoring metrics, Quota metrics, quota dashboard
 
@@ -35,6 +35,7 @@ Resources that offer quota metrics, detailed in Table 1.
 | `security-group` | `security-group-rule` | {region} | {security group id} |
 | `subnet` | `subnet` | {region} | {vpc id} |
 | `floating-ip` | `floating-ip` | {region} | {account id} |
+| `reserved-ip` | `reserved-ip` | {region} | {account id} |
 | `network-acl` | `network-acl` | {region} | {vpc id} |
 | `network-acl` | `network-acl-rule` | {region} | {network acl id} |
 {: caption="Table 1: Services offering quota metrics" caption-side="top"}
@@ -78,7 +79,7 @@ The following attributes are available for segmenting all previously mentioned m
 |-----------|----------------|-----------------------|
 | `Cloud Type` | `ibm_ctype` | The cloud type is a value of public, dedicated or local |
 | `Location` | `ibm_location` | The location of the monitored resource - this may be a region, data center or global |
-| `Resource` | `ibm_resource` | The resource being measured by the service - typically a indentifying name or GUID |
+| `Resource` | `ibm_resource` | The resource being measured by the service - typically a identifying name or GUID |
 | `Resource Type` | `ibm_resource_type` | The type of the resource being measured by the service |
 | `Resource group` | `ibm_resource_group_name` | The resource group where the service instance was created |
 | `Scope` | `ibm_scope` | The scope is the account, organization or space GUID associated with this metric |
