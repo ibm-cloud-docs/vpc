@@ -73,12 +73,13 @@ The following limitations apply to this release:
 ## Create and work with snapshots
 {: #snapshots-vpc-procedure-overview}
 
-You can create and manage your snapshots. For more information about creating a snapshot, viewing a list of snapshots, and restoring a volume from a snapshot, see the following items.
-
+You can create and manage your snapshots by using the UI, CLI, API, and Terraform.
 * To use the UI, log in to the [{{site.data.keyword.cloud_notm}} console](/docs/vpc?topic=vpc-snapshots-vpc-create&interface=ui).
-* To use the [CLI](/docs/vpc?topic=vpc-snapshots-vpc-create&interface=cli), download and install the following CLI plug-ins. For more information, see the [CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+* To use the [CLI](/docs/vpc?topic=vpc-snapshots-vpc-create&interface=cli), download and install the required CLI plug-ins. For more information, see the [CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 * To use the [API](/docs/vpc?topic=vpc-snapshots-vpc-create&interface=api), set up the [VPC API](/apidocs/vpc).
 * To use [Terraform](/docs/vpc?topic=vpc-snapshots-vpc-create&interface=terraform), download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
+
+For more information about creating and managing snapshots, and restoring a volume from a snapshot, see the following topics.
 * [Create](/docs/vpc?topic=vpc-snapshots-vpc-create#snapshots-vpc-create) your snapshots.
 * [View](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view) and [manage](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-manage) your snapshots.
 * [Restore](/docs/vpc?topic=vpc-snapshots-vpc-restore#snapshots-vpc-restore) a volume from a snapshot.
