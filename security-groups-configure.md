@@ -107,7 +107,7 @@ You can copy and paste commands from this example CLI code to begin creating an 
 
    ```sh
    ibmcloud is instance-create test-instance $vpc us-south-2 b-4x16 $subnet 1000 \
-   --image $image --keys $key --security-groups $sg
+   --image $image --keys $key --sgs $sg
    ```
    {: pre}
 
@@ -198,4 +198,4 @@ curl -X DELETE "$vpc_api_endpoint/v1/security_groups/$sg?version=$api_version&ge
 ```
 {: pre}
 
-For more information on setting up your security group by using the API, see [Security groups](https://cloud.ibm.com/apidocs/vpc/latest#list-security-groups){: external}.
+For more information on setting up your security group with the API, see [Security groups](https://cloud.ibm.com/apidocs/vpc/latest#list-security-groups){: external}.
