@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-06-27"
+lastupdated: "2023-12-12"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, block storage snapshots
 
@@ -15,72 +15,76 @@ subcollection: vpc
 # Viewing snapshots
 {: #snapshots-vpc-view}
 
-You can view a list of all snapshots and drill down to see information about a particular snapshot. Choose the UI, CLI, API, or Terraform to retrieve this information.
+You can view a list of all snapshots, and drill down to see information about a particular snapshot. Choose the UI, CLI, API, or Terraform to retrieve this information.
 {: shortdesc}
 
 ## Listing snapshots in the UI
 {: #snapshots-vpc-view-ui}
 {: ui}
 
-You can use the UI to list your snapshots.
+You can use the console to list your snapshots.
 
 ### Listing all snapshots in the UI
 {: #snapshots-vpc-view-list-ui}
 
-View a list of all snapshots that you created, with the most recent one at the beginning of the list. You can filter the list to view specific snapshots. Follow these steps.
+In the console, you can view a list of all snapshots that you created, with the most recent one at the beginning of the list. You can filter the list to view specific snapshots.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage snapshots**. By default, the newest snapshots display at the beginning of the list.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage snapshots for VPC**.
 
-   You can also view a list of snapshots for a volume. For more information, see [View all snapshots that were created from the {{site.data.keyword.block_storage_is_short}} volume](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#view-snapshots-for-volume).
-   {: tip}
+1. The snapshots are listed for a specific region. If you want to see snapshots in another region, click the arrow to expand the list and select a different region. By default, the newest snapshots are displayed at the beginning of the list.
 
-1. View snapshots in your account region. If you created snapshots in a different region, expand the list and select the region.
 1. As your list of snapshots grows, use the filter to indicate the number of snapshots to display per page. Use the page navigation arrows to move forward and back through the list.
 
-Table 1 describes the information for all snapshots in the list of snapshots.
+Table 1 describes the information for all snapshots that is shown on the list of snapshots.
 
 | Field | Description |
 |-------|-------------|
 | Name  | The name that you provided when you created the snapshot. Click the name of the snapshot to see its [details](#snapshots-vpc-view-snapshot-ui). |
 | Status | Status of the snapshot, depending on whether it's usable (_active_ status), unusable, or being created. For more information, see [Snapshot statuses](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-status). |
-| Encryption | Shows [IBM-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about&interface=ui#vpc-provider-managed-encryption) or [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about&interface=ui#vpc-customer-managed-encryption). The encryption is inherited from the source volume. |
+| Resource group| The resource group that the snapshot belongs to. |
 | Size | Size of the snapshot in GBs. The size is inherited from the source volume. |
 | Source volume | Shows the boot or data volume from which the snapshot was created. Click the name of the volume to see its [details](/docs/vpc?topic=vpc-viewing-block-storage). |
-| Fast restore status | Status of restore as enabled, pending, or disabled. |
-| Requested | Date and time when the snapshot was requested. |
-| Created by | Shows whether the snapshot was created by the user or a [backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-concepts). |
+| Bootable | This field shows a checkmark if the snapshot is of a boot volume.|
 | Snapshot copies | Number of copies that a snapshot has in other regions. |
-| Actions menu | Click the actions menu icon to display a menu of context-specific actions. \n - [Create snapshot copy](/docs/vpc?topic=vpc-snapshots-vpc-create&interface=ui#crsnapshots-vpc-create-ui) \n - Copy the Cloud Resource Name (CRN). \n - [Create volume](/docs/vpc?topic=vpc-snapshots-vpc-restore#snapshots-vpc-restore-ui). \n - [Edit fast restore](https://test.cloud.ibm.com/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-edit-fast-restore). \n - [Delete the snapshot](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-delete-snapshot-ui). \n - [Delete all snapshots for a volume](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-delete-all-ui). |
+| Created by | Shows whether the snapshot was created by the user or a [backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-concepts). |
+| Actions menu | Click the actions menu icon to display a menu of context-specific actions. \n - Rename \n \n - Copy UUID  \n - Copy the Cloud Resource Name (CRN). \n - [Create volume](/docs/vpc?topic=vpc-snapshots-vpc-restore#snapshots-vpc-restore-ui). \n - [Create snapshot copy](/docs/vpc?topic=vpc-snapshots-vpc-create&interface=ui#crsnapshots-vpc-create-ui)  \n - [Edit fast restore](https://test.cloud.ibm.com/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-edit-fast-restore). \n - [Delete](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-delete-snapshot-ui). \n - [Delete all snapshots for a volume](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-delete-all-ui). |
 {: caption="Table 1. List of all snapshots" caption-side="bottom"}
 
+Click the settings icon to display all available informational fields, and add oher fields to the table.
+
+| Field | Description |
+|-------|-------------|
+| Encryption | Shows [IBM-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about&interface=ui#vpc-provider-managed-encryption) or [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about&interface=ui#vpc-customer-managed-encryption). The encryption is inherited from the source volume. |
+| Fast restore status | Status of restore as enabled, pending, or disabled. |
+{: caption="Table 2. List of optional informational fields for all snapshots" caption-side="bottom"}
+
 You can also list all snapshots that were created from a {{site.data.keyword.block_storage_is_short}} volume from the volume details page. For more information, see [View all snapshots that were created from the {{site.data.keyword.block_storage_is_short}} volume](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#view-snapshots-for-volume).
+{: tip}
 
 ### Viewing snapshot details in the UI
 {: #snapshots-vpc-view-snapshot-ui}
 
-To see detailed information about a snapshot, use the following steps.
+To see detailed information about a snapshot, locate the snapshot on the Block storage snapshots for VPC list. Then, click the name of a snapshot. The details page displays the name of the snapshot, its status, and attached user tags in the title.
 
-1. Go to the list of all snapshots. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage snapshots**.
-2. Click the name of a snapshot. The snapshot details side panel shows the information that is described in Table 2.
+The snapshot details panel shows the information that is described in the following table.
 
 | Field | Description |
 |-------|-------------|
-| Status | The status of the snapshot, such as _Stable_. For a list of snapshot statuses, see [Snapshot statuses](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-status). |
-| Tags | User tags are inherited from the source volume when the snapshot is created. The tags appear near the snapshot name. Click the link to add user or access management tags. When you restore a volume from this snapshot, the new volume also inherits the tags. When the user tags match tags for target resources in a backup policy, the new volume is automatically backed up based on a backup plan schedule. For more information about creating backups, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-about). For more information about working with tags, see [Working with tags](/docs/account?topic=account-tag). |
 | Name  | The name of the snapshot, which you can change by clicking the pencil icon. For more information, see [Change the snapshot name](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-rename). |
 | Resource group | Resource group defined when you set up your VPC. |
-| Snapshot ID | Copiable GUID of the snapshot. |
-| CRN | Copiable CRN of the snapshot. |
-| Created | Date and time that the snapshot resource creation process started. |
-| Created by | By the user, a manually created snapshot, or automatically by a [backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-concepts). |
-| Captured | The date and time that this snapshot was captured, that is, the volume data was snapshotted. If absent, the snapshot wasn't captured or the snapshot was created before this feature was introduced (January 2022). |
-| Region | Region of the source volume and snapshot. |
 | Size| Size in GBs of the snapshot, inherited from the source volume. |
+| Snapshot ID | Copiable GUID of the snapshot. |
+| Created date| Date and time that the snapshot resource creation process started. |
 | Source volume | Source volume from which the first snapshot was taken. Click the link for volume details. If the volume was deleted, the name appears without a link. |
+| Bootable | Yes or No, indicating whether the snapshot is of a boot volume or a data volume.| 
+| Captured date | The date and time that this snapshot was captured, that is, the volume data was snapshotted. If absent, the snapshot wasn't captured or the snapshot was created before this feature was introduced (January 2022). |
 | Encryption | Provider-managed or customer-managed encryption. For customer-managed encryption, the KMS instance, root key name, and root key ID are shown. |
-| Fast restore panel | Use [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_fast_restore) to create a volume from this snapshot that is fully provisioned. Click **edit** to [enable fast restore](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-edit-fast-restore) in a zone. |
+| CRN | Copiable CRN of the snapshot. |
+| Created by | By the user for a manually created snapshot, or automatically by a [backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-concepts). |
+| Fast restore panel | Use [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_fast_restore) to create a volume from this snapshot that is fully provisioned. Click **Edit** to [enable or disable fast restore](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-edit-fast-restore) in a zone. |
+| Remote copies panel | It displays information about the copies of the snapshot in other regions, such as region, name, and status. Click **Create copy** to provision of copy of the snapshot in a different geography and region. |
 | Actions menu | [Create a volume from the snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore#snapshots-restore-create-vol-ui), [Edit fast restore](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-edit-fast-restore), or delete a snapshot. |
-{: caption="Table 2. Snapshot details" caption-side="bottom"}
+{: caption="Table 3. Snapshot details" caption-side="bottom"}
 
 ## Viewing snapshots from the CLI
 {: #snapshots-vpc-view-cli}
@@ -246,10 +250,10 @@ For more information about available command options, see [`ibmcloud is snapshot
 ### Viewing all fast restore snapshot clones from the CLI
 {: #snapshots-view-zonal-clones-cli}
 
-You can list all available fast restore clones of a snapshot by issuing the `ibmcloud is snapshot-cls` command. The following example lists the available fast restore snapshot clones of the snapshot that has the ID of `r138-4463eb2c-4913-43b1-b9bf-62a94f74c146`.
+You can list all available fast restore clones of a snapshot by issuing the `ibmcloud is snapshot-clones` command. The following example lists the available fast restore snapshot clones of the snapshot that has the ID of `r138-4463eb2c-4913-43b1-b9bf-62a94f74c146`.
 
 ```sh
-cloudshell:~$ ibmcloud is snapshot-cls r138-4463eb2c-4913-43b1-b9bf-62a94f74c146
+$ ibmcloud is snapshot-clones r138-4463eb2c-4913-43b1-b9bf-62a94f74c146
 Listing zonal clones of snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 under account Test Account as user test.user@ibm.com...
 Zone      Available   Created
 eu-de-1   true        2023-02-17T20:15:46+00:00
@@ -257,15 +261,15 @@ eu-de-3   true        2023-02-17T20:29:21+00:00
 ```
 {: screen}
 
-For more information about available command options, see [`ibmcloud is snapshot-cls`](/docs/vpc?topic=vpc-vpc-reference#snapshots-cli).
+For more information about available command options, see [`ibmcloud is snapshot-clones`](/docs/vpc?topic=vpc-vpc-reference#snapshot-clones).
 
 ### Viewing details of a fast restore snapshot clone from the CLI
 {: #snapshots-clone-details-cli}
 
-You can run the `ibmcloud is snapshot-cl` command to list the details of a specific fast restore snapshot clone. The following example shows how to list the details of the fast restore snapshot clone of snapshot `r138-4463eb2c-4913-43b1-b9bf-62a94f74c146` that resides in the `eu-de-3` zone.
+You can run the `ibmcloud is snapshot-clone` command to list the details of a specific fast restore snapshot clone. The following example shows how to list the details of the fast restore snapshot clone of snapshot `r138-4463eb2c-4913-43b1-b9bf-62a94f74c146` that resides in the `eu-de-3` zone.
 
 ```sh
-cloudshell:~$ ibmcloud is snapshot-cl r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 eu-de-3
+$ ibmcloud is snapshot-clone r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 eu-de-3
 Getting zonal clone eu-de-3 of snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 under account Test Account as user test.user@ibm.com...
 
 Zone        eu-de-3
@@ -275,7 +279,7 @@ Href        https://eu-de.iaas.cloud.ibm.com/v1/regions/eu-de/zones/eu-de-3
 ```
 {: screen}
 
-For more information about available command options, see [`ibmcloud is snapshot-cl`](/docs/vpc?topic=vpc-vpc-reference#snapshots-cli).
+For more information about available command options, see [`ibmcloud is snapshot-clone`](/docs/vpc?topic=vpc-vpc-reference#snapshot-clone).
 
 ### Viewing details of a remote region snapshot copy from the CLI
 {: #snapshots-regional-copy-details-cli}
@@ -321,8 +325,6 @@ Service Tags           -
 ```
 {: screen}
 
-For more information about available command options, see [`ibmcloud is snapshot-TBD`](/docs/vpc?topic=vpc-vpc-reference#snapshots-cli).
-
 ## Listing snapshots with the API
 {: #snapshots-vpc-view-all-api}
 {: api}
@@ -332,14 +334,14 @@ You can list your snapshots by using the API.
 ### Listing all snapshots with the API
 {: #snapshots-vpc-list-all-api}
 
-With the [VPC API](/apidocs/vpc), make a `GET/snapshots` request to list all snapshots of your volumes. By default, the list shows the most recent snapshots first, followed by older snapshots in descending order.
+You can programmatically list all snapshots of your volumes by calling the `/snapshots` method in the [VPC API](/apidocs/vpc/latest#list-snapshots){: external} as shown in the following sample request. By default, the list shows the most recent snapshots first, followed by older snapshots in descending order.
 
-   ```curl
-   curl -X GET \
-   "$vpc_api_endpoint/v1/snapshots?version=2022-12-16&generation=2" \
-   -H "Authorization: $iam_token"
-   ```
-   {: codeblock}
+```sh
+curl -X GET \
+  "$vpc_api_endpoint/v1/snapshots?version=2022-12-16&generation=2" \
+  -H "Authorization: $iam_token"
+```
+{: pre}
 
 You can filter the list by using the resource group ID, source volume ID, or source volume CRN, and further filter the results by using the following options:
 
@@ -347,16 +349,14 @@ You can filter the list by using the resource group ID, source volume ID, or sou
 * Start - To specify which snapshot (by ID) to start the list.
 * Sort - To control the order in which you sort the page, such as by date created or alphabetically by snapshot name.
 
-For more information, see the [VPC API reference](/apidocs/vpc).
-
 For example, the following call filters the list to show snapshots that were created for a single volume and limits the results to five per page.
 
-```curl
+```sh
 curl -X GET \
 "$vpc_api_endpoint/v1/snapshots?version=2022-08-16&generation=2" \
 -H "Authorization: $iam_token" \
 -d '{
-      "limit": 50,
+      "limit": 5,
       "source_volume":
         "id": "8948ad59-bc0f-7510-812f-5dc64f59fab8"
       }'
@@ -370,7 +370,7 @@ A successful response looks like the following example.
     "first": {
       "href": "https://us-south.iaas.cloud.ibm.com/v1/snapshots?limit=50"
     },
-    "limit": 50,
+    "limit": 5,
     "snapshots": [
       {
         "bootable": true,
@@ -475,9 +475,9 @@ A successful response looks like the following example.
 ### Listing details of a snapshot with the API
 {: #snapshots-vpc-view-api}
 
-For details about a single snapshot, use the VPC API to make a `GET /snapshots` call and specify the snapshot ID.
+You can programmatically retrieve the details of a single snapshot by calling the `/snapshots` method in the [VPC API](/apidocs/vpc/latest#get-snapshot){: external} and specifying the snapshot ID as shown in the following sample request.
 
-```curl
+```sh
 curl -X GET \
 "$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2022-12-16&generation=2" \
 -H "Authorization: $iam_token"
@@ -541,9 +541,11 @@ A successful response looks like the following example.
 ### Viewing all fast restore snapshot clones with the API
 {: #snapshots-view-zonal-clones-api}
 
-Make a `GET /v1/snapshots/{id}/clones` call to list all fast restore snapshot clones.
+You can programmatically list all fast restore clones by calling the `/snapshots/clones` method in the [VPC API](/apidocs/vpc/latest#list-snapshot-clones){: external} and specifying the snapshot ID as shown in the following sample request.
 
-```curl
+Make a `GET /v1/snapshots/{id}/clones` request to list all fast restore snapshot clones.
+
+```sh
 curl -X GET \
 "$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d/clones?version=2022-12-16&generation=2" \
 -H "Authorization: $iam_token"
@@ -579,9 +581,11 @@ A successful response provides information about the fast restore snapshot clone
 ### Viewing details of a fast restore snapshot clone with the API
 {: #snapshots-clone-details-api}
 
-Make a `GET /v1/snapshots/{id}/clones/{zone-name}` call to retrieve a single fast restore snapshot clone specified by ID and zone name.
+You can programmatically retrieve the details of a single fast restore clone by calling the `/snapshots/clones` method in the [VPC API](/apidocs/vpc/latest#get-snapshot-clone){: external} and specifying the snapshot ID and zone as shown in the following sample request.
 
-```curl
+Make a `GET /v1/snapshots/{id}/clones/{zone-name}` request to retrieve a single fast restore snapshot clone specified by ID and zone name.
+
+```sh
 curl -X GET \
 "$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d/clones/us-south-1?version=2022-12-16&generation=2" \
 -H "Authorization: $iam_token"
@@ -605,10 +609,12 @@ A successful response shows the following information about the fast restore sna
 ### Viewing details of a remote region snapshot copy with the API
 {: #snapshots-regional-copy-details-api}
 
-Make a `GET /v1/snapshots/{id}/` call to get details for snapshot that is a cross region copy.
+You can programmatically retrieve the details of a single snapshot by calling the `/snapshots` method in the [VPC API](/apidocs/vpc/latest#get-snapshot){: external} and specifying the snapshot ID as shown in the following sample request.
 
-```curl
-curl -X GET https://us-east.iaas.cloud.ibm.com/v1/snapshots/{id}
+```sh
+curl -X GET \
+"$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2022-12-16&generation=2" \
+-H "Authorization: $iam_token"
 ```
 {: pre}
 
