@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-08-16"
+lastupdated: "2023-08-21"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -21,7 +21,7 @@ subcollection: vpc
 ## Overview
 {: #file-storage-overview}
 
-{{site.data.keyword.filestorage_vpc_short}} provides file shares within the VPC Infrastructure. You create file shares at the zonal level, for example, `us-south-1`. File shares are identified by name and associated with a resource group in your {{site.data.keyword.cloud_notm}} customer account.
+{{site.data.keyword.filestorage_vpc_short}} provides file shares within the VPC Infrastructure. You can create file shares at the zonal level, for example, `us-south-1`. File shares are identified by name and associated with a resource group in your {{site.data.keyword.cloud_notm}} customer account.
 
 You create a file share in a zone and create the mount targets for the share per VPC. You can control how the file share is accessed by specifying the [access mode](#fs-mount-access-mode): VPC-wide access or targeted access for a specific instance within a zone. 
 
@@ -71,7 +71,7 @@ Access to a file share used to be VPC-wide. However, when you create or update a
 
 * Use security groups access mode on the file share to authorize access to the file share for a specific virtual server instance or instances within a subnet. This option is available to newer file shares based on the `dp2` profile and communication between authorized virtual server instance and the file share can optionally be IPsec encapsulated. For more information, see [Encryption in Transit](#fs-eit).
 
-* Use the VPC access mode, and allow access to the file share to any virtual server instance in the same VPC. This option is available for all [file share profiles](/docs/vpc?topic=vpc-file-storage-profiles). Encryption of data in transit is not supported.
+* Use the VPC access mode, and allow access to the file share to any virtual server instance in the same zone of a VPC. This option is available for all [file share profiles](/docs/vpc?topic=vpc-file-storage-profiles). Cross-zone mounting and encryption of data in transit is not supported.
 
 ### Granular authorization
 {: #fs-mount-granular-auth}
@@ -97,7 +97,9 @@ For greater security, [enable encryption in transit](/docs/vpc?topic=vpc-file-st
 ### Cross-zone mount targets
 {: #fs-cross-zone-mount}
 
-When you create a mount target for a share, you can specify a subnet and reserved IP in the zone of your file share. By using such a mount target, you can mount a file share from zone A to a virtual server instance in zone B. When the virtual server instance and the file share are in different zones, the performance can be impacted.
+When you create a mount target for a share with security access group mode, you can attach a virtual network interface with a specific reserved IP in the zone of your file share. By using such a mount target, you can mount a file share from zone A to a virtual server instance in zone B. When the virtual server instance and the file share are in different zones, the performance can be impacted.
+
+Cross-zone mounting is not supported for file shares with VPC-wide access mode. 
 
 ## Encryption at rest
 {: #FS-encryption}
@@ -120,7 +122,7 @@ If you choose to use Encryption-in-transit, you need to balance your requirement
 
 For more information about network security, see [Security in your VPC](/docs/vpc?topic=vpc-security-in-your-vpc) and [Protecting Virtual Private Cloud (VPC) Infrastructure Services with context-based restrictions](/docs/vpc?topic=vpc-cbr).
 
-Encryption in transit is available in most regions. Support for EIT is currently not available in the `eu-es` region.
+Encryption in transit is available in most regions. Support for EIT is currently not available in the `eu-es` region. Encryption in transit is not supported on bare metal servers.
 {: restriction}
 
 ## File share replication and failover
@@ -187,6 +189,7 @@ The following limitations apply to this release of {{site.data.keyword.filestora
 * You can create up to 300 file shares within your VPC.
 * A file share cannot be deleted by using a `DELETE /shares/<id>` API request, if an existing mount target is associated with that file share or if replica operations are in progress.
 * A file share cannot be split from its replica by using a `DELETE /shares/<id>/source` API request, if the `lifecycle_state` of the file share is `updating` or if replica operations are in progress. 
+* Encryption in transit is not supported on bare metal servers.
 
 ## Related information
 {: #related-info-file-storage-vpc}
