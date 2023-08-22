@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-08-08"
+lastupdated: "2023-08-22"
 
 keywords: file share, file storage, source volume, replica share, 
 
@@ -227,15 +227,14 @@ For more information about the command options, see [`ibmcloud is share-replica-
 {: #fs-create-replica-api}
 {: api}
 
-Use the API to add replication to new or existing file shares. Before you begin, first set up the [API environment](/docs/vpc?topic=vpc-set-up-environment&interface=api). For more information about the file shares VPC API, see the [VPC API reference](/apidocs/vpc-beta).
+You can programmatically set up replication by calling the `/shares` method in the [VPC API](/apidocs/vpc/latest#create-share){: external} as shown in the following sample requests.
+
+Before you begin, first set up the [API environment](/docs/vpc?topic=vpc-set-up-environment&interface=api). For more information about the file shares VPC API, see the [VPC API reference](/apidocs/vpc/latest).
 
 ### Creating a file share with replication with the API
 {: #fs-create-new-share-replica-api}
 
 When you create a file share, you can specify that a replica file share is also created in a different zone. Make a `POST /shares` request and specify the `replica_share` property to define the replica file share.
-
-As described in the [Beta VPC API](/apidocs/vpc-beta) reference [versioning](/apidocs/vpc-beta#api-versioning-beta) policy, support for older versions of the beta API is limited to 45 days. Therefore, beta API requests must specify a `version` query parameter date value within the last 45 days. You must also provide `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/apidocs/vpc#api-generation-parameter).
-{: requirement}
 
 The following example creates the replica `test-replica-001` for the source share `source-share-001`. Mount targets, which are optional when you create a file share, are specified for the replica file share and source file share.
 
@@ -281,11 +280,10 @@ curl -X POST\
 ```
 {: pre}
 
-### Updating an existing file share to add replication with the API
+### Creating a replica for an existing file share with the API
 {: #fs-create-share-replica-api}
 
-Make a `POST /shares` request to define the replica file share to add to a file share. In the example, `source_share` specifies the ID of the source file share to which you're adding replication. You also need to specify the source share name or CRN.
-
+To add replication to an existing file share, you need to create a replica share in the target region. Make a `POST /shares` request in the target region for a new share, specify the replica share name or CRN, and include the ID of the `source_share`.
 Other required properties are the `profile`, `zone`, and `replication_cron_spec`, which provides the replication schedule.
 
 ```sh
