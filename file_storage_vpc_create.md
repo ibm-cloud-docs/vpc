@@ -26,13 +26,13 @@ You can create file shares and mount targets either of the following ways:
 * Create a file share and mount target together,
 * Create a file share and add mount target later.
 
-## Creating  a file share in the UI
+## Creating a file share in the UI
 {: #file-storage-create-ui}
 {: ui}
 
 In the {{site.data.keyword.cloud_notm}} console, you can create a file share with or without a mount target. However, you need to create a mount target when you want to mount the share on a virtual server instance. You can create multiple mount targets for the share if it's to be used by hosts in different VPCs.
 
-### Creating  a file share in the UI
+### Creating a file share in the UI
 {: #fs-create-share-target-ui}
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > File Shares**. A list of file shares displays.
@@ -49,7 +49,7 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
    | Resource Group | Use the default resource group or specify a [resource group](/docs/vpc?topic=vpc-iam-getting-started#resources-and-resource-groups). Resource groups help organize your account resources for access control and billing purposes. |
    | Tags | Enter any user tags to apply to this file share. As you type, existing tags appear that you can select. For more information about tags, see [Add user tags to a file share](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-add-user-tags). |
    | Access Management Tags | Enter access management tags that you created in IAM to apply them to this file share. For more information about access management tags, see [Access management tags for file shares](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-about-mgt-tags). |
-   | Mount target access mode  | Select how you want manage access to this file share: |
+   | Mount target access mode  | Select how you want to manage access to this file share: |
    | [New]{: tag-new} | Security group: Access to the file share is based on security group rules within a subnet. This option can be used to restrict access to specific virtual server instances. You can use this option only with the `dp2` profile. This option is recommended as you have more control over who can access the data that is stored on the file share. |
    |  | Virtual private cloud: Access to the file share is granted to any virtual server instance in the same VPC. |
    {: caption="Table 1. Values for creating a file share" caption-side="top"}
@@ -90,7 +90,7 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
 
 1. When all the required information is entered, click **Create file share**. You return to the {{site.data.keyword.filestorage_vpc_short}} page, where a message indicates that the file share is provisioning. When the transaction completes, the share status changes to **Active**.
 
-### Creating  a mount target in the UI
+### Creating a mount target in the UI
 {: #fs-create-mount-target-ui}
 
 You can create several mount targets for an existing file share if the share is to be used by resources in multiple VPCs. You can create one mount target per VPC per file share. 
@@ -126,7 +126,7 @@ You can create several mount targets for an existing file share if the share is 
 
 5. Click **Create**.
 
-## Creating  a file share from the CLI
+## Creating a file share from the CLI
 {: #file-storage-create-cli}
 {: cli}
 
@@ -142,7 +142,7 @@ You can create several mount targets for an existing file share if the share is 
 ### Gathering information to create file storage from the CLI
 {: #fs-vpc-getinfo-cli}
 
-Before you run the `ibmcloud is share-create` command, you can gather information you need for provisioning a share by viewing information about other file shares, mount targets, and file storage profiles.
+Before you run the `ibmcloud is share-create` command, you can gather information that you need for provisioning a share by viewing information about other file shares, mount targets, and file storage profiles.
 
 | Details  |  Listing options  | What it provides  |
 | -------- | ------------------|-------------------|
@@ -254,7 +254,7 @@ Created           2023-07-11T18:05:18+05:30
 
 For more information about the command options, see [`ibmcloud is share-mount-target-create`](/docs/vpc?topic=vpc-vpc-reference#share-mount-target-create).
 
-The following example creates a mount target with security group access mode for a file share. This command creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target that identifies the file share with a reserved IP address and applies the rules of the selected Security group.The virtual network interface is defined by specifying the reserved IP address, and the rules of `SECURITY_GROUP1` determine which resources can access the mount target `my-target-3`.
+The following example creates a mount target with security group access mode for a file share. This command creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target that identifies the file share with a reserved IP address and applies the rules of the selected Security group. The virtual network interface is defined by specifying the reserved IP address, and the rules of `SECURITY_GROUP1` determine which resources can access the mount target `my-target-3`.
 [New]{: tag-new}
 
 ```sh
@@ -264,14 +264,11 @@ ibmcloud is share-mount-target-create my-new-share --subnet cli-subnet-1 --name 
 
 For more information about the command options, see [`ibmcloud is share-mount-target-create`](/docs/vpc?topic=vpc-vpc-reference#share-mount-target-create).
 
-## Creating  a file share with the API
+## Creating a file share with the API
 {: #file-storage-create-api}
 {: api}
 
 You can create file shares and mount targets by directly calling the REST APIs. 
-
-{{site.data.keyword.filestorage_vpc_short}} regional API is released as beta for customers with special approval to preview this feature. For more information about the file shares VPC API, see the [VPC API Beta reference](/apidocs/vpc-beta).
-{: beta}
 
 ### Before you begin 
 {: #fs-api-prereqs}
@@ -284,7 +281,7 @@ You must provide `generation` parameter and specify `generation=2`. For more inf
 A good way to learn more about the API is to click **Get sample API call** on the provisioning pages in {{site.data.keyword.cloud_notm}} console. You can view the correct sequence of API requests and better understand actions and their dependencies.
 {: tip}
 
-### Creating  a file share with the API
+### Creating a file share with the API
 {: #fs-create-file-share-api}
 
 Make a `POST /shares` request to create a file share. Specify the size of the file share, a name, the IOPS profile, and zone.
@@ -352,7 +349,7 @@ A successful response looks like the following example.
 ```
 {: codeblock}
 
-### Creating  a file share and mount target together with the API
+### Creating a file share and mount target together with the API
 {: #fs-create-share-target-api}
 
 The following example request creates a file share that has VPC-wide access mode and a mount target that can be used by every virtual server instance in the specified VPC. It also adds [user tags](/docs/vpc?topic=vpc-file-storage-managing&interface=api#fs-add-user-tags) to the share. 
@@ -451,7 +448,7 @@ A successful response looks like the following example.
 
 [New]{: tag-new}
 
-The following examople creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target that identifies the file share with a reserved IP address and applies the rules of the selected Security group. To create the mount target with the network interface, make a `POST /shares` request and specify a subnet. Specifying the `subnet` property is required when you're not using the [`primary_ip` property](#fs-create-file-share-pni-api) and specifying `address`for a reserved IP.
+The following example creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target that identifies the file share with a reserved IP address and applies the rules of the selected Security group. To create the mount target with the network interface, make a `POST /shares` request and specify a subnet. Specifying the `subnet` property is required when you're not using the [`primary_ip` property](#fs-create-file-share-pni-api) and specifying `address`for a reserved IP.
 
 In this example, the mount target specifies a subnet ID. When the `transit_encryption` property set to `user_managed`, encryption in transit with an instance identity certificate is enabled. The default is none, which disables encryption in transit. The default access control mode is `security_group`, which is shown in the response.
 
