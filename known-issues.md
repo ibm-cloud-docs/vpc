@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-08-08"
+lastupdated: "2023-08-21"
 
 
 keywords: known issues, bugs, defects
@@ -136,10 +136,3 @@ Because all bare metal profiles are VMware&reg; certified, the `supported_image_
 **Issue:** When you restore a volume from a snapshot by using the fast restore feature and the encryption key of the snapshot and volume are different, and then you delete the snapshot encryption key from the key management service, the volume might become inaccessible when it's attached or reattached to the virtual server instance.
 
 **Workaround:** To recover the snapshot encryption key, use [the key recovery procedure](/docs/key-protect?topic=key-protect-restore-keys). When the key is recovered, the volume becomes accessible.
-
-### Cross-zone mount times out in the us-south region issue
-{: #fs-cross-zone-mount-dal-issue}
-
-**Issue**: With the newest release of {{site.data.keyword.filestorage_vpc_full}}, when you create a mount target for a file share, you can specify a subnet and reserved IP address in the zone of the file share. By using such a mount target, you can mount a file share from zone A to a virtual server instance in zone B. Currently, in the Dallas region, a known issue in the network loopback setup causes mount failure when you mount a file share that resides in zones Dallas 2 or Dallas 3 on virtual server instances in Dallas 1 zone. The mount request times out and the mount fails.
-
-A fix for this issue is being tested and is expected to be delivered in an upcoming release.
