@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-08-25"
+lastupdated: "2023-08-22"
 
 keywords:
 
@@ -30,8 +30,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## August 2023
 {: #vpc-aug23}
 
-### 25 August 2023
-{: #vpc-august2523}
+### 22 August 2023
+{: #vpc-august2223}
 {: release-note}
 
 VPC Status History
