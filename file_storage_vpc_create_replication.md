@@ -60,7 +60,7 @@ On the File share replica create page, review the source file share details, and
 
 Use the CLI to create a file share with replication, or update a file share to include replication.  
 
-### Creating a file share with replication from the CLI
+### Creating a file share with a replica from the CLI
 {: #fs-create-new-share-replica-cli}
 
 Run the `ibmcloud is share-create` command and specify the following properties to define the replica share for a new file share:
@@ -75,19 +75,19 @@ Run the `ibmcloud is share-create` command and specify the following properties 
 Syntax:
 
 ```sh
-ibmcloud is share-create \
-  --zone ZONE_NAME \
-  --profile PROFILE \
-  [--name NAME] \
-  [--iops IOPS] \
-  [--mount_targets TARGETS_JSON | @TARGETS_JSON_FILE] \
-  [--replica-share-profile REPLICA_SHARE_PROFILE] \
-  --replica-cron-spec REPLICA_CRON_SPEC \
-  --replica-zone ZONE_NAME \
-  [--replica-share-iops REPLICA_SHARE_IOPS] \
-  [--replica-share-name REPLICA_SHARE_NAME] \
-  [--replica-share-mount-target TARGETS_JSON | @TARGETS_JSON_FILE] \
-  [--size SIZE [--encryption_key ENCRYPTION_KEY]] \
+ibmcloud is share-create
+  --zone ZONE_NAME
+  --profile PROFILE
+  [--name NAME]
+  [--iops IOPS]
+  [--mount_targets TARGETS_JSON | @TARGETS_JSON_FILE]
+  [--replica-share-profile REPLICA_SHARE_PROFILE]
+  --replica-cron-spec REPLICA_CRON_SPEC
+  --replica-zone ZONE_NAME
+  [--replica-share-iops REPLICA_SHARE_IOPS]
+  [--replica-share-name REPLICA_SHARE_NAME]
+  [--replica-share-mount-target TARGETS_JSON | @TARGETS_JSON_FILE]
+  [--size SIZE [--encryption_key ENCRYPTION_KEY]]
   [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] \
   [--output JSON] [-q, --quiet]
 ```
@@ -165,7 +165,7 @@ Replication status   none
 ```
 {: screen}
 
-### Updating an existing file share for replication from the CLI
+### Creating a replica for an existing file share from the CLI
 {: #fs-create-share-replica-cli}
 
 Run the `ibmcloud is share-create` command and specify the source share by ID or name.
@@ -231,7 +231,7 @@ You can programmatically set up replication by calling the `/shares` method in t
 
 Before you begin, first set up the [API environment](/docs/vpc?topic=vpc-set-up-environment&interface=api). For more information about the file shares VPC API, see the [VPC API reference](/apidocs/vpc/latest).
 
-### Creating a file share with replication with the API
+### Creating a file share with a replica with the API
 {: #fs-create-new-share-replica-api}
 
 When you create a file share, you can specify that a replica file share is also created in a different zone. Make a `POST /shares` request and specify the `replica_share` property to define the replica file share.
