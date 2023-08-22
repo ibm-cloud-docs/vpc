@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-08-15"
+lastupdated: "2023-08-22"
 
 keywords:
 
@@ -29,6 +29,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## August 2023
 {: #vpc-aug23}
+
+### 22 August 2023
+{: #vpc-august2223}
+{: release-note}
+
+VPC Status History
+:   You can now customize notification settings for your VPC dashboard. When status history is enabled, your notification history is retained to help you find old error messages or track down when the creation or deletion of a resource occurred. To enable Status History, make sure that your browser alllows local storage access. For more information, see [Enabling local storage in your browser](/docs/vpc?topic=vpc-enable-local-broswer-storage).
 
 ### 15 August 2023
 {: #vpc-august1523}
