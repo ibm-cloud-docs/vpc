@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-08-21"
+lastupdated: "2023-08-23"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -67,11 +67,11 @@ If you want to connect a file share to instances that are running in different V
 
 [New]{: tag-new}
 
-Access to a file share used to be VPC-wide. However, when you create or update a mount target, you can specify the manner in which you want the mount target to be accessed on the file share. You have two options:
+When you create or update a mount target, you can specify the manner in which you want the mount target to be accessed on the file share. You have two options:
 
-* Use security groups access mode on the file share to authorize access to the file share for a specific virtual server instance or instances within a subnet. This option is available to newer file shares based on the `dp2` profile and communication between authorized virtual server instance and the file share can optionally be IPsec encapsulated. For more information, see [Encryption in Transit](#fs-eit).
+* Use security groups access mode to authorize access to the file share for a specific virtual server instance or instances within a subnet. This option is available to newer file shares based on the `dp2` profile and communication between authorized virtual server instance and the file share can optionally be IPsec encapsulated. For more information, see [Encryption in Transit](#fs-eit). Cross-zone mounting is also supported.
 
-* Use the VPC access mode, and allow access to the file share to any virtual server instance in the same zone of a VPC. This option is available for all [file share profiles](/docs/vpc?topic=vpc-file-storage-profiles). Cross-zone mounting and encryption of data in transit is not supported.
+* Use the VPC access mode to allow access to the file share to any virtual server instance in the same zone of a VPC. This option is available for all [file share profiles](/docs/vpc?topic=vpc-file-storage-profiles). Cross-zone mounting and encryption of data in transit are not supported for shares with VPC access mode.
 
 ### Granular authorization
 {: #fs-mount-granular-auth}
