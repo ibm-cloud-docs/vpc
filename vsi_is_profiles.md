@@ -283,8 +283,8 @@ See [Download drivers](https://www.nvidia.com/Download/index.aspx?lang=en-us) to
 | gx2-80x1280x8a100 | 80 | 40 | 1280 | 200 | 8 | 4x3200 |
 {: caption="Table 8. GPU profile options" caption-side="bottom"}
 {: #gpu-intel-x86-64}
-{: tab-title="Intel x86-64"}
-{: tab-group="gx2"}
+{: tab-title="gx2"}
+{: tab-group="GPU"}
 {: class="simple-tab-table"}
 {: summary="GPU profiles options for Intel x86-64 virtual server instances."}
 
