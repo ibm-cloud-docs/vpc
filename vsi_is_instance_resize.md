@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-03-31"
+lastupdated: "2023-08-25"
 
 subcollection: vpc
 
@@ -72,6 +72,18 @@ When you resize an instance that's provisioned from an instance template or that
 * An instance that is provisioned from an instance template can be resized with a new instance profile.
 * Instance templates are not editable, except for the name. You cannot update an instance profile within an instance template. To choose a different profile for an instance template, you must create a new template.
 * Resizing an instance that is part of an instance group removes it from the instance group. An instance must be stopped to resize it. When the instance is stopped, the instance group replaces it with a new instance with the same profile as the instance template describes.
+
+## Resizing instances between Gen 2 and Gen 3 profiles
+{: #resizing-instance-generations}  
+
+New profiles are available in the Dallas region to beta users with special approval to provision virtual server instances on 4th Gen Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C chip (previously codenamed Sapphire Rapids). For more information about the capabilities of the new profiles, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles).
+{: beta}
+
+You can resize a 2nd generation profile to a 3rd generation profile. A 3rd generation profile can be resized to a 2nd generation profile. Before resizing between profile generations, review the following information. 
+
+* Prior to resizing an instance with a 2nd generation profile to a 3rd generation profile, take a [snapshot](/docs/vpc?topic=vpc-snapshots-vpc-create) of the boot volume that is attached to your virtual server instance. You can refer back to the snapshot if needed. 
+* When you resize an instance to a 3rd generation profile, the virtual firmware defaults to Open Virtual Machine Firmware (OVMF) if your image supports UEFI. If the instance previously booted with SeaBIOS, the system attempts to preserve the firmware setting even when moving to the latest generation. If the virtual firmware changes from SeaBIOS to OVMF during the migration to the new profile, the device names might appear differently in the guest.
+* If you resize from a 3rd generation profile to a 2nd generation profile, any changes made to your virtual server instance while running with the 3rd generation profile are preserved. If you have the snapshot available that you took prior to migrating to the new profile, you can restore from that snapshot if something goes wrong. 
 
 ## Resizing a virtual server instance by using the UI
 {: #resizing-a-virtual-server-UI}
