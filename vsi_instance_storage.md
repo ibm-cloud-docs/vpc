@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-25"
+lastupdated: "2023-08-25"
 
 keywords: instance storage, local disk, storage, temporary storage, generation 2, gen 2
 
@@ -72,6 +72,8 @@ The instance storage disk, or disks attached to the virtual server instance, can
 {: #performance-instance-storage}
 
 Instance storage is rate-limited. If the instance storage allocated to the virtual server instance is smaller than the entire physical Solid State Disk (SSD), then I/O bandwidth and IOPS limits are put in place proportional to the size of the attached disk. This limitation is in place to prevent a busy instance from consuming more than their fair share of the bandwidth of the device (noisy neighbor).
+
+For [Gen 3 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles), write performance may be improved by first priming the instance storage disk. Priming involves performing a first write to the disk.
 
 ## Multiple instance storage disks
 {: #multiple-instance-storage-disks}
