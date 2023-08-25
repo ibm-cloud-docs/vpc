@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-08-08"
+lastupdated: "2023-08-25"
 
 keywords:
 
@@ -26,4 +26,4 @@ Storage for Bare Metal Servers for VPC is unmanaged. You are responsible for enc
 The following network-attached storage is not supported:
 * Block Storage for VPC
 
-VPC File Storage is compatible. Encryption in transit is not supported between {{site.data.keyword.filestorage_vpc_short}} and {{site.data.keyword.bm_is_short}}. For more information about file storage, see [About {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-file-storage-vpc-about).
+VPC File Storage is compatible. However, security groups access mode, mounts with virtual network interfaces, and encryption in transit are not supported between {{site.data.keyword.filestorage_vpc_short}} and {{site.data.keyword.bm_is_short}}. For more information about file storage, see [About {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-file-storage-vpc-about).

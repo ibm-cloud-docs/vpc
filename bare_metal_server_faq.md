@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-08-08"
+lastupdated: "2023-08-25"
 
 subcollection: vpc
 
@@ -45,9 +45,7 @@ Two storage options are available that include secondary local NVMe drives.
 * The `bx2-metal-192x768` profile provides mirrored 960 GB SATA M.2 drives as boot storage only. 
 * The `bx2d-metal-192x768` profile provides mirrored 960 GB SATA M.2 drives as boot storage and 16 3.2 TB U.2 NVMe SSDs as secondary local storage to support vSAN, or user-managed RAID. 
 
-VPC Block Storage is not supported. VPC File Storage is compatible. Encryption in transit is not supported between {{site.data.keyword.filestorage_vpc_short}} and {{site.data.keyword.bm_is_short}}.
-
-For more information about file storage, see [About {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-file-storage-vpc-about).
+VPC Block Storage is not supported. However, security groups access mode, mounts with virtual network interfaces, and encryption in transit are not supported between {{site.data.keyword.filestorage_vpc_short}} and {{site.data.keyword.bm_is_short}}. For more information about file storage, see [About {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-file-storage-vpc-about).
 
 ## What is required to set up my Bare Metal Servers for VPC? 
 {: #faq-bare-metal-3}

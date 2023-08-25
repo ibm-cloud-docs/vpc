@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-08-23"
+lastupdated: "2023-08-25"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -189,7 +189,7 @@ The following limitations apply to this release of {{site.data.keyword.filestora
 * You can create up to 300 file shares within your VPC.
 * A file share cannot be deleted by using a `DELETE /shares/<id>` API request, if an existing mount target is associated with that file share or if replica operations are in progress.
 * A file share cannot be split from its replica by using a `DELETE /shares/<id>/source` API request, if the `lifecycle_state` of the file share is `updating` or if replica operations are in progress. 
-* Encryption in transit is not supported on bare metal servers.
+* Security groups access mode, mounts with virtual network interfaces, and encryption in transit are not supported between {{site.data.keyword.filestorage_vpc_short}} and {{site.data.keyword.bm_is_short}}.
 
 ## Related information
 {: #related-info-file-storage-vpc}
