@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-08-14"
+lastupdated: "2023-08-24"
 
 keywords: block storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -256,4 +256,69 @@ For more information about the arguments and attributes, see [ibm_is_volume](htt
 ## Next steps
 {: #next-step-expandable-volumes}
 
-The volume expansion takes effect without a reboot. However, to use the increased volume space, you must expand the file system so the increased volume capacity is recognized. For more information about expanding the file system, see your OS Documentation. For example, [RHEL 8 - Modifying Logical Volume](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/modifying-the-size-of-a-logical-volume_configuring-and-managing-logical-volumes){: external} or [Microsoft&reg; - Extend a basic volume](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
+The volume expansion takes effect without a restart. However, to use the increased volume space, you must expand the file system so the increased volume capacity is recognized.
+
+For more information about expanding the file system, see your OS Documentation. For example, [RHEL 8 - Modifying Logical Volume](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/modifying-the-size-of-a-logical-volume_configuring-and-managing-logical-volumes){: external} or [Microsoft&reg; - Extend a basic volume](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}. 
+
+The following example is based on CentOS Linux 7. After you increased the volume capacity from 600 GB to 700 GB, you can log in to the virtual server instance to validate the increase. Then, increase the file system on the volume.
+
+Extending a file system is a moderately risky operation. Consider taking a snapshot of the volume to prevent data loss.
+{: tip} 
+
+1. Establish the SSH connection to your virtual server instance by using the floating IP address that is assigned to the instance. For more information, see [Connecting to Linux instances](/docs/vpc?topic=vpc-vsi_is_connecting_linux).
+1. Run the `lsblk` command to see the updated capacity. In the following example, `vdc` is the attached block storage volume.
+   ```sh
+   [root@docs-demo-instance ~]# lsblk
+   NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+   vda    253:0    0  100G  0 disk
+   ├─vda1 253:1    0  200M  0 part /boot/efi
+   └─vda2 253:2    0 99.8G  0 part /
+   vdb    253:16   0 69.9G  0 disk
+   vdc    253:32   0  700G  0 disk /myvolumedir
+   vdd    253:48   0  370K  0 disk
+   vde    253:64   0   44K  0 disk
+   ```
+   {: screen}
+
+1. The volume is resized to 700G, but the file system still shows the previous size, 619140256 blocks.
+   ```sh
+   [root@docs-demo-instance ~]# df -hk
+   Filesystem     1K-blocks    Used Available Use% Mounted on
+   devtmpfs         3993976       0   3993976   0% /dev
+   tmpfs            4004356       0   4004356   0% /dev/shm
+   tmpfs            4004356   25092   3979264   1% /run
+   tmpfs            4004356       0   4004356   0% /sys/fs/cgroup
+   /dev/vda2      102877120 1178920  96449228   2% /
+   /dev/vda1         204580   11468    193112   6% /boot/efi
+   tmpfs             800872       0    800872   0% /run/user/0
+   /dev/vdc       619140256   73752 587592840   1% /myvolumedir
+   ```
+   {: screen}
+
+1. Run the `resize2fs`command to increase the file system. 
+   ```sh 
+   [root@docs-demo-instance ~]# resize2fs /dev/vdc
+   resize2fs 1.42.9 (28-Dec-2013)
+   Filesystem at /dev/vdc is mounted on /myvolumedir; on-line resizing required
+   old_desc_blocks = 75, new_desc_blocks = 88
+   The filesystem on /dev/vdc is now 183500800 blocks long.
+   ```
+   {: screen}
+
+   If the command returns `pvresize: command not found`, install the logical volume manager by running the command `yum install lvm2`.
+   {: tip}
+
+1. Confirm the new file system size. The example shows 722352120 blocks.
+   ```sh
+   [root@docs-demo-instance ~]# df -hk
+   Filesystem     1K-blocks    Used Available Use% Mounted on
+   devtmpfs         3993976       0   3993976   0% /dev
+   tmpfs            4004356       0   4004356   0% /dev/shm
+   tmpfs            4004356   25092   3979264   1% /run
+   tmpfs            4004356       0   4004356   0% /sys/fs/cgroup
+   /dev/vda2      102877120 1178920  96449228   2% /
+   /dev/vda1         204580   11468    193112   6% /boot/efi
+   tmpfs             800872       0    800872   0% /run/user/0
+   /dev/vdc       722352120   72816 686590468   1% /myvolumedir
+   ```
+   {: screen}   
