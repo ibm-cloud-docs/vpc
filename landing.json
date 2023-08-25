@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2023-08-18",
+    "lastupdated": "2023-08-25",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
@@ -31,19 +31,19 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
+          "date": "25 August 2023", 
+          "title": "Next generation instance profiles (Beta)",
+          "description": "The 3rd generation of IBM Cloud Virtual Servers for VPC are available as a Beta offering to select customers. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel® Xeon® Scalable processors to provide the most powerful and performant general-purpose profiles available."
+        },
+        {
+          "date": "22 August 2023", 
+          "title": "VPC Status History",
+          "description": "You can now customize notification settings for your VPC dashboard. When status history is enabled, your notification history is retained to help you find old error messages or track down when the creation or deletion of a resource occurred. To enable Status History, make sure that your browser alllows local storage access."
+        },
+        {
           "date": "15 August 2023", 
           "title": "Metadata Instance identity certificates",
           "description": "You can now use the instance identity access token and a Certificate Signing Request (CSR) to create an instance identity certificate with the Metadata API. For more information, see Generating an instance identity certificate by using an instance identity access token. Instance identity certificates can be used when the traffic between an authorized client and the mounted file share is encrypted in transit."
-        },
-        {
-          "date": "08 August 2023", 
-          "title": "File Storage for VPC (GA)",
-          "description": "NFS-based file shares for a zone within a region are now generally available. You can create and share file storage over multiple virtual service instances within the same zone across multiple VPCs."
-        },
-        {
-          "date": "21 July 2023", 
-          "title": "VPC services using IBM Cloud Metrics Routing",
-          "description": "You can use IBM Cloud Metrics Routing to manage metrics at the account-level by configuring targets and routes that define where data points are routed. This platform service can only route metrics that are generated in supported regions by enabled services. Other regions, where IBM Cloud Metrics Routing is not available, continue to manage metrics by using IBM Cloud Monitoring."
         }
       ]
     }
