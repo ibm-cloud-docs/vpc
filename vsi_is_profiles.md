@@ -2,7 +2,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-08-09"
+lastupdated: "2023-08-25"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, very high memory, gpu, sap, olap, oltp, nvidia, cascade lake
 
@@ -72,10 +72,10 @@ Balanced profiles with the bx2d prefix are available in the US South (Dallas), U
 | bx2d-128x512 | 128 | 64 | 512 | 80 | 2x2400 |
 {: caption="Table 3. Balance profiles options for Intel x86-64 instances" caption-side="bottom"}
 {: #balanced-intel-x86-64}
-{: tab-title="Intel x86-64"}
+{: tab-title="bx2"}
 {: tab-group="Balanced"}
 {: class="simple-tab-table"}
-{: summary="Balanced profiles options for Intel x86-64 virtual server instances."}
+{: summary="Balanced bx2 profile options for Intel x86-64 virtual server instances."}
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
 |---------|---------|---------|---------|---------| ---------|
@@ -89,12 +89,31 @@ Balanced profiles with the bx2d prefix are available in the US South (Dallas), U
 | bx2a-96x384	| 96 | 48 | 384 | 80 | - |
 | bx2a-128x512	| 128 | 64 | 512 | 80 | - |
 | bx2a-228x912 | 228 | 114 | 912 | 80 | - |
-{: caption="Table 3. Balance profiles options for x86-64 instances" caption-side="bottom"}
+{: caption="Table 3. Balanced profile options for AMD x86-64 instances" caption-side="bottom"}
 {: #balanced-amd-x86-64}
-{: tab-title="AMD x86-64"}
+{: tab-title="bx2a"}
 {: tab-group="Balanced"}
 {: class="simple-tab-table"}
-{: summary="Balanced profiles options for AMD x86-64 virtual server instances."}
+{: summary="Balanced bx2a profile options for AMD x86-64 virtual server instances."}
+
+| Instance profile | vCPU / Cores | NUMA count | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) |
+|---------|---------|-------|-------|---------|---------|
+| bx3d-4x20 | 4 / 2 | 1 | 20 | 8 | 1x130 |
+| bx3d-8x40 | 8 / 4 | 1 | 40 | 16 | 1x260 |
+| bx3d-16x80 | 16 / 8 |  1 | 80 | 32 | 1x520 |
+| bx3d-24x120 | 24 / 12 | 1 | 120 | 48 | 1x780 |
+| bx3d-32x160 | 32 / 16 | 2 | 160 | 64 | 2x520 |
+| bx3d-48x240 | 48 / 24 | 2 | 240 | 96 | 2x780 |
+| bx3d-64x320 | 64 / 32 | 2 | 320 | 128 | 2x1024 |
+| bx3d-96x480 | 96 / 48 | 2 | 480 | 192 | 2x1560 |
+| bx3d-128x640 | 128 / 64 | 2 | 640 | 200 | 2x2080 |
+| bx3d-176x880 | 176 / 88 | 2 | 880 | 200 | 2x2860 |
+{: caption="Table 3. Balanced bx3d beta profile options for Intel x86-64 instances" caption-side="bottom"}
+{: #balanced-intel-x86-64-spr}
+{: tab-title="bx3d (Beta)"}
+{: tab-group="Balanced"}
+{: class="simple-tab-table"}
+{: summary="Balanced Beta profile options for Intel x86-64 virtual server instances."}
 
 AMD based virtual machines use AMD EPYC Milan processors. Compute capabilities are limited to AMD EPYC Rome capabilities.
 {: important}
@@ -129,7 +148,7 @@ Compute profiles with the cx2d prefix are available in the US South (Dallas), US
 | cx2d-128x256 | 128 | 64 | 256 | 80 | 2x2400 |
 {: caption="Table 4. Compute profile options for x86-64 instances" caption-side="bottom"}
 {: #compute-intel-x86-64}
-{: tab-title="Intel x86-64"}
+{: tab-title="cx2"}
 {: tab-group="Compute"}
 {: class="simple-tab-table"}
 {: summary="Compute profiles options for Intel x86-64 virtual server instances."}
@@ -162,12 +181,31 @@ Memory profiles with the mx2d prefix are available in the US South (Dallas), US 
 | mx2d-96x768| 96 | 48 | 768 | 80 | 2x1800 |
 | mx2-128x1024| 128 | 64 | 1024 | 80 | - |
 | mx2d-128x1024| 128 | 64 | 1024 | 80 | 2x2400 |
-{: caption="Table 5. Memory profile options for x86-64 instances " caption-side="bottom"}
+{: caption="Table 5. Memory mx2 profile options for x86-64 instances " caption-side="bottom"}
 {: #memory-intel-x86-64}
-{: tab-title="Intel x86-64"}
+{: tab-title="mx2"}
 {: tab-group="Memory"}
 {: class="simple-tab-table"}
-{: summary="Memory profiles options for Intel x86-64 virtual server instances."}
+{: summary="Memory mx2 profile options for Intel x86-64 virtual server instances."}
+
+| Instance profile | vCPU / Cores | NUMA count | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) |
+|---------|-------|-------|---------|---------|---------|
+| mx3d-2x20 | 2 / 1 | 1 | 20 | 4 | 1x65 |
+| mx3d-4x40 | 4 / 2 | 1 | 40 | 8 | 1x130 |
+| mx3d-8x80 | 8 / 4 | 1 | 80 | 16 | 1x260 |
+| mx3d-16x160 | 16 / 8 |  1 | 160 | 32 | 1x520 |
+| mx3d-24x240 | 24 / 12 | 1 | 240 | 48 | 1x780 |
+| mx3d-32x320 | 32 / 16 | 2 | 320 | 64 | 2x520 |
+| mx3d-64x640 | 64 / 32 | 2 | 640 | 128 | 2x1024 |
+| mx3d-96x960 | 96 / 48 | 2 | 960 | 192 | 2x1560 |
+| mx3d-128x1280 | 128 / 64 | 2 | 1280 | 200 | 2x2080 |
+| mx3d-176x1760 | 176 / 88 | 2 | 1760 | 200 | 2x2860 |
+{: caption="Table 5. Memory mx3d Beta profile options for x86-64 instances " caption-side="bottom"}
+{: #memory-intel-x86-64}
+{: tab-title="mx3d (Beta)"}
+{: tab-group="Memory"}
+{: class="simple-tab-table"}
+{: summary="Memory mx3d profile options for Intel x86-64 virtual server instances."}
 
 ## Very High Memory
 {: #vhmemory}
@@ -186,7 +224,7 @@ Very High Memory profiles offer 1 vCPU to 14 GiB of RAM to host small to medium 
 | vx2d-176x2464 | 176 | 88 | 2464 | 80 | 2x2640 |
 {: caption="Table 6. Very High Memory profiles options for x86-64 instances" caption-side="bottom"}
 {: #vhmemory-intel-x86-64}
-{: tab-title="Intel x86-64"}
+{: tab-title="vx2d"}
 {: tab-group="Very High Memory"}
 {: class="simple-tab-table"}
 {: summary="Very High Memory profiles options for Intel x86-64 virtual server instances."}
@@ -215,7 +253,7 @@ The following Ultra High Memory profiles are available for x86-64 processors:
 | ux2d-200x5600 | 200 | 100 | 5600 | 80 | 2x3000 |
 {: caption="Table 7. Ultra High Memory profiles options for x86-64 instances" caption-side="bottom"}
 {: #uhmemory-intel-x86-64}
-{: tab-title="Intel x86-64"}
+{: tab-title="ux2d"}
 {: tab-group="Ultra High Memory"}
 {: class="simple-tab-table"}
 {: summary="Ultra High Memory profiles options for Intel x86-64 virtual server instances."}
@@ -246,7 +284,7 @@ See [Download drivers](https://www.nvidia.com/Download/index.aspx?lang=en-us) to
 {: caption="Table 8. GPU profile options" caption-side="bottom"}
 {: #gpu-intel-x86-64}
 {: tab-title="Intel x86-64"}
-{: tab-group="GPU"}
+{: tab-group="gx2"}
 {: class="simple-tab-table"}
 {: summary="GPU profiles options for Intel x86-64 virtual server instances."}
 
@@ -297,7 +335,7 @@ The following Storage Optimized profiles are available for x86-64 processors:
 | ox2-128x1024 | 128  | 64 | 1024  | 80    | 12x3200 | virtio_blk   |
 {: caption="Table 8. Storage Optimized profiles options for x86-64 instances" caption-side="bottom"}
 {: #storageopt-intel-x86-64}
-{: tab-title="Intel x86-64"}
+{: tab-title="ox2"}
 {: tab-group="Storage Optimized"}
 {: class="simple-tab-table"}
 {: summary="Storage Optimized profiles options for Intel x86-64 virtual server instances."}
@@ -344,6 +382,15 @@ With multiple network interfaces, bandwidth is distributed evenly across the net
 
 For more information, see [Managing network interfaces](/docs/vpc?topic=vpc-using-instance-vnics).
 
+## Block storage volume notes for profiles
+{: #block-storage-notes-for-profiles}
+
+When you create secondary data volumes, you select a volume profile that best meets your requirements. Volume profiles are available as three predefined [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) or as a [custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#custom). These volume profiles relate to virtual server instance profiles:
+
+* A [3 IOPS general-purpose tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers) provides IOPS/GB performance suitable for a virtual server instance Balanced profile.
+* A [5-IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) profile provides IOPS/GB performance suitable for a virtual server instance Compute profile.
+* A [10-IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) profile provides IOPS/GB performance suitable for a virtual server instance Memory profile.
+
 ## Viewing profile configurations
 {: #popular-profiles}
 
@@ -365,12 +412,9 @@ The first character represents the profile families. Different profile families 
 
 The second character represents the CPU architecture.
 - "x": x86_64
-
-<!-- * POWER deprecates on Aug. 22 -->
+- "z": s390x
 
 The third character represents the generation of the IBM Cloud infrastructure where the profile is provisioned.
--	"1": IBM Cloud Virtual Servers for Classic
--	"2": IBM Cloud Virtual Servers for VPC
 
 If the fourth character is a "d", such as bx2d, then a defined quantity of instance storage is provisioned with the virtual server.
 
@@ -412,14 +456,24 @@ curl -X GET \
 ```
 {: codeblock}
 
-## Block storage volume notes for profiles
-{: #block-storage-notes-for-profiles}
+## Next generation instance profiles
+{: #next-gen-profiles}
 
-When you create secondary data volumes, you select a volume profile that best meets your requirements. Volume profiles are available as three predefined [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) or as a [custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#custom). These volume profiles relate to virtual server instance profiles:
+[Beta]{: tag-purple}
 
-* A [3 IOPS general-purpose tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers) provides IOPS/GB performance suitable for a virtual server instance Balanced profile.
-* A [5-IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) profile provides IOPS/GB performance suitable for a virtual server instance Compute profile.
-* A [10-IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) profile provides IOPS/GB performance suitable for a virtual server instance Memory profile.
+The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are available as a Beta offering to select customers. This new generation features virtual server profile families that are hosted exclusively on Intel 4th Generation Xeon Scalable processors to provide the most powerful and performant general-purpose profiles available. These 3rd generation profiles provide the following enhancements:
+
+- Improved performance with DDR 5 memory DIMMs, PCI Gen 5 interconnects, and more memory per vCPU than prior generation profiles.
+- A wide variety of profiles sizes with core to memory ratios optimized to maximize performance and economics for intensive workloads.
+- Enhanced integrated accelerators that feature AMX-512, AVX, and enhanced crypto acceleration.
+- Instances are started by default with Open Virtual Machine Format (OVMF), and run in Unified Extensible Firmware Interface (UEFI) mode for enhanced security.
+- Local instance storage is included with all profiles for easy access to temporary storage and swap space. For more information about the temporary nature of instance storage, see [Lifecycle of instance storage](/docs/vpc?topic=vpc-instance-storage#instance-storage-lifecycle).
+- A 3rd generation profile can be resized to a 2nd generation profile. A 2nd generation profile can be resized to a 3rd generation profile. For more information, see [Resizing between Gen 2 and Gen 3 profiles](/docs/vpc?topic=vpc-resizing-an-instance&interface=ui#resizing-instance-generations).
+
+For more information and to request access to the Beta program, see [Beta: IBM Cloud Virtual Servers for VPC: 4th Gen Intel Xeon Scalable processors](https://ibm.biz/early-access-virtual-servers-VPC-Intel-Xeon-4th-Gen).
+
+For the Beta offering, 3rd generation instance profiles are supported for provisioning with Linux-based operating systems only. When the beta offering period is complete, all virtual servers that were provisioned with the 3rd generation beta profiles must be stopped and then started again.
+{: note}
 
 ## Intel Hyper-Threading Technology
 {: #vpc-intel-hyper-threading}
