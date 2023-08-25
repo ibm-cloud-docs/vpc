@@ -124,7 +124,7 @@ You can rename a snapshot by using the API.
 
 Make a `PATCH /snapshots` call and specify the snapshot ID and new name of the snapshot.
 
-```curl
+```sh
 curl -X PATCH \
 "$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2022-01-12&generation=2" \
    -H "Authorization: Bearer ${API_TOKEN}" \
@@ -248,7 +248,7 @@ You can add user tags to a snapshot by using the API.
 
 Make a `PATCH /snapshots` call and specify the snapshot ID and user tags. The following example adds user tags `env:test` and `env:prod` to the snapshot.
 
-```curl
+```sh
 curl -X PATCH \
 "$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2022-01-12&generation=2" \
     -H "Authorization: Bearer ${API_TOKEN}" \
@@ -332,7 +332,7 @@ To create [fast restore snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about&inter
 
 In the API, you create a clone for an existing snapshot by making a `PUT /snapshots/{id}/clones/{zone_name}` call to clone the snapshot to the specified zone. See the following example.
 
-```curl
+```sh
 curl -X PUT \
 "$vpc_api_endpoint/v1/snapshots/5e160469-0837-48a7-8973-e44c8d5fd85a/clones/us-south-1&version=2022-12-22&generation=2" \
      -H "Authorization: Bearer ${API_TOKEN}"
@@ -355,7 +355,7 @@ A successful response looks like the following example.
 
 You can also specify the `clone` property when you create a snapshot of a volume. See the following example.
 
-```curl
+```sh
 curl -X POST \
 "$vpc_api_endpoint/v1/snapshots?version=2022-12-12&generation=2" \
 -H "Authorization: $iam_token" \
@@ -414,7 +414,7 @@ Make a `DELETE /v1/snapshots/{id}/clones/{zone-name}` call to delete a snapshot 
 
 See the following example.
 
-```curl
+```sh
 curl -X DELETE \
 "$vpc_api_endpoint/v1/snapshots/fde0b8d5-2d75-4c28-af7d-12ffc3ae2a55/clones/us-south-1&version=2022-12-22&generation=2" \
      -H "Authorization: Bearer ${API_TOKEN}"
@@ -619,7 +619,7 @@ A successful response looks like the following example:
 
 Make a `DELETE /snapshots/{id}`in the target region where the remote copy is located.
 
-```curl
+```sh
 curl -X DELETE https://us-east.iaas.cloud.ibm.com/v1/snapshots/{id}
 ```
 {: pre}
@@ -807,7 +807,7 @@ You can delete any snapshot for a volume or all snapshots for a volume. To be ab
 
 Make a `DELETE /snapshots/{snapshot_ID}` call to delete a specific snapshot by ID.
 
-```curl
+```sh
 curl -X DELETE \
 "$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2022-12-22&generation=2" \
      -H "Authorization: Bearer ${API_TOKEN}"
@@ -819,7 +819,7 @@ curl -X DELETE \
 
 Make a `DELETE/snapshots` call and specify the source volume ID for the `source_volume.id` parameter in the request.
 
-```curl
+```sh
 curl -X DELETE \
 "$vpc_api_endpoint/v1/snapshots?source_volume.id=_volume-id_&version=2022-12-22&generation=2" \
      -H "Authorization: Bearer ${API_TOKEN}"
@@ -836,7 +836,7 @@ You can delete any snapshot for a volume or all snapshots for a volume. To be ab
 * Not be actively restoring a volume.
 
 ### Deleting a single snapshot with Terraform
-{: #snapshots-vpc-delete-all-terraform}
+{: #snapshots-vpc-delete-terraform}
 {: terraform}
 
 Use the `terraform destroy` command to conveniently destroy a remote object such as a single snapshot. The following example deletes `my-snapshot`.
@@ -849,7 +849,7 @@ terraform destroy --target ibm_is_snapshot.my-snapshot
 For more information, see [terraform destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy){: external}.
 
 ### Deleting all snapshots for a volume with Terraform
-{: #snapshots-vpc-create-snaphot-copy-terraform}
+{: #snapshots-vpc-delete-all-snaphots-terraform}
 {: terraform}
 
 To delete all snapshots of a volume with terraform, use the `ibm_is_volume` resource.
