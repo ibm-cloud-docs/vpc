@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-06-30"
+lastupdated: "2023-08-28"
 
 keywords: vpc block storage, provision block storage for vpc, bootable snapshots, create volume from snapshot, fast restore
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Creating {{site.data.keyword.block_storage_is_short}} volumes
 {: #creating-block-storage}
 
-Create a {{site.data.keyword.block_storage_is_short}} volume by using the UI, CLI, or programically with the API. You can create a volume as part of instance provisioning, as a stand-alone volume that you can later attach to an instance, or by restoring from a snapshot.
+Create a {{site.data.keyword.block_storage_is_short}} volume by using the UI, CLI, API or Terraform. You can create a volume as part of instance provisioning, as a stand-alone volume that you can later attach to an instance, or by restoring from a snapshot.
 {: shortdesc}
 
 Before you get started, make sure that you [created a VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
@@ -49,7 +49,7 @@ Use the {{site.data.keyword.cloud_notm}} console to create a {{site.data.keyword
    | Encryption | Provider-managed encryption with IBM-managed keys is enabled by default on all volumes. \n You can also choose a Key Management Service by selecting either ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}), and then specify your own encryption key. \n For a one-time setup procedure, see [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-encryption-prereqs). \n For more information about locating up the CRN for an existing key, see [{{site.data.keyword.keymanagementserviceshort}} - Retrieving your instance ID and cloud resource name (CRN)](/docs/key-protect?topic=key-protect-retrieve-instance-ID) and [{{site.data.keyword.hscrypto}} - Viewing details about a key](/docs/hs-crypto?topic=hs-crypto-view-key-details). |
    {: caption="Table 1. {{site.data.keyword.block_storage_is_short}} volume values to be specified during instance provisioning." caption-side="bottom"}
 
-   If you created volume snapshots previously, the option to import one becomes available. Click the **Snapshots** toggle, and select a snapshot from the list. You can filter this list for snapshots with fast restore. Then, complete the required fields and click **Create** to provision the volume. A {{site.data.keyword.block_storage_is_short}} volume is created and attached to the virtual server instance. On the instance details page, the Data volumes list is updated to show the new volume
+   If you created volume snapshots previously, the option to import one becomes available. Click the **Snapshots** toggle, and select a snapshot from the list. You can filter this list for snapshots with fast restore. Then, complete the required fields and click **Create** to provision the volume. A {{site.data.keyword.block_storage_is_short}} volume is created and attached to the virtual server instance. On the instance details page, the Data volumes list is updated to show the new volume.
    
    For more information, see [Restoring a volume by using fast restore](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-use-fast-restore).
    {: tip}
@@ -97,6 +97,9 @@ You can create a {{site.data.keyword.block_storage_is_short}} volume independent
 
 4. When you're finished, click **Create volume**. You're returned to the {{site.data.keyword.block_storage_is_short}} volumes page, where a message indicates that the volume is being created (volume status is _pending_). A second message displays when the volume is created (volume status is _available_).
 5. To see details of the new volume, select the **View resource** link in the second message to go to the Volume details page.
+   
+If you're not ready to order yet or just looking for pricing information, you can add the information that you see in the side panel to an Estimate. For more information about how this feature works, see [Estimating your costs](/docs/billing-usage?topic=billing-usage-cost).    
+{: tip}
 
 ### Creating a stand-alone {{site.data.keyword.block_storage_is_short}} volume from a snapshot in the UI
 {: #create-vol-from-snapshot-ui}
@@ -276,13 +279,13 @@ Tags                                   -
 ```
 {: screen}
 
-For more information, see the CLI reference for [ibmcloud is volume-create](/docs/vpc?topic=vpc-vpc-reference&interface=cli#volume-create).
+For more information, see [ibmcloud is volume-create](/docs/vpc?topic=vpc-vpc-reference&interface=cli#volume-create) in the CLI reference.
 
 ### Creating a data volume as an attachment to an existing virtual server instance
 {: #create-vol-as-attachment-cli}
 {: cli}
 
-You can use the `instance-volume-attachment-add` command to create a volume and attach it to an instance. The following example creates a volume with the `spd` profile, 100 GB capacity and 100 IOPS.
+You can use the `instance-volume-attachment-add` command to create a volume and attach it to an instance. The following example creates a volume with the `spd` profile, 100 GB capacity, and 100 IOPS.
 
 ```sh
 ibmcloud is instance-volume-attachment-add acd-vol-attach1 my-instance-acadia-1 --profile sdp --new-volume-name acd-vol-2 --iops 100 --capacity 100
@@ -300,9 +303,10 @@ Created           2023-05-05T07:42:33+05:30
 ```
 {: codeblock}
 
-For more information, see the CLI reference for [ibmcloud is instance-volume-attachment-add](/docs/vpc?topic=vpc-vpc-reference&interface=cli#instance-volume-attachment-add).
+For more information, see [ibmcloud is instance-volume-attachment-add](/docs/vpc?topic=vpc-vpc-reference&interface=cli#instance-volume-attachment-add) in the CLI reference.
 
-### Creating an instance and add user tags to volumes from the CLI
+
+### Creating an instance and adding user tags to volumes from the CLI
 {: #create-instance-vol-cli}
 {: cli}
 
@@ -430,7 +434,7 @@ Valid volume names can include a combination of lowercase alpha-numeric characte
 
 This example specifies customer-managed encryption and user tags for the boot and data volumes.
 
-```curl
+```sh
 curl -X POST "$vpc_api_endpoint/v1/instances?version=2022-06-14&generation=2" -H "Authorization: $iam_token" -d '{
   "boot_volume_attachment": {
     "volume": {
@@ -634,9 +638,9 @@ A successful response looks like this:
 
 Make a `POST /volumes` request to create a volume. Specify a name, IOPS, capacity, the profile, and zone. Also, specify `generation=2` in the request.
 
-This example also specifies customer-managed encryption and a resource group.
+The following example created a `custom` volume with 50 MB capacity and 100 IOPS in the `us-south` region. The request also specifies a customer root key for customer-managed encryption and a resource group.
 
-```curl
+```sh
 curl -X POST "$vpc_api_endpoint/v1/volumes?version=2022-06-14&generation=2" \
 -H "Authorization: $iam_token" \
 -d '{
@@ -659,7 +663,7 @@ curl -X POST "$vpc_api_endpoint/v1/volumes?version=2022-06-14&generation=2" \
 ```
 {: pre}
 
-A successful response looks like this:
+A successful response looks like the following example.
 
 ```json
 {
@@ -777,7 +781,7 @@ For more information about the arguments and attributes, see [ibm_is_volume](htt
 ### Creating a boot volume from a snapshot as part of instance provisioning with Terraform
 {: #block-storage-create-instance-terraform}
 
-To create a data volume from a snapshot when you create a virtual server instance, use the `ibm_is_instance` resource. The following example creates a virtual server instance with the name "example-vsi-restore". The boot volume is defined in the `boot_volume` arguement with its name, its source snapshot and user tags.
+To create a data volume from a snapshot when you create a virtual server instance, use the `ibm_is_instance` resource. The following example creates a virtual server instance with the name "example-vsi-restore". The boot volume is defined in the `boot_volume` argument with its name, its source snapshot, and user tags.
 
 ```terraform
 resource "ibm_is_snapshot" "example" {

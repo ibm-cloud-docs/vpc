@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-08-08"
+lastupdated: "2023-08-28"
 
 keywords: file share, file storage, replication, replica, 
 
@@ -21,9 +21,11 @@ You can create replicas of your file shares by setting up a replication relation
 ## Replication overview
 {: #fs-replication-overview}
 
-When you create a file share, you can set up replication. You create your file share in one zone of the region and a replica share in another zone in the same region. Based on the replication schedule, the service pulls data from the source file share to the replica file share.
+After you created a file share, you can set up replication. You can create a replica share in another zone of the same region.
 
-You can choose how often you want to sync changes from the source share to the replica. You can specify hourly, daily, weekly, or monthly replication schedule conveniently in the UI. Or, you can specify replication by using a `cronspec` expression. Replications must be scheduled at least 1 hour apart. When a replica share is created, the first replica contains the data of the entire share. Thereafter, only the changes that occurred after the previous replication are added.
+Based on the replication schedule, the service pulls data from the source file share to the replica file share. You can choose how often you want to sync changes from the source share to the replica. You can specify hourly, daily, weekly, or monthly replication schedule conveniently in the UI. Or, you can specify replication by using a `cronspec` expression in the UI, from the CLI, with the API or Terraform. Replications must be scheduled at least 1 hour apart. 
+
+When a replica share is created, the first replica contains the data of the entire share. Thereafter, only the changes that occurred after the previous replication are added.
 
 Data on the replica share is read-only. You can obtain read/write access to the data in two ways:
 
@@ -59,17 +61,10 @@ You can use replication to address disaster recovery concerns. Replication addre
 
    Use replication to facilitate certain administrative tasks such as upgrades with greater availability. Migrate data between two zones that might be running different levels of application code. Running in two environments independently can allow greater flexibility in your deployment process.
 
-## Replication procedure
-{: #fs-replication-procedure}
-
-The general procedure for establishing replication is:
-
-1. [Create a file share](/docs/vpc?topic=vpc-file-storage-create-replication) and specify a replica file share in the UI, from the CLI, with the API or Terraform.
-2. Verify that replication is working by checking the replication status - After the primary and replica file shares are created, you can check to see whether the replication is working.
-3. Use the replica file share - If the primary file share fails or becomes unavailable for any reason, you can fail over to the replica file share. When you perform the failover, the replica share becomes the new primary file share, with read and write capability.
-4. Restart the replication with the original file share as scheduled when it's back online. In this case, you can continue to use the replica site as primary, or fail back to the original site.
-
 ## Next steps
 {: #fs-replication-next-steps}
 
-[Set up replication for new and existing file shares](/docs/vpc?topic=vpc-file-storage-create-replication).
+1. [Create a replica file share](/docs/vpc?topic=vpc-file-storage-create-replication) in the UI, from the CLI, with the API or Terraform.
+2. Verify that replication is working by checking the replication status - After the primary and replica file shares are created, you can check to see whether the replication is working.
+3. Use the replica file share - If the primary file share fails or becomes unavailable for any reason, you can fail over to the replica file share. When you perform the failover, the replica share becomes the new primary file share, with read and write capability.
+4. Restart the replication with the original file share as scheduled when it's back online. In this case, you can continue to use the replica site as primary, or fail back to the original site.

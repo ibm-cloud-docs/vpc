@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-08-08"
+lastupdated: "2023-08-28"
 
 keywords: file share, file storage, IOPS, performance needs, adjust IOPS
 
@@ -81,9 +81,7 @@ Follow these steps to adjust IOPS by selecting a new IOPS tier or custom IOPS ba
 
 5. Review the estimated monthly order summary for your geography and new pricing.
 
-6. If you're satisfied, click **Save and continue**.
-
-Your new IOPS allocation is realized when you restart the instance.
+6. If you're satisfied, click **Save and continue**. Your new IOPS allocation is realized when you restart the instance.
 
 ## Adjusting IOPS from the CLI
 {: #adjust-vpc-iops-cli-file}
