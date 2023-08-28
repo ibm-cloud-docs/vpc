@@ -746,4 +746,5 @@ toc:
         - known-issues.md
         - metadata-error-codes.md
         - errors.md
+        - enable-local-browser-storage-for-notifications.md
         - getting-help.md
