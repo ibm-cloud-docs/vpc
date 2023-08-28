@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-08-22"
+lastupdated: "2023-08-28"
 
 keywords: file share, file storage, source volume, replica share, 
 
@@ -15,14 +15,14 @@ subcollection: vpc
 # Creating replica file shares
 {: #file-storage-create-replication}
 
-Create replica file share in a different zone in your region in the UI, from the CLI, or with the API.
+Create a replica file share in a different zone in your region in the UI, from the CLI, or with the API.
 {: shortdesc}
 
 ## Adding replication to a file share in the UI
 {: #fs-create-replica-ui}
 {: ui}
 
-You can create a replica of your file share from the list of all file shares or file share details page. Replica file shares are created in the same region, but in a different zone than the primary share's zone.
+You can create a replica of your file share from the list of all file shares or the file share details page. Replica file shares are created in the same region, but in a different zone than the primary share's zone.
 
 Provision a file share as described in [Create a file share and mount target in the UI](/docs/vpc?topic=vpc-file-storage-create&interface=ui#fs-create-share-target-ui). When the file share appears as "stable" on the File shares for VPC page, click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions"). Then, click **Create replica**.
 
@@ -40,18 +40,18 @@ On the File share replica create page, review the source file share details, and
 6. Profile - Select a [profile](/docs/vpc?topic=vpc-file-storage-profiles) for the replica file share. The profile can be different from the source file share's profile. Selecting a different replica profile determines the performance that you get when you [perform a failover](/docs/vpc?topic=vpc-file-storage-failover). Depending on the source volume size, some profiles might be disabled.
 7. Size - The replica size (GBs) is inherited from the source volume.
 8. Sync frequency - Specify how often you want to synchronize changes from the primary file share to the replica share. The Summary shows the selections that you made. For **Frequency**, the options are hourly, daily, weekly, monthly, or by `cron-spec` expression:
-   * For hourly, enter a value in the range 0 - 60 to specify exactly how many minutes past the hour, every hour, every day the replication is to start.
-   * For daily, specify the starting time in hours and minutes in Coordinated Universal Time. Enter a value between 00:00 and 23:59. For your convenience, the Coordinated Universal Time value is converted into your local time.
+   * For hourly replication, enter a value in the range 0 - 60 to specify exactly how many minutes past the hour, every hour, every day the replication is to start.
+   * For daily replication, specify the starting time in hours and minutes in Coordinated Universal Time. Enter a value between 00:00 and 23:59. For your convenience, the Coordinated Universal Time value is converted into your local time.
    * For weekly, specify the days of the week you want replication to run and the start time in Coordinated Universal Time. Enter a value between 00:00 and 23:59.
-   * For monthly, choose a day 1 - 28. For the start time, enter a value between 00:00 and 23:59.
+   * For monthly replication, choose a Day 1 - 28. For the start time, enter a value between 00:00 and 23:59.
    * If you specify a `cron-spec` expression, replications must be scheduled not less than 1 hour. Enter the replication frequency in `cron-spec` format: minute, hour, day, month, and weekday. For example, to replicate every day at 5:30 PM you need to enter `30 17 * * *`.
 
 9. The encryption is inherited from the primary share. If you specified customer-managed encryption, the key management system is shown along with the root key. You can't encrypt a replica share with a different key.
 
 10. In the side panel, you have multiple options.
     * Apply a code - if you have a discount code, you can add it in the field.
-    * Create file share - when you're ready to create your replica share, click it.
-    * Get sample API call - if you want to get the curl command code to create the replica with these exact settings, click it.
+    * Create a file share - when you're ready to create your replica share, click it.
+    * Get a sample API call - if you want to get the curl command code to create the replica with these exact settings, click it.
     * Add to estimate - if you want to see how adding a replica impacts your monthly cost, click it. The monthly cost estimate is displayed. You can **Review the estimate** for more billing information and details or **Clear the estimate** and return to the Replica create page.
 
 ## Adding replication to file share from the CLI
@@ -93,7 +93,7 @@ ibmcloud is share-create
 ```
 {: pre}
 
-In this example, a new share, `my-fs-cli-1` is created with a replica file share, `my-fs-cli-1-replicate`. The replica is created in a different zone in the same region.
+In this example, a new share (`my-fs-cli-1`) is created with a replica file share, `my-fs-cli-1-replicate`. The replica is created in a different zone in the same region.
 
 ```sh
 $ ibmcloud is share-create --name my-fs-cli-1 --zone br sao-02 --profile dp2 --size 40 --mount-targets `[
@@ -283,8 +283,9 @@ curl -X POST\
 ### Creating a replica for an existing file share with the API
 {: #fs-create-share-replica-api}
 
-To add replication to an existing file share, you need to create a replica share in the target region. Make a `POST /shares` request in the target region for a new share, specify the replica share name or CRN, and include the ID of the `source_share`.
-Other required properties are the `profile`, `zone`, and `replication_cron_spec`, which provides the replication schedule.
+To add replication to an existing file share, you need to create a replica share in a different zone of your region. In the `POST /shares` request, specify the replica share's name and profile, and specify the `source_share` by either its name, ID, or CRN. Other required properties are the `zone`, and `replication_cron_spec`, which provides the replication schedule.
+
+The following example shows an API request that creates a replica share in the `us-south-1` zone. In this example, the source share resides in another `us-south` zone and is identified by its ID.
 
 ```sh
 curl -X POST\
