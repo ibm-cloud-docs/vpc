@@ -2,7 +2,8 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-07-28"
+
+lastupdated: "2023-08-31"
 
 keywords:
 
@@ -77,6 +78,21 @@ curl -X GET \
 ```
 {: codeblock}
 
+## Listing all images by using Terraform
+{: #custom-images-list-terraform}
+{: terraform}
+
+You can list all of the {{site.data.keyword.vpc_short}} images in your region by using Terraform.
+
+To list all images by using Terraform, use the Terraform data source command [ibm_is_images](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_images){: external}. Custom images are private to the account where they are created, so you can set the `visibility` attribute to `private` to retrieve only custom images.
+
+```terraform
+data "ibm_is_images" "images" {
+  visibility = "public"
+}
+```
+{: codeblock}
+
 ## Viewing custom image details by using the UI
 {: #viewing-custom-image-details}
 {: ui}
@@ -124,12 +140,27 @@ For more information, see [ibmcloud is image](/docs/vpc?topic=vpc-infrastructure
 
 You can view the details of a custom image, such as name and ID, operating system and version, encryption status, deprecation or obsolescence dates, and assigned resource group, by using the application programming interface (API).
 
-To retrieve the details of a specific custom image by using the API, use [Retrieve an image](/apidocs/vpc/latest#get-image). For the`$image_id` variable, specify the ID of the custom image that you want to retrieve.
+To retrieve the details of a specific custom image by using the API, use [Retrieve an image](/apidocs/vpc/latest#get-image). For the `$image_id` variable, specify the ID of the custom image that you want to retrieve.
 
 ```sh
 curl -X GET \
 ”$vpc_api_endpoint/v1/images/$image_id?version=2022-11-21&generation=2" \
 -H "Authorization: Bearer $iam_token"
+```
+{: codeblock}
+
+## Retrieving custom image details by using Terraform
+{: #custom-image-retrieve-terraform}
+{: terraform}
+
+You can view the details of a custom image, such as name and ID, operating system and version, encryption status, deprecation or obsolescence dates, and assigned resource group, by using Terraform.
+
+To view the details of an image by using Terraform, use the Terraform data source command [ibm_is_images](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_images){: external}. For the `name` variable, specify the name of the custom image that you want to retrieve.
+
+
+```terraform
+data "ibm_is_images" "image_name" {
+}
 ```
 {: codeblock}
 
@@ -467,3 +498,129 @@ You can change the lifecycle status of an {{site.data.keyword.vpc_short}} custom
 
 <!-- see the -include-segments folder to update this information which is shared with vpc_image_from_volume_manage.md -->
 {{_include-segments/ilm-reset-image-lifecycle-status-api.md}}
+
+## Change the custom image lifecycle status using Terraform
+{: #schedule-ilm-status-change-terraform}
+{: terraform}
+
+To make an immediate status change using Terraform, use the [`ibm_is_image_deprecate`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_image_deprecate){: external} or [`ibm_is_image_obsolete`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_image_obsolete){: external} resource commands. use one of the following examples. For the `name` variable, specify the name of the custom image for the status change.
+
+You can make an immediate status change only if a future status change is not scheduled. To remove a scheduled status change, see [Remove a scheduled custom image lifecycle status change by using Terraform](#schedule-ilm-reset-status-change-terraform). After you remove the scheduled status change, you can make an immediate status change.
+{: note}
+
+* Change image lifecycle status to `deprecated`.
+
+   ```terraform
+   resource "ibm_is_image" "example" {
+     name               = "example-image"
+     href               = "cos://us-south/buckettesttest/livecd.ubuntu-cpc.azure.vhd"
+     operating_system   = "ubuntu-16-04-amd64"
+     encrypted_data_key = "eJxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx0="
+     encryption_key     = "crn:v1:bluemix:public:kms:us-south:a/6xxxxxxxxxxxxxxx:xxxxxxx-xxxx-xxxx-xxxxxxx:key:dxxxxxx-fxxx-4xxx-9xxx-7xxxxxxxx"
+   }
+   resource "ibm_is_image_deprecate" "example" {
+     image               = ibm_is_image.example.id
+   }
+   ```
+   {: pre}
+
+* Change the image lifecycle status to `obsolete`.
+
+   ```terraform
+   resource "ibm_is_image" "example" {
+     name               = "example-image"
+     href               = "cos://us-south/buckettesttest/livecd.ubuntu-cpc.azure.vhd"
+     operating_system   = "ubuntu-16-04-amd64"
+     encrypted_data_key = "eJxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx0="
+     encryption_key     = "crn:v1:bluemix:public:kms:us-south:a/6xxxxxxxxxxxxxxx:xxxxxxx-xxxx-xxxx-xxxxxxx:key:dxxxxxx-fxxx-4xxx-9xxx-7xxxxxxxx"
+   }
+   resource "ibm_is_image_obsolete" "example" {
+     image               = ibm_is_image.example.id
+   }
+   ```
+   {: pre}
+
+To schedule a status change, use one of the following examples. 
+
+For the `deprecation_at` or `obsolescence_at` attribute, specify a date in the ISO 8601 (`YYYY-MM-DDThh:mm:ss+hh:mm`) date and time format.
+
+* `YYYY` is the four digit year
+* `MM` is the two digit month
+* `DD` is the two digit day
+* `T` separates the date and time information
+* `hh` is the two digit hours
+* `mm` is the two digit minutes
+* `+hh:mm` or `-hh:mm` is the UTC time zone
+
+Thus, the date of 30 September 2023 at 8:00 p.m. in the North American Central Standard Time Zone (CST) would be `2023-09-30T20:00:00-06:00`
+
+When scheduling the date and time, you can't use your current date and time. For example, if it is 8 a.m. on June 12, then the scheduled date and time must be after 8 a.m. on June 12. If you define both the `deprecation_at` and `obsolescence_at` dates and times, the `obsolescence_at` date must be after the `deprecation_at` date and time.
+
+* Schedule a status change to `deprecated`.
+
+   ```terraform
+   resource "ibm_is_image" "example" {
+     name               = "example-image"
+     href               = "cos://us-south/buckettesttest/livecd.ubuntu-cpc.azure.vhd"
+     operating_system   = "ubuntu-16-04-amd64"
+     deprecation_at     = "2023-11-28T15:10:00.000Z"
+   }
+   ```
+   {: pre}
+
+* Schedule a status change to `obsolete`.
+
+   ```terraform
+   resource "ibm_is_image" "example" {
+     name               = "example-image"
+     href               = "cos://us-south/buckettesttest/livecd.ubuntu-cpc.azure.vhd"
+     operating_system   = "ubuntu-16-04-amd64"
+     obsolescence_at    = "2023-11-28T15:10:00.000Z"
+   }
+   ```
+   {: pre}
+
+   If you want to change the `deprecation_at` and `obsolescence_at` date and time entries, you can run these commands again. The previous dates and times are replaced with the new dates and times.
+
+## Remove previously scheduled custom image lifecycle status using Terraform
+{: #schedule-ilm-reset-status-change-terraform}
+{: terraform}
+
+To remove any scheduled status change, update the `deprecation_at` or `obsolescence_at` attributes to `null`. This attribute change removes the date and time from the image and the image is no longer scheduled for that status change. 
+
+* To change an image from `deprecated` to `available`, change the `deprecation_at` property to `null`.
+
+   ```terraform
+   resource "ibm_is_image" "example" {
+     name               = "example-image"
+     href               = "cos://us-south/buckettesttest/livecd.ubuntu-cpc.azure.vhd"
+     operating_system   = "ubuntu-16-04-amd64"
+     deprecation_at       = null   
+   }
+   ```
+   {: pre}
+
+* To change an image from `obsolete` to its previous state, change `obsolescence_at` to `null`. If the image previously contained a value other than `null` for `deprecation_at`, then this attribute change removes the `obsolete` state and changes it back to `deprecated`. If the previous state was `available`, meaning the image was moved from `available` directly to `obsolete`, then this attribute change moves from `obsolete` back to `available`.
+
+   ```terraform
+   resource "ibm_is_image" "example" {
+     name               = "example-image"
+     href               = "cos://us-south/buckettesttest/livecd.ubuntu-cpc.azure.vhd"
+     operating_system   = "ubuntu-16-04-amd64"
+     obsolescence_at    = null  
+   }
+   ```
+   {: pre}
+
+* To change an image that has both the `deprecation_at` or `obsolescence_at` properties set back to `available`, you must update both the `deprecation_at` or `obsolescence_at` attributes.
+
+   ```terraform
+   resource "ibm_is_image" "example" {
+     name               = "example-image"
+     href               = "cos://us-south/buckettesttest/livecd.ubuntu-cpc.azure.vhd"
+     operating_system   = "ubuntu-16-04-amd64"
+     deprecation_at     = null   
+     obsolescence_at    = null
+   }
+   ```
+   {: pre}
