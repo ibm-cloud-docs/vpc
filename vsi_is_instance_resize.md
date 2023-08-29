@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-08-25"
+lastupdated: "2023-08-29"
 
 subcollection: vpc
 
@@ -25,7 +25,7 @@ When you resize an instance, keep the following information in mind:
 * RAM is wiped from the resized instance
 * All network configurations are maintained, such as private IPs, floating IPs, vNICs, and security groups
 * The instance name doesn't change
-* The data center location doesn't change
+* The location doesn't change. The location includes the location geography, region, and zone that were used when creating the virtual server instance.
 * An instance with a profile that does not include instance storage cannot be resized to a profile that does include instance storage.
 * You must select a secure execution enabled profile when you want to resize an {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} instance. Selecting a profile that is not secure execution enabled will cause the provisioning to fail.
 
