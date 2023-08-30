@@ -35,7 +35,7 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: release-note}
 
 Bare metal network hardware
-:   Bare metal servers now use upgraded network cards. For network workloads that leverage very high packets per second for smaller packets, you can update your drivers to the latest available Pensando device drivers. For more information, see [Special considerations for bare metal network performance upgrade](/docs/vpc?topic=vpc-bare-metal-image#bare-metal-pensando-considerations) and the [Pensando documentation](https://github.com/pensando/dsc-drivers){: external}.
+:   Bare metal servers now use upgraded network cards. For network workloads that leverage very high packets per second for smaller packets, you can update your drivers to the latest available Pensando device drivers. For more information, see [Special considerations for bare metal network performance upgrade](/docs/vpc?topic=vpc-bare-metal-image#bare-metal-pensando-considerations) and [AMD Pensando Support](https://www.amd.com/en/support/pensando){: external}.
 
 File storage for Bare metal servers for VPC
 :   File Storage for VPC is now supported by Bare Metal Servers for VPC. Users can leverage file storage as an addition or alternative to local NVMe drives. [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about).
