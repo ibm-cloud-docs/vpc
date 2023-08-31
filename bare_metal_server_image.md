@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-06-08"
+lastupdated: "2023-08-31"
 
 subcollection: vpc
 
@@ -94,6 +94,64 @@ Custom images for a bare metal server must meet the following requirements:
 Custom images for a bare metal server don't support encrypted images.
 
 For more information about custom images, see [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images).
+
+## Special considerations for bare metal network performance upgrade
+{: #bare-metal-pensando-considerations}
+
+For improved packet rates on bare metal servers, update stock and custom Linux images to the latest available Pensando DSC drivers. For more information, see the [Pensando documentation](https://github.com/pensando/dsc-drivers){: external}.
+
+
+### Linux distributions
+{: #bare-metal-pensando-linux}
+
+To install the latest driver on a Linux distribution:
+
+1. Download the Pensando Linux driver package at [AMD Pensando Support](https://www.amd.com/en/support/pensando){: external}.
+   
+2. Extract the image.
+   
+   ```sh
+   tar -xvf PNSO-23.06.2-001-linux-08022023-1222.tgz
+   ```
+   
+3. Change the directory to the image you extracted.
+   
+   ```sh
+   cd PNSO-1.64.0-E-58-linux-08022023-1222
+   ```
+   
+   If you are running RHEL or SUSE, run the `install.sh` script to install the pre-built drivers.
+   
+4. Run the installation.
+   
+   `./install.sh`
+   
+   If you are running something other than RHEL or SUSE, you need to build the drivers. Make sure you have the 'git', 'make' and 'gcc' packages installed. Inspect any error messages that are returned from the 'make' command, some distributions require more packages. The error messages help to determine if more packages are required.
+   
+   ```sh
+   cd drivers
+   tar xvf drivers-linux-eth.tar.xz
+   cd drivers-linux-eth
+   ./build.sh
+   ```
+   
+5. When the drivers are built, you can install the kernel modules. The modules are used the next time that the server is started.
+   
+   ```sh
+   make installation -C drivers/
+   ```
+   
+6. Activate the new module.
+   
+   Activate the module by using the console to avoid issues that are caused by a lost network connection.
+   {: note}
+   
+   ```sh
+   rmmod ionic && modprobe ionic
+   ```
+   
+   The module is installed into `/usr/lib/modules/${uname -r}/updates/eth/ionic/ionic.ko`. If you upgrade your kernel, you need to repeat these steps.
+
 
 ## Next steps
 {: #bare-metal-images-next-steps}
