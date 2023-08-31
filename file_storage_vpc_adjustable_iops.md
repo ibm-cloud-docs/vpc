@@ -33,7 +33,7 @@ By using this feature, you can:
 
 * Adjust IOPS up or down by selecting a different [IOPS tier](/docs/vpc?topic=vpc-file-storage-profiles#fs-tiers). IOPS is adjusted within the tier. The degree to which IOPS can be increased is determined by the maximum that is allowed by the file share's [IOPS tier profile](/docs/vpc?topic=vpc-file-storage-profiles). You can adjust IOPS for an IOPS tier based on share size or select the next profile that allows for increased performance.
 
-    Maximum IOPS for a file share for a 3 IOPS/GB tier profile is 96,000 IOPS. All other profiles are capped at 48,000 IOPS. For 96,000 IOPS to be realized, a single file share must be accessed by multiple virtual server instances. A single file share that is accessed by one instance is limited to 48,000 IOPS.
+    The maximum IOPS for a file share for a 3 IOPS/GB tier profile is 96,000 IOPS. All other profiles are capped at 48,000 IOPS. For 96,000 IOPS to be realized, a single file share must be accessed by multiple virtual server instances. A single file share that is accessed by one instance is limited to 48,000 IOPS.
     {: note}
 
 * Adjust IOPS when you're using a [custom IOPS](/docs/vpc?topic=vpc-file-storage-profiles#custom) or [dp2](/docs/vpc?topic=vpc-file-storage-profiles#dp2-profile) profile. The IOPS range is based on the file share size. For example, for a file share that's 25 GB, you can increase IOPS anywhere in the range 100-1,000 IOPS with a custom profile. If you later [increase the size of a file share](/docs/vpc?topic=vpc-file-storage-expand-capacity) to the next highest band, you can increase the IOPS again.
@@ -55,11 +55,11 @@ The following limitations apply.
 
 * To adjust IOPS, the file share must be in a _stable_ state.
 * For a file share created with an [IOPS tier profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#fs-tiers) to increase or decrease IOPS, select a different profile for the file share size. If the file share size exceeds that of the new IOPS tier profile, you can't change the profile.
-* A [custom IOPS profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#custom) can expand to the maximum allowed by the custom band. You can't switch custom bands unless you increase file share size and then move to a higher band.
-* A [dp2 profile](/docs/vpc?topic=vpc-file-storage-profiles&nterface=ui#dp2-profile) can expand to the maximum allowed by the dp2 band. You can't switch dp2 bands unless you increase file share size and then move to a higher band.
+* A [custom IOPS profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#custom) can expand to the maximum allowed by the custom band. You can't switch custom bands unless you increase the file share size and then move to a higher band.
+* A [dp2 profile](/docs/vpc?topic=vpc-file-storage-profiles&nterface=ui#dp2-profile) can expand to the maximum allowed by the dp2 band. You can't switch dp2 bands unless you increase the file share size and then move to a higher band.
 * Adjusting IOPS by moving between profiles is restricted by the file share size.
-* When you use a custom or dp2 profile, IOPS can be adjusted multiple time until the maximum or minimum limit is reached.
-* Maximum IOPS for a file share for all profiles is [96,000 IOPS](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#fs-tiers). For 96,000 IOPS to be realized, a single file share must be accessed by multiple virtual server instances. A single file share in an instance is limited to 48,000 IOPS.
+* When you use a custom or dp2 profile, IOPS can be adjusted multiple times until the maximum or minimum limit is reached.
+* The maximum IOPS for a file share for all profiles is [96,000 IOPS](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#fs-tiers). For 96,000 IOPS to be realized, a single file share must be accessed by multiple virtual server instances. A single file share in an instance is limited to 48,000 IOPS.
 
 ## Adjusting IOPS in the UI
 {: #adjust-vpc-iops-ui-file}
@@ -67,7 +67,7 @@ The following limitations apply.
 
 Follow these steps to adjust IOPS by selecting a new IOPS tier or custom IOPS band:
 
-1. Go to the list of file shares. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > File shares**. By default, file shares display for all resource groups in your region.
+1. Go to the list of file shares. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > File shares**. By default, file shares display for all resource groups in your region.
 
 2. In the **File shares for VPC** list page, click the name of a file share to see its details.
 
@@ -130,7 +130,7 @@ For more information about the command options, see [`ibmcloud is share-update m
 
 From the CLI, use the `share-update` command with the `--profile` property and indicate the name or href of the IOPS tier profile.
 
-The following example changes a 3 IOPS/GB profile to 5 IOPS/GB profile. In this case, the file share can't exceed 9,600 GB to move to the higher profile.
+The following example changes a 3 IOPS/GB profile to a 5 IOPS/GB profile. In this case, the file share can't exceed 9,600 GB to move to the higher profile.
 
 ```sh
 ibmcloud is share-update SHARE_NAME --profile 5iops-tier
@@ -270,7 +270,7 @@ When the IOPS expansion completes, restart the instance. The new value is displa
 
 Make a `PATCH /shares` request and specify the `profile` property and indicate the name or href of the IOPS tier profile.
 
-The following example changes a 3 IOPS/GB profile to 5 IOPS/GB profile. In this case, the file share can't exceed 9,600 GB to move to the higher profile.
+The following example changes a 3 IOPS/GB profile to a 5 IOPS/GB profile. In this case, the file share can't exceed 9,600 GB to move to the higher profile.
 
 ```sh
 curl -X PATCH \

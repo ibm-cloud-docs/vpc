@@ -33,7 +33,7 @@ This procedure explains how to specify customer-managed encryption when you crea
 
 Follow these steps to specify customer-managed encryption from the UI:
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes** to view a list of your block storage volumes.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes** to view a list of your block storage volumes.
 2. Select **New volume**.
 3. Enter the information in Table 1 to define your new block storage volume.
 4. Update the fields in the **Encryption** section (see Table 2). When your changes are complete, click **Create Volume**.

@@ -47,7 +47,7 @@ You can also specify a larger boot volume capacity when you create an instance t
 
 For an existing instance, you can increase its boot volume capacity by selecting it from the list of block storage volumes.
 
-1. Navigate to the list of block storage volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
+1. Navigate to the list of block storage volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
 
 2. Select a boot volume from the list of volumes. The attachment type is _boot_.
 

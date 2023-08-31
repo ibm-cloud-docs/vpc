@@ -42,7 +42,7 @@ You can [increase the file share size](/docs/vpc?topic=vpc-file-storage-expand-c
 
 When you create a file share in your availability zone, you use the **dp2** profile to specify the total IOPS for the file share based on the share size.
 
-If you have existing files shares that are based on either the IOPS tier profiles or custom IOPS profile; you can update those shares to use the **dp2** profile. You can also change back to an earlier profile. However, you cannot use the earlier profiles when you provision a file share.
+If you have existing file shares that are based on either the IOPS tier profiles or custom IOPS profile; you can update those shares to use the **dp2** profile. You can also change back to an earlier profile. However, you cannot use the earlier profiles when you provision a file share.
 
 All profiles are backed by solid-state drives (SSDs).
 
@@ -69,7 +69,7 @@ If you want to connect a file share to instances that are running in different V
 
 When you create or update a mount target, you can specify the manner in which you want the mount target to be accessed on the file share. You have two options:
 
-* Use security groups access mode to authorize access to the file share for a specific virtual server instance or instances within a subnet. This option is available to newer file shares based on the `dp2` profile and communication between authorized virtual server instance and the file share can optionally be IPsec encapsulated. For more information, see [Encryption in Transit](#fs-eit). Cross-zone mounting is also supported.
+* Use the security group access mode to authorize access to the file share for a specific virtual server instance or instances within a subnet. This option is available to newer file shares based on the `dp2` profile and communication between the authorized virtual server instance and the file share can optionally be IPsec encapsulated. For more information, see [Encryption in Transit](#fs-eit). Cross-zone mounting is also supported.
 
 * Use the VPC access mode to allow access to the file share to any virtual server instance in the same zone of a VPC. This option is available for all [file share profiles](/docs/vpc?topic=vpc-file-storage-profiles). Cross-zone mounting and encryption of data in transit are not supported for shares with VPC access mode.
 
@@ -182,14 +182,14 @@ The following limitations apply to this release of {{site.data.keyword.filestora
 * Previous profiles are not supported when you provision a new file share, which is based on the `dp2` profile. However, earlier version file shares can continue to use existing profiles.
 * Restricting file share access to specific virtual server instances and data encryption in transit is available only for shares that are based on the `dp2` profile.
 * Windows operating systems are not supported.
-* Minimum capacity is 10 GB per file share.
-* Maximum capacity is 32,000 GB per file share.
+* The minimum capacity is 10 GB per file share.
+* The maximum capacity is 32,000 GB per file share.
 * No data retention policy exists for deleted file shares. You cannot undelete a file share after you delete it.
 * Up to 256 hosts per zone per VPC can be concurrently connected to a single file share.
 * You can create up to 300 file shares within your VPC.
 * A file share cannot be deleted by using a `DELETE /shares/<id>` API request, if an existing mount target is associated with that file share or if replica operations are in progress.
 * A file share cannot be split from its replica by using a `DELETE /shares/<id>/source` API request, if the `lifecycle_state` of the file share is `updating` or if replica operations are in progress. 
-* Security groups access mode, mounts with virtual network interfaces, and encryption in transit are not supported between {{site.data.keyword.filestorage_vpc_short}} and {{site.data.keyword.bm_is_short}}.
+* Security group access mode, mount targets with virtual network interfaces, and encryption in transit are not supported between {{site.data.keyword.filestorage_vpc_short}} and {{site.data.keyword.bm_is_short}}.
 
 ## Related information
 {: #related-info-file-storage-vpc}

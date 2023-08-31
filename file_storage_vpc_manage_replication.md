@@ -39,7 +39,7 @@ When you remove the replication relationship, you can't undo the action. Also, t
 
 To remove the replication relationship in the UI:
 
-1. Navigate to the list of all file shares. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > File Shares**.
+1. Navigate to the list of all file shares. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > File Shares**.
 
 2. Click the name of a file share or replica file share to go to its details page.
 
