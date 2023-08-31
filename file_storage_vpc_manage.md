@@ -15,16 +15,16 @@ subcollection: vpc
 # Managing file shares
 {: #file-storage-managing}
 
-Manage file shares that you created. You can rename a file. You can increase its capacity and modify its IOPS. You can add mount targets to a file share, mount, and unmount a file share from virtual server instances. You can rename or delete a mount target, and you can delete a file share.
+Manage the file shares that you created. You can rename a file. You can increase its capacity and modify its IOPS. You can add mount targets to a file share, mount, and unmount a file share from virtual server instances. You can rename or delete a mount target, and you can delete a file share.
 {: shortdesc}
 
-{{site.data.keyword.filestorage_vpc_short}} service requires IAM permissions for role-based access control. For example, to create a file share, you need to at least editor permissions. For more information, see the [required permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls) for file shares.
+{{site.data.keyword.filestorage_vpc_short}} service requires IAM permissions for role-based access control. For example, to create a file share, you need to have at least editor permissions. For more information, see the [required permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls) for file shares.
 {: requirement}
 
 ## File share lifecycle states and replication status
 {: #file-storage-vpc-status}
 
-During its lifecycle and normal operations, a file share can be in various states. These states can be observed in UI, from the CLI, or with the API.
+During its lifecycle and normal operations, a file share can be in various states. These states can be observed in the UI, from the CLI, or with the API.
 
 Lifecycle state:
 
@@ -35,14 +35,14 @@ Lifecycle state:
 | `failed` | The file share or mount target failed to be created. You can delete the failed share and try creating another one. |
 | `deleting` | The file share or mount target is being deleted. |
 | `suspended` | The file share violates {{site.data.keyword.cloud}}’s [Acceptable Use Policy](https://www.ibm.com/services/us/imc/html/aup1.html). A suspended file share cannot be updated or deleted.|
-| `updating`| The file share capacity or IOPS are being updated|
+| `updating`| The file share capacity or IOPS is being updated|
 | `waiting` |  |
 {: caption="Table 1. File storage lifecycle states" caption-side="bottom"}
 
 Replication status:
 | Status | Explanation |
 |-----------------|-------------|
-| `active` | This share is actively participating in replication, and the replica's data is up-to-date with the replication schedule. |
+| `active` | This share is actively participating in replication, and the replica's data is up to date with the replication schedule. |
 | `failover_pending` |  This share is performing a replication failover. Or the service is waiting for another operation to complete, such as file share expansion, before the failover can commence. |
 | `initializing` | This share is initializing replication. |
 | `none` | This share is not participating in replication. |
@@ -110,7 +110,7 @@ You can change the profile for a file share from the current profile to another 
 
 2. Click the pencil icon next to the current profile or use the **Actions** menu and select **Edit IOPS profile**. A side panel shows the current profile, file share size, and maximum IOPS.
 
-3. For **New profile**, click the down arrow. You can select a new IOPS tier, a custom profile, or dp2. For **Custom IOPS** or **dp2**, specify a new max IOPS based on the file share size. The file share price is automatically calculated based on your seletion.
+3. For a **New profile**, click the down arrow. You can select a new IOPS tier, a custom profile, or dp2. For **Custom IOPS** or **dp2**, specify a new max IOPS based on the file share size. The file share price is automatically calculated based on your selection.
 
 4. Click **Save and continue**.
 
@@ -206,10 +206,10 @@ Created           2023-07-17T15:26:21+05:30
 {: #fs-add-tags-api}
 {: api}
 
-As described in the [Beta VPC API](/apidocs/vpc-beta) reference [versioning](/apidocs/vpc-beta#api-versioning-beta) policy, support for older versions of the beta API is limited to 45 days. Therefore, beta API requests must specify a `version` query parameter date value within the last 45 days. You must also provide `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/apidocs/vpc#api-generation-parameter).
+As described in the [Beta VPC API](/apidocs/vpc-beta) reference [versioning](/apidocs/vpc-beta#api-versioning-beta) policy, support for older versions of the beta API is limited to 45 days. Therefore, beta API requests must specify a `version` query parameter date value within the last 45 days. You must also provide the `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/apidocs/vpc#api-generation-parameter).
 {: requirement}
 
-#### Adding user tag when a file share is created
+#### Adding a user tag when a file share is created
 {: #fs-add-tags-new-share-api}
 
 Make a `POST /shares` request and specify the `user_tags` property. This example creates a share with three user tags, `env:test1`, `env:test2`, and `env:prod`.
@@ -341,7 +341,7 @@ To modify existing user tags that are added to a file share, you first make a `G
    ```
    {: codeblock}
 
-2. Make a `PATCH /shares/{share_id}` request. Specify the `ETag` hash string for the `If-Match` property in the header. Specify the user tags in the `user_tags` property.
+2. Make a `PATCH /shares/{share_id}` request. Specify the `ETag` hash string for the `If-Match` property in the header. Specify the user tag in the `user_tags` property.
 
    This example updates the file share user tags to `env:test` and `env:prod`. The hash string value that you obtained from the `ETag` property (`W/xxxyyyzzz123`) is specified in the `If-Match` header in the call.
 
@@ -653,7 +653,7 @@ curl -X DELETE \
 ```
 {: pre}
 
-A successful response has a confirmation of acceptance for deletion and response that contains the target information. Status of mount target shows _deleting_ while the deletion is underway.
+A successful response has a confirmation of acceptance for deletion and a response that contains the target information. Status of mount target shows _deleting_ while the deletion is underway.
 
 The following example is the response to a delete request of a mount target where `access_control_mode` is `security_group`. The response shows the security group and subnet. You can also see the specifics of the reserved IP address that was used for the virtual network interface of the mount target in the `primary_ip` section. By default the virtual network interface is deleted along with the mount target when the mount target is deleted.
 
@@ -710,7 +710,7 @@ The following example is the response to a delete request of a mount target wher
 ```
 {: codeblock}
 
-The mount target is deleted in the background. Confirm the deletion by trying to view the mount target information. If you get `_404 Not Found_` error, the mount target is successfully deleted.
+The mount target is deleted in the background. Confirm the deletion by trying to view the mount target information. If you get a `_404 Not Found_` error, the mount target is successfully deleted.
 
 #### Deleting a file share in the API
 {: #delete-file-share-api}
@@ -765,7 +765,7 @@ Example:
 ```
 {: codeblock}
 
-The file share is deleted in background. Confirm the deletion by trying to view the mount target information. If you get `_404 Not Found_` error, the mount target is successfully deleted.
+The file share is deleted in the background. Confirm the deletion by trying to view the mount target information. If you get a `_404 Not Found_` error, the mount target is successfully deleted.
 
 A `DELETE /shares/$share_id` call can optionally include an `If-Match` header that specifies an `ETag` hash string. Make a `GET /shares/{share_id}` call and copy the `ETag` hash string from the response header. For more information, see [User tags for file shares](/docs/vpc?topic=vpc-file-storage-vpc-abou#fs-about-user-tags).
 {: note}

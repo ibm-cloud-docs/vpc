@@ -35,7 +35,7 @@ File shares that are created from an [IOPS tier profile](/docs/vpc?topic=vpc-fil
 * A 5 IOPS/GB profile can be expanded up to 9,600 GB.
 * A 10 IOPS/GB profile can be expanded up to 4,800 GB.
 
-IOPS is automatically adjusted for tiered file share profiles, based on the size of the file share. For example, if you expand a share with a 5 IOPS/GB profile from 250 GB to 1,000 GB, it has a maximum IOPS of 5,000 IOPS (1,000 GB capacity _x_ 5 IOPS). Because a 5 IOPS/GB file share can potentially expand to 9,600 GB, the max IOPS is adjusted to 48,000 IOPS. The capacity and the IOPS are immediately changed and you don't to restart the instance.
+IOPS is automatically adjusted for tiered file share profiles, based on the size of the file share. For example, if you expand a share with a 5 IOPS/GB profile from 250 GB to 1,000 GB, it has a maximum IOPS of 5,000 IOPS (1,000 GB capacity _x_ 5 IOPS). Because a 5 IOPS/GB file share can potentially expand to 9,600 GB, the max IOPS is adjusted to 48,000 IOPS. The capacity and the IOPS are immediately changed and you don't need to restart the instance.
 
 You can monitor the progress of your file share expansion from the UI or CLI. You can also use the [Activity Tracker](/docs/vpc?topic=vpc-at-events) to verify that the file share was expanded. After a file share is expanded, you can't reduce capacity.
 
@@ -56,8 +56,8 @@ The following limitations apply to this release.
     * File shares can expand multiple times until maximum capacity is reached.
 * IOPS increase to the maximum allowed by the profile.
 * You can't independently modify IOPS for a file share that was created from an IOPS tier profile. IOPS is adjusted when you expand capacity.
-* When you expand a file share that was created from a custom or dp2 profile, the capacity is increased, but the IOPS remains the same unless you choose to [adjust IOPS](/docs/vpc?topic=vpc-adjusting-share-iops).
-* Maximum IOPS for a file share is capped at 48,000 IOPS if it is accessed by a single host. For a file share that is accessed by multiple hosts, IOPS can reach up to 96,000 IOPS.
+* When you expand a file share that was created from a custom or dp2 profile, the capacity is increased, but the IOPS remains the same unless you choose to [adjust the IOPS](/docs/vpc?topic=vpc-adjusting-share-iops).
+* The maximum IOPS for a file share is capped at 48,000 IOPS if it is accessed by a single host. For a file share that is accessed by multiple hosts, IOPS can reach up to 96,000 IOPS.
 * After a file share is expanded, you can't reduce its size.
 
 ## Expanding file share capacity in the UI

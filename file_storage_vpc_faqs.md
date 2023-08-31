@@ -37,7 +37,7 @@ Yes.
 {: faq}
 {: #faq-fs-4}
 
-You can use the UI, CLI, API or Terraform to create and manage your file shares.
+You can use the UI, CLI, API, or Terraform to create and manage your file shares.
 
 ### Can I mount file shares on a Windows operating system?
 {: faq}
@@ -114,7 +114,7 @@ No. As a best practice, independently back up your data. When your file share da
 {: faq}
 {: #faq-fs-mgt-7}
 
-File shares are not elastic. Currently, you can provision minimum of 10 GB to maximum of 32,000 GB file shares, depending on the [file share profile](/docs/vpc?topic=vpc-file-storage-profiles).
+File shares are not elastic. Currently, you can provision a minimum of 10 GB to a maximum of 32,000 GB file shares, depending on the [file share profile](/docs/vpc?topic=vpc-file-storage-profiles).
 
 ### Can I change the size of a file share?
 {: faq}
@@ -140,7 +140,7 @@ when you create a file share, you can set up a replication relationship between 
 
 You can choose the frequency of replication by creating a schedule with a `cronspec` and can replicate as frequently as every hour. Set up replication from the UI, CLI, or by calling the API.
 
-### I want to set up replication. Is there automatic failover?
+### I want to set up replication. Is there an automatic failover?
 {: faq}
 {: #faq-fs-mgt-12}
 
@@ -168,7 +168,7 @@ You can migrate file shares that were created by using either the IOPS tier prof
 {: faq}
 {: #faq-fs-access-mode}
 
-Yes. You can specify an access control mode that either uses Security Groups to restrict mounting a file share to specific resources in the VPC or allows VPC-wide file share mounting. File share mount targets created before `13-June-2023` have a default of VPC-wide file share mounting. File shares created after that date can specify security group access control mode to restrict access to specific virtual server instances. For this option, file shares must be based on the [`dp2` profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile). For more information, see [Mount target access modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-mount-access-mode).
+Yes. You can specify an access control mode that either uses Security Groups to restrict mounting a file share to specific resources in the VPC or allows VPC-wide file share mounting. File share mount targets created before `13-June-2023` have a default of VPC-wide file share mounting. File shares created after that date can specify the security group access control mode to restrict access to specific virtual server instances. For this option, file shares must be based on the [`dp2` profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile). For more information, see [Mount target access modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-mount-access-mode).
 
 ## Performance questions
 {: #file-storage-vpc-performance-questions}
@@ -205,7 +205,7 @@ You cannot use the UI, CLI, or API to update multiple file shares in a single op
 
 All data is encrypted at rest by default with IBM-managed encryption. You can also encrypt your file shares with your own root key, which gives your more control over your data security. For example, you can rotate, suspend, delete, and restore your root keys. For more information, see [Creating file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption).
 
-You can also enable secure end-to-end encryption of your file share data by setting up data encryption in transit. Encryption in transit for your file shares lets you establish an encrypted mount connection between the virtual server instance and storage system using the Internet Security Protocol (IPsec) security profile. For more information, see [Enabling file share encryption in transit secure connections](/docs/vpc?topic=vpc-file-storage-vpc-eit).
+You can also enable secure end-to-end encryption of your file share data by setting up data encryption in transit. When encryption in transit is enabled, you can establish an encrypted mount connection between the virtual server instance and storage system by using the Internet Security Protocol (IPsec) security profile. For more information, see [Enabling file share encryption in transit secure connections](/docs/vpc?topic=vpc-file-storage-vpc-eit).
 
 ### Is there support for security groups and network ACLs?
 {: faq}

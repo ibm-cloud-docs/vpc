@@ -70,7 +70,7 @@ These restrictions apply when you perform a failover.
 {: #fs-failover-procedure-ui}
 {: ui}
 
-1. Navigate to the list of all file shares. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > File Shares**.
+1. Go to the list of all file shares. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > File Shares**.
 
 2. Click the name of a replica file share to open its details page.
 

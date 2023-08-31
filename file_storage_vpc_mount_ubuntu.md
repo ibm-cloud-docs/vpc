@@ -126,7 +126,7 @@ SSH into the virtual server instance where you want to mount the file share, the
    ```
    {: pre}
 
-   Add a line with the following syntax to the end of file.
+   Add a line with the following syntax to the end of the file.
 
    ```sh
    (hostname):/(mount_point) /mnt nfs_version defaults 0 0

@@ -38,7 +38,7 @@ View all file shares and mount targets in the UI, CLI, API, or Terraform. View d
 | Size | Size of the file share, in GBs. |
 | IOPS profile| It shows the performance profile that is associated with the file share.|
 | Replication role | Relationship to the source file share. "Replica of" indicates that the file share a replica of the source share, which is linked. "Source of" indicates that the share the source of the replica, which is linked. "None" indicates that replication is not configured for the file share. |
-| Encryption type | Shows encryption type of the file share, either provider-managed or customer-managed. [Customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption) uses your own root keys to protect your data. The UI also identifies the key management service (KMS), either {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. |
+| Encryption type | It shows the encryption type of the file share, either provider-managed or customer-managed. [Customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption) uses your own root keys to protect your data. The UI also identifies the key management service (KMS), either {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. |
 | Actions menu| Options for managing the file share, depending on its state. For a file share in a _stable_ state, you can rename the share, create a replica, or delete a file share. **Delete** and **Create replica** are disabled if you set up replication to a replica file share already. For more information, see [Creating replica file shares](/docs/vpc?topic=vpc-file-storage-create-replication&interface=ui). |
 {: caption="Table 1. File shares list page." caption-side="bottom"}
 
@@ -51,7 +51,7 @@ View all file shares and mount targets in the UI, CLI, API, or Terraform. View d
 
 The editable name and status of the file share is shown. If you applied user or access management tags to the file share, they are listed. Click **Add tags** to apply new [tags](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-about-fs-tags) to the share.
 
-The following table describes the information on files shares details page.
+The following table describes the information on the file share details page.
 
 | Field | Value |
 |-------|-------|
@@ -76,7 +76,7 @@ The following table describes the information on files shares details page.
 | Name | Name of the mount target. |
 | Virtual private cloud | Click the name to go to the details page for that VPC, where you can see a [list of file shares](#fs-view-shares-vpc) that have a mount target to the VPC. |
 | Status | Status of the mount target on the VPC. |
-| **File share replication relationship** | Shows the name, location, and status of the source and the replica file shares  \n * If no replica file shares were created, click **Create replica** to [create one](/docs/vpc?topic=vpc-file-storage-create-replication). \n * To break the replication relationship, click **Remove replication relationship**. Then, the replica file share becomes an independent read/write file share.|
+| **File share replication relationship** | Shows the name, location, and status of the source and the replica file shares \n * If no replica file shares were created, click **Create replica** to [create one](/docs/vpc?topic=vpc-file-storage-create-replication). \n * To break the replication relationship, click **Remove replication relationship**. Then, the replica file share becomes an independent read/write file share.|
 | Replication frequency | Hover over the information icon to see an explanation of the cron replication frequency. |
 | Replication role | Source or replica file share. |
 | File share Name | Click the file share name to see its details. |
@@ -91,7 +91,7 @@ You can see all file shares that have a mount target to a VPC by viewing the VPC
 1. Go to a VPC:
 
     1. From the [file shares details page](#fs-view-single-share-ui), click the VPC link in the list of mount targets.
-    2. From the UI, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > > Network > VPCs**. Click the name of a VPC in the list.
+    2. From the UI, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > > Network > VPCs**. Click the name of a VPC in the list.
 
 2. On the VPC details page, scroll to **File shares in this VPC**.
 
@@ -161,7 +161,7 @@ Created             2023-07-11T15:21:35+05:30
 ```
 {: screen}
 
-The following example identifies the file share by name. This is a replica share that is based on the `dp2` profile, and access to the share is granted by using security groups. The output provides information about the source file share and the replication details, too.
+The following example identifies the file share by name. This share is a replica share that is based on the `dp2` profile, and access to the share is granted by using security groups. The output provides information about the source file share and the replication details, too.
 
 ```sh
 $ ibmcloud is share my-fs-cli-1-replica
@@ -311,16 +311,16 @@ For more information about the command options, see [`ibmcloud is share-mount-ta
 {: #file-storage-view-shares-targets-api}
 {: api}
 
-You must provide `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/apidocs/vpc#api-generation-parameter).
+You must provide the `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/apidocs/vpc#api-generation-parameter).
 {: requirement}
 
 ### Viewing replication status and lifecycle_state with the API
 {: #share-states-api}
 
 - `lifecycle_state`
-   - This property provides the current state of a resource through the [Retrieve a file share](/apidocs/vpc/latest#get-share) request. The values that `lifecycle_state` provides are generic and are meant to apply to a variety resources, not just file shares. `lifecycle_state` indicate if the file share is stable, updating, deleting, suspended, and so on.
+   - This property provides the current state of a resource through the [Retrieve a file share](/apidocs/vpc/latest#get-share) request. The values that `lifecycle_state` provides are generic and are meant to apply to various resources, not only file shares. `lifecycle_state` indicate whether the file share is stable, updating, deleting, suspended, and so on.
 - `replication_status`
-   - This property provides the current replication status of the file through the [Retrieve a file share](/apidocs/vpc/latest#get-share) request. The values that `replication_status` returns are specialized for file shares. For more information, see the [Virtual Private Cloud API](/apidocs/vpc/latest) content.
+   - This property provides the current replication status of the file through the [Retrieve a file share](/apidocs/vpc/latest#get-share) request. The values that `replication_status` returns are specific to file shares. For more information, see the [Virtual Private Cloud API](/apidocs/vpc/latest) content.
 
 ### View all file shares with the API
 {: #fs-view-all-shares-api}

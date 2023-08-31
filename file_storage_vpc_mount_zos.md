@@ -92,7 +92,7 @@ Follow these steps to mount a file share on a z/OS host.
         ```
         {: codeblock}
 
-     2. Add the following command to `SYS1.PARMLIB(BPXPRM00)` after `AUTOMNT`.
+     2. Add the following command to the `SYS1.PARMLIB(BPXPRM00)` after `AUTOMNT`.
         ```sh
         FILESYSTYPE TYPE(NFS) ENTRYPOINT(GFSCINIT) ASNAME(MVSNFSC)
         ```

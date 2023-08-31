@@ -23,7 +23,7 @@ You can create replicas of your file shares by setting up a replication relation
 
 After you created a file share, you can set up replication. You can create a replica share in another zone of the same region.
 
-Based on the replication schedule, the service pulls data from the source file share to the replica file share. You can choose how often you want to sync changes from the source share to the replica. You can specify hourly, daily, weekly, or monthly replication schedule conveniently in the UI. Or, you can specify replication by using a `cronspec` expression in the UI, from the CLI, with the API or Terraform. Replications must be scheduled at least 1 hour apart. 
+Based on the replication schedule, the service pulls data from the source file share to the replica file share. You can choose how often you want to sync changes from the source share to the replica. You can specify an hourly, daily, weekly, or monthly replication schedule conveniently in the UI. Or, you can specify replication by using a `cronspec` expression in the UI, from the CLI, with the API or Terraform. Replications must be scheduled at least 1 hour apart. 
 
 When a replica share is created, the first replica contains the data of the entire share. Thereafter, only the changes that occurred after the previous replication are added.
 
@@ -41,13 +41,13 @@ Data on the replica share is read-only. You can obtain read/write access to the 
 
 * [Remove the replication relationship](/docs/vpc?topic=vpc-file-storage-manage-replication) - In this case, you split the two shares apart and create two independent file shares. Both shares are read/write accessible and data is no longer synchronized between the two. In the [API](/docs/vpc?topic=vpc-file-storage-failover&interface=ui#fs-failover-concepts), this operation is called a replica `split` operation. Removing the replica relationship is permanent, you cannot reestablish it between the two shares. However, you can create new replicas in the same zone or other zones of the same region.
 
-Removing the replication relationship or failing over to the replica does not occur when another operation is being performed on the source or replica file share. (An example of such an operation is expanding the file share size.) The split or failover operations remains pending until the other operation completes.
+Removing the replication relationship or failing over to the replica does not occur when another operation is being performed on the source or replica file share. (An example of such an operation is expanding the file share size.) The split or failover operation remains pending until the other operation completes.
 {: note}
 
 ## Use cases
 {: #fs-replication-scenarios}
 
-You can use replication to address disaster recovery concerns. Replication addresses these scenarios:
+You can use replication to address disaster recovery concerns. The replication addresses these scenarios:
 
 * Disaster Recovery from an application failure.
 

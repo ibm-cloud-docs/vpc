@@ -24,7 +24,7 @@ You need Administrator or Editor IAM user roles to create and manage file share 
 ## Removing the replication relationship
 {: #fs-remove-replication}
 
-You can remove replication by removing the replication relationship between the source file share and replica file share. The operation is called _splitting_ the file shares. Data is no longer synced between the file shares. Removing the replication relationship creates two independent, read/write file shares. You can separately manage each file share, expand capacity and adjust IOPS, and create replicas.
+You can remove replication by removing the replication relationship between the source file share and the replica file share. The operation is called _splitting_ the file shares. Data is no longer synced between the file shares. Removing the replication relationship creates two independent, read/write file shares. You can separately manage each file share, expand capacity and adjust IOPS, and create replicas.
 
 Use the [UI](#fs-remove-replication-ui), [CLI](#fs-remove-replication-cli), or [API](#fs-remove-replication-api) to remove the replication relationship. You can also specify that the source and replica file shares are split if a [failover](/docs/vpc?topic=vpc-file-storage-failover) operation does not succeed.
 
@@ -39,7 +39,7 @@ When you remove the replication relationship, you can't undo the action. Also, t
 
 To remove the replication relationship in the UI:
 
-1. Navigate to the list of all file shares. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > File Shares**.
+1. Go to the list of all file shares. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > File Shares**.
 
 2. Click the name of a file share or replica file share to go to its details page.
 
@@ -124,7 +124,7 @@ Activity tracker events are triggered when you establish and use file share repl
 | is.share.share.create | Create a replica file share. |
 | is.share.share.read | View file share replication relationships. |
 | is.share.share.replica.split | Separate source and replica shares into two independent read/write file shares. |
-| is.share.share.replica.failover | Fail over from the source file share to replica file share. |
+| is.share.share.replica.failover | Fail over from the source file share to the replica file share. |
 {: caption="Table 1. Actions that generate events for file share replication." caption-side="bottom"}
 
 ## Replication statuses

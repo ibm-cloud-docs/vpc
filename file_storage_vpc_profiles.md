@@ -23,7 +23,7 @@ When you provision {{site.data.keyword.filestorage_vpc_short}} file shares by us
 
 When you [create a file share](/docs/vpc?topic=vpc-file-storage-create) in your availability zone, you select share size and IOPS performance based on a file storage profile. All new file shares are created based on the high performance, [dp2](#dp2-profile) profile. 
 
-File shares that were created during the beta and limited availability phases with either the [IOPS tier](#fs-tiers) profiles or [custom IOPS](#fs-custom) profiles can continue to operate based on these profiles. You can also update these file shares to use the `dp2` profile or switch to another previous generation profile. However, you cannot use the previous profiles when you create a file share, and only file shares with the `dp2` profile can use the new security features.
+File shares that were created during the beta and limited availability phases with either the [IOPS tier](#fs-tiers) profiles or [custom IOPS](#fs-custom) profiles can continue to operate based on these profiles. You can also update these file shares to use the `dp2` profile or switch to another previous generation profile. However, you cannot use the previous profiles when you create a file share, and only the file shares with the `dp2` profile can use the new security features.
 
 Table 1 shows the dp2 profile performance levels compared to the earlier profiles.
 
@@ -45,7 +45,7 @@ The application I/O size directly impacts storage performance. If the applicatio
 ## Defined performance profile
 {: #dp2-profile}
 
-With the `dp2` profile, you can specify the total IOPS for the file share within the range for a specific file share size, 10 GB (default minimum) to 32,000 GB. You can provision shares with IOPS performance from 100 IOPS (default minimum) to 96,000 IOPS, based on share size. The `dp2` profile is based on a IO size of 256 KB. Maximum throughput is 1024 MB/s.
+With the `dp2` profile, you can specify the total IOPS for the file share within the range for a specific file share size, 10 GB (default minimum) to 32,000 GB. You can provision shares with IOPS performance from 100 IOPS (the default minimum) to 96,000 IOPS, based on share size. The `dp2` profile is based on a IO size of 256 KB. Maximum throughput is 1024 MB/s.
 
 Table 2 shows the available IOPS ranges, based on share size.
 
@@ -56,7 +56,7 @@ Table 2 shows the available IOPS ranges, based on share size.
 | 80 - 99         | 100 - 4,000 |
 | 100 - 499       | 100 - 6,000 |
 | 500 - 999       | 100 - 10,000 |
-| 1,000 - 1,99    | 100 - 20,000 | 
+| 1,000 - 1,999    | 100 - 20,000 | 
 | 2,000 - 3,999   | 200 - 40,000 |
 | 4,000 - 7,999   | 300 - 40,000 |
 | 8,000 - 15,999  | 500 - 64,000 | 
@@ -88,7 +88,7 @@ The total maximum IOPS is rounded up to the next multiple of 10 when the IOPS ca
 ### Custom IOPS profile
 {: #fs-custom}
 
-Custom IOPS profiles specify the total IOPS for the file share within the range for its size. File shares that use a custom IOPS profile can have IOPS performance level in the range 100-48000 IOPS.
+Custom IOPS profiles specify the total IOPS for the file share within the range for its size. File shares that use a custom IOPS profile can have an IOPS performance level in the range of 100-48000 IOPS.
 
 Table 4 shows the available IOPS ranges based on file share size.
 
@@ -276,7 +276,7 @@ The response returns the following profiles and related information:
 
 IOPS values are based on a 16 KB block size for all profiles, with a 50-50 read/write random workload. Each 16 KB of data that is read or written counts as one read/write operation. A single write of less than 16 KB counts as a single write operation.
 
-Maximum throughput for a file share is calculated by taking the file share's IOPS and multiplying itby the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB, custom IOPS and `dp2` tiers.
+Maximum throughput for a file share is calculated by taking the file share's IOPS and multiplying it by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB, custom IOPS, and `dp2` tiers.
 
 The higher the IOPS that you specify, the higher the throughput. Maximum throughput is 1024 MBps.
 

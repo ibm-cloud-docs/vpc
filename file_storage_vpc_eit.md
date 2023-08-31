@@ -59,10 +59,10 @@ To use the feature, the following requirements need to be met:
       OpenSSL is an open source command-line toolkit that you can use to work with X.509 certificates, certificate signing requests (CSRs), and cryptographic keys. For more information, see [OpenSSL Documentation](https://www.openssl.org/docs/){: external}.
       {: note}
 
-      If you're using a different software to create the CSR, you might be prompted to enter information about your location such as country code (C), state (ST), locality (L), your organization name (O), and organization unit (OU). Any one of these naming attributes can be used. Any other naming attributes, such as common name for example are rejected. CSRs with Common Name specified are rejected because when you make the request to the Metadata API, the system applies instance ID values to the subject Common Name for the instance identity certificates. CSRs with extensions are also rejected.
+      If you're using a different software to create the CSR, you might be prompted to enter information about your location such as country code (C), state (ST), locality (L), your organization name (O), and organization unit (OU). Any one of these naming attributes can be used. Any other naming attributes (for example, common name) are rejected. CSRs with Common Name specified are rejected because when you make the request to the Metadata API, the system applies instance ID values to the subject Common Name for the instance identity certificates. CSRs with extensions are also rejected.
       {: important}
 
-   2. Format the csr before you make an API call to metadata service by using the following command.
+   2. Format the csr before you make an API call to the metadata service by using the following command.
       ```sh
       awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' sslcert.csr
       ```
@@ -77,7 +77,7 @@ The {{site.data.keyword.cloud}} file service provides a [Mount Helper utility](#
 ## IBM Cloud File Share Mount Helper utility
 {: #fs-mount-helper-utility}
 
-Mount Helper is an open source automation tool that configures and establishes secure IPsec communication between customer virtual server instance and the file share. It ensures that the communication between the virtual server instance and zonal file share service is encrypted.
+Mount Helper is an open source automation tool that configures and establishes secure IPsec communication between customer virtual server instance and the file share. It ensures that the communication between the virtual server instance and the zonal file share service is encrypted.
 
 The utility uses strongSwan and [`swanctl`](https://docs.strongswan.org/docs/5.9/swanctl/swanctl.html) to configure IPsec on the virtual server instance with Linux OS. The utility is supported on the following distributions:
 
@@ -155,12 +155,12 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
    ```
    {: pre}
    
-   The tar file contains the following contents: installation and uninstallation scripts, `mount helper rpm` and `deb` packages, root CA certificates, and configuration file.
+   The tar file contains the following contents: installation and uninstallation scripts, `mount helper rpm` and `deb` packages, root CA certificates, and the configuration file.
 
    Closed environments: To install Mount Helper on a virtual server instance without internet connection, create or update a local repository on the VSI based on the OS. Copy the Mount Helper package along with its dependencies to the local directory.
    {: note}
 
-1. Every installation image is accompanied by a file that contains the checksum value for the image file. For example, the image file ibmshare-0.0.1.tar.gz is accompanied by the ibmshare-0.0.1.tar.gz.sha256 file that contains checksum value. To verify the integrity of the downloaded package, use the following command to verify the file `mount.ibmshare-latest.tar.gz`.
+1. Every installation image is accompanied by a file that contains the checksum value for the image file. For example, the image file ibmshare-0.0.1.tar.gz is accompanied by the ibmshare-0.0.1.tar.gz.sha256 file that contains a checksum value. To verify the integrity of the downloaded package, use the following command to verify the file `mount.ibmshare-latest.tar.gz`.
    ```sh
    sha256sum -c mount.ibmshare-latest.tar.gz.sha256
    ```
@@ -181,7 +181,7 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
    ```
    {: pre}
 
-   The installation script accepts the command-line argument `region`. Example regions are `dal`, `fra`, `lon`, `osa`, `sao`, `syd`, `tok`, `tor`, `wdc`. This argument is used to copy region-specific root CA cert to the strongSwan certificates location. If no region is specified, then the utility copies all the root CA certs.
+   The installation script accepts the command-line argument `region`. Example regions are `dal`, `fra`, `lon`, `osa`, `sao`, `syd`, `tok`, `tor`, `wdc`. This argument is used to copy region-specific root CA cert to the strongSwan certificate location. If no region is specified, then the utility copies all the root CA certs.
 
 1. Update the configuration file `/etc/ibmcloud/share.conf` with region information and with the peer certificate expiration time that you want. By default, certificates last 1 hour and new certificates are fetched every 45 minutes. However, you can modify the `certificate_duration_seconds` option to have a value between 5 minutes and 1 hour.
    ```sh
@@ -191,7 +191,7 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
    
    This option is specified in seconds. The valid range for its value is 300 - 3600 seconds. The certificates are renewed when the current certs reach 70% of their lifetime.
 
-1. If you want to renew the certs immediately with the new expiration time, then run the following command.
+1. If you want to renew the cert immediately with the new expiration time, then run the following command.
    ```sh
    /sbin/mount.ibmshare -RENEW_CERTIFICATE_NOW
    ```

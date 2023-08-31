@@ -106,7 +106,7 @@ SSH into the virtual server instance where you want to mount the file share, the
 
 6. Mount the remote file share on start. To complete the setup, you must edit the file systems table (`/etc/fstab`) and add the remote file share to the list of entries that are automatically mounted on startup. Before you create an entry in the `fstab`, take the following steps to add the mount path hostname to `/etc/hosts`.
 
-    1. Get the `hostname.com` portion of mount path, for example `fsf-dal2433a-dz.adn.networklayer.com` and get the IP address. Run the following command from the instance to get the IP address.
+    1. Get the `hostname.com` portion of the mount path, for example `fsf-dal2433a-dz.adn.networklayer.com` and get the IP address. Run the following command from the instance to get the IP address.
 
        ```sh
        host hostname.com
@@ -120,7 +120,7 @@ SSH into the virtual server instance where you want to mount the file share, the
        fsf-dal2433a-dz.adn.networklayer.com has address 203.0.113.0
        ```
 
-       If you get command not found error when you run `host` command, use `yum install bind-utils` to install it.
+       If you get a command not found error when you run `host` command, use `yum install bind-utils` to install it.
        {: tip}
 
     2. Edit `/etc/hosts` and add an IP to the hostname entry.
@@ -171,7 +171,7 @@ By configuring `no_root_squash`, root clients can retain root permissions on the
 
 For NFSv4.1, set the nfsv4 domain to: `slnfsv4.com` and start `rpcidmapd` or a similar service that is used by your OS.
 
-1. From the host, set domain setting in `/etc/idmapd.conf`.
+1. From the host, set the domain setting in `/etc/idmapd.conf`.
 
    ```sh
    $ vi /etc/idmapd.conf

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-07-17"
+lastupdated: "2023-08-31"
 
 keywords: troubleshooting, file storage for vpc, CBR errors
 
@@ -29,9 +29,9 @@ A `shares_access_forbidden` error occurs when the context-based restriction (CBR
 An issue exists with the [IAM CBR feature](/docs/account?topic=account-context-restrictions-whatis). Because the file service depends on the IAM CBR, performing share operations results in an error.
 {: tsCauses}
 
-An error occurs after you set up CBR by [creating a network zone](/docs/vpc?topic=vpc-cbr&interface=cli#creating-network-zones) and [context-based rule](/docs/vpc?topic=vpc-cbr&interface=cli#creating-rules), and then performing a file share operation.
+An error occurs after you set up CBR by [creating a network zone](/docs/vpc?topic=vpc-cbr&interface=cli#creating-network-zones) and a [context-based rule](/docs/vpc?topic=vpc-cbr&interface=cli#creating-rules), and then try to perform a file share operation.
 
-For example, first, you would add `shares` service to a network zone.
+For example, first, you would add the `shares` service to a network zone.
 
     ```sh
     ibmcloud cbr zone-create --name network-zone-1 --description "Example zone 1" --addresses 198.51.100.0  --vpc VPC-1 --service-ref service_name=shares
@@ -101,7 +101,8 @@ Make sure you set execute permission on your script file. In your script:
         "profile": {
            "name": "dp2"
         },
-  }'
-  {: codeblock}
+   }'
+   ```
+   {: codeblock}
 
 3. Verify that the profile was updated by listing your file shares again.
