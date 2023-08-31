@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-08-25"
+lastupdated: "2023-08-31"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -80,7 +80,7 @@ When you create or update a mount target, you can specify the manner in which yo
 
 When you set the access control mode of a file share to use [security groups](/docs/vpc?topic=vpc-using-security-groups), and create a mount target with a [virtual network interface](/docs/vpc?topic=vpc-vni-about), the VPC Infrastructure creates a file share gateway that provides a 1:1:1 granular authorization for the share. 
 
-You can select a specific security group or use the VPC's default security group. By modifying the rules of the security groups in your VPC, you can restrict access to the file share from one or more specific virtual server instances.
+You can select a specific security group or use the VPC's default security group. By modifying the rules of the security groups in your VPC, you can restrict access to the file share from one or more specific virtual server instances or bare metal server.
 
 When you create the mount target, you can specify a subnet and reserved IP address for the virtual network interface, or have the service pick an IP address for you in the specified subnet. The mount target must have a VPC private IP address, and the IP address must be in a subnet that is in the same zone as the share. The IP address that is assigned to the mount target cannot be changed later.
 
@@ -188,8 +188,9 @@ The following limitations apply to this release of {{site.data.keyword.filestora
 * Up to 256 hosts per zone per VPC can be concurrently connected to a single file share.
 * You can create up to 300 file shares within your VPC.
 * A file share cannot be deleted by using a `DELETE /shares/<id>` API request, if an existing mount target is associated with that file share or if replica operations are in progress.
+* Only bare metal servers provisioned after 2023-08-31 support File Storage.
+* Encryption in transit is not supported between File Storage for VPC and Bare Metal Servers for VPC.
 * A file share cannot be split from its replica by using a `DELETE /shares/<id>/source` API request, if the `lifecycle_state` of the file share is `updating` or if replica operations are in progress. 
-* Security group access mode, mount targets with virtual network interfaces, and encryption in transit are not supported between {{site.data.keyword.filestorage_vpc_short}} and {{site.data.keyword.bm_is_short}}.
 
 ## Related information
 {: #related-info-file-storage-vpc}
