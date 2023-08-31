@@ -98,7 +98,7 @@ For more information about custom images, see [Getting started with custom image
 ## Special considerations for bare metal network performance upgrade
 {: #bare-metal-pensando-considerations}
 
-For improved packet rates on bare metal servers, update stock and custom Linux images to the latest available Pensando DSC drivers. For more information, see the [Pensando documentation](https://github.com/pensando/dsc-drivers){: external}.
+For improved packet rates on bare metal servers, update stock and custom Linux images to the latest available Pensando DSC drivers. For more information, see the [AMD Pensando Support](https://www.amd.com/en/support/pensando){: external}.
 
 
 ### Linux distributions
