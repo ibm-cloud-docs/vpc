@@ -41,7 +41,7 @@ Ensure that you use the latest Secure Build CLI code from [this repository](http
    3. Combine the `workload` and `env` sections in the `user-data.yaml` file. The following snippet shows an example of how you can combine the two sections:
 
       ```sh
-      workload: hyper-protect-basic.tUxkA......A4mLi0BxdKfV
+      workload: hyper-protect-basic.UxkAbp......A4mLi0BxdKfV
       env: hyper-protect-basic.i/ULZm+oz.......r09Db0SG9mzQ=
       ```
       {: screen}
