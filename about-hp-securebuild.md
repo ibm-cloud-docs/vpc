@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-08-31"
+lastupdated: "2023-09-01"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc, hyper protect secure build, hpsb, sbs
 
@@ -22,11 +22,11 @@ By using Hyper Protect Secure Build, you can build a trusted container image wit
 ## Configuring and using Hyper Protect Secure Build in {{site.data.keyword.hpvs}} for VPC
 {: #hpvs_hpsb}
 
-Ensure that you use the latest Secure Build CLI code from [here](https://github.ibm.com/ZaaS/secure-build-cli).
+Ensure that you use the latest Secure Build CLI code from [this repository](https://github.com/ibm-hyper-protect/secure-build-cli).
 
-1. Complete the following steps to set up the Hyper Protect Secure Build (HPSB) client environment:
-    1. Follow these [instructions](https://github.ibm.com/ZaaS/secure-build-cli/blob/master/HPSB-VPC.md#install-the-secure-build-cli) to install the Secure Build CLI.
-    2. Follow these [instructions](https://github.ibm.com/ZaaS/secure-build-cli/blob/master/HPSB-VPC.md#preparing-the-configuration) to prepare the `sbs-config.json` configuration file.
+1. Complete the following steps to set up the Hyper Protect Secure Build Server (HPSB) client environment:
+    1. Install the Secure Build CLI first. For more information, see [Install the Secure Build CLI](https://github.com/ibm-hyper-protect/secure-build-cli/blob/master/HPSB-VPC.md#install-the-secure-build-cli).
+    2. Prepare the `sbs-config.json` configuration file for the HPSB server. For more information, see [Prepare the configuration](https://github.com/ibm-hyper-protect/secure-build-cli/blob/master/HPSB-VPC.md#preparing-the-configuration) to 
 2. Complete the following steps to create the `user-data.yaml`file that is used as the contract.
 
    1. Copy the following `workload` section of the contract that is generated via an automated process, into the `user-data.yaml`file. This `workload` section contains the encrypted details of the HPSB image. Use the following `workload` section of the contract for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-10` or `ibm-hyper-protect-container-runtime-1-0-s390x-11`.
@@ -36,12 +36,12 @@ Ensure that you use the latest Secure Build CLI code from [here](https://github.
       ```
       {: codeblock}
 
-   2. Create the `env` section of the contract. For more information about the `env` section of the contract, see [The env section](https://cloud.ibm.com/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_env). [This](https://github.ibm.com/ZaaS/secure-build-cli/blob/master/HPSB-VPC.md#an-example-of-the-env-section-of-the-contract) is an example of the `env` section of the contract.
+   2. Create the `env` section of the contract. For more information about the `env` section of the contract, see [The env section](https://cloud.ibm.com/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_env) and [an example of the `env` section](https://github.com/ibm-hyper-protect/secure-build-cli/blob/master/HPSB-VPC.md#an-example-of-the-env-section-of-the-contract).
 
    3. Combine the `workload` and `env` sections in the `user-data.yaml` file. The following snippet shows an example of how you can combine the two sections:
 
       ```sh
-      workload: hyper-protect-basic.UxkAbp......CW5YGHkA4mLi0BxdKfV
+      workload: hyper-protect-basic.UxkAbp......A4mLi0BxdKfV
       env: hyper-protect-basic.i/ULZm+oz.......r09Db0SG9mzQ=
       ```
       {: screen}
@@ -49,8 +49,8 @@ Ensure that you use the latest Secure Build CLI code from [here](https://github.
       [This](/docs/vpc?topic=vpc-about-contract_se#step7) is example of a contract.
 
 
-3. Follow these [instructions](https://github.ibm.com/ZaaS/secure-build-cli/blob/master/HPSB-VPC.md#deploying-the-secure-build-server) to deploy the HPSB server, by using the certificates and the contract that you created in the previous step.
+3. Deploy the HPSB on {{site.data.keyword.hpvs}} for VPC by using the certificates and the contract that you created in the previous step. For more information, see [Deploying the Hyper Protect Secure Build Server](https://github.com/ibm-hyper-protect/secure-build-cli/blob/master/HPSB-VPC.md#deploying-the-hyper-protect-secure-build-server).
 
-4. Follow the steps in these [instructions](https://github.ibm.com/ZaaS/secure-build-cli/blob/master/HPSB-VPC.md#how-to-build-image-by-using-hpsb) to build the container image by using the .
+4. Build the container image by using the HPSB. For more information, see [How to build image by using HPSB](https://github.com/ibm-hyper-protect/secure-build-cli/blob/master/HPSB-VPC.md#how-to-build-image-by-using-hpsb).
 
-5. Follow the steps in these [instructions](https://github.ibm.com/ZaaS/secure-build-cli/blob/master/HPSB-VPC.md#how-to-deploy-the-image-that-is-built-by-using-hpsb) to deploy the image that you built on {{site.data.keyword.hpvs}} for VPC.
+5. Deploy the image that you built on {{site.data.keyword.hpvs}} for VPC. For more information, see [How to deploy the image that is built by using HPSB](https://github.com/ibm-hyper-protect/secure-build-cli/blob/master/HPSB-VPC.md#how-to-deploy-the-image-that-is-built-by-using-hpsb). 
