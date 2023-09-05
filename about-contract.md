@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-06-20"
+lastupdated: "2023-09-05"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -110,7 +110,7 @@ auths:
 
 It consists of an archive subsection. The archive subsection contains the Base64 encoded TGZ file archive of the `docker-compose.yaml` file. As the Hyper Protect Container Runtime image uses Docker Engine and Docker Compose to start the container, the information about the container must first be created by using a standard docker-compose file. This file is then archived and base64 encoded and the output of this is provided as the value to the archive subsection, within the compose section. For more information, see [Overview of Docker Compose](https://docs.docker.com/compose/).
 
-The mount points specified under the volumes information of the docker-compose file might be aligned with the volume mount point that is specified in the workload section of the contract. 
+The mount points specified under the volumes information of the docker-compose file might be aligned with the volume mount point that is specified in the workload section of the contract.
 
 Executing a build as part of a docker compose file is not supported. Make sure your docker compose file doesn't have a `build` section.
 {: note}
@@ -187,16 +187,39 @@ In the `play` subsection, you can define the workload via [Pod descriptors](http
    ```
    {: codeblock}
 
-- In the `archive` subsection of `play`. The archive is a base64 encoded, gzipped tar file. The Pods or ConfigMaps are represented as YAML files, top level in this tar file. The file may also contain extra files and all files will be extracted to the host file system before starting the Pods. The *current working directory* is the directory in which the files have been extracted, so it's possible to use a volume mount with a relative path to mount files or directories from the contract.
+- In the `archive` subsection of `play`, the archive is a base64 encoded, gzipped tar file. The Pods or ConfigMaps are represented as YAML files, at the top level in this tar file. The file may also contain extra files and all files will be extracted to the host file system before starting the Pods. The *current working directory* is the directory in which the files have been extracted, so it's possible to use a volume mount with a relative path to mount files or directories from the the YAML file.
+
+   Example:
+
+   ```yaml
+   workload: |
+     type: workload
+     play:
+       archive:  ${COMPOSE_VALUE}
+     auths:
+       us.icr.io:
+         username: iamapikey
+         password: Eqx0TS....
+     volumes:
+       test-volume:
+         mount: /var/hyperprotect
+         seed: workload phrase
+         filesystem: ext4
+   ```
+
 
 - In a template format in the `templates` subsection of `play`. This section is an array of descriptors in the YAML format. [Pods](https://kubernetes.io/docs/concepts/workloads/pods/){: external} or [ConfigMaps](https://kubernetes.io/docs/concepts/configuration/configmap/){: external} may have points of variability (POV) that are not known at the time of writing the descriptors. These POVs may be represented as [templates](https://pkg.go.dev/text/template){: external} and the values will be filled in at deployment time from information in the contract. We use [go templates](https://pkg.go.dev/text/template){: external} as the templating syntax, which is the same as used for [helm charts](https://helm.sh/docs/chart_template_guide/getting_started/){: external}, so templates can easily be exchanged with k8s. We support the following `Built-In` objects:
    - *Environment:* this object contains the environment variables as merged between the workload and the environment section. The object is available as `{{ .Env }}`.
-    
+
    Example:
 
    ```yaml
    workload:
      type: workload
+     auths:
+      docker.io:
+       password: <password>
+       username: test
      play:
        templates:
          - apiVersion: v1
@@ -214,9 +237,15 @@ In the `play` subsection, you can define the workload via [Pod descriptors](http
                    name: contract.config.map
                    optional: false
              restartPolicy: Never
-   env:
+   env: |
+     type: env
+     logging:
+       logDNA:
+       ingestionKey: <ingestion Key of the Log Analysis instance>
+       hostname: <host name of the Log Analysis instance>
+       port: 6514
      env:
-       REGISTRY: docker-eu-private.artifactory.swg-devops.com/sys-zaas-team-hpse-dev-docker-local/zaas
+       REGISTRY: docker-io/test
    ```
    {: codeblock}
 
@@ -226,7 +255,7 @@ In the `play` subsection, you can define the workload via [Pod descriptors](http
    {: note}
 
 #### Environment Variables
-{: #environment_vairables}
+{: #environment_variables}
 
 In the contract, you can define environment variables in the `workload` and `env` sections. Both sets of variables are merged together with `workload` taking precedence. Pods use the concept of a [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/){: external} to define configuration, so HPCR represents the merged environment sections as a special [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/){: external} named `contract.config.map`. The following example mounts all environment variables from the contract into the container:
 
@@ -258,13 +287,13 @@ spec:
 
 - Pod to host
 
-   Usually a Pod needs to expose at least one of its containers to the host, so that container is accessible via the IP address on the host via a mapped port. For this use case, make use of the `hostPort` feature on a container. Note that this is **not** [best practice](https://kubernetes.io/docs/concepts/configuration/overview/#services){: external} in the kubernetes world, in which a service would be used instead. 
+   Usually a Pod needs to expose at least one of its containers to the host, so that container is accessible via the IP address on the host via a mapped port. For this use case, make use of the `hostPort` feature on a container. Note that this is **not** [best practice](https://kubernetes.io/docs/concepts/configuration/overview/#services){: external} in the Kubernetes world, in which a service would be used instead.
 
    Specify both `hostPort` and `containerPort` explicitly. If you specify only `containerPort`, ports are not bound.
    {: important}
 
    Example:
-   
+
    ```yaml
    apiVersion: v1
    kind: Pod
@@ -309,10 +338,10 @@ spec:
 
 - Pod to Pod
 
-   To reach from one Pod to another, expose a `hostPort` on the target Pod. The source Pod can then make a request to the host on the exposed port to get to the target Pod. 
+   To reach from one Pod to another, expose a `hostPort` on the target Pod. The source Pod can then make a request to the host on the exposed port to get to the target Pod.
 
    The source Pod can find the IP address of the host via the following command:
-   
+
    ```bash
    ip route | awk '/default/ { print $3 }'
    ```
@@ -358,7 +387,7 @@ The `images` subsection is meant only for an image that is signed.
 #### Images described by docker compose
 {: #container-image-by-docker-compose}
 
-The container image that is listed in the docker-compose file can be signed or not signed by using Docker Content Trust (DCT). 
+The container image that is listed in the docker-compose file can be signed or not signed by using Docker Content Trust (DCT).
 
 The following example shows an image URL:
 ```buildoutcfg
@@ -403,14 +432,14 @@ services:
 #### Images described by Pod descriptors
 {: #container-image-by-pod-descriptors}
 
-Container images described by Pod descriptors can be validated by RedHat Simple Signing. 
+Container images described by Pod descriptors can be validated by RedHat Simple Signing.
 
-If the image is referenced by a digest, the service allows its usage without additional checks. 
+If the image is referenced by a digest, the service allows its usage without additional checks.
 
 Images without a digest need a GPG key to be validated. The key is transferred in base64 encoded binary format that can be created. For example:
 
 ```bash
-gpg --export ${KEY_ID} | busybox base64 -w0
+gpg -a --export ${KEY_ID}|base64 -w0
 ```
 {: codeblock}
 
@@ -431,7 +460,9 @@ images:
 
 The `volumes` section needs to be provided in the contract only if a data volume is attached to the instance at the time of creation. The information provided in this section is used to mount the attached data volume (provided by the user) and is later encrypted using the "seeds" provided in the `workload` and `env` sections. You can provide any path of your choice for the "mount" field. The path provided by the user is used internally to mount the data volume. The mount path provided in the contract must match the path provided under the volumes section of the `docker-compose.yaml` file, so that all the data associated with the container workload is stored in this data volume.
 
-The `volumes` subsection has support for auto encryption of the data volume with user-provided seeds. If a data volume is attached to the {{site.data.keyword.hpvs}} instance, it is encrypted automatically with the seeds that are provided through the "seed" field in the `volumes` subsections of the contract. Thus two seeds must be provided, one through the `workload` section (by the workload persona) and the other through the `env` section (by the deployer persona). These two seeds are internally converted to UTF8 sequences and then concatenated. Later, the hash (SHA256) of the concatenated sequence is computed as a hexdigest, which is used as the LUKS passphrase to encrypt the data volume. You can use the following command to validate the hexdigest:
+The `volumes` subsection has support for auto encryption of the data volume with user-provided seeds. If a data volume is attached to the {{site.data.keyword.hpvs}} instance, it is encrypted automatically with the seeds that are provided through the "seed" field in the `volumes` subsections of the contract. Thus two seeds must be provided, one through the `workload` section (by the workload persona) and the other through the `env` section (by the deployer persona). These two seeds are internally converted to UTF8 sequences and then concatenated. Later, the hash (SHA256) of the concatenated sequence is computed as a hexdigest, which is used as the LUKS passphrase to encrypt the data volume.
+
+You can use the following command to validate the hexdigest:
 
 ```buildoutcfg
 echo -n "seed1seed2" | sha256sum
@@ -453,8 +484,22 @@ volumes:
 ```
 {: codeblock}
 
-Starting from the HPCR image version `ibm-hyper-protect-container-runtime-1-0-s390x-9`, for new {{site.data.keyword.hpvs}} for VPC instances, the data volume is partitioned into two parts. The first partition (100Mib) is reserved for internal metadata; the second partition remains as the data volume for workload. Only new volumes are partitioned, and you can't use the partitioned volume with an older version of the HPCR image. Provisioning with an existing encrypted volume also works. The difference is that the existing volume does not get partitioned, and you can also go back to an older image with this volume. 
+Starting with the HPCR image version `ibm-hyper-protect-container-runtime-1-0-s390x-9`, for new {{site.data.keyword.hpvs}} for VPC instances, the data volume is partitioned into two parts. The first partition (100Mib) is reserved for internal metadata; the second partition remains as the data volume for workload. Only new volumes are partitioned, and you can't use the partitioned volume with an older version of the HPCR image. Provisioning with an existing encrypted volume also works. The difference is that the existing volume does not get partitioned, and you can also go back to an older image with this volume.
 {: note}
+
+
+Starting from `ibm-hyper-protect-container-runtime-1-0-s390x-12`, the deployer and provider can use the "rolling of seeds" feature. An option is provided to roll or rotate the seeds to increase the security posture, or if the seed is compromised. When the deployer or the provider or both of them want to roll the seeds, the current seed information must be specified in the `previousSeed` parameter, and the new seed information must be specified in the `seed` parameter. See the snippet shown below for an example.
+
+The following snippet is an example for the volumes section:
+```yaml
+volumes:
+  test:
+    filesystem: ext4
+    mount: /mnt/data
+    seed: workload phrase1
+    previousSeed: workload phrase
+```
+{: codeblock}
 
 ## The `env` section
 {: #hpcr_contract_env}
@@ -497,6 +542,17 @@ volumes:
 ```
 {: codeblock}
 
+When you are using the "rolling of seeds" feature, you can use the following snippet as an example:
+
+```yaml
+volumes:
+  test:
+    seed: env phrase1
+    previousSeed: env phrase
+```
+{: codeblock}
+
+
 The name of the volume must be the same as that in the [workload - volumes](#hpcr_contract_volumes) subsection.
 {: note}
 
@@ -504,16 +560,17 @@ As mentioned, you can integrate with Hyper Protect Crypto Services to generate a
 
 ```yaml
 volumes:
- test:   
-   kms:   
-     - apiKey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"   
-       crn: "crn:v1:bluemix:public:hs-crypto:us-south:a/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:key:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"  
+ test:
+   kms:
+     - apiKey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+       crn: "crn:v1:bluemix:public:hs-crypto:us-south:a/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:key:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
        type: "public"
-     - apiKey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"   
-       crn: "crn:v1:bluemix:public:hs-crypto:us-south:a/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:key:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"  
+     - apiKey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+       crn: "crn:v1:bluemix:public:hs-crypto:us-south:a/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:key:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
        type: "private"
-   seed:"seed1"   
-   kmsTimeout: 10  
+   seed:"seed1"
+   previousSeed: "seed"
+   kmsTimeout: 10
 ```
 {: codeblock}
 
@@ -526,7 +583,7 @@ For information about how to use the `signingKey`, see [Contract signature](#hpc
 {: #hpcr_contract_env_env}
 
 - If Pod descriptors are used in the `workload` section:
-   
+
    See the example for the template format in [the `play` subsection](#hpcr_contract_play).
 
 - If a docker compose file is used in the `workload` section:
@@ -538,7 +595,7 @@ For information about how to use the `signingKey`, see [Contract signature](#hpc
      KEY2: "${Value2}"
    ```
    {: codeblock}
-   
+
    When the docker compose file has an environment section, as shown in the example above, you can pass the values in the  `env` section of the deployer. The following example shows how to specify the values for the `env` variables:
    ```buildoutcfg
    env:
@@ -562,8 +619,8 @@ The encryption and attestation certificates are signed by the IBM intermediate c
 ### Downloading the encryption certificate and extracting the public key
 {: #encrypt_downloadcert}
 
-1. Download the certificate (for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-11`) that is used to encrypt the contract [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-11-encrypt.crt){: external}.
-   You can download the certificate for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-10` [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-10-encrypt.crt){: external}.
+1. Download the certificate (for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-12`) that is used to encrypt the contract [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-12-encrypt.crt){: external}.
+   You can download the certificate for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-11` [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-11-encrypt.crt){: external}.
    {: note}
 
 2. Validate the encryption certificate by following the instructions [here](/docs/vpc?topic=vpc-cert_validate#validate_encrypt_cert).
@@ -588,10 +645,10 @@ Complete the following steps on an Ubuntu system, to encrypt the workload sectio
 
 2. Create the [workload section](#hpcr_contract_workload) of the contract and add the contents in the `workload.yaml` file.
 
-3. Export the complete path of the `workload.yaml` file and `ibm-hyper-protect-container-runtime-1-0-s390x-11-encrypt.crt`:
+3. Export the complete path of the `workload.yaml` file and `ibm-hyper-protect-container-runtime-1-0-s390x-12-encrypt.crt`:
    ```yaml
    WORKLOAD="<PATH to workload.yaml>"
-   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-11-encrypt.crt>"
+   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-12-encrypt.crt>"
    ```
    {: pre}
 
@@ -601,7 +658,7 @@ Complete the following steps on an Ubuntu system, to encrypt the workload sectio
    ```
    {: pre}
 
-5. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-11-encrypt.crt`:
+5. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-12-encrypt.crt`:
    ```yaml
    ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY -certin | base64 -w0 )"
    ```
@@ -635,10 +692,10 @@ Complete the following steps on an Ubuntu system, to encrypt the `env` section u
 
 1. Create the [`env` section](#hpcr_contract_env) of the contract and add the contents in the `env.yaml` file.
 
-2. Export the complete path of the `env.yaml` file and `ibm-hyper-protect-container-runtime-1-0-s390x-11-encrypt.crt`:
+2. Export the complete path of the `env.yaml` file and `ibm-hyper-protect-container-runtime-1-0-s390x-12-encrypt.crt`:
    ```yaml
    ENV="<PATH to env.yaml>"
-   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-11-encrypt.crt>"
+   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-12-encrypt.crt>"
    ```
    {: pre}
 
@@ -648,7 +705,7 @@ Complete the following steps on an Ubuntu system, to encrypt the `env` section u
    ```
    {: pre}
 
-4. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-11-encrypt.crt`:
+4. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-12-encrypt.crt`:
    ```yaml
    ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY  -certin | base64 -w0)"
    ```
@@ -714,10 +771,10 @@ Complete the following steps on an Ubuntu system, to create the contract signatu
    ```
    {: codeblock}
 
-4. Use the following command to export complete path of `env.yaml` and `ibm-hyper-protect-container-runtime-1-0-s390x-11-encrypt.crt`:
+4. Use the following command to export complete path of `env.yaml` and `ibm-hyper-protect-container-runtime-1-0-s390x-12-encrypt.crt`:
    ```sh
    ENV="<PATH to env.yaml>"
-   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-11-encrypt.crt>"
+   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-12-encrypt.crt>"
    ```
    {: pre}
 
@@ -727,7 +784,7 @@ Complete the following steps on an Ubuntu system, to create the contract signatu
    ```
    {: pre}
 
-6. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-11-encrypt.crt.`:
+6. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-12-encrypt.crt.`:
    ```yaml
    ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY  -certin | base64 -w0)"
    ```
