@@ -68,7 +68,7 @@ Next generation instance profiles (Beta)
 {: release-note}
 
 VPC Status History
-:   You can now customize notification settings for your VPC dashboard. When status history is enabled, your notification history is retained to help you find old error messages or track down when the creation or deletion of a resource occurred. To enable Status History, make sure that your browser alllows local storage access. For more information, see [Enabling local storage in your browser](/docs/vpc?topic=vpc-enable-local-broswer-storage).
+:   You can now customize notification settings for your VPC dashboard. When status history is enabled, your notification history is retained to help you find old error messages or track down when the creation or deletion of a resource occurred. To enable Status History, make sure that your browser alllows local storage access. For more information, see [Enabling local storage in your browser](/docs/vpc?topic=vpc-enable-local-browser-storage).
 
 ### 15 August 2023
 {: #vpc-august1523}
