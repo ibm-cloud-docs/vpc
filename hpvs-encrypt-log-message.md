@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-03-30"
+lastupdated: "2023-09-05"
 
 keywords: logging for hyper protect virtual server for vpc, encrypt log messages for hyper protect virtual server for vpc
 
@@ -21,7 +21,7 @@ This tutorial walks you through how to encrypt log messages that are generated b
 ## Objective
 {: #objective}
 
-Every Hyper Protect Virtual Server for VPC instance is created with a valid [contract](/docs/vpc?topic=vpc-about-contract_se). One section of the contract stores your [logging configuration](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc). The logs produced by your deployed workload are sent via TLS to your designated logging service and are later displayed on the logging dashboard. 
+Every Hyper Protect Virtual Server for VPC instance is created with a valid [contract](/docs/vpc?topic=vpc-about-contract_se). One section of the contract stores your [logging configuration](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc). The logs produced by your deployed workload are sent via TLS to your designated logging service and are later displayed on the logging dashboard.
 
 If your workload produces sensitive information, you can take similar steps as in this tutorial to make selected log messages display as ciphertext on the logging dashboard. To retrieve the deciphered messages, you can download the logs from your Log Analysis instance and decrypt them locally.
 
@@ -55,7 +55,7 @@ This tutorial also provides sample files such as `env.yaml`, `workload.yaml`, an
 
 This tutorial will get you started with a simple Hyper Protect Virtual Server for VPC contract that only has an [`env` section](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_env) and a [`workload` section](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_workload).
 
-As recommended in the [documentation](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_encrypt), we will encrypt both sections. When the instance boots, the bootloader decrypts the contract if it's encrypted. Download the certificate to be used to encrypt the contract by following the [instructions](/docs/vpc?topic=vpc-about-contract_se#encrypt_downloadcert). This tutorial uses the [certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-8-encrypt.crt){: external} for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-8`. The file `hpcr.crt` is already available inside `example-files`. Follow the steps to obtain the simple contract:
+As recommended in the [documentation](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_encrypt), we will encrypt both sections. When the instance boots, the bootloader decrypts the contract if it's encrypted. Download the certificate to be used to encrypt the contract by following the [instructions](/docs/vpc?topic=vpc-about-contract_se#encrypt_downloadcert). This tutorial uses the [certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-12-encrypt.crt){: external} for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-12`. The file `hpcr.crt` is already available inside `example-files`. Follow the steps to obtain the simple contract:
 
 1. Get the hostname and the ingestion key of your Log Analysis instance. See [Logging for Hyper Protect Virtual Servers for VPC](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc).
 
@@ -94,12 +94,12 @@ As recommended in the [documentation](/docs/vpc?topic=vpc-about-contract_se#hpcr
 
 6. Complete the `user-data.yaml` with the output of Step 2 and 5. Refer to the sample `user-data.yaml` for the correct schema. Note the `hyper-protect-basic` token approach to implement hybrid encryption, as it's used throughout IBM Cloud Hyper Protect Virtual Server for VPC.
 
-## Create your Hyper Protect Virtual Server instance 
+## Create your Hyper Protect Virtual Server instance
 {: #create-virtual-server}
 
 With the contract (user data) available, we go ahead to create an instance.
 
-The quickest way is to use the [UI](/docs/vpc?topic=vpc-about-se&interface=ui#create-hyper-protect-virtual-servers-for-vpc-instance). For **Operating system**, choose [**IBM Hyper Protect**](/docs/vpc?topic=vpc-vsabout-images#hyper-protect-runtime) to create a Hyper Protect Virtual Server for VPC instance. Paste your user data in the `User data` box. Click **Create virtual server instance** when you are ready. 
+The quickest way is to use the [UI](/docs/vpc?topic=vpc-about-se&interface=ui#create-hyper-protect-virtual-servers-for-vpc-instance). For **Operating system**, choose [**IBM Hyper Protect**](/docs/vpc?topic=vpc-vsabout-images#hyper-protect-runtime) to create a Hyper Protect Virtual Server for VPC instance. Paste your user data in the `User data` box. Click **Create virtual server instance** when you are ready.
 
 ## Decrypt log messages
 {: #decrypt-log-messages}

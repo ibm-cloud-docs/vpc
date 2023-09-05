@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-06-20"
+lastupdated: "2023-09-05"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -41,15 +41,15 @@ The encryption and attestation certificates are signed by the IBM intermediate c
 Use the following procedure to validate the attestation record and hashes:
 
 * Obtain the attestation record `se-checksums.txt` and the signature file `se-signature.bin` from your {{site.data.keyword.hpvs}} for VPC instance. To do so, you can implement your container to provide the attestation record and the signature file. The attestation record and the signature file are made available to your container in the `/var/hyperprotect` directory.
-* Get the IBM attestation certificate [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-11-attestation.crt){: external} for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-11`.
-   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-10`, you can download the IBM attestation certificate [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-10-attestation.crt){: external}.
+* Get the IBM attestation certificate [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-12-attestation.crt){: external} for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-12`.
+   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-11`, you can download the IBM attestation certificate [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-11-attestation.crt){: external}.
    {: note}
 
 * Validate the attestation certificate by following the instructions [here](/docs/vpc?topic=vpc-cert_validate#validate_attest_cert).
 * Extract the encryption public key from the encryption certificate by using the following command:
 
    ```sh
-   openssl x509 -pubkey -noout -in ibm-hyper-protect-container-runtime-1-0-s390x-11-attestation.crt > contract-public-key.pub
+   openssl x509 -pubkey -noout -in ibm-hyper-protect-container-runtime-1-0-s390x-12-attestation.crt > contract-public-key.pub
    ```
    {: pre}
 
@@ -161,12 +161,32 @@ d388326d90583b2140831e821311aedaee1ad4b4e721b458f8769d3f9267b0dc attestationPubl
 
 The `baseimage` is the IBM internal QEMU Copy On Write Version 2 (QCOW2) file, which is used as the source for most of the operating system files of the Hyper Protect Container Runtime image. It is used only at image build time by the enabler process. The enabler uses this source together with other Debian packages to create the `root.tar.gz` and the encrypted secure execution kernel or 'initrd' image.
 
+The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-12 `baseimage`:
+```sh
+d0f8719fa55f0ddd7438e782631f55d69ecb8d4d6d588a784ef377ae7486d479 baseimage
+```
+{: pre}
+
+The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-11 `baseimage`:
+```sh
+48c149e64e23491a74b04d93f97e3adf0935eecda27f9e3128b23c7c7ee2e8af baseimage
+```
+{: pre}
+
 ### `root.tar.gz`
 {: #root_tarfile}
 
 The `root.tar.gz` is part of the final secure execution enabled IBM Hyper Protect Container Runtime image and contains all operating system files. It is stored on the image's first partition (boot partition) as `/boot/root.tar.gz`.
+
+The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-12 `root.tar.gz`.
 ```sh
-2d290fcafca295cd2de49e7246a5a5a080f503cb066d451b008a863b84a82ee1 root.tar.gz
+ccccedebb2a418c81df6f490c8b6e572ac417b4ba347770290de58a25be19863 root.tar.gz
+```
+{: pre}
+
+The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-11 `root.tar.gz`.
+```sh
+1ba4779734daa92f7ff881bd083d1c663cbdb1073936c2ae5103bca0dc736807 root.tar.gz
 ```
 {: pre}
 
