@@ -42,6 +42,8 @@ IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1
 
 :   You can now roll or rotate the seeds that are used in the contract to improve the security posture, or if the seed is compromised. For more information, see [The workload - volumes subsection](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_volumes), and [The env - volumes subsection](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_env_vol).
 
+Ultra High Memory profiles are now available in the United Kingdom region
+:   The Ultra High Memory profile family (`ux2d`) is now available in the United Kingdome (London) region. For more information on this profile family, see [Ultra High Memory](/docs/vpc?topic=vpc-profiles&interface=ui#uhmemory).
 
 ## August 2023
 {: #vpc-aug23}
