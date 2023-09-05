@@ -242,7 +242,7 @@ Very High Memory profiles offer 1 vCPU to 14 GiB of RAM to host small to medium 
 
 Ultra High Memory profiles are hosted exclusively on the latest generation Intel® Xeon® Platinum Cascade Lake server hosts. This profile family offers our highest vCPU to memory ratio with 28 GiB of memory for every 1 vCPU of compute and up to 5.7 TiB of available RAM and is optimized for running memory intensive applications and in-memory database such as SAP HANA, Memcached, or Redis. All Very High Memory profiles are provisioned with temporary SSD-backed [instance storage](/docs/vpc?topic=vpc-instance-storage) at no additional charge.
 
-Ultra High Memory profiles are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), and EU Germany (Frankfurt) regions.
+Ultra High Memory profiles are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London) and EU Germany (Frankfurt) regions.
 {: preview}
 
 The following Ultra High Memory profiles are available for x86-64 processors:
