@@ -15,7 +15,7 @@ subcollection: vpc
 # About Block Storage Snapshots for VPC
 {: #snapshots-vpc-about}
 
-Block Storage Snapshots for VPC are a regional offering that is used create a point-in-time copy of your {{site.data.keyword.block_storage_is_short}} boot or data volume. The initial snapshot that you take is a full backup of the volume. Subsequent snapshots of the same volume are incremental, so only the changes since the last snapshots are captured. You can restore data to a new volume during instance provisioning, from an existing instance, and when you create an unattached volume.
+Block Storage Snapshots for VPC are a regional offering that is used create a point-in-time copy of your {{site.data.keyword.block_storage_is_short}} boot or data volume. The initial snapshot that you take is a full backup of the volume. Subsequent snapshots of the same volume are incremental, so only the changes since the last snapshot are captured. You can restore data to a new volume during instance provisioning, from an existing instance, and when you create an unattached volume.
 {: shortdesc}
 
 ## Snapshots concepts
@@ -32,11 +32,11 @@ When you take a second snapshot, it captures only the changes that occurred sinc
 
 You can create a virtual server instance with a boot volume that was initialized from a snapshot. The instance profile of the new instance is not required to match the instance that was used to create the snapshot. You can also import a snapshot of a data volume when you create and attach a new data volume to the instance. You can specify user tags for these snapshots.
 
-You can create a volume from a snapshot at any time. This process, called restoring a volume, can be performed when you create an instance, modify an instance, or when you create a stand-alone volume (no instance provisioning is required). For more information, see [Restoring a volume from a snapshot](#snapshots_vpc_restore_overview). You can also restore a fully provisioned volume by using the [fast restore feature](#snapshots-fast-restore) after initial provisioning.
+You can create a volume from a snapshot at any time. This process is called restoring a volume. For more information, see [Restoring a volume from a snapshot](#snapshots_vpc_restore_overview). You can also restore a fully provisioned volume by using the [fast restore feature](#snapshots-fast-restore) after initial provisioning.
 
 Snapshots have a lifecycle that is independent from the source {{site.data.keyword.block_storage_is_short}} volume. You can delete the original volume and the snapshot persists. However, do not detach the volume from the instance during snapshot creation. You need to wait until the snapshot is `stable` before you detach, otherwise you can't reattach the volume to an instance. Snapshots are crash-consistent. If the virtual server stops for any reason, the snapshot data is safe on the disk.
 
-Cost for snapshots is calculated based on GB capacity that is stored per month, unless the duration is less than one month. Because the snapshot is based on the capacity that was provisioned for the original volume, the snapshot capacity does not vary.
+The cost for snapshots is calculated based on GB capacity that is stored per month, unless the duration is less than one month. Because the snapshot is based on the capacity that was provisioned for the original volume, the snapshot capacity does not vary.
 
 With {{site.data.keyword.iamlong}}, you can set up resource groups in your account to provide user-access to your snapshots. Your IAM role determines whether you can create and manage snapshots. For more information, see [IAM roles for creating and managing snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-iam).
 
@@ -87,7 +87,7 @@ For more information about creating and managing snapshots, and restoring a volu
 ## Restore a volume from a snapshot
 {: #snapshots_vpc_restore_overview}
 
-You can create a volume from a snapshot at any time. This process, called restoring a volume, can be performed when you create an instance, modify an instance, or when you create a stand-alone volume (no instance provisioning is required). Volume data restoration begins immediately as the volume is hydrated, but performance is degraded until the volume is fully restored. The volume does not need to be attached to an instance. For more information, see [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore).
+You can create a volume from a snapshot at any time. This process is called restoring a volume, and it can be performed when you create an instance, modify an instance, or when you create a stand-alone volume. Volume data restoration begins immediately as the volume is hydrated, but performance is degraded until the volume is fully restored. The volume does not need to be attached to an instance. For more information, see [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore).
 
 ## Fast restore snapshot clones
 {: #snapshots_vpc_fast_restore}
@@ -135,7 +135,7 @@ You can create, view, and manage user tags in the [UI](/docs/vpc?topic=vpc-snaps
 ### Access management tags for {{site.data.keyword.block_storage_is_short}} snapshots
 {: #snapshots-about-mgt-tags}
 
-You can use access management tags to organize access control by creating flexible resource groupings, enabling your storage resources to grow without requiring updates to {{site.data.keyword.iamshort}} (IAM) policies. You create access management tags in IAM or with the Global Search and Tagging API, and then [add them to new or existing snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-add-tags-ui).
+You can use access management tags to organize access control by creating flexible resource groupings, enabling your storage resources to grow without requiring updates to {{site.data.keyword.iamshort}} (IAM) policies. You can create access management tags in IAM or with the Global Search and Tagging API, and then [add them to new or existing snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-add-tags-ui).
 
 For more information about managing tags for your account, see [Working with tags](/docs/account?topic=account-tag&interface=ui).
 
