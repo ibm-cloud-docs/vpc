@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-06-27"
+lastupdated: "2023-09-06"
 
 keywords: snapshots, block storage, volumes, cross-regional snapshot, restore volume, copy snapshot
 
@@ -21,7 +21,7 @@ Block Storage Snapshots for VPC are a regional offering that is used create a po
 ## Snapshots concepts
 {: #snapshots-vpc-concepts}
 
-A snapshot is a copy of your volume that you take manually in the UI or from the CLI, or create programmatically with the API, or Terraform. You can take a snapshot of a boot or data volume that is attached to a running virtual server instance or from an unattached data volume. A "bootable" snapshot is a snapshot of a boot volume. A "nonbootable" snapshot is of a data volume. You can take snapshots as often as you want. However, you cannot take a snapshot of a volume that's in a degraded state.
+A snapshot is a copy of your volume that you take manually in the UI or from the CLI, or create programmatically with the API, or Terraform. You can take a snapshot of a boot or data volume that is attached to a running virtual server instance. A "bootable" snapshot is a snapshot of a boot volume. A "nonbootable" snapshot is of a data volume. You can take snapshots as often as you want. However, you cannot take a snapshot of a volume that's in a degraded state.
 
 Do you want to automatically create snapshots of your {{site.data.keyword.block_storage_is_short}} volumes? With Backup for VPC, you can create backup policies to schedule regular volume backups. For more information, see [About Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
 {: tip}
