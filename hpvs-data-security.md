@@ -154,7 +154,7 @@ Check logs in Log Analysis if your instance shuts down.
 {: note}
 
 ### Working with customer-managed keys for Hyper Protect Virtual Servers for VPC
-{: #working-with-keys}
+{: #hpvs-working-with-keys}
 
 #### Rotating the root key
 {: #rotate-key}
