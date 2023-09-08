@@ -84,7 +84,7 @@ Use the following steps to create a virtual server instance.
 6. Click **Create virtual server instance** when you are ready to provision.
 
 ## Next steps after an instance is created in the UI
-{: #next-steps-creating-virtual-servers-ui}
+{: #next-steps-after-creating-virtual-servers-ui}
 {: ui}
 
 <!---A series of emails is sent to your administrator: Acknowledgment of the virtual server instance order, order approval and processing, and a message that the instance is created.--->
