@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2023-09-01",
+    "lastupdated": "2023-09-08",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
@@ -31,19 +31,19 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
+          "date": "05 September 2023", 
+          "title": "IBM Hyper Protect Container Runtime image ibm-hyper-protect-container-runtime-1-0-s390x-12 updates",
+          "description": "For the IBM Hyper Protect Container Runtime image version ibm-hyper-protect-container-runtime-1-0-s390x-12, new certificates are available. You can now roll or rotate the seeds that are used in the contract to improve the security posture or if the seed is compromised. "
+        },
+          {
+          "date": "05 September 2023", 
+          "title": "Ultra High Memory profiles are now available in the United Kingdom region",
+          "description": "The Ultra High Memory profile family (ux2d) is now available in the United Kingdome (London) region."
+        },
+        {
           "date": "31 August 2023", 
           "title": "Bare metal network hardware",
           "description": "Bare metal servers now use upgraded network cards. For network workloads that leverage very high packets per second for smaller packets, you can update your drivers to the latest available Pensando device drivers."
-        },
-          {
-          "date": "31 August 2023", 
-          "title": "File storage for Bare metal servers for VPC",
-          "description": "File Storage for VPC is now supported by Bare Metal Servers for VPC. Users can leverage file storage as an addition or alternative to local NVMe drives."
-        },
-        {
-          "date": "25 August 2023", 
-          "title": "Next generation instance profiles (Beta)",
-          "description": "The 3rd generation of IBM Cloud Virtual Servers for VPC are available as a Beta offering to select customers. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel® Xeon® Scalable processors to provide the most powerful and performant general-purpose profiles available."
         }
       ]
     }
