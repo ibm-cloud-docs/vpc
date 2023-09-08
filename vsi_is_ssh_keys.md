@@ -273,7 +273,7 @@ ibmcloud is key-create KEY_NAME (KEY | @KEY_FILE) [--resource-group-id RESOURCE_
 {: #importing-ssh-keys-api}
 {: api}
 
-To import a new SSH key by using the API, use the [Create a key](/apidocs/vpc/latest#create-key). The file that you import is `id_rsa.pub` or `id_ed25519.pub`, which contains your public key. You can't create a brand-new SSH key by using the API. However, you can create a new SSH key by using the UI and from the UI, generate the API code snippet that you need that includes the new SSH key. For more information, see [Creating an SSH key by using the UI]({#generating-ssh-keys-ui}).
+To import a new SSH key by using the API, use the [Create a key](/apidocs/vpc/latest#create-key). The file that you import is `id_rsa.pub` or `id_ed25519.pub`, which contains your public key. You can't create a brand-new SSH key by using the API. However, you can create a new SSH key by using the UI and from the UI, generate the API code snippet that you need that includes the new SSH key. For more information, see [Creating an SSH key by using the UI](#generating-ssh-keys-ui).
 
 For the `name` property, specify the name of the SSH key. For `public_key` property, enter in the public key information. For the `type` property, specify either `rsa` or `ed25519` for the SSH key type.
 
