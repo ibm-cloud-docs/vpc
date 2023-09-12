@@ -35,7 +35,7 @@ Some changes, such as new response properties or new optional request parameters
 ### For all version dates
 {: #15-august-2023-all-version-dates-metadata}
 
-**Instance identity certificates.** You can now use the instance identity access token and a certificate signing request (CSR) to [create](/apidocs/vpc-metadata-beta#create-certificate) an instance identity certificate. For more information, see [Generating an instance identity certificate by using an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-acquire-certificate). Instance identity certificates are used when the traffic between an authorized client and the mounted file share is [encrypted in transit](/docs/vpc?topic=vpc-file-storage-vpc-eit).
+**Instance identity certificates.** You can now use the instance identity access token and a certificate signing request (CSR) to [create](/apidocs/vpc-metadata#create-certificate) an instance identity certificate. For more information, see [Generating an instance identity certificate by using an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-acquire-certificate). Instance identity certificates are used when the traffic between an authorized client and the mounted file share is [encrypted in transit](/docs/vpc?topic=vpc-file-storage-vpc-eit).
 
 ## 27 June 2023
 {: #27-june-2023-metadata}
@@ -43,7 +43,7 @@ Some changes, such as new response properties or new optional request parameters
 ### For all version dates
 {: #27-june-2023-all-version-dates-metadata}
 
-**Extended SSH key encryption.** The `type` property now includes  `ed25519` when [listing](/apidocs/vpc-metadata#list-keys) and [retrieving](/apidocs/vpc-metadata#get-key) public SSH keys. For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys&interface=api). See also [Extended SSH key encryption](/docs/vpc?topic=vpc-api-change-log#27-june-2023) in the VPC API change log.
+**Extended SSH key encryption.** The `type` property now includes `ed25519` when [listing](/apidocs/vpc-metadata#list-keys) and [retrieving](/apidocs/vpc-metadata#get-key) public SSH keys. For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys&interface=api). See also [Extended SSH key encryption](/docs/vpc?topic=vpc-api-change-log#27-june-2023) in the VPC API change log.
 
 ## 14 February 2023
 {: #14-february-2023-metadata}

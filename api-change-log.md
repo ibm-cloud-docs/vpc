@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-08-08"
+lastupdated: "2023-09-12"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -72,7 +72,7 @@ Currently, in the `us-south` region, mounting a file share in zones `us-south-2`
 ### For all version dates
 {: #11-july-2023-all-version-dates}
 
-**Image lifecycle management.** You can now [deprecate](/apidocs/vpc-beta#deprecate-image) or [obsolete](/apidocs/vpc-beta#obsolete-image) custom images directly. Alternatively, you can schedule transition at a later date by specifying the `deprecation_at` or `obsolescence_at` properties when [creating](/apidocs/vpc-beta#create-image) or [updating](/apidocs/vpc-beta#update-image) an image. If you need to revert a status change, you can transition `deprecated` or `obsolete` images back to `available`. For more information, see [Managing custom images](/docs/vpc?topic=vpc-managing-custom-images&interface=api#custom-images-list-api).
+**Image lifecycle management.** You can now [deprecate](/apidocs/vpc/latest#deprecate-image) or [obsolete](/apidocs/vpc/latest#obsolete-image) custom images directly. Alternatively, you can schedule transition at a later date by specifying the `deprecation_at` or `obsolescence_at` properties when [creating](/apidocs/vpc/latest#create-image) or [updating](/apidocs/vpc/latest#update-image) an image. If you need to revert a status change, you can transition `deprecated` or `obsolete` images back to `available`. For more information, see [Managing custom images](/docs/vpc?topic=vpc-managing-custom-images&interface=api#custom-images-list-api).
 
 `deprecated` custom images remain usable, while `obsolete` images cannot be used to provision instances or bare metal servers.
 {: note}
@@ -128,7 +128,7 @@ As a result, you will no longer be able to create an IKE/IPsec policy or VPN con
 ### For all version dates
 {: #2-may-2023-all-version-dates}
 
-**Exporting custom images.** You can now [export custom images](/apidocs/vpc-beta#create-image-export-job) to an authorized IBM Cloud Object Storage bucket. Specify the target `storage_bucket` to export the image to. The image will be exported as `qcow2` unless you specify another value using the `format` property. For more information, see [Exporting a custom image to IBM Cloud Object Storage](/docs/vpc?topic=vpc-managing-custom-images&interface=api#custom-image-export-to-cos-api), or start using the new [export jobs](/apidocs/vpc-beta#list-image-export-jobs) methods.
+**Exporting custom images.** You can now [export custom images](/apidocs/vpc/latest#create-image-export-job) to an authorized IBM Cloud Object Storage bucket. Specify the target `storage_bucket` to export the image to. The image will be exported as `qcow2` unless you specify another value using the `format` property. For more information, see [Exporting a custom image to IBM Cloud Object Storage](/docs/vpc?topic=vpc-managing-custom-images&interface=api#custom-image-export-to-cos-api), or start using the new [export jobs](/apidocs/vpc/latest#list-image-export-jobs) methods.
 
 ## 18 April 2023
 {: #18-april-2023}
@@ -432,7 +432,7 @@ Network load balancers with `route_mode` enabled do not support cross zone membe
 ### For all version dates
 {: #21-june-2022-all-version-dates}
 
-**Backup for VPC.** You can now create backup policies to schedule automatic backups of your block storage volumes. Backups are made when a user tag in a block storage volume matches a user tag defined in a backup policy. Backups are created by a schedule defined in a [backup plan](/apidocs/vpc-beta#create-backup-policy-plan). Each plan also has a deletion policy for managing backups created by the plan, which you can customize by specifying the `deletion_trigger` sub-property. At the scheduled interval, a backup snapshot is created of that volume. You can have up to four backup plans per policy. See [Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
+**Backup for VPC.** You can now create backup policies to schedule automatic backups of your block storage volumes. Backups are made when a user tag in a block storage volume matches a user tag defined in a backup policy. Backups are created by a schedule defined in a [backup plan](/apidocs/vpc/latest#create-backup-policy-plan). Each plan also has a deletion policy for managing backups created by the plan, which you can customize by specifying the `deletion_trigger` sub-property. At the scheduled interval, a backup snapshot is created of that volume. You can have up to four backup plans per policy. See [Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
 
 The backup policy jobs API remains in [beta](/apidocs/vpc-beta#24-may-2022).
 {: note}

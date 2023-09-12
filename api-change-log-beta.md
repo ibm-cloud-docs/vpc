@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-08-08"
+lastupdated: "2023-09-12"
 
 keywords: api, change log, beta
 
@@ -129,16 +129,16 @@ This feature is now generally available. See the [VPC API change log](/docs/vpc?
 ### For all version dates
 {: #20-december-2022-all-version-dates-beta}
 
-**Backup for VPC.** Backup policy jobs are now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#20-december-2022).
-
-The following updates have been made for [listing backup policy jobs](/apidocs/vpc/latest#list-backup-policy-jobs) and [retrieving a backup policy job](/apidocs/vpc/latest#get-backup-policy-job) since the beta release:
+**Backup for VPC.** Backup policy jobs are now generally available. The following updates have been made for [listing backup policy jobs](/apidocs/vpc/latest#list-backup-policy-jobs) and [retrieving a backup policy job](/apidocs/vpc/latest#get-backup-policy-job) since the beta release:
 
 * The `source_volume` property has been replaced by the `source` property.
 * The `target_snapshot` property has been replaced by the `target_snapshots` array property.
 
-**Instance provision by volume.** Accounts that have been granted special approval to preview this feature can now reuse an existing boot volume to provision a virtual server instance by specifying the existing volume's `id` or `crn` sub-property of the `boot_volume_attachment` property. The specified volume must be unattached and must have an operating system with the same architecture as the instance profile. Volumes now include an `attachment_state` property and an expanded `operating_system` property you can use to view a volume's eligibility. You can also use the new [list volumes](/apidocs/vpc/latest#list-volumes) filters to list volumes that have specific `attachment_state`, `operating_system`, and `encryption_type` values.
+See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#20-december-2022).
 
-By default, a boot volume attached to a virtual server instance is deleted when the instance is deleted. To preserve the boot volume when deleting a virtual server instance, change the `delete_volume_on_instance_delete` property to `false` by updating the [boot volume attachment](/apidocs/vpc/latest#update-instance-volume-attachment). See [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui), [Creating VPC resources with CLI and API](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli) for more information.
+**Instance provision by volume.** Accounts that have been granted special approval to preview this feature can now reuse an existing boot volume to provision a virtual server instance by specifying the existing volume's `id` or `crn` sub-property of the `boot_volume_attachment` property. The specified volume must be unattached and must have an operating system with the same architecture as the instance profile. Volumes now include an `attachment_state` property and an expanded `operating_system` property you can use to view a volume's eligibility. You can also use the new [list volumes](/apidocs/vpc-beta#list-volumes) filters to list volumes that have specific `attachment_state`, `operating_system`, and `encryption_type` values.
+
+By default, a boot volume attached to a virtual server instance is deleted when the instance is deleted. To preserve the boot volume when deleting a virtual server instance, change the `delete_volume_on_instance_delete` property to `false` by updating the [boot volume attachment](/apidocs/vpc-beta#update-instance-volume-attachment). See [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui), [Creating VPC resources with CLI and API](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli) for more information.
 
 This feature is now generally available. Since the beta release, by default, only a boot volume created as part of provisioning a virtual server instance will be deleted when the instance is deleted. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#21-march-2023).
 
@@ -148,7 +148,7 @@ This feature is now generally available. Since the beta release, by default, onl
 ### For all version dates
 {: #16-august-2022-all-version-dates-beta}
 
-**Sharing images across an enterprise account.** Accounts that have been granted special approval to preview this feature can now use a [catalog to share custom images](/docs/vpc?topic=vpc-planning-custom-images#custom-image-cloud-private-catalog){: external} with users in other accounts within the same enterprise. When you [create an image](/apidocs/vpc/latest#create-image), a new `catalog_offering` property includes a `published` sub-property that is set to `false` by default. When the custom image is imported to a catalog the `published` sub-property is set to `true`, indicating that the image is added to a catalog offering `version` and is managed from a catalog. If you are authorized to the catalog offering `version`, you can [provision virtual server instances](/apidocs/vpc/latest#create-instance) using that custom image by specifying its `catalog_offering.version.crn`. To use the custom image associated with the latest version in the offering, specify `catalog_offering.offering.crn` instead. The image may not be deleted from your IBM Virtual Private Cloud while it is managed from a catalog.
+**Sharing images across an enterprise account.** Accounts that have been granted special approval to preview this feature can now use a [catalog to share custom images](/docs/vpc?topic=vpc-planning-custom-images#custom-image-cloud-private-catalog){: external} with users in other accounts within the same enterprise. When you [create an image](/apidocs/vpc-beta#create-image), a new `catalog_offering` property includes a `published` sub-property that is set to `false` by default. When the custom image is imported to a catalog the `published` sub-property is set to `true`, indicating that the image is added to a catalog offering `version` and is managed from a catalog. If you are authorized to the catalog offering `version`, you can [provision virtual server instances](/apidocs/vpc-beta#create-instance) using that custom image by specifying its `catalog_offering.version.crn`. To use the custom image associated with the latest version in the offering, specify `catalog_offering.offering.crn` instead. The image may not be deleted from your IBM Virtual Private Cloud while it is managed from a catalog.
 
 For more information, see the tutorial [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial) and the [Import offering](/apidocs/resource-catalog/private-catalog#import-offering){: external} method in the Catalog Management API.
 
@@ -331,7 +331,7 @@ This feature is now generally available. See the [VPC API change log](/docs/vpc?
 ### For all version dates
 {: #24-june-2021-all-version-dates-beta}
 
-**Placement groups.** Placement groups for {{site.data.keyword.vpc_full}} are logical groupings of virtual server instances that can be configured to reduce the risk of correlated failures inherent in your physical environment, such as networking issues, power loss, or hardware failure. Define a placement group strategy for high-availability workloads, such as for host or power spread. For more information, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc) or dive into the new [API methods](/apidocs/vpc#list-placement-groups).
+**Placement groups.** Placement groups for {{site.data.keyword.vpc_full}} are logical groupings of virtual server instances that can be configured to reduce the risk of correlated failures inherent in your physical environment, such as networking issues, power loss, or hardware failure. Define a placement group strategy for high-availability workloads, such as for host or power spread. For more information, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc) or dive into the new [API methods](/apidocs/vpc-beta#list-placement-groups).
 
 This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#17-august-2021).
 
