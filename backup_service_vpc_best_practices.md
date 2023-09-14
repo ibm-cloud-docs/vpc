@@ -68,11 +68,11 @@ Create a backup policy with an hourly backup plan for the time-critical volumes:
 
 * If your volume already contains tags: verify that another backup policy isn't already backing up the volume. If that's the case, remove the extra tag from the volume so that it is not backed up twice, and incurring extra costs.
 
-* Set a retention period that does not exceed the total backup limitation of 10 TB. For hourly backups, you might need a shorter retention period than daily or weekly backups. You are also allowed up to 100 backups of the volume. Don't exceed that quota.
+* Set a retention period that does not exceed the total backup limitation of 10 TB. For hourly backups, you might need a shorter retention period than daily or weekly backups.
 
 Create a weekly backup plan for archived data:
 
-* Create another plan and define the retention period as 7 days. Assess the length of time that you can afford not to back up archived data, the amount of data that is in the volume, and anticipated changes. The limit is 10 TB for all backups of the volume.
+* Create another plan and define the backup frequency as 7 days. Assess the amount of data that is in the volume, and anticipated changes. The limit is 10 TB for all backups of the volume.
 
 * Set a longer retention period to have multiple copies of your archive volume. For weekly backups, you might want to retain the backups for a month.
 
