@@ -21,7 +21,7 @@ subcollection: vpc
 ## Overview
 {: #file-storage-overview}
 
-{{site.data.keyword.filestorage_vpc_short}} provides file shares within the VPC Infrastructure. You can create file shares at the zonal level, for example, `us-south-1`. File shares are identified by name and associated with a resource group in your {{site.data.keyword.cloud_notm}} customer account.
+{{site.data.keyword.filestorage_vpc_short}} provides file shares within the VPC Infrastructure. You can create file shares at the zonal level, for example `us-south-1`. File shares are identified by name and associated with a resource group in your {{site.data.keyword.cloud_notm}} customer account.
 
 You create a file share in a zone and create the mount targets for the share per VPC. You can control how the file share is accessed by specifying the [access mode](#fs-mount-access-mode): VPC-wide access or targeted access for a specific instance within a zone. 
 
@@ -65,8 +65,6 @@ If you want to connect a file share to instances that are running in different V
 ### Mount target access modes
 {: #fs-mount-access-mode}
 
-[New]{: tag-new}
-
 When you create or update a mount target, you can specify the manner in which you want the mount target to be accessed on the file share. You have two options:
 
 * Use the security group access mode to authorize access to the file share for a specific virtual server instance or instances within a subnet. This option is available to newer file shares based on the `dp2` profile and communication between the authorized virtual server instance and the file share can optionally be IPsec encapsulated. For more information, see [Encryption in Transit](#fs-eit). Cross-zone mounting is also supported.
@@ -75,8 +73,6 @@ When you create or update a mount target, you can specify the manner in which yo
 
 ### Granular authorization
 {: #fs-mount-granular-auth}
-
-[New]{: tag-new}
 
 When you set the access control mode of a file share to use [security groups](/docs/vpc?topic=vpc-using-security-groups), and create a mount target with a [virtual network interface](/docs/vpc?topic=vpc-vni-about), the VPC Infrastructure creates a file share gateway that provides a 1:1:1 granular authorization for the share. 
 
@@ -113,8 +109,6 @@ After you specified an encryption type for a file share, you can't change it.
 
 ## Encryption in transit
 {: #fs-eit}
-
-[New]{: tag-new}
 
 You can [establish an encrypted mount connection](/docs/vpc?topic=vpc-file-storage-vpc-eit) between the authorized virtual server instance and the storage system by using IPsec. For file shares based on the `dp2` profile, mount targets that are created with a virtual network interface can support the encryption in transit. The mount targets can be for a source or replica share.
 
