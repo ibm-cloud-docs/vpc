@@ -182,7 +182,7 @@ The following limitations apply to this release of {{site.data.keyword.filestora
 * Up to 256 hosts per zone per VPC can be concurrently connected to a single file share.
 * You can create up to 300 file shares within your VPC.
 * A file share cannot be deleted by using a `DELETE /shares/<id>` API request, if an existing mount target is associated with that file share or if replica operations are in progress.
-* Only bare metal servers that are provisioned after 2023-08-31 support File Storage.
+* Only bare metal servers that are provisioned after 31 August 2023 support File Storage.
 * Encryption in transit is not supported between File Storage for VPC and Bare Metal Servers for VPC.
 * A file share cannot be split from its replica by using a `DELETE /shares/<id>/source` API request, if the `lifecycle_state` of the file share is `updating` or if replica operations are in progress. 
 
