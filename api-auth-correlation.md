@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2022
-lastupdated: "2022-10-05"
+  years: 2018, 2023
+lastupdated: "2023-09-14"
 
 keywords:
 
@@ -120,6 +120,14 @@ For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?t
 | Public gateway | Update, Delete | Editor for the public gateway |
 | Public gateway | View, List | Viewer for the public gateway |
 |——————|———————|————————|
+| Routing tables | List | Viewer to list routing tables |
+| Routing tables | Read | Viewer of a routing table |
+| Routing tables | Create | Editor of a routing table |
+| Routing tables | Update | Editor of a routing table and routes |
+| Routing tables | Delete | Editor to delete a routing table |
+| Routing tables | Operate | Operator to configure a subnet attachment to a routing table |
+| Routing tables | Advertise | Editor to configure route advertisement |
+|——————|———————|————————|
 | Shares | View, List | Viewer for file shares and mount targets |
 | Shares | Create | Editor for creating file shares |
 | Shares | Create | Operator role for creating mount targets |
@@ -174,7 +182,7 @@ For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?t
 
 The following table lists tasks that are associated with the client-to-site VPN server service, the minimum IAM role required to complete the task, and the associated API method.
 
-| Description | Resource | Minimum IAM role | Action | API |  
+| Description | Resource | Minimum IAM role | Action | API |
 |--------|--------|---------|---------|---------|
 | List all VPN servers | VPN server | Viewer | is.vpn-server.vpn-server.read | `GET /vpn_servers/<vpn-server-id>` and `GET /vpn_servers/<vpn-server-id>/configuration` |
 | Create VPN server | VPN server | Editor | is.vpn-server.vpn-server.create | `POST /vpn_servers` |
