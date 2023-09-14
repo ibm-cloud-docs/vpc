@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-09-05"
+lastupdated: "2023-09-26"
 
 keywords:
 
@@ -29,6 +29,14 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## September 2023
 {: #vpc-sep23}
+
+## 26 September 2023
+{: #vpc-september2623}
+{: release-note}
+
+Backup as a Service Enterprise enablement
+:   As an enterprise account administrator, you can view and manage the backup policies and plans for the subaccounts for compliance reporting and billing from one place. Enterprise account users can see all backup policies and associated jobs. They can also see the reference of the backup snapshot that is created in the subaccount. Subaccounts can create and manage their backups as before. For more information, see [About Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
+
 
 ### 05 September 2023
 {: #vpc-sep0523}
