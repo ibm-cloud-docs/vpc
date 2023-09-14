@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-01-31"
+lastupdated: "2023-09-14"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -75,6 +75,10 @@ Create a weekly backup plan for archived data:
 * Create another plan and define the retention period as 7 days. Assess the length of time that you can afford not to back up archived data, the amount of data that is in the volume, and anticipated changes. The limit is 10 TB for all backups of the volume.
 
 * Set a longer retention period to have multiple copies of your archive volume. For weekly backups, you might want to retain the backups for a month.
+
+If you specify both age and the number of backups in your retention policy, age takes priority in determining when to delete a snapshot. The count applies only if the oldest snapshot is within the age range.
+
+For example, when you create the weekly plan and specify the retention period as 365 days, you can also specify the maximum count of 8. In this scenario, you're going to get a maximum of 8 backups in the chain, with the oldest being 8 weeks old. Alternatively, if you specify 30 days as your retention period and set the number of maximum backups to 8, by the time the 5th backup is taken, the first one is going to be deleted as it is outside of the 30-day retention period.
 
 ## Next steps
 {: #baas-bp-next-steps}
