@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-09-05"
+lastupdated: "2023-09-14"
 
 keywords:
 
@@ -29,6 +29,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## September 2023
 {: #vpc-sep23}
+
+## 14 September 2023
+{: #vpc-september2623}
+{: release-note}
+
+UI Enhancements for Backup plans
+:   You can now specify both age and count when you define the retention policy of a backup plan.
 
 ### 05 September 2023
 {: #vpc-sep0523}
