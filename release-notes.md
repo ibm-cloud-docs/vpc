@@ -30,6 +30,16 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## September 2023
 {: #vpc-sep23}
 
+### 21 September 2023
+{: #vpc-sep2123}
+{: release-note}
+
+IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}}
+:   You can now create IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instances on LinuxONE (s390x processor architecture) in the Spain (Madrid) region, in addition to Brazil (São Paulo), Canada (Toronto), Japan (Tokyo), and US East (Washington DC) regions. To create IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers), and [IBM Hyper Protect Container Runtime image](/docs/vpc?topic=vpc-vsabout-images#hyper-protect-runtime). A valid contract is required for creating an instance. For more information, see [About the contract](/docs/vpc?topic=vpc-about-contract_se&interface=ui).
+
+LinuxONE (s390x processor architecture)
+:   You can now create virtual server instances on LinuxONE (s390x processor architecture) in IBM Cloud in the Spain (Madrid) region, in addition to Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions. For more information about available LinuxONE (s390x processor architecture) profiles, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles). To create instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
+
 ## 14 September 2023
 {: #vpc-september2623}
 {: release-note}
@@ -657,7 +667,7 @@ Configuration governance
 {: release-note}
 
 IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}}
-:   You can now create IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instances on LinuxONE (s390x processor architecture) in United Kingdom (London) region, in additional to Brazil (São Paulo), Canada (Toronto), Japan (Tokyo), and US East (Washington DC) regions. To create IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers), and [IBM Hyper Protect Container Runtime image](/docs/vpc?topic=vpc-vsabout-images#hyper-protect-runtime). A valid contract is required for creating an instance. For more information, see [About the contract](/docs/vpc?topic=vpc-about-contract_se&interface=ui).
+:   You can now create IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instances on LinuxONE (s390x processor architecture) in the United Kingdom (London) region, in addition to Brazil (São Paulo), Canada (Toronto), Japan (Tokyo), and US East (Washington DC) regions. To create IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers), and [IBM Hyper Protect Container Runtime image](/docs/vpc?topic=vpc-vsabout-images#hyper-protect-runtime). A valid contract is required for creating an instance. For more information, see [About the contract](/docs/vpc?topic=vpc-about-contract_se&interface=ui).
 
 ### 23 August 2022
 {: #vpc-august2322}
