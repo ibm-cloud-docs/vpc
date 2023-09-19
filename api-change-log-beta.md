@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-09-12"
+lastupdated: "2023-09-19"
 
 keywords: api, change log, beta
 
@@ -25,6 +25,14 @@ There are no backward-compatibility guarantees as a feature progresses through i
 {: important}
 
 To review the change log of generally available API features, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log).
+
+## 19 September 2023
+{: #19-september-2023-beta}
+
+### For all version dates
+{: #19-september-2023-all-version-dates-beta}
+
+**New {{site.data.keyword.block_storage_is_full}} profile.** For accounts that have been granted special approval to preview this feature a new `defined_performance` family is introduced for data and boot [volumes](/apidocs/vpc-beta#create-volume). The `defined_performance` volume profile family contains the `sdp` profile, which provides similar functionality to the `custom` volume profile. The new profile introduces the ability to make capacity increases and IOPS changes to volumes, even when they're not attached to a virtual server instance. The properties `unattached_capacity_update_supported` and `unattached_iops_update_supported` properties have been added to all volumes and volume profiles so you can make use of these capabilities in your automation. For more information, see [The `sdp` profile](/docs/vpc?topic=vpc-block-storage-about&interface=api#block-storage-acadia-intro) and [Viewing available IOPS profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=api#view-iops-profiles).
 
 ## 8 August 2023
 {: #8-august-2023-beta}
