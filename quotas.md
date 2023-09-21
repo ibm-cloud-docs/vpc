@@ -172,8 +172,7 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 
 | Resource | Quota |
 |--------|-----|
-| File shares | 300 file shares per account, across all VPCs |
-| Mount targets | 256 per file share per account per zone |
+| File shares | 300 total file shares per account in a region |
 {: caption="Table 12. Quotas for file shares" caption-side="bottom"}
 
 ### Placement groups
