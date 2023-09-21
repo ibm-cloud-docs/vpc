@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-09-05"
+lastupdated: "2023-09-21"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -103,10 +103,19 @@ aes-256-cbc -d -pbkdf2 -in "$MESSAGE_ENC" -pass stdin
 ```
 {: codeblock}
 
-The `decrypt-attestation.sh` file can be accessed by mounting the `/var/hyperprotect` in the docker container. For example,
+In the case of a docker container, the `decrypt-attestation.sh` file can be accessed by mounting `/var/hyperprotect` in the docker container. For example,
 ```sh
  volumes:
       - "/var/hyperprotect/:/var/hyperprotect/:ro"
+```
+{: codeblock}
+
+In the case of a Podman container, the `decrypt-attestation.sh` file can be accessed by mounting `/var/hyperprotect` in the Podman container. For example,
+```sh
+ volumeMounts:
+     - name: attestation
+       readOnly: true
+       mountPath: /var/hyperprotect:Z,U
 ```
 {: codeblock}
 
@@ -220,10 +229,21 @@ d388326d90583b2140831e821311aedaee1ad4b4e721b458f8769d3f9267b0dc attestationPubl
 
 If user data contains a public RSA key (attribute: attestationPublicKey), then the attestation document (se-checksums.txt) is encrypted with the given key. The encryption is done by the same process as that of contract encryption. For more information, see [Contract encryption](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_encrypt). The public RSA key itself can also be encrypted like the contract.
 
-The encrypted attestation document is then named `se-checksums.txt.enc`. The `decrypt-attestation.sh` file can be accessed by mounting the `/var/hyperprotect` in the docker container. For example,
+The encrypted attestation document is then named `se-checksums.txt.enc`.
+
+In the case of a docker container, the `decrypt-attestation.sh` file can be accessed by mounting `/var/hyperprotect` in the docker container. For example,
 ```sh
  volumes:
       - "/var/hyperprotect/:/var/hyperprotect/:ro"
+```
+{: codeblock}
+
+In the case of a Podman container, the `decrypt-attestation.sh` file can be accessed by mounting `/var/hyperprotect` in the Podman container. For example,
+```sh
+ volumeMounts:
+     - name: attestation
+       readOnly: true
+       mountPath: /var/hyperprotect:Z,U
 ```
 {: codeblock}
 
