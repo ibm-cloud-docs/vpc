@@ -119,7 +119,7 @@ Adjustable IOPS                        false
 Busy                                   false   
 Tags                                   dev:test
 ```
-[: screen]
+{: screen}
 
 When you list your storage devices from your server's command line, you can see the same volume as `vdc` with a size of 1.2T. The T stands for tebibyte, a base-2 unit that equals 2^40^.
 
