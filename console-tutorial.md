@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2023
 
-lastupdated: "2023-08-04"
+lastupdated: "2023-09-22"
 
 keywords:
 
@@ -34,7 +34,7 @@ To create and configure your VPC and other attached resources, do the steps in t
 
 1. Create a VPC and subnet to define the network. When you create your subnet, attach a public gateway if you want to allow all resources in the subnet to communicate with the public internet.
 1. To limit the subnet's inbound and outbound traffic, you can configure an access control list (ACL). By default, all traffic is allowed.
-1. Create a virtual server instance. By default, a boot volume is attached to the instance. For most virtual server instances the default boot volume size is 100 GB. The default boot volume size for a z/OS virtual server instance is 250 GB.
+1. Create a virtual server instance. By default, a boot volume is attached to the instance. For most virtual server instances, the default boot volume size is 100 GB. The default boot volume size for a z/OS virtual server instance is 250 GB.
 1. If you want more storage, create a block storage volume and attach it to your instance.
 1. To define the inbound and outbound traffic that is allowed for the instance, configure its security group.
 1. If you want your instance to be reachable from the internet, reserve and associate a floating IP address.
@@ -151,6 +151,9 @@ To create a virtual server instance in the newly created subnet, use these steps
     {: note}
 
 1. To set the instance size, click **Change profile** to choose a profile that contains a combination of core, RAM, and network performance that's most appropriate for your workload. For more information, see [Profiles](/docs/vpc?topic=vpc-profiles).
+
+    _For z/OS virtual server instances only:_ z/OS virtual server instances require a minimum profile of 2 vCPUs x 16 GB RAM (2x16). When you select the profile for any z/OS stock images with RAM smaller than 8 GB, you might encounter the `IAR057D` message. For more information, see [IAR057D](https://www.ibm.com/docs/en/zos/2.5.0?topic=messages-iar057d){: external}.
+    {: note}
 
 1. Select an existing SSH key or create an SSH key that is to be used to access the virtual server instance. To create an SSH key, click **Create an SSH key** and name the key. Select **Generate a key pair for me**, click **Save private key**, then **Save public key**. When this action completes, click **Create**.
 1. Note the boot volume. _Auto Delete_ is enabled for the volume; the boot volume is deleted automatically if the instance is deleted.
