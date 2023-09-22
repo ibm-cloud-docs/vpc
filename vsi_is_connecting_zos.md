@@ -182,6 +182,8 @@ Follow these steps to connect to a console by using IBM Cloud UI.
 
 5. Use the **Ctrl + L** key combination to open a new z/OS Master Console, where you can issue four commands `start`, `stop`, `ipl`, and `oprmsg` for z/OS virtual server instance operations.
 
+6. You can then issue `<command> help` to get more help for each of the commands.
+
 For more information, see [Accessing virtual server instances by using VNC or serial consoles](/docs/vpc?topic=vpc-vsi_is_connecting_console). The VNC console is not supported on z/OS virtual server instances.
 
 ### Using SSH private key through a floating IP address
