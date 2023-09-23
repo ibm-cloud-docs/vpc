@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-05-31"
+lastupdated: "2023-06-01"
 
 keywords: aws peer, vpn aws
 
@@ -18,7 +18,7 @@ subcollection: vpc
 You can use IBM Cloud VPN for VPC to securely connect your VPC to an on-prem network through a VPN tunnel. This topic provides guidance about how to configure your AWS VPN gateway to connect to VPN for VPC.
 {: shortdesc}
 
-Because AWS requires PFS to be enabled in Phase 2, you must create a custom IPsec policy to replace the default policy for the VPN in your VPC. See [Creating an IPsec policy](/docs/vpc?topic=vpc-creating-ipsec-policy) for more details.
+Because AWS requires PFS to be enabled in Phase 2, you must create a custom IPsec policy to replace the default policy for the VPN in your VPC. For more information, see [Creating an IPsec policy](/docs/vpc?topic=vpc-creating-ipsec-policy).
 {: important}
 
 When the AWS VPN receives a connection request from VPN for VPC, AWS VPN uses IPsec Phase 1 parameters to establish a secure connection and authenticate the {{site.data.keyword.vpn_vpc_short}} gateway. Then, if the security policy permits the connection, the AWS VPN establishes the tunnel by using IPsec Phase 2 parameters and applies the IPsec security policy. Key management, authentication, and security services are negotiated dynamically through the IKE protocol.
@@ -65,7 +65,7 @@ To configure an AWS peer, follow these steps:
 
 1. After the status for the AWS site-to-site connection is **Available**, go to the **Static routes** tab to verify that the correct route was added automatically. Make manual adjustments if necessary.
 
-   The following screen shows that networks `10.240.128.0/27` and `10.240.128.32/27` on the IBM VPC side are routed with the new destination `10.240.128.0/26`.
+   The following image shows that networks `10.240.128.0/27` and `10.240.128.32/27` on the IBM VPC side are routed with the new destination `10.240.128.0/26`.
 
    ![AWS connection static routes](images/vpn-aws-connection-static-routes.png){: caption="Figure 3: AWS connection static routes" caption-side="bottom"}   
 
@@ -120,7 +120,7 @@ To configure an AWS peer, follow these steps:
 
    ![AWS Tunnel Options](images/vpn-interop-aws-tunnel-options.png){: caption="Figure 6: AWS tunnel options" caption-side="bottom"}
 
-1. After the AWS site-to-site connections are in **Available** state, go to the **Static Routes** tab of each site-to-site connection to verify that the correct routes were added automatically. Make manual adjustments if necessary. The following screens show that the network `10.248.0.0/24` is routed on both connections.
+1. After the AWS site-to-site connections are in **Available** state, go to the **Static Routes** tab of each site-to-site connection to verify that the correct routes were added automatically. Make manual adjustments if necessary. The following images show that the network `10.248.0.0/24` is routed on both connections.
 
    ![AWS connection static routes](images/vpn-aws-connection-static-routes-route-based-one.png){: caption="Figure 7: AWS connection static routes" caption-side="bottom"} 
 

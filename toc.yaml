@@ -173,7 +173,7 @@ toc:
                 label: SSH keys
                 topics:
                 - vsi_is_ssh_keys_about.md
-                - vsi_is_ssh_keys.md 
+                - vsi_is_ssh_keys.md
             - vsi_is_configuring_zos.md
             - vsi_is_create_instance_template.md
             - vsi_is_bulk_provision.md
@@ -363,6 +363,7 @@ toc:
                 - vpn-view-logs.md
                 - vpn-monitoring-metrics.md
                 - vpn-limitations.md
+                - vpn-mtu.md
                 - vpn-api-example.md
                 - vpn-policy-based-ingress-routing-integration-example.md
             - topicgroup:
