@@ -225,6 +225,7 @@ toc:
             - s390x-vsi-images.md
             - bare_metal_server_image.md
             - bare_metal_server_image_s390x.md
+            - eos-os-considerations.md
         - topicgroup:
             label: Images - Custom images
             topics:
