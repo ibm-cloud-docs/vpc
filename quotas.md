@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2023
 
-lastupdated: "2023-09-21"
+lastupdated: "2023-09-11"
 
 keywords:
 
@@ -56,7 +56,7 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 |   Resource     | Quota |
 | ------- | ------ |
 | Virtual private clouds | 10 per region|
-| Subnets | 100 per VPC |
+| Subnets | 15 per VPC |
 | Address prefixes | 25 per VPC |
 {: caption="Table 2. Quotas for the VPC service" caption-side="bottom"}
 
@@ -65,7 +65,7 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 
 | Resource | Quota |
 |--------|-----|
-| ACLs | 100 per VPC |
+| ACLs | 25 per VPC |
 | Rules | 100 per ACL |
 {: caption="Table 3. Quotas for access control lists" caption-side="bottom"}
 
@@ -74,8 +74,8 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 
 | Resource | Quota |
 |--------|-----|
-| Security groups | 100 per VPC |
-| Rules | 250 per security group |
+| Security groups | 50 per VPC |
+| Rules | 50 per security group |
 | Network interfaces | 1000 per security group |
 {: caption="Table 4. Quotas for security groups" caption-side="bottom"}
 
@@ -200,7 +200,7 @@ The following table displays current VPC service limits. Unlike quotas, these li
 | PCI network interfaces for bare metal servers | 8 per bare metal server |
 | Public Gateways | 1 per zone per VPC |
 | Security groups | 5 per network interface (NIC) on a virtual server instance |
-| Remote rules for security groups | 15 per security group|
+| Remote rules for security groups | 5 per security group|
 | Secondary volumes per instance | Up to 12 secondary volumes |
 | Image export jobs | 5 active jobs per image, 10 total per image, 20 active jobs per account, per region|
 | Instance groups for auto scale and more | 200 per account|
