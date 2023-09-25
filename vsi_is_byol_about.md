@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-09-15"
+lastupdated: "2023-09-25"
 
 keywords: license, virtual private cloud, BYOL, virtual server instance, instance, custom image, encryption
 subcollection: vpc
@@ -63,24 +63,26 @@ You can use your own license for a [custom Linux image](/docs/vpc?topic=vpc-crea
 
 To see all of the operating system versions from the API, make a `GET /operating_systems` call. In the response, you see SUSE Linux Enterprise Server BYOL OS versions among the list of operating systems. This example response shows information that is returned for SLES 15:
 
+```json
 {
     ...
-	  "48": {
-		   "id": "jp-tok~sles-15-s390x-byol",
-		   "name": "sles-15-s390x-byol",
-		   "family": "SUSE Linux Enterprise Server",
-		   "href": "https://jp-tok.private.iaas.cloud.ibm.com/v1/operating_systems/sles-15-s390x-byol",
-		   "architecture": "s390x",
-		   "status": null,
-		   "description": null,
-		   "vendor": "SUSE",
-		   "version": "15",
-		   "bootType": null,
-		   "allowImageCreation": null,
-		   "__typename": "OperatingSystem"
-	}
+    "48": {
+	"id": "jp-tok~sles-15-s390x-byol",
+	"name": "sles-15-s390x-byol",
+	"family": "SUSE Linux Enterprise Server",
+	"href": "https://jp-tok.private.iaas.cloud.ibm.com/v1/operating_systems/sles-15-s390x-byol",
+	"architecture": "s390x",
+	"status": null,
+	"description": null,
+	"vendor": "SUSE",
+	"version": "15",
+	"bootType": null,
+	"allowImageCreation": null,
+	"__typename": "OperatingSystem"
+    }
     ...
 }
+```
 {: codeblock}
 
 ## BYOL for Windows operating systems
