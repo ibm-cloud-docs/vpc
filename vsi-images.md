@@ -27,7 +27,6 @@ The following operating systems are available as stock images when you create a 
 | Image | Architectures |
 |---------|---------|
 | CentOS 7.x, 8.x, 9.x | x86-64 |
-| CentOS Stream 8.x, 9.x | x86-64 |
 | Debian 10.x, 11.x | x86-64 |
 | Red Hat Enterprise Linux 7.x, 8.x, 9.x | x86-64 |
 | Rocky Linux 8.5 | x86-64 |
