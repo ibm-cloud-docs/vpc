@@ -30,6 +30,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## September 2023
 {: #vpc-sep23}
 
+### 22 September 2023
+{: #vpc-sep2223}
+{: release-note}
+
+IBM Wazi as a Service available in Spain region
+:   {{site.data.keyword.waziaas_full_notm}} (Wazi aaS) is now available in the Spain (Madrid) region in IBM Cloud. For more information, see [{{site.data.keyword.waziaas_full_notm}} product page](https://www.ibm.com/cloud/wazi-as-a-service){: external}.
+
 ### 21 September 2023
 {: #vpc-sep2123}
 {: release-note}
