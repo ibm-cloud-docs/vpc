@@ -30,8 +30,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## September 2023
 {: #vpc-sep23}
 
-## 26 September 2023
-{: #vpc-september2623}
+## 28 September 2023
+{: #vpc-september2823}
 {: release-note}
 
 Backup as a Service Enterprise enablement
