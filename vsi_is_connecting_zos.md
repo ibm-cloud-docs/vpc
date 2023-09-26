@@ -3,7 +3,7 @@
 copyright:
   years: 2022, 2023
 
-lastupdated: "2023-06-16"
+lastupdated: "2023-09-22"
 
 keywords: connecting, zos, s390x, zosmf, virtual server instance
 
@@ -63,18 +63,13 @@ If you are using your z/OS Wazi aaS custom images, you do not need to configure 
 
 2. Use the `tsocmd` command to configure password phrases for the z/OS instance. Replace `YOUR PASSWORD PHRASE` with your own password phrase.
 
-   ```sh
+   ```bash
    tsocmd "ALTUSER IBMUSER PHRASE('YOUR PASSWORD PHRASE') NOEXPIRE RESUME"
    ```
    {: codeblock}
 
-   You must follow the password policies to enforce more secure connection:
-    * Must be 8 characters.
-    * Valid values for passwords include numerals, capital letters, lowercase letters, and special characters (`.,<,+,|,%,!,*,-,%,>,?,:,=`).
-    * The minimum period between password changes is 0 day.
-    * The password expiration time is 30 days. For this release, you do not receive any password expiration warning messages. 
-    * The z/OS virtual server instance retains the last five passwords for each user and prevents these passwords from being reused.
-    * Inactive user IDs are not automatically revoked.                        
+   You must follow the syntax rules for password phrases that are listed in [Assigning password phrases](https://www.ibm.com/docs/en/zos/2.5.0?topic=users-assigning-password-phrases){: external}.
+   {: important}
                                                                 
    For more information about the commands, see [tsocmd - Run a TSO/E command from the shell (including authorized commands)](https://www.ibm.com/docs/en/zos/2.5.0?topic=scd-tsocmd-run-tsoe-command-from-shell-including-authorized-commands){: external} and [ALTUSER (Alter user profile)](https://www.ibm.com/docs/en/zos/2.5.0?topic=syntax-altuser-alter-user-profile){: external}.
 
@@ -102,28 +97,32 @@ You can use the TN3270 terminal emulator to log on to the Time Sharing Option/Ex
 - For Windows, you need to import the self-signed CA cert into Windows first and then create the IBM Personal Communications (PCOMM) to read the CA cert from the truststore in Windows. Complete the following steps:
 
     1. Transfer the `common_cacert` file from the z/OS system to your workstation.
+    
     2. Open **Internet Options** in your workstation.
+    
     3. Under **Content**, select **Certificates**.
+    
     4. Select **Import** to open the Certificate Import Wizard page and click **Next**.
+    
     5. Click **Browse** to select the `common_cacert` file and click **Next**.
+    
     6. Under the Certificate Store page, select **Place all certificates in the following store** and click **browse** to select the **Trusted Root Certificate Authorities**, and then click **Next**.
   
     7. On the Completing the Certificate Import Wizard page, click **Finish**.
   
     8. After you transfer the CA cert to the truststore successfully, you need to create a secure session in PCOMM. Under the **Host Definition** tab of the **Link Parameters** configuration, enter the IP address or the hostname of your z/OS virtual server instance with port `992`.
   
-    9. Under the **Security Setup** tab of the **Link Parameters** configuration, check the **Enable Security** box.
+    9. Under the **Security Setup** tab of the **Link Parameters** configuration, check the **Enable Security** box. 
 
     The default user ID is `IBMUSER` and the password is the one you configured in the previous step. Then, you can interact with the z/OS in the TSO native mode, by using the Interactive System Productivity Facility (ISPF), or by using z/OS UNIX shell and utilities. For more information, see [Interacting with z/OS: TSO, ISPF, and z/OS UNIX interfaces](https://www.ibm.com/docs/en/zos-basic-skills?topic=concepts-interacting-zos-tso-ispf-zos-unix-interfaces){: external}.
 
     The unsecured port `23` for 3270 connection is closed. You must use the secured port `992`.
-     {: important}
+    {: important}
 
-    The VSI server certificate only contains the private IP address information of the z/OS virtual server instance. 
-    
-    Optionally, you can use the IP address of the floating IP as part of the `accepthostname` argument. For example: 
+    * The VSI server certificate only contains the private IP address information of the z/OS virtual server instance. 
+    * Optionally, you can use the IP address of the VSI as part of the `accepthostname` argument when connecting over a floating IP address. For example:
     ```sh
-    c3270 -cafile <my local dir>/common_cacert -port 992 -accepthostname <floating ip> <vsi ip address>
+    c3270 -cafile <my local dir>/common_cacert -port 992 -accepthostname <vsi ip address>  <floating ip>
     ```
     {: codeblock}
 
@@ -160,7 +159,7 @@ You can use the web browser to access the IBM z/OS Management Facility (z/OSMF).
 
 For more information about the z/OSMF, see [IBM z/OS Management Facility](https://www.ibm.com/products/zos-management-facility){: external}.
 
-When you launch z/OSMF, browser security warnings are displayed because z/OS VSIs are created with TLS certificates that are signed by an internal self-signed root certificate.
+When you launch z/OSMF, browser security warnings are displayed because z/OS virtual server instances are created with TLS certificates that are signed by an internal self-signed root certificate.
 {: note}
 
 ### Using serial console from IBM Cloud UI
@@ -182,6 +181,8 @@ Follow these steps to connect to a console by using IBM Cloud UI.
 4. Enter the credentials following the prompts to log in to your instances.
 
 5. Use the **Ctrl + L** key combination to open a new z/OS Master Console, where you can issue four commands `start`, `stop`, `ipl`, and `oprmsg` for z/OS virtual server instance operations.
+
+6. You can then issue `<command> help` to get more help for each of the commands.
 
 For more information, see [Accessing virtual server instances by using VNC or serial consoles](/docs/vpc?topic=vpc-vsi_is_connecting_console). The VNC console is not supported on z/OS virtual server instances.
 
