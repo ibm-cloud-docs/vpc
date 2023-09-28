@@ -67,7 +67,7 @@ The following table describes the information on the file share details page.
 | ID | For customer-managed encryption, the UUID generated when you created the file share. |
 | Size | File share size in GB. |
 | Created | Date the file share was created. |
-| Mount target access mode [New]{: tag-new} | Access to the file share is granted by either a security group within a subnet or to any virtual server instance in the VPC. Click the pencil icon to switch access modes. Security group access is available only to file shares created with the [`dp2` profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile). For more information, see the [Mount target access modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-mount-access-mode). |
+| Mount target access mode   | Access to the file share is granted by either a security group within a subnet or to any virtual server instance in the VPC. Click the pencil icon to switch access modes. Security group access is available only to file shares created with the [`dp2` profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile). For more information, see the [Mount target access modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-mount-access-mode). |
 | **Profile, size, and IOPS**| |
 | Size | File share size in GB. |
 | IOPS tier | IOPS tier [profile](/docs/vpc?topic=vpc-file-storage-profiles) that defines the file share performance. For example, a 3 IOPS/GB general-purpose profile. |

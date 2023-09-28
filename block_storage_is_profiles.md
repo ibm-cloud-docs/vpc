@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-07-27"
+lastupdated: "2023-09-18"
 
 keywords: block storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
@@ -23,21 +23,29 @@ When you provision {{site.data.keyword.block_storage_is_short}} volumes by using
 
 When you create a block storage volume, you can select between custom and tiered-IOPS profiles. All these profiles are backed by solid-state drives (SSDs). The following table shows the available storage profiles.
 
-| Profile family | Profile name      | IOPS&sup1;      | IOPS per volume| Max throughput&sup2;| Volume size  |   
-|----------------|-------------------|----------------:|---------------:|---------------:|------------------:|
-| `tiered`       | `general-purpose` | 3 IOPS/GB       | 3,000 - 48,000 | 670 MB/s       | 10 GB - 16,000 GB | 
-| `tiered`       | `5iops-tier`      | 5 IOPS/GB       | 3,000 - 48,000 | 768 MB/s       | 10 GB - 9,600 GB  | 
-| `tiered`       | `10iops-tier`     | 10 IOPS/GB      | 3,000 - 48,000 | 1024 MB/s      | 10 GB - 4,800 GB  |
-| `custom`       | `custom`          | 1 - 100 IOPS/GB |   100 - 48,000 | 1024 MB/s      | 10 GB - 16,800 GB |
+| Profile family | Profile name      | IOPS^1^      | IOPS per volume| Max throughput^2^| Volume size  |   
+|----------------|-------------------|----------------:|---------------:|---------------:|-----------------:|
+| `tiered`       | `general-purpose` | 3 IOPS/GB       | 3,000 - 48,000 | 670 MB/s       | 10 GB - 16,000 GB| 
+| `tiered`       | `5iops-tier`      | 5 IOPS/GB       | 3,000 - 48,000 | 768 MB/s       | 10 GB - 9,600 GB | 
+| `tiered`       | `10iops-tier`     | 10 IOPS/GB      | 3,000 - 48,000 | 1024 MB/s      | 10 GB - 4,800 GB |
+| `custom`       | `custom`          | 1 - 100 IOPS/GB |   100 - 48,000 | 1024 MB/s      | 10 GB - 16,000 GB|
 {: caption="Table 1. Block storage profiles and performance levels." caption-side="bottom"}
 
-&sup1; IOPS values are based on 16k IO size. 
+^1^ IOPS values are based on 16k IO size. 
 
-&sup2; Baseline throughput is determined by the number of IOPS multiplied by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB or custom IOPS tiers. The higher the IOPS that you specify, the higher the throughput. Maximum throughput is 1024 MBps.
+^2^ Baseline throughput is determined by the number of IOPS multiplied by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB or custom IOPS tiers. The higher the IOPS that you specify, the higher the throughput. Maximum throughput is 1024 MBps.
 
 The application I/O size directly impacts storage performance. If the application I/O size is smaller than the throughput multiplier that is used by the profile to calculate the volume’s bandwidth limit, the IOPS limit is reached before the throughput limit. Conversely, if the application I/O size is larger, the throughput limit is reached before the IOPS limit.
 
 For more information, see [How block size affects performance](/docs/vpc?topic=vpc-capacity-performance#how-block-size-affects-performance).
+
+In this documentation, we refer to storage capacity by using the unit GB (Gigabytes) to align with the industry standard terminology. However, the actual provisioning and billing of storage are based on GiB (Gibibytes).
+
+The difference between GB and GiB lies in their numerical representation:
+- GB (Gigabyte) is a decimal unit, where 1 GB equals 1,000,000,000 bytes
+- GiB (Gibibyte), is a binary unit, where 1 GiB equals 1,073,741,824 bytes
+
+To ensure transparency, please note that your provisioned storage and associated charges are calculated based on GiB. Rest assured that you receive the exact amount of storage you expect and are billed accurately for the GiB you use. For more information, see the [FAQs](/docs/vpc?topic=vpc-block-storage-vpc-faq#faq-storage-units).
 
 Moving volumes across volume-profiles that belong to different families is not allowed.
 {: restriction}
@@ -45,7 +53,7 @@ Moving volumes across volume-profiles that belong to different families is not a
 ### IOPS tiers
 {: #tiers}
 
-When you create your storage volume, you can select from three predefined IOPS tiers. Choose the profile that provides optimal performance for your compute workloads. Table 2 describes the IOPS performance that you can expect for each tier.
+When you create your storage volume, you can select from three predefined IOPS tiers. Choose the profile that provides optimal performance for your Compute workloads. Table 2 describes the IOPS performance that you can expect for each tier.
 
 |  Name	| Purpose | IOPS rate	| Capacity range (GB)	| Min IOPS	Max IOPS	| IO Size |
 |--------|---------|------------:|----------------------:|-------------------:|----------:|
@@ -87,7 +95,7 @@ By default, boot volumes are created based on the `general-purpose` IOPS profile
 
 Virtual server profiles are a combination of vCPU and RAM that can be instantiated quickly to start a virtual server instance. Select from [three families of profiles](/docs/vpc?topic=vpc-profiles#profiles) based on your workload requirements. These requirements can range from common workloads to CPU-intensive or memory-intensive workloads.
 
-Similarly, storage profiles (IOPS tiers or custom) provide a range of capacity and performance for secondary volumes. By default, a 100 GB primary boot volume is created when you create a virtual server instance. You can also create and attach secondary volumes. When you create a secondary data volume as part of instance creation, you select a storage profile that best meets your storage requirements for your compute workloads. In general, as your compute requirements increase, you need higher IOPS performance. Table 3 shows this relationship.
+Similarly, storage profiles (IOPS tiers or custom) provide a range of capacity and performance for secondary volumes. By default, a 100 GB primary boot volume is created when you create a virtual server instance. You can also create and attach secondary volumes. When you create a secondary data volume as part of instance creation, you select a storage profile that best meets your storage requirements for your Compute workloads. In general, as your Compute requirements increase, you need higher IOPS performance. Table 3 shows this relationship.
 
 | IOPS tier storage profile | Virtual server profile                                             |
 |-----------------|------------------------------------------------------------------------------|

@@ -26,7 +26,7 @@ Use these instructions to connect a Network File System (NFS) file share to an U
 3. Get the mount path of the file share from the mount target. Mount path information can be obtained from the File share details page in the [UI](/docs/vpc?topic=vpc-file-storage-view&interface=ui#fs-get-mountpath-ui-vpc), from the [CLI](/docs/vpc?topic=vpc-file-storage-view&interface=cli#fs-get-mountpath-cli), with the [API](/docs/vpc?topic=vpc-file-storage-view&interface=api#fs-get-target-api), or [Terraform](/docs/vpc?topic=vpc-file-storage-view&interface=terraform#fs-view-mount-target-terraform).
 4. If you want to use encryption in transit, you need to obtain an IPsec certificate from the Instance Metadata service. Ensure that encryption in transit is enabled for the mount target. Plus, mount the file share with a secure connection. This feature is only available for file shares with `dp2` profiles and security group access mode. For more information, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit).
    
-   Install and run the [mount helper utility](/docs/vpc?topic=vpc-file-storage-vpc-eit&interface=ui#fs-mount-helper-utility) to mount file shares with encryption in transit or without an encrypted connection. [New]{: tag-new}
+   Install and run the [mount helper utility](/docs/vpc?topic=vpc-file-storage-vpc-eit&interface=ui#fs-mount-helper-utility) to mount file shares with encryption in transit or without an encrypted connection.  
    {: fast-path}
 
 {{site.data.keyword.filestorage_vpc_short}} service requires NFS versions v4.1 or higher.

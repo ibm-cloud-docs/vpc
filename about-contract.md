@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-09-05"
+lastupdated: "2023-09-15"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -25,6 +25,9 @@ The contract is a definition file in the YAML format that is specific to the {{s
 
 If the workload discloses the decrypted tokens (either through SSH or REST APIs), then the decrypted data contains both the workload and the environment secrets (however it does not contain the seeds that were used for volume encryption).
 {: note}
+
+Ensure that your configuration does not use a private cloud registry if you are adhering to Financial services (FS) cloud compliance.
+{: important}
 
 ## Contract sections
 {: #hpcr_contract_sections}

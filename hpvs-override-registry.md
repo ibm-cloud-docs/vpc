@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-03-20"
+lastupdated: "2023-09-15"
 
 keywords: dynamic registry reference for hyper protect virtual server for vpc
 
@@ -17,6 +17,9 @@ subcollection: vpc
 
 The documentation walks you through how to use a dynamic registry reference in the [contract](/docs/vpc?topic=vpc-about-contract_se).
 {: shortdesc}
+
+Ensure that your configuration does not use a private cloud registry if you are adhering to Financial services (FS) cloud compliance. For more information, see [this](https://www.ibm.com/docs/en/hpvs/2.1.x?topic=servers-using-dynamic-registry-reference#dynamic-registry-reference).
+{: important}
 
 ## Explicit registry reference
 {: #explicit-registry-reference}
@@ -37,7 +40,7 @@ In such a case, the role that decides about the registry (and the associated pul
 ## Dynamic registry reference
 {: #dynamic-registry-reference}
 
-There exist usecases in which the registry is **not known** when the workload section is pre-encrypted, for example, when the workload provider wants to allow the deployer to use a registry mirror or a private container registry. 
+There exist usecases in which the registry is **not known** when the workload section is pre-encrypted, for example, when the workload provider wants to allow the deployer to use a registry mirror or a private container registry.
 
 In such a case, it's possible to dynamically override the registry as well as the pull credentials. This is a coordinated effort between the workload provider and the deployer.
 
@@ -53,7 +56,7 @@ The workload provider marks the registry as dynamic by using a replacement varia
 services:
   helloworld:
     image: ${REGISTRY}/hpse-docker-hello-world-s390x@sha256:43c500c5f85fc450060b804851992314778e35cadff03cb63042f593687b7347
-    
+
 ```
 {: codeblock}
 

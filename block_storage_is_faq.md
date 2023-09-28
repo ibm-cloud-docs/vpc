@@ -2,8 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-08-28"
-
+lastupdated: "2023-09-18"
 keywords: faqs, block storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
 subcollection: vpc
@@ -50,12 +49,108 @@ You can create 12 {{site.data.keyword.block_storage_is_short}} data volumes per 
 {: #faq-block-storage-6}
 {: support}
 
-Cost for {{site.data.keyword.block_storage_is_short}} is calculated based on GB capacity that is stored per month, unless the duration is less than one month. The volume exists on the account until you delete the volume or you reach the end of a billing cycle, whichever comes first.
+The cost for {{site.data.keyword.block_storage_is_short}} is calculated based on GiB capacity that is stored per month, unless the duration is less than one month. The volume exists on the account until you delete the volume or you reach the end of a billing cycle, whichever comes first.
 
 Pricing is also affected when you [expand volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes) or [adjust IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops) by specifying a different IOPS profile. For example, expanding volume capacity increases costs, and changing an IOPS profile from a 5-IOPS/GB tier to a 3-IOPS/GB tier decreases the monthly and hourly rate. Billing for an updated volume is automatically updated to add the prorated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.
 
-You can use the Cost estimator ![Cost estimator icon](../icons/calculator.svg "Cost estimator") in {{site.data.keyword.cloud_notm}} console to see how changes in capacity and IOPS affect the cost. For more information, see [Estimating your costs](/docs/billing-usage?topic=billing-usage-cost).    
+You can use the Cost estimator ![Cost estimator icon](../icons/calculator.svg "Cost estimator") in {{site.data.keyword.cloud_notm}} console to see how changes in capacity and IOPS affect the cost. For more information, see [Estimating your costs](/docs/billing-usage?topic=billing-usage-cost).
 
+### Is storage capacity measured in GB or GiB?
+{: faq}
+{: #faq-storage-units}
+
+One confusing aspect of storage is the units that storage capacity and usage are reported in. Sometime GB is really gigabytes (base-10) and sometimes GB represents gibibytes (base-2) which should be abbreviated as GiB.
+
+Humans usually think and calculate numbers in the decimal (base-10) system. In our documentation, we refer to storage capacity by using the unit GB (Gigabytes) to align with the industry standard terminology. In the UI, CLI, API, and Terraform, you see the unit GB used and displayed when you query the capacity. When you want to order a 4-TB volume, you enter 4,000 GB in your provisioning request.
+
+However, computers operate in binary, so it makes more sense to represent some resources like memory address spaces in base-2. Since 1984, computer file systems show sizes in base-2 to go along with the memory. Back then, available storage devices were smaller, and the size difference between the binary and decimal units was negligible. Now that the available storage systems are considerably larger this unit difference is causing confusion.
+
+The difference between GB and GiB lies in their numerical representation:
+- GB (Gigabyte) is a decimal unit, where 1 GB equals 1,000,000,000 bytes. When you convert GB to TB, you use 1000 as the multiplier.
+- GiB (Gibibyte), is a binary unit, where 1 GiB equals 1,073,741,824 bytes. When you convert GiB to TiB, you use 1024 as the multiplier.
+
+The following table shows the same number of bytes expressed in decimal and binary units.
+
+| Decimal SI (base 10) | Binary (base 2)       |
+|----------------------|-----------------------|
+| 2,000,000,000,000 B  | 2,000,000,000,000 B   |
+|     2,000,000,000 KB |     1,953,125,000 KiB |
+|         2,000,000 MB |         1,907,348 MiB |
+|             2,000 GB |             1,862 GiB |
+|                 2 TB |              1.81 TiB |
+{: caption="Table 1. Decimal vs Binary units" caption-side="bottom"}
+
+The storage system uses base-2 units for volume allocation. So if your volume is provisioned as 4,000 GB, that's really 4,000 GiB or 4,294,967,296,000 bytes of storage space. The provisioned volume size is actually larger than 4 TB. However, your operating system might display the storage size as 3.9 T because it uses base-2 conversion and the T stands for TiB, not TB. 
+
+### Why does the available capacity that I see in my OS not match the capacity that I provisioned?
+{: faq}
+{: #faq-storage-units-2}
+
+One of the reasons can be that your operating system uses base-2 conversion. For example, when you provision a 4000 GB volume on the UI, the storage system reserves a 4,000 GiB volume or 4,294,967,296,000 bytes of storage space for you. The provisioned volume size is larger than 4 TB. However, your operating system might display the storage size as 3.9 T because it uses base-2 conversion and the T stands for TiB, not TB.
+
+Second, partitioning your block storage and creating a file system on it reduces available storage space. The amount by which formatting reduces space varies depending upon the type of formatting that is used and the amount and size of the various files on the system.
+
+Take the volume `docs-block-test3` as an example. We specified 1200 GB during provisioning and when you list the details in the CLI, you can see that it has the capacity of 1200.
+
+```sh
+$ ibmcloud is volume r006-6afe1361-b592-45ab-b23b-6cca9982e371
+Getting volume r006-6afe1361-b592-45ab-b23b-6cca9982e371 under account Test Account as user test.user@ibm.com...
+                                          
+ID                                     r006-6afe1361-b592-45ab-b23b-6cca9982e371   
+Name                                   docs-block-test3   
+CRN                                    crn:v1:bluemix:public:is:us-south-2:a/1234567::volume:r006-6afe1361-b592-45ab-b23b-6cca9982e371   
+Status                                 available   
+Attachment state                       attached   
+Capacity                               1200   
+IOPS                                   3600   
+Bandwidth(Mbps)                        471   
+Profile                                general-purpose   
+Encryption key                         -   
+Encryption                             provider_managed   
+Resource group                         defaults   
+Created                                2023-08-24T02:32:40+00:00   
+Zone                                   us-south-2   
+Health State                           ok   
+Volume Attachment Instance Reference   Attachment type   Instance ID                                 Instance name        Auto delete   Attachment ID                               Attachment name      
+                                       data              0727_e99798c7-9783-4f92-8207-96af48561454   docs-demo-instance   false         0727-bc38ec2b-a566-412f-8f76-8eefe5fc9f2c   untaken-senior-coronary-accurate      
+                                          
+Active                                 true   
+Adjustable IOPS                        false   
+Busy                                   false   
+Tags                                   dev:test
+```
+{: screen}
+
+When you list your storage devices from your server's command line, you can see the same volume as `vdc` with a size of 1.2T. The T stands for tebibyte, a base-2 unit that equals 2^40^.
+
+```sh
+[root@docs-demo-instance ~]# lsblk
+NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+vda    253:0    0  100G  0 disk
+├─vda1 253:1    0  200M  0 part /boot/efi
+└─vda2 253:2    0 99.8G  0 part /
+vdb    253:16   0 69.9G  0 disk
+vdc    253:32   0  1.2T  0 disk /myvolumedir
+vdd    253:48   0  370K  0 disk
+vde    253:64   0   44K  0 disk
+```
+{: screen}
+
+The same `vdc` drive shows 1181679068 K available capacity when it is formatted with an ext4 file system. It's normal and expected.
+
+```sh
+[root@docs-demo-instance ~]# df -hk
+Filesystem      1K-blocks    Used  Available Use% Mounted on
+devtmpfs          3993976       0    3993976   0% /dev
+tmpfs             4004356       0    4004356   0% /dev/shm
+tmpfs             4004356   33316    3971040   1% /run
+tmpfs             4004356       0    4004356   0% /sys/fs/cgroup
+/dev/vda2       102877120 1182048   96446100   2% /
+/dev/vda1          204580   11468     193112   6% /boot/efi
+/dev/vdc       1238411052   72148 1181679068   1% /myvolumedir
+tmpfs              800872       0     800872   0% /run/user/0
+```
+{: screen}
 
 ### Are there limits on the number of volumes I can create?
 {: faq}
@@ -70,11 +165,11 @@ You can create up to 300 total {{site.data.keyword.block_storage_is_short}} volu
 
 You can increase the capacity of data volumes that are attached to a virtual server instance. You can indicate capacity in GB increments up to 16,000 GB capacity, depending on your volume profile. For more information, see [Increasing {{site.data.keyword.block_storage_is_short}} volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 
-### Can I increase capacity of a boot volume?
+### Can I increase the capacity of a boot volume?
 {: faq}
 {: #faq-block-storge-rbv}
 
-Boot volume capacity can be increased during instance provisioning or later, by directly modifying the boot volume. This feature applies to instances that are created from stock or custom images. You can also specify a larger boot volume capacity when you create an instance template. The boot volume can't be unattached from an instance (that is, stored as stand-alone data volume). For more information, see [Increasing boot volume capacity](/docs/vpc?topic=vpc-resize-boot-volumes).
+Boot volume capacity can be increased during instance provisioning or later, by directly modifying the boot volume. This feature applies to instances that are created from stock or custom images. You can also specify a larger boot volume capacity when you create an instance template. The boot volume can't be unattached from an instance (that is, stored as a stand-alone data volume). For more information, see [Increasing boot volume capacity](/docs/vpc?topic=vpc-resize-boot-volumes).
 
 ### Can I change boot volume capacity for an existing instance?
 {: faq}
@@ -104,7 +199,7 @@ Instead, use an {{site.data.keyword.cloud}} classic service option outside a VPC
 
 No. The VPC provides access to new availability zones in multi-zone regions. Compute, network, and storage resources are designed to function in the VPC.
 
-### What is _image from volume_ and how does it relate to {{site.data.keyword.block_storage_is_short}} volumes?
+### What is an _image from volume_ and how does it relate to {{site.data.keyword.block_storage_is_short}} volumes?
 {: faq}
 {: #faq-block-storage-ifv}
 
@@ -117,7 +212,7 @@ With the image from volume feature, you can create a custom image directly from 
 {: faq}
 {: #faq-block-storage-14}
 
-The boot disk, also called a boot volume, is created when you provision a virtual server instance. The boot disk of an instance is a cloned image of the virtual machine image. For stock images, the boot volume capacity is 100 GB. If you are importing a custom image, the boot volume capacity can be 10 GB to 250 GB, depending on what the image requires. Images smaller than 10 GB are rounded up to 10 GB. The boot volume is deleted when you delete the instance to which it is attached.
+The boot volume is created when you provision a virtual server instance. The boot disk of an instance is a cloned image of the virtual machine image. For stock images, the boot volume capacity is 100 GB. If you are importing a custom image, the boot volume capacity can be 10 GB to 250 GB, depending on what the image requires. Images smaller than 10 GB are rounded up to 10 GB. The boot volume is deleted when you delete the instance to which it is attached.
 
 ### When can I delete a {{site.data.keyword.block_storage_is_short}} data volume?
 {: faq}
@@ -145,7 +240,7 @@ Valid volume names can include a combination of lowercase alphanumeric character
 
 You can change the name of an existing volume in the UI. For more information, see [Managing {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-managing-block-storage#rename).
 
-### Does the volume need to be pre-warmed to achieve expected throughput?
+### Does the volume need to be pre-warmed to achieve the expected throughput?
 {: faq}
 {: #faq-block-storage-10}
 
@@ -211,11 +306,11 @@ Maximum IOPS for data volumes varies based on volume size and the type of profil
 IOPS is measured based on a load profile of 16-KB blocks with random 50% read and 50% writes. Workloads that differ from this profile might experience reduced performance. If you use a smaller block size, maximum IOPS can be obtained, but throughput is less. For more information, see
 [How block size affects performance](/docs/vpc?topic=vpc-capacity-performance#how-block-size-affects-performance).
 
-### What typical network performance might I expect between my compute instances and the {{site.data.keyword.block_storage_is_short}} service?
+### What typical network performance might I expect between my Compute instances and the {{site.data.keyword.block_storage_is_short}} service?
 {: faq}
 {: #faq-block-storage-17}
 
-{{site.data.keyword.block_storage_is_short}} is connected to compute instances on a shared network, so the exact performance latency depends on the network traffic within a specific timeframe. Target latency for a 16-KB block size volume is under 1 millisecond for random reads and under 2 milliseconds for writes.
+{{site.data.keyword.block_storage_is_short}} is connected to compute instances on a shared network, so the exact performance latency depends on the network traffic within a specific time frame. Target latency for a 16-KB block size volume is under 1 millisecond for random reads and under 2 milliseconds for writes.
 
 ### What mechanisms are used to avoid data storage contention?
 {: faq}
@@ -239,7 +334,7 @@ Volume health state defines whether a volume is performing as expected, given it
 
 All {{site.data.keyword.block_storage_is_short}} volumes are encrypted at rest with IBM-managed encryption. IBM-managed keys are generated and securely stored in a {{site.data.keyword.block_storage_is_short}} vault that is backed by Consul and maintained by {{site.data.keyword.cloud}} operations.
 
-For more security, you can protect your data by using your own customer root keys (CRKs). You import your root keys to, or create them in, a supported key management service (KMS). Your root keys are safely managed by the supported KMS, either {{site.data.keyword.keymanagementserviceshort}} (FIPS 140-2 Level 3 compliance) or {{site.data.keyword.hscrypto}}. Both KMS solutions offer the highest level of security (FIPS 140-2 Level 4 compliance). Your key material is protected in transit and at rest.
+For more security, you can protect your data by using your own customer root keys (CRKs). You can import your root keys to, or create them in, a supported key management service (KMS). Your root keys are safely managed by the supported KMS, either {{site.data.keyword.keymanagementserviceshort}} (FIPS 140-2 Level 3 compliance) or {{site.data.keyword.hscrypto}}. Both KMS solutions offer the highest level of security (FIPS 140-2 Level 4 compliance). Your key material is protected in transit and at rest.
 
 For more information, see [Supported key management services for customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#kms-for-byok). To learn how to configure customer-managed encryption, see
 [Creating {{site.data.keyword.block_storage_is_short}} volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption).
@@ -288,7 +383,7 @@ Independently back up your data. Then, delete the compromised root key and power
 
 Also, consider setting up a key rotation policy that automatically rotates your keys based on a schedule. For more information, see [Key rotation for VPC resources](/docs/vpc?topic=vpc-vpc-key-rotation).
 
-### What is key rotation?
+### What is a key rotation?
 {: faq}
 {: #faq-block-storage-25a}
 
@@ -312,7 +407,7 @@ You are not charged extra for creating volumes with customer-managed encryption.
 {: faq}
 {: #faq-block-storage-28}
 
-Both key management systems provide you complete control over your data, managed by your root keys. {{site.data.keyword.keymanagementserviceshort}} is a multi-tenant KMS where you can import or create your root keys and securely manage them. {{site.data.keyword.hscrypto}} is a single-tenant KMS and hardware security module (HSM) that is controlled by you, which offers the highest level of security. For more information about these key management services, see [Supported key management services for customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#kms-for-byok).
+Both key management systems provide you with complete control over your data, managed by your root keys. {{site.data.keyword.keymanagementserviceshort}} is a multi-tenant KMS where you can import or create your root keys and securely manage them. {{site.data.keyword.hscrypto}} is a single-tenant KMS and hardware security module (HSM) that is controlled by you, which offers the highest level of security. For more information about these key management services, see [Supported key management services for customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#kms-for-byok).
 
 ### Can I convert my volume from provider-managed encryption to customer-managed encryption?
 {: faq}
@@ -324,4 +419,4 @@ No, after you provision a volume and specify the encryption type, you can't chan
 {: faq}
 {: #faq-block-storage-30}
 
-No. You can't copy the storage volume to a different zone. However, you can create a copy of a snaphot of a volume in a different zone, and restore a volume from that snapshot.
+No. You can't copy the storage volume to a different zone. However, you can create a copy of a snapshot of a volume in a different zone, and restore a volume from that snapshot.

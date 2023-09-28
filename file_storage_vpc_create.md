@@ -50,7 +50,7 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
    | Tags | Enter any user tags to apply to this file share. As you type, existing tags appear that you can select. For more information about tags, see [Add user tags to a file share](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-add-user-tags). |
    | Access Management Tags | Enter access management tags that you created in IAM to apply them to this file share. For more information about access management tags, see [Access management tags for file shares](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-about-mgt-tags). |
    | Mount target access mode  | Select how you want to manage access to this file share: |
-   | [New]{: tag-new} | Security group: Access to the file share is based on security group rules within a subnet. This option can be used to restrict access to specific virtual server instances. You can use this option only with the `dp2` profile. This option is recommended as you have more control over who can access the data that is stored on the file share. |
+   |   | Security group: Access to the file share is based on security group rules within a subnet. This option can be used to restrict access to specific virtual server instances. You can use this option only with the `dp2` profile. This option is recommended as you have more control over who can access the data that is stored on the file share. |
    |  | Virtual private cloud: Access to the file share is granted to any virtual server instance in the same VPC. |
    {: caption="Table 1. Values for creating a file share" caption-side="top"}
 
@@ -85,7 +85,7 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
    | Encryption | To use customer-managed encryption, select either {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. The key management service (KMS) instance includes the root key that is imported to or created in that KMS instance. |
    | Encryption service instance | If you provisioned multiple KMS instances in your account, select the one that includes the root key that you want to use for customer-managed encryption. |
    | Key name | Select the root key within the KMS instance that you want to use for encrypting the share. |
-   | Key ID | Shows the key ID that is associated with the data encryption key that you selected. |
+   | Key ID | It shows the key ID that is associated with the data encryption key that you selected. |
    {: caption="Table 3. Values for customer-managed encryption for file shares." caption-side="bottom"}
 
 1. When all the required information is entered, click **Create file share**. You return to the {{site.data.keyword.filestorage_vpc_short}} page, where a message indicates that the file share is provisioning. When the transaction completes, the share status changes to **Active**.
@@ -258,7 +258,6 @@ Created           2023-07-11T18:05:18+05:30
 For more information about the command options, see [`ibmcloud is share-mount-target-create`](/docs/vpc?topic=vpc-vpc-reference#share-mount-target-create).
 
 The following example creates a mount target with security group access mode for a file share. This command creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target that identifies the file share with a reserved IP address and applies the rules of the selected Security group. The virtual network interface is defined by specifying the reserved IP address, and the rules of `SECURITY_GROUP1` determine which resources can access the mount target `my-target-3`.
-[New]{: tag-new}
 
 ```sh
 ibmcloud is share-mount-target-create my-new-share --subnet cli-subnet-1 --name my-mount-target-3 --vni-name cli-share-vni-1 --vni-rip my-reserved-ip --vni-sgs concrete-proudly-coastal-obvious,sg-vni --resource-group-name Default
@@ -278,7 +277,7 @@ You can create file shares and mount targets by directly calling the REST APIs.
 
 Set up your API environment. Define variables for the IAM token, API endpoint, and API version. For instructions, see [Setting up your API and CLI environment](/docs/vpc?topic=vpc-set-up-environment).
 
-You must  provide the `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/apidocs/vpc#api-generation-parameter).
+You must provide the `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/apidocs/vpc#api-generation-parameter).
 {: requirement}
 
 A good way to learn more about the API is to click **Get sample API call** on the provisioning pages in {{site.data.keyword.cloud_notm}} console. You can view the correct sequence of API requests and better understand actions and their dependencies.
@@ -449,11 +448,9 @@ A successful response looks like the following example.
 ### Creating a file share and mount target by specifying a subnet
 {: #fs-create-file-share-subnet-vni-api}
 
-[New]{: tag-new}
-
 The following example creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target that identifies the file share with a reserved IP address and applies the rules of the selected Security group. To create the mount target with the network interface, make a `POST /shares` request and specify a subnet. Specifying the `subnet` property is required when you're not using the [`primary_ip` property](#fs-create-file-share-pni-api) and specifying `address`for a reserved IP.
 
-In this example, the mount target specifies a subnet ID. When the `transit_encryption` property set to `user_managed`, encryption in transit with an instance identity certificate is enabled. The default is none, which disables encryption in transit. The default access control mode is `security_group`, which is shown in the response.
+In this example, the mount target specifies a subnet ID. When the `transit_encryption` property is set to `user_managed`, encryption in transit with an instance identity certificate is enabled. The default is none, which disables encryption in transit. The default access control mode is `security_group`, which is shown in the response.
 
 ```json
 curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2"\
@@ -524,8 +521,6 @@ A successful response looks like the following example.
 
 ### Creating a file share and mount target by specifying a subnet and security group
 {: #fs-create-file-share-both-vni-api}
-
-[New]{: tag-new}
 
 To create the mount target network interface, make a `POST /shares` request and specify a subnet and security group.
 
@@ -616,8 +611,6 @@ The following response shows that access control mode is `security_group`, which
 ### Creating a file share and mount target by specifying a primary network interface
 {: #fs-create-file-share-pni-api}
 
-[New]{: tag-new}
-
 Make a `POST /shares` request and create a mount target with a primary network interface. Specify the `primary_ip` property and optional `address` subproperty, which reserves the IP address that you indicate. This address must not already be reserved on the subnet.
 
 If you don't specify an address, an available address on the subnet is automatically selected. The default access control mode is `security_group`, which is displayed in the response.
@@ -706,8 +699,6 @@ When you create a file share with the API, you specify `security_group` as the a
 
 ### Adding a mount target to an existing file share by specifying a subnet and security group
 {: #fs-create-file-share-subnet-sg-api}
-
-[New]{: tag-new}
 
 Make a `POST /shares/{share_id}/mount_targets` request and specify a subnet and security group for the mount target network interface.
 

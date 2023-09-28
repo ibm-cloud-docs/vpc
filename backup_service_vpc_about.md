@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-06-27"
+lastupdated: "2023-09-14"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -88,11 +88,16 @@ The {{site.data.keyword.cloud_notm}} Backup for VPC offers you the following ben
 
 Backup policies consist of plans that define schedules for automatic backup creation and data retention. You can schedule backups on a daily, weekly, or monthly basis.
 
-You can specify the retention period or the total number of backups before the oldest are deleted. The default retention period is 30 days. Alternatively, you can set the total number of backups to retain up to 750 per volume. When that number is exceeded, the oldest backups are deleted.
+You can specify the retention period or the total number of backups before the oldest are deleted. The interval for creating a backup and its retention period can be the same or they can be different. The default retention period is 30 days. You can also set the total number of backups to retain up to 750 per volume. When that number is exceeded, the oldest backups are deleted. 
 
-The interval for creating a backup and its retention period can be the same or they can be different.
+If you specify both age and the number of backups, age takes priority in determining when to delete a snapshot. The count applies only if the oldest snapshot is within the age range.
 
-Backups that are created by the backup plan inherit the parent volume resource group details. You can create up to four plans per backup policy and modify the backup schedule and retention policy anytime. Your four plans can have different frequencies. For example, one can be daily. Another one can be weekly, and so on. All plans apply to the volumes with tags that match the backup policy.
+Consider the following examples:
+- Example 1 - You create a daily plan with a retention period of 14 days, and no maximum number of snapshots to keep. You're going to keep 14 backups and the oldest is going to be 2 weeks old.
+- Example 2 - You create a weekly plan that has the retention period of 365 days, and the maximum count of 8. In practice, you're going to get a maximum of 8 snapshots in the chain, with the oldest being 8 weeks old.
+- Example 2 - You create a monthly plan and set the retention period for 80 days with a maximum count of 10. In practice, you keep a maximum of 3 snapshots always. By the time when your 4th backup is taken, the first one meets the 80-day mark, and gets deleted.
+
+You can create up to four plans per backup policy and modify the backup schedule and retention policy anytime. Your four plans can have different frequencies. For example, one can be daily. Another one can be weekly, or monthly. All plans apply to the volumes with tags that match the backup policy. Backups that are created by the backup plan inherit the parent volume resource group details. 
 
 You can [view backup job status](/docs/vpc?topic=vpc-backup-view-policy-jobs) while backups are being created, modified, or deleted.
 

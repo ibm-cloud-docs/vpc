@@ -3,7 +3,7 @@
 copyright:
   years: 2023
 
-lastupdated: "2023-06-22"
+lastupdated: "2023-09-21"
 
 keywords: connecting, windows, bare metal, bare metal server
 
@@ -70,7 +70,7 @@ After you create your Windows server and complete the prerequisites, use the fol
 2. Run the following command to initialize your server and obtain your password. Specify your server ID for the `SERVER_ID` variable and your private key for the `KEY` or `KEY_FILE` variable:
 
    ```sh
-   ibmcloud is  bare-metal-server-initialialization-values SERVER_ID [--private-key (KEY | @KEY_FILE)]
+   ibmcloud is  bare-metal-server-initialization-values SERVER_ID [--private-key (KEY | @KEY_FILE)]
    ```
    {: pre}
 
