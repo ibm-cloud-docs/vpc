@@ -586,4 +586,4 @@ For more information, see the api spec for [IAM Policy Management](/apidocs/iam-
 ## Next Steps
 {: #backup-s2s-next-steps}
 
-[Create backup policies](/docs/vpc?topic=vpc-backup-policy-create).
+[Create backup policies](/docs/vpc?topic=vpc-create-backup-policy-and-plan).
