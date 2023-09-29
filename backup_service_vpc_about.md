@@ -108,7 +108,7 @@ You can [view backup job status](/docs/vpc?topic=vpc-backup-view-policy-jobs) wh
 
 [New]{: tag-new}
 
-As an enterprise account administrator, you can manage backup plans and policies collectively across the child under the enterprise account. Enterprise account users can see all the backup policies that were created by the Enterprise account. The Enterprise account user can see all the backup jobs that are initiated by the enterprise backup policy, even if the jobs run in the child accounts.
+As an enterprise account administrator, you can manage backup plans and policies collectively across the child accounts under the enterprise account. Enterprise account users can see all the backup policies that were created by the Enterprise account. The Enterprise account user can see all the backup jobs that are initiated by the enterprise backup policy, even if the jobs run in the child accounts.
 
 Users within each account in the enterprise can create, use, and collaborate on resources just as you can in a stand-alone account. For more information, see [Working with resources in an enterprise](/docs/secure-enterprise?topic=secure-enterprise-enterprise-best-practices#child-resources-enterprise).
 
