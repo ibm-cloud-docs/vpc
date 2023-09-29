@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-03-15"
+lastupdated: "2023-09-29"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -18,7 +18,7 @@ subcollection: vpc
 When you use the Backup for VPC service, you might encounter issues. Often, you can recover by following a few steps. Issues, symptoms, likely causes, and resolutions are described in the following sections.
 {: shortdesc}
 
-## Volume backups were not made according to backup plan
+## Volume backups were not made according to the backup plan
 {: #baas-ts-1}
 {: troubleshoot}
 {: support}

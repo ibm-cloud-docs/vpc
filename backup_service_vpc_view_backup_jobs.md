@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-06-27"
+lastupdated: "2023-09-29"
 
-keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data, view backup lists,
+keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, view backup lists,
 
 subcollection: vpc
 
@@ -40,7 +40,7 @@ From the backup policy details page, you can list all backup jobs for that polic
 | Plan | The backup plan that triggered the backup. Hover over the plan name for a summary of the plan. |
 | Job type | When a backup is being created, it shows `creation`. When a backup is being deleted, it shows `retention`.|
 | Job started | Date and time of when the job began. |
-| Job completed | Date and time of when the job finished. |
+| Job completed | Date and time of when the job was finished. |
 | Snapshot | The snapshot (backup) that was created when the backup job finishes. Click the name to see the details in the side panel. |
 | Source | Source volume from which the backup was created. Click the volume name to see its details. |
 {: caption="Table 1. Information provided by the list of backup jobs for the backup policy" caption-side="bottom"}
@@ -58,7 +58,7 @@ From the list of backup jobs, click the name of a snapshot. A side panel provide
 | ID | GUID of the snapshot. |
 | Bootable | It indicates whether the snapshot was created from a boot volume. |
 | CRN | Cloud resource name of the snapshot. |
-| Created | Date and time of when that the snapshot resource creation process started. |
+| Created | The date and time of when that the snapshot resource creation process started. |
 | Captured | The date and time of when this snapshot was taken. If the field is empty, then the snapshot is not yet captured or the snapshot was created before this feature was introduced (January 2022). |
 | Size | Size in GBs of the snapshot, it is inherited from the source volume. |
 | Source Volume | Source volume from which the first snapshot was taken. Click the link for volume details. If the volume was deleted, the name appears without a link. |
@@ -293,9 +293,9 @@ View a list of backup jobs or details of a single backup job with the API.
 ### View a list of backup jobs with the API
 {: #backup-view-jobs-list-api}
 
-Make a `GET /backup_policies/{backup_policy_id}/jobs` request to list all backup jobs a backup policy.
+Make a `GET /backup_policies/{backup_policy_id}/jobs` request to list all backup jobs of a backup policy.
 
-```curl
+```sh
 curl -X GET\
 "$vpc_api_endpoint/v1/backup_policies/{backup_policy_id}/jobs?version=2022-06-22&generation=2"\
    -H "Authorization: $iam_token"
@@ -371,7 +371,7 @@ A successful response looks like the following example.
 
 Make a `GET /backup_policies/{backup_policy_id}/jobs/{backup_job_id}` request to view details of a backup job, which is specified by ID.
 
-```curl
+```sh
 curl -X GET\
 "$vpc_api_endpoint/v1/backup_policies/{backup_policy_id}/jobs{backup_job_id}?version=2022-06-22&generation=2"\
    -H "Authorization: $iam_token"
@@ -433,12 +433,12 @@ A successful response looks like the following example.
 ### Backup job statuses and reason codes
 {: #backup-jobs-status}
 
-When you view details of a backup job by making a `GET /backup_policies/{backup_policy_id}/jobs/{backup_job_id}` request, the `status` property indicates whether the job `failed`, is `running`, or `succeeded`. The API also provides status reasons, with the following codes:
+When you view details of a backup job by making a `GET /backup_policies/{backup_policy_id}/jobs/{backup_job_id}` request, the `status` property indicates whether the job `failed`, is `running`, or `succeeded`. The API also provides status reasons with the following codes:
 
-* `internal_error`: Indicates an internal error. Contact IBM support if your see this code.
-* `snapshot_pending`: Indicates that backup snapshot in the `pending` [snapshot lifecycle state](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-status) cannot be deleted.
-* `snapshot_volume_limit`: Indicates that the [snapshot limit](/docs/vpc?topic=vpc-snapshots-vpc-faqs&interface=ui#faq-snapshot-3) for the source volume is reached.
-* `source_volume_busy`: Indicates that the source volume is busy after multiple retries.
+* `internal_error`: the code indicates an internal error. Contact IBM support if your see this code.
+* `snapshot_pending`: the code indicates that a backup snapshot in the `pending` [snapshot lifecycle state](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-status) cannot be deleted.
+* `snapshot_volume_limit`: the code indicates that the [snapshot limit](/docs/vpc?topic=vpc-snapshots-vpc-faqs&interface=ui#faq-snapshot-3) for the source volume is reached.
+* `source_volume_busy`: the code indicates that the source volume is busy after multiple retries.
 
 
 ## View backup jobs with Terraform
@@ -448,7 +448,7 @@ When you view details of a backup job by making a `GET /backup_policies/{backup_
 To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
 {: requirement}
 
-VPC infrastructure services use a region-specific endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the right region in the provider block in the `provider.tf` file.
+VPC infrastructure services use a regional specific endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the right region in the provider block in the `provider.tf` file.
 
 See the following example of targeting a region other than the default `us-south`.
 

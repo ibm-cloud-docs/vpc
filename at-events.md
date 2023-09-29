@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-08-16"
+lastupdated: "2023-09-29"
 
 keywords:
 
@@ -533,17 +533,18 @@ The following table lists the actions that are related to file share resources a
 
 The following table lists the actions that are related to the VPC Backup service resources and the generation of events.
 
-| Resource  | Action  | Description  |
-|:----------------|:-----------------------|:-----------------------|
-| backup-policy  | is.backup-policy.backup-policy.create  | Backup policy was created |
-| backup-policy  | is.backup-policy.backup-policy.update  | Backup policy was updated  |
-| backup-policy  | is.backup-policy.backup-policy.delete  | Backup policy was deleted  |
-| backup-policy  | is.backup-policy.backup-policy.list    | One or more backup policies were retrieved  |
-| backup-policy  | is.backup-policy.backup-policy.read    | Backup policy was retrieved  |
-| backup-policy  | is.backup-policy.backup-plan.create   | Backup plan was created  |
-| backup-policy  | is.backup-policy.backup-plan.delete  | Backup plan was deleted  |
-| backup-policy  | is.backup-policy.backup-plan.read    | One or more backup plans were retrieved  |
-| backup-policy  | is.backup-policy.backup-job.read    | One or more backup jobs were retrieved  |
+| Resource       | Action                                    | Description  |
+|:---------------|:------------------------------------------|:-----------------------|
+| backup-policy  | is.backup-policy.backup-policy.create     | Backup policy was created |
+| backup-policy  | is.backup-policy.backup-policy.update     | Backup policy was updated  |
+| backup-policy  | is.backup-policy.backup-policy.delete     | Backup policy was deleted  |
+| backup-policy  | is.backup-policy.backup-policy.list       | One or more backup policies were retrieved  |
+| backup-policy  | is.backup-policy.backup-policy.read       | Backup policy was retrieved  |
+| backup-policy  | is.backup-policy.backup-plan.create       | Backup plan was created  |
+| backup-policy  | is.backup-policy.backup-plan.delete       | Backup plan was deleted  |
+| backup-policy  | is.backup-policy.backup-plan.read         | One or more backup plans were retrieved  |
+| backup-policy  | is.backup-policy.backup-job.read          | One or more backup jobs were retrieved  |
+| backup-policy  | is.backup-policy.backup-policy-job.create | This event is triggered if an Enterprise-level backup policy fails to create backups in one or more child accounts due to missing service-to-service authorizations.  |
 {: caption="Table 26. Actions that generate events for VPC Backup service resources" caption-side="bottom"}
 
 ## Supported locations

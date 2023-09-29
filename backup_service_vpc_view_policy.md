@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-06-27"
+lastupdated: "2023-09-29"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -29,7 +29,7 @@ You can list all backup policies and view details of a specific policy by using 
 
 List all backup policies that you created for volumes in your account for the selected region by using the UI.
 
-In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Backup policies**. By default, the Overview tab is selected.
+In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![vpc icon](../../icons/vpc.svg) > Backup policies**. By default, the Overview tab is selected.
 
 Table 1 describes the information on the Backup policy list page. The default region for the account is selected. You can select a different region from the menu. Policies are listed on the page from newest to oldest.
 
@@ -49,7 +49,7 @@ Table 1 describes the information on the Backup policy list page. The default re
 
 You can view details of a backup policy by using the UI.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Backup policies**. By default, the Overview tab is selected.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![vpc icon](../../icons/vpc.svg) > Backup policies**. By default, the Overview tab is selected.
 
 2. Click a policy name. Table 2 describes the information about the selected backup policy.
 
@@ -58,12 +58,17 @@ You can view details of a backup policy by using the UI.
 | Actions | Actions on this policy: Add auditing and Delete. |
 | **Policy details** | |
 | - Name | Name of the backup policy. Click the pencil icon to edit. |
+| - Policy ID | Backup policy ID. |
 | - Resource group | [Resource group](/docs/vpc?topic=vpc-iam-getting-started#resources-and-resource-groups) for the {{site.data.keyword.block_storage_is_short}} volume. |
 | - Location | Policies for the selected region. |
-| - Created date | Date the policy was created. |
+| - Created date | The date the policy was created. |
 | - CRN | Cloud resource name of the policy. |
-| - Policy ID | Backup policy ID. |
+| - Applied resources | The number of volumes that are covered by the policy. This list includes volumes that were created by users for the account. If the policy is an enterprise-wide policy, the list shows volumes of the enterprise account, and not the volumes of its child accounts. |
 | - Tags for target resources | - User tags that can trigger the creation of a backup when they are applied to any {{site.data.keyword.block_storage_is_short}} volumes. \n - Click the pencil icon to add more tags. For more information, see [Edit tags for target resources](/docs/vpc?topic=vpc-backup-service-manage&interface=ui#backup-edit-tags). \n - See also [Applying backup policies to resources by using tags](/docs/vpc?topic=vpc-backup-use-policies). |
+| Target resource type  | The backup policy applies to block volumes. |
+| Last backup job | It shows the date and time when the last backup job ran.|
+| Enterprise account CRN [New]{: tag-new} | This value is only shown when the backup policy is an enterprise-wide policy. It is the Cloud Resource Name of the Enterprise that created the policy.|
+| Health | The current health state of the policy. For more information, see the [FAQs](/docs/vpc?topic=vpc-backup-service-enterprise-faq&interface=terraform#faq-baas-ee-5).|
 | **Plan** | Show the plan name, retention policy, and plan status. Optionally, click **Create** to add more plans for an existing policy. |
 | - Plan name | Unique name for the plan. Expand to see plan details, such as frequency, tags that are associated with this plan, and whether fast restore and remote copies are enabled. |
 | - Retention | Period that you set for the plan to be in effect, for example, 30 days. |
@@ -71,14 +76,14 @@ You can view details of a backup policy by using the UI.
 |-  Actions menu | Edit or remove a plan. You can change the name and other plan details such as retention, tags, fast restore, and remote copies. For more information, see [Edit or delete a backup plan in the UI](/docs/vpc?topic=vpc-backup-service-manage&interface=ui). |
 {: caption="Table 2. Backup policy details" caption-side="bottom"}
 
-### Viewing a list of volumes that have a backup policy
+### Viewing the list of volumes that are associated to a backup policy
 {: #backup-view-vol-backup-policies}
 
 View a list of {{site.data.keyword.block_storage_is_short}} volumes that are backed up by the policy. For a volume to be backed up by a policy, the volume must be tagged with at least one of the policy’s tags for the target resources.
 
 Look at which {{site.data.keyword.block_storage_is_short}} volumes have policies and verify that the policies are correctly applied.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Backup policies**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![vpc icon](../../icons/vpc.svg) > Backup policies**.
 
 2. Click a policy name.
 
@@ -153,7 +158,7 @@ r138-5c719085-cf26-456e-9216-984866659e29   my-backup-policy-v2   stable   defau
 
 For more information about available command options, see [`ibmcloud is backup-policies`](/docs/vpc?topic=vpc-vpc-reference#backup-policies).
 
-### Listing all backup policies filter by user tags from the CLI
+### Listing all backup policies filtered by user tags from the CLI
 {: #backup-view-all-filter-by-tags-cli}
 
 Run the `backup-policies` command to list all backup policies that you created in your account and region. The `--tag` option filters the collection of backup policies with the exact user tag value.
@@ -165,8 +170,8 @@ ibmcloud is backup-policies --tag
 
 The following example produces a list of backup policies that have the `dev:test` tag.
 
-```text
-cloudshell:~$ ibmcloud is backup-policies --tag dev:test
+```sh
+$ ibmcloud is backup-policies --tag dev:test
 Listing backup policies in all resource groups and region eu-de under account Test Account as user test.user@ibm.com...
 ID                                          Name                  Status   Resource group
 r138-0521986d-963c-4c18-992d-d6a7a99d115f   backup-policy-v1      stable   defaults
@@ -187,16 +192,38 @@ ibmcloud is backup-policy POLICY [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
+The following example lists the properties of a backup policy with the plan that it contains.
+
+```sh
+$ ibmcloud is backup-policy my-backup-policy-v2
+Getting backup policy my-backup-policy-v2 under account Kranthi's Test Account as user Viktoria.Muirhead@ibm.com...
+                           
+ID                      r006-0723c648-9a47-4d51-b1ba-349e21e715b6   
+Name                    my-backup-policy-v2   
+CRN                     crn:v1:bluemix:public:is:us-south:a/a10d63fa66daffc9b9b5286ce1533080::backup-policy:r006-0723c648-9a47-4d51-b1ba-349e21e715b6   
+Status                  stable   
+Last job completed at   2023-09-26T10:13:18.000Z   
+Plans                   ID                                          Name        Resource type      
+                        r006-e888bb31-7bf2-4885-a9f3-d448c1c37326   my-plan-b   backup_policy_plan      
+                           
+Backup tags             dev:test   
+Backup resource type    volume   
+Resource group          ID                                 Name      
+                        6edefe513d934fdd872e78ee6a8e73ef   defaults      
+                           
+Created at              2023-09-05T16:30:09+00:00
+```
+{: screeen}
+
 The following example uses the policy ID and the option to receive the response in JSON format.
 
 ```json
-cloudshell:~$ ibmcloud is backup-policy r138-0521986d-963c-4c18-992d-d6a7a99d115f --output JSON
+$ ibmcloud is backup-policy r006-0723c648-9a47-4d51-b1ba-349e21e715b6 --output JSON
 {
-    "created_at": "2023-02-21T22:42:10.000Z",
-    "crn": "crn:v1:bluemix:public:is:eu-de:a/a10d63fa66daffc9b9b5286ce1533080::backup-policy:r138-0521986d-963c-4c18-992d-d6a7a99d115f",
-    "href": "https://eu-de.iaas.cloud.ibm.com/v1/backup_policies/r138-0521986d-963c-4c18-992d-d6a7a99d115f",
-    "id": "r138-0521986d-963c-4c18-992d-d6a7a99d115f",
-    "last_job_completed_at": "2023-02-22T20:12:44.000Z",
+    "created_at": "2023-09-05T16:30:09.000Z",
+    "crn": "crn:v1:bluemix:public:is:us-south:a/a10d63fa66daffc9b9b5286ce1533080::backup-policy:r006-0723c648-9a47-4d51-b1ba-349e21e715b6",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/r006-0723c648-9a47-4d51-b1ba-349e21e715b6",
+    "id": "r006-0723c648-9a47-4d51-b1ba-349e21e715b6",
     "lifecycle_state": "stable",
     "match_resource_types": [
         "volume"
@@ -204,18 +231,12 @@ cloudshell:~$ ibmcloud is backup-policy r138-0521986d-963c-4c18-992d-d6a7a99d115
     "match_user_tags": [
         "dev:test"
     ],
-    "name": "backup-policy-v1",
+    "name": "my-backup-policy-v2",
     "plans": [
         {
-            "href": "https://eu-de.iaas.cloud.ibm.com/v1/backup_policies/r138-0521986d-963c-4c18-992d-d6a7a99d115f/plans/r138-2129a79a-5629-4069-bf79-7bb0af3b0bd3",
-            "id": "r138-2129a79a-5629-4069-bf79-7bb0af3b0bd3",
-            "name": "my-policy-plan-a",
-            "resource_type": "backup_policy_plan"
-        },
-        {
-            "href": "https://eu-de.iaas.cloud.ibm.com/v1/backup_policies/r138-0521986d-963c-4c18-992d-d6a7a99d115f/plans/r138-6f4f08ba-e0bb-470f-bbfb-f3a22aebbfa9",
-            "id": "r138-6f4f08ba-e0bb-470f-bbfb-f3a22aebbfa9",
-            "name": "my-policy-plan-c",
+            "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/r006-0723c648-9a47-4d51-b1ba-349e21e715b6/plans/r006-e888bb31-7bf2-4885-a9f3-d448c1c37326",
+            "id": "r006-e888bb31-7bf2-4885-a9f3-d448c1c37326",
+            "name": "my-plan-b",
             "resource_type": "backup_policy_plan"
         }
     ],
@@ -224,7 +245,12 @@ cloudshell:~$ ibmcloud is backup-policy r138-0521986d-963c-4c18-992d-d6a7a99d115
         "id": "6edefe513d934fdd872e78ee6a8e73ef",
         "name": "defaults"
     },
-    "resource_type": "backup_policy"
+    "resource_type": "backup_policy",
+    "scope": {
+        "id": "7e44cb4667ba4b88b1b1f8dcc15e33b3",
+        "crn": "crn:v1:bluemix:public:enterprise::a/a1234567::enterprise:7e44cb4667ba4b88b1b1f8dcc15e33b3",
+        "resource_type": ""
+    }
 }
 ```
 {: screen}
@@ -250,6 +276,36 @@ Resource group          defaults
 Created at              2023-02-21T18:37:17+00:00
 ```
 {: screen}
+
+The following example lists the properties of an Enterprise backup policy. The scope shows the enterprise account's CRN.
+
+```sh
+$ ibmcloud is backup-policy r134-0bc533ed-4796-407a-982e-693b418f3de3
+Getting backup policy r134-0bc533ed-4796-407a-982e-693b418f3de3 under account Enterprise Test as user test.user@ibm.com...
+                          
+ID                     r134-0bc533ed-4796-407a-982e-693b418f3de3   
+Name                   backup-scope-2   
+CRN                    crn:v1:staging:public:is:us-south:a/a1234567::backup-policy:r134-0bc533ed-4796-407a-982e-693b418f3de3   
+Status                 stable   
+Plans                  ID                                          Name           Resource type      
+                       r134-0741b600-e8d5-41b4-88a7-c19b6fbf89ca   scope-plan-2   backup_policy_plan      
+                          
+Backup tags            dev:test   
+Backup resource type   volume   
+Resource group         ID                                 Name      
+                       e579217258f74f42974e6ec4da287fc5   Default      
+                          
+Scope                  ID                                 CRN                                                                                         Resource type      
+                       7e44cb4667ba4b88b1b1f8dcc15e33b3   crn:v1:bluemix:public:enterprise::a/a1234567::enterprise:7e44cb4667ba4b88b1b1f8dcc15e33b3   -      
+                          
+Health State           ok   
+Created at             2023-08-30T13:39:10+05:30   
+
+```
+{: screen}
+
+The ability to create enterprise-wide backup policies is available in most regions, except Osaka and Tokyo MZRs in Japan.
+{: restriction}
 
 For more information about available command options, see [`ibmcloud is backup-policy`](/docs/vpc?topic=vpc-vpc-reference#backup-policy).
 
@@ -277,7 +333,7 @@ r138-6f4f08ba-e0bb-470f-bbfb-f3a22aebbfa9   my-policy-plan-c   true     stable  
 The following example specifies the policy ID of the policy from the previous example. The output provides more detailed information about the plans (`my-policy-plan-a` and `my-policy-plan-c`) that includes information about fast restore clones and the retention policy as well.
 
 ```json
-cloudshell:~$ ibmcloud is backup-policy-plans r138-0521986d-963c-4c18-992d-d6a7a99d115f  --output JSON
+$ ibmcloud is backup-policy-plans r138-0521986d-963c-4c18-992d-d6a7a99d115f  --output JSON
 [
     {
         "active": true,
@@ -395,11 +451,11 @@ You can view backup policies and plans by using the API.
 ### Showing details of a backup policy with the API
 {: #backup-view-policy-details-api}
 
-Make a `GET /backup_policies/{backup_policy_id}` request to show details of a backup policy that is identified by ID.
+You can programmatically retrieve the details of a backup policy by calling the `/backup_policies/{backup_policy_id}` method in the [VPC API](/apidocs/vpc/latest#get-backup-policy){: external} as shown in the following sample request.
 
-```curl
+```sh
 curl -X GET\
-"$vpc_api_endpoint/v1/backup_policies/fb721535-2cc6-45d6-ade7-3ceb95b7f26f?version=2022-06-03&generation=2"\
+"$vpc_api_endpoint/v1/backup_policies/r134-076191ba-49c2-4763-94fd-c70de73ee2e6?version=2023-09-26&generation=2"\
    -H "Authorization: $iam_token"
 ```
 {: codeblock}
@@ -408,35 +464,42 @@ A successful response looks like the following example.
 
 ```json
 {
-  "created_at": "2022-06-06T23:29:55.833Z",
-  "crn": "crn:v1:bluemix:public:is:us-south:a/123456::backup-policy:fb721535-2cc6-45d6-ade7-3ceb95b7f26f",
-  "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/fb721535-2cc6-45d6-ade7-3ceb95b7f26f",
-  "id": "fb721535-2cc6-45d6-ade7-3ceb95b7f26f",
-  "lifecycle_state": "stable",
-  "match_resource_types": [
-    [
-      "volume"
-    ]
+  "created_at": "2023-09-26T15:06:03.000Z",
+  "crn": "crn:v1:bluemix:public:is:us-south:a/123456::backup-policy:r134-076191ba-49c2-4763-94fd-c70de73ee2e6",
+  "health_reasons": [],
+  "health_state": "ok",
+  "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/r134-076191ba-49c2-4763-94fd-c70de73ee2e6",
+  "id": "r134-076191ba-49c2-4763-94fd-c70de73ee2e6",
+  "included_content": [
+    "data_volume"
   ],
+  "lifecycle_state": "stable",
+  "match_resource_type": "volume",
   "match_user_tags": [
-    "my-daily-backup-policy"
+    "my-tag-1",
+    "my-tag-2"
   ],
   "name": "my-backup-policy",
   "plans": [
     {
-      "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/fb721535-2cc6-45d6-ade7-3ceb95b7f26f/plans/4cf9171a-0043-4434-8727-15b53dbc374c",
-      "id": "4cf9171a-0043-4434-8727-15b53dbc374c",
-      "name": "my-policy-plan",
+      "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/r134-076191ba-49c2-4763-94fd-c70de73ee2e6/plans/r134-4d6074c4-3811-4bb3-af4a-1fd6cb38d6fe",
+      "id": "r134-4d6074c4-3811-4bb3-af4a-1fd6cb38d6fe",
+      "name": "my-backup-plan-1",
       "resource_type": "backup_policy_plan"
     }
   ],
   "resource_group": {
-    "crn": "crn:v1:bluemix:public:resource-controller::a/123456::resource-group:20b0c459-3cc6-411b-ba4b-2daa89c8c1b7",
-    "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/20b0c459-3cc6-411b-ba4b-2daa89c8c1b7",
-    "id": "20b0c459-3cc6-411b-ba4b-2daa89c8c1b7",
-    "name": "my-resource-group"
+    "crn": "crn:v1:bluemix:public:resource-controller::a/123456::resource-group:678523bcbe2b4eada913d32640909956",
+    "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/678523bcbe2b4eada913d32640909956",
+    "id": "678523bcbe2b4eada913d32640909956",
+    "name": "Default"
   },
-  "resource_type": "backup_policy"
+  "resource_type": "backup_policy",
+  "scope": {
+    "crn": "crn:v1:bluemix:public:enterprise::a/e92d45e305dc4ee0b13e29be392f1c0c::enterprise:ebc2b430240943458b9e91e1432cfcce",
+    "id": "fee82deba12e4c0fb69c3b09d1f12345",
+    "resource_type": "account"
+  }
 }
 ```
 {: codeblock}
@@ -444,9 +507,9 @@ A successful response looks like the following example.
 ### Listing all plans for a backup policy with the API
 {: #backup-view-plans-api}
 
-Make a `GET /backup_policies/{backup_policy_id}/plans` request to list the plans that are associated with a backup policy. You can have up to four plans per policy. See the following example.
+You can programmatically list the plans of a backup policy by calling the `/backup_policies/{backup_policy_id}/plans` method in the [VPC API](/apidocs/vpc/latest#get-backup-policy){: external} as shown in the following sample request.
 
-```curl
+```sh
 curl -X GET\
 "$vpc_api_endpoint/v1/backup_policies/fb721535-2cc6-45d6-ade7-3ceb95b7f26f/plans?version=2022-12-16&generation=2"\
    -H "Authorization: $iam_token"
@@ -482,7 +545,7 @@ A successful response looks like the following example.
 
 To retrieve information about a single plan, specify the plan ID in the request:
 
-```curl
+```sh
 curl -X GET "$vpc_api_endpoint/v1/backup_policies/{backup_policy_id}/plans/{plan_id}?version=2022-12-16&generation=2"
 ```
 {: codeblock}
@@ -495,15 +558,14 @@ You can see information about the zone in which fast restore backup snapshots ar
 
 Make a `GET /backup_policy/{backup_policy_id}/plans/{plan_id}` call. In the response, the `clone_policy` property shows the zone in which the snapshot clone for fast restore is created and the maximum number of recent snapshots per volume that keeps clones.
 
-You can also retrieve all plans for a backup policy and view plans you set up for backup snapshot clones. For more information, see the [List all plans for a backup policy](/apidocs/vpc/latest#list-backup-policy-plans) in the API reference.
+You can also retrieve all plans for a backup policy and view plans you set up for backup snapshot clones. For more information, see [List all plans for a backup policy](/apidocs/vpc/latest#list-backup-policy-plans) in the API reference.
 {: note}
 
 Example call:
 
-```curl
+```sh
 curl -X GET\
-"$vpc_api_endpoint/v1/backup_policies/fb721535-2cc6-45d6-ade7-3ceb95b7f26f/plan/4d58eb08-d950-498b-8175-b4d617b6ba6a?version=2022-12-16&generation=2"\
-?version=2022-06-03&generation=2"
+"$vpc_api_endpoint/v1/backup_policies/fb721535-2cc6-45d6-ade7-3ceb95b7f26f/plan/4d58eb08-d950-498b-8175-b4d617b6ba6a?version=2023-08-29&generation=2"
    -H "Authorization: $iam_token"
 ```
 {: codeblock}
@@ -524,7 +586,7 @@ The response shows the clone policy information. In this example, clones are cre
     },
     {
       "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-1"
-    },
+    }],
   "copy_user_tags": true,
   "created_at": "2022-12-16T15:16:37Z",
   "cron_spec": "45 * * * *",
@@ -536,6 +598,7 @@ The response shows the clone policy information. In this example, clones are cre
   "lifecycle_state": "stable",
   "name": "my-backup-plan-2",
   "resource_type": "backup_policy_plan"
+  }
 }
 ```
 {: codeblock}
@@ -544,14 +607,13 @@ The response shows the clone policy information. In this example, clones are cre
 {: #baas-view-plan-crc}
 {: api}
 
-Make a `GET /backup_policy/{backup_policy_id}/plans/{plan_id}` call. In the response, the `remote_region_policies` property shows the remote region where a copy of the backup is created.
+Make a `GET /backup_policy/{backup_policy_id}/plans/{plan_id}` request. In the response, the `remote_region_policies` property shows the remote region where a copy of the backup is created.
 
 See the following example.
 
-```curl
+```sh
 curl -X GET\
 "$vpc_api_endpoint/v1/backup_policies/fb721535-2cc6-45d6-ade7-3ceb95b7f26f/plan/4d58eb08-d950-498b-8175-b4d617b6ba6a?version=2023-05-09&generation=2"\
-?version=2023-05-09&generation=2"
    -H "Authorization: $iam_token"
 ```
 {: codeblock}
@@ -595,12 +657,12 @@ The response shows the remote region policy information. In this example, the ou
 {: #backup-view-terraform}
 {: terraform}
 
-You can use Terraformm to view backup policies and plans.
+You can use Terraform to view backup policies and plans.
 
 To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
 {: requirement}
 
-VPC infrastructure services use a region-specific endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the right region in the provider block in the `provider.tf` file.
+VPC infrastructure services use a regional specific endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the right region in the provider block in the `provider.tf` file.
 
 See the following example of targeting a region other than the default `us-south`.
 
@@ -614,7 +676,7 @@ provider "ibm" {
 ### Listing all backup policies with Terraform
 {: #backup-view-all-terraform}
 
-Import the details of a collection of backup policies as a read-only data source. You can filter the collection by specifing the name, resource group, or associated tags.
+Import the details of a collection of backup policies as a read-only data source. You can filter the collection by specifying the name, resource group, or associated tags.
 
 ```terraform
 data "ibm_is_backup_policies" "example" {
