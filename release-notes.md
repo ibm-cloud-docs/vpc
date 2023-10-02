@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-09-29"
+lastupdated: "2023-10-02"
 
 keywords:
 
@@ -25,6 +25,16 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 For more information about changes to the {{site.data.keyword.vpc_short}} API, see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-cli-rn).
+
+## October 2023
+{: #vpc-oct23}
+
+### 02 October 2023
+{: #vpc-oct0223}
+{: release-note}
+
+New regions for ux2d profiles
+:   The Ultra High Memory family of profiles are now available in the Brazil (São Paulo), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions.
 
 ## September 2023
 {: #vpc-sep23}
