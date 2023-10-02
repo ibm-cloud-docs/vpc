@@ -4,7 +4,7 @@ copyright:
   years: 2021, 2023
 lastupdated: "2023-06-27"
 
-keywords: snapshots, block storage, snapshot clone, remote copy, fast restore, block storage snapshot, cross-regional snapshot
+keywords: snapshots, Block Storage, snapshot clone, remote copy, fast restore, Block Storage snapshot, cross-regional snapshot
 
 subcollection: vpc
 
@@ -42,7 +42,7 @@ In the console, you can create a snapshot of a {{site.data.keyword.block_storage
      1. Go to the volume details page in one of these ways.
 
          - Go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**. Select the instance that contains the volume that you want to make a snapshot of. From the [instance details page](/vpc-ext/compute/vs), scroll to the list of attached volumes and click the name of the volume.
-         - Go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**. From the list of block storage volumes, select the volume that you want to make a snapshot of.
+         - Go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**. From the list of Block Storage volumes, select the volume that you want to make a snapshot of.
 
      2. On the volume details page, select **Create snapshot** from the **Actions** menu.
 
@@ -60,7 +60,7 @@ In the console, you can create a snapshot of a {{site.data.keyword.block_storage
    | Optional configurations | Cross-region snapshot copy. Select Copy Snapshot to a different region. Click **Create**.|
    {: caption="Table 1. Selections for creating a snapshot" caption-side="bottom"}
 
-3. Click **Create block storage snapshot**. You're returned to the screen that you started from. Messages are displayed while the snapshot is being created and when it's ready, the snapshot is displayed in the list of snapshots. For more information, see [View snapshot details in the UI](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=ui#snapshots-vpc-view-snapshot-ui).
+3. Click **Create Block Storage snapshot**. You're returned to the screen that you started from. Messages are displayed while the snapshot is being created and when it's ready, the snapshot is displayed in the list of snapshots. For more information, see [View snapshot details in the UI](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=ui#snapshots-vpc-view-snapshot-ui).
 
 ## Enabling fast restore snapshot clones in the UI
 {: #frsnapshots-vpc-create-ui}

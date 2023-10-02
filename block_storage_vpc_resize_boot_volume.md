@@ -4,7 +4,7 @@ copyright:
   years: 2022, 2023
 lastupdated: "2023-06-30"
 
-keywords: block storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
+keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
 subcollection: vpc
 
@@ -25,7 +25,7 @@ Boot volume capacity can be increased during instance provisioning or later, by 
 
 When you [provision an instance](#resize-boot-vol-new-instance-ui), you can expand the boot volume from its minimum size up to the maximum capacity of 250 GB.
 
-For [existing instances](#resize-boot-vol-list-ui), you can modify the boot volume size and increase capacity up to 250 GB, depending on what the image allows. In this case, you select a boot volume from the list of block storage volumes to modify the capacity.
+For [existing instances](#resize-boot-vol-list-ui), you can modify the boot volume size and increase capacity up to 250 GB, depending on what the image allows. In this case, you select a boot volume from the list of Block Storage volumes to modify the capacity.
 
 After you expand boot volume capacity, you have to take extra steps to get your OS to recognize the capacity increase. You must independently increase the size of the disk, grow the disk partition, and then increase the file system into the partition. For more information, see [Modifying a Linux OS for expanding boot volumes](/docs/vpc?topic=vpc-modifying-the-linux-os-expanded-boot-volume).
 
@@ -33,7 +33,7 @@ After you expand boot volume capacity, you have to take extra steps to get your 
 {: #resize-vpc-boot-volumes-ui}
 {: ui}
 
-Increase boot volume capacity for new or existing instances in the console. For existing instances, you can increase the boot volume capacity by selecting a boot volume from the list of block storage volumes.
+Increase boot volume capacity for new or existing instances in the console. For existing instances, you can increase the boot volume capacity by selecting a boot volume from the list of Block Storage volumes.
 
 ### Increasing boot volume capacity during instance provisioning in the UI
 {: #resize-boot-vol-new-instance-ui}
@@ -42,12 +42,12 @@ When you create new instance from either a stock or custom image, you can increa
 
 You can also specify a larger boot volume capacity when you create an instance template. For more information, see [Creating an instance template](/docs/vpc?topic=vpc-creating-auto-scale-instance-group&interface=ui#creating-instance-template).
 
-### Increasing boot volume capacity from the list of block storage volumes in the UI
+### Increasing boot volume capacity from the list of Block Storage volumes in the UI
 {: #resize-boot-vol-list-ui}
 
-For an existing instance, you can increase its boot volume capacity by selecting it from the list of block storage volumes.
+For an existing instance, you can increase its boot volume capacity by selecting it from the list of Block Storage volumes.
 
-1. Go to the list of block storage volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
+1. Go to the list of Block Storage volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
 
 2. Select a boot volume from the list of volumes. The attachment type is _boot_.
 
@@ -230,9 +230,9 @@ curl -X PATCH "$vpc_api_endpoint/v1/volumes/$volume_id/?version=2022-02-12&gener
 ## Next steps
 {: #next-steps-resize-boot-vols}
 
-Create more volumes or manage your existing block storage volumes.
+Create more volumes or manage your existing Block Storage volumes.
 
-* [Creating block storage volumes](/docs/vpc?topic=vpc-creating-block-storage).
-* [Managing block storage volumes](/docs/vpc?topic=vpc-managing-block-storage).
+* [Creating Block Storage volumes](/docs/vpc?topic=vpc-creating-block-storage).
+* [Managing Block Storage volumes](/docs/vpc?topic=vpc-managing-block-storage).
 
 Optionally, [increase the capacity of your data volumes](/docs/vpc?topic=vpc-expanding-block-storage-volumes) that are attached to a virtual server instance.

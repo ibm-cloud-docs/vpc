@@ -55,7 +55,7 @@ Creating or deleting one of the following resources sends metric events for the 
       - [Creating a network load balancer for VPC](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer&interface=ui) and [Deleting an IBM Cloud Network Load Balancer for VPC](/docs/vpc?topic=vpc-nlb-deleting&interface=ui).
       - [Creating an IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancer&interface=ui) and [Deleting an IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-alb-deleting&interface=ui).
 - volume
-   - For more information, see [Creating block storage volumes](/docs/vpc?topic=vpc-creating-block-storage) and [Delete a block storage data volume](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#delete).
+   - For more information, see [Creating Block Storage volumes](/docs/vpc?topic=vpc-creating-block-storage) and [Delete a Block Storage data volume](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#delete).
 
 ### Add or remove a rule
 {: #change-rule}

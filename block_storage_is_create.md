@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2023
 lastupdated: "2023-08-28"
 
-keywords: vpc block storage, provision block storage for vpc, bootable snapshots, create volume from snapshot, fast restore
+keywords: vpc Block Storage, provision Block Storage for vpc, bootable snapshots, create volume from snapshot, fast restore
 
 subcollection: vpc
 
@@ -207,7 +207,7 @@ User tags are added to identify the volume resource. When these tags are matched
 ### Creating a stand-alone {{site.data.keyword.block_storage_is_short}} volume with customer-managed encryption from the CLI
 {: #encrypt-standalone-data-vol-cli}
 
-To create a block storage volume with customer-managed encryption from the CLI, use the `ibmcloud is volume-create` command with the `--encryption-key` option. The `encryption_key` option needs a valid CRN for the root key in the key management service.
+To create a Block Storage volume with customer-managed encryption from the CLI, use the `ibmcloud is volume-create` command with the `--encryption-key` option. The `encryption_key` option needs a valid CRN for the root key in the key management service.
 
 ```sh
 ibmcloud is volume-create VOLUME_NAME PROFILE_NAME ZONE_NAME [--encryption-key ENCRYPTION_KEY] [--capacity CAPACITY] [--iops IOPS] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--output JSON]

@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 lastupdated: "2023-09-18"
-keywords: faqs, block storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
+keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
 subcollection: vpc
 
@@ -88,7 +88,7 @@ The storage system uses base-2 units for volume allocation. So if your volume is
 
 One of the reasons can be that your operating system uses base-2 conversion. For example, when you provision a 4000 GB volume on the UI, the storage system reserves a 4,000 GiB volume or 4,294,967,296,000 bytes of storage space for you. The provisioned volume size is larger than 4 TB. However, your operating system might display the storage size as 3.9 T because it uses base-2 conversion and the T stands for TiB, not TB.
 
-Second, partitioning your block storage and creating a file system on it reduces available storage space. The amount by which formatting reduces space varies depending upon the type of formatting that is used and the amount and size of the various files on the system.
+Second, partitioning your Block Storage and creating a file system on it reduces available storage space. The amount by which formatting reduces space varies depending upon the type of formatting that is used and the amount and size of the various files on the system.
 
 Take the volume `docs-block-test3` as an example. We specified 1200 GB during provisioning and when you list the details in the CLI, you can see that it has the capacity of 1200.
 
@@ -415,7 +415,7 @@ Both key management systems provide you with complete control over your data, ma
 
 No, after you provision a volume and specify the encryption type, you can't change it.
 
-## Is there a way to copy the block storage volume to a different zone?
+## Is there a way to copy the Block Storage volume to a different zone?
 {: faq}
 {: #faq-block-storage-30}
 

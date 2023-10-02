@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2023
 lastupdated: "2023-06-30"
 
-keywords: volume, capacity, block storage
+keywords: volume, capacity, Block Storage
 
 subcollection: vpc
 
@@ -15,15 +15,15 @@ subcollection: vpc
 # Managing volume count and capacity limits
 {: #manage-storage-limit}
 
-{{site.data.keyword.block_storage_is_short}} offers block-level data storage volumes that can be attached to an instance as either a boot volume or as a data volume. Answer the following questions when you're ordering block storage volumes or requesting an increase in your volume or capacity limits. 
+{{site.data.keyword.block_storage_is_short}} offers block-level data storage volumes that can be attached to an instance as either a boot volume or as a data volume. Answer the following questions when you're ordering Block Storage volumes or requesting an increase in your volume or capacity limits. 
 {: shortdesc}
 
 ## Overview
 {: #manage-storage-limit-overview}
 
-With {{site.data.keyword.block_storage_is_short}}, you can create up to 750 boot and data block storage volumes per account in a region. You can request an increase of this quota by contacting [IBM Support](/unifiedsupport/cases/add){: external} and submitting a support case.
+With {{site.data.keyword.block_storage_is_short}}, you can create up to 750 boot and data Block Storage volumes per account in a region. You can request an increase of this quota by contacting [IBM Support](/unifiedsupport/cases/add){: external} and submitting a support case.
 
-Capacity for secondary volumes ranges 10 - 16,000 GB. You can also expand volume capacity within its IOPS tier profile or custom band. For more information, see [expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
+Capacity for secondary volumes ranges 10 - 16,000 GB. You can also expand volume capacity within its IOPS tier profile or custom band. For more information, see [expanding Block Storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 
 ## Volume count and storage limits checklist
 {: #manage-storage-limit-checklist}

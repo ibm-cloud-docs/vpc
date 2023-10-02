@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2023
 lastupdated: "2023-01-30"
 
-keywords: block storage, virtual private cloud, volume, data storage, troubleshooting, troubleshoot
+keywords: Block Storage, virtual private cloud, volume, data storage, troubleshooting, troubleshoot
 
 subcollection: vpc
 
@@ -23,7 +23,7 @@ When you create or manage {{site.data.keyword.block_storage_is_short}}, you migh
 {: troubleshoot}
 {: support}
 
-Information about a block storage volume or volumes can't be retrieved for a region.
+Information about a Block Storage volume or volumes can't be retrieved for a region.
 {: tsSymptoms}
 
 Any of the following causes might apply:
@@ -42,7 +42,7 @@ Verify that the volume wasn't detached from a virtual server instance and delete
 
 If the volume is not attached as expected and does not appear in the list of volumes, it was probably deleted. Because deleting a volume completely removes its data, it cannot be restored.
 
-If you use the CLI, verify that you entered the correct command syntax for viewing volumes. See [View all block storage volumes from the CLI](/docs/vpc?topic=vpc-viewing-block-storage-cli). Verify that you specified the correct resource group or zone.
+If you use the CLI, verify that you entered the correct command syntax for viewing volumes. See [View all Block Storage volumes from the CLI](/docs/vpc?topic=vpc-viewing-block-storage-cli). Verify that you specified the correct resource group or zone.
 
 ## Cannot update a volume name by using the API or CLI
 {: #troubleshoot-topic-2}
@@ -75,7 +75,7 @@ Follow these guidelines for valid volume names:
 {: troubleshoot}
 {: support}
 
-You can't delete a block storage volume by name or ID.
+You can't delete a Block Storage volume by name or ID.
 {: tsSymptoms}
 
 The volume name and ID are not accepted.
@@ -101,7 +101,7 @@ A volume must be in an _available_ state for operations such as attach, detach, 
 {: #troubleshoot-topic-5}
 {: troubleshoot}
 
-The root keys in the Key management service (KMS) instance remain registered to the deleted block storage volume or image resources.
+The root keys in the Key management service (KMS) instance remain registered to the deleted Block Storage volume or image resources.
 {: tsSymptoms}
 
 If you remove IAM authorization from Cloud Block Storage to the KMS before you delete all BYOK volumes or images, the root key fails to unregister from the resource.

@@ -56,7 +56,7 @@ To create and configure your VPC and other attached resources:
 3. Attach a public gateway if you want to allow all resources in a subnet to communicate with the public internet.
 1. Configure an access control list (ACL) to limit the subnet's inbound and outbound traffic.
 1. Create virtual server instances with the core and RAM configuration that's right for your workload. By default, a boot volume is attached to the instance. For most virtual server instances the default boot volume size is 100 GB. The default boot volume size for a z/OS virtual server instance is 250 GB.
-1. If you want more storage, create block storage volumes and attach them to your instances.
+1. If you want more storage, create Block Storage volumes and attach them to your instances.
 1. To define the inbound and outbound traffic that's allowed for instances, configure their security groups.
 1. If you want instances to be reachable from the internet, reserve and associate floating IP addresses.
 5. Deploy your service or applications across the instances.

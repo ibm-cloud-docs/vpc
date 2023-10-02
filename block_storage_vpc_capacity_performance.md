@@ -15,7 +15,7 @@ subcollection: vpc
 # Block storage capacity and performance
 {: #capacity-performance}
 
-Choosing the optimal block storage volume size and performance level for your workloads is important. When you provision {{site.data.keyword.block_storage_is_short}}, you can specify the size of your volume and the performance level that you require.
+Choosing the optimal Block Storage volume size and performance level for your workloads is important. When you provision {{site.data.keyword.block_storage_is_short}}, you can specify the size of your volume and the performance level that you require.
 {: shortdesc}
 
 ## Capacity
@@ -23,7 +23,7 @@ Choosing the optimal block storage volume size and performance level for your wo
 
 {{site.data.keyword.block_storage_is_short}} offers a range of storage capacities to meet your requirements.
 
-Based on the [storage profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers) that you chose for your data volume, you can specify 10-16,000 GB of capacity per block storage data volume in 1 GB increments.
+Based on the [storage profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers) that you chose for your data volume, you can specify 10-16,000 GB of capacity per Block Storage data volume in 1 GB increments.
 
 Boot volumes are 100 GB by default. If you provision an instance from a custom image, you can specify boot volume capacity up to 250 GB.
 
@@ -35,7 +35,7 @@ When you provision {{site.data.keyword.block_storage_is_short}} volumes, you spe
 ## How volume bandwidth is allocated
 {: #cp-storage-bandwidth-allocate}
 
-Bandwidth that is available to the VSI is split between attached block storage volumes and networking. The initial volume and network bandwidth allocation depends on the [instance profile](/docs/vpc?topic=vpc-profiles) and the bandwidth ratio that you selected for your instance.
+Bandwidth that is available to the VSI is split between attached Block Storage volumes and networking. The initial volume and network bandwidth allocation depends on the [instance profile](/docs/vpc?topic=vpc-profiles) and the bandwidth ratio that you selected for your instance.
 
 The allocation of the instance's total bandwidth can be adjusted, balancing between network bandwidth and volume bandwidth. If you do not specify the initial volume and network bandwidth allocation, then 25% of total instance bandwidth is allocated to volume bandwidth and 75% is allocated to network bandwidth.
 

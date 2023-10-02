@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2023
 lastupdated: "2023-06-30"
 
-keywords: vpc, block storage, block storage for vpc, mounting storing, attaching block storage, vpc instance, data volumes
+keywords: vpc, Block Storage, Block Storage for vpc, mounting storing, attaching Block Storage, vpc instance, data volumes
 
 subcollection: vpc
 
@@ -34,7 +34,7 @@ You can't use the UI to attach {{site.data.keyword.block_storage_is_short}} volu
 {: support}
 {: ui}
 
-You can attach a volume to a virtual server instance from the list of block storage volumes, volume details page, or from the instance details page. 
+You can attach a volume to a virtual server instance from the list of Block Storage volumes, volume details page, or from the instance details page. 
 
 ### Attaching a volume to an instance from the list of volumes
 {: #attach-from-vol-list}
@@ -56,7 +56,7 @@ When you create a {{site.data.keyword.hpvs}} instance and the contract mentions 
 
 From the volume details page, follow these steps:
 
-1. Select an unattached volume from the [list of block storage volumes](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#viewvols-ui). 
+1. Select an unattached volume from the [list of Block Storage volumes](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#viewvols-ui). 
 1. From the volume details page, in the **Virtual server instances** tile, click **Attach**.
 1. On the side panel, select a virtual server instance and click **Save**. 
     If the list shows no virtual server instances, click **Create server** to go to the [instance provisioning](/docs/vpc?topic=vpc-creating-virtual-servers) page. The boot or data volume is shown on the instance provisioning page in their respective fields.

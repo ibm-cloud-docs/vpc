@@ -4,7 +4,7 @@ copyright:
   years: 2021, 2023
 lastupdated: "2023-06-30"
 
-keywords: block storage for VPC, boot volume, data volume, volume, data storage, virtual server instance, instance, adjustable volume, iops
+keywords: Block Storage for VPC, boot volume, data volume, volume, data storage, virtual server instance, instance, adjustable volume, iops
 
 subcollection: vpc
 

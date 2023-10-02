@@ -16,7 +16,7 @@ subcollection: vpc
 # Creating VPC resources with CLI and API
 {: #creating-vpc-resources-with-cli-and-api}
 
-In addition to creating a VPC, you can also create VPC resources such as an instance, a subnet, and a block storage volume.
+In addition to creating a VPC, you can also create VPC resources such as an instance, a subnet, and a Block Storage volume.
 
 If you are looking for information to create VPC resources by using {{site.data.keyword.cloud_notm}} console, see [Using the {{site.data.keyword.cloud_notm}} console to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
 {: tip}
@@ -33,7 +33,7 @@ To create and configure your virtual private cloud (VPC) and other attached reso
 1. Create a VPC and subnet to define the network.
 1. If you want to allow all resources in the subnet to communicate with the public internet, attach a public gateway.
 1. Create a virtual server instance. By default, a boot volume is attached to the instance. For most virtual server instances the default boot volume size is 100 GB. The default boot volume size for a z/OS virtual server instance is 250 GB.
-1. If you want more storage, create a block storage volume and attach it to your instance.
+1. If you want more storage, create a Block Storage volume and attach it to your instance.
 1. To define the inbound and outbound traffic that's allowed for the instance, configure its security group.
 1. If you want your instance to be reachable from the internet, reserve and associate a floating IP address.
 
@@ -314,10 +314,10 @@ nic="0738-4d9b3a58-f796-4e6a-b5ac-84f4216e9b68-glhvl"
 ```
 {: pre}
 
-### Create a block storage data volume
+### Create a Block Storage data volume
 {: #create-block-storage-data-volume-cli}
 
-You can create a block storage volume and attach it to your virtual server instance if you want more storage. When you create a block storage volume, you select a profile to optimize the performance of your compute workloads. See [Profiles](/docs/vpc?topic=vpc-block-storage-profiles#block-storage-profiles) for information about volume capacity and IOPS ranges based on the volume profile you select.  
+You can create a Block Storage volume and attach it to your virtual server instance if you want more storage. When you create a Block Storage volume, you select a profile to optimize the performance of your compute workloads. See [Profiles](/docs/vpc?topic=vpc-block-storage-profiles#block-storage-profiles) for information about volume capacity and IOPS ranges based on the volume profile you select.  
 
 To see a list of volume profiles, run:
 
@@ -326,7 +326,7 @@ ibmcloud is volume-profiles
 ```
 {: pre}
 
-Run this command to create a block storage data volume. Specify a name for your volume, volume profile, and the zone where you are creating the volume. To attach a block storage data volume to an instance, the instance and the block storage data volume must be created in the same zone.
+Run this command to create a Block Storage data volume. Specify a name for your volume, volume profile, and the zone where you are creating the volume. To attach a Block Storage data volume to an instance, the instance and the Block Storage data volume must be created in the same zone.
 
 ```sh
 ibmcloud is volume-create my-volume custom us-south-2 --iops 1000
@@ -349,7 +349,7 @@ ibmcloud is volume $vol
 ```
 {: pre}
 
-### Attach a block storage data volume to an instance
+### Attach a Block Storage data volume to an instance
 {: #attach-block-storage-data-volume-cli}
 
 Use the following command to attach the volume to the virtual server instance, by using the variables that we created:
@@ -498,7 +498,7 @@ To create and configure your virtual private cloud (VPC) and other attached reso
 1. Create a VPC and subnet to define the network.
 1. If you want to allow all resources in the subnet to communicate with the public internet, attach a public gateway.
 1. Create a virtual server instance. By default, a 100 GB boot volume is attached to the instance.
-1. If you want more storage, create a block storage volume and attach it to your instance.
+1. If you want more storage, create a Block Storage volume and attach it to your instance.
 1. To define the inbound and outbound traffic that's allowed for the instance, configure its security group.
 1. If you want your instance to be reachable from the internet, reserve and associate a floating IP address.
 
@@ -837,10 +837,10 @@ network_interface="0738-7710e766-dd6e-41ef-9d36-06f7adbef33d"
 You can't get the ID of the primary network interface until you query the specific instance.
 {: important}
 
-### (Optional) Create and attach a block storage data volume
+### (Optional) Create and attach a Block Storage data volume
 {: #create-and-attach-storage-api-tutorial}
 
-You can create a block storage data volume and attach it to your virtual server instance as secondary storage. Create a data volume with a request similar to this example. This procedure shows the volume profiles, crreates a volume, saves the volume ID in a variable, checks the status of the volume, and then creates the volume attachment.
+You can create a Block Storage data volume and attach it to your virtual server instance as secondary storage. Create a data volume with a request similar to this example. This procedure shows the volume profiles, crreates a volume, saves the volume ID in a variable, checks the status of the volume, and then creates the volume attachment.
 
 Show a list of volume profiles:
 

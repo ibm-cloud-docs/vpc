@@ -4,7 +4,7 @@ copyright:
   years: 2020, 2023
 lastupdated: "2023-08-24"
 
-keywords: block storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
+keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
 subcollection: vpc
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Increasing block storage volume capacity
+# Increasing Block Storage volume capacity
 {: #expanding-block-storage-volumes}
 
 After you provisioned a {{site.data.keyword.block_storage_is_short}} data volume and attached it to a virtual server instance, you can increase its volume size in the UI, from the CLI, with the API or Terraform. 
@@ -20,13 +20,13 @@ After you provisioned a {{site.data.keyword.block_storage_is_short}} data volume
 
 You can't change the volume to a smaller size after you expand its capacity. However, if your requirements change, you can expand the same volume again up to the maximum capacity that's available for its profile.
 
-## Expand block storage volumes in the UI
+## Expand Block Storage volumes in the UI
 {: #expand-vpc-volumes-ui}
 {: ui}
 
 Follow these steps to expand volume capacity:
 
-1. Go to the list of block storage volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**. By default, block storage volumes display for all resource groups in your region.
+1. Go to the list of Block Storage volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**. By default, Block Storage volumes display for all resource groups in your region.
 
 2. In the list of all **Block storage for VPC volumes**, click the name of the volume you want to expand to see the volume details.
 
@@ -37,7 +37,7 @@ Follow these steps to expand volume capacity:
 
 4. On the volume details page, locate **Size**. The current IOPS profile and volume size are displayed.
 
-5. Click the pencil icon. Alternatively, click the **Actions** menu and select **Expand block storage volume**.
+5. Click the pencil icon. Alternatively, click the **Actions** menu and select **Expand Block Storage volume**.
 
 6. In the panel, increase the volume size in GB up to 16,000 GB.
 
@@ -47,9 +47,9 @@ Follow these steps to expand volume capacity:
 
 8. If you're satisfied, click **Save and continue**.
 
-Your new block storage allocation is available in a few minutes.
+Your new Block Storage allocation is available in a few minutes.
 
-## Expand block storage volumes from the CLI
+## Expand Block Storage volumes from the CLI
 {: #expand-vpc-volumes-cli}
 {: cli}
 
@@ -150,7 +150,7 @@ Tags                                   -
 
 For more information about available command options, see [`ibmcloud is volume-update`](/docs/cli?topic=cli-vpc-reference#volume-update).
 
-## Expand block storage volumes with the API
+## Expand Block Storage volumes with the API
 {: #expand-vpc-volumes-api}
 {: api}
 
@@ -235,7 +235,7 @@ When the volume expansion completes, the new value displays, and the volume stat
 ```
 {: screen}
 
-## Expand block storage volumes with Terraform
+## Expand Block Storage volumes with Terraform
 {: #expand-vpc-volumes-terraform}
 {: terraform}
 
@@ -266,7 +266,7 @@ Extending a file system is a moderately risky operation. Consider taking a snaps
 {: tip} 
 
 1. Establish the SSH connection to your virtual server instance by using the floating IP address that is assigned to the instance. For more information, see [Connecting to Linux instances](/docs/vpc?topic=vpc-vsi_is_connecting_linux).
-1. Run the `lsblk` command to see the updated capacity. In the following example, `vdc` is the attached block storage volume.
+1. Run the `lsblk` command to see the updated capacity. In the following example, `vdc` is the attached Block Storage volume.
    ```sh
    [root@docs-demo-instance ~]# lsblk
    NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT

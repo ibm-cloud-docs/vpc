@@ -107,7 +107,7 @@ You can create virtual server instances in your {{site.data.keyword.vpc_short}} 
    | Type of virtual server | Public |
    | Operating system | Select **Custom image** > (custom image). |
    | SSH key | An existing SSH key \n For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
-   | Data volumes | You can add one or more secondary data volumes to be included when you provision the instance. To add volumes, click **Create** in the Data volumes section of the page. \n For more information about provisioning the volume, see [Create and attach a block storage volume when you create a new instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi). |
+   | Data volumes | You can add one or more secondary data volumes to be included when you provision the instance. To add volumes, click **Create** in the Data volumes section of the page. \n For more information about provisioning the volume, see [Create and attach a Block Storage volume when you create a new instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi). |
    | Networking | Select your pre-existing VPC |
    {: caption="Table 2. Instance provisioning selections" caption-side="bottom"}
 

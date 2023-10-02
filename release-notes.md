@@ -521,12 +521,12 @@ Bare metal servers now support custom images
 {: #vpc-dec1322}
 {: release-note}
 
-Volume creation from a block storage snapshot
-:   You can now use the UI and CLI, in addition to the VPC API, to create a stand-alone block storage volume from a snapshot. Stand-alone data volumes can be attached to a virtual server instance at any time. You can select a snapshot of a boot volume and use it to boot a new virtual server instance. For more information, see
+Volume creation from a Block Storage snapshot
+:   You can now use the UI and CLI, in addition to the VPC API, to create a stand-alone Block Storage volume from a snapshot. Stand-alone data volumes can be attached to a virtual server instance at any time. You can select a snapshot of a boot volume and use it to boot a new virtual server instance. For more information, see
 [Restore a stand-alone data volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore).
 
 Block storage volume health states
-:   You can now view the health state of a block storage volume from the UI, CLI, and API. Health indicated whether a volume is performing as expected or degraded. You can view health status and reasons from the list of volumes and volume details, and when you create and update volumes. For more information, see [Block storage volume health states](/docs/vpc?topic=vpc-managing-block-storage#block-storage-vpc-health-states).
+:   You can now view the health state of a Block Storage volume from the UI, CLI, and API. Health indicated whether a volume is performing as expected or degraded. You can view health status and reasons from the list of volumes and volume details, and when you create and update volumes. For more information, see [Block storage volume health states](/docs/vpc?topic=vpc-managing-block-storage#block-storage-vpc-health-states).
 
 ## November 2022
 {: #vpc-nov22}
@@ -552,7 +552,7 @@ IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1
 {: release-note}
 
 Access management tags to manage VPC resources
-:   You can now use access management tags to control access to VPC resources, such as virtual server instances and block storage volumes. See the [Access management tags](/docs/vpc?topic=vpc-iam-getting-started&interface=ui#iam-access-management-tags) section in [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started). For more information about using access management tags, see the following IAM resources:
+:   You can now use access management tags to control access to VPC resources, such as virtual server instances and Block Storage volumes. See the [Access management tags](/docs/vpc?topic=vpc-iam-getting-started&interface=ui#iam-access-management-tags) section in [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started). For more information about using access management tags, see the following IAM resources:
     * [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial) UI tutorial
     * [Working with tags](/docs/account?topic=account-tag&interface=ui)
     * [Granting users access to tag resources and service IDs](/docs/account?topic=account-access&interface=ui)
@@ -687,7 +687,7 @@ IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}}
 {: release-note}
 
 Additional user tag support for boot and data volumes
-:  You can now add user tags to boot and data volumes when provisioning a virtual server instance or creating an instance template. You can add tags to the boot volume by editing it during instance provisioning. You can also add user tags for any data volumes you create and attach. If you import from a snapshot, any tags defined for the snapshot will be applied to the new volume. For more information, see [Create and attach a block storage volume when you create a new instance](/docs/vpc?topic=vpc-creating-block-storage&interface=api). For more information about user tags, see [Working with tags](/docs/account?topic=account-tag&interface=api).
+:  You can now add user tags to boot and data volumes when provisioning a virtual server instance or creating an instance template. You can add tags to the boot volume by editing it during instance provisioning. You can also add user tags for any data volumes you create and attach. If you import from a snapshot, any tags defined for the snapshot will be applied to the new volume. For more information, see [Create and attach a Block Storage volume when you create a new instance](/docs/vpc?topic=vpc-creating-block-storage&interface=api). For more information about user tags, see [Working with tags](/docs/account?topic=account-tag&interface=api).
 
 ### 17 August 2022
 {: #vpc-august1722}
@@ -720,7 +720,7 @@ VPC Instance Metadata service
 {: release-note}
 
 Virtual servers for VPC
-:   You can now use the UI, CLI, and API to specify user tags for volume resources when you create an instance. You can add user tags to the instance's boot volume by editing the boot volume. You can also add user tags when attaching a data volume to the instance. For more information, see [Adding user tags to block storage volumes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#storage-about-user-tags).
+:   You can now use the UI, CLI, and API to specify user tags for volume resources when you create an instance. You can add user tags to the instance's boot volume by editing the boot volume. You can also add user tags when attaching a data volume to the instance. For more information, see [Adding user tags to Block Storage volumes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#storage-about-user-tags).
 
 Snapshot and Backup for VPC
 :   The [quota of snapshots and backup snapshots](/docs/vpc?topic=vpc-quotas#block-storage-quotas) you can create per volume has been increased to 750. For more information about how these quotas are applied, see [Considerations when creating snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_considerations).
@@ -758,7 +758,7 @@ New stock image for bare metal servers
 {: release-note}
 
 Backup for VPC (GA)
-:    You can now create automated backup snapshots of your block storage volumes. If your original volume is compromised, you can restore it from a backup snapshot. You create a backup policy to control which source volumes are selected for backup by matching user tags in the volume with tags that are defined in the policy. Each policy contains up to four backup plans, which define how often backup snapshots are taken (daily, weekly, monthly, or more frequently by using a cron-spec) and retained (by date or by count). You can also view backup jobs, which show status of backup snapshots that are being created or deleted. For more information about this service, see [Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
+:    You can now create automated backup snapshots of your Block Storage volumes. If your original volume is compromised, you can restore it from a backup snapshot. You create a backup policy to control which source volumes are selected for backup by matching user tags in the volume with tags that are defined in the policy. Each policy contains up to four backup plans, which define how often backup snapshots are taken (daily, weekly, monthly, or more frequently by using a cron-spec) and retained (by date or by count). You can also view backup jobs, which show status of backup snapshots that are being created or deleted. For more information about this service, see [Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
 
 The backup policy jobs API remains in [beta](/apidocs/vpc-beta#24-may-2022).
 {: note}
@@ -807,7 +807,7 @@ File storage for VPC
 {: release-note}
 
 Backup for VPC (LA)
-:    Accounts authorized to preview this service can create backup policies and plans to automatically back up block storage volumes. Backup policies control which source volumes are selected for backup by matching user tags in the volume with tags that are defined in the backup policy. Policies can contain up to four backup plans, which specify how often backup snapshots are taken (daily, weekly, monthly, or by using a `cron-spec`) and retained (by date or by count). You can also view backup jobs, which show status of backup snapshots that are being created or deleted. This release also provides new functionality for restoring volumes from backup snapshots. For more information about this service, see [Backup for VPC](/docs/vpc?topic=vpc-backup-service-about) concepts.
+:    Accounts authorized to preview this service can create backup policies and plans to automatically back up Block Storage volumes. Backup policies control which source volumes are selected for backup by matching user tags in the volume with tags that are defined in the backup policy. Policies can contain up to four backup plans, which specify how often backup snapshots are taken (daily, weekly, monthly, or by using a `cron-spec`) and retained (by date or by count). You can also view backup jobs, which show status of backup snapshots that are being created or deleted. This release also provides new functionality for restoring volumes from backup snapshots. For more information about this service, see [Backup for VPC](/docs/vpc?topic=vpc-backup-service-about) concepts.
 
 ### 28 April 2022
 {: #vpc-apr2822}
@@ -835,7 +835,7 @@ UI Updates
 {: release-note}
 
 Backup for VPC (limited availability)
-:    For accounts authorized to preview this service, you can create backup policies that automatically back up your block storage volumes. Backups are triggered when a user tag is applied to a volume matches a backup policy tag. Each backup policy has a backup plan, which defines how often backups are taken and how long they're retained. With this release, you can create and update up to four backup plans per policy. You can also track backup job status when a backup is created. For more information, see [About Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
+:    For accounts authorized to preview this service, you can create backup policies that automatically back up your Block Storage volumes. Backups are triggered when a user tag is applied to a volume matches a backup policy tag. Each backup policy has a backup plan, which defines how often backups are taken and how long they're retained. With this release, you can create and update up to four backup plans per policy. You can also track backup job status when a backup is created. For more information, see [About Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
 
 ## March 2022
 {: #vpc-mar22}
@@ -923,7 +923,7 @@ Resizable boot volumes
 :    You can now increase the capacity of a boot volume, up to 250 gigabytes (GB), when you create an instance from an image or instance template. You can also directly update an existing boot volume to increase its capacity. For more information, see [Increasing boot volume capacity](/docs/vpc?topic=vpc-resize-boot-volumes).
 
 Backup for VPC (closed beta)
-:    For accounts authorized to preview this service, you can create backup policies that automatically backup your block storage volumes. Backups are triggered when a user tag is applied to a volume matches a backup policy tag. Each backup policy has a backup plan, which defines how often backups are taken and how long they're retained. For more information, see [About Backup for VPC (Beta)](/docs/vpc?topic=vpc-backup-service-about).
+:    For accounts authorized to preview this service, you can create backup policies that automatically backup your Block Storage volumes. Backups are triggered when a user tag is applied to a volume matches a backup policy tag. Each backup policy has a backup plan, which defines how often backups are taken and how long they're retained. For more information, see [About Backup for VPC (Beta)](/docs/vpc?topic=vpc-backup-service-about).
 
 File Storage for VPC
 :    The file service is now integrated with the Security and Compliance Center to help you manage security and compliance for your organization. For more information about this feature, see [Managing security and compliance](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-vpc-manage-security).
@@ -947,7 +947,7 @@ Maximum bandwidth for each vNIC is increased
 {: release-note}
 
 Block storage attachments
-:    Limits on the number of block storage data volumes you can attach to an instance are amended. Previously, instances that were created from smaller vCPU profiles attached only up to four data volumes. These limits are removed. For all instances, you can attach up to 12 block storage data volumes.
+:    Limits on the number of Block Storage data volumes you can attach to an instance are amended. Previously, instances that were created from smaller vCPU profiles attached only up to four data volumes. These limits are removed. For all instances, you can attach up to 12 Block Storage data volumes.
 
 ### 08 February 2022
 {: #vpc-feb0822}
@@ -1158,7 +1158,7 @@ RHEL on SAP image support update
 :   When you provision a virtual server instance and select {{site.data.keyword.redhat_full}} Enterprise Linux, be aware that locking a version must be done manually. When you log in to your operating system, a message is displayed with the command that you need to manually lock the operating system version. Performing a “yum update” without the version locking results in the operating system that is upgrading to the latest RHEL release, which is 8.4.
 
 Block storage for VPC
-:   For Block Storage for VPC volumes attached to a virtual server instance, you can increase or decrease IOPS for a volume by specifying a different IOPS tier profile or different IOPS value withing a custom IOPS band. For more information, see [Adjusting IOPS for block storage volumes](/docs/vpc?topic=vpc-adjusting-volume-iops).
+:   For Block Storage for VPC volumes attached to a virtual server instance, you can increase or decrease IOPS for a volume by specifying a different IOPS tier profile or different IOPS value withing a custom IOPS band. For more information, see [Adjusting IOPS for Block Storage volumes](/docs/vpc?topic=vpc-adjusting-volume-iops).
 
 Client-to-site VPN servers (Beta)
 :   Until now, the {{site.data.keyword.cloud_notm}} VPN for VPC service that is supported only site-to-site connectivity, which connects your on-premises network to the {{site.data.keyword.cloud_notm}} VPC network. This Beta adds client-to-site connectivity, which allows users to connect to their {{site.data.keyword.cloud_notm}} VPC infrastructure through a secure or encrypted connection over the internet. This service is especially useful for individuals that are working at home, traveling, or at locations where site-to-site VPN might not be available. For more information, see [About client-to-site VPN servers](/docs/vpc?topic=vpc-vpn-client-to-site-overview).
@@ -1233,7 +1233,7 @@ New São Paulo region
 Block Storage for VPC
 :   IOPS tier and custom profiles are available with volume capacity up to 16,000 GB. For more information, see [Block storage profiles](/docs/vpc?topic=vpc-block-storage-profiles).
 
-:   For secondary volumes attached to a virtual server instance, you can increase capacity in GB increments up to 16,000 GB, depending on the volume's profile. The volume capacity is immediately increased. For more information, see [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
+:   For secondary volumes attached to a virtual server instance, you can increase capacity in GB increments up to 16,000 GB, depending on the volume's profile. The volume capacity is immediately increased. For more information, see [Expanding Block Storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 
 ### 21 July 2021
 {: #vpc-jul2121}
@@ -1293,7 +1293,7 @@ UI enhancement
 {: release-note}
 
 Snapshots for VPC
-:   Snapshots for VPC is a regional offering that lets you create a point-in-time copy of your block storage boot or data volume. Select a snapshot during instance provisioning and restore a new, fully-provisioned boot volume to start the instance. You can also create and attach a data volume from a snapshot within a running virtual server instance. Learn more [about creating and using snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about) and explore the new [snapshots API methods](/apidocs/vpc#delete-snapshots).
+:   Snapshots for VPC is a regional offering that lets you create a point-in-time copy of your Block Storage boot or data volume. Select a snapshot during instance provisioning and restore a new, fully-provisioned boot volume to start the instance. You can also create and attach a data volume from a snapshot within a running virtual server instance. Learn more [about creating and using snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about) and explore the new [snapshots API methods](/apidocs/vpc#delete-snapshots).
 
 ## 21 May 2021
 {: #vpc-may2121}
@@ -1435,7 +1435,7 @@ Instance resize (Beta)
 :   Beta users can now resize a virtual server instance by selecting a different profile to assign to the instance. Profiles are a combination of instance attributes, such as the number of vCPUs, amount of RAM, network bandwidth, and more that define the size and capablilities of the virtual server instance. For more information, see [Resizing an instance (Beta)](/docs/vpc?topic=vpc-resizing-an-instance).
 
 Snapshots for VPC (Beta)
-:   Select Beta users can now create snapshots of their block storage boot and data volumes attached to a running virtual server instance. These snapshots can be used to create new volumes, which function like the original volume. For more information, see [About Snapshots for VPC (Beta)](/docs/vpc?topic=vpc-snapshots-vpc-about).
+:   Select Beta users can now create snapshots of their Block Storage boot and data volumes attached to a running virtual server instance. These snapshots can be used to create new volumes, which function like the original volume. For more information, see [About Snapshots for VPC (Beta)](/docs/vpc?topic=vpc-snapshots-vpc-about).
 
 UI enhancement
 :   When creating or editing a VPN policy (IKE or IPsec), a new authentication option is available, SHA512. Additionally, a new Diffie-Hellman key exchange group is supported: group 19.
@@ -1498,7 +1498,7 @@ Customer-managed encryption (GA)
 {: release-note}
 
 Customer-managed encryption (GA)
-:   For block storage volumes and encrypted custom images, deleting or disabling a customer root key (CRK) is now managed by these VPC services. When you delete a root key, the resources become unusable for normal operations. A new `unusable` status and reason code `encryption_key_deleted` or `encryption_key_disabled` has been added to the API for `GET / volumes` and `GET / image` methods. These statuses also appear in the CLI and UI. For more information, see [Disabling root keys](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-disable-root-keys) and [Deleting root keys](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-delete-root-keys). For information on key states and resource statuses, see [User actions that impact root key states and resource status](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-root-key-states).
+:   For Block Storage volumes and encrypted custom images, deleting or disabling a customer root key (CRK) is now managed by these VPC services. When you delete a root key, the resources become unusable for normal operations. A new `unusable` status and reason code `encryption_key_deleted` or `encryption_key_disabled` has been added to the API for `GET / volumes` and `GET / image` methods. These statuses also appear in the CLI and UI. For more information, see [Disabling root keys](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-disable-root-keys) and [Deleting root keys](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-delete-root-keys). For information on key states and resource statuses, see [User actions that impact root key states and resource status](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-root-key-states).
 
 :   The Washington D.C. multi-zone region will be enabled in January 2021. This feature is available in all other multi-zone regions.
 
@@ -1678,11 +1678,11 @@ UI enhancements
 {: #vpc-jul3020}
 {: release-note}
 
-Larger volume capacity for block storage for VPC (Beta)
+Larger volume capacity for Block Storage for VPC (Beta)
 :   Provision volumes with capacities greater than 2 TB and up to 16 TB, depending on the profile you selected. See [Expanded Capacity IOPS Tiers (Beta)](/docs/vpc?topic=vpc-block-storage-profiles#tiers).
 
-Expanding block storage for VPC volume capacity
-:   Expand the size of new block storage volumes that you create and attach to a virtual server instance on Gen 2 Compute resources. Indicate capacity in GB increments up to 16 TB, depending on your volume profile limits. For more information, see [Expanding block storage volume capacity (Beta)](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
+Expanding Block Storage for VPC volume capacity
+:   Expand the size of new Block Storage volumes that you create and attach to a virtual server instance on Gen 2 Compute resources. Indicate capacity in GB increments up to 16 TB, depending on your volume profile limits. For more information, see [Expanding Block Storage volume capacity (Beta)](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 
 Encrypted images (Beta)
 :   Import an encrypted custom image with beta support for the feature. For more information, see [Creating an encrypted custom image (Beta)](/docs/vpc?topic=vpc-create-encrypted-custom-image).
@@ -1694,7 +1694,7 @@ New SDK
 {: #vpc-jul2320}
 {: release-note}
 
-Customer-managed encryption for block storage for VPC (GA)
+Customer-managed encryption for Block Storage for VPC (GA)
 :   Customer-managed encryption is now available for protecting boot and data volumes on Gen 2 compute resources. Import your own root keys to the cloud or create a key using Key Protect or Hyper Protect Crypto Services. Then, use your key to secure your data. For more information, see [Customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption).
 
 Flow logs for VPC (GA)
@@ -1776,7 +1776,7 @@ Load balancer for VPC update
 {: release-note}
 
 Customer-managed encryption (Beta)
-:   Customer-managed encryption (BYOK) is available in beta. Bring your own encryption keys and store the keys in Key Protect or Hyper Protect Crypto Services within VPC. Use BYOK to encrypt your VPC-enabled block storage at the volume level by using your own keys. For more information, see [Creating virtual server instances with customer-managed encryption (Beta)](/docs/vpc?topic=vpc-creating-instances-byok).
+:   Customer-managed encryption (BYOK) is available in beta. Bring your own encryption keys and store the keys in Key Protect or Hyper Protect Crypto Services within VPC. Use BYOK to encrypt your VPC-enabled Block Storage at the volume level by using your own keys. For more information, see [Creating virtual server instances with customer-managed encryption (Beta)](/docs/vpc?topic=vpc-creating-instances-byok).
 
 Flow logs (Beta)
 :   Flow logs are now available in beta. Use flow logs to collect, store, and present the Internet Protocol (IP) traffic flowing to and from networks within your VPC. For more information, see [About flow logs (Beta)](/docs/vpc?topic=vpc-flow-logs).

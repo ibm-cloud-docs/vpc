@@ -35,7 +35,7 @@ To create and configure your VPC and other attached resources, do the steps in t
 1. Create a VPC and subnet to define the network. When you create your subnet, attach a public gateway if you want to allow all resources in the subnet to communicate with the public internet.
 1. To limit the subnet's inbound and outbound traffic, you can configure an access control list (ACL). By default, all traffic is allowed.
 1. Create a virtual server instance. By default, a boot volume is attached to the instance. For most virtual server instances, the default boot volume size is 100 GB. The default boot volume size for a z/OS virtual server instance is 250 GB.
-1. If you want more storage, create a block storage volume and attach it to your instance.
+1. If you want more storage, create a Block Storage volume and attach it to your instance.
 1. To define the inbound and outbound traffic that is allowed for the instance, configure its security group.
 1. If you want your instance to be reachable from the internet, reserve and associate a floating IP address.
 1. To distribute requests over multiple instances, create a load balancer.
@@ -157,7 +157,7 @@ To create a virtual server instance in the newly created subnet, use these steps
 
 1. Select an existing SSH key or create an SSH key that is to be used to access the virtual server instance. To create an SSH key, click **Create an SSH key** and name the key. Select **Generate a key pair for me**, click **Save private key**, then **Save public key**. When this action completes, click **Create**.
 1. Note the boot volume. _Auto Delete_ is enabled for the volume; the boot volume is deleted automatically if the instance is deleted.
-1. In the **Data volumes** area, click **Create** to attach a block storage volume to your instance if you want more storage. In this tutorial, you create a block storage volume and attach it to the instance later.
+1. In the **Data volumes** area, click **Create** to attach a Block Storage volume to your instance if you want more storage. In this tutorial, you create a Block Storage volume and attach it to the instance later.
 
     _For z/OS Wazi aaS custom image only:_ When you create a z/OS virtual server instance with the z/OS Wazi aaS custom image, you need to add a data volume by selecting `Import from Snapshot`. The snapshot is called `wazi-custom-image-data` by default.
     {: note}
@@ -183,29 +183,29 @@ To create a virtual server instance in the newly created subnet, use these steps
 
 1. Click **Create virtual server instance**. The status of the instance starts as _Pending_, changes to _Stopped_, and then _Running_. You might need to refresh the page to see the change in status.
 
-## Creating and attaching a block storage volume
+## Creating and attaching a Block Storage volume
 {: #creating-a-block-storage-volume}
 {: help}
 {: support}
 {: step}
 
-You can create a block storage volume and attach it to your virtual server instance if you want more storage.
+You can create a Block Storage volume and attach it to your virtual server instance if you want more storage.
 
-To create and attach a block storage volume:
+To create and attach a Block Storage volume:
 
 1. In the navigation pane, click **Storage > Block storage volumes**.
 1. Click **New volume** and specify the following information.
-   * **Name**: Enter a name for the block storage volume, such as `data-volume-1`.
-   * **Resource group**: Select a resource group for the block storage volume. You can use resource groups to organize your account resources for access control and billing purposes. For more information, see [Best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup).
+   * **Name**: Enter a name for the Block Storage volume, such as `data-volume-1`.
+   * **Resource group**: Select a resource group for the Block Storage volume. You can use resource groups to organize your account resources for access control and billing purposes. For more information, see [Best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup).
    * **Tags**: _Optional:_ Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
-   * **Location**: Select a location for the block storage volume. The location consists of a region and a zone, for example US South 1.
+   * **Location**: Select a location for the Block Storage volume. The location consists of a region and a zone, for example US South 1.
    * **Size**: Specify the size of the volume between 10 GBs and 2000 GBs.
    * **IOPS**: Select one of the IOPS Tiers or click Custom to enter an IOPS value based on volume size.
    * **Encryption**: Accept the default _Provider managed_ encryption option.
 1. Click **Create volume**.
-1. In the list of block storage volumes, find the volume that you created. When the status is Available, click "..." and select **Attach to instance**.
+1. In the list of Block Storage volumes, find the volume that you created. When the status is Available, click "..." and select **Attach to instance**.
 1. Select the instance to which you want to attach the volume and click **Attach**.
-1. _For z/OS virtual server instances only:_ To verify the newly attached block storage volume with its address assigned, you can find the information on your z/OS virtual server instance console through a broadcast message that is sent to you with the affected device address.
+1. _For z/OS virtual server instances only:_ To verify the newly attached Block Storage volume with its address assigned, you can find the information on your z/OS virtual server instance console through a broadcast message that is sent to you with the affected device address.
 
 
 ## Configuring the security group for the instance

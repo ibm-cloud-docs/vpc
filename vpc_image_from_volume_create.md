@@ -28,7 +28,7 @@ You can create an image from a volume in several ways.
 
 * Select an instance, create an image from that instance's boot volume, and specify different encryption. For example, if the instance's boot volume was encrypted with IBM-managed encryption, you can select customer-managed encryption for the new image.
 
-* Create an image from a boot volume in the list of block storage volumes. The volume must be a boot volume that is attached to a virtual server instance.
+* Create an image from a boot volume in the list of Block Storage volumes. The volume must be a boot volume that is attached to a virtual server instance.
 
 Depending on the size of the image that you're creating, the job might take from 5 minutes to 1.5 hours. You can cancel a job that's taking too long to queue. For more information, see [Performance considerations](/docs/vpc?topic=vpc-image-from-volume-vpc-manage#ifv-performance).
 {: note}
@@ -81,13 +81,13 @@ When you select **Virtual server instance boot volume** as the source of your cu
 ### Create an image from the list of boot volumes
 {: #import-custom-image-vol}
 
-When you select **Block storage boot volume** as the source of your custom image, a list of block storage volumes displays.
+When you select **Block storage boot volume** as the source of your custom image, a list of Block Storage volumes displays.
 
 To create an image from the volume:
 
 1. On the **Import custom image** page, select **Block storage boot volume**.
 
-   A list of block storage volumes shows attached **Boot** and **Data** volumes. Unattached volumes appear with a dash (-). To create an image from a volume:
+   A list of Block Storage volumes shows attached **Boot** and **Data** volumes. Unattached volumes appear with a dash (-). To create an image from a volume:
 
    * The volume must be a boot volume
    * The volume must have an `available` status

@@ -4,7 +4,7 @@ copyright:
   years: 2021, 2023
 lastupdated: "2023-06-27"
 
-keywords: snapshots, block storage snapshots, manage snapshots, fast restore clone, backup snapshot, remote copy, cross-regional copy
+keywords: snapshots, Block Storage snapshots, manage snapshots, fast restore clone, backup snapshot, remote copy, cross-regional copy
 
 subcollection: vpc
 

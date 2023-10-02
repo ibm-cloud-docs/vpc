@@ -112,7 +112,7 @@ Complete the following steps to create a dedicated host and dedicated host group
 12. Click **Create virtual private cloud**.
 
 
-## Creating a virtual server instance and block storage volume
+## Creating a virtual server instance and Block Storage volume
 {: #creating-block-storage-dh}
 
 Be sure to select VPC infrastructure from the menu icon.
@@ -133,7 +133,7 @@ Be sure to select VPC infrastructure from the menu icon.
 | | For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
 | Data volumes | You can add one or more secondary data volumes to be included when you provision the instance. To add a volume, click **Create** and specify the information in Table 2. When finished, click **Save**. |
 | Network interfaces | Assign networking options to connect into the IBM Cloud VPC. You can create and assign up to five network interfaces to each instance. |
-| Attached block storage volume | You can add one or more secondary data volumes to be included when you provision the instance. To add a volume, click **New block storage volume** and specify the information in Table 2. When finished, click **Create volume**. |
+| Attached Block Storage volume | You can add one or more secondary data volumes to be included when you provision the instance. To add a volume, click **New Block Storage volume** and specify the information in Table 2. When finished, click **Create volume**. |
 | Virtual Private Cloud | Select 'my-vpc' for the Virtual Private Cloud |
 {: caption="Table 1. Virtual Server Instance provisioning selections" caption-side="bottom"}
 
@@ -144,7 +144,7 @@ Be sure to select VPC infrastructure from the menu icon.
 | Encryption | Encryption with IBM-managed keys is enabled by default on all volumes. You can also choose **Customer Managed** and use your own encryption key. For more information about one-time set up procedure, see [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-encryption-prereqs). |
 {: caption="Table 2. Block storage volume values specified when provisioning an instance" caption-side="bottom"}
 
-A block storage volume is created and attached to the virtual server instance. On the instance details page, the **Attached block storage volumes** list is updated to show the new volume.
+A Block Storage volume is created and attached to the virtual server instance. On the instance details page, the **Attached Block Storage volumes** list is updated to show the new volume.
 
 ## Creating an access group for the dedicated host group
 {: #create-an-access-group}

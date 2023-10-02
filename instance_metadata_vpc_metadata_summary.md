@@ -28,7 +28,7 @@ Use the information in the Table 1 to understand the type of metadata returned f
 | Instance URI path | Metadata key | Description of the metadata |
 |-------------------|--------------|-----------------------------|
 | `/instance` | `availability_policy` | The availability policy for this virtual server instance. |
-| `/instance`	| `bandwidth` | The total bandwidth in megabits per second that are shared across the virtual server instance's network interfaces and block storage volumes. |
+| `/instance`	| `bandwidth` | The total bandwidth in megabits per second that are shared across the virtual server instance's network interfaces and Block Storage volumes. |
 | `/instance` | `boot_volume_attachment` | Boot volume attachment, with volume name, CRN, and ID. |
 | `/instance` | `catalog_offering` | This is displayed if the virtual server instance was provisioned with a custom image in a private catalog. |
 | `/instance`	| `created_at` | The date and time that the virtual server instance was created. |
@@ -51,7 +51,7 @@ Use the information in the Table 1 to understand the type of metadata returned f
 | `/instance`	| `status` | The status of the instance: deleting, failed, paused, pausing, pending, restarting, resuming, running, starting, stopped, or stopping. |
 | `/instance`	| `status_reasons` | The reasons for the current status. |
 | `/instance`	| `total_network_bandwidth` | The amount of bandwidth in megabits per second that is allocated exclusively to instance network interfaces. |
-| `/instance`	| `total_volume_bandwidth` | The amount of bandwidth in megabits per second allocated exclusively to the instance's block storage volumes. Increasing this value results in a corresponding decrease to total_network_bandwidth. |
+| `/instance`	| `total_volume_bandwidth` | The amount of bandwidth in megabits per second allocated exclusively to the instance's Block Storage volumes. Increasing this value results in a corresponding decrease to total_network_bandwidth. |
 | `/instance`	| `vcpu` | The number of VCPUs assigned by way of a structure that includes count and architecture properties. |
 | `/instance`	| `volume_attachments` | A list of the virtual server instance's volume attachments. |
 | `/instance` | `boot_volume_attachment` | Instance's boot volume attachment. |

@@ -4,7 +4,7 @@ copyright:
   years: 2021, 2023
 lastupdated: "2023-12-12"
 
-keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, block storage snapshots
+keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
 subcollection: vpc
 

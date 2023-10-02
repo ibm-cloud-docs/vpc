@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2023
 lastupdated: "2023-09-18"
 
-keywords: block storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
+keywords: Block Storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
 subcollection: vpc
 
@@ -21,7 +21,7 @@ When you provision {{site.data.keyword.block_storage_is_short}} volumes by using
 ## Block storage profiles overview
 {: #block-storage-profile-overview}
 
-When you create a block storage volume, you can select between custom and tiered-IOPS profiles. All these profiles are backed by solid-state drives (SSDs). The following table shows the available storage profiles.
+When you create a Block Storage volume, you can select between custom and tiered-IOPS profiles. All these profiles are backed by solid-state drives (SSDs). The following table shows the available storage profiles.
 
 | Profile family | Profile name      | IOPS^1^      | IOPS per volume| Max throughput^2^| Volume size  |   
 |----------------|-------------------|----------------:|---------------:|---------------:|-----------------:|
@@ -102,7 +102,7 @@ Similarly, storage profiles (IOPS tiers or custom) provide a range of capacity a
 | 3 IOPS/GB       | [Balanced](/docs/vpc?topic=vpc-profiles#balanced) for common workloads.      |
 | 5 IOPS/GB       | [Compute](/docs/vpc?topic=vpc-profiles#compute) for intensive CPU demands.   |
 | 10 IOPS/GB      | [Memory](/docs/vpc?topic=vpc-profiles#memory) for memory-intensive workloads.|
-{: caption="Table 4. Relationship of block storage profiles to virtual server profiles" caption-side="top"}
+{: caption="Table 4. Relationship of Block Storage profiles to virtual server profiles" caption-side="top"}
 
 ## Viewing available IOPS profiles
 {: #view-iops-profiles}
@@ -113,7 +113,7 @@ You can view available IOPS profiles the {{site.data.keyword.cloud_notm}} UI, CL
 {: #using-console-iops-profile}
 {: ui}
 
-When you [create a block storage volume from the {{site.data.keyword.cloud_notm}} console](/docs/vpc?topic=vpc-creating-block-storage), select **Tiers**.
+When you [create a Block Storage volume from the {{site.data.keyword.cloud_notm}} console](/docs/vpc?topic=vpc-creating-block-storage), select **Tiers**.
 
 Alternately, select **Custom** and then select an IOPS value within the range for that volume size. Click the storage size link to see a table of size and IOPS ranges.
 
@@ -214,7 +214,7 @@ curl -X GET "https://us-south.iaas.cloud.ibm.com/v1/volume/profiles/custom?versi
 ## Next Steps
 {: #profile-next-steps}
 
-To expand volume capacity, see [expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
+To expand volume capacity, see [expanding Block Storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 
 To [change the IOPS tier or Custom IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops) for an existing volume that is attached to a virtual server instance.
 
