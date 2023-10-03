@@ -463,7 +463,7 @@ After the VPN client connects to the VPN server, the requests to the VPE endpoin
 ## Limitations
 {: #cbr-limitations}
 
-- Context-based restrictions protect only the actions associated with the [VPC Infrastructure Services APIs](/apidocs/vpc) or the `is` plugin, through the IBM CLI. The SDK and Terraform options are also supported. Actions associated with the following platform APIs are _not_ protected by context-based restrictions:
+- Context-based restrictions protect only the actions associated with the [VPC Infrastructure Services APIs](/apidocs/vpc) or the `is` plugin, through the IBM CLI. The SDK and Terraform options are also supported. Actions associated with the following platform APIs are *not* protected by context-based restrictions:
    - [Resource Instance List APIs](/apidocs/resource-controller/resource-controller#list-resource-instances)
    - [Resource Instance Delete resource API](/apidocs/resource-controller/resource-controller#delete-resource-instance)
    - [Global Search APIs](/apidocs/search)
