@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-10-02"
+lastupdated: "2023-10-03"
 
 keywords:
 
@@ -29,8 +29,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## October 2023
 {: #vpc-oct23}
 
-### 02 October 2023
-{: #vpc-oct0223}
+### 03 October 2023
+{: #vpc-oct0323}
 {: release-note}
 
 New regions for ux2d profiles
