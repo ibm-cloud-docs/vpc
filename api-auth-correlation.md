@@ -198,3 +198,24 @@ The following table lists tasks that are associated with the client-to-site VPN 
 | Create a route for a VPN server | VPN server | Editor | is.vpn-server.vpn-server.update | `POST /vpn_servers/routes` |
 | Connect to VPN server | VPN server | VPNClient | is.vpn-server.vpn-server.connect | N/A |
 {: caption="Table 2. Minimum IAM roles for VPN gateway API and CLI calls" caption-side="top"}
+
+## DNS resolution binding tasks
+{: #dns-resolution binding tasks}
+
+This VPC feature is available only to accounts with special approval to preview this feature.
+{: preview}
+
+The following table lists the required IAM actions for each API call.
+
+| Action (DNS-shared) | Minimum IAM role (DNS-shared) | Action (hub) | Minimum IAM role (hub) | Note | API |
+|-----------|-------------|----------------|-------------|----------------|----------------|
+| `is.vpc.vpc.update` | Editor | `is.vpc.vpc.read` (S2S for cross-account) | Viewer | when run on DNS-shared VPC | `POST /dns_resolution_bindings` |
+| `is.vpc.vpc.update` |  Editor | `is.vpc.vpc.read` (S2S for cross-account) | Viewer | when run on DNS-shared VPC| `DELETE /dns_resolution_bindings/{id}` |
+| `is.vpc.vpc.update` | Editor | | | when run on DNS-shared VPC | `PATCH /dns_resolution_bindings/{id}` |
+| | | `is.vpc.vpc.update` | Editor | when run on hub VPC | `PATCH /dns_resolution_bindings/{id}` |
+| `is.vpc.vpc.read` |  Viewer | | | when run on DNS-shared VPC | `GET /dns_resolution_bindings/{id}`|
+| | | `is.vpc.vpc.read` |  Viewer | when run on hub VPC | `GET /dns_resolution_bindings/{id}` |
+| `is.vpc.vpc.read` | Viewer | | | when run on DNS-shared VPC | `GET /dns_resolution_bindings`|
+| | | `is.vpc.vpc.read` | Viewer | when run on hub VPC | `GET /dns_resolution_bindings`|
+| `is.vpc.vpc.update` | Editor | `is.vpc.vpc.read` (S2S for cross-account) | Viewer | when run on DNS-shared VPC | `PATCH /vpcs/{vpc_id}` when `dns.resolver.type` set to `delegate`|
+{: caption="Table 3: API requests and IAM actions." caption-side="bottom"}
