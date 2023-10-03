@@ -8,6 +8,8 @@ keywords: virtual private network, VPN, VPN server, troubleshooting
 
 subcollection: vpc
 
+content-type: troubleshoot
+
 ---
 
 {{site.data.keyword.attribute-definition-list}}
@@ -17,7 +19,7 @@ subcollection: vpc
 {: troubleshoot}
 {: support}
 
-When the authentication mode is user ID and passcode only, a client certificate is not required. However, this approach is less secure than using both certificate and user ID and passcode authentication.  
+When the authentication mode is user ID and passcode only, a client certificate is not required. However, this approach is less secure than using both certificate and user ID and passcode authentication.
 {: shortdesc}
 
 `OpenVPN Connect V2` displays the error `Missing External PKI alias`.

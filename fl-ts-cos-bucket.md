@@ -8,6 +8,8 @@ keywords: is.flow-log-collector.00003E
 
 subcollection: vpc
 
+content-type: troubleshoot
+
 ---
 
 {{site.data.keyword.attribute-definition-list}}

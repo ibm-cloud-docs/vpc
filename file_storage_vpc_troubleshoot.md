@@ -2,11 +2,13 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-08-31"
+lastupdated: "2023-07-17"
 
 keywords: troubleshooting, file storage for vpc, CBR errors
 
 subcollection: vpc
+
+content-type: troubleshoot
 
 ---
 
@@ -31,7 +33,7 @@ An issue exists with the [IAM CBR feature](/docs/account?topic=account-context-r
 
 An error occurs after you set up CBR by [creating a network zone](/docs/vpc?topic=vpc-cbr&interface=cli#creating-network-zones) and a [context-based rule](/docs/vpc?topic=vpc-cbr&interface=cli#creating-rules), and then try to perform a file share operation.
 
-For example, first, you would add the `shares` service to a network zone.
+For example, first, you would add `shares` service to a network zone.
 
     ```sh
     ibmcloud cbr zone-create --name network-zone-1 --description "Example zone 1" --addresses 198.51.100.0  --vpc VPC-1 --service-ref service_name=shares
@@ -72,7 +74,7 @@ This error requires that you contact [IBM support](/docs/vpc?topic=vpc-getting-h
 {: troubleshoot}
 {: support}
 
-{{site.data.keyword.filestorage_vpc_short}} does not support changing file storage profiles of multiple shares at the same time. You can update the profile for a single share but bulk migration is not supported. 
+{{site.data.keyword.filestorage_vpc_short}} does not support changing file storage profiles of multiple shares at the same time. You can update the profile for a single share but bulk migration is not supported.
 {: tsSymptoms}
 
 You cannot use the UI, CLI, or API to update the profiles of multiple file shares in a single operation.
@@ -81,10 +83,10 @@ You cannot use the UI, CLI, or API to update the profiles of multiple file share
 For migrating multiple shares, you must create your own script. The script can list the shares that you want to update, and then go through the list of shares to update each individual share profile.
 {: tsResolve}
 
-Create a script file to list your file shares, parse the list, and then individually update the profile for each file share. 
+Create a script file to list your file shares, parse the list, and then individually update the profile for each file share.
 Make sure you set execute permission on your script file. In your script:
 
-1. List your file shares in your region by specifying a `GET /shares` request. To keep the operation manageable, you might want to set a limit on the number of shares. 
+1. List your file shares in your region by specifying a `GET /shares` request. To keep the operation manageable, you might want to set a limit on the number of shares.
 
    ```sh
    curl -X GET \

@@ -8,6 +8,8 @@ keywords: dedicated-host.00001
 
 subcollection: vpc
 
+content-type: troubleshoot
+
 ---
 
 {{site.data.keyword.attribute-definition-list}}
@@ -30,4 +32,3 @@ The specified dedicated host could not be created due to a lack of capacity in t
 
 At the time of the error message, there was not enough capacity to create the specified dedicated host in the requested region. Try creating another dedicated host with different hardware requirements or in another region.
 {: tsResolve}
- 

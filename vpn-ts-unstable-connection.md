@@ -8,6 +8,8 @@ keywords: virtual private network, VPN, VPN gateway, troubleshooting
 
 subcollection: vpc
 
+content-type: troubleshoot
+
 ---
 
 {{site.data.keyword.attribute-definition-list}}
@@ -23,7 +25,7 @@ If you notice that your connection is going up and down occasionally, it might b
 My connection is not stable and keeps going down.
 {: tsSymptoms}
 
-A rekey timing conflict might exist.  
+A rekey timing conflict might exist.
 {: tsCauses}
 
 Follow the steps to resolve any timing issues:

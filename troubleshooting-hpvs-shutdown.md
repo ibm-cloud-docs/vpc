@@ -8,6 +8,8 @@ keywords: troubleshoot, troubleshoot hyper protect virtual servers for vpc, debu
 
 subcollection: vpc
 
+content-type: troubleshoot
+
 ---
 
 {{site.data.keyword.attribute-definition-list}}
@@ -27,7 +29,7 @@ Check whether you have performed the following actions correctly.
 {: tsResolve}
 
 - Attach data volume within 15 min
-  
+
    If you have a volumes section in the contract, the IBM Cloud {{site.data.keyword.hpvs}} for VPC instance assumes that a data volume will be attached. The cloud user must either attach the volume during the instance creation, or within 15 minutes after instance creation starts. After this 15-minute wait period, the instance shuts down.
 
 - Contract is mandatory
@@ -44,7 +46,7 @@ Check whether you have performed the following actions correctly.
 
 - Image or Profile mismatch
 
-   {{site.data.keyword.hpvs}} for VPC instances can be created from the UI, CLI, and any other interface that {{site.data.keyword.vpc_full}} (VPC) supports. You must select the right image and profile combination. Without the right combination of the image and profile, the instance fails to start.  
+   {{site.data.keyword.hpvs}} for VPC instances can be created from the UI, CLI, and any other interface that {{site.data.keyword.vpc_full}} (VPC) supports. You must select the right image and profile combination. Without the right combination of the image and profile, the instance fails to start.
 
 - Logging configuration failure
 

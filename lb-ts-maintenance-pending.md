@@ -8,6 +8,8 @@ keywords: load balancer, network, maintence pending
 
 subcollection: vpc
 
+content-type: troubleshoot
+
 ---
 
 {{site.data.keyword.attribute-definition-list}}
@@ -32,4 +34,3 @@ An NLB enters a `maintenance_pending` state during various maintenance activitie
 
 The `maintenance_pending` state will resolve once the associated maintenance activity completes.
 {: tsResolve}
-

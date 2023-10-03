@@ -3,7 +3,7 @@ copyright:
   years: 2022
 lastupdated: "2022-10-03"
 
-keywords: 
+keywords:
 
 subcollection: vpc
 
@@ -16,12 +16,12 @@ content-type: troubleshoot
 # How do I fix my public ingress route configuration problem?
 {: #troubleshoot-pi-configuration-problem}
 {: troubleshoot}
-{: support} 
+{: support}
 
 Correct public ingress route configuration errors as a way to resolve traffic routing errors.
 {: shortdesc}
 
-You attempt to configure a public ingress route, but run into issues. For example, the packets continue to be routed to the destination instead of being routed to the next hop IP. No error occurs, but the packets are received in the wrong location. 
+You attempt to configure a public ingress route, but run into issues. For example, the packets continue to be routed to the destination instead of being routed to the next hop IP. No error occurs, but the packets are received in the wrong location.
 {: tsSymptoms}
 
 Your routing table or route were not set up correctly.
@@ -31,7 +31,7 @@ Make sure that your routing table and route are configured properly.
 {: tsResolve}
 
 Ensure that the routing table **Traffic type** is `Ingress` and **Ingress properties** is set to `Public internet`. The following diagram shows this route configuration in the IBM Cloud console.
-  
+
 ![Routing table traffic type and ingress property options](images/ts-pi-config.svg "Routing table traffic type and ingress property options"){: caption="Figure 1. Routing table traffic type and ingress property options" caption-side="bottom"}
 
 The custom route **Destination** CIDR matches the public IP of the destination floating IP. The route's **Action** is `Deliver` and the **Next hop** IP matches the virtual server instance's next hop private IP. The following diagram shows this route configuration.
@@ -46,7 +46,7 @@ At the routing table API level:
 - route_table_id: `<routing_table_id>`
 - traffic_source: `if`
 
-At the route API level: 
+At the route API level:
 
 - **Action** must be `Deliver`
 - **Destination** must be floating-IP **public IP**

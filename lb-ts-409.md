@@ -8,6 +8,8 @@ keywords: load balancer, network, faqs
 
 subcollection: vpc
 
+content-type: troubleshoot
+
 ---
 
 {{site.data.keyword.attribute-definition-list}}
@@ -33,5 +35,5 @@ The HTTP 409 status code indicates that the request could not be processed becau
 * You cannot `delete` a load balancer pool if it is attached to an instance group.
 * You cannot `add`/`delete`/`update` members to a pool that is managed by an instance group.
 
-Check and resolve any of the possible existing causes listed previously. 
+Check and resolve any of the possible existing causes listed previously.
 {: tsResolve}

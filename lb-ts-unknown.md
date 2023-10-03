@@ -8,6 +8,8 @@ keywords: load balancer, network, unknown
 
 subcollection: vpc
 
+content-type: troubleshoot
+
 ---
 
 {{site.data.keyword.attribute-definition-list}}

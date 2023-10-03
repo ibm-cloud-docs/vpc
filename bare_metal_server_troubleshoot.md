@@ -3,12 +3,13 @@
 copyright:
   years: 2020, 2022
 
-lastupdated: "2022-12-15"
+lastupdated: "2022-11-18"
 
 keywords: troubleshooting bare metal servers, hardware issues, firmware
 
 subcollection: vpc
 
+content-type: troubleshoot
 
 ---
 
@@ -22,9 +23,9 @@ The following topics cover common difficulties that you might encounter, and off
 ## How do I fix a hardware issue?
 {: #bare-metal-troubleshoot-hardware-issues}
 {: troubleshoot}
-{: support} 
+{: support}
 
-If your bare metal server experiences a hardware issue, you can request support by creating a support case. Click [here](https://cloud.ibm.com/unifiedsupport/cases/add%C2%A0) to create a support case. For more information about creating a case, see [Support cases](/docs/vpc?topic=vpc-getting-help#support-tickets).
+If your bare metal server experiences a hardware issue, you can request support by creating a support case. Click [here](/unifiedsupport/cases/add%C2%A0) to create a support case. For more information about creating a case, see [Support cases](/docs/vpc?topic=vpc-getting-help#support-tickets).
 
 After the operation team receives the case, the server goes into a maintenance state.
 
@@ -43,7 +44,7 @@ When the issues are fixed, the server is handed back to you and the state return
 ## How do I manage firmware updates?
 {: #bare-metal-troubleshoot-firmware-update}
 {: troubleshoot}
-{: support} 
+{: support}
 
 Firmware for bare metal servers is managed by IBM. Manual firmware changes arenâ€™t supported on the disk controller or disk drives without direction from IBM.
 
@@ -55,3 +56,5 @@ Firmware for bare metal servers is managed by IBM. Manual firmware changes arenâ
 If your custom image fails to boot, open the console and debug the operating system boot sequence. The following are common issues that can cause a custom image boot failure.
 * An unsigned operating system. Disable secure boot and try starting the system again.
 * UEFI boot not support. Verify that the image has an EFI disk partition with an EFI boot loader.
+
+If you need more help, open a [support case](/unifiedsupport/cases/add%C2%A0).

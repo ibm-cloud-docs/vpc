@@ -8,6 +8,8 @@ keywords: asymmetric routing, troubleshooting
 
 subcollection: vpc
 
+content-type: troubleshoot
+
 ---
 
 {{site.data.keyword.attribute-definition-list}}
@@ -26,9 +28,9 @@ Sometimes packets go through with no issues, but other times the packets fail to
 It is possible that you have experienced an asymmetric routing issue, where packets take one path from the source to the destination, but replies follow a different return path.
 {: tsCauses}
 
-Asymmetric routing isn't always a problem, but it can cause issues when something in your packet is stateful. For example: 
+Asymmetric routing isn't always a problem, but it can cause issues when something in your packet is stateful. For example:
 
-* The initial TCP connection (SYN) establishes a path through the Software Defined Network (SDN). 
+* The initial TCP connection (SYN) establishes a path through the Software Defined Network (SDN).
 * If the initial SYN passes through a firewall-router, a stateful route is established for the connection through the firewall-router.
 * The TCP acknowledgement (SYN, ACK) and all future packets for the connection must follow the path of the stateful connection.
 

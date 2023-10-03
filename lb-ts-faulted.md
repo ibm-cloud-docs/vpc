@@ -8,6 +8,8 @@ keywords: load balancer, network, faqs
 
 subcollection: vpc
 
+content-type: troubleshoot
+
 ---
 
 {{site.data.keyword.attribute-definition-list}}

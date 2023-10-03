@@ -8,6 +8,8 @@ keywords: VPE, virtual private endpoint, troubleshooting
 
 subcollection: vpc
 
+content-type: troubleshoot
+
 ---
 
 {{site.data.keyword.attribute-definition-list}}
@@ -17,7 +19,7 @@ subcollection: vpc
 {: troubleshoot}
 {: support}
 
-When you create endpoint gateways, you can specify the same number of reserved IP addresses as the number of availability zones (AZs) that are in the region. It's typically three, one reserved IP address per AZ. Also, you can have only one reserved IP address per subnet because subnets don't span AZs.  
+When you create endpoint gateways, you can specify the same number of reserved IP addresses as the number of availability zones (AZs) that are in the region. It's typically three, one reserved IP address per AZ. Also, you can have only one reserved IP address per subnet because subnets don't span AZs.
 {: shortdesc}
 
 Unable to create a reserved IP address.

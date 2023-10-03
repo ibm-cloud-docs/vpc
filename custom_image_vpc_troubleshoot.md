@@ -8,6 +8,8 @@ keywords: custom image, image from volume, troubleshooting, troubleshoot
 
 subcollection: vpc
 
+content-type: troubleshoot
+
 ---
 
 {site.data.keyword.attribute-definition-list}}

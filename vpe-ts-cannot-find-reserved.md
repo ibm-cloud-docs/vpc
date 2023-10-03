@@ -8,6 +8,8 @@ keywords: VPE, virtual private endpoint, troubleshooting
 
 subcollection: vpc
 
+content-type: troubleshoot
+
 ---
 
 {{site.data.keyword.attribute-definition-list}}
@@ -23,7 +25,7 @@ A reserved IP address is part of a subnet. If the subnet gets deleted, all reser
 Cannot find reserved IP addresses that are associated with an endpoint gateway.
 {: tsSymptoms}
 
-It is possible that the reserved IP address that is associated with the endpoint gateway was automatically deleted with the subnet.  
+It is possible that the reserved IP address that is associated with the endpoint gateway was automatically deleted with the subnet.
 {: tsCauses}
 
 You can re-create a reserved IP address, but cannot recover reserved IP addresses that were associated with a deleted subnet.

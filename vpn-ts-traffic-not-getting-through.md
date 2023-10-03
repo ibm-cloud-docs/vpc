@@ -8,6 +8,8 @@ keywords: virtual private network, VPN, VPN gateway, troubleshooting
 
 subcollection: vpc
 
+content-type: troubleshoot
+
 ---
 
 {{site.data.keyword.attribute-definition-list}}
