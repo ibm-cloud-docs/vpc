@@ -40,7 +40,7 @@ When multiple VPCs are connected together using transit gateways, direct links, 
 1. If you have different accounts for the hub VPC and a DNS-shared VPC, the hub VPC administrator must create a service-to-service (s2s) authorization policy to give Read access to the DNS-shared VPC account. For more information, see [Establishing service-to-service authorization](/docs/vpc?topic=vpc-hub-spoke-s2s-auth&interface=api).
 1. Ensure that DNS resolution binding (`allow_dns_resolution`) is disabled on redundant or conflicting VPEs on the DNS-shared VPCs. By default, the DNS resolution binding switch is enabled on VPEs.
 1. [Create a DNS resolution binding](/docs/vpc?topic=vpc-hub-spoke-resolution-bindings&interface=ui) on the VPCs on which you want to allow VPE gateway DNS records between the VPC and the DNS hub VPC. These VPCs are called DNS-shared VPCs.
-1. [Configure a DNS custom resolver](/docs/dns-svcs?topic=dns-svcs-ui-create-cr){: external} on the hub VPC to be responsible for resolving DNS queries from hub and DNS-shared VPCs, as well as those from on-prem networks.
+1. [Configure a DNS custom resolver](/docs/dns-svcs?topic=dns-svcs-ui-create-cr) on the hub VPC to be responsible for resolving DNS queries from hub and DNS-shared VPCs, as well as those from on-prem networks.
 1. The DNS-shared VPC user [sets its DNS resolver type](/docs/vpc?topic=vpc-hub-spoke-configure-dns-resolver&interface=ui) to Delegated to point to the hub VPC's custom resolver.
 1. The DNS-shared VPC user [creates endpoint gateways](/docs/vpc?topic=vpc-ordering-endpoint-gateway) for single-tenant services in the DNS-shared VPC.
 1. For each DNS-shared VPC, the DNS-shared VPC user must repeat steps 4-9.
