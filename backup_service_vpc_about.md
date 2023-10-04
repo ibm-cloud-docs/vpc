@@ -26,7 +26,7 @@ Backups and snapshot services are different than a disaster recovery (DR) soluti
 
 You can create up to 10 backup policies for your {{site.data.keyword.block_storage_is_short}} volumes in one region with the {{site.data.keyword.cloud_notm}} Backup for VPC service. A backup policy contains one or more backup plans, which define a schedule for automated backups. You can create up to four plans per policy, and edit and delete them as needed. If you're undecided on the backup schedule or you don't know all the tags yet, you can create a backup policy without a plan and add one later. 
 
-As an enterprise account administrator, you can view and manage the backup policies and plans for the subaccounts for compliance reporting and billing from one place. For more information, see 
+As an enterprise account administrator, you can view and manage the backup policies and plans for the subaccounts for compliance reporting and billing from one place. For more information, see the [Scope of backup policy](#backup-service-about-scope) section.
 
 Before you create backups, review the [planning your backups](/docs/vpc?topic=vpc-backups-vpc-planning) topic. For more information, see [best practices for creating backups](/docs/vpc?topic=vpc-backups-vpc-best-practices).
 {: tip}
