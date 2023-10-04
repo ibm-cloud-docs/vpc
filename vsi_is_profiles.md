@@ -2,7 +2,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-10-03"
+lastupdated: "2023-10-04"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, very high memory, gpu, sap, olap, oltp, nvidia, cascade lake
 
@@ -13,7 +13,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# x86 instance profiles
+# x86-64 instance profiles
 {: #profiles}
 
 When you provision {{site.data.keyword.vsi_is_full}}, you can select from six families of profiles: Balanced, Compute, Memory, Very High Memory, Ultra High Memory, Storage Optimized, and GPU.
@@ -25,11 +25,11 @@ For more information about profiles for IBM Z (s390x processor architecture), se
 
 The following profile families are available:
 
-| Families | Description |
+| Family | Description |
 | -------- | ----------- |
-| [Balanced](#balanced) | Balanced profiles offer a core to RAM ratio 1 vCPU to 4 GiB of RAM ratio and are best for midsize databases and common cloud applications with moderate traffic. |
-| [Compute](#compute)  | Compute profiles offer a core to RAM ratio 1 vCPU to 2 GiB of RAM ratio and are best for moderate to high web traffic workloads. Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers. |
-| [Memory](#memory) | Memory profiles offer a core to RAM ratio 1 vCPU to 8 GiB of RAM ratio and are best for memory caching and real-time analytics workloads. Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads. |
+| [Balanced](#balanced) | Balanced profiles offer a core to RAM ratio that is best for midsize databases and common cloud applications with moderate traffic. |
+| [Compute](#compute)  | Compute profiles offer a core to RAM ratio that is best for moderate to high web traffic workloads. Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers. |
+| [Memory](#memory) | Memory profiles offer a core to RAM ratio that is best for memory caching and real-time analytics workloads. Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads. |
 | [Very High Memory](#vhmemory) | Very High Memory profiles offer a core to RAM ratio of 1 vCPU to 14 GiB of RAM. This family is optimized for running small to medium in-memory databases and OLAP workloads, such as SAP BW/4 HANA. |
 | [Ultra High Memory](#uhmemory) | Ultra High Memory profiles offer the most memory per core with 1 vCPU to 28 GiB of RAM. These profiles are optimized to run large in-memory databases and OLTP workloads, such as SAP S/4 HANA.|
 | [GPU](#gpu) | GPU enabled profiles provide on-demand access to NVIDIA V100 and A100 GPUs to accelerate AI, high-performance computing, data science, and graphics workloads.|
@@ -45,13 +45,13 @@ Profiles with AMD manufactured processors are available in the Toronto region.
 ## Balanced
 {: #balanced}
 
-Balanced profiles provide a mix of performance and scalability for more common workloads with a ratio of 4 GiB of memory for every 1 vCPU of compute. The Balanced profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Balanced profiles available for Intel&reg; x86-64, and AMD x86-64 processors.
+Balanced profiles provide a mix of performance and scalability for more common workloads. The Balanced profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Balanced profiles that are available for Intel&reg; x86-64, and AMD x86-64 processors. 
 
 Balanced profiles with the bx2d prefix are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions.
 {: preview}
 
-New profiles are available in the Dallas region to beta users with special approval to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
-{: beta}
+3rd generation profiles with the bx3d prefix are available in the Dallas region to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
+{: preview}
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
 |---------|---------|---------|---------|---------|---------|
@@ -101,6 +101,7 @@ New profiles are available in the Dallas region to beta users with special appro
 
 | Instance profile | vCPU / Cores | NUMA count | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) |
 |---------|---------|-------|-------|---------|---------|
+| bx3d-2x10 | 2 / 1 | 1 | 10 | 4 | 1x65 |
 | bx3d-4x20 | 4 / 2 | 1 | 20 | 8 | 1x130 |
 | bx3d-8x40 | 8 / 4 | 1 | 40 | 16 | 1x260 |
 | bx3d-16x80 | 16 / 8 |  1 | 80 | 32 | 1x520 |
@@ -113,7 +114,7 @@ New profiles are available in the Dallas region to beta users with special appro
 | bx3d-176x880 | 176 / 88 | 2 | 880 | 200 | 2x2860 |
 {: caption="Table 3. Balanced bx3d beta profile options for Intel x86-64 instances" caption-side="bottom"}
 {: #balanced-intel-x86-64-spr}
-{: tab-title="bx3d (Beta)"}
+{: tab-title="bx3d"}
 {: tab-group="Balanced"}
 {: class="simple-tab-table"}
 {: summary="Balanced Beta profile options for Intel x86-64 virtual server instances."}
@@ -124,9 +125,12 @@ AMD based virtual machines use AMD EPYC Milan processors. Compute capabilities a
 ## Compute
 {: #compute}
 
-Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers that can benefit from 2 GiB of memory for every 1 vCPU of compute. The Compute profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Compute profiles available for &reg; x86-64 processors.
+Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers. The Compute profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Compute profiles that are available for Intel&reg; x86-64 processors.
 
 Compute profiles with the cx2d prefix are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions.
+{: preview}
+
+3rd generation profiles with the cx3d prefix are available in the Dallas region to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
 {: preview}
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
@@ -156,16 +160,36 @@ Compute profiles with the cx2d prefix are available in the US South (Dallas), US
 {: class="simple-tab-table"}
 {: summary="Compute profiles options for Intel x86-64 virtual server instances."}
 
+| Instance profile | vCPU / Cores | NUMA count | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) |
+|---------|---------|---------|---------|---------|---------|
+| cx3d-2x5 | 2 / 1 | 1 | 5 | 4 | 1x65 |
+| cx3d-4x10 | 4 / 2 | 1 | 10 | 8 | 1x130 |
+| cx3d-8x20 | 8 / 4 | 1 | 20 | 16 | 1x260 |
+| cx3d-16x40 | 16 / 8 | 1 | 40 | 32 | 1x520 |
+| cx3d-24x60 | 24 / 12 | 1 | 60 | 48 | 1x780 |
+| cx3d-32x80 | 32 / 16 | 2 | 80 | 64 | 2x520 |
+| cx3d-48x120 | 48 / 24 | 2 |  120 | 96 | 2x780 |
+| cx3d-64x160 | 64 / 32 | 2 | 160 | 128 | 2x1024 |
+| cx3d-96x240 | 96 / 48 | 2 | 240 | 192 | 2x1560 |
+| cx3d-128x320 | 128 / 64  | 2 | 320 | 200 | 2x2080 |
+| cx3d-176x440 | 176 / 88 | 2 | 440 | 200 | 2x2860 |
+{: caption="Table 4. Compute profile options for x86-64 instances" caption-side="bottom"}
+{: #compute-intel-x86-64}
+{: tab-title="cx3d"}
+{: tab-group="Compute"}
+{: class="simple-tab-table"}
+{: summary="3rd generation Compute profile options for Intel x86-64 virtual server instances."}
+
 ## Memory
 {: #memory}
 
-Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads with 8 GiB of memory for every 1 vCPU of compute. The Memory profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Memory profiles available for Intel&reg; x86-64 processors.
+Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads. The Memory profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Memory profiles that are available for Intel&reg; x86-64.
 
 Memory profiles with the mx2d prefix are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions.
 {: preview}
 
-New profiles are available in the Dallas region to beta users with special approval to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
-{: beta}
+3rd generation profiles with the mx3d prefix are available in the Dallas region to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
+{: preview}
 
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
@@ -203,13 +227,14 @@ New profiles are available in the Dallas region to beta users with special appro
 | mx3d-16x160 | 16 / 8 |  1 | 160 | 32 | 1x520 |
 | mx3d-24x240 | 24 / 12 | 1 | 240 | 48 | 1x780 |
 | mx3d-32x320 | 32 / 16 | 2 | 320 | 64 | 2x520 |
+| mx3d-48x480 | 48 / 24 | 2 | 480 | 96 | 2x780 |
 | mx3d-64x640 | 64 / 32 | 2 | 640 | 128 | 2x1024 |
 | mx3d-96x960 | 96 / 48 | 2 | 960 | 192 | 2x1560 |
 | mx3d-128x1280 | 128 / 64 | 2 | 1280 | 200 | 2x2080 |
 | mx3d-176x1760 | 176 / 88 | 2 | 1760 | 200 | 2x2860 |
 {: caption="Table 5. Memory mx3d Beta profile options for x86-64 instances " caption-side="bottom"}
 {: #memory-intel-x86-64}
-{: tab-title="mx3d (Beta)"}
+{: tab-title="mx3d"}
 {: tab-group="Memory"}
 {: class="simple-tab-table"}
 {: summary="Memory mx3d profile options for Intel x86-64 virtual server instances."}
@@ -409,9 +434,9 @@ You can view available profile configurations by using the {{site.data.keyword.c
 The following information describes the naming rule of the profiles.
 
 The first character represents the profile families. Different profile families have different ratios of vCPU to memory and other characteristics that are designed for different workloads.
-- "b": balanced family of profiles, 1 vCPU to 4 GiB of memory ratio
-- "c": compute family of profiles (higher on the CPUs), 1 vCPU to 2 GiB of memory ratio
-- "m": memory family of profiles (higher on the memory), 1 vCPU to 8 GiB of memory ratio
+- "b": balanced family of profiles
+- "c": compute family of profiles (higher on the CPUs)
+- "m": memory family of profiles (higher on the memory)
 - "u": ultra high memory family of profiles, 1 vCPU to 28 GiB of memory ratio
 - "v": very high memory family of profiles, 1 vCPU to 14 GiB of memory ratio
 - "g": GPU profiles, which is a 1:8 or 1:16 ratio
@@ -466,9 +491,9 @@ curl -X GET \
 ## Next generation instance profiles
 {: #next-gen-profiles}
 
-[Beta]{: tag-purple}
+[Select availability]{: tag-green}
 
-The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are available as a Beta offering to select customers. This new generation features virtual server profile families that are hosted exclusively on Intel 4th Generation Xeon Scalable processors to provide the most powerful and performant general-purpose profiles available. These 3rd generation profiles provide the following enhancements:
+The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are available to provision in the Dallas region. This new generation features virtual server profile families that are hosted exclusively on Intel 4th Generation Xeon Scalable processors to provide the most powerful and performant general-purpose profiles available. These 3rd generation profiles provide the following enhancements:
 
 - Improved performance with DDR 5 memory DIMMs, PCI Gen 5 interconnects, and more memory per vCPU than prior generation profiles.
 - A wide variety of profiles sizes with core to memory ratios optimized to maximize performance and economics for intensive workloads.
@@ -477,10 +502,8 @@ The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_i
 - Local instance storage is included with all profiles for easy access to temporary storage and swap space. For more information about the temporary nature of instance storage, see [Lifecycle of instance storage](/docs/vpc?topic=vpc-instance-storage#instance-storage-lifecycle).
 - A 3rd generation profile can be resized to a 2nd generation profile. A 2nd generation profile can be resized to a 3rd generation profile. For more information, see [Resizing between Gen 2 and Gen 3 profiles](/docs/vpc?topic=vpc-resizing-an-instance&interface=ui#resizing-instance-generations).
 
-For more information and to request access to the Beta program, see [Beta: IBM Cloud Virtual Servers for VPC: 4th Gen Intel Xeon Scalable processors](https://ibm.biz/early-access-virtual-servers-VPC-Intel-Xeon-4th-Gen).
-
-For the Beta offering, 3rd generation instance profiles are supported for provisioning with Linux-based operating systems only. When the beta offering period is complete, all virtual servers that were provisioned with the 3rd generation beta profiles must be stopped and then started again.
-{: note}
+To access profiles for 3rd generation virtual server instances that include vCPU that is greater than 64 vCPU, contact IBM Support. 
+{: preview}
 
 ## Intel Hyper-Threading Technology
 {: #vpc-intel-hyper-threading}
