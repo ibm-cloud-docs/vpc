@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2023
-lastupdated: "2023-06-22"
+lastupdated: "2023-10-04"
 
 keywords: dedicated host profiles, balanced, compute, memory, ultra high memory, generation 2, gen 2
 
@@ -11,7 +11,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Dedicated host profiles
+# x86-64 dedicated host profiles
 {: #dh-profiles}
 
  A dedicated host profile is a combination of attributes, such as the number of vCPUs, amount of RAM, and optionally instance storage that define the amount of compute capacity that is provided in a host that is provisioned exclusively for your use.
@@ -31,9 +31,9 @@ The following profile families are available:
 
 | Families | Description |
 | -------- | ----------- |
-| [Balanced](#balanced-dh-pr) | Best for midsize databases and common cloud applications with moderate traffic. Balanced profiles offer vCPU to memory ratios with 1 vCPU to 4 GiB of RAM. Balanced profiles are offered with and without instance storage. |
-| [Compute](#compute-dh-pr) | Best for workloads with intensive CPU demands, such as medium to high web traffic workloads, production batch processing, and front-end web servers. Compute profiles offer vCPU to memory ratios with 1 vCPU to 2 GiB of RAM. Compute profiles are offered with and without instance storage. |
-| [Memory](#memory-dh-pr) | Best for memory intensive processes, such as memory caching, intensive database applications, or in-memory analytics workloads. Memory profiles offer vCPU to memory ratios with 1 vCPU to 8 GiB of RAM. Memory profiles are offered with and without instance storage. |
+| [Balanced](#balanced-dh-pr) | Best for midsize databases and common cloud applications with moderate traffic. Balanced profiles are offered with and without instance storage. |
+| [Compute](#compute-dh-pr) | Best for workloads with intensive CPU demands, such as medium to high web traffic workloads, production batch processing, and front-end web servers. Compute profiles are offered with and without instance storage. |
+| [Memory](#memory-dh-pr) | Best for memory intensive processes, such as memory caching, intensive database applications, or in-memory analytics workloads. Memory profiles are offered with and without instance storage. |
 |[Very High Memory with instance storage](#vhm-is-dh-pr) | Best for OLAP workloads and SAP-related services, such as SAP NetWeaver. The Very High Memory profile offers 1 vCPU to 14 GiB of RAM memory ratio, is hosted exclusively on the Intel® Xeon® Platinum Cascade Lake server, and includes instance storage for temporary swap space or cache. |
 |[Ultra High Memory with instance storage](#uhm-is-dh-pr) | Best for in-memory OLTP databases, such as SAP. The Ultra High Memory profile offers the highest vCPU to memory ratios with 1 vCPU to 28 GiB of RAM, is hosted exclusively on the Intel® Xeon® Platinum Cascade Lake server, and includes instance storage for temporary swap space or cache|
 {: caption="Table 1. Dedicated host family selections" caption-side="bottom"}
@@ -46,9 +46,15 @@ Profiles with AMD manufactured processors are available in the Toronto region.
 
 The Balanced profile provides a good mix of performance and scalability for more common workloads. 
 
-The Balanced with instance storage profile provides a good mix of performance and scalability for more common workloads. The Balanced with instance storage profile provisions your host with the capability for hosting instances that include [instance storage](/docs/vpc?topic=vpc-instance-storage). If you provision a dedicated host with a Balanced with instance storage profile, any virtual server instances that are provisioned on the dedicated host must also be provisioned with a Balanced profile that includes instance storage. Profiles with instance storage include *d* in the profile name, for example *bx2d*.
+The Balanced with instance storage profile provisions your host with the capability for hosting instances that include [instance storage](/docs/vpc?topic=vpc-instance-storage). If you provision a dedicated host with a Balanced with instance storage profile, any virtual server instances that are provisioned on the dedicated host must also be provisioned with a Balanced profile that includes instance storage. Profiles with instance storage include *d* in the profile name, for example *bx2d* or *bx3d*.
 
-The Balanced profile family of dedicated hosts on Intel&reg; x86-64 systems are deployed on either Intel&reg;'s quad processor Xeon&reg; Platinum 8260 Cascade Lake with 96 cores that are running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz or Intel&reg;'s quad processor Xeon&reg; Gold 6248 Cascade Lake with 80 cores that are running at a base speed of 2.5 GHz and an all-core turbo frequency of 3.1 GHz.
+The Balanced profile family of dedicated hosts on Intel&reg; x86-64 systems are deployed on one of the following processors:
+- *bx2* and *bx2d* profiles can be deployed on an Intel&reg; Xeon&reg; Platinum 8260 Cascade Lake processor with 96 cores in a 4-socket configuration.
+- *bx2* and *bx2d* profiles can be deployed on an Intel&reg; Xeon&reg; Gold 6248 Cascade Lake processor with 80 cores in a 4-socket configuration.
+- *bx3d* profiles are deployed on a custom Intel&reg; Xeon&reg; Platinum 8474C Sapphire Rapids processor with 96 cores in a 2-socket configuration.
+
+New 3rd generation profiles are available in the Dallas region to create dedicated hosts on hardware that uses 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). 
+{: preview}
 
 The following Balanced profiles are available for dedicated hosts.
 
@@ -56,9 +62,9 @@ The following Balanced profiles are available for dedicated hosts.
 |---------|---------|---------|---------| ---------|
 | bx2-host-152x608 | 152 | 76 | 608 | - | 
 | bx2d-host-152x608 | 152 | 76 | 608 | 5700 GB | 
-{: caption="Table 2. Intel x86-64 balanced profile for dedicated hosts" caption-side="bottom"}
+{: caption="Table 2. Intel x86-64 balanced bx2 profile options for dedicated hosts" caption-side="bottom"}
 {: #dh-balanced-intel-x86-64}
-{: tab-title="Intel x86-64"}
+{: tab-title="bx2"}
 {: tab-group="DH Balanced"}
 {: class="simple-tab-table"}
 {: summary="Dedicated Host Balanced profiles options for Intel&reg; x86-64 virtual server instances."}
@@ -68,12 +74,22 @@ The following Balanced profiles are available for dedicated hosts.
 | bx2a-host-228x912 | 228 | 912 |
 {: caption="Table 2. AMD x86-64 balanced profile for dedicated hosts" caption-side="bottom"}
 {: #dh-balanced-amd-x86-64}
-{: tab-title="AMD x86-64"}
+{: tab-title="bx2a"}
 {: tab-group="DH Balanced"}
 {: class="simple-tab-table"}
 {: summary="Dedicated Host Balanced profiles options for AMD x86-64 virtual server instances."}
 
-For supported instance profiles in the Balanced family, see [balanced profiles](/docs/vpc?topic=vpc-profiles#balanced). Instance profiles that are provisioned on a dedicated host in the Balanced family must include a *bx2* prefix in the instance profile name. Profiles with instance storage include *d* in the profile name, for example *bx2d*.
+| Dedicated host profile | vCPU | Cores | GiB RAM | Instance storage | 
+|---------|---------|---------|---------| ---------|
+| bx3d-host-176x880 | 176 | 88 | 880 | 2x3.2 Tb | 
+{: caption="Table 2. Intel Balanced bx3d profile options for dedicated hosts" caption-side="bottom"}
+{: #dh-balanced-intel-x86-64}
+{: tab-title="bx3d"}
+{: tab-group="DH Balanced"}
+{: class="simple-tab-table"}
+{: summary="Dedicated Host Balanced 3rd generation profile option for Intel&reg; x86-64 virtual server instances."}
+
+For supported instance profiles in the Balanced family, see [balanced profiles](/docs/vpc?topic=vpc-profiles#balanced). Instance profiles that are provisioned on a dedicated host in the Balanced family must include a *bx* prefix in the instance profile name. Profiles with instance storage include *d* in the profile name, for example *bx2d* or *bx3d*.
 
 Dedicated hosts have a network performance cap of 80 Gbps. Instances provisioned on the host share bandwidth across the
 instances.  
@@ -82,11 +98,17 @@ instances.
 ## Compute
 {: #compute-dh-pr}
 
-The Compute profile is best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers. The Compute with instance storage profile is best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers.
+The Compute profile is best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers. 
 
 The Compute with instance storage profile provisions your host with the capability for hosting instances that include [instance storage](/docs/vpc?topic=vpc-instance-storage). If you provision a dedicated host with a Compute with instance storage profile, any virtual server instances that are provisioned on the dedicated host must also be provisioned with a Compute profile that includes instance storage. 
 
-The Compute profile family of dedicate hosts on Intel&reg; x86-64 systems are deployed on either Intel&reg;'s quad processor Xeon&reg; Platinum 8260 Cascade Lake with 96 cores that are running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz or Intel&reg;'s quad processor Xeon&reg; Gold 6248 Cascade Lake with 80 cores that are running at a base speed of 2.5 GHz and an all-core turbo frequency of 3.1 GHz.
+The Compute profile family of dedicated hosts on Intel&reg; x86-64 systems are deployed on one of the following processors:
+- *cx2* and *cx2d* profiles can be deployed on an Intel&reg; Xeon&reg; Platinum 8260 Cascade Lake processor with 96 cores in a 4-socket configuration.
+- *cx2* and *cx2d* profiles can be deployed on an Intel&reg; Xeon&reg; Gold 6248 Cascade Lake processor with 80 cores in a 4-socket configuration.
+- *cx3d* profiles are deployed on a custom Intel&reg; Xeon&reg; Platinum 8474C Sapphire Rapids processor with 96 cores in a 2-socket configuration.
+
+New 3rd generation profiles are available in the Dallas region to create dedicated hosts on hardware that uses 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). 
+{: preview}
 
 The following Compute profiles are available for dedicated hosts.
 
@@ -94,14 +116,24 @@ The following Compute profiles are available for dedicated hosts.
 |---------|---------|---------|---------| ---------|
 | cx2-host-152x304 | 152 | 76 | 304 | - | 
 | cx2d-host-152x304 | 152 | 76 | 304 | 5700 GB |
-{: caption="Table 3. Intel x86-64 Compute profile for dedicated hosts" caption-side="bottom"}
+{: caption="Table 3. Intel x86-64 Compute profiles for dedicated hosts" caption-side="bottom"}
 {: #dh-compute-intel-x86-64}
-{: tab-title="Intel x86-64"}
+{: tab-title="cx2"}
 {: tab-group="DH Compute"}
 {: class="simple-tab-table"}
-{: summary="Dedicated Host Compute profiles options for Intel x86-64 virtual server instances."}
+{: summary="Dedicated Host Compute profiles options for Intel&reg; x86-64 virtual server instances."}
 
-For supported instance profiles in the Compute family, see [compute profiles](/docs/vpc?topic=vpc-profiles#compute). Instance profiles that are provisioned on a dedicated host in the Compute family must include a *cx2* prefix in the instance profile name. Profiles with instance storage include *d* in the profile name, for example *cx2d*.
+| Dedicated host profile | vCPU | Cores | GiB RAM | Instance storage | 
+|---------|---------|---------|---------| ---------|
+| cx3d-host-176x880 | 176 | 88 | 440 | 2x3.2 Tb | 
+{: caption="Table 3. Intel x86-64 Compute cx3d profile for dedicated hosts" caption-side="bottom"}
+{: #dh-compute-intel-x86-64}
+{: tab-title="cx3d"}
+{: tab-group="DH Compute"}
+{: class="simple-tab-table"}
+{: summary="Dedicated Host Compute 3rd generation profile option for Intel&reg; x86-64 virtual server instances."}
+
+For supported instance profiles in the Compute family, see [compute profiles](/docs/vpc?topic=vpc-profiles#compute). Instance profiles that are provisioned on a dedicated host in the Compute family must include a *cx* prefix in the instance profile name. Profiles with instance storage include *d* in the profile name, for example *cx2d* or *cx3d*.
 
 Dedicated hosts have a network performance cap of 80 Gbps. Instances provisioned on the host share bandwidth across the
 instances.  
@@ -114,7 +146,13 @@ The Memory profile is best for memory intensive workloads, such as large caching
 
 The Memory with instance storage profile provisions your host with the capability for hosting instances that include [instance storage](/docs/vpc?topic=vpc-instance-storage). If you provision a dedicated host with a Memory with instance storage profile, any virtual server instances that are provisioned on the dedicated host must also be provisioned with a Memory profile that includes instance storage. 
 
-The Memory profile family of dedicate hosts on Intel&reg; x86-64 systems are deployed on either Intel&reg;'s quad processor Xeon&reg; Platinum 8260 Cascade Lake with 96 cores that are running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz or Intel&reg;'s quad processor Gold 6248 Cascase Lake with 80 cores that are running at a base speed of 2.5 GHz and an all-core turbo frequency of 3.1 GHz.
+The Memory profile family of dedicated hosts on Intel&reg; x86-64 systems are deployed on one of the following processors:
+- *mx2* and *mx2d* profiles can be deployed on an Intel&reg; Xeon&reg; Platinum 8260 Cascade Lake processor with 96 cores in a 4-socket configuration.
+- *mx2* and *mx2d* profiles can be deployed on an Intel&reg; Xeon&reg; Gold 6248 Cascade Lake processor with 80 cores in a 4-socket configuration.
+- *mx3d* profiles are deployed on a custom Intel&reg; Xeon&reg; Platinum 8474C Sapphire Rapids processor with 96 cores in a 2-socket configuration.
+
+New 3rd generation profiles are available in the Dallas region to create dedicated hosts on hardware that uses 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). 
+{: preview}
 
 The following Memory profiles are available for dedicated hosts.
 
@@ -122,14 +160,24 @@ The following Memory profiles are available for dedicated hosts.
 |---------|---------|---------|---------| ---------|
 | mx2-host-152x1216 | 152 | 76 | 1216 | - |
 | mx2d-host-152x1216 | 152 | 76 | 1216 | 5700 GB |
-{: caption="Table 4. Intel x86-64 memory profile for dedicated hosts" caption-side="bottom"}
+{: caption="Table 4. Intel x86-64 memory mx2 profile options for dedicated hosts" caption-side="bottom"}
 {: #dh-memory-intel-x86-64}
-{: tab-title="Intel x86-64"}
+{: tab-title="mx2"}
 {: tab-group="DH Memory"}
 {: class="simple-tab-table"}
-{: summary="Dedicated Host Memory profiles options for Intel x86-64 virtual server instances."}
+{: summary="Dedicated Host Memory profiles options for Intel&reg; x86-64 virtual server instances."}
 
-For supported instance profiles in the Memory family, see [memory profiles](/docs/vpc?topic=vpc-profiles#memory). Instance profiles that are provisioned on a dedicated host in the Memory family must include an *mx2* prefix in the instance profile name. Profiles with instance storage include *d* in the profile name, for example *mx2d*.
+| Dedicated host profile | vCPU | Cores | GiB RAM | Instance storage | 
+|---------|---------|---------|---------| ---------|
+| mx3d-host-176x1760 | 176 | 88 | 1760 | 2x3.2 Tb | 
+{: caption="Table 4. Intel x86-64 Memory mx3d profile for dedicated hosts" caption-side="bottom"}
+{: #dh-memory-intel-x86-64}
+{: tab-title="mx3d"}
+{: tab-group="DH Memory"}
+{: class="simple-tab-table"}
+{: summary="Dedicated Host Memory 3rd generation profile option for Intel&reg; x86-64 virtual server instances."}
+
+For supported instance profiles in the Memory family, see [memory profiles](/docs/vpc?topic=vpc-profiles#memory). Instance profiles that are provisioned on a dedicated host in the Memory family must include an *mx* prefix in the instance profile name. Profiles with instance storage include *d* in the profile name, for example *mx2d* or *mx3d*.
 
 Dedicated hosts have a network performance cap of 80 Gbps. Instances provisioned on the host share bandwidth across the
 instances.  
