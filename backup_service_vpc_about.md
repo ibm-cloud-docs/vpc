@@ -28,9 +28,6 @@ You can create up to 10 backup policies for your {{site.data.keyword.block_stora
 
 As an enterprise account administrator, you can view and manage the backup policies and plans for the subaccounts for compliance reporting and billing from one place. For more information, see the [Scope of backup policy](#backup-service-about-scope) section.
 
-Before you create backups, review the [planning your backups](/docs/vpc?topic=vpc-backups-vpc-planning) topic. For more information, see [best practices for creating backups](/docs/vpc?topic=vpc-backups-vpc-best-practices).
-{: tip}
-
 In a backup plan, you schedule the frequency of your backups. In the UI, you can choose daily, weekly, or monthly. You can also use a `cron` expression to specify the frequency in the [UI](/docs/vpc?topic=vpc-create-backup-policy-and-plan&interface=ui), from the [CLI](/docs/vpc?topic=vpc-create-backup-policy-and-plan&interface=cli), with the [API](/docs/vpc?topic=vpc-create-backup-policy-and-plan&interface=api) or [Terraform](/docs/vpc?topic=vpc-create-backup-policy-and-plan&interface=terraform).
 
 You must set a [retention period](/docs/vpc?topic=vpc-backup-policy-create&interface=ui#backup-automated-plan-ui) for your backups. It can be based on the number of days that you want to keep the backups. Or it can be based on the total number of backups that you want to retain before the oldest ones are deleted. Or you can set it up by specifying both the time limit and the maximum number of backups that you want to keep. Planning for the retention and deletion of your backups can keep the costs down.
