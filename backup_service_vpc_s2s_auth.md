@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Establishing service to service authorizations
+# Establishing service-to-service authorizations
 {: #backup-s2s-auth}
 
 Before you can create backup policies, you need to establish service-to-service authorizations and specify user roles. This authorization enables the Backup for VPC service to detect volume tags, create backup snapshots and store them in {{site.data.keyword.cos_short}}.

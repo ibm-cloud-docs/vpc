@@ -22,7 +22,7 @@ The following questions pertain to the VPC Backup service for Enterprise account
 {: faq}
 {: #faq-baas-ee-1}
 
-To create a backup policy and plans and for the backup jobs to run correctly, multiple service-to-service authorizations are required. The IBM Cloud Backup for VPC service needs to be authorized to work with {{site.data.keyword.block_storage_is_short}}, Block Storage Snapshots for VPC, and Virtual Server for VPC services. For more information, see [Establishing service to service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth).
+To create a backup policy and plans and for the backup jobs to run correctly, multiple service-to-service authorizations are required. The IBM Cloud Backup for VPC service needs to be authorized to work with {{site.data.keyword.block_storage_is_short}}, Block Storage Snapshots for VPC, and Virtual Server for VPC services. For more information, see [Establishing service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth).
 
 ## How can I tell whether authorizations are configured correctly?
 {: faq}

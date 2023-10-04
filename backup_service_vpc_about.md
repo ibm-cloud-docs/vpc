@@ -188,7 +188,7 @@ Depending on your assigned role as a backup user, you can create and administer 
 ## Service-to-service authorizations
 {: #baas-s2s-auth}
 
-Specific IAM user roles are required to grant service-to-service authorizations. Service to service authorizations between the Backup service and Cloud Block Storage, Snapshots for VPC, and Virtual server for VPC are needed so the backup service can detect volume tags and create snapshots. For more information, see [Establishing service to service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth).
+Specific IAM user roles are required to grant service-to-service authorizations. Service to service authorizations between the Backup service and Cloud Block Storage, Snapshots for VPC, and Virtual server for VPC are needed so the backup service can detect volume tags and create snapshots. For more information, see [Establishing service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth).
 
 ## Limitations in this release
 {: #backup-service-limitations}
