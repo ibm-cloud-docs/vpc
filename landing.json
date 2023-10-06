@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2023-09-29",
+    "lastupdated": "2023-10-06",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
@@ -31,6 +31,11 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
+          "date": "03 October 2023", 
+          "title": "New regions for ux2d profiles",
+          "description": "The Ultra High Memory family of profiles are now available in the Brazil (São Paulo), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions."
+        },
+        {
           "date": "29 September 2023", 
           "title": "Backup as a Service Enterprise enablement",
           "description": "As an enterprise account administrator, you can view and manage the backup policies and plans for the subaccounts for compliance reporting and billing from one place. Enterprise account users can see all backup policies and associated jobs. They can also see the reference of the backup snapshot that is created in the subaccount. Subaccounts can create and manage their backups as before."
@@ -39,11 +44,6 @@
           "date": "22 September 2023", 
           "title": "IBM Wazi as a Service available in Spain region",
           "description": " IBM Wazi as a Service (Wazi aaS) is now available in the Spain (Madrid) region in IBM Cloud."
-        },
-        {
-          "date": "21 September 2023", 
-          "title": "IBM Cloud Hyper Protect Virtual Server for IBM Cloud® Virtual Private Cloud",
-          "description": "You can now create IBM Cloud Hyper Protect Virtual Server for IBM Cloud VPC instances on LinuxONE (s390x processor architecture) in the Spain (Madrid) region, in addition to Brazil (São Paulo), Canada (Toronto), Japan (Tokyo), and US East (Washington DC) regions."
         }
       ]
     }
