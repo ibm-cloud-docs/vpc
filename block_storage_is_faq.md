@@ -306,12 +306,6 @@ Maximum IOPS for data volumes varies based on volume size and the type of profil
 IOPS is measured based on a load profile of 16-KB blocks with random 50% read and 50% writes. Workloads that differ from this profile might experience reduced performance. If you use a smaller block size, maximum IOPS can be obtained, but throughput is less. For more information, see
 [How block size affects performance](/docs/vpc?topic=vpc-capacity-performance#how-block-size-affects-performance).
 
-### What typical network performance might I expect between my Compute instances and the {{site.data.keyword.block_storage_is_short}} service?
-{: faq}
-{: #faq-block-storage-17}
-
-{{site.data.keyword.block_storage_is_short}} is connected to compute instances on a shared network, so the exact performance latency depends on the network traffic within a specific time frame. Target latency for a 16-KB block size volume is under 1 millisecond for random reads and under 2 milliseconds for writes.
-
 ### What mechanisms are used to avoid data storage contention?
 {: faq}
 {: #faq-block-storage-17a}
