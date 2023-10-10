@@ -30,8 +30,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## October 2023
 {: #vpc-oct23}
 
-### 03 October 2023
-{: #vpc-oct0323}
+### 10 October 2023
+{: #vpc-oct1023}
 {: release-note}
 
 Next generation instance profiles available in Dallas region (Select Availability)
