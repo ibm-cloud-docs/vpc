@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-10-10"
+lastupdated: "2023-10-12"
 
 keywords:
 
@@ -30,8 +30,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## October 2023
 {: #vpc-oct23}
 
-### 10 October 2023
-{: #vpc-oct1023}
+### 12 October 2023
+{: #vpc-oct1223}
 {: release-note}
 
 Next generation instance profiles available in Dallas region (Select Availability)
