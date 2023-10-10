@@ -306,12 +306,6 @@ Maximum IOPS for data volumes varies based on volume size and the type of profil
 IOPS is measured based on a load profile of 16-KB blocks with random 50% read and 50% writes. Workloads that differ from this profile might experience reduced performance. If you use a smaller block size, maximum IOPS can be obtained, but throughput is less. For more information, see
 [How block size affects performance](/docs/vpc?topic=vpc-capacity-performance#how-block-size-affects-performance).
 
-### What mechanisms are used to avoid data storage contention?
-{: faq}
-{: #faq-block-storage-17a}
-
-Data storage contention is a common issue when multiple instances compete for access to the same {{site.data.keyword.block_storage_is_short}} volume. {{site.data.keyword.block_storage_is_short}} uses Rate Limiting at the hypervisor for optimal bandwidth between the hypervisor and {{site.data.keyword.block_storage_is_short}} service. As a result, latency is guaranteed to be less than 1 millisecond for random reads and under 2 milliseconds for writes for a typical 16-KB block size. Latency outside these metrics might indicate a problem on the client side.
-
 ### What happens when a volume is in a degraded health state?
 {: faq}
 {: #faq-block-storage-healthstate}
