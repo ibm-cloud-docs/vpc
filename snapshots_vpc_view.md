@@ -297,7 +297,7 @@ Status                 stable
 Clones                 Zone   Available   Created
 
 Source volume          ID                                          Name                   Remote Region
-                       r134-be21061a-4dc6-4c9f-b17d-421838fde399   -remote-421838fde399   us-south
+                       r006-be21061a-4dc6-4c9f-b17d-421838fde399   -remote-421838fde399   us-south
 
 Snapshot Copies        ID   Name   Remote Region   CRN   Resource type
 
@@ -305,12 +305,12 @@ Bootable               true
 Encryption             provider_managed
 Encryption key         -
 Source Snapshot        ID                                          Name                   Remote Region   CRN                                                                                                                        Resource type
-                       r134-b9590a48-63a3-445e-b819-3f2c0b82daf8   cli-snap-crc-test-sn   us-south        crn:v1:bluemix:public:is:us-south:a/2d1bace7b46e4815a81e52c6ffeba5cf::snapshot:r134-b9590a48-63a3-445e-b819-3f2c0b82daf8   snapshot
+                       r006-b9590a48-63a3-445e-b819-3f2c0b82daf8   cli-snap-crc-test-sn   us-south        crn:v1:bluemix:public:is:us-south:a/2d1bace7b46e4815a81e52c6ffeba5cf::snapshot:r006-b9590a48-63a3-445e-b819-3f2c0b82daf8   snapshot
 
 Minimum capacity(GB)   100
 Size(GB)               2
 Source Image           ID                                          Name                   Remote Region
-                       r134-24d856e2-6aec-41c2-8f36-5a8a3766f0d6   -remote-5a8a3766f0d6   us-south
+                       r006-24d856e2-6aec-41c2-8f36-5a8a3766f0d6   -remote-5a8a3766f0d6   us-south
 
 Operating system       Name             Vendor   Version                 Family   Architecture   Display name
                        centos-7-amd64   CentOS   7.x - Minimal Install   CentOS   amd64          CentOS 7.x - Minimal Install (amd64)
@@ -663,8 +663,8 @@ A successful response shows information that is similar to the following example
     	   "hfef": "https://us-east.iaas.cloud.ibm.com/v1/regions/us-south"
     	}
     },
-    "href": "https://us-south.iaas.cloud.ibm.com/v1/images/r134-32045dc2-b463-4cda-b424-bc3dcf51dfbb",
-    "id": "r134-32045dc2-b463-4cda-b424-bc3dcf51dfbb",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/images/r006-32045dc2-b463-4cda-b424-bc3dcf51dfbb",
+    "id": "r006-32045dc2-b463-4cda-b424-bc3dcf51dfbb",
     "name": "ibm-ubuntu-20-04-minimal-amd64-1"
   },
   "source_snapshot": {
@@ -675,8 +675,8 @@ A successful response shows information that is similar to the following example
     	   "hfef": "https://us-east.iaas.cloud.ibm.com/v1/regions/us-south"
     	}
     },
-    "href": "https://us-south.iaas.cloud.ibm.com/v1/snapshots/r134-511a798c-5816-4082-8ecb-554a440f83de",
-    "id": "r134-511a798c-5816-4082-8ecb-554a440f83de",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/snapshots/r006-511a798c-5816-4082-8ecb-554a440f83de",
+    "id": "r006-511a798c-5816-4082-8ecb-554a440f83de",
     "name": "my-snapshot-data"
   },
   "source_volume": {
@@ -687,8 +687,8 @@ A successful response shows information that is similar to the following example
     	   "hfef": "https://us-east.iaas.cloud.ibm.com/v1/regions/us-south"
     	}
     },
-    "href": "https://us-south.iaas.cloud.ibm.com/v1/volumes/r134-411a798c-5816-4082-8ecb-554a440f83de",
-    "id": "r134-411a798c-5816-4082-8ecb-554a440f83de",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/volumes/r006-411a798c-5816-4082-8ecb-554a440f83de",
+    "id": "r006-411a798c-5816-4082-8ecb-554a440f83de",
     "name": "my-instance-data"
   },
   "user_tags": []

@@ -112,7 +112,7 @@ Image                                 ID                                        
                                       9f6b534b-6061-40f4-ac42-5aba4dd0da7f         ubuntu-20-04-3-minimal-amd64-1
 
 VPC                                   ID                                          Name
-                                      r134-42ebadb6-65f8-4b2f-923b-50b0e44670df   vpc-1
+                                      r006-42ebadb6-65f8-4b2f-923b-50b0e44670df   vpc-1
 
 Zone                                  us-south-1
 Resource group                        ID                                 Name

@@ -157,15 +157,15 @@ Created at              2023-02-21T22:42:10+00:00
 The following example updates an Enterprise backup policy that is identified by ID:
 
 ```sh
-cloudshell:~$ ibmcloud is backup-policy-update r134-0bc533ed-4796-407a-982e-693b418f3de3 --name cli-updated-2
-Updating backup policy r134-0bc533ed-4796-407a-982e-693b418f3de3 under account Enterprise Test as user test.user@ibm.com...
+cloudshell:~$ ibmcloud is backup-policy-update r006-0bc533ed-4796-407a-982e-693b418f3de3 --name cli-updated-2
+Updating backup policy r006-0bc533ed-4796-407a-982e-693b418f3de3 under account Enterprise Test as user test.user@ibm.com...
                           
-ID                     r134-0bc533ed-4796-407a-982e-693b418f3de3   
+ID                     r006-0bc533ed-4796-407a-982e-693b418f3de3   
 Name                   cli-updated-2   
-CRN                    crn:v1:staging:public:is:us-south:a/a1234567::backup-policy:r134-0bc533ed-4796-407a-982e-693b418f3de3   
+CRN                    crn:bluemix:public:is:us-south:a/a1234567::backup-policy:r006-0bc533ed-4796-407a-982e-693b418f3de3   
 Status                 stable   
 Plans                  ID                                          Name           Resource type      
-                       r134-0741b600-e8d5-41b4-88a7-c19b6fbf89ca   scope-plan-2   backup_policy_plan      
+                       r006-0741b600-e8d5-41b4-88a7-c19b6fbf89ca   scope-plan-2   backup_policy_plan      
                           
 Backup tags            dev:test   
 Backup resource type   volume   

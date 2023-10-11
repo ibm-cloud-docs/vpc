@@ -198,8 +198,8 @@ The file share status shows `updating` while the IOPS is being adjusted. The cur
    "created_at": "2023-08-08T22:58:49.000Z",
    "crn": "crn:[...]",
    "encryption": "provider_managed",
-   "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/r134-a0c07083-f411-446c-9316-7b08d6448c86",
-   "id": "r134-a0c07083-f411-446c-9316-7b08d6448c86",
+   "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/r006-a0c07083-f411-446c-9316-7b08d6448c86",
+   "id": "r006-a0c07083-f411-446c-9316-7b08d6448c86",
    "iops": 100,
     .
     .
@@ -243,12 +243,12 @@ When the IOPS expansion completes, restart the instance. The new value is displa
   "mount_targets": [
     {
       "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/a0c07083-f411-446c-9316-7b08d6448c86/mount_targets/1b5571cb-536d-48d0-8452-81c05c6f7b80",
-      "id": "r134-1b5571cb-536d-48d0-8452-81c05c6f7b80",
+      "id": "r006-1b5571cb-536d-48d0-8452-81c05c6f7b80",
       "name": "my-mount-target",
       "resource_type": "share_target",
       "vpc": {
         "crn": "crn:[...]",
-        "href": "https://us-south.iaas.cloud.ibm.com/v1/vpcs/r134-12bb28fc-856d-4902-813b-dc065d1ed084",
+        "href": "https://us-south.iaas.cloud.ibm.com/v1/vpcs/r006-12bb28fc-856d-4902-813b-dc065d1ed084",
         "id": "12bb28fc-856d-4902-813b-dc065d1ed084",
         "name": "my-vpc",
         "resource_type": "vpc"

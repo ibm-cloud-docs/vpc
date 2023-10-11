@@ -115,8 +115,8 @@ The response shows detailed information about the source share.
   "created_at": "2023-08-08T23:26:35Z",
   "crn": "crn:v1:bluemix:public:is:us-south-3:a/123456",
   "encryption": "provider_managed",
-  "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/r134-6428d8d6-ff21-4b83-b4a1-70e7e55e8226",
-  "id": "r134-6428d8d6-ff21-4b83-b4a1-70e7e55e8226",
+  "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/r006-6428d8d6-ff21-4b83-b4a1-70e7e55e8226",
+  "id": "r006-6428d8d6-ff21-4b83-b4a1-70e7e55e8226",
   "initial_owner": {
     "gid": 0,
     "uid": 0
@@ -139,9 +139,9 @@ The response shows detailed information about the source share.
     "resource_type": "share_profile"
   },
   "replica_share": {
-    "crn": "crn:v1:bluemix:public:is:us-south-1:a/123456::share:r134-45bb2104-85c5-4fae-93b1-d97060fac032",
-    "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/r134-45bb2104-85c5-4fae-93b1-d97060fac032",
-    "id": "r134-45bb2104-85c5-4fae-93b1-d97060fac032",
+    "crn": "crn:v1:bluemix:public:is:us-south-1:a/123456::share:r006-45bb2104-85c5-4fae-93b1-d97060fac032",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/r006-45bb2104-85c5-4fae-93b1-d97060fac032",
+    "id": "r006-45bb2104-85c5-4fae-93b1-d97060fac032",
     "name": "test-replica-name",
     "resource_type": "share"
   },
@@ -158,8 +158,8 @@ The response shows detailed information about the source share.
   "size": 100,
   "targets": [
     {
-      "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/r134-6428d8d6-ff21-4b83-b4a1-70e7e55e8226/targets/r134-d750b617-a82b-487a-a26b-0de1824dec8e",
-      "id": "r134-d750b617-a82b-487a-a26b-0de1824dec8e",
+      "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/r006-6428d8d6-ff21-4b83-b4a1-70e7e55e8226/targets/r006-d750b617-a82b-487a-a26b-0de1824dec8e",
+      "id": "r006-d750b617-a82b-487a-a26b-0de1824dec8e",
       "name": "test-share-test-target-6",
       "resource_type": "share_target"
     }
@@ -188,8 +188,8 @@ The response shows more concise reference about the source share.
 ```json
 `{
   "crn": "crn:v1:bluemix:public:is:us-south-3:a/123456",
-  "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/r134-6428d8d6-ff21-4b83-b4a1-70e7e55e8226",
-  "id": "r134-6428d8d6-ff21-4b83-b4a1-70e7e55e8226",
+  "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/r006-6428d8d6-ff21-4b83-b4a1-70e7e55e8226",
+  "id": "r006-6428d8d6-ff21-4b83-b4a1-70e7e55e8226",
   "name": "test-share-with-replica",
   "resource_type": "share"
 }`
@@ -200,7 +200,7 @@ For more details of the source share, make a `GET /shares/{share_id}` request wi
 
 ```sh
 curl -X GET \
-"$vpc_api_endpoint/v1/shares/r134-6428d8d6-ff21-4b83-b4a1-70e7e55e8226?version=2023-08-08&generation=2&maturity=beta"\
+"$vpc_api_endpoint/v1/shares/r006-6428d8d6-ff21-4b83-b4a1-70e7e55e8226?version=2023-08-08&generation=2&maturity=beta"\
 -H "Authorization: Bearer $iam_token"
 ```
 {: pre}

@@ -459,7 +459,7 @@ Use the following steps to delete a remote region copy by using the UI.
 You can create a cross-regional copy of a snapshot by using the `snapshot-create` command with the `--source-snapshot-crn` option and the source snapshot CRN, which creates a snapshot in the target region by using the CRN of a snapshot from the source region. The created snapshot uses the customer-defined encryption key if the CRN of an encryption key was also specified.
 
 ```sh
-ibmcloud is snapshot-create --name my-cli-snapshot-crc --source-snapshot-crn crn:v1:bluemix:public:is:us-south:a/2d1bace7b46e4815a81e52c6ffeba5cf::snapshot:r134-b9590a48-63a3-445e-b819-3f2c0b82daf8
+ibmcloud is snapshot-create --name my-cli-snapshot-crc --source-snapshot-crn crn:v1:bluemix:public:is:us-south:a/2d1bace7b46e4815a81e52c6ffeba5cf::snapshot:r006-b9590a48-63a3-445e-b819-3f2c0b82daf8
 
 Creating snapshot my-cli-snapshot-crc under account Test Account as user test.user@ibm.com...
 
@@ -470,7 +470,7 @@ Status                 pending
 Clones                 Zone   Available   Created
 
 Source volume          ID                                          Name                   Remote Region
-                       r134-be21061a-4dc6-4c9f-b17d-421838fde399   -remote-421838fde399   us-south
+                       r006-be21061a-4dc6-4c9f-b17d-421838fde399   -remote-421838fde399   us-south
 
 Snapshot Copies        ID   Name   Remote Region   CRN   Resource type
 
@@ -478,12 +478,12 @@ Bootable               true
 Encryption             provider_managed
 Encryption key         -
 Source Snapshot        ID                                          Name                   Remote Region   CRN                                                                                                                        Resource type
-                       r134-b9590a48-63a3-445e-b819-3f2c0b82daf8   cli-snap-crc-test-sn   us-south        crn:v1:bluemix:public:is:us-south:a/2d1bace7b46e4815a81e52c6ffeba5cf::snapshot:r134-b9590a48-63a3-445e-b819-3f2c0b82daf8   snapshot
+                       r006-b9590a48-63a3-445e-b819-3f2c0b82daf8   cli-snap-crc-test-sn   us-south        crn:v1:bluemix:public:is:us-south:a/2d1bace7b46e4815a81e52c6ffeba5cf::snapshot:r006-b9590a48-63a3-445e-b819-3f2c0b82daf8   snapshot
 
 Minimum capacity(GB)   100
 Size(GB)               1
 Source Image           ID                                          Name                   Remote Region
-                       r134-24d856e2-6aec-41c2-8f36-5a8a3766f0d6   -remote-5a8a3766f0d6   us-south
+                       r006-24d856e2-6aec-41c2-8f36-5a8a3766f0d6   -remote-5a8a3766f0d6   us-south
 
 Operating system       Name             Vendor   Version                 Family   Architecture   Display name
                        centos-7-amd64   CentOS   7.x - Minimal Install   CentOS   amd64          CentOS 7.x - Minimal Install (amd64)
@@ -580,8 +580,8 @@ A successful response looks like the following example:
     	   "hfef": "https://us-east.iaas.cloud.ibm.com/v1/regions/us-south"
     	}
     }
-    "href": "https://us-south.iaas.cloud.ibm.com/v1/images/r134-32045dc2-b463-4cda-b424-bc3dcf51dfbb",
-    "id": "r134-32045dc2-b463-4cda-b424-bc3dcf51dfbb",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/images/r006-32045dc2-b463-4cda-b424-bc3dcf51dfbb",
+    "id": "r006-32045dc2-b463-4cda-b424-bc3dcf51dfbb",
     "name": "ibm-ubuntu-20-04-minimal-amd64-1"
   },
   "source_snapshot": {
@@ -592,8 +592,8 @@ A successful response looks like the following example:
     	   "hfef": "https://us-east.iaas.cloud.ibm.com/v1/regions/us-south"
     	}
     }
-    "href": "https://us-south.iaas.cloud.ibm.com/v1/snapshots/r134-511a798c-5816-4082-8ecb-554a440f83de",
-    "id": "r134-511a798c-5816-4082-8ecb-554a440f83de",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/snapshots/r006-511a798c-5816-4082-8ecb-554a440f83de",
+    "id": "r006-511a798c-5816-4082-8ecb-554a440f83de",
     "name": "my-snapshot-data"
   }
   "source_volume": {
@@ -604,8 +604,8 @@ A successful response looks like the following example:
     	   "hfef": "https://us-east.iaas.cloud.ibm.com/v1/regions/us-south"
     	}
     },
-    "href": "https://us-south.iaas.cloud.ibm.com/v1/volumes/r134-411a798c-5816-4082-8ecb-554a440f83de",
-    "id": "r134-411a798c-5816-4082-8ecb-554a440f83de",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/volumes/r006-411a798c-5816-4082-8ecb-554a440f83de",
+    "id": "r006-411a798c-5816-4082-8ecb-554a440f83de",
     "name": "my-instance-data"
   }
   "user_tags": []
@@ -634,7 +634,7 @@ To create a copy of snapshot in a remote region, use the `ibm_is_snapshot` resou
 resource "ibm_is_snapshot" "snapshot" {
   name 		      = "my-cross-regional-snapshot"
   source_snapshot = "r138-4463eb2c-4913-43b1-b9bf-62a94f74c146"
-  encryption_key  = "crn:v1:staging:public:kms:us-south:a/df0564dd126042ebb03e0224728ce939:4957299d-0ba0-487f-a1a0-c724a729b8b4:key:0cb88b98-9261-4d07-8329-8f594b6641b5"
+  encryption_key  = "crn:bluemix:public:kms:us-south:a/df0564dd126042ebb03e0224728ce939:4957299d-0ba0-487f-a1a0-c724a729b8b4:key:0cb88b98-9261-4d07-8329-8f594b6641b5"
 }
 ```
 {: codeblock}

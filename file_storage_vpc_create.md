@@ -566,8 +566,8 @@ The following response shows that access control mode is `security_group`, which
     "created_at": "2023-08-08T12:55:40Z",
     "crn": "crn:[...]",
     "encryption": "provider_managed",
-    "href": "$vpc_api_endpoint/v1/shares/r134-56f91d4a-2801-470a-b368-176bde64e954",
-    "id": "r134-56f91d4a-2801-470a-b368-176bde64e954",
+    "href": "$vpc_api_endpoint/v1/shares/r006-56f91d4a-2801-470a-b368-176bde64e954",
+    "id": "r006-56f91d4a-2801-470a-b368-176bde64e954",
     "initial_owner": {
         "gid": 0,
         "uid": 0
@@ -593,8 +593,8 @@ The following response shows that access control mode is `security_group`, which
     "size": 20,
     "mount_targets": [
         {
-            "href": "$vpc_api_endpoint/v1/shares/r134-56f91d4a-2801-470a-b368-176bde64e954/mount_targets/r134-b8573e2c-60ee-4ecc-9eae-c52f890a8195",
-            "id": "r134-b8573e2c-60ee-4ecc-9eae-c52f890a8195",
+            "href": "$vpc_api_endpoint/v1/shares/r006-56f91d4a-2801-470a-b368-176bde64e954/mount_targets/r006-b8573e2c-60ee-4ecc-9eae-c52f890a8195",
+            "id": "r006-b8573e2c-60ee-4ecc-9eae-c52f890a8195",
             "name": "sticky-idealist-spoiled-sloppily",
             "resource_type": "share_target"
         }

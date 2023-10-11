@@ -280,15 +280,15 @@ Created at              2023-02-21T18:37:17+00:00
 The following example lists the properties of an Enterprise backup policy. The scope shows the enterprise account's CRN.
 
 ```sh
-$ ibmcloud is backup-policy r134-0bc533ed-4796-407a-982e-693b418f3de3
-Getting backup policy r134-0bc533ed-4796-407a-982e-693b418f3de3 under account Enterprise Test as user test.user@ibm.com...
+$ ibmcloud is backup-policy r006-0bc533ed-4796-407a-982e-693b418f3de3
+Getting backup policy r006-0bc533ed-4796-407a-982e-693b418f3de3 under account Enterprise Test as user test.user@ibm.com...
                           
-ID                     r134-0bc533ed-4796-407a-982e-693b418f3de3   
+ID                     r006-0bc533ed-4796-407a-982e-693b418f3de3   
 Name                   backup-scope-2   
-CRN                    crn:v1:staging:public:is:us-south:a/a1234567::backup-policy:r134-0bc533ed-4796-407a-982e-693b418f3de3   
+CRN                    crn:bluemix:public:is:us-south:a/a1234567::backup-policy:r006-0bc533ed-4796-407a-982e-693b418f3de3   
 Status                 stable   
 Plans                  ID                                          Name           Resource type      
-                       r134-0741b600-e8d5-41b4-88a7-c19b6fbf89ca   scope-plan-2   backup_policy_plan      
+                       r006-0741b600-e8d5-41b4-88a7-c19b6fbf89ca   scope-plan-2   backup_policy_plan      
                           
 Backup tags            dev:test   
 Backup resource type   volume   
@@ -455,7 +455,7 @@ You can programmatically retrieve the details of a backup policy by calling the 
 
 ```sh
 curl -X GET\
-"$vpc_api_endpoint/v1/backup_policies/r134-076191ba-49c2-4763-94fd-c70de73ee2e6?version=2023-09-26&generation=2"\
+"$vpc_api_endpoint/v1/backup_policies/r006-076191ba-49c2-4763-94fd-c70de73ee2e6?version=2023-09-26&generation=2"\
    -H "Authorization: $iam_token"
 ```
 {: codeblock}
@@ -465,11 +465,11 @@ A successful response looks like the following example.
 ```json
 {
   "created_at": "2023-09-26T15:06:03.000Z",
-  "crn": "crn:v1:bluemix:public:is:us-south:a/123456::backup-policy:r134-076191ba-49c2-4763-94fd-c70de73ee2e6",
+  "crn": "crn:v1:bluemix:public:is:us-south:a/123456::backup-policy:r006-076191ba-49c2-4763-94fd-c70de73ee2e6",
   "health_reasons": [],
   "health_state": "ok",
-  "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/r134-076191ba-49c2-4763-94fd-c70de73ee2e6",
-  "id": "r134-076191ba-49c2-4763-94fd-c70de73ee2e6",
+  "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/r006-076191ba-49c2-4763-94fd-c70de73ee2e6",
+  "id": "r006-076191ba-49c2-4763-94fd-c70de73ee2e6",
   "included_content": [
     "data_volume"
   ],
@@ -482,8 +482,8 @@ A successful response looks like the following example.
   "name": "my-backup-policy",
   "plans": [
     {
-      "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/r134-076191ba-49c2-4763-94fd-c70de73ee2e6/plans/r134-4d6074c4-3811-4bb3-af4a-1fd6cb38d6fe",
-      "id": "r134-4d6074c4-3811-4bb3-af4a-1fd6cb38d6fe",
+      "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/r006-076191ba-49c2-4763-94fd-c70de73ee2e6/plans/r006-4d6074c4-3811-4bb3-af4a-1fd6cb38d6fe",
+      "id": "r006-4d6074c4-3811-4bb3-af4a-1fd6cb38d6fe",
       "name": "my-backup-plan-1",
       "resource_type": "backup_policy_plan"
     }
@@ -594,7 +594,7 @@ The response shows the clone policy information. In this example, clones are cre
     "delete_after": 5
   },
   "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/fb721535-2cc6-45d6-ade7-3ceb95b7f26f/plans/4d58eb08-d950-498b-8175-b4d617b6ba6a",
-  "id": "r134-6da51cfe-6f7b-4638-a6ba-00e9c327b178",
+  "id": "r006-6da51cfe-6f7b-4638-a6ba-00e9c327b178",
   "lifecycle_state": "stable",
   "name": "my-backup-plan-2",
   "resource_type": "backup_policy_plan"

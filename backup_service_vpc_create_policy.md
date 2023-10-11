@@ -211,9 +211,9 @@ Run the `ibmcloud is backup-policy-create` command to create a backup policy wit
 $ ibmcloud is backup-policy-create --match-tags dev:test --name backup-enterprise-scope --scope  crn:v1:bluemix:public:enterprise::a/a1234567::enterprise:7e44cb4667ba4b88b1b1f8dcc15e33b3
 Creating backup policy backup-scope-1 under account Enterprise Test as user test.user@ibm.com...
                           
-ID                     r134-a1b46efe-12bd-403a-9f09-bede1ad3766f   
+ID                     r006-a1b46efe-12bd-403a-9f09-bede1ad3766f   
 Name                   backup-enterprise-scope   
-CRN                    crn:v1:bluemix:public:is:us-south:a/a1234567::backup-policy:r134-a1b46efe-12bd-403a-9f09-bede1ad3766f   
+CRN                    crn:v1:bluemix:public:is:us-south:a/a1234567::backup-policy:r006-a1b46efe-12bd-403a-9f09-bede1ad3766f   
 Status                 pending   
 Plans                  ID   Name   Resource type      
                           
@@ -273,12 +273,12 @@ Run the `backup-policy-create` command to create a backup policy and a backup pl
 ibmcloud is backup-policy-create --match-tags dev:test --name backup-scope-2 --plan-name scope-plan-2 --plan-attach-tags dev:test --plan-copy-tags false --plan-delete-after 60 --plan-cron-spec '45 09 * * *' --plan-active  --plan-delete-over-count 2 --scope  crn:v1:bluemix:public:enterprise::a1234567::enterprise:7e44cb4667ba4b88b1b1f8dcc15e33b3
 Creating backup policy backup-scope-2 under account Enterprise Test as user test.user@ibm.com...
                           
-ID                     r134-0bc533ed-4796-407a-982e-693b418f3de3   
+ID                     r006-0bc533ed-4796-407a-982e-693b418f3de3   
 Name                   backup-scope-2   
-CRN                    crn:v1:staging:public:is:us-south:a/a1234567::backup-policy:r134-0bc533ed-4796-407a-982e-693b418f3de3   
+CRN                    crn:bluemix:public:is:us-south:a/a1234567::backup-policy:r006-0bc533ed-4796-407a-982e-693b418f3de3   
 Status                 pending   
 Plans                  ID                                          Name           Resource type      
-                       r134-0741b600-e8d5-41b4-88a7-c19b6fbf89ca   scope-plan-2   backup_policy_plan      
+                       r006-0741b600-e8d5-41b4-88a7-c19b6fbf89ca   scope-plan-2   backup_policy_plan      
                           
 Backup tags            dev:test   
 Backup resource type   volume   
@@ -468,7 +468,7 @@ ibmcloud is backup-policy-plan-create my-backup-policy-v1 --cron-spec '0 0 * * *
   }
 ]'
 Creating plan my-crc-plan1 of backup policy my-backup-policy-v1 under account Test Account as user test.user@ibm.com...
-ID                       r134-f0d881c9-213e-471b-bba7-999ee2eee3ff
+ID                       r006-f0d881c9-213e-471b-bba7-999ee2eee3ff
 Name                     my-crc-plan1
 Active                   true
 Lifecycle state          pending
@@ -661,11 +661,11 @@ A successful response looks like the following example.
 ```json
 {
   "created_at": "2022-04-21T15:06:03.000Z",
-  "crn": "crn:v1:bluemix:public:is:us-south:a/123456::backup-policy:r134-076191ba-49c2-4763-94fd-c70de73ee2e6",
+  "crn": "crn:v1:bluemix:public:is:us-south:a/123456::backup-policy:r006-076191ba-49c2-4763-94fd-c70de73ee2e6",
   "health_reasons": [],
   "health_state": "ok",
-  "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/r134-076191ba-49c2-4763-94fd-c70de73ee2e6",
-  "id": "r134-076191ba-49c2-4763-94fd-c70de73ee2e6",
+  "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/r006-076191ba-49c2-4763-94fd-c70de73ee2e6",
+  "id": "r006-076191ba-49c2-4763-94fd-c70de73ee2e6",
   "included_content": [
     "data_volume"
   ],
@@ -678,8 +678,8 @@ A successful response looks like the following example.
   "name": "my-backup-policy",
   "plans": [
     {
-      "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/r134-076191ba-49c2-4763-94fd-c70de73ee2e6/plans/r134-4d6074c4-3811-4bb3-af4a-1fd6cb38d6fe",
-      "id": "r134-4d6074c4-3811-4bb3-af4a-1fd6cb38d6fe",
+      "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/r006-076191ba-49c2-4763-94fd-c70de73ee2e6/plans/r006-4d6074c4-3811-4bb3-af4a-1fd6cb38d6fe",
+      "id": "r006-4d6074c4-3811-4bb3-af4a-1fd6cb38d6fe",
       "name": "my-backup-plan-1",
       "resource_type": "backup_policy_plan"
     }
