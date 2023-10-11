@@ -200,7 +200,7 @@ Updating backup policy r138-0521986d-963c-4c18-992d-d6a7a99d115f under account T
 
 ID                      r138-0521986d-963c-4c18-992d-d6a7a99d115f
 Name                    new-policy-23
-CRN                     crn:v1:bluemix:public:is:eu-de:a/a10d63fa66daffc9b9b5286ce1533080::backup-policy:r138-0521986d-963c-4c18-992d-d6a7a99d115f
+CRN                     crn:v1:bluemix:public:is:eu-de:a/a123456::backup-policy:r138-0521986d-963c-4c18-992d-d6a7a99d115f
 Status                  stable
 Last job completed at   2023-02-22T20:12:44.000Z
 Plans                   ID                                          Name               Resource type
@@ -522,7 +522,7 @@ curl -X PATCH "$vpc_api_endpoint/v1/backup_policies/8758bd18-344b-486a-b606-5b8c
           "delete_over_count": 5,
           "encryption_key": [
             {
-              "CRN": "crn:v1:bluemix:public:kms:us-south:a/dffc98a0f1f0f95f6613b3b752286b87:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd617"
+              "CRN": "crn:v1:bluemix:public:kms:us-south:a/a1234567:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd617"
             }
           ],
           "region": [
@@ -556,7 +556,7 @@ A successful response shows that the remote region policy is created.
   "name": "my-hourly-plan-2",
   "remote_region_policies": {
     "delete_over_count": 5,
-    "encryption_key": "crn:v1:bluemix:public:kms:us-south:a/dffc98a0f1f0f95f6613b3b752286b87:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd617" ,
+    "encryption_key": "crn:v1:bluemix:public:kms:us-south:a/a1234567:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd617" ,
     "region": [
       {
         "name": "us-east"

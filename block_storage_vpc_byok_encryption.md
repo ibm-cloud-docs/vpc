@@ -113,19 +113,19 @@ ibmcloud is volume-create VOLUME_NAME PROFILE_NAME ZONE_NAME [--encryption-key E
 The following example shows a volume that is created with customer-managed encryption.
 
 ```sh
-$ ibmcloud is volume-create demo-cli-volume custom us-east-1 --capacity 300 --iops 1500 --encryption-key crn:v1:bluemix:public:kms:us-east:a/a10d63fa66daffc9b9b5286ce1533080:3b05b403-8f51-4dac-9114-c777d0a760d4:key:7a8a2761-08e3-455f-a348-144ed604bba9
+$ ibmcloud is volume-create demo-cli-volume custom us-east-1 --capacity 300 --iops 1500 --encryption-key crn:v1:bluemix:public:kms:us-east:a/a123456:3b05b403-8f51-4dac-9114-c777d0a760d4:key:7a8a2761-08e3-455f-a348-144ed604bba9
 Creating volume demo-cli-volume under account Test Account as user test.user@ibm.com...
                                           
 ID                                     r014-3984600c-6f4d-4940-82de-519a867fa3c0   
 Name                                   demo-cli-volume   
-CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a10d63fa66daffc9b9b5286ce1533080::volume:r014-3984600c-6f4d-4940-82de-519a867fa3c0   
+CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a123456::volume:r014-3984600c-6f4d-4940-82de-519a867fa3c0   
 Status                                 pending   
 Attachment state                       unattached   
 Capacity                               300   
 IOPS                                   1500   
 Bandwidth(Mbps)                        3145   
 Profile                                custom   
-Encryption key                         crn:v1:bluemix:public:kms:us-east:a/a10d63fa66daffc9b9b5286ce1533080:3b05b403-8f51-4dac-9114-c777d0a760d4:key:7a8a2761-08e3-455f-a348-144ed604bba9   
+Encryption key                         crn:v1:bluemix:public:kms:us-east:a/a123456:3b05b403-8f51-4dac-9114-c777d0a760d4:key:7a8a2761-08e3-455f-a348-144ed604bba9   
 Encryption                             user_managed   
 Resource group                         defaults   
 Created                                2023-06-29T20:10:52+00:00   

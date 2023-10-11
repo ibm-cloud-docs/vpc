@@ -171,7 +171,7 @@ Creating volume demovolume1 in resource group Default under account VPC 01 as us
 
 ID                                     r014-e45f9c8c-4655-4a3e-9d90-70c2d64d1746   
 Name                                   demovolume1   
-CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a10d63fa66daffc9b9b5286ce1533080::volume:r014-e45f9c8c-4655-4a3e-9d90-70c2d64d1746   
+CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a123456::volume:r014-e45f9c8c-4655-4a3e-9d90-70c2d64d1746   
 Status                                 pending   
 Attachment state                       unattached   
 Capacity                               500   
@@ -217,19 +217,19 @@ ibmcloud is volume-create VOLUME_NAME PROFILE_NAME ZONE_NAME [--encryption-key E
 The following example shows a volume with custom IOPS and capacity that is created with customer-managed encryption.
 
 ```sh
-$ ibmcloud is volume-create demo-cli-volume custom us-east-1 --capacity 300 --iops 1500 --encryption-key crn:v1:bluemix:public:kms:us-east:a/a10d63fa66daffc9b9b5286ce1533080:3b05b403-8f51-4dac-9114-c777d0a760d4:key:7a8a2761-08e3-455f-a348-144ed604bba9
+$ ibmcloud is volume-create demo-cli-volume custom us-east-1 --capacity 300 --iops 1500 --encryption-key crn:v1:bluemix:public:kms:us-east:a/a123456:3b05b403-8f51-4dac-9114-c777d0a760d4:key:7a8a2761-08e3-455f-a348-144ed604bba9
 Creating volume demo-cli-volume under account Test Account as user test.user@ibm.com...
                                           
 ID                                     r014-3984600c-6f4d-4940-82de-519a867fa3c0   
 Name                                   demo-cli-volume   
-CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a10d63fa66daffc9b9b5286ce1533080::volume:r014-3984600c-6f4d-4940-82de-519a867fa3c0   
+CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a123456::volume:r014-3984600c-6f4d-4940-82de-519a867fa3c0   
 Status                                 pending   
 Attachment state                       unattached   
 Capacity                               300   
 IOPS                                   1500   
 Bandwidth(Mbps)                        3145   
 Profile                                custom   
-Encryption key                         crn:v1:bluemix:public:kms:us-east:a/a10d63fa66daffc9b9b5286ce1533080:3b05b403-8f51-4dac-9114-c777d0a760d4:key:7a8a2761-08e3-455f-a348-144ed604bba9   
+Encryption key                         crn:v1:bluemix:public:kms:us-east:a/a123456:3b05b403-8f51-4dac-9114-c777d0a760d4:key:7a8a2761-08e3-455f-a348-144ed604bba9   
 Encryption                             user_managed   
 Resource group                         defaults   
 Created                                2023-06-29T20:10:52+00:00   
@@ -257,7 +257,7 @@ Creating volume volume-4 under account Test Account as user test.user@ibm.com...
 
 ID                                     r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac
 Name                                   volume-4
-CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a10d63fa66daffc9b9b5286ce1533080::volume:r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac
+CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a123456::volume:r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac
 Status                                 pending
 Attachment state                       unattached
 Capacity                               100
@@ -753,7 +753,7 @@ resource "ibm_is_volume" "example" {
   zone           = "us-south-1"
   iops           = 1000
   capacity       = 200
-  encryption_key = "crn:v1:bluemix:public:kms:us-south:a/dffc98a0f1f0f95f6613b3b752286b87:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd6179"
+  encryption_key = "crn:v1:bluemix:public:kms:us-south:a/a1234567:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd6179"
 }
 ```
 {: codeblock}

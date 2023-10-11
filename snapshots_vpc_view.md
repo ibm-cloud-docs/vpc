@@ -223,7 +223,7 @@ Getting snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 under account Test Ac
 
 ID                     r138-4463eb2c-4913-43b1-b9bf-62a94f74c146
 Name                   cli-snapshot-test
-CRN                    crn:v1:bluemix:public:is:eu-de:a/a10d63fa66daffc9b9b5286ce1533080::snapshot:r138-4463eb2c-4913-43b1-b9bf-62a94f74c146
+CRN                    crn:v1:bluemix:public:is:eu-de:a/a123456::snapshot:r138-4463eb2c-4913-43b1-b9bf-62a94f74c146
 Status                 stable
 Clones                 Zone      Available   Created
                        eu-de-1   true        2023-02-17T20:15:46+00:00
@@ -292,7 +292,7 @@ Getting snapshot my-cli-snapshot-crc-target under account Test Account as user t
 
 ID                     r142-bd4532c0-e73c-44f9-a017-89e5368c521a
 Name                   my-cli-snapshot-crc-target
-CRN                    crn:v1:bluemix:public:is:us-east:a/2d1bace7b46e4815a81e52c6ffeba5cf::snapshot:r142-bd4532c0-e73c-44f9-a017-89e5368c521a
+CRN                    crn:v1:bluemix:public:is:us-east:a/a123456::snapshot:r142-bd4532c0-e73c-44f9-a017-89e5368c521a
 Status                 stable
 Clones                 Zone   Available   Created
 
@@ -305,7 +305,7 @@ Bootable               true
 Encryption             provider_managed
 Encryption key         -
 Source Snapshot        ID                                          Name                   Remote Region   CRN                                                                                                                        Resource type
-                       r006-b9590a48-63a3-445e-b819-3f2c0b82daf8   cli-snap-crc-test-sn   us-south        crn:v1:bluemix:public:is:us-south:a/2d1bace7b46e4815a81e52c6ffeba5cf::snapshot:r006-b9590a48-63a3-445e-b819-3f2c0b82daf8   snapshot
+                       r006-b9590a48-63a3-445e-b819-3f2c0b82daf8   cli-snap-crc-test-sn   us-south        crn:v1:bluemix:public:is:us-south:a/a123456::snapshot:r006-b9590a48-63a3-445e-b819-3f2c0b82daf8   snapshot
 
 Minimum capacity(GB)   100
 Size(GB)               2

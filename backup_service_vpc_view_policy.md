@@ -200,7 +200,7 @@ Getting backup policy my-backup-policy-v2 under account Kranthi's Test Account a
                            
 ID                      r006-0723c648-9a47-4d51-b1ba-349e21e715b6   
 Name                    my-backup-policy-v2   
-CRN                     crn:v1:bluemix:public:is:us-south:a/a10d63fa66daffc9b9b5286ce1533080::backup-policy:r006-0723c648-9a47-4d51-b1ba-349e21e715b6   
+CRN                     crn:v1:bluemix:public:is:us-south:a/a123456::backup-policy:r006-0723c648-9a47-4d51-b1ba-349e21e715b6   
 Status                  stable   
 Last job completed at   2023-09-26T10:13:18.000Z   
 Plans                   ID                                          Name        Resource type      
@@ -221,7 +221,7 @@ The following example uses the policy ID and the option to receive the response 
 $ ibmcloud is backup-policy r006-0723c648-9a47-4d51-b1ba-349e21e715b6 --output JSON
 {
     "created_at": "2023-09-05T16:30:09.000Z",
-    "crn": "crn:v1:bluemix:public:is:us-south:a/a10d63fa66daffc9b9b5286ce1533080::backup-policy:r006-0723c648-9a47-4d51-b1ba-349e21e715b6",
+    "crn": "crn:v1:bluemix:public:is:us-south:a/a123456::backup-policy:r006-0723c648-9a47-4d51-b1ba-349e21e715b6",
     "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/r006-0723c648-9a47-4d51-b1ba-349e21e715b6",
     "id": "r006-0723c648-9a47-4d51-b1ba-349e21e715b6",
     "lifecycle_state": "stable",
@@ -263,7 +263,7 @@ Getting backup policy my-backup-policy-v1 under account Test Account as user tes
 
 ID                      r138-8c494618-9e4f-4b67-9a08-ee3491404f3b
 Name                    my-backup-policy-v1
-CRN                     crn:v1:bluemix:public:is:eu-de:a/a10d63fa66daffc9b9b5286ce1533080::backup-policy:r138-8c494618-9e4f-4b67-9a08-ee3491404f3b
+CRN                     crn:v1:bluemix:public:is:eu-de:a/a123456::backup-policy:r138-8c494618-9e4f-4b67-9a08-ee3491404f3b
 Status                  stable
 Last job completed at   2023-02-22T20:12:44.000Z
 Plans                   ID                                          Name                    Resource type
@@ -638,7 +638,7 @@ The response shows the remote region policy information. In this example, the ou
   "name": "my-hourly-plan-2",
   "remote_region_policies": {
     "delete_over_count": 5,
-    "encryption_key": "crn:v1:bluemix:public:kms:us-south:a/dffc98a0f1f0f95f6613b3b752286b87:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd617" ,
+    "encryption_key": "crn:v1:bluemix:public:kms:us-south:a/a1234567:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd617" ,
     "region": [
       {
         "name": "us-east"

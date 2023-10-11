@@ -168,7 +168,7 @@ Updating volume demo-volume-update under account Test Account as user test.user@
                                           
 ID                                     r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   
 Name                                   demo-volume-update   
-CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a10d63fa66daffc9b9b5286ce1533080::volume:r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   
+CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a123456::volume:r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   
 Status                                 available   
 Attachment state                       attached   
 Capacity                               100   

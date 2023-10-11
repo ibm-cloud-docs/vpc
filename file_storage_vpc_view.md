@@ -219,7 +219,7 @@ Getting source file share for replica file share replica-share-4 under account V
 
 ID                   0e8ee997-bf1d-4165-9573-726c3a4d3b36
 Name                 share-4
-CRN                  crn:v1:bluemix:public:is:us-south-1:a/efe5afc483594adaa8325e2b4d1290df::share:0e8ee997-bf1d-4165-9573-726c3a4d3b36
+CRN                  crn:v1:bluemix:public:is:us-south-1:a/a123456::share:0e8ee997-bf1d-4165-9573-726c3a4d3b36
 Lifecycle state      stable
 Access control mode  vpc
 Zone                 us-south-1
