@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-10-10"
+lastupdated: "2023-10-03"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -53,35 +53,6 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
-
-## 10 October 2023
-{: #10-october-2023}
-
-### For all version dates
-{: #10-october-2023-all-version-dates}
-
-**Diagnosing VPN gateway and VPN server issues.** You can now diagnose and resolve issues with your deployed VPN gateways and VPN servers:
-
-- The [list all VPN gateways](/apidocs/vpc/latest#list-vpn-gateways) and [retrieve a VPN gateway](/apidocs/vpc/latest#get-vpn-gateway) methods now include `health_reasons`, `health_state`, `members[].health_reasons`, and `members[].health_state` properties. An unhealthy VPN gateway or VPN gateway member now has its `health_state` property set to `degraded` or `faulted`. The `health_reasons` property includes the reasons for the current VPN gateway or VPN gateway member health state. For more information, see [Diagnosing VPN gateway health](/docs/vpc?topic=vpc-vpn-health).
-
-- The [list all VPN gateway connections](/apidocs/vpc/latest#list-vpn-gateway-connections) and [retrieve a VPN gateway connection](/apidocs/vpc/latest#get-vpn-gateway-connection) methods now include `status_reasons` and `tunnels[].status_reasons` properties for a static-route-mode VPN gateway. A VPN gateway connection or tunnel in a down state now includes the reasons for the current VPN gateway connection or tunnel through the `status_reasons` property. For more information, see [Diagnosing VPN gateway connection health](/docs/vpc?topic=vpc-vpn-connection-health).
-
-- The [list all VPN servers](/apidocs/vpc/latest#list-vpn-servers) and [retrieve a VPN server](/apidocs/vpc/latest#get-vpn-server) methods now include a `health_reasons` property. An unhealthy VPN server now has its `health_state` property set to `degraded` or `faulted`. The `health_reasons` property includes the reasons for the current VPN server health state. For more information, see [Diagnosing VPN server health](/docs/vpc?topic=vpc-vpn-server-health).
-
-- The [list all VPN server routes](/apidocs/vpc/latest#list-vpn-server-routes) and [retrieve a VPN server route](/apidocs/vpc/latest#get-vpn-server-route) methods now include `health_reasons` and `health_state` properties. An unhealthy VPN server route now has its `health_state` property set to `degraded` or `faulted`. The  `health_reasons` property includes the reasons for the current VPN server route health state. For more information, see [Diagnosing VPN server route health](/docs/vpc?topic=vpc-vpn-server-route-health).
-
-**Resource suspension for VPNs for VPC.**
-
-- VPN gateway. The [list all VPN gateways](/apidocs/vpc/latest#list-vpn-gateways) and [retrieve a VPN gateway](/apidocs/vpc/latest#get-vpn-gateway) methods now include `lifecycle_reasons` and `lifecycle_state` properties. The same properties are also included for VPN gateway member child resources. A VPN gateway that violates the IBM Cloud [Acceptable Use Policy](https://www.ibm.com/services/us/imc/html/aup1.html){: external} will have its `lifecycle_state` property set to `suspended`, along with the `lifecycle_state` of its members. A suspended VPN gateway is automatically disabled, causing all connections to be brought down, and you cannot enable, update, or delete it or its connections.
-
-- VPN server. The [list all VPN servers](/apidocs/vpc/latest#list-vpn-servers) and [retrieve a VPN server](/apidocs/vpc/latest#get-vpn-server) methods now include `lifecycle_reasons` and `lifecycle_state` properties. The same properties are also included for the VPN server route child resource. A VPN server that violates the IBM Cloud [Acceptable Use Policy](https://www.ibm.com/services/us/imc/html/aup1.html){: external} will have its `lifecycle_state` property set to `suspended`, along with the `lifecycle_state` of its server routes. A suspended VPN server is automatically disabled, and you cannot enable, update, or delete it or its routes.
-
-For more information, see [Resource suspension](/docs/vpc?topic=vpc-resource-suspension).
-
-### For version `2023-10-10` or later
-{: #version-2023-10-10}
-
-When [listing all VPN gateways](/apidocs/vpc/latest#list-vpn-gateways) and [retrieving a VPN gateway](/apidocs/vpc/latest#get-vpn-gateway) using a `version` query parameter of `2023-10-10` or later, the response will no longer include `status` and `members[].status` properties. These properties remain supported for API requests using a version query parameter of `2023-10-09` or earlier. To avoid regressions in client functionality, follow the guidance in [`2023-10-10` API migration (VPN)](/docs/vpc?topic=vpc-2023-10-10-migration-vpn) before specifying version `2023-10-10` or later in VPN gateway requests.
 
 ## 3 October 2023
 {: #3-october-2023}
@@ -189,7 +160,7 @@ As a result, you will no longer be able to create an IKE/IPsec policy or VPN con
 
 **VCPU manufacturer support for instances and dedicated hosts.** When [provisioning](/apidocs/vpc/latest#create-instance) an instance or dedicated host, you can now use the new `vcpu_manufacturer` property in the [instance](/apidocs/vpc/latest#list-instance-profiles) or [dedicated host](/apidocs/vpc/latest#list-dedicated-host-profiles) profile to choose between profiles from different processor manufacturers. You can also view the virtual server instance VCPU configuration through the `vcpu` sub-property `manufacturer`. For more information and limitations, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) and [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui#balanced-dh-pr).
 
-**Network interface configuration for instance profiles.** When you [retrieve an instance profile](/apidocs/vpc/latest#get-instance-profile) or [list all instance profiles](/apidocs/vpc/latest#list-instance-profiles), the response now provides a `network_interface_count` property. When the `type` is `range`, the new property provides `max` and `min` sub-properties that denote the maximum and minimum number of network interfaces that are supported for a virtual server instance with the specified profile. The values for `max` and `min` include both the primary network interface and secondary network interfaces. When the `type` is `dependent`, the network interface count depends on another value that is specified when the instance is created. For more information about instance profiles and network interface count, see [Bandwidth allocation with multiple network interfaces](/docs/vpc?topic=vpc-profiles&interface=api#bandwidth-multi-vnic). 
+**Network interface configuration for instance profiles.** When you [retrieve an instance profile](/apidocs/vpc/latest#get-instance-profile) or [list all instance profiles](/apidocs/vpc/latest#list-instance-profiles), the response now provides a `network_interface_count` property. When the `type` is `range`, the new property provides `max` and `min` sub-properties that denote the maximum and minimum number of network interfaces that are supported for a virtual server instance with the specified profile. The values for `max` and `min` include both the primary network interface and secondary network interfaces. When the `type` is `dependent`, the network interface count depends on another value that is specified when the instance is created. For more information about instance profiles and network interface count, see [Bandwidth allocation with multiple network interfaces](/docs/vpc?topic=vpc-profiles&interface=api#bandwidth-multi-vnic). 
 
 **Private DNS integration for load balancers.** When you [create](/apidocs/vpc/latest#create-load-balancer) or [update](/apidocs/vpc/latest#update-load-balancer) a load balancer, you can now bind the IP addresses of your VPC load balancers to your private DNS zone by specifying the new `dns.instance` and `dns.zone` properties. When you specify these properties, load balancer IPs will no longer be registered to the publicly resolvable `lb.appdomain.cloud` domain name. For more information, see [IBM Cloud Network Load Balancer for VPC](/docs/vpc?topic=vpc-nlb-dns&interface=api) and [IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-lb-dns&interface=api).
 
@@ -578,7 +549,7 @@ If `captured_at` is absent from the response, the snapshot's data has not yet be
 ### For all version dates
 {: #19-october-2021-all-version-dates}
 
-**GPU instances.** Updated instance and instance profile methods now include details about GPUs attached to the instance. New profiles provide support for GPUs. These GPUs provide accelerated computing to help you run workloads with more powerful compute capabilities.
+**GPU instances.** Updated instance and instance profile methods now include details about GPUs attached to the instance. New profiles provide support for GPUs. These GPUs provide accelerated computing to help you run workloads with more powerful compute capabilities.
 
 The [list all instances](/apidocs/vpc#list-instances) method returns a new `gpu` property with additional sub-properties: `count`, `manufacturer`, `model`, and `memory`. The [retrieve an instance profile](/apidocs/vpc#get-instance-profile) method returns new properties: `gpu_count`, `gpu_manufacturer`, `gpu_model`, and `gpu_memory`. For more information, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
 
@@ -834,7 +805,7 @@ The `delegate_vpc` property is not required if a VPC uses only RFC-1918 addresse
 
 The following API methods have been updated:
 
-- View the `delegate_vpc` property in the requests and responses for `/vpcs/{vpc_id}/routing_tables/{routing_table_id}/routes`.
+- View the `delegate_vpc` property in the requests and responses for `/vpcs/{vpc_id}/routing_tables/{routing_table_id}/routes`.
 - View reserved IP ranges in `POST /vpcs/{vpc_id}/address_prefixes`, which creates an address pool prefix.
 
 ## 27 January 2021
