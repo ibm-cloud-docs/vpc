@@ -763,7 +763,6 @@ toc:
         - topicgroup:
             label: Migration
             topics:
-            - vpn-api-migration.md
             - file_storage_API_replication_fallback_policy.md
             - file_storage_API_migration_access_modes.md
             - file_storage_API_migration_mount_targets.md
