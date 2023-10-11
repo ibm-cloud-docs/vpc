@@ -41,7 +41,7 @@ The following table maps the old property values for `status` and `members[].sta
 | `failed`                     | `stable`                                       | `faulted`                                |
 | `deleted`                    | `deleting`                                     | `inapplicable`                           |
 | `pending`                    | `pending`                                      | `inapplicable`                           |
-{: caption="Table 1: Migration of `status` and `members[].status` properties to new property values" caption-side="bottom"}
+{: caption="Table 1: VPN property migration path" caption-side="bottom"}
 
 ## Examples
 {: #example-api-migration-vpn}
@@ -63,11 +63,11 @@ The response includes the `status` property in the `"members": []` array:
 {
     "connections": [],
     "created_at": "2023-10-02T23:35:11.079589Z",
-    "crn": "crn:v1:staging:public:is:us-south:a/5260e278d6d9411fb0a63fe3bacdfb95::vpn:0726-66787b0d-53db-4e20-abb6-d6302fe7c26e",
+    "crn": "crn:v1:bluemix:public:is:us-south:a/1234e278d6d9411fb0a63fe3bacdfb95::vpn:0717-66787b0d-53db-4e20-abb6-d6302fe7c26e",
     "health_reasons": [],
     "health_state": "ok",
-    "href": "https://us-south-stage01.iaasdev.cloud.ibm.com/v1/vpn_gateways/0726-66787b0d-53db-4e20-abb6-d6302fe7c26e",
-    "id": "0726-66787b0d-53db-4e20-abb6-d6302fe7c26e",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/vpn_gateways/0717-66787b0d-53db-4e20-abb6-d6302fe7c26e",
+    "id": "0717-66787b0d-53db-4e20-abb6-d6302fe7c26e",
     "lifecycle_reasons": [],
     "lifecycle_state": "stable",
     "members": [
@@ -78,8 +78,8 @@ The response includes the `status` property in the `"members": []` array:
             "lifecycle_state": "stable",
             "private_ip": {
                 "address": "172.18.0.62",
-                "href": "https://us-south-stage01.iaasdev.cloud.ibm.com/v1/subnets/0726-5948e25c-73ae-4580-9ff8-2e283874fa37/reserved_ips/0726-a3bc7de9-1dc8-4b66-8c9f-248051325166",
-                "id": "0726-a3bc7de9-1dc8-4b66-8c9f-248051325166",
+                "href": "https://us-south.iaas.cloud.ibm.com/v1/subnets/0717-5948e25c-73ae-4580-9ff8-2e283874fa37/reserved_ips/0717-a3bc7de9-1dc8-4b66-8c9f-248051325166",
+                "id": "0717-a3bc7de9-1dc8-4b66-8c9f-248051325166",
                 "name": "ragged-icing-sizing-regalia",
                 "resource_type": "subnet_reserved_ip"
             },
@@ -96,8 +96,8 @@ The response includes the `status` property in the `"members": []` array:
             "lifecycle_state": "stable",
             "private_ip": {
                 "address": "172.18.0.63",
-                "href": "https://us-south-stage01.iaasdev.cloud.ibm.com/v1/subnets/0726-5948e25c-73ae-4580-9ff8-2e283874fa37/reserved_ips/0726-8ebc0927-4de5-4f4c-92da-e2e2a8e2dd09",
-                "id": "0726-8ebc0927-4de5-4f4c-92da-e2e2a8e2dd09",
+                "href": "https://us-south.iaas.cloud.ibm.com/v1/subnets/0717-5948e25c-73ae-4580-9ff8-2e283874fa37/reserved_ips/0717-8ebc0927-4de5-4f4c-92da-e2e2a8e2dd09",
+                "id": "0717-8ebc0927-4de5-4f4c-92da-e2e2a8e2dd09",
                 "name": "barley-overhead-aggregate-truffle",
                 "resource_type": "subnet_reserved_ip"
             },
@@ -111,23 +111,23 @@ The response includes the `status` property in the `"members": []` array:
     "mode": "policy",
     "name": "demo",
     "resource_group": {
-        "href": "https://resource-controller.test.cloud.ibm.com/v2/resource_groups/b863652e11af49d891859d182d42c712",
+        "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/b863652e11af49d891859d182d42c712",
         "id": "b863652e11af49d891859d182d42c712",
         "name": "Default"
     },
     "resource_type": "vpn_gateway",
     "status": "available",
     "subnet": {
-        "crn": "crn:v1:staging:public:is:us-south-2:a/5260e278d6d9411fb0a63fe3bacdfb95::subnet:0726-5948e25c-73ae-4580-9ff8-2e283874fa37",
-        "href": "https://us-south-stage01.iaasdev.cloud.ibm.com/v1/subnets/0726-5948e25c-73ae-4580-9ff8-2e283874fa37",
-        "id": "0726-5948e25c-73ae-4580-9ff8-2e283874fa37",
+        "crn": "crn:v1:bluemix:public:is:us-south-2:a/1234e278d6d9411fb0a63fe3bacdfb95::subnet:0717-5948e25c-73ae-4580-9ff8-2e283874fa37",
+        "href": "https://us-south.iaas.cloud.ibm.com/v1/subnets/0717-5948e25c-73ae-4580-9ff8-2e283874fa37",
+        "id": "0717-5948e25c-73ae-4580-9ff8-2e283874fa37",
         "name": "demo",
         "resource_type": "subnet"
     },
     "vpc": {
-        "crn": "crn:v1:staging:public:is:us-south:a/5260e278d6d9411fb0a63fe3bacdfb95::vpc:r134-67221f43-3542-4790-9c2a-7f98a65ee02c",
-        "href": "https://us-south-stage01.iaasdev.cloud.ibm.com/v1/vpcs/r134-67221f43-3542-4790-9c2a-7f98a65ee02c",
-        "id": "r134-67221f43-3542-4790-9c2a-7f98a65ee02c",
+        "crn": "crn:v1:bluemix:public:is:us-south:a/1234e278d6d9411fb0a63fe3bacdfb95::vpc:r006-67221f43-3542-4790-9c2a-7f98a65ee02c",
+        "href": "https://us-south.iaas.cloud.ibm.com/v1/vpcs/r006-67221f43-3542-4790-9c2a-7f98a65ee02c",
+        "id": "r006-67221f43-3542-4790-9c2a-7f98a65ee02c",
         "name": "demo",
         "resource_type": "vpc"
     }
@@ -151,11 +151,11 @@ The response does not include the `status` property in the `"members": []` array
 {
     "connections": [],
     "created_at": "2023-10-02T23:35:11.079589Z",
-    "crn": "crn:v1:staging:public:is:us-south:a/5260e278d6d9411fb0a63fe3bacdfb95::vpn:0726-66787b0d-53db-4e20-abb6-d6302fe7c26e",
+    "crn": "crn:v1:bluemix:public:is:us-south:a/1234e278d6d9411fb0a63fe3bacdfb95::vpn:0717-66787b0d-53db-4e20-abb6-d6302fe7c26e",
     "health_reasons": [],
     "health_state": "ok",
-    "href": "https://us-south-stage01.iaasdev.cloud.ibm.com/v1/vpn_gateways/0726-66787b0d-53db-4e20-abb6-d6302fe7c26e",
-    "id": "0726-66787b0d-53db-4e20-abb6-d6302fe7c26e",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/vpn_gateways/0717-66787b0d-53db-4e20-abb6-d6302fe7c26e",
+    "id": "0717-66787b0d-53db-4e20-abb6-d6302fe7c26e",
     "lifecycle_reasons": [],
     "lifecycle_state": "stable",
     "members": [
@@ -166,8 +166,8 @@ The response does not include the `status` property in the `"members": []` array
             "lifecycle_state": "stable",
             "private_ip": {
                 "address": "172.18.0.62",
-                "href": "https://us-south-stage01.iaasdev.cloud.ibm.com/v1/subnets/0726-5948e25c-73ae-4580-9ff8-2e283874fa37/reserved_ips/0726-a3bc7de9-1dc8-4b66-8c9f-248051325166",
-                "id": "0726-a3bc7de9-1dc8-4b66-8c9f-248051325166",
+                "href": "https://us-south.iaas.cloud.ibm.com/v1/subnets/0717-5948e25c-73ae-4580-9ff8-2e283874fa37/reserved_ips/0717-a3bc7de9-1dc8-4b66-8c9f-248051325166",
+                "id": "0717-a3bc7de9-1dc8-4b66-8c9f-248051325166",
                 "name": "ragged-icing-sizing-regalia",
                 "resource_type": "subnet_reserved_ip"
             },
@@ -183,8 +183,8 @@ The response does not include the `status` property in the `"members": []` array
             "lifecycle_state": "stable",
             "private_ip": {
                 "address": "172.18.0.63",
-                "href": "https://us-south-stage01.iaasdev.cloud.ibm.com/v1/subnets/0726-5948e25c-73ae-4580-9ff8-2e283874fa37/reserved_ips/0726-8ebc0927-4de5-4f4c-92da-e2e2a8e2dd09",
-                "id": "0726-8ebc0927-4de5-4f4c-92da-e2e2a8e2dd09",
+                "href": "https://us-south.iaas.cloud.ibm.com/v1/subnets/0717-5948e25c-73ae-4580-9ff8-2e283874fa37/reserved_ips/0717-8ebc0927-4de5-4f4c-92da-e2e2a8e2dd09",
+                "id": "0717-8ebc0927-4de5-4f4c-92da-e2e2a8e2dd09",
                 "name": "barley-overhead-aggregate-truffle",
                 "resource_type": "subnet_reserved_ip"
             },
@@ -197,22 +197,22 @@ The response does not include the `status` property in the `"members": []` array
     "mode": "policy",
     "name": "demo",
     "resource_group": {
-        "href": "https://resource-controller.test.cloud.ibm.com/v2/resource_groups/b863652e11af49d891859d182d42c712",
+        "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/b863652e11af49d891859d182d42c712",
         "id": "b863652e11af49d891859d182d42c712",
         "name": "Default"
     },
     "resource_type": "vpn_gateway",
     "subnet": {
-        "crn": "crn:v1:staging:public:is:us-south-2:a/5260e278d6d9411fb0a63fe3bacdfb95::subnet:0726-5948e25c-73ae-4580-9ff8-2e283874fa37",
-        "href": "https://us-south-stage01.iaasdev.cloud.ibm.com/v1/subnets/0726-5948e25c-73ae-4580-9ff8-2e283874fa37",
-        "id": "0726-5948e25c-73ae-4580-9ff8-2e283874fa37",
+        "crn": "crn:v1:bluemix:public:is:us-south-2:a/1234e278d6d9411fb0a63fe3bacdfb95::subnet:0717-5948e25c-73ae-4580-9ff8-2e283874fa37",
+        "href": "https://us-south.iaas.cloud.ibm.com/v1/subnets/0717-5948e25c-73ae-4580-9ff8-2e283874fa37",
+        "id": "0717-5948e25c-73ae-4580-9ff8-2e283874fa37",
         "name": "demo",
         "resource_type": "subnet"
     },
     "vpc": {
-        "crn": "crn:v1:staging:public:is:us-south:a/5260e278d6d9411fb0a63fe3bacdfb95::vpc:r134-67221f43-3542-4790-9c2a-7f98a65ee02c",
-        "href": "https://us-south-stage01.iaasdev.cloud.ibm.com/v1/vpcs/r134-67221f43-3542-4790-9c2a-7f98a65ee02c",
-        "id": "r134-67221f43-3542-4790-9c2a-7f98a65ee02c",
+        "crn": "crn:v1:bluemix:public:is:us-south:a/1234e278d6d9411fb0a63fe3bacdfb95::vpc:r006-67221f43-3542-4790-9c2a-7f98a65ee02c",
+        "href": "https://us-south.iaas.cloud.ibm.com/v1/vpcs/r006-67221f43-3542-4790-9c2a-7f98a65ee02c",
+        "id": "r006-67221f43-3542-4790-9c2a-7f98a65ee02c",
         "name": "demo",
         "resource_type": "vpc"
     }
