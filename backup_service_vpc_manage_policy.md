@@ -352,7 +352,7 @@ The following example is a request to delete a backup policy by name.
 ```sh
 cloudshell:~$ ibmcloud is backup-policy-delete  my-backup-policy-v1
 This will delete backup policy my-backup-policy-v1 and cannot be undone. Continue [y/N] ?> y
-Deleting backup policy my-backup-policy-v1 under account Test Account as user Viktoria.Muirhead@ibm.com...
+Deleting backup policy my-backup-policy-v1 under account Test Account as user test.user@ibm.com...
 OK
 Deletion request for backup policy my-backup-policy-v1 has been accepted.
 ```

@@ -692,7 +692,7 @@ A successful response looks like the following example.
   },
   "resource_type": "backup_policy",
   "scope": {
-    "crn": "crn:v1:bluemix:public:enterprise::a/e92d45e305dc4ee0b13e29be392f1c0c::enterprise:ebc2b430240943458b9e91e1432cfcce",
+    "crn": "crn:v1:bluemix:public:enterprise::a/a123456::enterprise:ebc2b430240943458b9e91e1432cfcce",
     "id": "fee82deba12e4c0fb69c3b09d1f12345",
     "resource_type": "account",
     "scope": {
