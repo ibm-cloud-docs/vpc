@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-10-03"
+lastupdated: "2023-10-10"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -53,6 +53,35 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 10 October 2023
+{: #10-october-2023}
+
+### For all version dates
+{: #10-october-2023-all-version-dates}
+
+**Diagnosing VPN gateway and VPN server issues.** You can now diagnose and resolve issues with your deployed VPN gateways and VPN servers:
+
+- The [list all VPN gateways](/apidocs/vpc/latest#list-vpn-gateways) and [retrieve a VPN gateway](/apidocs/vpc/latest#get-vpn-gateway) methods now include `health_reasons`, `health_state`, `members[].health_reasons`, and `members[].health_state` properties. An unhealthy VPN gateway or VPN gateway member now has its `health_state` property set to `degraded` or `faulted`. The `health_reasons` property includes the reasons for the current VPN gateway or VPN gateway member health state. For more information, see [Diagnosing VPN gateway health](/docs/vpc?topic=vpc-vpn-health).
+
+- The [list all VPN gateway connections](/apidocs/vpc/latest#list-vpn-gateway-connections) and [retrieve a VPN gateway connection](/apidocs/vpc/latest#get-vpn-gateway-connection) methods now include `status_reasons` and `tunnels[].status_reasons` properties for a static-route-mode VPN gateway. A VPN gateway connection or tunnel in a down state now includes the reasons for the current VPN gateway connection or tunnel through the `status_reasons` property. For more information, see [Diagnosing VPN gateway connection health](/docs/vpc?topic=vpc-vpn-connection-health).
+
+- The [list all VPN servers](/apidocs/vpc/latest#list-vpn-servers) and [retrieve a VPN server](/apidocs/vpc/latest#get-vpn-server) methods now include a `health_reasons` property. An unhealthy VPN server now has its `health_state` property set to `degraded` or `faulted`. The `health_reasons` property includes the reasons for the current VPN server health state. For more information, see [Diagnosing VPN server health](/docs/vpc?topic=vpc-vpn-server-health).
+
+- The [list all VPN server routes](/apidocs/vpc/latest#list-vpn-server-routes) and [retrieve a VPN server route](/apidocs/vpc/latest#get-vpn-server-route) methods now include `health_reasons` and `health_state` properties. An unhealthy VPN server route now has its `health_state` property set to `degraded` or `faulted`. The  `health_reasons` property includes the reasons for the current VPN server route health state. For more information, see [Diagnosing VPN server route health](/docs/vpc?topic=vpc-vpn-server-route-health).
+
+**Resource suspension for VPNs for VPC.**
+
+- VPN gateway. The [list all VPN gateways](/apidocs/vpc/latest#list-vpn-gateways) and [retrieve a VPN gateway](/apidocs/vpc/latest#get-vpn-gateway) methods now include `lifecycle_reasons` and `lifecycle_state` properties. The same properties are also included for VPN gateway member child resources. A VPN gateway that violates the IBM Cloud [Acceptable Use Policy](https://www.ibm.com/services/us/imc/html/aup1.html){: external} will have its `lifecycle_state` property set to `suspended`, along with the `lifecycle_state` of its members. A suspended VPN gateway is automatically disabled, causing all connections to be brought down, and you cannot enable, update, or delete it or its connections.
+
+- VPN server. The [list all VPN servers](/apidocs/vpc/latest#list-vpn-servers) and [retrieve a VPN server](/apidocs/vpc/latest#get-vpn-server) methods now include `lifecycle_reasons` and `lifecycle_state` properties. The same properties are also included for the VPN server route child resource. A VPN server that violates the IBM Cloud [Acceptable Use Policy](https://www.ibm.com/services/us/imc/html/aup1.html){: external} will have its `lifecycle_state` property set to `suspended`, along with the `lifecycle_state` of its server routes. A suspended VPN server is automatically disabled, and you cannot enable, update, or delete it or its routes.
+
+For more information, see [Resource suspension](/docs/vpc?topic=vpc-resource-suspension).
+
+### For version `2023-10-10` or later
+{: #version-2023-10-10}
+
+When [listing all VPN gateways](/apidocs/vpc/latest#list-vpn-gateways) and [retrieving a VPN gateway](/apidocs/vpc/latest#get-vpn-gateway) using a `version` query parameter of `2023-10-10` or later, the response will no longer include `status` and `members[].status` properties. These properties remain supported for API requests using a version query parameter of `2023-10-09` or earlier. To avoid regressions in client functionality, follow the guidance in [`2023-10-10` API migration (VPN)](/docs/vpc?topic=vpc-2023-10-10-migration-vpn) before specifying version `2023-10-10` or later in VPN gateway requests.
 
 ## 3 October 2023
 {: #3-october-2023}
