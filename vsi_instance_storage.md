@@ -30,7 +30,7 @@ subcollection: vpc
 Instance storage is a set of one or more solid-state drives (full or isolated partial storage spaces) attached to your virtual server instance when the instance is provisioned. Instance storage is close to the compute resources of the virtual server and on a high-speed communication channel independent from the network. An instance storage disk provides fast, affordable, temporary storage to improve the performance of cloud native workloads with scratch space, caching buffers, or a place for replicated data. The data that is stored on instance storage is ephemeral, which means that the data is tied directly to the instance lifecycle. The instance storage disk is automatically created and destroyed with the instance. Instance storage data is not lost when an instance is only rebooted.
 {: shortdesc}
 
-Instance storage is a complementary storage technology to the boot and block storage volumes for data offered with VPC. Some examples of use cases for instance storage disks are:
+Instance storage is a complementary storage technology to the boot and Block Storage volumes for data offered with VPC. Some examples of use cases for instance storage disks are:
 
 *	Distributed File Systems: Technologies such as Hadoop Distributed File System (HDFS), which do triplication of the data across multiple servers. These technologies can improve read bandwidth and retain reliability by maintaining multiple copies of the data. It is recommended that at least three copies of the data, ideally across availability zones, are maintained when using Instance Storage for these workloads.
 *	Transactional jobs: Transaction processing usually creates a significant amount of temporary files. Instance Storage is a great place to temporarily store that data while the transactions are processed, with the result stored persistently on a data  volume.
@@ -54,7 +54,7 @@ In rare cases, a physical disk error might occur. If a physical disk error occur
 
 Virtual servers that are deployed with multiple instance storage disks are spread across multiple physical disks. No two instance storage disks within a single virtual server instance lands on the same physical backing disk.
 
-Block storage volumes and instance storage are complementary technologies. Volumes can be attached to instances that have instance storage. In fact, instances that use instance storage generally utilize block storage volumes for the persistent storage requirements of the workload.
+Block storage volumes and instance storage are complementary technologies. Volumes can be attached to instances that have instance storage. In fact, instances that use instance storage generally utilize Block Storage volumes for the persistent storage requirements of the workload.
 
 ## Encryption and isolation
 {: #encryption-isolation}

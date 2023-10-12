@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-05-09"
 
 keywords: virtual private endpoints, endpoint gateway, VPE
 subcollection: vpc
@@ -34,7 +34,6 @@ The features of VPE for VPC include:
 * The endpoint IP deploys in a customer-defined, virtual network.
 * Includes platform integration to VPC - Identity and Access Management (IAM), network ACLs, security groups, and tagging.
 * Access to new endpoints is achieved through the UI, CLI, and API.
-* You can map a new endpoint to an existing service, as well as map to a shared endpoint.
 * Integrates with DNS Services.
 
    When creating an endpoint gateway, a DNS zone and records are created. The VPE service automatically upgrades your virtual server instances to use the private DNS as the default DNS resolver. For more information, see [DNS Services](/docs/dns-svcs?topic=dns-svcs-getting-started).
@@ -70,7 +69,7 @@ To configure a virtual private endpoint, follow these steps:
 1. List the available services, including {{site.data.keyword.cloud_notm}} infrastructure services available (by default) for all VPC users.
 1. Review planning considerations. See [Planning for virtual private endpoint gateways](/docs/vpc?topic=vpc-planning-considerations) for details.
 1. Create an endpoint gateway for each service that you want to be privately available to the VPC.
-   See [Creating an endpoint gateway](/docs/vpc?topic=vpc-ordering-endpoint-gateway) for details.  
+   See [Creating an endpoint gateway](/docs/vpc?topic=vpc-ordering-endpoint-gateway) for details.
 1. Bind a reserved IP address to the endpoint gateway.
    See [Binding and unbinding a reserved IP address](/docs/vpc?topic=vpc-bind-unbind-reserved-ip) for details.
 
@@ -87,3 +86,4 @@ These links provide additional information about {{site.data.keyword.cloud}} VPE
 * [VPE for VPC infrastructure resources for Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_virtual_endpoint_gateway){: external} (VPC infrastructure > Resources)
 * [Troubleshooting VPE gateways](/docs/vpc?topic=vpc-troubleshoot-create-reserved-ip)
 * [VPE Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-vpe)
+

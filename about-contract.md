@@ -136,9 +136,18 @@ services:
 There exist use cases in which the registry is **not known** when the workload section is pre-encrypted, for example, when the workload provider wants to allow the deployer to use a registry mirror or a private container registry. In such a case, it's possible to dynamically override the registry as well as the pull credentials. This is a coordinated effort between the workload provider and the deployer. For more information, see [Using a dynamic registry reference](/docs/vpc?topic=vpc-hyper-protect-virtual-server-use-dynamic-registry-reference).
 {: tip}
 
-Use the following command to get the base64 encoded archive file. The base64 output is available in the compose.b64 file.
+
+Complete the following steps to get the base64 encoded archive file. The base64 output is available in the compose.b64 file.
+Go to the <COMPOSE_Folder> and run the following commands: 
+
 ```sh
-tar czvf - -C <COMPOSE_FOLDER> . | base64 -w0 > compose.b64
+tar czvf compose.tgz docker-compose.yml
+```
+{: pre}
+
+
+```sh
+base64 -w0 compose.tgz > compose.64
 ```
 {: pre}
 

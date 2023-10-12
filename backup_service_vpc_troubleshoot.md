@@ -2,11 +2,13 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-03-15"
+lastupdated: "2023-08-29"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
 subcollection: vpc
+
+content-type: troubleshoot
 
 ---
 
@@ -18,7 +20,7 @@ subcollection: vpc
 When you use the Backup for VPC service, you might encounter issues. Often, you can recover by following a few steps. Issues, symptoms, likely causes, and resolutions are described in the following sections.
 {: shortdesc}
 
-## Volume backups were not made according to backup plan
+## Volume backups were not made according to the backup plan
 {: #baas-ts-1}
 {: troubleshoot}
 {: support}
@@ -80,7 +82,7 @@ For more information about viewing your backup policies, see [Viewing backup pol
 ## Backup policy plan is not found
 {: #baas-backup_policy_plan_not_found}
 
-You receive a `backup_policy_plan_not_found` error with the following message: _Backup policy plan with ID <policy_plan_uuid> is not found_. 
+You receive a `backup_policy_plan_not_found` error with the following message: _Backup policy plan with ID <policy_plan_uuid> is not found_.
 {: tsSymptoms}
 
 The backup policy plan that you are trying to find is either deleted or never existed.

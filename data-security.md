@@ -23,7 +23,7 @@ To ensure that you can securely manage your data when you use {{site.data.keywor
 ## How your data is stored and encrypted in VPC
 {: #data-storage}
 
-All block storage volumes are encrypted by default with IBM-managed encryption. {{site.data.keyword.IBM}}-managed keys are generated and securely stored in a block storage vault that is backed by Consul and maintained by {{site.data.keyword.cloud}} operations.
+All Block Storage volumes are encrypted by default with IBM-managed encryption. {{site.data.keyword.IBM}}-managed keys are generated and securely stored in a Block Storage vault that is backed by Consul and maintained by {{site.data.keyword.cloud}} operations.
 
 For more security and control, you can protect your data with your own root keys (also called a customer root key or CRK). This feature is commonly called Bring Your Own Key, or BYOK. Root keys encrypt the keys that safeguard your data. You can import your root keys to {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}, or have either key management service create one for you.
 
@@ -62,7 +62,7 @@ You control access to your root keys stored in KMS instances within {{site.data.
 ### About customer-managed keys
 {: #about-encryption}
 
-For block storage volumes and encrypted images, you can rotate the root keys for more security. When you rotate a root key by schedule or on demand, the original key material is replaced. The old key remains active to decrypt existing resources but can't be used to encrypt new ones. For more information, see [Key rotation for VPC resources](/docs/vpc?topic=vpc-vpc-key-rotation).
+For Block Storage volumes and encrypted images, you can rotate the root keys for more security. When you rotate a root key by schedule or on demand, the original key material is replaced. The old key remains active to decrypt existing resources but can't be used to encrypt new ones. For more information, see [Key rotation for VPC resources](/docs/vpc?topic=vpc-vpc-key-rotation).
 
 Consider regional and cross-regional implications when you choose to use customer-managed encryption. For more information, see [Regional and cross regional considerations](/docs/vpc?topic=vpc-vpc-encryption-about#byok-cross-region-keys).
 
@@ -80,9 +80,9 @@ Custom images are encrypted by your own LUKS passphrase you create by using QEMU
 ### Enabling customer-managed keys for VPC
 {: #using-byok}
 
-See the following procedures for creating block storage volumes with customer-managed encryption and virtual server instances with customer-managed encryption volumes:
+See the following procedures for creating Block Storage volumes with customer-managed encryption and virtual server instances with customer-managed encryption volumes:
 
-* [Creating block storage volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption)
+* [Creating Block Storage volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption)
 * [Creating virtual server instances with customer-managed encryption volumes](/docs/vpc?topic=vpc-creating-instances-byok)
 
 ### Working with customer-managed keys for VPC
@@ -101,10 +101,10 @@ Encryption of the link between a customer's workload that's outside of {{site.da
 
 For more information about deleting root keys, see [Deleting root keys](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-delete-root-keys).
 
-### Deleting a block storage volume
+### Deleting a Block Storage volume
 {: #data-delete-volume}
 
-For more information about deleting block storage volumes, see this FAQ: [What happens to my data when I delete a block storage data volume?](/docs/vpc?topic=vpc-block-storage-vpc-faq#faq-block-storage-16).
+For more information about deleting Block Storage volumes, see this FAQ: [What happens to my data when I delete a Block Storage data volume?](/docs/vpc?topic=vpc-block-storage-vpc-faq#faq-block-storage-16).
 
 ### Deleting a custom image
 {: #delete-custom-images}

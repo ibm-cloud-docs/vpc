@@ -3,7 +3,7 @@ copyright:
   years: 2017, 2023
 lastupdated: "2023-05-11"
 
-keywords: vpc, virtual private cloud, private cloud network, quick provisioning, logical isolation, security, cloud-native, workloads, BYOIP, high availability, ACL, Access control list, block storage volumes
+keywords: vpc, virtual private cloud, private cloud network, quick provisioning, logical isolation, security, cloud-native, workloads, BYOIP, high availability, ACL, Access control list, Block Storage volumes
 
 subcollection: vpc
 
@@ -37,7 +37,7 @@ You can choose to create *virtual server instances* with different operating sys
 ## Storage capabilities
 {: #about-vpc-storage-capabilities}
 
-When you create an instance, a 100 GB block storage volume is automatically attached as a primary boot volume. To add secondary data volumes to your instance, create *block storage* volumes.
+When you create an instance, a 100 GB Block Storage volume is automatically attached as a primary boot volume. To add secondary data volumes to your instance, create *Block Storage* volumes.
 
 ## External connectivity
 {: #about-vpc-external-connectivity}

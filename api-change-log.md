@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-09-12"
+lastupdated: "2023-10-03"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -54,7 +54,13 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
 
-**VPN site-to-site gateway cipher upgrade.** In an upcoming release, connections with auto IKE or IPsec policies that are out of conformance will be automatically upgraded to the [enhanced auto-negotiation policy](/docs/vpc?topic=vpc-using-vpn#policy-negotiation). Connections with customized IKE or IPsec policies that contain weak ciphers will be disabled. For more information, see [Upgrading a VPN from a custom IKE or IPsec policy](/docs/vpc?topic=vpc-upgrading-weak-ciphers&interface=api#upgrade-vpn-with-custom-policy).
+## 3 October 2023
+{: #3-october-2023}
+
+### For all version dates
+{: #3-october-2023-all-version-dates}
+
+**Enterprise Backup as a Service.** As an enterprise account administrator, you can now create backup policies and plans that apply to resources of all accounts within your enterprise. Specify the enterprise CRN in the `scope` property when you [create a backup policy](/apidocs/vpc/latest#create-backup-policy), and the policy will apply to all resources that have tags that match with the policy across all accounts within your enterprise. For more information, see [Scope of the backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=api#backup-service-about-scope). As a prerequisite, ensure that authorizations are in place between services and between the enterprise account and the child accounts. For more information, see [Establishing service to service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth&interface=api). 
 
 ## 8 August 2023
 {: #8-august-2023}
@@ -63,8 +69,6 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: #8-august-2023-all-version-dates}
 
 **File storage for VPC.** You can now create NFS-based file shares in a zone in your region. Share file storage over multiple virtual server instances within the same zone across multiple VPCs. Learn about [file shares and mount targets](/docs/vpc?topic=vpc-file-storage-vpc-about), and explore the new [API methods](/apidocs/vpc/latest#list-share-profiles).
-
-Currently, in the `us-south` region, mounting a file share in zones `us-south-2` or `us-south-3` to a virtual server instance in `us-south-1` results in mount failure. The request times out and the mount operation cannot complete. For more information, see [known issues](/docs/vpc?topic=vpc-known-issues#fs-cross-zone-mount-dal-issue) and [limitations](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-limitations) in About File Storage for VPC.
 
 ## 11 July 2023
 {: #11-july-2023}
@@ -156,7 +160,7 @@ As a result, you will no longer be able to create an IKE/IPsec policy or VPN con
 
 **VCPU manufacturer support for instances and dedicated hosts.** When [provisioning](/apidocs/vpc/latest#create-instance) an instance or dedicated host, you can now use the new `vcpu_manufacturer` property in the [instance](/apidocs/vpc/latest#list-instance-profiles) or [dedicated host](/apidocs/vpc/latest#list-dedicated-host-profiles) profile to choose between profiles from different processor manufacturers. You can also view the virtual server instance VCPU configuration through the `vcpu` sub-property `manufacturer`. For more information and limitations, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) and [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui#balanced-dh-pr).
 
-**Network interface configuration for instance profiles.** When you [retrieve an instance profile](/apidocs/vpc/latest#get-instance-profile) or [list all instance profiles](/apidocs/vpc/latest#list-instance-profiles), the response now provides a `network_interface_count` property. When the `type` is `range`, the new property provides `max` and `min` sub-properties that denote the maximum and minimum number of network interfaces that are supported for a virtual server instance with the specified profile. The values for `max` and `min` include both the primary network interface and secondary network interfaces. When the `type` is `dependent`, the network interface count depends on another value that is specified when the instance is created. For more information about instance profiles and network interface count, see [Bandwidth allocation with multiple network interfaces](/docs/vpc?topic=vpc-profiles&interface=api#bandwidth-multi-vnic). 
+**Network interface configuration for instance profiles.** When you [retrieve an instance profile](/apidocs/vpc/latest#get-instance-profile) or [list all instance profiles](/apidocs/vpc/latest#list-instance-profiles), the response now provides a `network_interface_count` property. When the `type` is `range`, the new property provides `max` and `min` sub-properties that denote the maximum and minimum number of network interfaces that are supported for a virtual server instance with the specified profile. The values for `max` and `min` include both the primary network interface and secondary network interfaces. When the `type` is `dependent`, the network interface count depends on another value that is specified when the instance is created. For more information about instance profiles and network interface count, see [Bandwidth allocation with multiple network interfaces](/docs/vpc?topic=vpc-profiles&interface=api#bandwidth-multi-vnic). 
 
 **Private DNS integration for load balancers.** When you [create](/apidocs/vpc/latest#create-load-balancer) or [update](/apidocs/vpc/latest#update-load-balancer) a load balancer, you can now bind the IP addresses of your VPC load balancers to your private DNS zone by specifying the new `dns.instance` and `dns.zone` properties. When you specify these properties, load balancer IPs will no longer be registered to the publicly resolvable `lb.appdomain.cloud` domain name. For more information, see [IBM Cloud Network Load Balancer for VPC](/docs/vpc?topic=vpc-nlb-dns&interface=api) and [IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-lb-dns&interface=api).
 
@@ -545,7 +549,7 @@ If `captured_at` is absent from the response, the snapshot's data has not yet be
 ### For all version dates
 {: #19-october-2021-all-version-dates}
 
-**GPU instances.** Updated instance and instance profile methods now include details about GPUs attached to the instance. New profiles provide support for GPUs. These GPUs provide accelerated computing to help you run workloads with more powerful compute capabilities.
+**GPU instances.** Updated instance and instance profile methods now include details about GPUs attached to the instance. New profiles provide support for GPUs. These GPUs provide accelerated computing to help you run workloads with more powerful compute capabilities.
 
 The [list all instances](/apidocs/vpc#list-instances) method returns a new `gpu` property with additional sub-properties: `count`, `manufacturer`, `model`, and `memory`. The [retrieve an instance profile](/apidocs/vpc#get-instance-profile) method returns new properties: `gpu_count`, `gpu_manufacturer`, `gpu_model`, and `gpu_memory`. For more information, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
 
@@ -801,7 +805,7 @@ The `delegate_vpc` property is not required if a VPC uses only RFC-1918 addresse
 
 The following API methods have been updated:
 
-- View the `delegate_vpc` property in the requests and responses for `/vpcs/{vpc_id}/routing_tables/{routing_table_id}/routes`.
+- View the `delegate_vpc` property in the requests and responses for `/vpcs/{vpc_id}/routing_tables/{routing_table_id}/routes`.
 - View reserved IP ranges in `POST /vpcs/{vpc_id}/address_prefixes`, which creates an address pool prefix.
 
 ## 27 January 2021

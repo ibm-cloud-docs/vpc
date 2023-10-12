@@ -137,7 +137,7 @@ Creating file share my-fs-cli-1 under account VPC as user myuser@mycompany.com..
 
 ID                   r042-90c12f7b-6fbd-489a-9e4-99ad6555ffaf
 Name                 my-fs-cli-1
-CRN                  crn:v1:bluemix:public:is:br-sao-2:a/efe5afc483594adaa8325e2b4d1290df::share:042-90c12f7b-6fbd-489a-9e4-99ad6555ffaf
+CRN                  crn:v1:bluemix:public:is:br-sao-2:a/a123456::share:042-90c12f7b-6fbd-489a-9e4-99ad6555ffaf
 Lifecycle state      pending
 Access control mode  security_group
 Zone                 br-sao-2
@@ -182,7 +182,7 @@ Creating replica file share replica-share-3 under account VPC as user myuser@myc
 
 ID                      4de3d510-b0db-4674-9dea-c9b93e26b1c3
 Name                    replica-share-3
-CRN                     crn:v1:bluemix:public:is:us-south-3:a/efe5afc483594adaa8325e2b4d1290df::share:4de3d510-b0db-4674-9dea-c9b93e26b1c3
+CRN                     crn:v1:bluemix:public:is:us-south-3:a/a123456::share:4de3d510-b0db-4674-9dea-c9b93e26b1c3
 Lifecycle state         pending
 Zone                    us-south-3
 Profile                 tier-5iops

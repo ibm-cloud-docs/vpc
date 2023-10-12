@@ -118,7 +118,7 @@ See the following example.
    -H "Authorization: $iam_token"\
    -d '{
        "encryption_key": {
-          "crn":"crn:v1:staging:public:kms:us-south:a/df0564dd126042ebb03e0224728ce939:4957299d-0ba0-487f-a1a0-c724a729b8b4:key:0cb88b98-9261-4d07-8329-8f594b6641b5"
+          "crn":"crn:bluemix:public:kms:us-south:a/df0564dd126042ebb03e0224728ce939:4957299d-0ba0-487f-a1a0-c724a729b8b4:key:0cb88b98-9261-4d07-8329-8f594b6641b5"
         },
         "iops": 1000,
         "name": "my-encrypted-share",
@@ -141,13 +141,13 @@ In the response, the CRN of the encryption key is from Account A that owns the k
 ```json
 {
   "created_at": "2023-08-18T23:28:45Z",
-  "crn": "crn:v1:bluemix:public:is:us-south-1:a/b5c782a8f47a2d1527257e3465f21568::share:r134-fe7219eb-c9a9-4aab-8636-9a57141f0cee",
+  "crn": "crn:v1:bluemix:public:is:us-south-1:a/b5c782a8f47a2d1527257e3465f21568::share:r006-fe7219eb-c9a9-4aab-8636-9a57141f0cee",
   "encryption": "user_managed",
   "encryption_key": {
-    "crn": "crn:v1:staging:public:kms:us-south:a/df0564dd126042ebb03e0224728ce939:4957299d-0ba0-487f-a1a0-c724a729b8b4:key:0cb88b98-9261-4d07-8329-8f594b6641b5"
+    "crn": "crn:bluemix:public:kms:us-south:a/df0564dd126042ebb03e0224728ce939:4957299d-0ba0-487f-a1a0-c724a729b8b4:key:0cb88b98-9261-4d07-8329-8f594b6641b5"
   },
-  "href": "https://us-south-stage01.iaasdev.cloud.ibm.com/v1/shares/r134-fe7219eb-c9a9-4aab-8636-9a57141f0cee",
-  "id": "r134-fe7219eb-c9a9-4aab-8636-9a57141f0cee",
+  "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/r006-fe7219eb-c9a9-4aab-8636-9a57141f0cee",
+  "id": "r006-fe7219eb-c9a9-4aab-8636-9a57141f0cee",
   "initial_owner": {
     "gid": 0,
     "uid": 0
@@ -156,7 +156,7 @@ In the response, the CRN of the encryption key is from Account A that owns the k
   "lifecycle_state": "stable",
   "name": "bluitel-test-us-south-1-er5s",
   "profile": {
-    "href": "https://us-south-stage01.iaasdev.cloud.ibm.com/v1/share/profiles/dp2",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/share/profiles/dp2",
     "name": "dp2",
     "resource_type": "share_profile"
   },
@@ -164,7 +164,7 @@ In the response, the CRN of the encryption key is from Account A that owns the k
   "replication_status": "none",
   "replication_status_reasons": [],
   "resource_group": {
-    "crn": "crn:v1:staging:public:resource-controller::a/b5c782a8f47a2d1527257e3465f21568::resource-group:5400b7d6ac9f0a183f70abbe8b8d54c6",
+    "crn": "crn:bluemix:public:resource-controller::a/b5c782a8f47a2d1527257e3465f21568::resource-group:5400b7d6ac9f0a183f70abbe8b8d54c6",
     "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/5400b7d6ac9f0a183f70abbe8b8d54c6",
     "id": "5400b7d6ac9f0a183f70abbe8b8d54c6",
     "name": "Default"
@@ -179,7 +179,7 @@ In the response, the CRN of the encryption key is from Account A that owns the k
     "tag3:value with spaces"
   ],
   "zone": {
-    "href": "https://us-south-stage01.iaasdev.cloud.ibm.com/v1/regions/us-south/zones/us-south-1",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-1",
     "name": "us-south-1"
   }
 }

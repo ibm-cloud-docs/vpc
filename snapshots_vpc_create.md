@@ -4,7 +4,7 @@ copyright:
   years: 2021, 2023
 lastupdated: "2023-06-27"
 
-keywords: snapshots, block storage, snapshot clone, remote copy, fast restore, block storage snapshot, cross-regional snapshot
+keywords: snapshots, Block Storage, snapshot clone, remote copy, fast restore, Block Storage snapshot, cross-regional snapshot
 
 subcollection: vpc
 
@@ -42,7 +42,7 @@ In the console, you can create a snapshot of a {{site.data.keyword.block_storage
      1. Go to the volume details page in one of these ways.
 
          - Go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**. Select the instance that contains the volume that you want to make a snapshot of. From the [instance details page](/vpc-ext/compute/vs), scroll to the list of attached volumes and click the name of the volume.
-         - Go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**. From the list of block storage volumes, select the volume that you want to make a snapshot of.
+         - Go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**. From the list of Block Storage volumes, select the volume that you want to make a snapshot of.
 
      2. On the volume details page, select **Create snapshot** from the **Actions** menu.
 
@@ -60,7 +60,7 @@ In the console, you can create a snapshot of a {{site.data.keyword.block_storage
    | Optional configurations | Cross-region snapshot copy. Select Copy Snapshot to a different region. Click **Create**.|
    {: caption="Table 1. Selections for creating a snapshot" caption-side="bottom"}
 
-3. Click **Create block storage snapshot**. You're returned to the screen that you started from. Messages are displayed while the snapshot is being created and when it's ready, the snapshot is displayed in the list of snapshots. For more information, see [View snapshot details in the UI](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=ui#snapshots-vpc-view-snapshot-ui).
+3. Click **Create Block Storage snapshot**. You're returned to the screen that you started from. Messages are displayed while the snapshot is being created and when it's ready, the snapshot is displayed in the list of snapshots. For more information, see [View snapshot details in the UI](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=ui#snapshots-vpc-view-snapshot-ui).
 
 ## Enabling fast restore snapshot clones in the UI
 {: #frsnapshots-vpc-create-ui}
@@ -152,7 +152,7 @@ Creating snapshot cli-snapshot-test under account Test Account as user test.user
 
 ID                     r138-4463eb2c-4913-43b1-b9bf-62a94f74c146
 Name                   cli-snapshot-test
-CRN                    crn:v1:bluemix:public:is:eu-de:a/a10d63fa66daffc9b9b5286ce1533080::snapshot:r138-4463eb2c-4913-43b1-b9bf-62a94f74c146
+CRN                    crn:v1:bluemix:public:is:eu-de:a/a123456::snapshot:r138-4463eb2c-4913-43b1-b9bf-62a94f74c146
 Status                 pending
 Clones                 Zone      Available   Created
                        eu-de-1   false       2023-02-17T20:15:46+00:00
@@ -182,7 +182,7 @@ Getting snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 under account Test Ac
 
 ID                     r138-4463eb2c-4913-43b1-b9bf-62a94f74c146
 Name                   cli-snapshot-test
-CRN                    crn:v1:bluemix:public:is:eu-de:a/a10d63fa66daffc9b9b5286ce1533080::snapshot:r138-4463eb2c-4913-43b1-b9bf-62a94f74c146
+CRN                    crn:v1:bluemix:public:is:eu-de:a/a123456::snapshot:r138-4463eb2c-4913-43b1-b9bf-62a94f74c146
 Status                 stable
 Clones                 Zone      Available   Created
                        eu-de-1   true        2023-02-17T20:15:46+00:00
@@ -247,18 +247,18 @@ If the source snapshot is not encrypted with a customer key, the encryption of t
 The following example creates a snapshot in the target region (`us-south`) by using the CRN of a snapshot from the source region (`us-east`).
 
 ```sh
-ibmcloud is snapshot-create --name my-cli-snapshot-crc --source-snapshot-crn crn:v1:bluemix:public:is:us-south:a/2d1bace7b46e4815a81e52c6ffeba5cf::snapshot:r134-b9590a48-63a3-445e-b819-3f2c0b82daf8
+ibmcloud is snapshot-create --name my-cli-snapshot-crc --source-snapshot-crn crn:v1:bluemix:public:is:us-south:a/a123456::snapshot:r006-b9590a48-63a3-445e-b819-3f2c0b82daf8
 
 Creating snapshot my-cli-snapshot-crc under account Test Account as user test.user@ibm.com...
 
 ID                     r142-bd4532c0-e73c-44f9-a017-89e5368c521a
 Name                   my-cli-snapshot-crc
-CRN                    crn:v1:bluemix:public:is:us-east:a/2d1bace7b46e4815a81e52c6ffeba5cf::snapshot:r142-bd4532c0-e73c-44f9-a017-89e5368c521a
+CRN                    crn:v1:bluemix:public:is:us-east:a/a123456::snapshot:r142-bd4532c0-e73c-44f9-a017-89e5368c521a
 Status                 pending
 Clones                 Zone   Available   Created
 
 Source volume          ID                                          Name                   Remote Region
-                       r134-be21061a-4dc6-4c9f-b17d-421838fde399   -remote-421838fde399   us-south
+                       r006-be21061a-4dc6-4c9f-b17d-421838fde399   -remote-421838fde399   us-south
 
 Snapshot Copies        ID   Name   Remote Region   CRN   Resource type
 
@@ -266,12 +266,12 @@ Bootable               true
 Encryption             provider_managed
 Encryption key         -
 Source Snapshot        ID                                          Name                   Remote Region   CRN                                                                                                                        Resource type
-                       r134-b9590a48-63a3-445e-b819-3f2c0b82daf8   cli-snap-crc-test-sn   us-south        crn:v1:bluemix:public:is:us-south:a/2d1bace7b46e4815a81e52c6ffeba5cf::snapshot:r134-b9590a48-63a3-445e-b819-3f2c0b82daf8   snapshot
+                       r006-b9590a48-63a3-445e-b819-3f2c0b82daf8   cli-snap-crc-test-sn   us-south        crn:v1:bluemix:public:is:us-south:a/a123456::snapshot:r006-b9590a48-63a3-445e-b819-3f2c0b82daf8   snapshot
 
 Minimum capacity(GB)   100
 Size(GB)               1
 Source Image           ID                                          Name                   Remote Region
-                       r134-24d856e2-6aec-41c2-8f36-5a8a3766f0d6   -remote-5a8a3766f0d6   us-south
+                       r006-24d856e2-6aec-41c2-8f36-5a8a3766f0d6   -remote-5a8a3766f0d6   us-south
 
 Operating system       Name             Vendor   Version                 Family   Architecture   Display name
                        centos-7-amd64   CentOS   7.x - Minimal Install   CentOS   amd64          CentOS 7.x - Minimal Install (amd64)
@@ -527,8 +527,8 @@ A successful response indicates that the snapshot copy was created in the target
      	   "hfef": "https://us-east.iaas.cloud.ibm.com/v1/regions/us-south"
      	}
     }
-    "href": "https://us-south.iaas.cloud.ibm.com/v1/images/r134-32045dc2-b463-4cda-b424-bc3dcf51dfbb",
-    "id": "r134-32045dc2-b463-4cda-b424-bc3dcf51dfbb",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/images/r006-32045dc2-b463-4cda-b424-bc3dcf51dfbb",
+    "id": "r006-32045dc2-b463-4cda-b424-bc3dcf51dfbb",
     "name": "ibm-ubuntu-20-04-minimal-amd64-1"
    },
    "source_snapshot": {
@@ -539,8 +539,8 @@ A successful response indicates that the snapshot copy was created in the target
      	   "hfef": "https://us-east.iaas.cloud.ibm.com/v1/regions/us-south"
      	}
     }
-     "href": "https://us-south.iaas.cloud.ibm.com/v1/snapshots/r134-511a798c-5816-4082-8ecb-554a440f83de",
-     "id": "r134-511a798c-5816-4082-8ecb-554a440f83de",
+     "href": "https://us-south.iaas.cloud.ibm.com/v1/snapshots/r006-511a798c-5816-4082-8ecb-554a440f83de",
+     "id": "r006-511a798c-5816-4082-8ecb-554a440f83de",
      "name": "my-snapshot-data"
    },
    "source_volume": {
@@ -551,8 +551,8 @@ A successful response indicates that the snapshot copy was created in the target
      	   "hfef": "https://us-east.iaas.cloud.ibm.com/v1/regions/us-south"
      	}
      },
-     "href": "https://us-south.iaas.cloud.ibm.com/v1/volumes/r134-411a798c-5816-4082-8ecb-554a440f83de",
-     "id": "r134-411a798c-5816-4082-8ecb-554a440f83de",
+     "href": "https://us-south.iaas.cloud.ibm.com/v1/volumes/r006-411a798c-5816-4082-8ecb-554a440f83de",
+     "id": "r006-411a798c-5816-4082-8ecb-554a440f83de",
      "name": "my-instance-data"
    },
    "user_tags": []
@@ -626,7 +626,7 @@ To create a copy of snapshot in a remote region, use the `ibm_is_snapshot` resou
 resource "ibm_is_snapshot" "snapshot" {
    name 		        = "my-cross-regional-snapshot"
    source_snapshot = "r138-4463eb2c-4913-43b1-b9bf-62a94f74c146"
-   encryption_key  = "crn:v1:staging:public:kms:us-south:a/df0564dd126042ebb03e0224728ce939:4957299d-0ba0-487f-a1a0-c724a729b8b4:key:0cb88b98-9261-4d07-8329-8f594b6641b5"
+   encryption_key  = "crn:bluemix:public:kms:us-south:a/df0564dd126042ebb03e0224728ce939:4957299d-0ba0-487f-a1a0-c724a729b8b4:key:0cb88b98-9261-4d07-8329-8f594b6641b5"
 }
 ```
 {: codeblock}

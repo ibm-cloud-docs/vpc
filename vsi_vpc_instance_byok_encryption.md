@@ -15,7 +15,7 @@ subcollection: vpc
 # Creating virtual server instances with customer-managed encryption volumes
 {: #creating-instances-byok}
 
-You can create virtual servers for {{site.data.keyword.vpc_short}} that use your own encryption keys to protect data in the block storage volumes that are attached to your instance. When you provision an instance, you can specify customer-managed encryption for the boot and data volumes. Customer-managed encryption uses your customer root key, giving you complete control over your data. You can import your root key to a key management service (KMS) or create one in a KMS.  Customer-managed encryption protects your data while in transit and while at rest. For added security, enable the secure import of your root keys by using import tokens.
+You can create virtual servers for {{site.data.keyword.vpc_short}} that use your own encryption keys to protect data in the Block Storage volumes that are attached to your instance. When you provision an instance, you can specify customer-managed encryption for the boot and data volumes. Customer-managed encryption uses your customer root key, giving you complete control over your data. You can import your root key to a key management service (KMS) or create one in a KMS.  Customer-managed encryption protects your data while in transit and while at rest. For added security, enable the secure import of your root keys by using import tokens.
 {: shortdesc}
 
 Before you can create an instance, you need to [create an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
@@ -34,12 +34,12 @@ For information and prerequisite steps, see [Prerequisites for setting up custom
 
 When you provision a virtual server instance, you can specify customer-managed encryption for your boot volume and any data volumes that you want to add at that time. If you want, you can use a combination of provider-managed encryption and customer-managed encryption for the volumes that are associated with your instance.
 
-Follow these steps to create an instance with a new block storage volume.
+Follow these steps to create an instance with a new Block Storage volume.
 
 1. In [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com/vpc){: external}, navigate to **menu icon ![menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
 1. Click **New instance** and complete the required fields. (For information about these required fields, see _Table 1 - Instance provisioning selections_ in [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers).)
 1. In the **Boot volume** section, the default mode of encryption is _Provider managed_ encryption. To specify customer-managed encryption, click the pencil icon in the boot volume row. On the **Edit boot volume** page, update the fields in the **Encryption** section. See Table 1 for more information. When your changes are complete, click **Apply**.
-1. In the **Attached block storage volume** section, you can click **New block storage volume** to add a data volume and specify customer-managed encryption. On the **New block storage volume** page, update the fields in the **Encryption** section. See Table 1 for more information. When your changes are complete, click **Attach**.
+1. In the **Attached Block Storage volume** section, you can click **New Block Storage volume** to add a data volume and specify customer-managed encryption. On the **New Block Storage volume** page, update the fields in the **Encryption** section. See Table 1 for more information. When your changes are complete, click **Attach**.
 
 | Field | Value |
 | ----- | ----- |
@@ -419,6 +419,6 @@ A successful response looks like this. Note that the boot volume appears under b
 
 After the instance is created with the encrypted boot and data volumes, associate a floating IP address to the instance. Then, you can connect to your instance. For more information, see [Connecting to your Linux instance](/docs/vpc?topic=vpc-vsi_is_connecting_linux) or [Connecting to your Windows instance](/docs/vpc?topic=vpc-vsi_is_connecting_windows). If you have an existing instance with a floating IP address, then it's not necessary to assign a second floating IP to another instance. You can connect to the first with a floating IP, then SSH to the second instance using the private subnet IP address that's automatically assigned to it.
 
-You can also independently create block storage volumes that use your encryption keys and later attach them to an instance. For information, see [Creating block storage volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption).
+You can also independently create Block Storage volumes that use your encryption keys and later attach them to an instance. For information, see [Creating Block Storage volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption).
 
 Interested in setting up key rotation for your customer-managed root keys? For more information, see [Key rotation for VPC resources](/docs/vpc?topic=vpc-vpc-key-rotation).

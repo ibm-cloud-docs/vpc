@@ -4,7 +4,7 @@ copyright:
   years: 2022, 2023
 lastupdated: "2023-09-06"
 
-keywords: snapshots, block storage, volumes, cross-regional snapshot, restore volume, copy snapshot
+keywords: snapshots, Block Storage, volumes, cross-regional snapshot, restore volume, copy snapshot
 
 subcollection: vpc
 

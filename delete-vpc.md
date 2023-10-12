@@ -98,7 +98,7 @@ An instance can have multiple network interfaces, and those network interfaces c
 ### Instance
 {: #deleting-instance}
 
-No prerequisites are required for deleting an instance. When the instance is deleted, all its network interfaces are deleted automatically. The instance's boot volume and all of its volume attachments are deleted. Any Floating IP addresses attached to any of its network interfaces are released automatically. Any block storage volume attached to the instance is deleted automatically if the volume was created with the flag `delete_volume_on_instance_delete` set to true. Otherwise, the instance is detached from the volume, but the volume remains. If any security group is attached to any of the instance's network interfaces, the security group is detached automatically as well, when the network interfaces are deleted.
+No prerequisites are required for deleting an instance. When the instance is deleted, all its network interfaces are deleted automatically. The instance's boot volume and all of its volume attachments are deleted. Any Floating IP addresses attached to any of its network interfaces are released automatically. Any Block Storage volume attached to the instance is deleted automatically if the volume was created with the flag `delete_volume_on_instance_delete` set to true. Otherwise, the instance is detached from the volume, but the volume remains. If any security group is attached to any of the instance's network interfaces, the security group is detached automatically as well, when the network interfaces are deleted.
 
 | In Instance | Can contain | Can attach to | Has Status? | Automatically deleted when instance is deleted | Automatically detached when deleted |
 | ---------------- | ----------------------------------------- | --------------------------- | ------ | ---------------------------------------------- | ----------------------------------- |
@@ -131,7 +131,7 @@ If you delete a resource to which the floating IP is bound, such as an instance'
 ### Volume
 {: #deleting-volume}
 
-Two types of volumes can exist in a VPC: a block storage boot volume and a block storage data volume. These volumes are deleted differently.
+Two types of volumes can exist in a VPC: a Block Storage boot volume and a Block Storage data volume. These volumes are deleted differently.
 
 #### Deleting boot volumes
 {: #deleting-boot-volumes}
@@ -145,7 +145,7 @@ Block storage data volumes can be provisioned and managed separately from their 
 
 A data volume has an attribute (or flag) called `delete_volume_on_instance_delete` in the API and `Auto Delete` in the CLI and UI. If this flag is set to `true` (`Enabled` in the UI), when the instance with the attached volume is deleted, the volume is detached and deleted automatically. If the volume's flag is set to `false` (`Disabled` in the UI), the instance is detached from the volume, but the volume is not deleted when the attached instance is deleted. The volume can be attached to another instance.
 
-A block storage volume can be attached to only one virtual server at a time.
+A Block Storage volume can be attached to only one virtual server at a time.
 {: tip}
 
 ### Security groups

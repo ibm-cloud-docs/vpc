@@ -295,6 +295,18 @@ toc:
             - vpe-planning.md
             - vpe-configure-acls.md
             - vpe-create.md
+            - vpe-supported-services.md
+            - topicgroup:
+                label: Configuring DNS sharing
+                topics:
+                - hub-spoke-model.md
+                - hub-spoke-planning.md
+                - hub-spoke-configure-hub.md
+                - hub-spoke-resolution-binding.md
+                - hub-spoke-s2s-auth.md
+                - hub-spoke-configure-dns-resolver.md
+                - hub-spoke-withdrawing-dns-sharing.md
+                - hub-spoke-limitations.md
             - vpe-bind-unbind-reserved-ip.md
             - vpe-accessing-after-setup.md
             - vpe-view-details.md
@@ -302,7 +314,6 @@ toc:
             - vpe-delete.md
             - vpe-iam.md
             - vpe-limitations.md
-            - vpe-supported-services.md
         - topicgroup:
             label: Access control lists
             topics:
@@ -360,6 +371,9 @@ toc:
                 - vpn-access-service-endpoint.md
                 - vpn-ha.md
                 - vpn-configure-acls-security-groups.md
+                - vpn-gateway-status.md
+                - vpn-health.md
+                - vpn-connection-health.md
                 - vpn-site-to-site-routes-propagating.md
                 - vpn-view-logs.md
                 - vpn-monitoring-metrics.md
@@ -382,6 +396,9 @@ toc:
                 - vpn-client-to-site-setup.md
                 - vpn-client-to-site-connections.md
                 - vpn-client-to-site-change-server-types.md
+                - vpn-client-to-site-status.md
+                - vpn-client-to-site-health.md
+                - vpn-client-to-site-route-health.md
                 - vpn-client-to-site-limitations.md
                 - vpn-client-to-site-loganalysis.md
                 - vpn-client-to-site-monitoring.md
@@ -698,6 +715,11 @@ toc:
             - topicgroup:
                 label: Troubleshooting VPE gateways
                 topics:
+                - hub-spoke-ts1.md
+                - hub-spoke-ts2.md
+                - hub-spoke-ts3.md
+                - hub-spoke-ts4.md
+                - hub-spoke-ts5.md
                 - vpe-ts-cannot-create-reserved.md
                 - vpe-ts-cannot-access-url.md
                 - vpe-ts-cannot-find-reserved.md

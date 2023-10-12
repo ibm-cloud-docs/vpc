@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-06-27"
+lastupdated: "2023-09-29"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -36,7 +36,7 @@ Delete a backup policy, rename a policy, and edit user tags in the UI.
 
 You can rename a policy from the list of backup policies or from the backup policies details page.
 
-* From the list of backup policies, click the overflow menu (ellipsis) and select **Rename**.
+* From the list of backup policies, click the Actions menu ![Actions menu](images/overflow.png) and select **Rename**.
 
 * From the policy details page, click the pencil icon next to the policy name.
 
@@ -49,20 +49,20 @@ From the Backup policy details page, you can edit the tags for your {{site.data.
 
 2. For **Tags for target resources**, click the pencil icon.
 
-3. In the new window, enter a user tag name. For existing {{site.data.keyword.block_storage_is_short}} volumes with user tags, enter the tag name exactly as it appears in the volume. You can also add user tag here and then go back and add it to a volume. You need only one tag for a volume to create a backup.
+3. In the new window, enter a user tag name. For existing {{site.data.keyword.block_storage_is_short}} volumes with user tags, enter the tag name exactly as it appears in the volume. You can also add a user tag here and then go back and add it to a volume. You need only one tag for a volume to create a backup.
 
 4. Click **Next**.
 
 5. Review the information on the next window. If you're satisfied, check the disclaimer and click **Save changes**.
 
-### Editing or deleting a backup plan in the UI
+### Editing a backup plan in the UI
 {: #backup-edit-delete-plan-ui}
 
 After you provisioned a backup policy and created a backup plan, you can edit the plan details or delete the plan. You must have at least one remaining plan for the policy to create backups.
 
 1. From the [backup plan details](/docs/vpc?topic=vpc-backup-view-policies&interface=ui#backup-view-policy) page, expand the Actions menu for the plan.
 
-2. Select **Edit** or **Delete**. When you edit, the plan details appear in the side panel. You can modify the same information that you specified when you created the plan, such as the name and backup frequency. You can enable or disable fast restore, or change which regions fast restore is available in. You can also enable or disable the creation and retention of copies in other regions.
+2. Select **Edit**. The plan details appear in the side panel. You can modify the same information that you specified when you created the plan, such as the name and backup frequency. You can enable or disable fast restore, or change which regions fast restore is available in. You can also enable or disable the creation and retention of copies in other regions.
 
 3. Confirm your selections when you're finished.
 
@@ -92,9 +92,9 @@ The policy is deleted. Existing backups are retained until their expiration date
 
 1. Go to the [list of backup policies](/docs/vpc?topic=vpc-backup-view-policies&interface=ui#backup-list-all-policies) and locate the backup policy.
 
-2. On the backup policy details page, select the plan that you want to delete. You can have up to four backup plans per policy.
+2. On the backup policy details page, select the plan that you want to delete. Expand the Actions menu for the plan, and select **delete**. You can have up to four backup plans per policy.
 
-## Managing backup policies and plan from the CLI
+## Managing backup policies and plans from the CLI
 {: #backup-manage-policy-cli}
 {: cli}
 
@@ -140,7 +140,7 @@ Updating backup policy backup-policy-v1 under account Test Account as user test.
 
 ID                      r138-0521986d-963c-4c18-992d-d6a7a99d115f
 Name                    new-policy-23
-CRN                     crn:v1:bluemix:public:is:eu-de:a/a10d63fa66daffc9b9b5286ce1533080::backup-policy:r138-0521986d-963c-4c18-992d-d6a7a99d115f
+CRN                     crn:v1:bluemix:public:is:eu-de:a/a123456::backup-policy:r138-0521986d-963c-4c18-992d-d6a7a99d115f
 Status                  stable
 Last job completed at   2023-02-22T20:12:44.000Z
 Plans                   ID                                          Name               Resource type
@@ -151,6 +151,32 @@ Backup tags             dev:test
 Backup resource type    volume
 Resource group          defaults
 Created at              2023-02-21T22:42:10+00:00
+```
+{: screen}
+
+The following example updates an Enterprise backup policy that is identified by ID:
+
+```sh
+cloudshell:~$ ibmcloud is backup-policy-update r006-0bc533ed-4796-407a-982e-693b418f3de3 --name cli-updated-2
+Updating backup policy r006-0bc533ed-4796-407a-982e-693b418f3de3 under account Enterprise Test as user test.user@ibm.com...
+                          
+ID                     r006-0bc533ed-4796-407a-982e-693b418f3de3   
+Name                   cli-updated-2   
+CRN                    crn:bluemix:public:is:us-south:a/a1234567::backup-policy:r006-0bc533ed-4796-407a-982e-693b418f3de3   
+Status                 stable   
+Plans                  ID                                          Name           Resource type      
+                       r006-0741b600-e8d5-41b4-88a7-c19b6fbf89ca   scope-plan-2   backup_policy_plan      
+                          
+Backup tags            dev:test   
+Backup resource type   volume   
+Resource group         ID                                 Name      
+                       e579217258f74f42974e6ec4da287fc5   Default      
+                          
+Scope                  ID                                 CRN                                                                                                                 Resource type      
+                       7e44cb4667ba4b88b1b1f8dcc15e33b3   crn:v1:bluemix:public:enterprise::a/a1234567::enterprise:7e44cb4667ba4b88b1b1f8dcc15e33b3   -      
+                          
+Health State           ok   
+Created at             2023-08-30T13:39:10+05:30
 ```
 {: screen}
 
@@ -174,7 +200,7 @@ Updating backup policy r138-0521986d-963c-4c18-992d-d6a7a99d115f under account T
 
 ID                      r138-0521986d-963c-4c18-992d-d6a7a99d115f
 Name                    new-policy-23
-CRN                     crn:v1:bluemix:public:is:eu-de:a/a10d63fa66daffc9b9b5286ce1533080::backup-policy:r138-0521986d-963c-4c18-992d-d6a7a99d115f
+CRN                     crn:v1:bluemix:public:is:eu-de:a/a123456::backup-policy:r138-0521986d-963c-4c18-992d-d6a7a99d115f
 Status                  stable
 Last job completed at   2023-02-22T20:12:44.000Z
 Plans                   ID                                          Name               Resource type
@@ -359,7 +385,7 @@ You can rename and update a policy, edit user tags, and delete a backup policy w
 
 Make a `PATCH /backup_policies/{backup_policies_id}` request and specify a new name for a backup policy. The following example shows how to rename policy `5063bfe5-c16f-4606-ba26-fba0f099b97d` to `my-backup-policy1`.
 
-```curl
+```sh
 curl -X PATCH\
 "$vpc_api_endpoint/v1/backup_policies/5063bfe5-c16f-4606-ba26-fba0f099b97d?version=2022-06-28&generation=2"\
   -H "Authorization: $iam_token"\
@@ -380,7 +406,7 @@ Make a `PATCH /backup_policies/{backup_policy_id}/plans/{plan_id}` request to up
 
 * `deletion_trigger` has two properties. The `delete_after` property sets the number of days to keep a backup. The `delete_over_count` property sets the maximum number of recent backups to keep. When the maximum number is reached, the oldest backup is deleted to make space for a new one. Specify `null` to remove the existing maximum.
 
-```curl
+```sh
 curl -X PATCH\
 "$vpc_api_endpoint/v1/backup_policies/5063bfe5-c16f-4606-ba26-fba0f099b97d/plans/78bb42ae-b82e-4560-861b-5bc4bca3fba6?version=2022-06-28&generation=2"\
   -H "Authorization: $iam_token"\
@@ -476,7 +502,7 @@ A successful response shows that the clone policy is created.
 
 Make a `PATCH /backup_policies/{backup_policy_id}/plans/{plan_id}` request to update a backup plan. Specify the `remote_region_policies` property and `region` subproperty to indicate the region where you want to create the backup copy.
 
-This example updates a backup policy to create a backup plan that creates backups in the `us-south` region and includes the creation of a remote copy. The following example specifies that the copies are to be created in `us-east` region.
+This example updates a backup policy to create a backup plan that creates backups in the `us-south` region and includes the creation of a remote copy. The following example specifies that the copies are to be created in the `us-east` region.
 
 ```json
 curl -X PATCH "$vpc_api_endpoint/v1/backup_policies/8758bd18-344b-486a-b606-5b8cb8cdd044/plans?version=2023-05-09&generation=2"\
@@ -496,7 +522,7 @@ curl -X PATCH "$vpc_api_endpoint/v1/backup_policies/8758bd18-344b-486a-b606-5b8c
           "delete_over_count": 5,
           "encryption_key": [
             {
-              "CRN": "crn:v1:bluemix:public:kms:us-south:a/dffc98a0f1f0f95f6613b3b752286b87:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd617"
+              "CRN": "crn:v1:bluemix:public:kms:us-south:a/a1234567:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd617"
             }
           ],
           "region": [
@@ -530,7 +556,7 @@ A successful response shows that the remote region policy is created.
   "name": "my-hourly-plan-2",
   "remote_region_policies": {
     "delete_over_count": 5,
-    "encryption_key": "crn:v1:bluemix:public:kms:us-south:a/dffc98a0f1f0f95f6613b3b752286b87:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd617" ,
+    "encryption_key": "crn:v1:bluemix:public:kms:us-south:a/a1234567:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd617" ,
     "region": [
       {
         "name": "us-east"
@@ -552,7 +578,7 @@ Make a `DELETE /backup_policies/{backup_policy_id}` request to delete a backup p
 
 See the following example.
 
-```curl
+```sh
 curl -X DELETE\
 "$vpc_api_endpoint/v1/backup_policies/5063bfe5-c16f-4606-ba26-fba0f099b97d?version=2022-06-28&generation=2"\
   -H "Authorization: $iam_token"
@@ -568,7 +594,7 @@ Make a `DELETE /backup_policies/{backup_policy_id}/plans/{plan_id}` request to d
 
 See the following example.
 
-```curl
+```sh
 curl -X DELETE\
 "$vpc_api_endpoint/v1/backup_policies/5063bfe5-c16f-4606-ba26-fba0f099b97d/plans/4cf9171a-0043-4434-8727-15b53dbc374c?version=2022-06-28&generation=2"\
    -H "Authorization: $iam_token"
@@ -587,7 +613,7 @@ The response shows that the backup plan was deleted.
   "created_at": "2022-06-22T01:44:49.070Z",
   "cron_spec": "*/5 1,2,3 * * *",
   "deletion_trigger": {
-    "delete_after": 20
+    "delete_after": 20,
   "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/0fe9e5d8-0a4d-4818-96ec-e99708644a58/plans/4cf9171a-0043-4434-8727-15b53dbc374c",
   "id": "4cf9171a-0043-4434-8727-15b53dbc374c",
   "lifecycle_state": "deleted",
@@ -607,7 +633,7 @@ You can manage backup policies by using Terraform.
 To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
 {: requirement}
 
-VPC infrastructure services use a region-specific endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the right region in the provider block in the `provider.tf` file.
+VPC infrastructure services use a regional specific endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the right region in the provider block in the `provider.tf` file.
 
 See the following example of targeting a region other than the default `us-south`.
 
@@ -686,15 +712,25 @@ For more information, see [terraform destroy](https://developer.hashicorp.com/te
 ## Backup policy statuses
 {: #backup-policy-statuses}
 
-Table 1 defines the statuses for backup policies.
+Table 1 shows the lifecycle statuses of the backup policies.
 
 | Status | Description |
 |--------|-------------|
-| Stable | A policy and plan are actively creating backups or are available for creating new backups. |
-| Pending | A policy and plan are being created. |
-| Deleting | A policy and plan are being deleted. |
-| Deleted | A policy and plan no longer exist. |
+| `Stable` | A policy and a plan are actively creating backups or are available for creating new backups. |
+| `Pending` | A policy and a plan are being created. |
+| `Deleting` | A policy and a plan are being deleted. |
+| `Deleted` | A policy and a plan no longer exist. |
 {: caption="Table 1. Backup policy statuses." caption-side="bottom"}
+
+Table 2 shows the health states of the backup policies.
+
+| Health state | Meaning |
+|--------------|---------|
+|`ok`| No abnormal behavior was detected. |
+|`degraded`| Experiencing compromised performance, capacity, or connectivity. |
+|`faulted`| Unreachable, inoperative, or otherwise entirely incapacitated. |
+|`inapplicable` | The health state does not apply because of the current lifecycle state. A resource with a lifecycle state of `failed` or `deleting` also has a health state of `inapplicable`. A `pending` resource can also have this state.|
+{: caption="Table 2. Backup policy health states." caption-side="bottom"}
 
 ## IAM roles for creating and managing backups
 {: #baas-vpc-iam}
@@ -718,7 +754,9 @@ Backups require IAM permissions for role-based access control. Table 2 describes
 ## Activity Tracker events
 {: #backup-activity-tracker}
 
-When a backup is created, an event is triggered in Activity Tracker for the [Backup service](/docs/vpc?topic=vpc-at-events&interface=ui#events-backup-service) and [Snapshots service](/docs/vpc?topic=vpc-at-events&interface=ui#events-snapshots). For more information, see [Activity Tracker events](/docs/vpc?topic=vpc-at-events).
+When a backup is created, an event is triggered in the Activity Tracker for the [Backup service](/docs/vpc?topic=vpc-at-events&interface=ui#events-backup-service) and [Snapshots service](/docs/vpc?topic=vpc-at-events&interface=ui#events-snapshots). 
+
+Similarly, when the service fails to create a backup due to missing authorization, an event is triggered to notify you. For more information, see [Activity Tracker events](/docs/vpc?topic=vpc-at-events).
 
 ## Next steps
 {: #backup-next-steps-manage}

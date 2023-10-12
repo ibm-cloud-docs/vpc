@@ -34,7 +34,7 @@ The Virtual private endpoint gateways for VPC page appears. Use this table to vi
 
 Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 
-To list all endpoint gateways in the region by using the CLI, run the following command:
+To list all endpoint gateways in the region from the CLI, run the following command:
 
 ```sh
 ibmcloud is endpoint-gateways \
@@ -52,7 +52,7 @@ Where:
 {: #vpe-listing-endpoint-gateways-api}
 {: api}
 
-To list endpoint gateways by using the API, follow these steps:
+To list endpoint gateways with the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
 1. Store your `EndpointGatewayId` in a variable to be used in the API command:
@@ -60,9 +60,9 @@ To list endpoint gateways by using the API, follow these steps:
     ```sh
     export EndpointGatewayId=<endpoint_gateway_id>
     ```
-    {: pre}   
+    {: pre}
 
-1. List endpoint gateways:   
+1. List endpoint gateways:
 
    ```sh
    curl  -sH "Authorization:${iam_token}"

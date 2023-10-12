@@ -15,7 +15,7 @@ subcollection: vpc
 # Deleting an endpoint gateway
 {: #vpe-deleting-ui-cli-api}
 
-You can delete an endpoint gateway by using the UI, the CLI, or the API.  
+You can delete an endpoint gateway by using the UI, the CLI, or the API.
 {: shortdesc}
 
 ## Deleting an endpoint gateway in the UI
@@ -39,7 +39,7 @@ If you previously selected the auto-delete option for attached IP addresses, any
 
 Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 
-To delete an endpoint gateway by using the CLI, run the following command:
+To delete an endpoint gateway from the CLI, run the following command:
 
 ```sh
 ibmcloud is endpoint-gateway-delete ENDPOINT_GATEWAY [-f, --force]
@@ -55,7 +55,7 @@ Where:
 {: #vpe-deleting-api}
 {: api}
 
-To delete an endpoint gateway by using the API, follow these steps:  
+To delete an endpoint gateway with the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
 1. Store your `EndpointGatewayId` in a variable to be used in the API command:
@@ -63,7 +63,7 @@ To delete an endpoint gateway by using the API, follow these steps:
     ```sh
     export EndpointGatewayId=<endpoint_gateway_id>
     ```
-    {: pre}      
+    {: pre}
 
 1. Delete the endpoint gateway:
 

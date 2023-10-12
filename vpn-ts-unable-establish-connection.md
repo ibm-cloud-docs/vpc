@@ -8,6 +8,8 @@ keywords: virtual private network, VPN, VPN gateway, troubleshooting
 
 subcollection: vpc
 
+content-type: troubleshoot
+
 ---
 
 {{site.data.keyword.attribute-definition-list}}
@@ -33,7 +35,7 @@ Follow these steps to verify your configurations:
 
    One thing to watch out for is that {{site.data.keyword.vpn_vpc_short}} by default has Perfect Forward Secrecy (PFS) disabled in Phase 2. If PFS is enabled on its peer, then custom policy with PFS enabled is necessary.
    {: important}
-   
+
 1. Make sure that ports UDP 4500 and UDP 500 are open on both sides.
-1. Make sure that NAT-Traversal is enabled on the peer, if it is a configurable option.  
+1. Make sure that NAT-Traversal is enabled on the peer, if it is a configurable option.
 1. Make sure that the peer device uses its public IP address as the IKE ID. This option is not a configurable option.

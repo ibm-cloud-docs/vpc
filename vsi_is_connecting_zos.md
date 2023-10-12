@@ -121,10 +121,10 @@ You can use the TN3270 terminal emulator to log on to the Time Sharing Option/Ex
 
     * The VSI server certificate only contains the private IP address information of the z/OS virtual server instance. 
     * Optionally, you can use the IP address of the VSI as part of the `accepthostname` argument when connecting over a floating IP address. For example:
-    ```sh
-    c3270 -cafile <my local dir>/common_cacert -port 992 -accepthostname <vsi ip address>  <floating ip>
-    ```
-    {: codeblock}
+      ```sh
+      c3270 -cafile <my local dir>/common_cacert -port 992 -accepthostname <vsi ip address>  <floating ip>
+      ```
+      {: codeblock}
 
 ### Using IBM Host On-Demand
 {: #using-host-on-demand}

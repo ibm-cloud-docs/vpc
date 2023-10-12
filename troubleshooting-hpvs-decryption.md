@@ -8,6 +8,7 @@ keywords: troubleshoot, troubleshoot hyper protect virtual servers for vpc, debu
 
 subcollection: vpc
 
+content-type: troubleshoot
 
 ---
 

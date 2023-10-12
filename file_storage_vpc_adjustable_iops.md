@@ -105,7 +105,7 @@ Updating file share my-file-share under account VPC1 as user user1@mycompany.com
 
 ID                e1180bae-6799-4156-8bb7-e4d24013cda2
 Name              my-file-share
-CRN               crn:v1:bluemix:public:is:us-south-1:a/0ef3f509-04f4-465e-88c6-2d60b164d805::share:e1180bae-6799-4156-8bb7-e4d24013cda2
+CRN               crn:v1:bluemix:public:is:us-south-1:a/a123456::share:e1180bae-6799-4156-8bb7-e4d24013cda2
 Lifecycle state   updating
 Zone              us-south-1
 Profile           custom-iops
@@ -143,7 +143,7 @@ Updating file share my-file-share under account VPC1 as user user@mycompany.com.
 
 ID                ba7c7c8a-c111-4f54-a7fe-bb6d3d66eb2a
 Name              my-file-share
-CRN               crn:v1:bluemix:public:is:us-south-1:a/0ef3f509-04f4-465e-88c6-2d60b164d805::share:ba7c7c8a-c111-4f54-a7fe-bb6d3d66eb2a
+CRN               crn:v1:bluemix:public:is:us-south-1:a/a123456::share:ba7c7c8a-c111-4f54-a7fe-bb6d3d66eb2a
 Lifecycle state   updating
 Zone              us-south-1
 Profile           tier-5iops
@@ -198,8 +198,8 @@ The file share status shows `updating` while the IOPS is being adjusted. The cur
    "created_at": "2023-08-08T22:58:49.000Z",
    "crn": "crn:[...]",
    "encryption": "provider_managed",
-   "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/r134-a0c07083-f411-446c-9316-7b08d6448c86",
-   "id": "r134-a0c07083-f411-446c-9316-7b08d6448c86",
+   "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/r006-a0c07083-f411-446c-9316-7b08d6448c86",
+   "id": "r006-a0c07083-f411-446c-9316-7b08d6448c86",
    "iops": 100,
     .
     .
@@ -243,12 +243,12 @@ When the IOPS expansion completes, restart the instance. The new value is displa
   "mount_targets": [
     {
       "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/a0c07083-f411-446c-9316-7b08d6448c86/mount_targets/1b5571cb-536d-48d0-8452-81c05c6f7b80",
-      "id": "r134-1b5571cb-536d-48d0-8452-81c05c6f7b80",
+      "id": "r006-1b5571cb-536d-48d0-8452-81c05c6f7b80",
       "name": "my-mount-target",
       "resource_type": "share_target",
       "vpc": {
         "crn": "crn:[...]",
-        "href": "https://us-south.iaas.cloud.ibm.com/v1/vpcs/r134-12bb28fc-856d-4902-813b-dc065d1ed084",
+        "href": "https://us-south.iaas.cloud.ibm.com/v1/vpcs/r006-12bb28fc-856d-4902-813b-dc065d1ed084",
         "id": "12bb28fc-856d-4902-813b-dc065d1ed084",
         "name": "my-vpc",
         "resource_type": "vpc"

@@ -8,6 +8,8 @@ keywords: VPE, virtual private endpoint, troubleshooting
 
 subcollection: vpc
 
+content-type: troubleshoot
+
 ---
 
 {{site.data.keyword.attribute-definition-list}}

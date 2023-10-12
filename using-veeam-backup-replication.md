@@ -29,7 +29,7 @@ In general, similar instructions apply to the other Linux operating system types
 {: #before-you-begin-veeam-backup-restore}
 
 * Make sure that you order a [Veeam license](/docs/vpc?topic=vpc-ordering-veeam-licenses).
-* Provision and set up a Microsoft Windows virtual server instance for VPC. Veeam Backup and Replication software requires a Microsoft Windows instance with at least 8 vCPUs, 32 GB of memory, and a secondary block storage device for the Veeam backup repository.
+* Provision and set up a Microsoft Windows virtual server instance for VPC. Veeam Backup and Replication software requires a Microsoft Windows instance with at least 8 vCPUs, 32 GB of memory, and a secondary Block Storage device for the Veeam backup repository.
 * Ensure that all instances for VPC to be backed up are in the same VPC as the Microsoft Windows instance.
 
 ## Installing and configuring

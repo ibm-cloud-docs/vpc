@@ -4,7 +4,7 @@ copyright:
   years: 2021, 2023
 lastupdated: "2023-02-08"
 
-keywords: block storage, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance, bandwidth
+keywords: Block Storage, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance, bandwidth
 
 subcollection: vpc
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}} 
 
-# Bandwidth allocation for block storage volumes
+# Bandwidth allocation for Block Storage volumes
 {: #block-storage-bandwidth}
 
 You can allocate bandwidth for volumes that are attached to a virtual server instance out of total instance bandwidth.
@@ -21,7 +21,7 @@ You can allocate bandwidth for volumes that are attached to a virtual server ins
 ## Bandwidth allocation for volumes that are attached to an instance
 {: #attached-block-vol-bandwidth}
 
-When you provision an instance, bandwidth is allocated between block storage volumes (boot volume and attached block storage volumes) and networking. The maximum bandwidth capacity is determined by the instance profile that you select during instance provisioning. For example, a bx2-2x8 balanced server profile allows a total instance bandwidth of 4,000 Mbps (4 Gbps). The initial storage and network bandwidth allocation depends on what you set by using the API or by the instance profile you selected. 
+When you provision an instance, bandwidth is allocated between Block Storage volumes (boot volume and attached Block Storage volumes) and networking. The maximum bandwidth capacity is determined by the instance profile that you select during instance provisioning. For example, a bx2-2x8 balanced server profile allows a total instance bandwidth of 4,000 Mbps (4 Gbps). The initial storage and network bandwidth allocation depends on what you set by using the API or by the instance profile you selected. 
 
 The maximum bandwidth of a volume is the highest potential bandwidth that can be allocated to the volume when it is attached to an instance. In cases where the total maximum bandwidth of attached volumes exceeds the amount that is available on the instance, the bandwidth for each volume attachment is set proportionally. The bandwidth is allocated based on the corresponding volume's maximum bandwidth.
 
@@ -57,7 +57,7 @@ The volume bandwidth that is available to the instance is apportioned on a per-v
 ### Unattached volume bandwidth versus attached volume bandwidth
 {: #block-vol-bandwidth}
 
-When you create a stand-alone (unattached) block storage data volume, the volume bandwidth is assigned based on volume capacity, IOPS, and volume profile. The API response for a `GET /volume/{id}` call shows the bandwidth for an unattached volume like the following example.
+When you create a stand-alone (unattached) Block Storage data volume, the volume bandwidth is assigned based on volume capacity, IOPS, and volume profile. The API response for a `GET /volume/{id}` call shows the bandwidth for an unattached volume like the following example.
 
 ```json
 {

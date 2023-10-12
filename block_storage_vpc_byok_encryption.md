@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2023
 lastupdated: "2023-06-30"
 
-keywords: block storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, Block Storage for vpc, customer-managed encryption,
+keywords: Block Storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, Block Storage for vpc, customer-managed encryption,
 
 subcollection: vpc
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Creating block storage volumes with customer-managed encryption
+# Creating Block Storage volumes with customer-managed encryption
 {: #block-storage-vpc-encryption}
 
 By default, {{site.data.keyword.block_storage_is_short}} boot and data volumes are encrypted with IBM-managed encryption. You can also create customer-managed encrypted volumes by using a supported key management service to create or import your customer root key. Your data is protected while in transit and while at rest.
@@ -21,7 +21,7 @@ By default, {{site.data.keyword.block_storage_is_short}} boot and data volumes a
 ## Before you begin
 {: #custom-managed-vol-prereqs-block}
 
-To create block storage volumes with customer-managed encryption, you must first provision a key management service and create or import your customer root key (CRK). You must also authorize access between Cloud Block Storage and the key management service. When you complete these prerequisites, you can start creating block storage volumes that use customer-managed encryption.
+To create Block Storage volumes with customer-managed encryption, you must first provision a key management service and create or import your customer root key (CRK). You must also authorize access between Cloud Block Storage and the key management service. When you complete these prerequisites, you can start creating Block Storage volumes that use customer-managed encryption.
 
 For more information about prerequisite steps, see [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-encryption-prereqs).
 
@@ -29,13 +29,13 @@ For more information about prerequisite steps, see [Prerequisites for setting up
 {: #data-vol-encryption-ui}
 {: ui}
 
-This procedure explains how to specify customer-managed encryption when you create a stand-alone block storage volume. You can also specify customer-managed encryption for volumes that are created during instance provisioning. For more information, see [Creating virtual server instances with customer-managed encryption](/docs/vpc?topic=vpc-creating-instances-byok).
+This procedure explains how to specify customer-managed encryption when you create a stand-alone Block Storage volume. You can also specify customer-managed encryption for volumes that are created during instance provisioning. For more information, see [Creating virtual server instances with customer-managed encryption](/docs/vpc?topic=vpc-creating-instances-byok).
 
 Follow these steps to specify customer-managed encryption from the UI:
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes** to view a list of your block storage volumes.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes** to view a list of your Block Storage volumes.
 2. Select **New volume**.
-3. Enter the information in Table 1 to define your new block storage volume.
+3. Enter the information in Table 1 to define your new Block Storage volume.
 4. Update the fields in the **Encryption** section (see Table 2). When your changes are complete, click **Create Volume**.
 5. Optionally, attach the volume to an instance. For more information, see [Next steps](#next-step-create-byok-volumes-vpc).
 
@@ -59,7 +59,7 @@ Complete provisioning customer-managed encryption by using the information in Ta
 | Encryption service instance | If you provision multiple key management service instances in your account, select the one that includes the customer root key that you want to use for customer-managed encryption. |
 | Key name | Select the data encryption key within the {{site.data.keyword.keymanagementserviceshort}} instance that you want to use for encrypting the volume. |
 | Key ID | Displays the key ID that is associated with the data encryption key that you selected. |
-{: caption="Table 2. Values for provisioning block storage volumes with customer-managed encryption" caption-side="bottom"}
+{: caption="Table 2. Values for provisioning Block Storage volumes with customer-managed encryption" caption-side="bottom"}
 
 If you created your {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} instance by using a private endpoint, the root keys that were created by using that instance are not shown in the UI. You must use the CLI or API to access and use these root keys.
 {: important}
@@ -97,7 +97,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 ## Creating customer-managed encryption data volumes
 {: #encrypt-data-vol-cli}
 
-To create a block storage volume with customer-managed encryption from the CLI, use the `ibmcloud is volume-create` command with the `--encryption-key` option. The `encryption_key` option needs to specify a valid CRN for the root key in the key management service.
+To create a Block Storage volume with customer-managed encryption from the CLI, use the `ibmcloud is volume-create` command with the `--encryption-key` option. The `encryption_key` option needs to specify a valid CRN for the root key in the key management service.
 
 Follow these steps:
 
@@ -113,19 +113,19 @@ ibmcloud is volume-create VOLUME_NAME PROFILE_NAME ZONE_NAME [--encryption-key E
 The following example shows a volume that is created with customer-managed encryption.
 
 ```sh
-$ ibmcloud is volume-create demo-cli-volume custom us-east-1 --capacity 300 --iops 1500 --encryption-key crn:v1:bluemix:public:kms:us-east:a/a10d63fa66daffc9b9b5286ce1533080:3b05b403-8f51-4dac-9114-c777d0a760d4:key:7a8a2761-08e3-455f-a348-144ed604bba9
+$ ibmcloud is volume-create demo-cli-volume custom us-east-1 --capacity 300 --iops 1500 --encryption-key crn:v1:bluemix:public:kms:us-east:a/a123456:3b05b403-8f51-4dac-9114-c777d0a760d4:key:7a8a2761-08e3-455f-a348-144ed604bba9
 Creating volume demo-cli-volume under account Test Account as user test.user@ibm.com...
                                           
 ID                                     r014-3984600c-6f4d-4940-82de-519a867fa3c0   
 Name                                   demo-cli-volume   
-CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a10d63fa66daffc9b9b5286ce1533080::volume:r014-3984600c-6f4d-4940-82de-519a867fa3c0   
+CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a123456::volume:r014-3984600c-6f4d-4940-82de-519a867fa3c0   
 Status                                 pending   
 Attachment state                       unattached   
 Capacity                               300   
 IOPS                                   1500   
 Bandwidth(Mbps)                        3145   
 Profile                                custom   
-Encryption key                         crn:v1:bluemix:public:kms:us-east:a/a10d63fa66daffc9b9b5286ce1533080:3b05b403-8f51-4dac-9114-c777d0a760d4:key:7a8a2761-08e3-455f-a348-144ed604bba9   
+Encryption key                         crn:v1:bluemix:public:kms:us-east:a/a123456:3b05b403-8f51-4dac-9114-c777d0a760d4:key:7a8a2761-08e3-455f-a348-144ed604bba9   
 Encryption                             user_managed   
 Resource group                         defaults   
 Created                                2023-06-29T20:10:52+00:00   
@@ -219,6 +219,6 @@ A successful response looks like the following example.
 ## Next steps
 {: #next-step-create-byok-volumes-vpc}
 
-When you refresh the list of block storage volumes in the UI, the new volume appears at the beginning of the list of volumes with "customer managed" as the encryption type. When the volume is created, it shows a status of Available. For stand-alone volumes, the Attachment Type column is blank (-). The Action menu (...) at the end of a table row provides a link for [attaching a block storage volume to an instance](/docs/vpc?topic=vpc-attaching-block-storage).
+When you refresh the list of Block Storage volumes in the UI, the new volume appears at the beginning of the list of volumes with "customer managed" as the encryption type. When the volume is created, it shows a status of Available. For stand-alone volumes, the Attachment Type column is blank (-). The Action menu (...) at the end of a table row provides a link for [attaching a Block Storage volume to an instance](/docs/vpc?topic=vpc-attaching-block-storage).
 
 Interested in setting up key rotation for your customer-managed root keys? For more information, see [Key rotation for VPC resources](/docs/vpc?topic=vpc-vpc-key-rotation).

@@ -28,7 +28,7 @@ You can create an image from a volume in several ways.
 
 * Select an instance, create an image from that instance's boot volume, and specify different encryption. For example, if the instance's boot volume was encrypted with IBM-managed encryption, you can select customer-managed encryption for the new image.
 
-* Create an image from a boot volume in the list of block storage volumes. The volume must be a boot volume that is attached to a virtual server instance.
+* Create an image from a boot volume in the list of Block Storage volumes. The volume must be a boot volume that is attached to a virtual server instance.
 
 Depending on the size of the image that you're creating, the job might take from 5 minutes to 1.5 hours. You can cancel a job that's taking too long to queue. For more information, see [Performance considerations](/docs/vpc?topic=vpc-image-from-volume-vpc-manage#ifv-performance).
 {: note}
@@ -81,13 +81,13 @@ When you select **Virtual server instance boot volume** as the source of your cu
 ### Create an image from the list of boot volumes
 {: #import-custom-image-vol}
 
-When you select **Block storage boot volume** as the source of your custom image, a list of block storage volumes displays.
+When you select **Block storage boot volume** as the source of your custom image, a list of Block Storage volumes displays.
 
 To create an image from the volume:
 
 1. On the **Import custom image** page, select **Block storage boot volume**.
 
-   A list of block storage volumes shows attached **Boot** and **Data** volumes. Unattached volumes appear with a dash (-). To create an image from a volume:
+   A list of Block Storage volumes shows attached **Boot** and **Data** volumes. Unattached volumes appear with a dash (-). To create an image from a volume:
 
    * The volume must be a boot volume
    * The volume must have an `available` status
@@ -186,10 +186,10 @@ Use the CLI to create an image from a volume that is attached to an available vi
    ```sh
    $ ibmcloud is image-create test-ifv-vol1 --source-volume ecc68c2f-96a1-4862-bc86-14f47e5d9ed8
 
-   Creating image test-ifv-vol1 in resource group  under account DEMO as user user1-mycompany.com...
+   Creating image test-ifv-vol1 in resource group  under account Test Account as user test.user@ibm.com...
    ID                 5b2fd4ee-c636-44c4-9673-453fca36832e
    Name               test-ifv-vol1
-   CRN                crn:v1:bluemix:public:is:us-south:a/2d1bace7b46e4815a81e52c6ffeba5cf::image:5b2fd4ee-c636-44c4-9673-453fca36832e
+   CRN                crn:v1:bluemix:public:is:us-south:a/a123456::image:5b2fd4ee-c636-44c4-9673-453fca36832e
    Status             pending
    Status reason      Code                   Message                                                More info
                       image_request_queued   The image request is accepted and waiting for system   -

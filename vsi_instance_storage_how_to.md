@@ -29,7 +29,7 @@ To provision a with instance storage, complete the following steps:
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Virtual server instances**.
 2. On the Virtual server instances for VPC page, click **Create** and enter the required information. For more information about specific fields, see [Creating virtual servers](/docs/vpc?topic=vpc-creating-virtual-servers).
 3. To choose your instance storage profile, click **View all profiles**. All ox2 profiles and profiles with the letter "d" in the fourth position of the Profile name include instance storage. Examples of profiles that include instance storage are bx2d-2x8 and ox2-2x16. Use the checkboxes to filter the list. For a list of instance profiles, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui).
-4. Choose the profile that you want to use and click **Save**. The instance storage disks are attached to the virtual server instance after the boot volume, and before remote block storage volumes, if any.
+4. Choose the profile that you want to use and click **Save**. The instance storage disks are attached to the virtual server instance after the boot volume, and before remote Block Storage volumes, if any.
 5. When you are ready to provision your instance, click **Create virtual server instance**.
 
 ### Next steps
@@ -79,7 +79,7 @@ If your instance storage device has an interface type of `virtio_blk`, then the 
 ### Listing the block devices on your instance
 {: #instance-storage-list-block-device}
 
-On Linux&reg;, you can use the `lsblk` command to list the block devices after you logged in to your instance. In the following example, the instance that is provisioned has two 600 GB instance disks and two 50 GiB data volumes. A list of custom columns is specified to the `lsblk` command to highlight some differences between instance storage and remote block storage.
+On Linux&reg;, you can use the `lsblk` command to list the block devices after you logged in to your instance. In the following example, the instance that is provisioned has two 600 GB instance disks and two 50 GiB data volumes. A list of custom columns is specified to the `lsblk` command to highlight some differences between instance storage and remote Block Storage.
 
 Instance Disks are measured in gigabytes (GB), but `lsblk` shows size in gibibyte (GiB). 
 {: note}
@@ -101,7 +101,7 @@ vdg            44K 252:96  disk     512     512
 ```
 {: screen}
 
-In this example all of the block storage devices are `virtio_blk` devices:
+In this example all of the Block Storage devices are `virtio_blk` devices:
 
 * `vda` is the boot volume.
 * `vdb` and `vdc` are the 600 GB instance storage disks. Since the lsblk command is displaying “G” units as base-2 gibibytes, the size is displayed as 558.8 GiBs.

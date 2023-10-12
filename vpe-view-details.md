@@ -30,10 +30,10 @@ To view details of an endpoint gateway by using the {{site.data.keyword.cloud}} 
 
    The Virtual private endpoint gateways for VPC page shows all endpoint gateways for all VPCs in the region.
 
-1. To view the details of a specific gateway, click an individual gateway name. 
+1. To view the details of a specific gateway, click an individual gateway name.
 
    From the details page, you can view additional information about the endpoint gateway, view its bound reserved IPs and their subnets, delete an endpoint gateway, attach a security group, and more.
-   
+
 Descriptions of the fields for the virtual endpoint gateway details page are:
 
 | Field | Description |
@@ -73,10 +73,10 @@ Scroll to the Security groups section to view attached security groups. You can 
 
 Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 
-To view details of an endpoint gateway by using the CLI, enter the following command:
+To view details of an endpoint gateway from the CLI, enter the following command:
 
 ```sh
-  ibmcloud is endpoint-gateway ENDPOINT_GATEWAY [--json]  
+  ibmcloud is endpoint-gateway ENDPOINT_GATEWAY [--json]
 ```
 {: pre}
 
@@ -89,7 +89,7 @@ Where:
 {: #vpe-viewing-details-api}
 {: api}
 
-To view details of an endpoint gateway by using the API, follow these steps:
+To view details of an endpoint gateway with the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
 1. Store the following values in variables to be used in the API command:

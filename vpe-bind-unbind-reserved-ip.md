@@ -17,7 +17,7 @@ subcollection: vpc
 {: help}
 {: support}
 
-You can bind and unbind a reserved IP address to an endpoint gateway by using the UI, CLI, and API.  
+You can bind and unbind a reserved IP address to an endpoint gateway by using the UI, CLI, and API.
 {: shortdesc}
 
 ## Binding and unbinding a reserved IP address in the UI
@@ -53,7 +53,7 @@ Unbinding means that the selected reserved IP is no longer bound to the endpoint
 To unbind an IP address by using the IBM Cloud console, follow these steps:
 
 1. From the Virtual private endpoint gateways for VPC page, highlight the row of the gateway in the table, then click **Unbind IP** from the Actions menu ![Actions menu](images/overflow.png). Alternatively, you can unbind a reserved IP from an endpoint gateway's details page.
-1. Click **Unbind IP** to confirm that you want to unbind this IP from the specified subnet.  
+1. Click **Unbind IP** to confirm that you want to unbind this IP from the specified subnet.
 
 ## Binding and unbinding a reserved IP address from the CLI
 {: #vpe-binding-unbinding-endpoint-gateway-cli}
@@ -66,11 +66,11 @@ Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc
 ### Binding a reserved IP to an endpoint gateway
 {: #vpe-binding-endpoint-gateway-cli}
 
-To bind a reserved IP to an endpoint gateway by using the CLI, run the following command:
+To bind a reserved IP to an endpoint gateway from the CLI, run the following command:
 
 ```sh
   ibmcloud is endpoint-gateway-reserved-ip-bind ENDPOINT_GATEWAY \
-    --reserved-ip-id RESERVED_IP_ID [--json]  
+    --reserved-ip-id RESERVED_IP_ID [--json]
 ```
 {: pre}
 
@@ -83,11 +83,11 @@ Where:
 ### Unbinding a reserved IP to an endpoint gateway by using the CLI
 {: #vpe-unbinding-endpoint-gateway-cli}
 
-To unbind a reserved IP to an endpoint gateway by using the CLI, run the following command:
+To unbind a reserved IP to an endpoint gateway from the CLI, run the following command:
 
 ```sh
   ibmcloud is endpoint-gateway-reserved-ip-unbind ENDPOINT_GATEWAY \
-  (--address ADDRESS | --reserved-ip-id RESERVED_IP_ID) [-f, --force]  
+  (--address ADDRESS | --reserved-ip-id RESERVED_IP_ID) [-f, --force]
 ```
 {: pre}
 
@@ -102,7 +102,7 @@ Where:
 {: #vpe-bind-unbind-api}
 {: api}
 
-To bind or unbind a reserved IP address by using the API, perform the following prerequisites and procedures.
+To bind or unbind a reserved IP address with the API, perform the following prerequisites and procedures.
 
 ### Prerequisites
 {: #vpe-prerequisites}

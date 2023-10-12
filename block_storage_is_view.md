@@ -116,7 +116,7 @@ You can view information about an attached {{site.data.keyword.block_storage_is_
 
 1. In the [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to the **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances** and select an instance.
 
-2. Under **Attached block storage volumes**, click the name of a volume to go to the volume details page.
+2. Under **Attached Block Storage volumes**, click the name of a volume to go to the volume details page.
 
 ### Viewing all snapshots that were created from the {{site.data.keyword.block_storage_is_short}} volume
 {: #view-snapshots-for-volume}
@@ -196,7 +196,7 @@ Getting volume demo-volume-update under account Test Account as user test.user@i
                                           
 ID                                     r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   
 Name                                   demo-volume-update   
-CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a10d63fa66daffc9b9b5286ce1533080::volume:r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   
+CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a123456::volume:r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   
 Status                                 available   
 Attachment state                       attached   
 Capacity                               100   

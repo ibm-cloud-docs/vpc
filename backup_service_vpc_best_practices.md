@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-09-14"
+lastupdated: "2023-09-29"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Best practices for backups
 {: #backups-vpc-best-practices}
 
-To ensure that you're using the VPC Backup Service most effectively and economically, consider following these best practices.
+To ensure that you're using the VPC Backup Service most effectively and economically, consider the following suggestions.
 {: shortdesc}
 
 ## General best practices
@@ -23,9 +23,9 @@ To ensure that you're using the VPC Backup Service most effectively and economic
 
 * Assess the type of data that you have before you create backup policies. Critical data that changes more often might require more frequent backups than static data. Ask which data is most critical and which is to be archived.
 
-* Keep costs down by retaining backups for only while you need them to prevent data loss. Plan timely backups to restore data that might be deleted or corrupted. Think about the type of events that might happen. Ask how much data you can afford to lose. The answers can help you decide on a backup interval.
+* Keep costs down by retaining backups for only while you need them to prevent data loss. Plan timely backups to restore data that might be deleted or corrupted. Think about the type of events that might happen. Ask how much data you can afford to lose. The answers can help you decide on a backup interval and retention policy.
 
-* Ask how quickly you need to recover the data. Frequent backups that cover smaller incremental changes to your data afford quicker restoration. Run a test failover and volume restore to get an idea of the time it can take.
+* Ask how quickly you need to recover the data. Frequent backups that cover smaller incremental changes to your data afford quicker restoration. Run a volume restore and a test failover to get an idea of the time it can take.
 
 * For best performance, stagger your backup jobs by creating backup plans with different intervals. You can have up to four different backup plans per backup policy.
 
@@ -44,7 +44,7 @@ To ensure that you're using the VPC Backup Service most effectively and economic
 
 * Determine what tags are already assigned to a volume from the list of {{site.data.keyword.block_storage_is_short}} volumes. If a volume has multiple tags, make sure that the tags are not triggering duplicate backups for multiple policies.
 
-* Decide how you prefer to add tags. You can create tags for target resources in your backup policy first and then, apply them to volumes. Or, you can specify tags that are applied to the volume already in the backup policy. If you choose to use existing tags, be aware that the same tags might be attached other volumes that you might not want to back up from this policy.
+* Decide how you prefer to add tags. You can create tags for target resources in your backup policy first and then apply them to volumes. Or, you can specify tags that are applied to the volume already in the backup policy. If you choose to use existing tags, be aware that the same tags might be attached to other volumes that you might not want to back up from this policy.
 
 * Decide whether creating one or multiple backup plans suits your needs. For example, multiple plans can trigger backups at different intervals. You might want to back up some volumes monthly, others more frequently in a daily or weekly plan.
 
@@ -80,7 +80,7 @@ If you specify both age and the number of backups in your retention policy, age 
 
 For example, when you create the weekly plan and specify the retention period as 365 days, you can also specify the maximum count of 8. In this scenario, you're going to get a maximum of 8 backups in the chain, with the oldest being 8 weeks old. Alternatively, if you specify 30 days as your retention period and set the number of maximum backups to 8, by the time the 5th backup is taken, the first one is going to be deleted as it is outside of the 30-day retention period.
 
-## Next steps
+## Next Steps
 {: #baas-bp-next-steps}
 
 [Plan a strategy](/docs/vpc?topic=vpc-backups-vpc-planning) for backing up your {{site.data.keyword.block_storage_is_short}} volumes.

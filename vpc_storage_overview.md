@@ -4,7 +4,7 @@ copyright:
   years: 2022, 2023
 lastupdated: "2023-02-20"
 
-keywords: Block Storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup, 
+keywords: Block Storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, Block Storage, file storage, snapshots, backup, 
 
 subcollection: vpc
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # VPC storage services overview
 {: #storage-overview}
 
-The {{site.data.keyword.vpc_full}} (VPC) provides block storage, file storage, and snapshots solutions to meet your cloud storage needs. Instance storage provides dedicated drives that are directly attached to your virtual server instances. In addition, with the VPC Backup service, you can create scheduled backups of your block storage volumes.
+The {{site.data.keyword.vpc_full}} (VPC) provides Block Storage, file storage, and snapshots solutions to meet your cloud storage needs. Instance storage provides dedicated drives that are directly attached to your virtual server instances. In addition, with the VPC Backup service, you can create scheduled backups of your Block Storage volumes.
 {: shortdesc}
 
 ## {{site.data.keyword.block_storage_is_short}}
@@ -25,10 +25,10 @@ The {{site.data.keyword.vpc_full}} (VPC) provides block storage, file storage, a
 
 By using this service, you can:
 
-* Create block storage volumes with maximum storage capacity of 16 TB and performance level of 48,000 IOPS.
+* Create Block Storage volumes with maximum storage capacity of 16 TB and performance level of 48,000 IOPS.
 * Create a volume with a predefined IOPS tier profile (3, 5, or 10 IOPS per GB) that best meets your storage requirements. Or you can create a volume with a custom profile, and choose IOPS performance from 100 IOPS to 48,000 IOPS, based on volume size (up to 16 TB).
 * Use a boot volume to start a virtual server instance and attach data volumes to the instance.
-* Choose customer-managed encryption for your block storage volume, and secure your data with your own encryption keys.
+* Choose customer-managed encryption for your Block Storage volume, and secure your data with your own encryption keys.
 * Use the UI, CLI, API, or Terraform to create volumes, rename volumes, attach, and detach a volume, transfer volumes to a different instance. You can assign access to a volume, access performance metrics or delete the volume.
 * You can adjust IOPS up or down, for greater performance or when you want to reduce costs.
 * Start with a smaller volume and expand volume capacity later when you need more storage.
@@ -55,20 +55,20 @@ For more information, see [About {{site.data.keyword.filestorage_vpc_short}}](/d
 ## Snapshots for VPC
 {: #vpc-snapshots-overview}
 
-Snapshots for VPC is a regional offering. A snapshot is a point-in-time copy of your block storage volume that you create manually in the UI, from the CLI, with the API or Terraform. The initial snapshot is a full copy of the volume. Subsequent snapshots of the same volume are incremental; only those changes are captured that occurred since the last snapshot was taken. Snapshots inherit encryption from the source volume.
+Snapshots for VPC is a regional offering. A snapshot is a point-in-time copy of your Block Storage volume that you create manually in the UI, from the CLI, with the API or Terraform. The initial snapshot is a full copy of the volume. Subsequent snapshots of the same volume are incremental; only those changes are captured that occurred since the last snapshot was taken. Snapshots inherit encryption from the source volume.
 
 You can create, list, view details, and manage snapshots in the UI, from the CLI, and with the API or Terraform. You can select a nonbootable snapshot to create a data volume and attach it to a running virtual instance. You can also select a bootable snapshot during instance provisioning to restore its data to a new boot volume to start the instance. You can use the snapshot to create a stand-alone volume and attach it to an instance later.
 
 You can copy snapshot to another region and use it to provision new volumes in that region, as a BCDR measure or geographic expansion.
 
-Snapshots are independent of the source block storage volumes. You can delete the original volume and the snapshot persists. However, you cannot delete a snapshot that is being used to hydrate a newly restored storage volume.
+Snapshots are independent of the source Block Storage volumes. You can delete the original volume and the snapshot persists. However, you cannot delete a snapshot that is being used to hydrate a newly restored storage volume.
 
 For more information, see [About Snapshots for VPC](/docs/vpc?topic=vpc-snapshots-vpc-about).
 
 ## Backup for VPC
 {: #vpc-backup-serv-overview}
 
-The {{site.data.keyword.cloud}} provides the means to create backup copies of your block storage volumes automatically. You can create a backup policy with one or more plans, and associate tags to the policy in the UI, from the CLI, with the API or Terraform. The user-defined tags can be added to block storage volumes. When tags match, the backup policy is applied to the volume, and backup copies of the data are created based on the backup plan. You can set your own retention schedule to automatically delete older backups. This way, you can control how much space is used and how long backups are retained. By using Backup for VPC service, you can prevent data loss, manage risk, and improve data compliance. 
+The {{site.data.keyword.cloud}} provides the means to create backup copies of your Block Storage volumes automatically. You can create a backup policy with one or more plans, and associate tags to the policy in the UI, from the CLI, with the API or Terraform. The user-defined tags can be added to Block Storage volumes. When tags match, the backup policy is applied to the volume, and backup copies of the data are created based on the backup plan. You can set your own retention schedule to automatically delete older backups. This way, you can control how much space is used and how long backups are retained. By using Backup for VPC service, you can prevent data loss, manage risk, and improve data compliance. 
 
 For more information, see [About Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
 
@@ -82,7 +82,7 @@ Data that is stored on instance storage is tied directly to the instance lifecyc
 ## Next steps
 {: #vpc-storage-next-steps}
 
-* [Create block storage volumes](/docs/vpc?topic=vpc-creating-block-storage).
+* [Create Block Storage volumes](/docs/vpc?topic=vpc-creating-block-storage).
 * [Create file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create).
 * [Create snapshots](/docs/vpc?topic=vpc-snapshots-vpc-create).
 * [Manage instance storage](/docs/vpc?topic=vpc-instance-storage-provisioning).

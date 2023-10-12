@@ -18,7 +18,7 @@ subcollection: vpc
 If you want to use your {{site.data.keyword.block_storage_is_full}} volume as a file system, you need to partition the volume, format it, and then mount it as a file system. You can perform this operation after you created a {{site.data.keyword.block_storage_is_short}} volume and attached it to an instance.
 {: shortdesc}
 
-Follow this procedure to use your block storage volume on a Linux&reg; system.
+Follow this procedure to use your Block Storage volume on a Linux&reg; system.
 
 ## Step 1 - Listing all storage volumes
 {: #linux-procedure-list-volumes}
@@ -41,7 +41,7 @@ vdb    202:32   0  100G  0 disk
 ```
 {: screen}
 
-Volume `vdb` is your block storage data volume.
+Volume `vdb` is your Block Storage data volume.
 
 ## Step 2 - Partitioning the volume
 {: #linux-procedure-partition-volume}

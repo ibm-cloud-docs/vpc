@@ -8,6 +8,8 @@ keywords: load balancer, network, traffic, members
 
 subcollection: vpc
 
+content-type: troubleshoot
+
 ---
 
 {{site.data.keyword.attribute-definition-list}}

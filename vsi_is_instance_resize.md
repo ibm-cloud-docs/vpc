@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-09-05"
+lastupdated: "2023-10-12"
 
 subcollection: vpc
 
@@ -76,14 +76,17 @@ When you resize an instance that's provisioned from an instance template or that
 ## Resizing instances between Gen 2 and Gen 3 profiles
 {: #resizing-instance-generations}  
 
-New profiles are available in the Dallas region to beta users with special approval to provision virtual server instances on 4th Gen Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously codenamed Sapphire Rapids). For more information about the capabilities of the new profiles, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles).
-{: beta}
+3rd generation profiles are available in the Dallas region to provision virtual server instances on 4th Generation Intel® Xeon® Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). For more information about the capabilities of the new profiles, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles).
+{: preview}
 
 You can resize a 2nd generation profile to a 3rd generation profile. A 3rd generation profile can be resized to a 2nd generation profile. Before resizing between profile generations, review the following information. 
 
 * Prior to resizing an instance with a 2nd generation profile to a 3rd generation profile, take a [snapshot](/docs/vpc?topic=vpc-snapshots-vpc-create) of the boot volume that is attached to your virtual server instance. You can refer back to the snapshot if needed. 
 * When you resize an instance to a 3rd generation profile, the virtual firmware defaults to Open Virtual Machine Firmware (OVMF) if your image supports UEFI. If the instance previously booted with SeaBIOS, the system attempts to preserve the firmware setting even when moving to the latest generation. If the virtual firmware changes from SeaBIOS to OVMF during the migration to the new profile, the device names might appear differently in the guest.
 * If you resize from a 3rd generation profile to a 2nd generation profile, any changes made to your virtual server instance while running with the 3rd generation profile are preserved. If you have the snapshot available that you took prior to migrating to the new profile, you can restore from that snapshot if something goes wrong. 
+
+When you deploy a new Windows virtual server instance with a 3rd generation profile, avoid resizing to a 2nd generation profile. The new Windows instance uses OVMF virtual firmware and cannot be resized to a 2nd generation profile as the instance will not boot. If the Windows virtual server instance was originally provisioned with a 2nd generation profile, then resized to a 3rd generation profile, it can be resized back to a 2nd generation profile successfully.  
+{: note}
 
 ## Resizing a virtual server instance by using the UI
 {: #resizing-a-virtual-server-UI}

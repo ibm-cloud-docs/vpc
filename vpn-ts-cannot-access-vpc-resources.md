@@ -8,6 +8,7 @@ keywords: virtual private network, VPN, VPN server, troubleshooting
 
 subcollection: vpc
 
+content-type: troubleshoot
 ---
 
 {{site.data.keyword.attribute-definition-list}}

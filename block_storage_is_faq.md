@@ -2,8 +2,8 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-09-18"
-keywords: faqs, block storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
+lastupdated: "2023-10-10"
+keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
 subcollection: vpc
 
@@ -88,7 +88,7 @@ The storage system uses base-2 units for volume allocation. So if your volume is
 
 One of the reasons can be that your operating system uses base-2 conversion. For example, when you provision a 4000 GB volume on the UI, the storage system reserves a 4,000 GiB volume or 4,294,967,296,000 bytes of storage space for you. The provisioned volume size is larger than 4 TB. However, your operating system might display the storage size as 3.9 T because it uses base-2 conversion and the T stands for TiB, not TB.
 
-Second, partitioning your block storage and creating a file system on it reduces available storage space. The amount by which formatting reduces space varies depending upon the type of formatting that is used and the amount and size of the various files on the system.
+Second, partitioning your Block Storage and creating a file system on it reduces available storage space. The amount by which formatting reduces space varies depending upon the type of formatting that is used and the amount and size of the various files on the system.
 
 Take the volume `docs-block-test3` as an example. We specified 1200 GB during provisioning and when you list the details in the CLI, you can see that it has the capacity of 1200.
 
@@ -306,18 +306,6 @@ Maximum IOPS for data volumes varies based on volume size and the type of profil
 IOPS is measured based on a load profile of 16-KB blocks with random 50% read and 50% writes. Workloads that differ from this profile might experience reduced performance. If you use a smaller block size, maximum IOPS can be obtained, but throughput is less. For more information, see
 [How block size affects performance](/docs/vpc?topic=vpc-capacity-performance#how-block-size-affects-performance).
 
-### What typical network performance might I expect between my Compute instances and the {{site.data.keyword.block_storage_is_short}} service?
-{: faq}
-{: #faq-block-storage-17}
-
-{{site.data.keyword.block_storage_is_short}} is connected to compute instances on a shared network, so the exact performance latency depends on the network traffic within a specific time frame. Target latency for a 16-KB block size volume is under 1 millisecond for random reads and under 2 milliseconds for writes.
-
-### What mechanisms are used to avoid data storage contention?
-{: faq}
-{: #faq-block-storage-17a}
-
-Data storage contention is a common issue when multiple instances compete for access to the same {{site.data.keyword.block_storage_is_short}} volume. {{site.data.keyword.block_storage_is_short}} uses Rate Limiting at the hypervisor for optimal bandwidth between the hypervisor and {{site.data.keyword.block_storage_is_short}} service. As a result, latency is guaranteed to be less than 1 millisecond for random reads and under 2 milliseconds for writes for a typical 16-KB block size. Latency outside these metrics might indicate a problem on the client side.
-
 ### What happens when a volume is in a degraded health state?
 {: faq}
 {: #faq-block-storage-healthstate}
@@ -415,7 +403,7 @@ Both key management systems provide you with complete control over your data, ma
 
 No, after you provision a volume and specify the encryption type, you can't change it.
 
-## Is there a way to copy the block storage volume to a different zone?
+## Is there a way to copy the Block Storage volume to a different zone?
 {: faq}
 {: #faq-block-storage-30}
 

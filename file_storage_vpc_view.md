@@ -219,7 +219,7 @@ Getting source file share for replica file share replica-share-4 under account V
 
 ID                   0e8ee997-bf1d-4165-9573-726c3a4d3b36
 Name                 share-4
-CRN                  crn:v1:bluemix:public:is:us-south-1:a/efe5afc483594adaa8325e2b4d1290df::share:0e8ee997-bf1d-4165-9573-726c3a4d3b36
+CRN                  crn:v1:bluemix:public:is:us-south-1:a/a123456::share:0e8ee997-bf1d-4165-9573-726c3a4d3b36
 Lifecycle state      stable
 Access control mode  vpc
 Zone                 us-south-1
@@ -485,8 +485,8 @@ A successful response looks like the following example:
     {
       "access_control_mode": "security_group",
       "created_at": "2023-07-18T01:59:46.000Z",
-      "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63/mount_targets/r134-1b5571cb-536d-48d0-8452-81c05c6f7b80",
-      "id": "r134-1b5571cb-536d-48d0-8452-81c05c6f7b80",
+      "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63/mount_targets/r006-1b5571cb-536d-48d0-8452-81c05c6f7b80",
+      "id": "r006-1b5571cb-536d-48d0-8452-81c05c6f7b80",
       "lifecycle_reasons": [],
       "lifecycle_state": "stable",
       "mount_path": "fsf-dal1099a-fz.adn.networklayer.com:/nxg_s_voll_mz0716_a4cc07a3_4425_4adf_aed6_0d7e142bee0c",
@@ -502,8 +502,8 @@ A successful response looks like the following example:
       "security_groups": [
         {
           "crn": "crn:[...]",
-          "href": "https://us-south.iaas.cloud.ibm.com/v1/security_groups/r134-1dfeccef-3ad6-4760-8653-a202bc795db4",
-          "id": "r134-1dfeccef-3ad6-4760-8653-a202bc795db4",
+          "href": "https://us-south.iaas.cloud.ibm.com/v1/security_groups/r006-1dfeccef-3ad6-4760-8653-a202bc795db4",
+          "id": "r006-1dfeccef-3ad6-4760-8653-a202bc795db4",
           "name": "my-security-group",
           "resource_type": "security_group"
         }

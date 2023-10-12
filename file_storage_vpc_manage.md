@@ -458,7 +458,7 @@ Updating file share my-file-share under account VPC1 as user user1@mycompany.com
 
 ID                e1180bae-6799-4156-8bb7-e4d24013cda2
 Name              my-file-share
-CRN               crn:v1:public:is:us-south-1:a/0ef3f509-04f4-465e-88c6-2d60b164d805::share:e1180bae-6799-4156-8bb7-e4d24013cda2
+CRN               crn:v1:public:is:us-south-1:a/a123456::share:e1180bae-6799-4156-8bb7-e4d24013cda2
 Lifecycle state   updating
 Zone              us-south-1
 Profile           dp2
@@ -678,8 +678,8 @@ The following example is the response to a delete request of a mount target wher
   "security_groups": [
     {
       "crn": "crn:[...]",
-      "href": "https://us-south.iaas.cloud.ibm.com/v1/security_groups/r134-1dfeccef-3ad6-4760-8653-a202bc795db4",
-      "id": "r134-1dfeccef-3ad6-4760-8653-a202bc795db4",
+      "href": "https://us-south.iaas.cloud.ibm.com/v1/security_groups/r006-1dfeccef-3ad6-4760-8653-a202bc795db4",
+      "id": "r006-1dfeccef-3ad6-4760-8653-a202bc795db4",
       "name": "my-security-group",
       "resource_type": "security_group"
     }
