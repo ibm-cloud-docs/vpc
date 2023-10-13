@@ -15,7 +15,7 @@ subcollection: vpc
 # Updating an application load balancer
 {: #alb-updating}
 
-You can update an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) by using the UI, CLI, or API.
+You can update an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) with the UI, CLI, or API.
 
 ## Updating an application load balancer in the UI
 {: #alb-updating-ui}
@@ -24,7 +24,7 @@ You can update an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (AL
 To update an ALB in the {{site.data.keyword.cloud_notm}} console, perform the following procedure:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the Navigation Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers**.
+1. Select the Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers**.
 1. Select the Region of your load balancer.
 1. Select the load balancer that you want to update.
 1. Select **Back-end pools** if you need to edit a pool or virtual server instance parameters.
@@ -40,49 +40,49 @@ The **Active** button on the upper left of your screen now shows as **Updating**
 The following example shows how to use the CLI to update your ALB pool to use the algorithm `least_connections` and the port of the member:
 
 ```sh
-ibmcloud is load-balancer-pool-update r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 r134-3b66d605-6aa5-4166-9f66-b16054da3cb0 --algorithm least_connections
+ibmcloud is load-balancer-pool-update r006-99b5ab45-6357-42db-8b32-5d2c8aa62776 r006-3b66d605-6aa5-4166-9f66-b16054da3cb0 --algorithm least_connections
 ```
 {: pre}
 
 Sample output:
 
 ```sh
-Updating pool r134-3b66d605-6aa5-4166-9f66-b16054da3cb0 of load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 under account IBM Cloud Network Services as user test@ibm.com...
+Updating pool r006-3b66d605-6aa5-4166-9f66-b16054da3cb0 of load balancer r006-99b5ab45-6357-42db-8b32-5d2c8aa62776 under account IBM Cloud Network Services as user test@ibm.com...
 
-ID                         r134-3b66d605-6aa5-4166-9f66-b16054da3cb0   
-Name                       alb-pool   
-Protocol                   tcp   
-Algorithm                  least_connections   
-Instance group             ID   Name      
-                           -    -      
+ID                         r006-3b66d605-6aa5-4166-9f66-b16054da3cb0
+Name                       alb-pool
+Protocol                   tcp
+Algorithm                  least_connections
+Instance group             ID   Name
+                           -    -
 
-Health monitor             Type   Port   Health monitor URL   Delay   Retries   Timeout      
-                           http   8080   /                    10      2         5      
+Health monitor             Type   Port   Health monitor URL   Delay   Retries   Timeout
+                           http   8080   /                    10      2         5
 
-Session persistence type   source_ip   
-Members                    r134-61f8b000-a90d-4abe-909e-c507dffec565   
-Provision status           update_pending   
-Created                    2020-08-27T14:45:42.038-05:00   
+Session persistence type   source_ip
+Members                    r006-61f8b000-a90d-4abe-909e-c507dffec565
+Provision status           update_pending
+Created                    2020-08-27T14:45:42.038-05:00
 ```
 {: screen}
 
 ```sh
-ibmcloud is load-balancer-pool-member-update r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 r134-3b66d605-6aa5-4166-9f66-b16054da3cb0 r134-61f8b000-a90d-4abe-909e-c507dffec565 --port 6060
+ibmcloud is load-balancer-pool-member-update r006-99b5ab45-6357-42db-8b32-5d2c8aa62776 r006-3b66d605-6aa5-4166-9f66-b16054da3cb0 r006-61f8b000-a90d-4abe-909e-c507dffec565 --port 6060
 ```
 {: pre}
 
 Sample output:
 
 ```sh
-Updating member r134-61f8b000-a90d-4abe-909e-c507dffec565 of load balancer pool r134-3b66d605-6aa5-4166-9f66-b16054da3cb0 under account IBM Cloud Network Services as user test@ibm.com...
+Updating member r006-61f8b000-a90d-4abe-909e-c507dffec565 of load balancer pool r006-3b66d605-6aa5-4166-9f66-b16054da3cb0 under account IBM Cloud Network Services as user test@ibm.com...
 
-ID                 r134-61f8b000-a90d-4abe-909e-c507dffec565   
-Port               6060   
-Target             0716_6acdd058-4607-4463-af08-d4999d983945   
-Weight             70   
-Health             unknown   
-Created            2020-08-27T14:59:55.446-05:00   
-Provision status   update_pending   
+ID                 r006-61f8b000-a90d-4abe-909e-c507dffec565
+Port               6060
+Target             0716_6acdd058-4607-4463-af08-d4999d983945
+Weight             70
+Health             unknown
+Created            2020-08-27T14:59:55.446-05:00
+Provision status   update_pending
 ```
 {: screen}
 
@@ -92,7 +92,7 @@ Provision status   update_pending
 
 The following example illustrates how to use the API to update the front-end listener port of an application load balancer. For example, if the front-end listener port was set to 80 and you want to update the port value to 90.
 
-To update an application load balancer by using the API, perform the following procedure:
+To update an application load balancer with the API, perform the following procedure:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
 1. Use the following example to get the listener ID that you need for the update:
@@ -213,4 +213,3 @@ To update an application load balancer by using the API, perform the following p
    }
    ```
    {: screen}
-   

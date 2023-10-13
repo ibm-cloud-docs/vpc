@@ -5,7 +5,7 @@ copyright:
 
 lastupdated: "2022-10-21"
 
-keywords:  
+keywords:
 
 subcollection: vpc
 
@@ -30,28 +30,28 @@ You can modify the rules of the default security group by using the UI, CLI, or 
 If you edit the rules of the default security group, those edited rules then apply to all current and future servers in the group.
 {: important}
 
-Inbound rules to allow pinging and SSH are not automatically added to the default security group. 
+Inbound rules to allow pinging and SSH are not automatically added to the default security group.
 
 ## Updating the default security group in the UI
 {: #example-modifying-the-default-sg-rules-using-ui}
 {: ui}
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
-1. Select the Menu icon ![Menu icon](../icons/icon_hamburger.svg), then click **VPC Infrastructure**. 
+1. Select the Menu icon ![Menu icon](../icons/icon_hamburger.svg), then click **VPC Infrastructure**.
 1. Click **Security groups**.
-1. In the Security groups list, click the name of the default security group that you want to update. 
-1. On the default security group's details page, click the **Rules** tab. 
+1. In the Security groups list, click the name of the default security group that you want to update.
+1. On the default security group's details page, click the **Rules** tab.
 1. Modify the rules as necessary:
       - To edit a rule, click the Actions menu ![Actions menu](images/overflow.png), click **Edit**, make your changes, then click **Save**.
-      - To delete a rule, click the Actions menu ![Actions menu](images/overflow.png), click **Delete**, then click **Delete** again. 
-      - To create a rule, click the **Create** button. 
+      - To delete a rule, click the Actions menu ![Actions menu](images/overflow.png), click **Delete**, then click **Delete** again.
+      - To create a rule, click the **Create** button.
 
-      For each rule, specify the following information:  
+      For each rule, specify the following information:
 
-      * Select the protocols and ports to which the rule applies.    
-      * Specify a CIDR block or IP address for the permitted traffic. Alternatively, you can specify a security group in the same VPC to allow traffic to or from all instances that are attached to the selected security group. 
+      * Select the protocols and ports to which the rule applies.
+      * Specify a CIDR block or IP address for the permitted traffic. Alternatively, you can specify a security group in the same VPC to allow traffic to or from all instances that are attached to the selected security group.
 
-      **Tips:**  
+      **Tips:**
       * All rules are evaluated, regardless of the order in which they're added.
       * Rules are stateful, which means that return traffic in response to allowed traffic is automatically permitted. For example, you created a rule that allows inbound TCP traffic on port 80. That rule also allows replying outbound TCP traffic on port 80 back to the originating host, without the need for another rule.
       * For Windows images, make sure that the security group that is associated with the instance allows inbound and outbound Remote Desktop Protocol traffic (TCP port 3389).
@@ -64,7 +64,7 @@ Inbound rules to allow pinging and SSH are not automatically added to the defaul
 {: #example-modifying-the-default-security-group-rules-using-the-cli}
 {: cli}
 
-Complete the following steps to update the default security group by using the CLI: 
+Complete the following steps to update the default security group by using the CLI:
 
 1. Log in to {{site.data.keyword.vpc_full}}.
 
@@ -136,7 +136,7 @@ Complete the following steps to update the default security group by using the C
    ```
    {: codeblock}
 
-   For example, run the following command to add rules that allow SSH and PING rules to the security group with the ID you set as your variable: 
+   For example, run the following command to add rules that allow SSH and PING rules to the security group with the ID you set as your variable:
 
    ```sh
    ibmcloud is security-group-rule-add $sg inbound tcp --port-min 22 --port-max 22
@@ -145,13 +145,13 @@ Complete the following steps to update the default security group by using the C
    {: codeblock}
 
 Adding and removing security group rules is an asynchronous operation. It usually takes 1 - 30 seconds for the change to go into effect.
-{: note} 
+{: note}
 
 ## Updating the default security group with the API
 {: #example-modifying-the-default-security-group-rules-using-the-api}
 {: api}
 
-Complete the following steps to update the default security group by using the API: 
+Complete the following steps to update the default security group by using the API:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the correct variables.
 
@@ -167,7 +167,7 @@ Complete the following steps to update the default security group by using the A
    The default security group details are shown in the output following `default_security_group`. Note the name of the default security group so that you can find the `id` when you list the security groups (next). Note the default security group `id`, and save it in a variable so that you can use it later. For example, use the variable name `id`:
 
    ```sh
-   "sg" = "r134-a937009e-5da5-4e7b-9072-d44e1095327b"
+   "sg" = "r006-a937009e-5da5-4e7b-9072-d44e1095327b"
    ```
    {: pre}
 
@@ -176,7 +176,7 @@ Complete the following steps to update the default security group by using the A
 Disabling SSH connections prohibits the license registration for RedHat Enterprise Linux. This can result in provisioning failures.
 {: important}
 
-Run the following two commands to add default security group rules that allow SSH and PING for the security group with the security group `id` you set as the variable `sg`: 
+Run the following two commands to add default security group rules that allow SSH and PING for the security group with the security group `id` you set as the variable `sg`:
 
    ```sh
    curl -sX POST  -H "Authorization:$iam_token" "$vpc_api_endpoint/v1/security_groups/$sg/rules?generation=2&version=$api_version"  -d '{"direction":"inbound","protocol":"tcp","port_min":22, "port_max":22}'
@@ -189,4 +189,4 @@ Run the following two commands to add default security group rules that allow SS
    {: pre}
 
 Adding and removing security group rules is an asynchronous operation. It usually takes 1 - 30 seconds for the change to go into effect.
-{: note} 
+{: note}

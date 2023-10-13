@@ -68,7 +68,7 @@ To create a DNS resolution binding with the CLI, follow these steps:
    export IBMCLOUD_IS_FEATURE_VPC_DNS_SHARING=true
    ```
 
-1. To create a DNS resolution binding, enter the following command:
+To create a DNS resolution binding, enter the following command:
 
    ```bash
    ibmcloud is vpc-dns-resolution-binding-create VPC --target-vpc TARGET_VPC [--name NAME] [--output JSON] [-q, --quiet]
@@ -92,10 +92,102 @@ To create a DNS resolution binding with the CLI, follow these steps:
    :    Suppresses verbose output.
 
 ### Command examples
-{: #command-examples-resolution-bindings-cli}
+{: #command-examples-resolution-binding1}
+{: cli}
 
 * `ibmcloud is vpc-dns-resolution-binding-create my-vpc --name my-dns-res-binding --target-vpc my-dns-binding-vpc --output JSON`
 * `ibmcloud is vpc-dns-resolution-binding-create 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 --name my-dns-res-binding --target-vpc my-dns-binding-vpc --output JSON`
+
+To view details of a DNS resolution binding:
+
+```bash
+ibmcloud is vpc-dns-resolution-binding VPC DNS_RESOLUTION_BINDING [--output JSON] [-q, --quiet]
+```
+Where:
+
+`VPC`
+:    Specifies the ID or name of the VPC.
+
+`DNS_RESOLUTION_BINDING`
+:    Specifies the ID or name of the DNS resolution binding.
+
+`--output JSON`
+:    Specifies the output format, only JSON is supported. One of: `JSON`.
+
+`--q, --quiet`
+:    Suppresses verbose output.
+
+To update a DNS resolution binding:
+
+```bash
+ibmcloud is vpc-dns-resolution-binding-update VPC DNS_RESOLUTION_BINDING [--name NAME] [--output JSON] [-q, --quiet]
+```
+
+Where:
+
+`VPC`
+:    Specifies the ID or name of the VPC.
+
+`DNS_RESOLUTION_BINDING`
+:    Specifies the ID or name of the DNS resolution binding.
+
+`--name`
+:    Specifies the name for this DNS resolution binding.
+
+`--output JSON`
+:    Specifies the output format, only JSON is supported. One of: `JSON`.
+
+`--q, --quiet`
+:    Suppresses verbose output.
+
+### Command example
+{: #command-examples-resolution-binding2}
+{: cli}
+
+`ibmcloud is vpc-dns-resolution-binding-update r006-e5b9726b-c975-46bd-b713-c8aea55d51d8 r006-75ccea7b-c705-4b50-934d-2152f9eab4ec --name my-dns-resolution-updated --output JSON`
+
+To delete one or more resolution bindings:
+
+```bash
+ibmcloud is vpc-dns-resolution-binding-delete VPC (DNS_RESOLUTION_BINDING1 DNS_RESOLUTION_BINDING2 ...) [--output JSON] [-f, --force] [-q, --quiet]
+```
+
+Where:
+
+`VPC`
+:    Specifies the ID or name of the VPC.
+
+`DNS_RESOLUTION_BINDING1`
+:    Specifies the ID or name of the DNS resolution binding.
+
+`DNS_RESOLUTION_BINDING2`
+:    Specifies the ID or name of the DNS resolution binding.
+
+`--output JSON`
+:    Specifies the output format, only JSON is supported. One of: `JSON`.
+
+`--f, --force`
+:    Forces the operation without confirmation.
+
+`--q, --quiet`
+:    Suppresses verbose output.
+
+To list all resolution bindings:
+
+```bash
+ibmcloud is vpc-dns-resolution-bindings VPC [--output JSON] [-q, --quiet]
+```
+
+Where:
+
+`VPC`
+:    Specifies the ID or name of the VPC.
+
+`--output JSON`
+:    Specifies the output format, only JSON is supported. One of: `JSON`.
+
+`--q, --quiet`
+:    Suppresses verbose output.
 
 ##  Creating a DNS resolution binding with the API
 {: #create-dns-resolution-binding-api}
@@ -125,15 +217,15 @@ Sample output:
 {
   "created_at": "2023-08-22T23:23:37Z",
   "endpoint_gateways": [],
-  "href": "https://us-south.iaas.cloud.ibm.com/v1/vpcs/r134-955c4b01-006f-4630-8a6a-f57e30354974/dns_resolution_bindings/r134-f95df674-74af-47ea-91d9-0aec39972ae7",
-  "id": "r134-f95df674-74af-47ea-91d9-0aec39972ae7",
+  "href": "https://us-south.iaas.cloud.ibm.com/v1/vpcs/r006-955c4b01-006f-4630-8a6a-f57e30354974/dns_resolution_bindings/r006-f95df674-74af-47ea-91d9-0aec39972ae7",
+  "id": "r006-f95df674-74af-47ea-91d9-0aec39972ae7",
   "lifecycle_state": "pending",
   "name": "my-binding",
   "resource_type": "vpc_dns_resolution_binding",
   "vpc": {
     "crn": "crn:[...]",
-    "href": "https://us-south.iaas.cloud.ibm.com/v1/vpcs/r134-c6c9d533-a43b-488c-a4f5-b532f4ddd3e0",
-    "id": "r134-c6c9d533-a43b-488c-a4f5-b532f4ddd3e0",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/vpcs/r006-c6c9d533-a43b-488c-a4f5-b532f4ddd3e0",
+    "id": "r006-c6c9d533-a43b-488c-a4f5-b532f4ddd3e0",
     "name": "hub-vpc",
     "remote": {},
     "resource_type": "vpc"

@@ -89,14 +89,14 @@ Where:
 
 - Update a stand-alone VPN server to an HA VPN server by adding a second subnet from a different zone:
 
-   `ibmcloud is vpn-server-update r134-aa88726e-8b34-4f97-992d-027df9c4bb36 --subnet 0716-6ec3e875-abfa-40f4-a7c5-7473f4b2a2e1,0717-61b2f53f-1e95-42a7-94ab-55de8f8cbdd5`
+   `ibmcloud is vpn-server-update r006-aa88726e-8b34-4f97-992d-027df9c4bb36 --subnet 0716-6ec3e875-abfa-40f4-a7c5-7473f4b2a2e1,0717-61b2f53f-1e95-42a7-94ab-55de8f8cbdd5`
 
    Separate the two subnet IDs or names with a comma.
    {: note}
 
 - Change the subnet of a VPN server, or downgrade from two subnets (HA VPN server) to one subnet (stand-alone VPN server). The specified subnet (for example, `0716-6ec3e875-abfa-40f4-a7c5-7473f4b2a2e1`) replaces any existing subnets.
 
-   `ibmcloud is vpn-server-update r134-aa88726e-8b34-4f97-992d-027df9c4bb36 --subnet 0716-6ec3e875-abfa-40f4-a7c5-7473f4b2a2e1`
+   `ibmcloud is vpn-server-update r006-aa88726e-8b34-4f97-992d-027df9c4bb36 --subnet 0716-6ec3e875-abfa-40f4-a7c5-7473f4b2a2e1`
 
 ## Upgrading to an HA VPN server with the API
 {: #vpn-upgrade-ha-api}
@@ -119,7 +119,7 @@ To upgrade to an HA VPN server with the API, follow these steps:
    Save the ID of the VPN server in a variable so that you can use it later, for example:
 
    ```bash
-   VpnServer="r134-cb67562d-626c-488d-8c56-35879e238274"
+   VpnServer="r006-cb67562d-626c-488d-8c56-35879e238274"
    ```
    {: pre}
 

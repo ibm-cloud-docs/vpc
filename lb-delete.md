@@ -25,7 +25,7 @@ You can delete an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (AL
 To delete an ALB by in the IBM Cloud console, perform the following procedure:
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
-1. Select the Navigation Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **VPC Infrastructure > Load balancers** from the Network section.
+1. Select the Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **VPC Infrastructure > Load balancers** from the Network section.
 1. Select the Region of your load balancer.
 1. Click the Actions menu ![Actions menu](images/overflow.png) next to the load balancer that you want to delete, then select **Delete**.
 
@@ -37,7 +37,7 @@ The Status for the load balancer now shows **Deleting**. Refresh the page to con
 
 Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 
-To delete an ALB by using the CLI, run the following command:
+To delete an ALB from the CLI, run the following command:
 
 ```sh
 ibmcloud is load-balancer-delete <load_balancer_id> -f -q
@@ -46,17 +46,17 @@ ibmcloud is load-balancer-delete <load_balancer_id> -f -q
 
 Where:
 
-* **load_balancer_id** is the ID of the load balancer (for example, `r134-99b5ab45-6357-42db-8b32-5d2c8aa62776`).
+* **load_balancer_id** is the ID of the load balancer (for example, `r006-99b5ab45-6357-42db-8b32-5d2c8aa62776`).
 * **--force, -f** forces the operation without confirmation.
 * **--quiet, -q** suppresses verbose output.
 
 The following example is sample output:
 
 ```sh
-This command deletes Load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 and cannot be undone. Continue [y/n] ?> y
-Deleting load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 under account IBM Cloud Network Services as user test@ibm.com...
+This command deletes Load balancer r006-99b5ab45-6357-42db-8b32-5d2c8aa62776 and cannot be undone. Continue [y/n] ?> y
+Deleting load balancer r006-99b5ab45-6357-42db-8b32-5d2c8aa62776 under account IBM Cloud Network Services as user test@ibm.com...
 OK
-Deletion request for load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 was accepted.
+Deletion request for load balancer r006-99b5ab45-6357-42db-8b32-5d2c8aa62776 was accepted.
 ```
 {: screen}
 
@@ -64,7 +64,7 @@ Deletion request for load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 was
 {: #alb-deleting-api}
 {: api}
 
-To delete an ALB by using the API, perform the following procedure:
+To delete an ALB with the API, perform the following procedure:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the right variables.
 

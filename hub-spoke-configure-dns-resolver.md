@@ -18,7 +18,7 @@ subcollection: vpc
 This VPC feature is available only to accounts with special approval to preview this feature.
 {: preview}
 
-After you create a DNS-shared VPC by creating a resolution binding to the DNS hub VPC, you must set the shared VPC's DNS resolver type to Delegated so that the VPC can use the custom resolver in the DNS hub VPC.
+After you create a DNS-shared VPC by creating a resolution binding to the DNS hub VPC, you must set the shared VPC's DNS resolver type to Delegated or Manual so that the VPC can use the custom resolver in the DNS hub VPC.
 {: shortdesc}
 
 ## About resolver types
@@ -110,7 +110,7 @@ ibmcloud is vpcu my-vpc --dns-resolver-manual-servers '[
 To configure a `delegated` resolver type:
 
 ```sh
-ibmcloud is vpcu r134-55007c36-fd61-48db-ae22-710b0277e78e --dns-resolver-type delegated --delegate-to-vpc r134-4691ccef-498c-4d8e-9064-bcf13972b1aa
+ibmcloud is vpcu r006-55007c36-fd61-48db-ae22-710b0277e78e --dns-resolver-type delegated --delegate-to-vpc r006-4691ccef-498c-4d8e-9064-bcf13972b1aa
 ```
 
 To configure a `system` resolver type:
@@ -179,7 +179,7 @@ To set the DNS resolver type with the API, follow these steps:
 
 You can use Terraform to set the DNS resolver type.
 
-To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
+To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started){: external}.
 {: requirement}
 
 VPC infrastructure services use a regional specific endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the right region in the provider block in the `provider.tf` file.

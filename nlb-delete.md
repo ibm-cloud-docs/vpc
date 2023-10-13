@@ -15,7 +15,7 @@ subcollection: vpc
 # Deleting a network load balancer
 {: #nlb-deleting}
 
-You can delete an {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) by using the UI, CLI, or API.
+You can delete an {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) with the UI, CLI, or API.
 {: shortdesc}
 
 ## Deleting a network load balancer in the UI
@@ -25,7 +25,7 @@ You can delete an {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NL
 To delete a network load balancer with the IBM Cloud console, perform the following procedure:
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
-1. Select the Navigation Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **VPC Infrastructure > Load balancers** from the Network section.
+1. Select the Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **VPC Infrastructure > Load balancers** from the Network section.
 1. Select the Region of your load balancer.
 1. Click the Actions menu ![Actions menu](images/overflow.png) next to the load balancer that you want to delete, then select **Delete**.
 
@@ -44,17 +44,17 @@ ibmcloud is load-balancer-delete <load_balancer_id> -f -q
 
 Where:
 
-* **load_balancer_id** is the ID of the load balancer (for example, `r134-99b5ab45-6357-42db-8b32-5d2c8aa62776`).
+* **load_balancer_id** is the ID of the load balancer (for example, `r006-99b5ab45-6357-42db-8b32-5d2c8aa62776`).
 * **--force, -f** forces the operation without confirmation.
 * **--quiet, -q** suppresses verbose output.
 
 Sample output:
 
 ```sh
-This command deletes Load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 and cannot be undone. Continue [y/N] ?> y
-Deleting load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 under account IBM Cloud Network Services as user test@ibm.com...
+This command deletes Load balancer r006-99b5ab45-6357-42db-8b32-5d2c8aa62776 and cannot be undone. Continue [y/N] ?> y
+Deleting load balancer r006-99b5ab45-6357-42db-8b32-5d2c8aa62776 under account IBM Cloud Network Services as user test@ibm.com...
 OK
-Deletion request for load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 was accepted.
+Deletion request for load balancer r006-99b5ab45-6357-42db-8b32-5d2c8aa62776 was accepted.
 ```
 {: screen}
 

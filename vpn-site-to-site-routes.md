@@ -76,7 +76,7 @@ To delete a route by using the UI, follow these steps:
 {: #create-route-cli-s2s}
 {: cli}
 
-To create a VPN gateway route by using the CLI, enter the following command:
+To create a VPN gateway route from the CLI, enter the following command:
 
 ```sh
 ibmcloud is vpn-gateway-route-create VPN_GATEWAY_ID --destination DESTINATION_CIDR [--action translate | deliver | drop] [--name NAME] [--output JSON] [-q, --quiet]
@@ -94,10 +94,10 @@ Where:
 
 For example:
 
-- `ibmcloud is vpn-gateway-route-create r134-77e21079-7291-44c2-866a-8f1848bc10f0 --name myroute --action deliver --destination 10.0.0.0/24`
+- `ibmcloud is vpn-gateway-route-create r006-77e21079-7291-44c2-866a-8f1848bc10f0 --name myroute --action deliver --destination 10.0.0.0/24`
 {: screen}
 
-- `ibmcloud is vpn-gateway-route-create r134-77e21079-7291-44c2-866a-8f1848bc10f0 --name myroute --action drop --destination 10.0.0.0/24`
+- `ibmcloud is vpn-gateway-route-create r006-77e21079-7291-44c2-866a-8f1848bc10f0 --name myroute --action drop --destination 10.0.0.0/24`
 {: screen}
 
 ## Updating a route from the CLI
@@ -106,7 +106,7 @@ For example:
 
 Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 
-To update a VPN gateway route by using the CLI, enter the following command:
+To update a VPN gateway route from the CLI, enter the following command:
 
 ```sh
 ibmcloud is vpn-gateway-route-update VPN_GATEWAY_ID ROUTE_ID [--name NAME] [--output JSON] [-q, --quiet]
@@ -123,7 +123,7 @@ Where:
 
 For example:
 
-`ibmcloud is vpn-gateway-route-update r134-77e21079-7291-44c2-866a-8f1848bc10f0 1233a60b-fc95-4dbc-96ab-a976b723bfb0 --name myroute`
+`ibmcloud is vpn-gateway-route-update r006-77e21079-7291-44c2-866a-8f1848bc10f0 1233a60b-fc95-4dbc-96ab-a976b723bfb0 --name myroute`
 {: screen}
 
 ## Viewing VPN route details from the CLI
@@ -148,7 +148,7 @@ Where:
 {: #view-routes-cli-s2s}
 {: cli}
 
-To view a list of VPN gateway routes for a VPN gateway by using the CLI, enter the following command:
+To view a list of VPN gateway routes for a VPN gateway from the CLI, enter the following command:
 
 ```sh
 ibmcloud is vpn-gateway-routes VPN_GATEWAY_ID [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME | --all-resource-groups] [--output JSON] [-q, --quiet]
@@ -168,7 +168,7 @@ Where:
 {: #delete-route-cli-s2s}
 {: cli}
 
-To delete a VPN gateway route by using the CLI, enter the following command:
+To delete a VPN gateway route from the CLI, enter the following command:
 
 ```sh
 ibmcloud is vpn-gateway-route-delete VPN_GATEWAY_ID (ROUTE_ID1 ROUTE_ID2 ...) [--output JSON] [-f, --force] [-q, --quiet]
@@ -188,7 +188,7 @@ Where:
 {: #create-route-api-s2s}
 {: api}
 
-To create a VPN route on the VPN gateway by using the API, follow these steps:
+To create a VPN route on the VPN gateway with the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the right variables.
 
@@ -209,7 +209,7 @@ To create a VPN route on the VPN gateway by using the API, follow these steps:
 {: #update-route-api-s2s}
 {: api}
 
-To update a route on the VPN gateway by using the API, follow these steps:
+To update a route on the VPN gateway with the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the right variables.
 
@@ -228,7 +228,7 @@ To update a route on the VPN gateway by using the API, follow these steps:
 {: #view-routes-api-s2s}
 {: api}
 
-To view a route on a VPN gateway by using the API, follow these steps:
+To view a route on a VPN gateway with the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the right variables.
 
@@ -254,11 +254,11 @@ To view a route on a VPN gateway by using the API, follow these steps:
 {: #delete-route-api-s2s}
 {: api}
 
-To delete a route on a VPN gateway by using the API, follow these steps:
+To delete a route on a VPN gateway with the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the right variables.
 
-1. Perform a DELETE on `/vpn_gateways/{vpn_gateway_id}/routes/{id}`. 
+1. Perform a DELETE on `/vpn_gateways/{vpn_gateway_id}/routes/{id}`.
 
    ```curl
    curl -sS -X DELETE \
@@ -266,4 +266,3 @@ To delete a route on a VPN gateway by using the API, follow these steps:
    "$vpc_api_endpoint/v1/vpn_gateways/$vpn_gateway_id/routes/$route_id?version=$api_version&generation=2"
    ```
    {: codeblock}
-

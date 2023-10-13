@@ -74,7 +74,7 @@ To delete a route using the UI, follow these steps:
 
 Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 
-To create a VPN server route by using the CLI, enter the following command:
+To create a VPN server route from the CLI, enter the following command:
 
 ```sh
 ibmcloud is vpn-server-route-create VPN_SERVER_ID --destination DESTINATION_CIDR [--action translate | deliver | drop] [--name NAME] [--output JSON] [-q, --quiet]
@@ -92,17 +92,17 @@ Where:
 
 For example:
 
-- `ibmcloud is vpn-server-route-create r134-77e21079-7291-44c2-866a-8f1848bc10f0 --name myroute --action deliver --destination 10.0.0.0/24`
+- `ibmcloud is vpn-server-route-create r006-77e21079-7291-44c2-866a-8f1848bc10f0 --name myroute --action deliver --destination 10.0.0.0/24`
 {: screen}
 
-- `ibmcloud is vpn-server-route-create r134-77e21079-7291-44c2-866a-8f1848bc10f0 --name myroute --action drop --destination 10.0.0.0/24`
+- `ibmcloud is vpn-server-route-create r006-77e21079-7291-44c2-866a-8f1848bc10f0 --name myroute --action drop --destination 10.0.0.0/24`
 {: screen}
 
 ## Updating a route from the CLI
 {: #update-route-cli-c2s}
 {: cli}
 
-To update a VPN server route by using the CLI, enter the following command:
+To update a VPN server route from the CLI, enter the following command:
 
 ```sh
 ibmcloud is vpn-server-route-update VPN_SERVER_ID ROUTE_ID [--name NAME] [--output JSON] [-q, --quiet]
@@ -119,7 +119,7 @@ Where:
 
 For example:
 
-`ibmcloud is vpn-server-route-update r134-77e21079-7291-44c2-866a-8f1848bc10f0 1233a60b-fc95-4dbc-96ab-a976b723bfb0 --name myroute`
+`ibmcloud is vpn-server-route-update r006-77e21079-7291-44c2-866a-8f1848bc10f0 1233a60b-fc95-4dbc-96ab-a976b723bfb0 --name myroute`
 {: screen}
 
 ## Viewing VPN route details from the CLI
@@ -146,7 +146,7 @@ Where:
 
 Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 
-To view a list of VPN server routes for a VPN server by using the CLI, enter the following command:
+To view a list of VPN server routes for a VPN server from the CLI, enter the following command:
 
 ```sh
 ibmcloud is vpn-server-routes VPN_SERVER_ID [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME | --all-resource-groups] [--output JSON] [-q, --quiet]
@@ -166,7 +166,7 @@ Where:
 {: #delete-route-cli-c2s}
 {: cli}
 
-To delete a VPN server route by using the CLI, enter the following command:
+To delete a VPN server route from the CLI, enter the following command:
 
 ```sh
 ibmcloud is vpn-server-route-delete VPN_SERVER_ID (ROUTE_ID1 ROUTE_ID2 ...) [--output JSON] [-f, --force] [-q, --quiet]
@@ -186,7 +186,7 @@ Where:
 {: #create-route-api-c2s}
 {: api}
 
-To create a VPN route on the VPN server by using the API, follow these steps:
+To create a VPN route on the VPN server with the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the right variables.
 
@@ -207,7 +207,7 @@ To create a VPN route on the VPN server by using the API, follow these steps:
 {: #update-route-api-c2s}
 {: api}
 
-To update a route on the VPN server by using the API, follow these steps:
+To update a route on the VPN server with the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the right variables.
 
@@ -226,7 +226,7 @@ To update a route on the VPN server by using the API, follow these steps:
 {: #view-routes-api-c2s}
 {: api}
 
-To view a route on a VPN server by using the API, follow these steps:
+To view a route on a VPN server with the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the right variables.
 
@@ -252,7 +252,7 @@ To view a route on a VPN server by using the API, follow these steps:
 {: #delete-route-api}
 {: api}
 
-To delete a route on a VPN server by using the API, follow these steps:
+To delete a route on a VPN server with the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the right variables.
 
