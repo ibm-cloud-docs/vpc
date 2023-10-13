@@ -196,7 +196,7 @@ The following example lists the properties of a backup policy with the plan that
 
 ```sh
 $ ibmcloud is backup-policy my-backup-policy-v2
-Getting backup policy my-backup-policy-v2 under account Kranthi's Test Account as user test.user@ibm.com...
+Getting backup policy my-backup-policy-v2 under account Test Account as user test.user@ibm.com...
                            
 ID                      r006-0723c648-9a47-4d51-b1ba-349e21e715b6   
 Name                    my-backup-policy-v2   
