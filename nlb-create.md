@@ -142,9 +142,9 @@ To create a network load balancer with the CLI, follow these steps:
    ```sh
    Creating load balancer nlb-test in resource group under account IBM Cloud Network Services as user test@ibm.com...
 
-    ID                 r134-99b5ab45-6357-42db-8b32-5d2c8aa62776
+    ID                 r006-99b5ab45-6357-42db-8b32-5d2c8aa62776
     Name               nlb-test
-    CRN                crn:v1:public:is:us-south-1:a/6266f0fbb7df487d8438b9b31d24cd96::load-balancer:r134-99b5ab45-6357-42db-8b32-5d2c8aa62776
+    CRN                crn:v1:public:is:us-south-1:a/123456::load-balancer:r006-99b5ab45-6357-42db-8b32-5d2c8aa62776
     Family             Network
     Host name          99b5ab45-us-south.lb.test.appdomain.cloud
     Subnets            ID                                          Name
@@ -181,7 +181,7 @@ To create a network load balancer with the CLI, follow these steps:
 
    ID                 r018-8a994baa-21ba-428c-ac3f-e3fd91fa92c9
    Name               nlb-test
-   CRN                crn:v1:bluemix:public:is:eu-gb-3:a/be636a7a6e4d4b6296bedf669ce8f757::load-balancer:r018-8a994baa-21ba-428c-ac3f-e3fd91fa92c9
+   CRN                crn:v1:bluemix:public:is:eu-gb-3:a/123456::load-balancer:r018-8a994baa-21ba-428c-ac3f-e3fd91fa92c9
    Family             Network
    Host name          8a994baa-eu-gb.lb.appdomain.cloud
    Subnets            ID                                          Name
@@ -207,16 +207,16 @@ To create a network load balancer with the CLI, follow these steps:
 1. Create a pool.
 
    ```sh
-   ibmcloud is load-balancer-pool-create nlb-pool r134-99b5ab45-6357-42db-8b32-5d2c8aa62776  weighted_round_robin tcp 10
+   ibmcloud is load-balancer-pool-create nlb-pool r006-99b5ab45-6357-42db-8b32-5d2c8aa62776  weighted_round_robin tcp 10
    ```
    {: pre}
 
    Sample output:
 
    ```sh
-   Creating pool nlb-pool of load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776  under account IBM Cloud Network Services as user test@ibm.com...
+   Creating pool nlb-pool of load balancer r006-99b5ab45-6357-42db-8b32-5d2c8aa62776  under account IBM Cloud Network Services as user test@ibm.com...
 
-   ID                         r134-3b66d605-6aa5-4166-9f66-b16054da3cb0
+   ID                         r006-3b66d605-6aa5-4166-9f66-b16054da3cb0
    Name                       nlb-pool
    Protocol                   tcp
    Algorithm                  weighted_round_robin
@@ -236,16 +236,16 @@ To create a network load balancer with the CLI, follow these steps:
 1. Create a member.
 
    ```sh
-   ibmcloud is load-balancer-pool-member-create r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 r134-3b66d605-6aa5-4166-9f66-b16054da3cb0 9090 0716_6acdd058-4607-4463-af08-d4999d983945 --weight 70
+   ibmcloud is load-balancer-pool-member-create r006-99b5ab45-6357-42db-8b32-5d2c8aa62776 r006-3b66d605-6aa5-4166-9f66-b16054da3cb0 9090 0716_6acdd058-4607-4463-af08-d4999d983945 --weight 70
    ```
    {: pre}
 
    Sample output:
 
    ```sh
-   Creating member of pool r134-3b66d605-6aa5-4166-9f66-b16054da3cb0 under account IBM Cloud Network Services as user test@ibm.com...
+   Creating member of pool r006-3b66d605-6aa5-4166-9f66-b16054da3cb0 under account IBM Cloud Network Services as user test@ibm.com...
 
-   ID                 r134-61f8b000-a90d-4abe-909e-c507dffec565
+   ID                 r006-61f8b000-a90d-4abe-909e-c507dffec565
    Port               9090
    Target             0716_6acdd058-4607-4463-af08-d4999d983945
    Weight             70
@@ -258,21 +258,21 @@ To create a network load balancer with the CLI, follow these steps:
 1. Create a listener.
 
    ```sh
-   ibmcloud is load-balancer-listener-create r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 7070 tcp --default-pool r134-3b66d605-6aa5-4166-9f66-b16054da3cb0
+   ibmcloud is load-balancer-listener-create r006-99b5ab45-6357-42db-8b32-5d2c8aa62776 7070 tcp --default-pool r006-3b66d605-6aa5-4166-9f66-b16054da3cb0
    ```
    {: pre}
 
    Sample output:
 
    ```sh
-   Creating listener of load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 under account IBM Cloud Network Services as user test@ibm.com...
+   Creating listener of load balancer r006-99b5ab45-6357-42db-8b32-5d2c8aa62776 under account IBM Cloud Network Services as user test@ibm.com...
 
-   ID                     r134-2847a948-f9b6-4fc1-91c6-f1c49dac3eba
+   ID                     r006-2847a948-f9b6-4fc1-91c6-f1c49dac3eba
    Certificate instance   -
    Connection limit       -
    Port                   7070
    Protocol               tcp
-   Default pool           r134-3b66d605-6aa5-4166-9f66-b16054da3cb0
+   Default pool           r006-3b66d605-6aa5-4166-9f66-b16054da3cb0
    Provision status       create_pending
    Created                2020-08-27T15:16:08.643-05:00
    ```
@@ -281,18 +281,18 @@ To create a network load balancer with the CLI, follow these steps:
 1. Get details about your load balancer.
 
    ```sh
-   ibmcloud is load-balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776
+   ibmcloud is load-balancer r006-99b5ab45-6357-42db-8b32-5d2c8aa62776
    ```
    {: pre}
 
    Sample output:
 
    ```sh
-   Getting load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 under account IBM Cloud Network Services as user test@ibm.com...
+   Getting load balancer r006-99b5ab45-6357-42db-8b32-5d2c8aa62776 under account IBM Cloud Network Services as user test@ibm.com...
 
-   ID                 r134-99b5ab45-6357-42db-8b32-5d2c8aa62776
+   ID                 r006-99b5ab45-6357-42db-8b32-5d2c8aa62776
    Name               nlb-test
-   CRN                crn:v1:public:is:us-south-1:a/6266f0fbb7df487d8438b9b31d24cd96::load-balancer:r134-99b5ab45-6357-42db-8b32-5d2c8aa62776
+   CRN                crn:v1:public:is:us-south-1:a/123456::load-balancer:r006-99b5ab45-6357-42db-8b32-5d2c8aa62776
    Family             Network
    Host name          99b5ab45-us-south.lb.test.appdomain.cloud
    Subnets            ID                                          Name
@@ -303,9 +303,9 @@ To create a network load balancer with the CLI, follow these steps:
    Provision status   active
    Operating status   online
    Is public          true
-   Listeners          r134-2847a948-f9b6-4fc1-91c6-f1c49dac3eba
+   Listeners          r006-2847a948-f9b6-4fc1-91c6-f1c49dac3eba
    Pools              ID                                          Name
-                      r134-3b66d605-6aa5-4166-9f66-b16054da3cb0   nlb-pool
+                      r006-3b66d605-6aa5-4166-9f66-b16054da3cb0   nlb-pool
 
    Resource group     ID                                 Name
                       3021f90279574ce287dd5fba82c08899   Default
