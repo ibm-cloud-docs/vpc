@@ -71,7 +71,7 @@ Sample output:
 ```sh
 {
     "id": "0738-7fd72524-6e2d-49a6-b975-0071efccd89a",
-    "crn": "crn:v1:staging:public:is:us-south:a/b668aa2600ac21c890aef16a6210b2fd::vpn:0738-7fd72524-6e2d-49a6-b975-0071efccd89a",
+    "crn": "crn:v1:bluemix:public:is:us-south:a/b668aa2600ac21c890aef16a6210b2fd::vpn:0738-7fd72524-6e2d-49a6-b975-0071efccd89a",
     "name": "vpn-gateway-1",
     "href": "https://us-south.iaas.cloud.ibm.com/v1/vpn_gateways/0738-7fd72524-6e2d-49a6-b975-0071efccd89a",
     "created_at": "2018-07-06T19:19:28.694388Z",
@@ -147,7 +147,7 @@ Sample output:
 ```sh
 {
     "id": "0738-f72559a3-2fac-4958-b937-54474e6a8a8d",
-    "crn": "crn:v1:staging:public:is:us-south:a/b668aa2600ac21c890aef16a6210b2fd::vpn:0738-f72559a3-2fac-4958-b937-54474e6a8a8d",
+    "crn": "crn:v1:bluemix:public:is:us-south:a/b668aa2600ac21c890aef16a6210b2fd::vpn:0738-f72559a3-2fac-4958-b937-54474e6a8a8d",
     "name": "vpn-gateway-2",
     "href": "https://us-south.iaas.cloud.ibm.com/v1/vpn_gateways/0738-f72559a3-2fac-4958-b937-54474e6a8a8d",
     "created_at": "2018-07-06T19:33:23.789675Z",

@@ -4,7 +4,7 @@ copyright:
   years: 2021, 2022
 lastupdated: "2022-11-11"
 
-keywords:  
+keywords:
 
 subcollection: vpc
 
@@ -34,7 +34,7 @@ Before you provision a VPN server, complete the following prerequisites in the f
 1. For server authentication only, [create IAM service-to-service authorization](/docs/vpc?topic=vpc-client-to-site-authentication#creating-iam-service-to-service).
 1. Depending on the deployment mode that you selected for your VPN server, do one of the following:
 
-   * For a High Availability (HA) VPN server, create a VPC and two subnets in two different zones. The VPN server resides in the two subnets.   
+   * For a High Availability (HA) VPN server, create a VPC and two subnets in two different zones. The VPN server resides in the two subnets.
    * For a stand-alone VPN server, create a VPC and one subnet in one zone.
 
    For instructions, see [Creating a VPC and subnet](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vpc-and-subnet).
@@ -43,7 +43,7 @@ Before you provision a VPN server, complete the following prerequisites in the f
 1. Optionally, if you plan to configure access control lists (ACLs) for use with the VPN, see [Configuring security groups and ACLs for use with VPN](/docs/vpc?topic=vpc-vpn-client-to-site-security-groups).
 
    To configure security groups for use with a VPN, you must do so during VPN server provisioning. At least one security group is required.
-   {: note}   
+   {: note}
 
 ## Creating a VPN server in the UI
 {: #creating-vpn-server-ui}
@@ -59,7 +59,7 @@ To create a client-to-site VPN server in the UI:
 
    ![VPN type section](images/vpn-type.png){: caption="VPN type section" caption-side="bottom"}
 
-   
+
    The Locations section shows the region where the VPC is located and where the VPN server will be provisioned.
    {: tip}
 
@@ -67,7 +67,7 @@ To create a client-to-site VPN server in the UI:
 
    * **VPN server name** - Enter a name for the VPN server, such as `my-vpn-server`.
    * **Resource group** - Select a resource group for the VPN server.
-   * **Tags** - Optionally, add tags to organize, track usage costs, or manage access to your resources. 
+   * **Tags** - Optionally, add tags to organize, track usage costs, or manage access to your resources.
    * **Access management tags** - Optionally, add access management tags to resources to help organize access control relationships. The only supported format for access management tags is `key:value`. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
    * **Virtual private cloud** - Select the VPC for the VPN server.
    * **Client IPv4 address pool** - Enter a CIDR range. The client is assigned an IP address for its session from this address pool.
@@ -91,7 +91,7 @@ To create a client-to-site VPN server in the UI:
 
       ![VPN server authentication section](images/vpn-server-authentication.png){: caption="VPN server authentication section" caption-side="bottom"}
 
-   * **Client authentication modes** - Select to configure user authentication through the use of a client certificate, user ID and passcode, or both.   
+   * **Client authentication modes** - Select to configure user authentication through the use of a client certificate, user ID and passcode, or both.
 
       * Client certificate - You can select a client certificate and configure a user ID and passcode for optimal security. A user ID and passcode provides an added layer of security that requires additional login credentials for account access.
 
@@ -104,9 +104,9 @@ To create a client-to-site VPN server in the UI:
 
 1. In the Security groups section, select at least one security group. To configure one or more security groups and their rules, see [Configuring ACLs and security groups for use with VPN](/docs/vpc?topic=vpc-acls-security-groups-vpn).
 
-   ![VPN security groups section](images/vpn-security-groups.png){: caption="VPN security groups section" caption-side="bottom"}   
-   
-   You can attach security groups after provisioning from the VPN server's details page (Security Groups tab). 
+   ![VPN security groups section](images/vpn-security-groups.png){: caption="VPN security groups section" caption-side="bottom"}
+
+   You can attach security groups after provisioning from the VPN server's details page (Security Groups tab).
    {: tip}
 
 1. In the **Additional configuration** section, specify the following information:
@@ -119,7 +119,7 @@ To create a client-to-site VPN server in the UI:
       * TCP is a connection-oriented protocol with error checking and error recovery. More reliable than UDP.
    * **Tunnel mode** - Specify one of the following:
 
-      * Full tunnel - All traffic flows through the VPN interface to the VPN tunnel.   
+      * Full tunnel - All traffic flows through the VPN interface to the VPN tunnel.
       * Split tunnel - Private traffic flows through the VPN interface to the VPN tunnel, and public traffic flows through the existing LAN interface.
 
          ![VPN additional configuration section](images/vpn-additional-configuration.png){: caption="VPN additional configuration section" caption-side="bottom"}
@@ -130,7 +130,7 @@ To create a client-to-site VPN server in the UI:
 
 Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 
-To create a VPN server by using the CLI, enter the following command:
+To create a VPN server from the CLI, enter the following command:
 
 ```sh
 ibmcloud is vpn-server-create --subnets SUBNETS --client-ip-pool CLIENT_IP_POOL --cert CERT (--client-auth-methods certificate | username | certificate,username | username,certificate) [--client-ca CLIENT_CA] [--client-crl CLIENT_CRL] [--client-dns CLIENT_DNS] [--client-idle-timeout CLIENT_IDLE_TIMEOUT] [--enable-split-tunnel false | true] [--port PORT] [--protocol udp | tcp] [--security-group SECURITY_GROUP1 --security-group SECURITY_GROUP2 ...] [--name NAME] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--output JSON] [-q, --quiet]
@@ -161,7 +161,7 @@ ibmcloud is vpn-server-create --subnets SUBNETS --client-ip-pool CLIENT_IP_POOL 
 ### Command examples
 {: #cli-cmd-examples-vpn-server-create}
 
-- `ibmcloud is vpn-server-create --subnets 0726-a7191f77-7c87-4ad4-bb11-a37f9e9fc0f0,0736-4b871e22-e819-4f87-bb17-e457a88246a2 --cert crn:v1:bluemix:public:cloudcerts:us-south:a/aa5a471f75bc456fac416bf02c4ba6de:1862b0b4-c1f8-4eef-a6b5-e9c00c9f593d:certificate:6c801ef768c139d986b4c6f91175e8cc --client-ip-pool 190.165.7.0/20 --client-auth-methods certificate --client-ca crn:v1:staging:public:cloudcerts:us-south:a/aa5a471f75bc456fac416bf02c4ba6de:1862b0b4-c1f8-4eef-a6b5-e9c00c9f593d:certificate:6c801ef768c139d986b4c6f91175e8cc`
+- `ibmcloud is vpn-server-create --subnets 0726-a7191f77-7c87-4ad4-bb11-a37f9e9fc0f0,0736-4b871e22-e819-4f87-bb17-e457a88246a2 --cert crn:v1:bluemix:public:cloudcerts:us-south:a/aa5a471f75bc456fac416bf02c4ba6de:1862b0b4-c1f8-4eef-a6b5-e9c00c9f593d:certificate:6c801ef768c139d986b4c6f91175e8cc --client-ip-pool 190.165.7.0/20 --client-auth-methods certificate --client-ca crn:v1:bluemix:public:cloudcerts:us-south:a/aa5a471f75bc456fac416bf02c4ba6de:1862b0b4-c1f8-4eef-a6b5-e9c00c9f593d:certificate:6c801ef768c139d986b4c6f91175e8cc`
 - `ibmcloud is vpn-server-create --name myvpnserver --subnets 0726-a7191f77-7c87-4ad4-bb11-a37f9e9fc0f0,0736-4b871e22-e819-4f87-bb17-e457a88246a2 --cert crn:v1:bluemix:public:cloudcerts:us-south:a/aa5a471f75bc456fac416bf02c4ba6de:1862b0b4-c1f8-4eef-a6b5-e9c00c9f593d:certificate:6c801ef768c139d986b4c6f91175e8cc --client-ip-pool 190.166.7.0/20 --client-auth-methods username`
 - `ibmcloud is vpn-server-create --name myvpnserver2 --subnets 0726-a7191f77-7c87-4ad4-bb11-a37f9e9fc0f0 --cert crn:v1:bluemix:public:cloudcerts:us-south:a/aa5a471f75bc456fac416bf02c4ba6de:1862b0b4-c1f8-4eef-a6b5-e9c00c9f593d:certificate:6c801ef768c139d986b4c6f91175e8cc --client-ip-pool 190.167.7.0/20 --client-auth-methods username --client-dns 9.9.9.9,8.8.8.8 --protocol tcp --port 8888 --enable-split-tunnel true --client-idle-timeout 1200`
 - `ibmcloud is vpn-server-create --name myvpnserver3 --subnets 0726-a7191f77-7c87-4ad4-bb11-a37f9e9fc0f0 --cert crn:v1:bluemix:public:cloudcerts:us-south:a/aa5a471f75bc456fac416bf02c4ba6de:1862b0b4-c1f8-4eef-a6b5-e9c00c9f593d:certificate:6c801ef768c139d986b4c6f91175e8cc --client-ip-pool 190.168.7.0/20 --client-auth-methods username --security-group r134-e32f671c-463d-4f93-88e3-2dd0413476b4 --security-group r134-3af7a9db-d9bc-43d4-bced-93e0a33fee25`
@@ -171,7 +171,7 @@ ibmcloud is vpn-server-create --subnets SUBNETS --client-ip-pool CLIENT_IP_POOL 
 {: #vpn-create-server-api}
 {: api}
 
-To create a client-to-site VPN server by using the API, follow these steps:
+To create a client-to-site VPN server with the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the right variables.
 
@@ -198,7 +198,7 @@ To create a client-to-site VPN server by using the API, follow these steps:
         -H "Authorization: $iam_token" \
         -d '{
            "certificate": {
-               "crn": "crn:v1:staging:public:cloudcerts:us-south:a/aa5a471f75bc456fac416bf02c4ba6de:1862b0b4-c1f8-4eef-a6b5-e9c00c9f593d:certificate:6c801ef768c139d986b4c6f91175e8cc"
+               "crn": "crn:v1:bluemix:public:cloudcerts:us-south:a/aa5a471f75bc456fac416bf02c4ba6de:1862b0b4-c1f8-4eef-a6b5-e9c00c9f593d:certificate:6c801ef768c139d986b4c6f91175e8cc"
             },
            "client_ip_pool": "192.168.50.0/22",
            "name": "my-new-vpn-server",
@@ -214,7 +214,7 @@ To create a client-to-site VPN server by using the API, follow these steps:
                {
                      "method": "certificate",
                      "client_ca": {
-                        "crn": "crn:v1:staging:public:cloudcerts:us-south:a/aa5a471f75bc456fac416bf02c4ba6de:1862b0b4-c1f8-4eef-a6b5-e9c00c9f593d:certificate:6c801ef768c139d986b4c6f91175e8cc"
+                        "crn": "crn:v1:bluemix:public:cloudcerts:us-south:a/aa5a471f75bc456fac416bf02c4ba6de:1862b0b4-c1f8-4eef-a6b5-e9c00c9f593d:certificate:6c801ef768c139d986b4c6f91175e8cc"
                      }
                },
                {

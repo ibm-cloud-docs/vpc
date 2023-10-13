@@ -103,7 +103,7 @@ curl -H "Authorization: $iam_token" -X POST
 "$vpc_api_endpoint/v1/load_balancers/$lbId/listeners" \
     -d '{
             "certificate_instance": {
-                "crn": "crn:v1:staging:public:cloudcerts:us-south:a/1111111111111111111111111111:22222222-3333-4444-5555-666666666666:certificate:77777777777777777777777777777777"
+                "crn": "crn:v1:bluemix:public:cloudcerts:us-south:a/1111111111111111111111111111:22222222-3333-4444-5555-666666666666:certificate:77777777777777777777777777777777"
             },
             "connection_limit": 2000,
             "port": 443,

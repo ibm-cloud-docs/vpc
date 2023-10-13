@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# {{site.data.keyword.cloud_notm}} {{site.data.keyword.alb_full}} API example
+# Application load balancer API example
 {: #lbaas-apis-available-alb}
 {: api}
 
@@ -48,7 +48,7 @@ curl -H "Authorization: $iam_token" -X POST
         "listeners": [
             {
                 "certificate_instance": {
-                    "crn": "crn:v1:staging:public:cloudcerts:us-south:a/123456:b8877ea4-b8eg-467e-912a-da1eb7f031cg:certificate:43219c4c97d013fb2a95b21dddde1234"
+                    "crn": "crn:v1:bluemix:public:cloudcerts:us-south:a/123456:b8877ea4-b8eg-467e-912a-da1eb7f031cg:certificate:43219c4c97d013fb2a95b21dddde1234"
                 },
                 "port": 443,
                 "protocol": "https",
@@ -105,7 +105,7 @@ Sample output:
 ```sh
 {
     "created_at": "2018-07-12T23:17:07.5985381Z",
-    "crn": "crn:v1:staging:public:is:us-south:a/123456::load-balancer:dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
+    "crn": "crn:v1:bluemix:public:is:us-south:a/123456::load-balancer:dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
     "hostname": "ac34687d.lb.appdomain.cloud",
     "href": "https://us-south.iaas.cloud.ibm.com/v1/load_balancers/dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
     "id": "0738-dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
