@@ -101,7 +101,7 @@ The policy is deleted. Existing backups are retained until their expiration date
 Delete a backup policy, rename a policy, and edit user tags from the CLI.
 
 ### Before you begin
-{: ##b#backup-manage-policy-cli-prereq}
+{: #backup-manage-policy-cli-prereq}
 
 Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 {: requirement}
