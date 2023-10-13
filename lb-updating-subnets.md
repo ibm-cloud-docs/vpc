@@ -15,7 +15,7 @@ subcollection: vpc
 # Updating subnets for existing application load balancers
 {: #alb-updating-subnets}
 
-You can update subnets for an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) by using the UI, CLI, or API. ETag support is added for the load balancer resource, and is required for any resource that allows arrays to be updated.
+You can update subnets for an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) with the UI, CLI, or API. ETag support is added for the load balancer resource, and is required for any resource that allows arrays to be updated.
 
 ## Updating subnets for an application load balancer using the UI
 {: #alb-updating-subnets-ui}
@@ -24,7 +24,7 @@ You can update subnets for an {{site.data.keyword.cloud}} {{site.data.keyword.al
 To update subnets for an ALB by in the {{site.data.keyword.cloud_notm}} console, perform the following procedure:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the Navigation Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers**.
+1. Select the Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers**.
 1. Select the load balancer whose subnets you want to update.
 1. Select **Overview**, click the **Edit subnets** button, then select the subnets you want to attach or detach.
    * **Attach**: Add a new subnet to the load balancer.
@@ -60,16 +60,16 @@ To use the CLI to update subnets for your application load balancer, follow thes
     Sample output:
 
     ```sh
-    E.g ibmcloud is load-balancer-update r134-a3e1f3db-0e98-47ca-9f24-6e1d06dba086 --subnets 0726-ec96c7cd-46f4-4969-9009-7613f8e9e936
-    
-    Attach subnet 0726-ec96c7cd-46f4-4969-9009-7613f8e9e936 to application load balancer r134-a3e1f3db-0e98-47ca-9f24-6e1d06dba086 under account IBM Cloud Network Services as user test@ibm.com...
-    
-    ID              0726-ec96c7cd-46f4-4969-9009-7613f8e9e936
+    E.g ibmcloud is load-balancer-update r134-a3e1f3db-0e98-47ca-9f24-6e1d06dba086 --subnets 0717-ec96c7cd-46f4-4969-9009-7613f8e9e936
+
+    Attach subnet 0717-ec96c7cd-46f4-4969-9009-7613f8e9e936 to application load balancer r134-a3e1f3db-0e98-47ca-9f24-6e1d06dba086 under account IBM Cloud Network Services as user test@ibm.com...
+
+    ID              0717-ec96c7cd-46f4-4969-9009-7613f8e9e936
     Name            my-subnet
     Subnet cidr     10.0.0.0/24
-    Subnet crn      crn:v1:bluemix:public:is:us-south-1:a123456::subnet:0726-ec96c7cd-46f4-4969-9009-7613f8e9e936
+    Subnet crn      crn:v1:bluemix:public:is:us-south-1:a123456::subnet:0717-ec96c7cd-46f4-4969-9009-7613f8e9e936
     Zone name       us-south-2
-    Created         2020-08-27T14:45:42.038-05:00   
+    Created         2020-08-27T14:45:42.038-05:00
     ```
     {: screen}
 
@@ -98,7 +98,7 @@ To update subnets for an application load balancer with the API, perform the fol
       -d '{
                "subnets": [
                       {
-                        "id": "0726-ec96c7cd-46f4-4969-9009-7613f8e9e936"
+                        "id": "0717-ec96c7cd-46f4-4969-9009-7613f8e9e936"
                      }
                ]
          }'
@@ -110,11 +110,11 @@ To update subnets for an application load balancer with the API, perform the fol
    ```sh
    {
        "created_at": "2020-08-24T23:36:22.990359Z",
-       "id": "0726-ec96c7cd-46f4-4969-9009-7613f8e9e936",
+       "id": "0717-ec96c7cd-46f4-4969-9009-7613f8e9e936",
        "name": "my-subnet",
        "subnet_cidr": "10.0.0.0/24",
        "subnet_crn": "crn:v1:bluemix:public:is:eu-gb-3:a/a123456::load-balancer:r134-a3e1f3db-0e98-47ca-9f24-6e1d06dba086",
-       "zone_name": "us-south-2"  
+       "zone_name": "us-south-2"
    }
    ```
    {: screen}
