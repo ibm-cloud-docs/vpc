@@ -2,9 +2,9 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-11-11"
+lastupdated: "2023-05-01"
 
-keywords:  
+keywords:
 
 subcollection: vpc
 
@@ -25,21 +25,26 @@ You can create an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (AL
 To create an ALB:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the Navigation Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers**.
-1. On the Load balancers page, click **Create +**. The Load balancer for VPC provisioning page is shown.
-1. In the Location section, edit the following fields, if necessary.
+1. Select the Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers**.
+1. On the Load balancers page, click **Create +**.
+1. For Load balancer type, select the Applicatoin Load Balancer (ALB) tile.
+3. In the Location section, edit the following fields, if necessary.
    * **Geography**: Indicates the geography where you want the load balancer created.
    * **Region**: Indicates the region where you want the load balancer created.
-1. In the Details section, complete the following information:
-   * **Name**: Enter a name for the load balancer, such as `my-load-balancer`.    
+4. In the Details section, complete the following information:
+   * **Name**: Enter a name for the load balancer, such as `my-load-balancer`.
    * **Resource group**: Select a resource group for the load balancer.
-   * **Tags**: (Optional) Add tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).   
+   * **Tags**: (Optional) Add tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
    * **Access management tags**: (Optional) Add access management tags to resources to help organize access control relationships. The only supported format for access management tags is `key:value`. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
-   * Select the **Application Load Balancer (ALB)** tile. 
+   * Select the **Application Load Balancer (ALB)** tile.
    * **Virtual private cloud**: Select your VPC.
    * **Type**: Select the load balancer type.
-        * A public load balancer has a public IP address, which means that it can route requests from clients over the internet.
-        * A private load balancer has a private IP address, which means that it is accessible only to internal clients on your private subnets, within the same region and VPC.
+     * A public load balancer has a public IP address, which means that it can route requests from clients over the internet.
+     * A private load balancer has a private IP address, which means that it is accessible only to internal clients on your private subnets, within the same region and VPC.
+   * For the DNS type, select either **Public** or **Private**. Private DNS zones are resolvable only on IBM Cloud, and only from explicitly permitted networks in an account or with cross-account access.
+
+      **For Private type only**, click Bind+ to enter your DNS instance and zone information, then click **Bind**.
+
    * **Subnets**: Select the subnets in which to create your load balancer. To maximize the availability of your application, select subnets in different zones.
 
         You cannot assign more than 15 subnets per ALB.
@@ -48,11 +53,11 @@ To create an ALB:
 1. In the Back-end pools section, click **Create pool** and specify the following information to create a back-end pool. You can create one or more pools.
    * **Name**: Enter a name for the pool, such as `my-pool`.
    * **Protocol**: Select the protocol for your instances in this pool. The protocol of the pool must match the protocol of its associated listener. For example, if an HTTPS or HTTP protocol is selected for the listener, the protocol of the pool must be HTTP. Similarly, if the listener protocol is TCP, the protocol of the pool must be TCP.
+   * **Session stickiness**: Select whether all requests during a user's session are sent to the same instance.
    * **Method**: Select how you want the load balancer to distribute traffic across the instances in the pool:
        * **Round robin:** Forward requests to each instance in turn. All instances receive approximately an equal number of client connections.
        * **Weighted round robin:** Forward requests to each instance in proportion to its assigned weight. For example, you have instances A, B, and C, and their weights are set to `60`, `60` and `30`. Instances A and B receive an equal number of connections, and instance C receives half as many connections.
        * **Least connections:** Forward requests to the instance with the least number of connections at the current time.
-   * **Session stickiness**: Select whether all requests during a user's session are sent to the same instance.
    * **Health check**: Configure how the load balancer checks the health of the instances.
        * **Health check path**: The health check path is applicable only if HTTP is selected as the health check protocol. The health check path specifies the URL used by the load balancer to send the HTTP health check requests to the instances in the pool. By default, health checks are sent to the root path (`/`).
        * **Health protocol**: The protocol used by the load balancer to send health check messages to the instances in the pool.
@@ -66,11 +71,11 @@ To create an ALB:
        If instances in the pool are unhealthy and you believe that your application is running fine, double check the health protocol and health path values. Also, check any security groups that are attached to the instances to ensure that the rules allow traffic between the load balancer and the instances.
        {: tip}
 
-1. Click **Create** to create the back-end pool. 
+1. Click **Create** to create the back-end pool.
 
    You can attach server instances after you create your back-end pool.
-   
-1. To add a server instance to the new pool, click **Attach server** in the **Server instances** column of the table. 
+
+1. To add a server instance to the new pool, click **Attach server** in the **Server instances** column of the table.
 
    * To add VPC devices to your pool, such as virtual server instances and Bare Metal servers, select the **VPC devices** tab. Specify the following information for each instance:
       * Select one or more subnets from which to select an instance.
@@ -80,9 +85,9 @@ To create an ALB:
 
          Assigning `0` weight to an instance means that no new connections are forwarded to that instance, but any existing traffic continues to flow while the current connection is active. Using a weight of `0` can help bring down an instance gracefully and remove it from service rotation.
          {: tip}
-        
+
       * Click **Configure port and weight**, then specify the port on which traffic is sent to the instance.
-       
+
    * To attach other server instances to your back-end pool, such as servers contained within an IBM Power Systems Virtual Server, select the **Other** tab, then click **Add more**. Specify the following information for each instance:
 
       * Specify a private IP address for the device.
@@ -91,18 +96,21 @@ To create an ALB:
 
          Assigning `0` weight to an instance means that no new connections are forwarded to that instance, but any existing traffic continues to flow while the current connection is active. Using a weight of `0` can help bring down an instance gracefully and remove it from service rotation.
          {: tip}
-    
+
    * Click **Attach** to attach the server instance to your back-end pool.
 
 1. In the Front-end listeners section, click **Create listener** and specify the following information to create a listener. You can create one or more listeners.
 
     * **Protocol**: The protocol to use for receiving incoming requests.
+    * **Proxy protocol**: Select whether to allow the front-end listener to accept proxy protocol traffic.
     * **Port**: The listening port on which requests are received.
     * **Back-end pool**: The default back-end pool to which this listener forwards traffic.
     * **Max connections** (optional): Maximum number of concurrent connections the listener allows.
+    * **IAM Authorization**: If HTTPS is the selected protocol for this listener, you must designate your IAM authorization, either by instance or your CRN.
+    * **Secrets Manager**: If HTTPS is the selected protocol for this listener, you must select or create a secrets manager.
     * **SSL certificate**: If HTTPS is the selected protocol for this listener, you must select an SSL certificate. Make sure that the load balancer is authorized to access the SSL certificate.
     * **Timeout (sec)** (optional): The maximum timeout after which the load balancer closes the connection if no data has been sent or received by the time that the idle timeout period elapses. The minimum and maximum timeout value is 50 seconds and 2 hours respectively.
-    
+
 1. Click **Create** to create the front-end listener.
 1. In the Security groups section, select the security groups that you want to attach to your load balancer, or click **Create** to create a new security group to attach to your ALB.
 
@@ -111,11 +119,11 @@ To create an ALB:
 
 1. After you finish creating pools and listeners, click **Create load balancer**.
 1. To view details of an existing load balancer, click the name of your load balancer on the **Load balancers** page.
-1. If you want to redirect the traffic from an HTTP listener to an HTTPS listener, you can create an HTTP listener with HTTPS redirect settings. 
+1. If you want to redirect the traffic from an HTTP listener to an HTTPS listener, you can create an HTTP listener with HTTPS redirect settings.
 
     Layer 7 load-balancing policies overwrite settings that you define here.
     {: note}
-    
+
     To do so:
     *  There must be an existing HTTPS listener before you create a new HTTP listener with HTTPS redirect.
     *  After the status of the load balancer changes to **Active**, click the **Front-end listeners** tab.
@@ -148,14 +156,14 @@ To create an ALB:
         * **Type**: The type of information to be evaluated by the rule: the name of the host from which the request originated, an HTTP header field, or a path in the URL.
         * **Value**: The value to be matched.
         * **Key**: The name of the HTTP header field to evaluate, if the rule type is **Header**. For example, to match a cookie in the HTTP header, enter **Cookie** for the key.
-  
+
 ## Creating an application load balancer from the CLI
 {: #lb-cli-creating-network-load-balancer}
 {: cli}
 
 The following example illustrates using the CLI to create an {{site.data.keyword.alb_full}} (ALB). In this example, it is in front of one VPC virtual server instance (ID `0716_6acdd058-4607-4463-af08-d4999d983945`) running a TCP server that listens on port 9090. The load balancer has a front-end listener, which allows secure access to the TCP server.
 
-To create an application load balancer by using the CLI, follow these steps:
+To create an application load balancer from the CLI, follow these steps:
 
 1. Set up your [CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 
@@ -180,7 +188,7 @@ To create an application load balancer by using the CLI, follow these steps:
 
     ID                 r134-99b5ab45-6357-42db-8b32-5d2c8aa62776
     Name               alb-test
-    CRN                crn:v1:public:is:us-south-1:a/6266f0fbb7df487d8438b9b31d24cd96::load-balancer:r134-99b5ab45-6357-42db-8b32-5d2c8aa62776
+    CRN                crn:v1:public:is:us-south-1:a/123456::load-balancer:r134-99b5ab45-6357-42db-8b32-5d2c8aa62776
     Family             Network
     Host name          99b5ab45-us-south.lb.test.appdomain.cloud
     Subnets            ID                                          Name
@@ -238,7 +246,7 @@ To create an application load balancer by using the CLI, follow these steps:
     {: pre}
 
     Sample output:
-    
+
     ```sh
     Creating member of pool r134-3b66d605-6aa5-4166-9f66-b16054da3cb0 under account IBM Cloud Network Services as user test@ibm.com...
 
@@ -290,7 +298,7 @@ To create an application load balancer by using the CLI, follow these steps:
 
     ID                 r134-99b5ab45-6357-42db-8b32-5d2c8aa62776
     Name               nlb-test
-    CRN                crn:v1:public:is:us-south-1:a/6266f0fbb7df487d8438b9b31d24cd96::load-balancer:r134-99b5ab45-6357-42db-8b32-5d2c8aa62776
+    CRN                crn:v1:public:is:us-south-1:a/123456::load-balancer:r134-99b5ab45-6357-42db-8b32-5d2c8aa62776
     Family             Network
     Host name          99b5ab45-us-south.lb.test.appdomain.cloud
     Subnets            ID                                          Name
@@ -321,7 +329,7 @@ The following example illustrates using the API to create an application load ba
 The example skips the [prerequisite steps](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis) for using the API to provision a VPC, subnets, and instances.
 {: note}
 
-To create an application load balancer by using the API, follow these steps:
+To create an application load balancer with the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
 
@@ -345,7 +353,7 @@ To create an application load balancer by using the API, follow these steps:
           "listeners": [
               {
                   "certificate_instance": {
-                      "crn": "crn:v1:staging:public:cloudcerts:us-south:a/123456:b8877ea4-b8eg-467e-912a-da1eb7f031cg:certificate:43219c4c97d013fb2a95b21dddde1234"
+                      "crn": "crn:v1:bluemix:public:cloudcerts:us-south:a/123456:b8877ea4-b8eg-467e-912a-da1eb7f031cg:certificate:43219c4c97d013fb2a95b21dddde1234"
                   },
                   "port": 443,
                   "protocol": "tcp",
@@ -402,7 +410,7 @@ To create an application load balancer by using the API, follow these steps:
     ```sh
     {
         "created_at": "2018-07-12T23:17:07.5985381Z",
-        "crn": "crn:v1:staging:public:is:us-south:a/123456::load-balancer:dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
+        "crn": "crn:v1:bluemix:public:is:us-south:a/123456::load-balancer:dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
         "hostname": "ac34687d.lb.appdomain.cloud",
         "href": "https://us-south.iaas.cloud.ibm.com/v1/load_balancers/dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
         "id": "0738-dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
@@ -460,7 +468,7 @@ To create an application load balancer by using the API, follow these steps:
     ```sh
     {
       "id": "0738-dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
-      "crn": "crn:v1:staging:public:is:us-south:a/123456::load-balancer:dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
+      "crn": "crn:v1:bluemix:public:is:us-south:a/123456::load-balancer:dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
       "href": "https://us-south.iaas.cloud.ibm.com/v1/load_balancers/dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
       "name": "example-balancer",
       "created_at": "2018-07-13T22:22:24.489Z",
