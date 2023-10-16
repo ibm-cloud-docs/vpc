@@ -136,7 +136,7 @@ SSH into the virtual server instance where you want to mount the file share, the
        ```
        {: screem}
 
-    3. Edit the file systems table (`/etc/fstab`) and add an entry.
+    3. Edit the file systems table `/etc/fstab` and add an entry.
 
        ```text
        (hostname):/(file_share_path) /mnt nfs_version options 0 0
