@@ -134,7 +134,7 @@ SSH into the virtual server instance where you want to mount the file share, the
        ```text
        198.51.100.0 fsf-dal2433a-dz.adn.networklayer.com
        ```
-       {: screem}
+       {: screen}
 
     3. Edit the file systems table `/etc/fstab` and add an entry.
 
