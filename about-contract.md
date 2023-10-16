@@ -147,7 +147,7 @@ tar czvf compose.tgz docker-compose.yml
 
 
 ```sh
-base64 -w0 compose.tgz > compose.64
+base64 -w0 compose.tgz > compose.b64
 ```
 {: pre}
 
