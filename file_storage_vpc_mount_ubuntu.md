@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-08-08"
+lastupdated: "2023-10-16"
 
 keywords: file share, file storage, mount helper, mount target, mount path, secure connection, NFS, mounting share
 
@@ -26,7 +26,7 @@ Use these instructions to connect a Network File System (NFS) file share to an U
 3. Get the mount path of the file share from the mount target. Mount path information can be obtained from the File share details page in the [UI](/docs/vpc?topic=vpc-file-storage-view&interface=ui#fs-get-mountpath-ui-vpc), from the [CLI](/docs/vpc?topic=vpc-file-storage-view&interface=cli#fs-get-mountpath-cli), with the [API](/docs/vpc?topic=vpc-file-storage-view&interface=api#fs-get-target-api), or [Terraform](/docs/vpc?topic=vpc-file-storage-view&interface=terraform#fs-view-mount-target-terraform).
 4. If you want to use encryption in transit, you need to obtain an IPsec certificate from the Instance Metadata service. Ensure that encryption in transit is enabled for the mount target. Plus, mount the file share with a secure connection. This feature is only available for file shares with `dp2` profiles and security group access mode. For more information, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit).
    
-   Install and run the [mount helper utility](/docs/vpc?topic=vpc-file-storage-vpc-eit&interface=ui#fs-mount-helper-utility) to mount file shares with encryption in transit or without an encrypted connection.  
+   Install and run the [mount helper utility](/docs/vpc?topic=vpc-file-storage-vpc-eit&interface=ui#fs-mount-helper-utility) to mount file shares with encryption in transit or without an encrypted connection.
    {: fast-path}
 
 {{site.data.keyword.filestorage_vpc_short}} service requires NFS versions v4.1 or higher.
@@ -129,13 +129,13 @@ SSH into the virtual server instance where you want to mount the file share, the
    Add a line with the following syntax to the end of the file.
 
    ```sh
-   (hostname):/(mount_point) /mnt nfs_version defaults 0 0
+   (hostname):/(mount_point) /mnt/nfs nfs_version defaults 0 0
    ```
 
    Example
 
    ```sh
-   fsf-dal2433a-dz.adn.networklayer.com:/nxg_s_voll_mz0726_c391f0ba-50ed-4460-8704-a36032c96a4c /mnt nfsvers=4.1 defaults 0 0
+   fsf-dal2433a-dz.adn.networklayer.com:/nxg_s_voll_mz0726_c391f0ba-50ed-4460-8704-a36032c96a4c /mnt/nfs nfsvers=4.1 defaults 0 0
    ```
 
 9. Verify that the configuration file has no errors.
