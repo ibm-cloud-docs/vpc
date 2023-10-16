@@ -137,7 +137,7 @@ SSH into the virtual server instance where you want to mount the file share, the
        ```
        {: screen}
       
-    C. Edit the file systems table (`/etc/fstab`) and add an entry.
+    C. Edit the file systems table `/etc/fstab` and add an entry.
 
        ```text
        (hostname):/(file_share_path) /mnt nfs_version options 0 0
@@ -149,6 +149,7 @@ SSH into the virtual server instance where you want to mount the file share, the
        ```text
        fsf-dal2433a-dz.adn.networklayer.com:/nxg_s_voll_246a9cb9-4679-4dc5-9522-4a7ed2575136 /mnt/test nfs4 nfsvers=4.1,sec=sys,_netdev 0 0
        ```
+       {: screen}
 
 7. Verify that the configuration file has no errors.
 
