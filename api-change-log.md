@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-10-10"
+lastupdated: "2023-10-17"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -53,6 +53,28 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 17 October 2023
+{: #17-october-2023}
+
+### For all version dates
+{: #17-october-all-version-dates}
+
+**Non-uniform memory access (NUMA) awareness on instances and dedicated hosts.**  When [retrieving](/apidocs/vpc/latest#get-instance) and [listing](/apidocs/vpc/latest#list-instances) an instance, the new `numa_count` property indicates the number of NUMA nodes on which a virtual server instance is provisioned. This property will be absent from the response if the instance's `status` is not `running`. When [retrieving](/apidocs/vpc/latest#get-dedicated-host) and [listing](/apidocs/vpc/latest#list-dedicated-hosts) a dedicated host, the new `numa.count` and `numa.nodes` properties describe the processor topology.
+
+When [retrieving](/apidocs/vpc/latest#get-instance-profile) and [listing](/apidocs/vpc/latest#list-instance-profiles) an instance profile, the `numa_count` property indicates the total number of NUMA nodes for an instance with this profile. When the `type` is `dependent`, the total number of NUMA nodes for an instance with this profile depends on its configuration and the capacity constraints within the zone. Not all instance profiles have a strict NUMA definition within them. 
+
+For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=api#next-gen-profiles).
+
+**Status on instance profiles and dedicated host profiles.** When [retrieving](/apidocs/vpc/latest#get-instance-profile) and [listing](/apidocs/vpc/latest#list-instance-profiles) an instance profile or [retrieving](/apidocs/vpc/latest#get-dedicated-host-profile) and [listing](/apidocs/vpc/latest#list-dedicated-host-profiles) a dedicated host profile, a new `status` property indicates the status of the instance profile or dedicated host profile. A `status` value of `previous` indicates an older profile generation that remains provisionable and usable. A `status` value of `current` indicates the latest generation of a given profile. For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=api#next-gen-profiles) and [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles).
+
+**Viewing DNS resolver information for VPCs.** When [retrieving](/apidocs/vpc/latest#get-vpc) a VPC, the new `dns.resolver` property contains information about the DNS resolvers provided by the system for DHCP clients in the VPC.
+
+This release introduces the following updates for accounts that have been granted special approval to preview these features:
+
+- **Sharing DNS resolution for endpoint gateways across VPCs.** When multiple VPCs are connected together using Transit Gateway, Direct Link, or other connectivity options, a VPC in the connected topology can now be enabled as a DNS hub to centralize the DNS resolution for endpoint gateways. When [creating](/apidocs/vpc/latest#create-vpc) or [updating](/apidocs/vpc/latest#update-vpc) a VPC, a new `dns` property includes configuration options for DNS. Specify the `dns.enable_hub` property as `true` to enable the VPC as a DNS hub (default is `false`).  Specify a DNS hub VPC when [creating a DNS resolution binding](/apidocs/vpc/latest#create-vpc-dns-resolution-binding) on another VPC to share its DNS resolution with that DNS hub VPC. The new `dns.resolution_binding_count` response property specifies how many other VPCs a VPC is bound to for DNS resolution sharing. For more information, see [About DNS sharing for VPE gateways](/docs/vpc?topic=vpc-hub-spoke-model).
+
+- **Configuring DNS resolvers for a VPC.** You can use the new `dns.resolver` property to configure the DNS resolvers for a VPC. Use a `dns.resolver.type` of `manual` to specify the DNS resolvers by IP address. Use a `dns.resolver.type` of `delegated` to specify another VPC (typically a DNS hub VPC) whose DNS resolvers will be used. Use a `dns.resolver.type` of `system` to restore the system default DNS resolvers. When `dns.resolver.type` is `manual`, [updating](/apidocs/vpc/latest#update-vpc) specifying the VPC's `dns.resolver.manual_servers` requires the [`If-Match` header](/apidocs/vpc/latest#concurrent-update-protection) also be provided with the VPC's current `ETag` value.
 
 ## 10 October 2023
 {: #10-october-2023}
