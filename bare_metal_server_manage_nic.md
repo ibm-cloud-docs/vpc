@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-07-24"
+lastupdated: "2023-10-17"
 
 subcollection: vpc
 
@@ -79,7 +79,7 @@ To add a network interface to an existing bare metal server, do the following st
 
 1. In the **Network interfaces** section of the **Bare metal server details** page, click **New interface** to create a new interface.
 
-For x86 architecture-based bare metal servers, PCI interfaces can be only created or deleted when the bare metal server is **Stopped**.
+For x86 architecture-based bare metal servers, PCI interfaces can be only created or deleted when the bare metal server is **Stopped**. The PCI interfaces will remain **Pending** until the server is started. When the server is started, the PCI interfaces transition to **Ready**.
 {: important}
 
 ## Associating floating IPs with a network interface
