@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-08-28"
+lastupdated: "2023-10-18"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -190,7 +190,7 @@ Lifecycle State   pending
 Zone              us-south-1
 Profile           dp2
 Size(GB)          40
-IOPS              3000
+IOPS              2000
 User Tags         env:dev,env:prod
 Encryption        provider_managed
 Mount Targets     ID                                       Name           VPC ID                                   VPC Name
