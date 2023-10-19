@@ -57,7 +57,6 @@ Replication status:
 In the console, you can:
 
 * [Rename a file share](#rename-file-share-ui).
-* [Add mount target to a file share](#add-mount-target-ui).
 * [Rename a mount target of a file share](#rename-mount-target-ui).
 * [Update a file share profile](#fs-update-profile-ui)
 * [Delete mount target of a file share](#delete-mount-target-ui).
@@ -72,22 +71,6 @@ In the console, you can:
 2. Provide a new name for the file share.
 
 Valid file share names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. File share names must begin with a lowercase letter.
-
-### Adding mount target to a file share in the UI
-{: #add-mount-target-ui}
-
-To mount a file share to an instance, you must create a mount target by providing a VPC or subnet information. If you want to connect a file share to instances that are running in multiple VPCs in the same zone, you can create multiple mount targets for different VPCs.
-
-1. Locate a file share to which you want to add a mount target from the [list of file shares](/docs/vpc?topic=vpc-file-storage-view#file-storage-view-shares-targets-ui).
-
-2. On the File shares details page, under Mount targets, click **Create**.
-
-   You must have at least one VPC to create a mount target. If you don't have one, first [create a VPC](/docs/vpc?topic=vpc-getting-started#create-and-configure-vpc).
-   {: note}
-
-3. In the **Create mount target** window, provide a name for the mount target.
-
-4. Select a VPC from the list and then click **Create**.
 
 ### Renaming a mount target of a file share in the UI
 {: #rename-mount-target-ui}
@@ -105,11 +88,14 @@ Valid mount target names can include a combination of lowercase alpha-numeric ch
 ### Updating a file share profile in the UI
 {: #fs-update-profile-ui}
 
+These instructions are for the previous generation of file share profiles (general purpose, 5-iops, 10-iops, or custom). To access the latest features, you must change the IOPS profile of your share to dp2. The profiles of file shares that were created with the dp2 profile cannot be changed.
+{: important}
+
 You can change the profile for a file share from the current profile to another **IOPS tier** profile, to a **custom** profile, or to a high-performance **dp2** profile. Your billing adjusts based on the type of profile that you choose.
 
 1. Go to the [file shares details](/docs/vpc?topic=vpc-file-storage-view&interface=ui#fs-view-single-share-ui) page.
 
-2. Click the pencil icon next to the current profile or use the **Actions** menu and select **Edit IOPS profile**. A side panel shows the current profile, file share size, and maximum IOPS.
+2. Click the pencil icon next to the current profile or use the **Actions** menu ![Actions menu](images/overflow.png) and select **Edit IOPS profile**. A side panel shows the current profile, file share size, and maximum IOPS.
 
 3. For a **New profile**, click the down arrow. You can select a new IOPS tier, a custom profile, or dp2. For **Custom IOPS** or **dp2**, specify a new max IOPS based on the file share size. The file share price is automatically calculated based on your selection.
 
@@ -118,15 +104,10 @@ You can change the profile for a file share from the current profile to another 
 ### Deleting file shares and mount targets in the UI
 {: #delete-targets-shares-ui}
 
-To delete a file share, you must first delete all its associated mount targets.
-
-If the file share is configured for replication, you need to take extra steps. For more information, see [Deleting a replica file share](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=api#fs-delete-replicas).
-{: note}
+Before you delete a file share, make sure that it is [unmounted](#fs-mount-unmount-vsi) from all virtual server instances and that all mount targets that belong to the file share are [deleted](#delete-mount-target-ui). Also, if the file share has a replica file share, you must remove the replication relationship. For more information, see [Remove the replication relationship in the UI](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=ui#fs-remove-replication-ui).
 
 #### Deleting mount target of a file share in the UI
 {: #delete-mount-target-ui}
-
-To delete a mount target, the file share must be in a `stable` state.
 
 1. Select a file share from the [list of file shares](/docs/vpc?topic=vpc-file-storage-view#file-storage-view-shares-targets-ui).
 
@@ -137,9 +118,7 @@ To delete a mount target, the file share must be in a `stable` state.
 #### Deleting a file share in the UI
 {: #delete-file-share-ui}
 
-Before you delete a file share, make sure that it is [unmounted](#fs-mount-unmount-vsi) from all virtual server instances and that all mount targets that belong to the file share are [deleted](#delete-mount-target-ui).
-
-The file share must be in a `stable` state or `failed` state (that is, when provisioning fails).
+The file share must be in a `stable` state or `failed` state.
 
 1. Select a file share from the [list of file shares](/docs/vpc?topic=vpc-file-storage-view).
 
@@ -153,9 +132,10 @@ By using the CLI, you can:
 
 * [Rename a file share](#rename-file-share-cli).
 * [Rename a mount target of a file share](#rename-mount-target-cli).
+* [Update a file share profile](#fs-update-profile-cli)
 * [Delete mount target of a file share](#delete-mount-target-cli).
 * [Delete a file share](#delete-file-share-cli).
-* [Update a file share profile](#fs-update-profile-cli)
+* [Add user tags to file shares](#fs-add-tags-cli).
 
 ### Renaming a file share from the CLI
 {: #rename-file-share-cli}
@@ -188,38 +168,60 @@ Valid mount target names can include a combination of lowercase alpha-numeric ch
 ### Updating a file share profile in the CLI
 {: #fs-update-profile-cli}
 
-Use the `share-update` command with the `--profile` parameter to indicate the new file share profile by name.
+These instructions are for the previous generation of file share profiles (general purpose, 5-iops, 10-iops, or custom). New file shares can be provisioned with only the dp2 profile. To access the latest features, you must change the IOPS profile of your share to dp2.
 
-```sh
-ibmcloud is share-update SHARE_NAME --profile PROFILE_NAME
-```
-{: pre}
+1. Locate the file share that you want to update by listing the file shares in the region with the `ibmcloud is shares` command.
 
-This example updates a file share profile to a dp2 profile.
+   ```sh
+   $ ibmcloud is shares
+   Listing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
+   ID                                          Name                                 Lifecycle state   Zone         Profile       Size(GB)   Resource group   Replication role   
+   r006-52c68ba5-2754-4c9d-8345-1fe6aa930073   disposal-snare-revivable-chitchat    stable            us-south-3   dp2           10         defaults         replica   
+   r006-46541dc4-9e73-453a-9075-90ced0d612c3   trapdoor-urgency-attitude-imposing   stable            us-south-1   dp2           10         defaults         source   
+   r006-72604692-0dc5-49fb-8eca-08b16a6a4854   fiction-create-platter-decidable     stable            us-south-3   dp2           10         defaults         replica   
+   r006-c23ce229-fee9-4d40-a509-44886b21bb69   prismoid-evergreen-chains-granola    stable            us-south-1   dp2           10         defaults         source   
+   r006-89b34134-2be6-4281-ae8e-b1c625d533ae   test-share                           stable            us-south-1   dp2           10         defaults         none   
+   r006-cc7ab6a0-bb71-4e03-8ef7-dcffca43717f   my-old-file-share                    stable            us-south-1   tier-3iops    40         defaults         none   
+   ```
+   {: screen}
 
-```sh
-ibmcloud is share-update my-file-share --profile dp2
-Updating file share my-file-share under account VPC1 as user user1@mycompany.com...
+1. Use the `share-update` command with the `--profile` parameter to indicate the new file share profile by name.
 
-ID                e1180bae-6799-4156-8bb7-e4d24013cda2
-Name              my-file-share
-CRN               crn:v1:public:is:us-south-1:a/a1234567::share:e1180bae-6799-4156-8bb7-e4d24013cda2
-Lifecycle state   updating
-Zone              us-south-1
-Profile           dp2
-.
-.
-.
-```
-{: screen}
+   ```sh
+   $ ibmcloud is share-update my-old-file-share --profile dp2 --size 1000 --iops 3000
+   Updating file share my-file-share-8 under account Test Account as user test.user@ibm.com...
+                                
+   ID                           r006-cc7ab6a0-bb71-4e03-8ef7-dcffca43717f   
+   Name                         my-old-file-share   
+   CRN                          crn:v1:bluemix:public:is:us-south-1:a/a1234567::share:r006-cc7ab6a0-bb71-4e03-8ef7-dcffca43717f   
+   Lifecycle state              updating     
+   Access control mode          vpc   
+   Zone                         us-south-1   
+   Profile                      dp2   
+   Size(GB)                     1000   
+   IOPS                         3000   
+   User Tags                    env:dev,env:prod   
+   Encryption                   provider_managed   
+   Mount Targets                ID                                          Name      
+                                r006-c9d82a15-7ead-4388-abc8-88e81c12ed28   my-target121      
+                                
+   Resource group               ID                                 Name      
+                                6edefe513d934fdd872e78ee6a8e73ef   defaults      
+                                
+   Created                      2023-03-27T20:43:36+00:00   
+   Replication role             none   
+   Replication status           none   
+   Replication status reasons   Status code   Status message      
+                                -             - 
+   ```
+   {: screen}
 
 For more information about the command options, see [`ibmcloud is share-update`](/docs/vpc?topic=vpc-vpc-reference#share-update).
 
 ### Deleting file shares and mount targets from the CLI
 {: #delete-share-targets-cli}
 
-Before you can delete a file share, make sure that all mount targets that belong to the file share are deleted. If the file share is configured for replication, you must [remove the replication relationship](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=cli#fs-remove-replication-cli) as well. The file share must be in a `stable` or `failed` state before you can delete it.
-{: requirement}
+Before you delete a file share, make sure that it is [unmounted](#fs-mount-unmount-vsi) from all virtual server instances and that all mount targets that belong to the file share are [deleted](#delete-mount-target-cli). Also, if the file share has a replica file share, you must remove the replication relationship. For more information, see [Remove the replication relationship from the CLI](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=cli#fs-remove-replication-cli).
 
 1. Locate the file share that you want to delete by listing all the file shares with the `ibmcloud is shares` command.
 
@@ -286,7 +288,7 @@ For more information about the command options, see [`ibmcloud is share-mount-ta
 #### Deleting a file share from the CLI
 {: #delete-file-share-cli}
 
-To delete the file share, run the `share_delete` command and specify the file share by its name or ID.
+The file share must be in a `stable` or `failed` state. To delete the file share, run the `share_delete` command and specify the file share by its name or ID.
 
 ```sh
 $ ibmcloud is share-delete my-file-share-8
@@ -306,7 +308,6 @@ For more information about the command options, see [`ibmcloud is share-delete`]
 By using the API, you can:
 
 * [Rename a file share](#rename-file-share-api).
-* [Add mount target to a file share](/docs/vpc?topic=vpc-file-storage-create&interface=api#fs-create-mount-target-api).
 * [Rename a mount target of a file share](#rename-mount-target-api).
 * [Update a file share profile](#fs-update-profile-api)
 * [Delete mount target of a file share](#delete-mount-target-api).
@@ -407,6 +408,8 @@ A successful response looks like the following example.
 ### Updating a file share profile with the API
 {: #fs-update-profile-api}
 
+These instructions are for the previous generation of file share profiles (general purpose, 5-iops, 10-iops, or custom). New file shares can be provisioned with only the dp2 profile. To access the latest features, you must change the IOPS profile of your share to dp2.
+
 Make a `PATCH /shares/{share_ID}` call and specify the profile name in the `profile` property. The following example changes the profile to a `dp2` profile.
 
 ```sh
@@ -423,16 +426,12 @@ curl -X PATCH "$rias_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?ver
 ### Deleting file shares and mount targets with the API
 {: #delete-share-targets-api}
 
-Before you can delete a file share, make sure that all mount targets that belong to the file share are [deleted](#delete-mount-target-api). The file share must be in a `stable` or `failed` state (that is, when provisioning fails).
-
-If the file share is configured for replication, you must take extra steps. For more information, see [Deleting a replica file share](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=api#fs-delete-replicas).
-{: note}
+Before you delete a file share, make sure that it is [unmounted](#fs-mount-unmount-vsi) from all virtual server instances and that all mount targets that belong to the file share are [deleted](#delete-mount-target-api). Also, if the file share has a replica file share, you must remove the replication relationship. For more information, see [Remove the replication relationship with the API](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=api#fs-remove-replication-api).
 
 #### Deleting mount target of a file share with the API
 {: #delete-mount-target-api}
 
 Make a `DELETE /shares/{share_ID}/mount_targets/{target_id}` call to delete a mount target of a file share. The file share must be in a `stable` state. A file share cannot be deleted, if an existing mount target is associated with that file share or if replica operations are in progress.
-
 
 See the following example.
 
@@ -500,12 +499,12 @@ The following example is the response to a delete request of a mount target wher
 ```
 {: codeblock}
 
-The mount target is deleted in the background. Confirm the deletion by trying to view the mount target information. If you get an `_404 Not Found_` error, the mount target is successfully deleted.
+The mount target is deleted in the background. Confirm the deletion by trying to view the mount target information. If you get an `404 Not Found` error, the mount target is successfully deleted.
 
 #### Deleting a file share in the API
 {: #delete-file-share-api}
 
-Before you delete a file share, make sure that it is [unmounted](#fs-mount-unmount-vsi) from all virtual server instances and that all mount targets that belong to the file share are [deleted](#delete-mount-target-api). Also, if the file share has a replica file share, you must remove the replication relationship. For more information, see [Remove the replication relationship with the API](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=api#fs-remove-replication-api).
+The file share must be in a `stable` or `failed` state.
 
 Make a `DELETE /shares/$share_id` call to delete a file share. The file share must be in a `stable` state or `failed` state (that is, when provisioning fails). A file share cannot be deleted, if an existing mount target is associated with that file share or if replica operations are in progress.
 
@@ -608,6 +607,8 @@ For more information about the arguments and attributes, see [ibm_is_share_targe
 ### Deleting a file share or a mount target with Terraform
 {: #delete-file-share-terraform}
 
+Before you delete a file share, make sure that it is [unmounted](#fs-mount-unmount-vsi) from all virtual server instances and that all mount targets that belong to the file share are deleted. Also, if the file share has a replica file share, you must remove the replication relationship. For more information, see [Remove the replication relationship with Terraform](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=terraform#fs-remove-replication-terraform).
+
 Use the `terraform destroy` command to conveniently destroy a remote object such as a file share. The following example shows the syntax for deleting a share. Substitute the actual ID of the share in for `ibm_is_share.example.id`. To delete a mount target, use the ID of the mount target.
 
 ```terraform
@@ -616,7 +617,6 @@ terraform destroy --target ibm_is_share.example.id
 {: codeblock}
 
 For more information, see [terraform destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy){: external}.
-
 
 ## Adding user tags to a file share
 {: #fs-add-user-tags}
@@ -730,7 +730,6 @@ You can add and remove tags when you update a file share with the `ibmcloud is s
                                 -             - 
    ```
    {: screen}
-
 
 ### Adding or modify file share user tags with the API
 {: #fs-add-tags-api}
@@ -925,7 +924,6 @@ After you create an access management tag and apply it to a file share, complete
 3. [Add users to the access group](/docs/account?topic=account-access-tags-tutorial#tagging-add-users-access-group).
 
 When you look at the specific resources for the VPC infrastructure and specify {{site.data.keyword.filestorage_vpc_short}} as the resource type, you can see the access management tags for the file service.
-
 
 ## Mounting and unmounting file shares on a virtual server instance
 {: #fs-mount-unmount-vsi}
