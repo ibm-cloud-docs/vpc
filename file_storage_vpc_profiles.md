@@ -68,7 +68,7 @@ Table 2 shows the available IOPS ranges, based on share size.
 ## Previous version file storage profiles
 {: #fs-v2-profiles}
 
-This section is about the previous generation of file share profiles (general purpose, 5-iops, 10-iops, or custom) that were used in the Beta release. New file shares can be provisioned with only the dp2 profile. To access the latest features, you must chnage the IOPS profile of your share to dp2.
+This section is about the previous generation of file share profiles (general purpose, 5-iops, 10-iops, or custom) that were used in the Beta release. New file shares can be provisioned with only the dp2 profile. To access the latest features, you must change the IOPS profile of your share to dp2.
 {: deprecated}
 
 ### IOPS tiers
