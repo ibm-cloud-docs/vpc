@@ -35,7 +35,7 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
 ### Creating a file share in the UI
 {: #fs-create-share-target-ui}
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > File Shares**. A list of file shares displays.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Storage > File Shares**. A list of file shares displays.
 
 1. On the File shares for VPC page, click **Create**.
 
@@ -50,7 +50,7 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
    | Tags | Enter any user tags to apply to this file share. As you type, existing tags appear that you can select. For more information about tags, see [Add user tags to a file share](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-add-user-tags). |
    | Access Management Tags | Enter access management tags that you created in IAM to apply them to this file share. For more information about access management tags, see [Access management tags for file shares](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-about-mgt-tags). |
    | Mount target access mode  | Select how you want to manage access to this file share: |
-   |   | Security group: Access to the file share is based on security group rules within a subnet. This option can be used to restrict access to specific virtual server instances. You can use this option only with the `dp2` profile. This option is recommended as you have more control over who can access the data that is stored on the file share. |
+   |  | Security group: Access to the file share is based on security group rules within a subnet. This option can be used to restrict access to specific virtual server instances. You can use this option only with the `dp2` profile. This option is recommended as you have more control over who can access the data that is stored on the file share. |
    |  | Virtual private cloud: Access to the file share is granted to any virtual server instance in the same VPC. |
    {: caption="Table 1. Values for creating a file share" caption-side="top"}
 
@@ -85,7 +85,7 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
    | Encryption | To use customer-managed encryption, select either {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. The key management service (KMS) instance includes the root key that is imported to or created in that KMS instance. |
    | Encryption service instance | If you provisioned multiple KMS instances in your account, select the one that includes the root key that you want to use for customer-managed encryption. |
    | Key name | Select the root key within the KMS instance that you want to use for encrypting the share. |
-   | Key ID | It shows the key ID that is associated with the data encryption key that you selected. |
+   | Key ID | The field shows the key ID that is associated with the data encryption key that you selected. |
    {: caption="Table 3. Values for customer-managed encryption for file shares." caption-side="bottom"}
 
 1. When all the required information is entered, click **Create file share**. You return to the {{site.data.keyword.filestorage_vpc_short}} page, where a message indicates that the file share is provisioning. When the transaction completes, the share status changes to **Active**.
@@ -98,7 +98,7 @@ If you're not ready to order yet or just looking for pricing information, you ca
 
 You can create several mount targets for an existing file share if the share is to be used by resources in multiple VPCs. You can create one mount target per VPC per file share. 
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > File shares**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Storage > File shares**.
 
 2. Select a file share from the list.
 
@@ -109,7 +109,7 @@ You can create several mount targets for an existing file share if the share is 
 
 4. Depending on the mount target access mode of the share, the **Create mount target** form looks different.
 
-   - If the share has the security group access mode, enter the following information. This action creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target that identifies the file share with a reserved IP address and applies the rules of the selected Security group.
+   - If the share has security group access mode, enter the following information. This action creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target that identifies the file share with a reserved IP address and applies the rules of the selected Security group.
 
      | Field | Value |
      |-------|-------|
@@ -145,126 +145,208 @@ You can create several mount targets for an existing file share if the share is 
 ### Gathering information to create file storage from the CLI
 {: #fs-vpc-getinfo-cli}
 
-Before you run the `ibmcloud is share-create` command, you can gather the information that you need for provisioning a share by viewing information about other file shares, mount targets, and file storage profiles.
+Before you run the `ibmcloud is share-create` command, you can gather information that you need for provisioning a share by viewing information about other file shares, mount targets, and file storage profiles.
 
-| Details  |  Listing options  | What it provides  |
-| -------- | ------------------|-------------------|
-| File shares | `ibmcloud is shares` | List all shares in a region. |
-| File share details | `ibmcloud is share SHARE_ID`  | Review details of a share. |
-| Mount targets  | `ibmcloud is share-mount-targets SHARE_ID` | List all mount targets for a file share. |
-| File share profiles   | `ibmcloud is share-profiles` | List all file share profiles in a region. Only `dp2` can be used to create file shares. |
+| Details             |  Listing options                           | What it provides                         |
+|---------------------|--------------------------------------------|------------------------------------------|
+| File shares         | `ibmcloud is shares`                       | List all shares in a region.             |
+| File share details  | `ibmcloud is share SHARE_ID`               | Review details of a share.               |
+| File share profiles | `ibmcloud is share-profiles` | List all file share profiles in a region. Only `dp2` can be used to create file shares.|
+| Mount targets       | `ibmcloud is share-mount-targets SHARE_ID` | List all mount targets for a file share. |
+| Subnets             | `ibmcloud is subnets`                      | List all subnets.                        |
+| Reserved IP addresses | `ibmcloud is subnet-reserved-ips`   | List all reserved IP addresses in the subnet. |
+| Security Groups     | `ibmcloud is security-groups`              | List all security groups.                |     
 {: caption="Table 1. Details for creating file shares." caption-side="top"}
 
-### Creating a file share and mount target from the CLI
-{: #fs-create-share-target-cli}
+### Creating a file share without a mount target from the CLI
+{: #fs-create-share-cli}
 
-Run the following command to create a file share and mount target. Indicate the zone in which to create the file share, [file share profile](/docs/vpc?topic=vpc-file-storage-profiles), file share size, and optional name and user tags. Provide a mount target JSON or JSON file to create the mount target in this command.
-
-```sh
-ibmcloud is share-create
-  --zone ZONE_NAME
-  --profile PROFILE
-  --size SIZE
-  --access-control-mode value 
-  --mount-targets value
-  [--name NAME]
-  [--initial-owner-gid INITIAL_OWNER_GID ]
-  [--initial-owner-uid INITIAL_OWNER_UID]
-  [--user-tags USER_TAGS]
-  [--mount-targets TARGETS_JSON | @TARGETS_JSON_FILE]
-  [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME]
-  [--output JSON] [-q, --quiet]
-```
-{: pre}
-
-This example creates a file share with two mount targets.
+You can use the `ibmcloud is share-create` command to provision a file share in your selected zone with the `dp2` profile, with your specific capacity and IOPS values. The following example shows how to create 1000-GB file share with 1000 IOPS in the us-south-2 zone. This file share is created with the default security group access mode and with provider-managed encryption.
 
 ```sh
-ibmcloud is share-create --name my-file-share-8 --zone us-south-1 --profile dp2 --size 40 --iops 3000  --user-tags env:dev,env:prod --mount-targets '[{"name": "my-target121","vpc": {"name": "vpcl"}},{"name": "my-target122","vpc": {"name": "vpc2"}}]'
-Creating file share my-file-share-8 under account vpc1 as user user@mycompany.com...
-
-ID                0e04ca62-e02a-4319-9551-380c7f7cd87f
-Name              my-file-share-8
-CRN               crn:[...]
-Lifecycle State   pending
-Zone              us-south-1
-Profile           dp2
-Size(GB)          40
-IOPS              2000
-User Tags         env:dev,env:prod
-Encryption        provider_managed
-Mount Targets     ID                                       Name           VPC ID                                   VPC Name
-                  87171615-f8b4-4ccd-a216-bab12eb1a973     my-target121   81ee2425-7c2f-4042-9d8f-d02b0ee8886c     vpc1
-                  b041fc54-f0b9-4397-b68e-2ab032cd1206     my-target122   c338ca08-1256-4420-9932-a9960a0f1cfd     vpc2
-
-Resource Group    ID                                 Name
-                  bdd96715c2a44f2bb60df4ff14a543f5   Default
-Created           2023-07-11T15:26:21+05:30
+$ ibmcloud is share-create --name my-file-share --zone us-south-2 --profile dp2 --size 1000 --iops 1000
+Creating file share my-file-share under account Test Account as user test.user@ibm.com...
+                                
+ID                           r134-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
+Name                         my-file-share   
+CRN                          crn:v1:staging:public:is:us-south-2:a/1234567::share:r134-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
+Lifecycle state              pending   
+Access control mode          security_group   
+Zone                         us-south-2   
+Profile                      dp2   
+Size(GB)                     1000   
+IOPS                         1000   
+Encryption                   provider_managed   
+Mount Targets                ID                          Name      
+                             No mounted targets found.      
+                                
+Resource group               ID                                 Name      
+                             db8e8d865a83e0aae03f25a492c5b39e   Default      
+                                
+Created                      2023-10-18T22:15:15+00:00   
+Replication role             none   
+Replication status           none   
+Replication status reasons   Status code   Status message      
+                             -             -                              
 ```
 {: screen}
 
-The following example shows a new file share that is created with customer-managed encryption.
+Security group access mode is the default and recommended setting. However, you can choose to create a file share with the VPC access mode that allows every compute host in the VPC to mount the file share. See the following example.
 
 ```sh
-$ ibmcloud is share-create --zone us-south-2 --vpc {vpc_id} --name my-encrypted-share --profile dp2 --size 100 --iops 1000 --encryption key abccorp-kp-vpc-2 fd57250e-908c-4785-a8a5-1f53176bcd2f
-Creating volume demovolume in resource group Default under account VPC 01 as user rtuser1@mycompany.com...
-ID                                      339c8781-f7f5-4a8f-8a2d-3bfc711788ee
-Name                                    my-encrypted-share
-Size                                    100
-IOPS                                    1000
-Profile                                 dp2
-Encryption Key                          crn:v1:bluemix:public:kms:us-south:a/8d65fb1cf5e99e86dd7229ddef9e5b7b:b1abf7c5-381d-4f34-836e-5db7193250bc:key:fd57250e-908c-4785-a8a5-1f53176bcd2f
-Encryption                              customer_managed
-Status                                  pending
-Resource Group                          Default(dbb12715c2a22f2bb60df4ffd4a543f2)
-Created                                 2023-02-07 10:09:28
-Zone                                    us-south-2
-Mount targets                           none
+$ ibmcloud is share-create --name my-vpc-file-share --zone us-south-2 --profile dp2 --size 1000 --iops 500 --access-control-mode vpc
+Creating file share my-vpc-file-share under account Test Account as user test.user@ibm.com...
+                                
+ID                           r134-b1707390-3825-41eb-a5bb-1161f77f8a58   
+Name                         my-vpc-file-share   
+CRN                          crn:v1:staging:public:is:us-south-2:a/a1234567::share:r134-b1707390-3825-41eb-a5bb-1161f77f8a58   
+Lifecycle state              pending   
+Access control mode          vpc   
+Zone                         us-south-2   
+Profile                      dp2   
+Size(GB)                     1000   
+IOPS                         500   
+Encryption                   provider_managed   
+Mount Targets                ID                          Name      
+                             No mounted targets found.      
+                                
+Resource group               ID                                 Name      
+                             db8e8d865a83e0aae03f25a492c5b39e   Default      
+                                
+Created                      2023-10-18T22:57:05+00:00   
+Replication role             none   
+Replication status           none   
+Replication status reasons   Status code   Status message      
+                             -             -  
 ```
 {: screen}
 
 For more information about the command options, see [`ibmcloud is share-create`](/docs/vpc?topic=vpc-vpc-reference#share-create).
 
-To create a file share with replication, see [Create a file share with replication from the CLI](/docs/vpc?topic=vpc-file-storage-create-replication&interface=cli#fs-create-new-share-replica-cli).
-{: note}
-
-### Creating a mount target for an existing file share from the CLI
+### Creating a mount target for a file share from the CLI
 {: #fs-create-mount-target-cli}
 
-To create a mount target for the file share, run the `share-mount-target-create` command with the file share and VPC ID or name. The VPC must be unique to each mount target. Specify the values for the `vni` options to create a virtual network interface for the mount target.
+To create a mount target for the file share, run the `share-mount-target-create` command. Before you begin, gather some necessary information.
+
+When you create a mount target, you must specify the file share that it is for. You can use the file share's name or ID. You must specify the VPC, too, either with its ID or name. The VPC must be unique to each mount target. You must also specify the security access group that's going to be used to manage access to the share. 
+
+Lastly, you must specify values for the options that are needed to create a virtual network interface for the mount target. Use the appropriate CLI commands to list the available [subnets](/docs/vpc?topic=vpc-vpc-reference#subnets-list), [reserved IP addresses in a subnet](/docs/vpc?topic=vpc-vpc-reference#subnet-reserved-ips-list), [security groups](/docs/vpc?topic=vpc-vpc-reference#security-groups-list) to get the information that you need.
+
+The following example creates a mount target with a [virtual network interface](/docs/vpc?topic=vpc-vni-about) for a file share that has security group access mode.
 
 ```sh
-ibmcloud is share-mount-target-create SHARE [--name NAME] [--transit-encryption user_managed | none] [--subnet SUBNET] [([--vni-name VNI_NAME] [[--vni-rip VNI_RIP] | [[--vni-rip-address VNI_RIP_ADDRESS] [--vni-rip-auto-delete VNI_RIP_AUTO_DELETE] [--vni-rip-name VNI_RIP_NAME]]] [--vni-sgs VNI_SGS] --resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME)]  [--output JSON] [-q, --quiet]
+$ ibmcloud is share-mount-target-create my-file-share --subnet my-subnet --name my-cli-share-mount-target-1 --vni-name my-share-vni-1  --vni-sgs my-sg --resource-group-name Default --vpc my-vpc
+Mounting target for share r134-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6 under account Test Account as user test.user@ibm.com...
+                               
+ID                          r134-dd497561-c7c9-4dfb-af0a-c84eeee78b61   
+Name                        my-cli-share-mount-target-1   
+VPC                         ID                                          Name      
+                            r134-6e8fb140-5668-45b8-b98a-d5cb0e0bf39b   my-vpc      
+                               
+Access control mode         security_group   
+Resource type               share_mount_target   
+Virtual network interface   ID                                          Name      
+                            0726-13c070d8-d038-49c6-95f5-e8503c5595e3   my-share-vni-1      
+                               
+Lifecycle state             pending   
+Mount path                  -   
+Transit Encryption          none   
 ```
-{: pre}
+{: screen}
 
-The following example creates a mount target with VPC-wide access mode for a file share and the VPC is specified by name.
+The following example creates a mount target for a file share that has VPC access mode.
 
 ```sh
-ibmcloud is share-mount-target-create my-fileshare-1 --vpc test-vpc-1
-Mounting target 55251a2e-d6d4-4233-97b2-b5f8e8d1f479 under account test-vpcp1 as user user@mycompany.com...
-
-ID                78ff9c4c97d013fb2a95b21abcde7758
-Name              mytarget-1
-VPC               ID                                          Name
-                  55251a2e-d6d4-4233-97b2-b5f8e8d1f479   test-vpc-1
-
-Lifecycle State   pending
-Mount path        dal1051b-fz.adn.networklayer.com:/nxg_s_voll_mz0717_fde90e26_8796_4a5e_8147_dd14976d6e9f
-Created           2023-07-11T18:05:18+05:30
+$ ibmcloud is share-mount-target-create my-vpc-file-share --vpc my-vpc --name my-vpc-mount-target
+Mounting target for share r134-b1707390-3825-41eb-a5bb-1161f77f8a58 under account Test Account as user test.user@ibm.com...
+                         
+ID                    r134-5ed68506-860e-4dea-a1eb-9634704e3c4d   
+Name                  my-vpc-mount-target   
+VPC                   ID                                          Name      
+                      r134-6e8fb140-5668-45b8-b98a-d5cb0e0bf39b   my-vpc      
+                         
+Access control mode   vpc   
+Resource type         share_mount_target   
+Lifecycle state       pending   
+Mount path            -   
+Transit Encryption    none   
+Created               2023-10-18T23:09:43+00:00   
 ```
 {: screen}
 
 For more information about the command options, see [`ibmcloud is share-mount-target-create`](/docs/vpc?topic=vpc-vpc-reference#share-mount-target-create).
 
-The following example creates a mount target with security group access mode for a file share. This command creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target that identifies the file share with a reserved IP address and applies the rules of the selected Security group. The virtual network interface is defined by specifying the reserved IP address, and the rules of `SECURITY_GROUP1` determine which resources can access the mount target `my-target-3`.
+
+### Creating a file share with a mount target from the CLI
+{: #fs-create-share-target-cli}
+
+You can create a file with one or more mount targets in one step by using the `ibmcloud is share-create` command. You need to provide the zone name, the [file share profile](/docs/vpc?topic=vpc-file-storage-profiles), the file share size, and the IOPS. You can also specify a name, user tags, and even the initial owner UID. To create the mount target, you need to provide the mount target information in JSON format.
+
+The following example shows how to create a new file share with 500 GB capacity and 2000 IOPS in the `us-south-2` zone. The file share is tagged with `env:dev` and has security group access control mode. The file share can be mounted on authorized virtual servers by using the mount target `my-new-mount-target`.
 
 ```sh
-ibmcloud is share-mount-target-create my-new-share --subnet cli-subnet-1 --name my-mount-target-3 --vni-name cli-share-vni-1 --vni-rip my-reserved-ip --vni-sgs concrete-proudly-coastal-obvious,sg-vni --resource-group-name Default
+$ ibmcloud is share-create --name my-new-file-share --zone us-south-2 --profile dp2 --size 500 --iops 2000  --user-tags env:dev --mount-targets '[{"name":"my-new-mount-target","virtual_network_interface": {"name":"my-vni","subnet": {"id":"0726-298acd6c-e71e-4204-a04f-fe4a4dd89805"}}}]'
+Creating file share my-new-file-share under account Test Account as user test.user@ibm.com...
+                                
+ID                           r134-925214bc-ded5-4626-9d8e-bc4e2e579232   
+Name                         my-new-file-share   
+CRN                          crn:v1:staging:public:is:us-south-2:a/a1234567::share:r134-925214bc-ded5-4626-9d8e-bc4e2e579232   
+Lifecycle state              pending   
+Access control mode          security_group   
+Zone                         us-south-2   
+Profile                      dp2   
+Size(GB)                     500   
+IOPS                         2000   
+User Tags                    env:dev   
+Encryption                   provider_managed   
+Mount Targets                ID                                          Name      
+                             r134-ad313f6b-ccb5-4941-a5f7-0c953f1043df   my-new-mount-target      
+                                
+Resource group               ID                                 Name      
+                             db8e8d865a83e0aae03f25a492c5b39e   Default      
+                                
+Created                      2023-10-19T00:30:11+00:00   
+Replication role             none   
+Replication status           none   
+Replication status reasons   Status code   Status message      
+                             -             -      
 ```
-{: codeblock}
+{: screen}
 
-For more information about the command options, see [`ibmcloud is share-mount-target-create`](/docs/vpc?topic=vpc-vpc-reference#share-mount-target-create).
+The following example creates a file share with VPC access mode and a mount target that can be used by any virtual server instance within the VPC.
+
+```sh
+$ ibmcloud is share-create --name my-file-share-8 --zone us-south-1 --profile dp2 --size 40 --iops 2000  --user-tags env:dev --mount-targets '
+> [{"name": "my-new-mount-target","vpc": {"name": "my-vpc"}}]'
+Creating file share my-file-share-8 under account Test Account as user test.user@ibm.com...
+                                
+ID                           r134-97733317-35c3-4726-9c28-1159de30012e   
+Name                         my-file-share-8   
+CRN                          crn:v1:staging:public:is:us-south-1:a/a1234567::share:r134-97733317-35c3-4726-9c28-1159de30012e   
+Lifecycle state              pending   
+Access control mode          vpc   
+Zone                         us-south-1   
+Profile                      dp2   
+Size(GB)                     40   
+IOPS                         2000   
+User Tags                    env:dev  
+Encryption                   provider_managed   
+Mount Targets                ID                                          Name      
+                             r134-36d67ada-ca83-44be-adad-dc58e7c38dc5   my-new-mount-target      
+                                
+Resource group               ID                                 Name      
+                             db8e8d865a83e0aae03f25a492c5b39e   Default      
+                                
+Created                      2023-10-18T23:52:45+00:00   
+Replication role             none   
+Replication status           none   
+Replication status reasons   Status code   Status message      
+                             -             -      
+```
+{: screen}
+
+To create a file share with replication, see [Create a file share with replication from the CLI](/docs/vpc?topic=vpc-file-storage-create-replication&interface=cli#fs-create-new-share-replica-cli).
+{: tip}
 
 ## Creating a file share with the API
 {: #file-storage-create-api}
@@ -779,7 +861,7 @@ curl -X POST \
 To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
 {: requirement}
 
-VPC infrastructure services use a region-specific endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the right region in the provider block in the `provider.tf` file.
+VPC infrastructure services use a regional specific endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the right region in the provider block in the `provider.tf` file.
 
 See the following example of targeting a region other than the default `us-south`.
 
@@ -874,7 +956,6 @@ resource "ibm_is_share" "share4" {
 }
 ```
 {: codeblock}
-
 
 For more information about the arguments and attributes, see [ibm_is_share](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share){: external}.
 
