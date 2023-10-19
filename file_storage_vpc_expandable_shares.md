@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-08-08"
+lastupdated: "2023-10-19"
 
 keywords: file share, file storage, increase capacity, expand capacity, expand share size, file share size
 
@@ -66,7 +66,7 @@ The following limitations apply to this release.
 
 Follow these steps for expanding file share capacity in the UI:
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > File Shares**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![vpc icon](../../icons/vpc.svg) > Storage > File Shares**.
 
 2. The File Shares for VPC list page shows all file shares that were created in that zone. Click the name of the file share to get to the details page.
 
@@ -88,38 +88,89 @@ Your new file storage allocation is available in a few minutes. If your requirem
 {: #expand-vpc-shares-cli}
 {: cli}
 
-From the CLI, use the `share-update` command with the `--size` option to indicate the new size of the file share in GBs.
+To increase the capacity of a file share from the CLI, use the `share-update` command with the `--size` option and indicate the new size of the file share in GBs.
 
-```sh
-ibmcloud is share-update SHARE_ID --size SIZE_GB
-```
-{: pre}
+1. Locate your share from the CLI by listing your file shares in the region with the `ibmcloud is shares` command.
 
-This example expands the capacity of a file share that is created from a 5 IOPS/GB tier profile to the maximum size for that profile. To get the maximum IOPS of 48,000, you would need to restart the instance.
+   ```sh
+   $ ibmcloud is shares
+   Listing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
+   ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group   Replication role   
+   r006-dc6a644d-c7da-4c91-acf0-d66b47fc8516   my-replica-file-share   stable            us-south-1   dp2       1500       Default          replica   
+   r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a   my-source-file-share    stable            us-south-2   dp2       1500       Default          source   
+   r006-6d1719da-f790-45cc-9f68-896fd5673a1a   my-replica-share        stable            us-south-3   dp2       1500       Default          replica   
+   r006-925214bc-ded5-4626-9d8e-bc4e2e579232   my-new-file-share       stable            us-south-2   dp2       500        Default          none   
+   r006-b1707390-3825-41eb-a5bb-1161f77f8a58   my-vpc-file-share       stable            us-south-2   dp2       1000       Default          none   
+   r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   my-file-share           stable            us-south-2   dp2       1500       Default          source
+   ```
+   {: screen}
 
-```sh
-$ ibmcloud is share-update 933c8781-f7f5-4a8f-8a2d-3bfc711788ee --size 9600
-Updating share 933c8781-f7f5-4a8f-8a2d-3bfc711788ee under account MyAccount 01 as user user1@mycompany.com...
+1. View the details of the file share that you want to modify with the `ibmcloud is share` command.
+   
+   ```sh
+   $ ibmcloud is share my-file-share
+   Getting file share my-file-share under account Test Account as user test.user@ibm.com...
+                                
+   ID                           r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
+   Name                         my-file-share   
+   CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
+   Lifecycle state              stable   
+   Access control mode          security_group   
+   Zone                         us-south-2   
+   Profile                      dp2   
+   Size(GB)                     1000   
+   IOPS                         1000   
+   Encryption                   provider_managed   
+   Mount Targets                ID                                          Name      
+                                r006-dd497561-c7c9-4dfb-af0a-c84eeee78b61   my-cli-share-mount-target-1      
+                                
+   Resource group               ID                                 Name      
+                                db8e8d865a83e0aae03f25a492c5b39e   Default      
+                                
+   Created                      2023-10-18T22:15:15+00:00   
+   Replication role             none   
+   Replication status           none   
+   Replication status reasons   Status code   Status message      
+                                -             -      
+   ```
+   {: screen}
 
-ID                0738-933c8781-f7f5-4a8f-8a2d-3bfc711788ee
-Name              demo-share-update
-CRN               crn:v1:bluemix:public:is:us-south-3:a/c16d1edde3fd4a71a0130aed371405a0::share:0738-933c8781-f7f5-4a8f-8a2d-3bfc711788ee
-Lifecycle State   stable
-Zone              us-south-2
-Profile           tier-5iops
-Size              9600
-IOPS              48000
-Encryption        provider_managed
-Mount targets     ID                                          Name                 VPC ID                                      VPC Name
-                  04165941-44c5-4e20-acde-a11c922e3415   demo-share-target    13b34e2f-5038-4a95-8fe0-966910b41b4d   -
-                  fea02493-5536-40b8-8597-e0c14e1daf4f   demo-share-target2   2a5e858a-3549-4bf2-bd2a-c302bc768759   -
+1. Run the `ibmcloud is share-update` command to increase the capacity of your file share.
+   
+   ```ibmcloud is share-update my-file-share --size 1500
+   Updating file share my-file-share under account Test Account as user test.user@ibm.com...
+                                
+   ID                           r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
+   Name                         my-file-share   
+   CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
+   Lifecycle state              updating   
+   Access control mode          security_group   
+   Zone                         us-south-2   
+   Profile                      dp2   
+   Size(GB)                     1500   
+   IOPS                         1000   
+   Encryption                   provider_managed   
+   Mount Targets                ID                                          Name      
+                                r006-dd497561-c7c9-4dfb-af0a-c84eeee78b61   my-cli-share-mount-target-1      
+                                   
+   Resource group               ID                                 Name      
+                                db8e8d865a83e0aae03f25a492c5b39e   Default      
+                                
+   Created                      2023-10-18T22:15:15+00:00   
+   Latest job                   Job status   Job status reasons      
+                                succeeded    -      
+                                
+   Replication share            ID                                          Name               Resource type      
+                                r006-6d1719da-f790-45cc-9f68-896fd5673a1a   my-replica-share   share      
+                                
+   Replication role             source   
+   Replication status           active   
+   Replication status reasons   Status code   Status message      
+                             -             -      
+   ```
+   {: screen}
 
-Resource Group    ID                                 Name
-                  875623bcde2b4ebda924d32640908845   Default
-
-Created           2023-08-08T02:15:52-06:00
-```
-{: screen}
+For more information about the command options, see [`ibmcloud is share-update my-file-share`](/docs/vpc?topic=vpc-vpc-reference#share-update).
 
 ## Expanding file share capacity with the API
 {: #expand-vpc-share-api}

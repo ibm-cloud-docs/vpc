@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-08-14"
+lastupdated: "2023-10-19"
 
 keywords: file storage, file share, performance, IOPS, block size, capacity, range
 
@@ -21,7 +21,7 @@ When you provision {{site.data.keyword.filestorage_vpc_short}} file shares by us
 ## File storage profiles overview
 {: #file-storage-profile-overview}
 
-When you [create a file share](/docs/vpc?topic=vpc-file-storage-create) in your availability zone, you select share size and IOPS performance based on a file storage profile. All new file shares are created based on the high performance, [dp2](#dp2-profile) profile. 
+When you [create a file share](/docs/vpc?topic=vpc-file-storage-create), you select the share size and IOPS performance that is available, based on a file storage profile. All new file shares are created based on the high-performance [dp2](#dp2-profile) profile. 
 
 File shares that were created during the beta and limited availability phases with either the [IOPS tier](#fs-tiers) profiles or [custom IOPS](#fs-custom) profiles can continue to operate based on these profiles. You can also update these file shares to use the `dp2` profile or switch to another previous generation profile. However, you cannot use the previous profiles when you create a file share, and only the file shares with the `dp2` profile can use the new security features.
 
@@ -40,7 +40,7 @@ Table 1 shows the dp2 profile performance levels compared to the earlier profile
 
 ^2^ Baseline throughput is determined by the number of IOPS multiplied by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB or custom IOPS tiers. The higher the IOPS that you specify, the higher the throughput. Maximum throughput is 1024 MBps.
 
-The application I/O size directly impacts storage performance. If the application I/O size is smaller than the throughput multiplier that is used by the profile to calculate the volume’s bandwidth limit, the IOPS limit is reached before the throughput limit. Conversely, if the application I/O size is larger, the throughput limit is reached before the IOPS limit.
+The application I/O size directly impacts storage performance. If the application I/O size is smaller than the throughput multiplier that is used by the profile to calculate the bandwidth, the IOPS limit is reached before the throughput limit. Conversely, if the application I/O size is larger, the throughput limit is reached before the IOPS limit.
 
 ## Defined performance profile
 {: #dp2-profile}
@@ -56,7 +56,7 @@ Table 2 shows the available IOPS ranges, based on share size.
 | 80 - 99         | 100 - 4,000 |
 | 100 - 499       | 100 - 6,000 |
 | 500 - 999       | 100 - 10,000 |
-| 1,000 - 1,999    | 100 - 20,000 | 
+| 1,000 - 1,999   | 100 - 20,000 | 
 | 2,000 - 3,999   | 200 - 40,000 |
 | 4,000 - 7,999   | 300 - 40,000 |
 | 8,000 - 15,999  | 500 - 64,000 | 
@@ -67,6 +67,9 @@ Table 2 shows the available IOPS ranges, based on share size.
 
 ## Previous version file storage profiles
 {: #fs-v2-profiles}
+
+This section is about the previous generation of file share profiles (general purpose, 5-iops, 10-iops, or custom) that were used in the Beta release. New file shares can be provisioned with only the dp2 profile. To access the latest features, you must chnage the IOPS profile of your share to dp2.
+{: deprecated}
 
 ### IOPS tiers
 {: #fs-tiers}
@@ -113,30 +116,19 @@ The total maximum IOPS is rounded up to the next multiple of 10 when the IOPS ca
 {: #fs-using-ui-iops-profile}
 {: ui}
 
-When you [create a file share in the UI](/docs/vpc?topic=vpc-file-storage-create&interface=ui#file-storage-create-ui), under **Profiles**, select a profile.
+When you [create a file share in the UI](/docs/vpc?topic=vpc-file-storage-create&interface=ui#file-storage-create-ui), you can see the dp2 profile in the table in the **Profiles** section.
 
 ## Viewing profiles from the CLI
 {: #fs-using-cli-iops-profiles}
 {: cli}
 
-To view the list of available profiles from the CLI, run the following command.
+To view the list of available profiles from the CLI, run the `ibmcloud is share-profiles` command.
 
 ```sh
-ibmcloud is share-profiles
-```
-{: pre}
-
-The command returns the following profiles:
-
-```text
-ibmcloud is share-profiles
-Listing file share profiles in region us-south under account VPC1 as user user@mycompany.com...
-Name          Family
-custom-iops   custom
-dp2           defined-performance
-tier-10iops   tiered
-tier-3iops    tiered
-tier-5iops    tiered
+$ ibmcloud is share-profiles
+Listing file share profiles in region us-south under account Test Account as user test.user@ibm.com...
+Name   Family   
+dp2    defined_performance   
 ```
 {: screen}
 
@@ -159,68 +151,9 @@ The response returns the following profiles and related information:
 
 ```json
 {
-  "first": {
-    "href": "https://us-south.iaas.cloud.ibm.com/v1/share/profiles?limit=50"
-  },
+  "first": {"href": "https://us-south.iaas.cloud.ibm.com/v1/share/profiles?limit=50"},
   "limit": 50,
   "profiles": [
-    {
-      "capacity": {
-        "max": 4800,
-        "min": 10,
-        "step": 1,
-        "type": "dependent_range"
-      },
-      "family": "tiered",
-      "href": "https://us-south.iaas.cloud.ibm.com/v1/share/profiles/tier-10iops",
-      "iops": {
-        "default": 3000,
-        "max": 48000,
-        "min": 3000,
-        "step": 1,
-        "type": "range"
-      },
-      "name": "tier-10iops",
-      "resource_type": "share_profile"
-    },
-    {
-      "capacity": {
-        "max": 16000,
-        "min": 10,
-        "step": 1,
-        "type": "dependent_range"
-      },
-      "family": "tiered",
-      "href": "https://us-south.iaas.cloud.ibm.com/v1/share/profiles/tier-3iops",
-      "iops": {
-        "default": 3000,
-        "max": 48000,
-        "min": 3000,
-        "step": 1,
-        "type": "range"
-      },
-      "name": "tier-3iops",
-      "resource_type": "share_profile"
-    },
-    {
-      "capacity": {
-        "max": 9600,
-        "min": 10,
-        "step": 1,
-        "type": "dependent_range"
-      },
-      "family": "tiered",
-      "href": "https://us-south.iaas.cloud.ibm.com/v1/share/profiles/tier-5iops",
-      "iops": {
-        "default": 3000,
-        "max": 48000,
-        "min": 3000,
-        "step": 1,
-        "type": "range"
-      },
-      "name": "tier-5iops",
-      "resource_type": "share_profile"
-    },
     {
       "capacity": {
         "max": 32000,
@@ -252,7 +185,7 @@ The response returns the following profiles and related information:
 
 1. To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
 
-2. VPC infrastructure services use a region-specific endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the right region in the provider block in the `provider.tf` file. See the following example of targeting a region other than the default `us-south`.
+2. VPC infrastructure services use a regional specific endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the right region in the provider block in the `provider.tf` file. See the following example of targeting a region other than the default `us-south`.
 
    ```terraform 
    provider "ibm" {
@@ -270,7 +203,7 @@ The response returns the following profiles and related information:
    {: codeblock}
 
    For more information, see [ibm_is_share_profiles](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_share_profiles){: external}.
-
+   
 ## How IO size affects file share performance
 {: #fs-profiles-block-size}
 
@@ -280,7 +213,7 @@ Maximum throughput for a file share is calculated by taking the file share's IOP
 
 The higher the IOPS that you specify, the higher the throughput. Maximum throughput is 1024 MBps.
 
-The application I/O size directly impacts storage performance. If the application I/O size is smaller than the throughput multiplier that is used by the profile to calculate the volume’s bandwidth limit, the IOPS limit is reached before the throughput limit. Conversely, if the application I/O size is larger, the throughput limit is reached before the IOPS limit.
+The application I/O size directly impacts storage performance. If the application I/O size is smaller than the throughput multiplier that is used by the profile to calculate the bandwidth, the IOPS limit is reached before the throughput limit. Conversely, if the application I/O size is larger, the throughput limit is reached before the IOPS limit.
 
 Table 5 provides some examples of how block size and IOPS affect the throughput, calculated average I/O block size x IOPS = Throughput in MBps.
 

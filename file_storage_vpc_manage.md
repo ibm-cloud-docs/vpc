@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-08-08"
+lastupdated: "2023-10-19"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -28,25 +28,26 @@ During its lifecycle and normal operations, a file share can be in various state
 
 Lifecycle state:
 
-| State | Explanation |
-|-----------------|-------------|
-| `stable` | The file share or mount target is stable and available for use. |
-| `pending`| The file share or mount target is being created. |
-| `failed` | The file share or mount target failed to be created. You can delete the failed share and try creating another one. |
-| `deleting` | The file share or mount target is being deleted. |
+| State       | Explanation |
+|-------------|-------------|
+| `stable`    | The file share or mount target is stable and available for use. |
+| `pending`   | The file share or mount target is being created. |
+| `failed`    | The file share or mount target failed to be created. You can delete the failed share and try creating another one. |
+| `deleting`  | The file share or mount target is being deleted. |
 | `suspended` | The file share violates {{site.data.keyword.cloud}}’s [Acceptable Use Policy](https://www.ibm.com/services/us/imc/html/aup1.html). A suspended file share cannot be updated or deleted.|
-| `updating`| The file share capacity or IOPS is being updated|
-| `waiting` |  |
+| `updating`  | The file share capacity or IOPS is being updated|
+| `waiting`   |  |
 {: caption="Table 1. File storage lifecycle states" caption-side="bottom"}
 
 Replication status:
-| Status | Explanation |
-|-----------------|-------------|
-| `active` | This share is actively participating in replication, and the replica's data is up to date with the replication schedule. |
-| `failover_pending` |  This share is performing a replication failover. Or the service is waiting for another operation to complete, such as file share expansion, before the failover can commence. |
-| `initializing` | This share is initializing replication. |
-| `none` | This share is not participating in replication. |
-| `split_pending` | This share is performing a replication split. |
+
+| Status            | Explanation |
+|-------------------|-------------|
+| `active`          | This share is actively participating in replication, and the replica's data is up to date with the replication schedule. |
+| `failover_pending`|  This share is performing a replication failover. Or the service is waiting for another operation to complete, such as file share expansion, before the failover can commence. |
+| `initializing`    | This share is initializing replication. |
+| `none`            | This share is not participating in replication. |
+| `split_pending`   | This share is performing a replication split. |
 {: caption="Table 2. File storage replication status" caption-side="bottom"}
 
 ## Managing file shares and mount points in the UI
@@ -93,7 +94,7 @@ To mount a file share to an instance, you must create a mount target by providin
 
 1. Go to the [file shares details](/docs/vpc?topic=vpc-file-storage-view&interface=ui#fs-view-single-share-ui) page.
 
-2. Click the overflow menu (ellipsis).
+2. Click the Actions menu ![Actions menu](images/overflow.png).
 
 3. Select **Rename**.
 
@@ -131,7 +132,7 @@ To delete a mount target, the file share must be in a `stable` state.
 
 2. On the File share details page, select a mount target that you want to delete.
 
-3. Click the overflow menu (ellipsis) and select **Delete**.
+3. Click the Actions menu ![Actions menu](images/overflow.png) and select **Delete**.
 
 #### Deleting a file share in the UI
 {: #delete-file-share-ui}
@@ -143,262 +144,6 @@ The file share must be in a `stable` state or `failed` state (that is, when prov
 1. Select a file share from the [list of file shares](/docs/vpc?topic=vpc-file-storage-view).
 
 2. Click the overflow menu at the end of the row and select **Delete**.
-
-## Adding user tags to a file share
-{: #fs-add-user-tags}
-
-You can add user tags to new or existing file shares, modify, and delete tags for a file share with the UI, CLI, API, and Terraform. You can view tags throughout your account by filtering by tags from your resource list. You can also add user tags to replica file shares.
-
-You can create as many user tags as you like for a file share. However, to keep tags manageable, create only as many user tags as you require to effectively manage the resource.
-{: tip}
-
-You can manage your tags in the {{site.data.keyword.cloud_notm}} with the [Global Tagging API](/apidocs/tagging). With this API, you can create, delete, search, attach, or detach tags. For more information about managing tags for your account, see [Working with tags](/docs/account?topic=account-tag).
-
-### Adding user tags to file share in the UI
-{: #fs-add-tags-shares-ui}
-{: ui}
-
-You can add user tags to a file share in the UI.
-
-1. Go to the list of file shares. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > File Shares**.
-
-2. Select a file share to view its details.
-
-3. On the file share details page, user tags appear next to the file share name. Click the pencil icon to edit tags.
-
-4. In the **Edit tags** window, type a tag in the User tags text box.
-
-5. Click **Save**.
-
-### Adding or modify file share user tags from the CLI
-{: #fs-add-tags-cli}
-{: cli}
-
-To add tags when you provision a file share, run the `ibmcloud is share-create` command. To update an existing file share, run the `ibmcloud is share-update` command. The `--user-tags` option specifies tags for the file share.
-
-The following example updates an existing file share that is identified by ID and adds the user tags `env:test` and `env:prod`.
-
-```sh
-$ ibmcloud is share-update 50fda9c3-eecd-4152-b473-a98018ccfb10 --user-tags env:test,env:prod
-Updating share 50fda9c3-eecd-4152-b473-a98018ccfb10 under account VPC1 as user user.mycompany.com...
-
-ID                50fda9c3-eecd-4152-b473-a98018ccfb10
-Name              myshare-1
-CRN               crn:[...]
-Lifecycle State   stable
-Zone              us-south-1
-Profile           tier-3iops
-Size(GB)          40
-IOPS              3000
-Encryption        provider_managed
-Mount targets     ID                                       Name           VPC ID                                   VPC Name
-                  87171615-f8b4-4ccd-a216-bab12eb1a973     my-target121   81ee2425-7c2f-4042-9d8f-d02b0ee8886c     vpc1
-                  b041fc54-f0b9-4397-b68e-2ab032cd1206     my-target122   c338ca08-1256-4420-9932-a9960a0f1cfd     vpc2
-Resource Group    ID                                 Name
-                  bdd96715c2a44f2bb60df4ff14a543f5   Default
-User Tags         env:test,env:prod
-
-Created           2023-07-17T15:26:21+05:30
-```
-{: screen}
-
-### Adding or modify file share user tags with the API
-{: #fs-add-tags-api}
-{: api}
-
-As described in the [Beta VPC API](/apidocs/vpc-beta) reference [versioning](/apidocs/vpc-beta#api-versioning-beta) policy, support for older versions of the beta API is limited to 45 days. Therefore, beta API requests must specify a `version` query parameter date value within the last 45 days. You must also provide the `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/apidocs/vpc#api-generation-parameter).
-{: requirement}
-
-#### Adding a user tag when a file share is created
-{: #fs-add-tags-new-share-api}
-
-Make a `POST /shares` request and specify the `user_tags` property. This example creates a share with three user tags, `env:test1`, `env:test2`, and `env:prod`.
-
-```sh
-curl -X POST \
-"$rias_endpoint/v1/shares?version=2023-08-08&generation=2"\
-    -H "Authorization: Bearer $iam_token"\
-    -H 'Content-Type: application/json'\
-    -d '{
-        "name": "share-name1",
-        "size": 2300,
-        "profile": {
-           "name": "tier-3iops"
-        },
-        "user_tags": [
-           "env:test1",
-           "env:test2",
-           "env:prod"
-        ],
-        "zone": {
-          "name": "us-south-1"
-        }
-      }'
-```
-{: codeblock}
-
-#### Modifying user tags for an existing file share
-{: #fs-add-tags-share-api}
-
-Add new user tags to an existing file share by making a `PATCH /shares` call and specify the user tags in the `user_tags` property. You can specify new tags for a file share without any tags and the user tags are added. If you specify different tags, the existing tags are modified.
-
-The following example modifies a file share that is identified by ID by renaming the share and adding user tags.
-
-```sh
-curl -X PATCH\
-"$rias_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?version=2023-08-08&generation=2"\
--H "Authorization: $iam_token" \
--d '{
-    "name": "myshare-patch-1",
-    "user_tags": [
-      "ut8",
-      "ut9"
-    ],
-  }'
-```
-{: codeblock}
-
-Response:
-
-```json
-{
-    "access_control_mode": "vpc",
-    "created_at": "2023-01-28T22:31:50Z",
-    "crn": "crn": "crn:[...]",
-    "encryption": "provider_managed",
-    "href": "https://us-south-1.cloud.ibm.com/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3",
-    "id": "432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3",
-    "initial_owner": {
-      "gid": 0,
-      "uid": 0
-    },
-    "iops": 3000,
-    "lifecycle_state": "stable",
-    "name": "myshare-patch-1",
-    "profile": {
-      "href": "https://us-south-1.cloud.ibm.com/v1/share/profiles/tier-3iops",
-      "name": "tier-3iops",
-      "resource_type": "share_profile"
-    },
-    "replication_role": "none",
-    "replication_status": "none",
-    "replication_status_reasons": [],
-    "resource_group": {
-      "crn": "crn": "crn:[...]",
-      "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/86ccf0a1315646d4bc719fe34ff4d1e3",
-      "id": "86ccf0a1315646d4bc719fe34ff4d1e3",
-      "name": "Default"
-    },
-    "resource_type": "share",
-    "size": 100,
-    "mount_targets": [],
-    "user_tags": [
-      "ut8",
-      "ut9"
-    ],
-    "zone": {
-      "href": "https://us-south-1.cloud.ibm.com/v1/regions/us-south/zones/us-south-1",
-      "name": "us-south-1"
-    }
-  }
-```
-{: screen}
-
-#### Modifying file share user tags with ETag verification
-{: #fs-modify-etag-api}
-
-To ensure that updates to a file share are valid, you can obtain an `ETag` hash string value and specify it in the `If-Match` header in the `PATCH /shares/{share_id}` call. That confirms that no change happened to the share object between the last observed state and the state at the time of the `PATCH` call.
-
-To modify existing user tags that are added to a file share, you first make a `GET /shares/{share_id}` call and copy the hash value from `ETag` property in the response header. Then, you send the `ETag` value by using the `If-Match` header in a `PATCH /shares/{share_id}` request. Specifying an `Etag` value ensures any updates to or deletions of a file share fail if the `If-Match` value does not match the file share's current `Etag`. Follow these steps:
-
-1. Make a `GET /shares/{share_id}` call and copy the hash string from `ETag` property in the response header. Use need the hash string value for when you specify `If-Match` in the `PATCH /shares/{share_id}` request to modify user tags for the share in step 2.
-
-   ```sh
-   curl -sSL -D GET\ "https://us-south.cloud.ibm.com/v1/shares/{share_id}?version=2023-08-08&generation=2"\
-   -H "Authorization: Bearer $TOKEN" -o /dev/null
-   ```
-   {: codeblock}
-
-   The response header looks similar to the following example:
-
-   ```json
-   HTTP/2 200
-   date: Mon, 09 January 2023 17:48:03 GMT
-   content-type: application/json; charset=utf-8
-   content-length: 1049
-   cf-ray: 69903d250c4966ef-DFW
-   cache-control: max-age=0, no-cache, no-store, must-revalidate
-   expires: -1
-   strict-transport-security: max-age=31536000; includeSubDomains
-   cf-cache-status: DYNAMIC
-   expect-ct: max-age=604800, report-uri="[uri...]"
-   pragma: no-cache
-   x-content-type-options: nosniff
-   x-request-id: 1fbe2384-6828-4503-ae7d-050426d1b11b
-   x-xss-protection: 1; mode=block
-   server: cloudflare
-   etag: W/xxxyyyzzz123
-   ```
-   {: codeblock}
-
-2. Make a `PATCH /shares/{share_id}` request. Specify the `ETag` hash string for the `If-Match` property in the header. Specify the user tag in the `user_tags` property.
-
-   This example updates the file share user tags to `env:test` and `env:prod`. The hash string value that you obtained from the `ETag` property (`W/xxxyyyzzz123`) is specified in the `If-Match` header in the call.
-
-   ```sh
-   curl -X PATCH\
-   "$vpc_api_endpoint/v1/shares/50fda9c3-eecd-4152-b473-a98018ccfb10?version=2023-08-08&generation=2"\
-      -H "Authorization: Bearer"\
-      -H "If-Match: W/xxxyyyzzz123"\
-      -d `{
-         "user_tags": [
-            "env:test2",
-            "env:prod2"
-         ]
-      }'
-   ```
-   {: codeblock}
-
-## Adding access management tags to a file share
-{: #fs-add-access-mgt-tags}
-{: ui}
-
-Access management tags are metadata that you can add to your file shares to help organize access control resource relationships. You first create the tag and then add it to an existing file share or when you create a file share. You can apply the same access management tag to multiple file shares. You can assign access to the tag in {{site.data.keyword.iamshort}} (IAM). Optionally, you can create an IAM access group and manage users.
-
-### Step 1 - Creating an access management tag in IAM
-{: #fs-create-access-mgt-tag}
-
-In the console:
-
-1. Go to **Manage > Account**, and then select **Tags**.
-2. Click the **Access management tags** tab. Add a tag name in the field. Access management tags require a `key:value` format.
-3. Click **Create Tags**.
-
-From the [Global Search and Tagging API](/docs/account?topic=account-tag&interface=api#create-access-api):
-
-Make a `POST/ tags` call to [create an access management tag](/apidocs/tagging#create-tag) and specify the tag in the `tag_names` property. For an example, see [Creating access management tags with the API](/docs/account?topic=account-tag&interface=api#create-access-api).
-
-### Step 2 - Adding an access management tag to a file share
-{: #fs-add-access-mgt-tag}
-
-Add an access management tag to an existing file share or when you [create a file share](/docs/vpc?topic=vpc-file-storage-create). For an existing file share:
-
-1. In the [{{site.data.keyword.cloud_notm}} console)](/login){: external}, Go to the Resource list, and select a file share under **Storage** resources.
-2. In the **Access management tags** field, type the name of an access management tag that you previously created. The tag appears as you type.
-3. Save your changes.
-
-### Step 3 - Creating an access group and assign access to users
-{: #fs-access-mgt-additional-steps}
-
-After you create an access management tag and apply it to a file share, complete the following steps to assign access and add users:
-
-1. [Create an access group](/docs/account?topic=account-access-tags-tutorial#tagging-create-access-group). Access groups are assigned to policies that grant roles and permissions to the members of that group. You assign access to the specific access management tags for the file service. For more information about access groups, see [Setting up access groups](/docs/account?topic=account-groups&interface=ui).
-
-2. [Assign an access policy to a group](/docs/account?topic=account-access-tags-tutorial#tagging-assign-policy).
-
-3. [Add users to the access group](/docs/account?topic=account-access-tags-tutorial#tagging-add-users-access-group).
-
-When you look at the specific resources for the VPC infrastructure and specify {{site.data.keyword.filestorage_vpc_short}} as the resource type, you can see the access management tags for the file service.
 
 ## Managing file shares and mount targets from the CLI
 {: #file-storage-manage-cli}
@@ -458,7 +203,7 @@ Updating file share my-file-share under account VPC1 as user user1@mycompany.com
 
 ID                e1180bae-6799-4156-8bb7-e4d24013cda2
 Name              my-file-share
-CRN               crn:v1:public:is:us-south-1:a/a123456::share:e1180bae-6799-4156-8bb7-e4d24013cda2
+CRN               crn:v1:public:is:us-south-1:a/a1234567::share:e1180bae-6799-4156-8bb7-e4d24013cda2
 Lifecycle state   updating
 Zone              us-south-1
 Profile           dp2
@@ -473,18 +218,66 @@ For more information about the command options, see [`ibmcloud is share-update`]
 ### Deleting file shares and mount targets from the CLI
 {: #delete-share-targets-cli}
 
-Before you can delete a file share, make sure that all mount targets that belong to the file share are [deleted](#delete-mount-target-cli). The file share must be in a `stable` or `failed` state (that is, when provisioning fails).
+Before you can delete a file share, make sure that all mount targets that belong to the file share are deleted. If the file share is configured for replication, you must [remove the replication relationship](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=cli#fs-remove-replication-cli) as well. The file share must be in a `stable` or `failed` state before you can delete it.
+{: requirement}
 
-If the file share is configured for replication, you must take extra steps. For more information, see [Deleting a replica file share](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=api#fs-delete-replicas).
-{: note}
+1. Locate the file share that you want to delete by listing all the file shares with the `ibmcloud is shares` command.
+
+   ```sh
+   ibmcloud is sharesListing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
+   ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group   Replication role   
+   r006-dc6a644d-c7da-4c91-acf0-d66b47fc8516   my-replica-file-share   stable            us-south-1   dp2       1500       Default          replica   
+   r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a   my-source-file-share    stable            us-south-2   dp2       1500       Default          source   
+   r006-6d1719da-f790-45cc-9f68-896fd5673a1a   my-replica-share        stable            us-south-3   dp2       1000       Default          replica   
+   r006-925214bc-ded5-4626-9d8e-bc4e2e579232   my-new-file-share       stable            us-south-2   dp2       500        Default          none   
+   r006-97733317-35c3-4726-9c28-1159de30012e   my-file-share-8         stable            us-south-1   dp2       40         Default          none   
+   r006-b1707390-3825-41eb-a5bb-1161f77f8a58   my-vpc-file-share       stable            us-south-2   dp2       1000       Default          none   
+   r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   my-file-share           stable            us-south-2   dp2       1000       Default          source  
+   ```
+   {: screen}
+
+1. Retrieve the file share details to see the attached mount target and replication information with the `ibmcloud is share` command.
+
+   ```sh
+   $ ibmcloud is share my-file-share-8
+   Getting file share my-file-share-8 under account Test Account as user test.user@ibm.com...
+                                
+   ID                           r006-97733317-35c3-4726-9c28-1159de30012e   
+   Name                         my-file-share-8   
+   CRN                          crn:v1:bluemix:public:is:us-south-1:a/a1234567::share:r006-97733317-35c3-4726-9c28-1159de30012e   
+   Lifecycle state              stable   
+   Access control mode          vpc    
+   Zone                         us-south-1   
+   Profile                      dp2   
+   Size(GB)                     40   
+   IOPS                         2000   
+   User Tags                    env:dev,env:prod   
+   Encryption                   provider_managed   
+   Mount Targets                ID                                          Name      
+                                r006-36d67ada-ca83-44be-adad-dc58e7c38dc5   my-new-mount-target      
+                                
+   Resource group               ID                                 Name      
+                                db8e8d865a83e0aae03f25a492c5b39e   Default      
+                                
+   Created                      2023-10-18T23:52:45+00:00   
+   Replication role             none   
+   Replication status           none   
+   Replication status reasons   Status code   Status message      
+                                -             -
+   ```
+   {: screen}
 
 #### Deleting a mount target of a file share from the CLI
 {: #delete-mount-target-cli}
 
-Run the `share-mount-target-delete` command and specify the file share ID and mount target ID. To delete a mount target, the file share must be in a `stable` state.
+Run the `share-mount-target-delete` command and specify the file share and mount target by either their names or IDs. Type `y` when you're prompted. If more than one mount targets are attached to the file share, repeat this step until all mount targets are deleted.
 
 ```sh
-ibmcloud is share-mount-target-delete <SHARE_ID> <MOUNT_TARGET_ID>
+$ ibmcloud is share-mount-target-delete my-file-share-8 my-new-mount-target
+This will delete mounted target my-new-mount-target for share ID my-file-share-8 and cannot be undone. Continue [y/N] ?> y
+Deleting mounted target my-new-mount-target for share ID my-file-share-8 under account Test Account as user test.user@ibm.com...
+OK
+Share mount target my-new-mount-target is deleted.
 ```
 {: pre}
 
@@ -493,16 +286,16 @@ For more information about the command options, see [`ibmcloud is share-mount-ta
 #### Deleting a file share from the CLI
 {: #delete-file-share-cli}
 
-Run the `share_delete` command and specify the file share ID.
-
-Before you can delete a file share, make sure that all mount targets that belong to the file share are [deleted](#delete-mount-target-cli). The file share must be in a `stable` or `failed` state (that is, when provisioning fails).
-
-Also, if the file share has a replica file share, you must first remove the replication relationship. For more information, see [Remove the replication relationship in the CLI](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=cli#fs-remove-replication-cli).
+To delete the file share, run the `share_delete` command and specify the file share by its name or ID.
 
 ```sh
-ibmcloud is share-delete <SHARE_ID>
+$ ibmcloud is share-delete my-file-share-8
+This will delete file share my-file-share-8 and cannot be undone. Continue [y/N] ?> y
+Deleting file share my-file-share-8 under account Test Account as user test.user@ibm.com...
+OK
+File share my-file-share-8 is deleted.
 ```
-{: pre}
+{: screen}
 
 For more information about the command options, see [`ibmcloud is share-delete`](/docs/vpc?topic=vpc-vpc-reference#share-replica-delete).
 
@@ -710,7 +503,7 @@ The following example is the response to a delete request of a mount target wher
 ```
 {: codeblock}
 
-The mount target is deleted in the background. Confirm the deletion by trying to view the mount target information. If you get a `_404 Not Found_` error, the mount target is successfully deleted.
+The mount target is deleted in the background. Confirm the deletion by trying to view the mount target information. If you get an `_404 Not Found_` error, the mount target is successfully deleted.
 
 #### Deleting a file share in the API
 {: #delete-file-share-api}
@@ -765,7 +558,7 @@ Example:
 ```
 {: codeblock}
 
-The file share is deleted in the background. Confirm the deletion by trying to view the mount target information. If you get a `_404 Not Found_` error, the mount target is successfully deleted.
+The file share is deleted in the background. Confirm the deletion by trying to view the mount target information. If you get a `404 Not Found` error, the mount target is successfully deleted.
 
 A `DELETE /shares/$share_id` call can optionally include an `If-Match` header that specifies an `ETag` hash string. Make a `GET /shares/{share_id}` call and copy the `ETag` hash string from the response header. For more information, see [User tags for file shares](/docs/vpc?topic=vpc-file-storage-vpc-abou#fs-about-user-tags).
 {: note}
@@ -826,6 +619,316 @@ terraform destroy --target ibm_is_share.example.id
 {: codeblock}
 
 For more information, see [terraform destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy){: external}.
+
+
+## Adding user tags to a file share
+{: #fs-add-user-tags}
+
+You can add user tags to new or existing file shares, modify, and delete tags for a file share with the UI, CLI, API, and Terraform. You can view tags throughout your account by filtering by tags from your resource list. You can also add user tags to replica file shares.
+
+You can create as many user tags as you like for a file share. However, to keep tags manageable, create only as many user tags as you require to effectively manage the resource.
+{: tip}
+
+You can manage your tags in the {{site.data.keyword.cloud_notm}} with the [Global Tagging API](/apidocs/tagging). With this API, you can create, delete, search, attach, or detach tags. For more information about managing tags for your account, see [Working with tags](/docs/account?topic=account-tag).
+
+### Adding user tags to file share in the UI
+{: #fs-add-tags-shares-ui}
+{: ui}
+
+You can add user tags to a file share in the UI.
+
+1. Go to the list of file shares. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![vpc icon](../../icons/vpc.svg) > Storage > File Shares**.
+
+2. Select a file share to view its details.
+
+3. On the file share details page, user tags appear next to the file share name. Click the pencil icon to edit tags.
+
+4. In the **Edit tags** window, type a tag in the User tags text box.
+
+5. Click **Save**.
+
+### Adding or modify file share user tags from the CLI
+{: #fs-add-tags-cli}
+{: cli}
+
+Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
+{: requirement}
+
+You can add tags when you provision a file share with the `ibmcloud is share-create` command. The `--user-tags` option specifies tags for the file share. For more information, see [Creating a file share with a mount target from the CLI](/docs/vpc?topic=vpc-file-storage-create&interface=cli#fs-create-share-target-cli).
+
+You can add and remove tags when you update a file share with the `ibmcloud is share-update` command. 
+
+1. Locate your share from the CLI by listing your file shares in the region with the `ibmcloud is shares` command.
+
+   ```sh
+   $ ibmcloud is shares
+   Listing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
+   ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group   Replication role   
+   r006-dc6a644d-c7da-4c91-acf0-d66b47fc8516   my-replica-file-share   stable            us-south-1   dp2       1500       Default          replica   
+   r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a   my-source-file-share    stable            us-south-2   dp2       1500       Default          source   
+   r006-6d1719da-f790-45cc-9f68-896fd5673a1a   my-replica-share        stable            us-south-3   dp2       1500       Default          replica   
+   r006-925214bc-ded5-4626-9d8e-bc4e2e579232   my-new-file-share       stable            us-south-2   dp2       500        Default          none   
+   r006-b1707390-3825-41eb-a5bb-1161f77f8a58   my-vpc-file-share       stable            us-south-2   dp2       1000       Default          none   
+   r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   my-file-share           stable            us-south-2   dp2       1500       Default          source 
+   ```
+   {: screen}
+
+1. Retrieve the details of the file share with the `ibmcloud is share` command.
+   
+   ```sh
+   $ ibmcloud is share my-file-share
+   Getting file share my-file-share under account Test Account as user test.user@ibm.com...
+                                
+   ID                           r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
+   Name                         my-file-share   
+   CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
+   Lifecycle state              stable   
+   Access control mode          security_group   
+   Zone                         us-south-2   
+   Profile                      dp2   
+   Size(GB)                     1000   
+   IOPS                         1000   
+   Encryption                   provider_managed   
+   Mount Targets                ID                                          Name      
+                                r006-dd497561-c7c9-4dfb-af0a-c84eeee78b61   my-cli-share-mount-target-1      
+                                
+   Resource group               ID                                 Name      
+                                db8e8d865a83e0aae03f25a492c5b39e   Default      
+                                
+   Created                      2023-10-18T22:15:15+00:00   
+   Replication role             none   
+   Replication status           none   
+   Replication status reasons   Status code   Status message      
+                                -             -      
+   ```
+   {: screen}
+
+1. Use the `ibmcloud is share-update` command with the `--user-tags` option to add a tag to the file share. If the file share had tags previously, they are overwritten by the tags that are specified in the command.
+   
+   ```sh
+   ibmcloud is share-update my-file-share --user-tags env:dev
+   Updating file share my-file-share under account Test Account as user test.user@ibm.com...
+                                 
+   ID                           r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
+   Name                         my-file-share   
+   CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
+   Lifecycle state              stable   
+   Access control mode          security_group   
+   Zone                         us-south-2   
+   Profile                      dp2   
+   Size(GB)                     1500   
+   IOPS                         2000   
+   User Tags                    env:dev   
+   Encryption                   provider_managed   
+   Mount Targets                ID                                          Name      
+                                r006-dd497561-c7c9-4dfb-af0a-c84eeee78b61   my-cli-share-mount-target-1      
+                                
+   Resource group               ID                                 Name      
+                                db8e8d865a83e0aae03f25a492c5b39e   Default      
+                                
+   Created                      2023-10-18T22:15:15+00:00   
+   Replication role             none   
+   Replication status           none   
+   Replication status reasons   Status code   Status message      
+                                -             - 
+   ```
+   {: screen}
+
+
+### Adding or modify file share user tags with the API
+{: #fs-add-tags-api}
+{: api}
+
+When you're working with the API, you must provide the `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/apidocs/vpc#api-generation-parameter).
+{: requirement}
+
+#### Adding a user tag when a file share is created
+{: #fs-add-tags-new-share-api}
+
+Make a `POST /shares` request and specify the `user_tags` property. This example creates a share with three user tags, `env:test1`, `env:test2`, and `env:prod`.
+
+```sh
+curl -X POST \
+"$rias_endpoint/v1/shares?version=2023-08-08&generation=2"\
+    -H "Authorization: Bearer $iam_token"\
+    -H 'Content-Type: application/json'\
+    -d '{
+        "name": "share-name1",
+        "size": 2300,
+        "profile": {"name": "tier-3iops"},
+        "user_tags": [
+           "env:test1",
+           "env:test2",
+           "env:prod"
+        ],
+        "zone": {"name": "us-south-1"}
+      }'
+```
+{: codeblock}
+
+#### Modifying user tags for an existing file share
+{: #fs-add-tags-share-api}
+
+Add new user tags to an existing file share by making a `PATCH /shares` call and specify the user tags in the `user_tags` property. You can specify new tags for a file share without any tags and the user tags are added. If you specify different tags, the existing tags are modified.
+
+The following example modifies a file share that is identified by ID by renaming the share and adding user tags.
+
+```sh
+curl -X PATCH\
+"$rias_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?version=2023-08-08&generation=2"\
+-H "Authorization: $iam_token" \
+-d '{
+    "name": "myshare-patch-1",
+    "user_tags": [
+      "ut8",
+      "ut9"
+    ],
+  }'
+```
+{: codeblock}
+
+Response:
+
+```json
+{
+    "access_control_mode": "vpc",
+    "created_at": "2023-01-28T22:31:50Z",
+    "crn": "crn": "crn:[...]",
+    "encryption": "provider_managed",
+    "href": "https://us-south-1.cloud.ibm.com/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3",
+    "id": "432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3",
+    "initial_owner": {
+      "gid": 0,
+      "uid": 0
+    },
+    "iops": 3000,
+    "lifecycle_state": "stable",
+    "name": "myshare-patch-1",
+    "profile": {
+      "href": "https://us-south-1.cloud.ibm.com/v1/share/profiles/tier-3iops",
+      "name": "tier-3iops",
+      "resource_type": "share_profile"
+    },
+    "replication_role": "none",
+    "replication_status": "none",
+    "replication_status_reasons": [],
+    "resource_group": {
+      "crn": "crn": "crn:[...]",
+      "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/86ccf0a1315646d4bc719fe34ff4d1e3",
+      "id": "86ccf0a1315646d4bc719fe34ff4d1e3",
+      "name": "Default"
+    },
+    "resource_type": "share",
+    "size": 100,
+    "mount_targets": [],
+    "user_tags": [
+      "ut8",
+      "ut9"
+    ],
+    "zone": {
+      "href": "https://us-south-1.cloud.ibm.com/v1/regions/us-south/zones/us-south-1",
+      "name": "us-south-1"
+    }
+  }
+```
+{: screen}
+
+#### Modifying file share user tags with ETag verification
+{: #fs-modify-etag-api}
+
+To ensure that updates to a file share are valid, you can obtain an `ETag` hash string value and specify it in the `If-Match` header in the `PATCH /shares/{share_id}` call. That confirms that no change happened to the share object between the last observed state and the state at the time of the `PATCH` call.
+
+To modify existing user tags that are added to a file share, you first make a `GET /shares/{share_id}` call and copy the hash value from `ETag` property in the response header. Then, you send the `ETag` value by using the `If-Match` header in a `PATCH /shares/{share_id}` request. Specifying an `Etag` value ensures any updates to or deletions of a file share fail if the `If-Match` value does not match the file share's current `Etag`. Follow these steps:
+
+1. Make a `GET /shares/{share_id}` call and copy the hash string from `ETag` property in the response header. Use need the hash string value for when you specify `If-Match` in the `PATCH /shares/{share_id}` request to modify user tags for the share in step 2.
+
+   ```sh
+   curl -sSL -D GET\ "https://us-south.cloud.ibm.com/v1/shares/{share_id}?version=2023-08-08&generation=2"\
+   -H "Authorization: Bearer $TOKEN" -o /dev/null
+   ```
+   {: codeblock}
+
+   The response header looks similar to the following example:
+
+   ```json
+   HTTP/2 200
+   date: Mon, 09 January 2023 17:48:03 GMT
+   content-type: application/json; charset=utf-8
+   content-length: 1049
+   cf-ray: 69903d250c4966ef-DFW
+   cache-control: max-age=0, no-cache, no-store, must-revalidate
+   expires: -1
+   strict-transport-security: max-age=31536000; includeSubDomains
+   cf-cache-status: DYNAMIC
+   expect-ct: max-age=604800, report-uri="[uri...]"
+   pragma: no-cache
+   x-content-type-options: nosniff
+   x-request-id: 1fbe2384-6828-4503-ae7d-050426d1b11b
+   x-xss-protection: 1; mode=block
+   server: cloudflare
+   etag: W/xxxyyyzzz123
+   ```
+   {: codeblock}
+
+2. Make a `PATCH /shares/{share_id}` request. Specify the `ETag` hash string for the `If-Match` property in the header. Specify the user tag in the `user_tags` property.
+
+   This example updates the file share user tags to `env:test` and `env:prod`. The hash string value that you obtained from the `ETag` property (`W/xxxyyyzzz123`) is specified in the `If-Match` header in the call.
+
+   ```sh
+   curl -X PATCH\
+   "$vpc_api_endpoint/v1/shares/50fda9c3-eecd-4152-b473-a98018ccfb10?version=2023-08-08&generation=2"\
+      -H "Authorization: Bearer"\
+      -H "If-Match: W/xxxyyyzzz123"\
+      -d `{
+         "user_tags": [
+            "env:test2",
+            "env:prod2"
+         ]
+      }'
+   ```
+   {: codeblock}
+
+## Adding access management tags to a file share
+{: #fs-add-access-mgt-tags}
+{: ui}
+
+Access management tags are metadata that you can add to your file shares to help organize access control resource relationships. You first create the tag and then add it to an existing file share or when you create a file share. You can apply the same access management tag to multiple file shares. You can assign access to the tag in {{site.data.keyword.iamshort}} (IAM). Optionally, you can create an IAM access group and manage users.
+
+### Step 1 - Creating an access management tag in IAM
+{: #fs-create-access-mgt-tag}
+
+In the console:
+
+1. Go to **Manage > Account**, and then select **Tags**.
+2. Click the **Access management tags** tab. Add a tag name in the field. Access management tags require a `key:value` format.
+3. Click **Create Tags**.
+
+From the [Global Search and Tagging API](/docs/account?topic=account-tag&interface=api#create-access-api):
+
+Make a `POST/ tags` call to [create an access management tag](/apidocs/tagging#create-tag) and specify the tag in the `tag_names` property. For an example, see [Creating access management tags with the API](/docs/account?topic=account-tag&interface=api#create-access-api).
+
+### Step 2 - Adding an access management tag to a file share
+{: #fs-add-access-mgt-tag}
+
+Add an access management tag to an existing file share or when you [create a file share](/docs/vpc?topic=vpc-file-storage-create). For an existing file share:
+
+1. In the [{{site.data.keyword.cloud_notm}} console)](/login){: external}, Go to the Resource list, and select a file share under **Storage** resources.
+2. In the **Access management tags** field, type the name of an access management tag that you previously created. The tag appears as you type.
+3. Save your changes.
+
+### Step 3 - Creating an access group and assign access to users
+{: #fs-access-mgt-additional-steps}
+
+After you create an access management tag and apply it to a file share, complete the following steps to assign access and add users:
+
+1. [Create an access group](/docs/account?topic=account-access-tags-tutorial#tagging-create-access-group). Access groups are assigned to policies that grant roles and permissions to the members of that group. You assign access to the specific access management tags for the file service. For more information about access groups, see [Setting up access groups](/docs/account?topic=account-groups&interface=ui).
+
+2. [Assign an access policy to a group](/docs/account?topic=account-access-tags-tutorial#tagging-assign-policy).
+
+3. [Add users to the access group](/docs/account?topic=account-access-tags-tutorial#tagging-add-users-access-group).
+
+When you look at the specific resources for the VPC infrastructure and specify {{site.data.keyword.filestorage_vpc_short}} as the resource type, you can see the access management tags for the file service.
+
 
 ## Mounting and unmounting file shares on a virtual server instance
 {: #fs-mount-unmount-vsi}
