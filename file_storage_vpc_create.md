@@ -143,7 +143,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 
 4. Make sure that you [created an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-cli#create-a-vpc-cli).
 
-### Gathering information to create file storage from the CLI
+### Gathering information from the CLI
 {: #fs-vpc-getinfo-cli}
 
 Before you run the `ibmcloud is share-create` command, you can gather information that you need for provisioning a share by viewing information about other file shares, mount targets, and file storage profiles.
