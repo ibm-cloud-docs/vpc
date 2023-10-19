@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-08-08"
+lastupdated: "2023-10-19"
 
 keywords: file share, file storage, mount helper, mount target, mount path, secure connection, NFS
 
@@ -26,7 +26,7 @@ Use these instructions to connect a CentOS Linux&reg;-based {{site.data.keyword.
 3. Get the mount path of the file share from the mount target. Mount path information can be obtained from the File share details page in the [UI](/docs/vpc?topic=vpc-file-storage-view&interface=ui#fs-get-mountpath-ui-vpc), from the [CLI](/docs/vpc?topic=vpc-file-storage-view&interface=cli#fs-get-mountpath-cli), with the [API](/docs/vpc?topic=vpc-file-storage-view&interface=api#fs-get-target-api) or [Terraform](/docs/vpc?topic=vpc-file-storage-view&interface=terraform#fs-view-mount-target-terraform).
 4. If you want to use encryption in transit, you need to obtain an IPsec certificate from the Instance Metadata service. Ensure that encryption in transit is enabled for the mount target. Plus, mount the file share with a secure connection. This feature is only available for file shares with `dp2` profiles and security group access mode. For more information, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit).
    
-   Install and run the [mount helper utility](/docs/vpc?topic=vpc-file-storage-vpc-eit&interface=ui#fs-mount-helper-utility) to mount file shares with encryption in transit or without an encrypted connection.  
+   Install and run the [mount helper utility](/docs/vpc?topic=vpc-file-storage-vpc-eit&interface=ui#fs-mount-helper-utility) to mount file shares with encryption in transit or without an encrypted connection.
    {: fast-path}
 
 {{site.data.keyword.filestorage_vpc_short}} service requires NFS versions v4.1 or higher.
@@ -106,45 +106,40 @@ SSH into the virtual server instance where you want to mount the file share, the
 
 6. Mount the remote file share on start. To complete the setup, you must edit the file systems table (`/etc/fstab`) and add the remote file share to the list of entries that are automatically mounted on startup. Before you create an entry in the `fstab`, perform the following steps to add the mount path hostname to `/etc/hosts`.
     1. Get the `hostname.com` portion of the mount path, for example `fsf-dal2433a-dz.adn.networklayer.com` and get the IP address. Run the following command from the instance to get the IP address.
-
-        ```sh
-        host hostname.com
-        ```
-        {: pre}
-
-        See following example.
-        ```text
-        host fsf-dal2433a-dz.adn.networklayer.com
-        fsf-dal2433a-dz.adn.networklayer.com has address 203.0.113.0
-        ```
-        {: screen}
-
-        If you get a command not found error when you run `host` command, use `yum install bind-utils` to install it.
-        {: tip}
-
-    2. Edit `/etc/hosts` and add an IP to the hostname entry.
-
-       ```text
-       <IP_Address> hostname.comhostname.com
+       ```sh
+       host hostname.com
        ```
        {: pre}
 
        See following example.
+       ```sh
+       host fsf-dal2433a-dz.adn.networklayer.com
+       fsf-dal2433a-dz.adn.networklayer.com has address 203.0.113.0
+       ```
+       {: screen}
 
+       If you get a command not found error when you run `host` command, use `yum install bind-utils` to install it.
+       {: tip}
+
+    2. Edit `/etc/hosts` and add an IP to the hostname entry.
+       ```text
+        <IP_Address> hostname.comhostname.com
+       ```
+       {: pre}
+
+       See following example.
        ```text
        198.51.100.0 fsf-dal2433a-dz.adn.networklayer.com
        ```
        {: screen}
 
-    3. Edit the file systems table `/etc/fstab` and add an entry.
-
+    3. Edit the file systems table `/etc/fstab`, and add an entry.
        ```text
        (hostname):/(file_share_path) /mnt nfs_version options 0 0
        ```
        {: pre}
 
        See following example.
-
        ```text
        fsf-dal2433a-dz.adn.networklayer.com:/nxg_s_voll_246a9cb9-4679-4dc5-9522-4a7ed2575136 /mnt/test nfs4 nfsvers=4.1,sec=sys,_netdev 0 0
        ```
