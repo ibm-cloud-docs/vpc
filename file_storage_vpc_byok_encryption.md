@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-08-08"
+lastupdated: "2023-10-19"
 
 keywords: file share, customer-managed encryption, encryption, byok, KMS, Key Protect, Hyper Protect Crypto Services,
 
@@ -15,13 +15,15 @@ subcollection: vpc
 # Creating file shares with customer-managed encryption at rest
 {: #file-storage-vpc-encryption}
 
-By default, {{site.data.keyword.filestorage_vpc_short}} shares are encrypted with IBM-managed encryption. However, you can also create encrypted file shares by using a supported key management service to create or import your own root keys. After you specify the encryption type for a file share, you can't change it.
+By default, {{site.data.keyword.filestorage_vpc_short}} shares are encrypted with IBM-managed encryption. However, you can also create an envelop-encryption for your file shares by using one of the supported key management services to create or import your own root keys. You can't change the encryption type after the file share is created.
 {: shortdesc}
+
+For more information, see [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption)
 
 ## Before you begin
 {: #custom-managed-vol-prereqs-file}
 
-To create file shares with customer-managed encryption, you must first provision a key management service, and create or import your customer root key (CRK). You must also [authorize access](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-volumes-prereqs) between {{site.data.keyword.filestorage_vpc_short}} and the key management service. When you complete these prerequisites, you can start creating file shares that use customer-managed encryption.
+To create file shares with customer-managed encryption, you must first provision a key management service, and create or import your customer root key (CRK). You must also [create a service-to-service authorization](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-volumes-prereqs) between {{site.data.keyword.filestorage_vpc_short}} and the key management service. When you complete these prerequisites, you can start creating file shares that use customer-managed encryption.
 
 For more information, see [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-encryption-prereqs).
 
@@ -31,7 +33,7 @@ For more information, see [Prerequisites for setting up customer-managed encrypt
 
 Follow this procedure to specify customer-managed encryption when you create a file share.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > File Shares**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![vpc icon](../../icons/vpc.svg) > Storage > File Shares**.
 
 2. Click **Create**.
 
@@ -55,7 +57,7 @@ Follow this procedure to specify customer-managed encryption when you create a f
    | Encryption | To use customer-managed encryption, select a [key management service](/docs/vpc?topic=vpc-vpc-encryption-about#kms-for-byok) ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}). The key management service (KMS) instance includes the root key that is imported to or created in that KMS instance. |
    | Encryption service instance | If you provisioned multiple KMS instances in your account, select the one that includes the root key that you want to use for customer-managed encryption. |
    | Key name | Select the root key within the KMS instance that you want to use for encrypting the share. |
-   | Key ID | Shows the key ID that is associated with the data encryption key that you selected. |
+   | Key ID | The field shows the key ID that is associated with the data encryption key that you selected. |
    {: caption="Table 2. Values for customer-managed encryption for file shares" caption-side="bottom"}
 
 5. When all the required information is provided, click **Create file share**. You're returned to the File Shares for VPC page, where a message indicates that the file share is provisioning. When completed, the status changes to **Active**.
@@ -63,54 +65,75 @@ Follow this procedure to specify customer-managed encryption when you create a f
 If you created your {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} instance by using a private endpoint, root keys that were created by using that instance are not shown in the UI. You must use the CLI or API to access and use those root keys.
 {: important}
 
-## Creating customer-managed encryption file shares from the CLI
+## Creating file shares with customer-managed encryption from the CLI
 {: #fs-byok-cli}
 {: cli}
 
-To create a file share with customer-managed encryption from the CLI, use the `ibmcloud is share-create` command with the `--encryption-key` option. The `encryption_key` parameter specifies a valid CRN for the root key in the key management service.
+Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
+{: requirement}
 
-Before you begin, verify that you completed the [prerequisites](/docs/vpc?topic=vpc-file-storage-create#before-creating-file-storage-cli), then follow these steps:
+1. Retrieve the ID of your key management service and the CRN of the root key in that service. 
+   1. List the available KMS instances with the `ibmcloud resource service-instances` command.
+     ```sh
+     $ ibmcloud resource service-instances
+     Retrieving instances with type service_instance in all resource groups in all locations under account Test Account as test.user@ibm.com... 
+     OK
+     Name             Location   State    Type               Resource Group ID
+     KeyProtect-ki    us-south   active   service_instance   db8e8d865a83e0aae03f25a492c5b39e
+     schematics       us-south   active   service_instance   db8e8d865a83e0aae03f25a492c5b39e
+     ```
+     {: screen}
 
-1. Use the procedure in [Step 1 - Obtain service instance and root key information](/docs/vpc?topic=vpc-creating-instances-byok#byok-cli-setup-prereqs) to obtain the ID of your key management service and the CRN of the root key in that service.
+   1. Use the `ibmcloud resource service-instance` command to get the instance ID. The ID is the last string in the CRN after the account number.
+     ```sh
+     $ ibmcloud resource service-instance KeyProtect-ki -location us-south --id
+     Retrieving service instance KeyProtect-ki in all resource groups under account Test Account as test.user@ibm.com...
+     crn:v1:bluemix:public:kms:us-south:a/a1234567:: 22e573bd-c02c-4d7f-81e2-2aa867da176d
+     ```
+     {: screen}
 
-2. Specify the `ibmcloud is share-create` command with the `--encryption-key` option to a volume with customer-managed encryption. The `encryption_key` parameter specifies a valid CRN for the root key in the key management service.
+   1.  Use the ID in the `ibmcloud kp keys` command to retrieve the key information.
+     ```sh
+     $ ibmcloud kp keys -c --instance-id 22e573bd-c02c-4d7f-81e2-2aa867da176d
+     Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+     Retrieving keys...
+     OK
+     Key ID                                 Key Name      CRN   
+     2fb8d675-bde3-4780-b127-3d0b413631c1   my-file-key   crn:v1:bluemix:public:kms:us-south:a/a1234567:22e573bd-c02c-4d7f-81e2-2aa867da176d:key:2fb8d675-bde3-4780-b127-3d0b413631c1
+     ```
+     {: screen}
+
+     For more information, see [Step 1 - Obtain service instance and root key information](/docs/vpc?topic=vpc-creating-instances-byok#byok-cli-setup-prereqs).
+
+2. Specify the `ibmcloud is share-create` command with the `--encryption-key` option to create a file share with customer-managed encryption. The `encryption_key` option must be followed by a valid CRN for the root key in the key management service.
 
 ```sh
-ibmcloud is share-create
-   --zone ZONE_NAME
-   --profile PROFILE
-   --size SIZE [--name NAME]
-   [--mount-targets TARGETS_JSON | @TARGETS_JSON_FILE]
-   [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME]
-   [--encryption-key ENCRYPTION_KEY]
-   [--output JSON]
-```
-{: pre}
-
-For example,
-
-```sh
-ibmcloud is share-create --zone us-south-2 --vpc {vpc_id} --name my-encrypted-share --profile tier-5iops --size 100 --encryption key {crn}
-```
-{: pre}
-
-The following example shows a new file share that is created with customer-managed encryption.
-
-```sh
-$ ibmcloud is share-create --zone us-south-2 --vpc {vpc_id} --name my-encrypted-share --profile tier-5iops --encryption key abccorp-kp-vpc-2 fd57250e-908c-4785-a8a5-1f53176bcd2f
-Creating volume demovolume in resource group Default under account VPC 01 as user rtuser1@mycompany.com...
-ID                                      339c8781-f7f5-4a8f-8a2d-3bfc711788ee
-Name                                    my-encrypted-share
-Size                                    100
-IOPS                                    1000
-Profile                                 tier-5iops
-Encryption Key                          crn:v1:bluemix:public:kms:us-south:a/8d65fb1cf5e99e86dd7229ddef9e5b7b:b1abf7c5-381d-4f34-836e-5db7193250bc:key:fd57250e-908c-4785-a8a5-1f53176bcd2f
-Encryption                              customer_managed
-Status                                  pending
-Resource Group                          Default(dbb12715c2a22f2bb60df4ffd4a543f2)
-Created                                 2023-08-08 10:09:28
-Zone                                    us-south-2
-Mount targets                           none
+$ ibmcloud is share-create --name my-encrypted-file-share --zone us-south-2 --profile dp2 --size 500 --iops 2000  --user-tags env:dev --encryption_key crn:v1:bluemix:public:kms:us-south:a/a1234567:key:2fb8d675-bde3-4780-b127-3d0b413631c1 --mount-targets '[{"name":"my-new-mount-target","virtual_network_interface": {"name":"my-vni-2","subnet": {"id":"0726-298acd6c-e71e-4204-a04f-fe4a4dd89805"}}}]'
+Creating file share my-encrypted-file-share under account Test Account as user test.user@ibm.com...
+                                
+ID                           r006-d44298fe-aced-4f55-a690-8a3830e9fd90   
+Name                         my-encrypted-file-share   
+CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-d44298fe-aced-4f55-a690-8a3830e9fd90   
+Lifecycle state              pending   
+Access control mode          security_group   
+Zone                         us-south-2   
+Profile                      dp2   
+Size(GB)                     500   
+IOPS                         2000   
+User Tags                    env:dev   
+Encryption                   user_managed   
+Mount Targets                ID                                          Name      
+                             r006-00432317-436e-4940-ab7d-8b26c186b00f   my-new-mount-target      
+                                
+Resource group               ID                                 Name      
+                             db8e8d865a83e0aae03f25a492c5b39e   Default      
+                                
+Created                      2023-10-19T21:16:27+00:00   
+Encryption key               crn:v1:bluemix:public:kms:us-south:a/c06ae1ed3292f027a632ab246303ef1b:22e573bd-c02c-4d7f-81e2-2aa867da176d:key:2fb8d675-bde3-4780-b127-3d0b413631c1   
+Replication role             none   
+Replication status           none   
+Replication status reasons   Status code   Status message      
+                             -             -  
 ```
 {: screen}
 
