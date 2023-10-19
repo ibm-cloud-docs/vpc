@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-09-29"
+lastupdated: "2023-10-19"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -26,9 +26,6 @@ For IBM Cloud Backup for VPC service to work, you need to provide an authorizati
 To create a backup policy and for the backup jobs to run correctly, the Backup service needs to be authorized to work with {{site.data.keyword.block_storage_is_short}}, Snapshots for VPC, and Virtual Server for VPC services. 
 
 If you are an Enterprise account administrator who wants to create a backup policy for your enterprise account and subaccounts, you also need to have authorization for the Backup for VPC service in the enterprise account to work with the Backup for VPC service in the subaccounts.
-
-The ability to create enterprise-wide backup policies is available in most regions, except Osaka and Tokyo MZRs in Japan.
-{: restriction}
 
 For more information about authorizations, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth).
 

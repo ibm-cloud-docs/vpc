@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-09-29"
+lastupdated: "2023-10-19"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -303,9 +303,6 @@ Created at             2023-08-30T13:39:10+05:30
 
 ```
 {: screen}
-
-The ability to create enterprise-wide backup policies is available in most regions, except Osaka and Tokyo MZRs in Japan.
-{: restriction}
 
 For more information about available command options, see [`ibmcloud is backup-policy`](/docs/vpc?topic=vpc-vpc-reference#backup-policy).
 

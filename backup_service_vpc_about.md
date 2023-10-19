@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-09-29"
+lastupdated: "2023-10-19"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -114,9 +114,6 @@ While the Enterprise administrator sees the references of all the backup snapsho
 The users of the child account can see the backup snapshots that are created in their accounts by the enterprise-level policy. They can identify these backups by the CRN of the enterprise-level backup policy that created the backups. However, they have no visibility to the enterprise-level backup policy itself. Users of the child account can use the backups to create other volumes.
 
 Authorized users in the child accounts can also create account-specific backup policies in their accounts.
-
-The ability to create enterprise-wide backup policies is available in most regions, except Osaka and Tokyo MZRs in Japan.
-{: restriction}
 
 ### Tags for target resources
 {: #backup-service-about-tags}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-09-29"
+lastupdated: "2023-10-19"
 
 keywords: Backup, backup snapshot, create backups, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -701,9 +701,6 @@ A successful response looks like the following example.
 }
 ```
 {: codeblock}
-
-The ability to create enterprise-wide backup policies is available in most regions, except Osaka and Tokyo MZRs in Japan.
-{: restriction}
 
 ### Creating a plan for an existing backup policy with the API
 {: #backup-policy-create-plan-api}
