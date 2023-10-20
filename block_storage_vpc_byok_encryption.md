@@ -33,7 +33,7 @@ This procedure explains how to specify customer-managed encryption when you crea
 
 Follow these steps to specify customer-managed encryption from the UI:
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes** to view a list of your Block Storage volumes.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block Storage volumes** to view a list of your Block Storage volumes.
 2. Select **New volume**.
 3. Enter the information in Table 1 to define your new Block Storage volume.
 4. Update the fields in the **Encryption** section (see Table 2). When your changes are complete, click **Create Volume**.
@@ -49,7 +49,7 @@ Follow these steps to specify customer-managed encryption from the UI:
 | IOPS | Select [IOPS Tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) and then select the tile with performance level you require. |
 | | Select [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) to specify a custom IOPS value based on the size of the volume you're creating. Click the **storage size** link to see a table of size and IOPS ranges. For more information, see [Custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#custom). |
 | Encryption | Choose **Customer Managed** and use your own encryption key. See Table 2 for these fields. |
-{: caption="Table 1. Block storage volume provisioning information" caption-side="bottom"}
+{: caption="Table 1. Block Storage volume provisioning information" caption-side="bottom"}
 
 Complete provisioning customer-managed encryption by using the information in Table 2.
 

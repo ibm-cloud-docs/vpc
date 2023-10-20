@@ -54,7 +54,7 @@ In rare cases, a physical disk error might occur. If a physical disk error occur
 
 Virtual servers that are deployed with multiple instance storage disks are spread across multiple physical disks. No two instance storage disks within a single virtual server instance lands on the same physical backing disk.
 
-Block storage volumes and instance storage are complementary technologies. Volumes can be attached to instances that have instance storage. In fact, instances that use instance storage generally utilize Block Storage volumes for the persistent storage requirements of the workload.
+Block Storage volumes and instance storage are complementary technologies. Volumes can be attached to instances that have instance storage. In fact, instances that use instance storage generally utilize Block Storage volumes for the persistent storage requirements of the workload.
 
 ## Encryption and isolation
 {: #encryption-isolation}

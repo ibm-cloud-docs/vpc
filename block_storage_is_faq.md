@@ -286,7 +286,7 @@ Yes, you can add user tags and access management tags to your volumes. User tags
 {: faq}
 {: #faq-block-storage-4a}
 
-Input/output operations per second (IOPS) is used to measure the performance of your {{site.data.keyword.block_storage_is_short}} volumes. A number of variables impact IOPS values, such as the balance of read/write operations, queue depth, and data block sizes. In general, the higher the IOPS of your {{site.data.keyword.block_storage_is_short}} volumes, the better the performance. For more information about expected IOPS for {{site.data.keyword.block_storage_is_short}} profiles, see [Profiles](/docs/vpc?topic=vpc-block-storage-profiles). For more information about how block size affects performance, see [Block storage capacity and performance](/docs/vpc?topic=vpc-capacity-performance#how-block-size-affects-performance).
+Input/output operations per second (IOPS) is used to measure the performance of your {{site.data.keyword.block_storage_is_short}} volumes. A number of variables impact IOPS values, such as the balance of read/write operations, queue depth, and data block sizes. In general, the higher the IOPS of your {{site.data.keyword.block_storage_is_short}} volumes, the better the performance. For more information about expected IOPS for {{site.data.keyword.block_storage_is_short}} profiles, see [Profiles](/docs/vpc?topic=vpc-block-storage-profiles). For more information about how block size affects performance, see [Block Storage capacity and performance](/docs/vpc?topic=vpc-capacity-performance#how-block-size-affects-performance).
 
 ### Is the allocated IOPS enforced by instance or by volume?
 {: faq}

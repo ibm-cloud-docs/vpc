@@ -18,7 +18,7 @@ subcollection: vpc
 When you provision {{site.data.keyword.filestorage_vpc_short}} file shares by using the {{site.data.keyword.cloud_notm}} console, CLI, or API, you specify capacity and performance within a file share profile. Available performance levels vary based on the file share size. All file shares are backed by solid-state drives (SSDs).
 {: shortdesc}
 
-## File storage profiles overview
+## File Storage profiles overview
 {: #file-storage-profile-overview}
 
 When you [create a file share](/docs/vpc?topic=vpc-file-storage-create), you select the share size and IOPS performance that is available, based on a file storage profile. All new file shares are created based on the high-performance [dp2](#dp2-profile) profile. 

@@ -74,7 +74,7 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
 
    - If you selected VPC as the access mode, provide a name for the mount target and select the VPC where the file share is to be used in.
 
-1. Select the right profile for your workload. The profile that you select determines the input/output performance of a file share. The `dp2` profile provides the most flexibility. For more information about file storage IOPS tier and Custom profiles, see [File storage profiles](/docs/vpc?topic=vpc-file-storage-profiles).
+1. Select the right profile for your workload. The profile that you select determines the input/output performance of a file share. The `dp2` profile provides the most flexibility. For more information about file storage IOPS tier and Custom profiles, see [File Storage profiles](/docs/vpc?topic=vpc-file-storage-profiles).
 
 1. Specify the size for the file share. You can later [increase this size](/docs/vpc?topic=vpc-file-storage-expand-capacity). The maximum capacity of the share depends on the file share profile.
 

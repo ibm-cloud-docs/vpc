@@ -49,7 +49,7 @@ For more information the following topics.
 
 When you create volume, snapshot, file share, or custom image with customer-managed encryption, your root key is automatically registered in the KMS instance. You can view the registration to verify whether the key was rotated. The following procedure shows how to verify key rotation for a {{site.data.keyword.block_storage_is_short}} volume, but steps are similar for other resources.
 
-1. From the [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**. The list shows all volumes and the Encryption column displays either "Provider Managed" or the name of the KMS that is used for custoner-managed encryption.
+1. From the [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block Storage volumes**. The list shows all volumes and the Encryption column displays either "Provider Managed" or the name of the KMS that is used for custoner-managed encryption.
 1. Click the name of a volume to see its details.
 1. In the Encryption Instance field, click the link of the KMS instance. The KMS instance overview page is displayed.
 
@@ -106,7 +106,7 @@ Root keys move to various states as a result of the actions that you take, and d
 | Boot volume | _unusable_ | The associated virtual server instance is stopped. A stopped instance cannot be started while the instance boot volume is in an _unusable_ state. |
 | Data volume | _unusable_ | If the data volume is attached to a running instance, the instance is stopped. Stand-alone data volumes cannot be attached to instances. You can delete the volume. |
 | Snapshot | _unusable_ | Snapshot is inaccessible and can't be used to restore a volume. |
-| File share | _suspended_ | File storage system is offline and data cannot be accessed. |
+| File share | _suspended_ | File Storage system is offline and data cannot be accessed. |
 | Instance | _unusable_ | Instances with a deleted boot volume that were automatically stopped cannot restart. |
 {: caption="Table 3. Delete root key" caption-side="bottom"}
 {: #keystatetable3}

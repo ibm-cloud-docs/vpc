@@ -427,7 +427,7 @@ curl -X DELETE \
 
 Use the following steps to create cross-regional copies of snapshots from the Snapshots for VPC list or from the snapshot details page.
 
-1. In the console, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage snapshots**.
+1. In the console, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block Storage snapshots**.
 2. In the list of snapshots, find the snapshot that you want to duplicate in another region.
 3. click the overflow menu (...) and select **Copy snapshot**.
 4. Select the region where you want to create the copy.
@@ -678,7 +678,7 @@ You can delete a snapshot from the list of all snapshots by using the following 
 
 You can also delete a snapshot from the details page of a {{site.data.keyword.block_storage_is_short}} volume.
 
-1. Go to the list of all {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
+1. Go to the list of all {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block Storage volumes**.
 2. Select a volume from the list, and click the volume name to go to the volume details page.
 3. Click **Snapshots**. A list of snapshots that are taken of this volume are displayed, and you can take the following actions:
     * Click **Delete all** to delete all snapshots for this volume.
@@ -701,7 +701,7 @@ To delete all snapshots for a volume in the UI, follow these steps.
 
 You can delete the most recently created snapshot from the list of snapshots from the {{site.data.keyword.block_storage_is_short}} volume details page. Optionally, you can delete all snapshots from this view.
 
-1. Go to the list of all {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
+1. Go to the list of all {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block Storage volumes**.
 2. Select a volume from the list and click the volume name to go to the volume details page.
 3. Click **Snapshots** to see a list of snapshots taken of this volume.
 4. Click **Delete all** to delete all snapshots for this volume.

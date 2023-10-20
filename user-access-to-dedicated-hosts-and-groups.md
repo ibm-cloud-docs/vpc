@@ -142,7 +142,7 @@ Be sure to select VPC infrastructure from the menu icon.
 | Name  | Specify a unique, meaningful name for your volume, for example, 'my-data-volume' You can later edit the name if you want. Volume names must be unique the entire VPC infrastructure. |
 | Size | Enter a volume size in GBs. Volume sizes can be between 10 GB and 2 TBs. |
 | Encryption | Encryption with IBM-managed keys is enabled by default on all volumes. You can also choose **Customer Managed** and use your own encryption key. For more information about one-time set up procedure, see [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-encryption-prereqs). |
-{: caption="Table 2. Block storage volume values specified when provisioning an instance" caption-side="bottom"}
+{: caption="Table 2. Block Storage volume values specified when provisioning an instance" caption-side="bottom"}
 
 A Block Storage volume is created and attached to the virtual server instance. On the instance details page, the **Attached Block Storage volumes** list is updated to show the new volume.
 

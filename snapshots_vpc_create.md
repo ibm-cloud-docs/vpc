@@ -27,22 +27,22 @@ Before you take a snapshot, make sure that all cached data is present on disk, e
 
 In the console, you can create a snapshot of a {{site.data.keyword.block_storage_is_short}} volume that is attached to a running virtual server instance.
 
-1. You can access the Block storage snapshot for VPC provisioning screen in the [{{site.data.keyword.cloud}} console](/login){: external} in multiple ways.
+1. You can access the Block Storage snapshot for VPC provisioning screen in the [{{site.data.keyword.cloud}} console](/login){: external} in multiple ways.
 
-   - From the **[Block storage snapshots for VPC](/vpc-ext/storage/snapshots)** list,
-      1. Go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage snapshots**.
+   - From the **[Block Storage snapshots for VPC](/vpc-ext/storage/snapshots)** list,
+      1. Go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block Storage snapshots**.
       2. From the list of snapshots that is initially empty, click **Create**.
 
-   - From the **[Block storage volumes for VPC](/vpc-ext/storage/storageVolumes)** list,
-      1. Go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
+   - From the **[Block Storage volumes for VPC](/vpc-ext/storage/storageVolumes)** list,
+      1. Go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block Storage volumes**.
       2. From the list of volumes, locate a boot or data volume that is attached to an instance.
       3. Click the overflow menu (...) and select **Create snapshot**.
 
-   - From the **Block storage volume details** screen,
+   - From the **Block Storage volume details** screen,
      1. Go to the volume details page in one of these ways.
 
          - Go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**. Select the instance that contains the volume that you want to make a snapshot of. From the [instance details page](/vpc-ext/compute/vs), scroll to the list of attached volumes and click the name of the volume.
-         - Go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**. From the list of Block Storage volumes, select the volume that you want to make a snapshot of.
+         - Go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block Storage volumes**. From the list of Block Storage volumes, select the volume that you want to make a snapshot of.
 
      2. On the volume details page, select **Create snapshot** from the **Actions** menu.
 
@@ -55,7 +55,7 @@ In the console, you can create a snapshot of a {{site.data.keyword.block_storage
    | Resource group | Select a [resource group](/docs/vpc?topic=vpc-iam-getting-started#resources-and-resource-groups) for the snapshot, or use the default. You can't change the resource group after the snapshot is created. |
    | Tags | Specify any user tags that you want to identify this resource. |
    | Access management tags | Specify any [access management tags](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#storage-add-access-mgt-tags) for this resource. |
-   | Block storage volume | Select a volume from the list. The boot or data volume must be attached to a running virtual server instance. |
+   | Block Storage volume | Select a volume from the list. The boot or data volume must be attached to a running virtual server instance. |
    | Encryption | Encryption information for the volume that you selected, either [provider-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about&interface=ui#vpc-provider-managed-encryption) or [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about&interface=ui#vpc-customer-managed-encryption). The snapshot inherits the encryption of the source volume. You can't change the encryption type. |
    | Optional configurations | Cross-region snapshot copy. Select Copy Snapshot to a different region. Click **Create**.|
    {: caption="Table 1. Selections for creating a snapshot" caption-side="bottom"}
@@ -77,7 +77,7 @@ In the console, you can create a snapshot of a {{site.data.keyword.block_storage
 
 In the previous section, you saw how to create a cross-regional snapshot copy when you take a new snapshot in the UI. You can also create cross-regional copies of existing snapshots.
 
-1. In the console, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage snapshots**.
+1. In the console, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block Storage snapshots**.
 2. From the list of snapshots, click the overflow menu (...) and select **Copy snapshot**.
 3. Select the region where you want to create the copy.
 

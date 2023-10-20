@@ -18,7 +18,7 @@ subcollection: vpc
 When you provision {{site.data.keyword.block_storage_is_short}} volumes by using the {{site.data.keyword.cloud_notm}} console, CLI, API, or Terraform you specify an IOPS profile that best meets your storage requirements. Profiles are generally available as three predefined IOPS levels or with custom IOPS. IOPS tiers provide reliable IOPS/GB performance for volumes up to 16,000 GB capacity. You can also specify a custom IOPS profile and define volume capacity and IOPS within a range.
 {: shortdesc}
 
-## Block storage profiles overview
+## Block Storage profiles overview
 {: #block-storage-profile-overview}
 
 When you create a Block Storage volume, you can select between custom and tiered-IOPS profiles. All these profiles are backed by solid-state drives (SSDs). The following table shows the available storage profiles.
@@ -29,7 +29,7 @@ When you create a Block Storage volume, you can select between custom and tiered
 | `tiered`       | `5iops-tier`      | 5 IOPS/GB       | 3,000 - 48,000 | 768 MB/s       | 10 GB - 9,600 GB | 
 | `tiered`       | `10iops-tier`     | 10 IOPS/GB      | 3,000 - 48,000 | 1024 MB/s      | 10 GB - 4,800 GB |
 | `custom`       | `custom`          | 1 - 100 IOPS/GB |   100 - 48,000 | 1024 MB/s      | 10 GB - 16,000 GB|
-{: caption="Table 1. Block storage profiles and performance levels." caption-side="bottom"}
+{: caption="Table 1. Block Storage profiles and performance levels." caption-side="bottom"}
 
 ^1^ IOPS values are based on 16k IO size. 
 

@@ -193,7 +193,7 @@ You can create a Block Storage volume and attach it to your virtual server insta
 
 To create and attach a Block Storage volume:
 
-1. In the navigation pane, click **Storage > Block storage volumes**.
+1. In the navigation pane, click **Storage > Block Storage volumes**.
 1. Click **New volume** and specify the following information.
    * **Name**: Enter a name for the Block Storage volume, such as `data-volume-1`.
    * **Resource group**: Select a resource group for the Block Storage volume. You can use resource groups to organize your account resources for access control and billing purposes. For more information, see [Best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup).

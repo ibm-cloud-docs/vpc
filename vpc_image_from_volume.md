@@ -55,7 +55,7 @@ You can create a custom image from a boot volume in several ways.
    - The Custom images for VPC page,
    - The list of instances on the Virtual server instances for VPC page,
    - The Instance details page,
-   - The list of volumes on Block storage volumes for VPC page.
+   - The list of volumes on Block Storage volumes for VPC page.
    - The Volume details page.
 
 * In the [API](/docs/vpc?topic=vpc-create-ifv#image-from-volume-vpc-api), you can create a custom image at the same time as you create a new instance, or you can create an image from an existing instance. With the regional API, you create an image by making a `POST /images` call and passing the boot volume ID.

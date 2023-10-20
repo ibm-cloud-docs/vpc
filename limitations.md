@@ -74,7 +74,7 @@ An {{site.data.keyword.vpc_short}} cannot be peered with other VPCs natively. It
 ## Storage restrictions
 {: #storage-restrictions}
 
-Block storage volume names must be unique across the entire VPC infrastructure. A volume that is created on VPC compute resources can't have the same name as a volume created on the classic infrastructure. For more information about volume naming, see [Guidelines for naming volumes](/docs/vpc?topic=vpc-managing-block-storage#volume-name-conventions).
+Block Storage volume names must be unique across the entire VPC infrastructure. A volume that is created on VPC compute resources can't have the same name as a volume created on the classic infrastructure. For more information about volume naming, see [Guidelines for naming volumes](/docs/vpc?topic=vpc-managing-block-storage#volume-name-conventions).
 
 ## LinuxONE (s390x processor architecture) virtual server instance restrictions
 {: #LinuxONE-vsi-restrictions}

@@ -77,7 +77,7 @@ You can create a new {{site.data.keyword.block_storage_is_short}} volume from an
 
 You can create a {{site.data.keyword.block_storage_is_short}} volume independent of virtual server provisioning and attach the volume to an instance later.
 
-1. In the [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
+1. In the [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block Storage volumes**.
 2. Click **Create**.
 3. On the {{site.data.keyword.block_storage_is_short}} provisioning page, enter the required information to define the new volume (see Table 2).
 
@@ -108,7 +108,7 @@ When you [create a {{site.data.keyword.block_storage_is_short}} volume](#create-
 
 You can restore a boot volume from a "bootable" snapshot. The boot volume is restored when you create a new virtual server instance.
 
-1.  [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
+1.  [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block Storage volumes**.
 2. Select **Create**.
 3. Specify the volume name, optional resource group and tags, and specify the location. You're going to use the data from a snapshot to provision the volume.
 4. Under **Snapshot (optional)**, click **Select snapshot**. From the list, select a snapshot. All snapshots that are presented are in a _stable_ state.

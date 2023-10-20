@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2023
 lastupdated: "2023-07-05"
 
-keywords: Block storage for VPC, iscsi for VPC, SAN for VPC
+keywords: Block Storage for VPC, iscsi for VPC, SAN for VPC
 
 subcollection: vpc
 

@@ -117,7 +117,7 @@ You can use the [UI](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#dele
 ## Activity tracker events for replication
 {: #fs-at-replication}
 
-Activity tracker events are triggered when you establish and use file share replication. Table 1 describes the actions that generate events for replication. For more information about all file storage events, see [File storage events](/docs/vpc?topic=vpc-at-events#events-file-storage).
+Activity tracker events are triggered when you establish and use file share replication. Table 1 describes the actions that generate events for replication. For more information about all file storage events, see [File Storage events](/docs/vpc?topic=vpc-at-events#events-file-storage).
 
 | Action | Description |
 |--------|-------------|

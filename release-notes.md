@@ -115,7 +115,7 @@ Ultra High Memory profiles are now available in the United Kingdom region
 Bare metal network hardware
 :   Bare metal servers now use upgraded network cards. For network workloads that leverage very high packets per second for smaller packets, you can update your drivers to the latest available Pensando device drivers. For more information, see [Special considerations for bare metal network performance upgrade](/docs/vpc?topic=vpc-bare-metal-image#bare-metal-pensando-considerations) and [AMD Pensando Support](https://www.amd.com/en/support/pensando){: external}.
 
-File storage for Bare metal servers for VPC
+File Storage for Bare metal servers for VPC
 :   File Storage for VPC is now supported by Bare Metal Servers for VPC. Users can leverage file storage as an addition or alternative to local NVMe drives. [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about).
 
 ### 25 August 2023
@@ -448,7 +448,7 @@ Export custom images (Beta)
 {: #vpc-feb0723}
 {: release-note}
 
-Block storage fast restore snapshots
+Block Storage fast restore snapshots
 :    You can now restore a fully provisioned volume with all its data from a snapshot by using a fast restore snapshot clone. You can use fast restor to restore a volume more quickly than restoring from a regular snapshot. To create the clone, you specify a zone or zones in the same region as the source snapshot. The clone is used to automatically restore a volume with all of its data in the zone where the clone exists. For more information, see [Restoring a volume by using fast restore](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=api#snapshots-vpc-use-fast-restore).
 
 Extra security for VPC snapshots (closed beta)
@@ -555,8 +555,8 @@ Volume creation from a Block Storage snapshot
 :   You can now use the UI and CLI, in addition to the VPC API, to create a stand-alone Block Storage volume from a snapshot. Stand-alone data volumes can be attached to a virtual server instance at any time. You can select a snapshot of a boot volume and use it to boot a new virtual server instance. For more information, see
 [Restore a stand-alone data volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore).
 
-Block storage volume health states
-:   You can now view the health state of a Block Storage volume from the UI, CLI, and API. Health indicated whether a volume is performing as expected or degraded. You can view health status and reasons from the list of volumes and volume details, and when you create and update volumes. For more information, see [Block storage volume health states](/docs/vpc?topic=vpc-managing-block-storage#block-storage-vpc-health-states).
+Block Storage volume health states
+:   You can now view the health state of a Block Storage volume from the UI, CLI, and API. Health indicated whether a volume is performing as expected or degraded. You can view health status and reasons from the list of volumes and volume details, and when you create and update volumes. For more information, see [Block Storage volume health states](/docs/vpc?topic=vpc-managing-block-storage#block-storage-vpc-health-states).
 
 ## November 2022
 {: #vpc-nov22}
@@ -773,7 +773,7 @@ Sharing images across an enterprise account (beta)
 IBM Wazi as a Service (s390x processor architecture)
 :   You can now create virtual server instances of IBM z/OS with IBM Wazi as a Service (Wazi aaS) image on IBM Z (s390x processor architecture) in IBM Cloud in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions. The option to select the Wazi aaS z/OS dev and test image is offered as an IBM Cloud allow-listed service. For more information, see [IBM Wazi as a Service product page](https://www.ibm.com/cloud/wazi-as-a-service){: external}.
 
-File storage for VPC
+File Storage for VPC
 :   You can now access a customer root key (CRK) from one account, and then use that key to encrypt file shares you create in another account. When you create the file share, you specify the CRN of a root key from the account that contains the key. For more information, see [Cross-account encryption for multitenant file storage resources](/docs/vpc?topic=vpc-vpc-byok-cross-acct-key-file).
 
 ### 24 June 2022
@@ -823,7 +823,7 @@ Secrets Manager for application load balancers
 {: #vpc-may1722}
 {: release-note}
 
-File storage for VPC
+File Storage for VPC
 :    For accounts authorized to preview this service, you can configure replication for new and existing file shares. Replication creates a read-only copy of your file share data in a different zone. You can fail over to the replica share if the source share becomes damaged or compromised. For more information, see [About file share replication](/docs/vpc?topic=vpc-file-storage-replication).
 
 :    You can now add user tags from the UI, CLI, or API when you create a new file share or update file shares. For more information, see [Adding user tags](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-add-tags-shares-ui).
@@ -976,7 +976,7 @@ Maximum bandwidth for each vNIC is increased
 {: #vpc-feb1022}
 {: release-note}
 
-Block storage attachments
+Block Storage attachments
 :    Limits on the number of Block Storage data volumes you can attach to an instance are amended. Previously, instances that were created from smaller vCPU profiles attached only up to four data volumes. These limits are removed. For all instances, you can attach up to 12 Block Storage data volumes.
 
 ### 08 February 2022
@@ -1187,7 +1187,7 @@ New GPU Instance Profile family (Beta)
 RHEL on SAP image support update
 :   When you provision a virtual server instance and select {{site.data.keyword.redhat_full}} Enterprise Linux, be aware that locking a version must be done manually. When you log in to your operating system, a message is displayed with the command that you need to manually lock the operating system version. Performing a “yum update” without the version locking results in the operating system that is upgrading to the latest RHEL release, which is 8.4.
 
-Block storage for VPC
+Block Storage for VPC
 :   For Block Storage for VPC volumes attached to a virtual server instance, you can increase or decrease IOPS for a volume by specifying a different IOPS tier profile or different IOPS value withing a custom IOPS band. For more information, see [Adjusting IOPS for Block Storage volumes](/docs/vpc?topic=vpc-adjusting-volume-iops).
 
 Client-to-site VPN servers (Beta)
@@ -1215,7 +1215,7 @@ Larger size boot volumes for custom images
 {: release-note}
 
 File Storage for VPC
-:   Custom IOPS profiles are available with capacity up to 16,000 GB. For more information, see [File storage profiles](/docs/vpc?topic=vpc-file-storage-profiles).
+:   Custom IOPS profiles are available with capacity up to 16,000 GB. For more information, see [File Storage profiles](/docs/vpc?topic=vpc-file-storage-profiles).
 
 :   You can also increase the file share size from its original capacity in GB increments up to 32,000 GB capacity, depending on your share profile. For more information, see [Expanding file share capacity](/docs/vpc?topic=vpc-file-storage-expand-capacity).
 
@@ -1261,7 +1261,7 @@ New São Paulo region
 {: release-note}
 
 Block Storage for VPC
-:   IOPS tier and custom profiles are available with volume capacity up to 16,000 GB. For more information, see [Block storage profiles](/docs/vpc?topic=vpc-block-storage-profiles).
+:   IOPS tier and custom profiles are available with volume capacity up to 16,000 GB. For more information, see [Block Storage profiles](/docs/vpc?topic=vpc-block-storage-profiles).
 
 :   For secondary volumes attached to a virtual server instance, you can increase capacity in GB increments up to 16,000 GB, depending on the volume's profile. The volume capacity is immediately increased. For more information, see [Expanding Block Storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 
@@ -1285,8 +1285,8 @@ Instance Identifier Update
 {: #vpc-jul0621}
 {: release-note}
 
-File storage for VPC
-:   The file storage general purpose 3 IOPS/GB profile is expanded so you can create file shares up to 32 TB with potential max IOPS performance of 96,000 IOPS. For more information, see [File storage profiles](/docs/vpc?topic=vpc-file-storage-profiles). File Storage for VPC is available to customers with special approval to preview this service in the Washington, Dallas, and Frankfurt regions.
+File Storage for VPC
+:   The file storage general purpose 3 IOPS/GB profile is expanded so you can create file shares up to 32 TB with potential max IOPS performance of 96,000 IOPS. For more information, see [File Storage profiles](/docs/vpc?topic=vpc-file-storage-profiles). File Storage for VPC is available to customers with special approval to preview this service in the Washington, Dallas, and Frankfurt regions.
 
 ## June 2021
 {: #vpc-jun21}

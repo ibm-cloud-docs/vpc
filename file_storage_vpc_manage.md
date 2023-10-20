@@ -37,7 +37,7 @@ Lifecycle state:
 | `suspended` | The file share violates {{site.data.keyword.cloud}}’s [Acceptable Use Policy](https://www.ibm.com/services/us/imc/html/aup1.html). A suspended file share cannot be updated or deleted.|
 | `updating`  | The file share capacity or IOPS is being updated|
 | `waiting`   |  |
-{: caption="Table 1. File storage lifecycle states" caption-side="bottom"}
+{: caption="Table 1. File Storage lifecycle states" caption-side="bottom"}
 
 Replication status:
 
@@ -48,7 +48,7 @@ Replication status:
 | `initializing`    | This share is initializing replication. |
 | `none`            | This share is not participating in replication. |
 | `split_pending`   | This share is performing a replication split. |
-{: caption="Table 2. File storage replication status" caption-side="bottom"}
+{: caption="Table 2. File Storage replication status" caption-side="bottom"}
 
 ## Managing file shares and mount points in the UI
 {: #file-storage-manage-ui}

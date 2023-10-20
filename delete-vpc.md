@@ -141,7 +141,7 @@ Boot volumes exist within an instance, and they are not considered to be separat
 #### Deleting data volumes
 {: #deleting-data-volumes}
 
-Block storage data volumes can be provisioned and managed separately from their associated virtual server instances. You can attach a data volume as auxiliary storage to one virtual server instance. You can't delete a data volume that is attached to an instance (that is, if the volume is "active"). You must first detach the volume from the instance, and then you can delete the volume.
+Block Storage data volumes can be provisioned and managed separately from their associated virtual server instances. You can attach a data volume as auxiliary storage to one virtual server instance. You can't delete a data volume that is attached to an instance (that is, if the volume is "active"). You must first detach the volume from the instance, and then you can delete the volume.
 
 A data volume has an attribute (or flag) called `delete_volume_on_instance_delete` in the API and `Auto Delete` in the CLI and UI. If this flag is set to `true` (`Enabled` in the UI), when the instance with the attached volume is deleted, the volume is detached and deleted automatically. If the volume's flag is set to `false` (`Disabled` in the UI), the instance is detached from the volume, but the volume is not deleted when the attached instance is deleted. The volume can be attached to another instance.
 

@@ -158,7 +158,7 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 {: caption="Table 10. Quotas for reserved IP addresses" caption-side="bottom"}
 
 
-### Block storage volumes and snapshots
+### Block Storage volumes and snapshots
 {: #block-storage-quotas}
 
 | Resource | Quota |

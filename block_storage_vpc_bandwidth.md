@@ -93,7 +93,7 @@ Unattached volume bandwidth might not be the same as the actual bandwidth that y
 ## Estimating volume bandwidth
 {: #volume-estimate-bandwidth}
 
-Think about the type of data volume that your workloads require and select the right volume profile. Data intensive workloads might require the higher bandwidth performance of a 10 IOPS/GB profile. For more information about the relationship of volume profiles to compute profiles, see [How virtual server profiles relate to storage profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#vsi-profiles-relate-to-storage). For more information about how block size affects performance, see [Block storage capacity and performance](/docs/vpc?topic=vpc-capacity-performance&interface=ui#how-block-size-affects-performance).
+Think about the type of data volume that your workloads require and select the right volume profile. Data intensive workloads might require the higher bandwidth performance of a 10 IOPS/GB profile. For more information about the relationship of volume profiles to compute profiles, see [How virtual server profiles relate to storage profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#vsi-profiles-relate-to-storage). For more information about how block size affects performance, see [Block Storage capacity and performance](/docs/vpc?topic=vpc-capacity-performance&interface=ui#how-block-size-affects-performance).
 
 ## Next steps
 {: #vol-bandwidth-next-steps}

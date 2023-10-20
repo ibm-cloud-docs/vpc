@@ -41,7 +41,7 @@ You can attach a volume to a virtual server instance from the list of Block Stor
 
 From the list of all {{site.data.keyword.block_storage_is_short}} volumes, follow these steps.
 
-1. In the [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to the **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
+1. In the [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to the **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block Storage volumes**.
 1. In the list of volumes, identify an available, unattached volume and click the ellipsis for the overflow menu at the end of a row.
 1. Select **Attach to instance**.
 1. Select a virtual server instance from the list of available instances, and then click **Save**.

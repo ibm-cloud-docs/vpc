@@ -89,12 +89,12 @@ toc:
                topics:
                - bare_metal_server_storage.md
            - topicgroup:
-               label: File storage
+               label: File Storage
                topics:
                - file_storage_vpc_about.md
                - file_storage_vpc_profiles.md
            - topicgroup:
-               label: Block storage
+               label: Block Storage
                topics:
                - block_storage_vpc_about.md
                - block_storage_vpc_capacity_performance.md
@@ -482,7 +482,7 @@ toc:
             - backup_service_vpc_use_policy.md
             - backup_service_vpc_restore.md
         - topicgroup:
-            label: Block storage volumes
+            label: Block Storage volumes
             topics:
             - block_storage_is_create.md
             - block_storage_vpc_manage_storage_limits.md
@@ -509,7 +509,7 @@ toc:
             - snapshots_vpc_restore.md
             - snapshots_vpc_manage.md
         - topicgroup:
-            label: File storage
+            label: File Storage
             topics:
             - file_storage_vpc_plan.md
             - file_storage_vpc_create.md

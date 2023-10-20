@@ -508,7 +508,7 @@ The following table lists the actions that are related to placement group resour
 ## Storage resources
 {: #events-storage}
 
-### Block storage events
+### Block Storage events
 {: #events-block-storage}
 
 The following table lists the actions that are related to volume resources and the generation of events.
@@ -541,7 +541,7 @@ The following table lists the actions that are related to snapshots resources an
 | snapshot  | is.snapshot.snapshot.operate | Source snapshot ID was specified |
 {: caption="Table 25. Actions that generate events for snapshot resources" caption-side="bottom"}
 
-### File storage events
+### File Storage events
 {: #events-file-storage}
 
 The following table lists the actions that are related to file share resources and the generation of events.
