@@ -503,14 +503,8 @@ This example adds a mount target to an existing file share, which is identified 
  curl -X POST "$vpc_api_endpoint/v1/shares/f1ab81ef-dd30-459a-85e0-9094164978b1/mount_targets/?version=2023-07=18&generation=2"\
  -d '{
      "virtual_network_interface": {
-        "subnet": {
-            "id": "1a0b3d75-8a62-4c78-9263-f9bcd25a8759"
-            },
-        "security_groups": [
-            {
-            "id": "b2599112-7027-480e-ad1b-fd917d2fcb84"
-            }
-        ]
+        "subnet": {"id": "1a0b3d75-8a62-4c78-9263-f9bcd25a8759"},
+        "security_groups": [{"id": "b2599112-7027-480e-ad1b-fd917d2fcb84"}]
      },
      "transit_encryption": "user_managed"
 }'

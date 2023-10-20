@@ -210,30 +210,20 @@ The following example creates a file share with a mount target, and specifies th
    "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2" \
    -H "Authorization: $iam_token" \
    -d '{
-       "encryption_key": {
-          "crn":"crn:[...key:...]"
-        },
+        "encryption_key": {"crn":"crn:[...key:...]"},
         "iops": 1000,
         "name": "my-encrypted-share",
-        "profile": {
-          "name": "tier-5iops"
-         },
-        "resource_group": {
-           "id": "678523bcbe2b4eada913d32640909956"
-         },
+        "profile": {"name": "tier-5iops"},
+        "resource_group": {"id": "678523bcbe2b4eada913d32640909956"},
         "size": 100,
         "mount_targets": [
           {
             "name": "my-share-target",
-            "subnet": {
-              "id": "7ec86020-1c6e-4889-b3f0-a15f2e50f87e"
-            }
+            "subnet": {"id": "7ec86020-1c6e-4889-b3f0-a15f2e50f87e"}
           }
         ],
-        "zone": {
-          "name": "us-south-2"
-        }
-      }'
+        "zone": {"name": "us-south-2"}
+        }'
    ```
    {: codeblock}
 
@@ -244,9 +234,7 @@ A successful response looks like the following example.
      "created_at": "2023-08-08T22:58:49.000Z",
      "crn": "crn:[...]",
      "encryption": "customer_managed",
-     "encryption_key": {
-         "crn": "crn:[...key:...]"
-     },
+     "encryption_key": {"crn": "crn:[...key:...]"},
      "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/a0c07083-f411-446c-9316-7b08d6448c86",
      "id": "a0c07083-f411-446c-9316-7b08d6448c86",
      "iops": 1000,
@@ -295,4 +283,4 @@ When you refresh the list of file shares in the UI, the new share appears at the
 
 - Manage the root keys that are protecting your file share by [rotating](/docs/vpc?topic=vpc-vpc-key-rotation), [disabling](/docs/vpc?topic=vpc-vpc-encryption-managing&interface=ui#byok-disable-root-keys), or [deleting](/docs/vpc?topic=vpc-vpc-encryption-managing&interface=ui#byok-delete-root-keys) keys.
 
-- Use the [IBM Cloud File Share Mount Helper utility](/docs/vpc?topic=vpc-file-storage-vpc-eit&interface=cli#fs-mount-helper-utility) to mount your encrypted file share to an authorized Compute instance.
+- Use the [IBM Cloud File Share Mount Helper utility](/docs/vpc?topic=vpc-fs-mount-helper-utility) to mount your encrypted file share to an authorized Compute instance.

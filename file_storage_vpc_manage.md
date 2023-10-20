@@ -160,11 +160,11 @@ By using the CLI, you can:
    
    ```sh
    ibmcloud is share-update r006-600f9bff-3c2e-4542-9fc3-ef3be15da04a --name my-renamed-share
-   Updating file share r006-600f9bff-3c2e-4542-9fc3-ef3be15da04a under account Kranthi's Test Account as user Viktoria.Muirhead@ibm.com...
+   Updating file share r006-600f9bff-3c2e-4542-9fc3-ef3be15da04a under account Test Account as user test.user@ibm.com...
                                 
    ID                           r006-600f9bff-3c2e-4542-9fc3-ef3be15da04a   
    Name                         my-renamed-share   
-   CRN                          crn:v1:bluemix:public:is:us-south-2:a/a10d63fa66daffc9b9b5286ce1533080::share:r006-600f9bff-3c2e-4542-9fc3-ef3be15da04a   
+   CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-600f9bff-3c2e-4542-9fc3-ef3be15da04a   
    Lifecycle state              stable   
    Access control mode          vpc   
    Zone                         us-south-2   
@@ -179,9 +179,9 @@ By using the CLI, you can:
                                 6edefe513d934fdd872e78ee6a8e73ef   defaults      
                                 
    Created                      2023-08-01T17:02:01+00:00   
-   Encryption key               crn:v1:bluemix:public:kms:eu-de:a/a10d63fa66daffc9b9b5286ce1533080:968c5a59-34f6-4b64-8899-c32a57f917fe:key:f602ae93-b915-49bc-a0e1-af29c73e7788   
+   Encryption key               crn:v1:bluemix:public:kms:eu-de:a/a1234567:key:f602ae93-b915-49bc-a0e1-af29c73e7788   
    Latest job                   Job status   Job status reasons      
-                             -            -      
+                                -            -      
                                 
    Replication cron spec        00 11 * * 0   
    Replication role             replica   
@@ -192,7 +192,7 @@ By using the CLI, you can:
    Source share                 ID                                          Name   Resource type      
                                 r006-9272410d-38b2-447e-b98f-abc944ea02cc   dal1   share  
    ```
-   {: pre}
+   {: screen}
 
 Valid file share names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. File share names must begin with a lowercase letter.
 {: important}
@@ -211,13 +211,13 @@ For more information about the command options, see [`ibmcloud is share-update`]
    ID                                          Name                     VPC      Lifecycle state   Transit Encryption   
    r006-fdbffc45-618c-49f1-bb08-ec530d7be378   my-source-mount-target   my-vpc   stable            none   
    ```
-   {: codeblock}
+   {: screen}
 
 1. To rename the mount target, run the `share-mount-target-update` command with the file share name or ID, and the mount target name. Specify a new mount target name with the `--name` option.
    ```sh
    ibmcloud is share-mount-target-update r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a r006-fdbffc45-618c-49f1-bb08-ec530d7be378 --name my-renamed-mount-target
    ```
-   {: codeblock}
+   {: screen}
 
 Valid mount target names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. Mount target names must begin with a lowercase letter.
 
@@ -479,14 +479,10 @@ Make a `PATCH /shares/{share_ID}` call and specify the profile name in the `prof
 ```sh
 curl -X PATCH "$rias_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?version=2023-08-08&generation=2"\
 -H "Authorization: $iam_token"\
--d '{
-    "profile": {
-        "name": "dp2"
-      }
-  }'
+-d '{"profile": {"name": "dp2"}}'
 ```
 {: codeblock}
-
+ 
 ### Deleting file shares and mount targets with the API
 {: #delete-share-targets-api}
 
