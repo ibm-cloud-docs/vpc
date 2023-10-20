@@ -94,7 +94,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
       ```
       {: screen}
 
-   1.  Use the ID in the `ibmcloud kp keys` command to retrieve the key information.
+   1. Use the ID in the `ibmcloud kp keys` command to retrieve the key information.
       ```sh
       $ ibmcloud kp keys -c --instance-id 22e573bd-c02c-4d7f-81e2-2aa867da176d
       Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
