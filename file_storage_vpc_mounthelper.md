@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-10-19"
+lastupdated: "2023-10-20"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -154,8 +154,6 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
    {: pre}
    
    The `ibmshare` in the command is a script that creates the certificate signing request(csr) and calls the Metadata service to get the intermediate cert and end peer certificate. It parses the mount command-line arguments and creates `/etc/swanctl/conf.d/type_ibmshare_.conf`. The strongSwan service uses this configuration file to establish the IPsec connection. Then, the script loads the IPsec connection and calls the NFS `mount` command. 
-   
-   You can also include options such as `vers=4.1` and `sec=sys`.
 
 Adding the mount details to the `/etc/fstab` is not recommended. The IPsec connection might not be established in time for the automated `fstab` mount requests.
 {: note}
