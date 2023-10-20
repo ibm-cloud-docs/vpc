@@ -470,46 +470,6 @@ toc:
                 - vnf-limitations.md
         - ip-addresses.md
         - topicgroup:
-            label: Backup service
-            topics:
-            - backup_service_vpc_best_practices.md
-            - backup_service_vpc_planning.md
-            - backup_service_vpc_s2s_auth.md
-            - backup_service_vpc_create_policy.md
-            - backup_service_vpc_view_policy.md
-            - backup_service_vpc_view_backup_jobs.md
-            - backup_service_vpc_manage_policy.md
-            - backup_service_vpc_use_policy.md
-            - backup_service_vpc_restore.md
-        - topicgroup:
-            label: Block Storage volumes
-            topics:
-            - block_storage_is_create.md
-            - block_storage_vpc_byok_encryption.md
-            - block_storage_vpc_manage_storage_limits.md
-            - block_storage_is_attach.md
-            - block_storage_is_use_volume_lin.md
-            - block_storage_is_use_volume_win.md
-            - block_storage_is_view.md
-            - block_storage_is_manage.md
-            - topicgroup:
-                label: Modifying volume capacity and IOPS
-                topics:
-                - block_storage_vpc_expand_vol_about.md
-                - block_storage_vpc_expandable_volumes.md
-                - modifying-the-linux-os-expanded-boot-volume.md
-                - block_storage_vpc_resize_boot_volume.md
-                - block_storage_vpc_adjustable_iops.md
-            - block_storage_vpc_monitoring.md
-        - topicgroup:
-            label: Snapshots
-            topics:
-            - snapshots_vpc_planning.md
-            - snapshots_vpc_create.md
-            - snapshots_vpc_view.md
-            - snapshots_vpc_restore.md
-            - snapshots_vpc_manage.md
-        - topicgroup:
             label: File Storage
             topics:
             - file_storage_vpc_plan.md
@@ -540,7 +500,50 @@ toc:
                 - file_storage_vpc_s2s_auth.md
                 - file_storage_vpc_create_replication.md
                 - file_storage_vpc_manage_replication.md
-                - file_storage_vpc_replication_failover.md
+                - file_storage_vpc_replication_failover.md        
+        - topicgroup:
+            label: Block Storage
+            topics:
+            - topicgroup:
+                label: Creating Block Storage volumes
+                topics:
+                - block_storage_is_create.md
+                - block_storage_vpc_byok_encryption.md
+                - block_storage_vpc_manage_storage_limits.md
+            - block_storage_is_attach.md
+            - block_storage_is_use_volume_lin.md
+            - block_storage_is_use_volume_win.md
+            - topicgroup:
+                label: Managing Block Storage volumes
+                topics:
+                - block_storage_is_view.md
+                - block_storage_is_manage.md
+                - block_storage_vpc_expand_vol_about.md
+                - block_storage_vpc_expandable_volumes.md
+                - block_storage_vpc_resize_boot_volume.md
+                - modifying-the-linux-os-expanded-boot-volume.md
+                - block_storage_vpc_adjustable_iops.md
+            - block_storage_vpc_monitoring.md
+        - topicgroup:
+            label: Snapshots
+            topics:
+            - snapshots_vpc_planning.md
+            - snapshots_vpc_create.md
+            - snapshots_vpc_view.md
+            - snapshots_vpc_restore.md
+            - snapshots_vpc_manage.md
+        - topicgroup:
+            label: Backup service
+            topics:
+            - backup_service_vpc_best_practices.md
+            - backup_service_vpc_planning.md
+            - backup_service_vpc_s2s_auth.md
+            - backup_service_vpc_create_policy.md
+            - backup_service_vpc_view_policy.md
+            - backup_service_vpc_view_backup_jobs.md
+            - backup_service_vpc_manage_policy.md
+            - backup_service_vpc_use_policy.md
+            - backup_service_vpc_restore.md            
         - topicgroup:
             label: Auto scale
             topics:
