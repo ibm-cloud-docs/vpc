@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Managing file shares
+# Managing file shares and mount targets
 {: #file-storage-managing}
 
 Manage the file shares that you created. You can rename a file. You can increase its capacity and modify its IOPS. You can add mount targets to a file share, mount, and unmount a file share from virtual server instances. You can rename or delete a mount target, and you can delete a file share.
@@ -384,9 +384,7 @@ Make a `PATCH /shares/$share_id` call to rename a specific file share. See the f
 curl -X PATCH \
 "$vpc_api_endpoint/v1/shares/$share_id?version=2023-08-08&generation=2"\
   -H "Authorization: Bearer ${API_TOKEN}"\
-  -d '{
-    "name": "share-renamed1"
-  }'
+  -d '{"name": "share-renamed1"}'
 ```
 {: codeblock}
 
@@ -436,9 +434,7 @@ Make a `PATCH /shares/$share_id/mount_targets/$target_id` call to rename a mount
 curl -X PATCH \
 "$vpc_api_endpoint/v1/shares/$share_id/mount_targets/$target_id?version=2023-08-08&generation=2"\
   -H "Authorization: Bearer ${API_TOKEN}" \
-  -d '{
-    "name": "target-renamed1"
-  }
+  -d '{"name": "target-renamed1"}
 ```
 {: pre}
 
