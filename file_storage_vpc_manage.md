@@ -814,7 +814,8 @@ curl -X POST \
     -d '{
         "name": "share-name1",
         "size": 2300,
-        "profile": {"name": "tier-3iops"},
+        "iops": 6000,
+        "profile": {"name": "dp2"},
         "user_tags": [
            "env:test1",
            "env:test2",
