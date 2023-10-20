@@ -479,6 +479,7 @@ toc:
                 topics:
                 - file_storage_vpc_create.md
                 - file_storage_vpc_byok_encryption.md
+                - file_storage_vpc_byok_multitenant_encryption.md
             - topicgroup:
                 label: Mounting file shares
                 topics:
@@ -577,8 +578,6 @@ toc:
                 - vsi-vpc-about-data-encryption.md
                 - vsi-vpc-planning-encryption.md
                 - vsi_vpc_instance_byok_encryption.md
-                - vpc_byok_multitenant_file_encryption.md
-                - vpc_byok_multitenant_block_encryption.md
                 - vsi_vpc_key_rotation.md
                 - block_storage_vpc_key_rotation.md
                 - vsi-vpc-manage-encryption.md
