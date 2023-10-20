@@ -390,13 +390,9 @@ curl -X POST \
     "size": 4800,
     "iops": 3000,
     "name": "myshare-1",
-    "profile": {
-      "name": "dp2"
-    },
+    "profile": {"name": "dp2"},
     "access_control_mode": "vpc",
-    "zone": {
-      "name": "us-south-1"
-    }
+    "zone": {"name": "us-south-1"}
   }'
 ```
 {: pre}
@@ -458,9 +454,7 @@ curl -X POST \
 -H 'Content-Type: application/json'\
 -d '{
     "name": "mount-target-name1",
-    "vpc": {
-      "id": "6e01bc24-4a6e-4a0c-a1bd-4caa0c8159e7"
-    },
+    "vpc": {"id": "6e01bc24-4a6e-4a0c-a1bd-4caa0c8159e7"},
     "transit_encryption": "none"
   }'
 ```
@@ -522,29 +516,23 @@ Access to the mount target is VPC wide; all instances in the VPC have access to 
 curl -X POST \
 "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2\
 -H "Authorization: Bearer $iam_token"\
--H 'Content-Type: application/json' \
+-H 'Content-Type: application/json'\
 -d '{
     "size": 4800,
     "iops": 48000,
     "mount_targets": [
       {
         "name": "mount-target-name1",
-        "vpc": {
-          "id": "a1fb6c4f-6a63-4d34-8bf6-55fab89e932a"
-        }
+        "vpc": {"id": "a1fb6c4f-6a63-4d34-8bf6-55fab89e932a"}
       }
     ],
     "name": "share-name1",
-    "profile": {
-      "name": "dp2"
-    },
+    "profile": {"name": "dp2"},
     "user_tags": [
       "env:test",
       "env:prod"
     ],
-    "zone": {
-      "name": "us-south-1"
-    }
+    "zone": {"name": "us-south-1"}
   }'
 ```
 {: pre}
@@ -593,10 +581,7 @@ A successful response looks like the following example.
       }
     }
   ],
-  "user_tags": [
-    "env:test",
-    "env:prod"
-   ],
+  "user_tags": ["env:test","env:prod"],
   "zone": {
     "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-1",
     "name": "us-south-1"
@@ -618,21 +603,11 @@ curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2"\
 -d '{
     "size": 10,
     "name": "myshare-1",
-    "profile": {
-        "name": "dp2"
-     },
-     "zone": {
-        "name": "us-south-1"
-     },
+    "profile": {"name": "dp2"},
+     "zone": {"name": "us-south-1"},
      "mount_targets": [
-        "virtual_network_interface": {
-            "subnet": {
-                "id": "4e95744c-7e64-48c9-b5d2-3b6481b1dfde"
-                },
-        },
-         "transit_encryption": {
-            "user_managed"
-        }
+         "virtual_network_interface": {"subnet": {"id": "4e95744c-7e64-48c9-b5d2-3b6481b1dfde"}},
+         "transit_encryption": {"user_managed"}
     ]
 }'
 ```
@@ -649,9 +624,7 @@ A successful response looks like the following example.
     "lifecycle_state": "pending",
     "mount_path": "",
     "name": "myshare-1",
-    "primary_ip": {
-        "address": ""
-    },
+    "primary_ip": {"address": ""},
     "resource_type": "share_target",
     "subnet": {
         "crn": "crn:[...]",
@@ -693,28 +666,16 @@ curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2"\
     "size": 20,
     "iops": 100,
     "name": "myshare-3",
-    "profile": {
-        "name": "dp2"
-     },
-     "zone": {
-        "name": "us-south-1"
-     },
+    "profile": {"name": "dp2"},
+     "zone": {"name": "us-south-1"},
      "mount_targets": [
         "virtual_network_interface": {
-            "subnet": {
-                "id": "4e95744c-7e64-48c9-b5d2-3b6481b1dfde"
-                },
-            "security_groups": [
-                {
-                "id": "34c09abb-37bf-4ef6-88bb-f63a0ef28915"
-                }
-            ]
+            "subnet": {"id": "4e95744c-7e64-48c9-b5d2-3b6481b1dfde"},
+            "security_groups": [{"id": "34c09abb-37bf-4ef6-88bb-f63a0ef28915"}]
         },
-         "transit_encryption": {
-            "user_managed"
-        }
-    ]
-}'
+        "transit_encryption": {"user_managed"}
+      ]
+    }'
 ```
 {: codeblock}
 
@@ -783,12 +744,8 @@ curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2" \
 -d '{
     "size": 10,
     "name": "share-sc-2",
-    "profile": {
-        "name": "dp2"
-    },
-    "zone": {
-        "name": "us-south-3"
-    },
+    "profile": {"name": "dp2"},
+    "zone": {"name": "us-south-3"},
     "mount_targets": [
         "virtual_network_interface": {
             "primary_ip": {
@@ -800,14 +757,11 @@ curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2" \
                 "auto_delete": "false"
                 }
             },
-        "transit_encryption": {
-            "user_managed"
-          }
+        "transit_encryption": {"user_managed"}
        ]
     }'
  ```
  {: codeblock}
-
 
 ### Adding supplemental IDs when you create a file share with the API
 {: #fs-add-supplemental-id-api}
@@ -849,9 +803,7 @@ curl -X POST \
     "profile": {
     "name": "dp2"
      },
-    "zone": {
-       "name": "us-south-1"
-     }
+    "zone": {"name": "us-south-1"}
      .
      .
      .

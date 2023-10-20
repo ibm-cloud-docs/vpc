@@ -105,7 +105,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
       ```
       {: screen}
 
-     For more information, see [Step 1 - Obtain service instance and root key information](/docs/vpc?topic=vpc-creating-instances-byok#byok-cli-setup-prereqs).
+      For more information, see [Step 1 - Obtain service instance and root key information](/docs/vpc?topic=vpc-creating-instances-byok#byok-cli-setup-prereqs).
 
 1. Specify the `ibmcloud is share-create` command with the `--encryption-key` option to create a file share with customer-managed encryption. The `encryption_key` option must be followed by a valid CRN for the root key in the key management service. If you want to enable encryption in transit, too, specify that in the mount target JSON.
 
@@ -278,8 +278,6 @@ A successful response looks like the following example.
 
 ## Next steps
 {: #next-step-fs-byok}
-
-When you refresh the list of file shares in the UI, the new share appears at the beginning of the list with "customer managed" as the encryption type. When the share is created, it shows a status of `stable`.
 
 - Manage the root keys that are protecting your file share by [rotating](/docs/vpc?topic=vpc-vpc-key-rotation), [disabling](/docs/vpc?topic=vpc-vpc-encryption-managing&interface=ui#byok-disable-root-keys), or [deleting](/docs/vpc?topic=vpc-vpc-encryption-managing&interface=ui#byok-delete-root-keys) keys.
 
