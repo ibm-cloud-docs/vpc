@@ -39,7 +39,7 @@ The Mount Helper makes new certificate requests every 45 minutes, as the lifetim
 
 You can use the utility for encrypted or unencrypted connections. For encrypted connections, the Mount Helper uses the instance metadata service protocol option that is set to either `http` or `https`. For more information, see the API reference for `metadata_service` option of [instance provisioning](/apidocs/vpc/latest#create-instance).
 
-For more information, see the [readme file](https://github.com/IBM/vpc-file-storage-mount-helper).
+For more information, see the [readme file](https://github.com/IBM/vpc-file-storage-mount-helper){: external}.
 
 ## Requirements and restrictions
 {: #fs-eit-requirements}
