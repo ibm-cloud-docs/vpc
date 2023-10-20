@@ -35,7 +35,7 @@ Lifecycle state:
 | `failed`    | The file share or mount target failed to be created. You can delete the failed share and try creating another one. |
 | `deleting`  | The file share or mount target is being deleted. |
 | `suspended` | The file share violates {{site.data.keyword.cloud}}’s [Acceptable Use Policy](https://www.ibm.com/services/us/imc/html/aup1.html). A suspended file share cannot be updated or deleted.|
-| `updating`  | The file share capacity or IOPS is being updated|
+| `updating`  | The file share capacity or IOPS is being updated.|
 | `waiting`   |  |
 {: caption="Table 1. File Storage lifecycle states" caption-side="bottom"}
 
@@ -50,7 +50,7 @@ Replication status:
 | `split_pending`   | This share is performing a replication split. |
 {: caption="Table 2. File Storage replication status" caption-side="bottom"}
 
-## Managing file shares and mount points in the UI
+## Managing file shares and mount targets in the UI
 {: #file-storage-manage-ui}
 {: ui}
 
@@ -140,35 +140,94 @@ By using the CLI, you can:
 ### Renaming a file share from the CLI
 {: #rename-file-share-cli}
 
-Run the `share-update` command and specify a new file share name:
+1. Locate the file share that you want to rename by listing the file shares in the region with the `ibmcloud is shares` command. Take a note of the file shares name and ID.
 
-```sh
-ibmcloud is share-update SHARE_ID --name NEW_NAME [--output JSON] [-q, --quiet]
-```
-{: pre}
+   ```sh
+   $ ibmcloud is shares
+   Listing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
+   ID                                          Name                                 Lifecycle state   Zone         Profile       Size(GB)   Resource group   Replication role   
+   r006-600f9bff-3c2e-4542-9fc3-ef3be15da04a   my-file-share-2                      stable            us-south-2   dp2           100        defaults         replica
+   r006-52c68ba5-2754-4c9d-8345-1fe6aa930073   disposal-snare-revivable-chitchat    stable            us-south-3   dp2           10         defaults         replica   
+   r006-46541dc4-9e73-453a-9075-90ced0d612c3   trapdoor-urgency-attitude-imposing   stable            us-south-1   dp2           10         defaults         source   
+   r006-72604692-0dc5-49fb-8eca-08b16a6a4854   fiction-create-platter-decidable     stable            us-south-3   dp2           10         defaults         replica   
+   r006-c23ce229-fee9-4d40-a509-44886b21bb69   prismoid-evergreen-chains-granola    stable            us-south-1   dp2           10         defaults         source   
+   r006-89b34134-2be6-4281-ae8e-b1c625d533ae   my-test-share                        stable            us-south-1   dp2           10         defaults         none   
+   r006-cc7ab6a0-bb71-4e03-8ef7-dcffca43717f   my-old-file-share                    stable            us-south-1   tier-3iops    40         defaults         none   
+   ```
+   {: screen}
+
+1. Run the `ibmcloud is share-update` command and specify a new file share name with the `--name` options.
+   
+   ```sh
+   ibmcloud is share-update r006-600f9bff-3c2e-4542-9fc3-ef3be15da04a --name my-renamed-share
+   Updating file share r006-600f9bff-3c2e-4542-9fc3-ef3be15da04a under account Kranthi's Test Account as user Viktoria.Muirhead@ibm.com...
+                                
+   ID                           r006-600f9bff-3c2e-4542-9fc3-ef3be15da04a   
+   Name                         my-renamed-share   
+   CRN                          crn:v1:bluemix:public:is:us-south-2:a/a10d63fa66daffc9b9b5286ce1533080::share:r006-600f9bff-3c2e-4542-9fc3-ef3be15da04a   
+   Lifecycle state              stable   
+   Access control mode          vpc   
+   Zone                         us-south-2   
+   Profile                      dp2   
+   Size(GB)                     100   
+   IOPS                         100   
+   Encryption                   user_managed   
+   Mount Targets                ID                          Name      
+                                No mounted targets found.      
+                                
+   Resource group               ID                                 Name      
+                                6edefe513d934fdd872e78ee6a8e73ef   defaults      
+                                
+   Created                      2023-08-01T17:02:01+00:00   
+   Encryption key               crn:v1:bluemix:public:kms:eu-de:a/a10d63fa66daffc9b9b5286ce1533080:968c5a59-34f6-4b64-8899-c32a57f917fe:key:f602ae93-b915-49bc-a0e1-af29c73e7788   
+   Latest job                   Job status   Job status reasons      
+                             -            -      
+                                
+   Replication cron spec        00 11 * * 0   
+   Replication role             replica   
+   Replication status           none   
+   Replication status reasons   Status code   Status message      
+                                -             -      
+                                
+   Source share                 ID                                          Name   Resource type      
+                                r006-9272410d-38b2-447e-b98f-abc944ea02cc   dal1   share  
+   ```
+   {: pre}
 
 Valid file share names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. File share names must begin with a lowercase letter.
+{: important}
 
 For more information about the command options, see [`ibmcloud is share-update`](/docs/vpc?topic=vpc-vpc-reference#share-update).
 
 ### Renaming a mount target of a file share from the CLI
 {: #rename-mount-target-cli}
 
-Run the `share-mount-target-update` command with the file share name or ID, and the mount target name. Specify a new mount target name.
+1. List the file shares in the region with the `ibmcloud is shares` command. Take a note of the file share's name and ID that has the mount target that you want to rename.
 
-```sh
-ibmcloud is share-mount-target-update SHARE/SHARE_ID MOUNT_TARGET_ID --name NEW_NAME [--output JSON] [-q, --quiet]
-```
-{: pre}
+1. Use the share's name or ID to find its mount targets with the `ibmcloud is share-mount-targets` command.
+   ```sh
+   $ ibmcloud is share-mount-targets r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a 
+   Listing share mount target of r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
+   ID                                          Name                     VPC      Lifecycle state   Transit Encryption   
+   r006-fdbffc45-618c-49f1-bb08-ec530d7be378   my-source-mount-target   my-vpc   stable            none   
+   ```
+   {: codeblock}
 
-For more information about the command options, see [`ibmcloud is share-mount-target-update`](/docs/vpc?topic=vpc-vpc-reference#share-mount-target-update).
+1. To rename the mount target, run the `share-mount-target-update` command with the file share name or ID, and the mount target name. Specify a new mount target name with the `--name` option.
+   ```sh
+   ibmcloud is share-mount-target-update r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a r006-fdbffc45-618c-49f1-bb08-ec530d7be378 --name my-renamed-mount-target
+   ```
+   {: codeblock}
 
 Valid mount target names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. Mount target names must begin with a lowercase letter.
+
+For more information about the command options, see [`ibmcloud is share-mount-target-update`](/docs/vpc?topic=vpc-vpc-reference#share-mount-target-update).
 
 ### Updating a file share profile in the CLI
 {: #fs-update-profile-cli}
 
-These instructions are for the previous generation of file share profiles (general purpose, 5-iops, 10-iops, or custom). New file shares can be provisioned with only the dp2 profile. To access the latest features, you must change the IOPS profile of your share to dp2.
+These instructions are for the previous generation of file share profiles (general purpose, 5-iops, 10-iops, or custom). To access the latest features, you must change the IOPS profile of your share to dp2. The profiles of file shares that were created with the dp2 profile cannot be changed.
+{: important}
 
 1. Locate the file share that you want to update by listing the file shares in the region with the `ibmcloud is shares` command.
 
@@ -301,7 +360,7 @@ File share my-file-share-8 is deleted.
 
 For more information about the command options, see [`ibmcloud is share-delete`](/docs/vpc?topic=vpc-vpc-reference#share-replica-delete).
 
-## Managing file shares and mount points with the API
+## Managing file shares and mount targets with the API
 {: #file-storage-manage-api}
 {: api}
 
@@ -366,6 +425,8 @@ A successful response looks like the following example.
 ```
 {: codeblock}
 
+Valid file share names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. File share names must begin with a lowercase letter.
+
 ### Renaming a mount target of a file share with the API
 {: #rename-mount-target-api}
 
@@ -405,10 +466,13 @@ A successful response looks like the following example.
 ```
 {: codeblock}
 
+Valid mount target names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. Mount target names must begin with a lowercase letter.
+
 ### Updating a file share profile with the API
 {: #fs-update-profile-api}
 
-These instructions are for the previous generation of file share profiles (general purpose, 5-iops, 10-iops, or custom). New file shares can be provisioned with only the dp2 profile. To access the latest features, you must change the IOPS profile of your share to dp2.
+These instructions are for the previous generation of file share profiles (general purpose, 5-iops, 10-iops, or custom). To access the latest features, you must change the IOPS profile of your share to dp2. The profiles of file shares that were created with the dp2 profile cannot be changed.
+{: important}
 
 Make a `PATCH /shares/{share_ID}` call and specify the profile name in the `profile` property. The following example changes the profile to a `dp2` profile.
 
@@ -586,6 +650,9 @@ resource "ibm_is_share" "example" {
 ```
 {: codeblock}
 
+Valid file share and mount target names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. File share names must begin with a lowercase letter.
+{: important}
+
 For more information about the arguments and attributes, see [ibm_is_share](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share){: external}.
 
 ### Updating attributes of a mount target with Terraform
@@ -634,7 +701,7 @@ You can manage your tags in the {{site.data.keyword.cloud_notm}} with the [Globa
 
 You can add user tags to a file share in the UI.
 
-1. Go to the list of file shares. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![vpc icon](../../icons/vpc.svg) > Storage > File Shares**.
+1. Go to the list of file shares. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Storage > File Shares**.
 
 2. Select a file share to view its details.
 
