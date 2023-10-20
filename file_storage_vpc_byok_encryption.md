@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-10-19"
+lastupdated: "2023-10-20"
 
 keywords: file share, customer-managed encryption, encryption, byok, KMS, Key Protect, Hyper Protect Crypto Services,
 
@@ -35,32 +35,52 @@ Follow this procedure to specify customer-managed encryption when you create a f
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Storage > File Shares**.
 
-2. Click **Create**.
+1. Click **Create**.
 
-3. Enter the information that is described in the Table 1. While you create the share, specify the information for the mount target as well.
+1. Enter the information that is described in the Table 1.
 
    | Field | Value |
    |-------|-------|
-   | Name  | Choose a meaningful name for your file share. The share name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. You can later edit the name if you want. |
+   | Location | Choose the geography, the region, and the zone where you want to create the file share. |
+   | Name  | Choose a meaningful name for your file share. The share name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. You can later edit the name later if you want. |
    | Resource Group | Specify a [resource group](/docs/vpc?topic=vpc-iam-getting-started#resources-and-resource-groups). Resource groups help organize your account resources for access control and billing purposes. |
-   | Location | Choose the zone where you want to create the file share. The zones inherited from the VPC, for example, _US South 3_. |
-   | Mount targets (Optional) | Click **Create** to create a [mount target](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-share-mount-targets) for the file share. You can create one mount target per VPC per file share. Provide a name for the mount target and select a VPC in that zone. You can add as many mount targets as you have VPCs. If you don't have one, first [create a VPC](/docs/vpc?topic=vpc-getting-started#create-and-configure-vpc). For more information about creating mount targets as a separate operation, see [Create a mount target](#fs-create-mount-target-ui). |
-   | Profile | Select an IOPS tier, custom, or dp2 profile. The profile that you select determines the input/output performance of a file share. For more information, see [file storage profiles](/docs/vpc?topic=vpc-file-storage-profiles). |
-   | Size | Specify the size for the file share. |
-   | Encryption | Choose **Customer Managed** and use your own encryption key.
+   | Tags | Tags are used to organize, track, and even manage access to your file share resources. You can tag related resources and view them throughout your account by filtering by tags from your resource list. User tags are visible account-wide. Avoid including sensitive data in the tag name. For more information, see [Working with tags](/docs/account?topic=account-tag&interface=ui).|
+   | Access-management tags| You can apply flexible access policies on your file shares with access-management tags. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial). |
+   | Profile | New file shares are created with the dp2 profile. Select the size and IOPS for your file share. For more information, see [file Storage profiles](/docs/vpc?topic=vpc-file-storage-profiles). |
+   | Mount target access mode |  Select one: \n - Security group: Access to the file share is based on security group rules within a subnet. This option can be used to restrict access to specific virtual server instances. \n - Virtual private cloud: Access to the file share is granted to any virtual server instance in the same VPC. |
    {: caption="Table 1. Values for creating a file share and mount target." caption-side="bottom"}
 
-4. Update the fields in the **Encryption** section.
+1. The creation of mount targets is optional. You can skip this step if you do not want to create a mount target now. Otherwise, click **Create**. You can create one mount target per VPC per file share. 
+
+   - If you selected security group as the access mode, enter the information as described in the Table 2. This action creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target that identifies the file share with a reserved IP address and applies the rules of the selected Security group.
+
+     | Field | Value |
+     |-------|-------|
+     | **Details** | |
+     | Mount target name | Specify a mount target name. The name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. You can later edit the name if you want. |
+     | Zone | Zone is inherited from the file share (for example, Dallas 2). |
+     | VPC | Select an available VPC. The list includes only those VPCs with a subnet in the selected zone. |
+     | Subnet | Select a subnet from the list. |
+     | **Reserved IP address** | Required for the mount target. The IP address cannot be changed afterward. However, you can delete the mount target and create another one with a different IP address. |
+     | Reserving method | You can have the file service select an IP address for you. The reserved IP becomes visible after the mount target is created. Or, specify your own IP. |
+     | Auto-release | Releases the IP address when you delete the mount target. Enabled by default. |
+     | **Security groups** | The security group for the VPC is selected by default, or select from the list. |
+     | **Encryption in transit** | Disabled by default, click the toggle to enable. For more information about this feature, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit). |
+     {: caption="Table 2. Values for creating a mount target." caption-side="top"}
+
+   - If you selected VPC as the access mode, provide a name for the mount target and select the VPC where the file share is to be used in.
+
+1. Update the fields in the **Encryption** section.By default, all file shares are encrypted by IBM-managed keys. You can also choose to create an envelop-encryption for your shares with your own keys. If you want to use your own keys, select one of the [key management services](/docs/vpc?topic=vpc-vpc-encryption-about#kms-for-byok).
 
    | Field | Value |
    | ----- | ----- |
-   | Encryption | To use customer-managed encryption, select a [key management service](/docs/vpc?topic=vpc-vpc-encryption-about#kms-for-byok) ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}). The key management service (KMS) instance includes the root key that is imported to or created in that KMS instance. |
+   | Encryption | To use customer-managed encryption, select either {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. The key management service (KMS) instance includes the root key that is imported to or created in that KMS instance. |
    | Encryption service instance | If you provisioned multiple KMS instances in your account, select the one that includes the root key that you want to use for customer-managed encryption. |
    | Key name | Select the root key within the KMS instance that you want to use for encrypting the share. |
    | Key ID | The field shows the key ID that is associated with the data encryption key that you selected. |
-   {: caption="Table 2. Values for customer-managed encryption for file shares" caption-side="bottom"}
+   {: caption="Table 3. Values for customer-managed encryption for file shares." caption-side="bottom"}
 
-5. When all the required information is provided, click **Create file share**. You're returned to the File Shares for VPC page, where a message indicates that the file share is provisioning. When completed, the status changes to **Active**.
+1. When all the required information is entered, click **Create file share**. You return to the {{site.data.keyword.filestorage_vpc_short}} page, where a message indicates that the file share is provisioning. When the transaction completes, the share status changes to **Active**.
 
 If you created your {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} instance by using a private endpoint, root keys that were created by using that instance are not shown in the UI. You must use the CLI or API to access and use those root keys.
 {: important}

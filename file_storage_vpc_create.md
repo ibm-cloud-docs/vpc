@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-10-19"
+lastupdated: "2023-10-20"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -49,8 +49,9 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
    | Resource Group | Use the default resource group or specify a [resource group](/docs/vpc?topic=vpc-iam-getting-started#resources-and-resource-groups). Resource groups help organize your account resources for access control and billing purposes. |
    | Tags | Enter any user tags to apply to this file share. As you type, existing tags appear that you can select. For more information about tags, see [Add user tags to a file share](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-add-user-tags). |
    | Access Management Tags | Enter access management tags that you created in IAM to apply them to this file share. For more information about access management tags, see [Access management tags for file shares](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-about-mgt-tags). |
+   | Profile | All file shares are created with the dp2 profile. For more information, see [file Storage profiles](/docs/vpc?topic=vpc-file-storage-profiles). \n Select the size and IOPS for your file share. You can increase the capacity later, and you can also adjust the IOPS as needed. |
    | Mount target access mode  | Select how you want to manage access to this file share: |
-   |  | Security group: Access to the file share is based on security group rules within a subnet. This option can be used to restrict access to specific virtual server instances. You can use this option only with the `dp2` profile. This option is recommended as you have more control over who can access the data that is stored on the file share. |
+   |  | Security group: Access to the file share is based on security group rules within a subnet. This option can be used to restrict access to specific virtual server instances. This option is recommended as you have more control over who can access the data that is stored on the file share. |
    |  | Virtual private cloud: Access to the file share is granted to any virtual server instance in the same VPC. |
    {: caption="Table 1. Values for creating a file share" caption-side="top"}
 
@@ -74,11 +75,7 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
 
    - If you selected VPC as the access mode, provide a name for the mount target and select the VPC where the file share is to be used in.
 
-1. Select the right profile for your workload. The profile that you select determines the input/output performance of a file share. The `dp2` profile provides the most flexibility. For more information about file storage IOPS tier and Custom profiles, see [File Storage profiles](/docs/vpc?topic=vpc-file-storage-profiles).
-
-1. Specify the size for the file share. You can later [increase this size](/docs/vpc?topic=vpc-file-storage-expand-capacity). The maximum capacity of the share depends on the file share profile.
-
-1. Encryption at rest. By default, all file shares are encrypted by IBM-managed keys. You can also choose to encrypt your shares with your own keys. If you want to use your own keys, select one of the [key management services](/docs/vpc?topic=vpc-vpc-encryption-about#kms-for-byok).
+1. Encryption at rest. By default, all file shares are encrypted by IBM-managed keys. You can also choose to create an envelop-encryption for your shares with your own keys. If you want to use your own keys, select one of the [key management services](/docs/vpc?topic=vpc-vpc-encryption-about#kms-for-byok).
 
    | Field | Value |
    | ----- | ----- |
