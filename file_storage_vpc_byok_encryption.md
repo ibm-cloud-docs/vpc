@@ -12,13 +12,13 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Creating file shares with customer-managed encryption at rest
+# Creating file shares with customer-managed encryption
 {: #file-storage-vpc-encryption}
 
-By default, {{site.data.keyword.filestorage_vpc_short}} shares are encrypted with IBM-managed encryption. However, you can also create an envelop-encryption for your file shares by using one of the supported key management services to create or import your own root keys. You can't change the encryption type after the file share is created.
+By default, {{site.data.keyword.filestorage_vpc_short}} shares are encrypted with IBM-managed encryption. You can also create an envelop-encryption for your file shares by using one of the supported key management services to create or import your own root keys. You can't change the encryption type after the file share is created.
 {: shortdesc}
 
-For more information, see [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption)
+For more information, see [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption).
 
 ## Before you begin
 {: #custom-managed-vol-prereqs-file}
@@ -33,7 +33,7 @@ For more information, see [Prerequisites for setting up customer-managed encrypt
 
 Follow this procedure to specify customer-managed encryption when you create a file share.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![vpc icon](../../icons/vpc.svg) > Storage > File Shares**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Storage > File Shares**.
 
 2. Click **Create**.
 
@@ -72,70 +72,120 @@ If you created your {{site.data.keyword.keymanagementserviceshort}} or {{site.da
 Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 {: requirement}
 
-1. Retrieve the ID of your key management service and the CRN of the root key in that service. 
+1. Gather the information that you need for provisioning a share, such as a unique name, location, the capacity, and performance characteristics that your file share must have. If you're creating a mount target with a [virtual network interface](/docs/vpc?topic=vpc-vni-about), use the appropriate CLI commands to list the available [subnets](/docs/vpc?topic=vpc-vpc-reference#subnets-list), [reserved IP addresses in a subnet](/docs/vpc?topic=vpc-vpc-reference#subnet-reserved-ips-list), and [security groups](/docs/vpc?topic=vpc-vpc-reference#security-groups-list). For more information, see [Gathering information from the CLI](/docs/vpc?topic=vpc-file-storage-create&interface=cli#fs-vpc-getinfo-cli).
+
+1. For the encryption, retrieve the ID of your key management service and the CRN of the root key in that service. 
    1. List the available KMS instances with the `ibmcloud resource service-instances` command.
-     ```sh
-     $ ibmcloud resource service-instances
-     Retrieving instances with type service_instance in all resource groups in all locations under account Test Account as test.user@ibm.com... 
-     OK
-     Name             Location   State    Type               Resource Group ID
-     KeyProtect-ki    us-south   active   service_instance   db8e8d865a83e0aae03f25a492c5b39e
-     schematics       us-south   active   service_instance   db8e8d865a83e0aae03f25a492c5b39e
-     ```
-     {: screen}
+      ```sh
+      $ ibmcloud resource service-instances
+      Retrieving instances with type service_instance in all resource groups in all locations under account Test Account as test.user@ibm.com... 
+      OK
+      Name             Location   State    Type               Resource Group ID
+      KeyProtect-ki    us-south   active   service_instance   db8e8d865a83e0aae03f25a492c5b39e
+      schematics       us-south   active   service_instance   db8e8d865a83e0aae03f25a492c5b39e
+      ```
+      {: screen}
 
    1. Use the `ibmcloud resource service-instance` command to get the instance ID. The ID is the last string in the CRN after the account number.
-     ```sh
-     $ ibmcloud resource service-instance KeyProtect-ki -location us-south --id
-     Retrieving service instance KeyProtect-ki in all resource groups under account Test Account as test.user@ibm.com...
-     crn:v1:bluemix:public:kms:us-south:a/a1234567:: 22e573bd-c02c-4d7f-81e2-2aa867da176d
-     ```
-     {: screen}
+      ```sh
+      $ ibmcloud resource service-instance KeyProtect-ki -location us-south --id
+      Retrieving service instance KeyProtect-ki in all resource groups under account Test Account as test.user@ibm.com...
+      crn:v1:bluemix:public:kms:us-south:a/a1234567:: 22e573bd-c02c-4d7f-81e2-2aa867da176d
+      ```
+      {: screen}
 
    1.  Use the ID in the `ibmcloud kp keys` command to retrieve the key information.
-     ```sh
-     $ ibmcloud kp keys -c --instance-id 22e573bd-c02c-4d7f-81e2-2aa867da176d
-     Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
-     Retrieving keys...
-     OK
-     Key ID                                 Key Name      CRN   
-     2fb8d675-bde3-4780-b127-3d0b413631c1   my-file-key   crn:v1:bluemix:public:kms:us-south:a/a1234567:22e573bd-c02c-4d7f-81e2-2aa867da176d:key:2fb8d675-bde3-4780-b127-3d0b413631c1
-     ```
-     {: screen}
+      ```sh
+      $ ibmcloud kp keys -c --instance-id 22e573bd-c02c-4d7f-81e2-2aa867da176d
+      Targeting endpoint: https://qa.us-south.kms.test.cloud.ibm.com
+      Retrieving keys...
+      OK
+      Key ID                                 Key Name      CRN   
+      2fb8d675-bde3-4780-b127-3d0b413631c1   my-file-key   crn:v1:bluemix:public:kms:us-south:a/a1234567:22e573bd-c02c-4d7f-81e2-2aa867da176d:key:2fb8d675-bde3-4780-b127-3d0b413631c1
+      ```
+      {: screen}
 
      For more information, see [Step 1 - Obtain service instance and root key information](/docs/vpc?topic=vpc-creating-instances-byok#byok-cli-setup-prereqs).
 
-2. Specify the `ibmcloud is share-create` command with the `--encryption-key` option to create a file share with customer-managed encryption. The `encryption_key` option must be followed by a valid CRN for the root key in the key management service.
+1. Specify the `ibmcloud is share-create` command with the `--encryption-key` option to create a file share with customer-managed encryption. The `encryption_key` option must be followed by a valid CRN for the root key in the key management service. If you want to enable encryption in transit, too, specify that in the mount target JSON.
 
-```sh
-$ ibmcloud is share-create --name my-encrypted-file-share --zone us-south-2 --profile dp2 --size 500 --iops 2000  --user-tags env:dev --encryption_key crn:v1:bluemix:public:kms:us-south:a/a1234567:key:2fb8d675-bde3-4780-b127-3d0b413631c1 --mount-targets '[{"name":"my-new-mount-target","virtual_network_interface": {"name":"my-vni-2","subnet": {"id":"0726-298acd6c-e71e-4204-a04f-fe4a4dd89805"}}}]'
-Creating file share my-encrypted-file-share under account Test Account as user test.user@ibm.com...
+   - The following example creates a file share with customer-managed encryption, security group access mode, and a mount target with a virtual network interface. Encryption in transit is not enabled.
+      ```sh
+      $ ibmcloud is share-create --name my-encrypted-file-share --zone us-south-2 --profile dp2 --size 500 --iops 2000  --user-tags env:dev --encryption_key crn:v1:bluemix:public:kms:us-south:a/a1234567:key:2fb8d675-bde3-4780-b127-3d0b413631c1 --mount-targets '[{"name":"my-new-mount-target","virtual_network_interface": {"name":"my-vni-2","subnet": {"id":"0726-298acd6c-e71e-4204-a04f-fe4a4dd89805"},"security_groups":[{"id":"r134-7f369ca2-ca49-4053-b007-5cab79b9873b"}]}}]'
+      Creating file share my-encrypted-file-share under account Test Account as user test.user@ibm.com...
                                 
-ID                           r006-d44298fe-aced-4f55-a690-8a3830e9fd90   
-Name                         my-encrypted-file-share   
-CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-d44298fe-aced-4f55-a690-8a3830e9fd90   
-Lifecycle state              pending   
-Access control mode          security_group   
-Zone                         us-south-2   
-Profile                      dp2   
-Size(GB)                     500   
-IOPS                         2000   
-User Tags                    env:dev   
-Encryption                   user_managed   
-Mount Targets                ID                                          Name      
-                             r006-00432317-436e-4940-ab7d-8b26c186b00f   my-new-mount-target      
+      ID                           r006-d44298fe-aced-4f55-a690-8a3830e9fd90   
+      Name                         my-encrypted-file-share   
+      CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-d44298fe-aced-4f55-a690-8a3830e9fd90   
+      Lifecycle state              pending   
+      Access control mode          security_group   
+      Zone                         us-south-2   
+      Profile                      dp2   
+      Size(GB)                     500   
+      IOPS                         2000   
+      User Tags                    env:dev   
+      Encryption                   user_managed   
+      Mount Targets                ID                                          Name      
+                                   r006-00432317-436e-4940-ab7d-8b26c186b00f   my-new-mount-target      
                                 
-Resource group               ID                                 Name      
-                             db8e8d865a83e0aae03f25a492c5b39e   Default      
+      Resource group               ID                                 Name      
+                                   db8e8d865a83e0aae03f25a492c5b39e   Default      
                                 
-Created                      2023-10-19T21:16:27+00:00   
-Encryption key               crn:v1:bluemix:public:kms:us-south:a/c06ae1ed3292f027a632ab246303ef1b:22e573bd-c02c-4d7f-81e2-2aa867da176d:key:2fb8d675-bde3-4780-b127-3d0b413631c1   
-Replication role             none   
-Replication status           none   
-Replication status reasons   Status code   Status message      
-                             -             -  
-```
-{: screen}
+      Created                      2023-10-19T21:16:27+00:00   
+      Encryption key               crn:v1:bluemix:public:kms:us-south:a/a1234567:key:2fb8d675-bde3-4780-b127-3d0b413631c1   
+      Replication role             none   
+      Replication status           none   
+      Replication status reasons   Status code   Status message      
+                                   -             -  
+      ```
+      {: screen}
+
+      ```sh
+      $ ibmcloud is share-mount-targets my-encrypted-file-share 
+      Listing share mount target of my-encrypted-file-share in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
+      ID                                          Name                  VPC      Lifecycle state   Transit Encryption   
+      r134-00432317-436e-4940-ab7d-8b26c186b00f   my-new-mount-target   my-vpc   stable            none 
+      ```
+      {: screen}
+
+   - The following example creates a file share with customer-managed encryption, security group access mode, and a mount target with a virtual network interface, and encryption-in-transit enabled.
+      ```sh
+      $ ibmcloud is share-create --name my-encrypted-eit-file-share --zone us-south-2 --profile dp2 --size 500 --iops 2000  --user-tags env:dev --encryption_key crn:v1:bluemix:public::kms:us-south:a/a123456:key:2fb8d675-bde3-4780-b127-3d0b413631c1 --mount-targets '[{"name":"my-new-mount-target","transit_encryption": "user_managed","virtual_network_interface": {"name":"my-vni-3","subnet": {"id":"0726-298acd6c-e71e-4204-a04f-fe4a4dd89805"},"security_groups":[{"id":"r134-7f369ca2-ca49-4053-b007-5cab79b9873b"}]}}]'
+      Creating file share my-encrypted-eit-file-share under account Test Account as user test.user@ibm.com...
+                                
+      ID                           r134-f6bf049e-f46c-4160-b548-4a36d27256ac   
+      Name                         my-encrypted-eit-file-share   
+      CRN                          crn:v1:bluemix:public::is:us-south-2:a/a1234567::share:r134-f6bf049e-f46c-4160-b548-4a36d27256ac   
+      Lifecycle state              pending   
+      Access control mode          security_group   
+      Zone                         us-south-2   
+      Profile                      dp2   
+      Size(GB)                     500   
+      IOPS                         2000   
+      User Tags                    env:dev   
+      Encryption                   user_managed   
+      Mount Targets                ID                                          Name      
+                                   r134-e6bd52b8-c656-4ba6-8749-1bb41bfa2c3c   my-new-mount-target      
+                                
+      Resource group               ID                                 Name      
+                                   db8e8d865a83e0aae03f25a492c5b39e   Default      
+                                
+      Created                      2023-10-20T03:05:38+00:00   
+      Encryption key               crn:v1:bluemix:public:kms:us-south:a/a1234567-c02c-4d7f-81e2-2aa867da176d:key:2fb8d675-bde3-4780-b127-3d0b413631c1   
+      Replication role             none   
+      Replication status           none   
+      Replication status reasons   Status code   Status message      
+                                   -             -      
+      ```
+      {: screen}
+
+      ```sh
+      $ ibmcloud is share-mount-targets my-encrypted-eit-file-share 
+      Listing share mount target of my-encrypted-eit-file-share in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
+      ID                                          Name                  VPC      Lifecycle state   Transit Encryption   
+      r134-e6bd52b8-c656-4ba6-8749-1bb41bfa2c3c   my-new-mount-target   my-vpc   stable            user_managed  
+      ```
+      {: screen}
 
 For more information about the command options, see [`ibmcloud is share-create`](/docs/vpc?topic=vpc-vpc-reference#share-create).
 
@@ -243,4 +293,6 @@ A successful response looks like the following example.
 
 When you refresh the list of file shares in the UI, the new share appears at the beginning of the list with "customer managed" as the encryption type. When the share is created, it shows a status of `stable`.
 
-Manage the root keys that are protecting your file share by [rotating](/docs/vpc?topic=vpc-vpc-key-rotation), [disabling](/docs/vpc?topic=vpc-vpc-encryption-managing&interface=ui#byok-disable-root-keys), or [deleting](/docs/vpc?topic=vpc-vpc-encryption-managing&interface=ui#byok-delete-root-keys) keys.
+- Manage the root keys that are protecting your file share by [rotating](/docs/vpc?topic=vpc-vpc-key-rotation), [disabling](/docs/vpc?topic=vpc-vpc-encryption-managing&interface=ui#byok-disable-root-keys), or [deleting](/docs/vpc?topic=vpc-vpc-encryption-managing&interface=ui#byok-delete-root-keys) keys.
+
+- Use the [IBM Cloud File Share Mount Helper utility](/docs/vpc?topic=vpc-file-storage-vpc-eit&interface=cli#fs-mount-helper-utility) to mount your encrypted file share to an authorized Compute instance.
