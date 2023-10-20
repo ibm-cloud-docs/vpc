@@ -119,7 +119,7 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
    ```
    {: pre}
 
-   The installation script accepts the command-line argument `region`. Example regions are `dal`, `fra`, `lon`, `osa`, `sao`, `syd`, `tok`, `tor`, `wdc`. This argument is used to copy region-specific root CA cert to the strongSwan certificates location. If no region is specified, then the utility copies all the root CA certs.
+   The installation script accepts the command-line argument `region`. Available regions are `dal`, `fra`, `lon`, `osa`, `sao`, `syd`, `tok`, `tor`, `wdc`. This argument is used to copy region-specific root CA cert to the strongSwan certificates location. If no region is specified, then the utility copies all the root CA certs.
 
 1. Update the configuration file `/etc/ibmcloud/share.conf` with region information and with the peer certificate expiration time that you want. By default, certificates last 1 hour and new certificates are fetched every 45 minutes. However, you can modify the `certificate_duration_seconds` option to have a value between 5 minutes and 1 hour.
    ```sh
