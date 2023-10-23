@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-09-01"
+  years: 2020, 2023
+lastupdated: "2023-10-23"
 
 keywords: resource attribute, iam access policy, terraform, cli
 
@@ -29,40 +29,16 @@ ibmcloud iam user-policy-create name@example.com --roles Viewer --service-name i
 ```
 {: pre}
 
-For more information about using the CLI to create and modify IAM access policy, see [ibmcloud iam user-policy-create](/docs/account?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_user_policy_create).
+For more information about using the CLI to create and modify IAM access policy, see [ibmcloud iam user-policy-create](/docs/account?topic=account-ibmcloud_commands_iam#ibmcloud_iam_user_policy_create).
 
-For more information about using Terraform to create IAM access policy, see the `resources.attributes` input parameter for the following IAM policies:
+For more information about using Terraform to create IAM access policies, see the `resources` attribute for the following IAM policies:
 
-* [`ibm_iam-access_group_policy`](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-iam-resources#iam-access-group-policy)
-* [`ibm_iam_service_policy`](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-iam-resources#iam-service-policy)
-* [`ibm_iam_user_policy`](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-iam-resources#iam-user-policy)
-* [`ibm_iam_user_invite`](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-iam-resources#iam-user-invite) (`iam_policy.resource.attributes`)
+* [`ibm_iam-access_group_policy`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/iam_access_group_policy){: external}
+* [`ibm_iam_service_policy`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/iam_service_policy){: external}
+* [`ibm_iam_user_policy`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/iam_user_policy){: external}
+* [`ibm_iam_user_invite`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/iam_user_invite){: external}
+* (`iam_policy.resource.attributes`)
 
 See Table 1 for the full list of VPC resource attributes.
 
-
-|   Resource     | Resource Attribute |
-| ------- | ------ |
-| Auto Scale for VPC | `instanceGroupId:<instance-group-id>` |
-| Backup service | `backupPolicyId: <backup-policy-id>`|
-| Block Storage for VPC | `volumeId: <volume-id>` |
-| Bare metal server | `bareMetalServerId: <bare-metal-server-id>` |
-| Dedicated Host for VPC | `dedicatedHostId:<dedicated-host-id>` <!--(staging)--> |
-| File Storage | `shareId: <share-id>` | 
-| Floating IP for VPC | `floatingIpId: <fip-id>` |
-| Flow Logs for VPC | `flowLogCollectorId: <flc-id>` |
-| Image Service for VPC | `imageId:<image-id>` |
-| Load Balancer for VPC | `loadBalancerId: <load-balancer-id>` |
-| Network ACL | `networkAclId: <nacl-id>` |
-| Placement Group for VPC | `placementGroupId: <placement-group-id>` |
-| Public Gateway for VPC | `publicGatewayId: <pgw-id>` |
-| Security Group for VPC | `securityGroupId: <default-sec-grp-id>` |
-| Snapshots | `snapshotId: <snapshot-id>`|
-| SSH Key for VPC | `keyId:<key-id>` |
-| Subnet | `subnetId: <subnet-id>` |
-| Virtual Private Endpoint for VPC | `endpointGatewayId:<endpoint-gateway-id>`<!--(staging)--> |
-| Virtual Private Cloud |  `vpcId: <vpc-id>`  |   
-| Virtual Server for VPC | `instanceId: <instance-id>` |   
-| {{site.data.keyword.vpn_vpc_short}} | `vpnGatewayID: <vpn-gateway-id>` |
-{: caption="Table 1. VPC resource attributes" caption-side="bottom"}
-
+{{site.data.content.vpc-resource-attributes-table}}
