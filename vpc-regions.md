@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-06-22"
+lastupdated: "2023-10-23"
 
 keywords: region, zone, deploy, datacenter, data, center, federated, CLI, API, account, failover, disaster, recovery, DR, data center
 
@@ -109,12 +109,19 @@ Targeted resource group Default
 
 Select a region (or press enter to skip):
 1. au-syd
-2. jp-tok
-3. eu-de
-4. eu-gb
-5. us-south
-6. us-east
-Enter a number> 5
+2. in-che
+3. jp-osa
+4. jp-tok
+6. eu-de
+7. eu-es
+8. eu-gb
+9. ca-tor
+10. us-south
+11. us-east
+12. br-sao
+
+Enter a number> 12
+
 Targeted region us-south
 
 
@@ -180,9 +187,26 @@ curl "https://us-south.iaas.cloud.ibm.com/v1/vpcs?version=$api_version&generatio
 {: #get-zones-using-the-cli}
 {: cli}
 
-To get the list of zones available for each region, run the command `ibmcloud is zones <region>`. For example, to get the list of zones in region `us-south`, run the following command:
+To get the list of zones available for each region, run the command `ibmcloud is zones` in the target region. In the following example, the first command switches the target to `us-south` region. The second command lists the available zones.
 
 ```sh
-ibmcloud is zones us-south
+ibmcloud target -r us-east; ibmcloud is zones
+Switched to region us-east
+                   
+API endpoint:      https://cloud.ibm.com
+Region:            us-east
+User:              first.last@email.com
+Account:           TeamAccount (a1234567) <-> 7654321
+Resource group:    No resource group targeted, use 'ibmcloud target -g RESOURCE_GROUP'
+CF API endpoint:   
+Org:               
+Space:             
+Listing zones in target region us-east under account TeamAccount as user first.last@email.com...
+Name        Region    Status   
+us-east-1   us-east   available   
+us-east-2   us-east   available   
+us-east-3   us-east   available   
 ```
 {: pre}
+
+For more information about available command options, see [`ibmcloud is zones`](/docs/vpc?topic=vpc-vpc-reference&interface=cli#zones-list){: external}.
