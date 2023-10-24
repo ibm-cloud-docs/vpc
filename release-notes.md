@@ -38,7 +38,7 @@ Security group integration for network load balancers
  :   For enhanced security, network load balancers can now be associated with security groups. You can associate one or more security groups with a new network load balancer when creating it, as well as associate security groups with your existing network load balancers. For more information, see [Integrating an IBM Cloud Network Load Balancer for VPC with security groups](/docs/vpc?topic=vpc-nlb-integration-with-security-groups).
  
  Very High Memory profiles available in all regions (GA)
-:   TheVery High Memory family of profiles are now available in the Madrid (MAD) region. This makes the vx2d profiles available in all regions.
+:   The Very High Memory family of profiles are now available in the Madrid (MAD) region. This makes the vx2d profiles available in all regions.
 
 ### 12 October 2023
 {: #vpc-oct1223}
