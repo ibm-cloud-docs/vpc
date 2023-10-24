@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-02-10"
+lastupdated: "2023-10-24"
 
 keywords: migrate virtual server from classic infrastructure, migrate to vpc, migrate image template, image template, import image to vpc infrastructure, migrate virtual server, migrate instance
 
@@ -91,7 +91,7 @@ Complete the following customizations on your Windows instance to prepare the im
     1. Download the stable [virtio-win drivers ISO](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso){: external} from Fedora.
     2. Locate the downloaded ISO and double-click it to mount it.
     3. From the mounted ISO, run `virtio-win-guest-tools.exe` and complete the installation.
-3. Install and configure Cloudbase-Init by completing steps 4.d through 4.h in [Creating a Windows custom image](/docs/vpc?topic=vpc-create-windows-custom-image). Make sure to modify the Cloudbase-Init configuration files and Unattend file according to the instructions and then run Sysprep.    
+3. Install and configure [Cloudbase-Init](https://cloudbase.it/cloudbase-init/){: external}. Update the Cloudbase-Init configuration files and then run Sysprep. For more information, see the [Cloudbase-Init Tutorial](https://cloudbase-init.readthedocs.io/en/latest/tutorial.html){: external}. 
 
 ### Step 4 - Create an image template of your customized virtual server instance
 {: #migrate-new-image template}
