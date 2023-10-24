@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-04-27"
+lastupdated: "2023-10-24"
 
 keywords: create authorization for {{site.data.keyword.cos_full_notm}}, import image to vpc infrastructure, migrate virtual server, migrate instance
 
@@ -76,15 +76,56 @@ For more information, see [`ibmcloud iam authorization-policy-create`](/docs/cli
 You can choose to grant authorization to a specific bucket in {{site.data.keyword.cos_full_notm}}. The following example describes how to grant `Reader` access to a specific bucket for importing images from {{site.data.keyword.cos_full_notm}}. To export an image to {{site.data.keyword.cos_full_notm}}, you must also grant `Writer` access.
 
 Before you run the command you need to know the GUID for the {{site.data.keyword.cos_full_notm}} service instance. 
-1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](/login), go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > Resource list > Storage**. 
-1. To display the details for the {{site.data.keyword.cos_full_notm}} service instance where your images are stored, click in the table row that is associated with the instance, in the Group, Location, Product, or Status columns, for example. Don't click the name of the service instance, which opens the Buckets page.
-1. From the right panel, copy the GUID. For example, `f7d4676f-f298-4cb3-8390-2fe258a5d6df`.
-1. Run the following command and replace `$COS_INSTANCE_GUID` with the `GUID`. 
+1. Use the `ibmcloud resource service-instance` command to obtain the GUID. See the following example:
 
-```sh
-ibmcloud iam authorization-policy-create is cloud-object-storage Reader --source-resource-type image --target-service-instance-id $COS_INSTANCE_GUID
-```
-{: pre}
+   ```sh
+   $ ibmcloud resource service-instance cos-fs-cloud-us-south
+   Retrieving service instance cos-fs-cloud-us-south in all resource groups under account Test Account as test.user@ibm.com...
+   OK
+                       
+   Name:                  cos-fs-cloud-us-south
+   ID:                    crn:v1:bluemix:public:cloud-object-storage:global:a/a1234567:0e4a33e6-973e-42b6-bea4-ce1b3aebe163::
+   GUID:                  0e4a33e6-973e-42b6-bea4-ce1b3aebe163
+   Location:              global
+   Service Name:          cloud-object-storage
+   Service Plan Name:     standard
+   Resource Group Name:   defaults
+   State:                 active
+   Type:                  service_instance
+   Sub Type:              
+   Locked:                false
+   Created at:            2021-07-27T14:40:45Z
+   Created by:            IBMid-12345678
+   Updated at:            2021-07-27T14:40:47Z
+   Last Operation:                  
+                          Status    create succeeded
+                          Message   Completed create instance operation
+    ```
+    {: screen} 
+   
+1. Run the following command and replace `$COS_INSTANCE_GUID` with the `GUID` value. 
+
+   ```sh
+   ibmcloud iam authorization-policy-create is cloud-object-storage Reader --source-resource-type image --target-service-instance-id $COS_INSTANCE_GUID
+   ```
+   {: pre}
+
+   A successful response looks like the following example:
+
+   ```sh
+   $ ibmcloud iam authorization-policy-create is cloud-object-storage Reader --source-resource-type image --target-service-instance-id 0e4a33e6-973e-42b6-bea4-ce1b3aebe163
+   Creating authorization policy under account a1234567 as test.user@ibm.com...
+   OK
+   Authorization policy 0bbcb168-bf7b-4ebf-9684-769f1d7e80e7 was created.
+                           
+   ID:                        0bbcb168-bf7b-4ebf-9684-769f1d7e80e7
+   Source service name:       is
+   Source service instance:   All instances
+   Source resource type:      image
+   Target service name:       cloud-object-storage
+   Target service instance:   0e4a33e6-973e-42b6-bea4-ce1b3aebe163
+   ```
+   {: screen}
 
 For more information about all of the parameters that are available for this command, see [`ibmcloud iam authorization-policy-create`](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_authorization_policy_create).
 
