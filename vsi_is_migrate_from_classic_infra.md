@@ -91,7 +91,7 @@ Complete the following customizations on your Windows instance to prepare the im
     1. Download the stable [virtio-win drivers ISO](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso){: external} from Fedora.
     2. Locate the downloaded ISO and double-click it to mount it.
     3. From the mounted ISO, run `virtio-win-guest-tools.exe` and complete the installation.
-3. Install and configure [Cloudbase-Init](https://cloudbase.it/cloudbase-init/){: external}. Update the Cloudbase-Init configuration files and then run Sysprep. For more information, see the [Cloudbase-Init Tutorial](https://cloudbase-init.readthedocs.io/en/latest/tutorial.html){: external}. 
+3. Install and configure cloudbase-init by completing steps 4 through 8 in [Creating a Windows custom image > Customize the server](/docs/vpc?topic=vpc-create-windows-custom-image#customize-virtual-machine). Make sure to modify the cloudbase-init configuration files and Unattend file according to the instructions and then run Sysprep.
 
 ### Step 4 - Create an image template of your customized virtual server instance
 {: #migrate-new-image template}
