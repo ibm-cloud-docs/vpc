@@ -436,6 +436,7 @@ toc:
                 - nlb-health-checks.md
                 - nlb-listeners.md
                 - nlb-ig-integration.md
+                - nlb-sg-integration.md
                 - nlb-udp.md
                 - nlb-port-range.md
                 - nlb-pools.md

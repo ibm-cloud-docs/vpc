@@ -51,7 +51,7 @@ You can attach a maximum of 50 virtual server instances to your back-end pool fo
 {: #is-the-network-load-balancer-horizontally-scalable}
 {: faq}
 
-No. A network load balancer is not horizontally scalable. 
+No. A network load balancer is not horizontally scalable.
 
 ## What should I do if I'm using ACLs on the subnets that are used to deploy an NLB?
 {: #what-should-i-do-if-i-am-using-acls-on-the-subnets-that-are-used-to-deploy-the-load-balancer-nlb}
@@ -82,3 +82,9 @@ The IP address is fixed for both public and private network load balancers. Howe
 {: faq}
 
 Approved Scanning Vendor (ASV) quarterly scanning is a requirement of the Payment Card Industry (PCI) Security Standards Council. ASV scanning of LBaaS data-plane appliances is solely a customer responsibility. IBM does not use ASVs to scan data-plane appliances because these scans can negatively impact customer workload functions and performance.
+
+### Why is my listener not receiving traffic?
+{: #lbaas-listener-security-group}
+{: faq}
+
+Make sure that the security group rules that are attached to your load balancer allow ingress and egress traffic on your listener's port. Security groups attached to your load balancer can be found on your load balancer overview page. Locate the **Attached security groups** tab in the overview, then select the security groups whose rules you want to view and modify them if necessary.
