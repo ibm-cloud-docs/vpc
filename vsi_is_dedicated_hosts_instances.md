@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-08-04"
+lastupdated: "2023-10-24"
 
 keywords: dedicated host, dedicated host group
 
@@ -120,35 +120,59 @@ Gather the following required information:
 
 Use the following commands to determine the required information for creating a new group.
 
-1. List the regions that are associated with your account.
+1. List the regions associated with your account.
 
    ```sh
    ibmcloud is regions
    ```
    {: pre}
 
-   For this example, you'd see a response similar to the following output:
-   ```sh
-    Name       Endpoint               Status   
-    us-south   /v1/regions/us-south   available
-    ```
-    {: screen}
-
-2. List the zones that are associated with the region.
+   See the following example.
 
    ```sh
-   ibmcloud is zones us-south
-   ```
-   {: pre}
-
-   For this example, you'd see a response similar to the following output:
-   ```sh
-   Name         Region     Status   
-   us-south-1   us-south   available
+   $ ibmcloud is regions
+   Listing regions under account Test Account as user test.user@ibm.com...
+   Name       Endpoint                              Status   
+   au-syd     https://au-syd.iaas.cloud.ibm.com     available   
+   br-sao     https://br-sao.iaas.cloud.ibm.com     available   
+   ca-tor     https://ca-tor.iaas.cloud.ibm.com     available   
+   eu-de      https://eu-de.iaas.cloud.ibm.com      available   
+   eu-es      https://eu-es.iaas.cloud.ibm.com      available   
+   eu-gb      https://eu-gb.iaas.cloud.ibm.com      available    
+   jp-osa     https://jp-osa.iaas.cloud.ibm.com     available   
+   jp-tok     https://jp-tok.iaas.cloud.ibm.com     available   
+   us-east    https://us-east.iaas.cloud.ibm.com    available   
+   us-south   https://us-south.iaas.cloud.ibm.com   available   
    ```
    {: screen}
 
-3. List the profiles that are available for creating a dedicated host to determine what profile family and class you want to assign to the dedicated host group. The family and class that you assign to the group when it is created determines the profiles that can be used to provision dedicated hosts and instances in the group. All dedicated hosts and virtual server instances that are provisioned to the dedicated host group must be from the same family and class of profiles. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles).
+1. Switch to your target region.
+
+   ```sh
+   ibmcloud target -r <region-name>
+   ```
+   {: pre}
+
+1. List the zones associated with the target region.
+
+   ```sh
+   ibmcloud is zones
+   ```
+   {: pre}
+
+   In the following example, the command is run in the `us-south` region and the output shows the available zones in the region.
+
+   ```sh
+   $ ibmcloud is zones
+   Listing zones in target region us-south under account Test Account as user test.user@ibm.com...
+   Name         Region     Status   
+   us-south-1   us-south   available   
+   us-south-2   us-south   available   
+   us-south-3   us-south   available   
+   ```
+   {: screen}
+
+1. List the profiles that are available for creating a dedicated host to determine what profile family and class you want to assign to the dedicated host group. The family and class that you assign to the group when it is created determines the profiles that can be used to provision dedicated hosts and instances in the group. All dedicated hosts and virtual server instances that are provisioned to the dedicated host group must be from the same family and class of profiles. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles).
 
    ```sh
    ibmcloud is dedicated-host-profiles

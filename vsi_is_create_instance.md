@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-08-14"
+lastupdated: "2023-10-24"
 
 keywords:
 
@@ -140,38 +140,59 @@ Gather the following information by using the associated commands.
 
 Use the following commands to determine the required information for creating a new instance.
 
-1. List the regions that are associated with your account.
+1. List the regions associated with your account.
 
    ```sh
    ibmcloud is regions
    ```
    {: pre}
 
-   For this example, you see a response that is similar to the following output:
+   See the following example.
+
    ```sh
-   Name       Endpoint                              Status
-   us-south   https://us-south.iaas.cloud.ibm.com   available
+   $ ibmcloud is regions
+   Listing regions under account Test Account as user test.user@ibm.com...
+   Name       Endpoint                              Status   
+   au-syd     https://au-syd.iaas.cloud.ibm.com     available   
+   br-sao     https://br-sao.iaas.cloud.ibm.com     available   
+   ca-tor     https://ca-tor.iaas.cloud.ibm.com     available   
+   eu-de      https://eu-de.iaas.cloud.ibm.com      available   
+   eu-es      https://eu-es.iaas.cloud.ibm.com      available   
+   eu-gb      https://eu-gb.iaas.cloud.ibm.com      available    
+   jp-osa     https://jp-osa.iaas.cloud.ibm.com     available   
+   jp-tok     https://jp-tok.iaas.cloud.ibm.com     available   
+   us-east    https://us-east.iaas.cloud.ibm.com    available   
+   us-south   https://us-south.iaas.cloud.ibm.com   available   
    ```
    {: screen}
 
-2. List the zones that are associated with the region.
+1. Switch to your target region.
 
    ```sh
-   ibmcloud is zones us-south
+   ibmcloud target -r <region-name>
    ```
    {: pre}
 
-   For this example, you see a response that is similar to the following output.
+1. List the zones associated with the target region.
 
-   ```text
-   Name         Region     Status
-   us-south-1   us-south   available
-   us-south-2   us-south   available
-   us-south-3   us-south   available
+   ```sh
+   ibmcloud is zones
+   ```
+   {: pre}
+
+   In the following example, the command is run in the `us-south` region and the output shows the available zones in the region.
+
+   ```sh
+   $ ibmcloud is zones
+   Listing zones in target region us-south under account Test Account as user test.user@ibm.com...
+   Name         Region     Status   
+   us-south-1   us-south   available   
+   us-south-2   us-south   available   
+   us-south-3   us-south   available   
    ```
    {: screen}
 
-3. List the VPCs that are associated with your account.
+1. List the {{site.data.keyword.vpc_short}}s that are associated with your account.
 
    ```sh
    ibmcloud is vpcs
@@ -188,7 +209,7 @@ Use the following commands to determine the required information for creating a 
 
    If you do not have an available VPC, you can create one by using the **`ibmcloud is vpc-create`** command. For more information about creating a VPC, see [ibmcloud is vpc-create](/docs/vpc?topic=vpc-vpc-reference#vpc-create).
 
-4. List the subnets that are associated with the {{site.data.keyword.vpc_short}}.
+1. List the subnets that are associated with the {{site.data.keyword.vpc_short}}.
 
    ```sh
    ibmcloud is subnets
@@ -207,7 +228,7 @@ Use the following commands to determine the required information for creating a 
 
    If you do not have a subnet available, you can create one by using the **`ibmcloud is subnet-create`** command. For more information about creating a subnet, see [ibmcloud is subnet-create](/docs/vpc?topic=vpc-vpc-reference#subnet-create).
 
-5. List the available profiles for creating your instance.
+1. List the available profiles for creating your instance.
 
    ```sh
    ibmcloud is instance-profiles
@@ -242,7 +263,7 @@ Use the following commands to determine the required information for creating a 
    ```
    {: screen}
 
-6. List the available stock images, custom images, or images that are shared with your account from a private catalog for creating your instance. If you are creating an instance from an existing boot volume, skip this step.
+1. List the available stock images, custom images, or images that are shared with your account from a private catalog for creating your instance. If you are creating an instance from an existing boot volume, skip this step.
 
    * To list all available stock or custom images, run the following command.
 
@@ -304,7 +325,7 @@ Use the following commands to determine the required information for creating a 
        ```
        {: pre}
 
-7. List the available boot volumes for creating your instance.
+1. List the available boot volumes for creating your instance.
    If you are creating an instance from an image, skip this step.
    To create an instance from an existing volume, you must use a volume compatible with the instance options chosen previously. A compatible volume is in the same zone as the instance that is being provisioned, in an unattached state, and has an OS compatible with the profile that is selected in step 5.
    Use the `volumes` subcommand to see the compatible volumes.
@@ -317,7 +338,7 @@ Use the following commands to determine the required information for creating a 
 
    You can optionally [create a boot volume from a bootable snapshot](#create-instance-bootable-snapshot-cli) and use that for your image. To list all snapshots for a volume, see [View all snapshots that were created from the Block Storage for VPC volume](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#view-snapshots-for-volume).
 
-8. List the available SSH keys that you can associate with your instance.
+1. List the available SSH keys that you can associate with your instance.
 
    ```sh
    ibmcloud is keys
@@ -334,7 +355,7 @@ Use the following commands to determine the required information for creating a 
 
    If you do not have an SSH key available, you can create an SSH key by using the [ibmcloud is key-create](/docs/vpc?topic=vpc-vpc-reference#key-create) command. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys).
 
-9. List all the available placement groups that you can associate with your instance.
+1. List all the available placement groups that you can associate with your instance.
 
     ```sh
     ibmcloud is placement-groups

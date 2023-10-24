@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-08-14"
+lastupdated: "2023-10-24"
 
 keywords:
 
@@ -57,7 +57,7 @@ Gather the following required instance template details.
 |    Instance template details   |       Listing command           | VPC CLI reference documentation |
 | ----------------------------- | -------------------------------- |----------------------------------|
 | VPC | `ibmcloud is vpcs` | [List all VPCs](/docs/vpc?topic=vpc-vpc-reference#vpcs-list) |
-| Zone | `ibmcloud is zones` | [List all regions](/docs/vpc?topic=vpc-vpc-reference#zones-list) |
+| Zone | `ibmcloud is zones` | [List all zones in the regions](/docs/vpc?topic=vpc-vpc-reference#zones-list) |
 | Profile | `ibmcloud is instances` | [List all virtual server instances](/docs/vpc?topic=vpc-vpc-reference#instances-list) |
 | Subnet | `ibmcloud is subnets` | [List all subnets](/docs/vpc?topic=vpc-vpc-reference#subnets-list) |
 | Image | `ibmcloud is image` | [List all images](/docs/vpc?topic=vpc-vpc-reference#images-list)|
@@ -66,6 +66,58 @@ Gather the following required instance template details.
 {: caption="Table 1. Required instance template details" caption-side="bottom"}
 
 Use the following commands to determine the required information for creating a new instance template.
+
+1. List the regions associated with your account.
+
+   ```sh
+   ibmcloud is regions
+   ```
+   {: pre}
+
+   See the following example.
+
+   ```sh
+   $ ibmcloud is regions
+   Listing regions under account Test Account as user test.user@ibm.com...
+   Name       Endpoint                              Status   
+   au-syd     https://au-syd.iaas.cloud.ibm.com     available   
+   br-sao     https://br-sao.iaas.cloud.ibm.com     available   
+   ca-tor     https://ca-tor.iaas.cloud.ibm.com     available   
+   eu-de      https://eu-de.iaas.cloud.ibm.com      available   
+   eu-es      https://eu-es.iaas.cloud.ibm.com      available   
+   eu-gb      https://eu-gb.iaas.cloud.ibm.com      available    
+   jp-osa     https://jp-osa.iaas.cloud.ibm.com     available   
+   jp-tok     https://jp-tok.iaas.cloud.ibm.com     available   
+   us-east    https://us-east.iaas.cloud.ibm.com    available   
+   us-south   https://us-south.iaas.cloud.ibm.com   available   
+   ```
+   {: screen}
+
+1. Switch to your target region.
+
+   ```sh
+   ibmcloud target -r <region-name>
+   ```
+   {: pre}
+
+1. List the zones associated with the target region.
+
+   ```sh
+   ibmcloud is zones
+   ```
+   {: pre}
+
+   In the following example, the command is run in the `us-south` region and the output shows the available zones in the region.
+
+   ```sh
+   $ ibmcloud is zones
+   Listing zones in target region us-south under account Test Account as user test.user@ibm.com...
+   Name         Region     Status   
+   us-south-1   us-south   available   
+   us-south-2   us-south   available   
+   us-south-3   us-south   available   
+   ```
+   {: screen}
 
 1. List the {{site.data.keyword.vpc_short}}s that are associated with your account.
 
@@ -85,38 +137,7 @@ Use the following commands to determine the required information for creating a 
 
    If you don't have one available, you can create an {{site.data.keyword.vpc_short}} by using the `ibmcloud is vpc-create` command. For more information about creating an {{site.data.keyword.vpc_short}}, see [IBM Cloud VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#vpcs).
 
-2. List the regions associated with your account.
-
-   ```sh
-   ibmcloud is regions
-   ```
-   {: pre}
-
-   For this example, you see a response similar to the following output.
-
-   ```sh
-   Name       Endpoint               Status
-   us-south   /v1/regions/us-south   available
-   ```
-   {: screen}
-
-3. List the zones associated with the region.
-
-   ```sh
-   ibmcloud is zones us-south
-   ```
-   {: pre}
-
-   For this example, you see a response similar to the following output.
-
-   ```sh
-   Name         Region     Status
-   us-south-1   us-south   available
-   us-south-3   us-south   available
-   ```
-   {: screen}
-
-4. List the available profiles for creating your instance template.
+1. List the available profiles for creating your instance template.
 
    ```sh
    ibmcloud is instance-profiles
@@ -138,7 +159,7 @@ Use the following commands to determine the required information for creating a 
    ```
    {: screen}
 
-5. List the subnets that are associated with the {{site.data.keyword.vpc_short}}.
+1. List the subnets that are associated with the {{site.data.keyword.vpc_short}}.
 
    ```sh
    ibmcloud is subnets
@@ -158,7 +179,7 @@ Use the following commands to determine the required information for creating a 
 
    If you don't have a subnet available, you can create one by using the `ibmcloud is subnet-create` command. For more information about creating a subnet, see [IBM Cloud VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#subnets).
 
-6. List the available images for creating your instance template.
+1. List the available images for creating your instance template.
 
    ```sh
    ibmcloud is images
@@ -174,7 +195,7 @@ Use the following commands to determine the required information for creating a 
     ```
    {: screen}
 
-7. List all the available placement groups that you can associate with your instance.
+1. List all the available placement groups that you can associate with your instance.
 
     ```sh
     ibmcloud is placement-groups

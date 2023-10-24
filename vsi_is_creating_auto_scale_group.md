@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-08-14"
+lastupdated: "2023-10-24"
 
 keywords: auto scale, autoscale, virtual server instance, creating, UI, console, instance group
 
@@ -188,6 +188,58 @@ Gather the following required instance template details.
 
 Use the following commands to determine the required information for creating a new instance template.
 
+1. List the regions associated with your account.
+
+   ```sh
+   ibmcloud is regions
+   ```
+   {: pre}
+
+   See the following example.
+
+   ```sh
+   $ ibmcloud is regions
+   Listing regions under account Test Account as user test.user@ibm.com...
+   Name       Endpoint                              Status   
+   au-syd     https://au-syd.iaas.cloud.ibm.com     available   
+   br-sao     https://br-sao.iaas.cloud.ibm.com     available   
+   ca-tor     https://ca-tor.iaas.cloud.ibm.com     available   
+   eu-de      https://eu-de.iaas.cloud.ibm.com      available   
+   eu-es      https://eu-es.iaas.cloud.ibm.com      available   
+   eu-gb      https://eu-gb.iaas.cloud.ibm.com      available    
+   jp-osa     https://jp-osa.iaas.cloud.ibm.com     available   
+   jp-tok     https://jp-tok.iaas.cloud.ibm.com     available   
+   us-east    https://us-east.iaas.cloud.ibm.com    available   
+   us-south   https://us-south.iaas.cloud.ibm.com   available   
+   ```
+   {: screen}
+
+1. Switch to your target region.
+
+   ```sh
+   ibmcloud target -r <region-name>
+   ```
+   {: pre}
+
+1. List the zones associated with the target region.
+
+   ```sh
+   ibmcloud is zones
+   ```
+   {: pre}
+
+   In the following example, the command is run in the `us-south` region and the output shows the available zones in the region.
+
+   ```sh
+   $ ibmcloud is zones
+   Listing zones in target region us-south under account Test Account as user test.user@ibm.com...
+   Name         Region     Status   
+   us-south-1   us-south   available   
+   us-south-2   us-south   available   
+   us-south-3   us-south   available   
+   ```
+   {: screen}
+
 1. List the {{site.data.keyword.vpc_short}}s that are associated with your account.
 
    ```sh
@@ -205,37 +257,7 @@ Use the following commands to determine the required information for creating a 
 
    If you don't have one available, you can create an {{site.data.keyword.vpc_short}} by using the `ibmcloud is vpc-create` command. For more information about creating an {{site.data.keyword.vpc_short}}, see [IBM Cloud VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#vpcs).
 
-2. List the regions that are associated with your account.
-
-   ```sh
-   ibmcloud is regions
-   ```
-   {: pre}
-
-   For this example, you see a response similar to the following output:
-   ```text
-   Name       Endpoint               Status
-   us-south   /v1/regions/us-south   available
-   ```
-   {: screen}
-
-3. List the zones associated with the region.
-
-   ```sh
-   ibmcloud is zones us-south
-   ```
-   {: pre}
-
-   For this example, you see a response similar to the following output:
-
-   ```text
-   Name         Region     Status
-   us-south-1   us-south   available
-   us-south-3   us-south   available
-   ```
-   {: screen}
-
-4. List the available profiles for creating your instance template.
+1. List the available profiles for creating your instance template.
 
    ```sh
    ibmcloud is instance-profiles
@@ -263,7 +285,7 @@ Use the following commands to determine the required information for creating a 
    ```
    {: screen}
 
-5. List the subnets that are associated with the {{site.data.keyword.vpc_short}}.
+1. List the subnets that are associated with the {{site.data.keyword.vpc_short}}.
 
    ```sh
    ibmcloud is subnets
@@ -283,7 +305,7 @@ Use the following commands to determine the required information for creating a 
 
    If you don't have one available, you can create a subnet by using the `ibmcloud is subnet-create` command. For more information about creating a subnet, see [IBM Cloud VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#subnets).
 
-6. List the available images for creating your instance template.
+1. List the available images for creating your instance template.
    You can create an instance by using a stock image, a custom image from your account, or an image that was shared with your account from a private catalog. Run one of the following commands based on the image that you plan to use.
 
    - Select a stock image or image from your account for your instance.
@@ -356,7 +378,7 @@ For this example, you see a response similar to the following output **Note:** T
 ```text
 ID                             0738-c3809e5b-8d48-4629-b258-33d5b14fa84f
 Name                           my-instance-template
-CRN                            crn:v1:staging:public:is:us-south-3:a/2d1bace7b46e4815a81e52c6ffeba5cf::instance-template:0738-c3809e5b-8d48-4629-b258-33d5b14fa84f
+CRN                            crn:v1:staging:public:is:us-south-3:a/a1234567::instance-template:0738-c3809e5b-8d48-4629-b258-33d5b14fa84f
 Resource group                 Default
 VPC ID                         r134-680c56cb-7fbb-41e6-833b-029beb7b6ba3
 Image ID                       r008-54e9238a-feaa-4f90-9742-7424cb2b9ff1
