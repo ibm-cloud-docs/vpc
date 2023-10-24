@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-10-17"
+lastupdated: "2023-10-24"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -53,6 +53,26 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 24 October 2023
+{: #24-october-2023}
+
+### For all version dates
+{: #24-october-2023-all-version-dates}
+
+**Network load balancer security group integration.** For enhanced security, you can now associate security groups with [network load balancers](/docs/vpc?topic=vpc-nlb-integration-with-security-groups). When [creating a load balancer](/apidocs/vpc#create-load-balancer), you can now specify the `security_groups` property, which associates those security groups with the load balancer. If you do not specify `security_groups`, the network load balancer will be associated with the VPC's default security group. Before using the default security group, review your default security group rules and, if necessary, edit the rules to accommodate your expected network load balancer traffic.
+
+All existing network load balancers in your account will continue to allow all inbound and outbound traffic. This is indicated by the `security_groups` property being set to an empty array (no security groups configured).
+{: note}
+
+When creating a network load balancer, you must now have an appropriate Identity and Access Management (IAM) role with the `is.security-group.security-group.operate` action.
+{: note}
+
+You can update security groups for a network load balancer by [adding a network load balancer](/apidocs/vpc/latest#create-security-group-target-binding) to or [removing a network load balancer](/apidocs/vpc/latest#delete-security-group-target-binding) from a security group's targets.
+
+You will not be able to remove the only remaining security group from a network load balancer. As a result, if you add a security group to a network load balancer that had no security groups, you will not be able to revert that network load balancer to have no security groups.
+
+Finally, the security group `targets` property can now refer to a network load balancer, as can the responses for the [get security group target](/apidocs/vpc#get-security-group-target) and [list security group targets](/apidocs/vpc#list-security-group-targets) methods.
 
 ## 17 October 2023
 {: #17-october-2023}
