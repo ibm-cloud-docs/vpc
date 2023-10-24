@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2023
 lastupdated: "2023-10-24"
 
-keywords: api, change log, new features, restrictions, migration
+keywords: vpc, api, change log, new features, restrictions, migration
 
 subcollection: vpc
 
