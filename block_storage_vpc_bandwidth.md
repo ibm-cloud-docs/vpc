@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-10-23"
+lastupdated: "2023-10-24"
 
 keywords: Block Storage, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance, bandwidth
 
@@ -57,7 +57,40 @@ The volume bandwidth that is available to the instance is apportioned on a per v
 ### Unattached volume bandwidth versus attached volume bandwidth
 {: #block-vol-bandwidth}
 
-When you create a stand-alone (unattached) Block Storage data volume, the volume bandwidth is assigned based on volume capacity, IOPS, and volume profile. The API response for a `GET /volume/{id}` call shows the bandwidth for an unattached volume like the following example.
+When you create a stand-alone (unattached) Block Storage data volume, the volume bandwidth is assigned based on volume capacity, IOPS, and volume profile.
+
+* In the UI, the volume bandwidth can be seen as **Throughput** on the overview tab of the Block Storage volume details page.
+
+* In the CLI, you can see the bandwidth in the output of the `ibmcloud is volume` command.
+
+   ```sh
+   ibmcloud is volume my-test-volume 
+   Getting volume my-test-volume under account Test Account as user test.user@ibm.com...
+                                          
+   ID                                     r006-3869cd62-7676-43e3-8196-dad27b0c0f27   
+   Name                                   my-test-volume   
+   CRN                                    crn:v1:bluemix:public:is:us-south-3:a/a1234567::volume:r006-3869cd62-7676-43e3-8196-dad27b0c0f27   
+   Status                                 available   
+   Attachment state                       unattached   
+   Capacity                               30   
+   IOPS                                   3000   
+   Bandwidth(Mbps)                        393   
+   Profile                                general-purpose   
+   Encryption key                         -   
+   Encryption                             provider_managed   
+   Resource group                         defaults   
+   Created                                2021-12-09T15:42:11+00:00   
+   Zone                                   us-south-3   
+   Health State                           ok   
+   Volume Attachment Instance Reference   -   
+   Active                                 false   
+   Adjustable IOPS                        false   
+   Busy                                   false   
+   Tags                                   - 
+   ```
+   [: screen]
+
+* The API response for a `GET /volume/{id}` call shows the bandwidth for an unattached volume like the following example.
 
 ```json
 {
@@ -80,7 +113,7 @@ When you create a stand-alone (unattached) Block Storage data volume, the volume
   .
   "volume_attachments": []
 ```
-{: codeblock}
+{: screen}
 
 When you attach a secondary volume to a virtual server instance, the primary boot volume gets priority IOPS, and bandwidth allocation to ensure reasonable boot times. Boot volume IOPS and bandwidth are never reduced to be less than 3000 IOPS or 393 Mbps.
 
