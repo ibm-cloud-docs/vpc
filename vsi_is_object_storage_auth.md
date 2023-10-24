@@ -124,6 +124,7 @@ Before you run the command you need to know the GUID for the {{site.data.keyword
    Source resource type:      image
    Target service name:       cloud-object-storage
    Target service instance:   0e4a33e6-973e-42b6-bea4-ce1b3aebe163
+   Roles:                     Reader
    ```
    {: screen}
 
