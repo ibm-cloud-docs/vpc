@@ -168,7 +168,7 @@ Sample output:
 ```sh
 {
   "id": "0738-dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
-  "crn": "crn:v1:staging:public:is:us-south:a/123456::load-balancer:dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
+  "crn": "crn:v1:bluemix:public:is:us-south:a/123456::load-balancer:dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
   "href": "https://us-south.iaas.cloud.ibm.com/v1/load_balancers/dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
   "name": "example-balancer",
   "created_at": "2018-07-13T22:22:24.489Z",

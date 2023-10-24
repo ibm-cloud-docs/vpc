@@ -236,23 +236,23 @@ ibmcloud is image IMAGE
 
 For more information, see [ibmcloud is image](/docs/vpc?topic=vpc-vpc-reference#image)in the VPC CLI reference page.
 
-The following example views the details of a custom image with the id of `r134-1d1e92e9-6550-4d06-8483-d674310045fd`.
+The following example views the details of a custom image with the id of `r006-1d1e92e9-6550-4d06-8483-d674310045fd`.
 
 ```sh
-ibmcloud is image r134-1d1e92e9-6550-4d06-8483-d674310045fd
+ibmcloud is image r006-1d1e92e9-6550-4d06-8483-d674310045fd
 ```
 {: pre}
 
 ```text
-ID                             r134-589548bd-9241-4ad7-a610-1df6ba020793
+ID                             r006-589548bd-9241-4ad7-a610-1df6ba020793
 Name                           my-image-from-volume-cli-1
-CRN                            crn:v1:staging:public:is:us-south:a/efe5afc483594adaa8325e2b4d1290df::image:r134-589548bd-9241-4ad7-a610-1df6ba020793
+CRN                            crn:v1:bluemix:public:is:us-south:a/a1234567f::image:r006-589548bd-9241-4ad7-a610-1df6ba020793
 Status                         available
 Operating system               Name             Architecture   Vendor   Version                 Dedicated host only
                                centos-7-amd64   amd64          CentOS   7.x - Minimal Install   false
 
 Source volume                  ID                                          Name
-                               r134-6438d80f-4433-4445-be2f-0cca05afff3e   transpose-clubhouse-putt-repent
+                               r006-6438d80f-4433-4445-be2f-0cca05afff3e   transpose-clubhouse-putt-repent
 
 Created                        2023-03-16T01:11:03+05:30
 Deprecation Date               2023-03-01T06:11:28+05:30

@@ -95,7 +95,7 @@ After you have all the information, use the [Create bare metal server](/apidocs/
 
 * For x86 architecture, you can create a bare metal server with the following example configuration:
 
-   * ESXi image ID: "r134-31c8ca90-2623-48d7-8cf7-737be6fc4c3e"
+   * ESXi image ID: "r006-31c8ca90-2623-48d7-8cf7-737be6fc4c3e"
    * SSH Key ID: "a6b1a881-2ce8-41a3-80fc-36316a73f803"
    * Name of the bare metal server: "my-bare-metal-server"
    * A primary network interface with the following configurations:
@@ -113,7 +113,7 @@ After you have all the information, use the [Create bare metal server](/apidocs/
    -d '{
        "initialization": {
            "image": {
-           "id": "r134-31c8ca90-2623-48d7-8cf7-737be6fc4c3e"
+           "id": "r006-31c8ca90-2623-48d7-8cf7-737be6fc4c3e"
            },
            "keys": [
            {"id": "a6b1a881-2ce8-41a3-80fc-36316a73f803"}
@@ -281,8 +281,8 @@ After you have all the information, use the [Create bare metal server](/apidocs/
     },
     "vpc": {
       "crn": "crn:[...]",
-      "href": "https://us-south.iaas.cloud.ibm.com/v1/vpcs/r134-96cb322a-6a59-4ac4-8783-1f059f87e4a9",
-      "id": "r134-96cb322a-6a59-4ac4-8783-1f059f87e4a9",
+      "href": "https://us-south.iaas.cloud.ibm.com/v1/vpcs/r006-96cb322a-6a59-4ac4-8783-1f059f87e4a9",
+      "id": "r006-96cb322a-6a59-4ac4-8783-1f059f87e4a9",
       "name": "my-vpc"
     },
     "zone": {
@@ -346,7 +346,7 @@ After you have all the information ready, you can use the CLI to create a bare m
 For example, you can create a bare metal server with the following configuration:
 
 * For x86 architecture:
-   * ESXi image ID: "r134-31c8ca90-2623-48d7-8cf7-737be6fc4c3e"
+   * ESXi image ID: "r006-31c8ca90-2623-48d7-8cf7-737be6fc4c3e"
    * SSH Key ID: "a6b1a881-2ce8-41a3-80fc-36316a73f803"
    * Name of the bare metal server: "my-bare-metal-server"
    * A primary network interface with the following configurations:
@@ -360,7 +360,7 @@ For example, you can create a bare metal server with the following configuration
    * Zone: "us-south-1"
 
    ```sh
-   ibmcloud is bare-metal-server-create --name my-bare-metal-server --zone us-south-1 --profile mx2-metal-96x768 --image r134-31c8ca90-2623-48d7-8cf7-737be6fc4c3e --keys a6b1a881-2ce8-41a3-80fc-36316a73f803 --pnic-subnet 7ec86020-1c6e-4889-b3f0-a15f2e50f87e –pnic-name my-primary-network-interface --pnic-allowed-vlans 4 --network-interfaces '[{"name": "my-vlan-interface", "interface_type": "vlan", "vlan": 4, "allow_interface_to_float": true, "subnet": {"id":"7ec86020-1c6e-4889-b3f0-a15f2e50f87e"}}]' --output JSON
+   ibmcloud is bare-metal-server-create --name my-bare-metal-server --zone us-south-1 --profile mx2-metal-96x768 --image r006-31c8ca90-2623-48d7-8cf7-737be6fc4c3e --keys a6b1a881-2ce8-41a3-80fc-36316a73f803 --pnic-subnet 7ec86020-1c6e-4889-b3f0-a15f2e50f87e –pnic-name my-primary-network-interface --pnic-allowed-vlans 4 --network-interfaces '[{"name": "my-vlan-interface", "interface_type": "vlan", "vlan": 4, "allow_interface_to_float": true, "subnet": {"id":"7ec86020-1c6e-4889-b3f0-a15f2e50f87e"}}]' --output JSON
    ```
    {: pre}
 

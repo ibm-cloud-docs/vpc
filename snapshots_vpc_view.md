@@ -190,7 +190,7 @@ Getting snapshot c2bc3194-0cab-40c4-9434-db9f26218700 under account vpc1 as user
 
 ID                     c2bc3194-0cab-40c4-9434-db9f26218700
 Name                   my-snapshot
-CRN                    crn:v1:bluemix:public:is:us-south:a/7f75c7b025e54bc5635f754b2f888665::snapshot:c2bc3194-0cab-40c4-9434-db9f26218700
+CRN                    crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot:c2bc3194-0cab-40c4-9434-db9f26218700
 Status                 stable
 Source volume          ID                                          Name
                        fe027a90-19e7-4cb5-bda3-4c0e35d2bcdf        test5-vol

@@ -131,7 +131,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 
    - The following example creates a file share with customer-managed encryption, security group access mode, and a mount target with a virtual network interface. Encryption in transit is not enabled.
       ```sh
-      $ ibmcloud is share-create --name my-encrypted-file-share --zone us-south-2 --profile dp2 --size 500 --iops 2000  --user-tags env:dev --encryption_key crn:v1:bluemix:public:kms:us-south:a/a1234567:key:2fb8d675-bde3-4780-b127-3d0b413631c1 --mount-targets '[{"name":"my-new-mount-target","virtual_network_interface": {"name":"my-vni-2","subnet": {"id":"0726-298acd6c-e71e-4204-a04f-fe4a4dd89805"},"security_groups":[{"id":"r134-7f369ca2-ca49-4053-b007-5cab79b9873b"}]}}]'
+      $ ibmcloud is share-create --name my-encrypted-file-share --zone us-south-2 --profile dp2 --size 500 --iops 2000  --user-tags env:dev --encryption_key crn:v1:bluemix:public:kms:us-south:a/a1234567:key:2fb8d675-bde3-4780-b127-3d0b413631c1 --mount-targets '[{"name":"my-new-mount-target","virtual_network_interface": {"name":"my-vni-2","subnet": {"id":"0717-298acd6c-e71e-4204-a04f-fe4a4dd89805"},"security_groups":[{"id":"r006-7f369ca2-ca49-4053-b007-5cab79b9873b"}]}}]'
       Creating file share my-encrypted-file-share under account Test Account as user test.user@ibm.com...
                                 
       ID                           r006-d44298fe-aced-4f55-a690-8a3830e9fd90   
@@ -164,18 +164,18 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
       $ ibmcloud is share-mount-targets my-encrypted-file-share 
       Listing share mount target of my-encrypted-file-share in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
       ID                                          Name                  VPC      Lifecycle state   Transit Encryption   
-      r134-00432317-436e-4940-ab7d-8b26c186b00f   my-new-mount-target   my-vpc   stable            none 
+      r006-00432317-436e-4940-ab7d-8b26c186b00f   my-new-mount-target   my-vpc   stable            none 
       ```
       {: screen}
 
    - The following example creates a file share with customer-managed encryption, security group access mode, and a mount target with a virtual network interface, and encryption-in-transit enabled.
       ```sh
-      $ ibmcloud is share-create --name my-encrypted-eit-file-share --zone us-south-2 --profile dp2 --size 500 --iops 2000  --user-tags env:dev --encryption_key crn:v1:bluemix:public::kms:us-south:a/a123456:key:2fb8d675-bde3-4780-b127-3d0b413631c1 --mount-targets '[{"name":"my-new-mount-target","transit_encryption": "user_managed","virtual_network_interface": {"name":"my-vni-3","subnet": {"id":"0726-298acd6c-e71e-4204-a04f-fe4a4dd89805"},"security_groups":[{"id":"r134-7f369ca2-ca49-4053-b007-5cab79b9873b"}]}}]'
+      $ ibmcloud is share-create --name my-encrypted-eit-file-share --zone us-south-2 --profile dp2 --size 500 --iops 2000  --user-tags env:dev --encryption_key crn:v1:bluemix:public::kms:us-south:a/a123456:key:2fb8d675-bde3-4780-b127-3d0b413631c1 --mount-targets '[{"name":"my-new-mount-target","transit_encryption": "user_managed","virtual_network_interface": {"name":"my-vni-3","subnet": {"id":"0717-298acd6c-e71e-4204-a04f-fe4a4dd89805"},"security_groups":[{"id":"r006-7f369ca2-ca49-4053-b007-5cab79b9873b"}]}}]'
       Creating file share my-encrypted-eit-file-share under account Test Account as user test.user@ibm.com...
                                 
-      ID                           r134-f6bf049e-f46c-4160-b548-4a36d27256ac   
+      ID                           r006-f6bf049e-f46c-4160-b548-4a36d27256ac   
       Name                         my-encrypted-eit-file-share   
-      CRN                          crn:v1:bluemix:public::is:us-south-2:a/a1234567::share:r134-f6bf049e-f46c-4160-b548-4a36d27256ac   
+      CRN                          crn:v1:bluemix:public::is:us-south-2:a/a1234567::share:r006-f6bf049e-f46c-4160-b548-4a36d27256ac   
       Lifecycle state              pending   
       Access control mode          security_group   
       Zone                         us-south-2   
@@ -185,7 +185,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
       User Tags                    env:dev   
       Encryption                   user_managed   
       Mount Targets                ID                                          Name      
-                                   r134-e6bd52b8-c656-4ba6-8749-1bb41bfa2c3c   my-new-mount-target      
+                                   r006-e6bd52b8-c656-4ba6-8749-1bb41bfa2c3c   my-new-mount-target      
                                 
       Resource group               ID                                 Name      
                                    db8e8d865a83e0aae03f25a492c5b39e   Default      
@@ -203,7 +203,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
       $ ibmcloud is share-mount-targets my-encrypted-eit-file-share 
       Listing share mount target of my-encrypted-eit-file-share in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
       ID                                          Name                  VPC      Lifecycle state   Transit Encryption   
-      r134-e6bd52b8-c656-4ba6-8749-1bb41bfa2c3c   my-new-mount-target   my-vpc   stable            user_managed  
+      r006-e6bd52b8-c656-4ba6-8749-1bb41bfa2c3c   my-new-mount-target   my-vpc   stable            user_managed  
       ```
       {: screen}
 

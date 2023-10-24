@@ -68,7 +68,7 @@ Where:
 For this example, you'd see a response similar to the following output:
 
 ```ssh
-ID                  r134-4f7d0010-33f5-40bf-9f21-ab5bee04fd71   
+ID                  r006-4f7d0010-33f5-40bf-9f21-ab5bee04fd71   
 Name                my-instance-group   
 Status              healthy   
 Instances           100

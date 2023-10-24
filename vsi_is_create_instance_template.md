@@ -224,7 +224,7 @@ ibmcloud is instance-template-create INSTANCE_TEMPLATE_NAME VPC ZONE_NAME PROFIL
 For example, if you create an instance template that is called _my-instance-template_ in _us-south-3_ and use the _bx2-2x8_ profile, your `instance-template-create` command would look similar to the following sample.
 
 ```sh
-ibmcloud is instance-template-create my-instance-template 0738-xxx1xx23-4xx5-6789-12x3-456xx7xx123x us-south-3 bx2-2x8 0076-2249dabc-8c71-4a54-bxy7-953701ca3999 --image r008-54e9238a-feaa-4f90-9742-7424cb2b9ff1 --placement-group r134-953db18c-068c-4a11-9b07-645684b444b2
+ibmcloud is instance-template-create my-instance-template 0738-xxx1xx23-4xx5-6789-12x3-456xx7xx123x us-south-3 bx2-2x8 0076-2249dabc-8c71-4a54-bxy7-953701ca3999 --image r008-54e9238a-feaa-4f90-9742-7424cb2b9ff1 --placement-group r006-953db18c-068c-4a11-9b07-645684b444b2
 ```
 {: pre}
 
@@ -236,7 +236,7 @@ Where
 - `PROFILE_NAME` is _bx2-2x8_
 - `SUBNET_ID` is _0076-2249dabc-8c71-4a54-bxy7-953701ca3999_
 - `IMAGE` is _r008-54e9238a-feaa-4f90-9742-7424cb2b9ff1_
-- `PLACEMENT_GROUP_ID` is _r134-953db18c-068c-4a11-9b07-645684b444b2
+- `PLACEMENT_GROUP_ID` is _r006-953db18c-068c-4a11-9b07-645684b444b2
 
 For this example, you see a response similar to the following output.
 

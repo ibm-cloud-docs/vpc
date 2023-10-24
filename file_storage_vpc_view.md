@@ -251,7 +251,7 @@ VPC                         ID                                          Name
 Access control mode         security_group   
 Resource type               share_mount_target   
 Virtual network interface   ID                                          Name      
-                            0726-3b0c00fa-0ce3-4ff8-9a5d-c7a645fbe530   my-source-vni      
+                            0717-3b0c00fa-0ce3-4ff8-9a5d-c7a645fbe530   my-source-vni      
                                
 Lifecycle state             stable   
 Mount path                  10.240.64.6:/5975a795_e5e7_474c_82d3_46c1d4159c6a   

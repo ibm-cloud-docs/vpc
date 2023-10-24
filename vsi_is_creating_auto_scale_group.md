@@ -343,8 +343,8 @@ Use the following commands to determine the required information for creating a 
     Save the `offering_crn` and `offering_version_crn`in variables, which is used later to provision an instance.
 
     ```sh
-    offering_crn="crn:v1:staging:public:globalcatalog-collection:global:a/efe5afc483594adaa8325e2b4d1290df:0b322820-dafd-4b5e-b694-6465da6f008a:offering:136559f6-4588-4af2-8585-f3c625eee09d"
-    offering_version_crn="crn:v1:staging:public:globalcatalog-collection:global:a/efe5afc483594adaa8325e2b4d1290df:0b322820-dafd-4b5e-b694-6465da6f008a:version:136559f6-4588-4af2-8585-f3c625eee09d/8ae92879-e253-4a7c-b09f-8d30af12e518"
+    offering_crn="crn:v1:bluemix:public:globalcatalog-collection:global:a/efe5afc483594adaa8325e2b4d1290df:0b322820-dafd-4b5e-b694-6465da6f008a:offering:136559f6-4588-4af2-8585-f3c625eee09d"
+    offering_version_crn="crn:v1:bluemix:public:globalcatalog-collection:global:a/efe5afc483594adaa8325e2b4d1290df:0b322820-dafd-4b5e-b694-6465da6f008a:version:136559f6-4588-4af2-8585-f3c625eee09d/8ae92879-e253-4a7c-b09f-8d30af12e518"
     ```
     {: pre}
 
@@ -360,14 +360,14 @@ ibmcloud is instance-template-create INSTANCE_TEMPLATE_NAME VPC ZONE_NAME PROFIL
 For example, if you create an instance template that is called _my-instance-template_ in _us-south-1_, use the _bx2-2x8_ profile, with a custom image `_r008-54e9238a-feaa-4f90-9742-7424cb2b9ff1_` your `instance-template-create` command would look similar to the following sample.
 
 ```sh
-ibmcloud is instance-template-create my-instance-template r134-680c56cb-7fbb-41e6-833b-029beb7b6ba3 us-south-3 bx2-2x8 0076-2249dabc-8c71-4a54-bxy7-953701ca3999 --image-id r008-54e9238a-feaa-4f90-9742-7424cb2b9ff1
+ibmcloud is instance-template-create my-instance-template r006-680c56cb-7fbb-41e6-833b-029beb7b6ba3 us-south-3 bx2-2x8 0076-2249dabc-8c71-4a54-bxy7-953701ca3999 --image-id r008-54e9238a-feaa-4f90-9742-7424cb2b9ff1
 ```
 {: pre}
 
 Where:
 
    - `INSTANCE_TEMPLATE_NAME` is _my-instance-template_
-   - `VPC` is _r134-680c56cb-7fbb-41e6-833b-029beb7b6ba3_
+   - `VPC` is _r006-680c56cb-7fbb-41e6-833b-029beb7b6ba3_
    - `ZONE_NAME` is _us-south-3_
    - `PROFILE_NAME` is _bx2-2x8_
    - `SUBNET_ID` is _0076-2249dabc-8c71-4a54-bxy7-953701ca3999_
@@ -378,13 +378,13 @@ For this example, you see a response similar to the following output **Note:** T
 ```text
 ID                             0738-c3809e5b-8d48-4629-b258-33d5b14fa84f
 Name                           my-instance-template
-CRN                            crn:v1:staging:public:is:us-south-3:a/a1234567::instance-template:0738-c3809e5b-8d48-4629-b258-33d5b14fa84f
+CRN                            crn:v1:bluemix:public:is:us-south-3:a/a1234567::instance-template:0738-c3809e5b-8d48-4629-b258-33d5b14fa84f
 Resource group                 Default
-VPC ID                         r134-680c56cb-7fbb-41e6-833b-029beb7b6ba3
+VPC ID                         r006-680c56cb-7fbb-41e6-833b-029beb7b6ba3
 Image ID                       r008-54e9238a-feaa-4f90-9742-7424cb2b9ff1
 Profile                        bx2-2x8
 Primary Network Interface ID   Name      Subnet ID                                   Security Groups
-                               primary   0076-2249dabc-8c71-4a54-bxy7-953701ca3999   r134-9fd0b586-6876-4e8a-a0a1-586aeff5167c
+                               primary   0076-2249dabc-8c71-4a54-bxy7-953701ca3999   r006-9fd0b586-6876-4e8a-a0a1-586aeff5167c
 ```
 {: screen}
 
@@ -445,7 +445,7 @@ Where:
 For this example, you see a response similar to the following output:
 
 ```text
-ID                  r134-4f7d0010-33f5-40bf-9f21-ab5bee04fd71
+ID                  r006-4f7d0010-33f5-40bf-9f21-ab5bee04fd71
 Name                my-instance-group
 Status              healthy
 Instances           1
@@ -498,7 +498,7 @@ Where:
 For this example, you see a response similar to the following output:
 
 ```text
-ID                     r134-bcf54494-f63a-41a7-8368-9f7d002c9020
+ID                     r006-bcf54494-f63a-41a7-8368-9f7d002c9020
 Status                 enabled
 Max Membership Count   20
 ```
@@ -586,7 +586,7 @@ Where:
 For this example, you see a response similar to the following output:
 
 ```text
-ID             r134-5f5c1127-da5c-4c7a-a8ae-9a539b56fa56
+ID             r006-5f5c1127-da5c-4c7a-a8ae-9a539b56fa56
 Metric Type    cpu
 Metric Value   50
 Policy Type    target

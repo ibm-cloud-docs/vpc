@@ -249,8 +249,7 @@ Creating instance test under account VPC1 as user myuser@mycompany.com...
 
 ID                         264060c2-e5e9-44d4-994f-eea4a6688172
 Name                       test-instance-1
-CRN                        crn:v1:public:is:us-south-1:a/edd5afc483594adaa8325e2b4d1290df::
-                           instance:264060c2-e5e9-44d4-994f-eea4a6688172
+CRN                        crn:v1:public:is:us-south-1:a/a1234567::instance:264060c2-e5e9-44d4-994f-eea4a6688172
 Status                     pending
 Startable                  true
 Profile                    bx2-2x8
@@ -489,7 +488,7 @@ $ ibmcloud is instance instance-name -q
 
 ID                                    0716_9cc6d74d-4b77-4cca-b1f4-31cc6edefe01   
 Name                                  instance-name   
-CRN                                   crn:v1:staging:public:is:us-south-1:a/af6443f619a949c9919c1eb1625d6cc5::instance:0716_9cc6d74d-4b77-4cca-b1f4-31cc6edefe01   
+CRN                                   crn:v1:bluemix:public:is:us-south-1:a/a1234567::instance:0716_9cc6d74d-4b77-4cca-b1f4-31cc6edefe01   
 Status                                running   
 Availability policy on host failure   restart   
 Startable                             true   
@@ -508,11 +507,11 @@ Metadata service                      Enabled   Protocol   Response hop limit
                                       false     http       1      
 
 Image                                 ID                                          Name      
-                                      r134-1025e040-7d6f-408c-b4db-6156dc986fc7   ibm-ubuntu-22-04-1-minimal-amd64-2      
+                                      r006-1025e040-7d6f-408c-b4db-6156dc986fc7   ibm-ubuntu-22-04-1-minimal-amd64-2      
                                          
 Numa Count                            1   
 VPC                                   ID                                          Name      
-                                      r134-ac1c1ae4-5573-42eb-9194-854c9a3d5555   fode      
+                                      r006-ac1c1ae4-5573-42eb-9194-854c9a3d5555   fode      
 
 .
 .

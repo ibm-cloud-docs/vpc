@@ -100,8 +100,8 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    $ ibmcloud is shares
    Listing shares in all resource groups and region us-south under account IBM as user Viktoria.Muirhead@ibm.com...
    ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group   Replication role   
-   r134-dc6a644d-c7da-4c91-acf0-d66b47fc8516   my-replica-file-share   stable            us-south-1   dp2       1500       Default          replica   
-   r134-e4acfa9b-88b0-4f90-9320-537e6fa3482a   my-source-file-share    stable            us-south-2   dp2       1500       Default          source  
+   r006-dc6a644d-c7da-4c91-acf0-d66b47fc8516   my-replica-file-share   stable            us-south-1   dp2       1500       Default          replica   
+   r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a   my-source-file-share    stable            us-south-2   dp2       1500       Default          source  
    ```
    {: screen}
 
@@ -110,8 +110,8 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    * The following example specifies `fail` for the `fallback-policy` property. If the failover operation fails or the timeout is reached, the failover operation is unsuccessful. The source share remains active and the replication resumes as scheduled.
 
    ```sh
-   $ ibmcloud is share-replica-failover r134-dc6a644d-c7da-4c91-acf0-d66b47fc8516  --fallback-policy fail
-   The file share r134-dc6a644d-c7da-4c91-acf0-d66b47fc8516 failover request was accepted under account Test Account as user test.user@ibm.com...
+   $ ibmcloud is share-replica-failover r006-dc6a644d-c7da-4c91-acf0-d66b47fc8516  --fallback-policy fail
+   The file share r006-dc6a644d-c7da-4c91-acf0-d66b47fc8516 failover request was accepted under account Test Account as user test.user@ibm.com...
    The file share failover request was accepted.
    ```
    {: screen}
@@ -120,7 +120,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 
    ```sh
    ibmcloud is share-replica-failover my-source-file-share  --fallback-policy split
-   The file share r134-e4acfa9b-88b0-4f90-9320-537e6fa3482a failover request was accepted under account Test Account as user test.user@ibm.com...
+   The file share r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a failover request was accepted under account Test Account as user test.user@ibm.com...
    The file share failover request was accepted.
    ```
    {: screen}

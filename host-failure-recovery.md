@@ -77,12 +77,12 @@ You can create an instance in your IBM Cloud VPC and change the availability pol
 
 
 ```bash
-ibmcloud is inc test r134-a0162c41-6a75-4a04-aabb-da1c78539531 us-south-2  bx2-2x8  7284-47efd8c6-0efc-462e-89c0-e0457119f90b --image r134-63363662-a4ee-4ba4-a6c4-92e6c78c6b58 --host-failure-policy stop
+ibmcloud is inc test r006-a0162c41-6a75-4a04-aabb-da1c78539531 us-south-2  bx2-2x8  7284-47efd8c6-0efc-462e-89c0-e0457119f90b --image r006-63363662-a4ee-4ba4-a6c4-92e6c78c6b58 --host-failure-policy stop
 Creating instance test under account VPC1 as user myuser@mycompany.com...
                                          
 ID                                    7284_683902df-85ce-4546-808c-3675247074d8   
 Name                                  test   
-CRN                                   crn:v1:staging:public:is:us-south-2:a/efe5afc483594adaa8325e2b4d1290df::instance:7284_683902df-85ce-4546-808c-3675247074d8   
+CRN                                   crn:v1:bluemix:public:is:us-south-2:a/efe5afc483594adaa8325e2b4d1290df::instance:7284_683902df-85ce-4546-808c-3675247074d8   
 Status                                pending   
 Availability policy on host failure   stop   
 Startable                             true   
@@ -93,10 +93,10 @@ vCPUs                                 2
 Memory(GiB)                           8   
 Bandwidth(Mbps)                       4000   
 Image                                 ID                                          Name      
-                                      r134-63363662-a4ee-4ba4-a6c4-92e6c78c6b58   ibm-centos-7-9-minimal-amd64-3      
+                                      r006-63363662-a4ee-4ba4-a6c4-92e6c78c6b58   ibm-centos-7-9-minimal-amd64-3      
                                          
 VPC                                   ID                                          Name      
-                                      r134-a0162c41-6a75-4a04-aabb-da1c78539531   cli-vpc-1      
+                                      r006-a0162c41-6a75-4a04-aabb-da1c78539531   cli-vpc-1      
                                          
 Zone                                  us-south-2   
 Resource group                        ID                                 Name      
@@ -120,7 +120,7 @@ Updating instance 7284_683902df-85ce-4546-808c-3675247074d8 under account VPC1 a
                                          
 ID                                    7284_683902df-85ce-4546-808c-3675247074d8   
 Name                                  test   
-CRN                                   crn:v1:staging:public:is:us-south-2:a/efe5afc483594adaa8325e2b4d1290df::instance:7284_683902df-85ce-4546-808c-3675247074d8   
+CRN                                   crn:v1:bluemix:public:is:us-south-2:a/efe5afc483594adaa8325e2b4d1290df::instance:7284_683902df-85ce-4546-808c-3675247074d8   
 Status                                running   
 Availability policy on host failure   restart   
 Startable                             true   
@@ -131,10 +131,10 @@ vCPUs                                 2
 Memory(GiB)                           8   
 Bandwidth(Mbps)                       4000   
 Image                                 ID                                          Name      
-                                      r134-63363662-a4ee-4ba4-a6c4-92e6c78c6b58   ibm-centos-7-9-minimal-amd64-3      
+                                      r006-63363662-a4ee-4ba4-a6c4-92e6c78c6b58   ibm-centos-7-9-minimal-amd64-3      
                                          
 VPC                                   ID                                          Name      
-                                      r134-a0162c41-6a75-4a04-aabb-da1c78539531   cli-vpc-1      
+                                      r006-a0162c41-6a75-4a04-aabb-da1c78539531   cli-vpc-1      
                                          
 Zone                                  us-south-2   
 Resource group                        ID                                 Name      
@@ -142,7 +142,7 @@ Resource group                        ID                                 Name
                                          
 Created                               2021-10-25T16:39:30+05:30   
 Boot volume                           ID                                          Name                            Attachment ID                               Attachment name      
-                                      r134-780e6d41-b8c0-4023-b81f-2dcabf0b834f   aardvark-matrix-tidy-fragment   7284-69923add-65e2-4b93-bee4-a4bca3836696   collector-reverb-exiting-swinging
+                                      r006-780e6d41-b8c0-4023-b81f-2dcabf0b834f   aardvark-matrix-tidy-fragment   7284-69923add-65e2-4b93-bee4-a4bca3836696   collector-reverb-exiting-swinging
 ```
 {: codeblock}
 

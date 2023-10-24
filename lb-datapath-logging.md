@@ -51,8 +51,8 @@ After you choose your region, click **Create** to create the logging instance, t
 The following output is an example of {{site.data.keyword.cloud_notm}} {{site.data.keyword.alb_full}} datapath logging:
 
 ```sh
-Sep 28 11:25:04 is-load-balancer crn:v1:bluemix:public:is:us-south:a/8c8a02225526799f56330a6701d939eb::load-balancer:r006-6ba32c0e-830c-483c-871a-0240c10662cf
-{"PRIORITY":"info", "MSG_timestamp":"2020-09-28T03:25:03.136101+00:00", "SentByHost":"150.238.66.162", "MESSAGE":" Connect from 222.72.143.92:38605 to 10.240.128.5:62776 (r006-6ba32c0e-830c-483c-871a-0240c10662cf/HTTP)", "logSourceCRN":"crn:v1:bluemix:public:is:us-south:a/8c8a02225526799f56330a6701d939eb::load-balancer:r006-6ba32c0e-830c-483c-871a-0240c10662cf", "saveServiceCopy":false}
+Sep 28 11:25:04 is-load-balancer crn:v1:bluemix:public:is:us-south:a/a1234567::load-balancer:r006-6ba32c0e-830c-483c-871a-0240c10662cf
+{"PRIORITY":"info", "MSG_timestamp":"2020-09-28T03:25:03.136101+00:00", "SentByHost":"150.238.66.162", "MESSAGE":" Connect from 222.72.143.92:38605 to 10.240.128.5:62776 (r006-6ba32c0e-830c-483c-871a-0240c10662cf/HTTP)", "logSourceCRN":"crn:v1:bluemix:public:is:us-south:a/a1234567::load-balancer:r006-6ba32c0e-830c-483c-871a-0240c10662cf", "saveServiceCopy":false}
 ```
 {: screen}
 

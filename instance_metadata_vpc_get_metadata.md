@@ -315,9 +315,9 @@ Example output shows one SSH key.
   "keys": [
     {
       "created_at": "2021-10-19T16:39:23.000Z",
-      "crn": "crn:v1:staging:public:is:us-south:a/2c91d5e9ecee442189fb07cd7a8776c4::key:r134-44e5e06b-9450-4f5f-a9be-96feebf770d8",
+      "crn": "crn:v1:bluemix:public:is:us-south:a/a1234567::key:r006-44e5e06b-9450-4f5f-a9be-96feebf770d8",
       "fingerprint": "SHA256:lZmocJFsWfJcIl8Jdp8r6Ak8gzMqxrFb9UtwWCk27CM",
-      "id": "r134-44e5e06b-9450-4f5f-a9be-96feebf770d8",
+      "id": "r006-44e5e06b-9450-4f5f-a9be-96feebf770d8",
       "length": 4096,
       "name": "my-key1",
       "public_key": "ssh-rsa AAAAB...n",

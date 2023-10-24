@@ -75,7 +75,7 @@ SSH into the virtual server instance where you want to mount the file share, the
    See following example.
 
    ```sh
-   mount -t nfs4 -o sec=sys,nfsvers=4.1 fsf-dal2433a-dz.adn.networklayer.com:/nxg_s_voll_mz0726_c391f0ba-50ed-4460-8704-a36032c96a4c /mnt/nfs
+   mount -t nfs4 -o sec=sys,nfsvers=4.1 fsf-dal2433a-dz.adn.networklayer.com:/nxg_s_voll_mz0717-_c391f0ba-50ed-4460-8704-a36032c96a4c /mnt/nfs
    ```
    {: pre}
 
@@ -135,7 +135,7 @@ SSH into the virtual server instance where you want to mount the file share, the
    Example
 
    ```sh
-   fsf-dal2433a-dz.adn.networklayer.com:/nxg_s_voll_mz0726_c391f0ba-50ed-4460-8704-a36032c96a4c /mnt/nfs nfsvers=4.1 defaults 0 0
+   fsf-dal2433a-dz.adn.networklayer.com:/nxg_s_voll_mz0717-_c391f0ba-50ed-4460-8704-a36032c96a4c /mnt/nfs nfsvers=4.1 defaults 0 0
    ```
 
 9. Verify that the configuration file has no errors.

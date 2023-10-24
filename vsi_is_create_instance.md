@@ -203,7 +203,7 @@ Use the following commands to determine the required information for creating a 
 
    ```text
    ID                                        Name       Status     Classic access   Default network ACL              Default security group        Resource group
-   r134-35b9cf35-616e-462e-a145-cf8db4062fcf my-vpc     available  false            immortality-casing-extoll-exit   enhance-corsage-managing-jinx Default
+   r006-35b9cf35-616e-462e-a145-cf8db4062fcf my-vpc     available  false            immortality-casing-extoll-exit   enhance-corsage-managing-jinx Default
    ```
    {: screen}
 
@@ -221,7 +221,7 @@ Use the following commands to determine the required information for creating a 
    ```text
    ID                                          Name            Status      Subnet CIDR      Addresses   ACL                              Public Gateway   VPC
    Zone         Resource group
-   0726-198db988-3b9b-4cfa-9dec-0206420d37d0   my-subnet       available   10.240.64.0/28   7/16        immortality-casing-extoll-exit   -               my-vpc
+   0717-198db988-3b9b-4cfa-9dec-0206420d37d0   my-subnet       available   10.240.64.0/28   7/16        immortality-casing-extoll-exit   -               my-vpc
    us-south-2   Default
    ```
    {: screen}
@@ -277,9 +277,9 @@ Use the following commands to determine the required information for creating a 
       ```text
       ID                                          Name                               Status       Arch    OS name                   OS version       File size(GB)
       Visibility   Owner type   Encryption   Resource group   Catalog Offering
-      r134-24d856e2-6aec-41c2-8f36-5a8a3766f0d6   ibm-centos-7-9-minimal-amd64-9     available    amd64   centos-7-amd64            7.x - Minimal Install  1             public       provider     none         Default          -
-      r134-9768bb7f-c75d-4408-ba34-61015632f907   ibm-debian-10-13-minimal-amd64-2   available    amd64   debian-10-amd64           10.x Buster/Stable     1             public       provider     none         Default          -
-      r134-f83ce520-00b5-40c5-9938-a5c82a273f91   ibm-debian-11-3-minimal-amd64-4    available    amd64   debian-11-amd64           11.x Bullseye/Stable   1
+      r006-24d856e2-6aec-41c2-8f36-5a8a3766f0d6   ibm-centos-7-9-minimal-amd64-9     available    amd64   centos-7-amd64            7.x - Minimal Install  1             public       provider     none         Default          -
+      r006-9768bb7f-c75d-4408-ba34-61015632f907   ibm-debian-10-13-minimal-amd64-2   available    amd64   debian-10-amd64           10.x Buster/Stable     1             public       provider     none         Default          -
+      r006-f83ce520-00b5-40c5-9938-a5c82a273f91   ibm-debian-11-3-minimal-amd64-4    available    amd64   debian-11-amd64           11.x Bullseye/Stable   1
       ```
       {: screen}
 
@@ -320,8 +320,8 @@ Use the following commands to determine the required information for creating a 
        Save the `offering_crn` and `offering_version_crn`in variables, which are used later to provision an instance.
 
        ```sh
-       offering_crn="crn:v1:staging:public:globalcatalog-collection:global:a/efe5afc483594adaa8325e2b4d1290df:0b322820-dafd-4b5e-b694-6465da6f008a:offering:136559f6-4588-4af2-8585-f3c625eee09d"
-       offering_version_crn="crn:v1:staging:public:globalcatalog-collection:global:a/efe5afc483594adaa8325e2b4d1290df:0b322820-dafd-4b5e-b694-6465da6f008a:version:136559f6-4588-4af2-8585-f3c625eee09d/8ae92879-e253-4a7c-b09f-8d30af12e518"
+       offering_crn="crn:v1:bluemix:public:globalcatalog-collection:global:a/efe5afc483594adaa8325e2b4d1290df:0b322820-dafd-4b5e-b694-6465da6f008a:offering:136559f6-4588-4af2-8585-f3c625eee09d"
+       offering_version_crn="crn:v1:bluemix:public:globalcatalog-collection:global:a/efe5afc483594adaa8325e2b4d1290df:0b322820-dafd-4b5e-b694-6465da6f008a:version:136559f6-4588-4af2-8585-f3c625eee09d/8ae92879-e253-4a7c-b09f-8d30af12e518"
        ```
        {: pre}
 
@@ -349,7 +349,7 @@ Use the following commands to determine the required information for creating a 
 
    ```text
    ID                                          Name     Type   Length   FingerPrint          Resource group
-   r134-89ec781c-9630-4f76-b9c4-a7d204828d61   my-key   rsa    4096     gtnf+pdX2PYI9Ofq..   Default
+   r006-89ec781c-9630-4f76-b9c4-a7d204828d61   my-key   rsa    4096     gtnf+pdX2PYI9Ofq..   Default
    ```
    {: screen}
 
@@ -403,32 +403,32 @@ Use the following steps to create a basic virtual server instance from a stock i
    ```sh
    ibmcloud is instance-create \
        my-instance \
-       r134-35b9cf35-616e-462e-a145-cf8db4062fcf \
+       r006-35b9cf35-616e-462e-a145-cf8db4062fcf \
        us-south-2 \
        bx2-2x8 \
-       0726-198db988-3b9b-4cfa-9dec-0206420d37d0 \
-       --image r134-f83ce520-00b5-40c5-9938-a5c82a273f91 \
-       --keys r134-89ec781c-9630-4f76-b9c4-a7d204828d61 \
+       0717-198db988-3b9b-4cfa-9dec-0206420d37d0 \
+       --image r006-f83ce520-00b5-40c5-9938-a5c82a273f91 \
+       --keys r006-89ec781c-9630-4f76-b9c4-a7d204828d61 \
    ```
    {: pre}
 
    Where the following argument and option values are used
 
       * INSTANCE_NAME: `my-instance`
-      * VPC: `r134-35b9cf35-616e-462e-a145-cf8db4062fcf`
+      * VPC: `r006-35b9cf35-616e-462e-a145-cf8db4062fcf`
       * ZONE_NAME: `us-south-2`
       * PROFILE_NAME: `bx2-2x8`
-      * SUBNET: `0726-198db988-3b9b-4cfa-9dec-0206420d37d0`
-      * IMAGE: Debian 11 image `r134-f83ce520-00b5-40c5-9938-a5c82a273f91`
-      * KEYS: `r134-89ec781c-9630-4f76-b9c4-a7d204828d61`
+      * SUBNET: `0717-198db988-3b9b-4cfa-9dec-0206420d37d0`
+      * IMAGE: Debian 11 image `r006-f83ce520-00b5-40c5-9938-a5c82a273f91`
+      * KEYS: `r006-89ec781c-9630-4f76-b9c4-a7d204828d61`
 
    The response varies depending on the option values that you use.
    {: note}
 
    ```text
-   ID                                    0726_67b1179a-8b25-4ac9-8bc0-7f3027466ed0
+   ID                                    0717-_67b1179a-8b25-4ac9-8bc0-7f3027466ed0
    Name                                  my-instance
-   CRN                                   crn:v1:public:is:us-south-2:a/2d1bace7b46e4815a81e52c6ffeba5cf::instance:0726_67b1179a-8b25-4ac9-8bc0-7f3027466ed0
+   CRN                                   crn:v1:public:is:us-south-2:a/2d1bace7b46e4815a81e52c6ffeba5cf::instance:0717-_67b1179a-8b25-4ac9-8bc0-7f3027466ed0
    Status                                pending
    Availability policy on host failure   restart
    Startable                             true
@@ -449,10 +449,10 @@ Use the following steps to create a basic virtual server instance from a stock i
                                          false     http       1
 
    Image                                 ID                                          Name
-                                         r134-f83ce520-00b5-40c5-9938-a5c82a273f91   ibm-debian-11-3-minimal-amd64-4
+                                         r006-f83ce520-00b5-40c5-9938-a5c82a273f91   ibm-debian-11-3-minimal-amd64-4
 
    VPC                                   ID                                          Name
-                                         r134-35b9cf35-616e-462e-a145-cf8db4062fcf   my-vpc
+                                         r006-35b9cf35-616e-462e-a145-cf8db4062fcf   my-vpc
 
    Zone                                  us-south-2
    Resource group                        ID                                 Name
@@ -460,7 +460,7 @@ Use the following steps to create a basic virtual server instance from a stock i
 
    Created                               2023-03-23T21:50:24+00:00
    Boot volume                           ID   Name   Attachment ID                               Attachment name
-                                         -    -      0726-7ccd4284-e59d-45d8-932a-9e52f62f187a   landing-faucet-prankish-sprout
+                                         -    -      0717-7ccd4284-e59d-45d8-932a-9e52f62f187a   landing-faucet-prankish-sprout
    ```
    {: screen}
 
@@ -471,19 +471,19 @@ Use the following steps to create a basic virtual server instance from a stock i
 
    For a full list of command options, see [ibmcloud is instance-create](/docs/vpc?topic=vpc-vpc-reference#instance-create).
 
-2. Next, run the following `instance` details command to verify that you can see your new instance and view the network interfaces that were created for the new instance. `0726_67b1179a-8b25-4ac9-8bc0-7f3027466ed0` is the virtual server instance ID that was assigned when the instance was created in the previous step.
+2. Next, run the following `instance` details command to verify that you can see your new instance and view the network interfaces that were created for the new instance. `0717-_67b1179a-8b25-4ac9-8bc0-7f3027466ed0` is the virtual server instance ID that was assigned when the instance was created in the previous step.
 
    ```sh
-   ibmcloud is instance 0726_67b1179a-8b25-4ac9-8bc0-7f3027466ed0
+   ibmcloud is instance 0717-_67b1179a-8b25-4ac9-8bc0-7f3027466ed0
    ```
    {: pre}
 
    For this example, you see the following response. The status now shows *running*. Check the Network Interfaces section to locate the ID of the network interface.
 
    ```text
-   ID                                    0726_67b1179a-8b25-4ac9-8bc0-7f3027466ed0
+   ID                                    0717-_67b1179a-8b25-4ac9-8bc0-7f3027466ed0
    Name                                  my-instance
-   CRN                                   crn:v1:public:is:us-south-2:a/2d1bace7b46e4815a81e52c6ffeba5cf::instance:0726_67b1179a-8b25-4ac9-8bc0-7f3027466ed0
+   CRN                                   crn:v1:public:is:us-south-2:a/2d1bace7b46e4815a81e52c6ffeba5cf::instance:0717-_67b1179a-8b25-4ac9-8bc0-7f3027466ed0
    Status                                running
    Availability policy on host failure   restart
    Startable                             true
@@ -504,10 +504,10 @@ Use the following steps to create a basic virtual server instance from a stock i
                                          false     http       1
 
    Image                                 ID                                          Name
-                                         r134-f83ce520-00b5-40c5-9938-a5c82a273f91   ibm-debian-11-3-minimal-amd64-4
+                                         r006-f83ce520-00b5-40c5-9938-a5c82a273f91   ibm-debian-11-3-minimal-amd64-4
 
    VPC                                   ID                                          Name
-                                         r134-35b9cf35-616e-462e-a145-cf8db4062fcf   my-vpc
+                                         r006-35b9cf35-616e-462e-a145-cf8db4062fcf   my-vpc
 
    Zone                                  us-south-2
    Resource group                        ID                                 Name
@@ -515,34 +515,34 @@ Use the following steps to create a basic virtual server instance from a stock i
 
    Created                               2023-03-23T21:50:24+00:00
    Network Interfaces                    Interface   Name      ID                                          Subnet            Subnet ID                                   Floating IP   Security Groups                 Allow source IP spoofing   Reserved IP
-                                         Primary     primary   0726-4db768bb-65c3-4045-8712-523e62eeabd2   my-subnet   0726-198db988-3b9b-4cfa-9dec-0206420d37d0         -             enhance-corsage-managing-jinx   false                      10.240.64.10
+                                         Primary     primary   0717-4db768bb-65c3-4045-8712-523e62eeabd2   my-subnet   0717-198db988-3b9b-4cfa-9dec-0206420d37d0         -             enhance-corsage-managing-jinx   false                      10.240.64.10
 
    Boot volume                           ID                                          Name                           Attachment ID                                    Attachment name
-                                         r134-7a1d72d1-56ac-438e-bf85-6c0173e3f9a6   expend-anger-whiff-jackknife   0726-7ccd4284-e59d-45d8-932a-9e52f62f187a        landing-faucet-prankish-sprout
+                                         r006-7a1d72d1-56ac-438e-bf85-6c0173e3f9a6   expend-anger-whiff-jackknife   0717-7ccd4284-e59d-45d8-932a-9e52f62f187a        landing-faucet-prankish-sprout
    ```
    {: screen}
 
-3. Request a floating IP address to associate to your instance by using the following command. The name that is specified for the floating IP is `my-floatingip`. `0726-4db768bb-65c3-4045-8712-523e62eeabd2` is the ID of the network interface for the virtual server instance that displayed in the previous step.
+3. Request a floating IP address to associate to your instance by using the following command. The name that is specified for the floating IP is `my-floatingip`. `0717-4db768bb-65c3-4045-8712-523e62eeabd2` is the ID of the network interface for the virtual server instance that displayed in the previous step.
 
    ```sh
    ibmcloud is floating-ip-reserve \
        my-floatingip \
-       --nic 0726-4db768bb-65c3-4045-8712-523e62eeabd2
+       --nic 0717-4db768bb-65c3-4045-8712-523e62eeabd2
    ```
    {: pre}
 
    For this example, you see a response that is similar to the following output.
 
    ```text
-   ID               r134-9b79b9bc-a2dc-4337-865a-57d9b9198b76
+   ID               r006-9b79b9bc-a2dc-4337-865a-57d9b9198b76
    Address          169.59.214.164
    Name             my-floatingip
-   CRN              crn:v1:public:is:us-south-2:a/2d1bace7b46e4815a81e52c6ffeba5cf::floating-ip:r134-9b79b9bc-a2dc-4337-865a-57d9b9198b76
+   CRN              crn:v1:public:is:us-south-2:a/2d1bace7b46e4815a81e52c6ffeba5cf::floating-ip:r006-9b79b9bc-a2dc-4337-865a-57d9b9198b76
    Status           available
    Zone             us-south-2
    Created          2023-03-23T22:13:07+00:00
    Target           ID                                          Target type         Instance ID                                 Target interface name   Target interface private IP
-                    0726-4db768bb-65c3-4045-8712-523e62eeabd2   network_interface   0726_67b1179a-8b25-4ac9-8bc0-7f3027466ed0   primary                 -
+                    0717-4db768bb-65c3-4045-8712-523e62eeabd2   network_interface   0717-_67b1179a-8b25-4ac9-8bc0-7f3027466ed0   primary                 -
 
 
    Resource group   ID                                 Name
@@ -585,12 +585,12 @@ Use the following steps to create a virtual server instance from a private catal
    ```sh
    ibmcloud is instance-create\
        my-instance\
-       r134-35b9cf35-616e-462e-a145-cf8db4062fcf\
+       r006-35b9cf35-616e-462e-a145-cf8db4062fcf\
        us-south-2\
        bx2-2x8\
-       0726-198db988-3b9b-4cfa-9dec-0206420d37d0\
+       0717-198db988-3b9b-4cfa-9dec-0206420d37d0\
        --catalog-offering crn:v1:public:globalcatalog-collection:global:a/efe5afc483594adaa8325e2b4d1290df:0b322820-dafd-4b5e-b694-6465da6f008a:offering:136559f6-4588-4af2-8585-f3c625eee09d
-       --keys r134-89ec781c-9630-4f76-b9c4-a7d204828d61\
+       --keys r006-89ec781c-9630-4f76-b9c4-a7d204828d61\
        --placement-group c5f1f366-b92a-4080-991a-aa5c2e33d96b\
    ```
    {: pre}
@@ -598,12 +598,12 @@ Use the following steps to create a virtual server instance from a private catal
    Where the following argument and option values are used
 
       * INSTANCE_NAME: `my-instance`
-      * VPC: `r134-35b9cf35-616e-462e-a145-cf8db4062fcf`
+      * VPC: `r006-35b9cf35-616e-462e-a145-cf8db4062fcf`
       * ZONE_NAME: `us-south-2`
       * PROFILE_NAME: `bx2-2x8`
-      * SUBNET: `0726-198db988-3b9b-4cfa-9dec-0206420d37d0`
+      * SUBNET: `0717-198db988-3b9b-4cfa-9dec-0206420d37d0`
       * CATALOG-OFFERING: is `crn:v1:public:globalcatalog-collection:global:a/efe5afc483594adaa8325e2b4d1290df:0b322820-dafd-4b5e-b694-6465da6f008a:offering:136559f6-4588-4af2-8585-f3c625eee09d`
-      * KEYS: `r134-89ec781c-9630-4f76-b9c4-a7d204828d61`
+      * KEYS: `r006-89ec781c-9630-4f76-b9c4-a7d204828d61`
       * PLACEMENT_GROUP: `c5f1f366-b92a-4080-991a-aa5c2e33d96b`
 
    Information about the network interfaces that are created for the new instance aren't returned after the instance is created. You can view the information by using the `ibmcloud is instance INSTANCE` command as described in the following step.
@@ -666,12 +666,12 @@ Use the following steps to create a virtual server instance from a bootable volu
    ```sh
    ibmcloud is instance-create\
        my-instance\
-       r134-35b9cf35-616e-462e-a145-cf8db4062fcf\
+       r006-35b9cf35-616e-462e-a145-cf8db4062fcf\
        us-south-1\
        bx2-2x8\
-       0726-198db988-3b9b-4cfa-9dec-0206420d37d0\
+       0717-198db988-3b9b-4cfa-9dec-0206420d37d0\
        --boot-volume r006-feec3e99-995e-4e8f-896b-48b42c7d05a7\
-       --keys r134-89ec781c-9630-4f76-b9c4-a7d204828d61\
+       --keys r006-89ec781c-9630-4f76-b9c4-a7d204828d61\
        --volume-attach @/Users/myname/myvolume-attachment_create.json\
    ```
    {: pre}
