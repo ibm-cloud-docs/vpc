@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-07-01"
+  years: 2020, 2023
+lastupdated: "2023-10-24"
 
-keywords: 
+keywords:
 
 subcollection: vpc
 
@@ -18,7 +18,7 @@ subcollection: vpc
 {{site.data.keyword.cloud_notm}} provides two families of load balancers for VPC, {{site.data.keyword.alb_full}} (ALB) and {{site.data.keyword.nlb_full}} (NLB). There are several differences between the two that you should be aware of when choosing a load balancer.
 {: shortdesc}
 
-{{site.data.keyword.cloud_notm}} provides public- and private-facing application load balancers. An application load balancer provides layer 7 and layer 4 load balancing on {{site.data.keyword.cloud_notm}} and supports SSL offloading. All incoming and outgoing packets flow through the load balancer. 
+{{site.data.keyword.cloud_notm}} provides public- and private-facing application load balancers. An application load balancer provides layer 7 and layer 4 load balancing on {{site.data.keyword.cloud_notm}} and supports SSL offloading. All incoming and outgoing packets flow through the load balancer.
 
 Application load balancers are primarily intended for layer 7, web-based workloads and support virtual server instances, bare metal server instances, and Power Systems™ Virtual Server instances connected over IBM Cloud Direct Link as back-end pool members. In contrast, a network load balancer provides only layer 4 load balancing on {{site.data.keyword.cloud_notm}}, and does not support SSL offloading. The client sends public network traffic to the network load balancer, which forwards it to target virtual servers. Then, the target virtual servers respond directly to the client by using Direct Server Return (DSR). Network load balancers are primarily intended for workloads that require low latency and high data throughput.
 
@@ -35,8 +35,8 @@ The following table provides a comparison of the types of load balancers.
 | HA mode                     | Active-standby (with single VIP)   |  Active-active (with multiple VIPs assigned to a DNS name) |
 | Instance group support | No | Yes (see [Integrating an ALB for VPC with instance groups](/docs/vpc?topic=vpc-lbaas-integration-with-instance-groups)) |
 | Monitoring metrics| Yes | Yes |
-| Multi-zone support          |  Yes [^footnote1] (see [Multi-zone support](/docs/vpc?topic=vpc-network-load-balancers#nlb-use-case-2)) | Yes |     
-| Security group support | No | Yes (see [Integrating an ALB for VPC with security groups](/docs/vpc?topic=vpc-alb-integration-with-security-groups)) |
+| Multi-zone support          |  Yes [^footnote1] (see [Multi-zone support](/docs/vpc?topic=vpc-network-load-balancers#nlb-use-case-2)) | Yes |
+| Security group support | Yes | Yes (see [Integrating an ALB for VPC with security groups](/docs/vpc?topic=vpc-alb-integration-with-security-groups)) |
 | Source IP address is preserved | Yes | Yes |
 | SSL offloading              |  No              | Yes |
 | Supported protocols         |  TCP, UDP | HTTPS, HTTP, TCP  |
