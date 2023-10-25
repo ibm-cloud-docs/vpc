@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-10-10"
+lastupdated: "2023-10-15"
 
 keywords: vpn, health
 
@@ -25,3 +25,13 @@ Identifies the health of VPN servers, provides reasons for failure, and suggests
 | `cannot_reserve_ip_address`              | `IP address exhaustion (release addresses on the VPN's subnet).`                                                                             | This issue commonly occurs if an IP address isn't available on the VPN server's subnet. Release associated resources, such as instances, load balancers, or VPN servers on the subnet.       |
 | `internal_error` | `Internal error (contact IBM support).` | Contact IBM Support to analyze and resolve internal errors. |
 {: caption="Table 1. VPN server health diagnostics" caption-side="bottom"}
+
+## Diagnosing VPN server route health
+{: #vpn-server-route-health}
+
+Identifies the health of VPN server routes, provides reasons for failure, and suggests solutions for recovery.
+
+| Code | Message  | Information |
+| ---- | ------------ | ---------------- |
+| `internal_error` | `Internal error. Contact IBM Support.` | Contact IBM Support to analyze and resolve internal errors. |
+{: caption="Table 2. VPN server route health" caption-side="bottom"}
