@@ -36,7 +36,7 @@ The following table provides a comparison of the types of load balancers.
 | Instance group support | No | Yes (see [Integrating an ALB for VPC with instance groups](/docs/vpc?topic=vpc-lbaas-integration-with-instance-groups)) |
 | Monitoring metrics| Yes | Yes |
 | Multi-zone support          |  Yes [^footnote1] (see [Multi-zone support](/docs/vpc?topic=vpc-network-load-balancers#nlb-use-case-2)) | Yes |
-| Security group support | Yes (see [Integrating an network load balancer with security groups](/docs/vpc?topic=vpc-nlb-integration-with-security-groups)) | Yes (see [Integrating an ALB for VPC with security groups](/docs/vpc?topic=vpc-alb-integration-with-security-groups)) |
+| Security group support | Yes (see [Integrating a network load balancer with security groups](/docs/vpc?topic=vpc-nlb-integration-with-security-groups)) | Yes (see [Integrating an ALB for VPC with security groups](/docs/vpc?topic=vpc-alb-integration-with-security-groups)) |
 | Source IP address is preserved | Yes | Yes |
 | SSL offloading              |  No              | Yes |
 | Supported protocols         |  TCP, UDP | HTTPS, HTTP, TCP  |
