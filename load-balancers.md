@@ -72,6 +72,15 @@ The application load balancer can also be configured to span multiple zones. The
 
 {{site.data.keyword.cloud_notm}} Application Load Balancer and Network Load Balancer both integrate with private catalogs to centrally manage access to products in the {{site.data.keyword.cloud_notm}} catalog and your own catalogs. You can customize your private catalogs to allow or disallow load balancer provisioning to specific users in your account. For more information, see [Customizing what's available in your private catalogs](/docs/account?topic=account-restrict-by-user).
 
+## Pricing metrics
+{: #lb-pricing-metrics}
+
+ALB's and NLB's determine their pricing based on the following metrics.
+
+*Instance hours per month:* Measures the number of hours ALB or NLB is used per calendar month.
+
+*Data processed:* Measures how much data, in gigabytes (GB), that is processed by ALB or NLB in a calendar month.  
+
 ## Application load balancer data flow
 {: #alb-data-flow}
 
