@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-10-19"
+lastupdated: "2023-10-26"
 
 keywords: Backup, backup snapshot, create backups, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -167,7 +167,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    ```
    {: pre}
 
-1. If you are an Enterprise account administrator who wants to create a backup policy and plan for your enterprise account and subaccounts, you need to fetch your enterprise account CRN. Run the following command to see the enterprise account name, ID, and CRN. [New]{: tag-new}
+1. If you are an Enterprise account administrator who wants to create a backup policy and plan for your enterprise account and subaccounts, you need to fetch your enterprise account CRN. Run the following command to see the enterprise account name, ID, and CRN.
 
    ```sh
    ibmcloud enterprise show
@@ -202,8 +202,6 @@ For more information about available command options, see [`ibmcloud is backup-p
 
 ### Creating a backup policy from the CLI for an enterprise
 {: #backup-create-policy-noplan-enterprise}
-
-[New]{: tag-new}
 
 Run the `ibmcloud is backup-policy-create` command to create a backup policy without a backup plan. Specify the enterprise CRN to create a policy for the enterprise account and its subaccount. After the policy is created, you can [add backup plans](#backup-create-plan-cli) to it later on.
 
@@ -264,8 +262,6 @@ For more information about available command options, see [`ibmcloud is backup-p
 
 ### Creating a backup policy with a plan from the CLI for an enterprise
 {: #backup-create-policy-cron-cli-enterprise}
-
-[New]{: tag-new}
 
 Run the `backup-policy-create` command to create a backup policy and a backup plan in the same command. Specify the enterprise CRN in the `scope` to create a policy for the enterprise account and its subaccount.
 
@@ -497,8 +493,6 @@ For more information about available command options, see [`ibmcloud is backup-p
 
 You can programmatically create a backup policy by calling the `/backup_policies` method in the [VPC API](/apidocs/vpc/latest#create-backup-policy){: external} as shown in the following sample requests. A `POST /backup_policies` request creates a backup policy with tags that you provide to identify {{site.data.keyword.block_storage_is_short}} volume resources that are to be backed up. The backup policy accepts a backup plan, where you define backup schedules and deletion rules.
 
-[New]{: tag-new}
-
 If you are an Enterprise account administrator who wants to create a backup policy and plan for your enterprise account and child accounts, you need to fetch your enterprise account CRN. Make an API request to the [Enterprise Management API](https://cloud.ibm.com/apidocs/enterprise-apis/enterprise#list-enterprises) like the following example.
 
 ```sh
@@ -605,8 +599,6 @@ A successful response looks like the following example.
 
 ### Creating a backup policy and plan with the API for an enterprise
 {: #backup-policy-create-api-enterprise}
-
-[New]{: tag-new}
 
 Make a `POST /backup_policies` request to create a new backup policy. In the `scope`, specify the enterprise account CRN.
 
@@ -919,15 +911,33 @@ provider "ibm" {
 ```
 {: screen}
 
-### Creating a backup policy with a plan with Terraform
+### Creating a backup policy for an Account with Terraform
 {: #backup-policy-create-terraform}
 
-To create a backup policy, use the `ibm_is_backup_policy` resource. The following example defines a backup policy with the name `my-backup-policy-v1`. And the new policy applies to resources that have the `dev:test` tag.
+To create a backup policy, use the `ibm_is_backup_policy` resource. The following example defines a backup policy with the name `my-backup-policy-v1`. The new policy applies to resources that have the `dev:test` tag.
 
 ```terraform
 resource "ibm_is_backup_policy" "example" {
   match_user_tags = ["dev:test"]
   name            = "my-backup-policy-v1"
+}
+```
+{: codeblock}
+
+For more information about the arguments and attributes, see [ibm_is_backup_policy](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_backup_policy){: external}.
+
+### Creating a backup policy for an Enterprise with Terraform
+{: #backup-policy-create-enterprise-terraform}
+
+To create a backup policy, use the `ibm_is_backup_policy` resource. The following example defines a backup policy with the name `my-backup-policy-v2` and specifies the Enterprise CRN in the scope. The new policy applies to resources that have the `dev:test` tag.
+
+```terraform
+resource "ibm_is_backup_policy" "ent-baas-example" {
+  match_user_tags = ["dev:test"]
+  name            = "my-backup-policy-v2"
+  scope {
+    crn = "crn:v1:bluemix:public:is:us-south:a/123456::reservation:7187-ba49df72-37b8-43ac-98da-f8e029de0e63"
+  }
 }
 ```
 {: codeblock}

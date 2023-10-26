@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-10-19"
+lastupdated: "2023-10-26"
 
 keywords: backup planning, restore volume, restore data
 
@@ -26,7 +26,7 @@ Consider the following prerequisites before you set up the VPC Backup Service.
 | Item | Considerations |
 |------|----------------|
 | {{site.data.keyword.iamshort}} (IAM) | Verify that you have [IAM access permissions](/docs/vpc?topic=vpc-backup-service-manage#baas-vpc-iam) to create and manage backups for the account. |
-| Enterprise-level backups [New]{: tag-new} | Ensure that all [Service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth) are in place for the services in the child account and the enterprise account. If the authorization is missing in any one of the child accounts, the backup service generates an {{site.data.keyword.at_full}} event and marks the policy health degraded.|
+| Enterprise-level backups | Ensure that all [Service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth) are in place for the services in the child account and the enterprise account. If the authorization is missing in any one of the child accounts, the backup service generates an {{site.data.keyword.at_full}} event and marks the policy health degraded.|
 | Volumes | Evaluate which volumes are most important to back up. You can create backups of boot and data volumes. A volume with numerous changes and a lengthy retention period requires more attention than a volume with moderate changes. Also, the cumulative size of all backups for a volume can't exceed 10 TB. |
 | Backup schedule | Determine a backup schedule based on the type of volumes that you're backing up. For example, you might want to back up critical data that changes frequently more often than static data. |
 | Retention | Determine a retention policy for backups in the backup plan. As subsequent backups are created, keep in mind that you incur costs for each backup that you retain. Deleting older backups keeps costs down. |
