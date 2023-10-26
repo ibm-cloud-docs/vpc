@@ -132,6 +132,14 @@ toc:
         topics:
         - set-up-environment.md
         - topicgroup:
+            label: Updating to the latest API code
+            topics:
+            - vpn-api-migration.md
+            - file_storage_API_replication_fallback_policy.md
+            - file_storage_API_migration_access_modes.md
+            - file_storage_API_migration_mount_targets.md
+            - 2022-03-29-migration.md
+        - topicgroup:
             label: Managing access
             topics:
             - vsi-is-iam-access.md
@@ -768,14 +776,6 @@ toc:
             - instance-status-messages.md
             - quota-dashboard-troubleshooting.md
             - ts-asymmetric-routing.md
-        - topicgroup:
-            label: Migration
-            topics:
-            - vpn-api-migration.md
-            - file_storage_API_replication_fallback_policy.md
-            - file_storage_API_migration_access_modes.md
-            - file_storage_API_migration_mount_targets.md
-            - 2022-03-29-migration.md
         - limitations.md
         - known-issues.md
         - metadata-error-codes.md

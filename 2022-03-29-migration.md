@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-03-29"
+  years: 2022, 2023
+lastupdated: "2023-10-26"
 
 keywords: 
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# `2022-03-29` API migration
+# Updating to the version `2022-03-29` (network interfaces, security groups)
 {: #2022-03-29-migration}
 
 As described in [Versioning](/apidocs/vpc#api-versioning){: external}, most changes to the VPC APIs are fully backward compatible and therefore are made available to all clients, regardless of the API version the client requests. However, the `2022-03-29` release of the VPC API necessitated incompatible changes in support of the reserved IP addresses feature:

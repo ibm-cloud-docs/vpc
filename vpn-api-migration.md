@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-10-10"
+lastupdated: "2023-10-26"
 
 keywords:
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# `2023-10-10` API migration (VPN)
+# Updating to the version `2023-10-10` (VPN)
 {: #2023-10-10-migration-vpn}
 
 As described in the [VPC API](/apidocs/vpc/latest) reference [versioning](/apidocs/vpc#api-versioning) policy, most changes to the VPC APIs are fully backward compatible and are made available to all clients, regardless of the API version the client requests. However, the `2023-10-10` release of the VPC API necessitated incompatible changes in support of the health diagnostics feature for VPN gateways.
@@ -63,7 +63,7 @@ The response includes the `status` property in the `"members": []` array:
 {
     "connections": [],
     "created_at": "2023-10-02T23:35:11.079589Z",
-    "crn": "crn:v1:bluemix:public:is:us-south:a/a1234567::vpn:0717-66787b0d-53db-4e20-abb6-d6302fe7c26e",
+    "crn": "crn:v1:bluemix:public:is:us-south:a/1234e278d6d9411fb0a63fe3bacdfb95::vpn:0717-66787b0d-53db-4e20-abb6-d6302fe7c26e",
     "health_reasons": [],
     "health_state": "ok",
     "href": "https://us-south.iaas.cloud.ibm.com/v1/vpn_gateways/0717-66787b0d-53db-4e20-abb6-d6302fe7c26e",
@@ -118,14 +118,14 @@ The response includes the `status` property in the `"members": []` array:
     "resource_type": "vpn_gateway",
     "status": "available",
     "subnet": {
-        "crn": "crn:v1:bluemix:public:is:us-south-2:a/a1234567::subnet:0717-5948e25c-73ae-4580-9ff8-2e283874fa37",
+        "crn": "crn:v1:bluemix:public:is:us-south-2:a/1234e278d6d9411fb0a63fe3bacdfb95::subnet:0717-5948e25c-73ae-4580-9ff8-2e283874fa37",
         "href": "https://us-south.iaas.cloud.ibm.com/v1/subnets/0717-5948e25c-73ae-4580-9ff8-2e283874fa37",
         "id": "0717-5948e25c-73ae-4580-9ff8-2e283874fa37",
         "name": "demo",
         "resource_type": "subnet"
     },
     "vpc": {
-        "crn": "crn:v1:bluemix:public:is:us-south:a/1a1234567::vpc:r006-67221f43-3542-4790-9c2a-7f98a65ee02c",
+        "crn": "crn:v1:bluemix:public:is:us-south:a/1234e278d6d9411fb0a63fe3bacdfb95::vpc:r006-67221f43-3542-4790-9c2a-7f98a65ee02c",
         "href": "https://us-south.iaas.cloud.ibm.com/v1/vpcs/r006-67221f43-3542-4790-9c2a-7f98a65ee02c",
         "id": "r006-67221f43-3542-4790-9c2a-7f98a65ee02c",
         "name": "demo",
@@ -151,7 +151,7 @@ The response does not include the `status` property in the `"members": []` array
 {
     "connections": [],
     "created_at": "2023-10-02T23:35:11.079589Z",
-    "crn": "crn:v1:bluemix:public:is:us-south:a/a1234567::vpn:0717-66787b0d-53db-4e20-abb6-d6302fe7c26e",
+    "crn": "crn:v1:bluemix:public:is:us-south:a/1234e278d6d9411fb0a63fe3bacdfb95::vpn:0717-66787b0d-53db-4e20-abb6-d6302fe7c26e",
     "health_reasons": [],
     "health_state": "ok",
     "href": "https://us-south.iaas.cloud.ibm.com/v1/vpn_gateways/0717-66787b0d-53db-4e20-abb6-d6302fe7c26e",
@@ -203,14 +203,14 @@ The response does not include the `status` property in the `"members": []` array
     },
     "resource_type": "vpn_gateway",
     "subnet": {
-        "crn": "crn:v1:bluemix:public:is:us-south-2:a/a1234567::subnet:0717-5948e25c-73ae-4580-9ff8-2e283874fa37",
+        "crn": "crn:v1:bluemix:public:is:us-south-2:a/1234e278d6d9411fb0a63fe3bacdfb95::subnet:0717-5948e25c-73ae-4580-9ff8-2e283874fa37",
         "href": "https://us-south.iaas.cloud.ibm.com/v1/subnets/0717-5948e25c-73ae-4580-9ff8-2e283874fa37",
         "id": "0717-5948e25c-73ae-4580-9ff8-2e283874fa37",
         "name": "demo",
         "resource_type": "subnet"
     },
     "vpc": {
-        "crn": "crn:v1:bluemix:public:is:us-south:a/a1234567::vpc:r006-67221f43-3542-4790-9c2a-7f98a65ee02c",
+        "crn": "crn:v1:bluemix:public:is:us-south:a/1234e278d6d9411fb0a63fe3bacdfb95::vpc:r006-67221f43-3542-4790-9c2a-7f98a65ee02c",
         "href": "https://us-south.iaas.cloud.ibm.com/v1/vpcs/r006-67221f43-3542-4790-9c2a-7f98a65ee02c",
         "id": "r006-67221f43-3542-4790-9c2a-7f98a65ee02c",
         "name": "demo",

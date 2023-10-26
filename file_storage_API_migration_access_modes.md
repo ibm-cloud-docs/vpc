@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-07-11"
+lastupdated: "2023-10-26"
 
 keywords: file storage, file share, mount target, API change, access mode, vpc, security group
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# `2023-07-11` API migration (file shares)
+# Updating to the version `2023-07-11` (file shares)
 {: #2023-07-11-migration-file-shares}
 
 As described in the [Beta VPC API](/apidocs/vpc-beta) reference [versioning](/apidocs/vpc-beta#api-versioning-beta) policy, to more quickly respond to feedback as a feature progresses through its beta phase, support for older versions of the beta API is limited to 45 days. Therefore, beta API requests must specify a `version` query parameter date value within the last 45 days.
