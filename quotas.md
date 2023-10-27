@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2023
 
-lastupdated: "2023-10-17"
+lastupdated: "2023-10-26"
 
 keywords:
 
@@ -44,7 +44,6 @@ To increase a quota for a particular resource, [contact support](/unifiedsupport
 | Storage optimized (ox2) instance storage | 96 TB per region |
 {: caption="Table 1. Quotas for virtual server instances" caption-side="bottom"}
 
-
 When you provision virtual server instances dedicated hosts, the vCPU, RAM, and solid-state drives, which are associated with the instances count toward the vCPU, RAM, and instance storage quotas per region. Instances that are provisioned on dedicated hosts do not count against the vCPU quota. For more information, see [About instance storage](/docs/vpc?topic=vpc-instance-storage).
 
 Bare metal servers use physical cores and don't count toward your vCPU quota.
@@ -56,7 +55,7 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 |   Resource     | Quota |
 | ------- | ------ |
 | Virtual private clouds | 10 per region|
-| Subnets | 15 per VPC |
+| Subnets | 100 per VPC |
 | Address prefixes | 25 per VPC |
 {: caption="Table 2. Quotas for the VPC service" caption-side="bottom"}
 
@@ -65,7 +64,7 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 
 | Resource | Quota |
 |--------|-----|
-| ACLs | 25 per VPC |
+| ACLs | 100 per VPC |
 | Rules | 100 per ACL |
 {: caption="Table 3. Quotas for access control lists" caption-side="bottom"}
 
@@ -74,8 +73,8 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 
 | Resource | Quota |
 |--------|-----|
-| Security groups | 50 per VPC |
-| Rules | 50 per security group |
+| Security groups | 100 per VPC |
+| Rules | 250 per security group |
 | Network interfaces | 1000 per security group |
 {: caption="Table 4. Quotas for security groups" caption-side="bottom"}
 
@@ -157,7 +156,6 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 | Reserved IP addresses | 20,000 per region |
 {: caption="Table 10. Quotas for reserved IP addresses" caption-side="bottom"}
 
-
 ### Block Storage volumes and snapshots
 {: #block-storage-quotas}
 
@@ -200,7 +198,7 @@ The following table displays current VPC service limits. Unlike quotas, these li
 | PCI network interfaces for bare metal servers | 8 per bare metal server |
 | Public Gateways | 1 per zone per VPC |
 | Security groups | 5 per network interface (NIC) on a virtual server instance |
-| Remote rules for security groups | 5 per security group|
+| Remote rules for security groups | 15 per security group|
 | Secondary volumes per instance | Up to 12 secondary volumes |
 | Image export jobs | 5 active jobs per image, 10 total per image, 20 active jobs per account, per region|
 | Instance groups for auto scale and more | 200 per account|
