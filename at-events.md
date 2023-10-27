@@ -183,7 +183,7 @@ The following table lists the actions that are related to load balancers and the
 | subnet | is.subnet.subnet.update is.subnet.reserved-ip.delete | Reserved IP was released |
 | subnet | is.subnet.reserved-ip.read  | Reserved IP was retrieved |
 | subnet | is.subnet.reserved-ip.update | Reserved IP was updated |
-{: caption="Table 8. Actions that generate events Reserved IP addresses" caption-side="bottom"}
+{: caption="Table 8. Actions that generate events for Reserved IP addresses" caption-side="bottom"}
 
 ### Security group events
 {: #events-network-security-group}
