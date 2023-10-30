@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-07-05"
+lastupdated: "2023-10-30"
 
 keywords: Block Storage for VPC, iscsi for VPC, SAN for VPC
 
@@ -18,7 +18,7 @@ subcollection: vpc
 If you want to use your {{site.data.keyword.block_storage_is_full}} volume as a file system, you need to partition the volume, format it, and then mount it as a file system. You can perform this operation after you created a {{site.data.keyword.block_storage_is_short}} volume and attached it to an instance.
 {: shortdesc}
 
-Follow this procedure to use your Block Storage volume on a Linux&reg; system.
+[Connect to your instance](/docs/vpc?topic=vpc-vsi_is_connecting_linux), then follow this procedure to use your Block Storage volume on a Linux&reg; system.
 
 ## Step 1 - Listing all storage volumes
 {: #linux-procedure-list-volumes}
@@ -67,7 +67,7 @@ Volume `vdb` is your Block Storage data volume.
 
 4. After the partition is created, run the `w` command to save changes to the partition table. Restart your system to verify the newly created partition.
 
-## Step 3 - Formating the volume partition
+## Step 3 - Formatting the volume partition
 {: #linux-procedure-format-volume}
 
 ```sh
