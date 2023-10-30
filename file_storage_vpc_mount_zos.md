@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-08-08"
+lastupdated: "2023-10-30"
 
 keywords: file share, file storage, mount helper, mount target, mount path, secure connection
 
@@ -28,7 +28,7 @@ Use these instructions to connect a z/OS-based {{site.data.keyword.cloud}} Compu
 ## Mounting the file share
 {: #fs-zos-mount-file-share}
 
-Follow these steps to mount a file share on a z/OS host.
+[SSH into the Compute instance](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#next-steps-after-creating-virtual-servers-ui) where you want to mount the file share, then continue with these steps to mount a file share on a z/OS host. 
 
 1. Create a `/u/ibmuser` directory.
 

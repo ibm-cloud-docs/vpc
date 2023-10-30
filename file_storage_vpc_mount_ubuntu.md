@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-10-16"
+lastupdated: "2023-10-30"
 
 keywords: file share, file storage, mount helper, mount target, mount path, secure connection, NFS, mounting share
 
@@ -35,7 +35,9 @@ Use these instructions to connect a Network File System (NFS) file share to an U
 ## Mounting the file share
 {: #fs-Ubuntu-mount}
 
-SSH into the virtual server instance where you want to mount the file share, then continue with the following steps to mount a file share. This example procedure is based on Ubuntu 20.04.
+Follow these steps to mount a file share on an Ubuntu host. Examples are based on Ubuntu 20.04.
+
+[SSH into the Compute instance](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#next-steps-after-creating-virtual-servers-ui) where you want to mount the file share, then continue with these steps:
 
 1. Update and upgrade the distribution:
 
@@ -75,7 +77,7 @@ SSH into the virtual server instance where you want to mount the file share, the
    See following example.
 
    ```sh
-   mount -t nfs4 -o sec=sys,nfsvers=4.1 fsf-dal2433a-dz.adn.networklayer.com:/nxg_s_voll_mz0717-_c391f0ba-50ed-4460-8704-a36032c96a4c /mnt/nfs
+   mount -t nfs4 -o sec=sys,nfsvers=4.1 fsf-dal2433a-dz.adn.networklayer.com:/nxg_s_voll_mz0726_c391f0ba-50ed-4460-8704-a36032c96a4c /mnt/nfs
    ```
    {: pre}
 
@@ -135,7 +137,7 @@ SSH into the virtual server instance where you want to mount the file share, the
    Example
 
    ```sh
-   fsf-dal2433a-dz.adn.networklayer.com:/nxg_s_voll_mz0717-_c391f0ba-50ed-4460-8704-a36032c96a4c /mnt/nfs nfsvers=4.1 defaults 0 0
+   fsf-dal2433a-dz.adn.networklayer.com:/nxg_s_voll_mz0726_c391f0ba-50ed-4460-8704-a36032c96a4c /mnt/nfs nfsvers=4.1 defaults 0 0
    ```
 
 9. Verify that the configuration file has no errors.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-10-19"
+lastupdated: "2023-10-30"
 
 keywords: file share, file storage, mount helper, mount target, mount path, secure connection, NFS
 
@@ -37,7 +37,7 @@ Use these instructions to connect a Red Hat Enterprise Linux&reg;-based {{site.d
 
 Follow these steps to mount a file share on an RHEL host. Examples are based on RHEL 8.
 
-SSH into the virtual server instance where you want to mount the file share, then continue with these steps:
+[SSH into the Compute instance](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#next-steps-after-creating-virtual-servers-ui) where you want to mount the file share, then continue with these steps:
 
 1. Install the required tools.
 
