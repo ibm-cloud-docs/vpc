@@ -4,7 +4,7 @@ copyright:
 
   years: 2022, 2023
 
-lastupdated: "2023-09-26"
+lastupdated: "2023-10-30"
 
 
 keywords: operating system end of support (eos)
@@ -27,12 +27,7 @@ In the lifecycle of an operating system, end of support (EOS) is the last date t
 | `deprecated` | Older versions of stock operating systems are `deprecated`. Also, any stock operating system that reached EOS is also `deprecated`. The UI doesn't display any `deprecated` images when creating an instance. These images are still visible in the CLI and API. |
 {: caption="Table 1. Image lifecycle status" caption-side="bottom"}
 
-If you choose to continue to use a `deprecated` stock operating system image after EOS, be aware of the following risks:
-* The operating system no longer receives security patches or updates.
-* The operating system is no longer tested for hardware, drivers, or firmware.
-* There is no support for performance or operational issues on the server.
-* There is no vendor support for the operating system.
-* EOS operating systems are not supported by IBM Cloud Technical Support.
+If you choose to continue to use a `deprecated` stock operating system image after EOS, review the [End of support operating system considerations](/docs/vpc?topic=vpc-eos-os-considerations-intro).
 
 ## CentOS
 {: #centos}
