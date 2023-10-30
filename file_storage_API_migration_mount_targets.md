@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-20-26"
+lastupdated: "2023-10-26"
 
 keywords: file storage, file share, mount target, API change
 
