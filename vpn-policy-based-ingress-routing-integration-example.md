@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Example - Policy-based ingress routing integration
+# Policy-based ingress routing integration
 {: #vpn-policy-based-ingress-routing-integration-example}
 
 Policy-based VPN gateways can work with ingress routing to forward incoming VPC traffic (for example, traffic from {{site.data.keyword.tg_full}}) to a customer on-prem site by leveraging a VPN gateway.
