@@ -174,7 +174,7 @@ This VPC feature is available only to accounts with special approval to preview 
 |--------|-----|
 | Boot and secondary volumes | 300 total VPC volumes per region |
 | Snapshots and backup snapshots | Up to 750 per volume in a region |
-{: caption="Table 11. Quotas for Block Storage volumes and snapshots" caption-side="bottom"}
+{: caption="Table 12. Quotas for Block Storage volumes and snapshots" caption-side="bottom"}
 
 ### File shares
 {: #file-storage-quotas}
@@ -182,7 +182,7 @@ This VPC feature is available only to accounts with special approval to preview 
 | Resource | Quota |
 |--------|-----|
 | File shares | 300 total file shares per region |
-{: caption="Table 12. Quotas for file shares" caption-side="bottom"}
+{: caption="Table 13. Quotas for file shares" caption-side="bottom"}
 
 ### Placement groups
 {: #placement-group-quotas}
@@ -192,7 +192,7 @@ This VPC feature is available only to accounts with special approval to preview 
 | Placement groups | 100 placement groups per region |
 | Instances | 12 instances per placement group per region with host_spread placement group strategy. |
 | Instances | 4 instances per placement group per region with power_spread placement group strategy. |
-{: caption="Table 13. Quotas for placement groups" caption-side="bottom"}
+{: caption="Table 14. Quotas for placement groups" caption-side="bottom"}
 
 The quotas for placement groups are set and can't be adjusted.
 {: note}
@@ -214,4 +214,4 @@ The following table displays current VPC service limits. Unlike quotas, these li
 | Image export jobs | 5 active jobs per image, 10 total per image, 20 active jobs per account, per region|
 | Instance groups for auto scale and more | 200 per account|
 | Instance group memberships  | 1000 per instance group|
-{: caption="Table 14. Limits for VPC resources" caption-side="bottom"}
+{: caption="Table 15. Limits for VPC resources" caption-side="bottom"}
