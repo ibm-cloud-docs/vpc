@@ -156,6 +156,17 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 | Reserved IP addresses | 20,000 per region |
 {: caption="Table 10. Quotas for reserved IP addresses" caption-side="bottom"}
 
+### Virtual network interfaces
+{: #virtual-network-interfaces-quotas}
+
+This VPC feature is available only to accounts with special approval to preview this feature.
+{: preview}
+
+| Resource | Quota |
+|--------|-----|
+| IP addresses | 8 per virtual network interface |
+{: caption="Table 11. Quotas for virtual network interfaces" caption-side="bottom"}
+
 ### Block Storage volumes and snapshots
 {: #block-storage-quotas}
 
