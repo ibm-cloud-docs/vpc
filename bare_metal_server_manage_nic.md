@@ -82,6 +82,23 @@ To add a network interface to an existing bare metal server, do the following st
 For x86 architecture-based bare metal servers, PCI interfaces can be only created or deleted when the bare metal server is **Stopped**. The PCI interfaces will remain **Pending** until the server is started. When the server is started, the PCI interfaces transition to **Ready**.
 {: important}
 
+### Creating a virtual network interface
+{: #bare-metal-vni}
+
+This VPC feature is available only to accounts with special approval to preview this feature.
+{: preview}
+
+You can create a virtual network interface without attaching it to a target. The virtual network interface can exist even when its target is removed. For more information, see [Working with virtual network interfaces](/docs/vpc?topic=vpc-vni-create&interface=ui).
+
+Virtual network interfaces can be attached to new bare metal server instances, and cannot be added to existing bare metal server instances with child network interfaces.
+{: note}
+
+1. In the {{site.data.keyword.cloud_notm}} console, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Bare metal servers**.
+1. Click **Create** to begin creating a bare metal server capable of using a virtual network interface.
+1. In the **Networking** section, select whether to create one of the following:
+   * **Network attachment with a virtual network interface**: a network interface with additional features, such as secondary IP addresses and a lifecycle separate from the bare metal server you are creating.
+   * **Instance network interface**: a child network interface.
+
 ## Associating floating IPs with a network interface
 {: #bare-metal-add-fips-to-nic}
 

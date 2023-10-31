@@ -78,6 +78,23 @@ To add a network interface to your virtual server instance, complete the followi
 5. Click **Create**.
 6. If your virtual server instance was running when you added the network interface, you must configure the network interface for the instance. You can either stop and then restart the instance, or you can manually configure the interface in the guest operating system. For example, on a Linux-based operating system, you can use the `ip link set dev <interface> up` to retrieve the IP address configuration for the interface.
 
+### Adding a virtual network interface
+{: #add-virtual-network-interface}
+
+This VPC feature is a preview and available only to accounts with special approval.
+{: preview}
+
+You can create a virtual network interface without attaching it to a target. The virtual network interface can exist even when its target is removed. For more information, see [Working with virtual network interfaces](/docs/vpc?topic=vpc-vni-create&interface=ui).
+
+Virtual network interfaces can be attached to new virtual server instances, and cannot be added to existing virtual server instances with child network interfaces.
+{: note}
+
+1. In the {{site.data.keyword.cloud_notm}} console, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
+1. Click **Create** to begin creating a new virtual server instance capable of using a virtual network interface.
+1. In the **Networking** section, select whether to create one of the following:
+   * **Network attachment with a virtual network interface**: a network interface that has additional features, such as secondary IP addresses and a lifecycle separate from the virtual server instance you are creating.
+   * **Instance network interface**: a child network interface.
+
 ## Configuring a virtual server instance with multiple interfaces
 {: #configure-multiple-interfaces}
 
