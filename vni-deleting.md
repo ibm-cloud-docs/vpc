@@ -1,0 +1,101 @@
+---
+
+copyright:
+  years:  2023
+lastupdated: "2023-10-30"
+
+keywords:
+
+subcollection: vpc
+
+---
+
+{{site.data.keyword.attribute-definition-list}}
+
+# Deleting a virtual network interface
+{: #vni-deleting}
+
+This VPC feature is available only to accounts with special approval to preview this feature.
+{: preview}
+
+You can delete a VNI with the UI, CLI, API, or Terraform.
+
+## Deleting a virtual network interface in the UI
+{: #vni-delete-ui}
+{: ui}
+
+To delete a virtual network interface, follow these steps.
+
+1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
+1. Select the Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Virtual network interfaces**.
+1. Click the name of the virtual network interface that you want to delete in the Virtual network interfaces for VPC table.
+1. Click the **Actions** menu on the Details page, and select **Delete**.
+1. Confirm that you want to delete this virtual network interface in the window that appears, or click **Cancel**.
+
+## Deleting one or more virtual network interfaces from the CLI
+{: #virtual-network-interface-delete-cli}
+{: cli}
+
+Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+
+```sh
+export IBMCLOUD_IS_FEATURE_VNI_PHASE_II=true
+```
+{: pre}
+
+To delete one or more virtual network interfaces from the CLI, enter the following command:
+
+```sh
+ibmcloud is virtual-network-interface-delete (VIRTUAL_NETWORK_INTERFACE1 VIRTUAL_NETWORK_INTERFACE2 ...) [-f, --force] [-q, --quiet]
+```
+{: pre}
+
+Where:
+
+`VIRTUAL_NETWORK_INTERFACE1`
+:   ID or name of the virtual network interface.
+
+`VIRTUAL_NETWORK_INTERFACE2`
+:   ID or name of the virtual network interface.
+
+`--force, -f`
+:   Forces the operation without confirmation.
+
+`-q, --quiet`
+:   Suppress verbose output.
+
+### Command examples
+{: #command-examples-virtual-network-interface-delete}
+
+- `ibmcloud is virtual-network-interface-delete my-vni-share-99 cli-vni-demo-00`
+- `ibmcloud is virtual-network-interface-delete r006-866fc826-6f30-444f-b55e-0d697cf8b4bb`
+
+## Deleting a virtual network interface with the API
+{: #vni-api-delete}
+{: api}
+
+To delete a virtual network interface with the API, follow these steps:
+
+1. Set up your API environment [with the right variables](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
+1. Store any additional variables to be used in the API commands; for example:
+
+    * `version` (string): The API version, in format `YYYY-MM-DD`.
+    * `virtual_network_interface_id` (string): The virtual network interface identifier.
+
+    ```sh
+    curl -X DELETE \
+    "$vpc_api_endpoint/v1/virtual_network_interfaces/$virtual_network_interface_id?version=$version&generation=2" \
+    -H "Authorization: Bearer $iam_token"
+    ```
+    {: codeblock}
+
+## Deleting a virtual network interface with Terraform
+{: #vni-terraform-delete}
+{: terraform}
+
+The following example deletes a virtual network interface by using Terraform:
+
+```terraform
+terraform destroy --target ibm_is_virtual_network_interface.my_virtual_network_interface_instance
+```
+{: codeblock}

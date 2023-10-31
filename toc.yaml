@@ -292,6 +292,27 @@ toc:
             label: Virtual network interfaces
             topics:
             - vni-about.md
+            - vni-about-secondary-ip.md
+            - vni-iam.md
+            - topicgroup:
+                label: Working with virtual network interfaces
+                topics:
+                - vni-creating.md
+                - vni-updating.md
+                - vni-viewing.md
+                - vni-deleting.md
+            - topicgroup:
+                label: Attaching IBM Cloud resources to virtual network interfaces
+                topics:
+                - vni-add-fip.md
+                - vni-add-rip.md
+                - vni-add-sg.md
+            - vni-attach.md
+            - vni-known-issues.md
+        - topicgroup:
+            label: Virtual network interfaces
+            topics:
+            - vni-about.md
         - topicgroup:
             label: Floating IP addresses
             topics:
