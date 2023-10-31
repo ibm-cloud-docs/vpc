@@ -765,6 +765,11 @@ toc:
                 - vpe-ts-cannot-reach-target.md
                 - vpe-ts-cannot-communicate.md
             - topicgroup:
+                label: Troubleshooting virtual network interfaces
+                topics:
+                - vni-ts1.md
+                - vni-ts2.md
+            - topicgroup:
                 label: Troubleshooting load balancers
                 topics:
                 - lb-ts-401.md
