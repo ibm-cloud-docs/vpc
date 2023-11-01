@@ -532,7 +532,7 @@ toc:
                 - file_storage_vpc_s2s_auth.md
                 - file_storage_vpc_create_replication.md
                 - file_storage_vpc_manage_replication.md
-                - file_storage_vpc_replication_failover.md        
+                - file_storage_vpc_replication_failover.md
         - topicgroup:
             label: Block Storage
             topics:
@@ -574,7 +574,7 @@ toc:
             - backup_service_vpc_view_backup_jobs.md
             - backup_service_vpc_manage_policy.md
             - backup_service_vpc_use_policy.md
-            - backup_service_vpc_restore.md            
+            - backup_service_vpc_restore.md
         - topicgroup:
             label: Auto scale
             topics:
@@ -704,6 +704,7 @@ toc:
             - lb-faqs.md
             - instance_metadata_vpc_faqs.md
             - faqs-placement-groups.md
+            - faq-private-path.md
             - snapshots_vpc_faqs.md
             - vpe-faqs.md
             - vpn-faqs.md
