@@ -704,7 +704,6 @@ toc:
             - lb-faqs.md
             - instance_metadata_vpc_faqs.md
             - faqs-placement-groups.md
-            - faq-private-path.md
             - snapshots_vpc_faqs.md
             - vpe-faqs.md
             - vpn-faqs.md
