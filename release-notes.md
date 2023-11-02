@@ -27,6 +27,17 @@ For more information about changes to the {{site.data.keyword.vpc_short}} API, s
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-cli-rn).
 
+## November 2023
+{: #vpc-nov23}
+
+### 06 November 2023
+{: #vpc-nov0623}
+{: release-note}
+
+IBM Wazi as a Service available in Dallas region
+:   {{site.data.keyword.waziaas_full_notm}} (Wazi aaS) is now available in the US South (Dallas) region in {{site.data.keyword.cloud_notm}}. For more information, see [{{site.data.keyword.waziaas_full_notm}} product page](https://www.ibm.com/cloud/wazi-as-a-service){: external}.
+
+
 ## October 2023
 {: #vpc-oct23}
 
