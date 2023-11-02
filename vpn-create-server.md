@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-11-11"
+  years: 2021, 2023
+lastupdated: "2023-11-02"
 
 keywords:
 
@@ -30,7 +30,7 @@ Before you provision a VPN server, complete the following prerequisites in the f
 1. Review [Planning considerations for VPN servers](/docs/vpc?topic=vpc-client-to-site-vpn-planning).
 1. Decide which VPN client authentication that you want to use: certificate-based, user ID and passcode, or both. For more information, see [Setting up client-to-site authentication](/docs/vpc?topic=vpc-client-to-site-authentication).
 1. For user ID and passcode authentication only, [create an IAM access group and grant users the role to connect to the VPN server](/docs/vpc?topic=vpc-create-iam-access-group).
-1. [Create a certificate manager instance and import certificates](/docs/vpc?topic=vpc-client-to-site-authentication#creating-cert-manager-instance-import).
+1. [Create a Secrets Manager instance and import certificates](/docs/vpc?topic=vpc-client-to-site-authentication#creating-cert-manager-instance-import).
 1. For server authentication only, [create IAM service-to-service authorization](/docs/vpc?topic=vpc-client-to-site-authentication#creating-iam-service-to-service).
 1. Depending on the deployment mode that you selected for your VPN server, do one of the following:
 
