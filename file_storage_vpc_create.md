@@ -104,9 +104,9 @@ You can create several mount targets for an existing file share if the share is 
    You must have at least one VPC to create a mount target. If you don't have one, first [create a VPC](/docs/vpc?topic=vpc-getting-started#create-and-configure-vpc).
    {: requirement}
 
-4. Depending on the mount target access mode of the share, the **Create mount target** form looks different.
+4. Depending on the [mount target access mode](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-mount-access-mode) of the share, the **Create mount target** form looks different.
 
-   - If the share has security group access mode, enter the following information. This action creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target that identifies the file share with a reserved IP address and applies the rules of the selected Security group.
+   - If the share has security group access mode, enter the following information. This action creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target that identifies the file share with a reserved IP address and applies the rules of the selected Security group. This mount target supports encryption-in-transit and cross-zone mounting.
 
      | Field | Value |
      |-------|-------|
@@ -122,7 +122,7 @@ You can create several mount targets for an existing file share if the share is 
      | **Encryption in transit** | Disabled by default, click the toggle to enable. For more information about this feature, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit). |
      {: caption="Table 4. Values for creating a mount target." caption-side="top"}
 
-   - If the share has VPC as the access mode, provide a name for the mount target and Select a VPC from the list.
+   - If the share has VPC as the access mode, provide a name for the mount target and select a VPC from the list. This mount target can be used to mount the file share on any virtual servers of the selected VPC in the same zone as the file share.
 
 5. Click **Create**.
 
