@@ -57,7 +57,7 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
 
 1. The creation of mount targets is optional. You can skip this step if you do not want to create a mount target now. For more information about creating mount targets as a separate operation, see [Create a mount target](#fs-create-mount-target-ui). Otherwise, click **Create**. You can create one mount target per VPC per file share. 
 
-   - If you selected security group as the access mode, enter the information as described in the Table 2. This action creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target that identifies the file share with a reserved IP address and applies the rules of the selected Security group.
+   - If you selected security group as the access mode, enter the information as described in the Table 2. This action creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target that identifies the file share with a reserved IP address and applies the rules of the selected Security group. This mount target supports encryption-in-transit and cross-zone mounting.
 
      | Field | Value |
      |-------|-------|
@@ -73,7 +73,7 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
      | **Encryption in transit** | Disabled by default, click the toggle to enable. For more information about this feature, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit). |
      {: caption="Table 2. Values for creating a mount target." caption-side="top"}
 
-   - If you selected VPC as the access mode, provide a name for the mount target and select the VPC where the file share is to be used in.
+   - If you selected VPC as the access mode, provide a name for the mount target and select a VPC from the list. This mount target can be used to mount the file share on any virtual server instance of the selected VPC in the same zone as the file share. Cross-zone mounting is not supported.
 
 1. Encryption at rest. By default, all file shares are encrypted by IBM-managed keys. You can also choose to create an envelop-encryption for your shares with your own keys. If you want to use your own keys, select one of the [key management services](/docs/vpc?topic=vpc-vpc-encryption-about#kms-for-byok).
 
@@ -122,7 +122,7 @@ You can create several mount targets for an existing file share if the share is 
      | **Encryption in transit** | Disabled by default, click the toggle to enable. For more information about this feature, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit). |
      {: caption="Table 4. Values for creating a mount target." caption-side="top"}
 
-   - If the share has VPC as the access mode, provide a name for the mount target and select a VPC from the list. This mount target can be used to mount the file share on any virtual servers of the selected VPC in the same zone as the file share.
+   - If the share has VPC as the access mode, provide a name for the mount target and select a VPC from the list. This mount target can be used to mount the file share on any virtual server instance of the selected VPC in the same zone as the file share. Cross-zone mounting is not supported.
 
 5. Click **Create**.
 
