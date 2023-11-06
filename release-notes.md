@@ -27,6 +27,18 @@ For more information about changes to the {{site.data.keyword.vpc_short}} API, s
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-cli-rn).
 
+
+## November 2023
+{: #vpc-nov23}
+
+### 17 November 2023
+{: #vpc-nov1723}
+{: release-note}
+
+IBM Wazi as a Service and LinuxONE (s390x processor architecture) dedicated host (LA)
+:   You can now create dedicated hosts with s390x memory profiles in the Spain (Madrid) and US South (Dallas) region to carve out a single-tenant compute node and create virtual server instances according to your needs. For more information, see [s390x dedicated host profiles](/docs/vpc?topic=vpc-s390x-dh-profiles) and [Creating dedicated hosts and groups](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances).
+
+
 ## October 2023
 {: #vpc-oct23}
 
