@@ -85,7 +85,11 @@ Where:
 `-q, --quiet`
 :   Suppress verbose output.
 
+### Command examples
+{: #vni-attach-fip-examples-cli}
 
+* `ibmcloud is floating-ip-reserve cli-vni-ip --vni vni2`
+* `ibmcloud is floating-ip-reserve cli-vni-ip-1 --vni 1234-a56b7c89-d0e1-234f-678g-901h2ij3k45`
 
 ## Attaching a floating IP to a virtual network interface with the API
 {: #vni-api-add-fip}
