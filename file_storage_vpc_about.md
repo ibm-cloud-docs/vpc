@@ -51,7 +51,7 @@ For more information, see [{{site.data.keyword.filestorage_vpc_short}} profiles]
 ### NFS version
 {: #fs-nfs-version}
 
-{{site.data.keyword.filestorage_vpc_short}} requires NFS versions v4.1 or higher.
+{{site.data.keyword.filestorage_vpc_short}} requires NFS versions v4.1 or higher. When multiple users cooperate and run a series of read and write operations on the file share, data consistency is achieved by locking mechanisms that are native to the NFS protocol. NFS version 4.1 includes support for advisory byte-range file locking. Byte-range locking is used to serialize activity to a range of bytes within a file. As an advisory locking mechanism, it doesn’t prevent access to any application but provides a mechanism for applications to communicate cooperatively through obtaining locks and querying if a lock is held. For more information, see [RFC8881](https://datatracker.ietf.org/doc/html/rfc8881#name-locking-facilities){: external}.
 
 ## Mount targets for file shares
 {: #fs-share-mount-targets}
@@ -87,7 +87,7 @@ To enable traffic between a virtual server instance and a mount target, you must
 
 You can configure your security group in a more dynamic way by allowing all traffic between members of the security group. Then, attach this security group to the network interface of the virtual server instance and the virtual network interface of the mount target. For more information, see [Allow traffic between members of a security group](/docs/vpc?topic=vpc-using-security-groups#sg-use-case-3).
 
-When you create the mount target, you can specify a subnet and reserved IP address for the virtual network interface, or have the service pick an IP address for you in the specified subnet. The mount target must have a VPC private IP address, and the IP address must be in a subnet that is in the same zone as the share. The IP address that is assigned to the mount target cannot be changed later.
+When you create the mount target, you can specify a subnet and reserved IP address for the virtual network interface. Or you can let the service pick an IP address for you in the specified subnet. The mount target must have a VPC private IP address, and the IP address must be in a subnet that is in the same zone as the share. The IP address that is assigned to the mount target cannot be changed later.
 
 When you create the mount target with a virtual network interface, its IP address is determined in either of the following ways:
 
@@ -95,14 +95,14 @@ When you create the mount target with a virtual network interface, its IP addres
 
 * By subnet and IP address - You specify the IP address in the subnet. Then, the network interface is created and attached to the mount target.
 
-When the mount target is attached and the share is mounted, the virtual network interface performs security group policy check to ensure only authorized virtual server instances can communicate with the share.
+When the mount target is attached and the share is mounted, the virtual network interface performs security group policy check to ensure that only authorized virtual server instances can communicate with the share.
 
 For greater security, [enable encryption in transit](/docs/vpc?topic=vpc-file-storage-vpc-eit) for your file share mount targets.
 
 ### Cross-zone mount targets
 {: #fs-cross-zone-mount}
 
-When you create a mount target for a share with security access group mode, you can attach a virtual network interface with a specific reserved IP in the zone of your file share. By using such a mount target, you can mount a file share from zone A to a virtual server instance in zone B. When the virtual server instance and the file share are in different zones, the performance can be impacted.
+When you create a mount target for a share with security access group mode, you can attach a virtual network interface with a reserved IP in the zone of your file share. By using such a mount target, you can mount a file share from zone A to a virtual server instance in zone B. When the virtual server instance and the file share are in different zones, the performance can be impacted.
 
 Cross-zone mounting is not supported for file shares with VPC-wide access mode. 
 
