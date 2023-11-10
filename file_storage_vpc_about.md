@@ -125,7 +125,7 @@ If you choose to use Encryption-in-transit, you need to balance your requirement
 
 For more information about network security, see [Security in your VPC](/docs/vpc?topic=vpc-security-in-your-vpc) and [Protecting Virtual Private Cloud (VPC) Infrastructure Services with context-based restrictions](/docs/vpc?topic=vpc-cbr).
 
-Encryption in transit is available in most regions. Support for EIT is currently not available in the `eu-es` region. Encryption in transit is not supported on bare metal servers.
+Encryption in transit is not supported on bare metal servers.
 {: restriction}
 
 ## File share replication and failover
