@@ -55,32 +55,7 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
 ## Installation and configuration of the Mount Helper
 {: #fs-eit-installation}
 
-1. [SSH into the Compute instance](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#next-steps-after-creating-virtual-servers-ui) where you want to mount the file share. Then, you can  download the package directly from Github. 
-   <!-- THIS STEP DOES NOT WORK
-     - Build from source code.
-
-       - On Debian based instances, run the following commands:
-       
-         ```sh
-         apt-get update -y
-         apt-get install git make python3 -y
-         git clone git@github.com:IBM/vpc-file-storage-mount-helper.git
-         cd vpc-file-storage-mount-helper
-         make build-deb
-         ```
-         {: pre}
-
-       - On RPM based instances, run the following commands:
-  
-         ```sh
-         yum update -y
-         yum install git make python3 rpm-build -y
-         git clone git@github.com:IBM/vpc-file-storage-mount-helper.git
-         cd vpc-file-storage-mount-helper
-         make build-rpm
-         ```
-         {: pre}
-         -->
+1. [SSH into the Compute instance](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#next-steps-after-creating-virtual-servers-ui) where you want to mount the file share. Then, you can  download the package directly from Github.
 
 1. Download the Mount Helper package from GitHub. 
 
@@ -99,21 +74,6 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
 
    Closed environments: To install Mount Helper on a virtual server instance without internet connection, create or update a local repository on the VSI based on the OS. Copy the Mount Helper package along with its dependencies to the local directory.
    {: note}
-
-<!-- THIS STEP DOES NOT WORK - ibmshare-0.0.1.tar.gz.sha256 is not in the tar
-1. Every installation image is accompanied by a file that contains the checksum value for the image file. For example, the image file ibmshare-0.0.1.tar.gz is accompanied by the ibmshare-0.0.1.tar.gz.sha256 file that contains checksum value. To verify the integrity of the downloaded package, use the following command to verify the file `mount.ibmshare-latest.tar.gz`.
-   ```sh
-   sha256sum -c mount.ibmshare-latest.tar.gz.sha256
-   ```
-   {: pre}
-
-   A successful response shows "OK". The output looks like the following example.
-   ```text
-   # sha256sum -c mount.ibmshare-latest.tar.gz.sha256
-   ./mount.ibmshare-latest.tar.gz: OK
-   ```
-   {: screen}
---->
 
 1. To install the Mount Helper and all the dependencies, use the following script. Specify the region where the file share is going to be mounted. The available regions are `dal`, `fra`, `lon`, `osa`, `sao`, `syd`, `tok`, `tor`, `wdc`.
 
