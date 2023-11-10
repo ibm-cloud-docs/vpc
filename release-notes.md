@@ -43,6 +43,9 @@ US South (Dallas) region is now available for IBM Cloud Hyper Protect Virtual Se
 US South (Dallas) region is now available for LinuxONE (s390x processor architecture)
 :   You can now create virtual server instances on LinuxONE (s390x processor architecture) in IBM Cloud in the US South (Dallas) region, in addition to Japan (Tokyo), Brazil (São Paulo), Spain (Madrid), Canada (Toronto), United Kingdom (London), and US East (Washington DC) regions. For more information about available LinuxONE (s390x processor architecture) profiles, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles). To create instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
 
+UI enhancement: architecture and image selection when provisioning
+:   When you create resources such as virtual server instances, bare metal servers, and instance templates, the image selection option is now available in an enhanced side panel when you click **Change image**. For virtual server instances and instance templates, you can select from stock images, custom images, catalog images, snapshots, and existing volumes. For bare metal servers, you can select from stock images and custom images. Additionally, architecture selection is now included on the image side panel.
+
 
 ## October 2023
 {: #vpc-oct23}
