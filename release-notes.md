@@ -30,8 +30,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## November 2023
 {: #vpc-nov23}
 
-### 06 November 2023
-{: #vpc-nov0623}
+### 10 November 2023
+{: #vpc-nov1023}
 {: release-note}
 
 IBM Wazi as a Service available in Dallas region
