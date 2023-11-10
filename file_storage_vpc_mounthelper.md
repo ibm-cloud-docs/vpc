@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-10-20"
+lastupdated: "2023-11-10"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -16,24 +16,11 @@ subcollection: vpc
 {: #fs-mount-helper-utility}
 
 Mount Helper is an open source automation tool that configures and establishes secure IPsec communication between customer virtual server instance and the file share. It ensures that the communication between the virtual server instance and zonal file share service is encrypted.
+{: shortdesc}
 
-The utility uses strongSwan and [`swanctl`](https://docs.strongswan.org/docs/5.9/swanctl/swanctl.html) to configure IPsec on the virtual server instance with Linux OS. The utility is supported on the following distributions:
+The utility uses strongSwan and [`swanctl`](https://docs.strongswan.org/docs/5.9/swanctl/swanctl.html) to configure IPsec on the virtual server instance with Linux OS.
 
-- UBUNTU_2004
-- UBUNTU_2204
-- CENTOS_7
-- DEBIAN_10
-- ROCKYLINUX_8
-- SAP_SLES_15_SP3_HANA
-- SAP_SLES_15_SP3_APPLICATIONS
-- SAP_SLES_15_SP4_HANA
-- SAP_SLES_15_SP4_APPLICATIONS
-- RHEL_7
-- RHEL_8
-- RHEL_8_6
-- RHEL_9
-
-{{site.data.keyword.filestorage_vpc_short}} IPsec connection requires mutual authentication. The Mount Helper retrieves the instance identity token from the Metadata service, and with the instance identity token.
+{{site.data.keyword.filestorage_vpc_short}} IPsec connection requires mutual authentication. The Mount Helper retrieves the instance identity token from the Metadata service, and with the instance identity token it requests the creation of the instance identity certificate.
 
 The Mount Helper makes new certificate requests every 45 minutes, as the lifetime of the certificate is 1 hour. The new certificate is generated before the old certificate expires to ensure seamless connection. The certificates are generated with the shorter life span for security reasons.
 
@@ -41,16 +28,30 @@ You can use the utility for encrypted or unencrypted connections. For encrypted 
 
 For more information, see the [readme file](https://github.com/IBM/vpc-file-storage-mount-helper){: external}.
 
-## Requirements and restrictions
+## Requirements
 {: #fs-eit-requirements}
 
-* [Instance metadata service](/docs/vpc?topic=vpc-imd-about) must be enabled on the virtual server instance.
-* The file share must have [security group access mode](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-mount-access-mode), so the VPC's security access groups can be used to define which virtual server instances can mount the share. 
-* The mount target must be created with a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to create an IP address within the VPC that represents a virtual NFS server.
-* Data encryption in transit must be enabled either in the UI or with the API.
-* The same certificates cannot be used across multiple regions.
-* The Mount Helper is supported for mounting on Linux hosts only.
+* [Instance metadata service](/docs/vpc?topic=vpc-imd-about) must be enabled on the virtual server instance. If it's not enabled yet, follow the instructions for [enabling instance metadata in the UI.](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-enable-service-ui){: ui}[enabling instance metadata from the CLI.](/docs/vpc?topic=vpc-imd-configure-service&interface=cli#imd-metadata-service-enable-cli){: cli}[enabling instance metadata from the API.](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-metadata-service-enable-api){: api}
+* The file share must have [security group access mode](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-mount-access-mode), so the VPC's security access groups can be used to define which virtual server instances can mount the share.
+* The virtual server instance and the mount target must be members of the same [security group](/docs/vpc?topic=vpc-using-security-groups).
+* The mount target must be created with a [virtual network interface](/docs/vpc?topic=vpc-vni-about), so it has an IP address within the VPC that represents the virtual NFS server.
+* Data encryption in transit must be enabled for the mount target either in the UI or with the API.
 
+## Restrictions
+{: #fs-eit-restrictions}
+
+* The same certificates cannot be used across multiple regions.
+* The Mount Helper is supported for mounting on Linux hosts only. The utility is supported on the following distributions:
+
+   | Supported OS | Supported OS | Supported OS                 |
+   |--------------|--------------|------------------------------|
+   | UBUNTU_2004  | RHEL_7       | SAP_SLES_15_SP3_HANA         |
+   | UBUNTU_2204  | RHEL_8       | SAP_SLES_15_SP3_APPLICATIONS |
+   | CENTOS_7     | RHEL_8_6     | SAP_SLES_15_SP4_HANA         |
+   | DEBIAN_10    | RHEL_9       | SAP_SLES_15_SP4_APPLICATIONS |
+   | ROCKYLINUX_8 |              | |
+   {: caption="Table 1 - This table shows the supported host OS distributions." caption-side="bottom"}
+   
 ## Installation and configuration of the Mount Helper
 {: #fs-eit-installation}
 
@@ -119,7 +120,7 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
    ```
    {: pre}
 
-   The installation script accepts the command-line argument `region`. Available regions are `dal`, `fra`, `lon`, `osa`, `sao`, `syd`, `tok`, `tor`, `wdc`. This argument is used to copy region-specific root CA cert to the strongSwan certificates location. If no region is specified, then the utility copies all the root CA certs.
+   The installation script accepts the command-line argument `region`. Example regions are `dal`, `fra`, `lon`, `osa`, `sao`, `syd`, `tok`, `tor`, `wdc`. This argument is used to copy region-specific root CA cert to the strongSwan certificates location. If no region is specified, then the utility copies all the root CA certs.
 
 1. Update the configuration file `/etc/ibmcloud/share.conf` with region information and with the peer certificate expiration time that you want. By default, certificates last 1 hour and new certificates are fetched every 45 minutes. However, you can modify the `certificate_duration_seconds` option to have a value between 5 minutes and 1 hour.
    ```sh
