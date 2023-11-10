@@ -18,7 +18,7 @@ subcollection: vpc
 You can use IBM Wazi Image Builder to create your own z/OS-based {{site.data.keyword.waziaas_full_notm}} (Wazi aaS) custom image and import the custom image into {{site.data.keyword.vpc_full}}. You can then use the custom image to create a virtual server instance in the {{site.data.keyword.vpc_short}} infrastructure.
 {: shortdesc}
  
-{{site.data.keyword.waziaas_full_notm}} (Wazi aaS) is available in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), United Kingdom (London), US East (Washington DC), US South (Dallas) and Spain (Madrid) regions.
+{{site.data.keyword.waziaas_full_notm}} (Wazi aaS) is available in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), United Kingdom (London), US East (Washington DC), US South (Dallas), and Spain (Madrid) regions.
 {: note}
 
 IBM Wazi Image Builder is a separately orderable product from [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/){: external}. Extra requirements are needed to use Wazi Image Builder. The image cost is the premium that is applied to cover the cost of technologies that allows for z/OS dev and test images to run on IBM Z hardware in IBM’s cloud infrastructure as a service layer. 
