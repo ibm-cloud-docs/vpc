@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-09-15"
+lastupdated: "2023-11-08"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -26,8 +26,6 @@ The contract is a definition file in the YAML format that is specific to the {{s
 If the workload discloses the decrypted tokens (either through SSH or REST APIs), then the decrypted data contains both the workload and the environment secrets (however it does not contain the seeds that were used for volume encryption).
 {: note}
 
-Ensure that your configuration does not use a private cloud registry if you are adhering to Financial services (FS) cloud compliance.
-{: important}
 
 ## Contract sections
 {: #hpcr_contract_sections}
@@ -60,31 +58,32 @@ This is one of the most important sections of the contract. The `workload` secti
 The following snippet shows a high-level sample of the workload section of the contract. The minimum that a workload section needs is the compose section. The other sections can be added based on the requirement.
 
 ```yaml
-type: workload
-auths:
-  <registry url>:
-    password: <password>
-    username: <user name>
-  <registry url>:
-    password: <password>
-    username: <user name>
+workload: |
+  type: workload
+  auths:
+    <registry url>:
+      password: <password>
+      username: <user name>
+    <registry url>:
+      password: <password>
+      username: <user name>
 
-compose:
-  archive: <base64 encoded of tgz of docker-compose.yaml>
-images:
-  dct:
-    <docker image name (without the tag, an example is docker.io/redbookuser/s390x:)>:
-      notary: "<notary URL>"
-      publicKey: <docker content trust signed public key>
-    <docker image name>:
-      notary: "<notary URL>"
-      publicKey: <docker content trust signed public key>
+  compose:
+    archive: <base64 encoded of tgz of docker-compose.yaml>
+  images:
+    dct:
+      <docker image name (without the tag, an example is docker.io/redbookuser/s390x:)>:
+        notary: "<notary URL>"
+        publicKey: <docker content trust signed public key>
+      <docker image name>:
+        notary: "<notary URL>"
+        publicKey: <docker content trust signed public key>
 
-volumes:
-  <volume name>:
-    mount: "<data volume mount path>"
-    seed: "<Passphrase of the luks encryption>"
-    filesystem: "ext4"
+  volumes:
+    <volume key>:
+      mount: "<data volume mount path>"
+      seed: "<Passphrase of the luks encryption>"
+      filesystem: "ext4"
 ```
 {: codeblock}
 
@@ -136,15 +135,12 @@ services:
 There exist use cases in which the registry is **not known** when the workload section is pre-encrypted, for example, when the workload provider wants to allow the deployer to use a registry mirror or a private container registry. In such a case, it's possible to dynamically override the registry as well as the pull credentials. This is a coordinated effort between the workload provider and the deployer. For more information, see [Using a dynamic registry reference](/docs/vpc?topic=vpc-hyper-protect-virtual-server-use-dynamic-registry-reference).
 {: tip}
 
-
 Complete the following steps to get the base64 encoded archive file. The base64 output is available in the compose.b64 file.
-Go to the <COMPOSE_Folder> and run the following commands: 
-
+Go to the <COMPOSE_Folder> and run the following commands:
 ```sh
 tar czvf compose.tgz docker-compose.yml
 ```
 {: pre}
-
 
 ```sh
 base64 -w0 compose.tgz > compose.b64
@@ -177,7 +173,7 @@ In the `play` subsection, you can define the workload via [Pod descriptors](http
    The following example illustrates how to use the `resources` section:
 
    ```yaml
-   workload:
+   workload: |
      type: workload
      play:
        resources:
@@ -199,7 +195,7 @@ In the `play` subsection, you can define the workload via [Pod descriptors](http
    ```
    {: codeblock}
 
-- In the `archive` subsection of `play`, the archive is a base64 encoded, gzipped tar file. The Pods or ConfigMaps are represented as YAML files, at the top level in this tar file. The file may also contain extra files and all files will be extracted to the host file system before starting the Pods. The *current working directory* is the directory in which the files have been extracted, so it's possible to use a volume mount with a relative path to mount files or directories from the the YAML file.
+- In the `archive` subsection of `play`, the archive is a base64 encoded, gzipped tar file. The Pods or ConfigMaps are represented as YAML files, at the top level in this tar file. The file might also contain extra files and all the files are extracted to the host file system before starting the Pods. The *current working directory* is the directory in which the files were extracted, so it's possible to use a volume mount with a relative path to mount the files or directories from the the YAML file.
 
    Example:
 
@@ -207,7 +203,7 @@ In the `play` subsection, you can define the workload via [Pod descriptors](http
    workload: |
      type: workload
      play:
-       archive:  ${COMPOSE_VALUE}
+       archive: ${COMPOSE_VALUE}
      auths:
        us.icr.io:
          username: iamapikey
@@ -226,7 +222,7 @@ In the `play` subsection, you can define the workload via [Pod descriptors](http
    Example:
 
    ```yaml
-   workload:
+   workload: |
      type: workload
      auths:
       docker.io:
@@ -513,6 +509,26 @@ volumes:
 ```
 {: codeblock}
 
+Starting `ibm-hyper-protect-container-runtime-1-0-s390x-13`, you can attach multiple volumes when you bring up the virtual server instance. Volumes attached when the instance is running are ignored.
+
+The following snippet is an example for the volumes section:
+```yaml
+volumes:
+  test1:
+    filesystem: "ext4"
+    mount: "/mnt/data"
+    seed: "seed1"
+  test2:
+    filesystem: "ext4"
+    mount: "/mnt/test2"
+    seed: "seed2"
+  test3:
+    filesystem: "ext4"
+    mount: "/mnt/test3"
+    seed: "seed3"
+```
+{: codeblock}
+
 ## The `env` section
 {: #hpcr_contract_env}
 
@@ -544,7 +560,7 @@ logging:
 ### The `env` - `volumes` subsection
 {: #hpcr_contract_env_vol}
 
-Read the [workload - volumes](#hpcr_contract_volumes) subsection of the workload section before you continue with this section. As already mentioned, for auto disk encryption of the attached data volume (currently only one disk is supported), you must provide two customer seeds, one in the `workload` - `volumes` subsection, and the other in the `env`- `volumes` subsection. The seeds can be any random text of your choice.
+Read the [workload - volumes](#hpcr_contract_volumes) subsection of the workload section before you continue with this section. As already mentioned, for auto disk encryption of the attached data volume, you must provide two customer seeds, one in the `workload` - `volumes` subsection, and the other in the `env`- `volumes` subsection. The seeds can be any random text of your choice.
 
 This is an example of the `env` - `volumes` subsection:
 ```yaml
@@ -564,8 +580,38 @@ volumes:
 ```
 {: codeblock}
 
+When you use multiple volumes, the deployer must ensure that the volumes are created in advance, and also specify the volume ID in the contract file. Otherwise, the volume name must be specified and the volume must be created with the same name. If both are not specified, then the volume key is considered as the volume name and the volume has to be created with the same name while or before creating the virtual server instance.
+The following snippet is an example:
 
-The name of the volume must be the same as that in the [workload - volumes](#hpcr_contract_volumes) subsection.
+```yaml
+ env: |
+   logging:
+     logDNA:
+       hostname: syslog-a.eu-gb.logging.cloud.ibm.com
+       ingestionKey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+       port: 6514
+   volumes:
+     test1:
+       apiKey: "L4SsSE32xxxxxjAgfHCVkdW8xl_CiqMn4Lpc1dzTD"
+       volumeID: "r006-f7b44467-01af-xxx-xxxx-xxxxxxx"
+       seed: "seed1"
+     test2:
+       apiKey: "L4SsSE32xxxxxjAgfHCVkdW8xl_CiqMn4Lpc1dzTD"
+       volumeName: "volume2"
+       seed: "seed2"
+     test3:
+       apiKey: "L4SsSE32xxxxxjAgfHCVkdW8xl_CiqMn4Lpc1dzTD"
+       seed: "seed3"  
+```
+{: codeblock}
+
+Where:  
+- Volume Name: is the name you specified when you created the volume on the VPC.
+- Volume ID: is the system-generated volume ID of the created volume.
+- Volume Key: is the unique volume name for each volume.
+
+
+The volume key must be the same as that in the [workload - volumes](#hpcr_contract_volumes) subsection.
 {: note}
 
 As mentioned, you can integrate with Hyper Protect Crypto Services to generate a third seed and wrap it with your root key. See the following example. For more information, See [Securing your data](/docs/vpc?topic=vpc-hyper-protect-virtual-server-mng-data).
@@ -574,14 +620,13 @@ As mentioned, you can integrate with Hyper Protect Crypto Services to generate a
 volumes:
  test:
    kms:
-     - apiKey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+     - apiKey: "L4SsSE32xxxxxjAgfHCVkdW8xl_CiqMn4Lpc1dzTD"
        crn: "crn:v1:bluemix:public:hs-crypto:us-south:a/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:key:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
        type: "public"
-     - apiKey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+     - apiKey: "L4SsSE32xxxxxjAgfHCVkdW8xl_CiqMn4Lpc1dzTD"
        crn: "crn:v1:bluemix:public:hs-crypto:us-south:a/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:key:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
        type: "private"
-   seed:"seed1"
-   previousSeed: "seed"
+   seed: "seed1"
    kmsTimeout: 10
 ```
 {: codeblock}
@@ -631,9 +676,15 @@ The encryption and attestation certificates are signed by the IBM intermediate c
 ### Downloading the encryption certificate and extracting the public key
 {: #encrypt_downloadcert}
 
-1. Download the certificate (for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-12`) that is used to encrypt the contract [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-12-encrypt.crt){: external}.
-   You can download the certificate for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-11` [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-11-encrypt.crt){: external}.
-   {: note}
+1. Download the certificate. The following table lists the expiry dates for the encryption certificates based on the version of the image.
+
+   | Image version| Certificate link | Expiry date |
+   | -------- | ----------- | ----------- |
+   | `ibm-hyper-protect-container-runtime-1-0-s390x-13` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-13-encrypt.crt){: external} | 02 November 2024 |
+   | `ibm-hyper-protect-container-runtime-1-0-s390x-12` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-12-encrypt.crt){: external} | 28 August 2024 |
+   | `ibm-hyper-protect-container-runtime-1-0-s390x-11` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-11-encrypt.crt){: external} | 05 June 2024 |
+   {: caption="Table 1. Attestation certificate expiry dates" caption-side="bottom"}
+
 
 2. Validate the encryption certificate by following the instructions [here](/docs/vpc?topic=vpc-cert_validate#validate_encrypt_cert).
 
@@ -657,10 +708,10 @@ Complete the following steps on an Ubuntu system, to encrypt the workload sectio
 
 2. Create the [workload section](#hpcr_contract_workload) of the contract and add the contents in the `workload.yaml` file.
 
-3. Export the complete path of the `workload.yaml` file and `ibm-hyper-protect-container-runtime-1-0-s390x-12-encrypt.crt`:
+3. Export the complete path of the `workload.yaml` file and `ibm-hyper-protect-container-runtime-1-0-s390x-13-encrypt.crt`:
    ```yaml
    WORKLOAD="<PATH to workload.yaml>"
-   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-12-encrypt.crt>"
+   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-13-encrypt.crt>"
    ```
    {: pre}
 
@@ -670,7 +721,7 @@ Complete the following steps on an Ubuntu system, to encrypt the workload sectio
    ```
    {: pre}
 
-5. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-12-encrypt.crt`:
+5. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-13-encrypt.crt`:
    ```yaml
    ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY -certin | base64 -w0 )"
    ```
@@ -704,10 +755,10 @@ Complete the following steps on an Ubuntu system, to encrypt the `env` section u
 
 1. Create the [`env` section](#hpcr_contract_env) of the contract and add the contents in the `env.yaml` file.
 
-2. Export the complete path of the `env.yaml` file and `ibm-hyper-protect-container-runtime-1-0-s390x-12-encrypt.crt`:
+2. Export the complete path of the `env.yaml` file and `ibm-hyper-protect-container-runtime-1-0-s390x-13-encrypt.crt`:
    ```yaml
    ENV="<PATH to env.yaml>"
-   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-12-encrypt.crt>"
+   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-13-encrypt.crt>"
    ```
    {: pre}
 
@@ -717,7 +768,7 @@ Complete the following steps on an Ubuntu system, to encrypt the `env` section u
    ```
    {: pre}
 
-4. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-12-encrypt.crt`:
+4. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-13-encrypt.crt`:
    ```yaml
    ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY  -certin | base64 -w0)"
    ```
@@ -770,23 +821,24 @@ Complete the following steps on an Ubuntu system, to create the contract signatu
 
 3. Create the `env.yaml` file. The following is an example:
    ```yaml
-   type: env
-   logging:
-     logDNA:
-       hostname: syslog-a.eu-gb.logging.cloud.ibm.com
-       ingestionKey: cfae1522876e860e58f5844a33bdcaa8
-       port: 6514
-   volumes:
-     test:
-       seed: hogwarts
-   signingKey: "-----BEGIN PUBLIC KEY-----\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAvLaeSA8Nc3p99HNUMwon\n5lMMALAsIxRRpWUaEZ5IcUky2sgCi/rSmxU2sm6FK/BmCftk33f5W2BsYHdY9R/0\nELZ9A4POQcJsPF3ronU2QHwnRjcqYuUFXmf1VqfPPLpELriFNoCb2FN2zCa+VUmu\n+fGhroZ3Fr9kBPwJhGr917E5jeCQ+MzsGkulcTvr0SfvThiZQQ/KlU0R35ThamF3\n8C0F5IQBpqDUwDFmWvD5lF2SmprpluDBFEj8LLfLxvW9M2Qwku6nGUnnFReg3vNH\n7IF0SRr1K1AdO5hEmevCdyG9hgTdUY6dXcjntiN/kbqXErILknvzDnb4jyPZZRdK\ndrOzVt8hjbdmkS396SrMFtA++QrV3GNZl5zCscpn6d8S7BEA8mDzroo2UAbrypVP\n9l9AmzUnmnPCpZQySUUHoY0xG2vgMSA50CWH7Uwjmpixr02Td4/LU8fE7NWCO6ci\nx4++ANSaxu+uuZ2Pe1OjjgV98r06ZUs38eaxptLZqLpn3N6w8WAJxGwSLapZwNtP\ng2spUXu2Eh/TN5t4/ly5iXOsyIy8IPtTrUPX7rpaaqFZ72P6BJLj3WLEvOG/eF/8\nBTjrsZAjb8YjkO1uGk10IPa63sniZWe5vlm9w9UKy2uGuy6RhWxwoVHRRbfhboQF\nsO20dsVwgTZn8c46HMD2PoMCAwEAAQ==\n-----END PUBLIC KEY----"
+   env: |
+     type: env
+     logging:
+       logDNA:
+         hostname: syslog-a.eu-gb.logging.cloud.ibm.com
+         ingestionKey: cfae1522876e860e58f5844a33bdcaa8
+         port: 6514
+     volumes:
+       test:
+         seed: hogwarts
+     signingKey: "-----BEGIN PUBLIC KEY-----\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAvLaeSA8Nc3p99HNUMwon\n5lMMALAsIxRRpWUaEZ5IcUky2sgCi/rSmxU2sm6FK/BmCftk33f5W2BsYHdY9R/0\nELZ9A4POQcJsPF3ronU2QHwnRjcqYuUFXmf1VqfPPLpELriFNoCb2FN2zCa+VUmu\n+fGhroZ3Fr9kBPwJhGr917E5jeCQ+MzsGkulcTvr0SfvThiZQQ/KlU0R35ThamF3\n8C0F5IQBpqDUwDFmWvD5lF2SmprpluDBFEj8LLfLxvW9M2Qwku6nGUnnFReg3vNH\n7IF0SRr1K1AdO5hEmevCdyG9hgTdUY6dXcjntiN/kbqXErILknvzDnb4jyPZZRdK\ndrOzVt8hjbdmkS396SrMFtA++QrV3GNZl5zCscpn6d8S7BEA8mDzroo2UAbrypVP\n9l9AmzUnmnPCpZQySUUHoY0xG2vgMSA50CWH7Uwjmpixr02Td4/LU8fE7NWCO6ci\nx4++ANSaxu+uuZ2Pe1OjjgV98r06ZUs38eaxptLZqLpn3N6w8WAJxGwSLapZwNtP\ng2spUXu2Eh/TN5t4/ly5iXOsyIy8IPtTrUPX7rpaaqFZ72P6BJLj3WLEvOG/eF/8\nBTjrsZAjb8YjkO1uGk10IPa63sniZWe5vlm9w9UKy2uGuy6RhWxwoVHRRbfhboQF\nsO20dsVwgTZn8c46HMD2PoMCAwEAAQ==\n-----END PUBLIC KEY----"
    ```
    {: codeblock}
 
-4. Use the following command to export complete path of `env.yaml` and `ibm-hyper-protect-container-runtime-1-0-s390x-12-encrypt.crt`:
+4. Use the following command to export complete path of `env.yaml` and `ibm-hyper-protect-container-runtime-1-0-s390x-13-encrypt.crt`:
    ```sh
    ENV="<PATH to env.yaml>"
-   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-12-encrypt.crt>"
+   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-13-encrypt.crt>"
    ```
    {: pre}
 
@@ -796,7 +848,7 @@ Complete the following steps on an Ubuntu system, to create the contract signatu
    ```
    {: pre}
 
-6. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-12-encrypt.crt.`:
+6. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-13-encrypt.crt.`:
    ```yaml
    ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY  -certin | base64 -w0)"
    ```
