@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2023
 
-lastupdated: "2023-09-22"
+lastupdated: "2023-11-10"
 
 keywords:
 
@@ -140,17 +140,16 @@ For more information, see [About access control lists](/docs/vpc?topic=vpc-using
 To create a virtual server instance in the newly created subnet, use these steps:
 
 1. Click **Compute > Virtual server instances** in the navigation pane and click **Create**.
-1. Select the processor architecture for the virtual server that you want to create. By default, x86 is selected.
 1. For the **Location**, select the geography, region, and zone in which to create the instance.
 1. Enter a name for the instance, such as `my-instance`.
 1. Select a resource group for the instance.
 1. _Optional:_ Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
-1. Click **Change image** to select an image (that is, operating system and version), such as Debian GNU/Linux, _ibm-debian-11-7-minimal-amd64-1_. Alternatively, you can select a snapshot or an existing volume.
+1. Click **Change image** to select an image (that is, operating system and version), such as Debian GNU/Linux, _ibm-debian-11-7-minimal-amd64-2_. On the Select an image page, you can select a stock image, custom image, catalog image, snapshot, or an existing volume. If the geographic location where you are provisioning an instance supports it, you have the option to select the architecture for your virtual server, either *x86* or *s390x*.
 
     _For z/OS Wazi aaS custom image only:_ If you use the custom image that is created by using Wazi Image Builder, select **Custom image** for the operating system and the image is called `wazi-custom-image` by default.
     {: note}
 
-1. To set the instance size, click **Change profile** to choose a profile that contains a combination of core, RAM, and network performance that's most appropriate for your workload. For more information, see [Profiles](/docs/vpc?topic=vpc-profiles).
+1. To set the instance size, click **Change profile** to choose a profile that contains a combination of core, RAM, and network performance that's most appropriate for your workload. For more information, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles) and [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles).
 
     _For z/OS virtual server instances only:_ z/OS virtual server instances require a minimum profile of 2 vCPUs x 16 GB RAM (2x16). One vCPU of the selected profile is reserved for running the service. When you select the profile for any z/OS stock images with RAM smaller than 8 GB, you might encounter the `IAR057D` message. For more information, see [IAR057D](https://www.ibm.com/docs/en/zos/2.5.0?topic=messages-iar057d){: external}.
     {: note}
