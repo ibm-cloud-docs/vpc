@@ -688,19 +688,20 @@ toc:
                 label: FAQs for bare metal servers
                 topics:
                 - bare_metal_server_faq.md
-            - backup_service_vpc_faq.md
             - faq-dedicated-host.md
             - topicgroup:
                 label: FAQs for storage
                 topics:
-                - file_storage_vpc_faqs.md
                 - block_storage_is_faq.md
+                - snapshots_vpc_faqs.md
+                - backup_service_vpc_faq.md
+                - backup_service_vpc_enterprise_faq.md
+                - file_storage_vpc_faqs.md
             - fl-faq.md
             - nlb-faqs.md
             - lb-faqs.md
             - instance_metadata_vpc_faqs.md
             - faqs-placement-groups.md
-            - snapshots_vpc_faqs.md
             - vpe-faqs.md
             - vpn-faqs.md
             - vpn-client-to-site-faqs.md
