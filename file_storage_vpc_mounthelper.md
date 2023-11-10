@@ -55,9 +55,9 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
 ## Installation and configuration of the Mount Helper
 {: #fs-eit-installation}
 
-1. You can either build the mount helper package from source code or download the package directly from GitHub.
-
-    - Build from source code.
+1. [SSH into the Compute instance](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#next-steps-after-creating-virtual-servers-ui) where you want to mount the file share. Then, you can  download the package directly from Github. 
+   <!-- THIS STEP DOES NOT WORK
+     - Build from source code.
 
        - On Debian based instances, run the following commands:
        
@@ -80,13 +80,14 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
          make build-rpm
          ```
          {: pre}
+         -->
 
-    - Download the Mount Helper package from GitHub. 
+1. Download the Mount Helper package from GitHub. 
 
-      ```sh
-       curl -LO https://github.com/IBM/vpc-file-storage-mount-helper/releases/download/latest/mount.ibmshare-latest.tar.gz 
-       ```
-       {: codeblock}
+    ```sh
+    curl -LO https://github.com/IBM/vpc-file-storage-mount-helper/releases/download/latest/mount.ibmshare-latest.tar.gz 
+    ```
+    {: codeblock}
 
 1. Extract the tar file.
    ```sh
@@ -94,11 +95,12 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
    ```
    {: pre}
    
-   The tar file contains the following contents: installation and uninstallation scripts, `mount helper rpm` and `deb` packages, root CA certificates, and configuration file.
+   The tar file contains the following contents: installation and uninstallation scripts, `rpm` and `deb` packages, root CA certificates, and configuration file.
 
    Closed environments: To install Mount Helper on a virtual server instance without internet connection, create or update a local repository on the VSI based on the OS. Copy the Mount Helper package along with its dependencies to the local directory.
    {: note}
 
+<!-- THIS STEP DOES NOT WORK - ibmshare-0.0.1.tar.gz.sha256 is not in the tar
 1. Every installation image is accompanied by a file that contains the checksum value for the image file. For example, the image file ibmshare-0.0.1.tar.gz is accompanied by the ibmshare-0.0.1.tar.gz.sha256 file that contains checksum value. To verify the integrity of the downloaded package, use the following command to verify the file `mount.ibmshare-latest.tar.gz`.
    ```sh
    sha256sum -c mount.ibmshare-latest.tar.gz.sha256
@@ -111,26 +113,28 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
    ./mount.ibmshare-latest.tar.gz: OK
    ```
    {: screen}
+--->
 
-
-1. To install the Mount Helper and all the dependencies, use the following script.
+1. To install the Mount Helper and all the dependencies, use the following script. Specify the region where the file share is going to be mounted. The available regions are `dal`, `fra`, `lon`, `osa`, `sao`, `syd`, `tok`, `tor`, `wdc`.
 
    ```sh
    ./install.sh region=dal
    ```
    {: pre}
 
-   The installation script accepts the command-line argument `region`. Example regions are `dal`, `fra`, `lon`, `osa`, `sao`, `syd`, `tok`, `tor`, `wdc`. This argument is used to copy region-specific root CA cert to the strongSwan certificates location. If no region is specified, then the utility copies all the root CA certs.
+   The `region` argument is used to copy region-specific root CA cert to the strongSwan certificates location. If no region is specified, then the utility copies all the root CA certs.
+   {: note}
 
-1. Update the configuration file `/etc/ibmcloud/share.conf` with region information and with the peer certificate expiration time that you want. By default, certificates last 1 hour and new certificates are fetched every 45 minutes. However, you can modify the `certificate_duration_seconds` option to have a value between 5 minutes and 1 hour.
+1. Optional - By default, certificates last 1 hour and new certificates are fetched every 45 minutes. However, you can modify the `certificate_duration_seconds` option in the configuration file `/etc/ibmcloud/share.conf` to a different time interval. The new value must be between 5 minutes and 1 hour, and expressed in seconds.
    ```sh
    certificate_duration_seconds = 600
    ```
    {: pre}
    
-   This option is specified in seconds. The valid range for its value is 300 - 3600 seconds. The certificates are renewed when the current certs reach 70% of their lifetime.
+   The valid range for `certificate_duration_seconds` value is 300 - 3600 seconds. The certificates are renewed when the current certs reach 70% of their lifetime.
+   {: note}
 
-1. If you want to renew the certs immediately with the new expiration time, then run the following command.
+1. Optional - If you want to renew the certs immediately with the new expiration time, then run the following command.
    ```sh
    /sbin/mount.ibmshare -RENEW_CERTIFICATE_NOW
    ```
@@ -140,6 +144,13 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
 ## Mounting a file share with the Mount Helper
 {: #fs-eit-mount-share}
 
+1. Create a directory in your instance.
+
+   ```sh
+   mkdir /mnt/share-test
+   ```
+   {: pre}
+   
 1. Run the `mount` command with the following syntax.
 
    ```sh
@@ -147,14 +158,23 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
 
    ```
    {: pre}
-
-   See the following example.
-   ```sh 
-   mount -t ibmshare -o secure=true 10.240.0.5:/acdaecff_a291_41bd_87c1_0dde05135d59 /mnt/nfs -v
-   ```
-   {: pre}
    
-   The `ibmshare` in the command is a script that creates the certificate signing request(csr) and calls the Metadata service to get the intermediate cert and end peer certificate. It parses the mount command-line arguments and creates `/etc/swanctl/conf.d/type_ibmshare_.conf`. The strongSwan service uses this configuration file to establish the IPsec connection. Then, the script loads the IPsec connection and calls the NFS `mount` command. 
+   The `ibmshare` in the command is a script that creates the certificate signing request(csr) and calls the Metadata service to get the intermediate cert and end peer certificate. It parses the mount command-line arguments and creates `/etc/swanctl/conf.d/type_ibmshare_.conf`. The strongSwan service uses this configuration file to establish the IPsec connection. Then, the script loads the IPsec connection and calls the NFS `mount` command. A successful response looks like the following example.
+
+   ```sh 
+   [root@my-demo-eit-instance ~]# mount -t ibmshare -o secure=true 10.240.64.5:/0c937ac3_814e_4a7c_99b8_719ec3cad7fd  /mnt/share-test
+   Info  - IpSec using StrongSwan(5.7.2)
+   Debug - RunCmd: /usr/sbin/swanctl --list-conns 
+   Debug - Config data unchanged:/etc/strongswan/swanctl/conf.d/type_ibmshare_10.240.64.5.conf
+   Debug - StrongSwan cleanup config files Total(1) Mounted(0) Deleted(0) Recent(1)
+   Debug - RunCmd: ReloadConfig (/usr/sbin/swanctl --load-all)
+   Debug - File unlocked:/var/lock/ibm_mount_helper.lck
+   Debug - RunCmd: MountCmd (mount -t nfs4 -o sec=sys,nfsvers=4.1,rw 10.240.64.5:/0c937ac3_814e_4a7c_99b8_719ec3cad7fd /mnt/share-test)
+   Debug - RunCmd: LoadCert (openssl x509 -in /etc/strongswan/swanctl/x509ca/type_ibmshare_int.crt -noout -dates -subject -issuer)
+   Debug - RunCmd: LoadCert (openssl x509 -in /etc/strongswan/swanctl/x509ca/type_ibmshare_root_dal.crt -noout -dates -subject -issuer)
+   Share successfully mounted:
+   ```
+   {: screen}
 
 Adding the mount details to the `/etc/fstab` is not recommended. The IPsec connection might not be established in time for the automated `fstab` mount requests.
 {: note}
