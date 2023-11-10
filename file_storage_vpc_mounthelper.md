@@ -55,10 +55,12 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
 ## Installation and configuration of the Mount Helper
 {: #fs-eit-installation}
 
-1. [SSH into the Compute instance](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#next-steps-after-creating-virtual-servers-ui) where you want to mount the file share. Then, you can  download the package directly from Github.
+[SSH into the Compute instance](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#next-steps-after-creating-virtual-servers-ui) where you want to mount the file share. Then, you can  download the package directly from Github, or build the utility from the source code. 
+
+### Downloading the installation package
+{: #download-from-github}
 
 1. Download the Mount Helper package from GitHub. 
-
     ```sh
     curl -LO https://github.com/IBM/vpc-file-storage-mount-helper/releases/download/latest/mount.ibmshare-latest.tar.gz 
     ```
@@ -76,7 +78,6 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
    {: note}
 
 1. To install the Mount Helper and all the dependencies, use the following script. Specify the region where the file share is going to be mounted. The available regions are `dal`, `fra`, `lon`, `osa`, `sao`, `syd`, `tok`, `tor`, `wdc`.
-
    ```sh
    ./install.sh region=dal
    ```
@@ -84,6 +85,24 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
 
    The `region` argument is used to copy region-specific root CA cert to the strongSwan certificates location. If no region is specified, then the utility copies all the root CA certs.
    {: note}
+
+1. Optional - Every installation image is accompanied by a file that contains the checksum value for the image file. For example, the image file ibmshare-0.0.1.tar.gz is accompanied by the ibmshare-0.0.1.tar.gz.sha256 file that contains checksum value. To verify the integrity of the downloaded package, use the following commands.
+   ```sh
+   curl -LO https://github.com/IBM/vpc-file-storage-mount-helper/releases/download/latest/mount.ibmshare-latest.tar.gz.sha256
+   ```
+   {: pre}
+   
+   ```sh
+   sha256sum -c mount.ibmshare-latest.tar.gz.sha256
+   ```
+   {: pre}
+
+   A successful response shows "OK". The output looks like the following example.
+   ```text
+   # sha256sum -c mount.ibmshare-latest.tar.gz.sha256
+   ./mount.ibmshare-latest.tar.gz: OK
+   ```
+   {: screen}
 
 1. Optional - By default, certificates last 1 hour and new certificates are fetched every 45 minutes. However, you can modify the `certificate_duration_seconds` option in the configuration file `/etc/ibmcloud/share.conf` to a different time interval. The new value must be between 5 minutes and 1 hour, and expressed in seconds.
    ```sh
@@ -100,19 +119,37 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
    ```
    {: pre}
 
+### Building the Mount Helper utility from the source code
+{: #build-from-source-code}
+
+- On Debian based instances, run the following commands:
+    ```sh
+    apt-get update -y
+    apt-get install git make python3 -y
+    git clone https://github.com/IBM/vpc-file-storage-mount-helper.git
+    cd vpc-file-storage-mount-helper
+    make build-deb
+    ```
+
+- On RPM based instances, run the following commands:
+   ```sh
+   yum update -y
+   yum install git make python3 rpm-build -y
+   git clone https://github.com/IBM/vpc-file-storage-mount-helper.git
+   cd vpc-file-storage-mount-helper
+   make build-rpm
+   ```
 
 ## Mounting a file share with the Mount Helper
 {: #fs-eit-mount-share}
 
 1. Create a directory in your instance.
-
    ```sh
    mkdir /mnt/share-test
    ```
    {: pre}
    
 1. Run the `mount` command with the following syntax.
-
    ```sh
    mount -t ibmshare -o secure=true  <share-ip>:/<mount-point> /mnt/share-test
    ```
