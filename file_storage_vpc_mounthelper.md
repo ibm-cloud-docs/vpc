@@ -115,7 +115,6 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
 
    ```sh
    mount -t ibmshare -o secure=true  <share-ip>:/<mount-point> /mnt/share-test
-
    ```
    {: pre}
    
