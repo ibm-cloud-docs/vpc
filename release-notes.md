@@ -82,8 +82,7 @@ UI enhancements
 {: release-note}
 
 New regions for ux2d profiles
-:   The Ultra High Memory family of profiles are now available in the Brazil (São Paulo), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions.
-
+:   The Ultra High Memory family of profiles are now available in the Brazil (São Paulo), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions. For more information, see the [Ultra High Memory](/docs/vpc?topic=vpc-profiles&interface=ui#uhmemory) profile information.
 
 ## September 2023
 {: #vpc-sep23}
