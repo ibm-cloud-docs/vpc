@@ -1018,7 +1018,7 @@ If you have correct authorization but you are still getting this error, [contact
 
 You referenced a resource that does not exist or one to which you do not have access. Review your request to ensure that you specified the proper IDs and references.
 
-If the resource is an operating system, you can use the request, `GET /v1/operating_systems` to list valid options.  For more information, see [Retrieves all operating systems](/apidocs/vpc#retrieves-all-operating-systems){: external}.
+If the resource is an operating system, you can use the request, `GET /v1/operating_systems` to list valid options.  For more information, see [Retrieves all operating systems](/apidocs/vpc/latest#retrieves-all-operating-systems){: external}.
 
 Refer to the [API documentation](https://{DomainName}/apidocs/vpc-on-classic){: external} for additional help. If this problem persists, [contact support](/docs/vpc-on-classic?topic=vpc-on-classic-getting-help-and-support).
 

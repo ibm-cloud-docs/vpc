@@ -55,7 +55,7 @@ with your account.
 * Usage Metering ([Endpoint URLs](/apidocs/usage-metering#endpoint))
 * Usage Reports ([Endpoint URLs](/apidocs/metering-reporting#endpoint))
 * User Management ([Endpoint URLs](/apidocs/user-management#endpoint-urls))
-* VPC API ([Endpoint URLs](/apidocs/vpc#endpoint-url)) ([About VPE for VPC](/docs/vpc?topic=vpc-about-vpe))
+* VPC API ([Endpoint URLs](/apidocs/vpc/latest#endpoint-url)) ([About VPE for VPC](/docs/vpc?topic=vpc-about-vpe))
 * Watson Assistant ([Instructions](/docs/watson?topic=watson-virtual-private-endpoints))
 * Watson Discovery ([Instructions](/docs/watson?topic=watson-virtual-private-endpoints))
 * Watson Speech to Text ([Instructions](/docs/watson?topic=watson-virtual-private-endpoints))

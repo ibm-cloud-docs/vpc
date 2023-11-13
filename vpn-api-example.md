@@ -127,7 +127,7 @@ export SubnetId2=<your_subnet_id>
 {: pre}
 
 The following command deploys the VPN gateway in the `Default` resource group. If the second VPC belongs to a different region,
-make sure to update the variable `vpc_api_endpoint`. See the list of [API endpoints](/apidocs/vpc#endpoint-url).
+make sure to update the variable `vpc_api_endpoint`. See the list of [API endpoints](/apidocs/vpc/latest#endpoint-url).
 
 ```bash
 curl -X POST  "$vpc_api_endpoint/v1/vpn_gateways?version=$api_version&generation=2" \

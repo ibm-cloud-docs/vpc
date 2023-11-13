@@ -220,7 +220,7 @@ Make a `POST /shares` request and specify the `encryption_key` parameter to iden
 You can also specify the CRN of a root key from a different account in the `POST /shares` call. For more information, see [About cross-account key access and use](/docs/vpc?topic=vpc-vpc-byok-cross-acct-key&interface=ui#byok-cross-acct-about).
 {: note}
 
-You must provide the `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/apidocs/vpc#api-generation-parameter).
+You must provide the `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/apidocs/vpc/latest#api-generation-parameter).
 {: requirement}
 
 The following example creates a file share with a mount target, and specifies the CRN of the root key for customer-managed encryption.

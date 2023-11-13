@@ -99,7 +99,7 @@ If you do not select at least one security group, it is recommended that you upd
 ### Prerequisite: Configure security groups and rules
 {: #prerequisite-security-groups}
 
-Ensure that the security groups exist that you want to attach to your ALB. Also make sure that their rules are configured for load balancer traffic. If you need to create a security group, follow these steps. Alternatively, you can use [IBM Cloud VPC APIDOCS](/apidocs/vpc#create-security-group) to create a security group.
+Ensure that the security groups exist that you want to attach to your ALB. Also make sure that their rules are configured for load balancer traffic. If you need to create a security group, follow these steps. Alternatively, you can use [IBM Cloud VPC APIDOCS](/apidocs/vpc/latest#create-security-group) to create a security group.
 
 To create a security group using the UI:
 

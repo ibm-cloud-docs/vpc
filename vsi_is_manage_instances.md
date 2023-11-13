@@ -157,7 +157,7 @@ The stop action shuts down the guest operating system and then the virtual serve
 A Force stop action triggers a power cycle reset of the virtual server instance.
 {: note}
 
-For more information, see the [Create instance action](/apidocs/vpc#create-instance-action) in the Virtual Private Cloud API documentation.
+For more information, see the [Create instance action](/apidocs/vpc/latest#create-instance-action) in the Virtual Private Cloud API documentation.
 
 ## Start a virtual server instance using the API
 {: #start-virtual-server-instances-api}
@@ -176,7 +176,7 @@ The stop and start action remotely turns an instance off or on. If the instance 
 stopped state and must be started manually. Billing is [suspended](/docs/vpc?topic=vpc-suspend-billing) for
 some compute resources while the instance is stopped. You cannot interact with an instance if it is stopped. If the instance is started, normal interaction and billing continues.
 
-For more information, see the [Create instance action](/apidocs/vpc#create-instance-action) in the Virtual Private Cloud API documentation.
+For more information, see the [Create instance action](/apidocs/vpc/latest#create-instance-action) in the Virtual Private Cloud API documentation.
 
 ## Reboot a virtual server instance using the UI
 {: #reboot-virtual-server-instances-ui}
@@ -225,7 +225,7 @@ The reboot action triggers a guest operating system reboot. The virtual server i
 A Force reboot action triggers a power cycle reset of the virtual server instance.
 {: note}
 
-For more information, see the [Create instance action](/apidocs/vpc#create-instance-action) in the Virtual Private Cloud API documentation.
+For more information, see the [Create instance action](/apidocs/vpc/latest#create-instance-action) in the Virtual Private Cloud API documentation.
 
 ## Resize a virtual server instance using the UI
 {: #resize-virtual-server-instances-ui}
@@ -300,7 +300,7 @@ curl -X DELETE "$vpc_api_endpoint/v1/instances/$instance_id?version=2021-06-22&g
 
 The delete action permanently removes an instance and its connected vNIC, and data from your account. The instance boot volume is also deleted if the volume auto-delete setting is configured to be deleted when the attached instance is deleted. If an existing boot volume is attached as part of provisioning a virtual server instance, the volume is preserved by default when the instance is deleted. If a boot volume created as part of provisioning a virtual server instance, the volume will be deleted by default when the instance is deleted. After you confirm the delete action, the process to delete the instance and its associated vNIC, boot volume, and data begins. The delete action can take up to 30  minutes, but when the process is complete, the instance no longer appears on the virtual server instances page.
 
-For more information, see the [Delete an instance](/apidocs/vpc#delete-instance) in the Virtual Private Cloud API documentation.
+For more information, see the [Delete an instance](/apidocs/vpc/latest#delete-instance) in the Virtual Private Cloud API documentation.
 
 ## Toggle the auto-deletion of boot volumes attached to an instance using the UI
 {: #auto-delete-toggle-ui}
@@ -352,7 +352,7 @@ curl -X GET "https://us-south.iaas.cloud.ibm.com/v1/instance/profiles/$profile_n
 ```
 {: pre}
 
-For more information, see the [Retrieve an instance profile](/apidocs/vpc#get-instance-profile) in the Virtual Private Cloud API documentation.
+For more information, see the [Retrieve an instance profile](/apidocs/vpc/latest#get-instance-profile) in the Virtual Private Cloud API documentation.
 
 ## Adjusting bandwidth allocation using the UI
 {: #adjusting-bandwidth-allocation-ui}
@@ -478,4 +478,4 @@ ibmcloud is instance-update INSTANCE --total-volume-bandwidth VALUE --host-failu
 {: #set-policy-api}
 {: api}
 
-During instance [update](/apidocs/vpc#update-instances), the `host_failure` sub-property can be used to set the host failure `availability_policy` of the virtual server instance.
+During instance [update](/apidocs/vpc/latest#update-instances), the `host_failure` sub-property can be used to set the host failure `availability_policy` of the virtual server instance.

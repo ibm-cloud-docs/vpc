@@ -140,6 +140,6 @@ curl -X POST \
 ```
 {: codeblock}
 
-For more information, see [Create an instance](/apidocs/vpc#create-instance).
+For more information, see [Create an instance](/apidocs/vpc/latest#create-instance).
 
-For more information about the `$vpc_api_endpoint` and `$iam_token` variables, see the Authentication and Endpoint URLs sections in [Virtual Private Cloud API Introduction](/apidocs/vpc#about-vpc-api).
+For more information about the `$vpc_api_endpoint` and `$iam_token` variables, see the Authentication and Endpoint URLs sections in [Virtual Private Cloud API Introduction](/apidocs/vpc/latest#about-vpc-api).

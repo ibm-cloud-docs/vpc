@@ -107,7 +107,7 @@ For more information about health checks for load balancer pools, see the follow
 - [Working with health checks (ALB)](/docs/vpc?topic=vpc-alb-health-checks)
 - [Working with health checks (NLB)](/docs/vpc?topic=vpc-nlb-health-checks)
 
-Not all network load balancer offerings support integration with instance groups. Before attaching an instange group to a network load balancer pool, ensure that the `instance_groups_supported` property of the [load balancer detail](/apidocs/vpc#get-load-balancer) is `true`.
+Not all network load balancer offerings support integration with instance groups. Before attaching an instange group to a network load balancer pool, ensure that the `instance_groups_supported` property of the [load balancer detail](/apidocs/vpc/latest#get-load-balancer) is `true`.
 {: important}
 
 1. Make sure that you have the required IBM {{site.data.keyword.iamshort}} (IAM) [permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls) to create an instance group.

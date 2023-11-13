@@ -794,7 +794,7 @@ You can add and remove tags when you update a file share with the `ibmcloud is s
 {: #fs-add-tags-api}
 {: api}
 
-When you're working with the API, you must provide the `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/apidocs/vpc#api-generation-parameter).
+When you're working with the API, you must provide the `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/apidocs/vpc/latest#api-generation-parameter).
 {: requirement}
 
 #### Adding a user tag when a file share is created

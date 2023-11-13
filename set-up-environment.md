@@ -93,7 +93,7 @@ If you need to download the IBM Cloud CLI and associated plug-ins, you must be a
 
 Before you can use the API to create your VPC, you must get an IAM token, store the endpoint as a variable, and verify that you have access to the VPC API service.
 
-The following examples use the `us-south` regional endpoint. To view additional API endpoints, see [Virtual Private Cloud API](/apidocs/vpc#api-endpoint).
+The following examples use the `us-south` regional endpoint. To view additional API endpoints, see [Virtual Private Cloud API](/apidocs/vpc/latest#api-endpoint).
 {: note}
 
 ### Step 1: Store your API key as a variable
@@ -161,7 +161,7 @@ For supported endpoint regions, see [Endpoints available](/docs/vpc?topic=vpc-se
 {: #store-api-version-variable}
 
 
-Every API request must include the `version` parameter, in the format `YYYY-MM-DD`. Run the following command to store the version date in a variable so it can be reused in your session. For more information about setting the `version` parameter, see **Versioning** in the [Virtual Private Cloud API](/apidocs/vpc#api-versioning).
+Every API request must include the `version` parameter, in the format `YYYY-MM-DD`. Run the following command to store the version date in a variable so it can be reused in your session. For more information about setting the `version` parameter, see **Versioning** in the [Virtual Private Cloud API](/apidocs/vpc/latest#api-versioning).
 
 ```sh
 api_version="2019-09-30"
@@ -178,7 +178,7 @@ If you run into unexpected results, add the `--verbose` (debug) flag after the `
 
 * Call the GET Regions API to see the regions available for VPC, in JSON format. At least one object should return.
 
-    You must send the `generation` parameter with every API request to specify which generation to use. For generation 2 virtual server instances, specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API](/apidocs/vpc#api-generation-parameter).
+    You must send the `generation` parameter with every API request to specify which generation to use. For generation 2 virtual server instances, specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API](/apidocs/vpc/latest#api-generation-parameter).
     {: important}
 
     ```sh

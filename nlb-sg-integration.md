@@ -103,7 +103,7 @@ If you do not select at least one security group, you should update your default
 
 Ensure that you've created the security groups that you want to attach to your NLB. Also make sure that their rules are configured for load balancer traffic. If you need to create a security group, perform the following procedure.
 
-Alternatively, you can use the [IBM Cloud VPC API](/apidocs/vpc#create-security-group) to create a security group.
+Alternatively, you can use the [IBM Cloud VPC API](/apidocs/vpc/latest#create-security-group) to create a security group.
 {: tip}
 
 To create a security group using the UI:

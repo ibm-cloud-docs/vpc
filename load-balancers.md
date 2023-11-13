@@ -101,7 +101,7 @@ Return).
 ## Related links
 {: #lb-related-links}
 
-* [Load balancer API reference](/apidocs/vpc#list-load-balancers)
+* [Load balancer API reference](/apidocs/vpc/latest#list-load-balancers)
 * [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls)
 * [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-load-balancers)
 * [Quotas](/docs/vpc?topic=vpc-quotas#load-balancer-quotas)

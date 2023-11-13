@@ -79,18 +79,18 @@ Before you use the API to create bare metal server, see the following table for 
 
 | Server detail | Listing options |
 |---------|---------|
-| Image | [List all images](/apidocs/vpc#list-images) |
-| Keys | [List all keys](/apidocs/vpc#list-keys)  \n  \n If you don't have any available SSH keys, use [Create a key](/apidocs/vpc#create-key) to create one. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys).  \n  \n **Note:**  SSH keys can either be RSA or Ed25519. You can generate new RSA key pairs using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images. |
-| Subnet | [List all subnets](/apidocs/vpc#list-subnets) |
-| Security groups (optional) | [List all security groups](/apidocs/vpc#list-security-groups) |
-| Profile | [List all bare metal server profiles](/apidocs/vpc#list-bare-metal-server-profiles) |
-| Zone | [List all regions](/apidocs/vpc#list-regions)  \n [List all zones in a region](/apidocs/vpc#list-region-zones) |
+| Image | [List all images](/apidocs/vpc/latest#list-images) |
+| Keys | [List all keys](/apidocs/vpc/latest#list-keys)  \n  \n If you don't have any available SSH keys, use [Create a key](/apidocs/vpc/latest#create-key) to create one. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys).  \n  \n **Note:**  SSH keys can either be RSA or Ed25519. You can generate new RSA key pairs using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images. |
+| Subnet | [List all subnets](/apidocs/vpc/latest#list-subnets) |
+| Security groups (optional) | [List all security groups](/apidocs/vpc/latest#list-security-groups) |
+| Profile | [List all bare metal server profiles](/apidocs/vpc/latest#list-bare-metal-server-profiles) |
+| Zone | [List all regions](/apidocs/vpc/latest#list-regions)  \n [List all zones in a region](/apidocs/vpc/latest#list-region-zones) |
 {: caption="Table 2. Information that you need to create a bare metal server by using the API" caption-side="bottom"}
 
 ### Creating a bare metal server
 {: #api-request-create-bare-metal-server}
 
-After you have all the information, use the [Create bare metal server](/apidocs/vpc#create-bare-metal-server) API request to create a bare metal server.
+After you have all the information, use the [Create bare metal server](/apidocs/vpc/latest#create-bare-metal-server) API request to create a bare metal server.
 
 * For x86 architecture, you can create a bare metal server with the following example configuration:
 
@@ -295,7 +295,7 @@ After you have all the information, use the [Create bare metal server](/apidocs/
 The status displays "Pending" until the server is created.
 {: tip}
 
-For more information about the API request, see [Create a bare metal server](/apidocs/vpc#create-bare-metal-server).
+For more information about the API request, see [Create a bare metal server](/apidocs/vpc/latest#create-bare-metal-server).
 
 ### Viewing your server
 {: #viewing-bms-api}

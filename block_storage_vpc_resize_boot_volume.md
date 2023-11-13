@@ -209,7 +209,7 @@ curl -X POST "$vpc_api_endpoint/v1/instances?version=2022-02-01&generation=2"\
 ```
 {: codeblock}
 
-For more information, see [Create an instance](/apidocs/vpc#create-instance) in the VPC API reference.
+For more information, see [Create an instance](/apidocs/vpc/latest#create-instance) in the VPC API reference.
 
 ### Increasing capacity of an existing boot volume with the API
 {: #expand-existing-boot-vol-api}
