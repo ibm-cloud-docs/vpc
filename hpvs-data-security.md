@@ -107,6 +107,7 @@ Check logs in Log Analysis if your instance shuts down.
             type: "private"
         seed:"seed1"
         kmsTimeout: 10
+        apiKey: "L4SsSE32xxxxxjAgfHCVkdW8xl_CiqMn4Lpc1dzTD"
     signingKey: "xxxxxxxxx"
 
     workload: |
