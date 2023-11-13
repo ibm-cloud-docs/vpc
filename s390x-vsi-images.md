@@ -40,9 +40,8 @@ You can choose a profile based on your requirements. You can choose from balance
 
 | Image | Architectures |
 |---------|---------|
-| Ubuntu 18.04.x | s390x |
-| SUSE Linux Enterprise server (SLES) 15 SP2 | s390x |
-| RedHat Enterprise Linux (RHEL) 8.4 | s390x |
+| Ubuntu 22.04.x, 20.04.x | s390x |
+| SUSE Linux Enterprise server (SLES) 15 SP3 | s390x |
 | IBM z/OS ({{site.data.keyword.waziaas_full_notm}}) | s390x |
 {: caption="Table 2. Supported s390x stock image operating systems" caption-side="bottom"}
 
@@ -72,8 +71,19 @@ ibm-<family>-<version>-<type>-<architecture>-<build>
 The following example shows the image naming convention.
 
 ```sh
-ibm-hyper-protect-container-runtime-1-0-s390x-12
+ibm-hyper-protect-container-runtime-1-0-s390x-13
 ```
+
+The expiry dates of the images are shown in the following table:
+| Image version| Expiry date |
+| -------- | ----------- |
+| `ibm-hyper-protect-container-runtime-1-0-s390x-13` | 02 November 2024 |
+| `ibm-hyper-protect-container-runtime-1-0-s390x-12` | 28 August 2024 |
+| `ibm-hyper-protect-container-runtime-1-0-s390x-11` | 05 June 2024 |
+{: caption="Table 2. Image expiry dates" caption-side="bottom"}
+
+Images earlier than `ibm-hyper-protect-container-runtime-1-0-s390x-11` have already expired.
+{: note}
 
 The following list explains the variables that make up the components of the image name:
 * The leading prefix of `ibm-` is used for IBM-provided images. Custom images cannot be named with this prefix.
