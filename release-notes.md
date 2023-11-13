@@ -30,8 +30,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## November 2023
 {: #vpc-nov23}
 
-### 10 November 2023
-{: #vpc-nov1023}
+### 13 November 2023
+{: #vpc-nov1323}
 {: release-note}
 
 IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-13` updates
@@ -51,7 +51,7 @@ IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1
 
 Security group integration for network load balancers
  :   For enhanced security, network load balancers can now be associated with security groups. You can associate one or more security groups with a new network load balancer when creating it, as well as associate security groups with your existing network load balancers. For more information, see [Integrating an IBM Cloud Network Load Balancer for VPC with security groups](/docs/vpc?topic=vpc-nlb-integration-with-security-groups).
- 
+
  Very High Memory profiles available in all regions (GA)
 :   The Very High Memory family of profiles are now available in the Spain (Madrid) region. This makes the vx2d profiles available in all regions.
 
@@ -63,10 +63,10 @@ VPNs for VPC: Diagnose unhealthy VPN gateways and servers
 :   When you see an existing VPN gateway or server in a `degraded` or `faulted` state, you can now diagnose the issue. You are presented with reasons for the state and actions to resolve the issue. For more information, see [Diagnosing VPN gateway health](/docs/vpc?topic=vpc-vpn-health), [Diagnosing VPN gateway connection health](/docs/vpc?topic=vpc-vpn-connection-health), and [Diagnosing VPN server health](/docs/vpc?topic=vpc-vpn-server-health).
 
 Next generation instance profiles available in Dallas region (Select Availability)
-:   The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are available as a Select Availability offering in the Dallas region. This new generation features virtual server profile families that hosted exclusively on 4th Generation Intel&reg; Xeon&reg; Scalable processors to provide the most powerful and performant general-purpose profiles available. For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles). In the [Balanced](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) family, see the *bx3d* profiles tab. In the [Compute](/docs/vpc?topic=vpc-profiles&interface=ui#compute) family, see the *cx3d* profiles tab. In the [Memory](/docs/vpc?topic=vpc-profiles&interface=ui#memory) family, see the *mx3d* profiles tab. 3rd generation dedicated host profiles are also available. For more information, see *bx3d*, *cx3d*, and *mx3d* profiles in [x86 dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui). 
+:   The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are available as a Select Availability offering in the Dallas region. This new generation features virtual server profile families that hosted exclusively on 4th Generation Intel&reg; Xeon&reg; Scalable processors to provide the most powerful and performant general-purpose profiles available. For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles). In the [Balanced](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) family, see the *bx3d* profiles tab. In the [Compute](/docs/vpc?topic=vpc-profiles&interface=ui#compute) family, see the *cx3d* profiles tab. In the [Memory](/docs/vpc?topic=vpc-profiles&interface=ui#memory) family, see the *mx3d* profiles tab. 3rd generation dedicated host profiles are also available. For more information, see *bx3d*, *cx3d*, and *mx3d* profiles in [x86 dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui).
 
 UI enhancements
-:   The following enhancements were made to the VPC UI. 
+:   The following enhancements were made to the VPC UI.
 
    * General fixes and updates
    * VPN status reason and suspended status
@@ -147,7 +147,7 @@ File Storage for Bare metal servers for VPC
 {: release-note}
 
 Next generation instance profiles (Beta)
-:   The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are available as a Beta offering to select customers. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel&reg; Xeon&reg; Scalable processors to provide the most powerful and performant general-purpose profiles available. For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles) and the *bx3d* and *mx3d* profiles in the [Balanced](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) and [Memory](/docs/vpc?topic=vpc-profiles&interface=ui#memory) profile families. 
+:   The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are available as a Beta offering to select customers. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel&reg; Xeon&reg; Scalable processors to provide the most powerful and performant general-purpose profiles available. For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles) and the *bx3d* and *mx3d* profiles in the [Balanced](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) and [Memory](/docs/vpc?topic=vpc-profiles&interface=ui#memory) profile families.
 
 ### 22 August 2023
 {: #vpc-august2223}
@@ -236,8 +236,8 @@ IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1
    - **Without** the feature, the data volume that you attach to your instance is encrypted automatically with a LUKS passphrase generated by using the **two** seeds from the `workload` - `volumes` and `env` - `volumes` sections of the contract. **Starting from the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-11`**, Hyper Protect Virtual Servers support integration with the key management service (KMS) Hyper Protect Crypto Services. You can enable the integration by providing KMS configurations in the contract. Your Hyper Protect Virtual Server instance calls Hyper Protect Crypto Services to generate a random value as the third seed and wrap it with your root key. The wrapped seed is stored in the metadata partition of your data volume. The LUKS passphrase is generated by using **three** seeds - the seed in the metadata partition (unwrapped first) and the two seeds from the contract. For more information about how the integration works and detailed instructions, see [Securing your data](/docs/vpc?topic=vpc-hyper-protect-virtual-server-mng-data).
 
    Deploying multiple containers
-   - In the `workload` section of the contract, you can define the workload via Pod descriptors. Each pod can contain one or more container definitions. Previously, only one container described by docker compose was supported. For more information about using Pod descriptors, see the [`play` subsection](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_play). Container images described by Pod descriptors can be [validated by RedHat Simple Signing](/docs/vpc?topic=vpc-about-contract_se#container-image-by-pod-descriptors). 
-   
+   - In the `workload` section of the contract, you can define the workload via Pod descriptors. Each pod can contain one or more container definitions. Previously, only one container described by docker compose was supported. For more information about using Pod descriptors, see the [`play` subsection](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_play). Container images described by Pod descriptors can be [validated by RedHat Simple Signing](/docs/vpc?topic=vpc-about-contract_se#container-image-by-pod-descriptors).
+
    Changes to the attestation document
    - In the attestation document **se-checksums.txt**, `user-data.decrypted` is removed, and `Machine Type/Plant/Serial` (the information required to identify the host machine) is added. For more information, see [Attestation](/docs/vpc?topic=vpc-about-attestation).
 
