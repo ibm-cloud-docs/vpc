@@ -353,7 +353,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
 
 1. Then, make the requests to the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy) to create the service-to-service authorizations for the `is.backup-policy` of enterprise account to interact with the child account's `is.backup`, `is.snapshot`, `is.volume`, and `is.instance` services.
 
-   * Authorize`is.backup-policy` (source) to interact with `is.backup-policy` (target) with the _editor_ role.
+   * Authorize `is.backup-policy` (source) to interact with `is.backup-policy` (target) with the _editor_ role.
 
    ```json
    curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H 
