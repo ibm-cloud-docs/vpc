@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-09-06"
+lastupdated: "2023-11-13"
 
 keywords: snapshots, Block Storage, volumes, cross-regional snapshot, restore volume, copy snapshot
 
@@ -96,7 +96,7 @@ By using the snapshots fast restore feature, you create and keep a clone of the 
 
 The fast restore feature can be enabled in the UI, from the CLI, with the API, or Terraform. In the CLI, API, and Terraform, the responses show `clones`. The UI shows fast restore snapshot clones as fast restore snapshots, but they are the same thing.
 
-Billing for the fast restore feature is set at a flat rate based on instance hours.
+Billing for the fast restore feature is set at a flat rate based on instance hours. The feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots.
 
 For more information, see [Restoring a volume with the fast restore feature](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-use-fast-restore).
 

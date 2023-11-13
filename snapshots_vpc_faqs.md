@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-06-27"
+lastupdated: "2023-11-13"
 
 keywords: Block Storage, snapshots, cross-regional copy, fast restore, backup, restore volume
 
@@ -104,8 +104,7 @@ Cost for snapshots is calculated based on GB capacity that is stored per month, 
 
 Pricing for snapshots is also set by region. For more information, see [Pricing](https://www.ibm.com/cloud/vpc/pricing).
 
-When you use the [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_fast_restore) feature, your existing regional plan is adjusted. Billing for fast restore is based on instance hours.  For more information about the cost of fast restore, see [Pricing](https://www.ibm.com/cloud/vpc/pricing){: external}.
-
+When you use the [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_fast_restore) feature, your existing regional plan is adjusted. Billing for fast restore is based on instance hours. Billing for fast restore is based on instance hours. So the fast restore feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots.
 
 ### Can I add tags to a {{site.data.keyword.block_storage_is_short}} snapshot?
 {: faq}

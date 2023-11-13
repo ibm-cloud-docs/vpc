@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-10-26"
+lastupdated: "2023-11-13"
 
 keywords: Backup, backup snapshot, create backups, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -99,7 +99,7 @@ You can schedule backups in your plan on a daily, weekly, or monthly basis by us
 
 1. Under **Optional**, you can configure two options.
 
-   * **Fast snapshot restore** - When you enable this feature, you must specify the zone or zones where you want [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_fast_restore) enabled. You can also specify the maximum number of fast restore snapshots that you want to retain. Fast restore is billed at an extra rate per hour for each zone in which it is enabled.
+   * **Fast snapshot restore** - When you enable this feature, you must specify the zone or zones where you want [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_fast_restore) enabled. You can also specify the maximum number of fast restore snapshots that you want to retain. Billing for the fast restore feature is set at a flat rate based on instance hours. The feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots.
 
    * **Tagging**, specify more tags that apply to the backup when the plan runs.
       * Select the box to copy all tags from the source volume to all backups.
@@ -446,6 +446,9 @@ Resource type        backup_policy_plan
 {: screen}
 
 For more information about available command options, see [`ibmcloud is backup-policy-plan-create`](/docs/cli?topic=cli-vpc-reference#backup-policy-plan-create).
+
+Billing for the fast restore feature is set at a flat rate based on instance hours. The feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots.
+{: note}
 
 ### Creating a backup plan with cross-regional copy option from the CLI
 {: #backup-create-plan-with-crc-cli}
@@ -812,7 +815,9 @@ A successful response shows that the clone policy is created.
 ```
 {: codeblock}
 
-You can also set up the fast restore option when you create a new backup policy and plan. Specify `clone_policy` as a subproperty of the `plans` property. For more information, see the [Create a backup policy](/apidocs/vpc/latest#create-backup-policy) in the API reference.
+You can also set up the fast restore option when you create a new backup policy and plan. Specify `clone_policy` as a subproperty of the `plans` property.
+
+Billing for the fast restore feature is set at a flat rate based on instance hours. The feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots.
 {: note}
 
 ### Creating a backup plan with cross-regional copy option with the API
@@ -981,6 +986,9 @@ resource "ibm_is_backup_policy_plan" "example" {
 {: codeblock}
 
 For more information about the arguments and attributes, see [ibm_is_backup_policy_plan](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_backup_policy_plan){: external}.
+
+Billing for the fast restore feature is set at a flat rate based on instance hours. The feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots.
+{: note}
 
 ### Creating a backup plan with cross-regional copy option with Terraform
 {: #backup-create-plan-with-crc-terraform}
