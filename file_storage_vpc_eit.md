@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-10-19"
+lastupdated: "2023-11-10"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -17,9 +17,6 @@ subcollection: vpc
 
 You can establish an encrypted mount connection between the virtual server instance and storage system by using the Internet Security Protocol (IPsec) security profile and X.509 certificates. By enabling encryption in transit, you create secure end-to-end encryption for your data.
 {: shortdesc}
-
-Encryption in transit is available in most regions. Support for EIT is not available in the `eu-es` region yet.
-{: restriction}
 
 If you choose to use Encryption-in-transit, you need to balance your requirements between performance and enhanced security. Encrypting data in transit can have some performance impact due to the processing that is needed to encrypt and decrypt the data at the endpoints. The impact depends on the workload characteristics. Workloads that perform synchronous writes or bypass VSI caching, such as databases, might have a substantial performance impact when EIT is enabled. To determine EIT’s performance impact, benchmark your workload with and without EIT. Also, even without EIT, the data is moving through a secure data center network.
 

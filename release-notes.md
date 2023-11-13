@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-11-03"
+lastupdated: "2023-11-10"
 
 keywords:
 
@@ -42,6 +42,23 @@ IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1
 
 :   You can attach multiple volumes when you bring up the virtual server instance. For more information, see [The workload - volumes subsection](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_volumes), and [The env - volumes subsection](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_env_vol).
 
+### 10 November 2023
+{: #vpc-nov1023}
+{: release-note}
+
+IBM Wazi as a Service available in Dallas region
+:   {{site.data.keyword.waziaas_full_notm}} (Wazi aaS) is now available in the US South (Dallas) region in {{site.data.keyword.cloud_notm}}. For more information, see [{{site.data.keyword.waziaas_full_notm}} product page](https://www.ibm.com/cloud/wazi-as-a-service){: external}.
+
+US South (Dallas) region is now available for IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}}
+:   You can now create IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instances on LinuxONE (s390x processor architecture) in the US South (Dallas) region, in addition to Japan (Tokyo), Brazil (São Paulo), Spain (Madrid), Canada (Toronto), United Kingdom (London), and US East (Washington DC) regions. To create IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers), and [IBM Hyper Protect Container Runtime image](/docs/vpc?topic=vpc-vsabout-images#hyper-protect-runtime). A valid contract is required for creating an instance. For more information, see [About the contract](/docs/vpc?topic=vpc-about-contract_se&interface=ui).
+
+US South (Dallas) region is now available for LinuxONE (s390x processor architecture)
+:   You can now create virtual server instances on LinuxONE (s390x processor architecture) in IBM Cloud in the US South (Dallas) region, in addition to Japan (Tokyo), Brazil (São Paulo), Spain (Madrid), Canada (Toronto), United Kingdom (London), and US East (Washington DC) regions. For more information about available LinuxONE (s390x processor architecture) profiles, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles). To create instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
+
+UI enhancement: architecture and image selection when provisioning
+:   When you create resources such as virtual server instances, bare metal servers, and instance templates, the image selection option is now available in an enhanced side panel when you click **Change image**. For virtual server instances and instance templates, you can select from stock images, custom images, catalog images, snapshots, and existing volumes. For bare metal servers, you can select from stock images and custom images. Additionally, architecture selection is now included on the image side panel.
+
+
 ## October 2023
 {: #vpc-oct23}
 
@@ -77,8 +94,7 @@ UI enhancements
 {: release-note}
 
 New regions for ux2d profiles
-:   The Ultra High Memory family of profiles are now available in the Brazil (São Paulo), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions.
-
+:   The Ultra High Memory family of profiles are now available in the Brazil (São Paulo), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions. For more information, see the [Ultra High Memory](/docs/vpc?topic=vpc-profiles&interface=ui#uhmemory) profile information.
 
 ## September 2023
 {: #vpc-sep23}

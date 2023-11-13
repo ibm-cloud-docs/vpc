@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-08-18"
+lastupdated: "2023-11-10"
 
 keywords: image, stock image, linuxone image, hpcr, container runtime, virtual private cloud, virtual server, generation 2, gen 2
 
@@ -46,7 +46,7 @@ You can choose a profile based on your requirements. You can choose from balance
 | IBM z/OS ({{site.data.keyword.waziaas_full_notm}}) | s390x |
 {: caption="Table 2. Supported s390x stock image operating systems" caption-side="bottom"}
 
-The {{site.data.keyword.waziaas_short}} z/OS dev and test stock image is available in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), United Kingdom (London), and US East (Washington DC) regions. For more information, see [{{site.data.keyword.waziaas_full_notm}} documentation](https://www.ibm.com/docs/en/wazi-aas/1.0.0){: external}.
+The {{site.data.keyword.waziaas_short}} z/OS dev and test stock image is available in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), United Kingdom (London), US East (Washington DC), US South (Dallas), and Spain (Madrid) regions. For more information, see [{{site.data.keyword.waziaas_full_notm}} documentation](https://www.ibm.com/docs/en/wazi-aas/1.0.0){: external}.
 {: note}
 
 For information about images for x86 processor architecture, see [x86 virtual server images](/docs/vpc?topic=vpc-about-images).
@@ -100,7 +100,7 @@ The {{site.data.keyword.waziaas_full_notm}} (Wazi aaS) custom image can be creat
 The z/OS Wazi aaS custom image must meet the following requirements:
 * qcow2 format
 * z/OS 2.4 or z/OS 2.5 operating system
-* See [Hardware and software requirements](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=builder-hardware-software-requirements){: external} for required PTF fixes on z/OS and other IBM software products to allow them to run as a guest of alternate IBM hypervisor, IBM Z Hypervisor as a Service (zHYPaaS).
+* See [Prerequisites](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=builder-prerequisites){: external} for required PTF fixes on z/OS and other IBM software products to allow them to run as a guest of alternate IBM hypervisor, IBM Z Hypervisor as a Service (zHYPaaS).
 
 For more information, see [Bringing your own image with Wazi Image Builder](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=bringing-your-own-image-wazi-image-builder){: external}.
 

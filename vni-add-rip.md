@@ -117,4 +117,4 @@ resource "ibm_is_virtual_network_interface_ip" "vni_reservedip" {
 	reserved_ip = ibm_is_subnet_reserved_ip.my_reservedip.reserved_ip
 }
 ```
-{:codeblock}
+{ :codeblock}

@@ -3,7 +3,7 @@
 copyright:
   years: 2022, 2023
 
-lastupdated: "2023-07-11"
+lastupdated: "2023-11-10"
 
 keywords:
 
@@ -97,7 +97,7 @@ IBM Wazi Image Builder is a separately orderable product from [IBM Passport Adva
 The z/OS Wazi aaS custom image must meet the following requirements:
 * qcow2 format
 * z/OS 2.4 or z/OS 2.5 operating system
-* See [Hardware and software requirements](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=builder-hardware-software-requirements){: external} for required PTF fixes on z/OS and other IBM software products to allow them to run as a guest of IBM Z Hypervisor as a Service (zHYPaaS).
+* See [Prerequisites](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=builder-prerequisites){: external} for required PTF fixes on z/OS and other IBM software products to allow them to run as a guest of IBM Z Hypervisor as a Service (zHYPaaS).
 
 For more information, see [Bringing your own image with Wazi Image Builder](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=bringing-your-own-image-wazi-image-builder){: external}.
 

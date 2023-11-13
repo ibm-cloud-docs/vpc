@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-08-15"
+lastupdated: "2023-11-10"
 
 keywords:
 
@@ -112,9 +112,6 @@ For more information about trusted profiles, see [Using a trusted profile to cal
 {: #imd-acquire-certificate}
 
 Instance identity certificates are required to successfully enable and use encryption in transit between virtual server instances and {{site.data.keyword.filestorage_vpc_full}} shares. To generate an instance identity certificate for the instance, make a `POST /instance_identity/v1/certificates` call with the instance identity access token and a certificate signing request (CSR).
-
-This feature is currently not available in the eu-es region. 
-{: restriction}
 
 You can obtain the certificate signing requests (CSRs) from the open-source command-line toolkit, [OpenSSL](https://www.openssl.org/docs/){: external}. 
 

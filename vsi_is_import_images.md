@@ -203,11 +203,8 @@ If you generate a checksum locally for your image before you import it, you can 
 2. On the **Custom images** tab, from your list of custom images, click the name of the custom image that you want to validate.
 3. In the image details side panel, locate the **Checksum (SHA256)** field. You see content similar to, *6809606da67eb83670e6249e54e94043eb43c0471669fb96ea4050c4c07e2df7*.
 
-   <!-- DO NOT MOVE WAZI AAS TO PUBLISH -->
    *For z/OS Wazi aaS custom image only:* You cannot validate the checksum of the imported custom images that are deployed from Wazi Image Builder.
    {: note}
-
-   <!-- DO NOT MOVE WAZI AAS TO PUBLISH -->
 
 4. Compare the Checksum (SHA256) value to the output that is generated when you calculate a checksum for the image locally.
 
