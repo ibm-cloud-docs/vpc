@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-11-10"
+lastupdated: "2023-11-16"
 
 keywords:
 
@@ -29,6 +29,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## November 2023
 {: #vpc-nov23}
+
+### 16 November 2023
+{: #vpc-nov1623}
+{: release-note}
+
+Encryption in transit is now available in Madrid
+:   Encryption in transit for {{site.data.keyword.filestorage_vpc_short}} is now available in the Madrid (eu-es) region in {{site.data.keyword.cloud_notm}}. For more information, see [Encryption in transit](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-eit).
 
 ### 13 November 2023
 {: #vpc-nov1323}
@@ -57,7 +64,6 @@ US South (Dallas) region is now available for LinuxONE (s390x processor architec
 
 UI enhancement: architecture and image selection when provisioning
 :   When you create resources such as virtual server instances, bare metal servers, and instance templates, the image selection option is now available in an enhanced side panel when you click **Change image**. For virtual server instances and instance templates, you can select from stock images, custom images, catalog images, snapshots, and existing volumes. For bare metal servers, you can select from stock images and custom images. Additionally, architecture selection is now included on the image side panel.
-
 
 ## October 2023
 {: #vpc-oct23}
