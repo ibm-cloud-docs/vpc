@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-09-29"
+lastupdated: "2023-11-13"
 
 keywords: backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -236,7 +236,7 @@ provider "ibm" {
 ```
 {: screen}
 
-To apply user tags to a volume, use the `ibm_is_volume` resource. The following example specifies the volume `r010-bdb8fc70-8afb-4622-826a-d65a9fc477a4` and the tags `env:test`, `bkp:test`, and `bcp:test` to be attached to the volume.
+To apply user tags to a volume, use the `ibm_is_volume` resource. The following example specifies the volume `r010-bdb8fc70-8afb-4622-826a-d65a9fc477a4` and the tag `dev:test` to be attached to the volume.
 
 ```terraform
 resource "ibm_is_volume" "example" {
