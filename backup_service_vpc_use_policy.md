@@ -22,8 +22,12 @@ Apply backup policies by adding tags to new or existing {{site.data.keyword.bloc
 {: #backup-gen-proc-tags}
 
 1. [Create a backup policy and plan](/docs/vpc?topic=vpc-create-backup-policy-and-plan).
-2. [Apply backup policy tags](#backup-apply-tags-ui) to your target {{site.data.keyword.block_storage_is_short}} volumes by using the [UI](/docs/vpc?topic=vpc-backup-use-policies&interface=ui#backup-apply-tags-ui), [CLI](/docs/vpc?topic=vpc-backup-use-policies&interface=cli#backup-apply-tags-volumes-cli), or [API](/docs/vpc?topic=vpc-backup-use-policies&interface=api#backup-apply-tags-volumes-api). Go to the {{site.data.keyword.block_storage_is_short}} volume that you want to back up and add at least one tag to it.
-3. Verify that your {{site.data.keyword.block_storage_is_short}} volume is associated with a backup policy. For more information, see [View a list of volumes that have a backup policy](/docs/vpc?topic=vpc-backup-view-policies&interface=ui#backup-view-vol-backup-policies).
+1. Find to the {{site.data.keyword.block_storage_is_short}} volume that you want to back up.
+1. Apply backup policy tags to your target {{site.data.keyword.block_storage_is_short}} volumes by using the console.{: ui}
+1. Apply backup policy tags to your target {{site.data.keyword.block_storage_is_short}} volumes from the CLI.{: cli}
+1. Apply backup policy tags to your target {{site.data.keyword.block_storage_is_short}} volumes with the API.{: api}
+1. Apply backup policy tags to your target {{site.data.keyword.block_storage_is_short}} volumes with Terraform.{: terraform} 
+1. Verify that your {{site.data.keyword.block_storage_is_short}} volume is associated with a backup policy. For more information, see [View a list of volumes that have a backup policy](/docs/vpc?topic=vpc-backup-view-policies&interface=ui#backup-view-vol-backup-policies).
 
 ## Applying tags to {{site.data.keyword.block_storage_is_short}} volumes in the UI
 {: #backup-apply-tags-ui}
@@ -236,7 +240,7 @@ provider "ibm" {
 ```
 {: screen}
 
-To apply user tags to a volume, use the `ibm_is_volume` resource. The following example specifies the volume `r010-bdb8fc70-8afb-4622-826a-d65a9fc477a4` and the tag `dev:test` to be attached to the volume.
+To apply user tags to a volume, use the `ibm_is_volume` resource. The following example specifies the volume `r010-bdb8fc70-8afb-4622-826a-d65a9fc477a4` and the tags `env:test`, `bkp:test`, and `bcp:test` to be attached to the volume.
 
 ```terraform
 resource "ibm_is_volume" "example" {
