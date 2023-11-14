@@ -2,7 +2,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-10-23"
+lastupdated: "2023-11-15"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, very high memory, gpu, sap, olap, oltp, nvidia, cascade lake
 
@@ -332,6 +332,14 @@ When you create a `-v100` or `-a100` GPU profile, keep the following recommendat
 
 #### Special considerations for GPU `-a100` profile
 {: #considerations-gpu-a100-profiles}
+
+The GPU `-a100` profile can be deployed any of the following processors
+- Intel&reg;'s quad processor Xeon® Gold 6342 Ice Lake with 96 cores that are running at a base speed of 2.8 GHz and an all-core turbo frequency of 3.5 GHz
+- Intel&reg;'s second-generation quad processor Xeon&reg; Platinum 8260 Cascade Lake with 96 cores that are running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz
+- Intel&reg;'s quad processor Xeon&reg; Gold 6248 Cascade Lake with 80 cores that are running at a base speed of 2.5 GHz and an all-core turbo frequency of 3.1 GHz
+
+The Intel&reg; Xeon&reg; Platinum 8260 Cascade Lake is only available in the US East(Washington DC) region.
+{: preview}
 
 The GPU `-a100` profile includes the following performance enhancements. These enhancements enable GPUDirect RDMA with higher throughput, lower latency, lower CPU utilization for Machine Learning (ML) and Artificial Intelligence (AI), and High-Performance Compute (HPC) applications.
 
