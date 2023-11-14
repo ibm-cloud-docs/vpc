@@ -34,8 +34,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-nov1623}
 {: release-note}
 
-Encryption in transit is now available in Madrid
-:   Encryption in transit for {{site.data.keyword.filestorage_vpc_short}} is now available in the Madrid (eu-es) region in {{site.data.keyword.cloud_notm}}. For more information, see [Encryption in transit](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-eit).
+Encryption in transit is now available in Spain (Madrid) region
+:   Encryption in transit for {{site.data.keyword.filestorage_vpc_short}} is now available in the Spain (Madrid) region in {{site.data.keyword.cloud_notm}}. For more information, see [Encryption in transit](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-eit).
 
 ### 13 November 2023
 {: #vpc-nov1323}
