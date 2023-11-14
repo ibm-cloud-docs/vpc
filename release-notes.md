@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-11-10"
+lastupdated: "2023-11-15"
 
 keywords:
 
@@ -29,6 +29,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## November 2023
 {: #vpc-nov23}
+
+### 15 November 2023
+{: #vpc-nov1523}
+{: release-note}
+
+GPU A100 profile available on Intel Ice Lake hardware in US East region (LA)
+:   The GPU `a100` profile is now availableon the Intel&reg;'s quad processor Xeon® Gold 6342 Ice Lake with 96 cores that are running at a base speed of 2.8 GHz and an all-core turbo frequency of 3.5 GHz. The Ice Lake processor is only available in the US East (Washington DC) region. For more information, see the [GPU profile family](/docs/vpc?topic=vpc-profiles&interface=ui#gpu) documentation.
 
 ### 13 November 2023
 {: #vpc-nov1323}
