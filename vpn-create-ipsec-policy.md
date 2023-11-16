@@ -24,8 +24,8 @@ You can use custom IPsec policies to define security parameters to use during Ph
 
 To create an IPsec policy by using the UI, follow these steps:
 
-1. From the VPNs for VPC list page, select the **Site-to-site gateways > IPsec policies** tabs. 
-1. Click **Create +** and specify the following information: 
+1. From the VPNs for VPC list page, select the **Site-to-site gateways > IPsec policies** tabs.
+1. Click **Create +** and specify the following information:
    * **Name** - Enter a name for the IPsec policy.
    * **Resource group** - Select the resource group for this IPsec policy.
    * **Region** - Select the region for this IPsec policy.
@@ -43,7 +43,7 @@ To create an IPsec policy by using the UI, follow these steps:
 
 Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 
-To create an IPsec policy by using the CLI, enter the following command:
+To create an IPsec policy from the CLI, enter the following command:
 
 ```sh
 ibmcloud is ipsec-policy-create IPSEC_POLICY_NAME AUTHENTICATION_ALGORITHM ENCRYPTION_ALGORITHM PFS
@@ -59,8 +59,8 @@ Where:
 {: deprecated}
 
 - **IPSEC_POLICY_NAME** - Name of the IPsec policy.
-- **AUTHENTICATION_ALGORITHM** - The authentication algorithm. One of: `sha256`, `sha384`, `sha512`, `disabled`. 
-- **ENCRYPTION_ALGORITHM** - The encryption algorithm. One of: `aes128`, `aes192`, `aes256`, `aes128gcm16`, `aes192gcm16`, `aes256gcm16`. 
+- **AUTHENTICATION_ALGORITHM** - The authentication algorithm. One of: `sha256`, `sha384`, `sha512`, `disabled`.
+- **ENCRYPTION_ALGORITHM** - The encryption algorithm. One of: `aes128`, `aes192`, `aes256`, `aes128gcm16`, `aes192gcm16`, `aes256gcm16`.
 - **PFS** - The Diffie-Hellman group. One of: `disabled`, `group_14`, `group_15`, `group_16`, `group_17`, `group_18`, `group_19`, `group_20`, `group_21`, `group_22`, `group_23`, `group_24`, `group_31`.
 - **--key-lifetime value** - The key lifetime in seconds. Maximum: `86400`, Minimum: `1800`. The default value is `3600`.
 - **--resource-group-id value** - ID of the resource group. This option is mutually exclusive with **--resource-group-name**.
@@ -85,7 +85,7 @@ The `AUTHENTICATION_ALGORITHM` must be `disabled` if and only if `ENCRYPTION_ALG
 {: #vpn-using-api-create-ipsec-policy}
 {: api}
 
-To create an IPsec policy by using the API, follow these steps:
+To create an IPsec policy with the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the right variables.
 
@@ -114,7 +114,7 @@ To create an IPsec policy by using the API, follow these steps:
          }'
    ```
    {: codeblock}
-   
+
 
 ## Creating an IPsec policy by using Terraform
 {: #vpn-using-terraform-create-ipsec-policy}
@@ -138,5 +138,5 @@ See the [Terraform registry](https://registry.terraform.io/providers/IBM-Cloud/i
 {: #vpn-create-ipsec-next-steps}
 
 * [Create an IKE policy](/docs/vpc?topic=vpc-creating-ike-policy) if you decide to use custom IKE policy instead of auto-negotiation.
-* Create a VPN connection if you have not already done so when creating your VPN gateway. If you did not create the VPN connection, you can do so after the VPN gateway is provisioned. For more information, see [Adding connections to a VPN gateway](/docs/vpc?topic=vpc-vpn-adding-connections).  
+* Create a VPN connection if you have not already done so when creating your VPN gateway. If you did not create the VPN connection, you can do so after the VPN gateway is provisioned. For more information, see [Adding connections to a VPN gateway](/docs/vpc?topic=vpc-vpn-adding-connections).
 * For a route-based VPN, select or [create a routing table](/docs/vpc?topic=vpc-create-vpc-routing-table). Then, [create a route using the VPN connection type](/docs/vpc?topic=vpc-create-vpc-route).

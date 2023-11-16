@@ -27,7 +27,7 @@ The IKE Phase 1 and Phase 2 (IPsec) security options that you specify for the co
 
 To add a VPN connection to an existing VPN gateway, follow these steps:
 
-1. Highlight the row of the gateway in the VPN gateways table, then click **New connection** from the Actions menu ![Actions menu](images/overflow.png). 
+1. Highlight the row of the gateway in the VPN gateways table, then click **New connection** from the Actions menu ![Actions menu](images/overflow.png).
 
    Alternatively, on the gateway's details page, you can click **Create +** in the VPN connections section.
    {: note}
@@ -35,8 +35,8 @@ To add a VPN connection to an existing VPN gateway, follow these steps:
 1. Define a connection between this gateway and a network outside your VPC by specifying the following information:
    * **VPN connection name** - Enter a name for the connection, such as `my-connection`.
    * **Peer gateway address** - Specify the IP address of the VPN gateway for the network outside your VPC.
-   * **Preshared key** - Specify the authentication key of the VPN gateway for the network outside your VPC. The preshared key is a string of hexadecimal digits, or a passphrase of printable ASCII characters. To be compatible with most peer gateway types, this string must follow these rules:  
-      * Can be a combination of digits, lower or upper case characters, or the following special characters: `- + & ! @ # $ % ^ * ( ) . , :`  
+   * **Preshared key** - Specify the authentication key of the VPN gateway for the network outside your VPC. The preshared key is a string of hexadecimal digits, or a passphrase of printable ASCII characters. To be compatible with most peer gateway types, this string must follow these rules:
+      * Can be a combination of digits, lower or upper case characters, or the following special characters: `- + & ! @ # $ % ^ * ( ) . , :`
       * The length of the string must be 6 - 128 characters.
       * Cannot start with `0x` or `0s`.
    * **Local IBM CIDRs (Policy-based VPN only)** - Specify one or more CIDRs in the VPC you want to connect through the VPN tunnel.
@@ -55,7 +55,7 @@ To add a VPN connection to an existing VPN gateway, follow these steps:
 
 Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 
-To create a VPN connection by using the CLI, enter the following command:
+To create a VPN connection from the CLI, enter the following command:
 
 ```sh
 ibmcloud is vpn-gateway-connection-create CONNECTION_NAME VPN_GATEWAY_ID PEER_ADDRESS PRESHARED_KEY
@@ -101,7 +101,7 @@ Where:
 
 Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 
-To add a local CIDR to a VPN gateway connection by using the CLI, enter the following command:
+To add a local CIDR to a VPN gateway connection from the CLI, enter the following command:
 
 This command is supported only by policy mode VPN gateway.
    {: note}
@@ -132,7 +132,7 @@ Where:
 
 Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 
-To add a peer CIDR to a VPN gateway connection by using the CLI, enter the following command:
+To add a peer CIDR to a VPN gateway connection from the CLI, enter the following command:
 
 This command is supported only by policy mode VPN gateway.
    {: note}
@@ -161,7 +161,7 @@ Where:
 {: #vpn-using-api-add-connection}
 {: api}
 
-To create a VPN connection by using the API, follow these steps:
+To create a VPN connection with the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the right variables.
 
@@ -175,12 +175,12 @@ To create a VPN connection by using the API, follow these steps:
        {: pre}
 
    * `ikePolicyId` - The unique identifier for this IKE policy
-   
+
       ```sh
       export ikePolicyId=<your_ike_policy_id>
       ```
       {: pre}
-      
+
    * `ipsecPolicyId` - The unique identifier for this IPsec policy
 
        ```sh
@@ -222,7 +222,7 @@ To create a VPN connection by using the API, follow these steps:
 {: #vpn-using-api-vpn-gateway-connection-local-cidr-add}
 {: api}
 
-To add a local CIDR to a VPN gateway connection by using the API, follow these steps:
+To add a local CIDR to a VPN gateway connection with the API, follow these steps:
 
 This API is supported only by policy mode VPN gateway.
    {: note}
@@ -239,21 +239,21 @@ This API is supported only by policy mode VPN gateway.
        {: pre}
 
    * `connectionId` - The unique identifier for this VPN connection
-   
+
       ```sh
       export connectionId=<your_connection_id>
       ```
       {: pre}
-    
+
    * `cidr_prefix` - The prefix address part of the CIDR
-   
+
       ```sh
       export cidr_prefix=<your_cidr_prefix>
       ```
       {: pre}
-    
+
    * `prefix_length` - The prefix length part of the CIDR.
-   
+
       ```sh
       export prefix_length=<your_prefix_length>
       ```
@@ -272,7 +272,7 @@ This API is supported only by policy mode VPN gateway.
 {: #vpn-using-api-vpn-gateway-connection-peer-cidr-add}
 {: api}
 
-To add a peer CIDR to a VPN gateway connection by using the API, follow these steps:
+To add a peer CIDR to a VPN gateway connection with the API, follow these steps:
 
 This API is supported only by policy mode VPN gateway.
    {: note}
@@ -289,21 +289,21 @@ This API is supported only by policy mode VPN gateway.
        {: pre}
 
    * `connectionId` - The unique identifier for this VPN connection
-   
+
       ```sh
       export connectionId=<your_connection_id>
       ```
       {: pre}
-    
+
    * `cidr_prefix` - The prefix address part of the CIDR
-   
+
       ```sh
       export cidr_prefix=<your_cidr_prefix>
       ```
       {: pre}
-    
+
    * `prefix_length` - The prefix length part of the CIDR.
-   
+
       ```sh
       export prefix_length=<your_prefix_length>
       ```
@@ -322,7 +322,7 @@ This API is supported only by policy mode VPN gateway.
 {: #vpn-using-cli-add-terraform}
 {: terraform}
 
-The following example creates a VPN gateway connection. 
+The following example creates a VPN gateway connection.
 
 ```terraform
    resource "ibm_is_vpn_gateway_connection" "is_vpn_gateway_connection" {

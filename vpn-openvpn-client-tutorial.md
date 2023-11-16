@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-07-07"
+  years: 2023
+lastupdated: "2023-10-17"
 
 keywords: 
 subcollection: vpc
@@ -58,7 +58,10 @@ Your VPN server administrator can choose to set up a client certificate, a user 
 {: #configure-client-certificate} 
 {: step}
 
-If your administrator provided a client certificate for certificate-based authentication, you must edit the client profile file, and then add the client certificate into the file using any ASCII editor.
+If your administrator provided a client certificate for certificate-based authentication, you must edit the client profile file (`<vpn_server>.ovpn`), and then add the client certificate into the file using any ASCII editor.
+
+If your administrator used a private certificate, they might have provided you with a client profile that already includes your client certificate and private key. If so, save the client profile file on your system and skip to step 4 to open the OpenVPN client UI and import the file. 
+{: important}
 
 1. Save the client profile (`<vpn_server>.ovpn`) on your system.
 1. Open the file in an ASCII editor and add the client certificate to the end of the client profile. For example, use one of the following methods:

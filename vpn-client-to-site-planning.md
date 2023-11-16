@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-01-13"
+lastupdated: "2023-11-15"
 
 keywords:
 
@@ -20,7 +20,7 @@ Review the following considerations before creating a client-to-site VPN server.
 
 ## Scaling considerations
 {: #scaling-considerations}
- 
+
 The aggregation bandwidth is 600 Mbps for a stand-alone VPN and 1200 Mbps for a high availability VPN server. The maximum number of active clients is 2000. If you require more bandwidth, or have more clients that need to connect with the VPN server, you can create multiple VPN servers in the same VPC, or in different VPCs in different regions.
 
 ## Existing VPC configuration considerations
@@ -65,9 +65,9 @@ You must specify a VPN server certificate during provisioning. You can create a 
    If using the CLI or API, you must specify the certificate's CRN. To obtain the certificate CRN, see [Locating the certificate CRN](/docs/vpc?topic=vpc-client-to-site-authentication#locating-cert-crn).
    {: note}
 
-If the VPN server is using user ID and passcode authentication only, you only need to specify the VPN server certificate, which includes the public/private key and CA certificate. The VPN service gets the public and private keys from the certificate instance and stores them in the VPN server. This CA certificate is also copied in the client profile so that the client can use the CA certificate to verify the VPN server.  
+If the VPN server is using user ID and passcode authentication only, you only need to specify the VPN server certificate, which includes the public/private key and CA certificate. The VPN service gets the public and private keys from the certificate instance and stores them in the VPN server. This CA certificate is also copied in the client profile so that the client can use the CA certificate to verify the VPN server.
 
-If certificate authentication is enabled, you must specify the client CA certificate. The public key and private key are not required. The VPN service gets the client CA certificate from the certificate manager. In turn, the client presents its public key when it connects with the VPN server, and the VPN server uses the CA certificate to verify the public key.  
+If certificate authentication is enabled, you must specify the client CA certificate. The public key and private key are not required. The VPN service gets the client CA certificate from Secrets Manager. In turn, the client presents its public key when it connects with the VPN server, and the VPN server uses the CA certificate to verify the public key.
 
    If the client and VPN server certificate are signed by the same CA, then the administrator can use the same certificate instance when they provision the VPN server.
    {: note}
@@ -79,14 +79,17 @@ For more information, see [Setting up client-to-server authentication](/docs/vpc
 
 As the VPN server administrator, you must choose at least one authentication method and configure it during the VPN server provisioning. You can choose a client certificate, added security with a user ID and passcode, or both types of client authentication.
 
-   Multiple VPN clients can share one client certificate.
-   {: note}
+Multiple VPN clients can share one client certificate.
+{: note}
 
 If you plan to use the client certificate, the user must edit the client profile provided by the server administrator and include the client certificate (also called the public key) and the private key. Note that modification of the client profile is not necessary if using only using "user ID and passcode" client authentication.
 
+When a private certificate is used for client authentication, the administrator does not need to modify the client profile. Instead, the administrator can download the client profile with the merged private certificate and key for all certificates, or select private certificates and download the client profile with the merged private certificate and key for the selected certificates. For more information, see [Setting up a client VPN environment and connecting to a VPN server](/docs/vpc?topic=vpc-vpn-client-environment-setup&interface=ui).
+{: note}
+
 VPN users don't use their password directly to connect to the VPN server. They get the passcode from the IBM Access Manager (IAM) via a browser, and if the MFA is enabled, the MFA enforcement is always done via the browser. The user must configure the MFA properly to make sure the MFA enforcement can be done on the browser. After a user gets the passcode, they input the passcode on the OpenVPN client and initiate the connection.
 
-The VPN server receives the username and passcode from the VPN client and makes an IAM call to verify the passcode and permission with IAM policy.  
+The VPN server receives the username and passcode from the VPN client and makes an IAM call to verify the passcode and permission with IAM policy.
 
 * The passcode is an one-time password. The user MUST re-generate the passcode for re-connection, even if the re-connection is initiated by the VPN server.
 * The SoftLayer MFA is not supported because SoftLayer MFA enforcement is not done via the browser.
@@ -97,9 +100,9 @@ If you use user ID/passcode authentication, maintenance activities force users t
 ### Client certificate revocation lists
 {: #client-certificate-revocation-lists}
 
-Optionally, you can import a certificate revocation list (CRL), which is a time-stamped list of certificates that have been revoked by a certificate authority (CA). A certificate in a certificate revocation list (CRL) might not be expired, but is no longer trusted by the certificate authority that issued the certificate. The VPN client uses this list to validate digital certificates.   
+Optionally, you can import a certificate revocation list (CRL), which is a time-stamped list of certificates that have been revoked by a certificate authority (CA). A certificate in a certificate revocation list (CRL) might not be expired, but is no longer trusted by the certificate authority that issued the certificate. The VPN client uses this list to validate digital certificates.
 
-After you import a CRL, the VPN client uses this list to validate digital certificates. The CRL is saved as a string (not a file) in the system. If you need to download the CRL in the future, it is renamed as  `<vpn_server_name>.pem.`    
+After you import a CRL, the VPN client uses this list to validate digital certificates. The CRL is saved as a string (not a file) in the system. If you need to download the CRL in the future, it is renamed as  `<vpn_server_name>.pem.`
 
 For more information, see [Setting up client-to-server authentication](/docs/vpc?topic=vpc-client-to-site-authentication).
 
@@ -113,7 +116,7 @@ The transport layer oversees the delivery of data from a process on one device t
 
 * **User Datagram Protocol (UDP)**
 
-   The User Datagram Protocol (UDP) is a simple, lightweight protocol with minimum overhead. If a process wants to send a small message and doesn't care about reliability, it can use UDP. Sending a message by using UDP takes much less time than using TCP. It performs little error checking and does not add any advantages to IP services except to provide process-to-process communication instead of host-to-host communication.  
+   The User Datagram Protocol (UDP) is a simple, lightweight protocol with minimum overhead. If a process wants to send a small message and doesn't care about reliability, it can use UDP. Sending a message by using UDP takes much less time than using TCP. It performs little error checking and does not add any advantages to IP services except to provide process-to-process communication instead of host-to-host communication.
 
 * **Transmission Control Protocol (TCP)**
 
@@ -148,3 +151,30 @@ You must provide VPN client software for your users. The following client softwa
 
 VPN client users can choose other OpenVPN-2.4-compatible client software. However, software that is not listed is not guaranteed to work.
 {: tip}
+
+## Setting up a VPN server using Terraform
+{: #vpn-server-setup}
+
+You can use the following Terraform configuration to set up your IBM Cloud VPN server. For more information, see the [IBM Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest).{: external}
+
+To set up a Terraform configuration for VPN server, follow these steps:
+
+1. Create an IBM Cloud Secrets Manager instance with a trial plan.
+1. Generate the server certificate/key and client certificate/key locally, or generate the certificate/keys using the private certificate capability in the IBM Secrets Manager service.
+1. Import the server/client certificate/key to the Secrets Manager instance.
+ 
+   If you are using an IBM Secrets Manager generated private certificate, skip this step.
+   {: note}
+1. Create a VPC with one subnet.
+5. Create another subnet.
+6. Create a security group with inbound and outbound rules to allow all traffic.
+7. Create the VPN server within the subnet, security group, and server/client certificates in the Secerts Manager instance.
+8. Download the VPN client profile and configure the client certicate and key in the client profile. 
+ 
+Then, a user can use the VPN client profile with OpenVPN client to connect their client system to the created VPN server.
+
+To apply the terraform configuration, run the following command with your IBM Cloud API key:
+
+```terraform
+terraform apply --var "ibmcloud_api_key={{YOUR_IBM_CLOUD_API_KEY}}"
+```

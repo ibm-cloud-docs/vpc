@@ -17,7 +17,7 @@ subcollection: vpc
 You can create an IBM Cloud VPN for VPC to securely connect your VPC to another private network, such as an on-premises network or another VPC.
 {: shortdesc}
 
-## Planning considerations
+## Planning considerations for VPN gateways
 {: #planning-considerations-vpn}
 
 Review the following considerations before creating a VPN gateway:
@@ -44,8 +44,8 @@ To create a VPN gateway using the UI:
 1. On the VPNs for VPC page, click **Create** and then select the **Site-to-site** gateway tile.
 1. Specify the following information:
    * **VPN gateway name** - Enter a name for the VPN gateway, such as `my-vpn-gateway`.
-   * **Resource group** - Select a resource group for the VPN gateway.   
-   * **Tags** - Optionally, add tags to identify this VPN gateway.   
+   * **Resource group** - Select a resource group for the VPN gateway.
+   * **Tags** - Optionally, add tags to identify this VPN gateway.
    * **Access management tags** - Optionally, add access management tags to resources to help organize access control relationships. The only supported format for access management tags is `key:value`. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
    * **Region** - Shows the region where the VPC is located and where the VPN gateway will be provisioned.
    * **Virtual Private Cloud** - Select the VPC for the VPN gateway.
@@ -55,8 +55,8 @@ To create a VPN gateway using the UI:
 
     * **VPN connection name** - Enter a name for the connection, such as `my-connection`.
     * **Peer gateway address** - Specify the IP address of the VPN gateway for the network outside your VPC.
-    * **Preshared key** - Specify the authentication key of the VPN gateway for the network outside your VPC. The preshared key is a string of hexadecimal digits, or a passphrase of printable ASCII characters. To be compatible with most peer gateway types, this string must follow these rules:  
-        * Can be a combination of digits, lower or upper case characters, or the following special characters: `- + & ! @ # $ % ^ * ( ) . , :`  
+    * **Preshared key** - Specify the authentication key of the VPN gateway for the network outside your VPC. The preshared key is a string of hexadecimal digits, or a passphrase of printable ASCII characters. To be compatible with most peer gateway types, this string must follow these rules:
+        * Can be a combination of digits, lower or upper case characters, or the following special characters: `- + & ! @ # $ % ^ * ( ) . , :`
         * The length of the string must be 6 - 128 characters.
         * Cannot start with `0x` or `0s`.
 
@@ -84,7 +84,7 @@ To create a VPN gateway using the UI:
 
 Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 
-To create a VPN gateway by using the CLI, enter the following command:
+To create a VPN gateway from the CLI, enter the following command:
 
 ```sh
 ibmcloud is vpn-gateway-create VPN_GATEWAY_NAME SUBNET
@@ -118,7 +118,7 @@ Where:
 {: #vpn-create-api}
 {: api}
 
-To create a policy-based IBM Cloud VPN for VPC by using the API, follow these steps:
+To create a policy-based IBM Cloud VPN for VPC with the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the right variables.
 1. Store any additional variables to be used in the API commands; for example:
@@ -157,7 +157,7 @@ To create a policy-based IBM Cloud VPN for VPC by using the API, follow these st
 
 ## Creating a VPN gateway with Terraform
 {: #vpn-create-terraform}
-{: terraform} 
+{: terraform}
 
 The following example creates a VPN gateway by using Terraform:
 
@@ -179,5 +179,5 @@ After you create a VPN gateway, you can:
 
 * [Create an IKE policy](/docs/vpc?topic=vpc-creating-ike-policy) if you decide to use custom IKE policy instead of auto-negotiation.
 * [Create an IPsec policy](/docs/vpc?topic=vpc-creating-ipsec-policy) if you decide to use custom IPsec policy instead of auto-negotiation.
-* Create a VPN connection if you have not already done so when creating your VPN gateway. If you did not create the VPN connection, you can do so after the VPN gateway is provisioned. For more information, see [Adding connections to a VPN gateway](/docs/vpc?topic=vpc-vpn-adding-connections).  
+* Create a VPN connection if you have not already done so when creating your VPN gateway. If you did not create the VPN connection, you can do so after the VPN gateway is provisioned. For more information, see [Adding connections to a VPN gateway](/docs/vpc?topic=vpc-vpn-adding-connections).
 * For a route-based VPN, select or [create a routing table](/docs/vpc?topic=vpc-create-vpc-routing-table). Then, [create a route using the VPN connection type](/docs/vpc?topic=vpc-create-vpc-route).
