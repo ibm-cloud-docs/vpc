@@ -44,6 +44,13 @@ Client VPN for VPC: Automate the client certificate authentication process for p
 GPU A100 profile available on Intel Ice Lake hardware in US East region (LA)
 :   The GPU `a100` profile is now availableon the Intel&reg;'s quad processor Xeon® Gold 6342 Ice Lake with 96 cores that are running at a base speed of 2.8 GHz and an all-core turbo frequency of 3.5 GHz. The Ice Lake processor is only available in the US East (Washington DC) region. For more information, see the [GPU profile family](/docs/vpc?topic=vpc-profiles&interface=ui#gpu) documentation.
 
+### 16 November 2023
+{: #vpc-nov1623}
+{: release-note}
+
+Encryption in transit is now available in Spain (Madrid) region
+:   Encryption in transit for {{site.data.keyword.filestorage_vpc_short}} is now available in the Spain (Madrid) region in {{site.data.keyword.cloud_notm}}. For more information, see [Encryption in transit](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-eit).
+
 ### 13 November 2023
 {: #vpc-nov1323}
 {: release-note}
@@ -74,7 +81,6 @@ US South (Dallas) region is now available for LinuxONE (s390x processor architec
 
 UI enhancement: architecture and image selection when provisioning
 :   When you create resources such as virtual server instances, bare metal servers, and instance templates, the image selection option is now available in an enhanced side panel when you click **Change image**. For virtual server instances and instance templates, you can select from stock images, custom images, catalog images, snapshots, and existing volumes. For bare metal servers, you can select from stock images and custom images. Additionally, architecture selection is now included on the image side panel.
-
 
 ## October 2023
 {: #vpc-oct23}
