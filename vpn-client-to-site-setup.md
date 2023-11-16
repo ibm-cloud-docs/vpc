@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-10-17"
+lastupdated: "2023-11-16"
 
 keywords:
 
@@ -20,10 +20,10 @@ After you create the VPN server using the newly created certificate, you can set
 
 1. Open the details page of the VPN server and click the **Clients** tab. You can:
    * Download the client profile template (`<vpn_server>.ovpn`) and add your certificate and private key.
-   
+
    Or
-   * For private certificates only, you can either select **All client profiles** to download a client profile with a merged private certificate and key for all certificates, or you can select one or more certificates and then download the client profile with merged private certificate and key for selected certificates. This way, the client profiles are ready for use with the OpenVPN client for users, avoiding having to add keys or distribute certificates manually. 
-   
+   * For private certificates only, you can either select **All client profiles** to download a client profile with a merged private certificate and key for all certificates, or you can select one or more certificates and then download the client profile with merged private certificate and key for selected certificates. This way, the client profiles are ready for use with the OpenVPN client for users, avoiding having to add keys or distribute certificates manually.
+
       Only an administrator with VPN server and Secrets Manager permissions can download client profiles.
       {: important}
 
@@ -35,7 +35,7 @@ After you create the VPN server using the newly created certificate, you can set
    * Download and install an OpenVPN client. For a list of supported OpenVPN clients, see [Supported VPN client software](/docs/vpc?topic=vpc-client-to-site-vpn-planning#vpn-client-software).
    * If using user ID-based authentication, ask users to get an IAM passcode. For instructions, see [Configuring user IDs and passcodes](/docs/vpc?topic=vpc-client-to-site-authentication#client-to-site-configuration-passcode).
    * If using certificate-based authentication, do one of the following:
-      * If you are using a private certificate and downloaded the `vpn-server-name.zip` file, extract the zip file, ensure that the `.ovpn` file contains the merged private certificate and key, then follow the instructions in the `.txt` file. VPN client user do not need to modify the client profile manually. 
+      * If you are using a private certificate and downloaded the `vpn-server-name.zip` file, extract the zip file, ensure that the `.ovpn` file contains the merged private certificate and key, then follow the instructions in the `.txt` file. VPN client user do not need to modify the client profile manually.
       * Otherwise, generate and distribute the client certificate to the VPN client users safely. VPN client users must edit the client profile to add the client certificate into the file.
 
          There are two approaches to adding the client certificate to the end of the client profile.
