@@ -37,19 +37,15 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 Client VPN for VPC: Automate the client certificate authentication process for private certificates 
 : As a VPN server administrator, you were required to download the client profile, manually insert the private certificate into the client profile, and, finally, distribute it to users. Now, when a private certificate is used for client authentication, you can download the client profile with the merged private certificate and key for _all_ or _selected_ private certificates. There is also no need for the VPN client user to modify their client profile manually. For more information, see [Setting up a client VPN environment and connecting to a VPN server](/docs/vpc?topic=vpc-vpn-client-environment-setup).
 
+Encryption in transit is now available in Spain (Madrid) region
+:   Encryption in transit for {{site.data.keyword.filestorage_vpc_short}} is now available in the Spain (Madrid) region in {{site.data.keyword.cloud_notm}}. For more information, see [Encryption in transit](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-eit).
+
 ### 15 November 2023
 {: #vpc-nov1523}
 {: release-note}
 
 GPU A100 profile available on Intel Ice Lake hardware in US East region (LA)
 :   The GPU `a100` profile is now availableon the Intel&reg;'s quad processor Xeon® Gold 6342 Ice Lake with 96 cores that are running at a base speed of 2.8 GHz and an all-core turbo frequency of 3.5 GHz. The Ice Lake processor is only available in the US East (Washington DC) region. For more information, see the [GPU profile family](/docs/vpc?topic=vpc-profiles&interface=ui#gpu) documentation.
-
-### 16 November 2023
-{: #vpc-nov1623}
-{: release-note}
-
-Encryption in transit is now available in Spain (Madrid) region
-:   Encryption in transit for {{site.data.keyword.filestorage_vpc_short}} is now available in the Spain (Madrid) region in {{site.data.keyword.cloud_notm}}. For more information, see [Encryption in transit](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-eit).
 
 ### 13 November 2023
 {: #vpc-nov1323}
