@@ -27,11 +27,11 @@ For more information about changes to the {{site.data.keyword.vpc_short}} API, s
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-cli-rn).
 
-## November 2023
-{: #vpc-nov23}
+## December 2023
+{: #vpc-dec23}
 
-### 17 November 2023
-{: #vpc-nov1723}
+### 15 December 2023
+{: #vpc-dec1523}
 {: release-note}
 
 IBM Wazi as a Service and LinuxONE (s390x processor architecture) dedicated host (LA)
