@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-11-08"
+lastupdated: "2023-11-20"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -680,9 +680,9 @@ The encryption and attestation certificates are signed by the IBM intermediate c
 
    | Image version| Certificate link | Expiry date |
    | -------- | ----------- | ----------- |
-   | `ibm-hyper-protect-container-runtime-1-0-s390x-13` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-13-encrypt.crt){: external} | 02 November 2024 |
-   | `ibm-hyper-protect-container-runtime-1-0-s390x-12` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-12-encrypt.crt){: external} | 28 August 2024 |
-   | `ibm-hyper-protect-container-runtime-1-0-s390x-11` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-11-encrypt.crt){: external} | 05 June 2024 |
+   | `ibm-hyper-protect-container-runtime-1-0-s390x-13` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-13-encrypt.crt){: external} | 05 October 2024 |
+   | `ibm-hyper-protect-container-runtime-1-0-s390x-12` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-12-encrypt.crt){: external} | 08 December 2023 |
+   | `ibm-hyper-protect-container-runtime-1-0-s390x-11` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-11-encrypt.crt){: external} | 08 December 2023 |
    {: caption="Table 1. Attestation certificate expiry dates" caption-side="bottom"}
 
 

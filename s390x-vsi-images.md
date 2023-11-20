@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-11-10"
+lastupdated: "2023-11-20"
 
 keywords: image, stock image, linuxone image, hpcr, container runtime, virtual private cloud, virtual server, generation 2, gen 2
 
@@ -74,15 +74,7 @@ The following example shows the image naming convention.
 ibm-hyper-protect-container-runtime-1-0-s390x-13
 ```
 
-The expiry dates of the images are shown in the following table:
-| Image version| Expiry date |
-| -------- | ----------- |
-| `ibm-hyper-protect-container-runtime-1-0-s390x-13` | 02 November 2024 |
-| `ibm-hyper-protect-container-runtime-1-0-s390x-12` | 28 August 2024 |
-| `ibm-hyper-protect-container-runtime-1-0-s390x-11` | 05 June 2024 |
-{: caption="Table 2. Image expiry dates" caption-side="bottom"}
-
-Images earlier than `ibm-hyper-protect-container-runtime-1-0-s390x-11` have already expired.
+It is recommended that you use the latest images because they are valid for longer and have the latest security fixes. Upgrade to the latest image because the earlier images will expire soon.
 {: note}
 
 The following list explains the variables that make up the components of the image name:
