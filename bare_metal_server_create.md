@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-08-14"
+lastupdated: "2023-11-10"
 
 
 keywords: creating bare metal servers
@@ -34,14 +34,13 @@ Use the following steps to create a bare metal server by using the {{site.data.k
 
 | Field | Value |
 |---|---|
-| Server type | Select the architecture type of your bare metal server. The value can be either Intel (x86 architecture) or IBM LinuxONE (s390x architecture). |
 | Location | Locations are composed of regions (specific geographic areas) and zones (fault tolerant data centers within a region). Select the location where you want your bare metal server. |
 | Name | A name is required for your bare metal server. |
 | Resource group | Select a resource group for the server. |
 | Tags | You can assign labels to your server so that you can easily filter resources in your resource list. |
 | Access management tags | Access management tags help you apply flexible access policies on specific resources. |
-| Operating system | Select the operating system and version from an image.  \n - For x86 architecture, `ibm-esxi-7-amd64-1` installs a licensed ESXi 7.x hypervisor.  \n - For s390x architecture, `sles-15-sp3-metal-s390x` installs a licensed SUSE Linux Enterprise Server 15 SP3 (s390x). `red-8-metal-s390x` installs Red Hat Enterprise Linux 8.x - Minimal Install (s390x) for your bare metal server. |
-| Profile | Select from popular profiles or from all available vCPU and RAM combinations. The profile families are Balanced, Compute, and Memory. For more information, see [Bare metal servers profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile) or [s390x bare metal server profiles](/docs/vpc?topic=vpc-s390x-bare-metal-servers-profile). |
+| Image | Click **Change image** to select an image. On the Select an image page, you can select from all available stock images and custom images. After you select your image, click **Save**. For more information, see [x86-64 bare metal server images](/docs/vpc?topic=vpc-bare-metal-image). |
+| Profile | Click **Change profile** to select from all available vCPU and RAM combinations. The profile families are Balanced, Compute, and Memory. For more information, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile). |
 | SSH key | Select an existing public SSH key or click **Create an SSH key** to create a new one. For more information about creating an SSH key, see [Creating your SSH key by using the UI](/docs/vpc?topic=vpc-ssh-keys&interface=ui#generate-ssh-keys-ui). You must specify at least one SSH key.  \n - For x86 architecture, the SSH key is used to automatically generate a password that is required for accessing VMware&reg; ESXi Direct Console User Interface (DCUI) and the ESXi web client.  \n  \n **Note:**  SSH keys can either be RSA or Ed25519. You can generate new RSA key pairs using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images.  \n - For s390x architecture, SSH keys are used to securely connect to the server after it's running. For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
 | Virtual private cloud | Specify the VPC where you want to create your server. You can use the default VPC, another existing VPC, or you can create a new VPC. |
 | Network interfaces | By default the bare metal server is created with a single primary network interface. You can click the pencil icon to edit the details of the network interface. For example, the subnet or security group that's associated with the interface. To include extra secondary network interfaces, click **New interface**.  \n - For x86 architecture, you can create and assign up to eight PCI network interfaces and up to 20 PCI + VLAN network interfaces for each server. For more information about advanced networking configurations, see [Managing network interfaces for a bare metal server](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers).  \n - For s390x architecture, you can attach up to two network interfaces based on the profile that you choose. For more information, see [Managing network interfaces for a bare metal server](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers).   \n  \n [Select availability]{: tag-green} If your account has special approval to preview the virtual network interface feature, you can select the type of network interface that you want to use. You can select the new option **Network attachment with a virtual network interface** or the legacy option **Instance network interface**. Whichever type of network interface option that you select when you provision, the bare metal server persists through the lifecycle of the bare metal server. You can click **Attach** to create a network attachment with an existing virtual network interface. For more information, see [About virtual network interfaces](/docs/vpc?topic=vpc-vni-about).|
@@ -80,18 +79,18 @@ Before you use the API to create bare metal server, see the following table for 
 
 | Server detail | Listing options |
 |---------|---------|
-| Image | [List all images](/apidocs/vpc#list-images) |
-| Keys | [List all keys](/apidocs/vpc#list-keys)  \n  \n If you don't have any available SSH keys, use [Create a key](/apidocs/vpc#create-key) to create one. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys).  \n  \n **Note:**  SSH keys can either be RSA or Ed25519. You can generate new RSA key pairs using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images. |
-| Subnet | [List all subnets](/apidocs/vpc#list-subnets) |
-| Security groups (optional) | [List all security groups](/apidocs/vpc#list-security-groups) |
-| Profile | [List all bare metal server profiles](/apidocs/vpc#list-bare-metal-server-profiles) |
-| Zone | [List all regions](/apidocs/vpc#list-regions)  \n [List all zones in a region](/apidocs/vpc#list-region-zones) |
+| Image | [List all images](/apidocs/vpc/latest#list-images) |
+| Keys | [List all keys](/apidocs/vpc/latest#list-keys)  \n  \n If you don't have any available SSH keys, use [Create a key](/apidocs/vpc/latest#create-key) to create one. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys).  \n  \n **Note:**  SSH keys can either be RSA or Ed25519. You can generate new RSA key pairs using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images. |
+| Subnet | [List all subnets](/apidocs/vpc/latest#list-subnets) |
+| Security groups (optional) | [List all security groups](/apidocs/vpc/latest#list-security-groups) |
+| Profile | [List all bare metal server profiles](/apidocs/vpc/latest#list-bare-metal-server-profiles) |
+| Zone | [List all regions](/apidocs/vpc/latest#list-regions)  \n [List all zones in a region](/apidocs/vpc/latest#list-region-zones) |
 {: caption="Table 2. Information that you need to create a bare metal server by using the API" caption-side="bottom"}
 
 ### Creating a bare metal server
 {: #api-request-create-bare-metal-server}
 
-After you have all the information, use the [Create bare metal server](/apidocs/vpc#create-bare-metal-server) API request to create a bare metal server.
+After you have all the information, use the [Create bare metal server](/apidocs/vpc/latest#create-bare-metal-server) API request to create a bare metal server.
 
 * For x86 architecture, you can create a bare metal server with the following example configuration:
 
@@ -296,7 +295,7 @@ After you have all the information, use the [Create bare metal server](/apidocs/
 The status displays "Pending" until the server is created.
 {: tip}
 
-For more information about the API request, see [Create a bare metal server](/apidocs/vpc#create-bare-metal-server).
+For more information about the API request, see [Create a bare metal server](/apidocs/vpc/latest#create-bare-metal-server).
 
 ### Viewing your server
 {: #viewing-bms-api}

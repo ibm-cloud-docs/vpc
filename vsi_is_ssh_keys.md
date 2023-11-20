@@ -72,7 +72,7 @@ Make sure that the {{site.data.keyword.cloud_notm}} CLI `vpc-infrastructure` plu
 {: #managing-ssh-keys-by-using-the-api}
 {: api}
 
-You can also manage your SSH keys by using the API. For more information about the `$vpc_api_endpoint` and `$iam_token` variables in the following examples, see the Authentication and Endpoint URLs sections in [Virtual Private Cloud API Introduction](/apidocs/vpc#about-vpc-api).
+You can also manage your SSH keys by using the API. For more information about the `$vpc_api_endpoint` and `$iam_token` variables in the following examples, see the Authentication and Endpoint URLs sections in [Virtual Private Cloud API Introduction](/apidocs/vpc/latest#about-vpc-api).
 
 ## Managing SSH keys by using Terraform
 {: #managing-ssh-keys-by-using-terraform}

@@ -523,7 +523,7 @@ curl -X POST "$vpc_api_endpoint/v1/vpcs?version=$api_version&generation=2" \
 ```
 {: pre}
 
-You must send the `generation` parameter with every API request to specify which generation to use. For generation 2 virtual server instances, specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API](/apidocs/vpc#api-generation-parameter)
+You must send the `generation` parameter with every API request to specify which generation to use. For generation 2 virtual server instances, specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API](/apidocs/vpc/latest#api-generation-parameter)
 {: important}
 
 For the rest of the calls, you need to know the ID of the newly created VPC. Save the ID in a variable, for example:

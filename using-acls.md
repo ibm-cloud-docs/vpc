@@ -275,7 +275,7 @@ ibmcloud is network-acl-rule-add 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3 allow inbo
 These links provide additional information about {{site.data.keyword.cloud_notm}} ACLs for VPC.
 
 * [Network ACL CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#network-acls)
-* [Network ACL API reference](/apidocs/vpc#list-network-acls)
+* [Network ACL API reference](/apidocs/vpc/latest#list-network-acls)
 * [Network ACL required permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls#network-acl-authorizations-required-for-api-and-cli-calls)
 * [Network ACL Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-network-acl)
 * [Network ACL quotas](/docs/vpc?topic=vpc-quotas#acl-quotas)

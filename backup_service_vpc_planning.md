@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-10-26"
+lastupdated: "2023-11-13"
 
 keywords: backup planning, restore volume, restore data
 
@@ -32,7 +32,7 @@ Consider the following prerequisites before you set up the VPC Backup Service.
 | Retention | Determine a retention policy for backups in the backup plan. As subsequent backups are created, keep in mind that you incur costs for each backup that you retain. Deleting older backups keeps costs down. |
 | Backup plans | Decide on the number of backup plans that you need for a policy. For example, you can have separate plans for daily backups, weekly, and monthly. |
 | Interface | Choose the UI, CLI, API, or Terraform for creating and managing your backups. |
-| Billing | Think about the number of backup snapshots that you want to take and other billing considerations as the number of backup snapshots grows. For more information, see the [FAQs](/docs/vpc?topic=vpc-backup-service-vpc-faq&interface=ui#faq-baas-pricing). |
+| Billing | Think about the number of backup snapshots that you want to take and other billing considerations as the number of backup snapshots grows. Billing for the fast restore feature is set at a flat rate based on instance hours. The feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots. For more information, see the [FAQs](/docs/vpc?topic=vpc-backup-service-vpc-faq&interface=ui#faq-baas-pricing). |
 | Volume restore | Evaluate when you might want to restore a volume from a backup. Keep in mind that restoring from a backup is a manual operation and not immediate such as a disaster recovery solution. |
 | Fast-restore | You can create and cache a copy of the backup snapshot in one or more zones of the region where your volume resides. Fast-restore can be used in disaster recovery scenarios when you need to restore volumes in a different zone of the same region. The fast restore feature can achieve a [recovery time objective](#x3167918){: term} (RTO) quicker than restoring from a regular snapshot. Evaluate when to enable snapshots for [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-restore#snapshots-vpc-use-fast-restore).|
 | Cross-regional copy | You can create and store a copy of the backup snapshot in another region, and use it to create volumes in the target region. This feature can be used in disaster recovery scenarios when you need to start your virtual server instance and data volumes in a different region. Think about whether you need to restore data in other regions. |

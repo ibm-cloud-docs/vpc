@@ -149,7 +149,7 @@ Both policy-based and route-based VPNs allow users to connect to multiple remote
 These links provide additional information about IBM Cloud VPN for VPC:
 
 * [VPN CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#vpn-clis)
-* [VPN API reference](/apidocs/vpc#list-ike-policies)
+* [VPN API reference](/apidocs/vpc/latest#list-ike-policies)
 * [VPN Terraform reference](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_vpn_gateway){: external}
 * [Required permissions for VPN resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls)
 * [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-vpns)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-08-10"
+lastupdated: "2023-11-13"
 
 keywords:
 
@@ -34,7 +34,7 @@ Consider the following topics and requisites before you create snapshots.
 | Fast restore | Evaluate when to enable snapshots for [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-restore#snapshots-vpc-use-fast-restore). This feature can be used in disaster recovery scenarios when you need to restore volumes in a different zone of the same region. The fast restore feature can achieve a [recovery time objective](#x3167918){: term} (RTO) quicker than restoring from a regular snapshot. |
 | Cross-regional copy | You can create and store a copy of a snapshot in another region, and use it to create new volumes. By using a copy of a snapshot to create new volumes in the target region, your data can be replicated across regions. This feature can be used in disaster recovery scenarios when you need to start your virtual server instance and data volumes in a different region. Think about whether you need to restore data in other regions. |
 | Virtual server instances | To create a snapshot from a volume that is attached to an instance, verify that the instance is in a running state. \n To create an instance from a snapshot of a boot volume, use a snapshot in the same region. |
-| Billing | Think about the number of snapshots that you want to take. Consider whether you want to create fast-restore clones in other zones of your region. Evaluate if you need cross-regional copies. You're charged for the storage consumption and the data transfer separately. Billing for the fast restore feature is set at a flat rate based on instance hours. For more information, see the [FAQs](/docs/vpc?topic=vpc-snapshots-vpc-faqs#faq-snapshot-pricing). |
+| Billing | Think about the number of snapshots that you want to take. Consider whether you want to create fast-restore clones in other zones of your region. Evaluate if you need cross-regional copies. You're charged for the storage consumption and the data transfer separately. Billing for the fast restore feature is set at a flat rate based on instance hours. The feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots. For more information, see the [FAQs](/docs/vpc?topic=vpc-snapshots-vpc-faqs#faq-snapshot-pricing). |
 | Performance | Review the [performance impacts](/docs/vpc?topic=vpc-snapshots-vpc-restore#snapshots-performance-considerations) for restoring a volume from a snapshot. |
 {: caption="Table 1. Checklist for planning snapshots" caption-side="bottom"}
 

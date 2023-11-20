@@ -2,7 +2,7 @@
 
 copyright:
   years:  2023
-lastupdated: "2023-10-10"
+lastupdated: "2023-10-15"
 
 keywords:
 
@@ -46,3 +46,6 @@ The following table shows the possible VPN server health statuses and a descript
 |Healthy         |No abnormal behavior detected.|
 |Inapplicable    |The health state doesn't apply because of the current lifecycle status of the resource. For example, a lifecycle status of `deleting` will have a health state of `inapplicable`.|
 {: caption="Table 2: Health status descriptions" caption-side="bottom"}
+
+For error codes, reasons for failure, and suggested solutions for recovery, see [Diagnosing VPN server health](/docs/vpc?topic=vpc-vpn-server-health).
+{: note}

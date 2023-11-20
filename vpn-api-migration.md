@@ -15,7 +15,7 @@ subcollection: vpc
 # Updating to the version `2023-10-10` (VPN)
 {: #2023-10-10-migration-vpn}
 
-As described in the [VPC API](/apidocs/vpc/latest) reference [versioning](/apidocs/vpc#api-versioning) policy, most changes to the VPC APIs are fully backward compatible and are made available to all clients, regardless of the API version the client requests. However, the `2023-10-10` release of the VPC API necessitated incompatible changes in support of the health diagnostics feature for VPN gateways.
+As described in the [VPC API](/apidocs/vpc/latest) reference [versioning](/apidocs/vpc/latest#api-versioning) policy, most changes to the VPC APIs are fully backward compatible and are made available to all clients, regardless of the API version the client requests. However, the `2023-10-10` release of the VPC API necessitated incompatible changes in support of the health diagnostics feature for VPN gateways.
 
 Before you adopt release version `2023-10-10` or later, be aware of the following change, which might require you to update your client:
 

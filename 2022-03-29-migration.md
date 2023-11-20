@@ -15,7 +15,7 @@ subcollection: vpc
 # Updating to the version `2022-03-29` (network interfaces, security groups)
 {: #2022-03-29-migration}
 
-As described in [Versioning](/apidocs/vpc#api-versioning){: external}, most changes to the VPC APIs are fully backward compatible and therefore are made available to all clients, regardless of the API version the client requests. However, the `2022-03-29` release of the VPC API necessitated incompatible changes in support of the reserved IP addresses feature:
+As described in [Versioning](/apidocs/vpc/latest#api-versioning){: external}, most changes to the VPC APIs are fully backward compatible and therefore are made available to all clients, regardless of the API version the client requests. However, the `2022-03-29` release of the VPC API necessitated incompatible changes in support of the reserved IP addresses feature:
 
 - IP addresses are now modeled as objects (resources), rather than strings.
 - Security groups must now be associated with targets rather than network interfaces.

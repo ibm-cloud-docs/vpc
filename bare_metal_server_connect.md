@@ -219,7 +219,7 @@ You need the following information to attach a floating IP to a network interfac
 * Network interface ID 
 * Floating IP ID 
 
-Use the [List all network interfaces](/apidocs/vpc#list-bare-metal-server-network-interfaces) command to find the ID of the network interface. Use the [List all floating IP](/apidocs/vpc#list-floating-ips) command to find the reserved floating IP IDs, or, use the [Reserve a floating IP](/apidocs/vpc#create-floating-ip) command to reserve a new one. 
+Use the [List all network interfaces](/apidocs/vpc/latest#list-bare-metal-server-network-interfaces) command to find the ID of the network interface. Use the [List all floating IP](/apidocs/vpc/latest#list-floating-ips) command to find the reserved floating IP IDs, or, use the [Reserve a floating IP](/apidocs/vpc/latest#create-floating-ip) command to reserve a new one. 
 {: tip}
 
 After you collect all the required information, use the following API request to attach the floating IP to the bare metal server:

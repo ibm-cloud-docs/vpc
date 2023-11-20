@@ -239,7 +239,7 @@ To view a route on a VPN server with the API, follow these steps:
    ```
    {: codeblock}
 
-1. Perform a GET on `/vpn_servers/{vpn_server_id}/routes/{id}`. For details, see [`list_vpn-server_routes`](/apidocs/vpc#list_vpn_server_routes).
+1. Perform a GET on `/vpn_servers/{vpn_server_id}/routes/{id}`. For details, see [`list_vpn-server_routes`](/apidocs/vpc/latest#list_vpn_server_routes).
 
    ```sh
    curl -sS -X GET \

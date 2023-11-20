@@ -22,7 +22,7 @@ To make API calls, you must use a REST client. For example, you can use a `curl`
 curl -X GET "$vpc_api_endpoint/v1/load_balancers?version=$api_version&generation=2" -H "Authorization: $iam_token"
 ```
 
-For detailed information on APIs available for application load balancers in your VPC environment, see the load balancers section in the [VPC API reference](/apidocs/vpc#list-all-load-balancers).
+For detailed information on APIs available for application load balancers in your VPC environment, see the load balancers section in the [VPC API reference](/apidocs/vpc/latest#list-all-load-balancers).
 
 In the following example, use the API to create an application load balancer in front of two VPC virtual server instances (`192.168.100.5` and `192.168.100.6`) running a web application that listens on port `80`. The load balancer has a front-end listener, which allows secure access to the web application by using HTTPS. You can use the API to get details of the load balancer after it is created, and to delete the load balancer.
 

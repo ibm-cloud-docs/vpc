@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-09-15"
+lastupdated: "2023-11-07"
 
 keywords: dynamic registry reference for hyper protect virtual server for vpc
 
@@ -18,8 +18,7 @@ subcollection: vpc
 The documentation walks you through how to use a dynamic registry reference in the [contract](/docs/vpc?topic=vpc-about-contract_se).
 {: shortdesc}
 
-Ensure that your configuration does not use a private cloud registry if you are adhering to Financial services (FS) cloud compliance. For more information, see [this](https://www.ibm.com/docs/en/hpvs/2.1.x?topic=servers-using-dynamic-registry-reference#dynamic-registry-reference).
-{: important}
+
 
 ## Explicit registry reference
 {: #explicit-registry-reference}
@@ -75,13 +74,14 @@ The pull credentials are passed in via an `auth` section in the environment part
 
 ```yaml
 ---
-env:
-  type: env
-  auths:
-    de.icr.io:
-      username: xxx
-      password: yyy
+  ---
   env:
-    REGISTRY: de.icr.io
+    type: env
+    auths:
+      de.icr.io:
+        username: xxx
+        password: yyy
+    env:
+      REGISTRY: de.icr.io
 ```
 {: codeblock}

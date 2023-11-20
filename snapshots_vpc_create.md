@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-06-27"
+lastupdated: "2023-11-13"
 
 keywords: snapshots, Block Storage, snapshot clone, remote copy, fast restore, Block Storage snapshot, cross-regional snapshot
 
@@ -70,6 +70,9 @@ In the console, you can create a snapshot of a {{site.data.keyword.block_storage
 2. Scroll to the **Fast restore** card and click **Edit**.
 3. In the side panel, select the zones where you want to enable fast restore clones.
 4. Click **Save**.
+
+Billing for the fast restore feature is set at a flat rate based on instance hours. The feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots.
+{: note}
 
 ## Create cross-regional copy from the Snapshots for VPC list
 {: #crsnapshots-vpc-create-ui}
@@ -234,6 +237,9 @@ Available   true
 Created     2023-02-17T20:29:21+00:00
 ```
 {: screen}
+
+Billing for the fast restore feature is set at a flat rate based on instance hours. The feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots.
+{: note}
 
 ## Creating cross-regional copy of a snapshot from the CLI
 {: #snapshots-vpc-create-crcopy}
@@ -457,6 +463,9 @@ A successful response indicates that the clone was created in the specified zone
 ```
 {: codeblock}
 
+Billing for the fast restore feature is set at a flat rate based on instance hours. The feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots.
+{: note}
+
 ## Creating a cross-regional copy of a snapshot with the API
 {: #snapshots-vpc-create-snaphot-copy-api}
 {: api}
@@ -615,6 +624,9 @@ resource "ibm_is_snapshot" "example_clones" {
 {: codeblock}
 
 For more information about the arguments and attributes, see [ibm_is_snapshot](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_snapshot){: external}.
+
+Billing for the fast restore feature is set at a flat rate based on instance hours. The feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots.
+{: note}
 
 ## Create a cross-regional copy of a snapshot with Terraform
 {: #snapshots-vpc-create-snaphot-copy-terraform}

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2022, 2023
-lastupdated: "2023-09-21"
+lastupdated: "2023-11-10"
 
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, storage optimized
@@ -34,7 +34,9 @@ The following profile families are available:
 | [Memory](#vs-memory) | Memory profiles offer a core to RAM ratio 1 vCPU to 8 GiB of RAM ratio and are best for memory caching and real-time analytics workloads. Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads. |
 {: caption="Table 1. Virtual server family selections" caption-side="bottom"}
 
-s390x processor architecture profiles can be used to provision {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}}, LinuxONE virtual server instances, and z/OS virtual server instances. For the  LinuxONE virtual server instances, these profiles are available in Japan (Tokyo), Brazil (São Paulo), Spain (Madrid), Canada (Toronto), United Kingdom (London), and US East (Washington DC) regions. For the z/OS virtual server instances, these profiles are available in Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), United Kingdom (London), and US East (Washington DC) regions.
+s390x processor architecture profiles can be used to provision {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}}, LinuxONE virtual server instances, and z/OS virtual server instances.
+
+For the  LinuxONE virtual server instances, these profiles are available in the US South (Dallas), Japan (Tokyo), Brazil (São Paulo), Spain (Madrid), Canada (Toronto), United Kingdom (London), and US East (Washington DC) regions. For the z/OS virtual server instances, these profiles are available in Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), United Kingdom (London), and US East (Washington DC) regions.
 {: preview}
 
 ## Balanced
@@ -233,9 +235,9 @@ ibmcloud is instance-profiles
 {: #vs-profiles-using-api}
 {: api}
 
-To view the list of available instance profiles by using the API, you can call the [List all instance profiles API](/apidocs/vpc#list-instance-profiles).
+To view the list of available instance profiles by using the API, you can call the [List all instance profiles API](/apidocs/vpc/latest#list-instance-profiles).
 
-The following request example lists the available instance profiles. When you call the API, replace the API endpoint and IAM token with the values from your enterprise. For more information about the `$vpc_api_endpoint` and `$iam_token` variables, see the Authentication and Endpoint URLs sections in [Virtual Private Cloud API Introduction](/apidocs/vpc#about-vpc-api).
+The following request example lists the available instance profiles. When you call the API, replace the API endpoint and IAM token with the values from your enterprise. For more information about the `$vpc_api_endpoint` and `$iam_token` variables, see the Authentication and Endpoint URLs sections in [Virtual Private Cloud API Introduction](/apidocs/vpc/latest#about-vpc-api).
 
 ```sh
 curl -X GET \

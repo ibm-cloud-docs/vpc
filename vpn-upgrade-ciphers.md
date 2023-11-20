@@ -26,8 +26,8 @@ As of 20 September 2022, the following VPN IKE and IPsec ciphers are deprecated:
 
 Effective 17 January 2023, these ciphers are no longer supported in the UI. You must transition to more secure ciphers as soon as possible; otherwise:
 
-* VPN connections that use deprecated ciphers stop working. 
-* VPN connections that use an auto-negotiation policy are forced to upgrade to the [enhanced auto-negotiation policy](/docs/vpc?topic=vpc-using-vpn#policy-negotiation). 
+* VPN connections that use deprecated ciphers stop working.
+* VPN connections that use an auto-negotiation policy are forced to upgrade to the [enhanced auto-negotiation policy](/docs/vpc?topic=vpc-using-vpn#policy-negotiation).
 * VPN connections that use custom IKE or IPsec policies that contain deprecated ciphers are disabled.
 
 To prevent affected connections from becoming disconnected, take steps to upgrade your VPN connection to secure ciphers now. Also, if your disaster recovery plan or API/CLI-based automation references these deprecated ciphers, take steps to upgrade them.
@@ -41,14 +41,14 @@ Complete the following procedure to upgrade your VPN to the enhanced auto-negoti
 ### Before you begin
 {: #upgrade-vpn-old-auto-before-begin}
 
-You will experience a network outage during the upgrade. The duration of the outage depends on the interval between the disable and re-enable actions to reestablish the VPN connection. It is recommended that you plan a maintenance window for this upgrade. 
+You will experience a network outage during the upgrade. The duration of the outage depends on the interval between the disable and re-enable actions to reestablish the VPN connection. It is recommended that you plan a maintenance window for this upgrade.
 {: important}
 
 Before you upgrade, review the following information:
 
 * By default, the new auto-negotiation policy is used for newly created VPN connections. For more information, see [About policy negotiation](/docs/vpc?topic=vpc-using-vpn#policy-negotiation).
-* Because IBM Cloud auto-negotiation uses IKEv2, the on-prem device must also use IKEv2. If your on-prem device does not support IKEv2, see [upgrading VPN from a custom IKE or IPsec policy](/docs/vpc?topic=vpc-upgrading-weak-ciphers#upgrade-vpn-with-custom-policy). 
-* It is a good idea to first configure your on-prem VPN gateway peer to replace the weak ciphers for Phase 1 and Phase 2 negotiation with the secure ciphers that are described in [policy negotiation](/docs/vpc?topic=vpc-using-vpn#policy-negotiation). Then, upgrade the VPN gateway to use the enhanced auto-negotiation policy. This step might also reduce the outage time. 
+* Because IBM Cloud auto-negotiation uses IKEv2, the on-prem device must also use IKEv2. If your on-prem device does not support IKEv2, see [upgrading VPN from a custom IKE or IPsec policy](/docs/vpc?topic=vpc-upgrading-weak-ciphers#upgrade-vpn-with-custom-policy).
+* It is a good idea to first configure your on-prem VPN gateway peer to replace the weak ciphers for Phase 1 and Phase 2 negotiation with the secure ciphers that are described in [policy negotiation](/docs/vpc?topic=vpc-using-vpn#policy-negotiation). Then, upgrade the VPN gateway to use the enhanced auto-negotiation policy. This step might also reduce the outage time.
 
 For an existing VPN connection that uses the old auto-negotiation policy (created before 20 September 2022), complete the following steps to upgrade to the new auto-negotiation policy.
 
@@ -70,12 +70,12 @@ To upgrade the auto-negotiation policy by using the UI, follow these steps:
 
 Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 
-To upgrade the auto-negotiation policy by using the CLI, follow these steps:
+To upgrade the auto-negotiation policy from the CLI, follow these steps:
 
 1. Store the VPN gateway ID (or name) and VPN connection ID (or name) variables to be used in the CLI command, for example:
 
    `vpn_gateway` - Find the VPN gateway ID (or name) by using the [get VPN gateways](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference&interface=cli#vpn-gateways) command, and then populate the variable.
-   
+
    `connection` - Find the VPN gateway connection ID (or name) by using the [get VPN gateway connections](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference&interface=cli#vpn-gateway-connections) command, and then populate the variable.
 
     ```sh
@@ -110,14 +110,14 @@ To upgrade the auto-negotiation policy by using the CLI, follow these steps:
 {: #upgrade-vpn-old-auto-procedure-ui-api}
 {: api}
 
-To upgrade the auto-negotiation policy by using the API, follow these steps:
+To upgrade the auto-negotiation policy with the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the correct variables.
 
 1. Store the VPN gateway ID and VPN connection ID in variables to be used in the API, for example:
 
    `vpn_gateway_id` - Find the VPN gateway ID by using the [get VPN gateways](/apidocs/vpc/latest#list-vpn-gateways) API, and then populate the variable.
-   
+
    `vpn_connection_id` - Find the VPN gateway connection ID by using the [get VPN gateway connections](/apidocs/vpc/latest#list-vpn-gateway-connections) API, and then populate the variable.
 
     ```sh
@@ -167,7 +167,7 @@ To upgrade the auto-negotiation policy by using the SDK, follow these Go languag
 1. Store the VPN gateway ID and VPN connection ID variables to be used in your SDK, for example:
 
    `gatewayID` - Find the VPN gateway ID by using the [get VPN gateways](/apidocs/vpc/latest?code=go#list-vpn-gateways) command, and then populate the variable:
-   
+
    `connID` - Find the VPN gateway connection ID by using the [get VPN gateway connections](/apidocs/vpc/latest?code=go#list-vpn-gateway-connections) command, and then populate the variable:
 
     ```go
@@ -278,7 +278,7 @@ For more information, see the [Terraform registry](https://registry.terraform.io
 ## Upgrading a VPN from a custom IKE or IPsec policy
 {: #upgrade-vpn-with-custom-policy}
 
-Complete the following procedure to upgrade a VPN from a custom IKE or IPsec policy. 
+Complete the following procedure to upgrade a VPN from a custom IKE or IPsec policy.
 
 ### Before you begin
 {: #upgrade-vpn-custom-policy-before-begin}
@@ -322,12 +322,12 @@ To upgrade a custom IPsec policy by using the UI, follow these steps:
 
       The authentication is `disabled` when combined-mode encryption `aes128gcm16`, `aes192gcm16`, or `aes256gcm16` is selected.
       {: note}
-      
+
    * **Diffie-Hellman Group (if PFS is enabled)** - DH group to use for IKE Phase 2 key exchange. One of: `group_14`, `group_15`, `group_16`, `group_17`, `group_18`, `group_19`, `group_20`, `group_21`, `group_22`, `group_23`, `group_24`, `group_31`.
 
       The Diffie-Hellman Group is `disabled` when PFS is disabled.
       {: note}
-      
+
 1. Click **Save**.
 
 ### Upgrading a VPN from a custom IKE policy from the CLI
@@ -336,7 +336,7 @@ To upgrade a custom IPsec policy by using the UI, follow these steps:
 
 Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 
-To upgrade a custom IKE policy by using the CLI, following these steps:
+To upgrade a custom IKE policy from the CLI, following these steps:
 
 1. Find and store the IKE policy ID or name variable to be used in your CLI code, for example:
 
@@ -349,10 +349,10 @@ To upgrade a custom IKE policy by using the CLI, following these steps:
 
 1. Find and replace IKE policies **authentication_algorithm**, **dh_group**, and **encryption_algorithm** to use secure ciphers, and populate these variables in your CLI code.
 
-   `authentication_algorithm` - The authentication algorithm. One of: `sha256`, `sha384`, `sha512`. 
-   
+   `authentication_algorithm` - The authentication algorithm. One of: `sha256`, `sha384`, `sha512`.
+
    `dh_group` - The Diffie-Hellman group. One of: `14`, `15`, `16`, `17`, `18`, `19`, `20`, `21`, `22`, `23`, `24`, `31`.
-   
+
    `encryption_algorithm` - The encryption algorithm. One of: `aes128`, `aes192`, `aes256`.
 
     ```sh
@@ -394,7 +394,7 @@ To upgrade a custom IKE policy by using the CLI, following these steps:
 
 Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 
-To upgrade a custom IPsec policy by using the CLI, follow these steps:
+To upgrade a custom IPsec policy from the CLI, follow these steps:
 
 1. Find and store the IPsec policy ID (or name) variable to be used in your CLI code, for example:
 
@@ -408,9 +408,9 @@ To upgrade a custom IPsec policy by using the CLI, follow these steps:
 1. Find and replace IPsec policies **authentication_algorithm**, **dh_group**, and **encryption_algorithm** to use secure ciphers, and populate these variables in your CLI code.
 
    `authentication_algorithm` - The authentication algorithm. One of: `sha256`, `sha384`, `sha512`.
-   
+
    `pfs` - Perfect Forward Secrecy. One of: `disabled`, `group_14`, `group_15`, `group_16`, `group_17`, `group_18`, `group_19`, `group_20`, `group_21`, `group_22`, `group_23`, `group_24`, `group_31`.
-   
+
    `encryption_algorithm` - The encryption algorithm. One of: `aes128`, `aes192`, `aes256`.
 
       The `authentication_algorithm` must be `disabled` if and only if `encryption_algorithm` is `aes128gcm16`, `aes192gcm16`, or `aes256gcm16`.
@@ -455,7 +455,7 @@ To upgrade a custom IPsec policy by using the CLI, follow these steps:
 
 Before you begin, make sure to [set up your API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
 
-To upgrade a custom IKE policy by using the API, follow these steps:
+To upgrade a custom IKE policy with the API, follow these steps:
 
 1. Find and store the IKE policy ID variable to be used in your API code, for example:
 
@@ -470,11 +470,11 @@ To upgrade a custom IKE policy by using the API, follow these steps:
     {: codeblock}
 
 1. Find and replace IKE policies **authentication_algorithm**, **dh_group**, and **encryption_algorithm** to use secure ciphers, and populate these variables in your API code.
- 
+
    `authentication_algorithm` - The authentication algorithm. One of: `sha256`, `sha384`, `sha512`.
-   
+
    `dh_group` - The Diffie-Hellman group. One of: `14`, `15`, `16`, `17`, `18`, `19`, `20`, `21`, `22`, `23`, `24`, `31`.
-   
+
    `encryption_algorithm` - The encryption algorithm. One of: `aes128`, `aes192`, `aes256`.
 
     ```sh
@@ -503,7 +503,7 @@ To upgrade a custom IKE policy by using the API, follow these steps:
 
 Before you begin, make sure to [set up your API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
 
-To upgrade the IPsec policy by using the API, follow these steps:
+To upgrade the IPsec policy with the API, follow these steps:
 
 1. Find and store IPsec policy ID variable to be used in your API code, for example:
 
@@ -517,9 +517,9 @@ To upgrade the IPsec policy by using the API, follow these steps:
 1. Find and replace IPsec policies **authentication_algorithm**, **pfs**, and **encryption_algorithm** to use secure ciphers and populate these variables in your API code.
 
    `authentication_algorithm` - The authentication algorithm. One of: `sha256`, `sha384`, `sha512`.
-   
+
    `pfs` - Perfect Forward Secrecy. One of: `disabled`, `group_14`, `group_15`, `group_16`, `group_17`, `group_18`, `group_19`, `group_20`, `group_21`, `group_22`, `group_23`, `group_24`, `group_31`.
-   
+
    `encryption_algorithm` - The encryption algorithm. One of: `aes128`, `aes192`, `aes256`.
 
       The `authentication_algorithm` must be `disabled` if and only if `encryption_algorithm` is `aes128gcm16`, `aes192gcm16`, or `aes256gcm16`.
@@ -563,9 +563,9 @@ To upgrade the IKE policy by using the SDK, follow these Go language example ste
 1. Find and replace the IKE policy **authenticationAlgorithm**, **dhGroup**, and **encryptionAlgorithm** to use the following secure ciphers in your SDK.
 
    `authenticationAlgorithm` - The authentication algorithm. One of: `sha256`, `sha384`, `sha512`.
-   
+
    `dhGroup` - The Diffie-Hellman group. One of: `14`, `15`, `16`, `17`, `18`, `19`, `20`, `21`, `22`, `23`, `24`, `31`.
-   
+
    `encryptionAlgorithm` - The encryption algorithm. One of: `aes128`, `aes192`, `aes256`.
 
     ```go
@@ -608,9 +608,9 @@ To upgrade the IPsec policy by using the SDK, follow these Go language example s
 1. Find and replace the IPsec policy **authenticationAlgorithm**, **pfs** and **encryptionAlgorithm** to use the following secure ciphers in your SDK.
 
    `authenticationAlgorithm` - The authentication algorithm. One of: `disabled`, `sha256`, `sha384`, `sha512`.
-   
+
    `pfs` - Perfect Forward Secrecy. One of: `disabled`, `group_14`, `group_15`, `group_16`, `group_17`, `group_18`, `group_19`, `group_20`, `group_21`, `group_22`, `group_23`, `group_24`, `group_31`.
-   
+
    `encryptionAlgorithm` - The encryption algorithm. One of: `aes128`, `aes128gcm16`, `aes192`, `aes192gcm16`, `aes256`, `aes256gcm16`.
 
       The `AuthenticationAlgorithm` must be `disabled` if and only if `EncryptionAlgorithm` is `aes128gcm16`, `aes192gcm16`, or `aes256gcm16`.

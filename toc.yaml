@@ -146,7 +146,6 @@ toc:
             - vpc-user-permissions.md
             - api-auth-correlation.md
             - resource-attributes.md
-            - iam-custom-routes.md
         - topicgroup:
             label: Managing a VPC
             topics:
@@ -360,6 +359,7 @@ toc:
                 label: VPC routing tables
                 topics:
                 - cr-create-table.md
+                - cr-update-table.md
                 - cr-view-table.md
                 - cr-attach-subnet.md
                 - cr-list-table.md
@@ -368,6 +368,7 @@ toc:
                 label: VPC routes
                 topics:
                 - cr-create-route.md
+                - cr-update-route.md
                 - cr-list-route.md
                 - cr-delete-route.md
         - topicgroup:
@@ -688,19 +689,20 @@ toc:
                 label: FAQs for bare metal servers
                 topics:
                 - bare_metal_server_faq.md
-            - backup_service_vpc_faq.md
             - faq-dedicated-host.md
             - topicgroup:
                 label: FAQs for storage
                 topics:
-                - file_storage_vpc_faqs.md
                 - block_storage_is_faq.md
+                - snapshots_vpc_faqs.md
+                - backup_service_vpc_faq.md
+                - backup_service_vpc_enterprise_faq.md
+                - file_storage_vpc_faqs.md
             - fl-faq.md
             - nlb-faqs.md
             - lb-faqs.md
             - instance_metadata_vpc_faqs.md
             - faqs-placement-groups.md
-            - snapshots_vpc_faqs.md
             - vpe-faqs.md
             - vpn-faqs.md
             - vpn-client-to-site-faqs.md

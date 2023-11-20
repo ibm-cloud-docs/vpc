@@ -24,7 +24,7 @@ To manage an image from volume, see [Managing image from volume](/docs/vpc?topic
 
 {{site.data.keyword.cloud}} Identity and Access Management (IAM) enables you to securely authenticate users for platform services and control access to resources consistently across {{site.data.keyword.cloud_notm}}. For information about access requirements for custom images, see the IAM roles and actions information in [Image Service for VPC](/docs/account?topic=account-iam-service-roles-actions#image-service-for-vpc).
 
-For details about the `$vpc_api_endpoint` and `$iam_token` variables in the following examples, see the Authentication and Endpoint URLs sections in [Virtual Private Cloud API Introduction](/apidocs/vpc#about-vpc-api).
+For details about the `$vpc_api_endpoint` and `$iam_token` variables in the following examples, see the Authentication and Endpoint URLs sections in [Virtual Private Cloud API Introduction](/apidocs/vpc/latest#about-vpc-api).
 {: api}
 
 ## Managing custom images by using the UI

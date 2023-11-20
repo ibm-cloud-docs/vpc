@@ -3,7 +3,7 @@
 copyright:
   years: 2022, 2023
 
-lastupdated: "2023-09-14"
+lastupdated: "2023-11-14"
 
 keywords:
 
@@ -38,7 +38,7 @@ When you provision a virtual server on your VPC, you need to select an image to 
 
 All available stock images can be found in **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Images > Stock images**.
 
-{{site.data.keyword.IBM_notm}} refreshes stock images on a quarterly basis. Without the latest security patches, stock images could be up to 90 days out of date. When you provision a virtual server, it is your responsibility to perform package updates for the operating system image and to do so regularly thereafter.
+When you use an {{site.data.keyword.IBM_notm}} stock image, you must apply the latest security patches and updates provided by the operating system vendor. After you provision a virtual server, it is your responsibility to continue to regularly perform package updates for the operating system.
 {: important}
 
 To create a virtual server using a stock image, see one of the following:

@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2023-10-26",
+    "lastupdated": "2023-11-16",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
@@ -31,19 +31,19 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
-          "date": "24 October 2023", 
-          "title": "Security group integration for network load balancers",
-          "description": "For enhanced security, network load balancers can now be associated with security groups. You can associate one or more security groups with a new network load balancer when creating it, as well as associate security groups with your existing network load balancers."
+          "date": "16 November 2023", 
+          "title": "Client VPN for VPC: Automate the client certificate authentication process for private certificates",
+          "description": "As a VPN server administrator, you were required to download the client profile, manually insert the private certificate into the client profile, and, finally, distribute it to users. Now, when a private certificate is used for client authentication, you can download the client profile with the merged private certificate and key for all or selected private certificates. There is also no need for the VPN client user to modify their client profile manually."
         },
         {
-          "date": "24 October 2023", 
-          "title": "Very High Memory profiles available in all regions (GA)",
-          "description": "The Very High Memory family of profiles are now available in the Madrid (MAD) region. This makes the vx2d profiles available in all regions."
+          "date": "16 November 2023", 
+          "title": "Encryption in transit is now available in Spain (Madrid) region",
+          "description": "Encryption in transit for File Storage for VPC is now available in the Spain (Madrid) region in IBM Cloud."
         },
         {
-          "date": "12 October 2023", 
-          "title": "VPNs for VPC: Diagnose unhealthy VPN gateways and servers",
-          "description": "When you see an existing VPN gateway or server in a degraded or faulted state, you can now diagnose the issue. You are presented with reasons for the state and actions to resolve the issue. "
+          "date": "15 November 2023", 
+          "title": "GPU A100 profile available on Intel Ice Lake hardware in US East region (LA)",
+          "description": "The GPU a100 profile is now availableon the Intel®'s quad processor Xeon® Gold 6342 Ice Lake with 96 cores that are running at a base speed of 2.8 GHz and an all-core turbo frequency of 3.5 GHz. The Ice Lake processor is only available in the US East (Washington DC) region."
         }
       ]
     }

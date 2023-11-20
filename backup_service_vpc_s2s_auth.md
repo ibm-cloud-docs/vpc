@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-10-19"
+lastupdated: "2023-11-13"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Establishing service-to-service authorizations
+# Establishing service-to-service authorizations for the Backup service
 {: #backup-s2s-auth}
 
 Before you can create backup policies, you need to establish service-to-service authorizations and specify user roles. This authorization enables the Backup for VPC service to detect volume tags, create backup snapshots and store them in {{site.data.keyword.cos_short}}.
@@ -180,46 +180,19 @@ curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H
    "type": "access",
    "description": "Operator role for the Backup service to the Cloud Block Storage",
    "subjects":[
-    {
-   "attributes":[
-      {
-        "name": "serviceName",
-        "value": "is"
-      },
-      {
-        "name": "accountId",
-        "value": "$ACCOUNT_ID"
-      },
-      {
-        "name": "resourceType",
-        "value": "backup-policy"
-      }
-    ]
-    }
-   ],
+    {"attributes":[
+      {"name": "serviceName","value": "is"},
+      {"name": "accountId","value": "$ACCOUNT_ID"},
+      {"name": "resourceType","value": "backup-policy"}]
+    }],
    "roles":[
-    {
-      "role_id": "crn:v1:bluemix:public:iam::::role:Operator"
-    }
-   ],
+    {"role_id": "crn:v1:bluemix:public:iam::::role:Operator"}
+    ],
    "resources":[
-    {
-      "attributes": [
-      {
-        "name": "accountId",
-        "value": "$ACCOUNT_ID"
-      },
-      {
-        "name": "serviceName",
-        "value": "is.volume",
-        "operator": "stringEquals"
-      },
-      {
-        "name": "volumeId",
-        "value": "*",
-        "operator": "stringEquals"
-      }
-     ]
+    {"attributes": [
+      {"name": "accountId","value": "$ACCOUNT_ID"},
+      {"name": "serviceName","value": "is.volume","operator": "stringEquals"},
+      {"name": "volumeId","value": "*","operator": "stringEquals"}]
     }
    ]
 }'
@@ -235,46 +208,20 @@ curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H
    "type": "access",
    "description": "Editor role for the Backup service to Block Storage Snapshots",
    "subjects": [
-    {
-     "attributes": [
-      {
-        "name": "serviceName",
-        "value": "is"
-      },
-      {
-        "name": "accountId",
-        "value": "$ACCOUNT_ID"
-      },
-      {
-        "name": "resourceType",
-        "value": "backup-policy"
-      }
-     ]
+    {"attributes": [
+      {"name": "serviceName","value": "is"},
+      {"name": "accountId","value": "$ACCOUNT_ID"},
+      {"name": "resourceType","value": "backup-policy"}]
     }
    ],
    "roles":[
-    {
-     "role_id": "crn:v1:bluemix:public:iam::::role:Editor"
-    }
+    {"role_id": "crn:v1:bluemix:public:iam::::role:Editor"}
    ],
    "resources":[
-    {
-     "attributes": [
-      {
-        "name": "accountId",
-        "value": "$ACCOUNT_ID"
-      },
-      {
-        "name": "serviceName",
-        "value": "is",
-        "operator": "stringEquals"
-      },
-      {
-        "name": "snapshotId",
-        "value": "*",
-        "operator": "stringEquals"
-      }
-     ]
+    {"attributes": [
+      {"name": "accountId","value": "$ACCOUNT_ID"},
+      {"name": "serviceName","value": "is","operator": "stringEquals"},
+      {"name": "snapshotId","value": "*","operator": "stringEquals"}]
     }
    ]
 }'
@@ -289,46 +236,20 @@ curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H
    "type": "access",
    "description": "Operator role for the Backup service to the Virtual Server service",
    "subjects": [
-    {
-     "attributes": [
-       {
-        "name": "serviceName",
-        "value": "is"
-       },
-       {
-        "name": "accountId",
-        "value": "$ACCOUNT_ID"
-       },
-       {
-        "name": "resourceType",
-        "value": "backup-policy"
-       }
-      ]
+    {"attributes": [
+       {"name": "serviceName","value": "is"},
+       {"name": "accountId","value": "$ACCOUNT_ID"},
+       {"name": "resourceType","value": "backup-policy"}]
     }
    ],
   "roles":[
-    {
-     "role_id": "crn:v1:bluemix:public:iam::::role:Operator"
-    }
+    {"role_id": "crn:v1:bluemix:public:iam::::role:Operator"}
    ],
    "resources":[
-    {
-     "attributes":[
-      {
-       "name": "accountId",
-       "value": "$ACCOUNT_ID"
-      },
-      {
-       "name": "serviceName",
-       "value": "is",
-       "operator": "stringEquals"
-      },
-      {
-       "name": "instanceId",
-       "value": "*",
-       "operator": "stringEquals"
-      }
-     ]
+    {"attributes":[
+      {"name": "accountId","value": "$ACCOUNT_ID"},
+      {"name": "serviceName","value": "is","operator": "stringEquals"},
+      {"name": "instanceId","value": "*","operator": "stringEquals"}]
     }
   ]
 }'
@@ -353,7 +274,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
 
 1. Then, make the requests to the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy) to create the service-to-service authorizations for the `is.backup-policy` of enterprise account to interact with the child account's `is.backup`, `is.snapshot`, `is.volume`, and `is.instance` services.
 
-   * Authorize`is.backup-policy` (source) to interact with `is.backup-policy` (target) with the _editor_ role.
+   * Authorize `is.backup-policy` (source) to interact with `is.backup-policy` (target) with the _editor_ role.
 
    ```json
    curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H 
@@ -363,47 +284,20 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
      "type": "access",
      "description": "Editor role for the Enterprise account's backup service to interact with this account's backup service.",
      "subjects": [
-       {
-        "attributes": [
-          {
-           "name": "serviceName",
-           "value": "is"
-          },
-          {
-           "name": "accountId",
-           "value": "$ENTERPRISE_ACCOUNT_ID"
-          },
-          {
-           "name": "resourceType",
-           "value": "backup-policy"
-          }
-         ]
+       {"attributes": [
+          {"name": "serviceName","value": "is"},
+          {"name": "accountId","value": "$ENTERPRISE_ACCOUNT_ID"},
+          {"name": "resourceType","value": "backup-policy"}]
         }
       ],
      "roles":[
-       {
-        "role_id": "crn:v1:bluemix:public:iam::::role:Editor"
-       }
+       {"role_id": "crn:v1:bluemix:public:iam::::role:Editor"}
      ],
      "resources":[
-       {
-        "attributes":[
-          {
-           "name": "accountId",
-           "value": "$SUB_ACCOUNT_ID",
-           "operator": "stringEquals"
-           },
-          {
-           "name": "serviceName",
-           "value": "is",
-           "operator": "stringEquals"
-           },
-          {
-           "name": "backupPolicyId",
-           "value": "*",
-           "operator": "stringEquals"
-           }
-         ]
+       {"attributes":[
+          {"name": "accountId","value": "$SUB_ACCOUNT_ID","operator": "stringEquals"},
+          {"name": "serviceName","value": "is","operator": "stringEquals"},
+          {"name": "backupPolicyId","value": "*","operator": "stringEquals"}]
        }
       ]
      }'
@@ -422,44 +316,19 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
      "subjects": [
        {
         "attributes": [
-          {
-           "name": "serviceName",
-           "value": "is"
-          },
-          {
-           "name": "accountId",
-           "value": "$ENTERPRISE_ACCOUNT_ID"
-          },
-          {
-           "name": "resourceType",
-           "value": "backup-policy"
-          }
-         ]
+          {"name": "serviceName","value": "is"},
+          {"name": "accountId","value": "$ENTERPRISE_ACCOUNT_ID"},
+          {"name": "resourceType","value": "backup-policy"}]
         }
       ],
      "roles":[
-       {
-        "role_id" "crn:v1:bluemix:public:iam::::role:Operator"
-       }
+       {"role_id" "crn:v1:bluemix:public:iam::::role:Operator"}
       ],
      "resources":[
-       {
-        "attributes": [
-          {
-           "name": "accountId",
-           "value": "$SUB_ACCOUNT_ID"
-          },
-          {
-           "name": "serviceName",
-           "value": "is.volume",
-           "operator": "stringEquals"
-          },
-          {
-           "name": "volumeId",
-           "value": "*",
-           "operator": "stringEquals"
-          }    
-         ]
+       {"attributes": [
+          {"name": "accountId","value": "$SUB_ACCOUNT_ID"},
+          {"name": "serviceName","value": "is.volume","operator": "stringEquals"},
+          {"name": "volumeId","value": "*","operator": "stringEquals"}]
        } 
       ]
    }'
@@ -478,44 +347,19 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
       "subjects":[
        {
         "attributes":[
-          {
-           "name": "serviceName",
-           "value": "is"
-          },
-          {
-           "name": "accountId",
-           "value": "$ENTERPRISE_ACCOUNT_ID"
-          },
-          {
-           "name": "resourceType",
-           "value": "backup-policy"
-          }
-         ]
+          {"name": "serviceName","value": "is"},
+          {"name": "accountId","value": "$ENTERPRISE_ACCOUNT_ID"},
+          {"name": "resourceType","value": "backup-policy"}]
         }
        ],
       "roles":[
-         {
-         "role_id": "crn:v1:bluemix:public:iam::::role:Editor"
-         }
+         {"role_id": "crn:v1:bluemix:public:iam::::role:Editor"}
        ],
       "resources":[
-         {
-         "attributes": [
-          {
-           "name": "accountId",
-           "value": "$SUB_ACCOUNT_ID"
-          },
-          {
-           "name": "serviceName",
-           "value": "is",
-           "operator": "stringEquals"
-          },
-          {
-           "name": "snapshotId",
-           "value": "*",
-           "operator": "stringEquals"
-          }
-        ]
+         {"attributes": [
+          {"name": "accountId","value": "$SUB_ACCOUNT_ID"},
+          {"name": "serviceName","value": "is","operator": "stringEquals"},
+          {"name": "snapshotId","value": "*","operator": "stringEquals"}]
        }
       ]
     }'
@@ -532,46 +376,20 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
      "type": "access",
      "description": "Operator role for the Enterprise account's backup service to interact with this account's virtual server instance service",
      "subjects": [
-       {
-        "attributes": [
-          {
-           "name": "serviceName",
-           "value": "is"
-          },
-          {
-           "name": "accountId",
-           "value": "$ENTERPRISE_ACCOUNT_ID"
-          },
-          {
-           "name": "resourceType",
-           "value": "backup-policy"
-          }
-         ]
+       {"attributes": [
+          {"name": "serviceName","value": "is"},
+          {"name": "accountId","value": "$ENTERPRISE_ACCOUNT_ID"},
+          {"name": "resourceType","value": "backup-policy"}]
         }
       ],
      "roles":[
-       {
-        "role_id" "crn:v1:bluemix:public:iam::::role:Operator"
-       }
+       {"role_id" "crn:v1:bluemix:public:iam::::role:Operator"}
       ],
      "resources":[
-       {
-        "attributes": [
-          {
-           "name": "accountId",
-           "value": "$SUB_ACCOUNT_ID"
-          },
-          {
-           "name": "serviceName",
-           "value": "is.volume",
-           "operator": "stringEquals"
-          },
-          {
-           "name": "instanceId",
-           "value": "*",
-           "operator": "stringEquals"
-          } 
-        ]
+       {"attributes": [
+          {"name": "accountId","value": "$SUB_ACCOUNT_ID"},
+          {"name": "serviceName","value": "is.volume","operator": "stringEquals"},
+          {"name": "instanceId","value": "*","operator": "stringEquals"}]
        }
       ]
    }'
@@ -579,6 +397,44 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
    {: pre}
       
 For more information, see the api spec for [IAM Policy Management](/apidocs/iam-policy-management#create-policy).
+
+## Creating authorization policies with Terraform
+{: #backup-s2s-auth-procedure-terraform}
+{: terraform}
+
+### Enabling service-to-service authorization at the account level
+{: #backup-s2s-auth-procedure-terraform-account}
+
+Create an authorization policy between services by using the `ibm_iam_authorization_policy` resource argument in your `main.tf` file.
+
+```terraform 
+resource "ibm_iam_authorization_policy" "policy1" {
+  source_service_name  = "is"
+  source_resource_type = "backup-policy"
+  target_service_name  = "is"
+  target_resource_type = "volume"
+  roles                = ["Operator"]
+}
+
+resource "ibm_iam_authorization_policy" "policy2" {
+  source_service_name  = "is"
+  source_resource_type = "backup-policy"
+  target_service_name  = "is"
+  target_resource_type = "snapshot"
+  roles                = ["Editor"]
+}
+
+resource "ibm_iam_authorization_policy" "policy3" {
+  source_service_name  = "is"
+  source_resource_type = "backup-policy"
+  target_service_name  = "is"
+  target_resource_type = "instance"
+  roles                = ["Operator"]
+}
+```
+{: codeblock}
+
+For more information about the arguments and attributes, see the [Terraform documentation for authorization resources](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/iam_authorization_policy){: external}.
 
 ## Next Steps
 {: #backup-s2s-next-steps}

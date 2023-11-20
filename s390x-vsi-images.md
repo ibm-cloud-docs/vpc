@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-08-18"
+lastupdated: "2023-11-10"
 
 keywords: image, stock image, linuxone image, hpcr, container runtime, virtual private cloud, virtual server, generation 2, gen 2
 
@@ -40,13 +40,12 @@ You can choose a profile based on your requirements. You can choose from balance
 
 | Image | Architectures |
 |---------|---------|
-| Ubuntu 18.04.x | s390x |
-| SUSE Linux Enterprise server (SLES) 15 SP2 | s390x |
-| RedHat Enterprise Linux (RHEL) 8.4 | s390x |
+| Ubuntu 22.04.x, 20.04.x | s390x |
+| SUSE Linux Enterprise server (SLES) 15 SP3 | s390x |
 | IBM z/OS ({{site.data.keyword.waziaas_full_notm}}) | s390x |
 {: caption="Table 2. Supported s390x stock image operating systems" caption-side="bottom"}
 
-The {{site.data.keyword.waziaas_short}} z/OS dev and test stock image is available in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), United Kingdom (London), and US East (Washington DC) regions. For more information, see [{{site.data.keyword.waziaas_full_notm}} documentation](https://www.ibm.com/docs/en/wazi-aas/1.0.0){: external}.
+The {{site.data.keyword.waziaas_short}} z/OS dev and test stock image is available in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), United Kingdom (London), US East (Washington DC), US South (Dallas), and Spain (Madrid) regions. For more information, see [{{site.data.keyword.waziaas_full_notm}} documentation](https://www.ibm.com/docs/en/wazi-aas/1.0.0){: external}.
 {: note}
 
 For information about images for x86 processor architecture, see [x86 virtual server images](/docs/vpc?topic=vpc-about-images).
@@ -56,7 +55,7 @@ With a cloud-init enabled image, you can provide user data. In the **User Data**
 When using the IBM Hyper Protect Container Runtime image, container details are provided at instance creation through the contract, specified in the **User Data** field on the order form. Once the containers start, you can interact with the workload that is brought up on the containers. For more information, see [Contract](/docs/vpc?topic=vpc-about-contract_se).
 {: note}
 
-You can access details about each operating system, such as the url for the operating system, by using the API call, [List all operating systems](/apidocs/vpc#list-operating-systems).
+You can access details about each operating system, such as the url for the operating system, by using the API call, [List all operating systems](/apidocs/vpc/latest#list-operating-systems).
 {: tip}
 
 
@@ -72,8 +71,19 @@ ibm-<family>-<version>-<type>-<architecture>-<build>
 The following example shows the image naming convention.
 
 ```sh
-ibm-hyper-protect-container-runtime-1-0-s390x-12
+ibm-hyper-protect-container-runtime-1-0-s390x-13
 ```
+
+The expiry dates of the images are shown in the following table:
+| Image version| Expiry date |
+| -------- | ----------- |
+| `ibm-hyper-protect-container-runtime-1-0-s390x-13` | 02 November 2024 |
+| `ibm-hyper-protect-container-runtime-1-0-s390x-12` | 28 August 2024 |
+| `ibm-hyper-protect-container-runtime-1-0-s390x-11` | 05 June 2024 |
+{: caption="Table 2. Image expiry dates" caption-side="bottom"}
+
+Images earlier than `ibm-hyper-protect-container-runtime-1-0-s390x-11` have already expired.
+{: note}
 
 The following list explains the variables that make up the components of the image name:
 * The leading prefix of `ibm-` is used for IBM-provided images. Custom images cannot be named with this prefix.
@@ -85,7 +95,7 @@ The following list explains the variables that make up the components of the ima
 
 You can obtain the current list of images, including stock images, by running the following command in the command-line interface: [ibmcloud is images](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#images).
 
-The image naming convention is subject to change. The list of image names is not intended to be programmatically parsed or interpreted. You can use the [GET /images](/apidocs/vpc#get-image) API to obtain metadata in a structured format.
+The image naming convention is subject to change. The list of image names is not intended to be programmatically parsed or interpreted. You can use the [GET /images](/apidocs/vpc/latest#get-image) API to obtain metadata in a structured format.
 {: important}
 
 ## Custom images
@@ -100,7 +110,7 @@ The {{site.data.keyword.waziaas_full_notm}} (Wazi aaS) custom image can be creat
 The z/OS Wazi aaS custom image must meet the following requirements:
 * qcow2 format
 * z/OS 2.4 or z/OS 2.5 operating system
-* See [Hardware and software requirements](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=builder-hardware-software-requirements){: external} for required PTF fixes on z/OS and other IBM software products to allow them to run as a guest of alternate IBM hypervisor, IBM Z Hypervisor as a Service (zHYPaaS).
+* See [Prerequisites](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=builder-prerequisites){: external} for required PTF fixes on z/OS and other IBM software products to allow them to run as a guest of alternate IBM hypervisor, IBM Z Hypervisor as a Service (zHYPaaS).
 
 For more information, see [Bringing your own image with Wazi Image Builder](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=bringing-your-own-image-wazi-image-builder){: external}.
 
