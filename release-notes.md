@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-11-16"
+lastupdated: "2023-12-05"
 
 keywords:
 
@@ -26,6 +26,16 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 For more information about changes to the {{site.data.keyword.vpc_short}} API, see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-cli-rn).
+
+## December 2023
+{: #vpc-dec23}
+
+### 05 December 2023
+{: #vpc-dec0523}
+{: release-note}
+
+Virtual Network Interfaces for VPC [Select availability]{: tag-preview}
+:   You can now create virtual network interfaces for your VPC instances. Virtual network interfaces have an independent lifecycle, which means that when you delete a resource to which the virtual network interface is attached, the virtual network interface persists and retains its IP address. For more information, see [About virtual network interfaces](/docs/vpc?topic=vpc-vni-about).
 
 ## November 2023
 {: #vpc-nov23} 
