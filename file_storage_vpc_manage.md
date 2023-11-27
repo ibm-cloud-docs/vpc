@@ -968,7 +968,7 @@ Make a `POST/ tags` call to [create an access management tag](/apidocs/tagging#c
 
 Add an access management tag to an existing file share or when you [create a file share](/docs/vpc?topic=vpc-file-storage-create). For an existing file share:
 
-1. In the [{{site.data.keyword.cloud_notm}} console)](/login){: external}, Go to the Resource list, and select a file share under **Storage** resources.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, Go to the Resource list, and select a file share under **Storage** resources.
 2. In the **Access management tags** field, type the name of an access management tag that you previously created. The tag appears as you type.
 3. Save your changes.
 
