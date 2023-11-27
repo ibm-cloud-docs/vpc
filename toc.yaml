@@ -424,7 +424,6 @@ toc:
                 - vpn-client-to-site-change-server-types.md
                 - vpn-client-to-site-status.md
                 - vpn-client-to-site-health.md
-                - vpn-client-to-site-route-health.md
                 - vpn-client-to-site-limitations.md
                 - vpn-client-to-site-loganalysis.md
                 - vpn-client-to-site-monitoring.md
