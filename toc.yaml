@@ -400,7 +400,6 @@ toc:
                 - vpn-configure-acls-security-groups.md
                 - vpn-gateway-status.md
                 - vpn-health.md
-                - vpn-connection-health.md
                 - vpn-site-to-site-routes-propagating.md
                 - vpn-view-logs.md
                 - vpn-monitoring-metrics.md
