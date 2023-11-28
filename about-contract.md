@@ -601,11 +601,11 @@ The following snippet is an example:
        seed: "seed2"
      test3:
        apiKey: "L4SsSE32xxxxxjAgfHCVkdW8xl_CiqMn4Lpc1dzTD"
-       seed: "seed3"  
+       seed: "seed3"
 ```
 {: codeblock}
 
-Where:  
+Where:
 - Volume Name: is the name you specified when you created the volume on the VPC.
 - Volume ID: is the system-generated volume ID of the created volume.
 - Volume Key: is the unique volume name for each volume.
@@ -627,6 +627,7 @@ volumes:
        crn: "crn:v1:bluemix:public:hs-crypto:us-south:a/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:key:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
        type: "private"
    seed: "seed1"
+   apiKey: "**********************"
    kmsTimeout: 10
 ```
 {: codeblock}
