@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-02-17"
+lastupdated: "2023-11-28"
 
 
 keywords: creating a Windows custom image, cloudbase-init, qcow2
@@ -49,7 +49,7 @@ Complete the following steps to start creating a Windows custom image.
     {{site.data.keyword.cloud}} supports custom image import with VHD or qcow2. However, Virtual Box does not support the qcow2 format.
     {: note}
 
-3. Obtain the required virtio-win drivers by [provisioning](/docs/vpc?topic=vpc-creating-virtual-servers) or accessing an existing Red Hat Enterprise Linux virtual server in {{site.data.keyword.vpc_short}}. Then, install the virtio-win package on the server. Finally, copy the virtio-win ISO file, for example, *virtio-win-1.9.15.iso*, to use for your Windows custom image.
+3. Obtain the required virtio-win drivers by [provisioning](/docs/vpc?topic=vpc-creating-virtual-servers) or accessing an existing Red Hat Enterprise Linux virtual server in {{site.data.keyword.vpc_short}}. Then, install the virtio-win package on the server. Finally, copy the virtio-win ISO file, for example, *virtio-win-1.9.24.iso*, to use for your Windows custom image.
 
    1. On your Red Hat Enterprise Linux virtual server in {{site.data.keyword.vpc_short}}, install the virtio-win package by running the following command:
 
@@ -62,7 +62,7 @@ Complete the following steps to start creating a Windows custom image.
 
       ```sh
       Installed:
-        virtio-win-1.9.15-0.el8.noarch
+        virtio-win-1.9.24-2.el8_5.noarch
       ```
       {: screen}
 
@@ -73,7 +73,7 @@ Complete the following steps to start creating a Windows custom image.
       ```
       {: codeblock}
 
-   3. Use SCP to copy the virtio-win ISO file, for example `virtio-win-1.9.15.iso`, to use for your Windows custom image.  
+   3. Use SCP to copy the virtio-win ISO file, for example `virtio-win-1.9.24.iso`, to use for your Windows custom image.  
 
 4. Use VirtualBox to create a virtual machine with the VHD image that you created in step 2. For more information, see [Oracle VM VirtualBox User Manual](https://www.virtualbox.org/manual/){: external}.
 
@@ -85,7 +85,7 @@ If you choose to use a method other than VirtualBox to create the custom image, 
 
 Complete the following steps to customize the virtual machine.
 
-1. In Storage settings, add the Windows installation ISO and the virtio-win driver ISO as optical drives. For example, `Windows-2012-install.iso` and `virtio-win-1.9.15.iso`.
+1. In Storage settings, add the Windows installation ISO and the virtio-win driver ISO as optical drives. For example, `Windows-2012-install.iso` and `virtio-win-1.9.24.iso`.
 
 2. Start the virtual machine and begin the Windows installation. When you see the page **Where do you want to install Windows?** you must load all of the `virtio-win\` drivers. You might need to clear "Hide drivers that aren't compatible with this computer's hardware" to access all of the required drivers. Then, you can select **Drive 0** and continue with the installation. When the installation is complete, shut down the virtual machine and remove the optical drives that you added: Windows installation ISO and virtio-win driver ISO. You can ignore any warnings about removing an optical drive.
 
