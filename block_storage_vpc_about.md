@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-08-15"
+lastupdated: "2023-11-29"
 
 keywords:
 
@@ -94,7 +94,7 @@ Block Storage Snapshots for VPC are point-in-time copies of your {{site.data.key
 ## Tags for {{site.data.keyword.block_storage_is_short}} volumes
 {: #storage-about-tags}
 
-{{site.data.keyword.block_storage_is_short}} is enabled for Global Searching and Tagging (GhoST). You can create and apply [user tags](#storage-about-user-tags) and [access management tags](#storage-about-mgt-tags) to volumes to better control and organize your {{site.data.keyword.block_storage_is_short}} resources across the VPC.
+{{site.data.keyword.block_storage_is_short}} is enabled for Global Searching and Tagging (GhoST). You can create and apply [user tags](#storage-about-user-tags) and [access management tags](#storage-about-mgt-tags) to volumes to better control and organize your {{site.data.keyword.block_storage_is_short}} resources across the VPC. Each resource can have up to 1000 user tags, and no more than 250 access tags. However, only 100 tags can be attached or detached in the same operation.
 
 ### User tags for {{site.data.keyword.block_storage_is_short}} volumes
 {: #storage-about-user-tags}
