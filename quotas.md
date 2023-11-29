@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2023
 
-lastupdated: "2023-10-26"
+lastupdated: "2023-11-28"
 
 keywords:
 
@@ -75,7 +75,6 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 |--------|-----|
 | Security groups | 100 per VPC |
 | Rules | 250 per security group |
-| Network interfaces | 1000 per security group |
 {: caption="Table 4. Quotas for security groups" caption-side="bottom"}
 
 ### VPN gateways (site-to-site)
@@ -101,7 +100,6 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 | Active VPN servers | 10 per region |
 | Active routes per VPN server | 50 |
 | Number of certificate revocations lists | 20,000 |
-| Number of security groups attached on a VPN server | 5 |
 | Number of VPN servers in a security group | 10 |
 | Number of auth clients per second per VPN server | 10 |
 {: caption="Table 6. Quotas for the client-to-site VPN server service" caption-side="bottom"}
@@ -117,7 +115,6 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 | Members | 50 per pool |
 | Policies | 10 per listener |
 | Rules | 10 per policy |
-| Security Groups | 5 per load balancer |
 | Subnets | 15 per load balancer |
 {: caption="Table 7. Quotas for load balancers" caption-side="bottom"}
 
@@ -132,7 +129,6 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 | Members | 50 per pool |
 | Policies | N/A |
 | Rules | N/A |
-| Security Groups | 5 per load balancer |
 | Subnets | 1 per load balancer |
 {: caption="Table 8. Quotas for load balancers" caption-side="bottom"}
 
@@ -207,8 +203,9 @@ The following table displays current VPC service limits. Unlike quotas, these li
 | VPCs with classic access | 1 per region|
 | Network interfaces | 5 per instance |
 | PCI network interfaces for bare metal servers | 8 per bare metal server |
-| Public Gateways | 1 per zone per VPC |
-| Security groups | 5 per network interface (NIC) on a virtual server instance |
+| Public gateways | 1 per zone per VPC |
+| Security groups | 5 per [target](/docs/vpc?topic=vpc-using-security-groups#about-security-group-targets) |
+| Security groups | 1000 [targets](/docs/vpc?topic=vpc-using-security-groups#about-security-group-targets) per security group |
 | Remote rules for security groups | 15 per security group|
 | Secondary volumes per instance | Up to 12 secondary volumes |
 | Image export jobs | 5 active jobs per image, 10 total per image, 20 active jobs per account, per region|
