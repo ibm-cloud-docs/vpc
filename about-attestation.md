@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-11-07"
+lastupdated: "2023-11-29"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -102,7 +102,7 @@ cut -d. -f 2 "$INPUT_FILE"| base64 -d > "$PASSWORD_ENC"
 cut -d. -f 3 "$INPUT_FILE"| base64 -d > "$MESSAGE_ENC"
 
 # decrypt password
-PASSWORD=$(openssl rsautl -decrypt -inkey "$RSA_PRIV_KEY" -in "$PASSWORD_ENC")
+PASSWORD=$(openssl pkeyutl -decrypt -inkey "$RSA_PRIV_KEY" -in "$PASSWORD_ENC")
 
 # decrypt message
 echo -n "$PASSWORD" | openssl aes-256-cbc -d -pbkdf2 -in "$MESSAGE_ENC" -pass stdin --out se-checksums.txt
