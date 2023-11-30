@@ -84,7 +84,7 @@ The IP address is fixed for both public and private network load balancers. Howe
 Approved Scanning Vendor (ASV) quarterly scanning is a requirement of the Payment Card Industry (PCI) Security Standards Council. ASV scanning of LBaaS data-plane appliances is solely a customer responsibility. IBM does not use ASVs to scan data-plane appliances because these scans can negatively impact customer workload functions and performance.
 
 ### Why is my listener not receiving traffic?
-{: #lbaas-listener-security-group}
+{: #nlbaas-listener-security-group}
 {: faq}
 
 Make sure that the security group rules that are attached to your load balancer allow ingress and egress traffic on your listener's port. Security groups attached to your load balancer can be found on your load balancer overview page. Locate the **Attached security groups** tab in the overview, then select the security groups whose rules you want to view and modify them if necessary.

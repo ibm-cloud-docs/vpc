@@ -50,7 +50,7 @@ To update an existing virtual network interface, follow these steps.
 1. In the Attached resources tab, view secondary IPs and security groups that are already attached, or create secondary IPs or security groups to attach to your virtual network interface.
 
 ## Updating a virtual network interface from the CLI
-{: #virtual-network-interface-update}
+{: #virtual-network-interface-update-cli}
 {: cli}
 
 Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
@@ -91,7 +91,7 @@ Where:
 :   Suppress verbose output.
 
 ### Command examples
-{: #command-examples-virtual-network-interface-update}
+{: #cli-command-examples-virtual-network-interface-update}
 
 - `ibmcloud is virtual-network-interface-update 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 --name new-vni`
 - `ibmcloud is virtual-network-interface-update new-vni --name new-share`
