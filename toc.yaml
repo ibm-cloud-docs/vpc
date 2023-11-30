@@ -43,6 +43,13 @@ toc:
                label: Networking overview for bare metal servers
                topics:
                - bare_metal_server_network.md
+           - topicgroup:
+               label: Managing IP addresses
+               topics:
+               - ip-addresses-about.md
+               - reserved-ip.md
+               - address-prefixes.md
+               - ip-spoofing-about.md
        - topicgroup:
            label: Compute
            topics:
@@ -62,7 +69,6 @@ toc:
                - profiles_benchmark.md
            - vpc-secure-boot.md
            - vsi_is_provisioning_scripts.md
-           - ip-spoofing-about.md
            - instance-profiles-vpc-bandwidth.md
            - topicgroup:
                label: Confidential computing with LinuxONE
