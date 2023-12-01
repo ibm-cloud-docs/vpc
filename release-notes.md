@@ -39,16 +39,6 @@ Reserved Capacity for VPC [Beta]{: tag-blue}
 :   You can now reserve capacity for VPC. Reserved capacity is a great option if you want guaranteed resources for future deployments and cost savings. You can choose between either a 1 or 3-year contract term for your reserved capacity. For more information, see [About Reserved Capacity for VPC](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc).
 
 ## November 2023
-{: #vpc-nov23}
-
-### 30 November 2023
-{: #vpc-nov3023}
-{: release-note}
-
-[Beta]{: tag-blue}
-
-Reserved Capacity for VPC [Beta]{: tag-blue}
-:   You can now reserve capacity for VPC. Reserved capacity is a great option if you want guaranteed resources for future deployments and cost savings. You can choose between either a 1 or 3-year contract term for your reserved capacity. For more information, see [About Reserved Capacity for VPC](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc).
 
 ### 16 November 2023
 {: #vpc-nov1623}
