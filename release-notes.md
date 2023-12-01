@@ -28,13 +28,22 @@ For more information about changes to the {{site.data.keyword.vpc_short}} API, s
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-cli-rn).
 
 ## November 2023
-{: #vpc-nov23} 
+{: #vpc-nov23}
+
+### 30 November 2023
+{: #vpc-nov3023}
+{: release-note}
+
+[Beta]{: tag-blue}
+
+Reserved Capacity for VPC [Beta]{: tag-blue}
+:   You can now reserve capacity for VPC. Reserved capacity is a great option if you want guaranteed resources for future deployments and cost savings. You can choose between either a 1 or 3-year contract term for your reserved capacity. For more information, see [About Reserved Capacity for VPC](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc).
 
 ### 16 November 2023
 {: #vpc-nov1623}
 {: release-note}
 
-Client VPN for VPC: Automate the client certificate authentication process for private certificates 
+Client VPN for VPC: Automate the client certificate authentication process for private certificates
 : As a VPN server administrator, you were required to download the client profile, manually insert the private certificate into the client profile, and, finally, distribute it to users. Now, when a private certificate is used for client authentication, you can download the client profile with the merged private certificate and key for _all_ or _selected_ private certificates. There is also no need for the VPN client user to modify their client profile manually. For more information, see [Setting up a client VPN environment and connecting to a VPN server](/docs/vpc?topic=vpc-vpn-client-environment-setup).
 
 Encryption in transit is now available in Spain (Madrid) region
