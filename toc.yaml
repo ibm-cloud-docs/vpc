@@ -54,6 +54,7 @@ toc:
            label: Compute
            topics:
            - vsi_is_about_vpc.md
+           - about-reserved-virtual-servers.md
            - topicgroup:
                label: About bare metal servers
                topics:
@@ -177,6 +178,8 @@ toc:
             topics:
             - vsi_best_practices.md
             - vsi_is_create_instance.md
+            - vsi-reserved-capacity-create.md
+            - vsi-reserved-capacity-manage.md
             - topicgroup:
                 label: Connecting to instances
                 topics:
