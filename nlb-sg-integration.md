@@ -78,7 +78,7 @@ A nested security group is an option only when clients are in the same VPC. If t
 {: note}
 
 #### Outbound rules
-{: #nlb-outbound-rules}
+{: #nlb-outbound-rules-private}
 
 | Protocol | Destination type | Destination | Value |
 |-----------|------|------|-------|
