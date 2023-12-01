@@ -30,6 +30,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## December 2023
 {: #vpc-dec23}
 
+### 12 December 2023
+{: #vpc-december1223}
+{: release-note}
+
+File Storage for VPC - Cross-regional Replication 
+:  Customers who have VPCs in multiple regions in the same geography can now create replicas of their file shares in another zone of a different region. For more information, see [About file share replication](/docs/vpc?topic=vpc-file-storage-replication).
+
 ### 01 December 2023
 {: #vpc-dec0123}
 {: release-note}
@@ -38,6 +45,7 @@ Reserved Capacity for VPC (Beta)
 :   You can now reserve capacity for VPC. Reserved capacity is a great option if you want guaranteed resources for future deployments and cost savings. You can choose between either a 1 or 3-year contract term for your reserved capacity. For more information, see [About Reserved Capacity for VPC](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc).
 
 ## November 2023
+{: #vpc-nov23}
 
 ### 16 November 2023
 {: #vpc-nov1623}
