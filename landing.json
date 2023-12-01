@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2023-11-16",
+    "lastupdated": "2023-12-01",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
@@ -31,6 +31,11 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
+          "date": "01 December 2023", 
+          "title": "Reserved Capacity for VPC (Beta)",
+          "description": "You can now reserve capacity for VPC. Reserved capacity is a great option if you want guaranteed resources for future deployments and cost savings. You can choose between either a 1 or 3-year contract term for your reserved capacity."
+        },
+        {
           "date": "16 November 2023", 
           "title": "Client VPN for VPC: Automate the client certificate authentication process for private certificates",
           "description": "As a VPN server administrator, you were required to download the client profile, manually insert the private certificate into the client profile, and, finally, distribute it to users. Now, when a private certificate is used for client authentication, you can download the client profile with the merged private certificate and key for all or selected private certificates. There is also no need for the VPN client user to modify their client profile manually."
@@ -39,11 +44,6 @@
           "date": "16 November 2023", 
           "title": "Encryption in transit is now available in Spain (Madrid) region",
           "description": "Encryption in transit for File Storage for VPC is now available in the Spain (Madrid) region in IBM Cloud."
-        },
-        {
-          "date": "15 November 2023", 
-          "title": "GPU A100 profile available on Intel Ice Lake hardware in US East region (LA)",
-          "description": "The GPU a100 profile is now availableon the Intel®'s quad processor Xeon® Gold 6342 Ice Lake with 96 cores that are running at a base speed of 2.8 GHz and an all-core turbo frequency of 3.5 GHz. The Ice Lake processor is only available in the US East (Washington DC) region."
         }
       ]
     }
