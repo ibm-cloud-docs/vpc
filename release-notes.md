@@ -30,6 +30,16 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## December 2023
 {: #vpc-dec23}
 
+### 05 December 2023
+{: #vpc-dec0523}
+{: release-note}
+
+IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-14` updates
+:   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-14`, new certificates are available.
+   - [Attestation certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-14-attestation.crt){: external}
+   - [Encryption certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-14-encrypt.crt){: external}
+   - [Intermediate certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-14-intermediate.crt){: external}
+
 ### 01 December 2023
 {: #vpc-dec0123}
 {: release-note}
