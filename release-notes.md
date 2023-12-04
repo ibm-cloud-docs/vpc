@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-12-05"
+lastupdated: "2023-12-12"
 
 keywords:
 
@@ -30,8 +30,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## December 2023
 {: #vpc-dec23}
 
-### 05 December 2023
-{: #vpc-dec0523}
+### 12 December 2023
+{: #vpc-dec1223}
 {: release-note}
 
 Virtual Network Interfaces for VPC [Select availability]{: tag-preview}
