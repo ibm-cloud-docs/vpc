@@ -202,7 +202,9 @@ The certificates contain **Certificate Revocation List (CRL) Distribution Points
 
       You can verify if the value is set by running the following command:
       ```sh
-      echo $s
+      echo $serial
+      ```
+      {: pre}
 
    3. Verify that the certificate is not listed within the CRL:
       ```sh
