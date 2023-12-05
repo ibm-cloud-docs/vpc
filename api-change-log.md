@@ -54,11 +54,11 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
 
-## 05 December 2023
-{: #05-december-2023}
+## 5 December 2023
+{: #5-december-2023}
 
 ### For all version dates
-{: #05-december-2023-all-version-dates}
+{: #5-december-2023-all-version-dates}
 
 **Multi-volume snapshots and backups.** This release introduces a new way to create snapshots. You can now [create a snapshot consistency group](/apidocs/vpc/latest#post-snapshot-consistency-groups) and specify one or more snapshots that are attached to the same virtual server instance. When you create a consistency group, you are implicitly creating one or more snapshots. Snapshots taken simultaneously are data-consistent with one another, which helps to ensure consistent backups of a group of {{site.data.keyword.block_storage_is_short}} volumes attached to the same instance. [Deleting a snapshot consistency group](/apidocs/vpc/latest#delete-snapshot-consistency-groups) will delete the snapshots in the group by default. However, you can keep the snapshots and delete the consistency group.
 
