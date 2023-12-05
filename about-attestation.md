@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-12-04"
+lastupdated: "2023-12-05"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -46,7 +46,7 @@ Use the following procedure to validate the attestation record and hashes:
     | Image version| Certificate link | Expiry date |
     | -------- | ----------- | ----------- |
     | `ibm-hyper-protect-container-runtime-1-0-s390x-14` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-14-attestation.crt){: external} | 29 November 2024 |
-    | `ibm-hyper-protect-container-runtime-1-0-s390x-13` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-13-attestation.crt){: external} | 28 August 2024 |
+    | `ibm-hyper-protect-container-runtime-1-0-s390x-13` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-13-attestation.crt){: external} | 02 November 2024 |
     {: caption="Table 1. Attestation certificate expiry dates" caption-side="bottom"}
 
 * Validate the attestation certificate by following the instructions [here](/docs/vpc?topic=vpc-cert_validate#validate_attest_cert).

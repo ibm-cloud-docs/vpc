@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-12-04"
+lastupdated: "2023-12-05"
 
 keywords: confidential computing, secure execution, hpcr, contract, customization, env, workload, encryption, attestation, validating
 
@@ -45,7 +45,7 @@ Complete the following steps on an Ubuntu system to validate the encryption cert
 
 2. Use the following command to verify the signing key certificate:
    ```sh
-   openssl verify -crl_download -crl_check -untrusted DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crt.pem /ibm-hyper-protect-container-runtime-1-0-s390x-14-intermediate.crt
+   openssl verify -crl_download -crl_check -untrusted DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crt.pem ibm-hyper-protect-container-runtime-1-0-s390x-14-intermediate.crt
    ```
    {: pre}
 
@@ -61,6 +61,8 @@ Complete the following steps on an Ubuntu system to validate the encryption cert
       ```sh
       openssl asn1parse -in ibm-hyper-protect-container-runtime-1-0-s390x-14-encrypt.crt | tail -1 | cut -d : -f 1
       ```
+      {: pre}
+
       Consider that the output of the command is `<offset_value>`. Use this `<offset_value>` to extract the encryption key signature into a file called signature:
       ```sh
       openssl asn1parse -in ibm-hyper-protect-container-runtime-1-0-s390x-14-encrypt.crt -out signature -strparse <offset_value> -noout
@@ -105,7 +107,7 @@ Complete the following steps on an Ubuntu system to validate the attestation cer
 
 2. Use the following command to verify the signing key certificate:
    ```sh
-   openssl verify -crl_download -crl_check -untrusted DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crt.pem /ibm-hyper-protect-container-runtime-1-0-s390x-14-intermediate.crt
+   openssl verify -crl_download -crl_check -untrusted DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crt.pem ibm-hyper-protect-container-runtime-1-0-s390x-14-intermediate.crt
    ```
    {: pre}
 
@@ -121,6 +123,8 @@ Complete the following steps on an Ubuntu system to validate the attestation cer
       ```sh
       openssl asn1parse -in ibm-hyper-protect-container-runtime-1-0-s390x-14-attestation.crt | tail -1 | cut -d : -f 1
       ```
+      {: pre}
+
       Consider that the output of the command is `<offset_value>`. Use this `<offset_value>` to extract the attestation key signature into a file called signature:
       ```sh
       openssl asn1parse -in ibm-hyper-protect-container-runtime-1-0-s390x-14-attestation.crt -out signature -strparse <offset_value> -noout
@@ -190,7 +194,17 @@ The certificates contain **Certificate Revocation List (CRL) Distribution Points
       ```
       {: pre}
 
-   2. Verify that the certificate is not listed within the CRL:
+   2. Export the value of 'serial' by running the following command:
+      ```sh
+      export serial=16B7C7F9B61548506F4E63BA6FD40045
+      ```
+      {: pre}
+
+      You can verify if the value is set by running the following command:
+      ```sh
+      echo $s
+
+   3. Verify that the certificate is not listed within the CRL:
       ```sh
       openssl crl -text -noout -in "ibm-hyper-protect-container-runtime.crl" | grep -q "$serial" && echo REVOKED || echo OK
       ```
