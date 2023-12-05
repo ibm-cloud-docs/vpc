@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-10-26"
+lastupdated: "2023-12-05"
 
 keywords:
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Updating to the version `2023-10-10` (VPN)
+# Updating to the `2023-10-10` version (VPN)
 {: #2023-10-10-migration-vpn}
 
 As described in the [VPC API](/apidocs/vpc/latest) reference [versioning](/apidocs/vpc/latest#api-versioning) policy, most changes to the VPC APIs are fully backward compatible and are made available to all clients, regardless of the API version the client requests. However, the `2023-10-10` release of the VPC API necessitated incompatible changes in support of the health diagnostics feature for VPN gateways.
