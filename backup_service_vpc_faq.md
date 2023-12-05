@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-11-13"
+lastupdated: "2023-12-05"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, faqs
 
@@ -28,25 +28,25 @@ With the VPC backup service, you can create backup policies for your {{site.data
 {: faq}
 {: #faq-baas-setup}
 
-Before you can create backup policies, you need to grant [service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth&interface=api), and specify user roles to enable the backup service. Then, you add user tags for new or existing data volumes that you associate with a backup policy. Finally, you create backup policies and plans to schedule automatic backups. For more information, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-policy-create&interface=ui).
+Before you can create backup policies, you need to grant [service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth&interface=api), and specify user roles to enable the backup service. Then, you add user tags for new or existing resources (individual Block Storage volumes, or virtual server instances) that you associate with a backup policy. Finally, you create backup policies and plans to schedule automatic backups. For more information, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-policy-create&interface=ui).
 
 ## How does the backup service work?
 {: faq}
 {: #faq-baas-function}
 
-You can add [user tags](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-about-tags) to your volumes and specify the same tags in a backup policy. When the tags match, a backup is triggered based on the backup plan schedule. You can [view backup jobs](/docs/vpc?topic=vpc-backup-view-policy-jobs) to see the progress of the operation. The Snapshot for VPC service is used to create the backup. The entire contents of the volume are copied and retained for the number of days or total number of backups that are specified in the backup plan. When the retention period is reached, the older backups are deleted. 
+You can add [user tags](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-about-tags) to your volumes or virtual server instances, and specify the same tags in a backup policy. When the tags match, a backup is triggered based on the backup plan schedule. You can [view backup jobs](/docs/vpc?topic=vpc-backup-view-policy-jobs) to see the progress of the operation. The Snapshot for VPC service is used to create the backup. The entire contents of the volume are copied and retained for the number of days or total number of backups that are specified in the backup plan. When the retention period is reached, the older backups are deleted. 
 
 ## What resources are backed up?
 {: faq}
 {: #faq-baas-resources}
 
-{{site.data.keyword.block_storage_is_short}} data and boot volumes with user tags that match the tags in a [backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-policies) are backed up.
+{{site.data.keyword.block_storage_is_short}} data and boot volumes with user tags that match the tags in a [backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-policies) are backed up. You can also tag virtual server instances, in that case, the attached Block Storage volumes are backed up as a consistency group.
 
 ## How do I enable my volumes to be backed up?
 {: faq}
 {: #faq-baas-enable}
 
-Enabling your backups is a two-part process. First, you [specify user tags](/docs/vpc?topic=vpc-backup-use-policies) on the {{site.data.keyword.block_storage_is_short}} volumes that you want to back up. You then [create a backup policy](/docs/vpc?topic=vpc-backup-policy-create) and specify these tags, which identify the volumes that you're backing up. Within a policy, you create a [backup plan](/docs/vpc?topic=vpc-backup-policy-create&interface=ui#backup-plan-ui) to schedule backups of these resources. You can schedule backups to be taken every daily, weekly, or monthly.
+Enabling your backups is a two-part process. First, you [specify user tags](/docs/vpc?topic=vpc-backup-use-policies) on the resources (Block Storage volumes or virtual server instances) that you want to back up. You then [create a backup policy](/docs/vpc?topic=vpc-backup-policy-create) and specify these tags, which identify the resources that you're backing up. Within a policy, you create a [backup plan](/docs/vpc?topic=vpc-backup-policy-create&interface=ui#backup-plan-ui) to schedule backups of these resources. You can schedule backups to be taken every daily, weekly, or monthly.
 
 ## How many backups can I create?
 {: faq}
@@ -90,7 +90,7 @@ Restoring from a backup snapshot creates a volume with data from the snapshot. Y
 {: faq}
 {: #faq-baas-pricing}
 
-Yes. The cost for backups is calculated based on GB capacity that is stored per month, unless the duration is less than one month. The backup exists on the account until it reaches its retention period, or when you delete it manually, or when you reach the end of a billing cycle, whichever comes first.
+Yes. The cost for backups is calculated based on GB capacity that is stored per month, unless the duration is less than one month. The backup exists on the account until it reaches its retention period, or when you delete it manually, or when you reach the end of a billing cycle, whichever comes first. Creating consistency group backups does not incur extra charges other than the cost associated with the size of the member snapshots.
 
 Pricing of subsequent backups can also increase or decrease when you [increase source volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes) or [adjust IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops) by specifying a different IOPS profile for the source volume. For example, expanding volume capacity increases costs. However, changing an IOPS profile from a 5-IOPS/GB tier to a 3-IOPS/GB tier decreases the monthly and hourly rate. Billing for an updated volume is automatically updated to add the prorated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.
 
@@ -98,14 +98,34 @@ The fast restore feature is billed at an extra hourly rate for each zone that it
 
 You can use the Cost estimator ![Cost estimator icon](../icons/calculator.svg "Cost estimator") in {{site.data.keyword.cloud_notm}} console to see how changes in the stored volume affect the cost. For more information, see [Estimating your costs](/docs/billing-usage?topic=billing-usage-cost).     
 
-### Can I use data backups for disaster recovery?
+## Can I use data backups for disaster recovery?
 {: faq}
 {: #faq-baas-dr}
 
 Using the [backup service](/docs/vpc?topic=vpc-backup-service-about), you can regularly back up your volume data based on a schedule that you set up. You can create backup snapshots as frequently as 1 hour. You can also create copies of your backup snapshot in other regions. However, the backup service does not provide continual backup with automatic failover. Restoring a volume from a backup or snapshot is a manual operation that takes time. If you require a higher level of service for automatic disaster recovery, see IBM's [Cloud disaster recovery solutions](https://www.ibm.com/cloud/disaster-recovery).
 
-### How many copies of my backup can I create in other regions?
+## How many copies of my backup can I create in other regions?
 {: faq}
 {: #faq-baas-cross-regional-limits}
 
 You can copy a backup snapshot from one region to another region, and later use that snapshot to restore a volume in the new region. Only one copy of the backup snapshot can exist in each region. You can't create a copy of the backup snapshot in the source (local) region.
+
+## What is a consistency group for backups?
+{: faq}
+{: #faq-snapshot-consistency-group-backups}
+
+A consistency group is a collection of backup snapshots that are created together at the same time. It is used to create backup snapshots of multiple volumes that are attached to the same virtual server instance simultaneously to preserve data consistency. 
+
+The created snapshots are loosely coupled. The snapshots can be used to create new volumes. They can be copied to another region individually, and can be preserved after the consistency group is deleted. However, you can't copy a consistency group to another region or use the ID of the consistency group to create a new virtual server instance.
+
+## Why was no backup job created when my consistency group was deleted?
+{: faq}
+{: #faq-snapshot-consistency-group-delete}
+
+If you modify the value of the backup consistency group's `delete_snapshots_on_delete` parameter to be `false`, the backup snapshots remain in the system as individual snapshots after the consistency group is deleted. Because the snapshots are kept unchanged, no backup job is created.
+
+## Can I restore a virtual server from consistency group backups?
+{: faq}
+{: #faq-baas-restore}
+
+Restoring a virtual server instance directly from snapshot consistency group identifier is not supported. However, you can restore a virtual server instance by restoring all of its boot and data volumes from the snapshots that are part of a consistency group. Virtual server instance configuration is not part of the backup, and you must manually or programmatically configure the instance in the console, from the CLI, with the API, or Terraform. For more information, see [Creating volumes for a virtual server instance from a consistency group](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-restore-cr-details-ui).

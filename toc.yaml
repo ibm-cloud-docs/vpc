@@ -96,11 +96,6 @@ toc:
                topics:
                - bare_metal_server_storage.md
            - topicgroup:
-               label: File Storage
-               topics:
-               - file_storage_vpc_about.md
-               - file_storage_vpc_profiles.md
-           - topicgroup:
                label: Block Storage
                topics:
                - block_storage_vpc_about.md
@@ -110,6 +105,11 @@ toc:
                - block_storage_vpc_expand_vol_about.md
            - snapshots_vpc_about.md
            - backup_service_vpc_about.md
+           - topicgroup:
+               label: File Storage
+               topics:
+               - file_storage_vpc_about.md
+               - file_storage_vpc_profiles.md
            - vsi_instance_storage.md
        - release-notes.md
 
@@ -563,21 +563,38 @@ toc:
             label: Snapshots
             topics:
             - snapshots_vpc_planning.md
-            - snapshots_vpc_create.md
-            - snapshots_vpc_view.md
+            - topicgroup:
+                label: Creating snapshots and consistency groups
+                topics:
+                - snapshots_vpc_create.md
+                - snapshots_vpc_create_mvs.md
+            - topicgroup:
+                label: Managing snapshots and consistency groups
+                topics:
+                - snapshots_vpc_view.md
+                - snapshots_vpc_manage.md
+                - snapshots_vpc_manage_mvs.md
             - snapshots_vpc_restore.md
-            - snapshots_vpc_manage.md
         - topicgroup:
             label: Backup service
             topics:
-            - backup_service_vpc_best_practices.md
-            - backup_service_vpc_planning.md
+            - topicgroup:
+                label: Planning backup policies and plans
+                topics:
+                - backup_service_vpc_best_practices.md
+                - backup_service_vpc_planning.md
             - backup_service_vpc_s2s_auth.md
-            - backup_service_vpc_create_policy.md
-            - backup_service_vpc_view_policy.md
-            - backup_service_vpc_view_backup_jobs.md
-            - backup_service_vpc_manage_policy.md
-            - backup_service_vpc_use_policy.md
+            - topicgroup:
+                label: Creating backup policies and plans
+                topics:
+                - backup_service_vpc_create_policy.md
+                - backup_service_vpc_use_policy.md
+            - topicgroup:
+                label: Managing backup policies, plans and jobs
+                topics:
+                - backup_service_vpc_view_policy.md
+                - backup_service_vpc_manage_policy.md
+                - backup_service_vpc_view_backup_jobs.md
             - backup_service_vpc_restore.md
         - topicgroup:
             label: Auto scale

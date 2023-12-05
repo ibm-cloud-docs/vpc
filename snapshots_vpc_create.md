@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-11-13"
+lastupdated: "2023-12-05"
 
 keywords: snapshots, Block Storage, snapshot clone, remote copy, fast restore, Block Storage snapshot, cross-regional snapshot
 
@@ -15,11 +15,14 @@ subcollection: vpc
 # Creating snapshots
 {: #snapshots-vpc-create}
 
-With the UI, CLI, API, or Terraform you can create a snapshot of a {{site.data.keyword.block_storage_is_short}} volume that is attached to a virtual server instance. You can create a snapshot of a boot or a data volume. If the volume is not attached to a server instance, you can't create a snapshot of it.
+With the UI, CLI, API, or Terraform, you can create a snapshot of a {{site.data.keyword.block_storage_is_short}} volume that is attached to a virtual server instance. You can create a snapshot of a boot or a data volume. If the volume is not attached to a server instance, you can't create a snapshot of it.
 {: shortdesc}
 
 Before you take a snapshot, make sure that all cached data is present on disk, especially when you're taking a snapshot of instances with Windows and Linux&reg; operating systems. For example, on Linux&reg; operating systems, run the `sync` command to force an immediate write of all cached data to disk.
 {: note}
+
+[New]{: tag-new}
+You can create a consistency group that contains snapshots of multiple volumes that are attached to a virtual server instance. All snapshots in the consistency group are created at the same time and are loosely coupled. For more information, see [Creating snapshot consistency groups](/docs/vpc?topic=vpc-snapshots-vpc-create-consistency-groups).
 
 ## Creating a snapshot in the UI
 {: #snapshots-vpc-create-ui}
@@ -30,19 +33,19 @@ In the console, you can create a snapshot of a {{site.data.keyword.block_storage
 1. You can access the Block Storage snapshot for VPC provisioning screen in the [{{site.data.keyword.cloud}} console](/login){: external} in multiple ways.
 
    - From the **[Block Storage snapshots for VPC](/vpc-ext/storage/snapshots)** list,
-      1. Go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block Storage snapshots**.
+      1. Go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Storage > Block Storage snapshots**.
       2. From the list of snapshots that is initially empty, click **Create**.
 
    - From the **[Block Storage volumes for VPC](/vpc-ext/storage/storageVolumes)** list,
-      1. Go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block Storage volumes**.
+      1. Go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Storage > Block Storage volumes**.
       2. From the list of volumes, locate a boot or data volume that is attached to an instance.
       3. Click the overflow menu (...) and select **Create snapshot**.
 
    - From the **Block Storage volume details** screen,
      1. Go to the volume details page in one of these ways.
 
-         - Go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**. Select the instance that contains the volume that you want to make a snapshot of. From the [instance details page](/vpc-ext/compute/vs), scroll to the list of attached volumes and click the name of the volume.
-         - Go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block Storage volumes**. From the list of Block Storage volumes, select the volume that you want to make a snapshot of.
+         - Go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Compute > Virtual server instances**. Select the instance that contains the volume that you want to make a snapshot of. From the [instance details page](/vpc-ext/compute/vs), scroll to the list of attached volumes and click the name of the volume.
+         - Go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Storage > Block Storage volumes**. From the list of Block Storage volumes, select the volume that you want to make a snapshot of.
 
      2. On the volume details page, select **Create snapshot** from the **Actions** menu.
 
@@ -50,17 +53,21 @@ In the console, you can create a snapshot of a {{site.data.keyword.block_storage
 
    | Field | Value |
    |-------|-------|
-   | Location | Specify the region for this snapshot. |
+   | Location | Specify the geography and region for this snapshot. |
+   | Snapshot type | Select **Single volume**. |
    | Name  | Provide a unique name for the snapshot. The UI verifies the name for proper conventions and identifies duplicate names. For suggestions about how to name your snapshots, see [Naming snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-naming). |
    | Resource group | Select a [resource group](/docs/vpc?topic=vpc-iam-getting-started#resources-and-resource-groups) for the snapshot, or use the default. You can't change the resource group after the snapshot is created. |
    | Tags | Specify any user tags that you want to identify this resource. |
    | Access management tags | Specify any [access management tags](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#storage-add-access-mgt-tags) for this resource. |
-   | Block Storage volume | Select a volume from the list. The boot or data volume must be attached to a running virtual server instance. |
+   | Volume | Select a volume from the list. The boot or data volume must be attached to a running virtual server instance. |
    | Encryption | Encryption information for the volume that you selected, either [provider-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about&interface=ui#vpc-provider-managed-encryption) or [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about&interface=ui#vpc-customer-managed-encryption). The snapshot inherits the encryption of the source volume. You can't change the encryption type. |
    | Optional configurations | Cross-region snapshot copy. Select Copy Snapshot to a different region. Click **Create**.|
    {: caption="Table 1. Selections for creating a snapshot" caption-side="bottom"}
 
-3. Click **Create Block Storage snapshot**. You're returned to the screen that you started from. Messages are displayed while the snapshot is being created and when it's ready, the snapshot is displayed in the list of snapshots. For more information, see [View snapshot details in the UI](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=ui#snapshots-vpc-view-snapshot-ui).
+3. Click **Create**. You're returned to the screen that you started from. Messages are displayed while the snapshot is being created and when it's ready, the snapshot is displayed in the list of snapshots. For more information, see [View snapshot details in the UI](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=ui#snapshots-vpc-view-snapshot-ui).
+   
+If you're not ready to order yet or just looking for pricing information, you can add the information that you see in the side panel to an Estimate. For more information about how this feature works, see [Estimating your costs](/docs/billing-usage?topic=billing-usage-cost).    
+{: tip}
 
 ## Enabling fast restore snapshot clones in the UI
 {: #frsnapshots-vpc-create-ui}
@@ -71,16 +78,16 @@ In the console, you can create a snapshot of a {{site.data.keyword.block_storage
 3. In the side panel, select the zones where you want to enable fast restore clones.
 4. Click **Save**.
 
-Billing for the fast restore feature is set at a flat rate based on instance hours. The feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots.
+The fast restore feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots.
 {: note}
 
-## Create cross-regional copy from the Snapshots for VPC list
+## Create a cross-regional copy from the Snapshots for VPC list
 {: #crsnapshots-vpc-create-ui}
 {: ui}
 
 In the previous section, you saw how to create a cross-regional snapshot copy when you take a new snapshot in the UI. You can also create cross-regional copies of existing snapshots.
 
-1. In the console, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block Storage snapshots**.
+1. In the console, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Storage > Block Storage snapshots**.
 2. From the list of snapshots, click the overflow menu (...) and select **Copy snapshot**.
 3. Select the region where you want to create the copy.
 
@@ -131,7 +138,7 @@ Before you start, gather the following information:
 
 Use the following CLI commands to collect the information that you need.
 
-- `ibmcloud is volumes` - Lists all available volumes in the region that you selected. Locate the volume in the list, verify the status (`available`), the attachment type (`boot` or `data`), and resource group.
+- `ibmcloud is volumes` - Lists all available volumes in the region that you selected. Locate the volume in the list, verify the status (`available`), the attachment type (`boot` or `data`), and the resource group.
 - `ibmcloud is volume VOLUME_ID` - Use this command with the volume ID from the output of the previous command to review the details of the volume. If the output shows that the volume is available, attached to an instance and not busy, you can create a snapshot.
 
 ### Creating a snapshot from the CLI
@@ -238,10 +245,10 @@ Created     2023-02-17T20:29:21+00:00
 ```
 {: screen}
 
-Billing for the fast restore feature is set at a flat rate based on instance hours. The feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots.
+The fast restore feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots.
 {: note}
 
-## Creating cross-regional copy of a snapshot from the CLI
+## Creating a cross-regional copy of a snapshot from the CLI
 {: #snapshots-vpc-create-crcopy}
 {: cli}
 
@@ -315,7 +322,7 @@ You can create a snapshot by calling the [VPC API](/apidocs/vpc). Before you sta
 
 To create a snapshot of a boot or data volume, make a `POST /snapshots`. The following example creates a snapshot of a boot volume by using the volume ID, and specifies user tags that can be associated with a [backup policy](/docs/vpc?topic=vpc-backup-service-about).
 
-```curl
+```sh
 curl -X POST \
 "$vpc_api_endpoint/v1/snapshots?version=2022-12-12&generation=2" \
 -H "Authorization: $iam_token" \
@@ -405,7 +412,7 @@ When you create a snapshot, you can also create a fast restore snapshot clone in
 
 Make a `POST/snapshots` request to create a snapshot of a boot or data volume and specify the `clones` property. Indicate a different zone or zones in your region from the zone in which you're creating the snapshot. In the following example, a clone is created in us-south-2, specified by name.
 
-```curl
+```sh
 curl -X POST \
 "$vpc_api_endpoint/v1/snapshots?version=2022-12-18\&generation=2" \
 -H "Authorization: $iam_token" \
@@ -463,7 +470,7 @@ A successful response indicates that the clone was created in the specified zone
 ```
 {: codeblock}
 
-Billing for the fast restore feature is set at a flat rate based on instance hours. The feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots.
+The fast restore feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots.
 {: note}
 
 ## Creating a cross-regional copy of a snapshot with the API
@@ -472,12 +479,12 @@ Billing for the fast restore feature is set at a flat rate based on instance hou
 
 When you create a snapshot, you can also copy the snapshot to another region. By creating a snapshot copy in another region and create new instances with the help of that snapshot, you can expand your VPC to a different region. This feature can be used in disaster recovery scenarios, as well. For more information, see [Cross-regional snapshot copies](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=api#snapshots_vpc_crossregion_copy).
 
-Make a `POST /snapshots` request to create a snapshot copy in the target region, specify the name and CRN of the source snapshot. In the following example, the target region is us-east and source region is us-south. The `name` and `source_snapshot` subproperties are required. The `resource_group` is optional. The `encryption_key` subproperty is required when the source snapshot is encrypted with a customer-managed key.
+Make a `POST /snapshots` request to create a snapshot copy in the target region, specify the name and CRN of the source snapshot. In the following example, the target region is us-east and the source region is us-south. The `name` and `source_snapshot` subproperties are required. The `resource_group` is optional. The `encryption_key` subproperty is required when the source snapshot is encrypted with a customer-managed key.
 
 If the source snapshot is not encrypted with a customer key, the encryption of the copy remains provider-managed. If the source snapshot is protected by a customer-managed key, you must specify the customer-managed key that you want to use to encrypt the new copy.
 {: important}
 
-```curl
+```sh
 curl -X POST \
 "$vpc_api_endpoint/v1/snapshots?version=2023-05-10\&generation=2" \
 -H "Authorization: $iam_token" \
@@ -585,7 +592,7 @@ Before you start, gather the following information:
 To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
 {: requirement}
 
-VPC infrastructure services use a region-specific endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the right region in the provider block in the `provider.tf` file.
+VPC infrastructure services use a regional specific endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the right region in the provider block in the `provider.tf` file.
 
 See the following example of targeting a region other than the default `us-south`.
 
@@ -625,14 +632,14 @@ resource "ibm_is_snapshot" "example_clones" {
 
 For more information about the arguments and attributes, see [ibm_is_snapshot](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_snapshot){: external}.
 
-Billing for the fast restore feature is set at a flat rate based on instance hours. The feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots.
+The fast restore feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots.
 {: note}
 
 ## Create a cross-regional copy of a snapshot with Terraform
 {: #snapshots-vpc-create-snaphot-copy-terraform}
 {: terraform}
 
-To create a copy of snapshot in a remote region, use the `ibm_is_snapshot` resource. The following example creates a copy in the target region by using the CRN of the source snapshot. The copy is going to be encrypted by the encryption key that is specified by its CRN.
+To create a copy of the snapshot in a remote region, use the `ibm_is_snapshot` resource. The following example creates a copy in the target region by using the CRN of the source snapshot. The copy is going to be encrypted by the encryption key that is specified by its CRN.
 
 ```terraform
 resource "ibm_is_snapshot" "snapshot" {

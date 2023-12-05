@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-09-29"
+lastupdated: "2023-12-05"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, view backup lists,
 
@@ -30,39 +30,33 @@ List all backup jobs. Select a backup job and review its details.
 From the backup policy details page, you can list all backup jobs for that policy. The jobs are listed with the oldest one first. Backup jobs show all backups that were created by the backup policy for the selected region.
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Backup policies**.
+1. Click a policy name.
+1. Click the **Backup jobs** tab. Table 1 describes the information on the Backup jobs page.
 
-2. Click the **Backup jobs** tab. Table 1 describes the information on the Backup jobs page.
-
-| Field | Description |
-|-------|-------------|
-| Job ID | It's the auto-generated ID of the backup job. |
-| Job status | It's the status of the backup job, either `running`, `completed`, or `failed`. |
-| Plan | The backup plan that triggered the backup. Hover over the plan name for a summary of the plan. |
-| Job type | When a backup is being created, it shows `creation`. When a backup is being deleted, it shows `retention`.|
-| Job started | Date and time of when the job began. |
-| Job completed | Date and time of when the job was finished. |
-| Snapshot | The snapshot (backup) that was created when the backup job finishes. Click the name to see the details in the side panel. |
-| Source | Source volume from which the backup was created. Click the volume name to see its details. |
-{: caption="Table 1. Information provided by the list of backup jobs for the backup policy" caption-side="bottom"}
+   | Field         | Description |
+   |---------------|-------------|
+   | Job ID        | It's the auto-generated ID of the backup job. |
+   | Job status    | It's the status of the backup job, either `running`, `completed`, or `failed`. |
+   | Plan          | The backup plan that triggered the backup. Hover over the plan name for a summary of the plan. |
+   | Job type      | When a backup is being created, it shows `creation`. When a backup is being deleted, it shows `retention`.|
+   | Job started   | Date and time of when the job began. |
+   | Job completed | Date and time of when the job was finished. |
+   | Snapshot      | The snapshot (backup) that was created when the backup job finishes. Click the name to see the details in the side panel. |
+   | Source        | This can be either the Source volume from which the first snapshot was taken. Or the source instance of the snapshot consistency group that the backup is a member of. |
+   {: caption="Table 1. Information provided by the list of backup jobs for the backup policy" caption-side="bottom"}
 
 ### View snapshots that were created by a backup job in the UI
 {: #backup-view-snap-backup-ui}
 
-From the list of backup jobs, click the name of a snapshot. A side panel provides snapshot details (Table 2).
+From the list of backup jobs, click the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Actions") and select **View created snapshots**. A side panel provides snapshot details (Table 2).
 
-| Field | Description |
-|-------|-------------|
-| Status | The status of the snapshot, such as _Stable_. For a list of snapshot statuses, see [Snapshot statuses](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-status). |
-| Name | The name of the backup policy that created the snapshot. You can change the backup policy settings by clicking the pencil icon. For more information, see [Managing backup policies](/docs/vpc?topic=vpc-backup-service-manage). |
-| Tags |  User tags inherited from the source volume when the snapshot was created. Click the pencil icon to more user tags.|
-| ID | GUID of the snapshot. |
+| Field    | Description |
+|----------|-------------|
+| Name     | The name of the backup policy that created the snapshot. You can change the backup policy settings by clicking the pencil icon. For more information, see [Managing backup policies](/docs/vpc?topic=vpc-backup-service-manage). |
+| Status   | The status of the snapshot, such as _Stable_. For a list of snapshot statuses, see [Snapshot statuses](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-status). |
+| Size     | Size in GBs of the snapshot, it is inherited from the source volume. |
+| Source   | This field displays the Source volume from which the snapshot was taken. If the source was deleted, the name appears without a link. |
 | Bootable | It indicates whether the snapshot was created from a boot volume. |
-| CRN | Cloud resource name of the snapshot. |
-| Created | The date and time of when that the snapshot resource creation process started. |
-| Captured | The date and time of when this snapshot was taken. If the field is empty, then the snapshot is not yet captured or the snapshot was created before this feature was introduced (January 2022). |
-| Size | Size in GBs of the snapshot, it is inherited from the source volume. |
-| Source Volume | Source volume from which the first snapshot was taken. Click the link for volume details. If the volume was deleted, the name appears without a link. |
-| Encryption | Either provider-managed or customer-managed. |
 {: caption="Table 2. Snapshot details side panel" caption-side="bottom"}
 
 ## View backup jobs from the CLI
@@ -117,7 +111,8 @@ cloudshell:~$ ibmcloud is backup-policy-jobs r138-0521986d-963c-4c18-992d-d6a7a9
             "crn": "crn:v1:bluemix:public:is:eu-de-2:a/a123456::volume:r010-18ee3ad3-0b7e-4c3a-ba92-226073696049",
             "href": "https://eu-de.iaas.cloud.ibm.com/v1/volumes/r010-18ee3ad3-0b7e-4c3a-ba92-226073696049",
             "id": "r010-18ee3ad3-0b7e-4c3a-ba92-226073696049",
-            "name": "fra-vsi-boot-1645484638000"
+            "name": "fra-vsi-boot-1645484638000",
+            "resource_type": "volume"
         },
         "source_volume": {
             "crn": null,
@@ -157,7 +152,8 @@ cloudshell:~$ ibmcloud is backup-policy-jobs r138-0521986d-963c-4c18-992d-d6a7a9
             "crn": "crn:v1:bluemix:public:is:eu-de-2:a/a123456::volume:r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa",
             "href": "https://eu-de.iaas.cloud.ibm.com/v1/volumes/r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa",
             "id": "r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa",
-            "name": "my-block-vol-test1"
+            "name": "my-block-vol-test1",
+            "resource_type": "volume"
         },
         "source_volume": {
             "crn": null,
@@ -200,7 +196,8 @@ cloudshell:~$ ibmcloud is backup-policy-jobs r138-0521986d-963c-4c18-992d-d6a7a9
             "crn": "crn:v1:bluemix:public:is:eu-de-2:a/a123456::volume:r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa",
             "href": "https://eu-de.iaas.cloud.ibm.com/v1/volumes/r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa",
             "id": "r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa",
-            "name": "my-block-vol-test1"
+            "name": "my-block-vol-test1",
+            "resource_type": "volume"
         },
         "source_volume": {
             "crn": null,
@@ -259,7 +256,8 @@ cloudshell:~$ ibmcloud is backup-policy-job new-policy-23 r138-25828175-2b51-424
         "crn": "crn:v1:bluemix:public:is:eu-de-2:a/a123456::volume:r010-18ee3ad3-0b7e-4c3a-ba92-226073696049",
         "href": "https://eu-de.iaas.cloud.ibm.com/v1/volumes/r010-18ee3ad3-0b7e-4c3a-ba92-226073696049",
         "id": "r010-18ee3ad3-0b7e-4c3a-ba92-226073696049",
-        "name": "fra-vsi-boot-1645484638000"
+        "name": "fra-vsi-boot-1645484638000",
+        "resource_type": "volume"
     },
     "source_volume": {
         "crn": null,
@@ -328,14 +326,15 @@ A successful response looks like the following example.
       "id": "4cf9171a-0043-4434-8727-15b53dbc374c",
       "job_type": "creation",
       "resource_type": "backup_policy_job",
-      "source_volume": {
-        "crn": "crn:v1:bluemix:public:is:us-south-1:a/123456::volume:1a6b7274-678d-4dfb-8981-c71dd9d4daa5",
+      "source": {
+        "crn": "crn:v1:bluemix:public:is:us-south-1:a/123456::volume:r006-1a6b7274-678d-4dfb-8981-c71dd9d4daa5",
         "deleted": {
           "more_info": "https://cloud.ibm.com/apidocs/vpc#deleted-resources"
         },
-        "href": "https://us-south.iaas.cloud.ibm.com/v1/volumes/1a6b7274-678d-4dfb-8981-c71dd9d4daa5",
+        "href": "https://us-south.iaas.cloud.ibm.com/v1/volumes/r006-1a6b7274-678d-4dfb-8981-c71dd9d4daa5",
         "id": "1a6b7274-678d-4dfb-8981-c71dd9d4daa5",
-        "name": "my-volume"
+        "name": "my-volume",
+        "resource_type": "volume"
       },
       "status": "failed",
       "status_reasons": [
@@ -399,14 +398,15 @@ A successful response looks like the following example.
   "id": "4cf9171a-0043-4434-8727-15b53dbc374c",
   "job_type": "creation",
   "resource_type": "backup_policy_job",
-  "source_volume": {
-    "crn": "crn:v1:bluemix:public:is:us-south-1:a/123456::volume:1a6b7274-678d-4dfb-8981-c71dd9d4daa5",
+  "source": {
+    "crn": "crn:v1:bluemix:public:is:us-south-1:a/123456::volume:r006-1a6b7274-678d-4dfb-8981-c71dd9d4daa5",
     "deleted": {
       "more_info": "https://cloud.ibm.com/apidocs/vpc#deleted-resources"
     },
     "href": "https://us-south.iaas.cloud.ibm.com/v1/volumes/1a6b7274-678d-4dfb-8981-c71dd9d4daa5",
     "id": "1a6b7274-678d-4dfb-8981-c71dd9d4daa5",
-    "name": "my-volume"
+    "name": "my-volume",
+    "resource_type": "volume"
   },
   "status": "failed",
   "status_reasons": [
@@ -439,7 +439,6 @@ When you view details of a backup job by making a `GET /backup_policies/{backup_
 * `snapshot_pending`: the code indicates that a backup snapshot in the `pending` [snapshot lifecycle state](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-status) cannot be deleted.
 * `snapshot_volume_limit`: the code indicates that the [snapshot limit](/docs/vpc?topic=vpc-snapshots-vpc-faqs&interface=ui#faq-snapshot-3) for the source volume is reached.
 * `source_volume_busy`: the code indicates that the source volume is busy after multiple retries.
-
 
 ## View backup jobs with Terraform
 {: #backup-view-jobs-terraform}
