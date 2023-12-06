@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-12-05"
+lastupdated: "2023-12-06"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -54,7 +54,7 @@ You can view details of a backup policy by using the UI.
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Backup policies**.
 
-2. Click a policy name. Table 2 and 3 describe the information about the selected backup policy and its associated plans. You can add activity tracking or delete the policy from the Actions menu ![Actions icon](../icons/action-menu-icon.svg "Actions").
+2. Click a policy name. Tables 2 and 3 describe the information about the selected backup policy and its associated plans. You can add activity tracking or delete the policy from the Actions menu ![Actions icon](../icons/action-menu-icon.svg "Actions").
 
    | Field | Value |
    |-------|-------|
@@ -106,7 +106,7 @@ You can use this list of {{site.data.keyword.block_storage_is_short}} volumes or
      {: caption="Table 4. List of {{site.data.keyword.block_storage_is_short}} volumes for the backup policy" caption-side="top"}
 
      You can add other volumes to this policy by clicking **Add volumes**. The informational side panel provides a list of tags for target resources that you can apply to the volume, and a link to the [list of {{site.data.keyword.block_storage_is_short}} volumes](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#viewvols-ui). You must apply at least one of the policy's tags for target resources to the volume. |
- 
+
    - [New]{: tag-new} If the policy is for multi-volume backups of a consistency group of {{site.data.keyword.block_storage_is_short}} volumes, a list of virtual server instances is shown. The list contains the virtual server instances whose Block Storage volumes are backed up this policy. Information about the virtual server instances includes the name, status, VPC, and profile.
       | Field  | Description |
       |--------|-------------|
@@ -210,20 +210,20 @@ The following example lists the properties of a backup policy with the plan that
 ```sh
 $ ibmcloud is backup-policy my-backup-policy-v2
 Getting backup policy my-backup-policy-v2 under account Test Account as user test.user@ibm.com...
-                           
-ID                      0717-0723c648-9a47-4d51-b1ba-349e21e715b6   
-Name                    my-backup-policy-v2   
-CRN                     crn:v1:bluemix:public:is:us-south:a/a123456::backup-policy:0717-0723c648-9a47-4d51-b1ba-349e21e715b6   
-Status                  stable   
-Last job completed at   2023-09-26T10:13:18.000Z   
-Plans                   ID                                          Name        Resource type      
-                        0717-e888bb31-7bf2-4885-a9f3-d448c1c37326   my-plan-b   backup_policy_plan      
-                           
+
+ID                      0717-0723c648-9a47-4d51-b1ba-349e21e715b6
+Name                    my-backup-policy-v2
+CRN                     crn:v1:bluemix:public:is:us-south:a/a123456::backup-policy:0717-0723c648-9a47-4d51-b1ba-349e21e715b6
+Status                  stable
+Last job completed at   2023-09-26T10:13:18.000Z
+Plans                   ID                                          Name        Resource type
+                        0717-e888bb31-7bf2-4885-a9f3-d448c1c37326   my-plan-b   backup_policy_plan
+
 Backup tags             dev:test
-Backup resource type    volume   
-Resource group          ID                                 Name      
-                        6edefe513d934fdd872e78ee6a8e73ef   defaults      
-                           
+Backup resource type    volume
+Resource group          ID                                 Name
+                        6edefe513d934fdd872e78ee6a8e73ef   defaults
+
 Created at              2023-09-05T16:30:09+00:00
 ```
 {: screen}
@@ -292,25 +292,25 @@ The following example lists the properties of an Enterprise backup policy. The s
 ```sh
 $ ibmcloud is backup-policy r006-0bc533ed-4796-407a-982e-693b418f3de3
 Getting backup policy r006-0bc533ed-4796-407a-982e-693b418f3de3 under account Enterprise Test as user test.user@ibm.com...
-                          
-ID                     r006-0bc533ed-4796-407a-982e-693b418f3de3   
-Name                   backup-scope-2   
-CRN                    crn:bluemix:public:is:us-south:a/a1234567::backup-policy:r006-0bc533ed-4796-407a-982e-693b418f3de3   
-Status                 stable   
-Plans                  ID                                          Name           Resource type      
-                       r006-0741b600-e8d5-41b4-88a7-c19b6fbf89ca   scope-plan-2   backup_policy_plan      
-                          
-Backup tags            dev:test  
-included-content       data_volumes 
-Backup resource type   volume   
-Resource group         ID                                 Name      
-                       e579217258f74f42974e6ec4da287fc5   Default      
-                          
-Scope                  ID                                 CRN                                                                                         Resource type      
-                       7e44cb4667ba4b88b1b1f8dcc15e33b3   crn:v1:bluemix:public:enterprise::a/a1234567::enterprise:7e44cb4667ba4b88b1b1f8dcc15e33b3   -      
-                          
-Health State           ok   
-Created at             2023-08-30T13:39:10+05:30   
+
+ID                     r006-0bc533ed-4796-407a-982e-693b418f3de3
+Name                   backup-scope-2
+CRN                    crn:bluemix:public:is:us-south:a/a1234567::backup-policy:r006-0bc533ed-4796-407a-982e-693b418f3de3
+Status                 stable
+Plans                  ID                                          Name           Resource type
+                       r006-0741b600-e8d5-41b4-88a7-c19b6fbf89ca   scope-plan-2   backup_policy_plan
+
+Backup tags            dev:test
+included-content       data_volumes
+Backup resource type   volume
+Resource group         ID                                 Name
+                       e579217258f74f42974e6ec4da287fc5   Default
+
+Scope                  ID                                 CRN                                                                                         Resource type
+                       7e44cb4667ba4b88b1b1f8dcc15e33b3   crn:v1:bluemix:public:enterprise::a/a1234567::enterprise:7e44cb4667ba4b88b1b1f8dcc15e33b3   -
+
+Health State           ok
+Created at             2023-08-30T13:39:10+05:30
 
 ```
 {: screen}
@@ -512,7 +512,7 @@ A successful response looks like the following example.
 ```
 {: codeblock}
 
-The following example shows the details of a backup poliy that creates backups of a multi-volume consistency group.
+The following example shows the details of a backup policy that creates backups of a multi-volume consistency group.
 
 ```sh
 curl -X GET\
