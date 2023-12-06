@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-12-05"
+lastupdated: "2023-12-06"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Managing backup policies
 {: #backup-service-manage}
 
-You can manage backup policies and their associated plans that were created for your resources in the console, from the CLI, with the API, or Terraform. You can delete policies and plans that you no longer need. You can update the backup policy and plans when your needs change. You can add or remove tags. You can check the status of your backup policies. Audit your policies by integrating Activity Tracker events. 
+You can manage backup policies and their associated plans that were created for your resources in the console, from the CLI, with the API, or Terraform. You can delete policies and plans that you no longer need. You can update the backup policy and plans when your needs change. You can add or remove tags. You can check the status of your backup policies. Audit your policies by integrating Activity Tracker events.
 {: shortdesc}
 
 ## Managing backup policies in the UI
@@ -143,23 +143,23 @@ The following example updates an Enterprise backup policy that is identified by 
 ```sh
 cloudshell:~$ ibmcloud is backup-policy-update r006-0bc533ed-4796-407a-982e-693b418f3de3 --name cli-updated-2
 Updating backup policy r006-0bc533ed-4796-407a-982e-693b418f3de3 under account Enterprise Test as user test.user@ibm.com...
-                          
-ID                     r006-0bc533ed-4796-407a-982e-693b418f3de3   
-Name                   cli-updated-2   
-CRN                    crn:bluemix:public:is:us-south:a/a1234567::backup-policy:r006-0bc533ed-4796-407a-982e-693b418f3de3   
-Status                 stable   
-Plans                  ID                                          Name           Resource type      
-                       r006-0741b600-e8d5-41b4-88a7-c19b6fbf89ca   scope-plan-2   backup_policy_plan      
-                          
+
+ID                     r006-0bc533ed-4796-407a-982e-693b418f3de3
+Name                   cli-updated-2
+CRN                    crn:bluemix:public:is:us-south:a/a1234567::backup-policy:r006-0bc533ed-4796-407a-982e-693b418f3de3
+Status                 stable
+Plans                  ID                                          Name           Resource type
+                       r006-0741b600-e8d5-41b4-88a7-c19b6fbf89ca   scope-plan-2   backup_policy_plan
+
 Backup tags            dev:test
-Backup resource type   volume   
-Resource group         ID                                 Name      
-                       e579217258f74f42974e6ec4da287fc5   Default      
-                          
-Scope                  ID                                 CRN                                                                                                                 Resource type      
-                       7e44cb4667ba4b88b1b1f8dcc15e33b3   crn:v1:bluemix:public:enterprise::a/a1234567::enterprise:7e44cb4667ba4b88b1b1f8dcc15e33b3   -      
-                          
-Health State           ok   
+Backup resource type   volume
+Resource group         ID                                 Name
+                       e579217258f74f42974e6ec4da287fc5   Default
+
+Scope                  ID                                 CRN                                                                                                                 Resource type
+                       7e44cb4667ba4b88b1b1f8dcc15e33b3   crn:v1:bluemix:public:enterprise::a/a1234567::enterprise:7e44cb4667ba4b88b1b1f8dcc15e33b3   -
+
+Health State           ok
 Created at             2023-08-30T13:39:10+05:30
 ```
 {: screen}
@@ -193,13 +193,13 @@ Plans                   ID                                          Name        
 
 Backup tags             dev:env,bck:test
 Backup resource type    volume
-Resource group          ID                                 Name      
-                        11caaa983d9c4beb82690daab08717e9   Default      
-                         
-Scope                   ID                                 Resource type      
-                        a1234567   account      
-                         
-Health State            ok   
+Resource group          ID                                 Name
+                        11caaa983d9c4beb82690daab08717e9   Default
+
+Scope                   ID                                 Resource type
+                        a1234567   account
+
+Health State            ok
 Created at              2023-02-21T22:42:10+00:00
 ```
 {: screen}
@@ -218,29 +218,29 @@ ibmcloud is backup-policy-update POLICY [--included_content data_volumes|boot_vo
 ```
 {: pre}
 
-The following example updates backup policy to be applied to only the data volumes that are attached to the vitual server instance with the matching tag.
+The following example updates backup policy to be applied to only the data volumes that are attached to the virtual server instance with the matching tag.
 
 ```sh
 ibmcloud is backup-policy-create --match-tags dev:test --name my-cr-backup-policy-v1 --match-resource-type instance --included-content data_volumes
 Updating backup policy my-cr-backup-policy-v1 under account Test Account as user test.user@ibm.com...
-                         
-ID                    r006-e0713176-37b6-4168-88ab-ad92f8a544f9   
-Name                  my-cr-backup-policy-v1  
-CRN                   crn:v1:bluemix:public:is:us-south:a/a1234567::backup-policy:r006-e0713176-37b6-4168-88ab-ad92f8a544f9   
-Status                stable   
-Plans                 ID   Name   Resource type      
-                         
-Backup tags           dev:test   
-Match resource type   instance   
-Included Content      data_volumes  
-Resource group        ID                                 Name      
-                      11caaa983d9c4beb82690daab08717e9   Default      
-                         
-Scope                 ID                                 Resource type      
-                      a1234567                           account      
-                         
-Health State          ok   
-Created at            2023-12-05T19:29:35+05:30   
+
+ID                    r006-e0713176-37b6-4168-88ab-ad92f8a544f9
+Name                  my-cr-backup-policy-v1
+CRN                   crn:v1:bluemix:public:is:us-south:a/a1234567::backup-policy:r006-e0713176-37b6-4168-88ab-ad92f8a544f9
+Status                stable
+Plans                 ID   Name   Resource type
+
+Backup tags           dev:test
+Match resource type   instance
+Included Content      data_volumes
+Resource group        ID                                 Name
+                      11caaa983d9c4beb82690daab08717e9   Default
+
+Scope                 ID                                 Resource type
+                      a1234567                           account
+
+Health State          ok
+Created at            2023-12-05T19:29:35+05:30
 ```
 {: screen}
 
@@ -377,7 +377,7 @@ curl -X PATCH\
 
 [New]{: tag-new}
 
-When you want to update a multi-volume backup policy to include or exclude the boot volume from the consistency group, you can make a `PATCH /backup_policies/{backup_policies_id}` request and specify the value for `included-content` property as either `data_volumes`, `boot_volume`, or just `data_volumes`. 
+When you want to update a multi-volume backup policy to include or exclude the boot volume from the consistency group, you can make a `PATCH /backup_policies/{backup_policies_id}` request and specify the value for `included-content` property as either `data_volumes`, `boot_volume`, or just `data_volumes`.
 
 ```sh
 curl -X PATCH\
@@ -626,7 +626,7 @@ Table 2 shows the health states of the backup policies.
 ## Activity Tracker events
 {: #backup-activity-tracker}
 
-When a backup is created, an event is triggered in the Activity Tracker for the [Backup service](/docs/vpc?topic=vpc-at-events&interface=ui#events-backup-service) and [Snapshots service](/docs/vpc?topic=vpc-at-events&interface=ui#events-snapshots). 
+When a backup is created, an event is triggered in the Activity Tracker for the [Backup service](/docs/vpc?topic=vpc-at-events&interface=ui#events-backup-service) and [Snapshots service](/docs/vpc?topic=vpc-at-events&interface=ui#events-snapshots).
 
 Similarly, when the service fails to create a backup due to missing authorization, an event is triggered to notify you. For more information, see [Activity Tracker events](/docs/vpc?topic=vpc-at-events).
 
@@ -635,7 +635,7 @@ Similarly, when the service fails to create a backup due to missing authorizatio
 
 You can delete a plan or multiple plans within a policy. When you delete a backup policy, you also delete all the plans that are associated with it.
 
-When you delete a backup policy, it no longer creates new backups. However, the existing backups that it created remain intact as their life cycle is independent from the policy. Existing backups are retained until their expiration date.
+When you delete a backup policy, it no longer creates new backups. However, the existing backups that it created remain intact as their lifecycle is independent from the policy. Existing backups are retained until their expiration date.
 
 ### Deleting a backup plan in the UI
 {: #backup-delete-plan}
