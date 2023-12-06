@@ -165,6 +165,7 @@ To set up a Terraform configuration for VPN server, follow these steps:
  
    If you are using an IBM Secrets Manager generated private certificate, skip this step.
    {: note}
+   
 1. Create a VPC with one subnet.
 5. Create another subnet.
 6. Create a security group with inbound and outbound rules to allow all traffic.

@@ -2,7 +2,6 @@
 
 copyright:
   years: 2019, 2023
-
 lastupdated: "2023-12-05"
 
 keywords:
@@ -36,14 +35,27 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 Snapshot consistency groups and consistency group backups
 :   You can now create a snapshot consistency group to capture snapshots of multiple block storage volumes that are attached to a virtual server instance. You can include or exclude the boot volume. Instance storage is not included. You can later use the individual snapshots in the consistency group to restore multiple volumes of a virtual server instance. You can automate the creation and retention of consistency group snapshots with the Backup service. For more information, see [Snapshot consistency groups](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#multi-volume-snapshots) and [About Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
 
+IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-14` updates
+:   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-14`, new certificates are available.
+   - [Attestation certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-14-attestation.crt){: external}
+   - [Encryption certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-14-encrypt.crt){: external}
+   - [Intermediate certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-14-intermediate.crt){: external}
+
+### 01 December 2023
+{: #vpc-dec0123}
+{: release-note}
+
+Reserved Capacity for VPC (Beta)
+:   You can now reserve capacity for VPC. Reserved capacity is a great option if you want guaranteed resources for future deployments and cost savings. You can choose between either a 1 or 3-year contract term for your reserved capacity. For more information, see [About Reserved Capacity for VPC](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc).
+
 ## November 2023
-{: #vpc-nov23} 
+{: #vpc-nov23}
 
 ### 16 November 2023
 {: #vpc-nov1623}
 {: release-note}
 
-Client VPN for VPC: Automate the client certificate authentication process for private certificates 
+Client VPN for VPC: Automate the client certificate authentication process for private certificates
 : As a VPN server administrator, you were required to download the client profile, manually insert the private certificate into the client profile, and, finally, distribute it to users. Now, when a private certificate is used for client authentication, you can download the client profile with the merged private certificate and key for _all_ or _selected_ private certificates. There is also no need for the VPN client user to modify their client profile manually. For more information, see [Setting up a client VPN environment and connecting to a VPN server](/docs/vpc?topic=vpc-vpn-client-environment-setup).
 
 Encryption in transit is now available in Spain (Madrid) region

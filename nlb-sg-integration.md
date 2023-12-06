@@ -31,7 +31,7 @@ The following tables provide best practices for inbound and outbound traffic for
 {: #public-network-load-balancer}
 
 #### Inbound rules
-{: #lb-inbound-rules}
+{: #nlb-inbound-rules}
 
 It is common to allow inbound traffic from all sources to the listener port on a public load balancer. For example:
 
@@ -48,7 +48,7 @@ However, if you need to restrict inbound traffic, you can specify a source CIDR,
 {: caption="Table 2. Configuration information for inbound rules of public load balancers from a specific CIDR" caption-side="bottom"}
 
 #### Outbound rules
-{: #lb-outbound-rules}
+{: #nlb-outbound-rules}
 
 Ensure that your targets are in a security group and configured as the destination in the outbound rules. Using a nested security group allows your NLB to allow only outbound traffic to the target and health check ports.
 
@@ -65,7 +65,7 @@ You can configure the outbound rules to be more permissive than shown (for examp
 {: #private-network-load-balancer}
 
 #### Inbound rules
-{: #lb-inbound-rules-private}
+{: #nlb-inbound-rules-private}
 
 | Protocol | Source type | Source | Value |
 |-----------|------|------|-------|
@@ -78,7 +78,7 @@ A nested security group is an option only when clients are in the same VPC. If t
 {: note}
 
 #### Outbound rules
-{: #outbound-rules}
+{: #nlb-outbound-rules-private}
 
 | Protocol | Destination type | Destination | Value |
 |-----------|------|------|-------|
@@ -99,7 +99,7 @@ If you do not select at least one security group, you should update your default
 {: important}
 
 ### Prerequisite: Configure security groups and rules
-{: #prerequisite-security-groups}
+{: #nlb-prerequisite-security-groups}
 
 Ensure that you've created the security groups that you want to attach to your NLB. Also make sure that their rules are configured for load balancer traffic. If you need to create a security group, perform the following procedure.
 
@@ -127,7 +127,7 @@ To create a security group using the UI:
 1. Click **Create security group** after you finish creating rules.
 
 #### Security group example
-{: #lb-security-group-example}
+{: #nlb-security-group-example}
 
 For example, configure the following inbound rules, which allow all traffic on port 80 for a TCP listener (TCP port 80).
 

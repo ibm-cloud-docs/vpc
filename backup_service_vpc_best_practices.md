@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-09-29"
+lastupdated: "2023-12-05"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -33,9 +33,11 @@ To ensure that you're using the VPC Backup Service most effectively and economic
 
 * If you have volumes in different regions, create separate backup policies for each region. You're limited to 10 backup policies per account in a region.
 
-* Ensure that the volumes that you tagged for backups are attached to a virtual server instance. You can't back up detached volumes.
+* Ensure that the resources that you tagged for backups are attached to a virtual server instance. You can't back up detached volumes.
 
 * Provide a unique name for your backup policy. If you have a convention for naming volumes, you might name a backup policy by using a similar convention. Backups that are created by a policy can also follow the convention. As the number of backups grow, a good naming convention can make them more identifiable.
+
+* Consistency group backups: Creating crash-consistent snapshots of multiple volumes that are attached to the same virtual server instance leads to a short-lived I/O suspension that can last from a few milliseconds to a few seconds. The duration depends on the number and size of volumes that are connected to your virtual server instance. It is recommended to run your automated backup-policy during off-peak hours to minimize any impact on performance.
 
 ## Best practices for user actions
 {: #baas-user-actions-bp}

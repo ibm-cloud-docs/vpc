@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2023
 
-lastupdated: "2023-11-28"
+lastupdated: "2023-11-30"
 
 keywords:
 
@@ -75,6 +75,7 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 |--------|-----|
 | Security groups | 100 per VPC |
 | Rules | 250 per security group |
+| [Targets](/docs/vpc?topic=vpc-using-security-groups#about-security-group-targets) | 1000 per security group |
 {: caption="Table 4. Quotas for security groups" caption-side="bottom"}
 
 ### VPN gateways (site-to-site)
@@ -205,7 +206,6 @@ The following table displays current VPC service limits. Unlike quotas, these li
 | PCI network interfaces for bare metal servers | 8 per bare metal server |
 | Public gateways | 1 per zone per VPC |
 | Security groups | 5 per [target](/docs/vpc?topic=vpc-using-security-groups#about-security-group-targets) |
-| Security groups | 1000 [targets](/docs/vpc?topic=vpc-using-security-groups#about-security-group-targets) per security group |
 | Remote rules for security groups | 15 per security group|
 | Secondary volumes per instance | Up to 12 secondary volumes |
 | Image export jobs | 5 active jobs per image, 10 total per image, 20 active jobs per account, per region|

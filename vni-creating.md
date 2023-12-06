@@ -141,7 +141,7 @@ Where:
 :   Suppress verbose output.
 
 ### Command examples
-{: #command-examples-virtual-network-interface-create}
+{: #cli-command-examples-virtual-network-interface-create}
 
 - `ibmcloud is virtual-network-interface-create --subnet 7208-d42716a5-6df2-416c-979d-f26330b9eod1`
 - `ibmcloud is virtual-network-interface-create --name cli-vni-1 --allow-ip-spoofing true --auto-delete true --enable-infrastructure-nat true --rip 7208-d4c0abbe-3fc2-4696-9fe1-4eb3dc9af976 --ips '[{"id":"7208-d83b7e58-3c3d-47d0-89c5-02d9a20c72fd"},{"address":"10.240.64.13", "auto_delete": false, "name": "srip2"}]' --sgs r006-aa7c7658-e503-4456-b342-8d6a89e05115,r006-4fb388f1-2b6e-4013-b279-7a8748f4d6ca --resource-group-id 11caaa983d9c4beb82690daab08717e9`

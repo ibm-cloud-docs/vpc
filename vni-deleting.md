@@ -65,7 +65,7 @@ Where:
 :   Suppress verbose output.
 
 ### Command examples
-{: #command-examples-virtual-network-interface-delete}
+{: #cli-command-examples-virtual-network-interface-delete}
 
 - `ibmcloud is virtual-network-interface-delete my-vni-share-99 cli-vni-demo-00`
 - `ibmcloud is virtual-network-interface-delete r006-866fc826-6f30-444f-b55e-0d697cf8b4bb`
