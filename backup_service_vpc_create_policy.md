@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-12-05"
+lastupdated: "2023-12-06"
 
 keywords: Backup, backup snapshot, create backups, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -64,8 +64,8 @@ Use the following steps to create a backup policy by using the UI.
    {: caption="Table 1. Backup policy provisioning selections" caption-side="bottom"}
 
 1. Click **Create backup policy**. The order summary side panel shows the backup policy and all plans that were created for it.
-   
-If you're not ready to order yet or just looking for pricing information, you can add the information that you see in the side panel to an Estimate. For more information about how this feature works, see [Estimating your costs](/docs/billing-usage?topic=billing-usage-cost).    
+
+If you're not ready to order yet or just looking for pricing information, you can add the information that you see in the side panel to an Estimate. For more information, see [Estimating your costs](/docs/billing-usage?topic=billing-usage-cost).
 {: tip}
 
 ### Creating a backup plan in the UI
@@ -180,22 +180,22 @@ Run the `ibmcloud is backup-policy-create` command to create a backup policy wit
 ```sh
 $ ibmcloud is backup-policy-create --match-tags dev:test --name my-backup-policy-v1
 Creating backup policy my-backup-policy-v1 under account Test Account as user test.user@ibm.com...
-                          
-ID                     r006-d6052504-516f-4923-938b-9e9def977428   
-Name                   my-backup-policy-v1   
-CRN                    crn:v1:bluemix:public:is:us-south:a/a123456::backup-policy:0717-d123456   
-Status                 pending   
-Plans                  ID   Name   Resource type      
-                          
+
+ID                     r006-d6052504-516f-4923-938b-9e9def977428
+Name                   my-backup-policy-v1
+CRN                    crn:v1:bluemix:public:is:us-south:a/a123456::backup-policy:0717-d123456
+Status                 pending
+Plans                  ID   Name   Resource type
+
 Backup tags            dev:test
-Backup resource type   volume   
-Resource group         ID                                 Name      
-                       11caaa983d9c4beb82690daab08717e9   Default      
-                         
-Scope                  ID                                 Resource type      
-                       efe5afc483594adaa8325e2b4d1290df   account      
-                         
-Health State           ok   
+Backup resource type   volume
+Resource group         ID                                 Name
+                       11caaa983d9c4beb82690daab08717e9   Default
+
+Scope                  ID                                 Resource type
+                       efe5afc483594adaa8325e2b4d1290df   account
+
+Health State           ok
 Created at             2023-12-05T19:27:28+05:30
 ```
 {: screen}
@@ -210,23 +210,23 @@ Run the `ibmcloud is backup-policy-create` command to create a backup policy wit
 ```sh
 $ ibmcloud is backup-policy-create --match-tags dev:test --name backup-enterprise-scope --scope  crn:v1:bluemix:public:enterprise::a/a1234567::enterprise:7e44cb4667ba4b88b1b1f8dcc15e33b3
 Creating backup policy backup-scope-1 under account Enterprise Test as user test.user@ibm.com...
-                          
-ID                     r006-a1b46efe-12bd-403a-9f09-bede1ad3766f   
-Name                   backup-enterprise-scope   
-CRN                    crn:v1:bluemix:public:is:us-south:a/a1234567::backup-policy:r006-a1b46efe-12bd-403a-9f09-bede1ad3766f   
-Status                 pending   
-Plans                  ID   Name   Resource type      
-                          
+
+ID                     r006-a1b46efe-12bd-403a-9f09-bede1ad3766f
+Name                   backup-enterprise-scope
+CRN                    crn:v1:bluemix:public:is:us-south:a/a1234567::backup-policy:r006-a1b46efe-12bd-403a-9f09-bede1ad3766f
+Status                 pending
+Plans                  ID   Name   Resource type
+
 Backup tags            dev:test
-Backup resource type   volume   
-Resource group         ID                                 Name      
-                       e579217258f74f42974e6ec4da287fc5   Default      
-                          
-Scope                  ID                                 CRN                                                                                         Resource type      
-                       7e44cb4667ba4b88b1b1f8dcc15e33b3   crn:v1:bluemix:public:enterprise::a/a1234567::enterprise:7e44cb4667ba4b88b1b1f8dcc15e33b3   -      
-                          
-Health State           ok   
-Created at             2023-09-26T13:34:56+05:30   
+Backup resource type   volume
+Resource group         ID                                 Name
+                       e579217258f74f42974e6ec4da287fc5   Default
+
+Scope                  ID                                 CRN                                                                                         Resource type
+                       7e44cb4667ba4b88b1b1f8dcc15e33b3   crn:v1:bluemix:public:enterprise::a/a1234567::enterprise:7e44cb4667ba4b88b1b1f8dcc15e33b3   -
+
+Health State           ok
+Created at             2023-09-26T13:34:56+05:30
 
 ```
 {: screen}
@@ -238,31 +238,31 @@ For more information about available command options, see [`ibmcloud is backup-p
 
 [New]{: tag-new}
 
-Run the `ibmcloud is backup-policy-create` command to create a backup policy without a backup plan. Use the options `--match-resource-type`, `--included-content`,`--match-tags` and `--name` to give your policy a name and identify the tag that you want to use for your target resources. After the policy is created, you can [add backup plans](#backup-create-plan-cli) to it later on.
+Run the `ibmcloud is backup-policy-create` command to create a backup policy without a backup plan. Use the options `--match-resource-type`, `--included-content`,`--match-tags`, and `--name` to give your policy a name and identify the tag that you want to use for your target resources. After the policy is created, you can [add backup plans](#backup-create-plan-cli) to it later on.
 
 The following example creates a backup policy for the boot and data volumes of tagged instances.
 
 ```sh
 ibmcloud is backup-policy-create --match-tags dev:test --name my-cr-backup-policy-v1 --match-resource-type instance --included-content data_volumes,boot_volume
 Creating backup policy my-cr-backup-policy-v1 under account Test Account as user test.user@ibm.com...
-                         
-ID                    r006-e0713176-37b6-4168-88ab-ad92f8a544f9   
-Name                  my-cr-backup-policy-v1  
-CRN                   crn:v1:bluemix:public:is:us-south:a/a1234567::backup-policy:r006-e0713176-37b6-4168-88ab-ad92f8a544f9   
-Status                pending   
-Plans                 ID   Name   Resource type      
-                         
-Backup tags           dev:test   
-Match resource type   instance   
-Included Content      data_volumes,boot_volume   
-Resource group        ID                                 Name      
-                      11caaa983d9c4beb82690daab08717e9   Default      
-                         
-Scope                 ID                                 Resource type      
-                      a1234567                           account      
-                         
-Health State          ok   
-Created at            2023-12-05T19:29:35+05:30   
+
+ID                    r006-e0713176-37b6-4168-88ab-ad92f8a544f9
+Name                  my-cr-backup-policy-v1
+CRN                   crn:v1:bluemix:public:is:us-south:a/a1234567::backup-policy:r006-e0713176-37b6-4168-88ab-ad92f8a544f9
+Status                pending
+Plans                 ID   Name   Resource type
+
+Backup tags           dev:test
+Match resource type   instance
+Included Content      data_volumes,boot_volume
+Resource group        ID                                 Name
+                      11caaa983d9c4beb82690daab08717e9   Default
+
+Scope                 ID                                 Resource type
+                      a1234567                           account
+
+Health State          ok
+Created at            2023-12-05T19:29:35+05:30
 ```
 {: screen}
 
@@ -271,23 +271,23 @@ The following example creates a backup policy for the data volumes of the tagged
 ```sh
 ibmcloud is backup-policy-create --match-tags dev:test --name my-cr-backup-policy-v2 --match-resource-type instance --included-content data_volumes
 Creating backup policy my-cr-backup-policy-v2 under account Test Account as user test.user@ibm.com...
-                         
-ID                    r006-e773722f-d61e-487a-ac88-b1800395aa92   
-Name                  my-cr-backup-policy-v2   
-CRN                   crn:v1:bluemix:public:is:us-south:a/a1234567::backup-policy:r006-e773722f-d61e-487a-ac88-b1800395aa92   
-Status                pending   
-Plans                 ID   Name   Resource type      
-                         
-Backup tags           dev:test   
-Match resource type   instance   
-Included Content      data_volumes   
-Resource group        ID                                 Name      
-                      11caaa983d9c4beb82690daab08717e9   Default      
-                         
-Scope                 ID                                 Resource type      
-                      a1234567                           account      
-                         
-Health State          ok   
+
+ID                    r006-e773722f-d61e-487a-ac88-b1800395aa92
+Name                  my-cr-backup-policy-v2
+CRN                   crn:v1:bluemix:public:is:us-south:a/a1234567::backup-policy:r006-e773722f-d61e-487a-ac88-b1800395aa92
+Status                pending
+Plans                 ID   Name   Resource type
+
+Backup tags           dev:test
+Match resource type   instance
+Included Content      data_volumes
+Resource group        ID                                 Name
+                      11caaa983d9c4beb82690daab08717e9   Default
+
+Scope                 ID                                 Resource type
+                      a1234567                           account
+
+Health State          ok
 Created at            2023-10-20T19:31:16+05:30
 ```
 {: screen}
@@ -304,23 +304,23 @@ The following example uses the `--match_tags` option to match tags to volumes wi
 ```sh
 $ ibmcloud is backup-policy-create --match-tags dev:test --name my-backup-policy-v2 --plan-name my-plan-b  --plan-attach-tags bkp:test --plan-copy-tags false --plan-delete-after 60 --plan-cron-spec '45 09 * * *' --plan-active --plan-clone-policy-max-snapshots 4 --plan-clone-policy-zones us-south-1,us-south-2 --plan-delete-over-count 2
 Creating backup policy my-backup-policy-v2 under Test Account as user test.user@ibm.com...
-                          
-ID                     r006-0723c648-9a47-4d51-b1ba-349e21e715b6   
-Name                   my-backup-policy-v2   
-CRN                    crn:v1:bluemix:public:is:us-south:a/a123456::backup-policy:r006-0723c648-9a47-4d51-b1ba-349e21e715b6   
-Status                 pending   
-Plans                  ID                                          Name        Resource type      
-                       r006-e888bb31-7bf2-4885-a9f3-d448c1c37326   my-plan-b   backup_policy_plan      
-                          
+
+ID                     r006-0723c648-9a47-4d51-b1ba-349e21e715b6
+Name                   my-backup-policy-v2
+CRN                    crn:v1:bluemix:public:is:us-south:a/a123456::backup-policy:r006-0723c648-9a47-4d51-b1ba-349e21e715b6
+Status                 pending
+Plans                  ID                                          Name        Resource type
+                       r006-e888bb31-7bf2-4885-a9f3-d448c1c37326   my-plan-b   backup_policy_plan
+
 Backup tags            dev:test
-Backup resource type   volume   
-Resource group         ID                                 Name      
-                       6edefe513d934fdd872e78ee6a8e73ef   defaults     
-Scope                  ID                                 Resource type      
-                       a1234567                           account      
-                         
-Health State           ok   
-Created at             2023-12-05T19:27:28+05:30  
+Backup resource type   volume
+Resource group         ID                                 Name
+                       6edefe513d934fdd872e78ee6a8e73ef   defaults
+Scope                  ID                                 Resource type
+                       a1234567                           account
+
+Health State           ok
+Created at             2023-12-05T19:27:28+05:30
 ```
 {: screen}
 
@@ -334,24 +334,24 @@ Run the `backup-policy-create` command to create a backup policy and a backup pl
 ```sh
 ibmcloud is backup-policy-create --match-tags dev:test --name backup-scope-2 --plan-name scope-plan-2 --plan-attach-tags dev:test --plan-copy-tags false --plan-delete-after 60 --plan-cron-spec '45 09 * * *' --plan-active  --plan-delete-over-count 2 --scope  crn:v1:bluemix:public:enterprise::a1234567::enterprise:7e44cb4667ba4b88b1b1f8dcc15e33b3
 Creating backup policy backup-scope-2 under account Enterprise Test as user test.user@ibm.com...
-                          
-ID                     r006-0bc533ed-4796-407a-982e-693b418f3de3   
-Name                   backup-scope-2   
-CRN                    crn:bluemix:public:is:us-south:a/a1234567::backup-policy:r006-0bc533ed-4796-407a-982e-693b418f3de3   
-Status                 pending   
-Plans                  ID                                          Name           Resource type      
-                       r006-0741b600-e8d5-41b4-88a7-c19b6fbf89ca   scope-plan-2   backup_policy_plan      
-                          
+
+ID                     r006-0bc533ed-4796-407a-982e-693b418f3de3
+Name                   backup-scope-2
+CRN                    crn:bluemix:public:is:us-south:a/a1234567::backup-policy:r006-0bc533ed-4796-407a-982e-693b418f3de3
+Status                 pending
+Plans                  ID                                          Name           Resource type
+                       r006-0741b600-e8d5-41b4-88a7-c19b6fbf89ca   scope-plan-2   backup_policy_plan
+
 Backup tags            dev:test
-Backup resource type   volume   
-Resource group         ID                                 Name      
-                       e579217258f74f42974e6ec4da287fc5   Default      
-                          
-Scope                  ID         CRN                                                                 Resource type      
-                       e7654321   crn:v1:bluemix:public:enterprise::a/a1234567::enterprise:e7654321   -      
-                          
-Health State           ok   
-Created at             2023-08-30T13:39:10+05:30   
+Backup resource type   volume
+Resource group         ID                                 Name
+                       e579217258f74f42974e6ec4da287fc5   Default
+
+Scope                  ID         CRN                                                                 Resource type
+                       e7654321   crn:v1:bluemix:public:enterprise::a/a1234567::enterprise:e7654321   -
+
+Health State           ok
+Created at             2023-08-30T13:39:10+05:30
 ```
 {: screen}
 
@@ -647,7 +647,7 @@ A successful response looks like the following example.
 Make a `POST /backup_policies` request to create a new backup policy.  The value of `match_resource_type` is `volume`. The `match_user_tags` property identifies the backup tags on the {{site.data.keyword.block_storage_is_short}} volume resource and associates it with this plan. In this example, the frequency of the backup plan is defined with a `cron_spec`. In the `scope`, specify the enterprise account CRN.
 
 ```sh
-curl -X POST "$vpc_api_endpoint/v1/backup_policies?version=2023-08-12&generation=2" 
+curl -X POST "$vpc_api_endpoint/v1/backup_policies?version=2023-08-12&generation=2"
 -H "accept: application/json" -H "Content-Type: application/json" -H "Authorization: $iam_token"\
 -d "{
   {
@@ -719,14 +719,14 @@ A successful response looks like the following example.
   }
 }
 ```
-{: codeblock} 
+{: codeblock}
 
 ### Creating a backup policy and plan for a consistency group of Block Storage volumes
 {: #backup-policy-create-api-instance}
 
 [New]{: tag-new}
 
-Make a `POST /backup_policies` request to create a new backup policy. The value of `match_resource_type` is `instance`. To create backups of only the data volumes, specify the `included_content` option as `data volumes`. If you want to include the boot volume in the backup operation, specify `boot-volume` as part of the `included_content` option as well. The `match_user_tags` property identifies the backup tags on the virtual server instance resources and associates the attached {{site.data.keyword.block_storage_is_short}} volumes with this policy and plan. In this example, the frequency of the backup plan is defined with a `cron_spec`, and only the data volume are included in the backup.
+Make a `POST /backup_policies` request to create a new backup policy. The value of `match_resource_type` is `instance`. To create backups of only the data volumes, specify the `included_content` option as `data volumes`. If you want to include the boot volume in the backup operation, specify `boot-volume` as part of the `included_content` option as well. The `match_user_tags` property identifies the backup tags on the virtual server instance resources and associates the attached {{site.data.keyword.block_storage_is_short}} volumes with this policy and plan. In this example, the frequency of the backup plan is defined with a `cron_spec`, and only the data volumes are included in the backup.
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/backup_policies?version=2023-12-05&generation=2"\
@@ -755,7 +755,7 @@ curl -X POST "$vpc_api_endpoint/v1/backup_policies?version=2023-12-05&generation
 ```
 {: codeblock}
 
-Successful response looks like the following example:
+A successful response looks like the following example:
 
 ```json
 {
@@ -773,7 +773,7 @@ Successful response looks like the following example:
           {"name": "us-south-1"},
           {"href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-1"}
         ]
-       }, 
+       },
       "copy_user_tags": true,
       "cron_spec": "30 */2 * * 1-5",
       "deletion_trigger": {
@@ -860,7 +860,7 @@ A successful response looks like the following example.
     "id": "53945f147c1441b0940bc00927863af6",
     "resource_type": "account"
   }
-} 
+}
 ```
 {: screen}
 
@@ -1064,7 +1064,7 @@ For more information about the arguments and attributes, see [ibm_is_backup_poli
 ### Creating a backup policy for an Enterprise with Terraform
 {: #backup-policy-create-enterprise-terraform}
 
-To create a backup policy, use the `ibm_is_backup_policy` resource. The following example defines a backup policy with the name `my-backup-policy-v2` and specifies the Enterprise CRN in the scope . And the new policy applies to resources that have the `dev:test` tag.
+To create a backup policy, use the `ibm_is_backup_policy` resource. The following example defines a backup policy with the name `my-backup-policy-v2` and specifies the Enterprise CRN in the scope. And the new policy applies to resources that have the `dev:test` tag.
 
 ```terraform
 resource "ibm_is_backup_policy" "ent-baas-example" {
