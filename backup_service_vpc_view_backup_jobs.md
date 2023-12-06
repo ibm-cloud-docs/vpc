@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-12-05"
+lastupdated: "2023-12-06"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, view backup lists,
 
@@ -35,14 +35,14 @@ From the backup policy details page, you can list all backup jobs for that polic
 
    | Field         | Description |
    |---------------|-------------|
-   | Job ID        | It's the auto-generated ID of the backup job. |
-   | Job status    | It's the status of the backup job, either `running`, `completed`, or `failed`. |
+   | Job ID        | The auto-generated ID of the backup job. |
+   | Job status    | Status of the backup job, either `running`, `completed`, or `failed`. |
    | Plan          | The backup plan that triggered the backup. Hover over the plan name for a summary of the plan. |
    | Job type      | When a backup is being created, it shows `creation`. When a backup is being deleted, it shows `retention`.|
    | Job started   | Date and time of when the job began. |
    | Job completed | Date and time of when the job was finished. |
    | Snapshot      | The snapshot (backup) that was created when the backup job finishes. Click the name to see the details in the side panel. |
-   | Source        | This can be either the Source volume from which the first snapshot was taken. Or the source instance of the snapshot consistency group that the backup is a member of. |
+   | Source        | The source can either be the Source volume from which the first snapshot was taken, or the source instance of the snapshot consistency group that the backup is a member of. |
    {: caption="Table 1. Information provided by the list of backup jobs for the backup policy" caption-side="bottom"}
 
 ### View snapshots that were created by a backup job in the UI
@@ -55,7 +55,7 @@ From the list of backup jobs, click the Actions icon ![Actions icon](../icons/ac
 | Name     | The name of the backup policy that created the snapshot. You can change the backup policy settings by clicking the pencil icon. For more information, see [Managing backup policies](/docs/vpc?topic=vpc-backup-service-manage). |
 | Status   | The status of the snapshot, such as _Stable_. For a list of snapshot statuses, see [Snapshot statuses](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-status). |
 | Size     | Size in GBs of the snapshot, it is inherited from the source volume. |
-| Source   | This field displays the Source volume from which the snapshot was taken. If the source was deleted, the name appears without a link. |
+| Source   | Displays the Source volume from which the snapshot was taken. If the source was deleted, the name appears without a link. |
 | Bootable | It indicates whether the snapshot was created from a boot volume. |
 {: caption="Table 2. Snapshot details side panel" caption-side="bottom"}
 
@@ -80,9 +80,9 @@ In the first example, the name of the backup policy is used to list the jobs of 
 ```sh
 cloudshell:~$ ibmcloud is backup-policy-jobs new-policy-23
 Listing jobs of backup policy new-policy-23 under account Test Account as user test.user@ibm.com...
-ID                                          Auto delete   Auto delete after   Completed at                Created at                  Job type   Status   
-r138-25828175-2b51-4247-ba01-79c538f68282   true          15                  2023-02-23T20:12:37+00:00   2023-02-23T20:12:14+00:00   creation   succeeded   
-r138-57028109-4702-443a-891b-31cac565546c   true          15                  2023-02-22T20:12:44+00:00   2023-02-22T20:12:25+00:00   creation   succeeded   
+ID                                          Auto delete   Auto delete after   Completed at                Created at                  Job type   Status
+r138-25828175-2b51-4247-ba01-79c538f68282   true          15                  2023-02-23T20:12:37+00:00   2023-02-23T20:12:14+00:00   creation   succeeded
+r138-57028109-4702-443a-891b-31cac565546c   true          15                  2023-02-22T20:12:44+00:00   2023-02-22T20:12:25+00:00   creation   succeeded
 r138-d25c915c-3166-436d-b289-68d222297510   true          15                  2023-02-22T15:27:43+00:00   2023-02-22T15:27:20+00:00   creation   succeeded
 ```
 {: screen}
@@ -475,7 +475,7 @@ For more information about the arguments and attributes, see [ibm_is_backup_poli
 ### View details of a backup job with Terraform
 {: #backup-view-jobs-details-terraform}
 
-Import the details of a backup job as a read-only data source. 
+Import the details of a backup job as a read-only data source.
 
 ```terraform
 data "ibm_is_backup_policy_job" "example" {
