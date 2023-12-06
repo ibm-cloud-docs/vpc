@@ -2,8 +2,7 @@
 
 copyright:
   years: 2019, 2023
-
-lastupdated: "2023-12-01"
+lastupdated: "2023-12-05"
 
 keywords:
 
@@ -14,7 +13,6 @@ content-type: release-note
 ---
 
 {{site.data.keyword.attribute-definition-list}}
-{:external: target="_blank" .external}
 {:release-note: data-hd-content-type='release-note'}
 
 # Release notes for {{site.data.keyword.vpc_short}}
@@ -34,6 +32,9 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-dec0523}
 {: release-note}
 
+Snapshot consistency groups and consistency group backups
+:   You can now create a snapshot consistency group to capture snapshots of multiple block storage volumes that are attached to a virtual server instance. You can include or exclude the boot volume. Instance storage is not included. You can later use the individual snapshots in the consistency group to restore multiple volumes of a virtual server instance. You can automate the creation and retention of consistency group snapshots with the Backup service. For more information, see [Snapshot consistency groups](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#multi-volume-snapshots) and [About Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
+
 IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-14` updates
 :   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-14`, new certificates are available.
    - [Attestation certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-14-attestation.crt){: external}
@@ -48,6 +49,7 @@ Reserved Capacity for VPC (Beta)
 :   You can now reserve capacity for VPC. Reserved capacity is a great option if you want guaranteed resources for future deployments and cost savings. You can choose between either a 1 or 3-year contract term for your reserved capacity. For more information, see [About Reserved Capacity for VPC](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc).
 
 ## November 2023
+{: #vpc-nov23}
 
 ### 16 November 2023
 {: #vpc-nov1623}
