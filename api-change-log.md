@@ -64,7 +64,7 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 
 You can also automate the creation of snapshots in consistency groups. When [creating a backup policy](/apidocs/vpc/latest#create-backup-policy) you can now specify `instance` as a `match_resource_type` value that this backup policy will apply to. Resources that have both a matching type and a matching user tag will be subject to the backup policy. You can include or exclude boot volumes from backup policies by specifying the `included_content` property. The default behavior includes boot volumes and data volumes. 
 
-For more information, see [Backup service concepts](/docs/vpc?topic=vpc-backup-service-about&interface=api#backup-service-concepts), [Snapshot consistency groups](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=api#multi-volume-snapshots), and explore the [backup policy](/apidocs/vpc/latest#list-backup-policies) and [consistency group](/apidocs/vpc/latest#list-snapshot-consistency-groups) methods.
+For more information, see [Backup service concepts](/docs/vpc?topic=vpc-backup-service-about&interface=api#backup-service-concepts), [Snapshot consistency groups](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=api#multi-volume-snapshots), and explore the [backup policy](/apidocs/vpc/latest#list-backup-policies) and [snapshot consistency group](/apidocs/vpc/latest#list-snapshot-consistency-groups) methods.
 
 ### For version `2023-12-05` or later
 {: #version-2023-12-05}
