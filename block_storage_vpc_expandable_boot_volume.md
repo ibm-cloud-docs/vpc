@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-06-30"
+lastupdated: "2023-12-07"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -12,52 +12,41 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Increasing boot volume capacity
+# Increasing capacity of a {{site.data.keyword.block_storage_is_short}} boot volume
 {: #resize-boot-volumes}
 
-For boot volumes that are attached to an instance, you can increase the size of the boot volume during or after instance provisioning by using the UI, CLI, API, or Terraform.
+For boot volumes that are attached to an instance, you can increase the capacity from the default 100 MB up to 250 MB during or after instance provisioning in the console, from the CLI, with the API, or Terraform.
 {: shortdesc}
 
-## Increasing boot volume capacity concepts
-{: #resize-boot-overview}
-
-Boot volume capacity can be increased during instance provisioning or later, by directly updating the boot volume. This feature applies to instances created from stock and custom images. You can also specify a larger boot volume capacity when you create an instance template.
-
-When you [provision an instance](#resize-boot-vol-new-instance-ui), you can expand the boot volume from its minimum size up to the maximum capacity of 250 GB.
-
-For [existing instances](#resize-boot-vol-list-ui), you can modify the boot volume size and increase capacity up to 250 GB, depending on what the image allows. In this case, you select a boot volume from the list of Block Storage volumes to modify the capacity.
-
-After you expand boot volume capacity, you have to take extra steps to get your OS to recognize the capacity increase. You must independently increase the size of the disk, grow the disk partition, and then increase the file system into the partition. For more information, see [Modifying a Linux OS for expanding boot volumes](/docs/vpc?topic=vpc-modifying-the-linux-os-expanded-boot-volume).
-
-## Increasing boot volume capacity in the UI
+## Increase boot volume capacity in the UI
 {: #resize-vpc-boot-volumes-ui}
 {: ui}
 
 Increase boot volume capacity for new or existing instances in the console. For existing instances, you can increase the boot volume capacity by selecting a boot volume from the list of Block Storage volumes.
 
-### Increasing boot volume capacity during instance provisioning in the UI
+### Increase boot volume capacity during instance provisioning in the UI
 {: #resize-boot-vol-new-instance-ui}
 
 When you create new instance from either a stock or custom image, you can increase the size of the boot volume. For example, a stock image would show 100 GB by default. You can modify the size up to 250 GB. For more information about creating virtual server instances, see [Creating virtual server instances in the UI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui). In that topic, the information for boot volume in Table 1 explains this process.
 
 You can also specify a larger boot volume capacity when you create an instance template. For more information, see [Creating an instance template](/docs/vpc?topic=vpc-creating-auto-scale-instance-group&interface=ui#creating-instance-template).
 
-### Increasing boot volume capacity from the list of Block Storage volumes in the UI
+### Increase boot volume capacity from the list of Block Storage volumes in the UI
 {: #resize-boot-vol-list-ui}
 
 For an existing instance, you can increase its boot volume capacity by selecting it from the list of Block Storage volumes.
 
-1. Go to the list of Block Storage volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block Storage volumes**.
+1. Go to the list of Block Storage volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Storage > Block Storage volumes**.
 
 2. Select a boot volume from the list of volumes. The attachment type is _boot_.
 
-3. In the boot volume details, click the **Size** pencil icon. Alternatively, select **Expand volume** from the Actions menu.
+3. In the boot volume details, click the **Size** pencil icon. Alternatively, select **Expand volume** from the Actions menu ![Actions icon](../icons/action-menu-icon.svg "Actions").
 
 4. In the side panel, increase the boot volume size in the **Create size** field. The size must be more than the current size up to 250 GB.
 
 5. Click **Expand boot volume size**.
 
-## Increasing boot volume capacity from the CLI
+## Increase boot volume capacity from the CLI
 {: #expand-boot-vols-cli}
 {: cli}
 
@@ -81,7 +70,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    ```
    {: pre}
 
-### Increasing boot volume capacity when you create an instance from the CLI
+### Increase boot volume capacity when you create an instance from the CLI
 {: #expand-new-boot-vols-cli}
 
 Run the `ibmcloud is instance-create` command and specify a boot volume capacity in GBs.
@@ -95,7 +84,7 @@ Creating instance cli-vsi-1 under account VPC1 as user myuser@mycompany.com...
 
 ID                                    0716_84f99419-554d-4c05-bea0-7034d1c40ed3
 Name                                  vsi-1
-CRN                                   crn:v1:bluemix:public:is:us-south-1:a/a123456::instance:0716_84f99419-554d-4c05-bea0-7034d1c40ed3
+CRN                                   crn:v1:bluemix:public:is:us-south-1:a/efe5afc483594adaa8325e2b4d1290df::instance:0716_84f99419-554d-4c05-bea0-7034d1c40ed3
 Status                                pending
 Availability policy on host failure   restart
 Startable                             true
@@ -133,7 +122,7 @@ ibmcloud is instance template create tpl-1 vpc-1 us-south-1 bx2-2x8  cli-subnet-
 
 For more information about creating virtual server instances from the CLI, see [Creating virtual server instances from the CLI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli). For more information about the commands that are used for increasing boot volume size, see the [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference). 
 
-### Increasing capacity of an existing boot volume from the CLI
+### Increase capacity of an existing boot volume from the CLI
 {: #expand-existing-boot-vol-cli}
 
 From the CLI, locate the boot volume that you want to expand. You can use the `ibmcloud is volumes` command filter the results by specifying the resource group. Also, if you know the name or ID of the instance, you can view instance details and get information about the boot volume.
@@ -148,7 +137,7 @@ Updating volume my-boot-vol1 under account VPC1 as user myuser@mycompany.com...
 
 ID                                     9d60ba27-170c-4e2a-9bf6-6dbb11f95c38
 Name                                   my-boot-vol1
-CRN                                    crn:v1:bluemix:public:is:us-south-1:a/a123456::volume:9d60ba27-170c-4e2a-9bf6-6dbb11f95c38
+CRN                                    crn:v1:bluemix:public:is:us-south-1:a/efe5afc483594adaa8325e2b4d1290df::volume:9d60ba27-170c-4e2a-9bf6-6dbb11f95c38
 Status                                 updating
 Capacity                               190
 IOPS                                   3000
@@ -172,11 +161,11 @@ Tags                                   -
 ```
 {: screen}
 
-## Increasing boot volume capacity with the API
+## Increase boot volume capacity with the API
 {: #increase-vpc-volumes-api}
 {: api}
 
-### Increasing boot volume capacity when you create an instance with the API
+### Increase boot volume capacity when you create an instance with the API
 {: #expand-new-boot-vol-api}
 
 When you create an instance by making a `POST \instances` request, you can specify larger boot volume capacity for any of these contexts: when you create the instance from an image, a source boot volume, or an instance template. Specify a boot volume name and capacity in the `boot-volume-attachment` property. The capacity for the boot volume must be at least the image's minimum provisioned size, which is the default if you don't specify capacity.
@@ -209,9 +198,9 @@ curl -X POST "$vpc_api_endpoint/v1/instances?version=2022-02-01&generation=2"\
 ```
 {: codeblock}
 
-For more information, see [Create an instance](/apidocs/vpc/latest#create-instance) in the VPC API reference.
+For more information, see [Create an instance](/apidocs/vpc#create-instance) in the VPC API reference.
 
-### Increasing capacity of an existing boot volume with the API
+### Increase capacity of an existing boot volume with the API
 {: #expand-existing-boot-vol-api}
 
 With the API, locate the boot volume that you want to expand by making a `GET \volumes` call. Then, make a `PATCH \volumes` call with the ID of the boot volume and specify a new value for capacity.
@@ -226,6 +215,144 @@ curl -X PATCH "$vpc_api_endpoint/v1/volumes/$volume_id/?version=2022-02-12&gener
    }'
 ```
 {: codeblock}
+
+## Increase capacity of an existing boot volume with Terraform
+{: #expand-existing-boot-vol-terraform}
+{: terraform}
+
+To increase the capacity of a boot volume, use the `ibm_is_volume` resource. When it's applied, the following example updates the capacity of the volume to 250 GB.
+
+```terraform
+resource "ibm_is_volume" "boot-volume-example" {
+  name    = "my-boot-volume"
+  size    = 250
+  profile = "general-purpose"
+  zone    = "us-south-2"
+}
+```
+{: codeblock}
+
+For more information about the arguments and attributes, see [ibm_is_volume](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_volume){: external}.
+
+## Modifying OS to utilize the increased capacity
+{: #modifying-os-expanded-boot-volume}
+
+After you expand the boot volume capacity, you have to make your OS recognize the capacity increase. You must independently grow the disk partition, and then increase the file system into the partition.
+
+For more information about expanding the file system, see your OS Documentation. For example,
+- [RHEL 8 - Modifying Logical Volume](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/modifying-the-size-of-a-logical-volume_configuring-and-managing-logical-volumes){: external}
+- [Microsoft&reg; - Extend a basic volume](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
+
+### Modifying a Linux OS for expanded boot volumes
+{: #modifying-the-linux-os-expanded-boot-volume}
+
+The following example is based on CentOS Linux 7. Instructions for other Linux distributions can vary. After you increased the volume capacity from 100 GB to 250 GB, you can log in to the virtual server instance to validate the increase. Then, increase the partition and the expand the file system on the volume.
+
+Extending a file system is a moderately risky operation. Consider taking a snapshot of the volume to prevent data loss.
+{: tip} 
+
+1. Establish an SSH connection to your virtual server instance by using the floating IP address that is assigned to the instance. For more information, see [Connecting to Linux instances](/docs/vpc?topic=vpc-vsi_is_connecting_linux).
+1. Run the `lsblk` command to see the list of attached storage volumes. In the following example, `vda` is the expanded boot volume, and `vdc` is the attached {{site.data.keyword.block_storage_is_short}} data volume. The `vdb` disk is an instance storage volume. You can see that the partitions on the `vda` disk remained unchanged, although the overall size is increased to 250G.
+   ```sh
+   [root@docs-demo-instance ~]# lsblk
+   NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+   vda    253:0    0  250G  0 disk
+   ├─vda1 253:1    0  200M  0 part /boot/efi
+   └─vda2 253:2    0 99.8G  0 part /
+   vdb    253:16   0 69.9G  0 disk
+   vdc    253:32   0  1.2T  0 disk /myvolumedir
+   vdd    253:48   0  370K  0 disk
+   vde    253:64   0   44K  0 disk
+   ```
+   {: screen}
+
+1. Issue the `growpart` command to grow the partition size to cover maximum available space. 
+   1. By using the `--dry-run` option you can preview the changes before you perform the partition update.
+      ```sh
+      [root@docs-demo-instance ~]# growpart /dev/vda 1 --dry-run
+       NOCHANGE: partition 1 is size 409600. it cannot be grown
+      [root@docs-demo-instance ~]# growpart /dev/vda 2 --dry-run
+       CHANGE: partition=2 start=411648 old: size=209303552 end=209715200 new: size=523876319 end=524287967
+       # === old sfdisk -d ===
+       # partition table of /dev/vda
+        unit: sectors
+       /dev/vda1 : start=     2048, size=   409600, Id=ef
+       /dev/vda2 : start=   411648, size=209303552, Id=83, bootable
+       /dev/vda3 : start=        0, size=        0, Id= 0
+       /dev/vda4 : start=        0, size=        0, Id= 0
+       # === new sfdisk -d ===
+       # partition table of /dev/vda
+       unit: sectors
+       /dev/vda1 : start=     2048, size=   409600, Id=ef
+       /dev/vda2 : start=   411648, size=523876319, Id=83, bootable
+       /dev/vda3 : start=        0, size=        0, Id= 0
+       /dev/vda4 : start=        0, size=        0, Id= 0
+      ```
+      {: screen}
+
+   1. Update the partition size of the boot volume as shown in the following example.
+      ```sh
+      [root@docs-demo-instance ~]# growpart /dev/vda 2 
+      CHANGED: partition=2 start=411648 old: size=209303552 end=209715200 new: size=523876319 end=524287967
+      ```
+      {: screen}
+
+1. Issue the command `lsblk` to verify that the partition is resized. The following example shows that the `vda2` partition is successfully increased in size.
+   ```sh
+   [root@docs-demo-instance ~]# lsblk
+   NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+   vda    253:0    0   250G  0 disk
+   ├─vda1 253:1    0   200M  0 part /boot/efi
+   └─vda2 253:2    0 249.8G  0 part /
+   vdb    253:16   0  69.9G  0 disk
+   vdc    253:32   0   1.2T  0 disk /myvolumedir
+   vdd    253:48   0   370K  0 disk
+   vde    253:64   0    44K  0 disk
+   ```
+   {: screen}
+
+   However, the file system still sees the `vda2` partition as 99G instead of 249G.
+
+   ```sh
+   [root@docs-demo-instance ~]# df -kh
+   Filesystem      Size  Used Avail Use% Mounted on
+   devtmpfs        3.9G     0  3.9G   0% /dev
+   tmpfs           3.9G     0  3.9G   0% /dev/shm
+   tmpfs           3.9G  385M  3.5G  10% /run
+   tmpfs           3.9G     0  3.9G   0% /sys/fs/cgroup
+   /dev/vda2        99G  1.3G   92G   2% /
+   /dev/vda1       200M   12M  189M   6% /boot/efi
+   /dev/vdc        1.2T   71M  1.2T   1% /myvolumedir
+   tmpfs           783M     0  783M   0% /run/user/0
+   ```
+   {: screen}
+
+1. Resize the file system on the partition with the `resize2fs` command.
+   ```sh
+   [root@docs-demo-instance ~]# resize2fs /dev/vda2
+   resize2fs 1.42.9 (28-Dec-2013)
+   Filesystem at /dev/vda2 is mounted on /; on-line resizing required
+   old_desc_blocks = 13, new_desc_blocks = 32
+   The filesystem on /dev/vda2 is now 65484539 blocks long.
+   ```
+   {: screen}
+
+1. Verify that the file system is expanded. In the example, you can see that the size of `vda2` increased.
+   
+   ```sh
+   [root@docs-demo-instance ~]# df -kh
+   Filesystem      Size  Used Avail Use% Mounted on
+   devtmpfs        3.9G     0  3.9G   0% /dev
+   tmpfs           3.9G     0  3.9G   0% /dev/shm
+   tmpfs           3.9G  385M  3.5G  10% /run
+   tmpfs           3.9G     0  3.9G   0% /sys/fs/cgroup
+   /dev/vda2       246G  1.3G  234G   1% /
+   /dev/vda1       200M   12M  189M   6% /boot/efi
+   /dev/vdc        1.2T   71M  1.2T   1% /myvolumedir
+   tmpfs           783M     0  783M   0% /run/user/0
+   ```
+   {: screen}
+
 
 ## Next steps
 {: #next-steps-resize-boot-vols}

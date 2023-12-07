@@ -561,9 +561,8 @@ toc:
                 topics:
                 - block_storage_is_view.md
                 - block_storage_is_manage.md
-                - block_storage_vpc_expandable_volumes.md
-                - block_storage_vpc_resize_boot_volume.md
-                - modifying-the-linux-os-expanded-boot-volume.md
+                - block_storage_vpc_expandable_boot_volume.md
+                - block_storage_vpc_expandable_data_volumes.md
                 - block_storage_vpc_adjustable_iops.md
             - block_storage_vpc_monitoring.md
         - topicgroup:

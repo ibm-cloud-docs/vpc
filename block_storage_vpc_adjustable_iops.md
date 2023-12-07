@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-06-30"
+lastupdated: "2023-12-07"
 
 keywords: Block Storage for VPC, boot volume, data volume, volume, data storage, virtual server instance, instance, adjustable volume, iops
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Adjusting {{site.data.keyword.block_storage_is_short}} volume IOPS
+# Adjusting IOPS of a {{site.data.keyword.block_storage_is_short}} volume
 {: #adjusting-volume-iops}
 
 For {{site.data.keyword.block_storage_is_full}} volumes that are attached to a virtual server instance, you can increase or decrease IOPS to meet your performance needs. Adjust IOPs by specifying a different IOPS tier profile or different IOPS value withing a custom IOPS band. The IOPS adjustment causes no outage or lack of access to the storage.
@@ -77,7 +77,7 @@ The following limitations apply to this release.
 
 Follow these steps to adjust IOPS by selecting a new IOPS tier or custom IOPS band:
 
-1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block Storage volumes**. By default, {{site.data.keyword.block_storage_is_short}} volumes display for all resource groups in your region.
+1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Storage > Block Storage volumes**. By default, {{site.data.keyword.block_storage_is_short}} volumes display for all resource groups in your region.
 2. In the list of all **{{site.data.keyword.block_storage_is_short}} volumes**, click the name of the volume to see the volume details.
    The volume that you select must be attached to a virtual server instance. In the list of volumes, its attachment type is _data_.
    {: note}
@@ -130,7 +130,7 @@ This example shows an increase of IOPS from 100 IOPS to 3,000 IOPS for a 100 GB 
 
 ```sh
 $ ibmcloud is volume-update 933c8781-f7f5-4a8f-8a2d-3bfc711788ee --iops 3000
-Updating volume 933c8781-f7f5-4a8f-8a2d-3bfc711788ee under account MyAccount 01 as user user1@mycompany.com...
+Updating volume 933c8781-f7f5-4a8f-8a2d-3bfc711788ee under account Test Account as user test.user@ibm.com...
 ID                                      0738-933c8781-f7f5-4a8f-8a2d-3bfc711788ee
 Name                                    demo-volume-update
 Capacity                                100
@@ -184,9 +184,7 @@ Health State                           ok
 Volume Attachment Instance Reference   Attachment type   Instance ID                                 Instance name   Auto delete   Attachment ID                               Attachment name      
                                        data              0757_11f5db7f-35a1-4678-bcbd-c85204e09507   kj-test-ro      false         0757-4dfc4384-c4b5-497e-bab3-6415f9c4d44b   otp      
                                           
-Active                                 true   
-Unattached capacity update supported   false   
-Unattached iops update supported       false   
+Active                                 true 
 Busy                                   false   
 Tags                                   -
 ```
@@ -198,12 +196,12 @@ For more information about available command options, see [`ibmcloud is volume-u
 {: #adjust-vpc-iops-api-block}
 {: api}
 
-You can adjust IOPS for existing data volumes by calling the Virtual Private Cloud (VPC) API.
+You can adjust IOPS for existing data volumes by calling the Virtual Private Cloud (VPC) API. 
 
 ### Adjust IOPS for a Custom profile
 {: #adjust-iops-api-block}
 
-Make a `PATCH /volumes` request and specify the `iops` parameter to adjust the IOPS within a custom IOPS profile band.
+Make a `PATCH /volumes` request and specify the `iops` parameter to adjust the IOPS within a custom IOPS profile band. 
 
 You can't update the name of the volume and adjust IOPS in the same `PATCH /volumes` request. Make two `PATCH /volumes` requests.
 {: note}
@@ -234,7 +232,7 @@ The volume status shows `updating` while the IOPS is being adjusted. The current
     .
     .
     .
-{
+}
 ```
 {: screen}
 
