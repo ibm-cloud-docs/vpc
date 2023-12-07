@@ -90,7 +90,7 @@ If you choose to continue with an EOS OS, consider the following information:
    - EOS operating systems are not supported by {{site.data.keyword.Bluemix_notm}} Technical Support.
 
 ## Debian 10
-{: debian-ten-eos-vpc}
+{: #debian-ten-eos-vpc}
 
 Debian 10 EOS date is 30 June 2024. Support for this software discontinues on 30 June 2024. After deprecation, clients can't download the software. For existing customers, upgrade to the latest version.
 For more information, see the [Debian documentation](https://www.debian.org/releases/bookworm/amd64/release-notes/ch-upgrading.en.html){external}.
