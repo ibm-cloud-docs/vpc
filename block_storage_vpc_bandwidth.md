@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-10-24"
+lastupdated: "2023-12-06"
 
 keywords: Block Storage, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance, bandwidth
 
@@ -34,7 +34,7 @@ To ensure reasonable boot times, a minimum of 393 Mbps is allocated to the prima
 
 Each volume has an IOPS and bandwidth limit set. The IOPS limit is always set to the maximum IOPS of the volume. The bandwidth for each attached volume is set proportionally based on the [volume size and profile](/docs/vpc?topic=vpc-block-storage-profiles). 
 
-For optimal bandwidth to be realized, detach and reattach the volume after volume bandwidth allocation in the UI, CLI, or API.
+For optimal bandwidth to be realized, detach and reattach the volume after volume bandwidth allocation.
 
 ### Adjusting volume bandwidth
 {: #volume-adjust-bandwidth}
@@ -49,8 +49,8 @@ However, before you change the storage-networking bandwidth ratio, be sure to ev
 Extending the example for multiple volumes, the bandwidth looks like this:
 
 * The total allocation for volumes is 2,000 Mbps,
-* Less boot volume minimum allocation, 393 Mbps,
-* Remaining bandwidth for data volumes: 1,607 Mbps.
+* Minus the boot volume minimum allocation, 393 Mbps,
+* The remaining bandwidth for data volumes is 1,607 Mbps.
 
 The volume bandwidth that is available to the instance is apportioned on a per volume basis. The bandwidth is assigned per volume, not shared between volumes. For example, if you have an instance with four identical attached volumes but you are using only one volume, then that volume can get only the bandwidth that is assigned to it. The volume in use can't access the extra bandwidth that is assigned to the unused volumes.
 
@@ -59,9 +59,9 @@ The volume bandwidth that is available to the instance is apportioned on a per v
 
 When you create a stand-alone (unattached) Block Storage data volume, the volume bandwidth is assigned based on volume capacity, IOPS, and volume profile.
 
-* In the UI, the volume bandwidth can be seen as **Throughput** on the overview tab of the Block Storage volume details page.
+* In the UI, the volume bandwidth can be seen as **Throughput** on the overview tab of the Block Storage volume details page.{: ui}
 
-* In the CLI, you can see the bandwidth in the output of the `ibmcloud is volume` command.
+* In the CLI, you can see the bandwidth in the output of the `ibmcloud is volume` command.{: cli}
 
    ```sh
    ibmcloud is volume my-test-volume 
@@ -88,32 +88,35 @@ When you create a stand-alone (unattached) Block Storage data volume, the volume
    Busy                                   false   
    Tags                                   - 
    ```
-   [: screen]
+   {: screen}
+   {: cli}
 
-* The API response for a `GET /volume/{id}` call shows the bandwidth for an unattached volume like the following example.
+* The API response for a `GET /volume/{id}` call shows the bandwidth for an unattached volume like the following example.{: api}
 
-```json
-{
-  "active": true,
-  "bandwidth": 640,
-  "busy": false,
-  "capacity": 500,
-  "created_at": "2021-08-08T06:26:17Z",
-  "crn": "crn:[...]",
-  "encryption": "provider_managed",
-  "href": "https://us-south.iaas.cloud.ibm.com/v1/volumes/ccbe6fe1-5680-4865-94d3-687076a38293",
-  "id": "ccbe6fe1-5680-4865-94d3-687076a38293",
-  "iops": 5000,
-  "name": "my-volume-1",
-  "profile": {
-    "href": "https://us-south.iaas.cloud.ibm.com/v1/volume/profiles/general-purpose",
-    "name": "custom"
-  .
-  .
-  .
-  "volume_attachments": []
-```
-{: screen}
+   ```json
+   {
+     "active": true,
+     "bandwidth": 640,
+     "busy": false,
+     "capacity": 500,
+     "created_at": "2021-08-08T06:26:17Z",
+     "crn": "crn:[...]",
+     "encryption": "provider_managed",
+     "href": "https://us-south.iaas.cloud.ibm.com/v1/volumes/ccbe6fe1-5680-4865-94d3-687076a38293",
+     "id": "ccbe6fe1-5680-4865-94d3-687076a38293",
+     "iops": 5000,
+     "name": "my-volume-1",
+     "profile": {
+       "href": "https://us-south.iaas.cloud.ibm.com/v1/volume/profiles/general-purpose",
+       "name": "custom"
+     .
+     .
+     .
+     "volume_attachments": []
+   } 
+   ```
+   {: screen}
+   {: api}
 
 When you attach a secondary volume to a virtual server instance, the primary boot volume gets priority IOPS, and bandwidth allocation to ensure reasonable boot times. Boot volume IOPS and bandwidth are never reduced to be less than 3000 IOPS or 393 Mbps.
 
