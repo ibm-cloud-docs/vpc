@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Attestation with Intel SGX and Data Center Attestation Primitives (DCAP) for Virtual Servers for VPC - WIP <!-- DO NOT MERGE -->
+# Attestation with Intel SGX and Data Center Attestation Primitives (DCAP) for Virtual Servers for VPC
 {: #about-attestation-sgx-dcap-vpc}
 
 [Select availability Beta]{: tag-blue}
