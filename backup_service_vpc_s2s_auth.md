@@ -192,7 +192,8 @@ curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H
     {"attributes": [
       {"name": "accountId","value": "$ACCOUNT_ID"},
       {"name": "serviceName","value": "is.volume","operator": "stringEquals"},
-      {"name": "volumeId","value": "*","operator": "stringEquals"}]
+      {"name": "volumeId","value": "*","operator": "stringEquals"}
+     ]
     }
    ]
 }'

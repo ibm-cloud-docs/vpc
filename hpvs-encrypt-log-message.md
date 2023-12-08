@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-11-10"
+lastupdated: "2023-12-05"
 
 keywords: logging for hyper protect virtual server for vpc, encrypt log messages for hyper protect virtual server for vpc
 
@@ -55,7 +55,7 @@ This tutorial also provides sample files such as `env.yaml`, `workload.yaml`, an
 
 This tutorial will get you started with a simple Hyper Protect Virtual Server for VPC contract that only has an [`env` section](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_env) and a [`workload` section](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_workload).
 
-As recommended in the [documentation](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_encrypt), we will encrypt both sections. When the instance boots, the bootloader decrypts the contract if it's encrypted. Download the certificate to be used to encrypt the contract by following the [instructions](/docs/vpc?topic=vpc-about-contract_se#encrypt_downloadcert). This tutorial uses the [certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-13-encrypt.crt){: external} for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-13`. The file `hpcr.crt` is already available inside `example-files`. Follow the steps to obtain the simple contract:
+As recommended in [contract encryption](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_encrypt), we will encrypt both sections. When the instance boots, the bootloader decrypts the contract if it's encrypted. Follow the instructions at [Downloading the encryption certificate and extracting the public key](/docs/vpc?topic=vpc-about-contract_se#encrypt_downloadcert). This tutorial uses the [certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-14-encrypt.crt){: external} for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-14`. The file `hpcr.crt` is already available inside `example-files`. Follow the steps to obtain the simple contract:
 
 1. Get the hostname and the ingestion key of your Log Analysis instance. See [Logging for Hyper Protect Virtual Servers for VPC](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc).
 

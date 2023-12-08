@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-11-30"
+lastupdated: "2023-12-07"
 
 subcollection: vpc
 
@@ -24,9 +24,6 @@ You can provision your reserved capacity through the UI, CLI, or API. You must p
 You can provision your reserved capacity through the {{site.data.keyword.cloud}} catalog. You must provision your reserved capacity before you can attach virtual servers.
 
 If you are not the account administrator, your user account must include the **Manage reserved capacities** permission. For more information about updating permissions, see [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started).
-
-Before you can create reserved capacity you need to create an [{{site.data.keyword.cloud}} VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
-{: important}
 
 ## Provisioning reserved capacity with the UI
 {: #provisioning-reserved-capacity-ui-vpc}

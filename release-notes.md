@@ -2,8 +2,7 @@
 
 copyright:
   years: 2019, 2023
-
-lastupdated: "2023-12-01"
+lastupdated: "2023-12-12"
 
 keywords:
 
@@ -14,7 +13,6 @@ content-type: release-note
 ---
 
 {{site.data.keyword.attribute-definition-list}}
-{:external: target="_blank" .external}
 {:release-note: data-hd-content-type='release-note'}
 
 # Release notes for {{site.data.keyword.vpc_short}}
@@ -36,6 +34,19 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 File Storage for VPC - Cross-regional Replication 
 :  Customers who have VPCs in multiple regions in the same geography can now create replicas of their file shares in another zone of a different region. For more information, see [About file share replication](/docs/vpc?topic=vpc-file-storage-replication).
+
+### 05 December 2023
+{: #vpc-dec0523}
+{: release-note}
+
+Snapshot consistency groups and consistency group backups
+:   You can now create a snapshot consistency group to capture snapshots of multiple block storage volumes that are attached to a virtual server instance. You can include or exclude the boot volume. Instance storage is not included. You can later use the individual snapshots in the consistency group to restore multiple volumes of a virtual server instance. You can automate the creation and retention of consistency group snapshots with the Backup service. For more information, see [Snapshot consistency groups](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#multi-volume-snapshots) and [About Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
+
+IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-14` updates
+:   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-14`, new certificates are available.
+   - [Attestation certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-14-attestation.crt){: external}
+   - [Encryption certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-14-encrypt.crt){: external}
+   - [Intermediate certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-14-intermediate.crt){: external}
 
 ### 01 December 2023
 {: #vpc-dec0123}
@@ -77,7 +88,6 @@ IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1
 :   You can attach multiple volumes when you bring up the virtual server instance. For more information, see [The workload - volumes subsection](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_volumes), and [The env - volumes subsection](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_env_vol).
 
 :   The `workload` section for Hyper Protect Secure Build is updated based on the IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-13`. For more information, see [Configuring and using Hyper Protect Secure Build in {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-about-hpsb#hpvs_hpsb).
-
 
 ### 10 November 2023
 {: #vpc-nov1023}

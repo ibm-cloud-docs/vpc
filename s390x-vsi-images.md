@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-11-20"
+lastupdated: "2023-12-05"
 
 keywords: image, stock image, linuxone image, hpcr, container runtime, virtual private cloud, virtual server, generation 2, gen 2
 
@@ -43,9 +43,9 @@ You can choose a profile based on your requirements. You can choose from balance
 | Ubuntu 22.04.x, 20.04.x | s390x |
 | SUSE Linux Enterprise server (SLES) 15 SP3 | s390x |
 | IBM z/OS ({{site.data.keyword.waziaas_full_notm}}) | s390x |
-{: caption="Table 2. Supported s390x stock image operating systems" caption-side="bottom"}
+{: caption="Table 1. Supported s390x stock image operating systems" caption-side="bottom"}
 
-The {{site.data.keyword.waziaas_short}} z/OS dev and test stock image is available in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), United Kingdom (London), US East (Washington DC), US South (Dallas), and Spain (Madrid) regions. For more information, see [{{site.data.keyword.waziaas_full_notm}} documentation](https://www.ibm.com/docs/en/wazi-aas/1.0.0){: external}.
+The {{site.data.keyword.waziaas_short}} z/OS dev and test stock image is available in the US South (Dallas), Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), United Kingdom (London), Spain (Madrid), US East (Washington DC), and US South (Dallas) regions. For more information, see [{{site.data.keyword.waziaas_full_notm}} documentation](https://www.ibm.com/docs/en/wazi-aas/1.0.0){: external}.
 {: note}
 
 For information about images for x86 processor architecture, see [x86 virtual server images](/docs/vpc?topic=vpc-about-images).
@@ -55,7 +55,7 @@ With a cloud-init enabled image, you can provide user data. In the **User Data**
 When using the IBM Hyper Protect Container Runtime image, container details are provided at instance creation through the contract, specified in the **User Data** field on the order form. Once the containers start, you can interact with the workload that is brought up on the containers. For more information, see [Contract](/docs/vpc?topic=vpc-about-contract_se).
 {: note}
 
-You can access details about each operating system, such as the url for the operating system, by using the API call, [List all operating systems](/apidocs/vpc/latest#list-operating-systems).
+You can access details about each operating system, such as the url for the operating system, by using the API call, [List all operating systems](/apidocs/vpc#list-operating-systems).
 {: tip}
 
 
@@ -71,7 +71,7 @@ ibm-<family>-<version>-<type>-<architecture>-<build>
 The following example shows the image naming convention.
 
 ```sh
-ibm-hyper-protect-container-runtime-1-0-s390x-13
+ibm-hyper-protect-container-runtime-1-0-s390x-14
 ```
 
 It is recommended that you use the latest images because they are valid for longer and have the latest security fixes. Upgrade to the latest image because the earlier images will expire soon.
@@ -87,7 +87,7 @@ The following list explains the variables that make up the components of the ima
 
 You can obtain the current list of images, including stock images, by running the following command in the command-line interface: [ibmcloud is images](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#images).
 
-The image naming convention is subject to change. The list of image names is not intended to be programmatically parsed or interpreted. You can use the [GET /images](/apidocs/vpc/latest#get-image) API to obtain metadata in a structured format.
+The image naming convention is subject to change. The list of image names is not intended to be programmatically parsed or interpreted. You can use the [GET /images](/apidocs/vpc#get-image) API to obtain metadata in a structured format.
 {: important}
 
 ## Custom images
@@ -112,11 +112,6 @@ For more information, see [Bringing your own image with Wazi Image Builder](http
 {{site.data.content.custom-image-requirements-list}}
 
 {{site.data.content.custom-image-information-link}}
-
-<!--### Storage costs
-{: #custom-image-storage}
-
-Storage costs are incurred for storing custom images. This charge is separate from charges for storing images in {{site.data.keyword.cos_full_notm}}.-->
 
 ## Next steps
 {: #vs-next-steps-images}

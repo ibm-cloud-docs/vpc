@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-09-25"
+lastupdated: "2023-12-07"
 
 keywords:
 
@@ -88,6 +88,12 @@ If you choose to continue with an EOS OS, consider the following information:
 - Support isn't available for performance or operational issues on the server with an EOS OS.
    - Vendor support is unavailable for an EOS OS.
    - EOS operating systems are not supported by {{site.data.keyword.Bluemix_notm}} Technical Support.
+
+## Debian 10
+{: #debian-ten-eos-vpc}
+
+Debian 10 EOS date is 30 June 2024. Support for this software discontinues on 30 June 2024. After deprecation, clients can't download the software. For existing customers, upgrade to the latest version.
+For more information, see the [Debian documentation](https://www.debian.org/releases/bookworm/amd64/release-notes/ch-upgrading.en.html){external}.
 
 ## Windows 2012 and Windows 2012 R2 EOS
 {: #upgrading-windows-2012-os}
