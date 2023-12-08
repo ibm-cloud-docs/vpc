@@ -196,7 +196,7 @@ ibmcloud is instance-volume-attachment-update INSTANCE_ID VOLUME_ATTACHMENT_ID [
 ```
 {: pre}
 
-Use the `--name` option and specify a new name for the volume attachment. Specify `--auto-delete true` to automatically delete a volume that is attached to an instance, when you delete the instance. specify `--auto-delete false`, if you want to keep the volume as a stand-alone volume after the instance is deleted.
+Use the `--name` option and specify a new name for the volume attachment. Specify `--auto-delete true` to automatically delete a volume that is attached to an instance, when you delete the instance. Specify `--auto-delete false`, if you want to keep the volume as a stand-alone volume after the instance is deleted.
 
 ```sh
 $ ibmcloud is instance-volume-attachment-update kj-test-ro otp1 --name one-true-pairing --auto-delete false
