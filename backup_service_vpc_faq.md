@@ -126,6 +126,6 @@ If you modify the value of the backup consistency group's `delete_snapshots_on_d
 
 ## Can I restore a virtual server from consistency group backups?
 {: faq}
-{: #faq-baas-restore}
+{: #faq-baas-cr-restore}
 
 Restoring a virtual server instance directly from snapshot consistency group identifier is not supported. However, you can restore a virtual server instance by restoring all of its boot and data volumes from the snapshots that are part of a consistency group. Virtual server instance configuration is not part of the backup, and you must manually or programmatically configure the instance in the console, from the CLI, with the API, or Terraform. For more information, see [Creating volumes for a virtual server instance from a consistency group](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-restore-cr-details-ui).
