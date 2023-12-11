@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-#  Monitoring {{site.data.keyword.block_storage_is_short}} health states, volume status, and metrics
+# Monitoring {{site.data.keyword.block_storage_is_short}} health states, volume status, and metrics
 {: #block-storage-vpc-monitoring}
 
 By using the UI, CLI, or API, you can check on the status and health states of your {{site.data.keyword.block_storage_is_short}} volumes. You can also view the cumulative number of read and write operations for a specific volume that is attached to a virtual server instance.
@@ -29,7 +29,7 @@ You can monitor certain {{site.data.keyword.block_storage_is_short}} volume perf
 
 To see these metrics in the UI, do the following.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **VPC Infrastructure > Compute > Virtual server instances**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Compute > Virtual server instances**.
 2. Click the instance name to go to the instance details.
 3. Click the **Monitoring** tab and scroll to the **Volume** metrics.
 4. Select a volume. The read and write metrics are displayed. Figure 1 shows this view.
