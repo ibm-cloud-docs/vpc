@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-12-07"
+lastupdated: "2023-12-11"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -122,7 +122,7 @@ ibmcloud is instance template create tpl-1 vpc-1 us-south-1 bx2-2x8  cli-subnet-
 
 For more information about creating virtual server instances from the CLI, see [Creating virtual server instances from the CLI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli). For more information about the commands that are used for increasing boot volume size, see the [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference). 
 
-### Increase capacity of an existing boot volume from the CLI
+### Increasing the capacity of an existing boot volume from the CLI
 {: #expand-existing-boot-vol-cli}
 
 From the CLI, locate the boot volume that you want to expand. You can use the `ibmcloud is volumes` command filter the results by specifying the resource group. Also, if you know the name or ID of the instance, you can view instance details and get information about the boot volume.
@@ -200,12 +200,12 @@ curl -X POST "$vpc_api_endpoint/v1/instances?version=2022-02-01&generation=2"\
 
 For more information, see [Create an instance](/apidocs/vpc#create-instance) in the VPC API reference.
 
-### Increase capacity of an existing boot volume with the API
+### Increasing the capacity of an existing boot volume with the API
 {: #expand-existing-boot-vol-api}
 
 With the API, locate the boot volume that you want to expand by making a `GET \volumes` call. Then, make a `PATCH \volumes` call with the ID of the boot volume and specify a new value for capacity.
 
-For example, this call increases capacity of a boot volume to 250 GB.
+For example, this call increases the capacity of a boot volume to 250 GB.
 
 ```sh
 curl -X PATCH "$vpc_api_endpoint/v1/volumes/$volume_id/?version=2022-02-12&generation=2"\
@@ -216,7 +216,7 @@ curl -X PATCH "$vpc_api_endpoint/v1/volumes/$volume_id/?version=2022-02-12&gener
 ```
 {: codeblock}
 
-## Increase capacity of an existing boot volume with Terraform
+## Increasing the capacity of an existing boot volume with Terraform
 {: #expand-existing-boot-vol-terraform}
 {: terraform}
 
@@ -234,7 +234,7 @@ resource "ibm_is_volume" "boot-volume-example" {
 
 For more information about the arguments and attributes, see [ibm_is_volume](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_volume){: external}.
 
-## Modifying OS to utilize the increased capacity
+## Modifying OS to use the increased capacity
 {: #modifying-os-expanded-boot-volume}
 
 After you expand the boot volume capacity, you have to make your OS recognize the capacity increase. You must independently grow the disk partition, and then increase the file system into the partition.
@@ -246,7 +246,7 @@ For more information about expanding the file system, see your OS Documentation.
 ### Modifying a Linux OS for expanded boot volumes
 {: #modifying-the-linux-os-expanded-boot-volume}
 
-The following example is based on CentOS Linux 7. Instructions for other Linux distributions can vary. After you increased the volume capacity from 100 GB to 250 GB, you can log in to the virtual server instance to validate the increase. Then, increase the partition and the expand the file system on the volume.
+The following example is based on CentOS Linux 7. Instructions for other Linux distributions can vary. After you increased the volume capacity from 100 GB to 250 GB, you can log in to the virtual server instance to validate the increase. Then, increase the partition and then expand the file system on the volume.
 
 Extending a file system is a moderately risky operation. Consider taking a snapshot of the volume to prevent data loss.
 {: tip} 
@@ -266,8 +266,8 @@ Extending a file system is a moderately risky operation. Consider taking a snaps
    ```
    {: screen}
 
-1. Issue the `growpart` command to grow the partition size to cover maximum available space. 
-   1. By using the `--dry-run` option you can preview the changes before you perform the partition update.
+1. Issue the `growpart` command to grow the partition size to cover the maximum available space. 
+   1. By using the `--dry-run` option, you can preview the changes before you perform the partition update.
       ```sh
       [root@docs-demo-instance ~]# growpart /dev/vda 1 --dry-run
        NOCHANGE: partition 1 is size 409600. it cannot be grown
