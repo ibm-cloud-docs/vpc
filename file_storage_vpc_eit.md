@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-11-10"
+lastupdated: "2023-12-11"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -18,18 +18,18 @@ subcollection: vpc
 You can establish an encrypted mount connection between the virtual server instance and storage system by using the Internet Security Protocol (IPsec) security profile and X.509 certificates. By enabling encryption in transit, you create secure end-to-end encryption for your data.
 {: shortdesc}
 
-If you choose to use Encryption-in-transit, you need to balance your requirements between performance and enhanced security. Encrypting data in transit can have some performance impact due to the processing that is needed to encrypt and decrypt the data at the endpoints. The impact depends on the workload characteristics. Workloads that perform synchronous writes or bypass VSI caching, such as databases, might have a substantial performance impact when EIT is enabled. To determine EIT’s performance impact, benchmark your workload with and without EIT. Also, even without EIT, the data is moving through a secure data center network.
+If you choose to use Encryption-in-transit, you need to balance your requirements between performance and enhanced security. Encrypting data in transit can have some performance impact due to the processing that is needed to encrypt and decrypt the data at the endpoints. The impact depends on the workload characteristics. Workloads that perform synchronous writes or bypass VSI caching, such as databases, might have a substantial performance impact when EIT is enabled. To determine EIT’s performance impact, benchmark your workload with and without EIT. 
 
-For more information about network security, see [Security in your VPC](/docs/vpc?topic=vpc-security-in-your-vpc) and [Protecting Virtual Private Cloud (VPC) Infrastructure Services with context-based restrictions](/docs/vpc?topic=vpc-cbr).
+Even without EIT, the data is moving through a secure data center network. For more information about network security, see [Security in your VPC](/docs/vpc?topic=vpc-security-in-your-vpc) and [Protecting Virtual Private Cloud (VPC) Infrastructure Services with context-based restrictions](/docs/vpc?topic=vpc-cbr).
 
 ## Overview
 {: #file-storage-eit-overview}
 
-With this feature, you can enable secure end-to-end encryption of your data when you use file shares with security-group-based access control mode and mount targets with virtual network interfaces. When such a mount target is attached and the share is mounted on a virtual server instance, the virtual network interface checks the security group policy to ensure only authorized instances can communicate with the share. The traffic between the authorized virtual server instance and the file share can be IPsec encapsulated by the client. 
+With this feature, you can enable secure end-to-end encryption of your data when you use file shares with security-group-based access control mode and mount targets with virtual network interfaces. When such a mount target is attached and the share is mounted on a virtual server instance, the virtual network interface checks the security group policy to ensure that only authorized instances can communicate with the share. The traffic between the authorized virtual server instance and the file share can be IPsec encapsulated by the client. 
 
 IPsec is a group of protocols that together set up encrypted connections between devices. It helps keep data sent over public networks secure. IPsec Encrypts IP packets, and authenticates the source where the packets come from. To configure IPsec on your virtual server instance, you can use [strongSwan](https://www.strongswan.org/){: external}, which is an open source IPsec-based VPN solution. For more information about how strongSwan works, see [Introduction to strongSwan](https://docs.strongswan.org/docs/5.9/howtos/introduction.html){: external} and [IPsec Protocol](https://docs.strongswan.org/docs/5.9/howtos/ipsecProtocol.html){: external}, too.
 
-The IPsec connection requires that you have an X.509 certificate for authentication. X.509 is an international standard format for public key certificates, digital documents that securely associate cryptographic key pairs with identities such as websites, individuals, or organizations. The Instance Metadata service is used to create the certificates.
+The IPsec connection requires that you have an X.509 certificate for authentication. X.509 is an international standard format for public key certificates, digital documents that securely associate cryptographic key pairs with identities such as websites, individuals, or organizations. The Instance metadata service is used to create the certificates.
 
 A Certificate Signing Request (CSR) is a block of encoded texts that are forwarded to a certificate authority (CA) when users apply for a certificate. CSR is created on the server where the certificate is to be installed. CSR includes information such as domain name, organization name, locality, and country. The request also contains the public key, which is associated with the certificate that is generated, and the private key. The CA uses only the public key when the certificate is created. The private key must be saved and kept secret. As the private key is part of the key pair with the public key, and the certificate does not work if the private key is lost.
 
@@ -44,7 +44,7 @@ To use the feature, the following requirements need to be met:
 - The mount target must be created with a [virtual network interface](/docs/vpc?topic=vpc-vni-about). For more information, see [Creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create).
 - Data encryption in transit must be enabled. In the UI, you can toggle encryption in transit on when you create the mount target. The API `transit_encryption` property accepts the `user_managed` value to enable the feature.
 - When you configure the virtual server instance to access the file share, you must configure IPsec Transport Mode for the mount target address. [Install](https://docs.strongswan.org/docs/5.9/install/install.html){: external} and configure the strongSwan client.
-- Obtain X.509 certificates are needed for authentication. The same certificates cannot be used across multiple regions.
+- Obtain the X.509 certificates that are needed for authentication. The same certificates cannot be used across multiple regions.
    1. The following command generates a *Certificate Signing Request* (CSR) and *RSA Key Pair* by using openssl.
       ```sh
       openssl req -sha256 -newkey rsa:4096 -subj '/C=US' -out ./sslcert.csr -keyout file.key -nodes
