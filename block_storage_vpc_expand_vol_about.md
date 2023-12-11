@@ -55,9 +55,9 @@ _z/OS - Experimental_ When you expand Block Storage volume capacity on an existi
 ### Boot volumes
 {: #expand-boot-vols}
 
-By default, when you create an instance from a stock image, a 100 GB, 3,000 IOPS boot volume is created and attached to the instance. Instances that are created from a custom image can have a boot volume capacity 10 GB to 250 GB.
+By default, when you create an instance from a stock image, a 100 GB, 3,000 IOPS boot volume is created and attached to the instance. Instances that are created from a custom image can have a boot volume capacity of 10 GB to 250 GB.
 
-For either stock or custom images, you can increase boot volume capacity from its minimum provisioned size up to 250 GB, either when you provision an instance or when you update the boot volume from the list of Block Storage volumes. For more information, see [Increasing boot volume capacity](/docs/vpc?topic=vpc-resize-boot-volumes).
+Regardless of the image type, you can increase boot volume capacity from its minimum provisioned size up to 250 GB. You can increase the capacity either when you provision an instance or later by updating the boot volume. For more information, see [Increasing boot volume capacity](/docs/vpc?topic=vpc-resize-boot-volumes).
 
 The boot volume expansion takes effect without a reboot. However, to use the increased boot volume space, you must expand your operating system so the increased boot volume capacity is recognized. For more information, see [Modifying a Linux OS for expanding boot volumes](/docs/vpc?topic=vpc-modifying-the-linux-os-expanded-boot-volume).
 {: note}
@@ -98,21 +98,20 @@ Limitations for resizing boot and data volumes apply in this release.
 
 * Data volumes can expand to 16,000 GB, with the following limitations:
     * If the volume was created by using an [IOPS tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers-beta) that limits capacity to less than 16,000 GB, it can expand only to the allowed capacity for that tier.
-    * If the volume is a [custom volume](/docs/vpc?topic=vpc-block-storage-profiles#custom) that is created in a lower range that doesn't allow expanding to 16,000 GB, it can expand only to its maximum capacity for that custom range.
+    * If the volume was provisioned with a [custom profile](/docs/vpc?topic=vpc-block-storage-profiles#custom) that is created in a range that doesn't allow expanding to 16,000 GB, it can expand only to its maximum capacity for that custom range.
     * Volumes can expand multiple times until maximum capacity is reached.
-* IOPS can increase to the maximum that is allowed by the IOPS tier profile. While volume resizing does not incur downtime (that is, you don't need to restart the instance and reattach the volume), for the increased IOPS to take effect, you must restart the virtual server instance, or detach and reattach the volume from the instance.
-* After you create a volume, can't change a volume's IOPS tier profile.
+* IOPS can increase to the maximum that is allowed by the IOPS tier profile. For the increased IOPS to take effect, you must restart the virtual server instance, or detach and reattach the volume from the instance. This behavior is unlike a capacity increase that doesn't incur any downtime.
 * You can't independently modify IOPS for a volume that is created from an IOPS tier profile. IOPS is adjusted when you expand a volume's capacity and then restart the instance, or attach and detach the volume from the instance.
 * When you expand a volume that was created from a custom profile, the capacity is increased but the IOPS remains the same. You can't independently increase the IOPS.
 * Maximum IOPS for a volume is capped at [48,000 IOPS](/docs/vpc?topic=vpc-block-storage-profiles&interface=api#tiers).
 * After a volume is expanded, you can't reduce the size of the volume.
-* When a volume is in transition, for example, the volume is detached while the volume expansion is in progress, the volume remains in an _updating_ state until you reattach it to an instance. The volume expansion the resumes and completes.
+* When a volume is in transition, its state is _updating_. If the volume is detached while the volume expansion is in progress, the volume remains in an _updating_ state until you reattach it to an instance. After reattachment, the volume expansion resumes and completes.
 * When you delete an instance, volumes that are marked for auto-deletion are not deleted when volume expansion is underway. For more information, see [troubleshooting](/docs/vpc?topic=vpc-troubleshooting-block-storage#troubleshoot-topic-4).
 
 ### Boot volume limitations
 {: #exp-vols-boot-limits}
 
-* Boot volume capacity cannot be smaller than the size of the image. If the custom image is smaller than 10 GB, boot volume capacity is rounded up to 10 GB.
+* Boot volume capacity cannot be smaller than the size of the image. If the custom image is smaller than 10 GB, the boot volume capacity is rounded up to 10 GB.
 * You cannot increase boot volume capacity beyond the maximum image size, which is 250 GB.
 * Boot volumes stored as unattached secondary volumes can't be expanded.
 * Resizing takes place without a reboot. However, you must expand the size in your operating system so that the boot volume is recognized.
