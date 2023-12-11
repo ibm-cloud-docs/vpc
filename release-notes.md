@@ -28,13 +28,6 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## December 2023
 {: #vpc-dec23}
 
-### 12 December 2023
-{: #vpc-december1223}
-{: release-note}
-
-File Storage for VPC - Cross-regional Replication 
-:  Customers who have VPCs in multiple regions in the same geography can now create replicas of their file shares in another zone of a different region. For more information, see [About file share replication](/docs/vpc?topic=vpc-file-storage-replication).
-
 ### 05 December 2023
 {: #vpc-dec0523}
 {: release-note}
