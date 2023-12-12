@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-09-19"
+lastupdated: "2023-12-12"
 
 keywords: api, change log, beta
 
@@ -25,6 +25,17 @@ There are no backward-compatibility guarantees as a feature progresses through i
 {: important}
 
 To review the change log of generally available API features, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log).
+
+## 12 December 2023
+{: #12-december-2023-beta}
+
+### For all version dates
+{: #12-december-2023-all-version-dates-beta}
+
+**Confidential computing and secure boot capabilities.** Accounts that have been granted special approval to preview this feature can now enable [Intel&reg; Software Guard Extensions](/docs/vpc?topic=vpc-about-sgx-vpc) on select instance profiles. When [creating](/apidocs/vpc-beta#create-instance) or [updating](/apidocs/vpc-beta#update-instance) an instance or when [creating](/apidocs/vpc-beta#create-instance-template) or [updating](/apidocs/vpc-beta#update-instance-template) an instance template, you can specify the new `confidential_compute_mode` property (`disabled` or `sgx`) to use for a virtual server instance. If unspecified when creating an instance or instance template, the default confidential compute mode from the profile will be used. You can also set the new `enable_secure_boot` property to `true` to enable secure boot on the virtual server instance. If `true`, the image must support secure boot or the instance will fail to boot. If unspecified when creating an instance or instance template, the default secure boot mode from the profile will be used. 
+
+To update the `enable_secure_boot` and `confidential_compute_mode` properties, the virtual server instance `status` must be `stopping` or `stopped`.
+{: note}
 
 ## 19 September 2023
 {: #19-september-2023-beta}
