@@ -66,6 +66,7 @@ toc:
                - vsi_is_profiles.md
                - s390x-vsi-profiles.md
                - vsi_is_dh_profile.md
+               - s390x-dh-profiles.md
                - bare_metal_server_profile.md
                - profiles_benchmark.md
            - vpc-secure-boot.md

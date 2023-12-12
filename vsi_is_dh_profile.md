@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2023
-lastupdated: "2023-10-12"
+lastupdated: "2023-12-15"
 
 keywords: dedicated host profiles, balanced, compute, memory, ultra high memory, generation 2, gen 2
 
@@ -19,13 +19,12 @@ subcollection: vpc
 
 Dedicated hosts are available in various profile sizes to best suit the size and scale of your workloads: Balanced, Compute, Memory, Very High Memory, and Ultra High Memory. All virtual server instances that are provisioned on the dedicated host are provisioned from the same family and class of profiles. For example, if you choose a Memory profile for your dedicated host, all instances that are provisioned on the host must also be created with a Memory virtual server profile. If you choose a Compute with instance storage dedicated host, all instances that are provisioned on the host must also be created with Compute with instance storage virtual server profiles. This set up ensures you can always use the entire dedicated host resource.
 
+For more information about dedicated host profiles for IBM Z (s390x processor architecture), see [s390x dedicated host profiles](/docs/vpc?topic=vpc-s390x-dh-profiles).
+
 <!-- The s390x note stays on staging until 7/31 when LinuxONE VSI is available in production -->
 
 The Madrid region only supports dedicated host profiles with instance storage.
 {: important}
-
-Dedicated hosts are not supported for LinuxONE (s390x processor architecture).  
-{: note}
 
 The following profile families are available:
 
