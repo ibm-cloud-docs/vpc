@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-11-29"
+lastupdated: "2023-12-12"
 
 keywords: file share, file storage, replication, replica, size increase, capacity, encryption, BYOK, security group
 
@@ -33,12 +33,6 @@ No. You can create a file share independent of a VPC. However, to create a mount
 
 Yes.
 
-### What interfaces are supported for this release to create file shares?
-{: faq}
-{: #faq-fs-4}
-
-You can use the UI, CLI, API, or Terraform to create and manage your file shares.
-
 ### Can I mount file shares on a Windows operating system?
 {: faq}
 {: #faq-fs-os}
@@ -51,30 +45,23 @@ No, file shares can be mounted only on supported on Linux operating systems or a
 
 {{site.data.keyword.filestorage_vpc_short}} requires NFS versions v4.1 or higher.
 
-### What features are supported in this release?
-{: faq}
-{: #faq-fs-5}
-{: support}
-
-In this release, you can:
-
-*	Create a file share.
-*	Mount a file share to one or multiple virtual server instances across multiple VPCs within the same zone or across zones.
-* Restrict access to a specific virtual server instance when mounting a file share by using security groups.
-* Enable end-to-end encryption in transit for file share data.
-*	Delete a file share.
-*	Delete all mount targets or delete a single mount target. When you delete one or several mount targets, the instances that are mounting the file share for the VPCs where the mount target is deleted can't access the file share.
-*	List file shares and mount targets.
-*	Update file share and mount target name.
-* Create replication between the source file share and a replica file share.
-* Fail over to a replica file share when the source share is compromised. Fall back to the original share when the issue is resolved.
-* Add, manage, and delete file share user tags. Create and manage access management tags.
-
 ### Who do I contact to help with any issues? What information do I need to provide?
 {: faq}
 {: #faq-fs-7}
 
 For more information about who to contact, see [Getting help and support](/docs/vpc?topic=vpc-getting-help). Provide as much information as you can, including error messages, screen captures, and API error codes and responses. Include any messages from the VPC and the file storage service.
+
+### How am I charged for usage?
+{: faq}
+{: #faq-fs-billing}
+
+Cost for {{site.data.keyword.filestorage_vpc_short}} is calculated based on the GiB capacity that is stored per month, unless the duration is less than one month. The share exists on the account until you delete the share or you reach the end of a billing cycle, whichever comes first.
+
+Pricing is also affected when you [expand share capacity](/docs/vpc?topic=vpc-file-storage-expand-capacity) or [adjust IOPS](/docs/vpc?topic=vpc-adjusting-share-iops). For example, expanding volume capacity increases costs, and decreasing the IOPS value decreases the monthly and hourly rate. Billing for an updated volume is automatically updated to add the prorated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.
+
+You can use the Cost estimator ![Cost estimator icon](../icons/calculator.svg "Cost estimator") in {{site.data.keyword.cloud_notm}} console to see how changes in capacity and IOPS affect the cost. For more information, see [Estimating your costs](/docs/billing-usage?topic=billing-usage-cost).
+
+You also incur charges when you [replicate data](/docs/vpc?topic=vpc-file-storage-replication) to a different region. Charges for data transfer between the two file shares are calculated with a flat rate in GiB increments. The charges are based on the amount of data that was transferred during the entire billing period. You can use the [replication sync information](/docs/vpc?topic=vpc-file-storage-manage-replication#fs-repl-joblogs) to see the transferred data values, which can help you estimate the global transfer charges at the end of the billing period.
 
 ## File share management questions
 {: #file-storage-vpc-management-questions}
@@ -84,7 +71,7 @@ For more information about who to contact, see [Getting help and support](/docs/
 {: #faq-fs-mgt-1}
 {: support}
 
-Yes, you can mount file shares across different zones in your region.
+Yes, you can mount file shares across different zones in your region. For more information, see [Cross-zone mount targets](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-cross-zone-mount).
 
 ### Can I mount file shares for my Kube containers?
 {: faq}
@@ -92,7 +79,7 @@ Yes, you can mount file shares across different zones in your region.
 
 Yes. You can mount file shares by using the NFSv4.1 protocol.
 
-### Can I mount same file shares between two virtual server instances?
+### Can I mount the same file shares between two virtual server instances?
 {: faq}
 {: #faq-fs-mgt-4}
 
@@ -164,11 +151,11 @@ The **dp2** profile is the latest file storage profile, offering greater capacit
 
 You can migrate file shares that were created by using either the IOPS tier profile or custom IOPS profile to the latest dp2 profile. By migrating to the [dp2 profile](/docs/vpc?topic=vpc-file-storage-profiles#dp2-profile), you can take advantage of the latest {{site.data.keyword.filestorage_vpc_short}} features. Currently, you can use the {{site.data.keyword.filestorage_vpc_short}} UI, CLI, or API to revise a single file share profile. For migrating multiple shares, you need to create your own script that would first list these shares and then go through the list of shares and update each individual share profile.
 
-### Can I mount a file share to a specific virtual server instance?
+### Can I restrict access to my file share to a specific virtual server instance?
 {: faq}
 {: #faq-fs-access-mode}
 
-Yes. You can specify an access control mode that either uses Security Groups to restrict mounting a file share to specific resources in the VPC or allows VPC-wide file share mounting. File share mount targets created before `13-June-2023` have a default of VPC-wide file share mounting. File shares created after that date can specify the security group access control mode to restrict access to specific virtual server instances. For this option, file shares must be based on the [`dp2` profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile). For more information, see [Mount target access modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-mount-access-mode).
+Yes. When you create a file share, you have to specify the access control mode. It can either be based on Security Groups, which restrict the access to the file share to specific resources in the VPC, or or the access mode can allow for VPC-wide file share mounting. For more information, see [Mount target access modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-mount-access-mode).
 
 ## Performance questions
 {: #file-storage-vpc-performance-questions}
@@ -192,7 +179,7 @@ Yes, you can increase or decrease IOPS for file shares based on an **IOPS tier**
 
 Yes, you can use the UI, CLI, or API to update a file share profile. You can change among IOPS tier profiles. When you select a custom profile or dp2 high-performance profile, you specify the maximum IOPS based on the file share size.
 
-You cannot use the UI, CLI, or API to update multiple file shares in a single operation. For more on this issue, see [troubleshooting {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-troubleshooting-file-storage).
+You can't use the UI, CLI, or API to update multiple file shares in a single operation. For more on this issue, see [troubleshooting {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-troubleshooting-file-storage).
 {: note}
 
 ## Data security and encryption questions
@@ -211,7 +198,7 @@ You can also enable secure end-to-end encryption of your file share data by sett
 {: faq}
 {: #faq-fs-sec-2}
 
-Yes. You can specify a security group access control mode to restrict mounting file shares to specific instances in your VPC. For more information, see [Granular authentication](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-mount-access-mode).
+Yes. You can specify the security group access control mode to restrict mounting file shares to specific instances in your VPC. For more information, see [Granular authentication](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-mount-access-mode).
 
 ### How is my data protected in a file share? Can I use my own encryption keys?
 {: faq}
@@ -223,7 +210,7 @@ By default, your file share data is protected at rest with IBM-managed encryptio
 {: faq}
 {: #faq-fs-sec-4}
 
-You can enable secure end-to-end encryption of your data when you use file shares with security-group-based access control mode and mount targets with virtual network interfaces. When such a mount target is attached and the share is mounted on a virtual server instance, the virtual network interface performs security group policy check to ensure only authorized instances can communicate with the share. The traffic between the authorized virtual server instance and the file share can be IPsec encapsulated by the client. For more information, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit).
+You can enable secure end-to-end encryption of your data when you use file shares with security-group-based access control mode and mount targets with virtual network interfaces. When such a mount target is attached and the share is mounted, the virtual network interface performs security group policy check to ensure only authorized instances can communicate with the share. The traffic between the authorized virtual server instance and the file share can be IPsec encapsulated by the client. For more information, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit).
 
 Encryption in transit is not supported between {{site.data.keyword.filestorage_vpc_short}} and {{site.data.keyword.bm_is_short}}.
 {: restriction}

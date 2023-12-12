@@ -77,7 +77,7 @@ Valid file share names can include a combination of lowercase alpha-numeric char
 
 1. Go to the [file shares details](/docs/vpc?topic=vpc-file-storage-view&interface=ui#fs-view-single-share-ui) page.
 
-2. Click the Actions menu ![Actions menu](images/overflow.png).
+2. Click the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Actions").
 
 3. Select **Rename**.
 
@@ -95,7 +95,7 @@ You can change the profile for a file share from the current profile to another 
 
 1. Go to the [file shares details](/docs/vpc?topic=vpc-file-storage-view&interface=ui#fs-view-single-share-ui) page.
 
-2. Click the pencil icon next to the current profile or use the **Actions** menu ![Actions menu](images/overflow.png) and select **Edit IOPS profile**. A side panel shows the current profile, file share size, and maximum IOPS.
+2. Click the pencil icon next to the current profile or use the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions") and select **Edit IOPS profile**. A side panel shows the current profile, file share size, and maximum IOPS.
 
 3. For a **New profile**, click the down arrow. You can select a new IOPS tier, a custom profile, or dp2. For **Custom IOPS** or **dp2**, specify a new max IOPS based on the file share size. The file share price is automatically calculated based on your selection.
 
@@ -113,7 +113,7 @@ Before you delete a file share, make sure that it is [unmounted](#fs-mount-unmou
 
 2. On the File share details page, select a mount target that you want to delete.
 
-3. Click the Actions menu ![Actions menu](images/overflow.png) and select **Delete**.
+3. Click the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Actions") and select **Delete**.
 
 #### Deleting a file share in the UI
 {: #delete-file-share-ui}
