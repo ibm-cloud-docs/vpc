@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-11-02"
+lastupdated: "2023-12-04"
 
 keywords:
 
@@ -28,21 +28,16 @@ You can create a VPN server by using the UI, CLI, or API.
 Before you provision a VPN server, complete the following prerequisites in the following order:
 
 1. Review [Planning considerations for VPN servers](/docs/vpc?topic=vpc-client-to-site-vpn-planning).
-1. Decide which VPN client authentication that you want to use: certificate-based, user ID and passcode, or both. For more information, see [Setting up client-to-site authentication](/docs/vpc?topic=vpc-client-to-site-authentication).
-1. For user ID and passcode authentication only, [create an IAM access group and grant users the role to connect to the VPN server](/docs/vpc?topic=vpc-create-iam-access-group).
-1. [Create a Secrets Manager instance and import certificates](/docs/vpc?topic=vpc-client-to-site-authentication#creating-cert-manager-instance-import).
-1. For server authentication only, [create IAM service-to-service authorization](/docs/vpc?topic=vpc-client-to-site-authentication#creating-iam-service-to-service).
-1. Depending on the deployment mode that you selected for your VPN server, do one of the following:
-
-   * For a High Availability (HA) VPN server, create a VPC and two subnets in two different zones. The VPN server resides in the two subnets.
-   * For a stand-alone VPN server, create a VPC and one subnet in one zone.
-
-   For instructions, see [Creating a VPC and subnet](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vpc-and-subnet).
+1. Decide which VPN client authentication mode to use: certificate-based, user ID and passcode, or both. For more information, see [Setting up client-to-site authentication](/docs/vpc?topic=vpc-client-to-site-authentication).
+1. [Create a Secrets Manager service instance](/docs/secrets-manager?topic=secrets-manager-create-instance) and [manage certificates](/docs/vpc?topic=vpc-client-to-site-authentication#creating-cert-manager-instance-import).
+   
+   It is recommended that you [create a private certificate](/docs/secrets-manager?topic=secrets-manager-private-certificates) with [these considerations](/docs/vpc?topic=vpc-client-to-site-authentication#using-private-certificate) in mind.
    {: note}
 
-1. Optionally, if you plan to configure access control lists (ACLs) for use with the VPN, see [Configuring security groups and ACLs for use with VPN](/docs/vpc?topic=vpc-vpn-client-to-site-security-groups).
+1. [Create an IAM service-to-service authorization](/docs/vpc?topic=vpc-client-to-site-authentication#creating-iam-service-to-service) for your VPN server and IBM Cloud Secrets Manager.
+1. [Create a VPC and at least one subnet](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console) in your selected VPC.
 
-   To configure security groups for use with a VPN, you must do so during VPN server provisioning. At least one security group is required.
+   For high availability, create a VPC and two subnets in two different zones. The VPN server resides in the two subnets.
    {: note}
 
 ## Creating a VPN server in the UI
@@ -58,7 +53,6 @@ To create a client-to-site VPN server in the UI:
 1. In the VPN type section, click **Client-to-site servers**.
 
    ![VPN type section](images/vpn-type.png){: caption="VPN type section" caption-side="bottom"}
-
 
    The Locations section shows the region where the VPC is located and where the VPN server will be provisioned.
    {: tip}
@@ -102,7 +96,10 @@ To create a client-to-site VPN server in the UI:
 
       ![VPN client authentication section](images/vpn-client-authentication.png){: caption="VPN client authentication section" caption-side="bottom"}
 
-1. In the Security groups section, select at least one security group. To configure one or more security groups and their rules, see [Configuring ACLs and security groups for use with VPN](/docs/vpc?topic=vpc-acls-security-groups-vpn).
+1. In the Security groups section, select at least one security group. 
+
+   To configure one or more security groups and their rules or, to optionally configure access control lists (ACLs) on the subnet where you plan to deploy the VPN server and other VPC subnets that communicate over the VPN tunnel, see [Configuring ACLs and security groups for use with a VPN server](/docs/vpc?topic=vpc-acls-security-groups-vpn).
+   {: note}
 
    ![VPN security groups section](images/vpn-security-groups.png){: caption="VPN security groups section" caption-side="bottom"}
 
