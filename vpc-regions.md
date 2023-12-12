@@ -47,7 +47,7 @@ Virtual Private Cloud is available in the following {{site.data.keyword.cloud}} 
 {: tab-group="vpc-regions-api-endpoint"}
 {: #vpc-europe-regions}
 
-The Madrid region only supports dedicated host profiles with instance storage. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui).
+For x86-64 dedicated host profiles, the Madrid region only supports dedicated host profiles with instance storage. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui).
 {: important}
 
 |   Location     | Region | API Endpoint |

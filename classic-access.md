@@ -117,7 +117,7 @@ Zone         | Address Prefix
 `br-sao-3`     | `172.26.128.0/18`
 {: caption="Table 1. Classic access VPC address prefixes by zone" caption-side="top"}
 
-The Madrid region only supports dedicated host profiles with instance storage. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui).
+For x86-64 dedicated host profiles, the Madrid region only supports dedicated host profiles with instance storage. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui).
 {: important}
 
 To prevent address prefixes from being created, you can add the `"address_prefix_management": "manual"` parameter when you create the VPC by using the API:
