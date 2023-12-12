@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-08-15"
+lastupdated: "2023-12-12"
 
 keywords: api, change log, beta, metadata
 
@@ -25,6 +25,14 @@ There are no backward-compatibility guarantees as a feature progresses through i
 {: important}
 
 To review the change log of generally available metadata API features, see the [VPC Instance Metadata API change log](/docs/vpc?topic=vpc-metadata-api-change-log).
+
+## 12 December 2023
+{: #12-december-2023-metadata-beta}
+
+### For all version dates
+{: #12-december-2023-all-version-dates-metadata-beta}
+
+**Confidential computing and secure boot capabilities.** When [retrieving instance metadata](/apidocs/vpc-metadata-beta#get-instance), the response will now include `confidential_compute_mode` and `enable_secure_boot` properties. For more information, see the [Beta API change log](/docs/vpc?topic=vpc-api-change-log-beta#12-december-2023-beta).
 
 ## 11 July 2023
 {: #11-july-2023-metadata-beta}
