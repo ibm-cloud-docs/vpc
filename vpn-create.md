@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-11-11"
+  years: 2019, 2023
+lastupdated: "2023-12-04"
 
 keywords:
 subcollection: vpc
@@ -27,6 +27,9 @@ Review the following considerations before creating a VPN gateway:
 * If you plan to set a default route (`0.0.0.0/0`) in a VPC routing table to let egress traffic from your VPC resources pass through a VPN gateway, and you plan to use a route-based VPN, create your VPN gateway in a subnet different from the one associated with the routing table. Otherwise, this default route causes a routing conflict for the VPN gateway and brings the VPN connection down.
 * By default, PFS (Perfect Forward Secrecy) is disabled for IBM Cloud VPN for VPC. Some vendors require PFS enablement for Phase 2. Check your vendor instruction and use custom policies if PFS is required.
 * IBM Cloud VPN for VPC supports only one route-based VPN per zone per VPC.
+
+    The IBM VPN gateway uses its public IP address as the IKE local identify and designates the peer's public IP address as the IKE peer identify. In cases where the peer VPN gateway is located behind a NAT firewall, and the peer's public IP address is not associated with the peer VPN gateway interface, it is imperative to adjust the configuration of the peer VPN gateway to ensure that the peer's public IP address is used as the IKE identify.
+    {: note}
 
 ## Creating a VPN gateway in the UI
 {: #vpn-create-ui}

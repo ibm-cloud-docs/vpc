@@ -196,7 +196,7 @@ ibmcloud is instance-volume-attachment-update INSTANCE_ID VOLUME_ATTACHMENT_ID [
 ```
 {: pre}
 
-Use the `--name` option and specify a new name for the volume attachment. Specify `--auto-delete true` to automatically delete a volume that is attached to an instance, when you delete the instance. specify `--auto-delete false`, if you want to keep the volume as a stand-alone volume after the instance is deleted.
+Use the `--name` option and specify a new name for the volume attachment. Specify `--auto-delete true` to automatically delete a volume that is attached to an instance, when you delete the instance. Specify `--auto-delete false`, if you want to keep the volume as a stand-alone volume after the instance is deleted.
 
 ```sh
 $ ibmcloud is instance-volume-attachment-update kj-test-ro otp1 --name one-true-pairing --auto-delete false
@@ -451,7 +451,7 @@ You don't need to set automatic deletion for boot volumes. Boot volumes are crea
 
 To enable Auto Delete for an existing {{site.data.keyword.block_storage_is_short}} data volume that is attached to an instance, follow these steps:
 
-1. Locate the virtual server instance to which the data volume is attached. In the [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
+1. Locate the virtual server instance to which the data volume is attached. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
 1. Under **Attached {{site.data.keyword.block_storage_is_short}} volumes**, select a volume.
 1. On the next page, click **Auto Delete** to enable.
 1. Confirm your selection.

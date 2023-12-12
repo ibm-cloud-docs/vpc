@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-10-26"
+lastupdated: "2023-12-05"
 
 keywords: file storage, file share, API change, replication, fallback plan, fallback poicy, failover
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Updating to the version `2023-08-08` (file shares)
+# Updating to the `2023-08-08` version (file shares)
 {: #2023-08-08-migration-file-shares}
 
 As described in the [Beta VPC API](/apidocs/vpc-beta) reference [versioning](/apidocs/vpc-beta#api-versioning-beta) policy, to more quickly respond to feedback as a feature progresses through its beta phase, support for older versions of the beta API is limited to 45 days. Therefore, beta API requests must specify a `version` query parameter date value within the last 45 days.

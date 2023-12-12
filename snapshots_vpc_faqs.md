@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-11-13"
+lastupdated: "2023-12-05"
 
 keywords: Block Storage, snapshots, cross-regional copy, fast restore, backup, restore volume
 
@@ -70,7 +70,7 @@ Restoring a volume from a snapshot creates an entirely new boot or data volume. 
 
 For best performance, you can enable snapshots for fast restore. By using the fast restore feature, you can create a volume from a snapshot that is fully provisioned when the volume is created. For more information, see [Snapshots fast restore](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_fast_restore).
 
-### I restored a {{site.data.keyword.block_storage_is_short}} volume from a snapshot, and it's not performing at the expected levels. Is this normal?
+## I restored a {{site.data.keyword.block_storage_is_short}} volume from a snapshot, and it's not performing at the expected levels. Is this normal?
 {: faq}
 {: #faq-snapshot-performance}
 
@@ -88,7 +88,7 @@ Deleting a volume from which you created a snapshot has no effect on the snapsho
 {: faq}
 {: #faq-snapshot-8}
 
-Yes, you can use Backup for VPC to create a backup policy and plan. In the plan you can schedule daily, weekly, or monthly backup snapshots, or more frequent backups with a `cron-spec` expression. For more information about scheduling backup snapshots and how it works, see the [Backup for VPC](/docs/vpc?topic=vpc-backup-service-about) overview.
+Yes, you can use Backup for VPC to create a backup policy and plan. In the plan, you can schedule daily, weekly, or monthly backup snapshots, or more frequent backups with a `cron-spec` expression. For more information about scheduling backup snapshots and how it works, see the [Backup for VPC](/docs/vpc?topic=vpc-backup-service-about) overview.
 
 ## Can I detach or delete a volume after I take a snapshot?
 {: faq}
@@ -100,26 +100,36 @@ Snapshots have their own lifecycle, independent of the {{site.data.keyword.block
 {: faq}
 {: #faq-snapshot-pricing}
 
-Cost for snapshots is calculated based on GB capacity that is stored per month, unless the duration is less than one month. Because the snapshot is based on the capacity that was provisioned for the original volume, the snapshot capacity does not vary. Deleting snapshots reduces cost, so the fewer snapshots you retain the lower the cost becomes.
+The cost for snapshots is calculated based on GB capacity that is stored per month, unless the duration is less than one month. Because the snapshot space is based on the capacity that was provisioned for the original volume, the snapshot capacity does not vary. Deleting snapshots reduces cost, so keep fewer snapshots to keep the cost down. For more information about billing and usage, see [How you're charged](/docs/billing-usage?topic=billing-usage-charges).
 
-Pricing for snapshots is also set by region. For more information, see [Pricing](https://www.ibm.com/cloud/vpc/pricing).
+Creating consistency group snapshots does not incur extra charges other than the cost associated with the size of the member snapshots.
 
-When you use the [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_fast_restore) feature, your existing regional plan is adjusted. Billing for fast restore is based on instance hours. Billing for fast restore is based on instance hours. So the fast restore feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots.
+Pricing for snapshots is also set by region. When you use the [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_fast_restore) feature, your existing regional plan is adjusted. Billing for fast restore is based on instance hours. So the fast restore feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots.
 
-### Can I add tags to a {{site.data.keyword.block_storage_is_short}} snapshot?
+## Can I add tags to a {{site.data.keyword.block_storage_is_short}} snapshot?
 {: faq}
 {: #faq-snapshot-tags}
 
 Depending on the action that you're performing, you can add user tags and access management tags to your snapshots. User tags are used by the backup service to periodically create backup snapshots of the volume. Access management tags help organize access to your {{site.data.keyword.block_storage_is_short}} snapshots. For more information, see [Tags for {{site.data.keyword.block_storage_is_short}} snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#snapshots-about-tags).
 
-### Can I use volume snapshot for disaster recovery?
+## Can I use volume snapshot for disaster recovery?
 {: faq}
 {: #faq-snapshot-dr}
 
-You can use your snapshots and backups to create volumes in case of an emergency. You can also create copies of your snapshot in other regions and use them to create volumes there. However, the snapshot and ackup services do not provide continual backup with automatic failover. Restoring a volume from a backup or snapshot is a manual operation that takes time. If you require a higher level of service for automatic disaster recovery, see IBM's [Cloud disaster recovery solutions](https://www.ibm.com/cloud/disaster-recovery).
+You can use your snapshots and backups to create volumes when an emergency occurs. You can also create copies of your snapshot in other regions and use them to create volumes there. However, the snapshot and backup services do not provide continual backup with automatic failover. Restoring a volume from a backup or snapshot is a manual operation that takes time. If you require a higher level of service for automatic disaster recovery, see IBM's [Cloud disaster recovery solutions](https://www.ibm.com/cloud/disaster-recovery).
 
-### How many copies of my backup can I create in other regions?
+## How many copies of my snapshot can I create in other regions?
 {: faq}
 {: #faq-snapshot-cross-regional-limits}
 
 You can copy a snapshot from one region to another region, and later use that snapshot to restore a volume in the new region. Only one copy of the snapshot can exist in each region. You can't create a copy of the snapshot in the source (local) region.
+
+## What is a consistency group?
+{: faq}
+{: #faq-snapshot-consistency-group-snap}
+
+A consistency group is a collection of snapshots that are managed as a single unit. It is used to create snapshots of multiple volumes that are attached to the same virtual server instance at the same time to preserve data consistency. 
+
+The snapshots are loosely coupled. The snapshots can be used to create new volumes. They can be copied to another region individually, and can be preserved after the consistency group is deleted. However, you can't copy a consistency group to another region or use the ID of the consistency group to create a new virtual server instance.
+
+For more information, see [Snapshot consistency groups](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#multi-volume-snapshots).

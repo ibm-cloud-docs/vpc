@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-08-24"
+lastupdated: "2023-12-07"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -12,10 +12,10 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Increasing Block Storage volume capacity
+# Increasing capacity of a {{site.data.keyword.block_storage_is_short}} data volume
 {: #expanding-block-storage-volumes}
 
-After you provisioned a {{site.data.keyword.block_storage_is_short}} data volume and attached it to a virtual server instance, you can increase its volume size in the UI, from the CLI, with the API or Terraform. 
+After you provisioned a {{site.data.keyword.block_storage_is_short}} data volume and attached it to a virtual server instance, you can increase its volume size in the console, from the CLI, with the API or Terraform. 
 {: shortdesc}
 
 You can't change the volume to a smaller size after you expand its capacity. However, if your requirements change, you can expand the same volume again up to the maximum capacity that's available for its profile.
@@ -26,7 +26,7 @@ You can't change the volume to a smaller size after you expand its capacity. How
 
 Follow these steps to expand volume capacity:
 
-1. Go to the list of Block Storage volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block Storage volumes**. By default, Block Storage volumes display for all resource groups in your region.
+1. Go to the list of Block Storage volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Storage > Block Storage volumes**. By default, Block Storage volumes display for all resource groups in your region.
 
 2. In the list of all **Block Storage for VPC volumes**, click the name of the volume you want to expand to see the volume details.
 
@@ -45,9 +45,7 @@ Follow these steps to expand volume capacity:
 
 7. Review the estimated monthly order summary for your geography and new pricing.
 
-8. If you're satisfied, click **Save and continue**.
-
-Your new Block Storage allocation is available in a few minutes.
+8. If you're satisfied, click **Save and continue**. Your new Block Storage allocation is available in a few minutes.
 
 ## Expand Block Storage volumes from the CLI
 {: #expand-vpc-volumes-cli}
@@ -88,29 +86,27 @@ The following example expands the capacity of a `general-purpose` volume to 8,00
 ```sh
 $ ibmcloud is volume-update demo-volume-update --capacity 8000
 Updating volume demo-volume-update under account Test Account as user test.user@ibm.com...
-                                          
-ID                                     r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   
+
+ID                                     r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac
 Name                                   demo-volume-update   
 CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a123456::volume:r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   
 Status                                 updating   
 Attachment state                       attached   
-Capacity                               100   
-IOPS                                   3000   
-Bandwidth(Mbps)                        3145   
-Profile                                general-purpose   
-Encryption key                         -   
-Encryption                             provider_managed   
-Resource group                         defaults   
-Created                                2023-06-29T16:14:59+00:00   
-Zone                                   us-east-1   
-Health State                           ok   
+Capacity                               100
+IOPS                                   3000
+Bandwidth(Mbps)                        3145
+Profile                                general-purpose
+Encryption key                         -
+Encryption                             provider_managed
+Resource group                         defaults
+Created                                2023-06-29T16:14:59+00:00
+Zone                                   us-east-1
+Health State                           ok
 Volume Attachment Instance Reference   Attachment type   Instance ID                                 Instance name   Auto delete   Attachment ID                               Attachment name      
                                        data              0757_11f5db7f-35a1-4678-bcbd-c85204e09507   kj-test-ro      false         0757-4dfc4384-c4b5-497e-bab3-6415f9c4d44b   otp      
-                                          
-Active                                 true   
-Unattached capacity update supported   false   
-Unattached iops update supported       false   
-Busy                                   false   
+
+Active                                 true
+Busy                                   false
 Tags                                   -
 ```
 {: screen}
@@ -121,30 +117,27 @@ When the update operation completes, run the `ibmcloud is volume` command to see
 $ ibmcloud is volume demo-volume-update
 Getting volume demo-volume-update under account Test Account as user test.user@ibm.com...
                                           
-ID                                     r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   
-Name                                   demo-volume-update   
-CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a123456::volume:r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   
-Status                                 available   
-Attachment state                       attached   
+ID                                     r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac
+Name                                   demo-volume-update
+CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a123456::volume:r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac
+Status                                 available
+Attachment state                       attached
 Capacity                               8000   
-IOPS                                   24000   
-Bandwidth(Mbps)                        3145   
-Profile                                general-purpose   
-Encryption key                         -   
-Encryption                             provider_managed   
-Resource group                         defaults   
-Created                                2023-06-29T16:14:59+00:00   
-Zone                                   us-east-1   
-Health State                           ok   
+IOPS                                   24000
+Bandwidth(Mbps)                        3145
+Profile                                general-purpose
+Encryption key                         -
+Encryption                             provider_managed
+Resource group                         defaults
+Created                                2023-06-29T16:14:59+00:00
+Zone                                   us-east-1
+Health State                           ok
 Volume Attachment Instance Reference   Attachment type   Instance ID                                 Instance name   Auto delete   Attachment ID                               Attachment name      
                                        data              0757_11f5db7f-35a1-4678-bcbd-c85204e09507   kj-test-ro      false         0757-4dfc4384-c4b5-497e-bab3-6415f9c4d44b   otp      
                                           
-Active                                 true   
-Unattached capacity update supported   false   
-Unattached iops update supported       false   
-Busy                                   false   
-Tags                                   -   
-       					vsi-test1       0738-8b56da93-7990-4ccf-9dc5-5aee6a5f08f9
+Active                                 true
+Busy                                   false
+Tags                                   -
 ```
 {: codeblock}
 
@@ -159,11 +152,11 @@ You can expand existing data volumes by calling the Virtual Private Cloud (VPC) 
 You can't update the name of the volume and expand capacity in the same `PATCH /volumes` request. Make two separate `PATCH/volumes` requests.
 {: note}
 
-This example request expands a volume with a capacity of 50 GB to 250 GB.
+This example call expands a volume with a capacity of 50 GB to 250 GB.
 
 ```sh
 curl -X PATCH \
- "$vpc_api_endpoint/v1/volumes/$volume_id?version=2022-02-25&generation=2"\
+ "$vpc_api_endpoint/v1/volumes/$volume_id?version=2022-02-25&generation=2" \
  -H "Authorization: $iam_token" \
  -d '{
       "capacity": 250
@@ -239,7 +232,7 @@ When the volume expansion completes, the new value displays, and the volume stat
 {: #expand-vpc-volumes-terraform}
 {: terraform}
 
-To increase the capacity of a volume, use the `ibm_is_volume` resource. When applied, the following example updates the capacity to 8,000 GB.
+To increase the capacity of a volume, use the `ibm_is_volume` resource. When applied, the following example updates the capacity to 8000 GB.
 
 ```terraform
 resource "ibm_is_volume" "storage" {
@@ -253,12 +246,12 @@ resource "ibm_is_volume" "storage" {
 
 For more information about the arguments and attributes, see [ibm_is_volume](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_volume){: external}.
 
-## Next steps
-{: #next-step-expandable-volumes}
+## Expand the file system
+{: #next-step-expandable-filesystem}
 
 The volume expansion takes effect without a restart. However, to use the increased volume space, you must expand the file system so the increased volume capacity is recognized.
 
-For more information about expanding the file system, see your OS Documentation. For example, [RHEL 8 - Modifying Logical Volume](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/modifying-the-size-of-a-logical-volume_configuring-and-managing-logical-volumes){: external} or [Microsoft&reg; - Extend a basic volume](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}. 
+For more information about expanding the file system, see your OS Documentation. For example, [RHEL 8 - Modifying Logical Volume](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/modifying-the-size-of-a-logical-volume_configuring-and-managing-logical-volumes){: external} or [Microsoft&reg; - Extend a basic volume](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
 
 The following example is based on CentOS Linux 7. After you increased the volume capacity from 600 GB to 700 GB, you can log in to the virtual server instance to validate the increase. Then, increase the file system on the volume.
 
@@ -295,7 +288,7 @@ Extending a file system is a moderately risky operation. Consider taking a snaps
    ```
    {: screen}
 
-1. Run the `resize2fs`command to increase the file system. 
+1. Run the `resize2fs`command to increase the file system.
    ```sh 
    [root@docs-demo-instance ~]# resize2fs /dev/vdc
    resize2fs 1.42.9 (28-Dec-2013)

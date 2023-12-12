@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-08-08"
+lastupdated: "2023-11-29"
 
 keywords: file share, file storage, replication, replica, size increase, capacity, encryption, BYOK, security group
 
@@ -114,13 +114,13 @@ No. As a best practice, independently back up your data. When your file share da
 {: faq}
 {: #faq-fs-mgt-7}
 
-File shares are not elastic. Currently, you can provision a minimum of 10 GB to a maximum of 32,000 GB file shares, depending on the [file share profile](/docs/vpc?topic=vpc-file-storage-profiles).
+File shares are not elastic. Currently, you can provision a minimum of 10 GiB to a maximum of 32,000 GiB file shares, depending on the [file share profile](/docs/vpc?topic=vpc-file-storage-profiles).
 
 ### Can I change the size of a file share?
 {: faq}
 {: #faq-fs-mgt-8}
 
-You can increase the size of a file share from its original capacity in GB increments up to 32,000 GB capacity, depending on your [file share profile](/docs/vpc?topic=vpc-file-storage-profiles). For more information, see [expanding file share capacity](/docs/vpc?topic=vpc-file-storage-expand-capacity).
+You can increase the size of a file share from its original capacity in GiB increments up to 32,000 GiB capacity, depending on your [file share profile](/docs/vpc?topic=vpc-file-storage-profiles). For more information, see [expanding file share capacity](/docs/vpc?topic=vpc-file-storage-expand-capacity).
 
 ### Is there a way to replicate my file shares in case of events?
 {: faq}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-12-12"
+lastupdated: "2023-12-05"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
@@ -12,26 +12,26 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Viewing snapshots
+# Viewing snapshots and consistency groups
 {: #snapshots-vpc-view}
 
-You can view a list of all snapshots, and drill down to see information about a particular snapshot. Choose the UI, CLI, API, or Terraform to retrieve this information.
+You can view a list of all snapshots and consistency groups, and drill down to see information about a particular snapshot. Choose the UI, CLI, API, or Terraform to retrieve this information.
 {: shortdesc}
 
 ## Listing snapshots in the UI
 {: #snapshots-vpc-view-ui}
 {: ui}
 
-You can use the console to list your snapshots.
+You can use the UI to list your snapshots and consistency groups.
 
 ### Listing all snapshots in the UI
 {: #snapshots-vpc-view-list-ui}
 
 In the console, you can view a list of all snapshots that you created, with the most recent one at the beginning of the list. You can filter the list to view specific snapshots.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block Storage snapshots for VPC**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Storage > Block Storage snapshots for VPC**. The page has two main tabs: Snapshot consistency group and Snapshots.
 
-1. The snapshots are listed for a specific region. If you want to see snapshots in another region, click the arrow to expand the list and select a different region. By default, the newest snapshots are displayed at the beginning of the list.
+1. Select the **Snapshots** tab. The snapshots are listed for a specific region. If you want to see snapshots in another region, click the arrow to expand the list and select a different region. By default, the newest snapshots are displayed at the beginning of the list.
 
 1. As your list of snapshots grows, use the filter to indicate the number of snapshots to display per page. Use the page navigation arrows to move forward and back through the list.
 
@@ -41,22 +41,33 @@ Table 1 describes the information for all snapshots that is shown on the list of
 |-------|-------------|
 | Name  | The name that you provided when you created the snapshot. Click the name of the snapshot to see its [details](#snapshots-vpc-view-snapshot-ui). |
 | Status | Status of the snapshot, depending on whether it's usable (_active_ status), unusable, or being created. For more information, see [Snapshot statuses](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-status). |
-| Resource group| The resource group that the snapshot belongs to. |
 | Size | Size of the snapshot in GBs. The size is inherited from the source volume. |
-| Source volume | Shows the boot or data volume from which the snapshot was created. Click the name of the volume to see its [details](/docs/vpc?topic=vpc-viewing-block-storage). |
-| Bootable | This field shows a checkmark if the snapshot is of a boot volume.|
+| Source volume | It shows the boot or data volume from which the snapshot was created. Click the name of the volume to see its [details](/docs/vpc?topic=vpc-viewing-block-storage). |
 | Snapshot copies | Number of copies that a snapshot has in other regions. |
-| Created by | Shows whether the snapshot was created by the user or a [backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-concepts). |
-| Actions menu | Click the actions menu icon to display a menu of context-specific actions. \n - Rename \n \n - Copy UUID  \n - Copy the Cloud Resource Name (CRN). \n - [Create volume](/docs/vpc?topic=vpc-snapshots-vpc-restore#snapshots-vpc-restore-ui). \n - [Create snapshot copy](/docs/vpc?topic=vpc-snapshots-vpc-create&interface=ui#crsnapshots-vpc-create-ui)  \n - [Edit fast restore](https://test.cloud.ibm.com/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-edit-fast-restore). \n - [Delete](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-delete-snapshot-ui). \n - [Delete all snapshots for a volume](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-delete-all-ui). |
+| Created date | The local date and time when the snapshot was created. |
+| Consistency group | This field shows the name of the consistency group if the snapshot is a member of a snapshot set.|
 {: caption="Table 1. List of all snapshots" caption-side="bottom"}
 
-Click the settings icon to display all available informational fields, and add oher fields to the table.
+Click the settings icon ![Settings icon](../icons/settings.svg "Settings") to display optional fields that you can add to the table.
 
 | Field | Description |
 |-------|-------------|
-| Encryption | Shows [IBM-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about&interface=ui#vpc-provider-managed-encryption) or [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about&interface=ui#vpc-customer-managed-encryption). The encryption is inherited from the source volume. |
+| Encryption | It shows [IBM-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about&interface=ui#vpc-provider-managed-encryption) or [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about&interface=ui#vpc-customer-managed-encryption). The encryption is inherited from the source volume. |
 | Fast restore status | Status of restore as enabled, pending, or disabled. |
+| Resource group |The resource group that the snapshot belongs to.|
+| Bootable | Yes or No. It shows whether the snapshot was taken of a boot volume or a data volume. |
+| Created by | It shows whether the snapshot was created by the user or a [backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-concepts). |
 {: caption="Table 2. List of optional informational fields for all snapshots" caption-side="bottom"}
+
+By clicking the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Actions"), you can display a menu of context-specific actions.
+   - Rename 
+   - [Create snapshot copy](/docs/vpc?topic=vpc-snapshots-vpc-create&interface=ui#crsnapshots-vpc-create-ui) 
+   - Copy UUID  
+   - Copy the Cloud Resource Name (CRN). 
+   - [Create volume](/docs/vpc?topic=vpc-snapshots-vpc-restore#snapshots-vpc-restore-ui).
+   - [Edit fast restore](https://test.cloud.ibm.com/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-edit-fast-restore).
+   - [Delete](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-delete-snapshot-ui). 
+   - [Delete all snapshots for a volume](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-delete-all-ui).
 
 You can also list all snapshots that were created from a {{site.data.keyword.block_storage_is_short}} volume from the volume details page. For more information, see [View all snapshots that were created from the {{site.data.keyword.block_storage_is_short}} volume](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#view-snapshots-for-volume).
 {: tip}
@@ -71,20 +82,100 @@ The snapshot details panel shows the information that is described in the follow
 | Field | Description |
 |-------|-------------|
 | Name  | The name of the snapshot, which you can change by clicking the pencil icon. For more information, see [Change the snapshot name](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-rename). |
-| Resource group | Resource group defined when you set up your VPC. |
-| Size| Size in GBs of the snapshot, inherited from the source volume. |
 | Snapshot ID | Copiable GUID of the snapshot. |
-| Created date| Date and time that the snapshot resource creation process started. |
-| Source volume | Source volume from which the first snapshot was taken. Click the link for volume details. If the volume was deleted, the name appears without a link. |
-| Bootable | Yes or No, indicating whether the snapshot is of a boot volume or a data volume.| 
-| Captured date | The date and time that this snapshot was captured, that is, the volume data was snapshotted. If absent, the snapshot wasn't captured or the snapshot was created before this feature was introduced (January 2022). |
-| Encryption | Provider-managed or customer-managed encryption. For customer-managed encryption, the KMS instance, root key name, and root key ID are shown. |
+| Bootable | Yes or No. |
 | CRN | Copiable CRN of the snapshot. |
-| Created by | By the user for a manually created snapshot, or automatically by a [backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-concepts). |
+| Resource group | Resource group defined when you set up your VPC. |
+| Created date | Date and time that the snapshot resource creation process started. |
+| Captured date | The date and time that this snapshot was captured. |
+| Created by | This field shows either `User` or `Backup policy`. If the snapshot is created by a backup policy, the UI also diplays the name of the backup plan that created the backup snapshot. |
+| Size| Size in GBs of the snapshot, inherited from the source volume. |
+| Source volume | Source volume from which the first snapshot was taken. Click the link for volume details. If the volume was deleted, the name appears without a link. |
+| Encryption | Provider-managed or customer-managed encryption. For customer-managed encryption, the KMS instance, root key name, and root key ID are shown. |
 | Fast restore panel | Use [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_fast_restore) to create a volume from this snapshot that is fully provisioned. Click **Edit** to [enable or disable fast restore](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-edit-fast-restore) in a zone. |
-| Remote copies panel | It displays information about the copies of the snapshot in other regions, such as region, name, and status. Click **Create copy** to provision of copy of the snapshot in a different geography and region. |
-| Actions menu | [Create a volume from the snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore#snapshots-restore-create-vol-ui), [Edit fast restore](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-edit-fast-restore), or delete a snapshot. |
+| Consistency group panel | It displays information about the consistency group that the snapshot is a member of. Click **Create virtual server** to restore volumes from the consistency group. |
 {: caption="Table 3. Snapshot details" caption-side="bottom"}
+
+By clicking the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Actions"), you can display a menu of context-specific actions.
+   - [Create a volume from the snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore#snapshots-restore-create-vol-ui)
+   - [Edit fast restore](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-edit-fast-restore), or delete a snapshot.
+
+### Listing all consistency groups of snapshots in the UI
+{: #consistency-group-vpc-view-list-ui}
+
+[New]{: tag-new}
+
+In the console, you can view a list of all consistency groups that you created, with the most recent one at the beginning of the list. You can filter the list to view specific consistency groups.
+
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Storage > Block Storage snapshots for VPC**. The page has two main tabs: Snapshot consistency group and Snapshots.
+
+1. Select the **Snapshot consistency group** tab. The groups are listed for a specific region. If you want to see consistency groups in another region, click the arrow to expand the list and select a different region. By default, the newest snapshot groups are displayed at the beginning of the list.
+
+1. As your list of consistency groups grows, use the filter to indicate the number of items to display per page. Use the page navigation arrows to move forward and back through the list.
+
+The following table describes the information for all consistency groups in the list.
+
+| Field  | Description |
+|--------|-------------|
+| Name   | The name that you provided when you created the consistency group. Click the name of the group to see its [details](#snapshot-vpc-view-consistency-group-ui). |
+| Status | Status of the consistency group, depending on whether it's usable (_active_ status), unusable, or being created. |
+| Source VSI | It shows the virtual server instance that contains the source volumes of the snapshots in the consistency group. Click the name of the virtual server instance to see its details. |
+| Snapshot members | Number of snapshots that are members of the group. |
+| Created date | The local date and time when the snapshot was created. |
+{: caption="Table 4. List of all consistency groups" caption-side="bottom"}
+
+Click the settings icon ![Settings icon](../icons/settings.svg "Settings") to display optional fields that you can add to the table.
+
+| Field      | Description |
+|------------|-------------|
+| Created by | It shows whether the snapshot set was created by the user or a [backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-concepts). |
+| Resource group | The resource group that the consistency group belongs to.|
+| Created by | It shows whether the snapshot was created by the user or a [backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-concepts). |
+{: caption="Table 5. List of optional informational fields for all snapshots" caption-side="bottom"}
+
+By clicking the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Actions"), you can display a menu of context-specific actions.
+   - Rename
+   - Copy UUID
+   - Copy the Cloud Resource Name (CRN).
+   - [Create virtual server](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-restore-cr-details-ui)
+   - Delete
+
+### Viewing details of a consistency group in the UI
+{: #snapshot-vpc-view-consistency-group-ui}
+
+[New]{: tag-new}
+
+To see detailed information about a consistency group, locate the group on the Block Storage snapshots for VPC list. Then, click the name of a consistency group. 
+
+The overview section provides details about the consistency group and the virtual server instance that the consistency group snapshots were taken of. The first panel contains information about the consistency group.
+
+| Field | Description |
+|-------|-------------|
+| Name  | The unique name of the consistency group. If you want to update it, click on the pencil icon. |
+| Consistency group ID | This field shows the ID string of the consistency group.   |
+| CRN  | Cloud Resource Name of the consistency group.  |
+| Created by  | The field shows either `user` for a manually created snapshot, or [backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-concepts) for automated snapshots. |
+| Resource group  | The resource group that the consistency group belongs to. |
+| Created date | It shows the date when the consistency group was created.  |
+| Delete snapshot members | It shows whether the snapshots are deleted or kept when the consistency group is deleted. Click the toggle to change the status. |
+| Region| The VPC region that the consistency group was created in.|
+{: caption="Table 6. Consistency group overview." caption-side="bottom"}
+
+For more information, see [Managing snapshot consistency groups](/docs/vpc?topic=vpc-snapshots-vpc-manage-consistency-groups).
+
+The second panel contains information about the virtual server instance that the source volumes of the snapshot set are attached to. 
+
+| Field | Description |
+|-------|-------------|
+| Name  | Name of the virtual server instance. Click the link to go to the details page of the instance.  |
+| Virtual server instance ID  | You can copy the ID to use in other interfaces such as CLI, API, or Terraform. |
+| Virtual private cloud  | The name of the VPC that the consistency group is created in. Click the link to go to the details page of the VPC. |
+| Image  | Information about the operating system image. |
+| Resource group  | The resource group that the virtual server instance belongs to.  |
+| Tags  | The user-defined tags that are used for the virtual server instance.  |
+{: caption="Table 7. Virtual server instance overview." caption-side="bottom"}
+
+The Snapshots list displays the snapshots within the consistency group and provides the same information and actions as described in [Table 1](#snapshots-vpc-view-list-ui).
 
 ## Viewing snapshots from the CLI
 {: #snapshots-vpc-view-cli}
@@ -149,7 +240,7 @@ r138-e6664842-b370-496a-9ae7-da3fb647707c   snappy-snap-snap                    
 For more information about available snapshot command options, see [`ibmcloud is snapshots`](/docs/vpc?topic=vpc-vpc-reference#snapshots).
 
 ### Viewing all snapshots of a volume from the CLI
-{: #snapshots-vpc-view-all-cli}
+{: #snapshots-vpc-view-all-snapshots-cli}
 
 Run the `snapshots` command and specify the volume ID.
 
@@ -172,10 +263,34 @@ r138-e6664842-b370-496a-9ae7-da3fb647707c   snappy-snap-snap                 sta
 
 For more information about available command options, see [`ibmcloud is snapshots`](/docs/vpc?topic=vpc-vpc-reference#snapshots).
 
+### Viewing all snapshots in a consistency group from the CLI
+{: #snapshots-cr-vpc-view-all-cli}
+
+Run the `snapshots` command and specify the consistency group ID, name or CRN.
+
+```sh
+ibmcloud is snapshots --volume CONSISTENCY_GROUP_ID
+```
+{: pre}
+
+The following example uses the ID of the consistency group to list the snapshots that are members of the set.
+
+```sh 
+ibmcloud is snapshots --snapshot-consistency-group r174-7c8762e2-c1b9-424e-b773-23240d1780dd
+
+Listing snapshots in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
+ID                                          Name            Status   Source volume                               Bootable   Resource group   Created   
+r174-b8cac978-a990-4824-a15c-604856982efe   snapshot-no-2   stable   r174-0641e516-09a1-4291-96ca-af254017123e   true       Default          2023-09-05T23:14:40+05:30 
+r174-7311f226-8259-46be-9bfa-5b2cd08bdf2f   snapshot-no-1   stable   r174-bf595773-9922-4dd4-9a3c-998b10022e0c   false      Default          2023-09-05T23:14:40+05:30
+```
+{: screen}
+
+For more information about available command options, see [`ibmcloud is snapshots`](/docs/vpc?topic=vpc-vpc-reference#snapshots).
+
 ### Viewing details of a snapshot from the CLI
 {: #snapshots-vpc-view-details-cli}
 
-Run the `snapshots` command and specify the snapshots ID.
+Run the `snapshots` command and specify the snapshot ID.
 
 ```sh
 ibmcloud is snapshots SNAPSHOT_ID [--json]
@@ -188,30 +303,33 @@ The following example shows the details of a bootable snapshot in the `us-south`
 cloudshell:~$ ibmcloud is snapshot c2bc3194-0cab-40c4-9434-db9f26218700
 Getting snapshot c2bc3194-0cab-40c4-9434-db9f26218700 under account vpc1 as user user@mycompany.com...
 
-ID                     c2bc3194-0cab-40c4-9434-db9f26218700
-Name                   my-snapshot
-CRN                    crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot:c2bc3194-0cab-40c4-9434-db9f26218700
-Status                 stable
-Source volume          ID                                          Name
-                       fe027a90-19e7-4cb5-bda3-4c0e35d2bcdf        test5-vol
+ID                         c2bc3194-0cab-40c4-9434-db9f26218700
+Name                       my-snapshot
+CRN                        crn:v1:bluemix:public:is:us-south:a/a123456::snapshot:c2bc3194-0cab-40c4-9434-db9f26218700
+Status                     stable
+Source volume              ID                                          Name
+                           fe027a90-19e7-4cb5-bda3-4c0e35d2bcdf        test5-vol
 
-Progress               -
-Bootable               true
-Encryption             provider_managed
-Encryption key         -
-Minimum capacity(GB)   100
-Size(GB)               1
-Source image           ID                                          Name
-                       fb4d7950-8ff4-4d9a-9d9f-3056cb8c36d9        centos-8-2-minimal-amd64-2
+Progress                   -
+Bootable                   true
+Encryption                 provider_managed
+Encryption key             -
+Minimum capacity(GB)       100
+Size(GB)                   1
+Source image               ID                                          Name
+                           fb4d7950-8ff4-4d9a-9d9f-3056cb8c36d9        centos-8-2-minimal-amd64-2
 
-Operating system       Name             Vendor   Version                 Family   Architecture   Display name
-                       centos-8-amd64   CentOS   8.x - Minimal Install   CentOS   amd64          CentOS 8.x - Minimal Install (amd64)
+Operating system           Name             Vendor   Version                 Family   Architecture   Display name
+                           centos-8-amd64   CentOS   8.x - Minimal Install   CentOS   amd64          CentOS 8.x - Minimal Install (amd64)
 
-Resource group         ID                                 Name
-                       ef2694fe-d6d1-4136-94c3-0ae315204e6b   Default
+Snapshot Consistency Group ID                                          Name                                   CRN                                                                    Resource type  
+                             r174-4625d29b-3ac9-4bee-aca8-9366c4fd0c44 multiple-snapshots-consistency-group-1   crn:v1:bluemix:public:is:us-south:a/a123456::snapshot-consistency-group:r174-4625d29b-3ac9-4bee-aca8-9366c4fd0c44   snapshot_consistency_group      
 
-Created                2022-01-14T01:53:15+05:30
-Captured               2022-01-14T01:53:34+05:30
+Resource group               ID                                     Name
+                             ef2694fe-d6d1-4136-94c3-0ae315204e6b   Default
+
+Created                      2023-12-05T01:53:15+05:30
+Captured                     2023-12-05T01:53:34+05:30
 ```
 {: screen}
 
@@ -221,27 +339,30 @@ The following example shows the details of a nonbootable snapshot in the `eu-de`
 cloudshell:~$ ibmcloud is snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146
 Getting snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 under account Test Account as user test.user@ibm.com...
 
-ID                     r138-4463eb2c-4913-43b1-b9bf-62a94f74c146
-Name                   cli-snapshot-test
-CRN                    crn:v1:bluemix:public:is:eu-de:a/a123456::snapshot:r138-4463eb2c-4913-43b1-b9bf-62a94f74c146
-Status                 stable
-Clones                 Zone      Available   Created
-                       eu-de-1   true        2023-02-17T20:15:46+00:00
+ID                         r138-4463eb2c-4913-43b1-b9bf-62a94f74c146
+Name                       cli-snapshot-test
+CRN                        crn:v1:bluemix:public:is:eu-de:a/a1234567::snapshot:r138-4463eb2c-4913-43b1-b9bf-62a94f74c146
+Status                     stable
+Clones                     Zone      Available   Created
+                           eu-de-1   true        2023-02-17T20:15:46+00:00
 
-Source volume          ID                                          Name
-                       r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa   block-test1
+Source volume              ID                                          Name
+                           r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa   block-test1
 
-Bootable               false
-Encryption             provider_managed
-Encryption key         -
-Minimum capacity(GB)   20
-Size(GB)               1
-Resource group         ID                                 Name
-                       6edefe513d934fdd872e78ee6a8e73ef   defaults
+Bootable                   false
+Encryption                 provider_managed
+Encryption key             -
+Minimum capacity(GB)       20
+Size(GB)                   1
+Snapshot Consistency Group ID                                                    Name                    Snapshot Consistency Group ID                                         Name                                   CRN                                                                    Resource type  
+                           r174-4625d29b-3ac9-4bee-aca8-9366c4fd0c44 multiple-snapshots-consistency-group-1   crn:v1:bluemix:public:is:eu-de:a/a1234567:snapshot-consistency-group:r174-4625d29b-3ac9-4bee-aca8-9366c4fd0c44   snapshot_consistency_group     
 
-Created                2023-02-17T20:15:43+00:00
-Captured at            2023-02-17T20:15:44+00:00
-Tags                   env:prod,env:test
+Resource group             ID                                 Name
+                           6edefe513d934fdd872e78ee6a8e73ef   defaults
+
+Created                    2023-12-05T20:15:43+00:00
+Captured at                2023-12-05T20:15:44+00:00
+Tags                       env:prod,env:test
 ```
 {: screen}
 
@@ -324,6 +445,33 @@ Tags                   -
 Service Tags           -
 ```
 {: screen}
+
+
+### Viewing all snapshot consistency groups from the CLI
+{: #snapshots-vpc-view-all-consistency-groups-cli}
+
+[New]{: tag-new}
+
+Run the `snapshot-consistency-groups` command to list all consistency groups in a region.
+
+```sh
+ibmcloud is snapshot-consistency-groups
+```
+{: pre}
+
+For more information about available command options, see [`ibmcloud is snapshot-consistency-groups`](/docs/vpc?topic=vpc-vpc-reference#snapshots-cli).
+
+### Viewing details of a snapshot consistency group from the CLI
+{: #snapshots-vpc-view-a-consistency-group-cli}
+
+Run the `snapshot-consistency-group` command to list the details of a specific consistency group in a region.
+
+```sh
+ibmcloud is snapshot-consistency-group CONSISTENCY_GROUP_ID
+```
+{: pre}
+
+For more information about available command options, see [`ibmcloud is snapshot-consistency-group`](/docs/vpc?topic=vpc-vpc-reference#snapshots-cli).
 
 ## Listing snapshots with the API
 {: #snapshots-vpc-view-all-api}
@@ -696,6 +844,70 @@ A successful response shows information that is similar to the following example
 ```
 {: codeblock}
 
+### Viewing all snapshot consistency groups with the API
+{: #snapshots-vpc-view-all-consistency-groups-apip}
+
+[New]{: tag-new}
+
+You can programmatically list all consistency groups by calling the `/snapshot_consistency_groups` method in the [VPC API](/apidocs/vpc-scoped#list-snapshot-consistency-groups){: external} as shown in the following sample request.
+
+```sh
+GET /snapshot_consistency_groups
+```
+{: pre}
+
+### Viewing details of a snapshot consistency group with the API
+{: #snapshots-vpc-view-a-consistency-group-api}
+
+[New]{: tag-new}
+
+You can programmatically retrieve details of a consistency group by calling the `/snapshot_consistency_groups` method in the [VPC API](/apidocs/vpc-scoped#get-snapshot-consistency-group){: external} as shown in the following sample request.
+
+```sh
+GET /snapshot_consistency_groups/r006-e8707243-96b3-4c27-be1f-57eff0196207
+```
+{: pre}
+
+A successful response looks like the following example.
+
+```json
+{
+    "created_at": "2023-12-05T22:40:42Z",
+    "id": "r006-e8707243-96b3-4c27-be1f-57eff0196207",
+    "delete_snapshots_on_delete": true,
+    "crn": "crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot-consistency-group:r006-e8707243-96b3-4c27-be1f-57eff0196207",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/snapshot_consistency_groups/r006-e8707243-96b3-4c27-be1f-57eff0196207",
+    "name": "my-consistency-group-snapshots",
+    "resource_group": {
+        "id": "a41ca701e1c041c1bb224564ff645770",
+        "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/a41ca701e1c041c1bb224564ff645770",
+        "name": "Default"
+    },
+    "lifecycle_state": "stable",
+    "resource_type": "snapshot_consistency_group",
+    "service_tags": [
+        "is.instance:0727_44fda9fe-eeef-4e71-8fa4-4c3f7300e645"
+    ],
+    "snapshots": [
+        {
+            "crn": "crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot:r006-540d8d17-5334-4d04-b845-270dbb30233f",
+            "id": "r006-540d8d17-5334-4d04-b845-270dbb30233f",
+            "href": "https://us-south.iaas.cloud.ibm.com/v1/snapshots/r006-540d8d17-5334-4d04-b845-270dbb30233f",
+            "name": "my-test-scg-1",
+            "resource_type": "snapshot"
+        },
+        {
+            "crn": "crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot:r006-77cc526a-b21c-4bdc-a2b3-442a1d4e78c0",
+            "id": "r006-77cc526a-b21c-4bdc-a2b3-442a1d4e78c0",
+            "href": "https://us-south.iaas.cloud.ibm.com/v1/snapshots/r006-77cc526a-b21c-4bdc-a2b3-442a1d4e78c0",
+            "name": "my-test-scg-2",
+            "resource_type": "snapshot"
+        }
+    ]
+}
+```
+{: screen}
+
 ## Viewing snapshots with Terraform
 {: #snapshots-vpc-view-terraform}
 {: terraform}
@@ -705,7 +917,7 @@ You can use Terraform to view your snapshots.
 To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
 {: requirement}
 
-VPC infrastructure services use a region-specific endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the right region in the provider block in the `provider.tf` file.
+VPC infrastructure services use a regional specific endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the right region in the provider block in the `provider.tf` file.
 
 See the following example of targeting a region other than the default `us-south`.
 
@@ -778,6 +990,45 @@ data "ibm_is_snapshot_clone" "ds_snapshotclone" {
 {: codenblock}
 
 For more information, see [ibm_is_snapshot_clone](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_snapshot_clone){: external}.
+
+### Listing all consistency groups with Terraform
+{: #snapshots-vpc-view-consistency-groups-terraform}
+
+[New]{: tag-new}
+
+Import the details of a collection of consistency groups as a read-only data source.
+
+```terraform
+data "ibm_is_snapshot_consistency_groups" "example" {
+}
+```
+{: codeblock}
+
+For more information, see [ibm_is_consistency_groups](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_consistency_groups){: external}.
+
+
+### Listing details of a consistency group with Terraform
+{: #snapshots-vpc-view-consistency-group_details-terraform}
+
+[New]{: tag-new}
+
+Import the details of a snapshot consistency group as a read-only data source. You can specify the consistency group by either the ID or the name of the consistency group.
+
+```terraform
+data "ibm_is_snapshot_consistency_group" "example" {
+  identifier = ibm_is_snapshot_consistency_group.is_snapshot_consistency_group.id
+}
+```
+{: codeblock}
+
+```terraform
+data "ibm_is_snapshot_consistency_group" "example" {
+  name = "my-data-consistency-group"
+}
+```
+{: codeblock}
+
+For more information, see [ibm_is_consistency_group](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_consistency_group){: external}.
 
 ## Next steps
 {: #snapshots_vpc_view_next_steps}

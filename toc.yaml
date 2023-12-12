@@ -43,10 +43,18 @@ toc:
                label: Networking overview for bare metal servers
                topics:
                - bare_metal_server_network.md
+           - topicgroup:
+               label: Managing IP addresses
+               topics:
+               - ip-addresses-about.md
+               - reserved-ip.md
+               - address-prefixes.md
+               - ip-spoofing-about.md
        - topicgroup:
            label: Compute
            topics:
            - vsi_is_about_vpc.md
+           - about-reserved-virtual-servers.md
            - topicgroup:
                label: About bare metal servers
                topics:
@@ -62,8 +70,13 @@ toc:
                - profiles_benchmark.md
            - vpc-secure-boot.md
            - vsi_is_provisioning_scripts.md
-           - ip-spoofing-about.md
            - instance-profiles-vpc-bandwidth.md
+           - topicgroup:
+               label: Confidential computing with SGX for Virtual Servers for VPC
+               topics:
+               - about-sgx-confidential-computing.md
+               - sgx-dcap-attestation.md
+               - create-sgx-virtual-server.md
            - topicgroup:
                label: Confidential computing with LinuxONE
                topics:
@@ -89,11 +102,6 @@ toc:
                topics:
                - bare_metal_server_storage.md
            - topicgroup:
-               label: File Storage
-               topics:
-               - file_storage_vpc_about.md
-               - file_storage_vpc_profiles.md
-           - topicgroup:
                label: Block Storage
                topics:
                - block_storage_vpc_about.md
@@ -103,6 +111,11 @@ toc:
                - block_storage_vpc_expand_vol_about.md
            - snapshots_vpc_about.md
            - backup_service_vpc_about.md
+           - topicgroup:
+               label: File Storage
+               topics:
+               - file_storage_vpc_about.md
+               - file_storage_vpc_profiles.md
            - vsi_instance_storage.md
        - release-notes.md
 
@@ -134,6 +147,7 @@ toc:
         - topicgroup:
             label: Updating to the latest API code
             topics:
+            - backup_service_API_migration_instance_backups.md
             - vpn-api-migration.md
             - file_storage_API_replication_fallback_policy.md
             - file_storage_API_migration_access_modes.md
@@ -171,6 +185,8 @@ toc:
             topics:
             - vsi_best_practices.md
             - vsi_is_create_instance.md
+            - vsi-reserved-capacity-create.md
+            - vsi-reserved-capacity-manage.md
             - topicgroup:
                 label: Connecting to instances
                 topics:
@@ -400,7 +416,6 @@ toc:
                 - vpn-configure-acls-security-groups.md
                 - vpn-gateway-status.md
                 - vpn-health.md
-                - vpn-connection-health.md
                 - vpn-site-to-site-routes-propagating.md
                 - vpn-view-logs.md
                 - vpn-monitoring-metrics.md
@@ -425,7 +440,6 @@ toc:
                 - vpn-client-to-site-change-server-types.md
                 - vpn-client-to-site-status.md
                 - vpn-client-to-site-health.md
-                - vpn-client-to-site-route-health.md
                 - vpn-client-to-site-limitations.md
                 - vpn-client-to-site-loganalysis.md
                 - vpn-client-to-site-monitoring.md
@@ -547,30 +561,46 @@ toc:
                 topics:
                 - block_storage_is_view.md
                 - block_storage_is_manage.md
-                - block_storage_vpc_expandable_volumes.md
-                - block_storage_vpc_resize_boot_volume.md
-                - modifying-the-linux-os-expanded-boot-volume.md
+                - block_storage_vpc_expandable_boot_volume.md
+                - block_storage_vpc_expandable_data_volumes.md
                 - block_storage_vpc_adjustable_iops.md
             - block_storage_vpc_monitoring.md
         - topicgroup:
             label: Snapshots
             topics:
             - snapshots_vpc_planning.md
-            - snapshots_vpc_create.md
-            - snapshots_vpc_view.md
+            - topicgroup:
+                label: Creating snapshots and consistency groups
+                topics:
+                - snapshots_vpc_create.md
+                - snapshots_vpc_create_mvs.md
+            - topicgroup:
+                label: Managing snapshots and consistency groups
+                topics:
+                - snapshots_vpc_view.md
+                - snapshots_vpc_manage.md
+                - snapshots_vpc_manage_mvs.md
             - snapshots_vpc_restore.md
-            - snapshots_vpc_manage.md
         - topicgroup:
             label: Backup service
             topics:
-            - backup_service_vpc_best_practices.md
-            - backup_service_vpc_planning.md
+            - topicgroup:
+                label: Planning backup policies and plans
+                topics:
+                - backup_service_vpc_best_practices.md
+                - backup_service_vpc_planning.md
             - backup_service_vpc_s2s_auth.md
-            - backup_service_vpc_create_policy.md
-            - backup_service_vpc_view_policy.md
-            - backup_service_vpc_view_backup_jobs.md
-            - backup_service_vpc_manage_policy.md
-            - backup_service_vpc_use_policy.md
+            - topicgroup:
+                label: Creating backup policies and plans
+                topics:
+                - backup_service_vpc_create_policy.md
+                - backup_service_vpc_use_policy.md
+            - topicgroup:
+                label: Managing backup policies, plans and jobs
+                topics:
+                - backup_service_vpc_view_policy.md
+                - backup_service_vpc_manage_policy.md
+                - backup_service_vpc_view_backup_jobs.md
             - backup_service_vpc_restore.md
         - topicgroup:
             label: Auto scale

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-11-13"
+lastupdated: "2023-12-05"
 
 keywords: backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -15,8 +15,10 @@ subcollection: vpc
 # Applying backup policies to resources with tags
 {: #backup-use-policies}
 
-Apply backup policies by adding tags to new or existing {{site.data.keyword.block_storage_is_short}} volumes. When these tags match a backup policy tag, a backup is created.
+Apply backup policies by adding user tags to new or existing {{site.data.keyword.block_storage_is_short}} volumes. When these tags match a backup policy tag, a backup is created.
 {: shortdesc}
+
+Up to 100 tags can be attached or detached in the same operation. Keeping the number of tags low can make it easier to track their usage and your backups.
 
 ## General procedure
 {: #backup-gen-proc-tags}

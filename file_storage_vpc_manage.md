@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-10-19"
+lastupdated: "2023-11-29"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -682,7 +682,7 @@ For more information, see [terraform destroy](https://developer.hashicorp.com/te
 
 You can add user tags to new or existing file shares, modify, and delete tags for a file share with the UI, CLI, API, and Terraform. You can view tags throughout your account by filtering by tags from your resource list. You can also add user tags to replica file shares.
 
-You can create as many user tags as you like for a file share. However, to keep tags manageable, create only as many user tags as you require to effectively manage the resource.
+Up to 100 tags can be attached or detached in the same operation. When you edit your tags, the new tags overwrite the existing tags. To keep tags manageable, create only as many user tags as you require to effectively handle the resource.
 {: tip}
 
 You can manage your tags in the {{site.data.keyword.cloud_notm}} with the [Global Tagging API](/apidocs/tagging). With this API, you can create, delete, search, attach, or detach tags. For more information about managing tags for your account, see [Working with tags](/docs/account?topic=account-tag).
@@ -825,7 +825,7 @@ curl -X POST \
 #### Modifying user tags for an existing file share
 {: #fs-add-tags-share-api}
 
-Add new user tags to an existing file share by making a `PATCH /shares` call and specify the user tags in the `user_tags` property. You can specify new tags for a file share without any tags and the user tags are added. If you specify different tags, the existing tags are modified.
+Add new user tags to an existing file share by making a `PATCH /shares` request and specify the user tags in the `user_tags` property. If the file share did not have any tags, the new tags in the request are added. If the file share had tags previously, the new tags overwrite the previous tags.
 
 The following example modifies a file share that is identified by ID by renaming the share and adding user tags.
 
@@ -968,7 +968,7 @@ Make a `POST/ tags` call to [create an access management tag](/apidocs/tagging#c
 
 Add an access management tag to an existing file share or when you [create a file share](/docs/vpc?topic=vpc-file-storage-create). For an existing file share:
 
-1. In the [{{site.data.keyword.cloud_notm}} console)](/login){: external}, Go to the Resource list, and select a file share under **Storage** resources.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, Go to the Resource list, and select a file share under **Storage** resources.
 2. In the **Access management tags** field, type the name of an access management tag that you previously created. The tag appears as you type.
 3. Save your changes.
 

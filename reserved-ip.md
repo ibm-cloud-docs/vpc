@@ -12,8 +12,8 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Managing IP addresses
-{: #managing-ip-addresses}
+# About reserved IPs
+{: #about-reserved-ips}
 
 The reserved IPs capability on VPC allows you to reserve IP addresses for use on your resources. You can specify a particular address or allow the system to select any available address. You can also make a new IP reservation with or without a target with which to bind the address.
 {: shortdesc}
@@ -54,7 +54,7 @@ To create an unassociated reserved IP, follow these steps:
 ### Deleting a reserved IP
 {: #ui-delete-reserved-ip}
 
-To delete (release) a reserved IP using the UI, navigate to  **Subnets > Reserved IPs** and click the actions menu ![actions menu](images/overflow.png) next to the reserved IP that you want to delete. Select **Release**. 
+To delete (release) a reserved IP using the UI, navigate to  **Subnets > Reserved IPs** and click the actions menu ![actions menu](images/overflow.png) next to the reserved IP that you want to delete. Select **Release**.
 
 <!--### Unbinding a reserved IP
 {: #unbinding-reserved-ip}
@@ -92,7 +92,7 @@ Where:
 ### Updating a reserved IP from the CLI
 {: #cli-update-reserved-ip}
 
-To update a reserved IP by using the CLI, run the following command:
+To update a reserved IP from the CLI, run the following command:
 
 ```sh
 ibmcloud is subnet-reserved-ip-update SUBNET RESERVED_IP [--vpc VPC] [--name NEW_NAME] [--auto-delete true | false] [--output JSON] [-q, --quiet]
@@ -111,7 +111,7 @@ Where:
 ### Deleting a reserved IP from the CLI
 {: #cli-delete-reserved-ip}
 
-To delete a reserved IP by using the CLI, the reserved IP must be unbound. After unbinding the reserved IP, run the following command to delete it:
+To delete a reserved IP from the CLI, the reserved IP must be unbound. After unbinding the reserved IP, run the following command to delete it:
 
 ```sh
 ibmcloud is subnet-reserved-ip-delete SUBNET (RESERVED_IP1 RESERVED_IP2 ...) [--vpc VPC] [-f, --force] [--output JSON] [-q, --quiet]
@@ -130,7 +130,7 @@ Where:
 {: #api-reserved-ip}
 {: api}
 
-To create a reserved IP by using the API, follow these steps:
+To create a reserved IP with the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
 1. [Create a subnet](/docs/vpc?topic=vpc-creating-a-vpc-using-cli#create-a-subnet-cli).

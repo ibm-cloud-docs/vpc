@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-06-28"
+lastupdated: "2023-06-27"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -205,6 +205,13 @@ For more information about using the API and all backup service API methods, see
 You can create a boot or data volume from a backup snapshot with Terraform. The resource, arguments, and attributes are the same as the ones that are used to restore a volume from a manually created snapshot. For more information, see [Restore a volume from a snapshot with Terraform](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=terraform#snapshots-vpc-restore-terraform).
 
 For more information about the Terraform resources, arguments, and attributes that are used for restoring a volume, see [ibm_is_volume](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_volume){: external}.
+
+## Restoring volumes of a virtual server from a consistency group
+{: #baas-vpc-restore-instance}
+
+You can use the members of the snapshot consistency group to restore volumes separately. Restoring an instance directly from snapshot consistency group identifier is not supported.
+
+For more information, see [Creating volumes for a virtual server instance from a consistency group](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-restore-cr-details-ui).{: ui}
 
 ## Performance impact
 {: #baas-performance-considerations}

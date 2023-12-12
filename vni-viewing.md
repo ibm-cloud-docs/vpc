@@ -67,7 +67,7 @@ Where:
 :   Suppress verbose output.
 
 ### Command examples
-{: #command-examples-virtual-network-interface}
+{: #cli-command-examples-virtual-network-interface}
 
 - `ibmcloud is virtual-network-interface r006-81222eee-b3e0-4dc3-b429-aee9e5c0abf2`
 - `ibmcloud is virtual-network-interface new-share-vni`
