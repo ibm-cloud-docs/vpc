@@ -42,7 +42,7 @@ When you replicate across regions, the data is crossing VPC boundaries. Both VPC
 
 When you replicate data across regions, consider the local data residency laws because moving data across borders can have legal implications.
 
-Replication is an asynchronous operation and it's not instantaneous. You can use the [replication sync information](/docs/vpc?topic=vpc-file-storage-manage-replication#fs-repl-joblogs) to see the duration of the replication process and the transfer rate. By reviewing the replication sync information, you can adjust your replication schedule, and balance your costs with how often you need the data to be refreshed on the replica. By viewing the job logs and the transfer rates, you can also determine whether the size of the data that needs to be transferred fits within the replication window.
+Replication is an asynchronous operation and it's not instantaneous. You can use the [replication sync information](/docs/vpc?topic=vpc-file-storage-manage-replication#fs-repl-syncinfo) to see the duration of the replication process and the transfer rate. By reviewing the replication sync information, you can adjust your replication schedule, and balance your costs with how often you need the data to be refreshed on the replica. By viewing the job logs and the transfer rates, you can also determine whether the size of the data that needs to be transferred fits within the replication window.
 
 Data on the replica share is read-only. You can obtain read/write access to the data in two ways:
 
@@ -92,7 +92,7 @@ You can use replication to address disaster recovery concerns. The replication a
    If you want to create a replica share in a different region where you use a different KMS solution, [establish service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth) between the file service and the target KMS.
    {: requirement}
 
-2. Verify that the replication is working by checking the replication status and the [replication sync information](/docs/vpc?topic=vpc-file-storage-manage-replication#fs-repl-joblogs). The system queries the last sync status every 15 minutes.
+2. Verify that the replication is working by checking the replication status and the [replication sync information](/docs/vpc?topic=vpc-file-storage-manage-replication#fs-repl-syncinfo). The system queries the last sync status every 15 minutes.
 3. Use the replica file share - If the primary file share fails or becomes unavailable for any reason, you can fail over to the replica file share. When you perform the failover, the replica share becomes the new primary file share, with read and write capability.
    
 4. Restart the replication with the original file share as scheduled when it's back online. In this case, you can continue to use the replica site as primary, or fail back to the original site.

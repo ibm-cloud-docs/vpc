@@ -214,11 +214,11 @@ Replication status shows when a replica file share is being created, when failov
 {: caption="Table 2. Replication statuses." caption-side="bottom"}
 
 ## Replication sync information
-{: #fs-repl-joblogs}
+{: #fs-repl-syncinfo}
 
 [New]{: tag-new}
 
-Replication is an asynchronous operation, which is not instantaneous. The last replication job provides useful information about the replication process, such as start and end date, and the transferred data volume. By viewing the replication job information, you can see how long the last replication took and calculate the transfer rate. Seeing the transferred data values can help you estimate the global transfer charges at the end of the billing period.
+Replication is an asynchronous operation, which is not instantaneous. After each sync operation, the system provides useful information about the last replication process, such as start and end date, and the transferred data volume. By viewing the replication information, you can see how long the last replication took and calculate the transfer rate. Seeing the transferred data values can help you estimate the global transfer charges at the end of the billing period.
 
 You can use the replication sync information to fine-tune your replication schedule. It can help you balance the cost and the frequency that you need the data to be refreshed on the replica to satisfy your [recovery point objective](#x3429911){: term}. It can also help to determine whether the replication process is in danger of degradation. 
 
@@ -235,7 +235,7 @@ You can see information about the last replication operation when you list the d
 You can programmatically retrieve the last sync details by calling the `/shares` method in the [VPC API](/apidocs/vpc/latest#get-share){: external}. Look for the `latest_sync` section in the API response to see when the replication started (`started_at`), when it ended (`completed_at`), and how much data was transferred (`data_transferred`). For more information, see [View a single file share with the API](/docs/vpc?topic=vpc-file-storage-view&interface=api#fs-single-file-shares-api).
 {: api}
 
-In addition, you can view historical information of the recent replication jobs when you use {{site.data.keyword.la_full}}. When replication occurs, the file service generates a `regional-file.00002I` log message, which includes information about when the replication occurred, and how much data was transferred. For more information, see [Logging for VPC](https://test.cloud.ibm.com/docs/vpc?topic=vpc-logging#logging-file-share-replication).
+In addition, you can view historical information of the recent replication sync when you use {{site.data.keyword.la_full}}. When replication occurs, the file service generates a `regional-file.00002I` log message, which includes information about when the replication occurred, and how much data was transferred. For more information, see [Logging for VPC](https://test.cloud.ibm.com/docs/vpc?topic=vpc-logging#logging-file-share-replication).
 
 ## Verifying replication with the API
 {: #fs-verify-replica-api}
