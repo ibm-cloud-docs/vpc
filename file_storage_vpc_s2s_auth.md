@@ -15,7 +15,7 @@ subcollection: vpc
 # Establishing service-to-service authorizations for {{site.data.keyword.filestorage_vpc_short}}
 {: #file-s2s-auth}
 
-You can use the {{site.data.keyword.iamshort}} (IAM) to create or remove an authorization that grants one service access to another service. For {{site.data.keyword.filestorage_vpc_short}}, you need to create service-to-service authorization for configuring customer-managed encryption and setting up cross-regional replication.
+You can use the {{site.data.keyword.iamshort}} (IAM) to create or remove an authorization that grants one service access to another service. For {{site.data.keyword.filestorage_vpc_short}}, you need to create service-to-service authorization for configuring customer-managed encryption and setting up cross-region replication.
 {: shortdesc}
 
 ## Overview
@@ -25,7 +25,7 @@ In an authorization, the source service is the service that is granted access to
 
 To be able to create an encrypted file share with customer-managed CRKs, you need to establish service-to-service authorization between the File service and the Key Management Service of your choice. The instructions to create the service-to-service authorization are provided in this topic. For more information about using another account's CRK, see [Cross-account encryption for File Storage resources](/docs/vpc?topic=vpc-vpc-byok-cross-acct-key-file).
 
-For cross-regional replication, you need to establish service-to-service authorizations and specify user roles for the various File service instances in different VPCs. This authorization enables the File service in one VPC to interact with the File service of another VPC. Both VPCs must belong to the same account. Cross-account replication is not supported. For more information, see [Replication overview](/docs/vpc?topic=vpc-file-storage-replication).
+For cross-region replication, you need to establish service-to-service authorizations and specify user roles for the various File service instances in different VPCs. This authorization enables the File service in one VPC to interact with the File service of another VPC. Both VPCs must belong to the same account. Cross-account replication is not supported. For more information, see [Replication overview](/docs/vpc?topic=vpc-file-storage-replication).
 
 For more information about authorizations, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth).
 
@@ -45,7 +45,7 @@ You can access the **Manage authorizations** by clicking **Manage** > **Access (
 1. Then, under Service access, select the role `Reader`.
 1. Click **Authorize**.
 
-## Creating service-to-service authorization for cross-regional replication in the UI
+## Creating service-to-service authorization for cross-region replication in the UI
 {: #file-s2s-auth-replication-ui}
 {: ui}
 
@@ -100,7 +100,7 @@ Roles:                     Authorization Delegator, Reader
 
 For more information about all of the parameters that are available for this command, see [ibmcloud iam authorization-policy-create](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_authorization_policy_create).
 
-## Creating service-to-service authorization for cross-regional replication from the CLI
+## Creating service-to-service authorization for cross-region replication from the CLI
 {: #file-s2s-auth-replication-cli}
 {: cli}
 
@@ -156,7 +156,7 @@ Make a request to the [IAM Policy Management API](/apidocs/iam-policy-management
 
 * To create an authorization policy for {{site.data.keyword.hscrypto}}, replace `kms` with `hs-crypto` in the previous example.
 
-## Creating service-to-service authorization for cross-regional replication with the API
+## Creating service-to-service authorization for cross-region replication with the API
 {: #file-s2s-auth-replication-api}
 {: api}
 
@@ -210,7 +210,7 @@ resource "ibm_iam_authorization_policy" "mypolicy4HPCS" {
 
 For more information about the arguments and attributes, see the [Terraform documentation for authorization resources](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/iam_authorization_policy){: external}.
 
-## Creating service-to-service authorization for cross-regional replication with Terraform
+## Creating service-to-service authorization for cross-region replication with Terraform
 {: #file-s2s-auth-replication-terraform}
 {: terraform}
 
@@ -233,4 +233,4 @@ For more information about the arguments and attributes, see the [Terraform docu
 {: #file-s2s-next-steps}
 
 - [Create file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption).
-- [Create cross-regional replica shares](/docs/vpc?topic=vpc-file-storage-create-replication).
+- [Create cross-region replica shares](/docs/vpc?topic=vpc-file-storage-create-replication).
