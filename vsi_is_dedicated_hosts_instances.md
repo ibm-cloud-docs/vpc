@@ -19,8 +19,6 @@ subcollection: vpc
 You can create one or more dedicated hosts with associated dedicated host groups in your {{site.data.keyword.cloud}} VPC by using the {{site.data.keyword.cloud_notm}} console, the CLI, or the API. Dedicated Host for VPC is fully integrated into {{site.data.keyword.cloud_notm}}.
 {: shortdesc}
 
-Dedicated hosts are not supported for LinuxONE (s390x processor architecture).  
-{: note}
 
 ## Dedicated hosts
 {: #about-dedicated-hosts}
