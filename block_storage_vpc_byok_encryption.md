@@ -82,7 +82,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    {: pre}
 
 3. Gather required information, such as the CRN of the root key that you want to use to encrypt your block storage volume.  
-   1. User the `ibmcloud resource service-instances` command to locate your KMS instances.
+   1. Use the `ibmcloud resource service-instances` command to locate your KMS instances.
       ```sh
       $ ibmcloud resource service-instances
       Retrieving all instances of all services in resource group Default and all locations under account Test Account as test.user@ibm.com...
