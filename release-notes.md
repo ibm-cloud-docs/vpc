@@ -28,6 +28,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## December 2023
 {: #vpc-dec23}
 
+### 15 December 2023
+{: #vpc-dec1523}
+{: release-note}
+
+IBM Wazi as a Service and LinuxONE (s390x processor architecture) dedicated host (LA)
+:   You can now create dedicated hosts with s390x memory profiles in the Spain (Madrid) and US South (Dallas) regions to carve out a single-tenant compute node and create virtual server instances according to your needs. For more information, see [s390x dedicated host profiles](/docs/vpc?topic=vpc-s390x-dh-profiles) and [Creating dedicated hosts and groups](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances).
+
 ### 12 December 2023
 {: #vpc-december1223}
 {: release-note}
@@ -57,13 +64,6 @@ Reserved Capacity for VPC (Beta)
 
 ## November 2023
 {: #vpc-nov23}
-
-### 17 November 2023
-{: #vpc-nov1723}
-{: release-note}
-
-IBM Wazi as a Service and LinuxONE (s390x processor architecture) dedicated host (LA)
-:   You can now create dedicated hosts with s390x memory profiles in the Spain (Madrid) and US South (Dallas) region to carve out a single-tenant compute node and create virtual server instances according to your needs. For more information, see [s390x dedicated host profiles](/docs/vpc?topic=vpc-s390x-dh-profiles) and [Creating dedicated hosts and groups](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances).
 
 ### 16 November 2023
 {: #vpc-nov1623}
