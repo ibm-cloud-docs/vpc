@@ -547,11 +547,11 @@ toc:
         - topicgroup:
             label: Block Storage
             topics:
+            - block_storage_vpc_s2s_auth.md
             - topicgroup:
                 label: Creating Block Storage volumes
                 topics:
                 - block_storage_is_create.md
-                - block_storage_vpc_s2s_auth.md
                 - block_storage_vpc_byok_encryption.md
                 - block_storage_vpc_manage_storage_limits.md
             - block_storage_is_attach.md
