@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-08-08"
+lastupdated: "2023-12-14"
 
 keywords:
 
@@ -23,10 +23,10 @@ In today's fast-paced economy, companies rely on data in their decision-making. 
 | 3 IOPS per GB tier| It is designed for general-purpose workloads such as workloads that host small databases for web applications or store virtual machine disk images for a hypervisor. |  99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption, Customer-managed encryption |
 | 5 IOPS per GB tier| It is designed for high I/O intensity workloads that are characterized by a large percentage of active data, such as transactional and other performance-sensitive databases. |  99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption, Customer-managed encryption |
 | 10 IOPS per GB tier| It is designed for demanding storage workloads such as data-intensive workloads created by NoSQL databases, data processing for video, machine learning, and analytics. |  99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption, Customer-managed encryption |
-| Custom | Customers can specify capacity between 10 - 16000 MB with IOPS ranging 100 - 48000. | 99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption, Customer-managed encryption |
+| Custom | Customers can specify a capacity between 10 - 16000 MB with IOPS ranging 100 - 48000. | 99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption, Customer-managed encryption |
 {: caption="Table 1. {{site.data.keyword.block_storage_is_short}} Storage durability and availability chart." caption-side="bottom"}
 
-{{site.data.keyword.block_storage_is_short}} volumes are double-encrypted at rest. The double-encryptions includes the underlying volume that holds the customer volumes, and the customer volume. The customer volumes are encrypted by using provider-managed encryption or customer-managed encryption keys. 
+{{site.data.keyword.block_storage_is_short}} volumes are double-encrypted at rest. The double-encryption includes the underlying volume that holds the customer volumes, and the customer volume. The customer volumes are encrypted by using provider-managed encryption or customer-managed encryption keys. 
 
 | {{site.data.keyword.filestorage_vpc_short}} Storage type | Use Case | Durability | Availability | Encryption |
 |--------------|----------|------------|--------------|------------|
@@ -38,9 +38,9 @@ In today's fast-paced economy, companies rely on data in their decision-making. 
 ## Durability
 {: #stordurability}
 
-Think of durability as a measurement of how healthy and resilient your data is. Durability in VPC storage means that your data is stored consistent and intact without any signs of data decay, influence of drive failures, or any other form of corruption. 99.999999999% (11 nines) durability means that if you store 10 million files, then you expect to lose one file every 10000 years.
+Think of durability as a measurement of how healthy and resilient your data is. Durability in VPC storage means that your data is stored consistently and intact without any signs of data decay, influence of drive failures, or any other form of corruption. 99.999999999% (11 nines) durability means that if you store 10 million files, then you expect to lose one file every 10000 years.
 
-When people hear the word durability, most of them think of hardware failures of storage, compute, and network components that might cause data loss. In VPC storage, your data is protected against drive failures and numerous type of disk errors that otherwise might negatively impact data durability and data integrity. The data is stored redundantly across multiple physical disks in an Availability Zone to prevent data loss due to failure of any single component.
+When people hear the word durability, most of them think of hardware failures of Storage, Compute, and Network components that might cause data loss. In VPC storage, your data is protected against drive failures and numerous types of disk errors that otherwise might negatively impact data durability and data integrity. The data is stored redundantly across multiple physical disks in an Availability Zone to prevent data loss due to failure of any single component.
 
 Other than physical failure, a common source of data loss is accidental deletion or modifications of files by users. {{site.data.keyword.block_storage_is_short}}, Snapshots for VPC, and {{site.data.keyword.filestorage_vpc_short}} are only accessible to authorized hosts within your virtual private network. You control who can access it. For more information, see [Managing security and compliance](/docs/vpc?topic=vpc-manage-security-compliance).
 
