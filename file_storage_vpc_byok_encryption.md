@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-12-12"
+lastupdated: "2023-12-13"
 
 keywords: file share, customer-managed encryption, encryption, byok, KMS, Key Protect, Hyper Protect Crypto Services,
 
@@ -23,9 +23,9 @@ For more information, see [Protecting data with envelope encryption](/docs/key-p
 ## Before you begin
 {: #custom-managed-vol-prereqs-file}
 
-To create file shares with customer-managed encryption, you must first provision a key management service, and create or import your customer root key (CRK). You must also [create a service-to-service authorization](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-volumes-prereqs) between {{site.data.keyword.filestorage_vpc_short}} and the key management service. When you complete these prerequisites, you can start creating file shares that use customer-managed encryption.
+To create file shares with customer-managed encryption, you must first provision a key management service (KMS), and create or import your customer root key (CRK). You can choose between [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect/concepts?topic=key-protect-getting-started-tutorial) and [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started). 
 
-For more information, see [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-encryption-prereqs).
+You must also [create a service-to-service authorization](/docs/vpc?topic=vpc-file-s2s-auth) between {{site.data.keyword.filestorage_vpc_short}} and the KMS instance that you created.
 
 ## Creating file shares with customer-managed encryption in the UI
 {: #fs-byok-encryption-ui}
@@ -33,7 +33,7 @@ For more information, see [Prerequisites for setting up customer-managed encrypt
 
 Follow this procedure to specify customer-managed encryption when you create a file share.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Storage > File Shares**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon** ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > File Shares**.
 
 1. Click **Create**.
 
@@ -209,7 +209,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 
 For more information about the command options, see [`ibmcloud is share-create`](/docs/vpc?topic=vpc-vpc-reference#share-create).
 
-## Creating customer-managed encryption file shares with the API
+## Creating file shares with customer-managed encryption with the API
 {: #fs-byok-api}
 {: api}
 
@@ -295,6 +295,38 @@ A successful response looks like the following example.
    }
    ```
    {: screen}
+
+## Creating file shares with customer-managed encryption with Terraform
+{: #fs-byok-terraform}
+{: terraform}
+
+To create a file share, use the `ibm_is_share` resource. The following example creates a share with 800 GiB capacity and the `dp2` performance profile. The file share is encrypted by using a key that is identified by its CRN. The example also specifies a new mount target with a virtual network interface.
+
+```terraform
+resource "ibm_is_share" "share4" {
+   zone           = "us-south-2"
+   size           = "800"
+   name           = "my-share4"
+   profile        = "dp2"
+   encryption_key = "crn:v1:bluemix:public:kms:us-south:a/a1234567:key:2fb8d675-bde3-4780-b127-3d0b413631c1"
+   access_control_mode = "security_group"
+   mount_target {
+       name = "target"
+       virtual_network_interface {
+       primary_ip {
+               address = 10.240.64.5
+               auto_delete = true
+               name = "<reserved_ip_name>
+       }
+      resource_group = <resource_group_id>
+      security_groups = [<security_group_ids>]
+      }
+   }
+}
+```
+{: codeblock}
+
+For more information about the arguments and attributes, see [ibm_is_share](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share){: external}.
 
 ## Next steps
 {: #next-step-fs-byok}
