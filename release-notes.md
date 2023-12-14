@@ -30,8 +30,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## December 2023
 {: #vpc-dec23}
 
-### 12 December 2023
-{: #vpc-dec1223}
+### 19 December 2023
+{: #vpc-dec1923}
 {: release-note}
 
 Virtual Network Interfaces for VPC [Select availability]{: tag-preview}
