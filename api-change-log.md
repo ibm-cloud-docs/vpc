@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-12-05"
+lastupdated: "2023-12-12"
 
 keywords: vpc, api, change log, new features, restrictions, migration
 
@@ -53,6 +53,23 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 12 December 2023
+{: #12-december-2023}
+
+### For all version dates
+{: #12-december-2023-all-version-dates}
+
+**Cross-region replication of file shares.** When [creating a file share](/apidocs/vpc/latest#create-share), you can now specify a zone in an associated partner region to create a replica file share. For more information about cross-region pairings, see [About file share replication](/docs/vpc?topic=vpc-file-storage-replication). A [service-to-service authorization for cross-region replication](/docs/vpc?topic=vpc-file-s2s-auth&interface=api#file-s2s-auth-replication-api) between the regional file services must be created before creating a replica.
+
+An important difference between setting up in-region and cross-region replication is configuring the encryption for the replica share. 
+- When the replica is created in another zone of the same region, the encryption type and the encryption key are inherited from the source share and can't be changed. 
+- When the replica is created in another region, only the encryption type is inherited. Therefore, if the source share has `user_managed` encryption, you must specify the root key by using the `encryption_key` property when creating the replica share.
+{: note}
+
+When [retrieving a file share](/apidocs/vpc/latest#get-share), the `source_share` property now includes a `remote` sub-property that, if present in the response, indicates that the resource that is associated with this reference is remote and might not be directly retrievable.
+
+**Last replication sync information.** When [retrieving a file share](/apidocs/latest#get-share), the response now includes the properties `completed_at`, `started_at`, and `data_transferred`. These properties provide information about the replication process that can be used to monitor the health of the replication. For more information, see [Managing replica file shares](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=api#fs-repl-syncinfo).
 
 ## 5 December 2023
 {: #5-december-2023}

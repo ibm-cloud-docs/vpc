@@ -42,7 +42,7 @@ You can monitor the progress of your file share expansion from the UI or CLI. Yo
 ## Requirements
 {: #expandable-share-prereqs}
 
-The file share must be in a `stable` state before you can request that the capacity is increased.
+The file share must be in a `stable` state before you can request the capacity to be increased.
 
 ## Limitations
 {: #expandable-share-limitations}
