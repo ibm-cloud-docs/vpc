@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-08-08"
+lastupdated: "2023-12-12"
 
 keywords:
 
@@ -22,6 +22,7 @@ subcollection: vpc
 {: #byok-cross-acct-about}
 
 Customer root keys in one account can be made available to users of another account to use when they create an encrypted file share.
+For more information, see [Encryption key management](/docs/solution-tutorials?topic=solution-tutorials-resource-sharing#resource-sharing-security-kms).
 
 A privileged user from the account that owns the root key must [invite the user](/docs/account?topic=account-iamuserinv) of the second account, and set the IAM delegated policy to the root keys. For more information, see [Granting access to keys with {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-grant-access-keys) and [Granting access to keys with {{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-grant-access-keys).
 
@@ -52,54 +53,15 @@ To create the IAM policy, Account A must make a `POST /policies` call to the IAM
 curl -X "POST" "https://iam.cloud.ibm.com/v1/policies" \
      -H "Authorization: <Auth Token>" \
      -H 'Content-Type: application/json' \
-     -d $'{
-        "roles": [
-            {
-            "role_id": "crn:v1:bluemix:public:iam::::role:AuthorizationDelegator"
-            },
-            {
-            "role_id": "crn:v1:bluemix:public:iam::::serviceRole:Reader"
-            }
-        ],
-        "resources": [
-            {
-            "attributes": [
-                {
-                "name": "Account-A",
-                "operator": "stringEquals",
-                "value": "<CRK-Account-A-ID>"
-                },
-                {
-                "name": "Key-Protect",
-                "operator": "stringEquals",
-                "value": "kms" // For HPCS use hs-crypto
-                }
-              ]
-            }
-        ],
+     -d '{
+        "roles": [{"role_id": "crn:v1:bluemix:public:iam::::role:AuthorizationDelegator"},{"role_id": "crn:v1:bluemix:public:iam::::serviceRole:Reader"}],
+        "resources": [{"attributes":[{"name":"Account-A","operator":"stringEquals","value":"<CRK-Account-A-ID>"},{"name":"Key-Protect","operator":"stringEquals","value":"kms"}]}],
         "type": "authorization",
         "description": "Reader and Delegator role for KeyProtect Service instance",
-        "subjects": [
-            {
-            "attributes": [
-                {
-                "name": "serviceName",
-                "value": "is"
-                },
-                {
-                "name": "resourceType",
-                "value": "share"
-                },
-                {
-                "name": "Account-B",
-                "value": "<Account-B-ID>"
-                }
-              ]
-            }
-        ]
-     }'
+        "subjects": [{"attributes": [{"name": "serviceName","value": "is"},{"name": "resourceType","value": "share"},{"name": "Account-B","value": "<Account-B-ID>"}]}]
+        }'
 ```
-{: codeblock}
+{: screen}
 
 For more information, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth&interface=api).
 
@@ -114,25 +76,17 @@ See the following example.
 
  ```curl
    curl -X POST \
-   "$vpc_api_endpoint/v1/shares?version=2023-08-18&generation=2"\
+   "$vpc_api_endpoint/v1/shares?version=2023-12-12&generation=2"\
    -H "Authorization: $iam_token"\
    -d '{
-       "encryption_key": {
-          "crn":"crn:bluemix:public:kms:us-south:a/df0564dd126042ebb03e0224728ce939:4957299d-0ba0-487f-a1a0-c724a729b8b4:key:0cb88b98-9261-4d07-8329-8f594b6641b5"
-        },
+       "encryption_key": {"crn":"crn:bluemix:public:kms:us-south:a/a1234567:key:0cb88b98-9261-4d07-8329-8f594b6641b5"},
         "iops": 1000,
         "name": "my-encrypted-share",
-        "profile": {
-          "name": "dp2"
-        },
-        "resource_group": {
-           "id": "678523bcbe2b4eada913d32640909956"
-         },
-        "size": 200,
-        "zone": {
-          "name": "us-south-2"
-        }
-      }'
+        "profile": {"name": "dp2"},
+        "resource_group": {"id": "678523bcbe2b4eada913d32640909956"},
+        "size": 500,
+        "zone": {"name": "us-south-2"}
+       }'
    ```
    {: codeblock}
 
@@ -140,21 +94,16 @@ In the response, the CRN of the encryption key is from Account A that owns the k
 
 ```json
 {
-  "created_at": "2023-08-18T23:28:45Z",
-  "crn": "crn:v1:bluemix:public:is:us-south-1:a/b5c782a8f47a2d1527257e3465f21568::share:r006-fe7219eb-c9a9-4aab-8636-9a57141f0cee",
+  "created_at": "2023-12-12T23:28:45Z",
+  "crn": "crn:v1:bluemix:public:is:us-south-1:a/a7654321::share:r006-fe7219eb-c9a9-4aab-8636-9a57141f0cee",
   "encryption": "user_managed",
-  "encryption_key": {
-    "crn": "crn:bluemix:public:kms:us-south:a/df0564dd126042ebb03e0224728ce939:4957299d-0ba0-487f-a1a0-c724a729b8b4:key:0cb88b98-9261-4d07-8329-8f594b6641b5"
-  },
+  "encryption_key": {"crn": "crn:bluemix:public:kms:us-south:a/a1234567:key:0cb88b98-9261-4d07-8329-8f594b6641b5"},
   "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/r006-fe7219eb-c9a9-4aab-8636-9a57141f0cee",
   "id": "r006-fe7219eb-c9a9-4aab-8636-9a57141f0cee",
-  "initial_owner": {
-    "gid": 0,
-    "uid": 0
-  },
+  "initial_owner": {"gid": 0,"uid": 0},
   "iops": 1000,
   "lifecycle_state": "stable",
-  "name": "bluitel-test-us-south-1-er5s",
+  "name": "my-test-us-south-1-er5s",
   "profile": {
     "href": "https://us-south.iaas.cloud.ibm.com/v1/share/profiles/dp2",
     "name": "dp2",
@@ -164,14 +113,14 @@ In the response, the CRN of the encryption key is from Account A that owns the k
   "replication_status": "none",
   "replication_status_reasons": [],
   "resource_group": {
-    "crn": "crn:bluemix:public:resource-controller::a/b5c782a8f47a2d1527257e3465f21568::resource-group:5400b7d6ac9f0a183f70abbe8b8d54c6",
+    "crn": "crn:bluemix:public:resource-controller::a/a7654321::resource-group:5400b7d6ac9f0a183f70abbe8b8d54c6",
     "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/5400b7d6ac9f0a183f70abbe8b8d54c6",
     "id": "5400b7d6ac9f0a183f70abbe8b8d54c6",
     "name": "Default"
   },
   "resource_type": "share",
-  "size": 200,
-  "targets": [],
+  "size": 500,
+  "mount_targets": [],
   "user_tags": [
     "description:user-tags-test",
     "tag1:value1",

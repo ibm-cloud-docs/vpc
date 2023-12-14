@@ -93,7 +93,7 @@ If you choose to continue with an EOS OS, consider the following information:
 {: #debian-ten-eos-vpc}
 
 Debian 10 EOS date is 30 June 2024. Support for this software discontinues on 30 June 2024. After deprecation, clients can't download the software. For existing customers, upgrade to the latest version.
-For more information, see the [Debian documentation](https://www.debian.org/releases/bookworm/amd64/release-notes/ch-upgrading.en.html){external}.
+For more information, see the [Debian documentation](https://www.debian.org/releases/bookworm/amd64/release-notes/ch-upgrading.en.html){: external}.
 
 ## Windows 2012 and Windows 2012 R2 EOS
 {: #upgrading-windows-2012-os}
