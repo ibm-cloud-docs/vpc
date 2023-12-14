@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-12-12"
+lastupdated: "2023-12-14"
 
 keywords:
 
@@ -27,6 +27,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## December 2023
 {: #vpc-dec23}
+
+### 14 December 2023
+{: #vpc-december1423}
+{: release-note}
+
+Tokyo 2 AZ for bare metal servers
+:  The Tokyo 2 availability zone (AZ) is now available for Bare Metal Servers for VPC.
 
 ### 12 December 2023
 {: #vpc-december1223}
