@@ -36,6 +36,9 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 IBM Wazi as a Service and LinuxONE (s390x processor architecture) dedicated host (LA)
 :   You can now create dedicated hosts with s390x memory profiles in the Spain (Madrid) and US South (Dallas) regions to carve out a single-tenant compute node and create virtual server instances according to your needs. For more information, see [s390x dedicated host profiles](/docs/vpc?topic=vpc-s390x-dh-profiles) and [Creating dedicated hosts and groups](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances).
 
+VPC route advertisement to Direct Link and Transit Gateway
+ :  You can now advertise routes in VPC ingress routing tables to Direct Link, Transit Gateway, or both. For more information, see [VPC routing tables and routes](/docs/vpc?topic=vpc-about-custom-routes).
+
 ### 14 December 2023
 {: #vpc-december1423}
 {: release-note}
