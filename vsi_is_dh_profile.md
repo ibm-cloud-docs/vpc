@@ -23,7 +23,7 @@ For more information about dedicated host profiles for IBM Z (s390x processor ar
 
 <!-- The s390x note stays on staging until 7/31 when LinuxONE VSI is available in production -->
 
-The Madrid region only supports dedicated host profiles with instance storage.
+For x86-64 dedicated host profiles, the Madrid region only supports dedicated host profiles with instance storage.
 {: important}
 
 The following profile families are available:
@@ -261,8 +261,7 @@ The first character represents the profile family. Different profile families ha
 
 The second character represents the CPU architecture.
 - "x": x86_64
-
-<!-- * "z": System Z -->
+- "z": System Z
 
 The third character represents the generation of VPC the profile is for.
 -	The generation of the underlying hardware

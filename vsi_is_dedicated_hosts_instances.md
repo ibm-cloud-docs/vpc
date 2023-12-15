@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-10-24"
+lastupdated: "2023-12-15"
 
 keywords: dedicated host, dedicated host group
 
