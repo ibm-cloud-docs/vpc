@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-03-10"
+lastupdated: "2023-12-14"
 
 keywords:
 
@@ -49,7 +49,7 @@ For more information the following topics.
 
 When you create volume, snapshot, file share, or custom image with customer-managed encryption, your root key is automatically registered in the KMS instance. You can view the registration to verify whether the key was rotated. The following procedure shows how to verify key rotation for a {{site.data.keyword.block_storage_is_short}} volume, but steps are similar for other resources.
 
-1. From the [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block Storage volumes**. The list shows all volumes and the Encryption column displays either "Provider Managed" or the name of the KMS that is used for custoner-managed encryption.
+1. From the [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block Storage volumes**. The list shows all volumes and the Encryption column displays either "Provider Managed" or the name of the KMS that is used for custoner-managed encryption.
 1. Click the name of a volume to see its details.
 1. In the Encryption Instance field, click the link of the KMS instance. The KMS instance overview page is displayed.
 
@@ -347,7 +347,7 @@ The following JSON example shows a `kms.secrets.rotate` event when a root key is
    "logSourceCRN":"crn:v1:bluemix:public:kms:us-south:a/a12333e9bd28461a8c92385628efac9f:fd692647-43d0-4699-9f83-f39a54b1327b::"
 }
 ```
-{: codeblock}
+{: screen}
 
 This event shows the updated volume after a successful key rotation:
 
@@ -400,7 +400,7 @@ This event shows the updated volume after a successful key rotation:
   "saveServiceCopy": true
 }
 ```
-{: codeblock}
+{: screen}
 
 ### Activity Tracker events for key suspension and deletion
 {: #byok-key-delete-suspend-events}
@@ -418,4 +418,4 @@ For more information, see all [Activity Tracker key events](/docs/key-protect?to
 {: #next-steps-byok-manage}
 
 * [Create volumes that use customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption).
-* [Create an instance with volumes that use customer-managed encryption](/docs/vpc?topic=vpc-creating-instances-byok).
+* [Create an instance with volumes that use customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption).

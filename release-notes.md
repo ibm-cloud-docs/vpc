@@ -2,6 +2,7 @@
 
 copyright:
   years: 2019, 2023
+
 lastupdated: "2023-12-15"
 
 keywords:
@@ -34,6 +35,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 IBM Wazi as a Service and LinuxONE (s390x processor architecture) dedicated host (LA)
 :   You can now create dedicated hosts with s390x memory profiles in the Spain (Madrid) and US South (Dallas) regions to carve out a single-tenant compute node and create virtual server instances according to your needs. For more information, see [s390x dedicated host profiles](/docs/vpc?topic=vpc-s390x-dh-profiles) and [Creating dedicated hosts and groups](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances).
+
+### 14 December 2023
+{: #vpc-december1423}
+{: release-note}
+
+Tokyo 2 AZ for bare metal servers
+:  The Tokyo 2 availability zone (AZ) is now available for Bare Metal Servers for VPC.
 
 ### 12 December 2023
 {: #vpc-december1223}

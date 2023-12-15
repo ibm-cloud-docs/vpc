@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-10-23"
+lastupdated: "2023-12-15"
 
 keywords: region, zone, deploy, datacenter, data, center, federated, CLI, API, account, failover, disaster, recovery, DR, data center
 
@@ -47,7 +47,7 @@ Virtual Private Cloud is available in the following {{site.data.keyword.cloud}} 
 {: tab-group="vpc-regions-api-endpoint"}
 {: #vpc-europe-regions}
 
-The Madrid region only supports dedicated host profiles with instance storage. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui).
+For x86-64 dedicated host profiles, the Madrid region only supports dedicated host profiles with instance storage. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui).
 {: important}
 
 |   Location     | Region | API Endpoint |

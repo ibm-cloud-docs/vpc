@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-12-13"
+lastupdated: "2023-12-14"
 
 keywords: file share, customer-managed encryption, encryption, byok, KMS, Key Protect, Hyper Protect Crypto Services,
 
@@ -125,8 +125,6 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
       ```
       {: screen}
 
-      For more information, see [Step 1 - Obtain service instance and root key information](/docs/vpc?topic=vpc-creating-instances-byok#byok-cli-setup-prereqs).
-
 1. Specify the `ibmcloud is share-create` command with the `--encryption-key` option to create a file share with customer-managed encryption. The `encryption_key` option must be followed by a valid CRN for the root key in the key management service. If you want to enable encryption in transit, too, specify that in the mount target JSON. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all virtual server instances on which you want to mount the file share.
 
    - The following example creates a file share with customer-managed encryption, security group access mode, and a mount target with a virtual network interface. Encryption in transit is not enabled.
@@ -227,8 +225,7 @@ The following example creates a file share with a mount target, and specifies th
 
    ```sh
    curl -X POST \
-   "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2" \
-   -H "Authorization: $iam_token" \
+   "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2" -H "Authorization: $iam_token" \
    -d '{
         "encryption_key": {"crn":"crn:[...key:...]"},
         "iops": 1000,
@@ -236,16 +233,14 @@ The following example creates a file share with a mount target, and specifies th
         "profile": {"name": "tier-5iops"},
         "resource_group": {"id": "678523bcbe2b4eada913d32640909956"},
         "size": 100,
-        "mount_targets": [
-          {
+        "mount_targets": [{
             "name": "my-share-target",
             "subnet": {"id": "7ec86020-1c6e-4889-b3f0-a15f2e50f87e"}
-          }
-        ],
+            }],
         "zone": {"name": "us-south-2"}
-        }'
+       }'
    ```
-   {: codeblock}
+   {: pre}
 
 A successful response looks like the following example.
 
@@ -324,7 +319,7 @@ resource "ibm_is_share" "share4" {
    }
 }
 ```
-{: codeblock}
+{: screen}
 
 For more information about the arguments and attributes, see [ibm_is_share](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share){: external}.
 

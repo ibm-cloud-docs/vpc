@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-12-13"
+lastupdated: "2023-12-14"
 
 keywords:
 
@@ -59,7 +59,6 @@ If you plan to import an encrypted custom image, follow the instructions in [Set
 ## Next Steps
 {: #next-steps-planning}
 
-* [Create virtual server instances with customer-managed encrypted volumes](/docs/vpc?topic=vpc-creating-instances-byok).
-* [Create stand-alone volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption).
+* [Creating Block Storage volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption).
+* [Creating file shares with customer-managed encryptions](/docs/vpc?topic=vpc-file-storage-vpc-encryption).
 * [Create custom encrypted images](/docs/vpc?topic=vpc-create-encrypted-custom-image).
-* [Create encrypted file shares](/docs/vpc?topic=vpc-file-storage-vpc-encryption).

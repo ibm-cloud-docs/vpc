@@ -66,6 +66,7 @@ toc:
                - vsi_is_profiles.md
                - s390x-vsi-profiles.md
                - vsi_is_dh_profile.md
+               - s390x-dh-profiles.md
                - bare_metal_server_profile.md
                - profiles_benchmark.md
            - vpc-secure-boot.md
@@ -515,6 +516,7 @@ toc:
             label: File Storage
             topics:
             - file_storage_vpc_plan.md
+            - file_storage_vpc_s2s_auth.md
             - topicgroup:
                 label:  Creating file shares
                 topics:
@@ -540,13 +542,13 @@ toc:
                 label: Replication
                 topics:
                 - file_storage_vpc_replication.md
-                - file_storage_vpc_s2s_auth.md
                 - file_storage_vpc_create_replication.md
                 - file_storage_vpc_manage_replication.md
                 - file_storage_vpc_replication_failover.md
         - topicgroup:
             label: Block Storage
             topics:
+            - block_storage_vpc_s2s_auth.md
             - topicgroup:
                 label: Creating Block Storage volumes
                 topics:
@@ -634,9 +636,7 @@ toc:
                 topics:
                 - vsi-vpc-about-data-encryption.md
                 - vsi-vpc-planning-encryption.md
-                - vsi_vpc_instance_byok_encryption.md
-                - vsi_vpc_key_rotation.md
-                - block_storage_vpc_key_rotation.md
+                - vsi-vpc-key-rotation.md
                 - vsi-vpc-manage-encryption.md
             - file_storage_vpc_eit.md
         - topicgroup:

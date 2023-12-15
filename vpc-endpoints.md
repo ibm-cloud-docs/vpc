@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-11-10"
+lastupdated: "2023-12-15"
 
 keywords: CSE, endpoint, service, DNS, resolver, mirror, object, storage, bandwidth, charges
 
@@ -48,7 +48,7 @@ Use one of the following public endpoints to connect to the VPC infrastructure A
 {: tab-group="vpc-api-endpoints"}
 {: #vpc-europe-endpoints}
 
-The Madrid region only supports dedicated host profiles with instance storage. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui).
+For x86-64 dedicated host profiles, the Madrid region only supports dedicated host profiles with instance storage. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui).
 {: important}
 
 |   Location     | Region | Public Endpoint | Private Endpoint |
