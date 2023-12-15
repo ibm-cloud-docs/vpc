@@ -107,6 +107,6 @@ For more information, see [Bringing your own image with Wazi Image Builder](http
 * [Using granular RBAC permissions for custom images](/docs/vpc?topic=vpc-using-granular-RBAC-permissions-for-custom-images)
 * [Configuration requirements for custom Linux kernel](/docs/vpc?topic=vpc-configuration-requirements-for-custom-linux-kernels)
 * [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc&interface=ui)
-* [Importing and validating custom images into VPC](/docs/vpc?topic=vpc-importing-custom-images-vpc).
+* [Importing and validating custom images into VPC](/docs/vpc?topic=vpc-importing-custom-images-vpc)
 * [Managing custom images](/docs/vpc?topic=vpc-managing-custom-images&interface=ui)
 * [Managing image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc-manage&interface=ui)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-06-22"
+lastupdated: "2023-12-15"
 
 keywords: address prefixes, regions, subnets, zones, IP, ranges, CIDR
 
@@ -57,7 +57,7 @@ Sao Paulo     |`br-sao-2`     | `10.250.64.0/18`
 Sao Paulo     |`br-sao-3`     | `10.250.128.0/18`
 {: caption="Table 1. Address prefixes assigned to a zone in a region" caption-side="bottom"}
 
-The Madrid region only supports dedicated host profiles with instance storage. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui).
+For x86-64 dedicated host profiles, the Madrid region only supports dedicated host profiles with instance storage. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui).
 {: important}
 
 If you don't want these default address prefixes, you can choose to not assign them when you create your VPC. For example, add the `"address_prefix_management": "manual"` parameter when you create the VPC by using the API.
