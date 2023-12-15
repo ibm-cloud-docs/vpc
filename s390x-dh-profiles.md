@@ -17,6 +17,8 @@ subcollection: vpc
 A dedicated host profile is a combination of attributes, such as the number of vCPUs, amount of RAM, and optionally instance storage that define the amount of compute capacity that is provided in a host that is provisioned exclusively for your use.
 {: shortdesc}
 
+For information about dedicated host profiles for x86 processor architecture, see [x86-64 dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles).
+
 For Wazi as a Service, dedicated hosts are currently available in the Spain (Madrid) and US South (Dallas) region only.
 {: note}
 
@@ -28,7 +30,6 @@ The following profile families are available:
 {: caption="Table 1. Dedicated host family selections" caption-side="bottom"}
 {: #dh-memory-s390x}
 
-For more information about the profiles, see [Understanding profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui#dh-profiles-naming-rule).
 
 ## Memory
 {: #s390x-dh-memory}
@@ -42,7 +43,8 @@ The following Memory profile is available for dedicated hosts.
 | mz2-host-40x320 | 40 | 320 | - |
 {: caption="Table 2. s390x memory profile options for dedicated hosts" caption-side="bottom"}
 
-**Note:** Dedicated hosts have a network performance cap of 80 Gbps. Instances that are created on the host share bandwidth across the instances.  
+Dedicated hosts have a network performance cap of 80 Gbps. Instances that are created on the host share bandwidth across the instances.
+{: note}
 
 ## Viewing profile configurations
 {: #dh-popular-profiles}

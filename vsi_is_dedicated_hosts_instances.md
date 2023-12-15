@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-10-24"
+lastupdated: "2023-12-15"
 
 keywords: dedicated host, dedicated host group
 
@@ -19,6 +19,8 @@ subcollection: vpc
 You can create one or more dedicated hosts with associated dedicated host groups in your {{site.data.keyword.cloud}} VPC by using the {{site.data.keyword.cloud_notm}} console, the CLI, or the API. Dedicated Host for VPC is fully integrated into {{site.data.keyword.cloud_notm}}.
 {: shortdesc}
 
+For IBM Z or LinuxONE (s390x processor architecture), dedicated hosts are only supported in the Spain (Madrid) and US South (Dallas) region for {{site.data.keyword.waziaas_full_notm}}.  
+{: note}
 
 ## Dedicated hosts
 {: #about-dedicated-hosts}
