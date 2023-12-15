@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-11-09"
+lastupdated: "2023-12-15"
 
 keywords: custom routes
 
@@ -81,7 +81,7 @@ For route priority limitations, see [Limitations and guidelines](/docs/vpc?topic
 ## Advertising routes
 {: #rt-advertising-routes}
 
-In the past, address prefixes within the root address prefix of the VPC were advertised to the Direct Link and Transit Gateway. However, you could not advertise your address prefixes outside the root address prefix of the VPC. Route advertisement adds this capability. For example, review the following routes,  which advertises the route: `0.0.0.0/0` in all zones to a zone-specific next hop.
+In the past, address prefixes within the root address prefix of the VPC were advertised to the Direct Link and Transit Gateway. However, you could not advertise your address prefixes outside the root address prefix of the VPC. Route advertisement adds this capability. For example, Figure 1 advertises the route `0.0.0.0/0` in all zones to a zone-specific next hop.
 
 ![Edge proxy firewall use case](/images/advertise-routes.png){: caption="Figure 1. Advertising routes" caption-side="bottom}
 
@@ -92,7 +92,7 @@ For instructions on using this feature, refer to [Creating a routing table](/doc
 
 There are several considerations to be aware of when advertising routes:
 
-* You can advertise routes outside the root address prefix assigned to the VPC, which allows you to advertise your external networks or networks residing outside the VPC to a Direct Link or Transit Gateway. 
+* You can advertise routes outside the root address prefix assigned to the VPC, which allows you to advertise your external networks or networks residing outside the VPC to a Direct Link or Transit Gateway.
 
 * If multiple Transit Gateways or Direct Links are connected to your VPC, you can use route filtering on individual Transit Gateway or Direct Link connections to fine tune which routes are advertised to which connections.
 
@@ -101,7 +101,7 @@ There are several considerations to be aware of when advertising routes:
 * If you advertise two different routes, such as `172.16.0.0/31` through `10.1.1.0` and `172.16.0.0/32` through `10.1.2.0`, the route with a `/32` prefix will always take precedence over the route with a `/31` prefix. This is consistent with the "Longest Prefix Match" ruleset. A longer prefix to a host destination will always be preferred over a narrower prefix.
 
 * Currently, there is no mechanism to flag duplicate routes from a Transit Gateway or Direct Link. The Transit Gateway will select the best path using the most specific prefix and shortest AS path, as preferred. Otherwise, the Transit Gateway will select the route it received first. This may not be the oldest route at the VPC side, and it may change if routes to the Transit Gateway are refreshed internally.
- 
+
 ## Use cases
 {: #use-cases}
 
