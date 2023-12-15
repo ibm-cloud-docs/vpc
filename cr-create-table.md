@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-11-09"
+lastupdated: "2023-12-15"
 
 keywords: custom routes
 
@@ -177,7 +177,7 @@ To create a routing table with Terraform, follow these steps:
       }
       ```
 
-   * To create a routing table that accepts routes created from a VPN server:      
+   * To create a routing table that accepts routes created from a VPN server:
 
       ```terraform
       resource "ibm_is_vpc_routing_table" "example" {
@@ -187,7 +187,7 @@ To create a routing table with Terraform, follow these steps:
         accept_routes_from_resource_type = ["vpn_server"]
       }
       ```
-      
+
    * To create a routing table that routes traffic that originates from IBM Cloud Direct Link to this VPC:
 
       ```terraform
@@ -198,7 +198,7 @@ To create a routing table with Terraform, follow these steps:
         route_transit_gateway_ingress = false
         route_vpc_zone_ingress        = false
         advertise_routes_to           = ["direct_link", "transit_gateway"]
-      }   
+      }
       ```
 
 For documentation about the `ibm_is_vpc_routing_table` resource, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_vpc_routing_table).{: external}
