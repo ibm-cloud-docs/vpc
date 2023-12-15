@@ -30,7 +30,6 @@ The following profile families are available:
 {: caption="Table 1. Dedicated host family selections" caption-side="bottom"}
 {: #dh-memory-s390x}
 
-For more information about the profiles, see [Understanding profiles](#s390x-dh-profiles-naming-rule).
 
 ## Memory
 {: #s390x-dh-memory}
