@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-21"
+lastupdated: "2023-11-09"
 
 keywords: custom routes
 
@@ -23,7 +23,7 @@ Create a routing table to define rules to forward network traffic along the best
 
 Before creating a routing table, ensure that you have at least one VPC and review and adhere to routing table [limitations and guidelines](/docs/vpc?topic=vpc-about-custom-routes&interface=ui#limitations-custom-routes).
 
-You can create a routing table for an {{site.data.keyword.cloud_notm}} service by using the UI, CLI, or API.
+You can create a routing table for an {{site.data.keyword.cloud_notm}} service by using the UI, CLI, API, or Terraform.
 
 ## Creating a routing table in the UI
 {: #cr-using-the-ui}
@@ -31,29 +31,23 @@ You can create a routing table for an {{site.data.keyword.cloud_notm}} service b
 
 To create a routing table in the UI, follow these steps:
 
-1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the Navigation Menu ![Navigation Menu](/images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appears.
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, Select the Menu icon ![Navigation Menu](/images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appears.
 1. Click **Create** in the upper right of the page.
 1. In the Routing table for VPC provisioning page, complete the following information:
 
    * Enter a unique name for your routing table.
    * Select the Virtual Private Cloud that you want to associate with the routing table.
-   * Select a traffic type and optional traffic source:
+   * In the Traffic section, you can select from these optional features:
 
-      * **Egress** (default) - Optionally, select to accept traffic from an IBM Cloud VPN server or VPN gateway.
+      * **Accepts routes from** (optional) -  Choose which resources can create routes in the routing table. You can select the switch for **VPN server**, **VPN gateway**, or both.
 
-         Selecting **VPN server** allows VPN server resources to create routes in this routing table.
-         {: note}
+      * **Traffic source** (optional) - Select the traffic source that will use this routing table to route its traffic to the VPC.
 
-      * **Ingress** - Ingress options are available for use on one routing table per VPC. You must choose at least one of the following traffic sources to enable ingress routing.
-
-         * **Direct link** - Allows ingress traffic from an [IBM Cloud Direct Link](/docs/dl?topic=dl-get-started-with-ibm-cloud-dl) Dedicated or Connect connection to an on-prem location.
-         * **Transit gateway** - Allows ingress traffic from an [IBM Cloud Transit Gateway](/docs/transit-gateway?topic=transit-gateway-getting-started) to another VPC or classic infrastructure.
+         * **Direct Link** - Allows ingress traffic from an [IBM Cloud Direct Link](/docs/dl?topic=dl-get-started-with-ibm-cloud-dl) Dedicated or Connect connection to an on-premises location. Optionally, you can advertise routes to a direct link, which are not in the address prefix range of the VPC.
+         * **Transit gateway** - Allows ingress traffic from an [IBM Cloud Transit Gateway](/docs/transit-gateway?topic=transit-gateway-getting-started) to another VPC or classic infrastructure. Optionally, you can advertise routes to a transit gateway, which are not in the address prefix range of the VPC.
          * **VPC zone** - Allows ingress traffic to another availability zone of the same VPC.
          * **Public internet** - Allows public internet ingress traffic destined to a floating IP to be routed to a VPC next-hop IP.
 
-            The next-hop must be within the same zone of the specified VPC.
-            {: note}
-            
 1. Click **Create routing table**.
 
 ## Creating a routing table from the CLI
@@ -62,10 +56,16 @@ To create a routing table in the UI, follow these steps:
 
 Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 
-To create a routing table by using the CLI, run the following command:
+To create a routing table from the CLI, run the following command:
+
+To see advertise custom routes options in the CLI, you must first export a feature flag:
 
 ```sh
-ibmcloud is vpc-routing-table-create VPC [--name NAME] [--direct-link-ingress false | true] [--internet-ingress, --internet false | true] [--transit-gateway-ingress false | true] [--vpc-zone-ingress false | true] [--accept-routes-from-resource-type-filters, --ar-rtf vpn_server | vpn_gateway] [--output JSON] [-q, --quiet]
+export IBMCLOUD_IS_FEATURE_ADVERTISE_CUSTOM_ROUTES=true
+```
+
+```sh
+ibmcloud is vpc-routing-table-create VPC [--name NAME] [--direct-link-ingress false | true] [--internet-ingress, --internet false | true] [--transit-gateway-ingress false | true] [--vpc-zone-ingress false | true] [--accept-routes-from-resource-type-filters, --ar-rtf vpn_server | vpn_gateway] [--advertise-routes-to direct_link | transit_gateway | direct_link, transit_gateway] [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
@@ -92,10 +92,13 @@ Where:
 `--accept-routes-from-resource-type-filters, --ar-rtf`
 :   Comma-separated resource type filters that can create routes in this routing table. One of: **vpn_server**, **vpn_gateway**.
 
-`--output` 
+`--advertise_routes_to TARGETS`
+:   Optional. Is a comma-separated list of advertisement targets for routes in this routing table. Currently, **direct_link** and **transit_gateway** are the allowed values. **direct_link** requires **direct-link-ingress** to be set to **true**. **transit_gateway** requires **transit—gateway-ingress** to be set to **true**. All routes in the routing table with the **advertise** option set to **true** are advertised to the ingress sources specified by 'advertise_routes_to'.
+
+`--output`
 :   Is the output format. One of: **JSON**.
 
-`-q, --quiet` 
+`-q, --quiet`
 :   Suppresses verbose output.
 
 Routes with an action of **deliver** are treated as **drop** unless the next-hop is an IP address that is bound to a network interface on a subnet in the route’s zone. Hence, if an incoming packet matches a route with a next-hop of an internet-bound IP address or a VPN gateway connection, the packet is dropped.
@@ -107,34 +110,25 @@ You can set an ingress option to **true** on only one routing table per VPC, and
 ### CLI examples
 {: #routing-table-create-examples-cli}
 
-```sh
-ibmcloud is vpc-routing-table-create 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3 --name my-vpc-routing-table --direct-link-ingress true -—output JSON
-```
+`ibmcloud is vpc-routing-table-create 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3 --name my-vpc-routing-table -—advertise-routes-to direct_link --direct-link-ingress true -—output JSON`
 
-```sh
-ibmcloud is vpc-routing-table-create my-vpc --name my-vpc-routing-table —-transit-gateway-ingress true --output JSON
-```
+`ibmcloud is vpc-routing-table-create my-vpc --name my-vpc-routing-table --advertise-routes-to transit_gateway —-transit-gateway-ingress true --output JSON`
 
-```sh
-ibmcloud is vpc-routing-table-create my-vpc --name my-vpc-routing-table --direct-link-ingress true --transit-gateway-ingress true -—output JSON
-```
+`ibmcloud is vpc-routing-table-create my-vpc --name my-vpc-routing-table --advertise-routes-to direct_link, transit_gateway  --direct-link-ingress true —transit-gateway-ingress true -—output JSON`
 
-```sh
-ibmcloud is vpc-routing-table-create 979b4bc6-f018-40a2-92f5-0b1cf777b55d --name test-vpc-cli-routing-tb1 --direct-link-ingress false --internet-ingress false --transit-gateway-ingress false --vpc-zone-ingress true
-```
+`ibmcloud is vpc-routing-table-create 979b4bc6-f018-40a2-92f5-0b1cf777b55d --name test-vpc-cli-routing-tb1 --direct-link-ingress false --internet-ingress false   --transit-gateway-ingress false  --vpc-zone-ingress true`
 
 ## Creating a routing table with the API
 {: #cr-using-the-api-ct}
 {: api}
 
-To create a routing table by using the API, follow these steps:
+To create a routing table with the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
-1. Store the `VpcId` and `ResourceGroupId` values in a variable to be used in the API command:
+1. Store the `VpcId` value in a variable to be used in the API command:
 
     ```sh
     export VpcId=<your_vpc_id>
-    export ResourceGroupId=<your_resource_group_id>
     ```
     {: codeblock}
 
@@ -143,9 +137,12 @@ To create a routing table by using the API, follow these steps:
     Egress routing table:
 
     ```curl
-    curl -X POST -sH "Authorization:${iam_token}" \
+    curl -X POST \
     "$vpc_api_endpoint/v1/vpcs/$VpcId/routing_tables?version=$api_version&generation=2" \
-    -d '{"name": "test-routing-table","resource_group": {"id": "'$ResourceGroupId'"}}'
+    -H "Authorization: ${iam_token}" \
+    -d '{
+          "name": "test-routing-table"
+        }'
     ```
     {: codeblock}
 
@@ -161,19 +158,47 @@ To create a routing table by using the API, follow these steps:
     ```
     {: codeblock}
 
-    ```curl
-       curl -X POST "$vpc_api_endpoint/v1/vpcs/$VpcId/routing_tables/$RoutingTableId/routes?version=$api_version&generation=2" \
-       -H "Authorization: $iam_token" \
-       -d '{
-             "name": "my-ingress-routing-table",
-             "zone": {
-                       "name": "us-south-2"
-                     },
-             "action": "deliver",
-             "destination": "<destination ingress CIDR>",
-             "next_hop": {
-                           "address": "<instance next hop IP address>"
-                         }
-          }'
-    ```
-    {: codeblock}
+## Creating a routing table with Terraform
+{: #cr-create-terraform}
+{: terraform}
+
+To create a routing table with Terraform, follow these steps:
+
+1. [Set up your Terraform environment](/docs/vpc?topic=vpc-terraform-setup).
+1. Use one of the following examples:
+
+   * To create a routing table:
+
+      ```terraform
+      resource "ibm_is_vpc_routing_table" "example" {
+        vpc                           = ibm_is_vpc.example.id
+        name                          = "example-vpc-routing-table"
+        route_direct_link_ingress     = true
+      }
+      ```
+
+   * To create a routing table that accepts routes created from a VPN server:      
+
+      ```terraform
+      resource "ibm_is_vpc_routing_table" "example" {
+        vpc                              = ibm_is_vpc.example.id
+        name                             = "example-vpc-routing-table"
+        route_direct_link_ingress        = true
+        accept_routes_from_resource_type = ["vpn_server"]
+      }
+      ```
+      
+   * To create a routing table that routes traffic that originates from IBM Cloud Direct Link to this VPC:
+
+      ```terraform
+      resource "ibm_is_vpc_routing_table" "is_vpc_routing_table_instance" {
+        vpc                           = ibm_is_vpc.example.id
+        name                          = "example-vpc-routing-table"
+        route_direct_link_ingress     = true
+        route_transit_gateway_ingress = false
+        route_vpc_zone_ingress        = false
+        advertise_routes_to           = ["direct_link", "transit_gateway"]
+      }   
+      ```
+
+For documentation about the `ibm_is_vpc_routing_table` resource, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_vpc_routing_table).{: external}
