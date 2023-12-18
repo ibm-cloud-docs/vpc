@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-12-12"
+lastupdated: "2023-12-18"
 
 keywords:
 
@@ -18,13 +18,13 @@ subcollection: vpc
 {{site.data.keyword.filestorage_vpc_short}} supports cross-account customer-managed encryption. {{site.data.keyword.vpc_full}} customers can authorize access to a customer root key (CRK) for users of another account. Then, those users can use the CRK to encrypt a new file share in their own account.
 {: shortdesc} 
 
-## About cross account key access and use
+## About cross-account key access and use
 {: #byok-cross-acct-about}
 
 Customer root keys in one account can be made available to users of another account to use when they create an encrypted file share.
 For more information, see [Encryption key management](/docs/solution-tutorials?topic=solution-tutorials-resource-sharing#resource-sharing-security-kms).
 
-A privileged user from the account that owns the root key must [invite the user](/docs/account?topic=account-iamuserinv) of the second account, and set the IAM delegated policy to the root keys. For more information, see [Granting access to keys with {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-grant-access-keys) and [Granting access to keys with {{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-grant-access-keys).
+A privileged user from the account that owns the root key must [invite the user](/docs/account?topic=account-iamuserinv) of the second account, and set the IAM delegated policy to the root key. For more information, see [Granting access to keys with {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-grant-access-keys) and [Granting access to keys with {{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-grant-access-keys).
 
 If the invited user is already a member of {{site.data.keyword.cloud_notm}}, they receive an invitation link in their notifications and by email. The user in the account that's creating the file share can be the same user as the owner of the root key in the other account.
 
@@ -39,8 +39,9 @@ The cross-account authorization is one-way and specific to key and service. When
 
 For Account A to use Account B's CRK to encrypt shares, Account B must invite Account A's user. Then, Account B must create an IAM policy that allows Account A's specific service to use Account B's CRK.
 
-## Create an IAM policy to establish authorization between accounts
-{: #byok-cross-acct-iam}
+## Create an IAM policy to establish authorization between accounts with the API
+{: #byok-cross-acct-iam-api}
+{: api}
 
 Before file share can be created and encrypted with a root key from another account, the key-owner account must create an IAM policy to authorize the second account to use the CRK.
 
@@ -65,10 +66,63 @@ curl -X "POST" "https://iam.cloud.ibm.com/v1/policies" \
 
 For more information, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth&interface=api).
 
-## Create a cross-account encrypted file share with the API
-{: #byok-cross-key-acct-create-API}
+## Create an IAM policy to establish authorization between accounts with Terraform
+{: #byok-cross-acct-iam-terraform}
+{: terraform}
 
-Before you can create an encryted file share, you must authorize the file service to access the key management service. From {{site.data.keyword.iamshort}} (IAM), authorize access between Cloud File Storage (source service) and {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} (target service). Specify reader access for the role. For more information, see [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-planning&interface=api#byok-encryption-prereqs).
+1. Terraform supports configuring two different accounts for IBM provider. The provider without an alias is considered the default provider. See the following example, where two IBM accounts are specified, and the second is given the alias `team_account`. That configuration must be referred to as `ibm.team_account` later. 
+
+   ```terraform 
+   terraform {
+     required_providers {
+       ibm = {
+         source = "IBM-Cloud/ibm"
+         version = ">= 1.12.0"
+       }
+     }
+   }
+
+   provider "ibm" {
+     ibmcloud_api_key = var.ibmcloud_api_key
+     region           = var.region
+     ibmcloud_timeout = var.ibmcloud_timeout
+   }
+
+   provider "ibm" {
+     alias = "team_account"
+     ibmcloud_api_key = var.ibmcloud_api_key_second_account
+     region           = var.region
+     ibmcloud_timeout = var.ibmcloud_timeout
+   } 
+   ```
+   {: screen}
+
+   For more information about the arguments and attributes, see [IBM Cloud provider](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs#example-usage-of-provider){: external}.
+
+1. To create the IAM authorization between the key management service from one account to the file share service in a different account, use the resource `ibm_iam_authorization_policy`. The following example creates an authorization between {{site.data.keyword.keymanagementserviceshort}} service and the file service of two accounts. To create authorization to access {{site.data.keyword.hscrypto}}, specify `hs-crypto` as the value for `target_service_name`.
+
+   ```Terraform
+   resource "ibm_iam_authorization_policy" "policy" {
+       source_service_name = "is"
+       source_resource_type = "share"
+       source_service_account = "<fileshare-account-id>"
+       target_service_name = "kms"   
+       target_resource_instance_id = ibm_kms_key.key.instance_id
+       roles               = ["Reader"]
+       description         = "Authorization Policy" 
+   }
+   ```
+   {: screen}
+
+   This terraform resource must also include the provider alias (in our example, `ibm.team_account`) with the account `ibmcloud_api_key` where the encryption key belongs.
+
+   For more information about the arguments and attributes, see [ibm_iam_authorization_policy](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/iam_authorization_policy#authorization-policy-between-two-specific-services){: external}.
+
+## Create a cross-account encrypted file share with the API
+{: #byok-cross-key-acct-create-api}
+{: api}
+
+Before you can create an encrypted file share, you must authorize the file service to access the key management service. From {{site.data.keyword.iamshort}} (IAM), authorize access between Cloud File Storage (source service) and {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} (target service). Specify reader access for the role. For more information, see [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-planning&interface=api#byok-encryption-prereqs).
 
 After the IAM authorizations are set, use the VPC API to [create a file share](/docs/vpc?topic=vpc-file-storage-vpc-encryption&interface=api#fs-byok-api) with the root key that is owned by the other account. The API calls are the same as when you create an encrypted file share with a root key from your own KMS instance. When you make the `POST /shares` call, specify the CRN of the root key from the other account in the `encryption_key` property.
 
@@ -134,6 +188,40 @@ In the response, the CRN of the encryption key is from Account A that owns the k
 }
 ```
 {: screeen}
+
+## Create a cross-account encrypted file share with Terraform
+{: #byok-cross-key-acct-create-terraform}
+{: terraform}
+
+After the authorization is created, you can create the share in the default account and use the CRN of the encryption key from the account with the alias. To create a file share, use the `ibm_is_share` resource.
+
+To create a file share, use the `ibm_is_share` resource. The following example creates a share with 800 GiB capacity and the `dp2` performance profile. The file share is encrypted by using a key that is identified by its CRN. The example also specifies a new mount target with a virtual network interface.
+
+```terraform
+resource "ibm_is_share" "share4" {
+   zone           = "us-south-2"
+   size           = "800"
+   name           = "my-share4"
+   profile        = "dp2"
+   encryption_key = "crn:bluemix:public:kms:us-south:a/a1234567:key:0cb88b98-9261-4d07-8329-8f594b6641b5"
+   access_control_mode = "security_group"
+   mount_target {
+       name = "target"
+       virtual_network_interface {
+       primary_ip {
+               address = 10.240.64.5
+               auto_delete = true
+               name = "<reserved_ip_name>
+       }
+      resource_group = <resource_group_id>
+      security_groups = [<security_group_ids>]
+      }
+   }
+}
+```
+{: codeblock}
+
+For more information about the arguments and attributes, see [ibm_is_share](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share){: external}.
 
 ## Next steps
 {: #next-steps-multiten-shares}
