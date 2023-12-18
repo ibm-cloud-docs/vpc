@@ -33,19 +33,19 @@ In the console, you can create a snapshot of a {{site.data.keyword.block_storage
 1. You can access the Block Storage snapshot for VPC provisioning screen in the [{{site.data.keyword.cloud}} console](/login){: external} in multiple ways.
 
    - From the **[Block Storage snapshots for VPC](/vpc-ext/storage/snapshots)** list,
-      1. Go to the **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage snapshots**.
+      1. click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage snapshots**.
       2. From the list of snapshots that is initially empty, click **Create**.
 
    - From the **[Block Storage volumes for VPC](/vpc-ext/storage/storageVolumes)** list,
-      1. Go to the **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
+      1. click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
       2. From the list of volumes, locate a boot or data volume that is attached to an instance.
       3. Click the overflow menu (...) and select **Create snapshot**.
 
    - From the **Block Storage volume details** screen,
      1. Go to the volume details page in one of these ways.
 
-         - Go to the **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**. Select the instance that contains the volume that you want to make a snapshot of. From the [instance details page](/vpc-ext/compute/vs), scroll to the list of attached volumes and click the name of the volume.
-         - Go to the **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**. From the list of Block Storage volumes, select the volume that you want to make a snapshot of.
+         - Go to the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**. Select the instance that contains the volume that you want to make a snapshot of. From the [instance details page](/vpc-ext/compute/vs), scroll to the list of attached volumes and click the name of the volume.
+         - click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**. From the list of Block Storage volumes, select the volume that you want to make a snapshot of.
 
      2. On the volume details page, select **Create snapshot** from the **Actions** menu.
 
@@ -87,7 +87,7 @@ The fast restore feature is billed at an extra hourly rate for each zone that it
 
 In the previous section, you saw how to create a cross-regional snapshot copy when you take a new snapshot in the UI. You can also create cross-regional copies of existing snapshots.
 
-1. In the console, go to the **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage snapshots**.
+1. In the console, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage snapshots**.
 2. From the list of snapshots, click the overflow menu (...) and select **Copy snapshot**.
 3. Select the region where you want to create the copy.
 
