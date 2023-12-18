@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2019, 2023
+  years: 2019, 2024
 
-lastupdated: "2023-12-12"
+lastupdated: "2024-02-20"
 
 keywords:
 
@@ -27,11 +27,11 @@ For more information about changes to the {{site.data.keyword.vpc_short}} API, s
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-cli-rn).
 
-## December 2023
-{: #vpc-dec23}
+## February 2024
+{: #vpc-feb24}
 
-### 19 December 2023
-{: #vpc-dec1923}
+### 20 February 2024
+{: #vpc-feb2024}
 {: release-note}
 
 Virtual Network Interfaces for VPC [Select availability]{: tag-preview}
