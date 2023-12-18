@@ -2,7 +2,7 @@
 
 copyright:
   years:  2023
-lastupdated: "2023-10-30"
+lastupdated: "2023-12-18"
 
 keywords:
 
@@ -27,7 +27,7 @@ You can add security groups to a VNI with the UI, CLI, API, or Terraform.
 To add a security group to an existing virtual network interface, follow these steps.
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Virtual network interfaces**.
+1. Select the **Menu** icon ![menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Virtual network interfaces**.
 1. Click the name of the virtual network interface that you want to add a security group to in the Virtual network interfaces for VPC table.
 1. Click the **Attached resources** tab.
 1. In the Security groups section, click **Attach*.

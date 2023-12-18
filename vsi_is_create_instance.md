@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-12-15"
+lastupdated: "2023-12-18"
 
 keywords:
 
@@ -24,7 +24,7 @@ You can create one or more virtual server instances in your {{site.data.keyword.
 
 Use the following steps to create a virtual server instance.
 
-1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](/login), go to **menu icon ![menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
 
 2. Click **Create** and begin by entering the information in Table 1.
 

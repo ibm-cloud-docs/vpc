@@ -2,23 +2,15 @@
 
 copyright:
   years: 2020, 2021 
-lastupdated: "2023-06-15"
+lastupdated: "2023-12-18"
 
 keywords: manage dedicated host, manage dedicated host group, delete dedicated host, disable placement
 
 subcollection: vpc
 
-
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:tip: .tip}
-{:important: .important}
-{:table: .aria-labeledby="caption"}
+{{site.data.keyword.attribute-definition-list}}
 
 # Managing dedicated hosts and groups
 {: #manage-dedicated-hosts-groups}
@@ -36,7 +28,7 @@ instances on the host. If you no longer need a dedicated host or dedicated group
 
 To complete management tasks on your dedicated hosts, complete the following steps.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Dedicated hosts**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Dedicated hosts**.
 2. On the Dedicated hosts tab of the Dedicated hosts for VPC page, click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for the dedicated host that you want to manage. You can select from the following actions:
 
 | Action | Description |
@@ -63,7 +55,7 @@ When you have a dedicated group created, you can create new dedicated hosts with
 
 To complete management tasks on your dedicated groups, complete the following steps.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Dedicated hosts**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Dedicated hosts**.
 2. Click the **Dedicated groups** tab on the Dedicated hosts for VPC page. Then click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for the dedicated host that you want to manage. You can select from the following actions:
 
 | Action | Description |

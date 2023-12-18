@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-05-25"
+  years: 2020, 2023
+lastupdated: "2023-12-18"
 
 keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network, delete
 
@@ -25,7 +25,7 @@ You can delete an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (AL
 To delete an ALB by in the IBM Cloud console, perform the following procedure:
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
-1. Select the Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **VPC Infrastructure > Load balancers** from the Network section.
+1. Select the **Menu** icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Load balancers** from the Network section.
 1. Select the Region of your load balancer.
 1. Click the Actions menu ![Actions menu](images/overflow.png) next to the load balancer that you want to delete, then select **Delete**.
 

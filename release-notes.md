@@ -2,8 +2,7 @@
 
 copyright:
   years: 2019, 2023
-
-lastupdated: "2023-12-15"
+lastupdated: "2023-12-18"
 
 keywords:
 
@@ -564,7 +563,7 @@ Extra security for VPC snapshots (closed beta)
 {: release-note}
 
 Images for VPC UI Updates
-:    Previously, the path to custom images was **VPC Infrastructure > Compute > Custom Images**. The new path is **VPC Infrastructure > Compute > Images**. The new page is **Images for VPC** and now has a tab for each type of image:
+:    Previously, the path to custom images was **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Compute > Custom Images**. The new path is **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Compute > Images**. The new page is **Images for VPC** and now has a tab for each type of image:
     - Custom images
     - Stock images
     - Catalog images

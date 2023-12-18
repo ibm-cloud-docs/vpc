@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-11-11"
+  years: 2022, 2023
+lastupdated: "2023-12-18"
 
 keywords: floating ip, reserving, bare metal, vnic, public gateways
 
@@ -22,7 +22,7 @@ You can reserve a floating IP address, then add it to a network interface to all
 
 To add a floating IP to a network interface to allow internet traffic to access your VSI, perform the following procedure:
 
-1. In the {{site.data.keyword.cloud_notm}} console, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
+1. In the {{site.data.keyword.cloud_notm}} console, go to **Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 1. Click the name of a virtual server instance that includes the network interface that you want to edit. Or you can add a new network interface to the virtual server instance.
 1. On the instance details page, find the **Network interfaces** section.
 1. If you are adding a floating IP address to the virtual server instance for the first time, identify the primary network interface in the **Network interfaces** section of the Instance details page.
@@ -49,7 +49,7 @@ To add your floating IP to a network interface to allow internet traffic to acce
 To associate multiple floating IPs to a network interface, make sure that both **Allow IP spoofing** and **Enable infrastructure NAT** are disabled on the network interface.
 {: important}
 
-1. In the {{site.data.keyword.cloud_notm}} console, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Bare Metal server**.
+1. In the {{site.data.keyword.cloud_notm}} console, go to **Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare Metal server**.
 1. Under the **Network interfaces** section of the **Bare metal server details** page, click the pencil icon of the interface you want to associate the floating IP with.
 1. On the **Edit network interface** page, locate the **Floating IP address** field.
 1. You can select an existing floating IP address to add to the network interface, or you can reserve a new floating IP and add it to the network interface. To do so:

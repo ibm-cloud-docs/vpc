@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-12-07"
+lastupdated: "2023-12-18"
 
 keywords: Block Storage for VPC, boot volume, data volume, volume, data storage, virtual server instance, instance, adjustable volume, iops
 
@@ -27,7 +27,7 @@ You can adjust IOPS for your {{site.data.keyword.block_storage_is_short}} data v
 
 For example, you might find that an application scaled such that a lower-tier storage profile is now a performance bottleneck. Instead of ordering a new volume and migrating your data, you can change the performance characteristics of the existing volume by increasing IOPS in the next performance tier.
 
-In another scenario, you might want to initially set your storage at a higher 10 IOPS/GB performance level to expedite a data upload. After the upload completes, you can reset storage to a lower 5 IOPS/GB for normal operations. Alternatively, you might want to increase your volume's IOPS during peak times for your application and decrease IOPS during off-peak hours.
+In another scenario, you might want to initially set your storage at a higher 10 IOPS/GB performance level to expedite a data upload. After the upload completes, you can reset storage to 5 IOPS/GB for normal operations. Alternatively, you might want to increase your volume's IOPS during peak times for your application and decrease IOPS during off-peak hours.
 
 With this feature, you can:
 
@@ -41,7 +41,7 @@ If you use a [Custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#cu
 
 To adjust a volume's IOPS, the volume must be in an _available_ state and the instance must be running. Your user authorization is verified before IOPS is adjusted.
 
-You can use the [UI](#adjust-vpc-iops-ui-block), [CLI](#adjust-vpc-iops-cli-block), or [API](#adjust-vpc-iops-api-block) to adjust IOPS. You can adjust the volume's IOPS multiple times up to its maximum limit or reduce IOPS to its lower limit.
+You can use the [UI](#adjust-vpc-iops-ui-block), [CLI](#adjust-vpc-iops-cli-block), or [API](#adjust-vpc-iops-api-block) to adjust IOPS. You can adjust the volume's IOPS multiple times up to its maximum limit or reduce IOPS to its minimum limit.
 
 You can monitor the progress of your volume's IOPS change from the UI or CLI. You can also use the [Activity Tracker](/docs/vpc?topic=vpc-at-events) to verify that the IOPS were adjusted.
 

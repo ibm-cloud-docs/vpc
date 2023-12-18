@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-12-14"
+lastupdated: "2023-12-18"
 
 keywords: Block Storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, Block Storage for vpc, customer-managed encryption,
 
@@ -220,7 +220,7 @@ When you provision a virtual server instance, you can specify customer-managed e
 
 Follow these steps to create an instance with a new Block Storage volume.
 
-1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure > Compute > Virtual server instances**.
+1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 1. Click **New instance** and complete the required fields. For information about these required fields, see _Table 1 - Instance provisioning selections_ in [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers).
 1. In the **Boot volume** section, the default mode of encryption is _Provider managed_ encryption. To specify customer-managed encryption, click the pencil icon in the boot volume row. On the **Edit boot volume** page, update the fields in the **Encryption** section.
    | Field | Value |

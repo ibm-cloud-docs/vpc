@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-11-29"
+lastupdated: "2023-12-18"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -693,7 +693,7 @@ You can manage your tags in the {{site.data.keyword.cloud_notm}} with the [Globa
 
 You can add user tags to a file share in the UI.
 
-1. Go to the list of file shares. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Storage > File Shares**.
+1. Go to the list of file shares. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > File Shares**.
 
 2. Select a file share to view its details.
 

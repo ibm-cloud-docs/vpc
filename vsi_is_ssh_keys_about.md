@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-08-14"
+lastupdated: "2023-12-18"
 
 keywords: ssh public keys, OpenSSH, add ssh key, ssh key, manage ssh key, generate ssh key, locate ssh key
 
@@ -32,7 +32,7 @@ Creating a server with a password option for connecting isn't supported. You mus
 
 On {{site.data.keyword.vpc_short}}, RSA is the default SSH key type. You can select to change the key type to Ed25519. The Ed25519 SSH key type enables a slightly higher performance benefit because it can give the same level of security as the RSA SSH key type with a smaller key. You can create virtual server instances and bare metal servers with a mix of RSA and Ed25519 SSH keys.
 
-In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](/login), you can go to **menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > SSH keys** to manage your SSH keys. From here you can create, rename, or delete keys. If you select to create a key, that key must be an RSA SSH key type. You can upload an Ed25519 SSH key type, you just can't generate one within VPC.
+In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, you can go to **menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > SSH keys** to manage your SSH keys. From here you can create, rename, or delete keys. If you select to create a key, that key must be an RSA SSH key type. You can upload an Ed25519 SSH key type, you just can't generate one within VPC.
 
 You can generate new RSA key pairs using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images. 
 {: note}

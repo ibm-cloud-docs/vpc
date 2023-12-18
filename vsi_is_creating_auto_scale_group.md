@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-10-24"
+lastupdated: "2023-12-18"
 
 keywords: auto scale, autoscale, virtual server instance, creating, UI, console, instance group
 
@@ -77,7 +77,7 @@ All resources that are defined in an instance template must all be in the same r
 
 To create an instance template, complete the following steps.
 
-1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](/login), go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Auto scale > Instance templates**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Auto scale > Instance templates**.
 2. Click **New instance template** and enter the information that is in Table 1.
 3. Click **Create instance template** when the information is complete.
 
@@ -111,7 +111,7 @@ Not all network load balancer offerings support integration with instance groups
 {: important}
 
 1. Make sure that you have the required IBM {{site.data.keyword.iamshort}} (IAM) [permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls) to create an instance group.
-2. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](/login), go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Auto scale > Instance groups**.
+2. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Auto scale > Instance groups**.
 3. Click **New instance group** and enter the information in Table 2.
 4. If you want to create dynamic scaling policies as part of instance group creation, see [Creating scaling policies](#creating-scaling-policies). You can also [add policies later](/docs/vpc?topic=vpc-managing-instance-group#creating-target-policies) after you create your instance group.
 5. Click **Create instance group** when the information is complete.
@@ -357,7 +357,7 @@ ibmcloud is instance-template-create INSTANCE_TEMPLATE_NAME VPC ZONE_NAME PROFIL
 ```
 {: pre}
 
-For example, if you create an instance template that is called _my-instance-template_ in _us-south-1_, use the _bx2-2x8_ profile, with a custom image `_r008-54e9238a-feaa-4f90-9742-7424cb2b9ff1_` your `instance-template-create` command would look similar to the following sample.
+For example, if you create an instance template that is called *my-instance-template* in *us-south-1*, use the *bx2-2x8* profile, with a custom image `r008-54e9238a-feaa-4f90-9742-7424cb2b9ff1` your `instance-template-create` command would look similar to the following sample.
 
 ```sh
 ibmcloud is instance-template-create my-instance-template r006-680c56cb-7fbb-41e6-833b-029beb7b6ba3 us-south-3 bx2-2x8 0076-2249dabc-8c71-4a54-bxy7-953701ca3999 --image-id r008-54e9238a-feaa-4f90-9742-7424cb2b9ff1
@@ -366,12 +366,12 @@ ibmcloud is instance-template-create my-instance-template r006-680c56cb-7fbb-41e
 
 Where:
 
-   - `INSTANCE_TEMPLATE_NAME` is _my-instance-template_
-   - `VPC` is _r006-680c56cb-7fbb-41e6-833b-029beb7b6ba3_
-   - `ZONE_NAME` is _us-south-3_
-   - `PROFILE_NAME` is _bx2-2x8_
-   - `SUBNET_ID` is _0076-2249dabc-8c71-4a54-bxy7-953701ca3999_
-   - `--image_ID` is _r008-54e9238a-feaa-4f90-9742-7424cb2b9ff1_
+   - `INSTANCE_TEMPLATE_NAME` is *my-instance-template*
+   - `VPC` is *r006-680c56cb-7fbb-41e6-833b-029beb7b6ba3*
+   - `ZONE_NAME` is *us-south-3*
+   - `PROFILE_NAME` is *bx2-2x8*
+   - `SUBNET_ID` is *0076-2249dabc-8c71-4a54-bxy7-953701ca3999*
+   - `--image_ID` is *r008-54e9238a-feaa-4f90-9742-7424cb2b9ff1*
 
 For this example, you see a response similar to the following output **Note:** The following response varies depending on what values you use.
 
@@ -428,7 +428,7 @@ ibmcloud is instance-group-create INSTANCE_GROUP_NAME --instance-template INSTAN
 ```
 {: pre}
 
-For example, if you create an instance group that is called _my-instance-group_ with instance template ID _72251a2e-d6c5-42b4-97b0-b5f8e8d1f479_ and _1_ member initially, your `instance-group-create` command would look similar to the following sample.
+For example, if you create an instance group that is called *my-instance-group* with instance template ID *72251a2e-d6c5-42b4-97b0-b5f8e8d1f479* and *1* member initially, your `instance-group-create` command would look similar to the following sample.
 
 ```sh
 ibmcloud is instance-group-create my-instance-group --instance-template 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 --subnet-ids 0076-2249dabc-8c71-4a54-bxy7-953701ca3999,0767-173bn4aa-060b-47e7-am45-b3395a593897 --membership-count 1
@@ -437,9 +437,9 @@ ibmcloud is instance-group-create my-instance-group --instance-template 72251a2e
 
 Where:
 
-   - `INSTANCE_GROUP_NAME` is _my-instance-group_
-   - `--instance-template` is _72251a2e-d6c5-42b4-97b0-b5f8e8d1f479_
-   - `--subnet IDs` are _0076-2249dabc-8c71-4a54-bxy7-953701ca3999_ and _0767-173bn4aa-060b-47e7-am45-b3395a593897_
+   - `INSTANCE_GROUP_NAME` is *my-instance-group*
+   - `--instance-template` is *72251a2e-d6c5-42b4-97b0-b5f8e8d1f479*
+   - `--subnet IDs` are *0076-2249dabc-8c71-4a54-bxy7-953701ca3999* and *0767-173bn4aa-060b-47e7-am45-b3395a593897*
    - `--membership-count is 1 initially
 
 For this example, you see a response similar to the following output:
@@ -484,7 +484,7 @@ ibmcloud is instance-group-manager-create INSTANCE_GROUP --max-members MAX_MEMBE
 ```
 {: pre}
 
-For example, if you create an instance group manager with instance group ID _72251a2e-d6c5-42b4-97b0-b5f8e8d1f479_ and options --max-members = _20_, your `instance-group-manager-create` command would look similar to the following sample.
+For example, if you create an instance group manager with instance group ID *72251a2e-d6c5-42b4-97b0-b5f8e8d1f479* and options --max-members = *20*, your `instance-group-manager-create` command would look similar to the following sample.
 
 ```sh
 ibmcloud is instance-group-manager-create 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 --max-members 20
@@ -492,8 +492,8 @@ ibmcloud is instance-group-manager-create 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 -
 {: pre}
 
 Where:
-   - `INSTANCE_GROUP` is _72251a2e-d6c5-42b4-97b0-b5f8e8d1f479_
-   - `--max-members` is _20_
+   - `INSTANCE_GROUP` is *72251a2e-d6c5-42b4-97b0-b5f8e8d1f479*
+   - `--max-members` is *20*
 
 For this example, you see a response similar to the following output:
 
@@ -552,7 +552,7 @@ Use the following commands to determine the required information for creating a 
    {: pre}
 
    Where:
-   - `INSTANCE_GROUP` is _2251a2e-d6c5-42b4-97b0-b5f8e8d1f479_
+   - `INSTANCE_GROUP` is *2251a2e-d6c5-42b4-97b0-b5f8e8d1f479*
 
    For this example, you see a response similar to the following output:
 
@@ -570,7 +570,7 @@ ibmcloud is instance-group-manager-policy-create INSTANCE_GROUP MANAGER --metric
 ```
 {: pre}
 
-For example, if you create a scaling policy with instance group ID _72251a2e-d6c5-42b4-97b0-b5f8e8d1f479_ and manager ID _72b27b5c-f4b0-48bb-b954-5becc7c1dcb3_ with options --metric-type _cpu_ and --metric-value = _50_, your `ibmcloud is instance-group-manager-policy-create` command would look similar to the following sample.
+For example, if you create a scaling policy with instance group ID *72251a2e-d6c5-42b4-97b0-b5f8e8d1f479* and manager ID *72b27b5c-f4b0-48bb-b954-5becc7c1dcb3* with options --metric-type *cpu* and --metric-value = *50*, your `ibmcloud is instance-group-manager-policy-create` command would look similar to the following sample.
 
 ```sh
 ibmcloud is instance-group-manager-policy-create 2251a2e-d6c5-42b4-97b0-b5f8e8d1f479 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3 --metric-type cpu --metric-value 50
@@ -578,10 +578,10 @@ ibmcloud is instance-group-manager-policy-create 2251a2e-d6c5-42b4-97b0-b5f8e8d1
 {: pre}
 
 Where:
-   - `INSTANCE_GROUP` is _2251a2e-d6c5-42b4-97b0-b5f8e8d1f479_
-   - `MANAGER` is _72b27b5c-f4b0-48bb-b954-5becc7c1dcb3_
-   - `--metric-type` is _cpu_
-   - `--metric-value` is _50_
+   - `INSTANCE_GROUP` is *2251a2e-d6c5-42b4-97b0-b5f8e8d1f479*
+   - `MANAGER` is *72b27b5c-f4b0-48bb-b954-5becc7c1dcb3*
+   - `--metric-type` is *cpu*
+   - `--metric-value` is *50*
 
 For this example, you see a response similar to the following output:
 

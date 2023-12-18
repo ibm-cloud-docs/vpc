@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-12-05"
+lastupdated: "2023-12-18"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -215,7 +215,7 @@ Backups require IAM permissions for role-based access control. Table 2 describes
 | View backup policy details. | Administrator, editor, operator, viewer |
 {: caption="Table 2. IAM roles for snapshots" caption-side="bottom"}
 
-[^addtags]: An administrator on the account must assign the right permissions for tagging resources. For more information, see [Granting users access to tag resources](/docs/account?topic=account-access).
+[^addtags]: An administrator on the account must assign the appropriate permissions for tagging resources. For more information, see [Granting users access to tag resources](/docs/account?topic=account-access).
 
 [^restore]: You must have administrator and editor privileges on the volume to perform this action.
 
