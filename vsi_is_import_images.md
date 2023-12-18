@@ -43,7 +43,7 @@ Keep the following considerations to keep in mind when you import a custom image
 When you have an image available in {{site.data.keyword.cos_full_notm}}, you can import it to {{site.data.keyword.vpc_short}} infrastructure by using the {{site.data.keyword.cloud_notm}} console.
 
 1. Make sure that your compatible custom image is available in {{site.data.keyword.cos_full_notm}}. To upload an image to {{site.data.keyword.cos_full_notm}}, on the **Objects** page of your bucket, click **Upload**. You can use the Aspera high-speed transfer plug-in to upload images larger than 200 MB. For more information, see [Creating a Linux custom image](/docs/vpc?topic=vpc-create-linux-custom-image), [Creating a Windows custom image](/docs/vpc?topic=vpc-create-windows-custom-image), [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about) and [Uploading data](/docs/cloud-object-storage?topic=cloud-object-storage-upload) to {{site.data.keyword.cos_full_notm}}.
-1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images**.
+1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images**.
 1. On the **Custom images** tab, click **Create**.
 1. Complete the fields that are described in Table 1 and click **Create Custom Image**.
 
@@ -198,7 +198,7 @@ After you import a custom image, you can view the checksum that was generated fo
 
 If you generate a checksum locally for your image before you import it, you can compare the two checksums to make sure that they are identical. Matching checksums indicate that the image is unaltered.
 
-1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images**.
+1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images**.
 2. On the **Custom images** tab, from your list of custom images, click the name of the custom image that you want to validate.
 3. In the image details side panel, locate the **Checksum (SHA256)** field. You see content similar to, *6809606da67eb83670e6249e54e94043eb43c0471669fb96ea4050c4c07e2df7*.
 

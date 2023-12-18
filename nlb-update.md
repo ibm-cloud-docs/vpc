@@ -24,7 +24,7 @@ You can update an {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NL
 To update an NLB in the {{site.data.keyword.cloud_notm}} console, perform the following procedure:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Menu** icon ![menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Load balancers**.
+1. Select the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Load balancers**.
 1. Select the region of your load balancer.
 1. Select the load balancer that you want to update.
 1. Select **Back-end pools** if you need to edit a pool or virtual server instance parameters.

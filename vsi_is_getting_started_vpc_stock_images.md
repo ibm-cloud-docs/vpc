@@ -18,7 +18,7 @@ subcollection: vpc
 When you provision {{site.data.keyword.vsi_is_full}} on x86 architecture, you can select from the supported virtual server operating system stock images, the virtual server operating system bundle stock image, or a custom image that you import from {{site.data.keyword.cos_full_notm}}. The image that you select determines the operating system that is provisioned for your instance. If the image you select is a virtual server operating system bundle stock image, the software that is part of that bundle is also included in your instance.
 {: shortdesc}
 
-In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images**.
+In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images**.
 
 There are 3 different types of images for VPC.
 * [Custom images](/docs/vpc?topic=vpc-planning-custom-images) (includes [Image from volume](/docs/vpc?topic=vpc-image-from-volume-vpc))
@@ -35,7 +35,7 @@ When you provision a virtual server on your VPC, you need to select an image to 
 * [Bare metal server images](/docs/vpc?topic=vpc-bare-metal-image)
 * [s390x bare metal server images](/docs/vpc?topic=vpc-s390x-bare-metal-images)
 
-All available stock images can be found in **Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images > Stock images**.
+All available stock images can be found in **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images > Stock images**.
 
 When you use an {{site.data.keyword.IBM_notm}} stock image, you must apply the latest security patches and updates provided by the operating system vendor. After you provision a virtual server, it is your responsibility to continue to regularly perform package updates for the operating system.
 {: important}

@@ -50,7 +50,7 @@ You can delete reserved capacity.
    Keep in mind that you can't delete reserved capacity beyond the first 120 hours of creation unless the reservation is expired.
    {: note}
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click **menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Reservations**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Reservations**.
 1. From your Reservations list, click **Actions** > **Delete reservation**.
 1. To confirm, click **Delete**.
 
@@ -60,6 +60,6 @@ You can delete reserved capacity.
 
 You can detach a virtual server from your reserved capacity.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click **menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Reservations**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Reservations**.
 1. From your virtual server list or in the Reservation details page, click the server that you want to detach and then click **Actions** > **Detach**.
 1. To confirm, click **Detach**.

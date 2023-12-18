@@ -38,7 +38,7 @@ Add `0.0.0.0/0` as a route to enable clients access to the internet.
 {: tip}
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Menu** icon ![menu icon](../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>VPNs** in the Network section.
+1. Select the **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>VPNs** in the Network section.
 1. Select the **Client-to-site servers** tab.
 1. Select the VPN server where you want to add a route. Then, in the **VPN server details** page, select the **VPN server routes** tab.
 1. Select **Create +**.
@@ -63,7 +63,7 @@ You can select **Edit** from the Actions menu of the VPN server route to change 
 To delete a route using the UI, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Menu** icon ![menu icon](../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>VPNs** in the Network section.
+1. Select the **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>VPNs** in the Network section.
 1. Select **Client-to-site servers** tab.
 1. Select the VPN server where you want to delete a route. Then, from the Actions menu, select **Delete**.
 1. Select **Delete** again to confirm deletion.

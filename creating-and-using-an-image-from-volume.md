@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-04-26"
+lastupdated: "2023-12-18"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance, instances, virtual servers, creating virtual servers, virtual server instances, virtual machines, Virtual Servers for VPC, compute, vsi, vpc, creating, UI, console
 
@@ -64,7 +64,7 @@ You can use the UI to create an image from a volume that is attached to an avail
 
 Complete the following actions to import your custom image in the UI.
 
-1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Images**.
+1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images**.
 2. On the **Custom images** tab, click **Create**. The Custom image provision page is displayed.
 3. Complete the following required fields on the Custom image provision page.
 
@@ -94,7 +94,7 @@ When you select **Virtual server instance boot volume** as the source of your cu
 
 You can create virtual server instances in your {{site.data.keyword.vpc_short}} in the {{site.data.keyword.cloud_notm}} console. Complete the following actions to create a virtual server instance.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 
 2. Click **Create** and enter the required information.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-06-30"
+lastupdated: "2023-12-18"
 
 keywords: vpc, Block Storage, Block Storage for vpc, mounting storing, attaching Block Storage, vpc instance, data volumes
 
@@ -41,7 +41,7 @@ You can attach a volume to a virtual server instance from the list of Block Stor
 
 From the list of all {{site.data.keyword.block_storage_is_short}} volumes, follow these steps.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block Storage volumes**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
 1. In the list of volumes, identify an available, unattached volume and click the ellipsis for the overflow menu at the end of a row.
 1. Select **Attach to instance**.
 1. Select a virtual server instance from the list of available instances, and then click **Save**.
@@ -67,7 +67,7 @@ From the volume details page, follow these steps:
 
 Attach a {{site.data.keyword.block_storage_is_short}} volume from the virtual server instance details page.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 1. Select an instance from the list of all virtual server instances. If any {{site.data.keyword.block_storage_is_short}} volumes are attached, they are listed under **Storage volumes**.
 1. Select **Attach volume**.
 1. Select a volume from the list of available resources and click **Attach**. Messages display on the instance details page to indicate that the volume is being attached. When it completes, the **Storage volumes** list is updated to include the new volume.

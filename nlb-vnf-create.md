@@ -53,7 +53,7 @@ The following list details some important considerations about network load bala
 To create and configure {{site.data.keyword.nlb_full}} with routing mode with the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Menu** icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Load balancers**.
+1. Select the **Navigation Menu** icon![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Load balancers**.
 1. Click **New load balancer +** in the upper right of the page.
 1. In the order form, complete the following information:
    * Type a unique name for your load balancer and select a VPC.

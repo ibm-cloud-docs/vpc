@@ -36,7 +36,7 @@ Inbound rules to allow pinging and SSH are not automatically added to the defaul
 {: ui}
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
-1. Select the **Menu** icon ![menu icon](../icons/icon_hamburger.svg), then click **VPC Infrastructure**.
+1. Select the **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg), then click **VPC Infrastructure**.
 1. Click **Security groups**.
 1. In the Security groups list, click the name of the default security group that you want to update.
 1. On the default security group's details page, click the **Rules** tab.

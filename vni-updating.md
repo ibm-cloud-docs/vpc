@@ -27,7 +27,7 @@ You can update a VNI with the UI, CLI, API, or Terraform.
 To update an existing virtual network interface, follow these steps.
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Menu** icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Virtual network interfaces**.
+1. Select the **Navigation Menu** icon![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Virtual network interfaces**.
 1. Click the name of the virtual network interface in the Virtual network interfaces for VPC table.
 1. In the Overview view of the Details page, you can click the Edit icon ![Edit icon](/images/edit.png) to edit the change of the virtual network interface.
 1. Click the switch for Infrastructure NAT to the wanted state.

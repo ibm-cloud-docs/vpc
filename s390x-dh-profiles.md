@@ -89,7 +89,7 @@ For the “mz2-host-40x320” profile, you can know from the name that it is a M
 {: #s390x-dh-profiles-using-console}
 {: ui}
 
-1. In the {{site.data.keyword.cloud_notm}} console, go to **Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Dedicated hosts**.
+1. In the {{site.data.keyword.cloud_notm}} console, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Dedicated hosts**.
 2. From the Dedicated host page, click **Create**.
 3. You can select from available profile configurations.
 

@@ -25,7 +25,7 @@ If you update the backup consistency group to keep the individual snapshots afte
 {: #update-consistencygroup-ui}
 {: ui}
 
-1. Go to the list of snapshot consistency groups. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage Snapshots**.
+1. Go to the list of snapshot consistency groups. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage Snapshots**.
 1. On the Consistency groups tab, click the name of a group on the list to display the consistency group details.
 1. You can change the following attributes:
    * To change the name on the group, click the pencil icon and enter the new name.
@@ -35,7 +35,7 @@ If you update the backup consistency group to keep the individual snapshots afte
 {: #delete-consistencygroup-ui}
 {: ui}
 
-1. Go to the list of snapshot consistency groups. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage Snapshots**.
+1. Go to the list of snapshot consistency groups. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage Snapshots**.
 1. On the Consistency groups tab, click the name of a group on the list.
 1. Click the Actions > Delete.
 1. Type `Delete`.

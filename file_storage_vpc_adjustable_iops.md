@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-10-19"
+lastupdated: "2023-12-18"
 
 keywords: file share, file storage, IOPS, performance needs, adjust IOPS
 
@@ -67,7 +67,7 @@ The following limitations apply.
 
 Follow these steps to adjust IOPS by selecting a new IOPS tier or custom IOPS band:
 
-1. Go to the list of file shares. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Storage > File shares**. By default, file shares display for all resource groups in your region.
+1. Go to the list of file shares. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > File shares**. By default, file shares display for all resource groups in your region.
 
 2. In the **File shares for VPC** list page, click the name of a file share to see its details.
 

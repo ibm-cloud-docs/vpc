@@ -31,7 +31,7 @@ You must also [create a service-to-service authorization](/docs/vpc?topic=vpc-bl
 
 This procedure explains how to specify customer-managed encryption when you create a stand-alone Block Storage volume.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes** to view a list of your Block Storage volumes.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes** to view a list of your Block Storage volumes.
 2. Select **New volume**.
 3. Enter the information in Table 1 to define your new Block Storage volume.
    | Field | Value |
@@ -220,7 +220,7 @@ When you provision a virtual server instance, you can specify customer-managed e
 
 Follow these steps to create an instance with a new Block Storage volume.
 
-1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
+1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 1. Click **New instance** and complete the required fields. For information about these required fields, see _Table 1 - Instance provisioning selections_ in [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers).
 1. In the **Boot volume** section, the default mode of encryption is _Provider managed_ encryption. To specify customer-managed encryption, click the pencil icon in the boot volume row. On the **Edit boot volume** page, update the fields in the **Encryption** section.
    | Field | Value |

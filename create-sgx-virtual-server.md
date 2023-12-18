@@ -32,7 +32,7 @@ Use the following steps to create a virtual server with SGX.
 Make sure that you created a VPC.
 {: tip}
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click **menu icon ![menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 1. Click **Create** and select or enter the following information.
 1. Select a location. Location must be North America > Dallas > Any zone.
 1. Enter a unique name for your virtual server instance.

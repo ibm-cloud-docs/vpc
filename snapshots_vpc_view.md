@@ -29,7 +29,7 @@ You can use the UI to list your snapshots and consistency groups.
 
 In the console, you can view a list of all snapshots that you created, with the most recent one at the beginning of the list. You can filter the list to view specific snapshots.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage snapshots for VPC**. The page has two main tabs: Snapshot consistency group and Snapshots.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage snapshots for VPC**. The page has two main tabs: Snapshot consistency group and Snapshots.
 
 1. Select the **Snapshots** tab. The snapshots are listed for a specific region. If you want to see snapshots in another region, click the arrow to expand the list and select a different region. By default, the newest snapshots are displayed at the beginning of the list.
 
@@ -107,7 +107,7 @@ By clicking the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Acti
 
 In the console, you can view a list of all consistency groups that you created, with the most recent one at the beginning of the list. You can filter the list to view specific consistency groups.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage snapshots for VPC**. The page has two main tabs: Snapshot consistency group and Snapshots.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage snapshots for VPC**. The page has two main tabs: Snapshot consistency group and Snapshots.
 
 1. Select the **Snapshot consistency group** tab. The groups are listed for a specific region. If you want to see consistency groups in another region, click the arrow to expand the list and select a different region. By default, the newest snapshot groups are displayed at the beginning of the list.
 

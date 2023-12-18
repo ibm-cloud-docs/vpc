@@ -3,7 +3,7 @@
 
 You can schedule the complete lifecycle for the image. The image is first deprecated and then changes to obsolete according to the schedule that you define. Use the following steps to schedule a lifecycle change.
 
-1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images**.
+1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images**.
 1. On the **Custom images** tab, click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for a specific image and select from the available options.
 1. Select **Schedule lifecycle**.
 1. Select **Schedule complete lifecycle**.

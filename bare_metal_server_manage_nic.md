@@ -93,7 +93,7 @@ You can create a virtual network interface without attaching it to a target. The
 Virtual network interfaces can be attached to new bare metal server instances, and cannot be added to existing bare metal server instances with child network interfaces.
 {: note}
 
-1. In the {{site.data.keyword.cloud_notm}} console, go to **Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**.
+1. In the {{site.data.keyword.cloud_notm}} console, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**.
 1. Click **Create** to begin creating a bare metal server capable of using a virtual network interface.
 1. In the **Networking** section, select whether to create one of the following:
    * **Network attachment with a virtual network interface**: a network interface with additional features, such as secondary IP addresses and a lifecycle separate from the bare metal server you are creating.

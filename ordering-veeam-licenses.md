@@ -21,7 +21,7 @@ You can order a Veeam license for the use of Veeam Agent and Veeam Backup and Re
 ## Ordering Veeam standalone licenses from the IBM Cloud console
 {: #ordering-veeam-license-procedure}
 
-1. In the [{{site.data.keyword.cloud}} console](https://console.cloud.ibm.com){: external}, navigate to **Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VMware > Licenses**.
+1. In the [{{site.data.keyword.cloud}} console](https://console.cloud.ibm.com){: external}, navigate to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VMware > Licenses**.
 2. On the **Licenses** page, scroll to the **Veeam licenses** section, and click **Create new**.
 3. Enter the required information for the fields.
 4. Click the link or links of the terms that apply to your order. Ensure that you agree with the terms before you order the license.

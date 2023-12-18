@@ -37,7 +37,7 @@ Before creating an endpoint gateway, ensure that you review [Planning for virtua
 To create an endpoint gateway in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 {: shortdesc}
 
-1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Menu** icon ![menu icon](/images/menu_icon.png), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Virtual private endpoint gateways** in the Network section. The Virtual private endpoint gateways for VPC page appears.
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation Menu** icon![menu icon](/images/menu_icon.png), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Virtual private endpoint gateways** in the Network section. The Virtual private endpoint gateways for VPC page appears.
 1. Click **Create** to go to the provisioning page.
 1. In the Details section, enter values for the following fields:
    * **Name** - Type a unique name for your endpoint gateway.

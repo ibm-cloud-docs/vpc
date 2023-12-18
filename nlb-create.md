@@ -47,7 +47,7 @@ For more information, see [About routing tables and routes](/docs/vpc?topic=vpc-
 To create and configure a network load balancer in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Menu** icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Load balancers**.
+1. Select the **Navigation Menu** icon![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Load balancers**.
 1. Click **Create +** in the upper right of the page.
 1. For Load balancer type, select the Network Load Balancer (NLB) tile.
 1. For Location, edit the following fields, if necessary.
