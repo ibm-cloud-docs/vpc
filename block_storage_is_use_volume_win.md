@@ -37,7 +37,7 @@ Follow this procedure to use your Block Storage volume on a Windows&reg; system.
 
     1. Right-click the disk, and choose **Initialize Disk**.
     1. In the **Initialize Disk** dialog box, select a partition style, and choose **OK**.
-1. Right-click the right panel for the disk, and choose **New Simple Volume**.
+1. Right-click the disk, and choose **New Simple Volume**.
 1. In the **New Simple Volume Wizard**, choose **Next**.
 1. If you want to change the default maximum value, specify the size in MB in the Simple volume size field, and then choose **Next**.
 1. Specify a preferred drive letter, if necessary, and then choose Next.
