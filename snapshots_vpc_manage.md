@@ -671,7 +671,7 @@ You can delete a snapshot from the list of all snapshots by using the following 
 
 You can also delete a snapshot from the details page of a {{site.data.keyword.block_storage_is_short}} volume.
 
-1. Go to the list of all {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
+1. Go to the list of all {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
 2. Select a volume from the list, and click the volume name to go to the volume details page.
 3. Click **Snapshots**. A list of snapshots that are taken of this volume are displayed, and you can take the following actions:
     * Click **Delete all** to delete all snapshots for this volume.

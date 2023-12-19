@@ -693,7 +693,7 @@ You can manage your tags in the {{site.data.keyword.cloud_notm}} with the [Globa
 
 You can add user tags to a file share in the UI.
 
-1. Go to the list of file shares. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > File Shares**.
+1. Go to the list of file shares. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > File Shares**.
 
 2. Select a file share to view its details.
 
