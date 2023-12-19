@@ -29,6 +29,14 @@ Some changes, such as new response properties or new optional request parameters
 - Consume only the resources and properties your application needs to function
 - Avoid depending on behavior that is not explicitly documented
 
+## 19 December 2023
+{: #19-december-2023-metadata}
+
+### For all version dates
+{: #19-december-2023-all-version-dates-metadata}
+
+**Virtual network interface support.** Accounts that have been granted special approval can preview a new feature that expands the support for [virtual network interfaces](/docs/vpc?topic=vpc-vni-about). You can now [list](/apidocs/vpc-metadata#list-instance-network-attachments) and [view](/apidocs/vpc-metadata#get-instance-network-attachment) an instance's network attachments, and you can [list](/apidocs/vpc-metadata#list-virtual-network-interfaces) and [view](get-virtual-network-interface) virtual network interfaces targeting the instance. For compatibility with existing clients, an instance with virtual network interfaces now includes a read-only representation of its network attachments and virtual network interfaces as legacy network interface child resources. For more information, see the [API change log](/docs/vpc?topic=vpc-api-change-log#19-december-2023), and learn about [support for old API clients](/docs/vpc?topic=vpc-vni-about&interface=ui#vni-old-api-clients).
+
 ## 15 August 2023
 {: #15-august-2023-metadata}
 
