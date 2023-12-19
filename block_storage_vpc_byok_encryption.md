@@ -31,7 +31,7 @@ You must also [create a service-to-service authorization](/docs/vpc?topic=vpc-bl
 
 This procedure explains how to specify customer-managed encryption when you create a stand-alone Block Storage volume.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes** to view a list of your Block Storage volumes.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes** to view a list of your Block Storage volumes.
 2. Select **New volume**.
 3. Enter the information in Table 1 to define your new Block Storage volume.
    | Field | Value |
