@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-03-10"
+lastupdated: "2023-12-14"
 
 keywords: Block Storage, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, fihe share
 
@@ -94,7 +94,7 @@ To perform key rotation:
 * Any root key can be rotated, and if the key is protecting a resource, the key is rewrapped.
 * If you initially imported a root key, you must provide new base64-encoded key material to rotate the key.
 * Locate the KMS instance ID. See [Retrieving your instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
-* Locate the root key ID and CRN. Using the CLI, see [Step 1 - Obtain service instance and root key information](/docs/vpc?topic=vpc-creating-instances-byok#byok-cli-setup-prereqs). To view a list of available root keys, also see this information for [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-view-keys) or [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-view-keys).
+* Locate the root key ID and CRN. Using the CLI, see [Step 1 - Obtain service instance and root key information](/docs/vpc?topic=vpc-block-storage-vpc-encryption#byok-cli-setup-prereqs). To view a list of available root keys, also see this information for [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-view-keys) or [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-view-keys).
 * To use the API service, first locate the API endpoint in the UI:
     1. From the [{{site.data.keyword.cloud_notm}} console](/vpc){: external} **Resource List**, under **Services**, click the KMS instance. (The pane also shows the instance CRN and GUID.)
     2. Click **View Key Details** for the API endpoint.
@@ -107,7 +107,7 @@ This process rotates your root key to a new key version that you can use to reen
 
 [After you create a root key](/docs/key-protect?topic=key-protect-create-root-keys), follow this procedure:
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/vpc){: external}, go to **menu icon ![Menu icon](../../icons/icon_hamburger.svg) > Resource List** to view a list of your resources.
+1. In the [{{site.data.keyword.cloud_notm}} console](/vpc){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > Resource List** to view a list of your resources.
 2. In th IBM Cloud resource list, click **Security**, and select your {{site.data.keyword.keymanagementserviceshort}} instance.
 3. In the **Keys** page, locate the key that you want to rotate.
 4. Click the Actions icon (ellipsis) and select **Rotate**.
@@ -152,7 +152,7 @@ You also need to install the {{site.data.keyword.keymanagementserviceshort}} CLI
    Rotating root key...
    SUCCESS
    ```
-   {: codeblock}
+   {: screen}
 
 4. Verify that the key was rotated.
 
@@ -163,7 +163,7 @@ You also need to install the {{site.data.keyword.keymanagementserviceshort}} CLI
    Key ID                                 Key Name      Description   Creation Date                   Expiration Date
    1a6d5be8-287c-4eb3-9c44-cf0c2b0d67ad   my-root-key                 2021-09-06 17:25:22 +0000 UTC   Key does not expire
    ```
-   {: codeblock}
+   {: screen}
 
 ### CLI procedure for KMS-generated keys
 {: #CLI-vpc-generated-key-procedure}
@@ -186,7 +186,7 @@ This procedure describes creating a new root key with base64 key material. It st
    Key ID                                 Key Name
    e55f86ab-6984-4594-ad23-3024f6440a58   my-base64-root-key
    ```
-   {: codeblock}
+   {: screen}
 
 3. Create new key material.
 
@@ -202,7 +202,7 @@ This procedure describes creating a new root key with base64 key material. It st
    Rotating root key...
    SUCCESS
    ```
-   {: codeblock}
+   {: screen}
 
 ## Using the key management service API to rotate keys
 {: #vpc-key-rotation-api}
@@ -227,15 +227,14 @@ When you make an API call to the service, structure your API request according t
 
 When you create a data volume that uses customer-managed encryption, your root keys are automatically registered. Registration creates the relationship between your root key and Cloud Block Storage. When you list the registrations for a key, you can see the resources that it is registered with.
 
-Make a `GET /keys/<key_id>/registrations` call to see which cloud resources are protected by the key that you specify. In this example, the IBM Cloud instance ID (`bluemix-instance`) identifies your {{site.data.keyword.keymanagementserviceshort}} service instance.
+Make a `GET /keys/<key_id>/registrations` request to see which cloud resources are protected by the key that you specify. In this example, the IBM Cloud instance ID (`bluemix-instance`) identifies your {{site.data.keyword.keymanagementserviceshort}} service instance.
 
-```cURL
-curl -X GET \
-  https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>/registrations \
+```sh
+curl -X GET https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>/registrations \
   -H 'authorization: Bearer <IAM_token>' \
   -H 'bluemix-instance: <instance_ID>'
 ```
-{: codeblock}
+{: pre}
 
 The response displays information about the resource:
 
@@ -262,7 +261,7 @@ The response displays information about the resource:
     }
 }
 ```
-{: code-block}
+{: screen}
 
 ### API procedure
 {: #vpc-key-rotation-api-procedure}
@@ -285,17 +284,14 @@ Follow these steps to rotate a root key by using the {{site.data.keyword.keymana
 
 4. Replace the root key with new key material with a `POST /key/{key-ID} action=rotate` request. If the root key was generated by the KMS, you don't need a POST request body. If you imported the key, supply the new key material (Base64 encoded) in the `payload` field of the JSON object in the POST request body. See the following example.
     ```sh
-      curl -X POST \
-        https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>?action=rotate\
+      curl -X POST https://<region>.kms.cloud.ibm.com/api/v2/keys/<key_id>?action=rotate\
         -H 'accept: application/vnd.ibm.kms.key_action+json'\
         -H 'authorization: Bearer <IAM_token>'\
         -H 'bluemix-instance: <instance_ID>'\
         -H 'content-type: application/vnd.ibm.kms.key_action+json'\
-        -d '{
-         'payload: <your_key_material>'
-       }'
+        -d '{'payload: <your_key_material>'}'
     ```
-    {: codeblock}
+    {: pre}
 
     Replace the variables in the example request according to Table 1.
 
@@ -311,13 +307,12 @@ Follow these steps to rotate a root key by using the {{site.data.keyword.keymana
 5. Optionally, verify that the key was rotated by running the following call to browse the keys in your {{site.data.keyword.keymanagementserviceshort}} service instance.
 
    ```sh
-   curl -X GET \
-   https://<region>.kms.cloud.ibm.com/api/v2/keys/metadata\
+   curl -X GET https://<region>.kms.cloud.ibm.com/api/v2/keys/metadata\
    -H 'accept: application/vnd.ibm.collection+json'\
    -H 'authorization: Bearer <IAM_token>'\
    -H 'bluemix-instance: <instance_ID>'
    ```
-   {: codeblock}
+   {: pre}
 
    Review the `lastRotateDate` and `keyVersion` values in the response to inspect the date and time that your key was last rotated. The `keyVersion` attribute contains identifying information that describes the latest version of the root key.
 

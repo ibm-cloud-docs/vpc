@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-10-19"
+lastupdated: "2023-12-18"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -77,7 +77,7 @@ Valid file share names can include a combination of lowercase alpha-numeric char
 
 1. Go to the [file shares details](/docs/vpc?topic=vpc-file-storage-view&interface=ui#fs-view-single-share-ui) page.
 
-2. Click the Actions menu ![Actions menu](images/overflow.png).
+2. Click the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Actions").
 
 3. Select **Rename**.
 
@@ -95,7 +95,7 @@ You can change the profile for a file share from the current profile to another 
 
 1. Go to the [file shares details](/docs/vpc?topic=vpc-file-storage-view&interface=ui#fs-view-single-share-ui) page.
 
-2. Click the pencil icon next to the current profile or use the **Actions** menu ![Actions menu](images/overflow.png) and select **Edit IOPS profile**. A side panel shows the current profile, file share size, and maximum IOPS.
+2. Click the pencil icon next to the current profile or use the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions") and select **Edit IOPS profile**. A side panel shows the current profile, file share size, and maximum IOPS.
 
 3. For a **New profile**, click the down arrow. You can select a new IOPS tier, a custom profile, or dp2. For **Custom IOPS** or **dp2**, specify a new max IOPS based on the file share size. The file share price is automatically calculated based on your selection.
 
@@ -113,7 +113,7 @@ Before you delete a file share, make sure that it is [unmounted](#fs-mount-unmou
 
 2. On the File share details page, select a mount target that you want to delete.
 
-3. Click the Actions menu ![Actions menu](images/overflow.png) and select **Delete**.
+3. Click the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Actions") and select **Delete**.
 
 #### Deleting a file share in the UI
 {: #delete-file-share-ui}
@@ -682,7 +682,7 @@ For more information, see [terraform destroy](https://developer.hashicorp.com/te
 
 You can add user tags to new or existing file shares, modify, and delete tags for a file share with the UI, CLI, API, and Terraform. You can view tags throughout your account by filtering by tags from your resource list. You can also add user tags to replica file shares.
 
-You can create as many user tags as you like for a file share. However, to keep tags manageable, create only as many user tags as you require to effectively manage the resource.
+Up to 100 tags can be attached or detached in the same operation. When you edit your tags, the new tags overwrite the existing tags. To keep tags manageable, create only as many user tags as you require to effectively handle the resource.
 {: tip}
 
 You can manage your tags in the {{site.data.keyword.cloud_notm}} with the [Global Tagging API](/apidocs/tagging). With this API, you can create, delete, search, attach, or detach tags. For more information about managing tags for your account, see [Working with tags](/docs/account?topic=account-tag).
@@ -693,7 +693,7 @@ You can manage your tags in the {{site.data.keyword.cloud_notm}} with the [Globa
 
 You can add user tags to a file share in the UI.
 
-1. Go to the list of file shares. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Storage > File Shares**.
+1. Go to the list of file shares. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > File Shares**.
 
 2. Select a file share to view its details.
 
@@ -825,7 +825,7 @@ curl -X POST \
 #### Modifying user tags for an existing file share
 {: #fs-add-tags-share-api}
 
-Add new user tags to an existing file share by making a `PATCH /shares` call and specify the user tags in the `user_tags` property. You can specify new tags for a file share without any tags and the user tags are added. If you specify different tags, the existing tags are modified.
+Add new user tags to an existing file share by making a `PATCH /shares` request and specify the user tags in the `user_tags` property. If the file share did not have any tags, the new tags in the request are added. If the file share had tags previously, the new tags overwrite the previous tags.
 
 The following example modifies a file share that is identified by ID by renaming the share and adding user tags.
 
@@ -968,7 +968,7 @@ Make a `POST/ tags` call to [create an access management tag](/apidocs/tagging#c
 
 Add an access management tag to an existing file share or when you [create a file share](/docs/vpc?topic=vpc-file-storage-create). For an existing file share:
 
-1. In the [{{site.data.keyword.cloud_notm}} console)](/login){: external}, Go to the Resource list, and select a file share under **Storage** resources.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, Go to the Resource list, and select a file share under **Storage** resources.
 2. In the **Access management tags** field, type the name of an access management tag that you previously created. The tag appears as you type.
 3. Save your changes.
 

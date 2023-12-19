@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2023
 
-lastupdated: "2023-11-10"
+lastupdated: "2023-12-18"
 
 keywords:
 
@@ -72,8 +72,8 @@ Allow extra time for completing any optional steps.
 
 To create a VPC and subnet:
 
-1. Open [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](/login).
-1. Click **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Network > VPCs** and click **Create**.
+1. Open [{{site.data.keyword.cloud_notm}} console](/login){: external}.
+1. Click **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Network > VPCs** and click **Create**.
 1. Enter a name for the VPC, such as `my-vpc`.
 1. Select a resource group for the VPC. Use resource groups to organize your account resources for access control and billing purposes. For more information, see [Best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup).
 1. _Optional:_ Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
@@ -144,7 +144,7 @@ To create a virtual server instance in the newly created subnet, use these steps
 1. Enter a name for the instance, such as `my-instance`.
 1. Select a resource group for the instance.
 1. _Optional:_ Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
-1. Click **Change image** to select an image (that is, operating system and version), such as Debian GNU/Linux, _ibm-debian-11-7-minimal-amd64-2_. On the Select an image page, you can select a stock image, custom image, catalog image, snapshot, or an existing volume. If the geographic location where you are provisioning an instance supports it, you have the option to select the architecture for your virtual server, either *x86* or *s390x*.
+1. Click **Change image** to select an image (that is, operating system and version), such as Debian GNU/Linux, _ibm-debian-11-7-minimal-amd64-2_. On the Select an image page, you can select a stock image, custom image, catalog image, snapshot, or an existing volume. If the geographic location where you are provisioning an instance supports it, you have the option to select the architecture for your virtual server, either _x86_ or _s390x_.
 
     _For z/OS Wazi aaS custom image only:_ If you use the custom image that is created by using Wazi Image Builder, select **Custom image** for the operating system and the image is called `wazi-custom-image` by default.
     {: note}
@@ -260,7 +260,7 @@ Create a public gateway and connect your virtual server instance if you want mul
 
 To create a public gateway:
 1. Go to the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the Menu icon ![Menu icon](./images/menu_icon.png), then click **VPC Infrastructure** > **Public gateways**. The Public gateways for VPC dashboard appears.
+1. Select the **Navigation Menu** icon![menu icon](./images/menu_icon.png), then click **VPC Infrastructure** > **Public gateways**. The Public gateways for VPC dashboard appears.
 1. Click **Create** to go to the **Create public gateway** menu.
 
 A public gateway only provides virtual server instances outbound connectivity, whereas a floating IP address provides virtual server instances outbound and inbound connectivity. A floating IP address exposes a service on the internet to inbound activity.

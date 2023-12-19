@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-10-26"
+lastupdated: "2023-12-18"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -29,7 +29,7 @@ You can list all backup policies and view details of a specific policy by using 
 
 List all backup policies that you created for volumes in your account for the selected region by using the UI.
 
-In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Backup policies**. By default, the Overview tab is selected.
+In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Backup policies**.
 
 Table 1 describes the information on the Backup policy list page. The default region for the account is selected. You can select a different region from the menu. Policies are listed on the page from newest to oldest.
 
@@ -37,73 +37,86 @@ Table 1 describes the information on the Backup policy list page. The default re
 |-------|-------|
 | Name | Click the name of a policy to see its details. |
 | Status | The status of the policy, such as _Stable_. For more information about policy statuses, see [Backup policy statuses](/docs/vpc?topic=vpc-backup-service-manage#backup-policy-statuses). |
-| Applied resources | Number of {{site.data.keyword.block_storage_is_short}} volumes that are backed up by the policy. The number of volumes is a link that takes you to a [list of volumes](#backup-view-vol-backup-policies) that apply for the policy. |
+| Applied resources | Number of resources ({{site.data.keyword.block_storage_is_short}} volumes or virtual server instances) that are backed up by the policy. The number is a link that takes you to a list of resources that apply for the policy. |
 | Tags for target resources | Tags for target {{site.data.keyword.block_storage_is_short}} volumes that you are backing up. |
 | Last run time (local) | The most recent time a job ran for the backup policy. If the field is blank, the volumes don't have matching tags for a job to run. |
 | Created date (local) | Date and time of when the backup was created. |
-| Actions menu | Click the Actions icon (...) for available actions, such as restore and delete. |
 {: caption="Table 1. Backup policy list view" caption-side="bottom"}
+
+By clicking the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Actions"), you can display a menu of context-specific actions.
+   - Restore
+   - Delete
 
 ### Viewing details of a backup policy with the UI
 {: #backup-view-policy}
 
 You can view details of a backup policy by using the UI.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Backup policies**. By default, the Overview tab is selected.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Backup policies**.
 
-2. Click a policy name. Table 2 describes the information about the selected backup policy.
+2. Click a policy name. Tables 2 and 3 describe the information about the selected backup policy and its associated plans. You can add activity tracking or delete the policy from the Actions menu ![Actions icon](../icons/action-menu-icon.svg "Actions").
 
-| Field | Value |
-|-------|-------|
-| Actions | Actions on this policy: Add auditing and Delete. |
-| **Policy details** | |
-| - Name | Name of the backup policy. Click the pencil icon to edit. |
-| - Policy ID | Backup policy ID. |
-| - Resource group | [Resource group](/docs/vpc?topic=vpc-iam-getting-started#resources-and-resource-groups) for the {{site.data.keyword.block_storage_is_short}} volume. |
-| - Location | Policies for the selected region. |
-| - Created date | The date the policy was created. |
-| - CRN | Cloud resource name of the policy. |
-| - Applied resources | The number of volumes that are covered by the policy. This list includes volumes that were created by users for the account. If the policy is an enterprise-wide policy, the list shows volumes of the enterprise account, and not the volumes of its child accounts. |
-| - Tags for target resources | - User tags that can trigger the creation of a backup when they are applied to any {{site.data.keyword.block_storage_is_short}} volumes. \n - Click the pencil icon to add more tags. For more information, see [Edit tags for target resources](/docs/vpc?topic=vpc-backup-service-manage&interface=ui#backup-edit-tags). \n - See also [Applying backup policies to resources by using tags](/docs/vpc?topic=vpc-backup-use-policies). |
-| Target resource type  | The backup policy applies to block volumes. |
-| Last backup job | It shows the date and time when the last backup job ran.|
-| Enterprise account CRN | This value is only shown when the backup policy is an enterprise-wide policy. It is the Cloud Resource Name of the Enterprise that created the policy.|
-| Health | The current health state of the policy. For more information, see the [FAQs](/docs/vpc?topic=vpc-backup-service-enterprise-faq&interface=terraform#faq-baas-ee-5).|
-| **Plan** | Show the plan name, retention policy, and plan status. Optionally, click **Create** to add more plans for an existing policy. |
-| - Plan name | Unique name for the plan. Expand to see plan details, such as frequency, tags that are associated with this plan, and whether fast restore and remote copies are enabled. |
-| - Retention | Period that you set for the plan to be in effect, for example, 30 days. |
-| - Status | Plan status. Shows `enabled` for an active plan. |
-|-  Actions menu | Edit or remove a plan. You can change the name and other plan details such as retention, tags, fast restore, and remote copies. For more information, see [Edit or delete a backup plan in the UI](/docs/vpc?topic=vpc-backup-service-manage&interface=ui). |
-{: caption="Table 2. Backup policy details" caption-side="bottom"}
+   | Field | Value |
+   |-------|-------|
+   | Name | Name of the backup policy. Click the pencil icon to edit. |
+   | Policy ID | Backup policy ID. |
+   | Resource group | [Resource group](/docs/vpc?topic=vpc-iam-getting-started#resources-and-resource-groups) for the {{site.data.keyword.block_storage_is_short}} volume. |
+   | Location | Policies for the selected region. |
+   | Created date | The date the policy was created. |
+   | CRN | Cloud resource name of the policy. |
+   | Applied resources | The number of volumes that are covered by the policy. This list includes volumes that were created by users for the account. If the policy is an enterprise-wide policy, the list shows volumes of the enterprise account, and not the volumes of its child accounts. |
+   | Tags for target resources | This field shows the user tags that can trigger the creation of a backup when they are applied to a resource. \n - You can click the pencil icon to add more tags. For more information, see [Edit tags for target resources](/docs/vpc?topic=vpc-backup-service-manage&interface=ui#backup-edit-tags). \n - See also [Applying backup policies to resources by using tags](/docs/vpc?topic=vpc-backup-use-policies). |
+   | Target resource type  | The backup policy can apply to individual block **volumes** or a consistency group of block volumes of **instances**. [New]{: tag-new} |
+   | Last backup job | It shows the date and time when the last backup job ran.|
+   | Enterprise account CRN | This value is only shown when the backup policy is an enterprise-wide policy. It is the Cloud Resource Name of the Enterprise that created the policy.|
+   | Health | The current health state of the policy. For more information, see the [FAQs](/docs/vpc?topic=vpc-backup-service-enterprise-faq&interface=terraform#faq-baas-ee-5).|
+   {: caption="Table 2. Backup policy details" caption-side="bottom"}
 
-### Viewing the list of volumes that are associated to a backup policy
+   The Plans card shows the plan name, retention policy, and plan status. Optionally, you can click **Create** to add more plans for an existing policy.
+
+   | Field | Value |
+   |-------|-------|
+   | Plan name | Unique name for the plan. Expand to see plan details, such as frequency, tags that are associated with this plan, and whether fast restore and remote copies are enabled. |
+   | Retention | Period that you set for the plan to be in effect, for example, 30 days. |
+   | Status | Plan status. Shows `enabled` for an active plan. |
+   {: caption="Table 3. Backup policy details" caption-side="bottom"}
+
+   By clicking the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Actions"), you can display a menu of context-specific actions. You can change the name and other plan details such as retention, tags, fast restore, and remote copies. For more information, see [Edit or delete a backup plan in the UI](/docs/vpc?topic=vpc-backup-service-manage&interface=ui).
+
+### Viewing the list of resources that are associated to a backup policy
 {: #backup-view-vol-backup-policies}
 
-View a list of {{site.data.keyword.block_storage_is_short}} volumes that are backed up by the policy. For a volume to be backed up by a policy, the volume must be tagged with at least one of the policy’s tags for the target resources.
+View the list of {{site.data.keyword.block_storage_is_short}} volumes or virtual server instances that are backed up by the policy. For a resource to be backed up by a policy, the resource must be tagged with at least one of the policy’s tags for the target resources.
 
-Look at which {{site.data.keyword.block_storage_is_short}} volumes have policies and verify that the policies are correctly applied.
+You can use this list of {{site.data.keyword.block_storage_is_short}} volumes or virtual server instances to verify that the backup policies are correctly applied.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Backup policies**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Backup policies**.
 
 2. Click a policy name.
 
 3. Click the **Applied resources** tab.
 
-A list of {{site.data.keyword.block_storage_is_short}} volumes that are backed up by this policy is shown. Information about the volumes includes the volume name, status, volume size, and encryption type (see Table 3).
+   - If the policy is for individual {{site.data.keyword.block_storage_is_short}} volumes, a list of the volumes that are backed up by this policy is shown. Information about the volumes includes the volume name, status, volume size, and encryption type.
+     | Field | Description |
+     |-------|-------------|
+     | Name | Name of the volume. Click the pencil icon to edit. |
+     | Status | [Status of the volume](/docs/vpc?topic=vpc-managing-block-storage#status). |
+     | Size | Size of the volume in GBs.|
+     | Encryption | [IBM-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-provider-managed-encryption) or [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption). |
+     {: caption="Table 4. List of {{site.data.keyword.block_storage_is_short}} volumes for the backup policy" caption-side="top"}
 
-| Field | Description |
-|-------|-------------|
-| Name | Name of the volume. Click the pencil icon to edit. |
-| Status | [Status of the volume](/docs/vpc?topic=vpc-managing-block-storage#status). |
-| Size | Size of the volume in GBs.|
-| Encryption | [IBM-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-provider-managed-encryption) or [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption). |
-| Add volume | Add a volume to this policy. The informational side panel provides a list of tags for target resources that you can apply to the volume, and a link to the [list of {{site.data.keyword.block_storage_is_short}} volumes](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#viewvols-ui). You must apply at least one of the policy's tags for target resources to the volume. |
-{: caption="Table 3. List of {{site.data.keyword.block_storage_is_short}} volumes for the backup policy" caption-side="top"}
+     You can add other volumes to this policy by clicking **Add volumes**. The informational side panel provides a list of tags for target resources that you can apply to the volume, and a link to the [list of {{site.data.keyword.block_storage_is_short}} volumes](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#viewvols-ui). You must apply at least one of the policy's tags for target resources to the volume. |
 
-You can also view a more detailed list of all {{site.data.keyword.block_storage_is_short}} volumes in your account region, including user tags that are applied to the volume. For more information, see [View information about all {{site.data.keyword.block_storage_is_short}} volumes in the UI](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#viewvols-ui).
+   - [New]{: tag-new} If the policy is for multi-volume backups of a consistency group of {{site.data.keyword.block_storage_is_short}} volumes, a list of virtual server instances is shown. The list contains the virtual server instances whose Block Storage volumes are backed up this policy. Information about the virtual server instances includes the name, status, VPC, and profile.
+      | Field  | Description |
+      |--------|-------------|
+      | Name   | Name of the volume. Click the pencil icon to edit. |
+      | Status | [Status of the volume](/docs/vpc?topic=vpc-managing-block-storage#status). |
+      | Virtual private cloud | The name of the VPC that the virtual server instances is in. Click it to go to the details page of the VPC. |
+      | Profile| The Compute profile of the virtual server instance.  |
+      {: caption="Table 4. List of virtual server instances." caption-side="top"}
 
-When you click a volume name to see the details, you need administrator privileges to access the information.
-{: requirement}
+       Click **Add virtual server instance**, to add the attached volumes of a virtual server instance to this policy. The informational side panel provides a list of tags for target resources that you can apply to the virtual server instance, and a link to the list of virtual server instances of your account. You must apply at least one of the policy's tags for target resources to the volume.
 
 ## Viewing backup policies from the CLI
 {: #backup-view-cli}
@@ -197,45 +210,42 @@ The following example lists the properties of a backup policy with the plan that
 ```sh
 $ ibmcloud is backup-policy my-backup-policy-v2
 Getting backup policy my-backup-policy-v2 under account Test Account as user test.user@ibm.com...
-                           
-ID                      r006-0723c648-9a47-4d51-b1ba-349e21e715b6   
-Name                    my-backup-policy-v2   
-CRN                     crn:v1:bluemix:public:is:us-south:a/a123456::backup-policy:r006-0723c648-9a47-4d51-b1ba-349e21e715b6   
-Status                  stable   
-Last job completed at   2023-09-26T10:13:18.000Z   
-Plans                   ID                                          Name        Resource type      
-                        r006-e888bb31-7bf2-4885-a9f3-d448c1c37326   my-plan-b   backup_policy_plan      
-                           
-Backup tags             dev:test   
-Backup resource type    volume   
-Resource group          ID                                 Name      
-                        6edefe513d934fdd872e78ee6a8e73ef   defaults      
-                           
+
+ID                      0717-0723c648-9a47-4d51-b1ba-349e21e715b6
+Name                    my-backup-policy-v2
+CRN                     crn:v1:bluemix:public:is:us-south:a/a123456::backup-policy:0717-0723c648-9a47-4d51-b1ba-349e21e715b6
+Status                  stable
+Last job completed at   2023-09-26T10:13:18.000Z
+Plans                   ID                                          Name        Resource type
+                        0717-e888bb31-7bf2-4885-a9f3-d448c1c37326   my-plan-b   backup_policy_plan
+
+Backup tags             dev:test
+Backup resource type    volume
+Resource group          ID                                 Name
+                        6edefe513d934fdd872e78ee6a8e73ef   defaults
+
 Created at              2023-09-05T16:30:09+00:00
 ```
-{: screeen}
+{: screen}
 
-The following example uses the policy ID and the option to receive the response in JSON format.
+The following example uses the policy ID and the option to receive the response in JSON format. This policy creates consistency group backups in the child accounts of an Enterprise.
 
-```json
-$ ibmcloud is backup-policy r006-0723c648-9a47-4d51-b1ba-349e21e715b6 --output JSON
+```sh
+$ ibmcloud is backup-policy 0717-0723c648-9a47-4d51-b1ba-349e21e715b6 --output JSON
 {
     "created_at": "2023-09-05T16:30:09.000Z",
-    "crn": "crn:v1:bluemix:public:is:us-south:a/a123456::backup-policy:r006-0723c648-9a47-4d51-b1ba-349e21e715b6",
-    "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/r006-0723c648-9a47-4d51-b1ba-349e21e715b6",
-    "id": "r006-0723c648-9a47-4d51-b1ba-349e21e715b6",
+    "crn": "crn:v1:bluemix:public:is:us-south:a/a123456::backup-policy:0717-0723c648-9a47-4d51-b1ba-349e21e715b6",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/0717-0723c648-9a47-4d51-b1ba-349e21e715b6",
+    "id": "0717-0723c648-9a47-4d51-b1ba-349e21e715b6",
     "lifecycle_state": "stable",
-    "match_resource_types": [
-        "volume"
-    ],
-    "match_user_tags": [
-        "dev:test"
-    ],
+    "match_resource_type": "instance",
+    "included_content": "data_volumes",
+    "match_user_tags": "dev:test",
     "name": "my-backup-policy-v2",
     "plans": [
         {
-            "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/r006-0723c648-9a47-4d51-b1ba-349e21e715b6/plans/r006-e888bb31-7bf2-4885-a9f3-d448c1c37326",
-            "id": "r006-e888bb31-7bf2-4885-a9f3-d448c1c37326",
+            "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/0717-0723c648-9a47-4d51-b1ba-349e21e715b6/plans/0717-e888bb31-7bf2-4885-a9f3-d448c1c37326",
+            "id": "0717-e888bb31-7bf2-4885-a9f3-d448c1c37326",
             "name": "my-plan-b",
             "resource_type": "backup_policy_plan"
         }
@@ -255,7 +265,7 @@ $ ibmcloud is backup-policy r006-0723c648-9a47-4d51-b1ba-349e21e715b6 --output J
 ```
 {: screen}
 
-The following example uses the policy name and no other options.
+The following example uses the policy name and no other options. The policy applies to individual Block Storage volumes.
 
 ```sh
 cloudshell:~$ ibmcloud is backup-policy my-backup-policy-v1
@@ -282,24 +292,25 @@ The following example lists the properties of an Enterprise backup policy. The s
 ```sh
 $ ibmcloud is backup-policy r006-0bc533ed-4796-407a-982e-693b418f3de3
 Getting backup policy r006-0bc533ed-4796-407a-982e-693b418f3de3 under account Enterprise Test as user test.user@ibm.com...
-                          
-ID                     r006-0bc533ed-4796-407a-982e-693b418f3de3   
-Name                   backup-scope-2   
-CRN                    crn:bluemix:public:is:us-south:a/a1234567::backup-policy:r006-0bc533ed-4796-407a-982e-693b418f3de3   
-Status                 stable   
-Plans                  ID                                          Name           Resource type      
-                       r006-0741b600-e8d5-41b4-88a7-c19b6fbf89ca   scope-plan-2   backup_policy_plan      
-                          
-Backup tags            dev:test   
-Backup resource type   volume   
-Resource group         ID                                 Name      
-                       e579217258f74f42974e6ec4da287fc5   Default      
-                          
-Scope                  ID                                 CRN                                                                                         Resource type      
-                       7e44cb4667ba4b88b1b1f8dcc15e33b3   crn:v1:bluemix:public:enterprise::a/a1234567::enterprise:7e44cb4667ba4b88b1b1f8dcc15e33b3   -      
-                          
-Health State           ok   
-Created at             2023-08-30T13:39:10+05:30   
+
+ID                     r006-0bc533ed-4796-407a-982e-693b418f3de3
+Name                   backup-scope-2
+CRN                    crn:bluemix:public:is:us-south:a/a1234567::backup-policy:r006-0bc533ed-4796-407a-982e-693b418f3de3
+Status                 stable
+Plans                  ID                                          Name           Resource type
+                       r006-0741b600-e8d5-41b4-88a7-c19b6fbf89ca   scope-plan-2   backup_policy_plan
+
+Backup tags            dev:test
+included-content       data_volumes
+Backup resource type   volume
+Resource group         ID                                 Name
+                       e579217258f74f42974e6ec4da287fc5   Default
+
+Scope                  ID                                 CRN                                                                                         Resource type
+                       7e44cb4667ba4b88b1b1f8dcc15e33b3   crn:v1:bluemix:public:enterprise::a/a1234567::enterprise:7e44cb4667ba4b88b1b1f8dcc15e33b3   -
+
+Health State           ok
+Created at             2023-08-30T13:39:10+05:30
 
 ```
 {: screen}
@@ -463,13 +474,13 @@ A successful response looks like the following example.
 {
   "created_at": "2023-09-26T15:06:03.000Z",
   "crn": "crn:v1:bluemix:public:is:us-south:a/123456::backup-policy:r006-076191ba-49c2-4763-94fd-c70de73ee2e6",
+  "included_content": [
+        "data_volumes"
+      ],
   "health_reasons": [],
   "health_state": "ok",
   "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/r006-076191ba-49c2-4763-94fd-c70de73ee2e6",
   "id": "r006-076191ba-49c2-4763-94fd-c70de73ee2e6",
-  "included_content": [
-    "data_volume"
-  ],
   "lifecycle_state": "stable",
   "match_resource_type": "volume",
   "match_user_tags": [
@@ -493,8 +504,57 @@ A successful response looks like the following example.
   },
   "resource_type": "backup_policy",
   "scope": {
-    "crn": "crn:v1:bluemix:public:enterprise::a/a123456::enterprise:ebc2b430240943458b9e91e1432cfcce",
+    "crn": "crn:v1:bluemix:public:enterprise::a/e92d45e305dc4ee0b13e29be392f1c0c::enterprise:ebc2b430240943458b9e91e1432cfcce",
     "id": "fee82deba12e4c0fb69c3b09d1f12345",
+    "resource_type": "account"
+  }
+}
+```
+{: codeblock}
+
+The following example shows the details of a backup policy that creates backups of a multi-volume consistency group.
+
+```sh
+curl -X GET\
+"$vpc_api_endpoint/v1/backup_policies/r006-5f45c186-d710-41ed-a4bc-e924a79e47bb?version=2023-12-05&generation=2"\
+   -H "Authorization: $iam_token"
+```
+{: codeblock}
+
+```json
+{
+  "created_at": "2023-11-14T19:36:29Z",
+  "crn": "crn:v1:bluemix:public:is:us-south:a/a1234567::backup-policy:r006-5f45c186-d710-41ed-a4bc-e924a79e47bb",
+  "health_reasons": [],
+  "health_state": "ok",
+  "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/r006-5f45c186-d710-41ed-a4bc-e924a79e47bb",
+  "id": "r006-5f45c186-d710-41ed-a4bc-e924a79e47bb",
+  "included_content": [
+    "boot_volume",
+    "data_volumes"
+  ],
+  "lifecycle_state": "stable",
+  "match_resource_type": "instance",
+  "match_user_tags": [
+    "vsi11"
+  ],
+  "name": "policy-1699990587",
+  "plans": [
+    {
+      "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/r006-5f45c186-d710-41ed-a4bc-e924a79e47bb/plans/r006-01fb4c96-57db-4fac-98f0-2158dbfd551f",
+      "id": "r006-01fb4c96-57db-4fac-98f0-2158dbfd551f",
+      "name": "plan-1699990587",
+      "resource_type": "backup_policy_plan"
+    }
+  ],
+  "resource_group": {
+    "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/f20bdbd6554d48739ad38717e0511fdd",
+    "id": "f20bdbd6554d48739ad38717e0511fdd",
+    "name": "Default"
+  },
+  "resource_type": "backup_policy",
+  "scope": {
+    "id": "53945f147c1441b0940bc00927863af6",
     "resource_type": "account"
   }
 }
@@ -572,31 +632,22 @@ The response shows the clone policy information. In this example, clones are cre
 ```json
 {
   "active": true,
-  "attach_user_tags": [
-    "my-plan-2"
-  ],
+  "attach_user_tags": ["my-plan-2"],
   "clone_policy": {
-  "max_snapshots": 2,
-  "zones": [
-    {
-      "name": "us-south-2"
-    },
-    {
-      "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-1"
-    }],
+    "max_snapshots": 2,
+    "zones": [
+      {"name": "us-south-2"},
+      {"href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-1"}]},
   "copy_user_tags": true,
   "created_at": "2022-12-16T15:16:37Z",
   "cron_spec": "45 * * * *",
-  "deletion_trigger": {
-    "delete_after": 5
-  },
+  "deletion_trigger": {"delete_after": 5},
   "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/fb721535-2cc6-45d6-ade7-3ceb95b7f26f/plans/4d58eb08-d950-498b-8175-b4d617b6ba6a",
   "id": "r006-6da51cfe-6f7b-4638-a6ba-00e9c327b178",
   "lifecycle_state": "stable",
   "name": "my-backup-plan-2",
   "resource_type": "backup_policy_plan"
   }
-}
 ```
 {: codeblock}
 
@@ -620,29 +671,21 @@ The response shows the remote region policy information. In this example, the ou
 ```json
 {
   "active": true,
-  "attach_user_tags": [
-    "hourly-backups"
-  ],
+  "attach_user_tags": ["hourly-backups"],
   "copy_user_tags": false,
   "created_at": "2023-05-09T15:16:37Z",
   "cron_spec": "0 */2 * * *",
-  "deletion_trigger": {
-    "delete_after": 5
-  },
+  "deletion_trigger": {"delete_after": 5},
   "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/8758bd18-344b-486a-b606-5b8cb8cdd044/plans/6e251cfe-6f7b-4638-a6ba-00e9c327b178",
   "id": "6e251cfe-6f7b-4638-a6ba-00e9c327b178",
   "lifecycle_state": "stable",
   "name": "my-hourly-plan-2",
   "remote_region_policies": {
     "delete_over_count": 5,
-    "encryption_key": "crn:v1:bluemix:public:kms:us-south:a/a1234567:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd617" ,
+    "encryption_key": "crn:v1:bluemix:public:kms:us-south:a/dffc98a0f1f0f95f6613b3b752286b87:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd617" ,
     "region": [
-      {
-        "name": "us-east"
-      },
-      {
-        "href": "https://us-east.iaas.cloud.ibm.com/v1/regions/us-east/zones/us-east-2"
-      }
+      {"name": "us-east"},
+      {"href": "https://us-east.iaas.cloud.ibm.com/v1/regions/us-east/zones/us-east-2"}
      ],
     },
   "resource_type": "backup_policy_plan"
@@ -659,7 +702,7 @@ You can use Terraform to view backup policies and plans.
 To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
 {: requirement}
 
-VPC infrastructure services use a regional specific endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the right region in the provider block in the `provider.tf` file.
+VPC infrastructure services use a regional specific endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the appropriate region in the provider block in the `provider.tf` file.
 
 See the following example of targeting a region other than the default `us-south`.
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-11-11"
+  years: 2019, 2023
+lastupdated: "2023-12-18"
 
 keywords:
 subcollection: vpc
@@ -28,6 +28,9 @@ Review the following considerations before creating a VPN gateway:
 * By default, PFS (Perfect Forward Secrecy) is disabled for IBM Cloud VPN for VPC. Some vendors require PFS enablement for Phase 2. Check your vendor instruction and use custom policies if PFS is required.
 * IBM Cloud VPN for VPC supports only one route-based VPN per zone per VPC.
 
+    The IBM VPN gateway uses its public IP address as the IKE local identify and designates the peer's public IP address as the IKE peer identify. In cases where the peer VPN gateway is located behind a NAT firewall, and the peer's public IP address is not associated with the peer VPN gateway interface, it is imperative to adjust the configuration of the peer VPN gateway to ensure that the peer's public IP address is used as the IKE identify.
+    {: note}
+
 ## Creating a VPN gateway in the UI
 {: #vpn-create-ui}
 {: ui}
@@ -35,7 +38,7 @@ Review the following considerations before creating a VPN gateway:
 To create a VPN gateway using the UI:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) on the upper left of the page, then click **VPC Infrastructure > VPNs** in the Network section.
+1. Select the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>VPNs** in the Network section.
 
     If starting from the VPC Infrastructure menu, click **VPNs** in the Network section to open the {{site.data.keyword.vpn_vpc_short}} page.
     {: tip}

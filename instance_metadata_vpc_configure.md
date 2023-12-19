@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-11-10"
+lastupdated: "2023-12-18"
 
 keywords:
 
@@ -179,7 +179,7 @@ From the {{site.data.keyword.cloud}} console, you can enable or disable the inst
 
 Use the UI to enable the metadata service on an existing instance.
 
-1. Go to the list of instances. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
+1. Go to the list of instances. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 
 2. Click the name of an instance to go to the details page.
 
@@ -192,7 +192,7 @@ Use the UI to enable the metadata service on an existing instance.
 
 The following procedure shows how to enable the metadata service when you create a new virtual server instance.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 
 2. Click **Create**.
 
@@ -207,7 +207,7 @@ The following procedure shows how to enable the metadata service when you create
 
 This procedure shows how to disable the metadata service for an instance on which it is enabled. By default, the metadata service is disabled when you create a new instance.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 
 2. Click an instance from the list to go to its details page.
 

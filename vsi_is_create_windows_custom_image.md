@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-02-17"
+lastupdated: "2023-12-11"
 
 
 keywords: creating a Windows custom image, cloudbase-init, qcow2
@@ -36,10 +36,31 @@ Use the following steps to create a Windows custom image to deploy in the {{site
 ## Initial steps for creating a Windows custom image
 {: #create-win-custom-image-first-steps}
 
+Virtio-win drivers must be installed. For Microsoft support reasons, we recommend that you obtain the drivers from a licensed RHEL version 8 or 9 instance since any drivers obtained from Redhat are certified by Microsoft. The minimum recommended Redhat virtio-win package version is `virtio-win-1.9.24`. However, using the latest package that is available is best.
+{: requirement}
+
+The Redhat virtio-win-1.9.24 ISO contains the following specific driver versions:
+
+```text
+100.84.104.19500 oem10.inf \vioprot.inf_amd64_af0659efdaba9e4b\vioprot.inf
+100.90.104.21400 oem11.inf \viofs.inf_amd64_c6f785e21f3f6f80\viofs.inf
+100.85.104.20200 oem12.inf \viogpudo.inf_amd64_b19dcf9947e73e5a\viogpudo.inf
+100.85.104.19900 oem13.inf \vioinput.inf_amd64_4505a789e17b5f89\vioinput.inf
+100.81.104.17500 oem14.inf \viorng.inf_amd64_ef304eab276a3e61\viorng.inf
+100.85.104.19900 oem15.inf \vioser.inf_amd64_cb4783c018c10eba\vioser.inf
+100.90.104.21500 oem2.inf  \vioscsi.inf_amd64_02a46a7a223648d1\vioscsi.inf
+100.90.104.21500 oem3.inf  \viostor.inf_amd64_520417bbc533faba\viostor.inf
+100.85.104.20700 oem4.inf  \balloon.inf_amd64_afa8c93081df5458\balloon.inf
+100.90.104.21400 oem5.inf  \netkvm.inf_amd64_0efff05c07fcee39\netkvm.inf
+100.85.104.19900 oem6.inf  \pvpanic.inf_amd64_b7028360ef636f8b\pvpanic.inf
+10.0.0.21000     oem9.inf  \qxldod.inf_amd64_6199f9ecf2339133\qxldod.inf
+```
+{: screen}
+
 Complete the following steps to start creating a Windows custom image.
 
 1. Begin with a Windows ISO image file. For example, `Windows-2012-install.iso`.
-2. Create a VHD image where you can install Windows.
+1. Create a VHD image where you can install Windows.
 
    ```sh
    qemu-img create -f vpc Windows-2012.vhd 100G
@@ -49,7 +70,7 @@ Complete the following steps to start creating a Windows custom image.
     {{site.data.keyword.cloud}} supports custom image import with VHD or qcow2. However, Virtual Box does not support the qcow2 format.
     {: note}
 
-3. Obtain the required virtio-win drivers by [provisioning](/docs/vpc?topic=vpc-creating-virtual-servers) or accessing an existing Red Hat Enterprise Linux virtual server in {{site.data.keyword.vpc_short}}. Then, install the virtio-win package on the server. Finally, copy the virtio-win ISO file, for example, *virtio-win-1.9.15.iso*, to use for your Windows custom image.
+1. Obtain the required virtio-win drivers by [provisioning](/docs/vpc?topic=vpc-creating-virtual-servers) or accessing an existing Red Hat Enterprise Linux virtual server in {{site.data.keyword.vpc_short}}. Then, install the virtio-win package on the server. Finally, copy the virtio-win ISO file, for example, *virtio-win-1.9.24.iso*, to use for your Windows custom image.
 
    1. On your Red Hat Enterprise Linux virtual server in {{site.data.keyword.vpc_short}}, install the virtio-win package by running the following command:
 
@@ -62,7 +83,7 @@ Complete the following steps to start creating a Windows custom image.
 
       ```sh
       Installed:
-        virtio-win-1.9.15-0.el8.noarch
+        virtio-win-1.9.24-2.el8_5.noarch
       ```
       {: screen}
 
@@ -73,9 +94,9 @@ Complete the following steps to start creating a Windows custom image.
       ```
       {: codeblock}
 
-   3. Use SCP to copy the virtio-win ISO file, for example `virtio-win-1.9.15.iso`, to use for your Windows custom image.  
+   3. Use SCP to copy the virtio-win ISO file, for example `virtio-win-1.9.24.iso`, to use for your Windows custom image.  
 
-4. Use VirtualBox to create a virtual machine with the VHD image that you created in step 2. For more information, see [Oracle VM VirtualBox User Manual](https://www.virtualbox.org/manual/){: external}.
+1. Use VirtualBox to create a virtual machine with the VHD image that you created in step 2. For more information, see [Oracle VM VirtualBox User Manual](https://www.virtualbox.org/manual/){: external}.
 
 If you choose to use a method other than VirtualBox to create the custom image, such as VMware, you must remove all drivers that are specific to that hypervisor from the custom image.
 {: important}
@@ -85,15 +106,15 @@ If you choose to use a method other than VirtualBox to create the custom image, 
 
 Complete the following steps to customize the virtual machine.
 
-1. In Storage settings, add the Windows installation ISO and the virtio-win driver ISO as optical drives. For example, `Windows-2012-install.iso` and `virtio-win-1.9.15.iso`.
+1. In Storage settings, add the Windows installation ISO and the virtio-win driver ISO as optical drives. For example, `Windows-2012-install.iso` and `virtio-win-1.9.24.iso`.
 
-2. Start the virtual machine and begin the Windows installation. When you see the page **Where do you want to install Windows?** you must load all of the `virtio-win\` drivers. You might need to clear "Hide drivers that aren't compatible with this computer's hardware" to access all of the required drivers. Then, you can select **Drive 0** and continue with the installation. When the installation is complete, shut down the virtual machine and remove the optical drives that you added: Windows installation ISO and virtio-win driver ISO. You can ignore any warnings about removing an optical drive.
+1. Start the virtual machine and begin the Windows installation. When you see the page **Where do you want to install Windows?** you must load all of the `virtio-win\` drivers. You might need to clear "Hide drivers that aren't compatible with this computer's hardware" to access all of the required drivers. Then, you can select **Drive 0** and continue with the installation. When the installation is complete, shut down the virtual machine and remove the optical drives that you added: Windows installation ISO and virtio-win driver ISO. You can ignore any warnings about removing an optical drive.
 
-3. Use the default Windows updater to download and install Windows updates. Repeat the process of downloading and installing updates until no updates are available.
+1. Use the default Windows updater to download and install Windows updates. Repeat the process of downloading and installing updates until no updates are available.
 
-4. Install [cloudbase-init](https://cloudbase.it/cloudbase-init/){: external}. For more information, see [cloudbase-init’s documentation](https://cloudbase-init.readthedocs.io/en/latest/index.html){: external}.
+1. Install [cloudbase-init](https://cloudbase.it/cloudbase-init/){: external}. For more information, see [cloudbase-init’s documentation](https://cloudbase-init.readthedocs.io/en/latest/index.html){: external}.
 
-5. Modify the cloudbase-init configuration file, `C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf\cloudbase-init.conf` to match the values that are shown in the following example.
+1. Modify the cloudbase-init configuration file, `C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf\cloudbase-init.conf` to match the values that are shown in the following example.
 
    ```text
    [DEFAULT]
@@ -130,7 +151,7 @@ Complete the following steps to customize the virtual machine.
    ```
    {: codeblock}
 
-6. Modify the `cloudbase-init-unattend.conf` file in `C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf\cloudbase-init-unattend.conf` to match the values shown in the following example.
+1. Modify the `cloudbase-init-unattend.conf` file in `C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf\cloudbase-init-unattend.conf` to match the values shown in the following example.
 
    ```text
    [DEFAULT]
@@ -161,9 +182,9 @@ Complete the following steps to customize the virtual machine.
    ```
    {: screen}
 
-7. Modify the `Unattend.xml` file in `C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf\Unattend.xml` to set  **PersistAllDeviceInstalls** to *false*.
+1. Modify the `Unattend.xml` file in `C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf\Unattend.xml` to set  **PersistAllDeviceInstalls** to *false*.
 
-8. Run Sysprep by using the following command:
+1. Run Sysprep by using the following command:
 
    ```sh
    C:\Windows\System32\Sysprep\Sysprep.exe /oobe /generalize /shutdown "/unattend:C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf\Unattend.xml"

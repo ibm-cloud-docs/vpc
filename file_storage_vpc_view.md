@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-10-19"
+lastupdated: "2023-12-18"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -25,7 +25,7 @@ View all file shares and mount targets in the UI, CLI, API, or Terraform. View d
 ### View all file shares in the UI
 {: #fs-view-all-shares-ui}
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Storage > File Shares**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > File Shares**.
 
 2. The File Shares for VPC list page shows all file shares that are created in that zone. Overflow menu options are used to manage the file shares. The following table describes the information and actions on the list page.
 
@@ -45,7 +45,7 @@ View all file shares and mount targets in the UI, CLI, API, or Terraform. View d
 ### View details of a file share in the UI
 {: #fs-view-single-share-ui}
 
-1. Go to the list of all file shares. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Storage > File Shares**.
+1. Go to the list of all file shares. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > File Shares**.
 
 2. Click the name of a file share to see the details page.
 
@@ -83,13 +83,15 @@ The following table describes the information on the file share details page.
 | **File share replication relationship** | Shows the name, location, and status of the source and the replica file shares \n * If no replica file shares were created, click **Create replica** to [create one](/docs/vpc?topic=vpc-file-storage-create-replication). \n * To break the replication relationship, click **Remove replication relationship**. Then, the replica file share becomes an independent read/write file share.|
 | Replication frequency | Hover over the information icon to see an explanation of the cron replication schedule. |
 | Status | Replication status; for example, _suspended_ or _available_. |
+| Last sync start time [New]{: tag-new} | The date and time of the last replication start. |
+| Last sync completion time [New]{: tag-new} | The date and time of the last replication ended. |
+| Transfer rate [New]{: tag-new} | It shows the speed at which data was copied from the source file share to its replica during the last sync. |
+| Transfer amount [New]{: tag-new}| The amount of data that is copied from the source file share to its replica during the last sync. |
 | Replication role | Source or replica file share. |
 | File share Name | Click the file share name to see its details. |
 | Location | It displays the zone information of the file share. |
 | Status   | It displays the lifecycle status of the file share. The status `Stable` is expected.|
 {: caption="Table 2. File shares details page" caption-side="bottom"}
-
-To renameThe Action menu (...) at the end of a table row 
 
 ### View all file shares for a VPC in the UI
 {: #fs-view-shares-vpc}
@@ -99,17 +101,17 @@ You can see all file shares that have a mount target to a VPC by viewing the VPC
 1. Go to a VPC:
 
     1. From the [file shares details page](#fs-view-single-share-ui), click the VPC link in the list of mount targets.
-    2. From the UI, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Network > VPCs**. Click the name of a VPC in the list.
+    2. From the UI, go to the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Network > VPCs**. Click the name of a VPC in the list.
 
 2. On the VPC details page, scroll to **File shares in this VPC**.
 
 ### View mount target details in the UI
 {: #fs-get-mountpath-ui-vpc}
 
-1. Go to the list of all file shares. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Storage > File Shares**.
+1. Go to the list of all file shares. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > File Shares**.
 2. Click the name of a file share to see the details page. 
 3. Scroll to the Mount targets section to see the list of mount targets. The list contains the names and statuses of the mount target, and the VPC that the mount target belongs to.
-4. Click the ellipsis (![Actions menu](images/overflow.png)) to reveal the Actions menu. The Actions menu has 3 options: Rename, View path, and Delete. 
+4. Click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions") to reveal the Actions menu. The Actions menu has 3 options: Rename, View path, and Delete. 
 5. Click View path to see the mount path information that you can copy and paste in your mounting commands.
 
 ## Viewing file share and mount targets from the CLI
@@ -135,6 +137,7 @@ r006-925214bc-ded5-4626-9d8e-bc4e2e579232   my-new-file-share       stable      
 r006-b1707390-3825-41eb-a5bb-1161f77f8a58   my-vpc-file-share       stable            us-south-2   dp2       1000       Default          none   
 r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   my-file-share           stable            us-south-2   dp2       1000       Default          source   
 ```
+{: screen}
 
 For more information about the command options, see [`ibmcloud is shares`](/docs/vpc?topic=vpc-vpc-reference#shares).
 
@@ -230,7 +233,7 @@ Listing share mount target of r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a in all r
 ID                                          Name                     VPC      Lifecycle state   Transit Encryption   
 r006-fdbffc45-618c-49f1-bb08-ec530d7be378   my-source-mount-target   my-vpc   stable            none   
 ```
-{: pre}
+{: screen}
 
 For more information about the command options, see [`ibmcloud is share-mount-targets`](/docs/vpc?topic=vpc-vpc-reference#share-mount-targets).
 
@@ -258,7 +261,7 @@ Mount path                  10.240.64.6:/5975a795_e5e7_474c_82d3_46c1d4159c6a
 Transit Encryption          none   
 Created                     2023-10-19T15:42:54+00:00   
 ```
-{: codeblock}
+{: screen}
 
 For more information about the command options, see [`ibmcloud is share-mount-target`](/docs/vpc?topic=vpc-vpc-reference#share-mount-target).
 
@@ -285,9 +288,7 @@ You must provide the `generation` parameter and specify `generation=2`. For more
 Make a `GET /shares` request to list all file shares for a region.
 
 ```sh
-curl -X GET \
-"$vpc_api_endpoint/v1/shares?version=2023-07-18?limit=50&generation=2"\
--H "Authorization: $iam_token"
+curl -X GET "$vpc_api_endpoint/v1/shares?version=2023-07-18?limit=50&generation=2" -H "Authorization: $iam_token"
 ```
 {: pre}
 
@@ -639,7 +640,7 @@ You can use Terraform to view information about your file share and mount target
 To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
 {: requirement}
 
-VPC infrastructure services use a regional specific endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the right region in the provider block in the `provider.tf` file.
+VPC infrastructure services use a regional specific endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the appropriate region in the provider block in the `provider.tf` file.
 
 See the following example of targeting a region other than the default `us-south`.
 

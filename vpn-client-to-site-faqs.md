@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-10-27"
+  years: 2022, 2023
+lastupdated: "2023-12-04"
 
 keywords: VPN server, faq, faqs, frequently asked questions, vpn, VPN
 
@@ -105,7 +105,7 @@ Yes, it supports high availability in an Active/Active configuration. You must c
 {: faq}
 {: support}
 
-Up to 600 Mbps of throughput is supported with a stand-alone VPN server. A maximum of 1200 Mbps of throughput is supported with a high availability VPN server.
+Up to 600 Mbps of aggregation throughput is supported with a stand-alone VPN server. A maximum of 1200 Mbps of aggregation throughput is supported with a high availability VPN server. Up to 150 Mbps of throughput for a single client connection (applicable for both stand-alone and high availability VPN servers).
 
 ## Can I use a VPN server for IBM Cloud classic infrastructure?
 {: #faq-vpn-server-with-classic}
@@ -180,7 +180,7 @@ Supply the following content in your [IBM Support case](/docs/get-support?topic=
 1. Your VPN client and operating system version.
 1. The logs from your VPN client.
 1. The time range when you encountered the problem.
-1. If user-ID-based authentication is used, supply the username.  
+1. If user-ID-based authentication is used, supply the username.
 1. If certificate-based authentication is used, supply the common name of your client certificate.
 
    To view the common name of your client certificate, use the OpenSSL command `openssl x509 -noout -text -in your_client_certificate_file` in the `subject` section.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-08-08"
+lastupdated: "2023-12-14"
 
 keywords:
 
@@ -80,12 +80,12 @@ Customer-managed encryption has several advantages over IBM-managed encryption.
 
 **Encrypt your custom images:**
 
-* You can [manually encrypt](/docs/vpc?topic=vpc-create-encrypted-custom-image#manually-encrypt-image) an image by creating a encrypted copy of it by used QEMU.
+* You can [manually encrypt](/docs/vpc?topic=vpc-create-encrypted-custom-image#manually-encrypt-image) an image by creating an encrypted copy of it by using QEMU.
 * You can create encrypted [custom images](/docs/vpc?topic=vpc-create-encrypted-custom-image) from encrypted boot volumes. For more information, see [About encrypted custom images](#byok-about-encrypted-images).
 
 **Excellent performance:**
 
-* BYOK uses hypervisor encryption on the VPC infrastructure, which delivers excellent encrypted {{site.data.keyword.block_storage_is_short}} I/O performance for your virtual server instances.
+* Customer-managed encryption uses hypervisor encryption on the VPC infrastructure, which delivers excellent encrypted {{site.data.keyword.block_storage_is_short}} I/O performance for your virtual server instances.
 * With the VPC infrastructure, you can create and start 1,000 instances with customer-managed encrypted boot volumes within minutes.
 * Because the hypervisor manages the encryption and decryption, the guest OS does not have to modify the data. The guest OS has no knowledge that encryption is occurring.
 
@@ -103,7 +103,7 @@ Customer-managed encryption has several advantages over IBM-managed encryption.
 ### {{site.data.keyword.cloud_notm}} VPC encryption technology
 {: #byok-technologies}
 
-Encryption is handled by {{site.data.keyword.cloud_notm}} VPC's hypervisor technology for your instances. This feature provides greater level of security over solutions that provide only storage node encryption-at-rest. Data is always encrypted with envelope encryption within the {{site.data.keyword.cloud_notm}}.
+Encryption is handled by {{site.data.keyword.cloud_notm}} VPC's hypervisor technology for your instances. This feature provides a greater level of security over solutions that provide only storage node encryption-at-rest. Data is always encrypted with envelope encryption within the {{site.data.keyword.cloud_notm}}.
 
 Stock and custom images use QEMU Copy On Write Version 2 (QCOW2) file format. LUKS encryption format secures the QCOW2 format files. {{site.data.keyword.cloud_notm}} uses the AES-256 cipher suite and XTS cipher mode options with LUKS. This combination provides a much greater level of security than AES-CBC, along with better management of passphrases for key rotation, and provides key replacement options if your keys are compromised.
 
@@ -133,7 +133,7 @@ Table 1 describes these services:
 | Key Management Service | HSM Encryption Certification | Description |
 | ----- | ----- | ----- |
 | [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect/concepts?topic=key-protect-getting-started-tutorial) | FIPS 140-2 _Level 3_ compliance | With A multi-tenant KMS, you can import or create your root keys and securely manage them.  |
-| [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started) | FIPS 140-2 _Level 4_ compliance | Highest level of security. A single-tenant KMS and hardware security module (HSM) that is controlled by you. Import or create your root keys and securely manage them. Create an HSM master key to encrypt the content of key storage, including root keys. Only you have access to your keys and data. |
+| [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started) | FIPS 140-2 _Level 4_ compliance | The highest level of security. A single-tenant KMS and hardware security module (HSM) that is controlled by you. Import or create your root keys and securely manage them. Create an HSM master key to encrypt the content of key storage, including root keys. Only you have access to your keys and data. |
 {: caption="Table 1. Available key management service options" caption-side="bottom"}
 
 You might see {{site.data.keyword.keymanagementserviceshort}} being described as _BYOK_, "bring your own key" and {{site.data.keyword.hscrypto}} as _KYOK_, or "keep your own key". {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.hscrypto}} are similar services.
@@ -230,6 +230,6 @@ Figure 3 shows the procedure for encrypting custom images with your own encrypti
 {: #byok-about-next-steps}
 
 * [Review the checklist](/docs/vpc?topic=vpc-vpc-encryption-planning#planning-for-data-encryption) for planning data encryption and complete the [prerequisites](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-encryption-prereqs).
-* [Create virtual server instances with customer-managed encryption volumes](/docs/vpc?topic=vpc-creating-instances-byok).
+* [Create virtual server instances with customer-managed encryption volumes](/docs/vpc?topic=vpc-block-storage-vpc-encryption).
 * [Create a {{site.data.keyword.block_storage_is_short}} volume with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption).
 * [Create file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption).

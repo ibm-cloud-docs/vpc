@@ -2,10 +2,10 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-11-10"
-
+lastupdated: "2023-12-18"
 
 keywords: creating bare metal servers
+
 subcollection: vpc
 
 ---
@@ -24,7 +24,7 @@ Use the following information to create a bare metal server on your {{site.data.
 
 Use the following steps to create a bare metal server by using the {{site.data.keyword.cloud}} console. You can also check out the following [video](https://mediacenter.ibm.com/media/t/1_j2pdfua6){: external} to learn more about creating a bare metal server.
 
-1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](/login), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Bare metal servers**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**.
 
 1. Click **Create** and enter the information that is in Table 1.
 

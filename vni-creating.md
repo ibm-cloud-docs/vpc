@@ -2,7 +2,7 @@
 
 copyright:
   years:  2023
-lastupdated: "2023-10-30"
+lastupdated: "2023-12-18"
 
 keywords:
 
@@ -40,7 +40,7 @@ You can create a VNI with the UI, CLI, API, or Terraform.
 To create a virtual network interface in the UI, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Virtual network interfaces**.
+1. Select the **Navigation Menu** icon![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Virtual network interfaces**.
 1. On the Virtual network interfaces for VPC page, click **Create**.
 1. In the Location section, edit the following fields, if necessary.
     * **Geography**: Indicates the geography where you want the virtual network interface created.
@@ -141,7 +141,7 @@ Where:
 :   Suppress verbose output.
 
 ### Command examples
-{: #command-examples-virtual-network-interface-create}
+{: #cli-command-examples-virtual-network-interface-create}
 
 - `ibmcloud is virtual-network-interface-create --subnet 7208-d42716a5-6df2-416c-979d-f26330b9eod1`
 - `ibmcloud is virtual-network-interface-create --name cli-vni-1 --allow-ip-spoofing true --auto-delete true --enable-infrastructure-nat true --rip 7208-d4c0abbe-3fc2-4696-9fe1-4eb3dc9af976 --ips '[{"id":"7208-d83b7e58-3c3d-47d0-89c5-02d9a20c72fd"},{"address":"10.240.64.13", "auto_delete": false, "name": "srip2"}]' --sgs r006-aa7c7658-e503-4456-b342-8d6a89e05115,r006-4fb388f1-2b6e-4013-b279-7a8748f4d6ca --resource-group-id 11caaa983d9c4beb82690daab08717e9`

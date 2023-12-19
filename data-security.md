@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-01-23"
+lastupdated: "2023-12-14"
 
 keywords: data encryption, data storage, bring your own keys, BYOK, key management, key encryption, personal data, data deletion, data security
 
@@ -27,7 +27,7 @@ All Block Storage volumes are encrypted by default with IBM-managed encryption. 
 
 For more security and control, you can protect your data with your own root keys (also called a customer root key or CRK). This feature is commonly called Bring Your Own Key, or BYOK. Root keys encrypt the keys that safeguard your data. You can import your root keys to {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}, or have either key management service create one for you.
 
-The KMS stores your key and makes it available during volume and custom image encryption. Key Protect provides FIPS 140-2 Level 3 compliance. Hyper Protect Crypto Services offers the highest level of security with FIPS 140-2 Level 4 compliance. Your key material is protected in transit (when it's transported) and at rest (when it is stored).
+The KMS stores your key and makes it available during volume and custom image encryption. {{site.data.keyword.keymanagementserviceshort}} provides FIPS 140-2 Level 3 compliance. Hyper Protect Crypto Services offers the highest level of security with FIPS 140-2 Level 4 compliance. Your key material is protected in transit (when it's transported) and at rest (when it is stored).
 
 Customer-managed encryption is available for custom images, boot volumes, and data volumes. When an instance is provisioned from an encrypted custom image, its boot volume is encrypted by using the image’s root key. You can also choose a different root key. Data volumes are encrypted by using root keys when you provision a virtual server instance or when you create a stand-alone volume.
 
@@ -53,7 +53,7 @@ Data is automatically encrypted on the physical media at the drive level. Howeve
 
 {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} provide a higher level of protection called envelope encryption.
 
-[Envelope encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-envelope-ecryption-byok) encrypts one encryption key with another encryption key. A DEK encrypts your actual data. The DEK is never stored. Rather, it's encrypted by a key encryption key. The LUKS passphrase is then encrypted by a root key, which creates a WDEK. To decrypt data, the WDEK is unwrapped so you can access the data that's stored on the volume. This process is possible only by accessing the root key that is stored in your KMS instance. Root keys in HPCS service instances are also protected by a [hardware security module (HSM)](#x6704988){: term} master key.
+[Envelope encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-envelope-ecryption-byok) encrypts one encryption key with another encryption key. A DEK encrypts your actual data. The DEK is never stored. Rather, it's encrypted by a key encryption key. The LUKS passphrase is then encrypted by a root key, which creates a WDEK. To decrypt data, the WDEK is unwrapped so you can access the data that's stored on the volume. This process is possible only by accessing the root key that is stored in your KMS instance. Root keys in {{site.data.keyword.hscrypto}} instances are also protected by a [hardware security module (HSM)](#x6704988){: term} master key.
 
 You control access to your root keys stored in KMS instances within {{site.data.keyword.cloud}} by using {{site.data.keyword.iamlong}} (IAM). You grant access to a service to use your keys. You can also revoke access at any time, for example, if you suspect your keys might be compromised, or [delete your root keys](#delete-root-keys).
 
@@ -66,7 +66,7 @@ For Block Storage volumes and encrypted images, you can rotate the root keys for
 
 Consider regional and cross-regional implications when you choose to use customer-managed encryption. For more information, see [Regional and cross regional considerations](/docs/vpc?topic=vpc-vpc-encryption-about#byok-cross-region-keys).
 
-With Key Protect or HPCS you can create, import, and manage your root keys. You can assign access policies to the keys, assign users or service IDs to the keys, or give the key access only to a specific service. The first 20 keys are without cost.
+With {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} you can create, import, and manage your root keys. You can assign access policies to the keys, assign users or service IDs to the keys, or give the key access only to a specific service. The first 20 keys are without cost.
 
 ### About customer-managed encrypted volumes and images
 {: #about-encryption_volumes-images}
@@ -80,10 +80,9 @@ Custom images are encrypted by your own LUKS passphrase you create by using QEMU
 ### Enabling customer-managed keys for VPC
 {: #using-byok}
 
-See the following procedures for creating Block Storage volumes with customer-managed encryption and virtual server instances with customer-managed encryption volumes:
-
+See the following procedure for creating Block Storage boot and data volumes with customer-managed encryption 
 * [Creating Block Storage volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption)
-* [Creating virtual server instances with customer-managed encryption volumes](/docs/vpc?topic=vpc-creating-instances-byok)
+* [Creating File Storage shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption)
 
 ### Working with customer-managed keys for VPC
 {: #working-with-keys}

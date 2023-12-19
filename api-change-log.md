@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-10-24"
+lastupdated: "2023-12-12"
 
 keywords: vpc, api, change log, new features, restrictions, migration
 
@@ -53,6 +53,40 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 12 December 2023
+{: #12-december-2023}
+
+### For all version dates
+{: #12-december-2023-all-version-dates}
+
+**Cross-region replication of file shares.** When [creating a file share](/apidocs/vpc/latest#create-share), you can now specify a zone in an associated partner region to create a replica file share. For more information about cross-region pairings, see [About file share replication](/docs/vpc?topic=vpc-file-storage-replication). A [service-to-service authorization for cross-region replication](/docs/vpc?topic=vpc-file-s2s-auth&interface=api#file-s2s-auth-replication-api) between the regional file services must be created before creating a replica.
+
+An important difference between setting up in-region and cross-region replication is configuring the encryption for the replica share. 
+- When the replica is created in another zone of the same region, the encryption type and the encryption key are inherited from the source share and can't be changed. 
+- When the replica is created in another region, only the encryption type is inherited. Therefore, if the source share has `user_managed` encryption, you must specify the root key by using the `encryption_key` property when creating the replica share.
+{: note}
+
+When [retrieving a file share](/apidocs/vpc/latest#get-share), the `source_share` property now includes a `remote` sub-property that, if present in the response, indicates that the resource that is associated with this reference is remote and might not be directly retrievable.
+
+**Last replication sync information.** When [retrieving a file share](/apidocs/latest#get-share), the response now includes the properties `completed_at`, `started_at`, and `data_transferred`. These properties provide information about the replication process that can be used to monitor the health of the replication. For more information, see [Managing replica file shares](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=api#fs-repl-syncinfo).
+
+## 5 December 2023
+{: #5-december-2023}
+
+### For all version dates
+{: #5-december-2023-all-version-dates}
+
+**Multi-volume snapshots and backups.** This release introduces a new way to create snapshots. You can now [create a snapshot consistency group](/apidocs/vpc/latest#create-snapshot-consistency-group) and specify one or more snapshots that are attached to the same virtual server instance. When you create a consistency group, you are implicitly creating one or more snapshots. Snapshots taken simultaneously are data-consistent with one another, which helps to ensure consistent backups of a group of {{site.data.keyword.block_storage_is_short}} volumes attached to the same instance. [Deleting a snapshot consistency group](/apidocs/vpc/latest#delete-snapshot-consistency-group) will delete the snapshots in the group by default. However, you can keep the snapshots and delete the consistency group by specifying the `delete_snapshots_on_delete` property.
+
+You can also automate the creation of snapshots in consistency groups. When [creating a backup policy](/apidocs/vpc/latest#create-backup-policy) you can now specify `instance` as a `match_resource_type` value that this backup policy will apply to. Resources that have both a matching type and a matching user tag will be subject to the backup policy. You can exclude boot volumes from backup policies by specifying the `included_content` property. The default behavior includes boot volumes and data volumes. 
+
+For more information, see [Backup service concepts](/docs/vpc?topic=vpc-backup-service-about&interface=api#backup-service-concepts), [Snapshot consistency groups](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=api#multi-volume-snapshots), and explore the [backup policy](/apidocs/vpc/latest#list-backup-policies) and [snapshot consistency group](/apidocs/vpc/latest#list-snapshot-consistency-groups) methods.
+
+### For version `2023-12-05` or later
+{: #version-2023-12-05}
+
+When making API requests using a `version` query parameter of `2023-12-05` or later, the backup policy `match_resource_types` property has been changed to `match_resource_type`. This change applies when [creating](/apidocs/vpc/latest#create-backup-policy), [updating](/apidocs/vpc/latest#update-backup-policy), [listing](/apidocs/vpc/latest#list-backup-policies), [retrieving](/apidocs/vpc/latest#get-backup-policy), and [deleting](/apidocs/vpc/latest#delete-backup-policy) a backup policy. See [Updating to the version 2023-12-05 (backup policies)](/docs/vpc?topic=vpc-2023-12-05-migration-backup-policy) for guidance on migrating from `match_resource_types` to `match_resource_type`.
 
 ## 24 October 2023
 {: #24-october-2023}

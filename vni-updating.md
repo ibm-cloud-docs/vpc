@@ -2,7 +2,7 @@
 
 copyright:
   years:  2023
-lastupdated: "2023-10-30"
+lastupdated: "2023-12-18"
 
 keywords:
 
@@ -27,7 +27,7 @@ You can update a VNI with the UI, CLI, API, or Terraform.
 To update an existing virtual network interface, follow these steps.
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Virtual network interfaces**.
+1. Select the **Navigation Menu** icon![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Virtual network interfaces**.
 1. Click the name of the virtual network interface in the Virtual network interfaces for VPC table.
 1. In the Overview view of the Details page, you can click the Edit icon ![Edit icon](/images/edit.png) to edit the change of the virtual network interface.
 1. Click the switch for Infrastructure NAT to the wanted state.
@@ -50,7 +50,7 @@ To update an existing virtual network interface, follow these steps.
 1. In the Attached resources tab, view secondary IPs and security groups that are already attached, or create secondary IPs or security groups to attach to your virtual network interface.
 
 ## Updating a virtual network interface from the CLI
-{: #virtual-network-interface-update}
+{: #virtual-network-interface-update-cli}
 {: cli}
 
 Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
@@ -91,7 +91,7 @@ Where:
 :   Suppress verbose output.
 
 ### Command examples
-{: #command-examples-virtual-network-interface-update}
+{: #cli-command-examples-virtual-network-interface-update}
 
 - `ibmcloud is virtual-network-interface-update 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 --name new-vni`
 - `ibmcloud is virtual-network-interface-update new-vni --name new-share`

@@ -2,8 +2,7 @@
 
 copyright:
   years: 2022, 2023
-
-lastupdated: "2023-11-10"
+lastupdated: "2023-12-18"
 
 keywords:
 
@@ -19,7 +18,7 @@ subcollection: vpc
 Custom images are used to create new virtual servers with your own settings and configurations. You can create a Linux&reg; custom image, a Windows&reg; custom image, a z/OS Wazi aaS custom image, or a VMware custom image. You can import your custom image directly into {{site.data.keyword.vpc_full}} from {{site.data.keyword.cos_full}} or create one from an existing virtual server boot volume. You can also create an image template to migrate a virtual server from the Classic infrastructure. After a custom image is created and imported into {{site.data.keyword.vpc_short}}, you can import it into a private catalog, with some limitations. For more information about these limitations, see [VPC considerations when using custom images in a private catalog](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=ui).
 {: shortdesc}
 
-On the console, you can find custom images by clicking *Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Images > Custom images*. Image from a volume are part of the custom images tab. For more information on image from a volume, see [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc). 
+On the console, you can find custom images by clicking **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images > Custom images**. Image from a volume are part of the custom images tab. For more information on image from a volume, see [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc). 
 
 ## Using a custom image to create a server
 {: #custom-image-create-vsi}
@@ -107,6 +106,6 @@ For more information, see [Bringing your own image with Wazi Image Builder](http
 * [Using granular RBAC permissions for custom images](/docs/vpc?topic=vpc-using-granular-RBAC-permissions-for-custom-images)
 * [Configuration requirements for custom Linux kernel](/docs/vpc?topic=vpc-configuration-requirements-for-custom-linux-kernels)
 * [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc&interface=ui)
-* [Importing and validating custom images into VPC](/docs/vpc?topic=vpc-importing-custom-images-vpc).
+* [Importing and validating custom images into VPC](/docs/vpc?topic=vpc-importing-custom-images-vpc)
 * [Managing custom images](/docs/vpc?topic=vpc-managing-custom-images&interface=ui)
 * [Managing image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc-manage&interface=ui)

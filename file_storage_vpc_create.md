@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-11-06"
+lastupdated: "2023-12-18"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -35,7 +35,7 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
 ### Creating a file share in the UI
 {: #fs-create-share-target-ui}
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Storage > File Shares**. A list of file shares displays.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > File Shares**. A list of file shares displays.
 
 1. On the File shares for VPC page, click **Create**.
 
@@ -55,7 +55,7 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
    |  | Virtual private cloud: Access to the file share is granted to any virtual server instance in the same region. Cross-zone mounting is not supported. |
    {: caption="Table 1. Values for creating a file share" caption-side="top"}
 
-1. The creation of mount targets is optional. You can skip this step if you do not want to create a mount target now. For more information about creating mount targets as a separate operation, see [Create a mount target](#fs-create-mount-target-ui). Otherwise, click **Create**. You can create one mount target per VPC per file share. 
+1. The creation of mount targets is optional. You can skip this step if you do not want to create a mount target now. Otherwise, click **Create**. You can create one mount target per VPC per file share. 
 
    - If you selected security group as the access mode, enter the information as described in the Table 2. This action creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target that identifies the file share with a reserved IP address and applies the rules of the selected Security group. This mount target supports encryption-in-transit and cross-zone mounting.
 
@@ -95,7 +95,7 @@ If you're not ready to order yet or just looking for pricing information, you ca
 
 You can create several mount targets for an existing file share if the share is to be used by resources in multiple VPCs. You can create one mount target per VPC per file share. 
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Storage > File shares**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > File shares**.
 
 2. Select a file share from the list.
 
@@ -106,7 +106,7 @@ You can create several mount targets for an existing file share if the share is 
 
 4. Depending on the [mount target access mode](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-mount-access-mode) of the share, the **Create mount target** form looks different.
 
-   - If the share has security group access mode, enter the following information. This action creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target that identifies the file share with a reserved IP address and applies the rules of the selected Security group. This mount target supports encryption-in-transit and cross-zone mounting.
+   - If the share has security group access mode, enter the following information. This action creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target that identifies the file share with a reserved IP address and applies the rules of the selected [security group](/docs/vpc?topic=vpc-using-security-groups#sg-getting-started). This mount target supports encryption-in-transit and cross-zone mounting.
 
      | Field | Value |
      |-------|-------|
@@ -118,7 +118,7 @@ You can create several mount targets for an existing file share if the share is 
      | **Reserved IP address** | Required for the mount target. The IP address cannot be changed afterward. However, you can delete the mount target and create another one with a different IP address. |
      | Reserving method | You can have the file service select an IP address for you. The reserved IP becomes visible after the mount target is created. Or, specify your own IP. |
      | Auto-release | Releases the IP address when you delete the mount target. Enabled by default. |
-     | **Security groups** | The security group for the VPC is selected by default, or select from the list. |
+     | **Security groups** | The [security group](/docs/vpc?topic=vpc-using-security-groups#sg-getting-started) for the VPC is selected by default, or select from the list. |
      | **Encryption in transit** | Disabled by default, click the toggle to enable. For more information about this feature, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit). |
      {: caption="Table 4. Values for creating a mount target." caption-side="top"}
 
@@ -590,7 +590,7 @@ A successful response looks like the following example.
 ### Creating a file share and mount target by specifying a subnet
 {: #fs-create-file-share-subnet-vni-api}
 
-The following example creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target with a reserved IP address and applies the rules of the selected security group. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all virtual server instances on which you want to mount the file share. To create the mount target with the network interface, make a `POST /shares` request and specify a subnet. Specifying the `subnet` property is required when you're not using the [`primary_ip` property](#fs-create-file-share-pni-api) and specifying `address` for a reserved IP address.
+The following example creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target with a reserved IP address and applies the rules of the selected security group. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all virtual server instances on which you want to mount the file share. To create the mount target with the network interface, make a `POST /shares` request and specify a subnet. Specifying the `subnet` property is required when you're not specifying a [virtual network interface](#fs-create-file-share-vni-api).
 
 In this example, the mount target specifies a subnet ID. When the `transit_encryption` property is set to `user_managed`, encryption in transit with an instance identity certificate is enabled. The default is none, which disables encryption in transit. The default access control mode is `security_group`, which is shown in the response.
 
@@ -726,14 +726,15 @@ The following response shows that access control mode is `security_group`, which
 ```
 {: codeblock}
 
-### Creating a file share and mount target by specifying a primary network interface
-{: #fs-create-file-share-pni-api}
+### Creating a file share and mount target by specifying a virtual network interface
+{: #fs-create-file-share-vni-api}
 
-Make a `POST /shares` request and create a mount target with a primary network interface. Specify the `primary_ip` property and optional `address` subproperty, which reserves the IP address that you indicate. This address must not already be reserved on the subnet.
+This VPC feature is available only to accounts with special approval to preview this feature.
+{: preview}
 
-If you don't specify an address, an available address on the subnet is automatically selected. The default access control mode is `security_group`, which is displayed in the response.
+This operation requires that you have already [created a virtual network interface](/docs/vpc?topic=vpc-vni-create&interface=api) and that the virtual network interface is not currently attached to another resource.
 
-By default, `auto_delete` for the primary IP is set to `true`. When you create a mount target with this option and later delete the target, the primary IP is also deleted. To release the primary IP when the mount target is deleted, set `auto_delete` to `false`. This example releases the primary IP.
+Make a `POST /shares` request and create a mount target with a virtual network interface. Specify the identity of an unattached virtual network interface in the mount target's `virtual_network_interface` property.
 
 ```json
 curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2" \
@@ -744,17 +745,11 @@ curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2" \
     "profile": {"name": "dp2"},
     "zone": {"name": "us-south-3"},
     "mount_targets": [
+        "name": "mount-target-1",
+        "transit_encryption": {"user_managed"},
         "virtual_network_interface": {
-            "primary_ip": {
-                "name": "primary-ip1",
-                "address": "192.0.2.0",
-                "href": "https://us-south.iaas.cloud.ibm.com/v1/subnets/aea5fe79f-52c3-4f05-86ae-9540a10489f5/reserved_ips/6fd4925d-7774-4e87-829e-7e5765d454ad",
-                "id": "6fd4925d-7774-4e87-829e-7e5765d454ad",
-                "name": "my-reserved-ip",
-                "auto_delete": "false"
-                }
-            },
-        "transit_encryption": {"user_managed"}
+            "id": "0767-fa41aecb-4f21-423d-8082-630bfba1e1d9"
+          }
        ]
     }'
  ```
@@ -815,7 +810,7 @@ curl -X POST \
 To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
 {: requirement}
 
-VPC infrastructure services use a regional specific endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the right region in the provider block in the `provider.tf` file.
+VPC infrastructure services use a regional specific endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the appropriate region in the provider block in the `provider.tf` file.
 
 See the following example of targeting a region other than the default `us-south`.
 

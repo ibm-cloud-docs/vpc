@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-06-27"
+lastupdated: "2023-12-18"
 
 keywords: snapshots, Block Storage snapshots, manage snapshots, fast restore clone, backup snapshot, remote copy, cross-regional copy
 
@@ -33,7 +33,7 @@ When you create a cross-regional copy of a snapshot, the new snapshot is named `
 
 Use the following steps to rename a snapshot by using the UI.
 
-1. Go to the list of snapshots. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Snapshots**.
+1. Go to the list of snapshots. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu** ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Snapshots**.
 2. Click the name of a snapshot from the list.
 3. Click the pencil icon.
 4. Provide a [new name](#snapshots-vpc-naming) for the snapshot, save, and confirm your changes.
@@ -61,13 +61,6 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 
    ```sh
    ibmcloud is target --gen 2
-   ```
-   {: pre}
-
-3. Set the `IBMCLOUD_IS_FEATURE_SNAPSHOT` environment variable to `true`.
-
-   ```sh
-   export IBMCLOUD_IS_FEATURE_SNAPSHOT=true
    ```
    {: pre}
 
@@ -143,7 +136,7 @@ You can use the same call to rename a cross-regional copy. The cross-regional co
 To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
 {: requirement}
 
-VPC infrastructure services use a region-specific endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the right region in the provider block in the `provider.tf` file.
+VPC infrastructure services use a regional specific endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the appropriate region in the provider block in the `provider.tf` file.
 
 See the following example of targeting a region other than the default `us-south`.
 
@@ -427,7 +420,7 @@ curl -X DELETE \
 
 Use the following steps to create cross-regional copies of snapshots from the Snapshots for VPC list or from the snapshot details page.
 
-1. In the console, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block Storage snapshots**.
+1. In the console, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage snapshots**.
 2. In the list of snapshots, find the snapshot that you want to duplicate in another region.
 3. click the overflow menu (...) and select **Copy snapshot**.
 4. Select the region where you want to create the copy.
@@ -447,7 +440,7 @@ Snapshot copies in a remote region are independent from the parent snapshot and 
 
 Use the following steps to delete a remote region copy by using the UI.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Snapshots**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu** ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Snapshots**.
 2. Click the Actions menu (ellipsis) in the row of the snapshot that you want to delete.
 3. Select **Delete**.
 4. Confirm the deletion and click **Delete**.
@@ -671,14 +664,14 @@ You can delete all snapshots for a volume. Deleting all snapshots requires furth
 
 You can delete a snapshot from the list of all snapshots by using the following steps.
 
-1. Go to the list of all snapshots. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Snapshots**.
+1. Go to the list of all snapshots. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu** ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Snapshots**.
 2. Click the Actions menu (ellipsis) in the row of the snapshot that you want to delete.
 3. Select **Delete**.
 4. Confirm the deletion and click **Delete**.
 
 You can also delete a snapshot from the details page of a {{site.data.keyword.block_storage_is_short}} volume.
 
-1. Go to the list of all {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block Storage volumes**.
+1. Go to the list of all {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
 2. Select a volume from the list, and click the volume name to go to the volume details page.
 3. Click **Snapshots**. A list of snapshots that are taken of this volume are displayed, and you can take the following actions:
     * Click **Delete all** to delete all snapshots for this volume.
@@ -691,7 +684,7 @@ You can also delete a snapshot from the details page of a {{site.data.keyword.bl
 
 To delete all snapshots for a volume in the UI, follow these steps.
 
-1. Go to the list of all snapshots. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Snapshots**.
+1. Go to the list of all snapshots. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu** ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Snapshots**.
 2. Click the row to select the snapshot that you want to delete.
 3. From the Actions menu (ellipsis), select **Delete all for volume**.
 4. Confirm the deletion by typing _delete_ and then click **Delete**.
@@ -701,7 +694,7 @@ To delete all snapshots for a volume in the UI, follow these steps.
 
 You can delete the most recently created snapshot from the list of snapshots from the {{site.data.keyword.block_storage_is_short}} volume details page. Optionally, you can delete all snapshots from this view.
 
-1. Go to the list of all {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block Storage volumes**.
+1. Go to the list of all {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu** ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
 2. Select a volume from the list and click the volume name to go to the volume details page.
 3. Click **Snapshots** to see a list of snapshots taken of this volume.
 4. Click **Delete all** to delete all snapshots for this volume.

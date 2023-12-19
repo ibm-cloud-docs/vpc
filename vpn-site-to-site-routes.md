@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-03-08"
+  years: 2022, 2023
+lastupdated: "2023-12-18"
 
 keywords:
 
@@ -42,7 +42,7 @@ In another scenario, you might want to send all traffic from the VPC side to the
 To create a route to specify how destination network traffic is directed, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the Menu icon ![Menu icon](../icons/icon_hamburger.svg) on the upper left of the page, then click **VPC Infrastructure > VPNs** in the Network section.
+1. Select the **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>VPNs** in the Network section.
 1. Select **Site-to-site gateways** > **VPN gateways**, then select the VPN gateway where you want to add a route.
 1. On the VPN gateway's detailspage, select the **Routes** tab.
 1. Select **Create +**.
@@ -67,7 +67,7 @@ You can select **Edit** from the Actions menu of the VPN gateway route to change
 To delete a route by using the UI, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the Menu icon ![Menu icon](../icons/icon_hamburger.svg) on the upper left of the page, then click **VPC Infrastructure > VPNs** in the Network section.
+1. Select the **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>VPNs** in the Network section.
 1. Select the **Site-to-site gateways** tab.
 1. Select the site-to-site gateway where you want to delete a route, then select **Delete** from the Actions menu.
 1. Select **Delete** again to confirm deletion.

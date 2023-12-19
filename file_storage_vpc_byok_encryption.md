@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-10-20"
+lastupdated: "2023-12-14"
 
 keywords: file share, customer-managed encryption, encryption, byok, KMS, Key Protect, Hyper Protect Crypto Services,
 
@@ -23,9 +23,9 @@ For more information, see [Protecting data with envelope encryption](/docs/key-p
 ## Before you begin
 {: #custom-managed-vol-prereqs-file}
 
-To create file shares with customer-managed encryption, you must first provision a key management service, and create or import your customer root key (CRK). You must also [create a service-to-service authorization](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-volumes-prereqs) between {{site.data.keyword.filestorage_vpc_short}} and the key management service. When you complete these prerequisites, you can start creating file shares that use customer-managed encryption.
+To create file shares with customer-managed encryption, you must first provision a key management service (KMS), and create or import your customer root key (CRK). You can choose between [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect/concepts?topic=key-protect-getting-started-tutorial) and [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started). 
 
-For more information, see [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-encryption-prereqs).
+You must also [create a service-to-service authorization](/docs/vpc?topic=vpc-file-s2s-auth) between {{site.data.keyword.filestorage_vpc_short}} and the KMS instance that you created.
 
 ## Creating file shares with customer-managed encryption in the UI
 {: #fs-byok-encryption-ui}
@@ -33,7 +33,7 @@ For more information, see [Prerequisites for setting up customer-managed encrypt
 
 Follow this procedure to specify customer-managed encryption when you create a file share.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Storage > File Shares**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon** ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > File Shares**.
 
 1. Click **Create**.
 
@@ -47,7 +47,7 @@ Follow this procedure to specify customer-managed encryption when you create a f
    | Tags | Tags are used to organize, track, and even manage access to your file share resources. You can tag related resources and view them throughout your account by filtering by tags from your resource list. User tags are visible account-wide. Avoid including sensitive data in the tag name. For more information, see [Working with tags](/docs/account?topic=account-tag&interface=ui).|
    | Access-management tags| You can apply flexible access policies on your file shares with access-management tags. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial). |
    | Profile | New file shares are created with the dp2 profile. Select the size and IOPS for your file share. For more information, see [file Storage profiles](/docs/vpc?topic=vpc-file-storage-profiles). |
-   | Mount target access mode |  Select one: \n - Security group: Access to the file share is based on security group rules within a subnet. This option can be used to restrict access to specific virtual server instances. \n - Virtual private cloud: Access to the file share is granted to any virtual server instance in the same VPC. |
+   | Mount target access mode |  Select one: \n - Security group: Access to the file share is based on [security group](/docs/vpc?topic=vpc-using-security-groups#sg-getting-started) rules within a subnet. This option can be used to restrict access to specific virtual server instances. \n - Virtual private cloud: Access to the file share is granted to any virtual server instance in the same VPC. |
    {: caption="Table 1. Values for creating a file share and mount target." caption-side="bottom"}
 
 1. The creation of mount targets is optional. You can skip this step if you do not want to create a mount target now. Otherwise, click **Create**. You can create one mount target per VPC per file share. 
@@ -64,7 +64,7 @@ Follow this procedure to specify customer-managed encryption when you create a f
      | **Reserved IP address** | Required for the mount target. The IP address cannot be changed afterward. However, you can delete the mount target and create another one with a different IP address. |
      | Reserving method | You can have the file service select an IP address for you. The reserved IP becomes visible after the mount target is created. Or, specify your own IP. |
      | Auto-release | Releases the IP address when you delete the mount target. Enabled by default. |
-     | **Security groups** | The security group for the VPC is selected by default, or select from the list. |
+     | **Security groups** | The [security group](/docs/vpc?topic=vpc-using-security-groups#sg-getting-started) for the VPC is selected by default, or select from the list. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all virtual server instances on which you want to mount the file share. |
      | **Encryption in transit** | Disabled by default, click the toggle to enable. For more information about this feature, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit). |
      {: caption="Table 2. Values for creating a mount target." caption-side="top"}
 
@@ -125,9 +125,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
       ```
       {: screen}
 
-      For more information, see [Step 1 - Obtain service instance and root key information](/docs/vpc?topic=vpc-creating-instances-byok#byok-cli-setup-prereqs).
-
-1. Specify the `ibmcloud is share-create` command with the `--encryption-key` option to create a file share with customer-managed encryption. The `encryption_key` option must be followed by a valid CRN for the root key in the key management service. If you want to enable encryption in transit, too, specify that in the mount target JSON.
+1. Specify the `ibmcloud is share-create` command with the `--encryption-key` option to create a file share with customer-managed encryption. The `encryption_key` option must be followed by a valid CRN for the root key in the key management service. If you want to enable encryption in transit, too, specify that in the mount target JSON. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all virtual server instances on which you want to mount the file share.
 
    - The following example creates a file share with customer-managed encryption, security group access mode, and a mount target with a virtual network interface. Encryption in transit is not enabled.
       ```sh
@@ -209,7 +207,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 
 For more information about the command options, see [`ibmcloud is share-create`](/docs/vpc?topic=vpc-vpc-reference#share-create).
 
-## Creating customer-managed encryption file shares with the API
+## Creating file shares with customer-managed encryption with the API
 {: #fs-byok-api}
 {: api}
 
@@ -227,8 +225,7 @@ The following example creates a file share with a mount target, and specifies th
 
    ```sh
    curl -X POST \
-   "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2" \
-   -H "Authorization: $iam_token" \
+   "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2" -H "Authorization: $iam_token" \
    -d '{
         "encryption_key": {"crn":"crn:[...key:...]"},
         "iops": 1000,
@@ -236,16 +233,14 @@ The following example creates a file share with a mount target, and specifies th
         "profile": {"name": "tier-5iops"},
         "resource_group": {"id": "678523bcbe2b4eada913d32640909956"},
         "size": 100,
-        "mount_targets": [
-          {
+        "mount_targets": [{
             "name": "my-share-target",
             "subnet": {"id": "7ec86020-1c6e-4889-b3f0-a15f2e50f87e"}
-          }
-        ],
+            }],
         "zone": {"name": "us-south-2"}
-        }'
+       }'
    ```
-   {: codeblock}
+   {: pre}
 
 A successful response looks like the following example.
 
@@ -296,9 +291,43 @@ A successful response looks like the following example.
    ```
    {: screen}
 
+## Creating file shares with customer-managed encryption with Terraform
+{: #fs-byok-terraform}
+{: terraform}
+
+To create a file share, use the `ibm_is_share` resource. The following example creates a share with 800 GiB capacity and the `dp2` performance profile. The file share is encrypted by using a key that is identified by its CRN. The example also specifies a new mount target with a virtual network interface.
+
+```terraform
+resource "ibm_is_share" "share4" {
+   zone           = "us-south-2"
+   size           = "800"
+   name           = "my-share4"
+   profile        = "dp2"
+   encryption_key = "crn:v1:bluemix:public:kms:us-south:a/a1234567:key:2fb8d675-bde3-4780-b127-3d0b413631c1"
+   access_control_mode = "security_group"
+   mount_target {
+       name = "target"
+       virtual_network_interface {
+       primary_ip {
+               address = 10.240.64.5
+               auto_delete = true
+               name = "<reserved_ip_name>
+       }
+      resource_group = <resource_group_id>
+      security_groups = [<security_group_ids>]
+      }
+   }
+}
+```
+{: screen}
+
+For more information about the arguments and attributes, see [ibm_is_share](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share){: external}.
+
 ## Next steps
 {: #next-step-fs-byok}
 
+- Use the [IBM Cloud File Share Mount Helper utility](/docs/vpc?topic=vpc-fs-mount-helper-utility) to mount your encrypted file share to an authorized Compute instance.
+
 - Manage the root keys that are protecting your file share by [rotating](/docs/vpc?topic=vpc-vpc-key-rotation), [disabling](/docs/vpc?topic=vpc-vpc-encryption-managing&interface=ui#byok-disable-root-keys), or [deleting](/docs/vpc?topic=vpc-vpc-encryption-managing&interface=ui#byok-delete-root-keys) keys.
 
-- Use the [IBM Cloud File Share Mount Helper utility](/docs/vpc?topic=vpc-fs-mount-helper-utility) to mount your encrypted file share to an authorized Compute instance.
+- Consider setting up replication for your share. For more information, see [About file share replication](docs/vpc?topic=vpc-file-storage-replication).

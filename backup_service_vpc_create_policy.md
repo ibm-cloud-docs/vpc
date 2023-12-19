@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-11-13"
+lastupdated: "2023-12-18"
 
 keywords: Backup, backup snapshot, create backups, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -15,15 +15,15 @@ subcollection: vpc
 # Creating backup policies and plans
 {: #create-backup-policy-and-plan}
 
-You can create backup policies for your {{site.data.keyword.block_storage_is_short}} volumes in the UI, from the CLI, with the API, or Terraform. You can create up to four backup plans to schedule backup creation and retention. Specify user tags in the policy to make sure that your data is backed up regularly. Create backups on schedule when the tags that are applied to a volume match the tags in a backup policy.
+You can create backup policies for your {{site.data.keyword.block_storage_is_short}} volumes in the UI, from the CLI, with the API, or Terraform. You can create up to four backup plans to schedule backup creation and retention. Specify user tags in the policy to make sure that your data is backed up regularly. Create backups on schedule when the tags that are applied to a resource match the tags in a backup policy.
 {: shortdesc}
 
 ## Before you begin
 {: #backup-prereqs}
 
-1. Establish IAM user roles to grant [service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth#backup-s2s-auth-overview) so the backup service can detect volume tags and create backups.
+1. Establish IAM user roles to grant [service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth#backup-s2s-auth-overview) so the backup service can detect tags on resources and create backups.
 
-2. Create user tags for new or existing data volumes that you can associate with a backup policy. For more information about adding tags, see [Apply tags to resources for backup policies](/docs/vpc?topic=vpc-backup-use-policies). For more information about creating tags, see [Working with tags](/docs/account?topic=account-tag).
+2. Create user tags for new or existing resources (storage volumes or virtual server instances) that you can associate with a backup policy. For more information about adding tags, see [Apply tags to resources for backup policies](/docs/vpc?topic=vpc-backup-use-policies). For more information about creating tags, see [Working with tags](/docs/account?topic=account-tag).
 
 You're not required to create a backup plan when you create a backup policy, but it's good practice to create at least one backup plan with your policy.
 {: tip}
@@ -39,7 +39,7 @@ You can use the UI to create a backup policy and plan.
 
 Use the following steps to create a backup policy by using the UI.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Backup policies**. The **Create** tab is selected by default.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Backup policies**. The **Create** tab is selected by default.
 
    The UI displays a notification message when service-to-service authorizations are incorrect or missing on your account.
 
@@ -56,16 +56,16 @@ Use the following steps to create a backup policy by using the UI.
    | **Details**  | Enter details to define the policy. A policy defines what volumes are backed up. |
    | - Name       | Provide a unique name for your backup policy that easily identifies the policy. Standard naming conventions apply to policies, plans, and backups. For example, see the [naming conventions for Snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-naming). |
    | - Resource group | Optionally, specify a resource group for your policy. It can't be changed after you enter it. \n For more information, see [best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup). |
-   | - Tags       | Add user tags that you want to apply to this policy. This tag must match a {{site.data.keyword.block_storage_is_short}} volume tag. |
-   | - Access management tags | Access management tags are used to manage access to resources, and they can be created in advance for use in access policies. Access policies control access to the resources where the tags are attached. Only the account administrator can create access management tag. |
-   | **Tags for target resources** | Specify the user tags to apply to your target resources ({{site.data.keyword.block_storage_is_short}} volumes) in your region. If multiple resources use the same tag, backups are created for all tagged resources. If a resource has multiple tags, it needs to match only one tag that is associated with the backup policy. After the backup policy is created, existing resources with any of the tags for target resources are automatically associated. |
-   | **Scope**| This option is applicable only to Enterprise accounts. As an Enterprise account administrator, you can specify whether the backup policy applies to the Enterprise account alone or the Enterprise account and all of its subaccounts. Check the box to enable the policy for all accounts of the Enterprise. |
-   | **Plan**      | Click **Create** to create backup plan for this policy. In the side panel, specify the plan details. When finished, click **Create**. The page refreshes with a summary of the plan details. You can create up to four backup plans. All apply to the volumes with tags that match the backup policy. \n For more information about options, see [Specify a backup plan](#backup-plan-ui). |
+   | - Resource tags  | Optional tags to help you group and manage your backup policy. Consider writing tags as key:value pairs. For more information, see [Working with tags](/docs/account?topic=account-tag&interface=ui).|
+   | **Target resource type** [New]{: tag-new} | Choose between individual storage volumes or multiple volumes that are attached to the same virtual server instance. \n When you choose to create a policy to back up volumes that are attached to the same virtual server instance you can choose to include the boot volume, too. |
+   | **Tags for target resources** | Specify the user tags to apply to your target resources ({{site.data.keyword.block_storage_is_short}} volumes or virtual server instances) in your selected region. If multiple resources use the same tag, backups are created for all tagged resources. If a resource has multiple tags, it needs to match only one tag that is associated with the backup policy. After the backup policy is created, existing resources with any of the tags for target resources are automatically associated. |
+   | **Scope**    | This option is applicable only to Enterprise accounts. As an Enterprise account administrator, you can specify whether the backup policy applies to the Enterprise account alone or the Enterprise account and all of its subaccounts. Check the box to enable the policy for all accounts of the Enterprise. |
+   | **Plan**     | Click **Create** to create backup plan for this policy. In the side panel, specify the plan details. When finished, click **Create**. The page refreshes with a summary of the plan details. You can create up to four backup plans. All apply to the volumes with tags that match the backup policy. \n For more information about options, see [Specify a backup plan](#backup-plan-ui). |
    {: caption="Table 1. Backup policy provisioning selections" caption-side="bottom"}
 
 1. Click **Create backup policy**. The order summary side panel shows the backup policy and all plans that were created for it.
-   
-If you're not ready to order yet or just looking for pricing information, you can add the information that you see in the side panel to an Estimate. For more information about how this feature works, see [Estimating your costs](/docs/billing-usage?topic=billing-usage-cost).    
+
+If you're not ready to order yet or just looking for pricing information, you can add the information that you see in the side panel to an Estimate. For more information, see [Estimating your costs](/docs/billing-usage?topic=billing-usage-cost).
 {: tip}
 
 ### Creating a backup plan in the UI
@@ -97,15 +97,15 @@ You can schedule backups in your plan on a daily, weekly, or monthly basis by us
 
    To keep costs down, set a retention period or snapshots count adequate to your needs. For example, setting "7" for **Age** retains a week's worth of backups.
 
-1. Under **Optional**, you can configure two options.
+1. Under **Optional**, you can configure two options for individual volume backups. When you're creating a plan for a policy that is for multi-volume backups, fast snapshot restore is not available.
 
-   * **Fast snapshot restore** - When you enable this feature, you must specify the zone or zones where you want [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_fast_restore) enabled. You can also specify the maximum number of fast restore snapshots that you want to retain. Billing for the fast restore feature is set at a flat rate based on instance hours. The feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots.
+   * **Fast snapshot restore** - When you enable this feature, you must specify the zone or zones where you want [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_fast_restore) enabled. You can also specify the maximum number of fast restore snapshots that you want to retain. The fast restore feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots
 
    * **Tagging**, specify more tags that apply to the backup when the plan runs.
       * Select the box to copy all tags from the source volume to all backups.
       * Under **Tags for backups**, you can manually add any extra plan tags in this field.
 
-1. Click **Next** to proceed to configure remote copies, which are an optional part of the plan.
+1. If you're creating a backup plan for multi-volume backups, you can click Apply changes and move to the next step. If you're creating a backup plan for individual volumes, you can click **Next** to proceed to configure remote copies, which are an optional part of the plan.
    1. To create cross-regional copies of your backup, select the geography and regions where you want to have a copy. Remember, you can have only one copy per region.
    1. Click the toggle to enable remote copy in the selected region.
    1. If the source snapshot is encrypted by using a customer-managed key, you must select the encryption service instance and provide the key name. If you prefer, you can create a new service instance or encryption key by following the links.
@@ -115,9 +115,7 @@ You can schedule backups in your plan on a daily, weekly, or monthly basis by us
    Tags are automatically copied over from the parent backup.
    {: note}
 
-1. Click **Save**.
-1. The **Summary** updates automatically with the selections that you made. For example, the plan might be "Every Monday at -5:53 UTC (12:30 AM CDT) starting on 26 March 2022." The **Plan status** toggle is enabled by default.
-1. Click **Create** to save the new plan. The list of plans is updated in the policy details page. If you want to make any changes, click the pencil icon for that plan. If you want to delete the plan, click the delete icon.
+1. Click **Apply changes** to save the new plan. The list of plans is updated in the policy details page. If you want to make any changes, click the pencil icon for that plan. If you want to delete the plan, click the delete icon.
 
 ### Estimating your expected usage and costs
 {: #backup-cost-estimator-ui}
@@ -174,7 +172,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    ```
    {: pre}
 
-### Creating a backup policy from the CLI for an account
+### Creating a backup policy for individual volumes from the CLI for an account
 {: #backup-create-policy-noplan}
 
 Run the `ibmcloud is backup-policy-create` command to create a backup policy without a backup plan. Use the options `--match-tags` and `--name` to give your policy a name and identify the tag that you want to use for your target resources. After the policy is created, you can [add backup plans](#backup-create-plan-cli) to it later on.
@@ -182,25 +180,29 @@ Run the `ibmcloud is backup-policy-create` command to create a backup policy wit
 ```sh
 $ ibmcloud is backup-policy-create --match-tags dev:test --name my-backup-policy-v1
 Creating backup policy my-backup-policy-v1 under account Test Account as user test.user@ibm.com...
-                          
-ID                     r006-d6052504-516f-4923-938b-9e9def977428   
-Name                   my-backup-policy-v1   
-CRN                    crn:v1:bluemix:public:is:us-south:a/a123456::backup-policy:r006-d123456   
-Status                 pending   
-Plans                  ID   Name   Resource type      
-                          
-Backup tags            dev:test   
-Backup resource type   volume   
-Resource group         ID                                 Name      
-                       6edefe513d934fdd872e78ee6a8e73ef   defaults      
-                          
-Created at             2023-09-05T16:18:24+00:00
+
+ID                     r006-d6052504-516f-4923-938b-9e9def977428
+Name                   my-backup-policy-v1
+CRN                    crn:v1:bluemix:public:is:us-south:a/a123456::backup-policy:0717-d123456
+Status                 pending
+Plans                  ID   Name   Resource type
+
+Backup tags            dev:test
+Backup resource type   volume
+Resource group         ID                                 Name
+                       11caaa983d9c4beb82690daab08717e9   Default
+
+Scope                  ID                                 Resource type
+                       efe5afc483594adaa8325e2b4d1290df   account
+
+Health State           ok
+Created at             2023-12-05T19:27:28+05:30
 ```
 {: screen}
 
 For more information about available command options, see [`ibmcloud is backup-policy-create`](/docs/cli?topic=cli-vpc-reference#backup-policy-create).
 
-### Creating a backup policy from the CLI for an enterprise
+### Creating a backup policy for individual volumes from the CLI for an enterprise
 {: #backup-create-policy-noplan-enterprise}
 
 Run the `ibmcloud is backup-policy-create` command to create a backup policy without a backup plan. Specify the enterprise CRN to create a policy for the enterprise account and its subaccount. After the policy is created, you can [add backup plans](#backup-create-plan-cli) to it later on.
@@ -208,24 +210,85 @@ Run the `ibmcloud is backup-policy-create` command to create a backup policy wit
 ```sh
 $ ibmcloud is backup-policy-create --match-tags dev:test --name backup-enterprise-scope --scope  crn:v1:bluemix:public:enterprise::a/a1234567::enterprise:7e44cb4667ba4b88b1b1f8dcc15e33b3
 Creating backup policy backup-scope-1 under account Enterprise Test as user test.user@ibm.com...
-                          
-ID                     r006-a1b46efe-12bd-403a-9f09-bede1ad3766f   
-Name                   backup-enterprise-scope   
-CRN                    crn:v1:bluemix:public:is:us-south:a/a1234567::backup-policy:r006-a1b46efe-12bd-403a-9f09-bede1ad3766f   
-Status                 pending   
-Plans                  ID   Name   Resource type      
-                          
-Backup tags            dev:test   
-Backup resource type   volume   
-Resource group         ID                                 Name      
-                       e579217258f74f42974e6ec4da287fc5   Default      
-                          
-Scope                  ID                                 CRN                                                                                         Resource type      
-                       7e44cb4667ba4b88b1b1f8dcc15e33b3   crn:v1:bluemix:public:enterprise::a/a1234567::enterprise:7e44cb4667ba4b88b1b1f8dcc15e33b3   -      
-                          
-Health State           ok   
-Created at             2023-09-26T13:34:56+05:30   
 
+ID                     r006-a1b46efe-12bd-403a-9f09-bede1ad3766f
+Name                   backup-enterprise-scope
+CRN                    crn:v1:bluemix:public:is:us-south:a/a1234567::backup-policy:r006-a1b46efe-12bd-403a-9f09-bede1ad3766f
+Status                 pending
+Plans                  ID   Name   Resource type
+
+Backup tags            dev:test
+Backup resource type   volume
+Resource group         ID                                 Name
+                       e579217258f74f42974e6ec4da287fc5   Default
+
+Scope                  ID                                 CRN                                                                                         Resource type
+                       7e44cb4667ba4b88b1b1f8dcc15e33b3   crn:v1:bluemix:public:enterprise::a/a1234567::enterprise:7e44cb4667ba4b88b1b1f8dcc15e33b3   -
+
+Health State           ok
+Created at             2023-09-26T13:34:56+05:30
+
+```
+{: screen}
+
+For more information about available command options, see [`ibmcloud is backup-policy-create`](/docs/cli?topic=cli-vpc-reference#backup-policy-create).
+
+### Creating a backup policy for consistency group from the CLI for an account
+{: #backup-create-policy-noplan-instance}
+
+[New]{: tag-new}
+
+Run the `ibmcloud is backup-policy-create` command to create a backup policy without a backup plan. Use the options `--match-resource-type`, `--included-content`,`--match-tags`, and `--name` to give your policy a name and identify the tag that you want to use for your target resources. After the policy is created, you can [add backup plans](#backup-create-plan-cli) to it later on.
+
+The following example creates a backup policy for the boot and data volumes of tagged instances.
+
+```sh
+ibmcloud is backup-policy-create --match-tags dev:test --name my-cr-backup-policy-v1 --match-resource-type instance --included-content data_volumes,boot_volume
+Creating backup policy my-cr-backup-policy-v1 under account Test Account as user test.user@ibm.com...
+
+ID                    r006-e0713176-37b6-4168-88ab-ad92f8a544f9
+Name                  my-cr-backup-policy-v1
+CRN                   crn:v1:bluemix:public:is:us-south:a/a1234567::backup-policy:r006-e0713176-37b6-4168-88ab-ad92f8a544f9
+Status                pending
+Plans                 ID   Name   Resource type
+
+Backup tags           dev:test
+Match resource type   instance
+Included Content      data_volumes,boot_volume
+Resource group        ID                                 Name
+                      11caaa983d9c4beb82690daab08717e9   Default
+
+Scope                 ID                                 Resource type
+                      a1234567                           account
+
+Health State          ok
+Created at            2023-12-05T19:29:35+05:30
+```
+{: screen}
+
+The following example creates a backup policy for the data volumes of the tagged instances.
+
+```sh
+ibmcloud is backup-policy-create --match-tags dev:test --name my-cr-backup-policy-v2 --match-resource-type instance --included-content data_volumes
+Creating backup policy my-cr-backup-policy-v2 under account Test Account as user test.user@ibm.com...
+
+ID                    r006-e773722f-d61e-487a-ac88-b1800395aa92
+Name                  my-cr-backup-policy-v2
+CRN                   crn:v1:bluemix:public:is:us-south:a/a1234567::backup-policy:r006-e773722f-d61e-487a-ac88-b1800395aa92
+Status                pending
+Plans                 ID   Name   Resource type
+
+Backup tags           dev:test
+Match resource type   instance
+Included Content      data_volumes
+Resource group        ID                                 Name
+                      11caaa983d9c4beb82690daab08717e9   Default
+
+Scope                 ID                                 Resource type
+                      a1234567                           account
+
+Health State          ok
+Created at            2023-10-20T19:31:16+05:30
 ```
 {: screen}
 
@@ -241,20 +304,23 @@ The following example uses the `--match_tags` option to match tags to volumes wi
 ```sh
 $ ibmcloud is backup-policy-create --match-tags dev:test --name my-backup-policy-v2 --plan-name my-plan-b  --plan-attach-tags bkp:test --plan-copy-tags false --plan-delete-after 60 --plan-cron-spec '45 09 * * *' --plan-active --plan-clone-policy-max-snapshots 4 --plan-clone-policy-zones us-south-1,us-south-2 --plan-delete-over-count 2
 Creating backup policy my-backup-policy-v2 under Test Account as user test.user@ibm.com...
-                          
-ID                     r006-0723c648-9a47-4d51-b1ba-349e21e715b6   
-Name                   my-backup-policy-v2   
-CRN                    crn:v1:bluemix:public:is:us-south:a/a123456::backup-policy:r006-0723c648-9a47-4d51-b1ba-349e21e715b6   
-Status                 pending   
-Plans                  ID                                          Name        Resource type      
-                       r006-e888bb31-7bf2-4885-a9f3-d448c1c37326   my-plan-b   backup_policy_plan      
-                          
-Backup tags            dev:test   
-Backup resource type   volume   
-Resource group         ID                                 Name      
-                       6edefe513d934fdd872e78ee6a8e73ef   defaults      
-                          
-Created at             2023-09-05T16:30:09+00:00   
+
+ID                     r006-0723c648-9a47-4d51-b1ba-349e21e715b6
+Name                   my-backup-policy-v2
+CRN                    crn:v1:bluemix:public:is:us-south:a/a123456::backup-policy:r006-0723c648-9a47-4d51-b1ba-349e21e715b6
+Status                 pending
+Plans                  ID                                          Name        Resource type
+                       r006-e888bb31-7bf2-4885-a9f3-d448c1c37326   my-plan-b   backup_policy_plan
+
+Backup tags            dev:test
+Backup resource type   volume
+Resource group         ID                                 Name
+                       6edefe513d934fdd872e78ee6a8e73ef   defaults
+Scope                  ID                                 Resource type
+                       a1234567                           account
+
+Health State           ok
+Created at             2023-12-05T19:27:28+05:30
 ```
 {: screen}
 
@@ -268,25 +334,24 @@ Run the `backup-policy-create` command to create a backup policy and a backup pl
 ```sh
 ibmcloud is backup-policy-create --match-tags dev:test --name backup-scope-2 --plan-name scope-plan-2 --plan-attach-tags dev:test --plan-copy-tags false --plan-delete-after 60 --plan-cron-spec '45 09 * * *' --plan-active  --plan-delete-over-count 2 --scope  crn:v1:bluemix:public:enterprise::a1234567::enterprise:7e44cb4667ba4b88b1b1f8dcc15e33b3
 Creating backup policy backup-scope-2 under account Enterprise Test as user test.user@ibm.com...
-                          
-ID                     r006-0bc533ed-4796-407a-982e-693b418f3de3   
-Name                   backup-scope-2   
-CRN                    crn:bluemix:public:is:us-south:a/a1234567::backup-policy:r006-0bc533ed-4796-407a-982e-693b418f3de3   
-Status                 pending   
-Plans                  ID                                          Name           Resource type      
-                       r006-0741b600-e8d5-41b4-88a7-c19b6fbf89ca   scope-plan-2   backup_policy_plan      
-                          
-Backup tags            dev:test   
-Backup resource type   volume   
-Resource group         ID                                 Name      
-                       e579217258f74f42974e6ec4da287fc5   Default      
-                          
-Scope                  ID                                 CRN                                                                                                                 Resource type      
-                       7e44cb4667ba4b88b1b1f8dcc15e33b3   crn:v1:bluemix:public:enterprise::a/9ca1801707084d57b4a111d26666df23::enterprise:7e44cb4667ba4b88b1b1f8dcc15e33b3   -      
-                          
-Health State           ok   
-Created at             2023-08-30T13:39:10+05:30   
 
+ID                     r006-0bc533ed-4796-407a-982e-693b418f3de3
+Name                   backup-scope-2
+CRN                    crn:bluemix:public:is:us-south:a/a1234567::backup-policy:r006-0bc533ed-4796-407a-982e-693b418f3de3
+Status                 pending
+Plans                  ID                                          Name           Resource type
+                       r006-0741b600-e8d5-41b4-88a7-c19b6fbf89ca   scope-plan-2   backup_policy_plan
+
+Backup tags            dev:test
+Backup resource type   volume
+Resource group         ID                                 Name
+                       e579217258f74f42974e6ec4da287fc5   Default
+
+Scope                  ID         CRN                                                                 Resource type
+                       e7654321   crn:v1:bluemix:public:enterprise::a/a1234567::enterprise:e7654321   -
+
+Health State           ok
+Created at             2023-08-30T13:39:10+05:30
 ```
 {: screen}
 
@@ -300,20 +365,14 @@ Run the `ibmcloud is backup-policy-create` command and define multiple plans in 
 ```sh
 cloudshell:~$ ibmcloud is backup-policy-create --match-tags dev:test --name backup-policy-v1  --plans '[{
 >       "active": true,
->       "attach_user_tags": [
->         "daily-backup-plan"
->       ],
+>       "attach_user_tags": ["daily-backup-plan"],
 >       "copy_user_tags": true,
 >       "cron_spec": "05 15 * * *",
 >       "clone_policy": {
 >         "max_snapshots": 4,
 >          "zones": [
->             {
->                "name": "eu-de-1"
->             },
->            {
->               "name": "eu-de-2"
->             }
+>            {"name": "eu-de-1"},
+>            {"name": "eu-de-2"}
 >           ]
 >         },
 >       "deletion_trigger": {
@@ -323,20 +382,14 @@ cloudshell:~$ ibmcloud is backup-policy-create --match-tags dev:test --name back
 >       "name": "my-policy-plan-a"
 >     },{
 >       "active": true,
->       "attach_user_tags": [
->         "daily-backup-plan"
->       ],
+>       "attach_user_tags": ["daily-backup-plan"],
 >       "copy_user_tags": true,
 >       "cron_spec": "10 20 * * *",
 >        "clone_policy": {
 >         "max_snapshots": 3,
 >          "zones": [
->             {
->                "name": "eu-de-1"
->             },
->            {
->               "name": "eu-de-2"
->             }
+>            {"name": "eu-de-1"},
+>            {"name": "eu-de-2"}
 >           ]
 >         },
 >       "deletion_trigger": {
@@ -447,7 +500,7 @@ Resource type        backup_policy_plan
 
 For more information about available command options, see [`ibmcloud is backup-policy-plan-create`](/docs/cli?topic=cli-vpc-reference#backup-policy-plan-create).
 
-Billing for the fast restore feature is set at a flat rate based on instance hours. The feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots.
+The fast restore feature is billed at an extra rate per hour for each zone in which it is enabled. Maintaining fast restore clones is considerably more costly than keeping regular backup snapshots.
 {: note}
 
 ### Creating a backup plan with cross-regional copy option from the CLI
@@ -461,11 +514,10 @@ If the source snapshot is not encrypted with a customer key, the encryption of t
 ibmcloud is backup-policy-plan-create my-backup-policy-v1 --cron-spec '0 0 * * *' --name my-crc-plan1 --remote-region-policies '[
   {
     "delete_over_count": 10,
-    "region": {
-      "name": "us-east"
-    }
+    "region": {"name": "us-east"}
   }
 ]'
+
 Creating plan my-crc-plan1 of backup policy my-backup-policy-v1 under account Test Account as user test.user@ibm.com...
 ID                       r006-f0d881c9-213e-471b-bba7-999ee2eee3ff
 Name                     my-crc-plan1
@@ -527,38 +579,33 @@ In the response, look for the "parent" CRN. This CRN contains the enterprise ID 
 ```
 {: codeblock}
 
-### Creating a backup policy and plan with the API for an account
+### Creating a backup policy and plan for individual volumes with the API for an account
 {: #backup-policy-create-api}
 
-Make a `POST /backup_policies` request to create a new backup policy. The `match_user_tags` property identifies the backup tags on the {{site.data.keyword.block_storage_is_short}} volume resource and associates it with this plan. In this example, the backup plan is defined as a `cron_spec`.
+Make a `POST /backup_policies` request to create a new backup policy. The value of `match_resource_type` is `volume`. The `match_user_tags` property identifies the backup tags on the {{site.data.keyword.block_storage_is_short}} volume resource and associates it with this plan. In this example, the frequency of the backup plan is defined with a `cron_spec`.
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/backup_policies?version=2022-04-19&generation=2"\
    -H "Authorization: $iam_token"\
    -d '{
-      "match_resource_types": [
-       [
-         "volume"
-       ]
-     ],
-     "match_user_tags": [
-       "my-daily-backup-policy"
-     ],
+      "match_resource_type": "volume",
+      "match_user_tags": "my-daily-backup-policy",
       "name": "my-backup-policy",
       "plans": [
        {
-         "attach_user_tags": [
-           "my-daily-backup-plan"
-         ],
+         "attach_user_tags": "my-daily-backup-plan",
          "copy_user_tags": true,
          "cron_spec": "*/5 1,2,3 * * *",
-         "deletion_trigger": {
-           "delete_after": 20
-         },
+         "deletion_trigger": {"delete_after": 20},
          "name": "my-backup-plan"
        }
      ],
-     "resource_group": {}
+     "resource_group": {
+       "crn": "crn:v1:bluemix:public:resource-controller::a/123456::resource-group:678523bcbe2b4eada913d32640909956",
+       "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/678523bcbe2b4eada913d32640909956",
+       "id": "678523bcbe2b4eada913d32640909956",
+       "name": "Default"
+     }
    }'
 ```
 {: codeblock}
@@ -572,14 +619,8 @@ A successful response looks like the following example.
   "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/eca6556f-f67d-4a3e-8428-3db8819fc60c",
   "id": "eca6556f-f67d-4a3e-8428-3db8819fc60c",
   "lifecycle_state": "stable",
-  "match_resource_types": [
-    [
-      "volume"
-    ]
-  ],
-  "match_user_tags": [
-    "my-daily-backup-policy"
-  ],
+  "match_resource_type": "volume",
+  "match_user_tags": "my-daily-backup-policy",
   "name": "my-backup-policy",
   "plans": [
     {
@@ -600,53 +641,42 @@ A successful response looks like the following example.
 ```
 {: codeblock}
 
-### Creating a backup policy and plan with the API for an enterprise
+### Creating a backup policy and plan for individual volumes with the API for an enterprise
 {: #backup-policy-create-api-enterprise}
 
-Make a `POST /backup_policies` request to create a new backup policy. In the `scope`, specify the enterprise account CRN.
+Make a `POST /backup_policies` request to create a new backup policy.  The value of `match_resource_type` is `volume`. The `match_user_tags` property identifies the backup tags on the {{site.data.keyword.block_storage_is_short}} volume resource and associates it with this plan. In this example, the frequency of the backup plan is defined with a `cron_spec`. In the `scope`, specify the enterprise account CRN.
 
 ```sh
-curl -X POST "https://au-syd.iaas.cloud.ibm.com/v1/backup_policies?version=2023-08-12&generation=2" 
+curl -X POST "$vpc_api_endpoint/v1/backup_policies?version=2023-08-12&generation=2"
 -H "accept: application/json" -H "Content-Type: application/json" -H "Authorization: $iam_token"\
 -d "{
   {
-      "match_resource_types": [
-       [
-         "volume"
-       ]
-     ],
-      "match_user_tags": [
-       "my-daily-backup-policy"
-     ],
+      "match_resource_type": "volume",
+      "match_user_tags": "my-daily-backup-policy",
       "name": "my-backup-policy",
       "plans": [
        {
-         "attach_user_tags": [
-           "my-daily-backup-plan"
-         ],
+         "attach_user_tags": ["my-daily-backup-plan"],
          "copy_user_tags": true,
          "cron_spec": "*/5 1,2,3 * * *",
-         "deletion_trigger": {
-           "delete_after": 20
-         },
+         "deletion_trigger": {"delete_after": 20},
          "name": "my-backup-plan"
        },
        {
-         "attach_user_tags": [
-           "my-daily-backup-plan"
-         ],
+         "attach_user_tags": "my-daily-backup-plan",
          "copy_user_tags": true,
          "cron_spec": "*/5 1,2,3 * * *",
-         "deletion_trigger": {
-           "delete_after": 20
-         },
+         "deletion_trigger": {"delete_after": 20},
          "name": "my-backup-plan"
        }
      ],
-     "resource_group": {},
-     "scope": {
-       "crn":"crn:v1:bluemix:public:enterprise::a/ea123456::enterprise:b0398194"
-       }
+     "resource_group": {
+       "crn": "crn:v1:bluemix:public:resource-controller::a/123456::resource-group:678523bcbe2b4eada913d32640909956",
+       "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/678523bcbe2b4eada913d32640909956",
+       "id": "678523bcbe2b4eada913d32640909956",
+       "name": "Default"
+     },
+     "scope": {"crn":"crn:v1:bluemix:public:enterprise::a/ea123456::enterprise:b0398194"}
   }'
 ```
 {: codeblock}
@@ -661,15 +691,10 @@ A successful response looks like the following example.
   "health_state": "ok",
   "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/r006-076191ba-49c2-4763-94fd-c70de73ee2e6",
   "id": "r006-076191ba-49c2-4763-94fd-c70de73ee2e6",
-  "included_content": [
-    "data_volume"
-  ],
+  "included_content": "data_volume",
   "lifecycle_state": "pending",
   "match_resource_type": "volume",
-  "match_user_tags": [
-    "my-tag-1",
-    "my-tag-2"
-  ],
+  "match_user_tags": ["my-tag-1", "my-tag-2"],
   "name": "my-backup-policy",
   "plans": [
     {
@@ -687,15 +712,157 @@ A successful response looks like the following example.
   },
   "resource_type": "backup_policy",
   "scope": {
-    "crn": "crn:v1:bluemix:public:enterprise::a/a123456::enterprise:ebc2b430240943458b9e91e1432cfcce",
+    "crn": "crn:v1:bluemix:public:enterprise::a/e92d45e305dc4ee0b13e29be392f1c0c::enterprise:ebc2b430240943458b9e91e1432cfcce",
     "id": "fee82deba12e4c0fb69c3b09d1f12345",
     "resource_type": "account",
-    "scope": {
-      "crn":"crn:v1:bluemix:public:enterprise::a/ea123456::enterprise:b0398194"
+    "scope": {"crn":"crn:v1:bluemix:public:enterprise::a/ea123456::enterprise:b0398194"}
   }
 }
 ```
 {: codeblock}
+
+### Creating a backup policy and plan for a consistency group of Block Storage volumes
+{: #backup-policy-create-api-instance}
+
+[New]{: tag-new}
+
+Make a `POST /backup_policies` request to create a new backup policy. The value of `match_resource_type` is `instance`. To create backups of only the data volumes, specify the `included_content` option as `data volumes`. If you want to include the boot volume in the backup operation, specify `boot-volume` as part of the `included_content` option as well. The `match_user_tags` property identifies the backup tags on the virtual server instance resources and associates the attached {{site.data.keyword.block_storage_is_short}} volumes with this policy and plan. In this example, the frequency of the backup plan is defined with a `cron_spec`, and only the data volumes are included in the backup.
+
+```sh
+curl -X POST "$vpc_api_endpoint/v1/backup_policies?version=2023-12-05&generation=2"\
+   -H "Authorization: $iam_token"\
+   -d '{
+      "match_resource_type": "instance",
+      "included_content": "data_volumes",
+      "match_user_tags": "my-daily-backup-policy",
+      "name": "my-backup-policy-for-consistency-group",
+      "plans": [
+       {
+         "name": "my-backup-plan-for-cg",
+         "attach_user_tags": ["my-daily-backup-plan"],
+         "copy_user_tags": true,
+         "cron_spec": "*/5 1,2,3 * * *",
+         "deletion_trigger": {"delete_after": 20}
+       }
+      ],
+      "resource_group": {
+        "crn": "crn:v1:bluemix:public:resource-controller::a/a1234567::resource-group:678523bcbe2b4eada913d32640909956",
+        "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/678523bcbe2b4eada913d32640909956",
+        "id": "678523bcbe2b4eada913d32640909956",
+        "name": "Default"
+      },
+     }'
+```
+{: codeblock}
+
+A successful response looks like the following example:
+
+```json
+{
+  "included_content": ["data_volumes"],
+  "match_resource_type": ["instance"],
+  "match_user_tags": ["my-daily-backup-policy"],
+  "name": "my-backup-policy-for-consistency-group",
+  "plans": [
+    {
+      "active": true,
+      "attach_user_tags": ["my-daily-backup-plan"],
+      "clone_policy": {
+        "max_snapshots": 0,
+        "zones": [
+          {"name": "us-south-1"},
+          {"href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-1"}
+        ]
+       },
+      "copy_user_tags": true,
+      "cron_spec": "30 */2 * * 1-5",
+      "deletion_trigger": {
+        "delete_after": 20,
+        "delete_over_count": 20
+       },
+      "name": "my-backup-plan-for-cg"
+    }
+  ],
+  "resource_group": {
+    "crn": "crn:v1:bluemix:public:resource-controller::a/123456::resource-group:678523bcbe2b4eada913d32640909956",
+    "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/678523bcbe2b4eada913d32640909956",
+    "id": "678523bcbe2b4eada913d32640909956",
+    "name": "Default"
+  },
+}
+```
+{: screen}
+
+The following example is of a backup policy that creates snapshots of a mult-volume consistency group that includes the boot volume.
+
+```sh
+curl -X POST "$vpc_api_endpoint/v1/backup_policies?version=2023-12-05&generation=2"\
+   -H "Authorization: $iam_token"\
+   -d '{
+      "match_resource_type": "instance",
+      "included_content": ["data_volumes","boot_volume"]
+      "match_user_tags": "vsi11",
+      "name": "my-consistency-group-policy",
+      "plans": [
+       {
+         "name": "my-backup-plan-for-cg2",
+         "attach_user_tags": ["my-daily-backup-plan"],
+         "copy_user_tags": true,
+         "cron_spec": "*/5 1,2,3 * * *",
+         "deletion_trigger": {"delete_after": 20}
+       }
+      ],
+      "resource_group": {
+        "crn": "crn:v1:bluemix:public:resource-controller::a/a1234567::resource-group:678523bcbe2b4eada913d32640909956",
+        "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/f20bdbd6554d48739ad38717e0511fdd",
+        "id": "f20bdbd6554d48739ad38717e0511fdd",
+        "name": "Default"
+      },
+     }'
+```
+{: screen}
+
+A successful response looks like the following example.
+
+```json
+{
+  "created_at": "2023-12-05T19:49:02Z",
+  "crn": "crn:v1:bluemix:public:is:eu-es:a/a7654321::backup-policy:r050-05135f1e-e1ce-467f-82bd-c46a18ff5d3b",
+  "health_reasons": [],
+  "health_state": "ok",
+  "href": "https://eu-es.iaas.cloud.ibm.com/v1/backup_policies/r050-05135f1e-e1ce-467f-82bd-c46a18ff5d3b",
+  "id": "r050-05135f1e-e1ce-467f-82bd-c46a18ff5d3b",
+  "included_content": [
+    "boot_volume",
+    "data_volumes"
+  ],
+  "lifecycle_state": "pending",
+  "match_resource_type": "instance",
+  "match_user_tags": [
+    "vsi11"
+  ],
+  "name": "my-consistency-group-policy",
+  "plans": [
+    {
+      "href": "https://eu-es.iaas.cloud.ibm.com/v1/backup_policies/r050-05135f1e-e1ce-467f-82bd-c46a18ff5d3b/plans/r050-63031736-14cc-472c-aa94-d1c790438d93",
+      "id": "r050-63031736-14cc-472c-aa94-d1c790438d93",
+      "name": "my-backup-plan-for-cg2",
+      "resource_type": "backup_policy_plan"
+    }
+  ],
+  "resource_group": {
+    "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/f20bdbd6554d48739ad38717e0511fdd",
+    "id": "f20bdbd6554d48739ad38717e0511fdd",
+    "name": "Default"
+      },
+  "resource_type": "backup_policy",
+  "scope": {
+    "id": "53945f147c1441b0940bc00927863af6",
+    "resource_type": "account"
+  }
+}
+```
+{: screen}
 
 ### Creating a plan for an existing backup policy with the API
 {: #backup-policy-create-plan-api}
@@ -706,14 +873,10 @@ You can programmatically create a backup plan for an existing ID by calling the 
 curl -X POST "$vpc_api_endpoint/v1/backup_policies/8758bd18-344b-486a-b606-5b8cb8cdd044/plans?version=2022-04-19&generation=2"\
    -H "Authorization: $iam_token"\
    -d '{
-     "attach_user_tags": [
-        "my-daily-backup-plan"
-     ],
+     "attach_user_tags": ["my-daily-backup-plan"],
      "copy_user_tags": true,
      "cron_spec": "*/5 1,2,3 * * *",
-     "deletion_trigger": {
-       "delete_after": 20
-     },
+     "deletion_trigger": {"delete_after": 20},
      "name": "my-backup-plan"
    }'
 ```
@@ -724,15 +887,11 @@ A successful response looks like the following example.
 ```json
 {
   "active": true,
-  "attach_user_tags": [
-     "my-daily-backup-plan"
-  ],
+  "attach_user_tags": ["my-daily-backup-plan"],
   "copy_user_tags": true,
   "created_at": "2022-04-22T22:51:31.303Z",
   "cron_spec": "*/5 1,2,3 * * *",
-  "deletion_trigger": {
-    "delete_after": 20
-  },
+  "deletion_trigger": {"delete_after": 20},
   "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/8758bd18-344b-486a-b606-5b8cb8cdd044/plans/4cf9171a-0043-4434-8727-15b53dbc374c",
   "id": "4cf9171a-0043-4434-8727-15b53dbc374c",
   "lifecycle_state": "stable",
@@ -756,18 +915,12 @@ curl -X POST "$vpc_api_endpoint/v1/backup_policies/8758bd18-344b-486a-b606-5b8cb
    -H "Authorization: $iam_token"\
    -d '{
         "active": true,
-        "attach_user_tags": [
-          "hourly-backups"
-        ],
+        "attach_user_tags": ["hourly-backups"],
         "clone_policy": {
           "max_snapshots": 2,
           "zones": [
-            {
-              "name": "us-south-2"
-            },
-            {
-              "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-2"
-            }
+            {"name": "us-south-2"},
+            {"href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-2"}
           ]
         },
         "copy_user_tags": true,
@@ -786,26 +939,18 @@ A successful response shows that the clone policy is created.
 ```json
 {
   "active": true,
-  "attach_user_tags": [
-    "hourly-backups"
-  ],
+  "attach_user_tags": ["hourly-backups"],
   "clone_policy": {
     "max_snapshots": 2,
     "zones": [
-      {
-        "name": "us-south-2"
-      },
-      {
-        "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-2"
-      }
+      {"name": "us-south-2"},
+      {"href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-2"}
     ]
   },
   "copy_user_tags": false,
   "created_at": "2022-12-09T15:16:37Z",
   "cron_spec": "0 */2 * * *",
-  "deletion_trigger": {
-    "delete_after": 5
-  },
+  "deletion_trigger": {"delete_after": 5},
   "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/8758bd18-344b-486a-b606-5b8cb8cdd044/plans/6e251cfe-6f7b-4638-a6ba-00e9c327b178",
   "id": "6e251cfe-6f7b-4638-a6ba-00e9c327b178",
   "lifecycle_state": "stable",
@@ -815,9 +960,9 @@ A successful response shows that the clone policy is created.
 ```
 {: codeblock}
 
-You can also set up the fast restore option when you create a new backup policy and plan. Specify `clone_policy` as a subproperty of the `plans` property.
+You can also set up the fast restore option when you create a new backup policy and plan. Specify `clone_policy` as a subproperty of the `plans` property. For more information, see the [Create a backup policy](/apidocs/vpc/latest#create-backup-policy) in the API reference.
 
-Billing for the fast restore feature is set at a flat rate based on instance hours. The feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots.
+The fast restore feature is billed at an extra rate per hour for each zone in which it is enabled. Maintaining fast restore clones is considerably more costly than keeping regular backup snapshots.
 {: note}
 
 ### Creating a backup plan with cross-regional copy option with the API
@@ -834,9 +979,7 @@ curl -X POST "$vpc_api_endpoint/v1/backup_policies/8758bd18-344b-486a-b606-5b8cb
    -H "Authorization: $iam_token"\
    -d '{
         "active": true,
-        "attach_user_tags": [
-          "hourly-backups"
-        ],
+        "attach_user_tags": ["hourly-backups"],
         "copy_user_tags": true,
         "cron_spec": "0 */2 * * *",
         "deletion_trigger": {
@@ -846,15 +989,9 @@ curl -X POST "$vpc_api_endpoint/v1/backup_policies/8758bd18-344b-486a-b606-5b8cb
         "remote_region_policies": {
           "delete_over_count": 5,
           "encryption_key": [
-            {
-              "CRN": "crn:v1:bluemix:public:kms:us-south:a/a1234567:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd617"
-            }
+            {"CRN": "crn:v1:bluemix:public:kms:us-south:a/a123456:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd617"}
           ],
-          "region": [
-            {
-             "name":"us-east"
-            }
-          ]
+          "region": [{"name":"us-east"}]
         },
         "name": "my-hourly-plan-2"
       }'
@@ -866,29 +1003,21 @@ A successful response shows that the clone policy is created.
 ```json
 {
   "active": true,
-  "attach_user_tags": [
-    "hourly-backups"
-  ],
+  "attach_user_tags": ["hourly-backups"],
   "copy_user_tags": false,
   "created_at": "2023-05-09T15:16:37Z",
   "cron_spec": "0 */2 * * *",
-  "deletion_trigger": {
-    "delete_after": 5
-  },
+  "deletion_trigger": {"delete_after": 5},
   "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/8758bd18-344b-486a-b606-5b8cb8cdd044/plans/6e251cfe-6f7b-4638-a6ba-00e9c327b178",
   "id": "6e251cfe-6f7b-4638-a6ba-00e9c327b178",
   "lifecycle_state": "stable",
   "name": "my-hourly-plan-2",
   "remote_region_policies": {
     "delete_over_count": 5,
-    "encryption_key": "crn:v1:bluemix:public:kms:us-south:a/a1234567:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd617" ,
+    "encryption_key": "crn:v1:bluemix:public:kms:us-south:a/a123456:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd617" ,
     "region": [
-      {
-        "name": "us-east"
-      },
-      {
-        "href": "https://us-east.iaas.cloud.ibm.com/v1/regions/us-east/zones/us-east-2"
-      }
+      {"name": "us-east"},
+      {"href": "https://us-east.iaas.cloud.ibm.com/v1/regions/us-east/zones/us-east-2"}
      ],
     },
   "resource_type": "backup_policy_plan"
@@ -905,7 +1034,7 @@ You can use Terraform to create backup policies and plans.
 To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
 {: requirement}
 
-VPC infrastructure services use a regional specific endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the right region in the provider block in the `provider.tf` file.
+VPC infrastructure services use a regional specific endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the appropriate region in the provider block in the `provider.tf` file.
 
 See the following example of targeting a region other than the default `us-south`.
 
@@ -916,10 +1045,10 @@ provider "ibm" {
 ```
 {: screen}
 
-### Creating a backup policy for an Account with Terraform
+### Creating a backup policy for an account with Terraform
 {: #backup-policy-create-terraform}
 
-To create a backup policy, use the `ibm_is_backup_policy` resource. The following example defines a backup policy with the name `my-backup-policy-v1`. The new policy applies to resources that have the `dev:test` tag.
+To create a backup policy, use the `ibm_is_backup_policy` resource. The following example defines a backup policy with the name `my-backup-policy-v1`. And the new policy applies to resources that have the `dev:test` tag.
 
 ```terraform
 resource "ibm_is_backup_policy" "example" {
@@ -931,10 +1060,11 @@ resource "ibm_is_backup_policy" "example" {
 
 For more information about the arguments and attributes, see [ibm_is_backup_policy](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_backup_policy){: external}.
 
+
 ### Creating a backup policy for an Enterprise with Terraform
 {: #backup-policy-create-enterprise-terraform}
 
-To create a backup policy, use the `ibm_is_backup_policy` resource. The following example defines a backup policy with the name `my-backup-policy-v2` and specifies the Enterprise CRN in the scope. The new policy applies to resources that have the `dev:test` tag.
+To create a backup policy, use the `ibm_is_backup_policy` resource. The following example defines a backup policy with the name `my-backup-policy-v2` and specifies the Enterprise CRN in the scope. And the new policy applies to resources that have the `dev:test` tag.
 
 ```terraform
 resource "ibm_is_backup_policy" "ent-baas-example" {
@@ -987,9 +1117,6 @@ resource "ibm_is_backup_policy_plan" "example" {
 
 For more information about the arguments and attributes, see [ibm_is_backup_policy_plan](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_backup_policy_plan){: external}.
 
-Billing for the fast restore feature is set at a flat rate based on instance hours. The feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots.
-{: note}
-
 ### Creating a backup plan with cross-regional copy option with Terraform
 {: #backup-create-plan-with-crc-terraform}
 
@@ -1006,7 +1133,7 @@ resource "ibm_is_backup_policy_plan" "example" {
   }
   remote_copy_policies {
     delete_over_count = 1
-    encryption_key = "crn:v1:bluemix:public:kms:us-south:a/a1234567:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd6179"
+    encryption_key = "crn:v1:bluemix:public:kms:us-south:a/a123456:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd6179"
     region = "us-south"
   }
 }

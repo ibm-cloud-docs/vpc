@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-08-25"
+  years: 2020, 2023
+lastupdated: "2023-12-07"
 
 keywords: juniper, juniper peer, vSRX peer
 
@@ -21,7 +21,7 @@ You can use IBM Cloud VPN for VPC to securely connect your VPC to an on-prem net
 If Juniper vSRX requires Perfect Forward Secrecy (PFS) to be enabled in Phase 2, you need to create a custom IPsec policy to replace the default policy for the VPN in your VPC. For more information, see [Creating a custom IPsec policy for Juniper vSRX](#custom-ipsec-policy-with-vsrx).
 {: important}
 
-These instructions are based on Juniper vSRX, JUNOS Software Release [15.1X49-D123.3].
+These instructions are based on Juniper vSRX, JUNOS Software Release [23.2R1-S1 Standard 23.2.1.1].
 {: note}
 
 Read [VPN gateway limitations](/docs/vpc?topic=vpc-vpn-limitations) before you continue to connect to your on-premises peer.
@@ -72,7 +72,7 @@ Here's an example of how to set up security.
    set security ike gateway ibm-vpc-policy-vpn-gateway dead-peer-detection interval 2
    set security ike gateway ibm-vpc-policy-vpn-gateway dead-peer-detection threshold 3
    set security ike gateway ibm-vpc-policy-vpn-gateway local-identity inet <vSRX Public IP>
-   set security ike gateway ibm-vpc-policy-vpn-gateway external-interface ge-0/0/1.0
+   set security ike gateway ibm-vpc-policy-vpn-gateway external-interface ae1.0
    set security ike gateway ibm-vpc-policy-vpn-gateway version v2-only
    ```
    {: codeblock}
@@ -201,7 +201,7 @@ Here's an example to set the vSRX configuration.
    set security ike gateway ibm-vpc-gateway-primary dead-peer-detection interval 2
    set security ike gateway ibm-vpc-gateway-primary dead-peer-detection threshold 3
    set security ike gateway ibm-vpc-gateway-primary local-identity inet <vSRX Public IP>
-   set security ike gateway ibm-vpc-gateway-primary external-interface ge-0/0/1.0
+   set security ike gateway ibm-vpc-gateway-primary external-interface ae1.0
    set security ike gateway ibm-vpc-gateway-primary version v2-only
    ```
    {: codeblock}
@@ -291,7 +291,7 @@ Here's an example to set the vSRX configuration.
    set security ike gateway ibm-vpc-gateway-secondary dead-peer-detection interval 2
    set security ike gateway ibm-vpc-gateway-secondary dead-peer-detection threshold 3
    set security ike gateway ibm-vpc-gateway-secondary local-identity inet <vSRX Public IP>
-   set security ike gateway ibm-vpc-gateway-secondary external-interface ge-0/0/1.0
+   set security ike gateway ibm-vpc-gateway-secondary external-interface ae1.0
    set security ike gateway ibm-vpc-gateway-secondary version v2-only
    ```
    {: codeblock}

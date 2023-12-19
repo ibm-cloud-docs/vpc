@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-10-24"
+lastupdated: "2023-12-18"
 
 keywords: migrate virtual server from classic infrastructure, migrate to vpc, migrate image template, image template, import image to vpc infrastructure, migrate virtual server, migrate instance
 
@@ -56,7 +56,7 @@ Secondary disks and their associated files for an image template are not support
 
 Complete the following steps to create an image template for the virtual server instance that you want to migrate.
 
-1. From the Dashboard in [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com/){: external}, create an image template by clicking **menu** ![Menu icon](../../icons/icon_hamburger.svg) > **Classic Infrastructure** > **Devices** > **Device List**.
+1. From the Dashboard in [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com/){: external}, create an image template by clicking **menu** ![menu icon](../../icons/icon_hamburger.svg) > **Classic Infrastructure** > **Devices** > **Device List**.
 2. Click the virtual server that you want to use.
 3. From the **Actions** menu, select **Create Image Template**. Make sure to name it something you can easily recognize. For more information, see [Creating an image template](/docs/image-templates?topic=image-templates-creating-an-image-template).
 
@@ -97,7 +97,7 @@ Complete the following customizations on your Windows instance to prepare the im
 {: #migrate-new-image template}
 
 When your customizations are complete on your backup virtual server instance, create a new image template.
-1. From the Dashboard in [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com/){: external}, create an image template by clicking **menu** ![Menu icon](../../icons/icon_hamburger.svg) > **Classic Infrastructure** > **Devices** > **Device List**.
+1. From the Dashboard in [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com/){: external}, create an image template by clicking **menu** ![menu icon](../../icons/icon_hamburger.svg) > **Classic Infrastructure** > **Devices** > **Device List**.
 2. Click the backup virtual server that you previously customized for {{site.data.keyword.vpc_short}}.
 3. From the **Actions** menu, select **Create Image Template**.
 
@@ -112,7 +112,7 @@ To export the new image template that you created from the modified virtual serv
 ### Step 6 - Import the custom image to the {{site.data.keyword.vpc_short}} infrastructure
 {: #migrate-import-image}
 
-1. In {{site.data.keyword.cloud_notm}} console, go to **menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Images**.
+1. In {{site.data.keyword.cloud_notm}} console, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images**.
 2. On the **Custom images** tab, click **Import Custom Image**. For more information, see [Importing a custom image](/docs/vpc?topic=vpc-managing-images#import-custom-image).
 
 ### Step 7 - Use the custom image to create a virtual server instance in {{site.data.keyword.vpc_short}}

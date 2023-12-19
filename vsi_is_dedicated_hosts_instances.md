@@ -2,12 +2,11 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-10-24"
+lastupdated: "2023-12-18"
 
 keywords: dedicated host, dedicated host group
 
 subcollection: vpc
-
 
 ---
 
@@ -19,7 +18,7 @@ subcollection: vpc
 You can create one or more dedicated hosts with associated dedicated host groups in your {{site.data.keyword.cloud}} VPC by using the {{site.data.keyword.cloud_notm}} console, the CLI, or the API. Dedicated Host for VPC is fully integrated into {{site.data.keyword.cloud_notm}}.
 {: shortdesc}
 
-Dedicated hosts are not supported for LinuxONE (s390x processor architecture).  
+For IBM Z or LinuxONE (s390x processor architecture), dedicated hosts are only supported in the Spain (Madrid) and US South (Dallas) region for {{site.data.keyword.waziaas_full_notm}}.  
 {: note}
 
 ## Dedicated hosts
@@ -58,7 +57,7 @@ Before you can create a dedicated host, you need to [create an {{site.data.keywo
 If you do not already have a dedicated group, you must create it as part of this task. The profile family and class of the dedicated host and dedicated group must be the same. The profile that you select for the dedicated host when you create it determines the profiles that can be used for the dedicated group and for provisioning instances to hosts in the group. For example, if you select a memory profile for the dedicated host, the associated dedicated group and instances provisioned on hosts in the group must also be provisioned with memory profiles.
 
 To create a dedicated host:
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Dedicated hosts**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Dedicated hosts**.
 2. Click **Create** and enter the information in Table 1 on the New dedicated host for VPC page.
 3. Click **Create dedicated host** when you are ready to provision.
 

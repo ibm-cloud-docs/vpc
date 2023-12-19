@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-10-27"
+lastupdated: "2023-12-12"
 
 keywords:
 
@@ -253,7 +253,7 @@ The following table lists the actions that are related to the target resources o
 | virtual-network-interface | is.instance.network-attachment.detach | Virtual network interface was detached from a virtual server instance |
 {: caption="Table 12. Actions that generate events for targets of virtual network interfaces" caption-side="bottom"}
 
-### Virtual private endpoints events
+### Virtual private endpoint events
 {: #events-vpe}
 
 The following table lists the actions that are related to virtual private endpoints and the generation of events.
@@ -576,26 +576,43 @@ The following table lists the actions that are related to snapshots resources an
 | snapshot  | is.snapshot.snapshot.operate | Source snapshot ID was specified |
 {: caption="Table 27. Actions that generate events for snapshot resources" caption-side="bottom"}
 
+### Consistency group events
+{: #events-consistency-group}
+
+The following table lists the actions that are related to snapshot consistency group resources and the generation of events.
+
+| Resource |  Action | Description  |
+|---|---|---|
+| snapshot-consistency-group | is.snapshot-consistency-group.snapshot-consistency-group.create   | snapshot-consistency-group was created  |
+| snapshot-consistency-group | is.snapshot-consistency-group.snapshot-consistency-group.update   | snapshot-consistency-group was updated  |
+| snapshot-consistency-group | is.snapshot-consistency-group.snapshot-consistency-group.delete   | snapshot-consistency-group was deleted  |
+| snapshot-consistency-group | is.snapshot-consistency-group.snapshot-consistency-group.read     | One or more snapshot-consistency-group were retrieved |
+{: caption="Table 28. Actions that generate events for snapshot consistency group resources" caption-side="bottom"}
+
 ### File Storage events
 {: #events-file-storage}
 
 The following table lists the actions that are related to file share resources and the generation of events.
 
-| Resource  | Action  | Description  |
-|:---------------|:-----------------------|:-----------------------|
-| shares  | is.share.share.create   | File share was created  |
-| shares  | is.share.share.read   | One or more file shares were retrieved  |
-| shares  | is.share.share.update   | File share was updated  |
-| shares  | is.share.share.delete | File share was deleted  |
-| shares  | is.share.share.split | Replication relationship is removed between two file shares |
-| shares  | is.share.share.failover | Replication relationship is reversed between two file shares |
+| Resource | Action                | Description             |
+|:---------|:----------------------|:------------------------|
+| shares  | is.share.share.create  | File share was created  |
+| shares  | is.share.share.read    | One or more file shares were retrieved  |
+| shares  | is.share.share.update  | File share was updated  |
+| shares  | is.share.share.delete  | File share was deleted  |
 | shares  | is.share.share.schedule.modification | The replication schedule was modified. |
-| share mount targets  | is.share.mount-target.create  | Mount target for a file share was created  |
-| share mount targets  | is.share.mount-target.read  | One mount target for a file share was retrieved  |
-| share mount targets  | is.share.mount-target.list  | List of all mount targets for a file share was retrieved  |
-| share mount targets  | is.share.mount-target.update  | Mount target for a file share was modified  |
-| share mount targets  | is.share.mount-target.delete | Mount target for a file share was deleted  |
-{: caption="Table 28. Actions that generate events for file storage resources" caption-side="bottom"}
+| shares  | is.share.replica.read  | The replica share was read |
+| shares  | is.share.source.read   | The source share was read |
+| shares  | is.share.source.update | Updated share source |
+| shares  | is.share.share.init    | Replication Initialization status |
+| shares  | is.share.share.failover| Replication Failover status |
+| shares  | is.share.share.split   | Replication Split status |
+| share mount targets | is.share.mount-target.create| Mount target for a file share was created  |
+| share mount targets | is.share.mount-target.read  | One mount target for a file share was retrieved  |
+| share mount targets | is.share.mount-target.list  | List of all mount targets for a file share was retrieved  |
+| share mount targets | is.share.mount-target.update| Mount target for a file share was modified  |
+| share mount targets | is.share.mount-target.delete| Mount target for a file share was deleted  |
+{: caption="Table 29. Actions that generate events for file storage resources" caption-side="bottom"}
 
 ### Backup service events
 {: #events-backup-service}
@@ -614,7 +631,7 @@ The following table lists the actions that are related to the VPC Backup service
 | backup-policy  | is.backup-policy.backup-plan.read         | One or more backup plans were retrieved  |
 | backup-policy  | is.backup-policy.backup-job.read          | One or more backup jobs were retrieved  |
 | backup-policy  | is.backup-policy.backup-policy-job.create | This event is triggered if an Enterprise-level backup policy fails to create backups in one or more child accounts due to missing service-to-service authorizations.  |
-{: caption="Table 29. Actions that generate events for VPC Backup service resources" caption-side="bottom"}
+{: caption="Table 30. Actions that generate events for VPC Backup service resources" caption-side="bottom"}
 
 ## Supported locations
 {: #at-supported-locations}

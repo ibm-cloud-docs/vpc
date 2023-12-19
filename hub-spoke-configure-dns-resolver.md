@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-09-12"
+lastupdated: "2023-12-18"
 
 keywords:
 
@@ -45,7 +45,7 @@ You can set the DNS resolver type with the UI, CLI, API, or Terraform.
 To set the DNS resolver type on a DNS-shared VPC, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > VPCs**.
+1. Select the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>VPCs**.
 1. Click the DNS-shared VPC whose DNS resolver type you want to set.
 1. Scroll to the Optional DNS settings section, then expand the DNS resolver settings and click **Edit**.
 1. In the Edit DNS resolver settings side panel, disable the DNS hub.
@@ -182,7 +182,7 @@ You can use Terraform to set the DNS resolver type.
 To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started){: external}.
 {: requirement}
 
-VPC infrastructure services use a regional specific endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the right region in the provider block in the `provider.tf` file.
+VPC infrastructure services use a regional specific endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the appropriate region in the provider block in the `provider.tf` file.
 
 See the following example of targeting a region other than the default `us-south`.
 
