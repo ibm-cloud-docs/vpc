@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-06-30"
+lastupdated: "2023-12-18"
 
 keywords: volume, capacity, Block Storage
 
@@ -30,25 +30,27 @@ Capacity for secondary volumes ranges 10 - 16,000 GB. You can also expand volume
 
 Review the following checklist items and record your answers. Provide this information when you create a support case.
 
-- **Ticket Subject**: "Request to Increase VPC Volume Count Limit".
+- **Ticket Subject**: 
+    >"*Request to Increase VPC Volume Count Limit*".
 
 - **How many extra volumes do you need? Provide your account, region, and the zone where you want more volumes.**
-    For example, *"200 volumes in US South-2".*
+    >*"200 volumes in US South-2"*.
 
 - **How many volumes are primary boot volumes versus secondary data volumes?**
-    For example, *"50% primary volumes, 50% secondary volumes" or "100 primary volumes, 100 secondary volumes".*
+    >*"50% primary volumes, 50% secondary volumes" or "100 primary volumes, 100 secondary volumes".*
 
 - **Of the secondary volumes, how many secondary volumes do you need and of what capacity?**
-    For example, *"75% of the secondary volumes are under 250 GB and 25% are up to 16,000 GB.*
+    >*"75% of the secondary volumes are under 250 GB and 25% are up to 16,000 GB."*
 
 - **How many total volumes use customer-managed encryption?**
-    For example, *"100 volumes (or 50%) are to use customer-managed encryption".*
+    >*"100 volumes (or 50%) are to use customer-managed encryption".*
 
 - **Provide an estimate of when you expect or plan to provision all of the requested volumes.**
-    For example, *"I expect to create these volumes within 90 days".*
+    >*"I expect to create these volumes within 90 days".*
 
 - **Provide a 90-day forecast of expected average capacity usage of these volumes.**
-    For example, *"I expect 25% of the volumes to be used in 30 days, 50 percent to be used in 60 days and 75% to be used in 90 days"*. You might also want to break it down further, by primary and secondary volumes. For example, *"for secondary volumes, I expect to create 50% of the secondary volumes at less than 250 GB within 30 days and secondary volumes greater than 250 (if possible, estimate volume size) within 60 days."*
+    >*"I expect 25% of the volumes to be used in 30 days, 50 percent to be used in 60 days and 75% to be used in 90 days".*
+    >"*For secondary volumes, I expect to create 50% of the secondary volumes at less than 250 GB within 30 days and secondary volumes greater than 250 (if possible, estimate volume size) within 60 days."*
 
 Respond promptly to all questions and statements in your request. They're necessary for processing and approval. If some things are unclear, there's opportunity to clarify your answers. 
 {: important}

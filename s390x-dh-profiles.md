@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023
-lastupdated: "2023-12-15"
+lastupdated: "2023-12-18"
 
 keywords: dedicated host profiles, s390x
 
@@ -47,7 +47,7 @@ Dedicated hosts have a network performance cap of 80 Gbps. Instances that are cr
 {: note}
 
 ## Viewing profile configurations
-{: #dh-popular-profiles}
+{: #s390x-dh-popular-profiles}
 
 You can view available profile configurations by using the {{site.data.keyword.cloud_notm}} console or the CLI. In the {{site.data.keyword.cloud_notm}} console, you can select from popular profile configurations that support most common use cases.
 
@@ -89,12 +89,12 @@ For the “mz2-host-40x320” profile, you can know from the name that it is a M
 {: #s390x-dh-profiles-using-console}
 {: ui}
 
-1. In the {{site.data.keyword.cloud_notm}} console, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Dedicated hosts**.
+1. In the {{site.data.keyword.cloud_notm}} console, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Dedicated hosts**.
 2. From the Dedicated host page, click **Create**.
 3. You can select from available profile configurations.
 
 ### Using the CLI
-{: #dh-profiles-using-cli}
+{: #s390x-dh-profiles-using-cli}
 {: cli}
 
 To view the list of available profiles by using the CLI, run the following command:

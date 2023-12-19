@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2022
-lastupdated: "2022-11-08"
+  years: 2018, 2023
+lastupdated: "2023-12-18"
 
 keywords:
 
@@ -46,7 +46,7 @@ If you assign a new network interface to a virtual server instance while it is r
 {: #editing-network-interfaces}
 
 To add or edit the network interfaces associated with your virtual server instances, complete the following steps.
-1. In the {{site.data.keyword.cloud_notm}} console, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
+1. In the {{site.data.keyword.cloud_notm}} console, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 2. Click the name of a virtual server instance that includes the network interface that you want to edit. Or you can add a network interface to the virtual server instance.
 3. On the Instance details page, find the **Network interfaces** section.
 4. For specific steps for adding a floating IP address or adding a network interface, see the following sections.
@@ -89,7 +89,7 @@ You can create a virtual network interface without attaching it to a target. The
 Virtual network interfaces can be attached to new virtual server instances, and cannot be added to existing virtual server instances with child network interfaces.
 {: note}
 
-1. In the {{site.data.keyword.cloud_notm}} console, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
+1. In the {{site.data.keyword.cloud_notm}} console, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 1. Click **Create** to begin creating a new virtual server instance capable of using a virtual network interface.
 1. In the **Networking** section, select whether to create one of the following:
    * **Network attachment with a virtual network interface**: a network interface that has additional features, such as secondary IP addresses and a lifecycle separate from the virtual server instance you are creating.

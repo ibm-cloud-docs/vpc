@@ -2,8 +2,7 @@
 
 copyright:
   years: 2021, 2023
-
-lastupdated: "2023-08-15"
+lastupdated: "2023-12-18"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance
 
@@ -44,7 +43,7 @@ Use the UI to create an image from a volume that is attached to an available vir
 
 Use the UI to import your custom image by choosing to create and import an image from a volume.
 
-1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Images**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external},click the **Navigation Menu** ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) Compute > Images**.
 
 2. On the **Custom images** tab, click **Create**. The Import custom image page is displayed.
 
@@ -123,13 +122,13 @@ For more information, see [Setting up your key management service and keys](/doc
 
 When the image from a volume is created, it appears in the list of custom images.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Images**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images**.
 
 2. On the **Custom images** tab, click the image name to see the volume from which it was created. The image details panel links to the source volume.
 
 To use this image when you create a new instance, select it as operating system type when you create an instanceL
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 
 2. Click **Create**. For more information about how to provision a new virtual server instance, see [Creating virtual server instances in the UI](/docs/vpc?topic=vpc-creating-virtual-servers). For the **Operating system**, select the **Custom image** tile.
 

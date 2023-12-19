@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-03-16"
+lastupdated: "2023-12-18"
 
 keywords:
 
@@ -232,7 +232,7 @@ To obtain the CRN, you must have permission to access the Secrets Manager instan
 
 To find a certificate's CRN, follow these steps:
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../icons/icon_hamburger.svg) > Resource list**. 
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) > Resource list**. 
 1. Click to expand **Security**, then select the Secrets Manager that you want to find the CRN for.
 1. Select anywhere in the table row of the certificate to open the Certificate details side panel. The certificate CRN is listed in the side panel.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-10-19"
+lastupdated: "2023-12-18"
 
 keywords: file share, file storage, increase capacity, expand capacity, expand share size, file share size
 
@@ -66,7 +66,7 @@ The following limitations apply to this release.
 
 Follow these steps for expanding file share capacity in the UI:
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Storage > File Shares**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > File Shares**.
 
 2. The File Shares for VPC list page shows all file shares that were created in that zone. Click the name of the file share to get to the details page.
 

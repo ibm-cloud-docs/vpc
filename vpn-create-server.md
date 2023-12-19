@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-12-04"
+lastupdated: "2023-12-18"
 
 keywords:
 
@@ -48,7 +48,7 @@ To create a client-to-site VPN server in the UI:
 
 1. Complete all prerequisites in the "Before you begin" section.
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) on the upper left of the page, then click **VPC Infrastructure > VPNs** in the Network section.
+1. Select the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>VPNs** in the Network section.
 1. Click **Create** in the upper right of the page.
 1. In the VPN type section, click **Client-to-site servers**.
 

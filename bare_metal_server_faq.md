@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-08-25"
+lastupdated: "2023-12-18"
 
 subcollection: vpc
 
@@ -127,7 +127,7 @@ The main difference between virtual server instances and the bare metal servers 
 
 To view your account invoices, follow these steps.
 
-1. Go to the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](/login), 
+1. Go to the [{{site.data.keyword.cloud_notm}} console](/login){: external}, 
 2. Then, click **Manage > Billing and Usage**.
 
 Each account receives a single bill. If you need separate billing for different sets of resources, then you need to create multiple accounts.

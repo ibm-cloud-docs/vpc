@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-12-07"
+lastupdated: "2023-12-18"
 
 subcollection: vpc
 
@@ -31,7 +31,7 @@ If you are not the account administrator, your user account must include the **M
 
 In the {{site.data.keyword.cloud_notm}}, complete the following steps to provision your reserved capacity.
 
-1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](/login), click **menu icon ![the menu icon ](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Reservations**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Reservations**.
 2. To create new reserved capacity, click **Create**.
 3. From the **New reservation for VPC** page, enter or select the following information:
 

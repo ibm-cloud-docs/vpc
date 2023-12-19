@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-12-12"
+lastupdated: "2023-12-18"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -35,7 +35,7 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
 ### Creating a file share in the UI
 {: #fs-create-share-target-ui}
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Storage > File Shares**. A list of file shares displays.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > File Shares**. A list of file shares displays.
 
 1. On the File shares for VPC page, click **Create**.
 
@@ -95,7 +95,7 @@ If you're not ready to order yet or just looking for pricing information, you ca
 
 You can create several mount targets for an existing file share if the share is to be used by resources in multiple VPCs. You can create one mount target per VPC per file share. 
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Storage > File shares**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > File shares**.
 
 2. Select a file share from the list.
 
@@ -810,7 +810,7 @@ curl -X POST \
 To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
 {: requirement}
 
-VPC infrastructure services use a regional specific endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the right region in the provider block in the `provider.tf` file.
+VPC infrastructure services use a regional specific endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the appropriate region in the provider block in the `provider.tf` file.
 
 See the following example of targeting a region other than the default `us-south`.
 

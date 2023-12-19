@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-12-14"
+lastupdated: "2023-12-18"
 
 keywords:
 
@@ -49,7 +49,7 @@ For more information the following topics.
 
 When you create volume, snapshot, file share, or custom image with customer-managed encryption, your root key is automatically registered in the KMS instance. You can view the registration to verify whether the key was rotated. The following procedure shows how to verify key rotation for a {{site.data.keyword.block_storage_is_short}} volume, but steps are similar for other resources.
 
-1. From the [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block Storage volumes**. The list shows all volumes and the Encryption column displays either "Provider Managed" or the name of the KMS that is used for custoner-managed encryption.
+1. From the [{{site.data.keyword.cloud_notm}} console)](/login){: external}, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**. The list shows all volumes and the Encryption column displays either "Provider Managed" or the name of the KMS that is used for custoner-managed encryption.
 1. Click the name of a volume to see its details.
 1. In the Encryption Instance field, click the link of the KMS instance. The KMS instance overview page is displayed.
 
