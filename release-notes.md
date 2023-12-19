@@ -2,7 +2,8 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-12-18"
+
+lastupdated: "2023-12-19"
 
 keywords:
 
@@ -27,6 +28,24 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## December 2023
 {: #vpc-dec23}
+
+### 19 December 2023
+{: #vpc-dec1923}
+{: release-note}
+
+Corrected events for virtual network interfaces
+:   The following table shows activity tracker events that have been corrected for virtual network interfaces.
+
+| Incorrect event | Corrected events  |
+|:----------------|:-----------------------|
+|`is.bare-metal-server.network-interface.floating-ip.attach`|  - `is.bare-metal-server.network-interface.attach` \n  - `is.floating-ip.floating-ip.attach`|
+|`is.bare-metal-server.network-interface.floating-ip.detach`| - `is.bare-metal-server.network-interface.attach` \n  - `is.floating-ip.floating-ip.attach` |
+|`is.instance.network-interface_floating-ip.detach`         | - `is.floating-ip.floating-ip.detach` \n  - `is.instance.network-interface.detach`  |
+| `is.instance.network-interface_floating-ip.attach`        | - `is.floating-ip.floating-ip.attach` \n  - `is.instance.network-interface.attach`  |
+| `is.subnet.public-gateway.detach`                         | - `is.public-gateway.public-gateway.detach` \n  - `is.subnet.subnet.detach` |
+| `is.subnet.public-gateway.attach`                         | - `is.public-gateway.public-gateway.attach` \n  - `is.public-gateway.public-gateway.detach` \n  - `is.subnet.subnet.attach` \n  - `is.subnet.subnet.detach` |
+| `is.subnet.routing-table.attach`                          |- `is.subnet.subnet.attach` \n  - `is.subnet.subnet.detach` \n  - `is.vpc.routing-table.attach` \n  - `is.vpc.routing-table.detach`  |
+{: caption="Table 1. Corrected events for virtual network interfaces" caption-side="bottom"}
 
 ### 15 December 2023
 {: #vpc-dec1523}
