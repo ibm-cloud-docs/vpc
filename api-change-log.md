@@ -60,6 +60,13 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 ### For all version dates
 {: #19-december-2023-all-version-dates}
 
+**VPC route advertisement to Direct Link and Transit Gateway.** When [creating](/apidocs/vpc/latest#create-vpc-routing-table-route) or [updating](/apidocs/vpc/latest#update-vpc-routing-table-route) a route in a routing table, you can set the new `advertise` property to `true` (default is `false`). For the route to be advertised, the route's routing table must be configured for the source or sources to advertise it to:
+
+- When [creating](/apidocs/vpc/latest#create-vpc-routing-table) or [updating](/apidocs/vpc/latest#update-vpc-routing-table) a VPC routing table, you can set the new `advertise_routes_to` array property to include the value `direct_link`. Including this value requires that the routing table's `route_direct_link_ingress` property be set to `true`. Routes in this routing table with the `advertise` property set to `true` will be advertised to Direct Link sources.
+- When [creating](/apidocs/vpc/latest#create-vpc-routing-table) or [updating](/apidocs/vpc/latest#update-vpc-routing-table) a VPC routing table, you can set the new `advertise_routes_to` array property to include the value `transit_gateway`. Including this value requires that the routing table's `route_transit_gateway_ingress` property be set to `true`. Routes in this routing table with the `advertise` property set to `true` will be advertised to Transit Gateway sources.
+
+When [creating](/apidocs/vpc/latest#create-vpc-routing-table) a routing table, the default value for the `advertise_routes_to` property is an empty array. When the `advertise_routes_to` property is an empty array, the `advertise` property for routes in the table has no effect.
+
 **Virtual network interface expanded support.** Accounts that have been granted special approval can preview a new feature that expands the support for [virtual network interfaces](/docs/vpc?topic=vpc-vni-about):
 
 - [Instances](/apidocs/vpc/latest#create-instance) and [bare metal servers](/apidocs/vpc/latest#create-bare-metal-server) can now be created with virtual network interfaces attached to new child resources called network attachments. You can specify a `primary_network_attachment` (instead of a `primary_network_interface`) and provide either the identity of an existing virtual network interface, or a subnet to create a new virtual network interface for the instance or bare metal server.
