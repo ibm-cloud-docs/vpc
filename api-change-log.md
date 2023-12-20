@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-12-12"
+lastupdated: "2023-12-19"
 
 keywords: vpc, api, change log, new features, restrictions, migration
 
@@ -53,6 +53,28 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 19 December 2023
+{: 19-december-2023}
+
+### For all version dates
+{: #19-december-2023-all-version-dates}
+
+**VPC route advertisement to Direct Link and Transit Gateway.** When [creating](/apidocs/vpc/latest#create-vpc-routing-table-route) or [updating](/apidocs/vpc/latest#update-vpc-routing-table-route) a route in a routing table, you can set the new `advertise` property to `true` (default is `false`). For the route to be advertised, the route's routing table must be configured for the source or sources to advertise it to:
+
+- When [creating](/apidocs/vpc/latest#create-vpc-routing-table) or [updating](/apidocs/vpc/latest#update-vpc-routing-table) a VPC routing table, you can set the new `advertise_routes_to` array property to include the value `direct_link`. Including this value requires that the routing table's `route_direct_link_ingress` property be set to `true`. Routes in this routing table with the `advertise` property set to `true` will be advertised to Direct Link sources.
+- When [creating](/apidocs/vpc/latest#create-vpc-routing-table) or [updating](/apidocs/vpc/latest#update-vpc-routing-table) a VPC routing table, you can set the new `advertise_routes_to` array property to include the value `transit_gateway`. Including this value requires that the routing table's `route_transit_gateway_ingress` property be set to `true`. Routes in this routing table with the `advertise` property set to `true` will be advertised to Transit Gateway sources.
+
+When [creating](/apidocs/vpc/latest#create-vpc-routing-table) a routing table, the default value for the `advertise_routes_to` property is an empty array. When the `advertise_routes_to` property is an empty array, the `advertise` property for routes in the table has no effect.
+
+**Virtual network interface expanded support.** Accounts that have been granted special approval can preview a new feature that expands the support for [virtual network interfaces](/docs/vpc?topic=vpc-vni-about):
+
+- [Instances](/apidocs/vpc/latest#create-instance) and [bare metal servers](/apidocs/vpc/latest#create-bare-metal-server) can now be created with virtual network interfaces attached to new child resources called network attachments. You can specify a `primary_network_attachment` (instead of a `primary_network_interface`) and provide either the identity of an existing virtual network interface, or a subnet to create a new virtual network interface for the instance or bare metal server.
+- Virtual network interfaces can now have lifecycles that are independent of the resources they are attached to. When [creating](/apidocs/vpc/latest#create-virtual-network-interface) a virtual network interface, the `auto_delete` property is set to `false`. When automatically creating a new virtual network interface in the context of creating another resource, the `auto_delete` property for the automatically created virtual network interface defaults to `true`. You can override it, or you can later [update](/apidocs/vpc/latest#update-virtual-network-interface) the `auto_delete` property to `false`. A virtual network interface with `auto_delete` set to `false` persists beyond the lifecycle of its current `target` resource. After the target resource is deleted, you can re-attach the virtual network interface to another resource, such as to a bare metal server, an instance, or a share mount target.
+- Virtual network interfaces now support [secondary IP addresses](/docs/vpc?topic=vpc-vni-about-secondary-ip). To add a secondary IP, [add](/apidocs/vpc/latest#add-virtual-network-interface-ip) a reserved IP to a virtual network interface. To remove a secondary IP, [remove](remove-virtual-network-interface-ip) a reserved IP from from a virtual network interface.
+- For compatibility with existing clients, instances and bare metal servers with virtual network interfaces now include a read-only representation of their network attachments and virtual network interfaces as legacy network interface child resources. Learn about [support for old API clients](/docs/vpc?topic=vpc-vni-about&interface=ui#vni-old-api-clients).
+- For instances and bare metal servers with virtual network interfaces, the IAM permissions for options to allow IP spoofing or disable infrastructure NAT are managed on their attached virtual network interfaces. When [creating](/apidocs/vpc/latest#create-virtual-network-interface) or [updating](/apidocs/vpc/latest#update-virtual-network-interface) a virtual network interface, you can set non-default values for the `allow_ip_spoofing` and `enable_infrastructure_nat` properties only if you have the `is.virtual-network-interface.virtual-network-interface.manage-ip-spoofing` and `is.virtual-network-interface.virtual-network-interface.manage-infrastructure-nat` IAM permissions respectively.
+- [Flow log collectors](/apidocs/vpc/latest#create-flow-log-collector) can now target instance network attachments and virtual network interfaces. There is currently no support for flow logs for bare metal servers and share mount targets.
 
 ## 12 December 2023
 {: #12-december-2023}
