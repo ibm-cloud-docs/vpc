@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-09-26"
+lastupdated: "2023-12-21"
 
 subcollection: vpc
 
@@ -32,7 +32,7 @@ The following operating systems are available as stock images when you create a 
 | Rocky Linux 8.5 | x86-64 |
 | SUSE Linux Enterprise Server 12.x, 15.x | x86-64 |
 | Ubuntu 20.04.x, 22.04.x | x86-64 |
-| Windows 2012, 2012 R2, 2016, 2019, 2022 | x86-64 |
+| Windows 2016, 2019, 2022 | x86-64 |
 | Fedora Core OS | x86-64 |
 {: caption="Table 1. Supported x86_64 stock image operating systems" caption-side="top"}
 
@@ -51,7 +51,7 @@ For information about images for IBM Z (s390x processor architecture), see [s390
 
 When you order an instance, the images are cloud-init enabled to optimize creation times. With a cloud-init enabled image, you can provide user data. In the **User Data** field on the order form, you can enter optional cloud-init user data for the server. For more information about user data and automation, see [User data](/docs/vpc?topic=vpc-user-data).
 
-You can access details about each operating system, such as the url for the operating system, by using the API call, [List all operating systems](https://cloud.ibm.com/apidocs/vpc#list-operating-systems){: external}.  
+You can access details about each operating system, such as the url for the operating system, by using the API call, [List all operating systems](https://cloud.ibm.com/apidocs/vpc#list-operating-systems){: external}.
 {: tip}
 
 ### Stock image naming conventions
