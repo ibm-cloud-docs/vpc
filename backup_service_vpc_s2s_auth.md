@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-11-13"
+lastupdated: "2024-01-02"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -56,6 +56,7 @@ To create a service-to-service authorization policy, follow this procedure:
    |--------------------------------|---------------------------------|-----------|
    | IBM Cloud Backup for VPC       | Cloud Block Storage             | Operator |
    | IBM Cloud Backup for VPC       | Block Storage Snapshots for VPC | Editor   |
+   | IBM Cloud Backup for VPC       | Multi Volume Snapshots for VPC  | Editor   |
    | IBM Cloud Backup for VPC       | Virtual Server for VPC          | Operator | 
    {: caption="Table 1. Service-to-service authorizations" caption-side="bottom"}
 
@@ -78,6 +79,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
    |--------------------------------|---------------------------------|-----------|
    | IBM Cloud Backup for VPC       | Cloud Block Storage             | Operator  |
    | IBM Cloud Backup for VPC       | Block Storage Snapshots for VPC | Editor    |
+   | IBM Cloud Backup for VPC       | Multi Volume Snapshots for VPC  | Editor    |
    | IBM Cloud Backup for VPC       | Virtual Server for VPC          | Operator  | 
    | IBM Cloud Backup for VPC       | IBM Cloud Backup for VPC        | Editor    |
    {: caption="Table 2. Service-to-service authorizations for the Enterprise" caption-side="bottom"}
@@ -101,6 +103,7 @@ To use Backup for VPC in your account to create policies, plans and run backup j
 * `backup-policy` (source) to `volume` (target) with _Operator_ role
 * `backup-policy` (source) to `snapshot` (target) with _Editor_ role
 * `backup-policy` (source) to `instance` (target) with _Operator_ role
+* `backup-policy` (source) to `snapshot-consistency-group` (target) with _Editor_ role
 
 Run the `ibmcloud iam authorization-policy-create` command to create the following 3 authorization policies.
 
@@ -116,6 +119,11 @@ ibmcloud iam authorization-policy-create is is Editor --source-resource-type bac
 
 ```sh
 ibmcloud iam authorization-policy-create is is Operator --source-resource-type backup-policy --target-resource-type instance 
+```
+{: pre}
+
+```sh
+ibmcloud iam authorization-policy-create is is Editor --source-resource-type backup-policy --target-resource-type napshot-consistency-group
 ```
 {: pre}
 
@@ -151,6 +159,11 @@ ibmcloud iam authorization-policy-create is is Editor --source-resource-type bac
 {: pre}
 
 ```sh
+ibmcloud iam authorization-policy-create is is Editor --source-resource-type backup-policy --target-resource-type napshot-consistency-group --source-service-account ACCOUNT_ID
+```
+{: pre}
+
+```sh
 ibmcloud iam authorization-policy-create is is Editor --source-resource-type backup-policy --target-resource-type instance --source-service-account ACCOUNT_ID
 ```
 {: pre}
@@ -169,6 +182,7 @@ To use Backup for VPC in your account to create policies, plans and run backup j
 * `is.backup-policy` (source) to `is.volume` (target) with _operator_ role.
 * `is.backup-policy` (source) to `is.snapshot` (target) with _editor_ role.
 * `is.backup-policy` (source) to `is.instance` (target) with _operator_ role.
+* `is.backup-policy` (source) to `is.snapshot-consistency-group` with _editor_ role
 
 Make the request to the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy), similar to the following examples.
 
@@ -199,7 +213,6 @@ curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H
 }'
 ```
 {: pre}
-
 
 ```json
 curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H 
@@ -273,7 +286,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
    ```
    {: pre}
 
-1. Then, make the requests to the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy) to create the service-to-service authorizations for the `is.backup-policy` of enterprise account to interact with the child account's `is.backup`, `is.snapshot`, `is.volume`, and `is.instance` services.
+1. Then, make the requests to the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy) to create the service-to-service authorizations for the `is.backup-policy` of enterprise account to interact with the child account's `is.backup`, `is.snapshot`, `is.volume`, `is.snapshot-consistency-group` and `is.instance` services.
 
    * Authorize `is.backup-policy` (source) to interact with `is.backup-policy` (target) with the _editor_ role.
 
@@ -426,6 +439,14 @@ resource "ibm_iam_authorization_policy" "policy2" {
 }
 
 resource "ibm_iam_authorization_policy" "policy3" {
+  source_service_name  = "is"
+  source_resource_type = "backup-policy"
+  target_service_name  = "is"
+  target_resource_type = "snapshot-consistency-group"
+  roles                = ["Editor"]
+}
+
+resource "ibm_iam_authorization_policy" "policy4" {
   source_service_name  = "is"
   source_resource_type = "backup-policy"
   target_service_name  = "is"
