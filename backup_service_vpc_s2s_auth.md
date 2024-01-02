@@ -123,7 +123,7 @@ ibmcloud iam authorization-policy-create is is Operator --source-resource-type b
 {: pre}
 
 ```sh
-ibmcloud iam authorization-policy-create is is Editor --source-resource-type backup-policy --target-resource-type napshot-consistency-group
+ibmcloud iam authorization-policy-create is is Editor --source-resource-type backup-policy --target-resource-type snapshot-consistency-group
 ```
 {: pre}
 
@@ -159,7 +159,7 @@ ibmcloud iam authorization-policy-create is is Editor --source-resource-type bac
 {: pre}
 
 ```sh
-ibmcloud iam authorization-policy-create is is Editor --source-resource-type backup-policy --target-resource-type napshot-consistency-group --source-service-account ACCOUNT_ID
+ibmcloud iam authorization-policy-create is is Editor --source-resource-type backup-policy --target-resource-type snapshot-consistency-group --source-service-account ACCOUNT_ID
 ```
 {: pre}
 
