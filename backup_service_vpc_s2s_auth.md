@@ -454,7 +454,7 @@ resource "ibm_iam_authorization_policy" "policy4" {
   roles                = ["Operator"]
 }
 ```
-{: codeblock}
+{: screen}
 
 For more information about the arguments and attributes, see the [Terraform documentation for authorization resources](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/iam_authorization_policy){: external}.
 
