@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2022, 2023
+  years: 2022, 2024
 lastupdated: "2024-01-02"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
@@ -54,7 +54,7 @@ To create a service-to-service authorization policy, follow this procedure:
    
    | Source service - resource type | Target service - resource type  | Dependent service user role |
    |--------------------------------|---------------------------------|-----------|
-   | IBM Cloud Backup for VPC       | Cloud Block Storage             | Operator |
+   | IBM Cloud Backup for VPC       | Block Storage for VPC           | Operator |
    | IBM Cloud Backup for VPC       | Block Storage Snapshots for VPC | Editor   |
    | IBM Cloud Backup for VPC       | Multi Volume Snapshots for VPC  | Editor   |
    | IBM Cloud Backup for VPC       | Virtual Server for VPC          | Operator | 
@@ -77,7 +77,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
 
    | Source service - resource type | Target service - resource type  | Dependent service user role |
    |--------------------------------|---------------------------------|-----------|
-   | IBM Cloud Backup for VPC       | Cloud Block Storage             | Operator  |
+   | IBM Cloud Backup for VPC       | Block Storage for VPC           | Operator  |
    | IBM Cloud Backup for VPC       | Block Storage Snapshots for VPC | Editor    |
    | IBM Cloud Backup for VPC       | Multi Volume Snapshots for VPC  | Editor    |
    | IBM Cloud Backup for VPC       | Virtual Server for VPC          | Operator  | 
