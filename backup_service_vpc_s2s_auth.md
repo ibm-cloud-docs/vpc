@@ -62,7 +62,7 @@ To create a service-to-service authorization policy, follow this procedure:
 
 1. Then, under Platform access, select the role. See Table 1 for the appropriate role.
 1. Click **Authorize**.
-1. When you are returned to the **Manage authorizations** page, click **Create** again and follow the same steps to set up authorizations for the other two services.
+1. When you are returned to the **Manage authorizations** page, click **Create** again and follow the same steps to set up authorizations for the remaining services.
 
 ### Creating cross-account authorization for the Enterprise
 {: #backup-s2s-auth-procedure-ui-enterprise}
@@ -89,7 +89,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
 1. Click **Resource type**. From the list, select **IBM Cloud Backup for VPC**.
 1. Then, under Platform access, select the role. See Table 2 for the appropriate role.
 1. Click **Authorize**.
-1. When you are returned to the **Manage authorizations** page, click **Create** again and follow the same steps to set up authorizations for the other three services.
+1. When you are returned to the **Manage authorizations** page, click **Create** again and follow the same steps to set up authorizations for the remaining services.
 
 ## Creating authorization policies from the CLI
 {: #backup-s2s-auth-procedure-cli}
