@@ -25,7 +25,7 @@ Billing for the file share is automatically updated to add the pro-rated differe
 
 You can increase the capacity of the file share. The file share size cannot be less than the current file share size.
 
-Capacity can be increased for file shares that are in a `stable` state. Your user authorization is verified before the file share is expanded. You can use the [UI](#expand-vpc-share-ui), [CLI](#expand-vpc-share-cli), or [API](#expand-vpc-share-api) to increase file share capacity. You can expand a file share multiple times up to its maximum capacity limit. After you expanded the file share, you can't reduce the capacity.
+Capacity can be increased for file shares that are in a `stable` state. Your user authorization is verified before the file share is expanded. You can use the UI, the CLI, the API, or Terraform to increase file share capacity. You can expand a file share multiple times up to its maximum capacity limit. After you expanded the file share, you can't reduce the capacity.
 
 Expanded capacity is determined by the maximum that is allowed by the file share profile. File shares that are created from a [Custom](/docs/vpc?topic=vpc-file-storage-profiles#fs-custom) profile or a [dp2](/docs/vpc?topic=vpc-file-storage-profiles#dp2-profile) profile can be expanded within the allowable IOPS range for that file share size.
 
