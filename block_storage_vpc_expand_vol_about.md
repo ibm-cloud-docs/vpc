@@ -34,7 +34,7 @@ To expand a volume, it must be in an _available_ state and the instance must be 
 
 Expanded capacity is determined by the maximum that is allowed by the volume's profile.
 
-Volumes that were created by using an [IOPS tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers-beta) can be expanded to the maximum size for its IOPS tier:
+Volumes that were created by using an [IOPS tier profile](/docs/vpc?topic=vpc-block-storage-profiles) can be expanded to the maximum size for its IOPS tier:
 
 * A general-purpose, 3 IOPS/GB profile can be expanded up to 16,000 GB.
 * A 5 IOPS/GB profile can be expanded up to 9,600 GB.
@@ -94,10 +94,10 @@ Limitations for resizing boot and data volumes apply in this release.
 ### Data volume limitations
 {: #expand-vol-limitations}
 
-* You cannot expand a volume that is at its maximum capacity for its [IOPS tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers-beta) or [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) volume range.
+* You cannot expand a volume that is at its maximum capacity for its [IOPS tier profile](/docs/vpc?topic=vpc-block-storage-profiles) or [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) volume range.
 
 * Data volumes can expand to 16,000 GB, with the following limitations:
-    * If the volume was created by using an [IOPS tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers-beta) that limits capacity to less than 16,000 GB, it can expand only to the allowed capacity for that tier.
+    * If the volume was created by using an [IOPS tier profile](/docs/vpc?topic=vpc-block-storage-profiles) that limits capacity to less than 16,000 GB, it can expand only to the allowed capacity for that tier.
     * If the volume was provisioned with a [custom profile](/docs/vpc?topic=vpc-block-storage-profiles#custom) that is created in a range that doesn't allow expanding to 16,000 GB, it can expand only to its maximum capacity for that custom range.
     * Volumes can expand multiple times until maximum capacity is reached.
 * IOPS can increase to the maximum that is allowed by the IOPS tier profile. For the increased IOPS to take effect, you must restart the virtual server instance, or detach and reattach the volume from the instance. This behavior is unlike a capacity increase that doesn't incur any downtime.
