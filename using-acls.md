@@ -101,7 +101,7 @@ This example illustrates general cases only. In your scenarios, you might want t
 ### Example steps
 {: #acl-example-steps}
 
-The following example steps skip the prerequisite steps of using the CLI to create a VPC, which must be done first. For more information, see [Using the CLI to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
+The following example steps skip the prerequisite steps of using the CLI to create a VPC, which must be done first. For more information, see [Using the CLI to create VPC resources](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli).
 
 #### Step 1. Create the ACLs
 {: #step-1-create-the-acls}

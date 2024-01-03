@@ -100,7 +100,7 @@ You can create one or more dedicated groups and hosts in your {{site.data.keywor
 * IBM Cloud CLI
 * The vpc-infrastructure plugin
 
-2. Have an [{{site.data.keyword.vpc_short}} created](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
+2. Have an [{{site.data.keyword.vpc_short}} created](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli).
 
 ### Gathering information to create a dedicated group by using the CLI
 {: #gather-info-dedicated-group-cli}

@@ -232,7 +232,7 @@ Before you begin:
 
 2. After you install the IBM Cloud CLI, set the target to generation 2 by running the `ibmcloud is target --gen 2` command.
 
-3. Make sure that you [created an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-cli#create-a-vpc-cli).
+3. Make sure that you [created an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli#create-a-vpc-cli).
 
 #### Enable or disable the metadata service when you create an instance by using the CLI
 {: #imd-enable-on-instance-cli}

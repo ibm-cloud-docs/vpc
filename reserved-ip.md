@@ -133,7 +133,7 @@ Where:
 To create a reserved IP with the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
-1. [Create a subnet](/docs/vpc?topic=vpc-creating-a-vpc-using-cli#create-a-subnet-cli).
+1. [Create a subnet](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli#create-a-subnet-cli).
 1. Store the subnet ID in a variable to be used in the API command:
 
    ```sh

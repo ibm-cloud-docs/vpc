@@ -138,7 +138,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 
 3. After you install the VPC CLI plug-in, set the target to generation 2 by running the `ibmcloud is target --gen 2` command.
 
-4. Make sure that you [created an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-cli#create-a-vpc-cli).
+4. Make sure that you [created an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli#create-a-vpc-cli).
 
 ### Gathering information from the CLI
 {: #fs-vpc-getinfo-cli}

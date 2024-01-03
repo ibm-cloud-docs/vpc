@@ -47,7 +47,7 @@ For more information about creating a virtual server instance with a custom imag
 {: #before-instance-cli}
 
 Make sure that you set up your [{{site.data.keyword.cloud}} CLI environment](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup)
-and your [{{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
+and your [{{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli).
 
 ### Gathering information to create an instance template
 {: #cli-options-instance-template-create}

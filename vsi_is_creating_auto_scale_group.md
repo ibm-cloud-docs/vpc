@@ -153,7 +153,7 @@ You can create an instance group in your {{site.data.keyword.vpc_short}} to auto
 ### Before you begin
 {: #before-cli-tutorial-autoscale}
 
-Make sure that you set up your [{{site.data.keyword.cloud}} CLI environment](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup) and your [{{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
+Make sure that you set up your [{{site.data.keyword.cloud}} CLI environment](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup) and your [{{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli).
 {: important}
 
 To create an auto scale instance group by using the CLI, you must complete the following tasks:
