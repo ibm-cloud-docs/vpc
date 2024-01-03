@@ -37,7 +37,7 @@ Yes.
 {: faq}
 {: #faq-fs-os}
 
-No, file shares can be mounted only on supported on Linux operating systems or a z/OS-based {{site.data.keyword.cloud}} Compute Instance that support NFS file shares. For more information, see the mounting information for [Red Hat](/docs/vpc?topic=vpc-file-storage-vpc-mount-RHE), [CentOS](/docs/vpc?topic=vpc-file-storage-mount-centos), and [Ubuntu](/docs/vpc?topic=vpc-file-storage-vpc-mount-ubuntu) Linux distributions, or [z/OS](/docs/vpc?topic=vpc-file-storage-vpc-mount-zos) systems.
+No, file shares can be mounted only on supported on Linux operating systems or a z/OS-based {{site.data.keyword.cloud}} Compute Instance that support NFS file shares. For more information, see the mounting information for [Red Hat](/docs/vpc?topic=vpc-file-storage-vpc-mount-RHEL), [CentOS](/docs/vpc?topic=vpc-file-storage-mount-centos), and [Ubuntu](/docs/vpc?topic=vpc-file-storage-vpc-mount-ubuntu) Linux distributions, or [z/OS](/docs/vpc?topic=vpc-file-storage-vpc-mount-zos) systems.
 
 ### What is the minimum NFS version supported?
 {: faq}
