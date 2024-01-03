@@ -123,7 +123,7 @@ For more information about available command options, see [`ibmcloud is snapshot
 
 Before you begin, [retrieve the instance details](/apidocs/latest#get-instance){: external} of the virtual server instance that you want to capture in the snapshot consistency group. Note the CRNs or IDs of the `volume_attachments` and the `boot_volume_attachment`.
 
-You can programmatically create a consistency group by calling the `/snapshot_consistency_groups` method in the [VPC API](/apidocs/vpc-scoped#create-snapshot-consistency-groups){: external} as shown in the following sample request.
+You can programmatically create a consistency group by calling the `/snapshot_consistency_groups` method in the [VPC API](/apidocs/vpc/latest#create-snapshot-consistency-groups){: external} as shown in the following sample request.
 
 ```sh
 curl -X POST \
