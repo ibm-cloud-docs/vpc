@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2023-12-18"
+lastupdated: "2024-01-03"
 
 keywords: snapshots, Block Storage snapshots, manage snapshots, fast restore clone, backup snapshot, remote copy, cross-regional copy
 
@@ -986,7 +986,7 @@ Table 2 describes the snapshot states in the snapshot lifecycle.
 | Failed | The snapshot failed to br created, the volume can't be restored from a snapshot. |
 | Suspended | Snapshot is temporarily unavailable. |
 | Updating | You changed something about the snapshot and it is being updated. |
-| Deleting | The snapshot is [deleting](#snapshots-vpc-delete). |
+| Deleting | The snapshot is being deleted. |
 | Deleted | The snapshot was deleted and is not available to restore volumes. |
 {: caption="Table 2. Snapshot lifecycle states" caption-side="bottom"}
 
