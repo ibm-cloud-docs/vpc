@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2019, 2023
-lastupdated: "2023-12-18"
+  years: 2019, 2024
+lastupdated: "2024-01-03"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, very high memory, gpu, sap, olap, oltp, nvidia, cascade lake
 
@@ -327,7 +327,7 @@ When you create a `-v100` or `-a100` GPU profile, keep the following recommendat
 - During {{site.data.keyword.Bluemix_notm}} periodic maintenance, GPU workloads aren't secure live migrated. Instead, the virtual server instance is restarted. You are notified 30 days in advance of any maintenance where the virtual server instance restarts. For more information, see [Understanding cloud maintenance operations](/docs/vpc?topic=vpc-about-cloud-maintenance).
 - If you are using GPU profiles, you need to install the NVIDA driver onto your virtual server instance. For more information, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
 - If you are using GPU profiles, you might need to install the CUDA toolkit onto your virtual server instance. For more information, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
-- For more information about persistent storage options, see [Storage notes for profiles](#storage-notes-for-profiles).
+- For more information about persistent storage options, see [Storage notes for profiles](#block-storage-notes-for-profiles).
 
 #### Special considerations for GPU `-a100` profile
 {: #considerations-gpu-a100-profiles}
