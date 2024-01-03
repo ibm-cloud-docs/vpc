@@ -152,7 +152,7 @@ Yes, if your account is granted special approval, you can access the instance me
 {: #faq-vsi-22}
 {: faq}
 
-Yes, when you create a custom image for {{site.data.keyword.vpc_short}}, you can import those images into a private catalog for use among multiple accounts. A private catalog provides a way for you to manage access to products for multiple accounts, if those accounts are within the same enterprise. You must first complete all the steps to import the custom image into {{site.data.keyword.vpc_short}} before you can import the image into a private catalog. For more information about private catalog considerations and limitations, see [Getting started with custom images](/docs/vpc?topic=vpc-about-custom-images).
+Yes, when you create a custom image for {{site.data.keyword.vpc_short}}, you can import those images into a private catalog for use among multiple accounts. A private catalog provides a way for you to manage access to products for multiple accounts, if those accounts are within the same enterprise. You must first complete all the steps to import the custom image into {{site.data.keyword.vpc_short}} before you can import the image into a private catalog. For more information about private catalog considerations and limitations, see [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images).
 
 ## Can I use a custom image in a private catalog with an instance group?
 {: #faq-vsi-23}
