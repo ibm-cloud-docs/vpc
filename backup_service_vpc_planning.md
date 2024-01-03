@@ -51,4 +51,4 @@ Consider the following prerequisites before you set up the VPC Backup Service.
 ## Next steps
 {: #baas-planning-next-steps}
 
-After you plan your backups, you can [Create backup policies](/docs/vpc?topic=vpc-backup-policy-create) to back up your resources (individual volumes or multi-volume consistency groups).
+After you plan your backups, you can [Create backup policies](/docs/vpc?topic=vpc-create-backup-policy-and-plan) to back up your resources (individual volumes or multi-volume consistency groups).

@@ -800,5 +800,5 @@ For more information, see [terraform destroy](https://developer.hashicorp.com/te
 You can do the following actions.
 
 * [Apply tags to your resources for backups.](/docs/vpc?topic=vpc-backup-use-policies)
-* [Create more backup policies.](/docs/vpc?topic=vpc-backup-policy-create&interface=ui)
+* [Create more backup policies.](/docs/vpc?topic=vpc-create-backup-policy-and-plan&interface=ui)
 * [Restore a volume from a backup snapshot.](/docs/vpc?topic=vpc-baas-vpc-restore)

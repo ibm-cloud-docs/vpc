@@ -187,7 +187,7 @@ use the following steps to add tags from the snapshot details page.
 4. In the new window, enter a user tag or access management tag in the respective fields.
 5. Click **Save**.
 
-When the user tags are matched with a backup policy, a backup is triggered based on the backup plan schedule. For more information, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-policy-create).
+When the user tags are matched with a backup policy, a backup is triggered based on the backup plan schedule. For more information, see [Creating a backup policy](/docs/vpc?topic=vpc-create-backup-policy-and-plan).
 
 ## Adding tags to a snapshot from the CLI
 {: #snapshots-vpc-add-tags-cli}
@@ -231,7 +231,7 @@ Tags                   env:test,env:prod
 ```
 {: screen}
 
-When the user tags are matched with a backup policy, a backup is triggered based on the backup plan schedule. For more information, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-policy-create).
+When the user tags are matched with a backup policy, a backup is triggered based on the backup plan schedule. For more information, see [Creating a backup policy](/docs/vpc?topic=vpc-create-backup-policy-and-plan).
 
 ## Adding user tags to a snapshot with the API
 {: #snapshots-vpc-add-tags-api}
@@ -254,7 +254,7 @@ curl -X PATCH \
 ```
 {: codeblock}
 
-When the user tags are matched with a backup policy, a backup is triggered based on the backup plan schedule. For more information, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-policy-create).
+When the user tags are matched with a backup policy, a backup is triggered based on the backup plan schedule. For more information, see [Creating a backup policy](/docs/vpc?topic=vpc-create-backup-policy-and-plan).
 
 ## Editing fast restore zones in the UI
 {: #snapshots-edit-fast-restore}

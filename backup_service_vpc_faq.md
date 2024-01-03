@@ -28,7 +28,7 @@ With the VPC backup service, you can create backup policies for your {{site.data
 {: faq}
 {: #faq-baas-setup}
 
-Before you can create backup policies, you need to grant [service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth&interface=api), and specify user roles to enable the backup service. Then, you add user tags for new or existing resources (individual Block Storage volumes, or virtual server instances) that you associate with a backup policy. Finally, you create backup policies and plans to schedule automatic backups. For more information, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-policy-create&interface=ui).
+Before you can create backup policies, you need to grant [service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth&interface=api), and specify user roles to enable the backup service. Then, you add user tags for new or existing resources (individual Block Storage volumes, or virtual server instances) that you associate with a backup policy. Finally, you create backup policies and plans to schedule automatic backups. For more information, see [Creating a backup policy](/docs/vpc?topic=vpc-create-backup-policy-and-plan&interface=ui).
 
 ## How does the backup service work?
 {: faq}
@@ -46,7 +46,7 @@ You can add [user tags](/docs/vpc?topic=vpc-backup-service-about&interface=ui#ba
 {: faq}
 {: #faq-baas-enable}
 
-Enabling your backups is a two-part process. First, you [specify user tags](/docs/vpc?topic=vpc-backup-use-policies) on the resources (Block Storage volumes or virtual server instances) that you want to back up. You then [create a backup policy](/docs/vpc?topic=vpc-backup-policy-create) and specify these tags, which identify the resources that you're backing up. Within a policy, you create a [backup plan](/docs/vpc?topic=vpc-backup-policy-create&interface=ui#backup-plan-ui) to schedule backups of these resources. You can schedule backups to be taken every daily, weekly, or monthly.
+Enabling your backups is a two-part process. First, you [specify user tags](/docs/vpc?topic=vpc-backup-use-policies) on the resources (Block Storage volumes or virtual server instances) that you want to back up. You then [create a backup policy](/docs/vpc?topic=vpc-create-backup-policy-and-plan) and specify these tags, which identify the resources that you're backing up. Within a policy, you create a [backup plan](/docs/vpc?topic=vpc-create-backup-policy-and-plan&interface=ui#backup-plan-ui) to schedule backups of these resources. You can schedule backups to be taken every daily, weekly, or monthly.
 
 ## How many backups can I create?
 {: faq}

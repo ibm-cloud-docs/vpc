@@ -86,4 +86,4 @@ Data that is stored on instance storage is tied directly to the instance lifecyc
 * [Create file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create).
 * [Create snapshots](/docs/vpc?topic=vpc-snapshots-vpc-create).
 * [Manage instance storage](/docs/vpc?topic=vpc-instance-storage-provisioning).
-* [Create backup policies](/docs/vpc?topic=vpc-backup-policy-create).
+* [Create backup policies](/docs/vpc?topic=vpc-create-backup-policy-and-plan).

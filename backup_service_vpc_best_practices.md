@@ -86,4 +86,4 @@ For example, when you create the weekly plan and specify the retention period as
 {: #baas-bp-next-steps}
 
 [Plan a strategy](/docs/vpc?topic=vpc-backups-vpc-planning) for backing up your {{site.data.keyword.block_storage_is_short}} volumes.
-[Create a backup policy](/docs/vpc?topic=vpc-backup-policy-create).
+[Create a backup policy](/docs/vpc?topic=vpc-create-backup-policy-and-plan).

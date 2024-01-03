@@ -197,7 +197,7 @@ Note the volume ID. You need to specify the ID when you attach {{site.data.keywo
 
 The volume health state shows `inapplicable` while the volume status is `pending`. After the volume is created, the health state shows `OK`, unless the creation failed. For more information, see [{{site.data.keyword.block_storage_is_short}} volume health states](/docs/vpc?topic=vpc-managing-block-storage&interface=cli#block-storage-vpc-health-states).
 
-User tags are added to identify the volume resource. When these tags are matched with the tags in a backup policy, the volume is backed up according to the schedule in the backup plan. For more information, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-policy-create).
+User tags are added to identify the volume resource. When these tags are matched with the tags in a backup policy, the volume is backed up according to the schedule in the backup plan. For more information, see [Creating a backup policy](/docs/vpc?topic=vpc-create-backup-policy-and-plan).
 
 ### Creating a stand-alone {{site.data.keyword.block_storage_is_short}} volume with customer-managed encryption from the CLI
 {: #encrypt-standalone-data-vol-cli}
