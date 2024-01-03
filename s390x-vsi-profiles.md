@@ -261,4 +261,4 @@ After you choose a profile, it's time to create an instance.
 
 * [Creating an instance by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers)
 * [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli)
-* [Creating an instance by using the API](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis#select-profile-and-image)
+* [Creating an instance by using the API](//docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=api#select-profile-and-image)
