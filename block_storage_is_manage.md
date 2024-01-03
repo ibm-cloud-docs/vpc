@@ -122,7 +122,7 @@ From the [volume details](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui
 
 When you go to the [backup policy page](/docs/vpc?topic=vpc-backup-view-policies&interface=ui#backup-view-vol-backup-policies), the volume for which you added tags shows up in the list of volumes.
 
-For more information about creating backups, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-about). For more information about user tags, see [Working with tags](/docs/account?topic=account-tag).
+For more information about creating backups, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-service-about). For more information about user tags, see [Working with tags](/docs/account?topic=account-tag).
 
 ## Managing {{site.data.keyword.block_storage_is_short}} from the CLI
 {: #managing-block-storage-cli}
