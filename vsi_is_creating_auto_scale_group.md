@@ -391,7 +391,7 @@ Primary Network Interface ID   Name      Subnet ID                              
 If you want to create an instance template from an image shared from a private catalog, replace `--image_ID` with either `--catalog-offering` or `catalog-offering_version`.
 {: note}
 
-For more examples of the `ibmcloud is instance-template-create` command, see the [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-template-create).
+For more examples of the `ibmcloud is instance-template-create` command, see the [VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference#instance-template-create).
 
 When you create an instance template, validation steps are performed that ensure you can use your template to provision a virtual server instance. Need more help? You can always run `ibmcloud is help instance-template-create` to display help for creating an instance template.
 {: tip}
@@ -459,7 +459,7 @@ Resource group      ID                                 Name
 ```
 {: screen}
 
-For more examples of the `ibmcloud is instance-group-create` command, see the [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-group-create).
+For more examples of the `ibmcloud is instance-group-create` command, see the [VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference#instance-group-create).
 
 Need more help? You can always run `ibmcloud is instance-group-create --help` to display help for creating an instance group.
 {: tip}
@@ -504,7 +504,7 @@ Max Membership Count   20
 ```
 {: screen}
 
-For more examples of the `ibmcloud is instance-group-manager-create` command, see the [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-group-manager-create).
+For more examples of the `ibmcloud is instance-group-manager-create` command, see the [VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference#instance-group-manager-create).
 
 Need more help? You can always run `ibmcloud is instance-group-manager-create --help` to display help for creating an instance group manager.
 {: tip}
@@ -596,7 +596,7 @@ Policy Type    target
 
 The response indicates that the auto scale manager needs to scale up the number of instances in your group when the average CPU utilization reaches 50 percent. Likewise, the auto scale manager also scales down the number of instances in your group when the average CPU utilization drops to less than 50 percent.
 
-For more examples of the `ibmcloud is instance-group-manager-policy-create` command, see the [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-group-manager-policy-create).
+For more examples of the `ibmcloud is instance-group-manager-policy-create` command, see the [VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference#instance-group-manager-policy-create).
 
 You can define more than one target metric policy, but only one policy for each type of metric. Need more help? You can always run `ibmcloud is instance-group-manager-policy-create --help` to display help for creating a scaling policy.
 {: tip}

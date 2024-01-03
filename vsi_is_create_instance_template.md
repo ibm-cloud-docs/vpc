@@ -290,7 +290,7 @@ Created                     2023-03-29T22:02:59+05:30
 ```
 {: screen}
 
-For more examples of the `ibmcloud is instance-template-create` command, see the [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-template-create).
+For more examples of the `ibmcloud is instance-template-create` command, see the [VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference#instance-template-create).
 
 When you create an instance template, validation steps are performed to make sure that you can use your template to provision a virtual server instance. Need more help? You can always run `ibmcloud is help instance-template-create` to display help for creating an instance template.
 {: tip}

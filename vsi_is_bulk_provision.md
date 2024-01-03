@@ -82,7 +82,7 @@ Resource group      ID                                 Name
 ```
 {: screen}
 
-For more examples of the `ibmcloud is instance-group-create` command, see the [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-group-create).
+For more examples of the `ibmcloud is instance-group-create` command, see the [VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference#instance-group-create).
 
 Need more help? You can always run `ibmcloud is instance-group-create --help` to display help for creating an instance group.
 {: tip}
