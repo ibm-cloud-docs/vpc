@@ -55,7 +55,7 @@ The following limitations apply.
 
 * To adjust IOPS, the file share must be in a _stable_ state.
 * For a file share created with an [IOPS tier profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#fs-tiers) to increase or decrease IOPS, select a different profile for the file share size. If the file share size exceeds that of the new IOPS tier profile, you can't change the profile.
-* A [custom IOPS profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#custom) can expand to the maximum allowed by the custom band. You can't switch custom bands unless you increase the file share size and then move to a higher band.
+* A [custom IOPS profile](/docs/vpc?topic=vpc-file-storage-profiles#fs-custom) can expand to the maximum allowed by the custom band. You can't switch custom bands unless you increase the file share size and then move to a higher band.
 * A [dp2 profile](/docs/vpc?topic=vpc-file-storage-profiles&nterface=ui#dp2-profile) can expand to the maximum allowed by the dp2 band. You can't switch dp2 bands unless you increase the file share size and then move to a higher band.
 * Adjusting IOPS by moving between profiles is restricted by the file share size.
 * When you use a custom or dp2 profile, IOPS can be adjusted multiple times until the maximum or minimum limit is reached.
@@ -90,7 +90,7 @@ Follow these steps to adjust IOPS by selecting a new IOPS tier or custom IOPS ba
 ### Adjusting IOPS for a Custom or dp2 profile
 {: #adjust-iops-cli-file}
 
-From the CLI, use the `share-update` command with the `--iops` property to indicate the new IOPS size for a custom or dp2 profile. The IOPS that you indicate must be within the range for the size of the file share (see [Custom IOPS profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#custom) or [dp2](/docs/vpc?topic=vpc-file-storage-profiles#dp2-profile)).
+From the CLI, use the `share-update` command with the `--iops` property to indicate the new IOPS size for a custom or dp2 profile. The IOPS that you indicate must be within the range for the size of the file share (see [Custom IOPS profile](/docs/vpc?topic=vpc-file-storage-profiles#fs-custom) or [dp2](/docs/vpc?topic=vpc-file-storage-profiles#dp2-profile)).
 
 Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 {: requirement}
