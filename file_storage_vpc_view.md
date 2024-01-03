@@ -269,7 +269,7 @@ For more information about the command options, see [`ibmcloud is share-mount-ta
 {: #file-storage-view-shares-targets-api}
 {: api}
 
-You can programmatically view shares and mount targets by calling the `/shares` method in the [VPC API](/apidocs/vpc/latest#list-share){: external} as shown in the following sample requests.
+You can programmatically view shares and mount targets by calling the `/shares` method in the [VPC API](/apidocs/vpc/latest#list-shares){: external} as shown in the following sample requests.
 
 You must provide the `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/apidocs/vpc/latest#api-generation-parameter).
 {: requirement}
