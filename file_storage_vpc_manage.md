@@ -612,7 +612,7 @@ Example:
 
 The file share is deleted in the background. Confirm the deletion by trying to view the mount target information. If you get a `404 Not Found` error, the mount target is successfully deleted.
 
-A `DELETE /shares/$share_id` call can optionally include an `If-Match` header that specifies an `ETag` hash string. Make a `GET /shares/{share_id}` call and copy the `ETag` hash string from the response header. For more information, see [User tags for file shares](/docs/vpc?topic=vpc-file-storage-vpc-abou#fs-about-user-tags).
+A `DELETE /shares/$share_id` call can optionally include an `If-Match` header that specifies an `ETag` hash string. Make a `GET /shares/{share_id}` call and copy the `ETag` hash string from the response header. For more information, see [User tags for file shares](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-about-user-tags).
 {: note}
 
 ## Managing file shares and mount targets with Terraform
