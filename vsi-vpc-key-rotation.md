@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2023-12-14"
+lastupdated: "2024-01-03"
 
 keywords: Block Storage, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, fihe share
 
@@ -27,7 +27,7 @@ When you rotate a root key, a new version of the key is created by generating or
 
 You can have several root keys in each KMS instance available for key rotation. These root keys can be a combination of keys that you imported to the cloud or ones that were automatically generated in the KMS instance.
 
-You can set up a [rotation policy](#vpc-key-rotation-policies) to schedule automatic key rotation. The KMS generates a new root key at the rotation interval and automatically replaces the root key with new key material.
+You can set up a rotation policy to schedule automatic key rotation. The KMS generates a new root key at the rotation interval and automatically replaces the root key with new key material.
 
 For any root keys that you import to the KMS instance because you're providing new key material that is not in the KMS, you can't set up automatic key rotation. Instead, you must [manually rotate](#vpc-key-rotation-ui) your keys by using the new cryptographic key material that you imported.
 
