@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2019, 2023
+  years: 2019, 2024
 
-lastupdated: "2023-12-19"
+lastupdated: "2023-01-03"
 
 keywords:
 
@@ -68,7 +68,7 @@ Tokyo 2 AZ for bare metal servers
 {: #vpc-december1223}
 {: release-note}
 
-File Storage for VPC - Cross-region Replication 
+File Storage for VPC - Cross-region Replication
 :  Customers who have VPCs in multiple regions in the same geography can now create replicas of their file shares in another zone of a different region. For more information, see [About file share replication](/docs/vpc?topic=vpc-file-storage-replication).
 
 ### 05 December 2023
@@ -357,7 +357,7 @@ Virtual network interface (beta)
 {: release-note}
 
 VPC routing table authorizations
-:   You can use the new VPC routing table authorizations to allow users to administer VPC routing tables but not allow them to administer the broader VPC. Routing table operations were updated to check for these new authorizations, instead of the broader VPC authorizations. The VPC Administrator, Editor, Operator, and Viewer IAM access roles were updated so that users with those roles function as before. However, custom roles that require access to routing tables must be updated. For more information, see [IAM actions for VPC routing tables](/docs/vpc?topic=vpc-iam-actions-vpc-routing-tables).
+:   You can use the new VPC routing table authorizations to allow users to administer VPC routing tables but not allow them to administer the broader VPC. Routing table operations were updated to check for these new authorizations, instead of the broader VPC authorizations. The VPC Administrator, Editor, Operator, and Viewer IAM access roles were updated so that users with those roles function as before. However, custom roles that require access to routing tables must be updated. For more information, see [IAM actions for VPC routing tables](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls).
 
 ### 15 June 2023
 {: #vpc-jun1523}
