@@ -1110,7 +1110,7 @@ Backup for VPC (closed beta)
 :    For accounts authorized to preview this service, you can create backup policies that automatically backup your Block Storage volumes. Backups are triggered when a user tag is applied to a volume matches a backup policy tag. Each backup policy has a backup plan, which defines how often backups are taken and how long they're retained. For more information, see [About Backup for VPC (Beta)](/docs/vpc?topic=vpc-backup-service-about).
 
 File Storage for VPC
-:    The file service is now integrated with the Security and Compliance Center to help you manage security and compliance for your organization. For more information about this feature, see [Managing security and compliance](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-vpc-manage-security).
+:    The file service is now integrated with the Security and Compliance Center to help you manage security and compliance for your organization. For more information about this feature, see [Managing security and compliance](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-vpc-manage-security).
 
 ### 14 February 2022
 {: #vpc-feb1422}
