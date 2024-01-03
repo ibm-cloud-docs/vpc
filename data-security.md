@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2020, 2023
+  years: 2020, 2024
 lastupdated: "2023-12-14"
 
 keywords: data encryption, data storage, bring your own keys, BYOK, key management, key encryption, personal data, data deletion, data security

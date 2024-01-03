@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2022, 2023
+  years: 2022, 2024
 lastupdated: "2023-12-18"
 
 keywords: backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data

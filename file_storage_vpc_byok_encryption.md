@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2022, 2023
+  years: 2022, 2024
 lastupdated: "2023-12-14"
 
 keywords: file share, customer-managed encryption, encryption, byok, KMS, Key Protect, Hyper Protect Crypto Services,

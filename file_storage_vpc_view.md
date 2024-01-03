@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2022, 2023
+  years: 2022, 2024
 lastupdated: "2023-12-18"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share

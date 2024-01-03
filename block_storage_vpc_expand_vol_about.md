@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2020, 2023
+  years: 2020, 2024
 lastupdated: "2023-06-30"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume

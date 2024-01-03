@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2019, 2023
+  years: 2019, 2024
 lastupdated: "2023-12-18"
 
 keywords: vpc, Block Storage, Block Storage for vpc, mounting storing, attaching Block Storage, vpc instance, data volumes

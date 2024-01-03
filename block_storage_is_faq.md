@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2019, 2023
+  years: 2019, 2024
 lastupdated: "2023-10-10"
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 

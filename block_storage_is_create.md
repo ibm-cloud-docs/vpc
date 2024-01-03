@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2019, 2023
+  years: 2019, 2024
 lastupdated: "2023-12-18"
 
 keywords: vpc Block Storage, provision Block Storage for vpc, bootable snapshots, create volume from snapshot, fast restore
