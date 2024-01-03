@@ -140,7 +140,7 @@ You might see {{site.data.keyword.keymanagementserviceshort}} being described as
 {: note}
 
 ### Envelope encryption
-{: #vpc-envelope-ecryption-byok}
+{: #vpc-envelope-encryption-byok}
 
 Root keys serve as key-wrapping keys and are an important part of envelope encryption. With envelope encryption, root keys encrypt LUKS passphrases (also called _key encryption keys_) which, in turn, secure _data encryption keys_ (DEKs) that encrypt your data on the virtual disk. Figure 1 illustrates this process.
 
