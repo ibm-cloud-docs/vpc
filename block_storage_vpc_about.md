@@ -30,7 +30,7 @@ subcollection: vpc
 
 You pay for only the capacity that you need. {{site.data.keyword.block_storage_is_short}} capacity ranges from 10 GB up to 16,000 GB for all available [profiles](#block-storage-profiles-intro). For data volumes attached to a virtual server instance, you can [increase volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes) in GB increments up to 16,000 GB capacity, depending on your volume profile. You can also [increase or decrease IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops) for a volume that is attached to an instance.
 
-You can also apply user tags and access management tags to your boot and data volumes anytime. Add tags when you create a volume or update an existing volume with the UI, CLI, API and Terraform. For more information, see [Tags for {{site.data.keyword.block_storage_is_short}} volumes](#vpc-storage-about-tags).
+You can also apply user tags and access management tags to your boot and data volumes anytime. Add tags when you create a volume or update an existing volume with the UI, CLI, API and Terraform. For more information, see [Tags for {{site.data.keyword.block_storage_is_short}} volumes](#storage-about-tags).
 
 When you create, view, or update a {{site.data.keyword.block_storage_is_short}} volume, or [restore a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore), the volume health state is reported in the UI, CLI, or API. For more information, see [{{site.data.keyword.block_storage_is_short}} volume health states](/docs/vpc?topic=vpc-block-storage-vpc-monitoring#block-storage-vpc-health-states).
 
