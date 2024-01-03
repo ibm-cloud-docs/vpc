@@ -330,4 +330,4 @@ For more information about the arguments and attributes, see [ibm_is_share](http
 
 - Manage the root keys that are protecting your file share by [rotating](/docs/vpc?topic=vpc-vpc-key-rotation), [disabling](/docs/vpc?topic=vpc-vpc-encryption-managing&interface=ui#byok-disable-root-keys), or [deleting](/docs/vpc?topic=vpc-vpc-encryption-managing&interface=ui#byok-delete-root-keys) keys.
 
-- Consider setting up replication for your share. For more information, see [About file share replication](docs/vpc?topic=vpc-file-storage-replication).
+- Consider setting up replication for your share. For more information, see [About file share replication](/docs/vpc?topic=vpc-file-storage-replication).

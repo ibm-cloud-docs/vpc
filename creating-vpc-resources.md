@@ -997,7 +997,7 @@ You can monitor the CPU, volume, memory, and network usage of your instance over
 {: #delete-resources-api-tutorial}
 
 You can delete resources anytime. However, a resource can't be deleted if it is required by other resources.
-For example, a VPC can't be deleted if it contains instances, subnets, or public gateways. For instructions on deleting a VPC and all its resources, see [Deleting a VPC with the REST APIs](/docs/vpc?topic=vpc-deleting-using-api).
+For example, a VPC can't be deleted if it contains instances, subnets, or public gateways. For instructions on deleting a VPC and all its resources, see [Deleting a VPC with the REST APIs](/docs/vpc?topic=vpc-deleting-vpc-resources&interface=api).
 
 ### Congratulations!
 {: #congratulations-api-tutorial}
