@@ -77,7 +77,7 @@ After you create your Windows instance and complete the prerequisites, complete 
     ```
     {: pre}
 
-    This command decodes and decrypts your password, which is automatically generated when you create an instance by using a Windows image. The password is decoded and decrypted based on the public SSH Key that you used at instance create time and the associated private SSH key that you specify in the `instance-initialization-values` command. For more information, see the [CLI command reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-initialization-values).
+    This command decodes and decrypts your password, which is automatically generated when you create an instance by using a Windows image. The password is decoded and decrypted based on the public SSH Key that you used at instance create time and the associated private SSH key that you specify in the `instance-initialization-values` command. For more information, see the [CLI command reference](/docs/vpc?topic=vpc-vpc-reference#instance-initialization-values).
 
     The following command shows example usage for the `instance-initialization-values` command where `0xx4e27x-33xx-4e7x-a08b-bexx2ac3xx0c` is the instance ID and `~/.ssh/id_rsa` is the location of the user's private key file:
 
@@ -108,7 +108,7 @@ After you connect to your instance, you can [manage your instances](/docs/vpc?to
     1. In the navigation pane of the {{site.data.keyword.cloud_notm}} console, click **Compute > Virtual server instances** and click your instance to view its details.
     1. Scroll down to the **Encrypted password** field. Copy the value and paste it into a text file, for example, encrypted_pwd.txt.
 
-    You can also use the API to get the encrypted password, or the CLI, which returns the decoded and decrypted password. For more information, see [Retrieve configuration used to initialize the instance API](/apidocs/vpc/latest#retrieve-configuration-used-to-initialize-the-inst) and [instance-initialization-values](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-initialization-values).
+    You can also use the API to get the encrypted password, or the CLI, which returns the decoded and decrypted password. For more information, see [Retrieve configuration used to initialize the instance API](/apidocs/vpc/latest#retrieve-configuration-used-to-initialize-the-inst) and [instance-initialization-values](/docs/vpc?topic=vpc-vpc-reference#instance-initialization-values).
     {: tip}
 
 1. Decode the encrypted password and store it in a new file (for example, decoded_pwd.txt) by running the following command: `cat encrypted_pwd.txt | base64 -d > decoded_pwd.txt`

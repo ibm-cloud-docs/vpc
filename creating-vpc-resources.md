@@ -483,7 +483,7 @@ ibmcloud is vpn-gateway-connections $vpn_gateway
 ### Congratulations!
 {: #congratulations-cli-tutorials}
 
-You successfully created and configured your VPC from the {{site.data.keyword.cloud_notm}} CLI. To try out more CLI commands, see the [CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#vpc-reference).
+You successfully created and configured your VPC from the {{site.data.keyword.cloud_notm}} CLI. To try out more CLI commands, see the [CLI reference](/docs/vpc?topic=vpc-vpc-reference#vpc-reference).
 
 ## Using the REST APIs to create VPC resources
 {: #creating-a-vpc-using-the-rest-apis}

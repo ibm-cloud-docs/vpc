@@ -60,7 +60,7 @@ ibmcloud is images --visibility private
 ```
 {: pre}
 
-For more information, see [ibmcloud is images](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#images) in the VPC CLI reference page.
+For more information, see [ibmcloud is images](/docs/vpc?topic=vpc-vpc-reference#images) in the VPC CLI reference page.
 
 ## Listing all images by using the API
 {: #custom-images-list-api}
@@ -131,7 +131,7 @@ ibmcloud is image IMAGE
 ```
 {: pre}
 
-For more information, see [ibmcloud is image](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#image) in the VPC CLI reference page.
+For more information, see [ibmcloud is image](/docs/vpc?topic=vpc-vpc-reference#image) in the VPC CLI reference page.
 
 ## Retrieving custom image details by using the API
 {: #custom-image-retrieve-api}
@@ -214,7 +214,7 @@ ibmcloud is image-export-job-create 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 --name 
 ```
 {: pre}
 
-For more information, see [ibmcloud is image-export-job-create](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#image-export-job-create) in the VPC CLI reference page.
+For more information, see [ibmcloud is image-export-job-create](/docs/vpc?topic=vpc-vpc-reference#image-export-job-create) in the VPC CLI reference page.
 
 ### Exporting a custom image with the API
 {: #custom-image-export-to-cos-api}
@@ -307,7 +307,7 @@ ibmcloud is image-export-jobs 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479
 ```
 {: pre}
 
-For more information, see [ibmcloud is image-export-jobs](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#image-export-jobs) in the VPC CLI reference page.
+For more information, see [ibmcloud is image-export-jobs](/docs/vpc?topic=vpc-vpc-reference#image-export-jobs) in the VPC CLI reference page.
 
 ### Viewing image export job details by using the CLI
 {: #custom-image-export-job-details-cli}
@@ -320,7 +320,7 @@ ibmcloud is image-export-job IMAGE JOB
 ```
 {: pre}
 
-For more information, see [ibmcloud is image-export-job](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#image-export-job) in the VPC CLI reference page.
+For more information, see [ibmcloud is image-export-job](/docs/vpc?topic=vpc-vpc-reference#image-export-job) in the VPC CLI reference page.
 
 ### Deleting or canceling an image export job by using the CLI
 {: #custom-image-export-job-delete-cli}

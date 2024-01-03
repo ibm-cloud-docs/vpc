@@ -255,7 +255,7 @@ Use the following commands to determine the required information for creating a 
    ```
    {: screen}
 
-   If you don't have one available, you can create an {{site.data.keyword.vpc_short}} by using the `ibmcloud is vpc-create` command. For more information about creating an {{site.data.keyword.vpc_short}}, see [IBM Cloud VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#vpcs).
+   If you don't have one available, you can create an {{site.data.keyword.vpc_short}} by using the `ibmcloud is vpc-create` command. For more information about creating an {{site.data.keyword.vpc_short}}, see [IBM Cloud VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference#vpcs).
 
 1. List the available profiles for creating your instance template.
 
@@ -303,7 +303,7 @@ Use the following commands to determine the required information for creating a 
 
    For the best performance of an auto scale instance group, ensure that you use a subnet size of 32 or greater.
 
-   If you don't have one available, you can create a subnet by using the `ibmcloud is subnet-create` command. For more information about creating a subnet, see [IBM Cloud VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#subnets).
+   If you don't have one available, you can create a subnet by using the `ibmcloud is subnet-create` command. For more information about creating a subnet, see [IBM Cloud VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference#subnets).
 
 1. List the available images for creating your instance template.
    You can create an instance by using a stock image, a custom image from your account, or an image that was shared with your account from a private catalog. Run one of the following commands based on the image that you plan to use.

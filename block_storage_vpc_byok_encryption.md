@@ -238,7 +238,7 @@ Follow these steps to create an instance with a new Block Storage volume.
 {: #provision-byok-cli}
 {: cli}
 
-Use the [ibmcloud is instance-create](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-create) command to create an instance with customer-managed encryption for your boot and data volumes. The following syntax shows that you can specify the `--boot-volume` and `--volume-attach` properties to include JSON files that define your volumes.
+Use the [ibmcloud is instance-create](/docs/vpc?topic=vpc-vpc-reference#instance-create) command to create an instance with customer-managed encryption for your boot and data volumes. The following syntax shows that you can specify the `--boot-volume` and `--volume-attach` properties to include JSON files that define your volumes.
 
 ```sh
 ibmcloud is instance-create INSTANCE_NAME VPC ZONE_NAME PROFILE_NAME SUBNET --image-id IMAGE_ID [--boot-volume @BOOT_VOLUME_JSON_FILE] [--volume-attach @VOLUME_ATTACH_JSON_FILE]...

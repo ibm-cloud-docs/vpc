@@ -127,7 +127,7 @@ Consider a scenario where an attacker initiates connections to different TCP por
 
 These links provide additional information about {{site.data.keyword.cloud_notm}} Flow Logs for VPC.
 
-* [Flow logs CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#flow-logs-cli-ref)
+* [Flow logs CLI reference](/docs/vpc?topic=vpc-vpc-reference#flow-logs-cli-ref)
 * [Flow logs API reference](/apidocs/vpc/latest#list-flow-log-collectors)
 * [FAQs for flow log collectors](/docs/vpc?topic=vpc-fl-faq)
 * [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-flow-logs)

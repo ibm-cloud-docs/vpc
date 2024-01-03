@@ -74,7 +74,7 @@ After you create your Windows server and complete the prerequisites, use the fol
    ```
    {: pre}
 
-   This command decodes and decrypts your password, which is automatically generated when you create a server by using a Windows image. The password is decoded and decrypted based on the public SSH Key that you used at creating time and the associated private SSH key that you specify in this `bare-metal-server-initialization-values` command. For more information, see the [CLI command reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#bare-metal-server-initialization-values).
+   This command decodes and decrypts your password, which is automatically generated when you create a server by using a Windows image. The password is decoded and decrypted based on the public SSH Key that you used at creating time and the associated private SSH key that you specify in this `bare-metal-server-initialization-values` command. For more information, see the [CLI command reference](/docs/vpc?topic=vpc-vpc-reference#bare-metal-server-initialization-values).
 
    The following command shows example usage for the `bare-metal-server-initialization-values` command where `0xx4e27x-33xx-4e7x-a08b-bexx2ac3xx0c` is the server ID and `~/.ssh/id_rsa` is the location of the user's private key file:
 

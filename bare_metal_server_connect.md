@@ -200,7 +200,7 @@ You need the following information to attach a floating IP to the bare metal ser
 * Network interface ID 
 * Floating IP ID 
 
-Use the [List the network interfaces](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#bare-metal-server-network-interfaces) command to find the ID of the network interface. Use the [ibmcloud is floating-ips](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#floating-ips) command to find the reserved floating IP IDs, or, use the [ibmcloud is floating-ip-reserve](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#floating-ip-reserve) command to reserve a new one.
+Use the [List the network interfaces](/docs/vpc?topic=vpc-vpc-reference#bare-metal-server-network-interfaces) command to find the ID of the network interface. Use the [ibmcloud is floating-ips](/docs/vpc?topic=vpc-vpc-reference#floating-ips) command to find the reserved floating IP IDs, or, use the [ibmcloud is floating-ip-reserve](/docs/vpc?topic=vpc-vpc-reference#floating-ip-reserve) command to reserve a new one.
 {: tip}
 
 After you collect all the required information, use the following command to attach the floating IP to the bare metal server: 

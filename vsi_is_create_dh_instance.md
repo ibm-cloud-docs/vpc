@@ -93,7 +93,7 @@ ibmcloud is instance-create my-instance-name r006-e49dbfc6-03b5-4609-b680-684311
 ```
 {: pre}
 
-For a full list of command options, see [ibmcloud is instance-create](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-create).
+For a full list of command options, see [ibmcloud is instance-create](/docs/vpc?topic=vpc-vpc-reference#instance-create).
 
 ## Creating instances on dedicated hosts by using the API
 {: #creating-dedicated-instance-api}
