@@ -31,7 +31,7 @@ Manage your root keys by taking the following actions:
    * Decide when the [disabling](#byok-disable-root-keys) or [deletion](#byok-delete-root-keys) of a root key is necessary. When you rotate keys, the former key remains active, and is still used to decrypt existing resources. Take precautions when you disable or delete root keys.
    * Enable a key that was disabled or [restore a deleted key](#byok-restore-root-key).
    * Decide whether you might want to make your data temporarily inaccessible by [removing service authorization](#instance-byok-inaccessible-data).
-   * Review the [Activity Tracker](#byok-key-rotation-activity-tracker-events) to verify events as you manage the lifecycle of your keys.
+   * Review the [Activity Tracker](#byok-activity-tracker-events) to verify events as you manage the lifecycle of your keys.
 
 ### View root key registrations
 {: #byok-root-key-registration}
