@@ -2,6 +2,7 @@
 
 copyright:
   years: 2019, 2023
+
 lastupdated: "2023-12-18"
 
 keywords:
@@ -67,7 +68,7 @@ To configure an ACL in the {{site.data.keyword.cloud_notm}} console, follow thes
 {: #cr-using-the-cli-acl}
 {: cli}
 
-Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 To create a network ACL from the CLI, run the following command:
 {: shortdesc}
@@ -100,7 +101,7 @@ For example:
 {: #cr-using-the-api-acl}
 {: api}
 
-To create a network ACL by using the API, follow these steps:
+To create a network ACL with the API, follow these steps:
 {: shortdesc}
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
