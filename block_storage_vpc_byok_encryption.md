@@ -158,7 +158,7 @@ You can also create volumes with customer-managed encryption during instance pro
 {: #data-vol-encryption-api}
 {: api}
 
-You can create data volumes with customer-managed encryption programmatically by calling the `/volumes` method in the [VPC API](/apidocs/vpc/latest#volumes){: external} as shown in the following sample request. Use the `encryption_key` property to specify your customer root key (CRK), shown in the example as `crn:[...key:...]`.
+You can create data volumes with customer-managed encryption programmatically by calling the `/volumes` method in the [VPC API](/apidocs/vpc/latest#create-volume){: external} as shown in the following sample request. Use the `encryption_key` property to specify your customer root key (CRK), shown in the example as `crn:[...key:...]`.
 
 The following example creates a general-purpose data volume with customer-managed encryption.
 
