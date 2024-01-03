@@ -46,7 +46,7 @@ Descriptions of these columns are as follows:
 {: #cr-view-details-route-using-the-cli}
 {: cli}
 
-Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 To view details of a route by using the CLI, run the following command:
 

@@ -32,7 +32,7 @@ To delete a route in the UI, follow these steps:
 {: #cr-delete-using-the-cli}
 {: cli}
 
-Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 To delete a route by using the CLI, run the following command:
 

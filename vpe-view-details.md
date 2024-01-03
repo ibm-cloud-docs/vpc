@@ -71,7 +71,7 @@ Scroll to the Security groups section to view attached security groups. You can 
 {: #vpe-viewing-details-cli}
 {: cli}
 
-Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 To view details of an endpoint gateway from the CLI, enter the following command:
 

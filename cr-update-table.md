@@ -35,7 +35,7 @@ To update a routing table in the UI, follow these steps:
 {: #cr-update-the-cli-ct}
 {: cli}
 
-Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 To update a routing table from the CLI, run the following command:
 

@@ -70,7 +70,7 @@ To create an endpoint gateway in the {{site.data.keyword.cloud_notm}} console, f
 {: #vpe-ordering-cli}
 {: cli}
 
-Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 To create an endpoint gateway from the CLI, follow these steps:
 

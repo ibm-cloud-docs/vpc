@@ -47,7 +47,7 @@ To change the VPN server type, follow these steps:
 {: #vpn-upgrade-ha-cli}
 {: cli}
 
-Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 To upgrade to an HA VPN server from the CLI, enter the following command:
 

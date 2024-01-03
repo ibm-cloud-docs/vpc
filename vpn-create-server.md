@@ -125,7 +125,7 @@ To create a client-to-site VPN server in the UI:
 {: #vpn-create-server-cli}
 {: cli}
 
-Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 To create a VPN server from the CLI, enter the following command:
 

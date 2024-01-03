@@ -44,7 +44,7 @@ To reassign a routing table to a subnet, follow these steps:
 {: #cr-attach-subnets-using-the-cli}
 {: cli}
 
-Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 To attach subnets to a routing table by using the CLI, run the following command:
 

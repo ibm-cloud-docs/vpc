@@ -38,7 +38,7 @@ To add a security group to an existing virtual network interface, follow these s
 {: #vni-add-sg-cli}
 {: cli}
 
-Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 ```sh
 export IBMCLOUD_IS_FEATURE_VNI_PHASE_II=true

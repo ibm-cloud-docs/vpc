@@ -44,7 +44,7 @@ The Actions menu ![Actions menu](images/overflow.png) is used to delete a routin
 {: #cr-list-tables-using-the-cli}
 {: cli}
 
-Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 To list the routing tables for a VPC by using the CLI, run the following command:
 

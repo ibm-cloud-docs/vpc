@@ -68,7 +68,7 @@ To upgrade the auto-negotiation policy by using the UI, follow these steps:
 {: #upgrade-vpn-old-auto-procedure-ui-cli}
 {: cli}
 
-Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 To upgrade the auto-negotiation policy from the CLI, follow these steps:
 
@@ -334,7 +334,7 @@ To upgrade a custom IPsec policy by using the UI, follow these steps:
 {: #upgrade-vpn-custom-ike-policy-procedure-cli}
 {: cli}
 
-Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 To upgrade a custom IKE policy from the CLI, following these steps:
 
@@ -392,7 +392,7 @@ To upgrade a custom IKE policy from the CLI, following these steps:
 {: #upgrade-vpn-custom-ipsec-policy-procedure-cli}
 {: cli}
 
-Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 To upgrade a custom IPsec policy from the CLI, follow these steps:
 

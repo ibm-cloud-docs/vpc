@@ -68,7 +68,7 @@ When the auto-delete option is disabled, unbinding causes the reserved IP to bec
 
 You can use the CLI to create, update, and delete reserved IP addresses.
 
-Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 ### Creating a reserved IP from the CLI
 {: #cli-create-reserved-ip}

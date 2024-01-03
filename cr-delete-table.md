@@ -34,7 +34,7 @@ To delete a routing table by using the {{site.data.keyword.cloud_notm}} console,
 {: #cr-delete-table-using-the-cli}
 {: cli}
 
-Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 To delete a routing table by using the CLI, run the following command:
 
