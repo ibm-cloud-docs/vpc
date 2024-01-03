@@ -526,6 +526,6 @@ After you choose a profile, it's time to create an instance.
 
 * [Creating an instance by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#creating-virtual-servers-ui)
 * [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli#creating-virtual-servers-cli)
-* [Creating an instance by using the API](//docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=api#select-profile-and-image)
+* [Creating an instance by using the API](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=api#select-profile-and-image)
 * [Creating an instance by using Terraform](/docs/vpc?topic=vpc-creating-virtual-servers&interface=terraform#create-instance-terraform)
 * [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus)

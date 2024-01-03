@@ -320,7 +320,7 @@ To create a network load balancer with the CLI, follow these steps:
 
 The following example illustrates creating a network load balancer in front of two VPC virtual server instances (`192.168.100.5` and `192.168.100.6`) running a web application that listens on port `80`. The load balancer has a front-end listener, which allows secure access to the web application by using HTTPS.
 
-The example skips the [prerequisite steps](//docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=api) for using the API to provision a VPC, subnets, and instances.
+The example skips the [prerequisite steps](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=api) for using the API to provision a VPC, subnets, and instances.
 {: note}
 
 To create a network load balancer with the API, follow these steps:

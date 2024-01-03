@@ -47,7 +47,7 @@ To provision a virtual server instance with instance storage, follow the instruc
 {: #instance-storage-create-vsi-api}
 {: api}
 
-To provision a virtual server instance with instance storage, follow the instructions for [Using the REST APIs to create VPC resources](//docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=api#create-instance-api-tutorial). Choose a profile that includes an instance storage disk. For more information about profiles, see [Instance profiles](/docs/vpc?topic=vpc-profiles).
+To provision a virtual server instance with instance storage, follow the instructions for [Using the REST APIs to create VPC resources](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=api#create-instance-api-tutorial). Choose a profile that includes an instance storage disk. For more information about profiles, see [Instance profiles](/docs/vpc?topic=vpc-profiles).
 
 The API (or CLI) is useful for determining the interface type that is used for attaching the instance storage disks. The instance object that is returned from a create operation (or get) reports the instance disks in the `disks` array as shown in the following example partial output.
 

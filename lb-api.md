@@ -26,7 +26,7 @@ For detailed information on APIs available for application load balancers in you
 
 In the following example, use the API to create an application load balancer in front of two VPC virtual server instances (`192.168.100.5` and `192.168.100.6`) running a web application that listens on port `80`. The load balancer has a front-end listener, which allows secure access to the web application by using HTTPS. You can use the API to get details of the load balancer after it is created, and to delete the load balancer.
 
-The example steps that follow skip the prerequisite steps of using the [IBM Cloud console](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console), [CLI](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli), or [API](//docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=api) to provision a VPC, subnets, and instances.
+The example steps that follow skip the prerequisite steps of using the [IBM Cloud console](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console), [CLI](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli), or [API](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=api) to provision a VPC, subnets, and instances.
 
 You can also create a load balancer using the UI or CLI. For instructions, see [Creating an IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancer) or the [CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 {: tip}

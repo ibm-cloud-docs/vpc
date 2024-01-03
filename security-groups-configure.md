@@ -145,7 +145,7 @@ The following example demonstrates how to create and manage security groups by u
 
 To use security groups, first you must have a running {{site.data.keyword.vpc_short}}.
 
-For instructions about creating a VPC and subnet, see [Creating a VPC](//docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=api).
+For instructions about creating a VPC and subnet, see [Creating a VPC](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=api).
 
 ### Step 1: Create a security group
 {: #step-1-create-a-security-group}
