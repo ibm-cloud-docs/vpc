@@ -311,7 +311,7 @@ This feature is now generally available. See the [VPC API change log](/docs/vpc?
 ### For all API version dates
 {: #17-august-2021-all-version-dates-beta}
 
-**File storage for VPC.** Accounts that have been granted special approval to preview this feature can now increase file share size in gigabyte increments up to 32 TB (depending on the file share's profile). The increase takes effect immediately. For more information, see [Expanding file share capacity](/docs/vpc?topic=vpc-file-storage-expand-capacity&interface=api). You can also specify the maximum input/output operations per second (IOPS) when [creating](/apidocs/vpc-beta/latest#create-share) a file share, within the range available for its size. For more information, see [Custom IOPS profile](/docs/vpc?topic=vpc-file-storage-profiles#custom).
+**File storage for VPC.** Accounts that have been granted special approval to preview this feature can now increase file share size in gigabyte increments up to 32 TB (depending on the file share's profile). The increase takes effect immediately. For more information, see [Expanding file share capacity](/docs/vpc?topic=vpc-file-storage-expand-capacity&interface=api). You can also specify the maximum input/output operations per second (IOPS) when [creating](/apidocs/vpc-beta/latest#create-share) a file share, within the range available for its size. For more information, see [Custom IOPS profile](/docs/vpc?topic=vpc-file-storage-profiles#fs-custom).
 
 This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#08-august-2023).
 

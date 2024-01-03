@@ -27,7 +27,7 @@ You can increase the capacity of the file share. The file share size cannot be l
 
 Capacity can be increased for file shares that are in a `stable` state. Your user authorization is verified before the file share is expanded. You can use the [UI](#expand-vpc-share-ui), [CLI](#expand-vpc-share-cli), or [API](#expand-vpc-share-api) to increase file share capacity. You can expand a file share multiple times up to its [maximum capacity limit](#exp-share-capacity-IOPS-limitations). After you expanded the file share, you can't reduce the capacity.
 
-Expanded capacity is determined by the maximum that is allowed by the file share profile. File shares that are created from a [Custom](/docs/vpc?topic=vpc-file-storage-profiles#custom) profile or a [dp2](/docs/vpc?topic=vpc-file-storage-profiles#dp2-profile) profile can be expanded within the allowable IOPS range for that file share size.
+Expanded capacity is determined by the maximum that is allowed by the file share profile. File shares that are created from a [Custom](/docs/vpc?topic=vpc-file-storage-profiles#fs-custom) profile or a [dp2](/docs/vpc?topic=vpc-file-storage-profiles#dp2-profile) profile can be expanded within the allowable IOPS range for that file share size.
 
 File shares that are created from an [IOPS tier profile](/docs/vpc?topic=vpc-file-storage-profiles#fs-tiers) can be expanded to the maximum size for its IOPS tier:
 
@@ -51,7 +51,7 @@ The following limitations apply to this release.
 
 * File shares can expand, with the following restrictions:
     * If the file share was created with a [Tiered IOPS profile](/docs/vpc?topic=vpc-file-storage-profiles#fs-tiers) that limits capacity to less than 32,000 GB, it can expand only to the allowed capacity for that tier.
-    * If the file share was created with a [Custom IOPS profile](/docs/vpc?topic=vpc-file-storage-profiles#custom) in an IOPS range that doesn't allow expanding to 16,000 GB (custom GB max), it can expand only to its maximum capacity for the specified custom range.
+    * If the file share was created with a [Custom IOPS profile](/docs/vpc?topic=vpc-file-storage-profiles#fs-custom) in an IOPS range that doesn't allow expanding to 16,000 GB (custom GB max), it can expand only to its maximum capacity for the specified custom range.
     * If the file share was created with a [dp2 profile](/docs/vpc?topic=vpc-file-storage-profiles#dp2-profile) in an IOPS range that doesn't allow expanding to 32,000 GB (dp2 GB max), it can expand only to its maximum capacity for the specified dp2 range.
     * File shares can expand multiple times until maximum capacity is reached.
 * IOPS increase to the maximum allowed by the profile.
