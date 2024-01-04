@@ -241,7 +241,7 @@ After you expand the boot volume capacity, you have to make your OS recognize th
 
 For more information about expanding the file system, see your OS Documentation. For example,
 - [RHEL 8 - Modifying Logical Volume](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/modifying-the-size-of-a-logical-volume_configuring-and-managing-logical-volumes){: external}
-- [Microsoft&reg; - Extend a basic volume](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
+- [Microsoft&reg; - Extend a basic volume](https://learn.microsoft.com/en-us/windows-server/storage/disk-management/extend-a-basic-volume){: external}.
 
 ### Modifying a Linux OS for expanded boot volumes
 {: #modifying-the-linux-os-expanded-boot-volume}
