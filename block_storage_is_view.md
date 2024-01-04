@@ -222,7 +222,7 @@ Tags                                   -
 
 In the example, the volume is attached to a virtual server instance, so the named and IDd of the volume attachment and instance are also displayed in the command output. The Active property is `true` because the virtual server instance to which the volume is attached is running. The `busy` property with the value `false` indicates that this volume is not performing an operation that must be serialized.
 
-For more information about available command options, see [`ibmcloud is volume`](/docs/cli?topic=cli-vpc-reference#volume).
+For more information about available command options, see [`ibmcloud is volume`](/docs/cli?topic=cli-vpc-reference#volume-view).
 
 ### Viewing all {{site.data.keyword.block_storage_is_short}} volumes from the CLI
 {: #viewall-vol-cli}
@@ -258,7 +258,7 @@ r014-eef16365-17e3-4627-bc8b-c7c3dd1d6a81   kj-test-ro-boot-1629867631000       
 ```
 {: screen}
 
-For more information about available command options, see [`ibmcloud is volumes`](/docs/cli?topic=cli-vpc-reference#volumes).
+For more information about available command options, see [`ibmcloud is volumes`](/docs/cli?topic=cli-vpc-reference#volumes-list).
 
 ## Viewing {{site.data.keyword.block_storage_is_short}} volumes with the API
 {: #viewing-block-storage-api}
