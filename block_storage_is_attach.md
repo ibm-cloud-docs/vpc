@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2023-12-18"
+lastupdated: "2024-01-04"
 
 keywords: vpc, Block Storage, Block Storage for vpc, mounting storing, attaching Block Storage, vpc instance, data volumes
 
@@ -178,7 +178,7 @@ Created           2023-06-29T18:14:57+00:00
 ```
 {: screen}
 
-For more information about available command options, see [`ibmcloud is instance-volume-attachment`](/docs/cli?topic=cli-vpc-reference#instance-volume-attachment).
+For more information about available command options, see [`ibmcloud is instance-volume-attachment`](/docs/cli?topic=cli-vpc-reference#instance-volume-attachment-view).
 
 ### List all volume attachments of a server instance
 {: #list-all-attached-vol}
@@ -201,7 +201,7 @@ ID                                          Name                                
 ```
 {: screen}  
 
-For more information about available command options, see [`ibmcloud is instance-volume-attachments`](/docs/cli?topic=cli-vpc-reference#instance-volume-attachments).
+For more information about available command options, see [`ibmcloud is instance-volume-attachments`](/docs/cli?topic=cli-vpc-reference#instance-volume-attachments-list).
 
 ### Create a volume attachment JSON
 {: #volume_attachment_json}
