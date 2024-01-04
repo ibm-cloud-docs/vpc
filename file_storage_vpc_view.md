@@ -112,7 +112,7 @@ You can see all file shares that have a mount target to a VPC by viewing the VPC
 2. Click the name of a file share to see the details page. 
 3. Scroll to the Mount targets section to see the list of mount targets. The list contains the names and statuses of the mount target, and the VPC that the mount target belongs to.
 4. Click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions") to reveal the Actions menu. The Actions menu has 3 options: Rename, View path, and Delete. 
-5. Click View path to see the mount path information that you can copy and paste in your mounting commands.
+5. Click **View path** to see the mount path information that you can copy and paste in your mounting commands.
 
 ## Viewing file share and mount targets from the CLI
 {: #file-storage-view-shares-targets-cli}
