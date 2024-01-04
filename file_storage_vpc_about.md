@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2023-12-12"
+lastupdated: "2024-01-04"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -56,7 +56,7 @@ For more information, see [{{site.data.keyword.filestorage_vpc_short}} profiles]
 ## Mount targets for file shares
 {: #fs-share-mount-targets}
 
-To mount a file share on a virtual server instance or to use it in a Kubernetes cluster, you need the NFS mount path. To create an NFS mount path, you need to create a mount target.
+Mounting is a process by which a server's operating system makes files and directories on a storage device available for users to access through the server's file system. To mount a file share on a virtual server instance or to use it in a Kubernetes cluster, you need the NFS mount path. To create an NFS mount path, you need to create a mount target.
 
 A mount target for a file share is a network endpoint. When you create a mount target, an NFS mount path is created for the file share. You use the mount path to attach the file share to virtual server instances or Kubernetes clusters in the same region. Depending on the [access mode](#fs-mount-access-mode) you choose, you can restrict access to a share to a specific instance in the VPC or allow all the virtual server instances to mount the share.
 
@@ -180,7 +180,7 @@ Further, when IBM decommissions a physical drive, the drive is destroyed before 
 
 {{site.data.keyword.filestorage_vpc_short}} is integrated with the {{site.data.keyword.compliance_short}} to help you manage security and compliance for your organization. You can set up goals that check whether file shares are encrypted by using customer-managed keys. By using the {{site.data.keyword.compliance_short}} to validate the file service configurations in your account against a profile, you can identify potential issues as they arise.
 
-For more information, see [Monitoring security and compliance posture with VPC](/docs/vpc?topic=vpc-manage-security-compliance#monitor-vpc). For more information about creating security and compliance goals, see [Defining rules](/docs/security-compliance?topic=security-compliance-rules-define&interface=ui) in the Security and Compliance documentation.
+For more information, see [Getting started with Security and Compliance Center](/docs/security-compliance?topic=security-compliance-getting-started). For more information about creating security and compliance goals, see [Defining rules](/docs/security-compliance?topic=security-compliance-rules-define&interface=ui) in the Security and Compliance documentation.
 
 ## Limitations in this release
 {: #fs-limitations}
@@ -211,5 +211,16 @@ For more information about VPC, see [Getting started with Virtual Private Cloud]
 ## Next steps
 {: #file-storage-vpc-next-steps}
 
-* [Plan for creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-planning).
+* [Plan your file shares and mount targets](/docs/vpc?topic=vpc-file-storage-planning).
 * [Create a file share and mount targets](/docs/vpc?topic=vpc-file-storage-create).
+* Mount your file share. Mounting is a process by which a server's operating system makes files and directories on the storage device available for users to access through the server's file system. For more information, see the following topics:
+   * [IBM Cloud File Share Mount Helper utility](/docs/vpc?topic=vpc-fs-mount-helper-utility)
+   * [Mounting file shares on Red Hat Linux](/docs/vpc?topic=vpc-file-storage-vpc-mount-RHEL).
+   * [Mounting file shares in CentOS](/docs/vpc?topic=vpc-file-storage-mount-centos).
+   * [Mounting file shares on Ubuntu](/docs/vpc?topic=vpc-file-storage-vpc-mount-ubuntu).
+   * [Mounting file shares on z/OS](/docs/vpc?topic=vpc-file-storage-vpc-mount-zos)
+* Manage your file share and data. For more information, see the following topics:
+   * [Viewing file shares and mount targets](/docs/vpc?topic=vpc-file-storage-view).
+   * [Manage your file shares](/docs/vpc?topic=vpc-file-storage-managing).
+   * [Create a file share with replication](/docs/vpc?topic=vpc-file-storage-create-replication).
+ 

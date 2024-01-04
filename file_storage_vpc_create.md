@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2023-12-18"
+lastupdated: "2024-01-04"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -947,12 +947,15 @@ resource "ibm_is_share" "share3" {
 ## Next steps
 {: #fs-create-next-steps}
 
-Mount and use your file shares:
-
-* [Viewing file shares and mount targets](/docs/vpc?topic=vpc-file-storage-view).
-* [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit).
+Mount your file shares. Mounting is a process by which a server's operating system makes files and directories on the storage device available for users to access through the server's file system. For more information, see the following topics:
+* [IBM Cloud File Share Mount Helper utility](/docs/vpc?topic=vpc-fs-mount-helper-utility)
 * [Mounting file shares on Red Hat Linux](/docs/vpc?topic=vpc-file-storage-vpc-mount-RHEL).
 * [Mounting file shares in CentOS](/docs/vpc?topic=vpc-file-storage-mount-centos).
 * [Mounting file shares on Ubuntu](/docs/vpc?topic=vpc-file-storage-vpc-mount-ubuntu).
+* [Mounting file shares on z/OS](/docs/vpc?topic=vpc-file-storage-vpc-mount-zos)
+
+Manage your file shares and data. For more information, see the following topics:
+* [Viewing file shares and mount targets](/docs/vpc?topic=vpc-file-storage-view).
 * [Manage your file shares](/docs/vpc?topic=vpc-file-storage-managing).
 * [Create a file share with replication](/docs/vpc?topic=vpc-file-storage-create-replication).
+ 
