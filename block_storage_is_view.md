@@ -51,8 +51,8 @@ Actions menu selections change, depending on whether the volume is a boot volume
 
 | Volume type | Action | Description |
 |-------------|--------|-------------|
-| **Boot** | Create image. | Create an image from the boot volume. For more information, see [Create an image from the list of boot volumes](/docs/vpc?topic=vpc-create-ifv#import-custom-image-vol).
-| | Create snapshot. | Create a "bootable snapshot" from the boot volume. A snapshot is a point in time copy of the volume. For more information, see [Create a snapshot in the UI](/docs/vpc?topic=vpc-snapshots-vpc-create#snapshots-vpc-create-from-volume-list).
+| **Boot** | Create image. | Create an image from the boot volume. For more information, see [Creating an image from the list of boot volumes](/docs/vpc?topic=vpc-create-ifv#import-custom-image-vol).
+| | Create snapshot. | Create a "bootable" snapshot from the boot volume. A snapshot is a point in time copy of the volume. For more information, see [Creating a snapshot in the UI](/docs/vpc?topic=vpc-snapshots-vpc-create&interface=ui#snapshots-vpc-create-ui).
 | | Detach from instance. | If the boot volume is attached as a secondary volume, you can [detach it](/docs/vpc?topic=vpc-managing-block-storage#detach) from the instance. |
 | **Data** | Create snapshot. | Create a point in time copy of the data volume. |
 | | Detach from instance. | [Detach](/docs/vpc?topic=vpc-managing-block-storage#detach) the data volume from the instance. |
