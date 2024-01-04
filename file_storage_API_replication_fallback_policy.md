@@ -22,7 +22,7 @@ Before you adopt beta release version `2023-08-08` or later, be aware of the fol
 - When initiating a request to [fail over to replica file share](/apidocs/vpc-beta#failover-share), you must provide a value for the `fallback_policy` property, either `split` or `fail`. If the value of the `fallback_policy` property is not specified, the system now defaults to `split` instead of `fail`.
 - When initiating a request to [retrieve the source file share for a replica file share](/apidocs/vpc-beta#get-share-source). The request now returns a more concise `source_share` reference.
 
-All requests that are using the following methods enforce the existing requirement that you provide the [`maturity=beta`](/apidocs/vpc-beta#maturity-query-parameter) query parameter:
+All requests that are using the following methods enforce the existing requirement that you provide the [`maturity=beta`](/apidocs/vpc-beta/latest#maturity-query-parameter-beta) query parameter:
 
 - [Retrieve the source file share for a replica file share](/apidocs/vpc-beta#get-share-source)
 - [Fail over to replica file share](/apidocs/vpc-beta#failover-share)
