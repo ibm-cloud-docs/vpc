@@ -56,7 +56,7 @@ In the console, you can create a snapshot of a {{site.data.keyword.block_storage
    | Location | Specify the geography and region for this snapshot. |
    | Snapshot type | Select **Single volume**. |
    | Name  | Provide a unique name for the snapshot. The UI verifies the name for proper conventions and identifies duplicate names. For suggestions about how to name your snapshots, see [Naming snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-naming). |
-   | Resource group | Select a [resource group](/docs/vpc?topic=vpc-iam-getting-started#resources-and-resource-groups) for the snapshot, or use the default. You can't change the resource group after the snapshot is created. |
+   | Resource group | Select a [Resource group](/docs/vpc?topic=vpc-iam-getting-started&interface=ui#iam-resource-groups) for the snapshot, or use the default. You can't change the resource group after the snapshot is created. |
    | Tags | Specify any user tags that you want to identify this resource. |
    | Access management tags | Specify any [access management tags](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#storage-add-access-mgt-tags) for this resource. |
    | Volume | Select a volume from the list. The boot or data volume must be attached to a running virtual server instance. |

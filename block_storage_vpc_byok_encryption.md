@@ -37,7 +37,7 @@ This procedure explains how to specify customer-managed encryption when you crea
    | Field | Value |
    |-------|-------|
    | Name  | Specify a meaningful name for your volume. For example, provide a name that describes your compute or workload function. The volume name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. Volume names must be unique across the entire VPC infrastructure. You can later edit the name. |
-   | Resource Group | Specify a [resource group](/docs/vpc?topic=vpc-iam-getting-started#resources-and-resource-groups). |
+   | Resource Group | Specify a [Resource group](/docs/vpc?topic=vpc-iam-getting-started&interface=ui#iam-resource-groups). |
    | Tags | Specify a tag to organize your resources. A tag is a label that you assign to a resource for easy filtering of resources in your resource list. For more information about tags, see [Working with tags](/docs/account?topic=account-tag). |
    | Location | The availability zone, inherited from the VPC (for example, Dallas-1). You can select a different zone in your location from the list. |
    | Size | Enter a volume size in GBs. Volume sizes can be between 10 GB - 2 TBs. Expanded capacity IOPS tiers increase volume size up to 16 TB and 48,000 IOPS. This Beta feature is available for evaluation and testing purposes. |

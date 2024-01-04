@@ -43,7 +43,7 @@ Follow this procedure to specify customer-managed encryption when you create a f
    |-------|-------|
    | Location | Choose the geography, the region, and the zone where you want to create the file share. |
    | Name  | Choose a meaningful name for your file share. The share name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. You can later edit the name later if you want. |
-   | Resource Group | Specify a [resource group](/docs/vpc?topic=vpc-iam-getting-started#resources-and-resource-groups). Resource groups help organize your account resources for access control and billing purposes. |
+   | Resource Group | Specify a [Resource group](/docs/vpc?topic=vpc-iam-getting-started&interface=ui#iam-resource-groups). Resource groups help organize your account resources for access control and billing purposes. |
    | Tags | Tags are used to organize, track, and even manage access to your file share resources. You can tag related resources and view them throughout your account by filtering by tags from your resource list. User tags are visible account-wide. Avoid including sensitive data in the tag name. For more information, see [Working with tags](/docs/account?topic=account-tag&interface=ui).|
    | Access-management tags| You can apply flexible access policies on your file shares with access-management tags. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial). |
    | Profile | New file shares are created with the dp2 profile. Select the size and IOPS for your file share. For more information, see [file Storage profiles](/docs/vpc?topic=vpc-file-storage-profiles). |

@@ -43,7 +43,7 @@ In the console, you can create a consistency group snapshot of {{site.data.keywo
    | Snapshot type  | Select Multiple volumes. |
    | Virtual Server instance | From the list, select the server instance. |
    | Consistency group name  | Provide a unique name for the consistency group. The name cannot exceed 64 characters. If you leave this field empty, the system auto-generates a name for you. The snapshots in the consistency group are named by using the first 16 characters of the group name and 3-4 auto-generated characters. |
-   | Resource group | Select a [resource group](/docs/vpc?topic=vpc-iam-getting-started#resources-and-resource-groups) for the snapshot, or use the default. You can't change the resource group after the snapshot is created. |
+   | Resource group | Select a [Resource group](/docs/vpc?topic=vpc-iam-getting-started&interface=ui#iam-resource-groups) for the snapshot, or use the default. You can't change the resource group after the snapshot is created. |
    | Tags           | Specify any user tags that you want to identify this resource. |
    | Access management tags | Specify any [access management tags](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#storage-add-access-mgt-tags) for this resource. |
    | Volumes        | Select the volumes that you want to include in the group from the list. |
