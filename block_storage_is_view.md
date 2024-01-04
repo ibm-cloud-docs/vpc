@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2023-12-18"
+lastupdated: "2024-01-04"
 
 keywords:
 
@@ -27,7 +27,7 @@ List all {{site.data.keyword.block_storage_is_short}} volumes and view details f
 ### Viewing information about all {{site.data.keyword.block_storage_is_short}} volumes in the UI
 {: #viewvols-ui}
 
-Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
+Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console)](/login){: external}, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
 
 By default, {{site.data.keyword.block_storage_is_short}} volumes display for all resource groups in your region. In the list of all **{{site.data.keyword.block_storage_is_short}} volumes**, you see the following information.
 
@@ -35,7 +35,7 @@ By default, {{site.data.keyword.block_storage_is_short}} volumes display for all
 |-------|-------------|
 | Region | The region where these volumes are located, for example, US South. Click the down arrow to see volumes in a different region in which you have an account.)
 | Name | Click the name of the volume to see individual volume details. |
-| Status | Status of the volume, which functions as the default filter for all rows. For more information about volume statuses, see [{{site.data.keyword.block_storage_is_short}} volume statuses](/docs/vpc?topic=vpc-managing-block-storage#status). |
+| Status | Status of the volume, which functions as the default filter for all rows. |
 | Location | Availability zone in your region, inherited from the VPC (for example, US South 1).|
 | Size | Size of the volume you specified, in GBs.|
 | Attachment type | Data, for a secondary volume attached to an instance, boot when attached as a boot volume, or blank for an unattached volume.|
@@ -114,7 +114,7 @@ Table 4 shows Actions menu options from the volume details page.
 
 You can view information about an attached {{site.data.keyword.block_storage_is_short}} volume from the **Virtual server instance details** page:
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances** and select an instance.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances** and select an instance.
 
 2. Under **Attached Block Storage volumes**, click the name of a volume to go to the volume details page.
 
@@ -123,13 +123,13 @@ You can view information about an attached {{site.data.keyword.block_storage_is_
 
 If you created snapshots of a {{site.data.keyword.block_storage_is_short}} boot or data volume, you can see the snapshots on the volume details page.
 
-1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
+1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console)](/login){: external}, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
 
 2. Select a volume from the list.
 
 3. On the volume details page, click the **Snapshots and Backups** tab. A list of snapshots is displayed with the name, status, size, encryption type, and when it was created. It also shows whether the snapshot was created by the user or a [backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=ui#baas-comparison). The snapshots display in descending order, with the most recently created snapshot in first place.
 
-You can see details for a snapshot, create a new snapshot, and manage snapshots from the Volume details page. For example, from the overflow menu (ellipsis), you can delete the most recent snapshot. For more information, see:
+You can see details for a snapshot, create a new snapshot, and manage snapshots from the Volume details page. For example, from the Actions menu ![Actions icon](../icons/action-menu-icon.svg "Actions"), you can delete the most recent snapshot. For more information, see one of the following topics.
 
 * [View details of a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view-snapshot-ui).
 * [Create a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view-snapshot-ui).
@@ -140,7 +140,7 @@ You can see details for a snapshot, create a new snapshot, and manage snapshots 
 
 View all backup policies associated with a {{site.data.keyword.block_storage_is_short}} volume. All policies that have the user tag that is applied to this volume are listed. To add volumes to a policy, add user tags to the volume that are in the backup policy's tags for target resources. When you remove tags from a volume that are in a backup policy, the volume is no longer be backed up.
 
-1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
+1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console)](/login){: external}, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
 
 2. Locate the volume that you want and click the name link.
 
@@ -470,7 +470,7 @@ A successful response provides details of the volume, including capacity and IOP
 ```
 {: codeblock}
 
-### Additional properties for boot volumes
+### Extra properties for boot volumes
 {: #viewvol-boot}
 
 When you request to view details of boot volumes, two extra properties are returned in a `GET /volumes` and `GET /volumes/{id}` response.
@@ -479,7 +479,7 @@ When you request to view details of boot volumes, two extra properties are retur
 
 * The `busy` property indicates whether this volume is performing an operation that must be serialized. If an operation requires serialization, the operation fails unless this property is `false`.
 
-Example response:
+See the following example.
 
 ```json
   "active": "true",
