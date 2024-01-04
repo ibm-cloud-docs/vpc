@@ -215,7 +215,7 @@ You can create file shares with customer-managed encryption by calling the [Virt
 
 Make a `POST /shares` request and specify the `encryption_key` parameter to identify your customer root key (CRK). It is shown in the example as `crn:[...key:...]`.
 
-You can also specify the CRN of a root key from a different account in the `POST /shares` call. For more information, see [About cross-account key access and use](/docs/vpc?topic=vpc-vpc-byok-cross-acct-key&interface=ui#byok-cross-acct-about).
+You can also specify the CRN of a root key from a different account in the `POST /shares` call. For more information, see [About cross-account key access and use](/docs/vpc?topic=vpc-vpc-byok-cross-acct-key-file&interface=ui#byok-cross-acct-about).
 {: note}
 
 You must provide the `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/apidocs/vpc/latest#api-generation-parameter).

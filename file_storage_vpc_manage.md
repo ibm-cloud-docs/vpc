@@ -135,7 +135,7 @@ By using the CLI, you can:
 * [Update a file share profile](#fs-update-profile-cli)
 * [Delete mount target of a file share](#delete-mount-target-cli).
 * [Delete a file share](#delete-file-share-cli).
-* [Add user tags to file shares](#fs-add-tags-cli).
+* [Add user tags to file shares](#fs-add-user-tags).
 
 ### Renaming a file share from the CLI
 {: #rename-file-share-cli}
@@ -358,7 +358,7 @@ File share my-file-share-8 is deleted.
 ```
 {: screen}
 
-For more information about the command options, see [`ibmcloud is share-delete`](/docs/vpc?topic=vpc-vpc-reference#share-replica-delete).
+For more information about the command options, see [`ibmcloud is share-delete`](/docs/vpc?topic=vpc-vpc-reference#share-delete).
 
 ## Managing file shares and mount targets with the API
 {: #file-storage-manage-api}
@@ -371,7 +371,7 @@ By using the API, you can:
 * [Update a file share profile](#fs-update-profile-api)
 * [Delete mount target of a file share](#delete-mount-target-api).
 * [Delete a file share](#delete-file-share-api).
-* [Manage file share user tags](#fs-add-tags-api).
+* [Manage user tags for file shares](#fs-add-user-tags).
 
 To see information about the {{site.data.keyword.filestorage_vpc_short}} API methods, see the following section in the [API reference](/apidocs/vpc-latest#list-share-profiles).
 

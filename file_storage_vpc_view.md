@@ -11,6 +11,7 @@ subcollection: vpc
 ---
 
 {{site.data.keyword.attribute-definition-list}}
+<!--- comment: linked help topic -->
 
 # Viewing file shares and mount targets
 {: #file-storage-view}
