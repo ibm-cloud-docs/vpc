@@ -41,11 +41,11 @@ You can attach a volume to a virtual server instance from the list of Block Stor
 
 From the list of all {{site.data.keyword.block_storage_is_short}} volumes, follow these steps.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
 1. In the list of volumes, identify an available, unattached volume and click the ellipsis for the overflow menu at the end of a row.
 1. Select **Attach to instance**.
 1. Select a virtual server instance from the list of available instances, and then click **Save**.
-    If the lists shows no virtual server instances, click **Create server** to go to the [instance provisioning](/docs/vpc?topic=vpc-creating-virtual-servers) page.  
+    If the list shows no virtual server instances, click **Create server** to go to the [instance provisioning](/docs/vpc?topic=vpc-creating-virtual-servers) page.  
 1. Messages display on the volume details page to indicate that the volume is being attached to the image. When it completes, the image name appears under **Attached instances**.
 
 When you create a {{site.data.keyword.hpvs}} instance and the contract mentions volumes, you have 15 minutes after the creation of the instance to attach a data volume. Failure to do so causes the instance to go into a shutdown state after the 15-minute window.
@@ -67,7 +67,7 @@ From the volume details page, follow these steps:
 
 Attach a {{site.data.keyword.block_storage_is_short}} volume from the virtual server instance details page.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 1. Select an instance from the list of all virtual server instances. If any {{site.data.keyword.block_storage_is_short}} volumes are attached, they are listed under **Storage volumes**.
 1. Select **Attach volume**.
 1. Select a volume from the list of available resources and click **Attach**. Messages display on the instance details page to indicate that the volume is being attached. When it completes, the **Storage volumes** list is updated to include the new volume.
@@ -253,18 +253,16 @@ POST/instances/{instance_id}/volume_attachments
 
 The following example creates a volume attachment and specifies the volume by ID.
 
-```curl
+```sh
 curl -X POST "$vpc_api_endpoint/v1/instances/$instance_id/volume_attachments?version=2021-04-20&generation=2" \
 -H "Authorization: $iam_token" \
 -d '{
       "delete_volume_on_instance_delete": true,
       "name": "my-volume-attachment-data-5iops",
-      "volume": {
-        "id": "d8b26921-1409-4c2f-9b46-39b5b6e0b945"
-      }
+      "volume": {"id": "d8b26921-1409-4c2f-9b46-39b5b6e0b945"}
     }'
 ```
-{: codeblock}
+{: pre}
 
 A successful response indicates that the volume is attached.
 
