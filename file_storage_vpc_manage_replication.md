@@ -235,7 +235,7 @@ You can see information about the last replication operation when you list the d
 You can programmatically retrieve the last sync details by calling the `/shares` method in the [VPC API](/apidocs/vpc/latest#get-share){: external}. Look for the `latest_sync` section in the API response to see when the replication started (`started_at`), when it ended (`completed_at`), and how much data was transferred (`data_transferred`). For more information, see [View a single file share with the API](/docs/vpc?topic=vpc-file-storage-view&interface=api#fs-single-file-shares-api).
 {: api}
 
-In addition, you can view historical information of the recent replication sync when you use {{site.data.keyword.la_full}}. When replication occurs, the file service generates a `regional-file.00002I` log message, which includes information about when the replication occurred, and how much data was transferred. For more information, see [Logging for VPC](https://test.cloud.ibm.com/docs/vpc?topic=vpc-logging#logging-file-share-replication).
+In addition, you can view historical information of the recent replication sync when you use {{site.data.keyword.la_full}}. When replication occurs, the file service generates a `regional-file.00002I` log message, which includes information about when the replication occurred, and how much data was transferred. For more information, see [Logging for VPC](/docs/vpc?topic=vpc-logging#logging-file-share-replication).
 
 ## Verifying replication with the API
 {: #fs-verify-replica-api}
