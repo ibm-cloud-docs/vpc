@@ -221,7 +221,7 @@ cloudshell:~$ ibmcloud is backup-policy-jobs r138-0521986d-963c-4c18-992d-d6a7a9
 ```
 {: screen}
 
-For more information about available command options, see [`ibmcloud is backup-policy-jobs`](/docs/vpc?topic=vpc-vpc-reference#backup-policy-jobs).
+For more information about available command options, see [`ibmcloud is backup-policy-jobs`](/docs/vpc?topic=vpc-vpc-reference#backup-policy-jobs-list).
 
 ### View details of a backup job from the CLI
 {: #backup-view-jobs-details-cli}
@@ -280,7 +280,7 @@ cloudshell:~$ ibmcloud is backup-policy-job new-policy-23 r138-25828175-2b51-424
 ```
 {: screen}
 
-For more information about available command options, see [`ibmcloud is backup-policy-jobs`](/docs/vpc?topic=vpc-vpc-reference#backup-policy-jobs).
+For more information about available command options, see [`ibmcloud is backup-policy-jobs`](/docs/vpc?topic=vpc-vpc-reference#backup-policy-jobs-list).
 
 ## View backup jobs with the API
 {: #backup-view-jobs-api}
