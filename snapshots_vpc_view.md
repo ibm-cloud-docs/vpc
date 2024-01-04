@@ -849,7 +849,7 @@ A successful response shows information that is similar to the following example
 
 [New]{: tag-new}
 
-You can programmatically list all consistency groups by calling the `/snapshot_consistency_groups` method in the [VPC API](/apidocs/vpc-scoped#list-snapshot-consistency-groups){: external} as shown in the following sample request.
+You can programmatically list all consistency groups by calling the `/snapshot_consistency_groups` method in the [VPC API](/apidocs/vpc/latest#list-snapshot-consistency-groups){: external} as shown in the following sample request.
 
 ```sh
 GET /snapshot_consistency_groups
@@ -861,7 +861,7 @@ GET /snapshot_consistency_groups
 
 [New]{: tag-new}
 
-You can programmatically retrieve details of a consistency group by calling the `/snapshot_consistency_groups` method in the [VPC API](/apidocs/vpc-scoped#get-snapshot-consistency-group){: external} as shown in the following sample request.
+You can programmatically retrieve details of a consistency group by calling the `/snapshot_consistency_groups` method in the [VPC API](/apidocs/vpc/latest#get-snapshot-consistency-group){: external} as shown in the following sample request.
 
 ```sh
 GET /snapshot_consistency_groups/r006-e8707243-96b3-4c27-be1f-57eff0196207

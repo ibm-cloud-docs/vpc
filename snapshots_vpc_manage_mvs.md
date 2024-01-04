@@ -108,7 +108,7 @@ For more information about available command options, see [`ibmcloud is snapshot
 {: #update-consistencygroup-api}
 {: api}
 
-You can programmatically update a consistency group by calling the `/snapshot_consistency_groups/{id}` method in the [VPC API](/apidocs/vpc-scoped#update-snapshot-consistency-group){: external} as shown in the following sample request. You can use the API to update the name of the resource and switch the `delete_snapshots_on_delete` property to keep the snapshots after the snapshot consistency group is deleted.
+You can programmatically update a consistency group by calling the `/snapshot_consistency_groups/{id}` method in the [VPC API](/apidocs/vpc/latest#update-snapshot-consistency-group){: external} as shown in the following sample request. You can use the API to update the name of the resource and switch the `delete_snapshots_on_delete` property to keep the snapshots after the snapshot consistency group is deleted.
 
 ```sh
 curl -X PATCH\
@@ -124,7 +124,7 @@ curl -X PATCH\
 {: #delete-consistencygroup-api}
 {: api}
 
-You can programmatically delete a consistency group by calling the `/snapshot_consistency_groups/{id}` method in the [VPC API](/apidocs/vpc-scoped#delete-snapshot-consistency-group){: external} as shown in the following sample request.
+You can programmatically delete a consistency group by calling the `/snapshot_consistency_groups/{id}` method in the [VPC API](/apidocs/vpc/latest#delete-snapshot-consistency-group){: external} as shown in the following sample request.
 
 ```sh
 curl -X DELETE\

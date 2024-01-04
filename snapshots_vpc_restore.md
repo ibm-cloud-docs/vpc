@@ -330,7 +330,7 @@ You can programmatically restore a volume during instance provisioning by callin
 
 Before you begin, gather information about the snapshot or snapshots that you want to use to restore a volume or volumes.
    - If you want to restore a volume from a single snapshot, locate the snapshot first and view its details. You can use the API to [list all the snapshots of an account in a region](/apidocs/latest#list-snapshots){: external} and select from the list. Then, [retrieve the snapshot](/apidocs/latest#get-snapshot){: external} details.
-   - If you want to restore an instance by restoring multiple volumes from a consistency group, you need to gather information about the snapshots in the consistency group. [List all the consistency groups in the region](/apidocs/vpc-scoped#list-snapshot-consistency-groups){: external}. Then, take the ID of the consistency group that you want to restore and use it to [retrieve the snapshot consistency group](/apidocs/vpc-scoped#get-snapshot-consistency-group){: external} details.
+   - If you want to restore an instance by restoring multiple volumes from a consistency group, you need to gather information about the snapshots in the consistency group. [List all the consistency groups in the region](/apidocs/vpc/latest#list-snapshot-consistency-groups){: external}. Then, take the ID of the consistency group that you want to restore and use it to [retrieve the snapshot consistency group](/apidocs/vpc/latest#get-snapshot-consistency-group){: external} details.
 
 ### Creating a boot volume when you provision an instance with the API
 {: #snapshots-vpc-restore-boot-api}
