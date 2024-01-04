@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2023-01-03"
+lastupdated: "2023-01-04"
 
 keywords: Block Storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, Block Storage for vpc, customer-managed encryption,
 
@@ -152,7 +152,7 @@ Tags                                   -
 ```
 {: screen}
 
-You can also create volumes with customer-managed encryption during instance provisioning. For more information, see [Provisioning instances with customer-managed encrypted volumes from the CLI](#provision-byok-cli).
+You can also create volumes with customer-managed encryption during instance provisioning.
 
 ## Creating data volumes with customer-managed encryption with the API
 {: #data-vol-encryption-api}
@@ -281,10 +281,7 @@ The `VOLUME_ATTACH_JSON_FILE` example defines a general-purpose data volume with
 {: #provision-byok-api}
 {: api}
 
-You can create virtual server instances with boot volumes that use customer-managed encryption programmatically by calling the `/instances` method in the [VPC API](/apidocs/vpc/latest#instances){: external} as shown in the following sample request. Use the `encryption_key` property to specify your customer root key (CRK), shown in the example as `crn:[...key:...]`.
-
-<!----You can also specify the CRN of a root key from a different account in the `POST /instances` call. For more information, see [About cross account key access and use](/docs/vpc?topic=vpc-vpc-byok-cross-acct-key&interface=ui#byok-cross-acct-about).
-{: note}--->
+You can create virtual server instances with boot volumes that use customer-managed encryption programmatically by calling the `/instances` method in the [VPC API](/apidocs/vpc/latest#create-instance){: external} as shown in the following sample request. Use the `encryption_key` property to specify your customer root key (CRK), shown in the example as `crn:[...key:...]`.
 
 The following example creates an instance with a boot volume with customer-managed encryption and two secondary volumes with customer-managed encryption.
 
@@ -463,12 +460,8 @@ A successful response looks like this. Note that the boot volume appears under b
 {: #next-steps-creating-byok-instances}
 
 - After the instance is created with the encrypted boot and data volumes, associate a floating IP address to the instance that you can use to connect to your instance. For more information, see [Connecting to your Linux instance](/docs/vpc?topic=vpc-vsi_is_connecting_linux) or [Connecting to your Windows instance](/docs/vpc?topic=vpc-vsi_is_connecting_windows).
-
 - Prepare your data volumes for use by formatting and configuring them to meet your requirements.
    - [Setting up your Block Storage for VPC data volume for use (Linux)](https://cloud.ibm.com/docs/vpc?topic=vpc-start-using-your-block-storage-data-volume-lin)
    - [Setting up your Block Storage for VPC data volume for use (Windows)](https://cloud.ibm.com/docs/vpc?topic=vpc-start-using-your-block-storage-data-volume-win)
-
 - [Attach your stand alone volumes](/docs/vpc?topic=vpc-attaching-block-storage) to a virtual server instance.
-
 - Configure [Key rotation for VPC resources](/docs/vpc?topic=vpc-vpc-key-rotation).
-
