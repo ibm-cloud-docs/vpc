@@ -163,7 +163,7 @@ Unattached iops update supported       false
 ```
 {: screen}
 
-For more information about available command options, see [`ibmcloud is volume-profile`](/docs/cli?topic=cli-vpc-reference#volume-profile).
+For more information about available command options, see [`ibmcloud is volume-profile`](/docs/vpc?topic=vpc-vpc-reference#volume-profile-view).
 
 ### With the API
 {: #using-api-iops-profiles}
