@@ -55,7 +55,7 @@ When you use a {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} ins
 To transfer a {{site.data.keyword.block_storage_is_short}} volume to another virtual server instance, complete the following steps.
 
 1. [Detach the volume from its virtual server instance](#detach).
-1. Go to the virtual server instance to which you want to transfer the volume. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
+1. Go to the virtual server instance to which you want to transfer the volume. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 1. Select a virtual server instance from the list.
 1. Under Attached Storage volumes, click the plus sign to add a volume. All {{site.data.keyword.block_storage_is_short}}are displayed.
 1. From the list of volumes, select the volume that you previously detached.
@@ -90,7 +90,7 @@ You can change the name of an existing volume to make it more meaningful.
 
 Add user tags to {{site.data.keyword.block_storage_is_short}}from the list of volumes or the volumes details page.
 
-1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
+1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In [{{site.data.keyword.cloud_notm}} console)](/login){: external}, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
 2. Locate the volume from the list that you want to add user tags.
 3. In the **tags** column, click **Add tags**.
 4. In the Add tags menu, enter the user tags that you want to apply to this volume. Tags display as you type.
@@ -98,7 +98,7 @@ Add user tags to {{site.data.keyword.block_storage_is_short}}from the list of vo
    You can also add **access management tags** to a volume from the Add tags menu. For more information about creating and adding access management tags, see [Apply access management tags to a volume](#storage-add-access-mgt-tags).
    {: note}
 
-5. When you're done adding tags, click **Save**. When you refresh the screen, the list of {{site.data.keyword.block_storage_is_short}}shows the number of tags that are added in the **Tags** column.
+5. When you're done adding tags, click **Save**. When you refresh the screen, the list of {{site.data.keyword.block_storage_is_short}} shows the number of tags that are added in the **Tags** column.
 
 You can also add tags from the volume details page. To do so, follow these steps.
 
@@ -113,7 +113,7 @@ You can add user tags that are associated with a backup policy to a {{site.data.
 
 From the [volume details](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#view-vol-details-ui) page, you can view the backup policies that are applied to the volume and add user tags that are associated with a backup policy.
 
-1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
+1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In [{{site.data.keyword.cloud_notm}} console)](/login){: external}, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
 2. Locate the volume that you want and click the name link.
 3. From the {{site.data.keyword.block_storage_is_short}}details page, click the **Backup policies** tab.
 4. Click **Attach**.
@@ -395,7 +395,7 @@ With the [Global Search and Tagging API](/docs/account?topic=account-tag&interfa
 
 Add an access management tag to an existing volume or when you [create a volume](/docs/vpc?topic=vpc-creating-block-storage). To add access management tags to an existing volume, complete the following steps.
 
-1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
+1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
 2. Locate the volume from the list.
 3. In the **tags** column, click **Add tags**.
 4. In the Add tags menu, enter the access management tags in the access management tag field. Tags that you created display as you type.
@@ -451,7 +451,7 @@ You don't need to set automatic deletion for boot volumes. Boot volumes are crea
 
 To enable Auto Delete for an existing {{site.data.keyword.block_storage_is_short}} data volume that is attached to an instance, follow these steps:
 
-1. Locate the virtual server instance to which the data volume is attached. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
+1. Locate the virtual server instance to which the data volume is attached. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 1. Under **Attached {{site.data.keyword.block_storage_is_short}} volumes**, select a volume.
 1. On the next page, click **Auto Delete** to enable.
 1. Confirm your selection.
