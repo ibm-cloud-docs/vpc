@@ -503,7 +503,7 @@ To verify that the volume is deleted, list the volumes by making a `GET /volumes
 ### Sanitizing your data before you delete a volume
 {: #block-storage-sanitization}
 
-When you delete a {{site.data.keyword.block_storage_is_short}} volume, IBM guarantees that your data is inaccessible on the physical disk and is eventually [eradicated](#block-storage-data-eradication). If you have extra compliance requirements such as NIST 800-88 Guidelines for Media Sanitization, you must perform data sanitation procedures before you delete your volumes. For more information, see the [NIST 800-88 Guidelines for Media Sanitation](https://csrc.nist.gov/publications/detail/sp/800-88/rev-1/final){: external}.
+When you delete a {{site.data.keyword.block_storage_is_short}} volume, IBM guarantees that your data is inaccessible on the physical disk and is eventually [eradicated](#block-storage-data-eradication). If you have extra compliance requirements such as NIST 800-88 Guidelines for Media Sanitization, you must perform data sanitation procedures before you delete your volumes. For more information, see the [NIST 800-88 Guidelines for Media Sanitation](https://csrc.nist.gov/pubs/sp/800/88/r1/final){: external}.
 
 Sanitizing and deleting the volume means your data can't be restored.
 
