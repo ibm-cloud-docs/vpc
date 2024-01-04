@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-01-02"
+lastupdated: "2024-01-04"
 
 keywords: Block Storage, virtual private cloud, volume, data storage, troubleshooting, troubleshoot
 
@@ -38,13 +38,13 @@ Any of the following causes might apply:
 Verify that the volume wasn't detached from a virtual server instance and deleted. Search for the instance to which you last attached the volume from the list of all virtual server instances:
 {: tsResolve}
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 
 1. Select a virtual server instance from the list of all virtual servers.
 
 If the volume is not attached as expected and does not appear in the list of volumes, it was probably deleted. Because deleting a volume completely removes its data, it cannot be restored.
 
-If you use the CLI, verify that you entered the correct command syntax for viewing volumes. See [View all Block Storage volumes from the CLI](/docs/vpc?topic=vpc-viewing-block-storage-cli). Verify that you specified the correct resource group or zone.
+If you use the CLI, verify that you entered the correct command syntax for viewing volumes. See [Viewing all Block Storage volumes from the CLI](/docs/vpc?topic=vpc-viewing-block-storage&interface=cli#viewall-vol-cli). Verify that you specified the correct resource group or zone.
 
 ## Cannot update a volume name by using the API or CLI
 {: #troubleshoot-topic-2}
