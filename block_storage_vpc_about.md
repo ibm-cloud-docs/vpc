@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2023-12-06"
+lastupdated: "2024-01-04"
 
 keywords:
 
@@ -117,7 +117,7 @@ For more information about managing tags for your account, see [Working with tag
 
 {{site.data.keyword.block_storage_is_short}} is integrated with the {{site.data.keyword.compliance_short}} to help you manage security and compliance for your organization. You can set up goals that check whether volumes are encrypted by using customer-managed keys. By using the {{site.data.keyword.compliance_short}} to validate the {{site.data.keyword.block_storage_is_short}} configurations in your account against a profile, you can identify potential issues as they arise.
 
-For more information about monitoring security and compliance for VPC, see [Monitoring security and compliance posture with VPC](/docs/vpc?topic=vpc-manage-security-compliance#monitor-vpc). For more information about creating security and compliance goals, see [Defining rules](/docs/security-compliance?topic=security-compliance-rules-define&interface=ui) in the Security and Compliance documentation.
+For more information about monitoring security and compliance for VPC, see [Monitoring security and compliance posture with VPC](/docs/security-compliance?topic=security-compliance-getting-started). For more information about creating security and compliance goals, see [Defining rules](/docs/security-compliance?topic=security-compliance-rules-define&interface=ui) in the Security and Compliance documentation.
 
 ## Cancelling your {{site.data.keyword.block_storage_is_short}}
 {: #vpc-cancel-storage}
