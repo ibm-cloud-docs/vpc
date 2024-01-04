@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2023-12-18"
+lastupdated: "2024-01-04"
 
 keywords:
 
@@ -516,7 +516,7 @@ With Administrator privileges, you can assign volume-level user access to the {{
 |--------|-------------|
 | Services | Select **Infrastructure Services**. |
 | Resource Type | Select **Block Storage for VPC**. |
-| Volume ID | Enter the [volume ID](/docs/vpc?topic=vpc-viewing-block-storage#view-vol-details) to assign access to a specific volume. |
+| Volume ID | Enter the [volume ID](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#view-vol-details-ui) to assign access to a specific volume. |
 | Select Roles | Assign platform access roles, typically, Operator. |
 {: caption="Table 1. Information for IAM" caption-side="bottom"}
 
