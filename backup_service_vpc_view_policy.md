@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2023-12-18"
+lastupdated: "2024-01-04"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -29,7 +29,7 @@ You can list all backup policies and view details of a specific policy by using 
 
 List all backup policies that you created for volumes in your account for the selected region by using the UI.
 
-In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Backup policies**.
+In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Backup policies**.
 
 Table 1 describes the information on the Backup policy list page. The default region for the account is selected. You can select a different region from the menu. Policies are listed on the page from newest to oldest.
 
@@ -52,7 +52,7 @@ By clicking the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Acti
 
 You can view details of a backup policy by using the UI.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Backup policies**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Backup policies**.
 
 2. Click a policy name. Tables 2 and 3 describe the information about the selected backup policy and its associated plans. You can add activity tracking or delete the policy from the Actions menu ![Actions icon](../icons/action-menu-icon.svg "Actions").
 
@@ -60,7 +60,7 @@ You can view details of a backup policy by using the UI.
    |-------|-------|
    | Name | Name of the backup policy. Click the pencil icon to edit. |
    | Policy ID | Backup policy ID. |
-   | Resource group | [Resource group](/docs/vpc?topic=vpc-iam-getting-started#resources-and-resource-groups) for the {{site.data.keyword.block_storage_is_short}} volume. |
+   | Resource group | [Resource group](/docs/vpc?topic=vpc-iam-getting-started&interface=ui#iam-resource-groups) for the {{site.data.keyword.block_storage_is_short}} volume. |
    | Location | Policies for the selected region. |
    | Created date | The date the policy was created. |
    | CRN | Cloud resource name of the policy. |
@@ -90,7 +90,7 @@ View the list of {{site.data.keyword.block_storage_is_short}} volumes or virtual
 
 You can use this list of {{site.data.keyword.block_storage_is_short}} volumes or virtual server instances to verify that the backup policies are correctly applied.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Backup policies**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Backup policies**.
 
 2. Click a policy name.
 
@@ -100,7 +100,7 @@ You can use this list of {{site.data.keyword.block_storage_is_short}} volumes or
      | Field | Description |
      |-------|-------------|
      | Name | Name of the volume. Click the pencil icon to edit. |
-     | Status | [Status of the volume](/docs/vpc?topic=vpc-managing-block-storage#status). |
+     | Status | Status of the volume. |
      | Size | Size of the volume in GBs.|
      | Encryption | [IBM-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-provider-managed-encryption) or [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption). |
      {: caption="Table 4. List of {{site.data.keyword.block_storage_is_short}} volumes for the backup policy" caption-side="top"}
@@ -111,12 +111,12 @@ You can use this list of {{site.data.keyword.block_storage_is_short}} volumes or
       | Field  | Description |
       |--------|-------------|
       | Name   | Name of the volume. Click the pencil icon to edit. |
-      | Status | [Status of the volume](/docs/vpc?topic=vpc-managing-block-storage#status). |
+      | Status | Status of the volume. |
       | Virtual private cloud | The name of the VPC that the virtual server instances is in. Click it to go to the details page of the VPC. |
-      | Profile| The Compute profile of the virtual server instance.  |
+      | Profile| The Compute profile of the virtual server instance. |
       {: caption="Table 4. List of virtual server instances." caption-side="top"}
 
-       Click **Add virtual server instance**, to add the attached volumes of a virtual server instance to this policy. The informational side panel provides a list of tags for target resources that you can apply to the virtual server instance, and a link to the list of virtual server instances of your account. You must apply at least one of the policy's tags for target resources to the volume.
+       Click **Add virtual server instance** to add the attached volumes of a virtual server instance to this policy. The informational side panel provides a list of tags for target resources that you can apply to the virtual server instance, and a link to the list of virtual server instances of your account. You must apply at least one of the policy's tags for target resources to the volume.
 
 ## Viewing backup policies from the CLI
 {: #backup-view-cli}
@@ -169,7 +169,7 @@ r138-5c719085-cf26-456e-9216-984866659e29   my-backup-policy-v2   stable   defau
 ```
 {: screen}
 
-For more information about available command options, see [`ibmcloud is backup-policies`](/docs/vpc?topic=vpc-vpc-reference#backup-policies).
+For more information about available command options, see [`ibmcloud is backup-policies`](/docs/vpc?topic=vpc-vpc-reference#backup-policies-list).
 
 ### Listing all backup policies filtered by user tags from the CLI
 {: #backup-view-all-filter-by-tags-cli}
@@ -193,7 +193,7 @@ r138-5c719085-cf26-456e-9216-984866659e29   my-backup-policy-v2   stable   defau
 ```
 {: screen}
 
-For more information about available command options, see [`ibmcloud is backup-policies`](/docs/vpc?topic=vpc-vpc-reference#backup-policies).
+For more information about available command options, see [`ibmcloud is backup-policies`](/docs/vpc?topic=vpc-vpc-reference#backup-policies-list).
 
 ### Viewing backup policy details from the CLI
 {: #backup-view-details-cli}
@@ -315,7 +315,7 @@ Created at             2023-08-30T13:39:10+05:30
 ```
 {: screen}
 
-For more information about available command options, see [`ibmcloud is backup-policy`](/docs/vpc?topic=vpc-vpc-reference#backup-policy).
+For more information about available command options, see [`ibmcloud is backup-policy`](/docs/vpc?topic=vpc-vpc-reference#backup-policy-view).
 
 ### Listing all plans for a backup policy from the CLI
 {: #backup-view-plans-cli}
@@ -409,7 +409,7 @@ $ ibmcloud is backup-policy-plans r138-0521986d-963c-4c18-992d-d6a7a99d115f  --o
 ```
 {: screen}
 
-For more information about available command options, see [`ibmcloud is backup-policy-plans`](/docs/vpc?topic=vpc-vpc-reference#backup-policy-plans).
+For more information about available command options, see [`ibmcloud is backup-policy-plans`](/docs/vpc?topic=vpc-vpc-reference#backup-policy-plans-list).
 
 ### Viewing backup plan details from the CLI
 {: #backup-view-plan-details-cli}
@@ -448,7 +448,7 @@ Resource type        backup_policy_plan
 ```
 {: screen}
 
-For more information about available command options, see [`ibmcloud is backup-policy-plan`](/docs/cli?topic=cli-vpc-reference#backup-policy-plan).
+For more information about available command options, see [`ibmcloud is backup-policy-plan`](/docs/vpc?topic=vpc-vpc-reference#backup-policy-plan-view).
 
 ## Viewing backup policies and plans with the API
 {: #backup-view-api}
