@@ -140,7 +140,7 @@ r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   my-file-share           stable      
 ```
 {: screen}
 
-For more information about the command options, see [`ibmcloud is shares`](/docs/vpc?topic=vpc-vpc-reference#shares).
+For more information about the command options, see [`ibmcloud is shares`](/docs/vpc?topic=vpc-vpc-reference#shares-list).
 
 ### Viewing details of a file share from the CLI
 {: #fs-share-details-cli}
@@ -221,7 +221,7 @@ Replication status reasons   Status code   Status message
 ```
 {: screen}
 
-For more information about the command options, see [`ibmcloud is share`](/docs/vpc?topic=vpc-vpc-reference#share).
+For more information about the command options, see [`ibmcloud is share`](/docs/vpc?topic=vpc-vpc-reference#share-view).
 
 ### View mount targets for a file share from the CLI
 {: #fs-view-mount-shares-cli}
@@ -236,7 +236,7 @@ r006-fdbffc45-618c-49f1-bb08-ec530d7be378   my-source-mount-target   my-vpc   st
 ```
 {: screen}
 
-For more information about the command options, see [`ibmcloud is share-mount-targets`](/docs/vpc?topic=vpc-vpc-reference#share-mount-targets).
+For more information about the command options, see [`ibmcloud is share-mount-targets`](/docs/vpc?topic=vpc-vpc-reference#share-mount-targets-list).
 
 ### View mount target details from the CLI
 {: #fs-get-mountpath-cli}
@@ -264,7 +264,7 @@ Created                     2023-10-19T15:42:54+00:00
 ```
 {: screen}
 
-For more information about the command options, see [`ibmcloud is share-mount-target`](/docs/vpc?topic=vpc-vpc-reference#share-mount-target).
+For more information about the command options, see [`ibmcloud is share-mount-target`](/docs/vpc?topic=vpc-vpc-reference#share-mount-target-view).
 
 ## View file shares and mount targets with the API
 {: #file-storage-view-shares-targets-api}
