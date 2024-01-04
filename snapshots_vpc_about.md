@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2023-12-05"
+lastupdated: "2024-01-04"
 
 keywords: snapshots, Block Storage, volumes, cross-regional snapshot, restore volume, copy snapshot
 
@@ -156,7 +156,7 @@ You can apply [user tags](#snapshots-about-user-tags) and [access management tag
 ### User tags for snapshots
 {: #snapshots-about-user-tags}
 
-User tags are uniquely identified by a Cloud Resource Name (CRN) identifier. When you create a user tag, you provide a unique name within your billing account. You can define user tags in label or key-value format. You can create user tags or add existing tags to snapshots. You can also add tags when you use a snapshot of a volume during [instance creation](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-instancevol-tags-ui).
+User tags are uniquely identified by a Cloud Resource Name (CRN) identifier. When you create a user tag, you provide a unique name within your billing account. You can define user tags in label or key-value format. You can create user tags or add existing tags to snapshots.
 
 You can create, view, and manage user tags with the [UI](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-add-tags-ui){: ui}[CLI](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=cli#snapshots-vpc-add-tags-cli){: cli}[API](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=api#snapshots-vpc-add-tags-api){: api}[Terraform](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=terraform#snapshots-vpc-rename-terraform){: terraform}, and remove them at any time.
 

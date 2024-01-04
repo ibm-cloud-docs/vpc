@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2023-12-18"
+lastupdated: "2024-01-04"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
@@ -81,7 +81,7 @@ The snapshot details panel shows the information that is described in the follow
 
 | Field | Description |
 |-------|-------------|
-| Name  | The name of the snapshot, which you can change by clicking the pencil icon. For more information, see [Change the snapshot name](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-rename). |
+| Name  | The name of the snapshot, which you can change by clicking the pencil icon. For more information, see [Naming snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-naming). |
 | Snapshot ID | Copiable GUID of the snapshot. |
 | Bootable | Yes or No. |
 | CRN | Copiable CRN of the snapshot. |
@@ -97,7 +97,7 @@ The snapshot details panel shows the information that is described in the follow
 {: caption="Table 3. Snapshot details" caption-side="bottom"}
 
 By clicking the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Actions"), you can display a menu of context-specific actions.
-   - [Create a volume from the snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore#snapshots-restore-create-vol-ui)
+   - [Create a volume from the snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui)
    - [Edit fast restore](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-edit-fast-restore), or delete a snapshot.
 
 ### Listing all consistency groups of snapshots in the UI
@@ -237,7 +237,7 @@ r138-e6664842-b370-496a-9ae7-da3fb647707c   snappy-snap-snap                    
 ```
 {: screen}
 
-For more information about available snapshot command options, see [`ibmcloud is snapshots`](/docs/vpc?topic=vpc-vpc-reference#snapshots).
+For more information about available snapshot command options, see [`ibmcloud is snapshots`](/docs/vpc?topic=vpc-vpc-reference#snapshots-list).
 
 ### Viewing all snapshots of a volume from the CLI
 {: #snapshots-vpc-view-all-snapshots-cli}
@@ -261,7 +261,7 @@ r138-e6664842-b370-496a-9ae7-da3fb647707c   snappy-snap-snap                 sta
 ```
 {: screen}
 
-For more information about available command options, see [`ibmcloud is snapshots`](/docs/vpc?topic=vpc-vpc-reference#snapshots).
+For more information about available command options, see [`ibmcloud is snapshots`](/docs/vpc?topic=vpc-vpc-reference#snapshots-list).
 
 ### Viewing all snapshots in a consistency group from the CLI
 {: #snapshots-cr-vpc-view-all-cli}
@@ -285,7 +285,7 @@ r174-7311f226-8259-46be-9bfa-5b2cd08bdf2f   snapshot-no-1   stable   r174-bf5957
 ```
 {: screen}
 
-For more information about available command options, see [`ibmcloud is snapshots`](/docs/vpc?topic=vpc-vpc-reference#snapshots).
+For more information about available command options, see [`ibmcloud is snapshots`](/docs/vpc?topic=vpc-vpc-reference#snapshots-list).
 
 ### Viewing details of a snapshot from the CLI
 {: #snapshots-vpc-view-details-cli}
@@ -366,7 +366,7 @@ Tags                       env:prod,env:test
 ```
 {: screen}
 
-For more information about available command options, see [`ibmcloud is snapshots`](/docs/vpc?topic=vpc-vpc-reference#snapshots).
+For more information about available command options, see [`ibmcloud is snapshots`](/docs/vpc?topic=vpc-vpc-reference#snapshots-list).
 
 ### Viewing all fast restore snapshot clones from the CLI
 {: #snapshots-view-zonal-clones-cli}
@@ -382,7 +382,7 @@ eu-de-3   true        2023-02-17T20:29:21+00:00
 ```
 {: screen}
 
-For more information about available command options, see [`ibmcloud is snapshot-clones`](/docs/vpc?topic=vpc-vpc-reference#snapshot-clones).
+For more information about available command options, see [`ibmcloud is snapshot-clones`](/docs/vpc?topic=vpc-vpc-reference#snapshot-clones-list).
 
 ### Viewing details of a fast restore snapshot clone from the CLI
 {: #snapshots-clone-details-cli}
@@ -400,7 +400,7 @@ Href        https://eu-de.iaas.cloud.ibm.com/v1/regions/eu-de/zones/eu-de-3
 ```
 {: screen}
 
-For more information about available command options, see [`ibmcloud is snapshot-clone`](/docs/vpc?topic=vpc-vpc-reference#snapshot-clone).
+For more information about available command options, see [`ibmcloud is snapshot-clone`](/docs/vpc?topic=vpc-vpc-reference#snapshot-clone-view).
 
 ### Viewing details of a remote region snapshot copy from the CLI
 {: #snapshots-regional-copy-details-cli}
