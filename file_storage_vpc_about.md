@@ -201,13 +201,6 @@ The following limitations apply to this release of {{site.data.keyword.filestora
 * A file share cannot be split from its replica by using a `DELETE /shares/<id>/source` API request, if the `lifecycle_state` of the file share is `updating` or if replica operations are in progress.
 * Cross-regional replication is supported within the same geography when both source and replica shares belong to the same account. Cross-geography replication is not supported.
 
-## Related information
-{: #related-info-file-storage-vpc}
-
-For more information about the {{site.data.keyword.cloud_notm}} VPC, see [Virtual Private Cloud](https://www.ibm.com/cloud/learn/vpc){: external}.
-
-For more information about VPC, see [Getting started with Virtual Private Cloud](/docs/vpc?topic=vpc-getting-started).
-
 ## Next steps
 {: #file-storage-vpc-next-steps}
 
@@ -219,8 +212,7 @@ For more information about VPC, see [Getting started with Virtual Private Cloud]
    * [Mounting file shares in CentOS](/docs/vpc?topic=vpc-file-storage-mount-centos).
    * [Mounting file shares on Ubuntu](/docs/vpc?topic=vpc-file-storage-vpc-mount-ubuntu).
    * [Mounting file shares on z/OS](/docs/vpc?topic=vpc-file-storage-vpc-mount-zos)
-* Manage your file share and data. For more information, see the following topics:
-   * [Viewing file shares and mount targets](/docs/vpc?topic=vpc-file-storage-view).
-   * [Manage your file shares](/docs/vpc?topic=vpc-file-storage-managing).
-   * [Create a file share with replication](/docs/vpc?topic=vpc-file-storage-create-replication).
- 
+* Manage your file shares and data.
+   * [Viewing file shares and mount targets](/docs/vpc?topic=vpc-file-storage-view). You can retrieve information about your files shares and mount targets in the console, from the CLI, with the API, or Terraform.
+   * [Manage your file shares](/docs/vpc?topic=vpc-file-storage-managing). You can rename a file share. You can increase its capacity and modify its IOPS. You can add mount targets to a file share. You can rename or delete a mount target. You can delete a file share when you no longer need it. 
+   * [Create a file share with replication](/docs/vpc?topic=vpc-file-storage-create-replication). With the replication feature, you can keep a read-only copy of your file share in another zone. The replica share is updated from the source share on a schedule that you specify. Replication provides a way to recover from an incident at the primary site, when data becomes inaccessible or an application fails. Replication can also be used for geographical expansion.

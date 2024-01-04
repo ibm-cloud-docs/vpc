@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2023-12-18"
+lastupdated: "2024-01-04"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -722,9 +722,16 @@ The attributes that are exported include ID, name, creation date, mount path, su
 
 For more information, see [ibm_is_share_target](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_share_target){: external}.
 
-
 ## Next steps
 {: #fs-view-next-steps}
 
-* [Create file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create).
-* [Manage your file shares](/docs/vpc?topic=vpc-file-storage-managing).
+Mount your file shares. Mounting is a process by which a server's operating system makes files and directories on the storage device available for users to access through the server's file system. For more information, see the following topics:
+* [IBM Cloud File Share Mount Helper utility](/docs/vpc?topic=vpc-fs-mount-helper-utility)
+* [Mounting file shares on Red Hat Linux](/docs/vpc?topic=vpc-file-storage-vpc-mount-RHEL).
+* [Mounting file shares in CentOS](/docs/vpc?topic=vpc-file-storage-mount-centos).
+* [Mounting file shares on Ubuntu](/docs/vpc?topic=vpc-file-storage-vpc-mount-ubuntu).
+* [Mounting file shares on z/OS](/docs/vpc?topic=vpc-file-storage-vpc-mount-zos)
+
+Manage your file shares and data.
+* [Manage your file shares](/docs/vpc?topic=vpc-file-storage-managing). You can rename a file share. You can increase its capacity and modify its IOPS. You can add mount targets to a file share. You can rename or delete a mount target. You can delete a file share when you no longer need it.
+* [Create a file share with replication](/docs/vpc?topic=vpc-file-storage-create-replication). With the replication feature, you can keep a read-only copy of your file share in another zone. The replica share is updated from the source share on a schedule that you specify. Replication provides a way to recover from an incident at the primary site, when data becomes inaccessible or an application fails. Replication can also be used for geographical expansion.

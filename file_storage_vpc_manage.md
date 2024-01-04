@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2023-12-18"
+lastupdated: "2024-01-04"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Managing file shares and mount targets
 {: #file-storage-managing}
 
-Manage the file shares that you created. You can rename a file. You can increase its capacity and modify its IOPS. You can add mount targets to a file share, mount, and unmount a file share from virtual server instances. You can rename or delete a mount target, and you can delete a file share.
+Manage the file shares that you created. You can rename a file share. You can increase its capacity and modify its IOPS. You can add mount targets to a file share, and use the mount path to mount a file share from virtual server instances. You can rename or delete a mount target. Or you can delete a file share if you no longer need it.
 {: shortdesc}
 
 {{site.data.keyword.filestorage_vpc_short}} service requires IAM permissions for role-based access control. For example, to create a file share, you need to have at least editor permissions. For more information, see the [required permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls) for file shares.
@@ -988,8 +988,9 @@ When you look at the specific resources for the VPC infrastructure and specify {
 ## Mounting and unmounting file shares on a virtual server instance
 {: #fs-mount-unmount-vsi}
 
-To mount a file share to a virtual server instance, [locate the mount path information](/docs/vpc?topic=vpc-file-storage-view). The mount path is created when you create a mount target for the file share. See the following information for mounting on these Linux operating systems. Other Linux distributions follow similar procedures.
+Mounting is a process by which a server's operating system makes files and directories on the storage device available for users to access through the server's file system. To mount a file share to a virtual server instance, [locate the mount path information](/docs/vpc?topic=vpc-file-storage-view). The mount path is created when you create a mount target for the file share. See the following information for mounting on a few Linux operating systems. Other Linux distributions follow similar procedures.
 
 * [Mounting file shares on Red Hat Linux](/docs/vpc?topic=vpc-file-storage-vpc-mount-RHEL).
 * [Mounting file shares in CentOS](/docs/vpc?topic=vpc-file-storage-mount-centos).
 * [Mounting file shares on Ubuntu](/docs/vpc?topic=vpc-file-storage-vpc-mount-ubuntu).
+* [Mounting file shares on z/OS](/docs/vpc?topic=vpc-file-storage-vpc-mount-zos)
