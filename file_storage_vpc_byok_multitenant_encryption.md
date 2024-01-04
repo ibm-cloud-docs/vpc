@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2023-12-18"
+lastupdated: "2024-01-04"
 
 keywords:
 
@@ -28,7 +28,7 @@ A privileged user from the account that owns the root key must [invite the user]
 
 If the invited user is already a member of {{site.data.keyword.cloud_notm}}, they receive an invitation link in their notifications and by email. The user in the account that's creating the file share can be the same user as the owner of the root key in the other account.
 
-When the invited user makes the [API request](#byok-cross-key-acct-create-api) to create the encrypted file share in their own account, they can specify the CRN of the root key of the first account in the `encryption_key` property.
+When the invited user decides to create the encrypted file share in their own account, they can specify the CRN of the root key of the first account in the `encryption_key` property.
 
 ## Restrictions
 {: #byok-cross-key-acct-restrictions}
