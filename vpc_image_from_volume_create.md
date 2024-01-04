@@ -148,7 +148,7 @@ Use the CLI to create an image from a volume that is attached to an available vi
    * {{site.data.keyword.cloud_notm}} CLI
    * The infrastructure-service plug-in
 
-   For more information, see the [CLI Reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+   For more information, see the [CLI Reference](/docs/vpc?topic=vpc-vpc-reference&interface=cli).
 
    After you install the vpc-infrastructure plug-in, set the target to generation 2 by running the command `ibmcloud is target --gen 2`.
    {: important}

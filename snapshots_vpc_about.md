@@ -130,7 +130,7 @@ The following limitations apply to this release:
 
 You can create and manage your snapshots by using the UI, CLI, API, and Terraform.
 * To use the UI, log in to the [{{site.data.keyword.cloud_notm}} console](/docs/vpc?topic=vpc-snapshots-vpc-create&interface=ui).{: ui}
-* To use the [CLI](/docs/vpc?topic=vpc-snapshots-vpc-create&interface=cli), download and install the required CLI plug-ins. For more information, see the [CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).{: cli}
+* To use the [CLI](/docs/vpc?topic=vpc-snapshots-vpc-create&interface=cli), download and install the required CLI plug-ins. For more information, see the [CLI reference](/docs/vpc?topic=vpc-vpc-reference&interface=cli).{: cli}
 * To use the [API](/docs/vpc?topic=vpc-snapshots-vpc-create&interface=api), set up the [VPC API](/apidocs/vpc).{: api}
 * To use [Terraform](/docs/vpc?topic=vpc-snapshots-vpc-create&interface=terraform), download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).{: terraform}
 
