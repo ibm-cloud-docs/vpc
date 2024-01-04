@@ -21,7 +21,7 @@ By default, {{site.data.keyword.block_storage_is_short}} boot and data volumes a
 ## Before you begin
 {: #custom-managed-vol-prereqs-block}
 
-To create Block Storage volumes with customer-managed encryption, you must first provision a key management service (KMS), and create or import your customer root key (CRK). You can choose between [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect/concepts?topic=key-protect-getting-started-tutorial) and [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started). 
+To create Block Storage volumes with customer-managed encryption, you must first provision a key management service (KMS), and create or import your customer root key (CRK). You can choose between [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial) and [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started). 
 
 You must also [create a service-to-service authorization](/docs/vpc?topic=vpc-block-s2s-auth) between {{site.data.keyword.block_storage_is_short}} and the KMS instance that you created.
 

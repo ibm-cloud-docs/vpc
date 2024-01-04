@@ -160,7 +160,7 @@ When your image file is encrypted with LUKS encryption and your unique passphras
 To import an encrypted custom image to {{site.data.keyword.vpc_short}}, you need a key management service provisioned. You also need a customer root key (CRK) and a wrapped data encryption key (WDEK). The WDEK is the passphrase that you used to encrypt your image wrapped with your CRK so that your passphrase remains known only to you. The WDEK is used to access the encrypted image when a virtual server instance that uses the encrypted image is started. 
 
 The following list is a summary of the key management prerequisites:
-* Provision a supported key management service, either [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect/concepts?topic=key-protect-getting-started-tutorial) or [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started).
+* Provision a supported key management service, either [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial) or [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started).
 * Import a customer root key (CRK) to the key management service or create one in the key management service.
 * Wrap (protect) the passphrase that you used to encrypt your image with your customer root key to create a wrapped data encryption key (WDEK). 
 

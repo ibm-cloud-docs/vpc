@@ -23,7 +23,7 @@ For more information, see [Protecting data with envelope encryption](/docs/key-p
 ## Before you begin
 {: #custom-managed-vol-prereqs-file}
 
-To create file shares with customer-managed encryption, you must first provision a key management service (KMS), and create or import your customer root key (CRK). You can choose between [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect/concepts?topic=key-protect-getting-started-tutorial) and [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started). 
+To create file shares with customer-managed encryption, you must first provision a key management service (KMS), and create or import your customer root key (CRK). You can choose between [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial) and [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started). 
 
 You must also [create a service-to-service authorization](/docs/vpc?topic=vpc-file-s2s-auth) between {{site.data.keyword.filestorage_vpc_short}} and the KMS instance that you created.
 

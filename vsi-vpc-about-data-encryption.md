@@ -132,7 +132,7 @@ Table 1 describes these services:
 
 | Key Management Service | HSM Encryption Certification | Description |
 | ----- | ----- | ----- |
-| [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect/concepts?topic=key-protect-getting-started-tutorial) | FIPS 140-2 _Level 3_ compliance | With A multi-tenant KMS, you can import or create your root keys and securely manage them.  |
+| [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial) | FIPS 140-2 _Level 3_ compliance | With A multi-tenant KMS, you can import or create your root keys and securely manage them.  |
 | [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started) | FIPS 140-2 _Level 4_ compliance | The highest level of security. A single-tenant KMS and hardware security module (HSM) that is controlled by you. Import or create your root keys and securely manage them. Create an HSM master key to encrypt the content of key storage, including root keys. Only you have access to your keys and data. |
 {: caption="Table 1. Available key management service options" caption-side="bottom"}
 
