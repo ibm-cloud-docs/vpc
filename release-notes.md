@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2023-01-05"
+lastupdated: "2024-01-05"
 
 keywords:
 
@@ -25,6 +25,16 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 For more information about changes to the {{site.data.keyword.vpc_short}} API, see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-cli-rn).
+
+## January 2024
+{: #vpc-jan24}
+
+### 05 January 2024
+{: #vpc-jan0524}
+{: release-note}
+
+Reservations for VPC (Select availability) 
+:   You can now provision reservations for VPC. Reservation is a great option if you want guaranteed resources for future deployments and cost savings. You can choose between either a 1 or 3-year contract term for your reservation. Reservations are available in only the Sydney region. For more information, see [About reservations for VPC](/docs/vpc?topic=vpc-about-reservations-servers-vpc).
 
 ## December 2023
 {: #vpc-dec23}
