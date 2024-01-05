@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-01-04"
+lastupdated: "2024-01-05"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
@@ -103,8 +103,6 @@ By clicking the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Acti
 ### Listing all consistency groups of snapshots in the UI
 {: #consistency-group-vpc-view-list-ui}
 
-[New]{: tag-new}
-
 In the console, you can view a list of all consistency groups that you created, with the most recent one at the beginning of the list. You can filter the list to view specific consistency groups.
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage snapshots for VPC**. The page has two main tabs: Snapshot consistency group and Snapshots.
@@ -142,8 +140,6 @@ By clicking the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Acti
 
 ### Viewing details of a consistency group in the UI
 {: #snapshot-vpc-view-consistency-group-ui}
-
-[New]{: tag-new}
 
 To see detailed information about a consistency group, locate the group on the Block Storage snapshots for VPC list. Then, click the name of a consistency group. 
 
@@ -449,8 +445,6 @@ Service Tags           -
 
 ### Viewing all snapshot consistency groups from the CLI
 {: #snapshots-vpc-view-all-consistency-groups-cli}
-
-[New]{: tag-new}
 
 Run the `snapshot-consistency-groups` command to list all consistency groups in a region.
 
@@ -847,8 +841,6 @@ A successful response shows information that is similar to the following example
 ### Viewing all snapshot consistency groups with the API
 {: #snapshots-vpc-view-all-consistency-groups-apip}
 
-[New]{: tag-new}
-
 You can programmatically list all consistency groups by calling the `/snapshot_consistency_groups` method in the [VPC API](/apidocs/vpc/latest#list-snapshot-consistency-groups){: external} as shown in the following sample request.
 
 ```sh
@@ -858,8 +850,6 @@ GET /snapshot_consistency_groups
 
 ### Viewing details of a snapshot consistency group with the API
 {: #snapshots-vpc-view-a-consistency-group-api}
-
-[New]{: tag-new}
 
 You can programmatically retrieve details of a consistency group by calling the `/snapshot_consistency_groups` method in the [VPC API](/apidocs/vpc/latest#get-snapshot-consistency-group){: external} as shown in the following sample request.
 
@@ -994,8 +984,6 @@ For more information, see [ibm_is_snapshot_clone](https://registry.terraform.io/
 ### Listing all consistency groups with Terraform
 {: #snapshots-vpc-view-consistency-groups-terraform}
 
-[New]{: tag-new}
-
 Import the details of a collection of consistency groups as a read-only data source.
 
 ```terraform
@@ -1009,8 +997,6 @@ For more information, see [ibm_is_consistency_groups](https://registry.terraform
 
 ### Listing details of a consistency group with Terraform
 {: #snapshots-vpc-view-consistency-group_details-terraform}
-
-[New]{: tag-new}
 
 Import the details of a snapshot consistency group as a read-only data source. You can specify the consistency group by either the ID or the name of the consistency group.
 

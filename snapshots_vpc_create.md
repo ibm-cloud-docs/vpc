@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2023-12-18"
+lastupdated: "2024-01-05"
 
 keywords: snapshots, Block Storage, snapshot clone, remote copy, fast restore, Block Storage snapshot, cross-regional snapshot
 
@@ -21,7 +21,6 @@ With the UI, CLI, API, or Terraform, you can create a snapshot of a {{site.data.
 Before you take a snapshot, make sure that all cached data is present on disk, especially when you're taking a snapshot of instances with Windows and Linux&reg; operating systems. For example, on Linux&reg; operating systems, run the `sync` command to force an immediate write of all cached data to disk.
 {: note}
 
-[New]{: tag-new}
 You can create a consistency group that contains snapshots of multiple volumes that are attached to a virtual server instance. All snapshots in the consistency group are created at the same time and are loosely coupled. For more information, see [Creating snapshot consistency groups](/docs/vpc?topic=vpc-snapshots-vpc-create-consistency-groups).
 
 ## Creating a snapshot in the UI

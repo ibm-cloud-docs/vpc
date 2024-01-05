@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-01-04"
+lastupdated: "2024-01-05"
 
 keywords: snapshots, Block Storage, volumes, cross-regional snapshot, restore volume, copy snapshot
 
@@ -81,8 +81,6 @@ Creating a cross-regional copy affects billing. You're charged for the data tran
 ### Snapshot consistency groups
 {: #multi-volume-snapshots}
 
-[New]{: tag-new}
-
 A snapshot consistency group contains snapshots of multiple Block Storage volumes that are attached to the same virtual server instance. You can include or exclude boot volumes. Instance storage is not included.
 
 When you request a snapshot of a consistency group, the system ensures that all write operations are complete before it takes the snapshots. Then, the system generates snapshots of all the tagged Block Storage volumes that are attached to the virtual server instance at the same time. Depending on the number and size of the attached volumes, plus the amount of data that is to be captured, you might observe a slight IO pause. This IO pause can range from a few milliseconds up to 4 seconds.
@@ -139,7 +137,7 @@ For more information about creating and managing snapshots, and restoring a volu
 * [View](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view) and [manage](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-manage) your snapshots.
 * [Restore](/docs/vpc?topic=vpc-snapshots-vpc-restore#snapshots-vpc-restore) a volume from a snapshot.
 
-For more information about creating and managing consistency groups, see the following topics. [New]{: tag-new}
+For more information about creating and managing consistency groups, see the following topics.
 * [Create](/docs/vpc?topic=vpc-snapshots-vpc-create-consistency-groups) your consistency group.
 * [View](/docs/vpc?topic=vpc-snapshots-vpc-view) and [manage](/docs/vpc?topic=vpc-snapshots-vpc-manage-consistency-groups) your consistency groups.
 

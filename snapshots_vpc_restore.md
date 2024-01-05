@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2023-12-18"
+lastupdated: "2024-01-05"
 
 keywords:
 
@@ -38,8 +38,6 @@ You can restore volumes at various stages of the VPC lifecycle.
 * When you provision a virtual server instance, you can specify a snapshot of a boot or a snapshot of data volume. The restored boot volume is used to start the new instance. Restored data volumes are automatically attached to the instance as auxiliary storage.
 * When you want to add a new auxiliary storage to your existing instance, you can restore a data volume from a nonbootable snapshot.
 * When you create an unattached (stand-alone) {{site.data.keyword.block_storage_is_short}} volume from a snapshot, you can still attach the volume to an instance later.
-
-[New]{: tag-new}
 
 Restoring an instance directly from snapshot consistency group identifier is not supported. However, you can restore a virtual server instance by restoring all of its boot and data volumes from the snapshots that are part of a consistency group. 
 
@@ -130,8 +128,6 @@ Follow these steps to create a volume from the snapshot details page in the UI.
 
 ### Creating volumes for a virtual server instance from a consistency group
 {: #snapshots-vpc-restore-cr-details-ui}
-
-[New]{: tag-new}
 
 Follow these steps to create volumes for virtual server instance from the consistency groups page in the UI.
 
