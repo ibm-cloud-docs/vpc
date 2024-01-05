@@ -237,7 +237,7 @@ In the future, load balancer profiles may be introduced that do not support inst
 ### For all version dates
 {: #13-june-2023-all-version-dates}
 
-**VPC routing table authorizations.** You can use the new VPC routing table authorizations to allow users to administer VPC routing tables but not allow them to administer the broader VPC. The VPC API methods that operate on routing tables have been updated to check for these new authorizations, instead of the broader VPC authorizations. The VPC Administrator, Editor, Operator, and Viewer IAM access roles have been updated so that users with those roles will function as before. However, custom roles that require access to routing tables must be updated. For more information, see [IAM actions for VPC routing tables](/docs/vpc?topic=vpc-iam-actions-vpc-routing-tables).
+**VPC routing table authorizations.** You can use the new VPC routing table authorizations to allow users to administer VPC routing tables but not allow them to administer the broader VPC. The VPC API methods that operate on routing tables have been updated to check for these new authorizations, instead of the broader VPC authorizations. The VPC Administrator, Editor, Operator, and Viewer IAM access roles have been updated so that users with those roles will function as before. However, custom roles that require access to routing tables must be updated. For more information, see [Required permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls).
 
 ## 23 May 2023
 {: #23-may-2023}
