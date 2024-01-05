@@ -373,7 +373,7 @@ By using the API, you can:
 * [Delete a file share](#delete-file-share-api).
 * [Manage user tags for file shares](#fs-add-user-tags).
 
-To see information about the {{site.data.keyword.filestorage_vpc_short}} API methods, see the following section in the [API reference](/apidocs/vpc-latest#list-share-profiles).
+To see information about the {{site.data.keyword.filestorage_vpc_short}} API methods, see the following section in the [API reference](/apidocs/vpc/latest#list-share-profiles).
 
 ### Renaming a file share with the API
 {: #rename-file-share-api}
