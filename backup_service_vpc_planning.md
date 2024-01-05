@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2023-12-06"
+lastupdated: "2024-01-05"
 
 keywords: backup planning, restore volume, restore data
 
@@ -28,7 +28,7 @@ Consider the following prerequisites before you set up the VPC Backup Service.
 | {{site.data.keyword.iamshort}} (IAM) | Verify that you have [IAM access permissions](/docs/vpc?topic=vpc-backup-service-about#baas-vpc-iam) to create and manage backups for the account. |
 | Enterprise-level backups | Make sure that all [Service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth) are in place for the services in the child account and the enterprise account. If the authorization is missing in any one of the child accounts, the backup service generates an {{site.data.keyword.at_full}} event and marks the policy health degraded.|
 | Volumes | Evaluate which volumes are most important to back up. You can create backups of boot and data volumes. A volume with numerous changes and a lengthy retention period requires more attention than a volume with moderate changes. Also, the cumulative size of all backups for a volume can't exceed 10 TB. |
-| Multi-volume consistency groups [New]{: tag-new} | You can create backups of multiple Block Storage volumes that are attached to the same virtual server. When you create backups this way, you tag the virtual server instance. You can choose to include the boot volume in the backup or leave it out. |
+| Multi-volume consistency groups | You can create backups of multiple Block Storage volumes that are attached to the same virtual server. When you create backups this way, you tag the virtual server instance. You can choose to include the boot volume in the backup or leave it out. |
 | Backup schedule | Determine a backup schedule based on the type of volumes that you're backing up. For example, you might want to back up critical data that changes frequently more often than static data. |
 | Retention | Determine a retention policy for backups in the backup plan. As subsequent backups are created, you incur costs for each backup that you retain. Deleting older backups keeps costs down. \n The interval for creating a backup and its retention period can be the same or they can be different. The default retention period is 30 days. You can also set the total number of backups to retain up to 750 per volume. When that number is exceeded, the oldest backups are deleted. If you specify both the age and the number of backups, age takes priority in determining when to delete a snapshot. The count applies only if the oldest snapshot is within the age range. For more information, see [Backup policies and backup plans](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-policies).|
 | Backup plans | Decide on the number of backup plans that you need for a policy. For example, you can have separate plans for daily backups, weekly, and monthly. |
@@ -40,7 +40,7 @@ Consider the following prerequisites before you set up the VPC Backup Service.
 |**Creating backups**: |
 | Prerequisites | Verify that the volume is attached to a virtual server instance and that the instance is in a running state. |
 | Backup frequency | Verify that the plan that you selected is creating backups at the interval that you want. Backups do not occur instaneously like manually created snapshots. Backups usually occur within an hour of being triggered by a backup plan schedule. |
-| Timing | Consistency group backups: Creating crash-consistent snapshots of multiple volumes that are attached to the same virtual server instance leads to a short-lived I/O suspension that can last from a few milliseconds to a few seconds. The duration depends on the number and size of volumes that are connected to your virtual server instance. It is recommended to run your automated backup-policy during off-peak hours to minimize any impact on performance. [New]{: tag-new} |
+| Timing | Consistency group backups: Creating crash-consistent snapshots of multiple volumes that are attached to the same virtual server instance leads to a short-lived I/O suspension that can last from a few milliseconds to a few seconds. The duration depends on the number and size of volumes that are connected to your virtual server instance. It is recommended to run your automated backup-policy during off-peak hours to minimize any impact on performance. |
 | Tags | Verify that at least one of your policy tags matches at least one tag of each resource that you want to back up. When you decide on the tags for your target resources, confirm that other policies are not using the same tags unless you want the resource to be backed up by multiple policies. |
 |**Restoring a volume from a backup snapshot**: |
 | Volume restore performance | Review these [performance considerations](/docs/vpc?topic=vpc-baas-vpc-restore#baas-performance-considerations) when you restore a volume from a backup snapshot. You might also experience different regional performance when you restore a volume. \n Evaluate when to enable [fast restore clones](/docs/vpc?topic=vpc-backup-service-about#backup-service-fastrestore). Fast restore snapshots reduce latency by restoring a volume from a snapshot clone. The new volume data is immediately restored. |

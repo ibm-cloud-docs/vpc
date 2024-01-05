@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-01-04"
+lastupdated: "2024-01-05"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -66,7 +66,7 @@ You can view details of a backup policy by using the UI.
    | CRN | Cloud resource name of the policy. |
    | Applied resources | The number of volumes that are covered by the policy. This list includes volumes that were created by users for the account. If the policy is an enterprise-wide policy, the list shows volumes of the enterprise account, and not the volumes of its child accounts. |
    | Tags for target resources | This field shows the user tags that can trigger the creation of a backup when they are applied to a resource. \n - You can click the pencil icon to add more tags. For more information, see [Edit tags for target resources](/docs/vpc?topic=vpc-backup-service-manage&interface=ui#backup-edit-tags). \n - See also [Applying backup policies to resources by using tags](/docs/vpc?topic=vpc-backup-use-policies). |
-   | Target resource type  | The backup policy can apply to individual block **volumes** or a consistency group of block volumes of **instances**. [New]{: tag-new} |
+   | Target resource type  | The backup policy can apply to individual block **volumes** or a consistency group of block volumes of **instances**. |
    | Last backup job | It shows the date and time when the last backup job ran.|
    | Enterprise account CRN | This value is only shown when the backup policy is an enterprise-wide policy. It is the Cloud Resource Name of the Enterprise that created the policy.|
    | Health | The current health state of the policy. For more information, see the [FAQs](/docs/vpc?topic=vpc-backup-service-enterprise-faq&interface=terraform#faq-baas-ee-5).|
@@ -107,7 +107,7 @@ You can use this list of {{site.data.keyword.block_storage_is_short}} volumes or
 
      You can add other volumes to this policy by clicking **Add volumes**. The informational side panel provides a list of tags for target resources that you can apply to the volume, and a link to the [list of {{site.data.keyword.block_storage_is_short}} volumes](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#viewvols-ui). You must apply at least one of the policy's tags for target resources to the volume. |
 
-   - [New]{: tag-new} If the policy is for multi-volume backups of a consistency group of {{site.data.keyword.block_storage_is_short}} volumes, a list of virtual server instances is shown. The list contains the virtual server instances whose Block Storage volumes are backed up this policy. Information about the virtual server instances includes the name, status, VPC, and profile.
+   - If the policy is for multi-volume backups of a consistency group of {{site.data.keyword.block_storage_is_short}} volumes, a list of virtual server instances is shown. The list contains the virtual server instances whose Block Storage volumes are backed up this policy. Information about the virtual server instances includes the name, status, VPC, and profile.
       | Field  | Description |
       |--------|-------------|
       | Name   | Name of the volume. Click the pencil icon to edit. |

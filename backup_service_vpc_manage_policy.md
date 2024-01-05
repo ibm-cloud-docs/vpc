@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2023-12-18"
+lastupdated: "2024-01-05"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -50,8 +50,6 @@ From the Backup policy details page, you can edit the tags for your {{site.data.
 
 ### Editing consistency group members in the UI
 {: #backup-consistency-group-update-ui}
-
-[New]{: tag-new}
 
 From the Backup policy details page, you can include or exclude {{site.data.keyword.block_storage_is_short}} boot volumes in the backup policy.
 
@@ -208,8 +206,6 @@ For more information about available command options, see [`ibmcloud is backup-p
 
 ### Editing consistency group members from the CLI
 {: #backup-consistency-group-update-cli}
-
-[New]{: tag-new}
 
 Run the `ibmcloud is backup-policy-update` command and specify the policy ID or policy name, and the tags that you want to modify.
 
@@ -374,8 +370,6 @@ curl -X PATCH\
 
 ### Editing consistency group members with the API
 {: #backup-consistency-group-update-api}
-
-[New]{: tag-new}
 
 When you want to update a multi-volume backup policy to include or exclude the boot volume from the consistency group, you can make a `PATCH /backup_policies/{backup_policies_id}` request and specify the value for `included-content` property as either `data_volumes`, `boot_volume`, or just `data_volumes`.
 
