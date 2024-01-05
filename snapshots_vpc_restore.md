@@ -119,7 +119,7 @@ From the list of {{site.data.keyword.block_storage_is_short}} snapshots, you can
 
 Follow these steps to create a volume from the snapshot details page in the UI.
 
-1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes and select a volume. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Storage > Block Storage volumes**.
+1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes and select a volume. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
 2. On the {{site.data.keyword.block_storage_is_short}} volume details page, select the **Snapshots and Backups** tab. A list of snapshots that were created manually or by backup policies is shown.
 3. From the list, click the snapshot name to go to its details page.
 4. From the **Actions** menu, click **Create volume**.
@@ -131,7 +131,7 @@ Follow these steps to create a volume from the snapshot details page in the UI.
 
 Follow these steps to create volumes for virtual server instance from the consistency groups page in the UI.
 
-1. Go to the list of {{site.data.keyword.block_storage_is_short}} snapshot consistency groups. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Storage > Block Storage snapshots**.
+1. Go to the list of {{site.data.keyword.block_storage_is_short}} snapshot consistency groups. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage snapshots**.
 1. Select a snapshot consistency group from the list. It must be in a `stable` state.
 1. From the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Actions"), select **Create virtual server**.
    * If the group has more than one bootable snapshot, you can choose the one that you want to use for the boot volume of the new virtual server instance. Then, click **Configure virtual server**.
@@ -148,7 +148,7 @@ Follow these steps to create volumes for virtual server instance from the consis
 
 Follow these steps to create a boot and a data volume from snapshots when you provision a new virtual server instance.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Compute> Virtual server instances**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute> Virtual server instances**.
 2. Click **Create** and provision your new instance. For more information about the required fields, see the table in [Creating virtual server instances in the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
 3. For the operating system, click **Change image**, then click the tab for **Snapshots**. The most recent bootable snapshot is listed.
    * If you want to use a different snapshot, click **Edit**. From the list of snapshots, select a bootable snapshot for your instance's operating system. Click **Save**. This action populates the snapshot data in the boot volume field on the provisioning page.
@@ -166,7 +166,7 @@ Follow these steps to create a boot and a data volume from snapshots when you pr
 
 You can also create a data volume from a snapshot for an existing instance. Choose from the list of virtual server instances.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Compute> Virtual server instances**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute> Virtual server instances**.
 2. From the list, click the name of an instance. The instance must be in a _running_ state.
 3. On the Instance details page, scroll to the list of Storage volumes and click **Attach volumes**. A side panel opens for you to define the volume attachment.
 4. From the Attach storage volume panel, expand the list of Block Volumes, and select **Create a data volume**.
