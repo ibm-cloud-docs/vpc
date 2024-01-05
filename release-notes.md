@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2023-01-03"
+lastupdated: "2023-01-05"
 
 keywords:
 
@@ -357,7 +357,7 @@ Virtual network interface (beta)
 {: release-note}
 
 VPC routing table authorizations
-:   You can use the new VPC routing table authorizations to allow users to administer VPC routing tables but not allow them to administer the broader VPC. Routing table operations were updated to check for these new authorizations, instead of the broader VPC authorizations. The VPC Administrator, Editor, Operator, and Viewer IAM access roles were updated so that users with those roles function as before. However, custom roles that require access to routing tables must be updated. For more information, see [IAM actions for VPC routing tables](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls).
+:   You can use the new VPC routing table authorizations to allow users to administer VPC routing tables but not allow them to administer the broader VPC. Routing table operations were updated to check for these new authorizations, instead of the broader VPC authorizations. The VPC Administrator, Editor, Operator, and Viewer IAM access roles were updated so that users with those roles function as before. However, custom roles that require access to routing tables must be updated. For more information, see [Required permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls).
 
 ### 15 June 2023
 {: #vpc-jun1523}
