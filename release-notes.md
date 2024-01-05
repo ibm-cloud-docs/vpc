@@ -108,8 +108,8 @@ Encryption in transit is now available in Spain (Madrid) region
 {: #vpc-nov1523}
 {: release-note}
 
-GPU A100 profile available on Intel Ice Lake hardware in US East region (LA)
-:   The GPU `a100` profile is now availableon the Intel&reg;'s quad processor Xeon® Gold 6342 Ice Lake with 96 cores that are running at a base speed of 2.8 GHz and an all-core turbo frequency of 3.5 GHz. The Ice Lake processor is only available in the US East (Washington DC) region. For more information, see the [GPU profile family](/docs/vpc?topic=vpc-profiles&interface=ui#gpu) documentation.
+GPU A100 profile available on Intel Ice Lake hardware in US East region (Select availability)
+:   The GPU `a100` profile is now availableon the Intel&reg;'s quad processor Xeon® Gold 6342 Ice Lake with 96 cores that are running at a base speed of 2.8 GHz and an all-core turbo frequency of 3.5 GHz. The Ice Lake processor is available only in the US East (Washington DC) region. For more information, see the [GPU profile family](/docs/vpc?topic=vpc-profiles&interface=ui#gpu) documentation.
 
 ### 13 November 2023
 {: #vpc-nov1323}
