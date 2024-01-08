@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-01-05"
+lastupdated: "2024-01-08"
 
 keywords:
 
@@ -100,7 +100,7 @@ For more information, see the [Debian documentation](https://www.debian.org/rele
 
 Red Hat Enterprise Linux 7 EOS date is 30 June 2024. Support for this software discontinues on 30 June 2024. After deprecation, clients can't download the software.
 
-If you decide to upgrade with the in-place method on Red Hat OS, open a ticket with {{site.data.keyword.IBM_notm}} support. Update the OS version that is recorded on {{site.data.keyword.Bluemix}}. You must inform {{site.data.keyword.IBM_notm}} support when your upgrade is completed for uninterrupted support for your upgraded instances. You can open a support ticket in the [customer portal](https://cloud.ibm.com/).
+If you decide to upgrade with the in-place method on Red Hat OS, open a ticket with {{site.data.keyword.IBM_notm}} support to update the OS version that is recorded on {{site.data.keyword.Bluemix}}. You must inform {{site.data.keyword.IBM_notm}} support when your upgrade is completed for uninterrupted support for your upgraded instances. You can open a support ticket in the [customer portal](https://cloud.ibm.com/).
 
 For existing customers, upgrade to the latest version. For more information, see the [Red Hat Enterprise Linux documentation](https://access.redhat.com/support/policy/updates/errata).
 
