@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-01-03"
+lastupdated: "2024-01-08"
 
 subcollection: vpc
 
@@ -38,9 +38,6 @@ The following operating systems are available as stock images when you create a 
 | Ubuntu 20.04.x, 22.04.x | x86-64 |
 | Windows 2016, 2019, 2022 | x86-64 |
 {: caption="Table 1. Supported x86_64 stock image operating systems" caption-side="top"}
-
-CentOS 8 is scheduled for End of Life (EOL) on 31 December 2021. On 01 January 2022, CentOS 8 stock images are deprecated and can no longer be selected to provision in {{site.data.keyword.cloud_notm}} console. Existing CentOS instances are not affected.
-{: note}
 
 ### Supported x86_64 virtual server operating system bundle stock image
 {: #x86-supported-os-bundle-image}
