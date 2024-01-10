@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2018, 2023
+  years: 2018, 2024
 
-lastupdated: "2023-06-22"
+lastupdated: "2024-01-10"
 
 keywords: connecting, windows
 
@@ -79,13 +79,13 @@ After you create your Windows instance and complete the prerequisites, complete 
 
     This command decodes and decrypts your password, which is automatically generated when you create an instance by using a Windows image. The password is decoded and decrypted based on the public SSH Key that you used at instance create time and the associated private SSH key that you specify in the `instance-initialization-values` command. For more information, see the [CLI command reference](/docs/vpc?topic=vpc-vpc-reference#instance-initialization-values).
 
-    The following command shows example usage for the `instance-initialization-values` command where `0xx4e27x-33xx-4e7x-a08b-bexx2ac3xx0c` is the instance ID and `~/.ssh/id_rsa` is the location of the user's private key file:
+    The following command shows example usage for the `instance-initialization-values` command where `0xx4e27x-33xx-4e7x-a08b-bexx2ac3xx0c` is the instance ID and `~/.ssh/id_rsa` is the location of the user's private key file. If you run the command from a Windows client, you must add the full path to the SSH key.
 
     ```sh
-    ibmcloud is instance-initialization-values 0xx4e27x-33xx-4e7x-a08b-bexx2ac3xx0c --private-key @~/.ssh/id_rsa
+    ibmcloud is instance-initialization-values 0xx4e27x-33xx-4e7x-a08b-bexx2ac3xx0c --private-key "@~/.ssh/id_rsa"
     ```
     {: pre}
-
+    
     You can also use the API to get the encrypted password, which returns the decoded and decrypted password. For more information, see [Retrieve configuration that is used to initialize the instance API](/apidocs/vpc/latest#retrieve-configuration-used-to-initialize-the-inst).
     {: tip}
 
