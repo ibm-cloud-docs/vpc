@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2023-12-18"
+lastupdated: "2024-01-10"
 
 keywords: VPC File Storage, file for VPC, NSF, replica, file share, replication, schedule
 
@@ -189,7 +189,7 @@ Activity tracker events are triggered when you establish and use file share repl
 | `is.share.share.failover` | Status of the failover operation.|
 | `is.share.share.init` | Status of the initialization. |
 | `is.share.share.read` | View file share replication relationships. |
-| `is.share.share.split`| status of the replication spit operation. |
+| `is.share.share.split`| status of the replication split operation. |
 {: caption="Table 1. Actions that generate events for file share replication." caption-side="bottom"}
 
 ## Replication statuses
