@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-04-11"
+  years: 2021, 2024
+lastupdated: "2024-01-10"
 
 keywords:
 
@@ -46,7 +46,7 @@ The following sections describe working with reserved IP addresses with differen
 
 To create an unassociated reserved IP, follow these steps:
 
-1. Enter a name for your reserved IP.
+1. Enter a name for your reserved IP. Be sure to use lowercase alphanumeric characters with no spaces for the name.
 2. Select whether you want to have the system choose a reserved IP for you automatically, choose from a list of existing reserved IPs, or enter one yourself.
 3. Select an address, if you require a specific IP address (optional).
 4. Click **Reserve IP**.
@@ -84,6 +84,7 @@ Where:
 - **SUBNET** is the ID of the subnet.
 - **--vpc** is the ID or name of the VPC. This option is only required if you want to specify the unique resource by name inside this VPC.
 - **--name** is the user-defined name for this reserved IP. Names must be unique within the subnet that the reserved IP resides in. Names beginning with `ibm-` are reserved for provider-owned resources.
+- **--address** is the IP address to reserve, which must not already be reserved on the subnet. If not specified, an available address on the subnet is automatically selected.
 - **--auto-delete** determines how the auto-delete feature is set. If set to `true`, this reserved IP automatically deletes when the target is deleted. One of: `true`, `false` (default: `true`).
 - **--target** is the target of the reserved IP.
 - **--output** specifies the output format; only JSON is supported.
