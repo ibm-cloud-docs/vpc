@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2023-01-05"
+lastupdated: "2024-01-11"
 
 keywords:
 
@@ -25,6 +25,16 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 For more information about changes to the {{site.data.keyword.vpc_short}} API, see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-cli-rn).
+
+## January 2024
+{: #vpc-jan24}
+
+### 11 January 2024
+{: #vpc-jan1124}
+{: release-note}
+
+UI enhancement to VPC download button
+:   Previously, when you downloaded a list of resources from a table, you could only download the current page if the resource list length was more than 200 records. With this UI enhancement, you can now download all the pages regardless of length of the resource list.
 
 ## December 2023
 {: #vpc-dec23}
