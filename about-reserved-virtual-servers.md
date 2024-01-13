@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-11-30"
+  years: 2023, 2024
+lastupdated: "2024-01-12"
 
-keywords: cost savings, guaranteed capacity, reserved capacity, reservation
+keywords:
 
 subcollection: vpc
 
@@ -12,19 +12,22 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# About reserved capacity for VPC
-{: #about-reserved-virtual-servers-vpc}
+# About reservations for VPC
+{: #about-reservations-servers-vpc}
 
 [Beta]{: tag-blue}
 
-{{site.data.keyword.cloud}} reserved capacity is a great option if you want guaranteed resources for future deployments and cost savings. You can choose between either a 1 or 3-year contract term for your reserved capacity. Within that reserved capacity of a specific size and provision those servers when you need them. You are guaranteed this capacity within the availability zone of your choice for the life of the contract term.
+IBM Cloud Reservations are a great option when you want significant cost savings and guaranteed resources for future deployments. You can choose a 1 or 3-year term, server quantity, specific profile, and provision those servers when needed.
 {: shortdesc}
 
-Reserved capacity offers many advantages, including the following benefits:
+IBM Cloud Reservations are available in only Sydney region.
+{: note}
+
+Reservations offers many advantages, including the following benefits:
 
 | Benefit | Description |
 | ----- | ----- |
-| Guaranteed capacity | When you reserve capacity, your capacity is guaranteed for the life of your contract term. |
+| Guaranteed capacity | When you provision a reservation, your capacity is guaranteed for the life of your contract term. |
 | Reliable provisioning | You can provision and attach a virtual server to a reservation with available reserved capacity. |
 | Cost savings | Choosing either a 1 or 3-year contract term allows reduced costs when compared to hourly or monthly billing cycles. |
 {: caption="Table 1. Reserved virtual server benefits" caption-side="top"}
@@ -32,7 +35,7 @@ Reserved capacity offers many advantages, including the following benefits:
 ## Supported profile families
 {: #reserved-virtual-servers-vpc-supported-profiles}
 
-The following profile families for virtual servers are available when you reserve capacity.
+The following profile families for virtual servers are available when you provision a reservation.
 
 | Family | Description |
 | -------- | ----------- |
@@ -51,13 +54,10 @@ For more information about profiles, see [x86-64 instance profiles](/docs/vpc?to
 ## Limitations
 {: #limitations-reserved-virtual-servers-vpc}
 
-Consider the following limitations before you reserve capacity and provision a virtual server within that capacity.
+Consider the following limitations before you provision a reservation and provision a virtual server within that reservation.
 
-* You can't resize a virtual server to a smaller profile that's in reserved capacity. But you can upgrade to another profile of equal or greater cost that is in the same profile family. For more information, [contact support](/docs/get-support?topic=get-support-using-avatar).
-* Reserved capacity can be canceled only within the first 120 hours of placing the reservation. However, you can detach virtual servers that are in that capacity. For more information, see [contact support](/docs/get-support?topic=get-support-using-avatar).
-
-   Keep in mind that you are charged the on-demand usage rate for your virtual server during the cancellation process. These charges continue until the cancellation is complete.
-{: important}
+* You can't resize a virtual server to a smaller profile that's in a reservation. But you can upgrade to another profile of equal or greater cost that is in the same profile family. For more information, [contact support](/docs/get-support?topic=get-support-using-avatar).
+* A reservation can be canceled only within the first 120 hours of placing the reservation. However, you can detach virtual servers that are in that reservation. For more information, see [Canceling a reservation](/docs/vpc?topic=vpc-reserved-capacity-cancel-reservation&interface=ui).
 
 * Maximum of 200 vCPUs per region per account.
 * Limited to 5 POC accounts.
@@ -66,14 +66,14 @@ Consider the following limitations before you reserve capacity and provision a v
 ## Notifications
 {: #notifications-reserved-virtual-servers-vpc}
 
-When your capacity reservation is complete, a confirmation message is sent.
+When your reservation is complete, a confirmation message is sent.
 
-You receive a [notification](https://cloud.ibm.com/user/notifications){: external} before the end of the term of your reserved virtual server capacity. From here, you can decide whether to renew your reservation or cancel.
+You receive a [notification](https://cloud.ibm.com/user/notifications){: external} before the end of the term of your reservation. From here, you can decide whether to renew your reservation or cancel.
 
-If **Auto-renew** is selected when your reserve capacity, your contract automatically renews when your current contract ends.
+If **Auto-renew** is selected when your reservation, your contract automatically renews when your current contract ends.
 {: tip}
 
 ## Next steps
 {: #next-steps-reserved-virtual-servers-vpc}
 
-After you review and decided on your options, you're ready to provision your reserved capacity. For more information, [Provisioning reserved capacity for VPC](/docs/vpc?topic=vpc-provisioning-reserved-capacity-vpc).
+After you review and decided on your options, you're ready to provision your reservation. For more information, [Provisioning a reservation for VPC](/docs/vpc?topic=vpc-provisioning-reservation-vpc).
