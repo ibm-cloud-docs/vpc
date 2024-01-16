@@ -84,10 +84,10 @@ The following table describes the information on the file share details page.
 | **File share replication relationship** | Shows the name, location, and status of the source and the replica file shares \n * If no replica file shares were created, click **Create replica** to [create one](/docs/vpc?topic=vpc-file-storage-create-replication). \n * To break the replication relationship, click **Remove replication relationship**. Then, the replica file share becomes an independent read/write file share.|
 | Replication frequency | Hover over the information icon to see an explanation of the cron replication schedule. |
 | Status | Replication status; for example, _suspended_ or _available_. |
-| Last sync start time [New]{: tag-new} | The date and time of the last replication start. |
-| Last sync completion time [New]{: tag-new} | The date and time of the last replication ended. |
-| Transfer rate [New]{: tag-new} | It shows the speed at which data was copied from the source file share to its replica during the last sync. |
-| Transfer amount [New]{: tag-new}| The amount of data that is copied from the source file share to its replica during the last sync. |
+| Last sync start time | The date and time of the last replication start. |
+| Last sync completion time | The date and time of the last replication ended. |
+| Transfer rate | It shows the speed at which data was copied from the source file share to its replica during the last sync. |
+| Transfer amount | The amount of data that is copied from the source file share to its replica during the last sync. |
 | Replication role | Source or replica file share. |
 | File share Name | Click the file share name to see its details. |
 | Location | It displays the zone information of the file share. |
