@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-01-12"
+lastupdated: "2024-01-16"
 
 keywords: health status reasons, instance health status, virtual server health status,
 
@@ -14,7 +14,7 @@ subcollection: vpc
 # Degraded capacity
 {: #reserved-capacity-degraded-capacity}
 
-[Beta]{: tag-blue}
+[Select Availability]{: tag-green}
 
 A reservation that experiences a loss of capacity reports a _capacity status_ of `degraded`.
 {: shortdesc}
@@ -26,4 +26,4 @@ An active reservation that loses capacity after attaining full capacity reports 
 
 You are not billed for any lost capacity. The reservation details show the amount of capacity that is allocated to the reservation. You are not billed for any amount of allocated capacity that is less than the total of your requested capacity. When capacity becomes available, the system replenishes any lost capacity. At which time, the reservation capacity status is "allocated". Billing resumes for that portion of lost capacity.
 
-For more information about managing a reservation, see [Managing reserved capacity for VPC](/docs/vpc?topic=vpc-managing-reserved-capacity-vpc&interface=ui) and [Canceling a reservation](/docs/vpc?topic=vpc-reserved-capacity-cancel-reservation).
+For more information about managing a reservation, see [Managing a reservation for VPC](/docs/vpc?topic=vpc-managing-reserved-capacity-vpc) and [Canceling a reservation](/docs/vpc?topic=vpc-reserved-capacity-cancel-reservation).
