@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-01-16"
+lastupdated: "2024-01-17"
 
 keywords:
 
@@ -79,4 +79,4 @@ If **Auto-renew** is selected when you provision a reservation, your reservation
 ## Next steps
 {: #next-steps-reserved-virtual-servers-vpc}
 
-After you review and decided on your options, you're ready to provision your reservation. For more information, [Provisioning a reservation for VPC](/docs/vpc?topic=vpc-provisioning-reservation-vpc).
+After you review and decided on your options, you're ready to provision your reservation. For more information, [Provisioning a reservation for VPC](/docs/vpc?topic=vpc-provisioning-reserved-capacity-vpc).
