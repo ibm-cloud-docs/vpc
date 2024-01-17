@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# About reservations for VPC
+# About Reservations for VPC
 {: #about-reserved-virtual-servers-vpc}
 
 [Select availability]{: tag-green}
