@@ -190,8 +190,6 @@ toc:
             topics:
             - vsi_best_practices.md
             - vsi_is_create_instance.md
-            - vsi-reserved-capacity-create.md
-            - vsi-reserved-capacity-manage.md
             - topicgroup:
                 label: Connecting to instances
                 topics:
