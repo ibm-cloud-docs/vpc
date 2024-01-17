@@ -54,7 +54,6 @@ toc:
            label: Compute
            topics:
            - vsi_is_about_vpc.md
-           - about-reserved-virtual-servers.md
            - topicgroup:
                label: About bare metal servers
                topics:
@@ -94,6 +93,7 @@ toc:
                - hpvs-override-registry.md
                - hpvs-deploy-pay-now.md
            - host-failure-recovery.md
+       - about-reserved-virtual-servers.md
        - topicgroup:
            label: Storage
            topics:
