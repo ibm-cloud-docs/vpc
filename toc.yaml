@@ -95,10 +95,6 @@ toc:
                - hpvs-deploy-pay-now.md
            - host-failure-recovery.md
        - topicgroup:
-           label: Reservations
-           topics:
-           - about-reserved-virtual-servers.md    
-       - topicgroup:
            label: Storage
            topics:
            - vpc_storage_overview.md
