@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-01-12"
+lastupdated: "2024-01-16"
 
 subcollection: vpc
 
@@ -13,7 +13,7 @@ subcollection: vpc
 # Reserved capacity status reasons
 {: #reserved-capacity-status-reasons}
 
-[Beta]{: tag-blue}
+[Select Availability]{: tag-green}
 
 If you receive a capacity health status message for a reservation, you can use the following information to help determine the message.
 {: shortdesc}
