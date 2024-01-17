@@ -95,6 +95,10 @@ toc:
                - hpvs-deploy-pay-now.md
            - host-failure-recovery.md
        - topicgroup:
+           label: Reservations
+           topics:
+           - about-reserved-virtual-servers.md    
+       - topicgroup:
            label: Storage
            topics:
            - vpc_storage_overview.md
@@ -209,6 +213,14 @@ toc:
             - monitoring-vpc-metrics.md
             - vsi_is_instance_resize.md
             - managing-gpus.md
+        - topicgroup:
+           label: Reservations
+           topics:
+           - vsi-reservation-create.md
+           - vsi-reservations-manage.md
+           - degraded-capacity.md
+           - cancel-reservation.md
+           - reserved-capacity-status-reasons.md    
         - topicgroup:
             label: Instance metadata service
             topics:
