@@ -169,3 +169,16 @@ Where the following argument and option values are used.
 {: #next-steps-provisioning-reserved-vpc}
 
 After your reservation is provisioned and active, you can **Attach** or **Create** virtual servers by using the {{site.data.keyword.cloud_notm}} console, the CLI, or the API. For more information about creating a virtual server, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers).
+
+### Attaching a virtual server to a reservation with the CLI
+{: #attach-virtual-server-cli-vpc}
+{: cli}
+
+You can attach an existing virutal server to a reservation by using the CLI. To create a reserved reservation by using the CLI, use the `ibmcloud is instance-update` command. 
+
+1. Attach a virtual server to a reservation by using the following command with the associated details.
+
+```sh
+ibmcloud is instance-update my-instance --reservation-affinity-policy manual --reservation-affinity-pool r006-81222eee-b3e0-4dc3-b429-aee9e5c0abf2
+```
+{: pre}
