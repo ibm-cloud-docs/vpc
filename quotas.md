@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2018, 2023
+  years: 2018, 2024
 
-lastupdated: "2023-11-30"
+lastupdated: "2024-01-05"
 
 keywords:
 
@@ -45,6 +45,8 @@ To increase a quota for a particular resource, [contact support](/unifiedsupport
 {: caption="Table 1. Quotas for virtual server instances" caption-side="bottom"}
 
 When you provision virtual server instances dedicated hosts, the vCPU, RAM, and solid-state drives, which are associated with the instances count toward the vCPU, RAM, and instance storage quotas per region. Instances that are provisioned on dedicated hosts do not count against the vCPU quota. For more information, see [About instance storage](/docs/vpc?topic=vpc-instance-storage).
+
+Reservations for virtual servers count against the vCPU, RAM, instance storage, Storage optimized (ox2) instance storage, and GPU quotas. 
 
 Bare metal servers use physical cores and don't count toward your vCPU quota.
 {: note}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-12-07"
+  years: 2023, 2024
+lastupdated: "2024-01-18"
 
 keywords: sgx, intel sgx, software guard extension, confidential computing, attestation, DCAP, data center attestation primitives
 
@@ -36,6 +36,8 @@ For more information about installing DCAP, see [Intel® Software Guard Extensio
 {: #perform-attestation-with-sgx-dcap-vpc}
 
 Use the following command to perform attestation with DCAP. For more information about performing attestation with SGX DCAP, see [Quote Generation, Verification, and Attestation with Intel® Software Guard Extensions Data Center Attestation Primitives (Intel® SGX DCAP)](https://www.intel.com/content/www/us/en/developer/articles/technical/quote-verification-attestation-with-intel-sgx-dcap.html){: external}.
+
+Keep in mind that before a nonroot user can run or configure DCAP, the `/root/.dcap-qcnl/*` directory must be copied to the `$HOME` directory of the nonroot user.
 
 Make sure that you use DCAP version 1.19 or greater. Previous DCAP versions don't support offline cache-based attestation.
 {: important}

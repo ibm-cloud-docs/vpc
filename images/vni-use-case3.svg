@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 304 281">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: -.01em;
+      }
+
+      .cls-2 {
+        letter-spacing: 0em;
+      }
+
+      .cls-3 {
+        letter-spacing: 0em;
+      }
+
+      .cls-4 {
+        letter-spacing: .01em;
+      }
+
+      .cls-5 {
+        letter-spacing: 0em;
+      }
+
+      .cls-6 {
+        letter-spacing: 0em;
+      }
+
+      .cls-7 {
+        letter-spacing: 0em;
+      }
+
+      .cls-8 {
+        letter-spacing: 0em;
+      }
+
+      .cls-9 {
+        fill: none;
+        stroke: #000;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-10, .cls-11 {
+        stroke-width: 0px;
+      }
+
+      .cls-12 {
+        font-family: IBMPlexSans, 'IBM Plex Sans';
+        font-size: 12px;
+      }
+
+      .cls-11 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="shape">
+    <g>
+      <rect class="cls-11" x="14.5" y="15.5" width="274" height="249"/>
+      <path class="cls-10" d="m288,16v248H15V16h273m1-1H14v250h275V15h0Z"/>
+    </g>
+    <line class="cls-9" x1="15.5" y1="45.5" x2="287.5" y2="45.5"/>
+    <rect class="cls-9" x="42" y="101.5" width="218" height="38.5"/>
+    <rect class="cls-9" x="42.5" y="153.5" width="217" height="36"/>
+    <rect class="cls-9" x="41.91" y="202.72" width="218" height="38.5"/>
+    <text class="cls-12" transform="translate(21.12 60.75)"><tspan class="cls-1" x="0" y="0">P</tspan><tspan x="7.15" y="0">rima</tspan><tspan class="cls-4" x="31.44" y="0">r</tspan><tspan x="35.96" y="0">y SQL se</tspan><tspan class="cls-4" x="81.53" y="0">r</tspan><tspan class="cls-6" x="86.05" y="0">v</tspan><tspan x="91.86" y="0">er</tspan></text>
+  </g>
+  <g id="text">
+    <text class="cls-12" transform="translate(91.17 30.75)"><tspan x="0" y="0">Vi</tspan><tspan class="cls-3" x="10.31" y="0">r</tspan><tspan x="14.76" y="0">tual se</tspan><tspan class="cls-4" x="50.72" y="0">r</tspan><tspan class="cls-8" x="55.25" y="0">v</tspan><tspan x="61.06" y="0">er in</tspan><tspan class="cls-7" x="84.7" y="0">s</tspan><tspan x="90.46" y="0">tan</tspan><tspan class="cls-5" x="107.89" y="0">c</tspan><tspan x="113.85" y="0">e</tspan></text>
+    <text class="cls-12" transform="translate(104.14 115.71)"><tspan x="0" y="0">SQL in</tspan><tspan class="cls-7" x="34.13" y="0">s</tspan><tspan x="39.89" y="0">tan</tspan><tspan class="cls-2" x="57.32" y="0">c</tspan><tspan x="63.29" y="0">e 1</tspan><tspan x=".65" y="14.4">IP: 10.234.5.0</tspan></text>
+    <text class="cls-12" transform="translate(102.92 169.55)"><tspan x="0" y="0">SQL in</tspan><tspan class="cls-7" x="34.13" y="0">s</tspan><tspan x="39.89" y="0">tan</tspan><tspan class="cls-2" x="57.32" y="0">c</tspan><tspan x="63.29" y="0">e 2</tspan><tspan x=".65" y="14.4">IP: 10.234.5.1</tspan></text>
+    <text class="cls-12" transform="translate(101.92 219.55)"><tspan x="0" y="0">SQL in</tspan><tspan class="cls-7" x="34.13" y="0">s</tspan><tspan x="39.89" y="0">tan</tspan><tspan class="cls-2" x="57.32" y="0">c</tspan><tspan x="63.29" y="0">e 3</tspan><tspan x=".65" y="14.4">IP: 10.234.5.2</tspan></text>
+  </g>
+</svg>

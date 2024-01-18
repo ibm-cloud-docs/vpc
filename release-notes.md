@@ -36,6 +36,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 Reservations for VPC (Select availability) 
 :   You can now provision reservations for VPC. A reservation is a great option if you want guaranteed resources for future deployments and cost savings. You can choose between either a 1 or 3-year contract term for your reservation. Reservations are available in only the Sydney region. For more information, see [About reservations for VPC](/docs/vpc?topic=vpc-about-reservations-servers-vpc).
 
+### 11 January 2024
+{: #vpc-jan1124}
+{: release-note}
+
+UI enhancement to VPC download button
+:   Previously, when you downloaded a list of resources from a table, you could download only the current page if the resource list length was more than 200 records. With this UI enhancement, you can now download all the pages regardless of length of the resource list.
+
 ## December 2023
 {: #vpc-dec23}
 

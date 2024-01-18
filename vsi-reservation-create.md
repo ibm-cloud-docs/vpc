@@ -1,0 +1,184 @@
+---
+
+copyright:
+  years: 2018, 2024
+lastupdated: "2024-01-18"
+
+subcollection: vpc
+
+---
+
+{{site.data.keyword.attribute-definition-list}}
+
+# Provisioning a reservation for VPC
+{: #provisioning-reserved-capacity-vpc}
+
+[Select availability]{: tag-green}
+
+You can provision a reservation through the UI, CLI, or API.
+{: shortdesc}
+
+Reservations are available in only the Sydney region with the following virtual server profiles: 
+* bx2-2x8
+* bx2d-2x8
+* bx2-4x16
+* bx2d-4x16.
+
+## Before you begin
+{: #before-you-begin-provisioning-reserved-vpc}
+
+You can provision your reservation through the IBM Cloud® catalog. 
+
+Your reservation must be active before you attach virtual servers.
+
+If you are not the account administrator, your user account must include the Manage reserved capacities permission. For more information about updating permissions, see [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started&interface=ui).
+
+
+## Provisioning a reservation with the UI
+{: #provisioning-reserved-capacity-ui-vpc}
+{: ui}
+
+In the {{site.data.keyword.cloud_notm}}, complete the following steps to provision your reservation.
+
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click **Navigation Menu** icon ![the menu icon ](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Reservations**.
+2. To create a new reservation, click **Create**.
+3. From the **New reservation for VPC** page, enter or select the following information:
+
+   | Field                   | Value               |
+   | ----------------------- | ------------------- |
+   | Geography               | Select the specific location for your workload. Locations are composed of regions; each region is a separate geographic area. Keep in mind that you can't select individual locations for each virtual server that you provision within this reservation. Your selection is the location for all virtual server instances that you provision within this reservation. |
+   | Name                    | Enter a name for your reservation. |
+   | Resource group          | Select a resource group. |
+   | Tags                    | Enter any applicable tags. |
+   | Access management tags  | Enter any applicable access management tags. |
+   | Reservation type        | Only available with Virtual Servers for VPC. |
+   | Server quantity         | Enter the number of instances that you want to assign to this reservation (limit of 200 vCPUs). |
+   | Term length             | Choose either a 1 or 3-year term length. |
+   | Server profile          | Select a profile for your reservation. Keep the following rules in mind when you reserve capacity.  \n You can't change profiles after your reservation is created.  \n You can't combine different profile sizes.  \n Your reserved virtual servers must all have the same size (all resources must be identical). |
+   | Advanced options | Toggle **Auto renew** to **On** if you want to continue your reservation after your selected term length completes.|
+   {: caption="Table 1. Reservation UI provisioning selections" caption-side="top"}
+
+4. Click **Create a reservation**.
+
+## Next steps
+{: #next-steps-provisioning-reserved-vpc}
+
+After your reservation is provisioned and active, you can Attach an existing virtual server to your reservation. Or, you can Create virtual servers in your reservation by using the IBM Cloud console, the CLI, or the API. For more information about creating a virtual server, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers).
+
+## Attaching an existing virtual server to a reservation with the UI
+{: #attach-virtual-server-ui-vpc}
+{: ui}
+
+You can attach existing virtual servers to your reservation. Keep in mind that all existing virtual servers must be the same profile, size, and location.
+
+1. From your virtual server list, click **Attach**.
+
+When a reservation expires, the servers that are attached to a reservation convert to the nondiscounted on-demand rate upon expiration or nonrenewal of the reservation term and any consumption are billed monthly.
+{: note}
+
+## Provisioning a reservation with the CLI
+{: #provisioning-reserved-capacity-cli-vpc}
+{: cli}
+
+You can provision a reservation by using the command-line interface (CLI). If you want to use user tags or access management tags to manage your resources, see [Working with tags](/docs/account?topic=account-tag&interface=cli).
+
+{{site.data.keyword.cloud_notm}} CLI is not supported on LinuxONE (s390x processor architecture). However, you can install the CLI on another supported platform and use it with LinuxONE (s390x processor architecture) virtual server instances.
+{: note}
+
+### Before you begin
+{: #before-creating-reserved-capacity-vpc-cli}
+{: cli}
+
+* Download, install, and initialize the following CLI plug-ins.
+   * {{site.data.keyword.cloud_notm}} CLI
+   * The infrastructure-service plug-in
+
+   For more information, see [Setting up your API and CLI environment](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
+
+* Make sure that you [created a VPC](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli).
+
+### Gathering information to create a reservation by using the CLI
+{: #gather-info-to-create-reserved-capacity-cli}
+
+Ready to create a reservation with the CLI? Before you can run the `is.reservation-create` command, you need to know the details about the reservation that you want to reserve such as the reservation type and server quantity.
+
+Gather the following information by using the associated commands.
+
+| Reservation details | Listing options | VPC CLI reference documentation |
+| ---------------- | ----------------|---------------------------------|
+| Capacity        | Amount of capacity to reserve (limit of 200 vCPUs).  |  |
+| Term length             | (1 or 3-year term length) |  |
+| Server profile          |  Keep the following rules in mind when you provision a reservation.  \n - You can't change profiles after your reservation is created.  \n - You can't combine different profile sizes.  \n - Your reserved virtual servers must all have the same size (all resources must be identical). |  |
+| Zone               | Select the specific location for your workload. Locations are composed of regions; each region is a separate geographic area. Keep in mind that you can't select individual locations for each virtual server that you provision within this reserved capacity. Your selection is the location for all virtual server instances that you provision within this reservation. |  |
+| Name                    | The name for your reservation. |  |
+{: caption="Table 2. Required reservation details for the CLI" caption-side="bottom"}
+
+## Provisioning a reservation by using the CLI
+{: #provision-reserved-capacity-cli-vpc}
+{: cli}
+
+You can create a {{site.data.keyword.vpc_short}} Reservation in your region by using the command-line interface (CLI). To create a reserved reservation by using the CLI, use the `ibmcloud is reservation-create` command`.
+
+1. Provision a reservation by using the following command with the associated details.
+
+```sh
+ibmcloud is reservation-create --capacity NUMBER --term TIME --profile PROFILE --profile-resource-type PROFILE_TYPE --zone ZONE --name NAME
+```
+{: pre}
+
+See the following example.
+
+```sh
+ibmcloud is reservation-create --capacity 10 --term one_year --profile ba2-2x8 --profile-resource-type instance_profile --zone us-east-1 --name reservation-mock-test-1
+Creating reservation with name reservation-mock-test-1 under account VPCUI-DEMO as user Sreekar.B.V@ibm.com...
+
+ID                22d3ec3b-d798-454a-ad88-fe608ae86ad6
+Name              reservation-mock-test-1
+CRN               crn:v1:staging:public:is:us-east:a/823bd195e9fd4f0db40ac2e1bffef3e0::reservation:22d3ec3b-d798-454a-ad88-fe608ae86ad6
+Status            active
+Zone              us-east-1
+Lifecycle state   stable
+Affinity Policy   open
+Resource group    -
+Profile Name      ba2-2x8
+Created At        2023-07-21T10:54:46.29+05:30
+Expiration        At   Policy   Term
+                  -    -        one_year
+
+Capacity          Allocated   Available   Total   Used   Status
+                  10          -           10      -      -
+```
+{: screen}
+
+Where the following argument and option values are used.
+
+* --name: New name for the reservation.
+* --capacity: The capacity configuration for this reservation.
+* --term: Term of the reservation. One of: one_year, three_year.
+* --profile: The name of the profile to be used for this reservation.
+* --profile-resource-type: The resource type of the profile. One of: instance_profile.
+* --zone: Name of the zone
+* --affinity-policy: The affinity policy to be used for this reservation.
+* --expiration-policy: The policy to apply when the committed use term expires. One of: release, renew.
+* --resource-group-id: ID of the resource group. This ID is mutually exclusive with --resource-group-name.
+* --resource-group-name: Name of the resource group. This name is mutually exclusive with --resource-group-id.
+* --output: Specify output format, only JSON is supported. One of: JSON.
+* -q, --quiet: Suppress verbose output.
+
+### Next steps
+{: #next-steps-provisioning-reserved-vpc}
+
+After your reservation is provisioned and active, you can **Attach** or **Create** virtual servers by using the {{site.data.keyword.cloud_notm}} console, the CLI, or the API. For more information about creating a virtual server, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers).
+
+### Attaching a virtual server to a reservation with the CLI
+{: #attach-virtual-server-cli-vpc}
+{: cli}
+
+You can attach an existing virutal server to a reservation by using the CLI. To create a reserved reservation by using the CLI, use the `ibmcloud is instance-update` command. 
+
+1. Attach a virtual server to a reservation by using the following command with the associated details.
+
+```sh
+ibmcloud is instance-update <instance-name> -reservation-affinity-policy manual --reservation-affinity-pool <reservation-name>
+```
+{: pre}

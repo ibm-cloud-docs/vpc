@@ -1,8 +1,9 @@
 ---
 
 copyright:
-  years: 2019, 2023
-lastupdated: "2023-12-18"
+  years: 2019, 2024
+
+lastupdated: "2024-01-09"
 
 keywords:
 
@@ -15,7 +16,7 @@ subcollection: vpc
 # Importing and validating custom images into VPC
 {: #importing-custom-images-vpc}
 
-You can create your own custom image on premises and then import it to {{site.data.keyword.vpc_full}} infrastructure from {{site.data.keyword.cos_full}}. Then, you can use your custom image to create new virtual server instances that runs on the KVM hypervisor. If you plan to use your custom image in a private catalog, you must first import and validate the custom image into {{site.data.keyword.vpc_short}}.
+You can create your own custom image on premises and then import it to {{site.data.keyword.vpc_full}} infrastructure from {{site.data.keyword.cos_full}}. Then, you can use your custom image to create a new virtual server instance that runs on the KVM hypervisor. If you plan to use your custom image in a private catalog, you must first import the custom image into {{site.data.keyword.vpc_short}} and validate it.
 {: shortdesc}
 
 You can also create a custom image of a boot volume that is attached to a server at import time. For more information, see [About creating an image from volume](/docs/vpc?topic=vpc-image-from-volume-vpc).
@@ -24,17 +25,17 @@ You can also create a custom image of a boot volume that is attached to a server
 ## Prerequisites
 {: #pre-req-import-custom-image-cloud-object-storage}
 
-To complete this task, you must have an instance of {{site.data.keyword.cos_full}} available. You must also create an authorization so that the Image Service for VPC can access images in {{site.data.keyword.cos_full_notm}}. For more information, see [Granting access to {{site.data.keyword.cos_full_notm}} to import images](/docs/vpc?topic=vpc-object-storage-prereq).
+To complete this task, you must have an instance of {{site.data.keyword.cos_full}} available. You must also create an authorization so that the Image Service for VPC can access images in {{site.data.keyword.cos_full_notm}}. For more information, see [Granting access to {{site.data.keyword.cos_full_notm}} to import and export images](/docs/vpc?topic=vpc-object-storage-prereq).
 
-For more information about custom images, see [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images).
+{{site.data.content.custom-image-requirements-list}}
 
-Keep the following considerations to keep in mind when you import a custom image:
+Keep the following considerations in mind when you import a custom image:
 
-* When you import a custom image, it's private to the account where you import it. Also, the region where you choose to import the image is the region where you can create virtual server from that image.
-* You can't create an image from an encrypted boot volume (image from a volume) that is not 100 GB. The operation is blocked.
+* When you import a custom image, it's private to the account where you import it.
+* The region where you choose to import the image is the region where you can create virtual servers from that image.
 * For custom images with Red Hat Enterprise Linux&reg; or Windows&reg; operating systems, you must select the appropriate version of the operating system. Depending on how you configured the image, select either bring your own license `byol`, or if you plan to license the OS through {{site.data.keyword.cloud_notm}}, select the version without `byol` appended.
 
-{{site.data.content.custom-image-information-link}}
+For more information about custom images, see [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images).
 
 ## Importing a custom image by using the UI
 {: #import-custom-image-cloud-object-storage-ui}
@@ -43,7 +44,7 @@ Keep the following considerations to keep in mind when you import a custom image
 When you have an image available in {{site.data.keyword.cos_full_notm}}, you can import it to {{site.data.keyword.vpc_short}} infrastructure by using the {{site.data.keyword.cloud_notm}} console.
 
 1. Make sure that your compatible custom image is available in {{site.data.keyword.cos_full_notm}}. To upload an image to {{site.data.keyword.cos_full_notm}}, on the **Objects** page of your bucket, click **Upload**. You can use the Aspera high-speed transfer plug-in to upload images larger than 200 MB. For more information, see [Creating a Linux custom image](/docs/vpc?topic=vpc-create-linux-custom-image), [Creating a Windows custom image](/docs/vpc?topic=vpc-create-windows-custom-image), [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about) and [Uploading data](/docs/cloud-object-storage?topic=cloud-object-storage-upload) to {{site.data.keyword.cos_full_notm}}.
-1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images**.
+1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Images**.
 1. On the **Custom images** tab, click **Create**.
 1. Complete the fields that are described in Table 1 and click **Create Custom Image**.
 
@@ -51,13 +52,13 @@ When you have an image available in {{site.data.keyword.cos_full_notm}}, you can
 |-------|-------|
 | Location | Select the specific geographic area and region where you want your custom image to be available for provisioning.|
 | Name  | A name is required for your custom image. |
-| Resource group | Select a resource group for the server. |
+| Resource group | Select a resource group for the custom image. |
 | Tags |  You can assign a label to this resource so that you can easily filter resources in your resource list. |
-| Source | Select **Cloud {{site.data.keyword.cos_short}}** as the source. A list displays from which you select a {{site.data.keyword.cos_full_notm}} service instance where the image that you want to import is stored. \n Do you need to create a custom image from a volume instead? Select the source for the custom image by choosing either **Virtual server instance boot volume** or **Block Storage boot volume**. For more information, see [Creating an image from a volume](/docs/vpc?topic=vpc-create-ifv). |
+| Source | Select **Cloud {{site.data.keyword.cos_short}}** as the source. A list displays from which you select an {{site.data.keyword.cos_full_notm}} service instance where the image that you want to import is stored. \n Do you need to create a custom image from a volume instead? Select the source for the custom image by choosing either **Virtual server instance boot volume** or **Block storage boot volume**. For more information, see [Creating an image from a volume](/docs/vpc?topic=vpc-create-ifv). |
 | Location | Select the specific geographic region where your image is stored. |
 | Bucket | Select the {{site.data.keyword.cos_full_notm}} bucket where your image is stored.|
 | Name | Select the image file in the {{site.data.keyword.cos_full_notm}} service instance that you want to import. If you are importing an encrypted image, the image must be encrypted with LUKS encryption by using QEMU and your own passphrase. For more information, see [Encrypting the image](/docs/vpc?topic=vpc-create-encrypted-custom-image#manually-encrypt-image). |
-| Operating System | Select the operating system that is included in your image. \n \n For custom images with Red Hat Enterprise Linux or Windows operating systems, you can bring your own license (BYOL) or to license through {{site.data.keyword.cloud_notm}}. \n \n For Red Hat Enterprise Linux or Windows [BYOL custom images](/docs/vpc?topic=vpc-byol-vpc-about), you must select the OS with `-byol` appended to the name. For example, if you have a Windows 2019 BYOL custom image, select *Windows-2019-amd64-byol* for the operating system. Failure to select the `-byol` version of the operating system when you import a BYOL custom image might result in a virtual server that is unable to start. \n \n If you configured your Red Hat Enterprise Linux or Windows custom image to license through {{site.data.keyword.cloud_notm}}, you must select the nonbyol operating system. For example, if you have a Windows 2019 custom image that you plan to license through {{site.data.keyword.cloud_notm}}, select *Windows-2019-amd64* as the operating system when you import the custom image. |
+| Operating System | Select the operating system that is included in your image. \n \n For custom images with Red Hat Enterprise Linux or Windows operating systems, you can bring your own license (BYOL) or license through {{site.data.keyword.cloud_notm}}. \n \n For Red Hat Enterprise Linux or Windows [BYOL custom images](/docs/vpc?topic=vpc-byol-vpc-about), you must select the OS with `-byol` appended to the name. For example, if you have a Windows 2019 BYOL custom image, select *windows-2019-amd64-byol* for the operating system. Failure to select the `-byol` version of the operating system when you import a BYOL custom image might result in a virtual server that is unable to start. \n \n If you configured your Red Hat Enterprise Linux or Windows custom image to license through {{site.data.keyword.cloud_notm}}, you must select the non-BYOL operating system. For example, if you have a Windows 2019 custom image that you plan to license through {{site.data.keyword.cloud_notm}}, select *windows-2019-amd64* as the operating system when you import the custom image. |
 | Encryption | The default selection is **Provider managed**. If you have not encrypted your image by using QEMU, use the default value, **Provider managed**. If you are importing an image that you have encrypted by using QEMU and your own passphrase, select the key management service where your customer root key (CRK) that protects your passphrase is stored. Select either **Key Protect** or **Hyper Protect Crypto Services**. VHD format images are not supported for encryption. |
 | Encryption service instance | For an encrypted image, select the specific instance of the key management service where your CRK that wraps your encryption passphrase is stored. For more information, see [Setting up your key management service and keys](/docs/vpc?topic=vpc-create-encrypted-custom-image#kms-prereqs). |
 | Key name | Select the customer root key (CRK) that you used to wrap your encryption passphrase. For more information, see [Setting up your key management service and keys](/docs/vpc?topic=vpc-create-encrypted-custom-image#kms-prereqs). |
@@ -73,7 +74,7 @@ Make sure that your compatible custom image is available in {{site.data.keyword.
 
 When you have an image available in {{site.data.keyword.cos_full_notm}}, you can import it to {{site.data.keyword.vpc_short}} infrastructure by using the command-line interface (CLI).
 
-To import a custom image by using the CLI, use the **`ibmcloud is image-create`** command. Specify the name of the custom image to be created by using the `IMAGE_NAME` variable. You must also specify the source; for example, specify the `--file` option with the image file location. Specify the `--os-name` option with the name of the operating system for the image.
+To import a custom image by using the CLI, use the **`ibmcloud is image-create`** command. Specify the name of the custom image to be created by using the `IMAGE_NAME` variable. The name can't be used by another image in the region and names that start with `ibm-` are reserved for system-provided images. You must also specify the source; for example, specify the `--file` option with the image file location. Specify the `--os-name` option with the name of the operating system for the image.
 
 ```sh
 ibmcloud is image-create IMAGE_NAME [--file IMAGE_FILE_LOCATION] [--os-name OPERATING_SYSTEM_NAME]
@@ -94,7 +95,7 @@ For more information, see [ibmcloud is image-create](/docs/vpc?topic=vpc-vpc-ref
 
 When you import a custom image by using the command-line interface (CLI), you can also schedule the lifecycle status changes of an {{site.data.keyword.vpc_short}} custom image at the same time by using options of the **`ibmcloud is image-create`** command.
 
-Specify the name of the custom image to be created by using the `IMAGE_NAME` variable. You must also specify the source; for example, specify the `--file` option with the image file location. Specify the `--os-name` option with the name of the operating system for the image.
+Specify the name of the custom image to be created by using the `IMAGE_NAME` variable. The name can't be used by another image in the region and names that start with `ibm-` are reserved for system-provided images. You must also specify the source; for example, specify the `--file` option with the image file location. Specify the `--os-name` option with the name of the operating system for the image.
 
 To schedule the `deprecate-at` or `obsolete-at` properties, specify a date in the ISO 8601 (`YYYY-MM-DDThh:mm:ss+hh:mm`) date and time format.
 
@@ -106,10 +107,9 @@ To schedule the `deprecate-at` or `obsolete-at` properties, specify a date in th
 * `mm` is the two digit minutes
 * `+hh:mm` or `-hh:mm` is the UTC time zone
 
-Thus, the date of 30 September 2023 at 8:00 p.m. in the North American Central Standard Time Zone (CST) would be `2023-09-30T20:00:00-06:00`
+Thus, the date of 30 September 2023 at 8:00 PM in the North American Central Standard Time Zone (CST) would be `2023-09-30T20:00:00-06:00`
 
-When scheduling the date and time, you can't use your current date and time. For example, if it is 8 a.m. on June 12, then the scheduled date and time must be after 8 a.m. on June 12. If you define both the `deprecate-at` and `obsolete-at` dates and times, the `deprecate-at` date must be after the `obsolete-at` date and time.
-
+When scheduling the date and time, you can't use your current date and time or a future date and time. For example, if it is 8 AM on 12 June, then the scheduled date and time must be after 8 AM on 12 June. If you define both the `deprecate-at` and `obsolete-at` dates and times, the `deprecate-at` date must be after the `obsolete-at` date and time.
 
 ```sh
 ibmcloud is image-create IMAGE_NAME [--file IMAGE_FILE_LOCATION] [--os-name OPERATING_SYSTEM_NAME] [--deprecate-at YYYY-MM-DDThh:mm:ss+hh:mm] [--obsolete-at YYYY-MM-DDThh:mm:ss+hh:mm]
@@ -123,7 +123,7 @@ ibmcloud is image-create my-ubuntu-16-amd64 --file cos://us-south/custom-image-v
 ```
 {: pre}
 
-For more information, see [ibmcloud is image-create](/docs/vpc?topic=vpc-vpc-reference#image-create)in the VPC CLI reference page.
+For more information, see [ibmcloud is image-create](/docs/vpc?topic=vpc-vpc-reference#image-create) in the VPC CLI reference page.
 
 ## Importing a custom image by using the API
 {: #import-custom-image-cloud-object-storage-api}
@@ -135,7 +135,7 @@ When you have an image available in {{site.data.keyword.cos_full_notm}}, you can
 
 To import a custom image by using the API, use [Create an image](/apidocs/vpc/latest#create-image).
 
-Specify the `file.href` subproperty with the location of the image. Specify the `operating_system.name` subproperty with the name of the image operating system.
+The `name` can't be used by another image in the region and names that start with `ibm-` are reserved for system-provided images. Specify the `file.href` subproperty with the location of the image. Specify the `operating_system.name` subproperty with the name of the image operating system.
 
 The following example imports a custom image with the name of `my-image`, source location of `cos://us-south/my-bucket/my-image.qcow2`, and the operating system for the image is `debian-9-amd64`.
 
@@ -169,9 +169,9 @@ To schedule the `deprecation_at` or `obsolescence_at` properties, specify a date
 * `mm` is the two digit minutes
 * `+hh:mm` or `-hh:mm` is the UTC time zone
 
-Thus, the date of 30 September 2023 at 8:00 p.m. in the North American Central Standard Time Zone (CST) would be `2023-09-30T20:00:00-06:00`
+Thus, the date of 30 September 2023 at 8:00 PM in the North American Central Standard Time Zone (CST) would be `2023-09-30T20:00:00-06:00`
 
-When scheduling the date and time, you can't use your current date and time. For example, if it is 8 a.m. on June 12, then the scheduled date and time must be after 8 a.m. on June 12. If you define both the `deprecation_at` and `obsolescence_at` dates and times, the `obsolescence_at` date must be after the `deprecation_at` date and time.
+When scheduling the date and time, you can't use your current date and time. For example, if it is 8 AM on 12 June, then the scheduled date and time must be after 8 AM on 12 June. If you define both the `deprecation_at` and `obsolescence_at` dates and times, the `obsolescence_at` date must be after the `deprecation_at` date and time.
 
 The following example imports a custom image with the name of `my-image`, source location of `cos://us-south/my-bucket/my-image.qcow2`, and the operating system for the image is `debian-9-amd64`. The image is scheduled to be deprecated on `2023-03-01T06:11:28+05:30`. The image is scheduled to be obsolete on `2023-12-31T06:11:28+05:30`.
 
@@ -190,6 +190,54 @@ curl -X POST "$vpc_api_endpoint/v1/images?version=2023-02-21&generation=2" -H "A
 ```
 {: pre}
 
+## Schedule custom image lifecycle status changes by using Terraform
+{: #import-schedule-ilm-status-change-terraform}
+{: terraform}
+
+When you import a custom image by using Terraform, you can also schedule the lifecycle status changes of an {{site.data.keyword.vpc_short}} custom image at the same time by using the Terraform resource command [ibm_is_image](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_image){: external}.
+
+The `name` attribute can't be used by another image in the region and names that start with `ibm-` are reserved for system-provided images.
+
+To schedule the `deprecation_at` or `obsolescence_at` attributes, specify a date in the ISO 8601 (`YYYY-MM-DDThh:mm:ss+hh:mm`) date and time format.
+
+* `YYYY` is the four digit year
+* `MM` is the two digit month
+* `DD` is the two digit day
+* `T` separates the date and time information
+* `hh` is the two digit hours
+* `mm` is the two digit minutes
+* `+hh:mm` or `-hh:mm` is the UTC time zone
+
+Thus, the date of 30 September 2023 at 8:00 p.m. in the North American Central Standard Time Zone (CST) would be `2023-09-30T20:00:00-06:00`
+
+When scheduling the date and time, you can't use your current date and time. For example, if it is 8 a.m. on June 12, then the scheduled date and time must be after 8 a.m. on June 12. If you define both the `deprecation_at` and `obsolescence_at` dates and times, the `obsolescence_at` date must be after the `deprecation_at` date and time.
+
+The following example imports a custom image with the name of `example-image`, source location of `cos://us-south/buckettesttest/livecd.ubuntu-cpc.azure.vhd`, and the operating system for the image is `ubuntu-16-04-amd64`. The image is scheduled to be deprecated on `2023-11-28T15:10:00.000Z`. The image is scheduled to be obsolete on `2023-11-28T15:10:00.000Z`.
+
+* Schedule a status change to `deprecated`.
+
+   ```terraform
+   resource "ibm_is_image" "example" {
+     name               = "example-image"
+     href               = "cos://us-south/buckettesttest/livecd.ubuntu-cpc.azure.vhd"
+     operating_system   = "ubuntu-16-04-amd64"
+     deprecated_at      = "2023-11-28T15:10:00.000Z"
+   }
+   ```
+   {: pre}
+
+* Schedule a status change to `obsolete`.
+
+   ```terraform
+   resource "ibm_is_image" "example" {
+     name               = "example-image"
+     href               = "cos://us-south/buckettesttest/livecd.ubuntu-cpc.azure.vhd"
+     operating_system   = "ubuntu-16-04-amd64"
+     obsolescence_at    = "2023-11-28T15:10:00.000Z"
+   }
+   ```
+   {: pre}
+
 ## Validating an imported custom image by using the UI
 {: #validate-custom-images-cloud-object-storage-ui}
 {: ui}
@@ -198,7 +246,7 @@ After you import a custom image, you can view the checksum that was generated fo
 
 If you generate a checksum locally for your image before you import it, you can compare the two checksums to make sure that they are identical. Matching checksums indicate that the image is unaltered.
 
-1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images**.
+1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Images**.
 2. On the **Custom images** tab, from your list of custom images, click the name of the custom image that you want to validate.
 3. In the image details side panel, locate the **Checksum (SHA256)** field. You see content similar to, *6809606da67eb83670e6249e54e94043eb43c0471669fb96ea4050c4c07e2df7*.
 
@@ -232,23 +280,25 @@ ibmcloud is image IMAGE
 
 For more information, see [ibmcloud is image](/docs/vpc?topic=vpc-vpc-reference#image)in the VPC CLI reference page.
 
-The following example views the details of a custom image with the id of `r006-1d1e92e9-6550-4d06-8483-d674310045fd`.
+The following example views the details of a custom image with the id of `r134-1d1e92e9-6550-4d06-8483-d674310045fd`.
 
 ```sh
-ibmcloud is image r006-1d1e92e9-6550-4d06-8483-d674310045fd
+ibmcloud is image r134-1d1e92e9-6550-4d06-8483-d674310045fd
 ```
 {: pre}
 
 ```text
-ID                             r006-589548bd-9241-4ad7-a610-1df6ba020793
+Getting image r134-1d1e92e9-6550-4d06-8483-d674310045fd under account Rios IMSLess as user gbgrout@ibm.com...
+
+ID                             r134-589548bd-9241-4ad7-a610-1df6ba020793
 Name                           my-image-from-volume-cli-1
-CRN                            crn:v1:bluemix:public:is:us-south:a/a1234567f::image:r006-589548bd-9241-4ad7-a610-1df6ba020793
+CRN                            crn:v1:staging:public:is:us-south:a/efe5afc483594adaa8325e2b4d1290df::image:r134-589548bd-9241-4ad7-a610-1df6ba020793
 Status                         available
 Operating system               Name             Architecture   Vendor   Version                 Dedicated host only
                                centos-7-amd64   amd64          CentOS   7.x - Minimal Install   false
 
 Source volume                  ID                                          Name
-                               r006-6438d80f-4433-4445-be2f-0cca05afff3e   transpose-clubhouse-putt-repent
+                               r134-6438d80f-4433-4445-be2f-0cca05afff3e   transpose-clubhouse-putt-repent
 
 Created                        2023-03-16T01:11:03+05:30
 Deprecation Date               2023-03-01T06:11:28+05:30

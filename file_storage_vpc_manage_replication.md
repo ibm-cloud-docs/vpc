@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2023-12-18"
+lastupdated: "2024-01-10"
 
 keywords: VPC File Storage, file for VPC, NSF, replica, file share, replication, schedule
 
@@ -189,7 +189,7 @@ Activity tracker events are triggered when you establish and use file share repl
 | `is.share.share.failover` | Status of the failover operation.|
 | `is.share.share.init` | Status of the initialization. |
 | `is.share.share.read` | View file share replication relationships. |
-| `is.share.share.split`| status of the replication spit operation. |
+| `is.share.share.split`| status of the replication split operation. |
 {: caption="Table 1. Actions that generate events for file share replication." caption-side="bottom"}
 
 ## Replication statuses
@@ -215,8 +215,6 @@ Replication status shows when a replica file share is being created, when failov
 
 ## Replication sync information
 {: #fs-repl-syncinfo}
-
-[New]{: tag-new}
 
 Replication is an asynchronous operation, which is not instantaneous. After each sync operation, the system provides useful information about the last replication process, such as start and end date, and the transferred data volume. By viewing the replication information, you can see how long the last replication took and calculate the transfer rate. Seeing the transferred data values can help you estimate the global transfer charges at the end of the billing period.
 

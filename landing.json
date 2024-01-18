@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2023-12-21",
+    "lastupdated": "2024-01-12",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
@@ -31,6 +31,11 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
+          "date": "11 January 2024",
+          "title": "UI enhancement to VPC download button",
+          "description": "Previously, when you downloaded a list of resources from a table, you could only download the current page if the resource list length was more than 200 records. With this UI enhancement, you can now download all the pages regardless of length of the resource list."
+        },
+        {
           "date": "19 December 2023",
           "title": "Corrected events for virtual network interfaces",
           "description": "Some activity tracker events have been corrected for virtual network interfaces. See the release notes for the table of corrected activity tracker events."
@@ -39,11 +44,6 @@
           "date": "15 December 2023",
           "title": "IBM Wazi as a Service and LinuxONE (s390x processor architecture) dedicated host (LA)",
           "description": "You can now create dedicated hosts with s390x memory profiles in the Spain (Madrid) and US South (Dallas) regions to carve out a single-tenant compute node and create virtual server instances according to your needs."
-        },
-        {
-          "date": "15 December 2023",
-          "title": "VPC route advertisement to Direct Link and Transit Gateway",
-          "description": "You can now advertise routes in VPC ingress routing tables to Direct Link, Transit Gateway, or both."
         }
       ]
     }
