@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-01-16"
+lastupdated: "2024-01-18"
 
 subcollection: vpc
 
@@ -179,6 +179,6 @@ You can attach an existing virutal server to a reservation by using the CLI. To 
 1. Attach a virtual server to a reservation by using the following command with the associated details.
 
 ```sh
-ibmcloud is instance-update my-instance --reservation-affinity-policy manual --reservation-affinity-pool r006-81222eee-b3e0-4dc3-b429-aee9e5c0abf2
+ibmcloud is instance-update <instance-name> -reservation-affinity-policy manual --reservation-affinity-pool <reservation-name>
 ```
 {: pre}
