@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2021, 2023
+  years: 2021, 2024
 lastupdated: "2023-12-19"
 
 keywords: api, change log, beta
@@ -103,7 +103,7 @@ This release introduces the following features for users with accounts that have
 
 The name change also applies to the method paths: Requests using a `version` query parameter of `2023-05-30` or later must use `/shares/{share_id}/mount_targets` (instead of `/shares/{share_id}/targets`) in the request URL. This change applies when [creating](/apidocs/vpc-beta/latest#create-share-mount-target), [updating](/apidocs/vpc-beta/latest#update-share-mount-target), [listing](/apidocs/vpc-beta/latest#list-share-mount-targets), [retrieving](/apidocs/vpc-beta/latest#get-share-mount-target), and [deleting](/apidocs/vpc-beta/latest#delete-share-mount-target) share mount targets.
 
-See [`2023-05-30` API migration (file shares)](/docs/vpc?topic=vpc-2023-05-30-migration-file-shares) for guidance on migrating from `targets` to  `mount_targets`.
+See [Updating to the `2023-05-30` version (file shares, mount targets)](/docs/vpc?topic=vpc-2023-05-30-migration-file-shares) for guidance on migrating from `targets` to  `mount_targets`.
 
 This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#08-august-2023). Support for the `targets` property has been removed.
 
