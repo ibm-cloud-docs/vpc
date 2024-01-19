@@ -108,7 +108,7 @@ For more information, see [Backup service concepts](/docs/vpc?topic=vpc-backup-s
 ### For version `2023-12-05` or later
 {: #version-2023-12-05}
 
-When making API requests using a `version` query parameter of `2023-12-05` or later, the backup policy `match_resource_types` property has been changed to `match_resource_type`. This change applies when [creating](/apidocs/vpc/latest#create-backup-policy), [updating](/apidocs/vpc/latest#update-backup-policy), [listing](/apidocs/vpc/latest#list-backup-policies), [retrieving](/apidocs/vpc/latest#get-backup-policy), and [deleting](/apidocs/vpc/latest#delete-backup-policy) a backup policy. See [Updating to the version 2023-12-05 (backup policies)](/docs/vpc?topic=vpc-2023-12-05-migration-backup-policy) for guidance on migrating from `match_resource_types` to `match_resource_type`.
+When making API requests using a `version` query parameter of `2023-12-05` or later, the backup policy `match_resource_types` property has been changed to `match_resource_type`. This change applies when [creating](/apidocs/vpc/latest#create-backup-policy), [updating](/apidocs/vpc/latest#update-backup-policy), [listing](/apidocs/vpc/latest#list-backup-policies), [retrieving](/apidocs/vpc/latest#get-backup-policy), and [deleting](/apidocs/vpc/latest#delete-backup-policy) a backup policy. See [Updating to the `2023-12-05` version (backup policies)](/docs/vpc?topic=vpc-2023-12-05-migration-backup-policy) for guidance on migrating from `match_resource_types` to `match_resource_type`.
 
 ## 24 October 2023
 {: #24-october-2023}
@@ -179,7 +179,7 @@ For more information, see [Resource suspension](/docs/vpc?topic=vpc-resource-sus
 ### For version `2023-10-10` or later
 {: #version-2023-10-10}
 
-When [listing all VPN gateways](/apidocs/vpc/latest#list-vpn-gateways) and [retrieving a VPN gateway](/apidocs/vpc/latest#get-vpn-gateway) using a `version` query parameter of `2023-10-10` or later, the response will no longer include `status` and `members[].status` properties. These properties remain supported for API requests using a version query parameter of `2023-10-09` or earlier. To avoid regressions in client functionality, follow the guidance in [`2023-10-10` API migration (VPN)](/docs/vpc?topic=vpc-2023-10-10-migration-vpn) before specifying version `2023-10-10` or later in VPN gateway requests.
+When [listing all VPN gateways](/apidocs/vpc/latest#list-vpn-gateways) and [retrieving a VPN gateway](/apidocs/vpc/latest#get-vpn-gateway) using a `version` query parameter of `2023-10-10` or later, the response will no longer include `status` and `members[].status` properties. These properties remain supported for API requests using a version query parameter of `2023-10-09` or earlier. To avoid regressions in client functionality, follow the guidance in [Updating to the `2023-10-10` version (VPN)](/docs/vpc?topic=vpc-2023-10-10-migration-vpn) before specifying version `2023-10-10` or later in VPN gateway requests.
 
 ## 3 October 2023
 {: #3-october-2023}
