@@ -100,6 +100,9 @@ The following ports must be open to allow ADN network traffic to flow for the fo
 | TCP      | 443         | HTTPS       |
 {: caption="Table 2. Ports required for network traffic" caption-side="bottom"}
 
+For Linux virtual machines, open port `8443` to `161.26.0.0/16`.
+{: note}
+
 ## Virtual private endpoints
 {: #virtual-private-endpoints}
 
