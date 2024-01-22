@@ -33,7 +33,7 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-jan1624}
 {: release-note}
 
-Reservations for VPC (Select availability) 
+Reservations for VPC (Select Availability)
 :   You can now provision reservations for VPC. A reservation is a great option if you want guaranteed resources for future deployments and cost savings. You can choose between either a 1 or 3-year contract term for your reservation. Reservations are available in only the Sydney region. For more information, see [About reservations for VPC](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc).
 
 ### 11 January 2024
@@ -68,7 +68,7 @@ Corrected events for virtual network interfaces
 {: #vpc-dec1523}
 {: release-note}
 
-IBM Wazi as a Service and LinuxONE (s390x processor architecture) dedicated host (LA)
+IBM Wazi as a Service and LinuxONE (s390x processor architecture) dedicated host (Select Availability)
 :   You can now create dedicated hosts with s390x memory profiles in the Spain (Madrid) and US South (Dallas) regions to carve out a single-tenant compute node and create virtual server instances according to your needs. For more information, see [s390x dedicated host profiles](/docs/vpc?topic=vpc-s390x-dh-profiles) and [Creating dedicated hosts and groups](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances).
 
 VPC route advertisement to Direct Link and Transit Gateway
@@ -436,7 +436,7 @@ IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1
 {: #vpc-may0923}
 {: release-note}
 
-New `-a100` GPU profile is available (LA)
+New `-a100` GPU profile is available (Select Availability)
 :   There is a new profile available for customers with special approval to preview this service that is for provisioning instances based on NVIDIA's A100 Amperere GPU attached to a single virtual server instance. The `gx2-80x1280x8a100` profile supports artificial intelligence and machine language frameworks and includes instance storage. Only Redhat and Ubuntu are supported for this profile. This profile is currently only available in the Washington DC region. For more information, see [GPU profiles](https://test.cloud.ibm.com/docs/vpc?topic=vpc-profiles&interface=ui#gpu). To request access to this profile, you must open a [support case](https://cloud.ibm.com/unifiedsupport/supportcenter).
 
 ## April 2023
@@ -641,7 +641,7 @@ Context-based restrictions
 {: #vpc-jan1823}
 {: release-note}
 
-New region (Tokyo) for LinuxONE Bare Metal Servers (s390x processor architecture) (LA)
+New region (Tokyo) for LinuxONE Bare Metal Servers (s390x processor architecture) (Select Availability)
 :   LinuxONE Bare Metal Servers are now available in the Tokyo region. For more information, see [About LinuxONE Bare Metal Servers](/docs/vpc?topic=vpc-about-linuxone-bare-metal-servers).
 
 ### 17 January 2023
@@ -663,7 +663,7 @@ End of support (EOS) for deprecated VPN for VPC IKE and IPsec ciphers
 {: #vpc-jan0523}
 {: release-note}
 
-New region (London) for LinuxONE Bare Metal Servers (s390x processor architecture) (LA)
+New region (London) for LinuxONE Bare Metal Servers (s390x processor architecture) (Select Availability)
 :   LinuxONE Bare Metal Servers are now available in the London (eu-gb) region. For more information, see [About LinuxONE Bare Metal Servers](/docs/vpc?topic=vpc-about-linuxone-bare-metal-servers).
 
 ## December 2022
@@ -705,7 +705,7 @@ Bare metal servers now support custom images
 {: #vpc-dec1322}
 {: release-note}
 
-New region (Toronto) for LinuxONE Bare Metal Servers (s390x processor architecture) (LA)
+New region (Toronto) for LinuxONE Bare Metal Servers (s390x processor architecture) (Select Availability)
 :   LinuxONE Bare Metal Servers are now available in the Toronto (ca-tor) region. For more information, see [About LinuxONE Bare Metal Servers](/docs/vpc?topic=vpc-about-linuxone-bare-metal-servers).
 
 Volume creation from a Block Storage snapshot
@@ -779,7 +779,7 @@ Windows BYOL for multi-tenant hosts
 {: #vpc-oct1222}
 {: release-note}
 
-New region (Washington DC) for LinuxONE Bare Metal Servers (s390x processor architecture) (LA)
+New region (Washington DC) for LinuxONE Bare Metal Servers (s390x processor architecture) (Select Availability)
 :   LinuxONE Bare Metal Servers are now available in the Washington DC (us-east) region. For more information, see [About LinuxONE Bare Metal Servers](/docs/vpc?topic=vpc-about-linuxone-bare-metal-servers).
 
 ## 3 October 2022
@@ -807,7 +807,7 @@ Flow Logs for VPC
 {: #vpc-september2722}
 {: release-note}
 
-IBM&reg; LinuxONE Bare Metal Servers (s390x processor architecture) (LA)
+IBM&reg; LinuxONE Bare Metal Servers (s390x processor architecture) (Select Availability)
 :   Accounts with access to the profiles for s390x bare metal servers can now create LinuxONE Bare Metal Server instances. These profiles have a `cpu_architecture` of `s390x` and must be used with Red Hat Enterprise Linux for s390x and SUSE Linux Enterprise Server (SLES) for s390x. Each LinuxONE Bare Metal Server is equivalent to a logical partition (LPAR) on the IBM LinuxONE or IBM Z with dedicated s390x CPU cores, memory, and I/O devices for your Linux workloads. For more information, see [About LinuxONE Bare Metal Servers](/docs/vpc?topic=vpc-about-linuxone-bare-metal-servers).
 
 
@@ -1007,7 +1007,7 @@ File Storage for VPC
 {: #vpc-apr2922}
 {: release-note}
 
-Backup for VPC (LA)
+Backup for VPC (Select Availability)
 :    Accounts authorized to preview this service can create backup policies and plans to automatically back up Block Storage volumes. Backup policies control which source volumes are selected for backup by matching user tags in the volume with tags that are defined in the backup policy. Policies can contain up to four backup plans, which specify how often backup snapshots are taken (daily, weekly, monthly, or by using a `cron-spec`) and retained (by date or by count). You can also view backup jobs, which show status of backup snapshots that are being created or deleted. This release also provides new functionality for restoring volumes from backup snapshots. For more information about this service, see [Backup for VPC](/docs/vpc?topic=vpc-backup-service-about) concepts.
 
 ### 28 April 2022
@@ -1217,7 +1217,7 @@ UI update when you create a virtual server
 {: #vpc-dec1621}
 {: release-note}
 
-File Storage for VPC (LA)
+File Storage for VPC (Select Availability)
 :   {{site.data.keyword.filestorage_vpc_full}} is now available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Sydney, and Tokyo regions.
 
 :   For more information about this service, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about).
@@ -1257,7 +1257,7 @@ VPN client-to-site servers update (open beta)
 {: #vpc-nov1621}
 {: release-note}
 
-New Very High Memory and Ultra High Memory instance profile family for dedicated host (LA)
+New Very High Memory and Ultra High Memory instance profile family for dedicated host (Select Availability)
 :   Very High Memory with instance storage and Ultra High Memory with instance storage profiles are now available for dedicated host.
 
 :   Very High Memory profiles offer a core to RAM ratio of 1 vCPU to 14 GiB of RAM. This family is hosted exclusively on the latest generation Intel® Xeon® Platinum Cascade Lake server hosts and is best for OLAP workloads and SAP-related services, such as SAP NetWeaver. Very High Memory profiles are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions. For more information, see [Very High Memory with instance storage profiles](/docs/vpc?topic=vpc-dh-profiles#vhm-is-dh-pr).
@@ -1275,7 +1275,7 @@ Fedora Core OS
 {: #vpc-nov0221}
 {: release-note}
 
-Instance Metadata Service for VPC (LA)
+Instance Metadata Service for VPC (Select Availability)
 :   The metadata service is now available in all regions to customer accounts authorized to access this service. This service is enabled by default when you create new instances by using the UI, CLI, or API. You can also disable the service from these interfaces. For more information, see [Enable or disable the metadata service](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-metadata-service-enable).
 
 :   The metadata service also provides a new API call to generate an IAM token from the instance identity access token by using trusted profile information. For more information, see [Generate an IAM token from an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-token-exchange).
@@ -1304,14 +1304,14 @@ New GPU Instance Profile family
 {: #vpc-oct0521}
 {: release-note}
 
-New regions for Very High Memory instance profile family (LA)
+New regions for Very High Memory instance profile family (Select Availability)
 :   Very High Memory profiles now are available in the United Kingdom (London), Japan (Osaka), and Australia (Sydney) regions. For more information, see [Very High Memory profiles](/docs/vpc?topic=vpc-profiles&interface=ui#vhmemory).
 
 ### 01 October 2021
 {: #vpc-oct0121}
 {: release-note}
 
-File Storage for VPC (LA)
+File Storage for VPC (Select Availability)
 :   {{site.data.keyword.filestorage_vpc_full}} is now available in the United Kingdom (London) region. For more information about this service, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about).
 
 ## September 2021
@@ -1335,10 +1335,10 @@ Terraform available for Placement Groups
 {: #vpc-sep0721}
 {: release-note}
 
-New Very High Memory instance profile family (LA)
+New Very High Memory instance profile family (Select Availability)
 :   Very High Memory profiles are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), EU Germany (Frankfurt), and Japan (Tokyo) regions. Very High Memory profiles offer a core to RAM ratio of 1 vCPU to 14 GiB of RAM. This family is optimized for running high-compute-intensity in-memory workloads like SAP BW/4 HANA. For more information, see [Very High Memory profiles](/docs/vpc?topic=vpc-profiles&interface=ui#vhmemory).
 
-Instance Bandwidth (LA)
+Instance Bandwidth (Select Availability)
 :   Instance bandwidth is now available in the US South (Dallas), US East (Washington DC), Canada (Toronto), EU Germany (Frankfurt), Japan (Osaka), Brazil (Sao Paulo) regions. When you provision a virtual server instance, you can now allocate bandwidth between attached volumes and networking by using the API and CLI. You can adjust bandwidth after you provision a virtual server instance by using the UI, API, and CLI. The maximum bandwidth capacity is determined by the instance profile that you select during instance provisioning. For more information, see [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles).
 
 ### 01 September 2021
@@ -1521,7 +1521,7 @@ Virtual Private Cloud (VPC) Gen 1 end of service
 {: #vpc-may0621}
 {: release-note}
 
-New Ultra High Memory instance profile family (LA)
+New Ultra High Memory instance profile family (Select Availability)
 :   Ultra High Memory profiles are hosted exclusively on the latest generation Intel® Xeon® Platinum Cascade Lake server hosts and are optimized for running memory intensive applications and in-memory database such as SAP HANA, Memcached, or Redis. This profile family offers our highest vCPU to memory ratio with 28 GiB of memory for every 1 vCPU of compute and up to 5.7 TiB of available RAM. For more information, see [x86 Instance Profiles](/docs/vpc?topic=vpc-profiles).
 
 :   The Ultra High Memory family of profiles is currently available in the Dallas and Frankfurt multizone regions(MZRs). For more information, see the Multizone regions section in [Locations for resource deployment](/docs/overview?topic=overview-locations#mzr-table). Contact your IBM Sales representative if you need Ultra High Memory profiles in a MZR other than Dallas or Frankfurt.
