@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-01-16"
+lastupdated: "2024-01-22"
 
 keywords:
 
@@ -493,7 +493,7 @@ Documentation enhancement: Encrypting log messages for {{site.data.keyword.hpvs}
 {: #vpc-mar2923}
 {: release-note}
 
-VCPU manufacturer support for instances and dedicated hosts (LA)
+VCPU manufacturer support for instances and dedicated hosts (Select availability)
 :   For accounts authorized to preview this functionality, you can now choose between profiles from different processor manufacturers when you provision an instance or dedicated host in the TOR region. For more information, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#balanced), [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui#balanced-dh-pr).
 
 ### 28 March 2023
@@ -611,7 +611,7 @@ Images for VPC UI Updates
 {: #vpc-jan3123}
 {: release-note}
 
-Secure boot with Trusted Plaform Module (TPM) (LA)
+Secure boot with Trusted Plaform Module (TPM) (Select availability)
 :   Secure boot makes sure that your server starts with trusted software by verifying the signatures for all code in the boot process. Trusted Platform Module (TPM) provides hardware-based security functions. With supporting software, TPM helps maintain platform integrity and generates cryptographic keys. For more information, see [Secure boot with Trusted Platform Module (TPM)](/docs/vpc?topic=vpc-secure-boot-tpm).
 
 ### 30 January 2023
