@@ -206,7 +206,7 @@ The following limitations and guidelines apply to {{site.data.keyword.cloud_notm
 * In the case where there are 2 different advertised routes to the same destination, the following limitations apply:
    - When the next-hop for both routes is in the same zone, the route with the higher priority (that is, a lower value for `priority`) will be used as the primary path and the route with the lower priority (that is, a higher value for `priority`) will be used as the backup path. If the priority for both routes is the same, ECMP is used to route the traffic equally across the 2 routes.
    - When the next-hop for both routes is in different zones, the Transit Gateway or Direct Link router chooses the best route. In this case, that is the oldest advertised route.
-   - 
+
 ### Route priority
 {: #route-rules-considerations}
 
