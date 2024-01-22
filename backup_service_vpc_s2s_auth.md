@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-01-02"
+lastupdated: "2024-01-22"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -121,10 +121,64 @@ ibmcloud iam authorization-policy-create is is Operator --source-resource-type b
 ```
 {: pre}
 
-```sh
-ibmcloud iam authorization-policy-create is is Editor --source-resource-type backup-policy --target-resource-type snapshot-consistency-group
-```
-{: pre}
+The policy creation for consistency group authorization is a little bit different. 
+
+1. Create a json file with the following content:
+   ```json
+   {
+    "type": "authorization",
+    "subjects": [
+        {
+            "attributes": [
+                {
+                    "name": "accountId",
+                    "value": "ACCOUNT_ID"
+                },
+                {
+                    "name": "serviceName",
+                    "value": "is"
+                },
+                {
+                    "name": "resourceType",
+                    "value": "backup-policy"
+                }
+            ]
+        }
+    ],
+    "roles": [
+        {
+            "role_id": "crn:v1:bluemix:public:iam::::role:Editor"
+        }
+    ],
+    "resources": [
+        {
+            "attributes": [
+                {
+                    "name": "accountId",
+                    "value": "ACCOUNT_ID"
+                },
+                {
+                    "name": "serviceName",
+                    "operator": "stringEquals",
+                    "value": "is"
+                },
+                {
+                    "name": "snapshotConsistencyGroupId",
+                    "value": "*",
+                    "operator": "stringEquals"
+                }
+            ]
+        }
+    ]
+   }
+   ```
+   {: codeblock}
+
+1. Then, use the json file in your CLI command.
+   ```sh
+   ibmcloud iam authorization-policy-create --file ~/Documents/policy.json
+   ```
+   {: pre}
 
 For more information about all of the parameters that are available for this command, see [ibmcloud iam authorization-policy-create](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_authorization_policy_create).
 
