@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2023
-lastupdated: "2023-07-06"
+  years: 2023, 2024
+lastupdated: "2024-01-22"
 
 keywords: secure boot, tpm, Trusted Platform Module
 
@@ -17,7 +17,7 @@ subcollection: vpc
 Secure boot makes sure that your server starts with trusted software by verifying the signatures for all code in the boot process. So, your images need to support secure boot with a signed boot loader. Trusted Platform Module (TPM) provides hardware-based security functions. With supporting software, TPM helps maintain platform integrity and generates cryptographic keys. Generally, TPM is used with secure boot.
 {: shortdesc}
 
-Servers that you provisioned before this feature was released aren't supported.
+Servers that you provisioned before [31 January 2023](/docs/vpc?topic=vpc-release-notes#vpc-jan3123) aren't supported.
 {: important}
 
 ## Supported images for secure boot
