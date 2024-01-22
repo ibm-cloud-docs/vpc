@@ -43,7 +43,7 @@ To create an IAM s2s authorization policy in the UI, follow these steps:
 1. For the target service, select **VPC Infrastructure Services** from the list.
 1. Select the scope. Choose **Resources based on selected attributes**.
 1. Click **Resource type**. Select **Virtual Private Cloud**.
-1. Then, under Platform access, select the role.
+1. Then, under Platform access, select the **DNSBindingConnector** role.
 1. Click **Authorize**.
 1. When you are returned to the **Manage authorizations** page, click **Create** again and follow the same steps to set up authorizations for the other two services.
 
