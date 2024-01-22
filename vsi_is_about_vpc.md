@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2023
-lastupdated: "2023-01-23"
+  years: 2018, 2024
+lastupdated: "2024-01-22"
 
 keywords: virtual server instances, VSI, compute, virtual machines, planning, best practices, instances, virtual servers, virtual server instance, Virtual servers for VPC, gen 2, generation 2, infrastructure, infrastructure as a service, IaaS
 
