@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years:  2017, 2023
-lastupdated: "2023-07-27"
+  years:  2017, 2024
+lastupdated: "2024-01-23"
 
 keywords: IAM access for vpc infrastructure services, permissions for vpc infrastructure services, identity and access management for vpc infrastructure services, roles for vpc infrastructure services, actions for vpc infrastructure services, assigning access for vpc infrastructure services
 
@@ -94,6 +94,7 @@ The following links take you directly to the specific infrastructure service on 
 - [Placement Groups for VPC](/docs/account?topic=account-iam-service-roles-actions#is.placement-group-roles)
 - [SSH Key for VPC](/docs/account?topic=account-iam-service-roles-actions#is.key-roles)
 - [Virtual Server for VPC](/docs/account?topic=account-iam-service-roles-actions#is.instance-roles)
+- [Reservations for VPC](/docs/account?topic=account-iam-service-roles-actions#is.reservation-roles)
 
 ## Storage IAM roles and actions
 {: #storage-iam-roles-actions}
