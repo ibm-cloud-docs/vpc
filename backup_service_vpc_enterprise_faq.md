@@ -28,7 +28,7 @@ To create a backup policy and plans and for the backup jobs to run correctly, mu
 {: faq}
 {: #faq-baas-ee-2}
 
-When you log in any of the child accounts in the UI, you can view the AIM authorizations by clicking **Manage > Access (IAM) > Authorizations**. 
+When you log in any of the child accounts in the UI, you can view the IAM authorizations by clicking **Manage > Access (IAM) > Authorizations**. 
 
 If any of the required authorizations are missing, the backup job fails. When the backup job fails for this reason, an error message is generated that looks like the following example.
 
