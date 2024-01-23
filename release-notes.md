@@ -713,7 +713,7 @@ Volume creation from a Block Storage snapshot
 [Restore a stand-alone data volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore).
 
 Block Storage volume health states
-:   You can now view the health state of a Block Storage volume from the UI, CLI, and API. Health indicated whether a volume is performing as expected or degraded. You can view health status and reasons from the list of volumes and volume details, and when you create and updating volumes. For more information, see [Block Storage volume health states](/docs/vpc?topic=vpc-managing-block-storage#block-storage-vpc-health-states).
+:   You can now view the health state of a Block Storage volume from the UI, CLI, and API. Health indicated whether a volume is performing as expected or degraded. You can view health status and reasons from the list of volumes and volume details, and when you create and updating volumes. For more information, see [Block Storage volume health states](/docs/vpc?topic=vpc-block-storage-vpc-monitoring&interface=ui#block-storage-vpc-health-states).
 
 ## November 2022
 {: #vpc-nov22}
