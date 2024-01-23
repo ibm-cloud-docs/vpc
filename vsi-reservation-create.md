@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-01-18"
+  years: 2023, 2024
+lastupdated: "2024-01-13"
 
 subcollection: vpc
 
@@ -27,12 +27,9 @@ Reservations are available in only the Sydney region with the following virtual 
 ## Before you begin
 {: #before-you-begin-provisioning-reserved-vpc}
 
-You can provision your reservation through the IBM Cloud® catalog. 
+Make sure that your account has the required user permissions. Your account must be assigned the `Administrator` or `Editor` role for the VPC Infrastructure Services service and Reservations for VPC resource type. You need one of these user permissions to create a reservation. Extra roles are available. 
 
-Your reservation must be active before you attach virtual servers.
-
-If you are not the account administrator, your user account must include the Manage reserved capacities permission. For more information about updating permissions, see [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started&interface=ui).
-
+For more information about managing IAM access, see [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started).
 
 ## Provisioning a reservation with the UI
 {: #provisioning-reserved-capacity-ui-vpc}
