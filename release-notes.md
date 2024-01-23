@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-01-22"
+lastupdated: "2024-01-23"
 
 keywords:
 
@@ -924,7 +924,7 @@ Virtual servers for VPC
 :   You can now use the UI, CLI, and API to specify user tags for volume resources when you create an instance. You can add user tags to the instance's boot volume by editing the boot volume. You can also add user tags when attaching a data volume to the instance. For more information, see [Adding user tags to Block Storage volumes](/docs/vpc?topic=vpc-block-storage-about&interface=ui#storage-about-user-tags).
 
 Snapshot and Backup for VPC
-:   The [quota of snapshots and backup snapshots](/docs/vpc?topic=vpc-quotas#block-storage-quotas) you can create per volume has been increased to 750. For more information about how these quotas are applied, see [Considerations when creating snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_considerations).
+:   The [quota of snapshots and backup snapshots](/docs/vpc?topic=vpc-quotas#block-storage-quotas) you can create per volume has been increased to 750.
 
 ### 01 August 2022
 {: #vpc-august0122}
