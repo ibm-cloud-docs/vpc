@@ -309,7 +309,7 @@ To use Backup for VPC in your account to create policies, plans and run backup j
       ```
       {: codeblock}
 
-1. Then, use the json file in your CLI command.
+1. Then, use the json files to run the following CLI command.
    ```sh
    ibmcloud iam authorization-policy-create --file ~/Documents/policy.json
    ```
