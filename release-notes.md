@@ -1953,7 +1953,7 @@ New SDK
 {: release-note}
 
 IBM Cloud Virtual Servers for VPC on POWER service is deprecated
-:   As of 02 June 2020, you cannot provision new instances. Any instance that is still provisioned as of 22 August 2020 will be deleted. For more information, see the [End of Service Announcement for Virtual Servers for VPC on POWER](https://www.ibm.com/cloud/blog/announcements/end-of-service-announcement-for-virtual-servers-for-vpc-on-power).
+:   As of 02 June 2020, you cannot provision new instances. Any instance that is still provisioned as of 22 August 2020 will be deleted. For more information, see the [End of Service Announcement for Virtual Servers for VPC on POWER](https://www.ibm.com/blog/announcement/end-of-service-announcement-for-virtual-servers-for-vpc-on-power/).
 
 ## May 2020
 {: #vpc-may20}
