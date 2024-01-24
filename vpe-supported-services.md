@@ -39,8 +39,6 @@ with your account.
 * Global Search ([Endpoint URLs](/apidocs/search#endpoint-url))
 * Global Tagging ([Endpoint URLs](/apidocs/tagging#endpoint-url))
 * {{site.data.keyword.hscrypto}} ([Instructions](/docs/hs-crypto?topic=hs-crypto-virtual-private-endpoints-for-vpc))
-* {{site.data.keyword.ihsdbaas_mongodb_full}} ([Instructions](/docs/hyper-protect-dbaas-for-mongodb?topic=hyper-protect-dbaas-for-mongodb-virtual-private-endpoint))
-* {{site.data.keyword.ihsdbaas_postgresql_full}} ([Instructions](/docs/hyper-protect-dbaas-for-postgresql?topic=hyper-protect-dbaas-for-postgresql-virtual-private-endpoint))
 * IAM Access Groups ([Endpoint URLs](/apidocs/iam-access-groups#endpoint-urls))
 * IAM Identity Services ([Endpoint URLs](/apidocs/iam-identity-token-api#endpoints))
 * IAM Policy Management ([Endpoint URLs](/apidocs/iam-policy-management#endpoint-urls))
@@ -49,7 +47,7 @@ with your account.
 * Resource Controller ([Endpoint URLs](/apidocs/resource-controller/resource-controller#endpoint-url))
 * Resource Manager ([Endpoint URLs](/apidocs/resource-controller/resource-manager#endpoint-urls))
 * Schematics ([Instructions](/docs/schematics?topic=schematics-private-endpoints#endpoint-setup))
-* {{site.data.keyword.secrets-manager_short}} ([Instructions](/docs/secrets-manager?topic=secrets-manager-endpoints))* 
+* {{site.data.keyword.secrets-manager_short}} ([Instructions](/docs/secrets-manager?topic=secrets-manager-endpoints))*
 * Security and Compliance Center ([Instructions](/docs/security-compliance?topic=security-compliance-private-endpoints))
 * Transit Gateway ([Instructions](/docs/transit-gateway?topic=transit-gateway-vpe-for-ibm-cloud-transit-gateway))
 * Usage Metering ([Endpoint URLs](/apidocs/usage-metering#endpoint))
