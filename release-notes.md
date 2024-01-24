@@ -1974,7 +1974,7 @@ Load balancer for VPC update
 {: release-note}
 
 Customer-managed encryption (Beta)
-:   Customer-managed encryption (BYOK) is available in beta. Bring your own encryption keys and store the keys in Key Protect or Hyper Protect Crypto Services within VPC. Use BYOK to encrypt your VPC-enabled Block Storage at the volume level by using your own keys. For more information, see [Creating virtual server instances with customer-managed encryption (Beta)](/docs/vpc?topic=vpc-creating-instances-byok).
+:   Customer-managed encryption (BYOK) is available in beta. Bring your own encryption keys and store the keys in Key Protect or Hyper Protect Crypto Services within VPC. Use BYOK to encrypt your VPC-enabled Block Storage at the volume level by using your own keys. For more information, see [Provisioning virtual server instances with storage volumes that are encrypted with customer-managed keys in the UI](/docs/vpc?topic=vpc-block-storage-vpc-encryption&interface=ui#provision-byok-ui).
 
 Flow logs (Beta)
 :   Flow logs are now available in beta. Use flow logs to collect, store, and present the Internet Protocol (IP) traffic flowing to and from networks within your VPC. For more information, see [About flow logs (Beta)](/docs/vpc?topic=vpc-flow-logs).
