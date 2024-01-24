@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-01-23"
+lastupdated: "2024-01-24"
 
 keywords:
 
@@ -437,7 +437,7 @@ IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1
 {: release-note}
 
 New `-a100` GPU profile is available (select availability)
-:   There is a new profile available for customers with special approval to preview this service that is for provisioning instances based on NVIDIA's A100 Amperere GPU attached to a single virtual server instance. The `gx2-80x1280x8a100` profile supports artificial intelligence and machine language frameworks and includes instance storage. Only Redhat and Ubuntu are supported for this profile. This profile is currently only available in the Washington DC region. For more information, see [GPU profiles](https://test.cloud.ibm.com/docs/vpc?topic=vpc-profiles&interface=ui#gpu). To request access to this profile, you must open a [support case](https://cloud.ibm.com/unifiedsupport/supportcenter).
+:   There is a new profile available for customers with special approval to preview this service that is for provisioning instances based on NVIDIA's A100 Amperere GPU attached to a single virtual server instance. The `gx2-80x1280x8a100` profile supports artificial intelligence and machine language frameworks and includes instance storage. Only Redhat and Ubuntu are supported for this profile. This profile is currently only available in the Washington DC region. For more information, see [GPU profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). To request access to this profile, you must open a [support case](https://cloud.ibm.com/unifiedsupport/supportcenter).
 
 ## April 2023
 {: #vpc-apr23}
@@ -961,9 +961,6 @@ New stock image for bare metal servers
 Backup for VPC (GA)
 :    You can now create automated backup snapshots of your Block Storage volumes. If your original volume is compromised, you can restore it from a backup snapshot. You create a backup policy to control which source volumes are selected for backup by matching user tags in the volume with tags that are defined in the policy. Each policy contains up to four backup plans, which define how often backup snapshots are taken (daily, weekly, monthly, or more frequently by using a cron-spec) and retained (by date or by count). You can also view backup jobs, which show status of backup snapshots that are being created or deleted. For more information about this service, see [Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
 
-The backup policy jobs API remains in [beta](/apidocs/vpc-beta#24-may-2022).
-{: note}
-
 ### 10 June 2022
 {: #vpc-june0610}
 {: release-note}
@@ -1467,7 +1464,7 @@ File Storage for VPC
 {: release-note}
 
 Placement groups (Beta)
-:   Placement groups for {{site.data.keyword.vpc_full}} are used to create placement group strategies for managing high availability workloads. A placement group contains virtual server instances that share a common placement strategy. Placement strategies influence the physical placement of select VPC resources to meet certain workload demands. For more information about placement groups, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups).
+:   Placement groups for {{site.data.keyword.vpc_full}} are used to create placement group strategies for managing high availability workloads. A placement group contains virtual server instances that share a common placement strategy. Placement strategies influence the physical placement of select VPC resources to meet certain workload demands. For more information about placement groups, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc).
 
 ### 17 June 2021
 {: #vpc-jun1721}
@@ -1524,7 +1521,7 @@ Virtual Private Cloud (VPC) Gen 1 end of service
 New Ultra High Memory instance profile family (select availability)
 :   Ultra High Memory profiles are hosted exclusively on the latest generation Intel® Xeon® Platinum Cascade Lake server hosts and are optimized for running memory intensive applications and in-memory database such as SAP HANA, Memcached, or Redis. This profile family offers our highest vCPU to memory ratio with 28 GiB of memory for every 1 vCPU of compute and up to 5.7 TiB of available RAM. For more information, see [x86 Instance Profiles](/docs/vpc?topic=vpc-profiles).
 
-:   The Ultra High Memory family of profiles is currently available in the Dallas and Frankfurt multizone regions(MZRs). For more information, see the Multizone regions section in [Locations for resource deployment](/docs/overview?topic=overview-locations#mzr-table). Contact your IBM Sales representative if you need Ultra High Memory profiles in a MZR other than Dallas or Frankfurt.
+:   The Ultra High Memory family of profiles is currently available in the Dallas and Frankfurt multizone regions(MZRs). For more information, see the Multizone regions section in [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations). Contact your IBM Sales representative if you need Ultra High Memory profiles in a MZR other than Dallas or Frankfurt.
 
 ## April 2021
 {: #vpc-apr21}
@@ -2029,7 +2026,7 @@ Load balancer for VPC update
 :   Monitor virtual server instances using {{site.data.keyword.mon_full_notm}}. Use the new **Add monitoring** button on the instance's **Monitoring** page to provision an instance of the monitoring service. If a monitoring instance is already provisioned for the region, use the **Launch monitoring** button to view metrics associated with the instance. For more information, see [Monitoring metrics](/docs/vpc?topic=vpc-sysdig-monitoring-metrics).
 
 Updated styling
-:   VPC pages in {{site.data.keyword.IBM_notm}} console now use [Carbon 10](https://www.carbondesignsystem.com/){: external}, the IBM open source design system, which improves consistency and quality.
+:   VPC pages in {{site.data.keyword.IBM_notm}} console now use [Carbon 10](https://carbondesignsystem.com/){: external}, the IBM open source design system, which improves consistency and quality.
 
 ### 09 March 2020
 {: #vpc-mar0920}
@@ -2173,4 +2170,4 @@ Advanced routing
 {: release-note}
 
 Introducing {{site.data.keyword.vpc_short}}
-:   {{site.data.keyword.vpc_full}} is now generally available in the Dallas, Frankfurt, and Tokyo regions. For more information, see [{{site.data.keyword.vpc_short}}](https://www.ibm.com/cloud/blog/introducing-ibm-cloud-virtual-private-cloud).{: external}
+:   {{site.data.keyword.vpc_full}} is now generally available in the Dallas, Frankfurt, and Tokyo regions. For more information, see [{{site.data.keyword.vpc_short}}](https://www.ibm.com/blog/introducing-ibm-cloud-virtual-private-cloud/).{: external}
