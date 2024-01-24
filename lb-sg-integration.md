@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-12-18"
+  years: 2021, 2024
+lastupdated: "2024-01-23"
 
 keywords:
 
@@ -142,7 +142,7 @@ Then, configure outbound rules that allow TCP traffic to your back-end target:
 ### Procedure: Attaching security groups during ALB creation
 {: #create-alb-with-security-groups}
 
-To attach security groups when [creating your application load balancer](/docs/vpc?topic=vpc-load-balancer), follow these steps:
+To attach security groups when [creating your application load balancer](/docs/vpc?topic=vpc-load-balancers&interface=ui), follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 1. Select the Navigation Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Load balancers** in the Network section.

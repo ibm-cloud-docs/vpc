@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-12-18"
+  years: 2024
+lastupdated: "2024-01-23"
 
 keywords:
 
@@ -147,7 +147,7 @@ Then, configure outbound rules that allow TCP traffic to your target:
 ### Procedure: Attaching security groups during NLB creation
 {: #create-nlb-with-security-groups}
 
-To attach security groups when [creating your network load balancer](/docs/vpc?topic=vpc-load-balancer), follow these steps:
+To attach security groups when [creating your network load balancer](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer&interface=ui), follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 1. Select the Navigation Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Load balancers** in the Network section.

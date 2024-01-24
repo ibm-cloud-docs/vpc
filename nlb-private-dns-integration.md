@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-12-18"
+  years: 2022, 2024
+lastupdated: "2024-01-23"
 
 keywords:
 
@@ -33,7 +33,7 @@ Before binding DNS zones to load balancers, you must first create DNS zones and 
 
 1. DNS zones must be created before they can be bound to a load balancer. For more information, see [Managing DNS zones](/docs/dns-svcs?topic=dns-svcs-managing-dns-zones).
 
-1. To give a load balancer access to your DNS zone, you must enable service-to-service authorization. This grants your load balancer access to the DNS zone. For more information, see [Granting access between services](/docs/account?topic=account-serviceauth#create-auth). Make sure to choose **VPC Infrastructure Services** as the source service, **Load Balancer for VPC** as the resource type, **DNS Services** as the target service, and assign the **Writer** service access role.
+1. To give a load balancer access to your DNS zone, you must enable service-to-service authorization. This grants your load balancer access to the DNS zone. For more information, see [Granting access between services](/docs/account?topic=account-serviceauth&interface=ui#create-auth). Make sure to choose **VPC Infrastructure Services** as the source service, **Load Balancer for VPC** as the resource type, **DNS Services** as the target service, and assign the **Writer** service access role.
 
 ## Working with DNS zones in the UI
 {: #dns-zones-ui-nlb}
@@ -96,7 +96,7 @@ You will need the CRN of the private DNS that you want to bind to your load bala
 
 To create a network load balancer with a private DNS zone, follow these steps:
 
-1. Set up your [CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+1. Set up your [CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 1. Use the terminal to log in to your account. After you enter the password, the system prompts which account and region that you want to use:
 
    ```sh
