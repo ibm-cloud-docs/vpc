@@ -54,7 +54,7 @@ To create a DNS resolution binding in the IBM Cloud console, follow these steps:
 
 To create a DNS resolution binding with the CLI, follow these steps:
 
-1. [Set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+1. [Set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 1. Log in to your account with the CLI. After you enter the password, the system prompts which account and region that you want to use:
 
     ```sh

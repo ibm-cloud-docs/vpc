@@ -4,7 +4,7 @@
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
-      "cli": "/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference",
+      "cli": "/docs/vpc?topic=vpc-set-up-environment&interface=cli",
       "terraform": "https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance"
     },
     "section_recommended": [

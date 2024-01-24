@@ -47,7 +47,7 @@ To enable a VPC as a DNS hub in the {{site.data.keyword.cloud_notm}} console, fo
 
 To enable a VPC as a DNS hub with the CLI, follow these steps:
 
-1. [Set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+1. [Set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 1. Log in to your account with the CLI. After you enter the password, the system prompts which account and region that you want to use:
 
     ```sh

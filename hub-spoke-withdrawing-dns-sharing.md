@@ -46,7 +46,7 @@ The hub VPC administrator can revoke the IAM service-to-service (s2s) authorizat
 
 To disconnect DNS sharing to a DNS hub VPC with the CLI, follow these steps:
 
-1. [Set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+1. [Set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 1. Log in to your account with the CLI. After you enter the password, the system prompts you for the account and region you want to use:
 
     ```sh

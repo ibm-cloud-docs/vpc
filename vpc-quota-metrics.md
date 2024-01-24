@@ -6,7 +6,7 @@ lastupdated: "2023-08-17"
 
 keywords: IBM Cloud monitoring, platform metrics, metrics, vpc metrics, vpc monitoring metrics, Quota metrics, quota dashboard
 
-subcollection: cloud-infrastructure
+subcollection: vpc
 
 ---
 

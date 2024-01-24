@@ -57,7 +57,7 @@ To set the DNS resolver type on a DNS-shared VPC, follow these steps:
 
 To set the DNS resolver type for a DNS-shared VPC with the CLI, follow these steps:
 
-1. [Set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+1. [Set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 1. Log in to your account with the CLI. After you enter the password, the system prompts which account and region that you want to use:
 
