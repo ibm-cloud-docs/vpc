@@ -37,6 +37,6 @@ Subnets have the following features:
    * [Virtual private endpoints](/docs/vpc?topic=vpc-about-vpe)
    * Appliances and virtual appliances
 * IP range selection: Provision subnets of any size, as small as `/29` and up to `/9` from any IP address space.
-* [Network ACLs](/docs/vpc?topic=vpc-using-acls): Access control lists (ACLs) can be used to control all incoming and outgoing traffic in IBM Cloud VPC. 
-* [Public gateways](/docs/vpc?topic=vpc-public-gateways): Attaching a public gateway allows all attached resources to communicate with the public internet.
+* [Network ACLs](/docs/vpc?topic=vpc-using-acls): Access control lists (ACLs) can be used to control all incoming and outgoing traffic in IBM Cloud VPC.
+* [Public gateways](/docs/vpc?topic=vpc-about-public-gateways): Attaching a public gateway allows all attached resources to communicate with the public internet.
 * [Routing tables](/docs/vpc?topic=vpc-about-custom-routes): IBM Cloud VPC automatically generates a default routing table for the VPC to manage traffic in the zone. By default, this routing table is empty. You can add routes to the default routing table, or create a custom routing table, and then add routes to the new table.
