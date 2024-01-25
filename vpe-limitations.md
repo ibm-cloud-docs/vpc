@@ -15,7 +15,7 @@ keywords: VPE, virtual private endpoints, limitations, endpoint gateway
 
 * The following items are not supported for {{site.data.keyword.cloud}} Virtual Private Endpoints for VPC:
 
-   * Services that are in zones and regions other than [IBM Cloud Multi-Zone Regions (MZRs)](/docs/overview?topic=overview-locations#mzr-table)
+   * Services that are in zones and regions other than [IBM Cloud Multi-Zone Regions (MZRs)](/docs/overview?topic=overview-locations#table-mzr)
    * {{site.data.keyword.cloud_notm}} Flow Logs for VPC
    * {{site.data.keyword.cloud_notm}} Bare Metal Servers for VPC
    * VPE for User Datagram Protocol (UDP) services, for example, Network Time Protocol (NTP), is not accessible over {{site.data.keyword.cloud_notm}} Direct Link and {{site.data.keyword.cloud_notm}} Transit Gateway.
