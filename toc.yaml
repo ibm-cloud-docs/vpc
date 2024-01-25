@@ -23,7 +23,7 @@ toc:
        - getting-started.md
        - link:
           label: What is Virtual Private Cloud?
-          href: https://www.ibm.com/cloud/learn/vpc
+          href:  https://www.ibm.com/topics/vpc
        - link:
           label: Architecture Center VPC Resources
           href: https://www.ibm.com/cloud/architecture/architectures/virtual-private-cloud/resources
@@ -214,7 +214,7 @@ toc:
            - vsi-reservations-manage.md
            - degraded-capacity.md
            - cancel-reservation.md
-           - reserved-capacity-status-reasons.md    
+           - reserved-capacity-status-reasons.md
         - topicgroup:
             label: Instance metadata service
             topics:
