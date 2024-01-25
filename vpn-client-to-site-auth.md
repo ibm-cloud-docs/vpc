@@ -95,7 +95,7 @@ To import VPN server certificates into Secrets Manager, follow these steps:
 
 1. If you do not have a Secrets Manager instance already, go to the [Secrets Manager](/catalog/services/secrets-manager){: external} page. Then, complete the information and click **Create** to create a Secrets Manager instance.
 
-   For more information, see ordering certificates for [Secrets Manager](/docs/secrets-manager?topic=secrets-manager-certificates&interface=ui#order-certificates).
+   For more information, see ordering certificates for [Secrets Manager](/docs/secrets-manager?topic=secrets-manager-certificates&interface=ui).
    {: note}
 
 1. Go to **Resource List > Security** and choose a Secrets Manager instance in IBM Cloud.

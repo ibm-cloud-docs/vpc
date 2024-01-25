@@ -21,7 +21,7 @@ When configuring a VPE gateway, you are shown a customized list of common servic
 with your account.
 {: note}
 
-* {{site.data.keyword.appconfig_short}} ([Endpoint URLs](/apidocs/app-configuration#endpoints-list-all))
+* {{site.data.keyword.appconfig_short}} ([Endpoint URLs](/apidocs/app-configuration#endpoints-urls))
 * Catalog Management ([Endpoint URLs](/apidocs/resource-catalog/private-catalog#endpoint-url))
 * Cloud Object Storage
 * Code Engine ([Instructions](/docs/codeengine?topic=codeengine-vpe))
@@ -30,9 +30,9 @@ with your account.
 * Databases ([Instructions](/docs/cloud-databases?topic=cloud-databases-vpes))
 * Direct Link ([Instructions](/docs/dl?topic=dl-vpe-connection))
 * DNS Services ([Instructions](/docs/dns-svcs?topic=dns-svcs-vpe-for-dns-svcs#vpe-for-dns-svcs))
-* Enterprise Billing Units ([Endpoint URLs](/apidocs/enterprise-apis/billing-unit#endpoint-urls))
-* Enterprise Management ([Endpoint URLs](/apidocs/enterprise-apis/enterprise#endpoint-urls))
-* Enterprise Usage Reports ([Endpoint URLs](/apidocs/enterprise-apis/resource-usage-reports#endpoint-urls))
+* Enterprise Billing Units ([Endpoint URLs](/apidocs/enterprise-apis/billing-unit#endpoint-url))
+* Enterprise Management ([Endpoint URLs](/apidocs/enterprise-apis/enterprise#endpoint-url))
+* Enterprise Usage Reports ([Endpoint URLs](/apidocs/enterprise-apis/resource-usage-reports#endpoint-url))
 * {{site.data.keyword.en_short}} ([Endpoint URLs](/apidocs/event-notifications#event-notifications-endpoint-url))
 * Event Streams for IBM Cloud ([Endpoint URLs](/apidocs/event-streams/adminrest))
 * Global Catalog ([Endpoint URLs](/apidocs/resource-catalog/global-catalog#endpoint-url))
@@ -52,7 +52,7 @@ with your account.
 * Transit Gateway
 * Usage Metering ([Endpoint URLs](/apidocs/usage-metering#endpoint))
 * Usage Reports ([Endpoint URLs](/apidocs/metering-reporting#endpoint))
-* User Management ([Endpoint URLs](/apidocs/user-management#endpoint-urls))
+* User Management ([Endpoint URLs](//apidocs/user-management#endpoint-url))
 * VPC API ([Endpoint URLs](/apidocs/vpc/latest#endpoint-url)) ([About VPE for VPC](/docs/vpc?topic=vpc-about-vpe))
 * Watson Assistant ([Instructions](/docs/watson?topic=watson-virtual-private-endpoints))
 * Watson Discovery ([Instructions](/docs/watson?topic=watson-virtual-private-endpoints))
