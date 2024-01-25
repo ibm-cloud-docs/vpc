@@ -40,10 +40,10 @@ Obtain the following information from your VPN server administrator:
 
 First, you must download and install an OpenVPN client. The following client software versions are supported.
 
-* For macOS Catalina and later: [OpenVPN Connect v3](https://openvpn.net/vpn-client/#tab-macos){: external}, OpenVPN Connect v2, and Tunnelblick 3.8.4
-* Windows 8 and later: [OpenVPN Connect v3](https://openvpn.net/vpn-client/#tab-windows){: external}, OpenVPN Connect v2
-* RHEL 7.x and later: [OpenVPN Connect v3](https://openvpn.net/vpn-client/#tab-linux){: external}, OpenVPN Connect v2, and OpenVPN command-line client (version 2.4.4 and later)
-* Ubuntu 18.04 and later: [OpenVPN Connect v3](https://openvpn.net/vpn-client/#tab-linux){: external}, OpenVPN Connect v2, and OpenVPN command-line client (version 2.4.10 and later)
+* For macOS Catalina and later: [OpenVPN Connect v3](https://openvpn.net/client/#tab-macos){: external}, OpenVPN Connect v2, and Tunnelblick 3.8.4
+* Windows 8 and later: [OpenVPN Connect v3](https://openvpn.net/client/#tab-windows){: external}, OpenVPN Connect v2
+* RHEL 7.x and later: [OpenVPN Connect v3](https://openvpn.net/client/#tab-linux){: external}, OpenVPN Connect v2, and OpenVPN command-line client (version 2.4.4 and later)
+* Ubuntu 18.04 and later: [OpenVPN Connect v3](https://openvpn.net/client/#tab-linux){: external}, OpenVPN Connect v2, and OpenVPN command-line client (version 2.4.10 and later)
 
 You can choose other OpenVPN-2.4-compatible client software. However, software that is not listed is not guaranteed to work.
 {: tip}

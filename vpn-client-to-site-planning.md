@@ -144,10 +144,10 @@ No matter which tunnel mode you choose, you must use the API `/vpn_servers/{id}/
 
 You must provide VPN client software for your users. The following client software versions are verified for use:
 
-* For macOS Catalina and later: [OpenVPN Connect v3](https://openvpn.net/vpn-client/#tab-macos){: external}, OpenVPN Connect v2, and Tunnelblick 3.8.4
-* Windows 8 and later: [OpenVPN Connect v3](https://openvpn.net/vpn-client/#tab-windows){: external}, OpenVPN Connect v2
-* RHEL 7.x and later: [OpenVPN Connect v3](https://openvpn.net/vpn-client/#tab-linux){: external}, OpenVPN Connect v2, and OpenVPN command-line client (version 2.4.4 and later)
-* Ubuntu 18.04 and later: [OpenVPN Connect v3](https://openvpn.net/vpn-client/#tab-linux){: external}, OpenVPN Connect v2, and OpenVPN command-line client (version 2.4.10 and later)
+* For macOS Catalina and later: [OpenVPN Connect v3](https://openvpn.net/client/#tab-macos){: external}, OpenVPN Connect v2, and Tunnelblick 3.8.4
+* Windows 8 and later: [OpenVPN Connect v3](https://openvpn.net/client/#tab-windows){: external}, OpenVPN Connect v2
+* RHEL 7.x and later: [OpenVPN Connect v3](https://openvpn.net/client/#tab-linux){: external}, OpenVPN Connect v2, and OpenVPN command-line client (version 2.4.4 and later)
+* Ubuntu 18.04 and later: [OpenVPN Connect v3](https://openvpn.net/client/#tab-linux){: external}, OpenVPN Connect v2, and OpenVPN command-line client (version 2.4.10 and later)
 
 VPN client users can choose other OpenVPN-2.4-compatible client software. However, software that is not listed is not guaranteed to work.
 {: tip}
@@ -162,16 +162,16 @@ To set up a Terraform configuration for VPN server, follow these steps:
 1. Create an IBM Cloud Secrets Manager instance with a trial plan.
 1. Generate the server certificate/key and client certificate/key locally, or generate the certificate/keys using the private certificate capability in the IBM Secrets Manager service.
 1. Import the server/client certificate/key to the Secrets Manager instance.
- 
+
    If you are using an IBM Secrets Manager generated private certificate, skip this step.
    {: note}
-   
+
 1. Create a VPC with one subnet.
 5. Create another subnet.
 6. Create a security group with inbound and outbound rules to allow all traffic.
 7. Create the VPN server within the subnet, security group, and server/client certificates in the Secerts Manager instance.
-8. Download the VPN client profile and configure the client certicate and key in the client profile. 
- 
+8. Download the VPN client profile and configure the client certicate and key in the client profile.
+
 Then, a user can use the VPN client profile with OpenVPN client to connect their client system to the created VPN server.
 
 To apply the terraform configuration, run the following command with your IBM Cloud API key:

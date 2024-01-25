@@ -31,5 +31,5 @@ For Linux, the OpenVPN command-line client can receive the DNS option from the V
 Follow these steps to resolve this issue:
 {: tsResolve}
 
-1. Option 1: Use [OpenVPN Connect V2 or V3](https://openvpn.net/vpn-client/) instead of the OpenVPN command-line client.
+1. Option 1: Use [OpenVPN Connect V2 or V3](https://openvpn.net/client/) instead of the OpenVPN command-line client.
 1. Option 2: Use a custom script recommended in [OpenVPN DNS](https://wiki.archlinux.org/title/OpenVPN#DNS).

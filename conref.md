@@ -5,7 +5,7 @@ copyright:
 
 lastupdated: "2024-01-23"
 
-keywords: 
+keywords:
 
 subcollection: vpc
 
@@ -21,13 +21,13 @@ content-type: conref
 # Content references for load balancer
 {: #load-balancer-conrefs}
 
-You must also create a service authorization to allow your application load balancer instance to access the Secrets Manager instance that contains your SSL certificate. 
+You must also create a service authorization to allow your application load balancer instance to access the Secrets Manager instance that contains your SSL certificate.
 
-You can create an authorization through [IAM Authorizations](https://{DomainName}/iam/authorizations){: external}. Make sure to choose 
-**VPC Infrastructure Services** as the Source service, select **Resources based on selected attributes**, and click the **Resource type** checkbox to expose 
-the dropdown menu. Select **Load Balancer for VPC** as the resource type from the dropdown. For the Target service, select **Secrets Manager**. Set the Target 
-service instance access to **All instances** or to your specific Secrets Manager instance. Assign the **Writer** service access role. For more information, see 
-[Granting access between services](/docs/account?topic=account-serviceauth#create-auth).
+You can create an authorization through [IAM Authorizations](https://{DomainName}/iam/authorizations){: external}. Make sure to choose
+**VPC Infrastructure Services** as the Source service, select **Resources based on selected attributes**, and click the **Resource type** checkbox to expose
+the dropdown menu. Select **Load Balancer for VPC** as the resource type from the dropdown. For the Target service, select **Secrets Manager**. Set the Target
+service instance access to **All instances** or to your specific Secrets Manager instance. Assign the **Writer** service access role. For more information, see
+[Granting access between services](/docs/account?topic=account-serviceauth&interface=ui#create-auth).
 {: #load-balancer-grant-service-auth}
 
 # Content referenced for  x86 instance profiles
@@ -91,7 +91,7 @@ When you want to delete an {{site.data.keyword.vpc_short}} custom image that is 
 | Block Storage for VPC | `volumeId: <volume-id>` |
 | Baremetal server | `bareMetalServerId: <bare-metal-server-id>` |
 | Dedicated Host for VPC | `dedicatedHostId:<dedicated-host-id>` <!--(staging)--> |
-| File Storage | `shareId: <share-id>` | 
+| File Storage | `shareId: <share-id>` |
 | Floating IP for VPC | `floatingIpId: <fip-id>` |
 | Flow Logs for VPC | `flowLogCollectorId: <flc-id>` |
 | Image Service for VPC | `imageId:<image-id>` |
@@ -105,8 +105,8 @@ When you want to delete an {{site.data.keyword.vpc_short}} custom image that is 
 | SSH Key for VPC | `keyId:<key-id>` |
 | Subnet | `subnetId: <subnet-id>` |
 | Virtual Private Endpoint for VPC | `endpointGatewayId:<endpoint-gateway-id>`<!--(staging)--> |
-| Virtual Private Cloud |  `vpcId: <vpc-id>`  |   
-| Virtual Server for VPC | `instanceId: <instance-id>` |   
+| Virtual Private Cloud |  `vpcId: <vpc-id>`  |
+| Virtual Server for VPC | `instanceId: <instance-id>` |
 | {{site.data.keyword.vpn_vpc_short}} | `vpnGatewayID: <vpn-gateway-id>` |
 {: caption="Table 1. VPC resource attributes" caption-side="bottom"}
 {: #vpc-resource-attributes-table}
