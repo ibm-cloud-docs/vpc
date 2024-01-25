@@ -167,7 +167,7 @@ Load balancers created prior to 25 February 2021 do not have a security group at
 1. From the list of load balancers, select the load balancer to view its details page.
 1. Click the **Attached security groups** tab to view attached security groups.
 1. To attach one or more security groups, click **Attach**.
-   You can select a maximum of five security groups to attach to an ALB.   
+   You can select a maximum of five security groups to attach to an ALB.
 1. Select the security group to attach.
 1. Click **Attach**.
 
