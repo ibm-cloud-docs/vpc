@@ -39,7 +39,7 @@ You can detach a {{site.data.keyword.block_storage_is_short}} volume that is att
 
 To detach a volume, complete the following steps.
 
-1. Go to the list of all {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
+1. Go to the list of all {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
 1. Locate the volume and then, click the overflow icon (...) to open a list of options.
 1. From the options menu, click **Detach from instance**.
 1. Confirm by clicking **Detach instance** in the open window.
@@ -65,7 +65,7 @@ To transfer a {{site.data.keyword.block_storage_is_short}} volume to another vir
 
 A {{site.data.keyword.block_storage_is_short}} data volume is attached by default when you provision the volume during virtual server instance creation. When you detach a volume from an instance, it exists as an unattached volume and is displayed in the list of [all {{site.data.keyword.block_storage_is_short}} volumes](/docs/vpc?topic=vpc-viewing-block-storage#viewvols). You can attach it to another instance from the list of {{site.data.keyword.block_storage_is_short}} volumes.
 
-1. Go to the list of all {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
+1. Go to the list of all {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
 1. Locate the volume and then click overflow icon (...) to open a list of options.
 1. From the options menu, click **Attach to instance**.
 1. Select an available virtual server instance.
@@ -76,7 +76,7 @@ A {{site.data.keyword.block_storage_is_short}} data volume is attached by defaul
 
 You can change the name of an existing volume to make it more meaningful.
 
-1. Go to the list of all {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
+1. Go to the list of all {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
 1. Locate the volume and then click the name of the volume to go to the Volume Details page.
 1. Click the pencil icon after the name of the volume to edit the name. Provide a valid volume name.
    Valid volume names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. Volume names must begin with a lowercase letter. Volume names must be unique across the entire VPC infrastructure. For example, if you create two volumes with the same name in the same account and region, a `volume name duplicate` error is triggered.
@@ -141,7 +141,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 
    This command returns a URL and prompts for a passcode. Go to that URL in your browser and log in. If successful, you get a one-time passcode. Copy this passcode and paste it as a response on the prompt. After successful authentication, you are prompted to choose your account. If you have access to multiple accounts, select the account that you want to log in as. Respond to any remaining prompts to finish logging in.
 
-2. Select the current generation of VPC. 
+2. Select the current generation of VPC.
    ```sh
    ibmcloud is target --gen 2
    ```
@@ -162,27 +162,27 @@ See the following example.
 ```sh
 $ ibmcloud is volume-update r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac --name demo-volume-update
 Updating volume 933c8781-f7f5-4a8f-8a2d-3bfc711788ee under account Test Account as test.user@ibm.com...
-ID                                     r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   
-Name                                   demo-volume-update   
-CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a123456::volume:r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   
-Status                                 available   
-Attachment state                       unattached   
-Capacity                               100   
-IOPS                                   3000   
-Bandwidth(Mbps)                        393   
-Profile                                general-purpose   
-Encryption key                         -   
-Encryption                             provider_managed   
-Resource group                         defaults   
-Created                                2023-06-29T16:14:59+00:00   
-Zone                                   us-east-1   
-Health State                           ok   
-Volume Attachment Instance Reference   -   
-Active                                 false   
-Unattached capacity update supported   false   
-Unattached iops update supported       false   
-Busy                                   false   
-Tags                                   -   
+ID                                     r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac
+Name                                   demo-volume-update
+CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a123456::volume:r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac
+Status                                 available
+Attachment state                       unattached
+Capacity                               100
+IOPS                                   3000
+Bandwidth(Mbps)                        393
+Profile                                general-purpose
+Encryption key                         -
+Encryption                             provider_managed
+Resource group                         defaults
+Created                                2023-06-29T16:14:59+00:00
+Zone                                   us-east-1
+Health State                           ok
+Volume Attachment Instance Reference   -
+Active                                 false
+Unattached capacity update supported   false
+Unattached iops update supported       false
+Busy                                   false
+Tags                                   -
 ```
 {: screen}
 
@@ -201,18 +201,18 @@ Use the `--name` option and specify a new name for the volume attachment. Specif
 ```sh
 $ ibmcloud is instance-volume-attachment-update kj-test-ro otp1 --name one-true-pairing --auto-delete false
 Updating volume attachment otp1 of instance kj-test-ro under account Test Account as user test.user@ibm.com...
-                     
-ID                0757-6757e676-0bf5-4b79-9a5b-29c24e17420c   
-Name              one-true-pairing   
-Volume            ID                                          Name      
-                  r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   demo-volume-update      
-                     
-Status            attached   
-Bandwidth(Mbps)   393   
-Type              data   
-Device            0757-6757e676-0bf5-4b79-9a5b-29c24e17420c-bxsh7   
-Auto delete       false   
-Created           2023-06-29T18:14:57+00:00  
+
+ID                0757-6757e676-0bf5-4b79-9a5b-29c24e17420c
+Name              one-true-pairing
+Volume            ID                                          Name
+                  r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   demo-volume-update
+
+Status            attached
+Bandwidth(Mbps)   393
+Type              data
+Device            0757-6757e676-0bf5-4b79-9a5b-29c24e17420c-bxsh7
+Auto delete       false
+Created           2023-06-29T18:14:57+00:00
 ```
 {: screen}
 
@@ -435,7 +435,7 @@ You cannot delete an active {{site.data.keyword.block_storage_is_short}} volume.
 
 To delete a volume, complete the following steps.
 
-1. Go to the list of all {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
+1. Go to the list of all {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
 1. Locate the volume that you want to delete and then click the overflow icon (...) to open a list of options.
 1. From the options menu, click **Delete**.
 1. Confirm the deletion.

@@ -39,7 +39,7 @@ You can create a DNS resolution binding with the UI, CLI, API, or Terraform.
 To create a DNS resolution binding in the IBM Cloud console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>VPCs**.
+1. Select the **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>VPCs**.
 1. Click the Virtual Private Cloud in which you want to share DNS records with the DNS hub VPC.
 1. Scroll to the Optional DNS settings section, then expand the DNS resolution binding section and click **Create**.
 1. In the Create side panel, enter a name for the resolution binding.

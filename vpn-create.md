@@ -38,7 +38,7 @@ Review the following considerations before creating a VPN gateway:
 To create a VPN gateway using the UI:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>VPNs** in the Network section.
+1. Select the **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>VPNs** in the Network section.
 
     If starting from the VPC Infrastructure menu, click **VPNs** in the Network section to open the {{site.data.keyword.vpn_vpc_short}} page.
     {: tip}

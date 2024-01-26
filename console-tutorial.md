@@ -73,7 +73,7 @@ Allow extra time for completing any optional steps.
 To create a VPC and subnet:
 
 1. Open [{{site.data.keyword.cloud_notm}} console](/login){: external}.
-1. Click **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Network > VPCs** and click **Create**.
+1. Click **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Network > VPCs** and click **Create**.
 1. Enter a name for the VPC, such as `my-vpc`.
 1. Select a resource group for the VPC. Use resource groups to organize your account resources for access control and billing purposes. For more information, see [Best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup).
 1. _Optional:_ Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
@@ -160,7 +160,7 @@ To create a virtual server instance in the newly created subnet, use these steps
 
     _For z/OS Wazi aaS custom image only:_ When you create a z/OS virtual server instance with the z/OS Wazi aaS custom image, you need to add a data volume by selecting `Import from Snapshot`. The snapshot is called `wazi-custom-image-data` by default.
     {: note}
-    
+
 1. For the Virtual Private Cloud in the **Networking** section, select the VPC that you created.
 
 1. In the **Network interfaces** area, you can edit the network interface and change its name. If you have more than one subnet in the selected zone and VPC, you can attach a different subnet to the interface. If you want the instance to exist in multiple subnets, you can create more interfaces.
@@ -174,11 +174,11 @@ To create a virtual server instance in the newly created subnet, use these steps
 
 1. The **Metadata** setting is disabled by default. When the metadata service is enabled, the instance collects instance configuration information and user data. For more information, see [About instance metadata for VPC](/docs/vpc?topic=vpc-imd-about). Metadata isn't supported for {{site.data.keyword.cloud}} Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instances and z/OS virtual server instances.
 
-1. The **Add to dedicated host** setting is disabled by default. For more information about dedicated hosts, see [Creating dedicated hosts and groups](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances). 
+1. The **Add to dedicated host** setting is disabled by default. For more information about dedicated hosts, see [Creating dedicated hosts and groups](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances).
 
 1. The **Add to placement group** setting is disabled by default. For more information, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc).
 
-1. The **Host failure auto restart** setting is enabled by default. To disable host failure auto restart, click the toggle. For more information, see [Host failure recovery policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=ui). 
+1. The **Host failure auto restart** setting is enabled by default. To disable host failure auto restart, click the toggle. For more information, see [Host failure recovery policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=ui).
 
 1. Click **Create virtual server instance**. The status of the instance starts as _Pending_, changes to _Stopped_, and then _Running_. You might need to refresh the page to see the change in status.
 

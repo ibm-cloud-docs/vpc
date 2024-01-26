@@ -27,7 +27,7 @@ You can attach floating IPs to a VNI with the UI, CLI, API, or Terraform.
 To add a floating IP to an existing virtual network interface, follow these steps.
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Virtual network interfaces**.
+1. Select the **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Virtual network interfaces**.
 1. Click the name of the virtual network interface that you want to add a floating IP to in the Virtual network interfaces for VPC table.
 1. In the Floating IPs section, click **Attach**.
 1. In the Attach floating IP panel that appears, you can do one of the following:
@@ -126,4 +126,3 @@ resource "ibm_is_virtual_network_interface_floating_ip" "my_vni_floatingip" {
 }
 ```
 {: codeblock}
-
