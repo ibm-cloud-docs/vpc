@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-12-18"
+lastupdated: "2023-11-09"
 
 keywords: custom routes
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Viewing details of a routing table
 {: #view-details-routing-table}
 
-You can view details of a routing table by using the UI, CLI, or API. From the Routing table details page, you can also view details of attached routes and subnets, as well as navigate to other pages to view VPC details, manage address prefixes, and more.
+You can view details of a routing table by using the UI, CLI, API, or Terraform. From the Routing table details page, you can also view details of attached routes and subnets, as well as navigate to other pages to view VPC details, manage address prefixes, and more.
 {: shortdesc}
 
 ## Viewing details of a routing table in the UI
@@ -24,7 +24,7 @@ You can view details of a routing table by using the UI, CLI, or API. From the R
 
 To view the details of a routing table in the UI, follow these steps:
 
-1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the Navigation Menu ![Navigation Menu](/images/menu_icon.png), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Routing tables** in the Network section. The Routing tables for VPC page appears.
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, Select the Menu icon ![Navigation Menu](/images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appears.
 
 1. Click the name of the routing table that you want details for. The Routing table details page appears.
 
@@ -71,19 +71,26 @@ ibmcloud is subnet-routing-table SUBNET [--json]
 
 Where:
 
-* **VPC** is the ID of the VPC.
-* **ROUTING_TABLE** is the ID of the VPC routing table.
-* **SUBNET** is the ID of the subnet.
-* **--json** formats output in JSON.
+`VPC`
+:   Is the ID or name of the VPC.
+
+`ROUTING_TABLE`
+:   Is the ID or name of the VPC routing table.
+
+`SUBNET`
+:   Is the ID or name of the subnet.
+
+`--json`
+:   Formats output in JSON.
 
 ## Viewing details of a routing table with the API
 {: #cr-routing-table-using-the-api}
 {: api}
 
-To view the details of a routing table by using the API, follow these steps:
+To view the details of a routing table with the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
-2. Store the following values in variables to be used in the API command:
+1. Store the following values in variables to be used in the API command:
 
     ```sh
     export VpcId=<your_vpc_id>
@@ -91,11 +98,11 @@ To view the details of a routing table by using the API, follow these steps:
     ```
     {: codeblock}
 
-3. View details of a routing table:
+1. View details of a routing table:
 
    ```sh
    curl -X GET "$vpc_api_endpoint/v1/vpcs/$VpcId/routing_tables/$RoutingTableId?version=$api_version&generation=2" \
-        -H "Authorization: $iam_token"    	
+        -H "Authorization: $iam_token"
    ```
    {: codeblock}
 
@@ -107,3 +114,43 @@ To view the details of a routing table by using the API, follow these steps:
         -H "Authorization: $iam_token"
    ```
    {: codeblock}
+
+## Viewing details of a routing table with Terraform
+{: #cr-view details-terraform}
+{: terraform}
+
+To view details of all or a specific routing table with Terraform, follow these steps:
+
+1. [Set up your Terraform environment](/docs/vpc?topic=vpc-terraform-setup).
+1. Use one of the following examples:
+
+   * To list and view details of all routing tables for a VPC:
+
+      ```terraform
+      data "ibm_is_vpc_routing_tables" "example" {
+        vpc = ibm_is_vpc.example.id
+      }
+      ```
+
+      For information about the `ibm_is_vpc_routing_tables` resource, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_vpc_routing_tables).{: external}
+
+   * To retrieve a single routing table specified by the identifier:
+
+      ```terraform
+      data "ibm_is_vpc_routing_table" "example_routing_table" {
+        vpc                 = ibm_is_vpc.example_vpc.id
+        routing_table     = ibm_is_vpc_routing_table.example_rt.routing_table
+      }
+      ```
+
+      For information about the `ibm_is_vpc_routing_table` resource, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_vpc_routing_table).{: external}
+
+   * To retrieve the default routing table for the VPC specified by the identifier:
+
+      ```terraform
+      data "ibm_is_vpc_default_routing_table" "example" {
+        vpc = ibm_is_vpc.example.id
+      }
+      ```
+
+      For information about the `ibm_is_vpc_default_routing_table` resource, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_vpc_default_routing_table).{: external}
