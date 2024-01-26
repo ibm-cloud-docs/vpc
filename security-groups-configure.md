@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-1-25"
+lastupdated: "2024-1-26"
 
 keywords:
 
@@ -135,7 +135,7 @@ ibmcloud is security-group-rule-add $sg inbound icmp --icmp-type 8 --icmp-code 0
 ```
 {: pre}
 
-For more information on setting up security groups by using the CLI, see [Security groups](/docs/vpc?topic=vpc-set-up-environment&interface=cli#security-groups-cli-ref){: external}.
+For more information on setting up security groups by using the CLI, see [Security groups](/docs/vpc?topic=vpc-set-up-environment&interface=cli#security-groups-cli-ref).
 
 ## Setting up the security groups for your resource with the API
 {: #sg-using-api}
