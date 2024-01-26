@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-09-09"
+  years: 2020, 2024
+lastupdated: "2024-01-25"
 
 keywords: flow logs, viewing objects, SQL, analyze
 
@@ -301,7 +301,7 @@ You can verify that flow log data is being collected by using IBM Cloud Monitori
 #### Optimizing flow logs layout with {{site.data.keyword.sqlquery_full}}
 {: #optimizing-flow-logs-layout}
 
-When large amounts of flow logs are analyzed, it is recommended to convert flow logs to a layout optimal for queries. This conversion improves query execution time by at least one order of magnitude. For more information about data optimization on {{site.data.keyword.cos_short}}, see [How to Layout Big Data in {{site.data.keyword.cos_full_notm}} for Spark SQL](https://www.ibm.com/cloud/blog/big-data-layout){: external}.
+When large amounts of flow logs are analyzed, it is recommended to convert flow logs to a layout optimal for queries. This conversion improves query execution time by at least one order of magnitude. For more information about data optimization on {{site.data.keyword.cos_short}}, see [How to Layout Big Data in {{site.data.keyword.cos_full_notm}} for Spark SQL](https://www.ibm.com/blog/big-data-layout/){: external}.
 
 The following SQL statement is an ETL job addresses two aspects that contribute significantly to query execution time:
 
@@ -345,7 +345,7 @@ To optimize flow logs layout with {{site.data.keyword.sqlquery_full}}, follow th
 
 1. Use the table `FLOW_PARQUET` instead of `FLOW_FLAT`.
 
-   For more information about how data layout influences query execution times, see [How to Layout Big Data in {{site.data.keyword.cos_full_notm}} for Spark SQL](https://www.ibm.com/cloud/blog/big-data-layout "data layout"){: external}.
+   For more information about how data layout influences query execution times, see [How to Layout Big Data in {{site.data.keyword.cos_full_notm}} for Spark SQL](https://www.ibm.com/blog/big-data-layout/ "data layout"){: external}.
 
 #### Example queries for flow logs with {{site.data.keyword.sqlquery_full}}
 {: #example-queries-for-flow-logs-with-sql}
@@ -419,7 +419,7 @@ ORDER BY `bytes` DESC LIMIT 5
 ### Example solution: Analyzing flow logs
 {: #example-analyzing-flow-logs}
 
-You can download an example solution of how to use IBM Log Analysis to analyze flow logs from [https://github.com/IBM-Cloud/vpc-flowlogs-logdna](https://github.com/IBM-Cloud/vpc-flowlogs-logdna){: external}. This project ([Readme file](https://github.ibm.com/portfolio-solutions/vpc-flowlogs-logdna/blob/master/README.md){: external}) shows how to use a trigger function to read a flow log {{site.data.keyword.cos_short}} object and write it to IBM Log Analysis.
+You can download an example solution of how to use IBM Log Analysis to analyze flow logs from the [IBM-Cloud vpc-flowlogs Github repository](https://github.com/IBM-Cloud/vpc-flowlogs){: external}. This project ([Readme file](https://github.ibm.com/portfolio-solutions/vpc-flowlogs-logdna/blob/master/README.md){: external}) shows how to use a trigger function to read a flow log {{site.data.keyword.cos_short}} object and write it to IBM Log Analysis.
 
 ### Viewing generated flow log files from the {{site.data.keyword.cos_short}} bucket
 {: #alternative-method}
