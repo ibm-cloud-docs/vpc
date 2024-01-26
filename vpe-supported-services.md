@@ -33,7 +33,7 @@ with your account.
 * Enterprise Billing Units ([Endpoint URLs](/apidocs/enterprise-apis/billing-unit#endpoint-url))
 * Enterprise Management ([Endpoint URLs](/apidocs/enterprise-apis/enterprise#endpoint-url))
 * Enterprise Usage Reports ([Endpoint URLs](/apidocs/enterprise-apis/resource-usage-reports#endpoint-url))
-* {{site.data.keyword.en_short}} ([Endpoint URLs](/apidocs/event-notifications#event-notifications-endpoint-url))
+* {{site.data.keyword.en_short}} ([Endpoint URLs](/apidocs/event-notifications#endpoint-list))
 * Event Streams for IBM Cloud ([Endpoint URLs](/apidocs/event-streams/adminrest))
 * Global Catalog ([Endpoint URLs](/apidocs/resource-catalog/global-catalog#endpoint-url))
 * Global Search ([Endpoint URLs](/apidocs/search#endpoint-url))
