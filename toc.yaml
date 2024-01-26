@@ -378,6 +378,7 @@ toc:
             label: Routing tables
             topics:
             - cr-intro.md
+            - cr-route-preference.md
             - topicgroup:
                 label: VPC routing tables
                 topics:
