@@ -162,7 +162,7 @@ Where the following argument and option values are used.
 * --output: Specify output format, only JSON is supported. One of: JSON.
 * -q, --quiet: Suppress verbose output.
 
-### Next step
+## Next steps
 {: #next-step-provisioning-reserved-vpc}
 
 After your reservation is provisioned and active, you can **Attach** or **Create** virtual servers by using the {{site.data.keyword.cloud_notm}} console, the CLI, or the API. For more information about creating a virtual server, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers).
