@@ -72,7 +72,7 @@ If an overlap exists, the most targeted flow log collector takes precedence. Thi
 
 To get started using flow log collectors, follow these steps:
 
-1. Complete any [prerequisites](/docs/vpc?topic=vpc-ordering-flow-log-collector&interface=ui#fl-before-you-begin) before ordering IBM Cloud Flow Logs.
+1. Complete any [prerequisites](/docs/vpc?topic=vpc-ordering-flow-log-collector&interface=ui#fl-before-you-begin-ui) before ordering IBM Cloud Flow Logs.
 2. Decide on the collection scope and [create one or more flow log collectors](/docs/vpc?topic=vpc-ordering-flow-log-collector).
 3. Review the flow logs that were generated. See [Viewing flow log objects](/docs/vpc?topic=vpc-fl-analyze) for details.
 

@@ -74,7 +74,7 @@ To list the routing tables for a VPC with the API, follow these steps:
     export VpcId=<your_vpc_id>
     ```
     {: pre}
-    
+
 1. List all routings tables for a VPC:
 
    ```curl

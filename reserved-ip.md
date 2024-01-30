@@ -23,7 +23,7 @@ The reserved IPs capability on VPC allows you to reserve IP addresses for use on
 
 Reserved IPs are a sub-resource of subnets. Identity and Access Management (IAM) does not currently have support for sub-resources, so reserved IPs "inherit" permissions from the subnet.
 
-To see the IAM permissions required for reserved IPs, see [Subnets calls](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls#subnets-authorizations-required-for-api-and-cli-calls).
+To see the IAM permissions required for reserved IPs, see [Subnets calls](/docs/account?topic=account-iam-service-roles-actions#is.subnet-roles).
 
 VPC does not support fragmented IP packets. Fragmented packets are dropped at the edge.
 {: note}
