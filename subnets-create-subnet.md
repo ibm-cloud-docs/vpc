@@ -43,7 +43,7 @@ If you use an IP range outside of the ranges [RFC 1918](https://datatracker.ietf
 To create a subnet in your VPC instance, take the following steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
-1. Select the navigation menu icon ![navigation menu](../icons/icon_hamburger.svg), then click **VPC Infrastructure**.
+1. Select the **Navigation Menu** ![navigation menu](../icons/icon_hamburger.svg), then click **VPC Infrastructure**.
 1. Click **Subnets**.
 1. Click **Create +** on the Subnets for VPC list table.
 1. In the Location section, provide the following information:
