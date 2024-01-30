@@ -111,7 +111,7 @@ To create a security group using the UI:
    The security group must be created in the same VPC as the load balancer.
 1. Click **Add** to configure inbound and outbound rules that define what type of traffic is allowed to and from the security group. For each rule, complete the following information:
    * Specify a CIDR block or IP address for the permitted traffic. Alternatively, you can specify a security group in the same VPC to allow traffic to or from all sources that are attached to the selected security group.
-   * Select the protocols and ports to which the rule applies. For best practices about network rules, see [Network traffic rules](/docs/vpc?topic=vpc-alb-integration-with-security-groups#alb-traffic).
+   * Select the protocols and ports to which the rule applies. For best practices about network rules, see [Network traffic rules](/docs/vpc?topic=vpc-alb-integration-with-security-groups#alb-traffic-rules).
 
    **Tips:**
    * All rules are evaluated, regardless of the order in which they're added.
