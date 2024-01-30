@@ -18,7 +18,7 @@ subcollection: vpc
 You can provision a reservation through the UI, CLI, or API.
 {: shortdesc}
 
-Reservations are available in only the Sydney region with the following virtual server profiles: 
+Reservations are available in only the Sydney region with the following virtual server profiles:
 * bx2-2x8
 * bx2d-2x8
 * bx2-4x16
@@ -27,7 +27,7 @@ Reservations are available in only the Sydney region with the following virtual 
 ## Before you begin
 {: #before-you-begin-provisioning-reserved-vpc}
 
-Make sure that your account has the required user permissions. Your account must be assigned the `Administrator` or `Editor` role for the VPC Infrastructure Services service and Reservations for VPC resource type. You need one of these user permissions to create a reservation. Extra roles are available. 
+Make sure that your account has the required user permissions. Your account must be assigned the `Administrator` or `Editor` role for the VPC Infrastructure Services service and Reservations for VPC resource type. You need one of these user permissions to create a reservation. Extra roles are available.
 
 For more information about managing IAM access, see [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started).
 
@@ -57,8 +57,8 @@ In the {{site.data.keyword.cloud_notm}}, complete the following steps to provisi
 
 4. Click **Create a reservation**.
 
-## Next steps
-{: #next-steps-provisioning-reserved-vpc}
+## Next step
+{: #next-step-provisioning-reserved}
 
 After your reservation is provisioned and active, you can Attach an existing virtual server to your reservation. Or, you can Create virtual servers in your reservation by using the IBM Cloud console, the CLI, or the API. For more information about creating a virtual server, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers).
 
@@ -162,8 +162,8 @@ Where the following argument and option values are used.
 * --output: Specify output format, only JSON is supported. One of: JSON.
 * -q, --quiet: Suppress verbose output.
 
-### Next steps
-{: #next-steps-provisioning-reserved-vpc}
+### Next step
+{: #next-step-provisioning-reserved-vpc}
 
 After your reservation is provisioned and active, you can **Attach** or **Create** virtual servers by using the {{site.data.keyword.cloud_notm}} console, the CLI, or the API. For more information about creating a virtual server, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers).
 
@@ -171,7 +171,7 @@ After your reservation is provisioned and active, you can **Attach** or **Create
 {: #attach-virtual-server-cli-vpc}
 {: cli}
 
-You can attach an existing virutal server to a reservation by using the CLI. To create a reserved reservation by using the CLI, use the `ibmcloud is instance-update` command. 
+You can attach an existing virutal server to a reservation by using the CLI. To create a reserved reservation by using the CLI, use the `ibmcloud is instance-update` command.
 
 1. Attach a virtual server to a reservation by using the following command with the associated details.
 
