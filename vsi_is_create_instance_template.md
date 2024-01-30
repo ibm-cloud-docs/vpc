@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-12-18"
+  years: 2020, 2024
+lastupdated: "2024-01-30"
 
 keywords:
 
@@ -308,7 +308,7 @@ For more information about creating a virtual server instance with a custom imag
 
 Define variables for the IAM token, API endpoint, and API version. For instructions, see [Setting up your API and CLI environment](/docs/vpc?topic=vpc-set-up-environment).
 
-Make sure that you have the required access. To call these methods, you must be assigned one or more IAM access roles that include the following actions, depending on any listed conditions. You can check your access by going to the **Users** page of [{{site.data.keyword.iamshort}} dashboard](https://test.cloud.ibm.com/iam/overview){: external}.
+Make sure that you have the required access. To call these methods, you must be assigned one or more IAM access roles that include the following actions, depending on any listed conditions. You can check your access by going to the **Users** page of [{{site.data.keyword.iamshort}} dashboard](https://cloud.ibm.com/iam/overview){: external}.
 
 A good way to learn more about the API is to click **Get sample API call** on the provisioning pages in {{site.data.keyword.cloud_notm}} console. You can view the correct sequence of API requests and better understand actions and their dependencies.
 {: tip}
@@ -509,7 +509,7 @@ Gather the following information by using `DataSource` block.
    ```
    {: codeblock}
 
-   * Select an image that is shared from a private catalog for the instance. For more information, see the Terraform documentation on [ibm_is_images](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_images). You can select an image from the list to create the instance as shown in the section [Go to Creating an instance by using Terraform section](#create-instance-terraform)
+   * Select an image that is shared from a private catalog for the instance. For more information, see the Terraform documentation on [ibm_is_images](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_images). You can select an image from the list to create the instance as shown in the section Go to Creating an instance by using Terraform section](/docs/vpc?topic=vpc-creating-virtual-servers&interface=terraform#create-instance-terraform).
 
    If you select a catalog image that belongs to a different account, you have more considerations and limitations to review. See [Using cross-account image references in a private catalog in Terraform](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#private-catalog-image-reference-vpc-terraform).
      {: note}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-12-18"
+  years: 2021, 2024
+lastupdated: "2024-01-30"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance
 
@@ -127,7 +127,7 @@ The time for the job to start is about 30 seconds. This time does not reflect tr
 ### Cancelling an image that is queued for creation
 {: #ifv-delete-queued}
 
-You can cancel the image creation by deleting the image if the underlying job didn't start yet. For images in a _pending_ state, the `GET/images` API call returns an `image_request_queued` reason code. You can delete the pending image with `DELETE/image{image_id}`. Alternatively, you can use the [UI](#ifv-delete-ui) or [CLI](#ifv-delete-cli) to delete the image that is in a pending state.
+You can cancel the image creation by deleting the image if the underlying job didn't start yet. For images in a _pending_ state, the `GET/images` API call returns an `image_request_queued` reason code. You can delete the pending image with `DELETE/image{image_id}`. Alternatively, you can use the [UI](/docs/vpc?topic=vpc-image-from-volume-vpc-manage&interface=ui#ifv-delete-ui) or [CLI](/docs/vpc?topic=vpc-image-from-volume-vpc-manage&interface=cli#ifv-delete-cli) to delete the image that is in a pending state.
 
 ## Deleting an image from volume by using the UI
 {: #ifv-delete-ui}
