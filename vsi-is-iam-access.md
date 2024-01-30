@@ -83,6 +83,7 @@ The following links take you directly to the specific infrastructure service on 
 - [Virtual Private Endpoint for VPC](/docs/account?topic=account-iam-service-roles-actions#is.endpoint-gateway-roles)
 - [VPN for VPC](/docs/account?topic=account-iam-service-roles-actions#is.vpn-roles)
 - [VPN Server for VPC](/docs/account?topic=account-iam-service-roles-actions#is.vpn-server-roles)
+- [Virtual network interface](/docs/account?topic=account-iam-service-roles-actions#is.virtual-network-interface-roles)
 
 ## Compute IAM roles and actions
 {: #compute-iam-roles-actions}
