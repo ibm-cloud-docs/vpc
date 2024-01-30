@@ -2,7 +2,7 @@
 
 copyright:
   years:  2017, 2024
-lastupdated: "2024-01-23"
+lastupdated: "2024-01-30"
 
 keywords: IAM access for vpc infrastructure services, permissions for vpc infrastructure services, identity and access management for vpc infrastructure services, roles for vpc infrastructure services, actions for vpc infrastructure services, assigning access for vpc infrastructure services
 
@@ -73,7 +73,7 @@ The following links take you directly to the specific infrastructure service on 
 {: #network-iam-roles-actions}
 
 - [Floating IP for VPC](/docs/account?topic=account-iam-service-roles-actions#is.floating-ip-roles)
-- [IBM Cloud Flow Logs for VPC](/docs/account?topic=account-iam-service-roles-actions#is.flow-log-collector-roles)
+- [Flow Logs for VPC](/docs/account?topic=account-iam-service-roles-actions#is.flow-log-collector-roles)
 - [Load Balancer for VPC](/docs/account?topic=account-iam-service-roles-actions#is.load-balancer-roles)
 - [Network ACL](/docs/account?topic=account-iam-service-roles-actions#is.network-acl-roles)
 - [Public Gateway](/docs/account?topic=account-iam-service-roles-actions#is.public-gateway-roles)
@@ -82,8 +82,8 @@ The following links take you directly to the specific infrastructure service on 
 - [Virtual Private Cloud](/docs/account?topic=account-iam-service-roles-actions#is.vpc-roles)
 - [Virtual Private Endpoint for VPC](/docs/account?topic=account-iam-service-roles-actions#is.endpoint-gateway-roles)
 - [VPN for VPC](/docs/account?topic=account-iam-service-roles-actions#is.vpn-roles)
-- [VPN Server for VPC](/docs/account?topic=account-iam-service-roles-actions#is.vpn-server-roles)
-- [Virtual network interface](/docs/account?topic=account-iam-service-roles-actions#is.virtual-network-interface-roles)
+- [VPN Client for VPC](/docs/account?topic=account-iam-service-roles-actions#is.vpn-server-roles)
+- [Virtual Network Interface](/docs/account?topic=account-iam-service-roles-actions#is.virtual-network-interface-roles)
 
 ## Compute IAM roles and actions
 {: #compute-iam-roles-actions}
