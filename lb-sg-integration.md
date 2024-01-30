@@ -21,7 +21,7 @@ The {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) allows you 
 Security groups are a convenient way to secure your ALB instances. With a security group attached to your load balancer, you have full control over inbound and outbound traffic to and from the load balancer's listeners and its back-end targets. This feature also makes it convenient to tighten the security posture of the load balancers' back-end targets. Instead of identifying the load balancers using their IP addresses or CIDR range, back-end targets can simply use the load balancer's security group as the source in their own security group definition. This ensures that traffic from all load balancer appliances is allowed automatically, irrespective of their IP addresses.
 
 ## Network traffic rules
-{: #alb-traffic rules}
+{: #alb-traffic-rules}
 
 The following tables provide best practices for inbound and outbound traffic for both public and private application load balancers.
 
