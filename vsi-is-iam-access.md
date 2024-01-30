@@ -15,7 +15,7 @@ subcollection: vpc
 # Managing IAM access for VPC Infrastructure Services
 {: #iam-getting-started}
 
-Access to {{site.data.keyword.vpc_full}} service instances for users in your account is controlled by {{site.data.keyword.cloud}} Identity and Access Management (IAM). Every user that accesses the `VPC Infrastructure Services` service in your account must be assigned an access policy with an IAM role. Review the following roles, actions, and more to help determine the best way to assign access to `VPC Infrastructure Services`.
+Access to {{site.data.keyword.vpc_full}} service instances for users in your account is controlled by {{site.data.keyword.iamshort}} (IAM). Every user that accesses the `VPC Infrastructure Services` service in your account must be assigned an access policy with an IAM role. Review the following roles, actions, and more to help determine the best way to assign access to `VPC Infrastructure Services`.
 {: shortdesc}
 
 The access policy that you assign users in your account determines what actions a user can perform within the context of the service or specific instance that you select. The allowable actions are customized and defined by the `VPC Infrastructure Services` as operations that you are allowed to perform on the service. Each action is mapped to an IAM platform or service role that you can assign to a user.
@@ -65,7 +65,7 @@ Review the following tables that outline what types of tasks each role allows wh
 {: tab-title="VPC Infrastructure Service roles"}
 {: tab-group="IAMVPC"}
 
-For more information about the exact actions that are mapped to each role, see [`Infrastructure Services`](/docs/account?topic=account-iam-service-roles-actions#infrastructure-service) on the IAM roles and actions page.
+For more information about the exact actions that are mapped to each role, see [`Infrastructure Services`](/docs/account?topic=account-iam-service-roles-actions#is-roles) on the IAM roles and actions page.
 
 The following links take you directly to the specific infrastructure service on the IAM roles and actions page.
 
@@ -103,6 +103,7 @@ The following links take you directly to the specific infrastructure service on 
 - [Block Storage for VPC](/docs/account?topic=account-iam-service-roles-actions#is.volume-roles)
 - [Block Storage Snapshots for VPC](/docs/account?topic=account-iam-service-roles-actions#is.snapshot-roles) 
 - [Backup as a Service for VPC](/docs/account?topic=account-iam-service-roles-actions#is.backup-policy-roles)
+- [File Storage for VPC](/docs/account?topic=account-iam-service-roles-actions#file-storage-for-vpc)
 
 Some VPC tasks require authorizations for multiple IAM actions. For example, create virtual server instance not only requires `is.instance.instance.create`, it also requires `is.vpc.vpc.operate`, `is.subnet.subnet.operate`, `is.security-group.security-group.operate`, and `is.volume.volume.create`. Additional conditional actions might be required. For example, if you provision an instance on a dedicated host, you need `is.dedicated-host.dedicated-host-group.operate` and `is.dedicated-host.dedicated-host.operate`. The Virtual Private Cloud API reference includes an Authorization section for each API call, for example, [Create an instance](/apidocs/vpc/latest#create-instance).
 {: note}
