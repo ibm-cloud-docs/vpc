@@ -116,7 +116,7 @@ To view details for a custom image, complete the following steps.
 1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images**.
 2. On the **Custom images** tab, click the name of a custom image to view details about that image.
 3. On the **Image details** page you can edit the name of the image, add tags, and copy the CRN for the image.
-4. From the **Actions** menu of the Image details page, you can create a virtual server instance from the custom image or deleting the image. For a full list of possible actions, see [Managing custom images by using the UI]( /docs/vpc?topic=vpc-managing-custom-images&interface=ui#custom-images-managing-ui).
+4. From the **Actions** menu of the Image details page, you can create a virtual server instance from the custom image or deleting the image. For a full list of possible actions, see [Managing custom images by using the UI](/docs/vpc?topic=vpc-managing-custom-images&interface=ui#custom-images-managing-ui).
 
 ## Viewing custom image details by using the CLI
 {: #custom-image-details-cli}
