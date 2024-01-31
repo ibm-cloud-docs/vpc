@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-01-24"
+lastupdated: "2024-01-31"
 
 keywords:
 
@@ -14,6 +14,7 @@ content-type: release-note
 ---
 
 {{site.data.keyword.attribute-definition-list}}
+
 {:release-note: data-hd-content-type='release-note'}
 
 # Release notes for {{site.data.keyword.vpc_short}}
@@ -24,7 +25,7 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 
 For more information about changes to the {{site.data.keyword.vpc_short}} API, see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
-For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-cli-rn).
+For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
 
 ## January 2024
 {: #vpc-jan24}
@@ -532,7 +533,7 @@ Instance provision by volume
 :   You can now reuse an existing boot volume to provision a virtual server instance. The specified volume must be unattached, be in the same zone as the instance profile, and must have an operating system with the same architecture as the instance profile. By default, a boot volume that was created as part of provisioning a virtual server instance is deleted when the instance is deleted. You can control this behavior when you create or update an instance. For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui), and [Managing virtual server instances](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui).
 
 Designating VPC route priority
-:   When multiple VPC routes exist for a destination, you can now control the priority of these routes (from `0` to `4`). New and existing routes, which are created without a priority value, are automatically set to the default priority (`2`). Smaller values have higher priority. For more information, see [Determining route preference](/docs/vpc?topic=vpc-about-custom-routes#cr-determining-route-preference).
+:   When multiple VPC routes exist for a destination, you can now control the priority of these routes (from `0` to `4`). New and existing routes, which are created without a priority value, are automatically set to the default priority (`2`). Smaller values have higher priority. For more information, see [Determining route preference](/docs/vpc?topic=vpc-cr-determining-route-preference).
 
    The route priority is considered on identical destinations only.
    {: note}
@@ -881,7 +882,8 @@ New stock images for VPC
 {: release-note}
 
 Configuration governance
-:   New VPC config rules for the Image service and Virtual Servers are now available with the Security and Compliance Center. For more information, see [Governing VPC Resource configuration](/docs/vpc?topic=vpc-manage-security-compliance#govern-vpc) in [Managing security and compliance with VPC Infrastructure Services](/docs/vpc?topic=vpc-manage-security-compliance).
+:   New VPC config rules for the Image service and Virtual Servers are now available with the Security and Compliance Center. For more information, see the [Security and regulation compliance](/docs/vpc?topic=vpc-responsibilities-vpc#security-compliance) section of [Understanding your responsibilities when using Virtual Private Cloud](/docs/vpc?topic=vpc-responsibilities-vpc).
+
 
 ### 30 August 2022
 {: #vpc-august3022}
