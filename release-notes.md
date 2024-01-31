@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-01-30"
+lastupdated: "2024-01-31"
 
 keywords:
 
@@ -33,7 +33,7 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-jan3024}
 {: release-note}
 
-New region for ux2d profiles
+New Madrid region for ux2d profiles (GA)
 :   The Ultra High Memory family of profiles are now available in the Spain (Madrid) region. The addition of this region makes the ux2d profiles available in all regions. For more information, see the [Ultra High Memory](/docs/vpc?topic=vpc-profiles&interface=ui#uhmemory) profile information.
 
 ### 11 January 2024
