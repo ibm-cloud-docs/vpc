@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-12-18"
+  years: 2022, 2024
+lastupdated: "2024-01-23"
 
 keywords: application load balancer, subnet, APIs, vpc network, update, detach, attach, etag
 
@@ -41,7 +41,7 @@ To update subnets for an ALB by in the {{site.data.keyword.cloud_notm}} console,
 
 To use the CLI to update subnets for your application load balancer, follow these steps:
 
-1. Set up your [CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+1. Set up your [CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 1. Log in to your account using the CLI. After you enter the password, the system prompts which account and region that you want to use:
 

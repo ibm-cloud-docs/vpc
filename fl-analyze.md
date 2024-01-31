@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-09-09"
+  years: 2020, 2024
+lastupdated: "2024-01-26"
 
 keywords: flow logs, viewing objects, SQL, analyze
 
@@ -24,27 +24,27 @@ Currently, flow logs collect Transmission Control Protocol (TCP) and User Datagr
 Each flow log object contains individual flow logs. To view or analyze the flow logs, follow these steps.
 
 1. Ensure that you created an instance of {{site.data.keyword.sqlquery_full}}. To create a service instance, see [Getting started with IBM Cloud Data Engine](/docs/sql-query).
-   
-   {{site.data.keyword.cos_full_notm}} offers Lite (free) and Standard pricing plans. If you are using the Lite plan, you will not be able to perform tasks that are available with the Standard plan, such as creating tables or using SQL queries. Instead, see [Viewing generated flow log object files from the {{site.data.keyword.cos_short}} bucket](/docs/vpc?topic=vpc-fl-analyze&interface=ui#viewing-generated-flow-log-object-files-from-the-cos-bucket) and alternative methods documented in the following procedures.
+
+   {{site.data.keyword.cos_full_notm}} offers Lite (free) and Standard pricing plans. If you are using the Lite plan, you will not be able to perform tasks that are available with the Standard plan, such as creating tables or using SQL queries. Instead, see [Viewing generated flow log object files from the {{site.data.keyword.cos_short}} bucket](/docs/vpc?topic=vpc-fl-analyze&interface=ui#alternative-method) and alternative methods documented in the following procedures.
    {: note}
-   
+
 1. Launch {{site.data.keyword.sqlquery_full}}.
 1. Start querying flow logs from the bucket that you specified when [Creating a flow log collector](/docs/vpc?topic=vpc-ordering-flow-log-collector).
 
    To view the most frequent flow object, run the following query:
-    
+
    ```json
    SELECT * FROM cos://<region>/<bucket>/ibm_vpc_flowlogs_v1/ STORED AS JSON ORDER BY `stream-id` LIMIT 1 INTO cos://<region>/<target_bucket>/result/ STORED AS JSON
    ```
    {: pre}
-    
+
    Where:
 
    * **bucket** - The bucket where your flow logs are stored.
    * **region** - The [region alias](/docs/sql-query#endpoints) of the bucket that holds your flow logs.
-   * **target_bucket** - A bucket that is different from the bucket where your flow logs are stored. It is recommended to use the target location that was created by {{site.data.keyword.sqlquery_full}}. 
-    
-      You can find the **Target location** listed under the query editor field in the IBM SQL Query UI.   
+   * **target_bucket** - A bucket that is different from the bucket where your flow logs are stored. It is recommended to use the target location that was created by {{site.data.keyword.sqlquery_full}}.
+
+      You can find the **Target location** listed under the query editor field in the IBM SQL Query UI.
       {: note}
 
 1. Use the preview to inspect the content of the object.
@@ -294,19 +294,19 @@ To analyze flow logs, follow these steps:
    FROM EXPLODED_FLOW
    ```
    {: codeblock}
-     
+
 You can verify that flow log data is being collected by using IBM Cloud Monitoring. For more information, see [Monitoring flow logs for VPC metrics](/docs/vpc?topic=vpc-fl-monitoring-metrics).
-{: tip} 
+{: tip}
 
 #### Optimizing flow logs layout with {{site.data.keyword.sqlquery_full}}
 {: #optimizing-flow-logs-layout}
 
-When large amounts of flow logs are analyzed, it is recommended to convert flow logs to a layout optimal for queries. This conversion improves query execution time by at least one order of magnitude. For more information about data optimization on {{site.data.keyword.cos_short}}, see [How to Layout Big Data in {{site.data.keyword.cos_full_notm}} for Spark SQL](https://www.ibm.com/cloud/blog/big-data-layout){: external}.
+When large amounts of flow logs are analyzed, it is recommended to convert flow logs to a layout optimal for queries. This conversion improves query execution time by at least one order of magnitude. For more information about data optimization on {{site.data.keyword.cos_short}}, see [How to Layout Big Data in {{site.data.keyword.cos_full_notm}} for Spark SQL](https://www.ibm.com/blog/big-data-layout/){: external}.
 
 The following SQL statement is an ETL job addresses two aspects that contribute significantly to query execution time:
 
 * object size - Flow logs have a maximum size of 100 KB. An optimal object size for a query is approximately 128 MB.
-* data format - Flow logs are stored as compressed JSON. The optimal format for queries is parquet, which allows to read only the columns that a query needs, not the whole object.  
+* data format - Flow logs are stored as compressed JSON. The optimal format for queries is parquet, which allows to read only the columns that a query needs, not the whole object.
 
 Note the INTO clause, which defines the target location and partitioning layout of the data that is produced by this ETL job.
 
@@ -343,9 +343,9 @@ To optimize flow logs layout with {{site.data.keyword.sqlquery_full}}, follow th
       * **bucket** - The bucket where you stored the optimized flow logs.
       * **region** - The [region alias](/docs/sql-query#endpoints) of the bucket that holds your flow logs.
 
-1. Use the table `FLOW_PARQUET` instead of `FLOW_FLAT`.  
+1. Use the table `FLOW_PARQUET` instead of `FLOW_FLAT`.
 
-   For more information about how data layout influences query execution times, see [How to Layout Big Data in {{site.data.keyword.cos_full_notm}} for Spark SQL](https://www.ibm.com/cloud/blog/big-data-layout "data layout"){: external}.
+   For more information about how data layout influences query execution times, see [How to Layout Big Data in {{site.data.keyword.cos_full_notm}} for Spark SQL](https://www.ibm.com/blog/big-data-layout/ "data layout"){: external}.
 
 #### Example queries for flow logs with {{site.data.keyword.sqlquery_full}}
 {: #example-queries-for-flow-logs-with-sql}
@@ -374,7 +374,7 @@ LIMIT 100
 ```
 {: codeblock}
 
-To see which of your vNICs received the most HTTPS traffic in the last seven days, use this query. It counts the number of packets that are sent and groups them by `target_ip`, and returns the first 10. You can check which vNIC sent the most traffic by sorting by `packets_sent`. 
+To see which of your vNICs received the most HTTPS traffic in the last seven days, use this query. It counts the number of packets that are sent and groups them by `target_ip`, and returns the first 10. You can check which vNIC sent the most traffic by sorting by `packets_sent`.
 
 The `where` condition maps to columns that are part of the object names. By restricting columns that are encoded in the object name, the query can be run quickly because you can prune objects before you read their content.
 
@@ -419,7 +419,7 @@ ORDER BY `bytes` DESC LIMIT 5
 ### Example solution: Analyzing flow logs
 {: #example-analyzing-flow-logs}
 
-You can download an example solution of how to use IBM Log Analysis to analyze flow logs from [https://github.com/IBM-Cloud/vpc-flowlogs-logdna](https://github.com/IBM-Cloud/vpc-flowlogs-logdna){: external}. This project ([Readme file](https://github.ibm.com/portfolio-solutions/vpc-flowlogs-logdna/blob/master/README.md){: external}) shows how to use a trigger function to read a flow log {{site.data.keyword.cos_short}} object and write it to IBM Log Analysis.
+You can download an example solution of how to use IBM Log Analysis to analyze flow logs from the [IBM-Cloud vpc-flowlogs Github repository](https://github.com/IBM-Cloud/vpc-flowlogs){: external}. This project ([Readme file](https://github.ibm.com/portfolio-solutions/vpc-flowlogs-logdna/blob/master/README.md){: external}) shows how to use a trigger function to read a flow log {{site.data.keyword.cos_short}} object and write it to IBM Log Analysis.
 
 ### Viewing generated flow log files from the {{site.data.keyword.cos_short}} bucket
 {: #alternative-method}
@@ -430,7 +430,7 @@ To view generated flow log files from the {{site.data.keyword.cos_short}} bucket
 
 1. To ensure that the flow logs are being captured, check the {{site.data.keyword.cos_short}} bucket.
 1. Navigate in the folder to find your VPC or the resource where you configured monitoring.
-1. Drill-down into the resource to find the network resource that you are monitoring. 
+1. Drill-down into the resource to find the network resource that you are monitoring.
 
    If configured correctly, you should see several gzip files for each log entry.
 

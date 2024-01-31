@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2023
-lastupdated: "2023-12-19"
+  years: 2019, 2024
+lastupdated: "2024-01-30"
 
 keywords: vpc, api, change log, new features, restrictions, migration
 
@@ -40,7 +40,7 @@ SDK changes are based on API changes. For information about the latest changes t
 
 **`InstanceTemplate` response schema change.** In an upcoming release, future methods of creating instances, and therefore creating instance templates, may not require a primary network interface. To accommodate this, the `primary_network_interface` property is now optional in the instance template response model.
 
-At this time, all instances, and therefore all instance templates, continue to require that a primary network interface be specified. Therefore, existing instance templates are unaffected. Additionally, new instance templates will continue to include a primary network interface until further notice. However, to ensure your clients will not be affected in the future, verify that they are tolerant of the `primary_network_interface` property not being included when consuming `InstanceTemplate` responses. 
+At this time, all instances, and therefore all instance templates, continue to require that a primary network interface be specified. Therefore, existing instance templates are unaffected. Additionally, new instance templates will continue to include a primary network interface until further notice. However, to ensure your clients will not be affected in the future, verify that they are tolerant of the `primary_network_interface` property not being included when consuming `InstanceTemplate` responses.
 {: important}
 
 **`Instance` response schema change.** In an upcoming release, volume attachments returned in the `boot_volume_attachment` and `volume_attachments[]` properties of an instance will not include the `volume` sub-property if the volume has not yet been provisioned. Such volumes are currently represented with empty `crn`, `id`, and `href` properties along with an undocumented sentinel value for `name`.
@@ -53,6 +53,20 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 30 January 2024
+{: #30-january-2024}
+
+### For all version dates
+{: #30-january-2024-all-version-dates}
+
+**Reservations for Virtual Servers for VPC.** Accounts that have been granted special approval to preview this feature can now purchase a [capacity reservation](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc) for a specified instance profile in a specified zone. Reservations provide resources for future deployments and cost savings over the life of the term within the availability zone of your choice.
+
+When [creating](/apidocs/vpc/latest#create-reservation) or [updating](/apidocs/vpc/latest#update-reservation) a reservation, specify the `capacity.total` and `committed_use.term` properties to use for this reservation. Optionally specify the `committed_use.expiration_policy` property to apply when the committed use term expires (default: `release`). Specify the `profile.name` and `profile.resource_type` properties of the profile, and the `zone` property to use for this reservation. After you confirm the reservation is configured the way you want it, you must [activate the reservation](/apidocs/vpc/latest#activate-reservation). The reservation cannot be deleted until the committed use term expires. To provision an instance using a reservation's capacity, specify the reservation using the `reservation_affinity.pool` property when [creating the instance](/apidocs/vpc/latest#create-instance). You can also [update an instance](/apidocs/vpc/latest#update-instance) that's been provisioned to associate it with a reservation. 
+
+When [retrieving an instance](/apidocs/vpc/latest#get-instance), the new `reservation_affinity` property indicates the reservation affinity policy in effect for the virtual server instance. The new `health_state` property indicates the instance's overall health state, while an accompanying `health_reasons` property indicates the reason for any unhealthy health states, such as a failed reservation.
+
+For more information, see [Provisioning reserved capacity for VPC](/docs/vpc?topic=vpc-provisioning-reserved-capacity-vpc). 
 
 ## 19 December 2023
 {: 19-december-2023}
@@ -84,8 +98,8 @@ When [creating](/apidocs/vpc/latest#create-vpc-routing-table) a routing table, t
 
 **Cross-region replication of file shares.** When [creating a file share](/apidocs/vpc/latest#create-share), you can now specify a zone in an associated partner region to create a replica file share. For more information about cross-region pairings, see [About file share replication](/docs/vpc?topic=vpc-file-storage-replication). A [service-to-service authorization for cross-region replication](/docs/vpc?topic=vpc-file-s2s-auth&interface=api#file-s2s-auth-replication-api) between the regional file services must be created before creating a replica.
 
-An important difference between setting up in-region and cross-region replication is configuring the encryption for the replica share. 
-- When the replica is created in another zone of the same region, the encryption type and the encryption key are inherited from the source share and can't be changed. 
+An important difference between setting up in-region and cross-region replication is configuring the encryption for the replica share.
+- When the replica is created in another zone of the same region, the encryption type and the encryption key are inherited from the source share and can't be changed.
 - When the replica is created in another region, only the encryption type is inherited. Therefore, if the source share has `user_managed` encryption, you must specify the root key by using the `encryption_key` property when creating the replica share.
 {: note}
 
@@ -101,14 +115,14 @@ When [retrieving a file share](/apidocs/vpc/latest#get-share), the `source_share
 
 **Multi-volume snapshots and backups.** This release introduces a new way to create snapshots. You can now [create a snapshot consistency group](/apidocs/vpc/latest#create-snapshot-consistency-group) and specify one or more snapshots that are attached to the same virtual server instance. When you create a consistency group, you are implicitly creating one or more snapshots. Snapshots taken simultaneously are data-consistent with one another, which helps to ensure consistent backups of a group of {{site.data.keyword.block_storage_is_short}} volumes attached to the same instance. [Deleting a snapshot consistency group](/apidocs/vpc/latest#delete-snapshot-consistency-group) will delete the snapshots in the group by default. However, you can keep the snapshots and delete the consistency group by specifying the `delete_snapshots_on_delete` property.
 
-You can also automate the creation of snapshots in consistency groups. When [creating a backup policy](/apidocs/vpc/latest#create-backup-policy) you can now specify `instance` as a `match_resource_type` value that this backup policy will apply to. Resources that have both a matching type and a matching user tag will be subject to the backup policy. You can exclude boot volumes from backup policies by specifying the `included_content` property. The default behavior includes boot volumes and data volumes. 
+You can also automate the creation of snapshots in consistency groups. When [creating a backup policy](/apidocs/vpc/latest#create-backup-policy) you can now specify `instance` as a `match_resource_type` value that this backup policy will apply to. Resources that have both a matching type and a matching user tag will be subject to the backup policy. You can exclude boot volumes from backup policies by specifying the `included_content` property. The default behavior includes boot volumes and data volumes.
 
 For more information, see [Backup service concepts](/docs/vpc?topic=vpc-backup-service-about&interface=api#backup-service-concepts), [Snapshot consistency groups](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=api#multi-volume-snapshots), and explore the [backup policy](/apidocs/vpc/latest#list-backup-policies) and [snapshot consistency group](/apidocs/vpc/latest#list-snapshot-consistency-groups) methods.
 
 ### For version `2023-12-05` or later
 {: #version-2023-12-05}
 
-When making API requests using a `version` query parameter of `2023-12-05` or later, the backup policy `match_resource_types` property has been changed to `match_resource_type`. This change applies when [creating](/apidocs/vpc/latest#create-backup-policy), [updating](/apidocs/vpc/latest#update-backup-policy), [listing](/apidocs/vpc/latest#list-backup-policies), [retrieving](/apidocs/vpc/latest#get-backup-policy), and [deleting](/apidocs/vpc/latest#delete-backup-policy) a backup policy. See [Updating to the version 2023-12-05 (backup policies)](/docs/vpc?topic=vpc-2023-12-05-migration-backup-policy) for guidance on migrating from `match_resource_types` to `match_resource_type`.
+When making API requests using a `version` query parameter of `2023-12-05` or later, the backup policy `match_resource_types` property has been changed to `match_resource_type`. This change applies when [creating](/apidocs/vpc/latest#create-backup-policy), [updating](/apidocs/vpc/latest#update-backup-policy), [listing](/apidocs/vpc/latest#list-backup-policies), [retrieving](/apidocs/vpc/latest#get-backup-policy), and [deleting](/apidocs/vpc/latest#delete-backup-policy) a backup policy. See [Updating to the `2023-12-05` version (backup policies)](/docs/vpc?topic=vpc-2023-12-05-migration-backup-policy) for guidance on migrating from `match_resource_types` to `match_resource_type`.
 
 ## 24 October 2023
 {: #24-october-2023}
@@ -138,7 +152,7 @@ Finally, the security group `targets` property can now refer to a network load b
 
 **Non-uniform memory access (NUMA) awareness on instances and dedicated hosts.**  When [retrieving](/apidocs/vpc/latest#get-instance) and [listing](/apidocs/vpc/latest#list-instances) an instance, the new `numa_count` property indicates the number of NUMA nodes on which a virtual server instance is provisioned. This property will be absent from the response if the instance's `status` is not `running`. When [retrieving](/apidocs/vpc/latest#get-dedicated-host) and [listing](/apidocs/vpc/latest#list-dedicated-hosts) a dedicated host, the new `numa.count` and `numa.nodes` properties describe the processor topology.
 
-When [retrieving](/apidocs/vpc/latest#get-instance-profile) and [listing](/apidocs/vpc/latest#list-instance-profiles) an instance profile, the `numa_count` property indicates the total number of NUMA nodes for an instance with this profile. When the `type` is `dependent`, the total number of NUMA nodes for an instance with this profile depends on its configuration and the capacity constraints within the zone. Not all instance profiles have a strict NUMA definition within them. 
+When [retrieving](/apidocs/vpc/latest#get-instance-profile) and [listing](/apidocs/vpc/latest#list-instance-profiles) an instance profile, the `numa_count` property indicates the total number of NUMA nodes for an instance with this profile. When the `type` is `dependent`, the total number of NUMA nodes for an instance with this profile depends on its configuration and the capacity constraints within the zone. Not all instance profiles have a strict NUMA definition within them.
 
 For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=api#next-gen-profiles).
 
@@ -162,11 +176,11 @@ This release introduces the following updates for accounts that have been grante
 
 - The [list all VPN gateways](/apidocs/vpc/latest#list-vpn-gateways) and [retrieve a VPN gateway](/apidocs/vpc/latest#get-vpn-gateway) methods now include `health_reasons`, `health_state`, `members[].health_reasons`, and `members[].health_state` properties. An unhealthy VPN gateway or VPN gateway member now has its `health_state` property set to `degraded` or `faulted`. The `health_reasons` property includes the reasons for the current VPN gateway or VPN gateway member health state. For more information, see [Diagnosing VPN gateway health](/docs/vpc?topic=vpc-vpn-health).
 
-- The [list all VPN gateway connections](/apidocs/vpc/latest#list-vpn-gateway-connections) and [retrieve a VPN gateway connection](/apidocs/vpc/latest#get-vpn-gateway-connection) methods now include `status_reasons` and `tunnels[].status_reasons` properties for a static-route-mode VPN gateway. A VPN gateway connection or tunnel in a down state now includes the reasons for the current VPN gateway connection or tunnel through the `status_reasons` property. For more information, see [Diagnosing VPN gateway connection health](/docs/vpc?topic=vpc-vpn-connection-health).
+- The [list all VPN gateway connections](/apidocs/vpc/latest#list-vpn-gateway-connections) and [retrieve a VPN gateway connection](/apidocs/vpc/latest#get-vpn-gateway-connection) methods now include `status_reasons` and `tunnels[].status_reasons` properties for a static-route-mode VPN gateway. A VPN gateway connection or tunnel in a down state now includes the reasons for the current VPN gateway connection or tunnel through the `status_reasons` property. For more information, see [Diagnosing VPN gateway connection health](/docs/vpc?topic=vpc-vpn-health#vpn-connection-health).
 
 - The [list all VPN servers](/apidocs/vpc/latest#list-vpn-servers) and [retrieve a VPN server](/apidocs/vpc/latest#get-vpn-server) methods now include a `health_reasons` property. An unhealthy VPN server now has its `health_state` property set to `degraded` or `faulted`. The `health_reasons` property includes the reasons for the current VPN server health state. For more information, see [Diagnosing VPN server health](/docs/vpc?topic=vpc-vpn-server-health).
 
-- The [list all VPN server routes](/apidocs/vpc/latest#list-vpn-server-routes) and [retrieve a VPN server route](/apidocs/vpc/latest#get-vpn-server-route) methods now include `health_reasons` and `health_state` properties. An unhealthy VPN server route now has its `health_state` property set to `degraded` or `faulted`. The  `health_reasons` property includes the reasons for the current VPN server route health state. For more information, see [Diagnosing VPN server route health](/docs/vpc?topic=vpc-vpn-server-route-health).
+- The [list all VPN server routes](/apidocs/vpc/latest#list-vpn-server-routes) and [retrieve a VPN server route](/apidocs/vpc/latest#get-vpn-server-route) methods now include `health_reasons` and `health_state` properties. An unhealthy VPN server route now has its `health_state` property set to `degraded` or `faulted`. The  `health_reasons` property includes the reasons for the current VPN server route health state. For more information, see [Diagnosing VPN server route health](/docs/vpc?topic=vpc-vpn-server-health#vpn-server-route-health).
 
 **Resource suspension for VPNs for VPC.**
 
@@ -179,7 +193,7 @@ For more information, see [Resource suspension](/docs/vpc?topic=vpc-resource-sus
 ### For version `2023-10-10` or later
 {: #version-2023-10-10}
 
-When [listing all VPN gateways](/apidocs/vpc/latest#list-vpn-gateways) and [retrieving a VPN gateway](/apidocs/vpc/latest#get-vpn-gateway) using a `version` query parameter of `2023-10-10` or later, the response will no longer include `status` and `members[].status` properties. These properties remain supported for API requests using a version query parameter of `2023-10-09` or earlier. To avoid regressions in client functionality, follow the guidance in [`2023-10-10` API migration (VPN)](/docs/vpc?topic=vpc-2023-10-10-migration-vpn) before specifying version `2023-10-10` or later in VPN gateway requests.
+When [listing all VPN gateways](/apidocs/vpc/latest#list-vpn-gateways) and [retrieving a VPN gateway](/apidocs/vpc/latest#get-vpn-gateway) using a `version` query parameter of `2023-10-10` or later, the response will no longer include `status` and `members[].status` properties. These properties remain supported for API requests using a version query parameter of `2023-10-09` or earlier. To avoid regressions in client functionality, follow the guidance in [Updating to the `2023-10-10` version (VPN)](/docs/vpc?topic=vpc-2023-10-10-migration-vpn) before specifying version `2023-10-10` or later in VPN gateway requests.
 
 ## 3 October 2023
 {: #3-october-2023}
@@ -187,7 +201,7 @@ When [listing all VPN gateways](/apidocs/vpc/latest#list-vpn-gateways) and [retr
 ### For all version dates
 {: #3-october-2023-all-version-dates}
 
-**Enterprise Backup as a Service.** As an enterprise account administrator, you can now create backup policies and plans that apply to resources of all accounts within your enterprise. Specify the enterprise CRN in the `scope` property when you [create a backup policy](/apidocs/vpc/latest#create-backup-policy), and the policy will apply to all resources that have tags that match with the policy across all accounts within your enterprise. For more information, see [Scope of the backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=api#backup-service-about-scope). As a prerequisite, ensure that authorizations are in place between services and between the enterprise account and the child accounts. For more information, see [Establishing service to service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth&interface=api). 
+**Enterprise Backup as a Service.** As an enterprise account administrator, you can now create backup policies and plans that apply to resources of all accounts within your enterprise. Specify the enterprise CRN in the `scope` property when you [create a backup policy](/apidocs/vpc/latest#create-backup-policy), and the policy will apply to all resources that have tags that match with the policy across all accounts within your enterprise. For more information, see [Scope of the backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=api#backup-service-about-scope). As a prerequisite, ensure that authorizations are in place between services and between the enterprise account and the child accounts. For more information, see [Establishing service to service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth&interface=api).
 
 ## 8 August 2023
 {: #8-august-2023}
@@ -287,7 +301,7 @@ As a result, you will no longer be able to create an IKE/IPsec policy or VPN con
 
 **VCPU manufacturer support for instances and dedicated hosts.** When [provisioning](/apidocs/vpc/latest#create-instance) an instance or dedicated host, you can now use the new `vcpu_manufacturer` property in the [instance](/apidocs/vpc/latest#list-instance-profiles) or [dedicated host](/apidocs/vpc/latest#list-dedicated-host-profiles) profile to choose between profiles from different processor manufacturers. You can also view the virtual server instance VCPU configuration through the `vcpu` sub-property `manufacturer`. For more information and limitations, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) and [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui#balanced-dh-pr).
 
-**Network interface configuration for instance profiles.** When you [retrieve an instance profile](/apidocs/vpc/latest#get-instance-profile) or [list all instance profiles](/apidocs/vpc/latest#list-instance-profiles), the response now provides a `network_interface_count` property. When the `type` is `range`, the new property provides `max` and `min` sub-properties that denote the maximum and minimum number of network interfaces that are supported for a virtual server instance with the specified profile. The values for `max` and `min` include both the primary network interface and secondary network interfaces. When the `type` is `dependent`, the network interface count depends on another value that is specified when the instance is created. For more information about instance profiles and network interface count, see [Bandwidth allocation with multiple network interfaces](/docs/vpc?topic=vpc-profiles&interface=api#bandwidth-multi-vnic). 
+**Network interface configuration for instance profiles.** When you [retrieve an instance profile](/apidocs/vpc/latest#get-instance-profile) or [list all instance profiles](/apidocs/vpc/latest#list-instance-profiles), the response now provides a `network_interface_count` property. When the `type` is `range`, the new property provides `max` and `min` sub-properties that denote the maximum and minimum number of network interfaces that are supported for a virtual server instance with the specified profile. The values for `max` and `min` include both the primary network interface and secondary network interfaces. When the `type` is `dependent`, the network interface count depends on another value that is specified when the instance is created. For more information about instance profiles and network interface count, see [Bandwidth allocation with multiple network interfaces](/docs/vpc?topic=vpc-profiles&interface=api#bandwidth-multi-vnic).
 
 **Private DNS integration for load balancers.** When you [create](/apidocs/vpc/latest#create-load-balancer) or [update](/apidocs/vpc/latest#update-load-balancer) a load balancer, you can now bind the IP addresses of your VPC load balancers to your private DNS zone by specifying the new `dns.instance` and `dns.zone` properties. When you specify these properties, load balancer IPs will no longer be registered to the publicly resolvable `lb.appdomain.cloud` domain name. For more information, see [IBM Cloud Network Load Balancer for VPC](/docs/vpc?topic=vpc-nlb-dns&interface=api) and [IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-lb-dns&interface=api).
 
@@ -925,7 +939,7 @@ Use the security group target methods to manage security group attachments to bo
 
 For more information, see [Integrating an IBM Cloud Application Load Balancer for VPC with security groups](/docs/vpc?topic=vpc-alb-integration-with-security-groups).
 
-**Bring Your Own IP (BYOIP) support for VPC.** VPC address prefixes are no longer restricted to [RFC-1918](https://tools.ietf.org/html/rfc1918) addresses. You must now configure VPCs that use both non-RFC-1918 addresses and have public connectivity (floating IPs or public gateways) using a custom route that contains the new `delegate_vpc` property. You must specify this property for destination CIDRs that are non-RFC-1918 compliant and outside of the VPC, such as for destinations that are reachable through {{site.data.keyword.dl_full}}, {{site.data.keyword.cloud_notm}} Transit Gateway, or VPC classic access.
+**Bring Your Own IP (BYOIP) support for VPC.** VPC address prefixes are no longer restricted to [RFC-1918](https://datatracker.ietf.org/doc/html/rfc1918) addresses. You must now configure VPCs that use both non-RFC-1918 addresses and have public connectivity (floating IPs or public gateways) using a custom route that contains the new `delegate_vpc` property. You must specify this property for destination CIDRs that are non-RFC-1918 compliant and outside of the VPC, such as for destinations that are reachable through {{site.data.keyword.dl_full}}, {{site.data.keyword.cloud_notm}} Transit Gateway, or VPC classic access.
 
 The `delegate_vpc` property is not required if a VPC uses only RFC-1918 addresses or has no public connectivity.
 {: note}

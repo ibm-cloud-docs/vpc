@@ -241,7 +241,7 @@ To view a route on a VPN gateway with the API, follow these steps:
    ```
    {: codeblock}
 
-1. Perform a GET on `/vpn_gateways/{vpn_gateway_id}/routes/{id}`. For details, see [`list_vpn-gateway_routes`](/apidocs/vpc/latest#list_vpn_gateway_routes).
+1. Perform a GET on `/vpn_gateways/{vpn_gateway_id}/routes/{id}`:
 
    ```curl
    curl -sS -X GET \

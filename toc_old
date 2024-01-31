@@ -7,7 +7,7 @@ Virtual Private Cloud (VPC)
 
     {: .navgroup id="learn"}
     getting-started.md
-    [What is Virtual Private Cloud?](https://www.ibm.com/cloud/learn/vpc)
+    [What is Virtual Private Cloud?]( https://www.ibm.com/topics/vpc)
     [Architecture Center VPC Resources](https://www.ibm.com/cloud/architecture/architectures/virtual-private-cloud/resources)
     [Pricing](https://www.ibm.com/cloud/vpc/pricing)
     about-vpc.md

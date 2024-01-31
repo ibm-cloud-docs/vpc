@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-02-14"
+  years: 2022, 2024
+lastupdated: "2024-01-30"
 
 keywords:
 
@@ -57,7 +57,7 @@ Metadata is obtained by calling REST APIs that provide instance-specific informa
 For more information about all the endpoints that you can use to access instance metadata, see [Summary of data returned by the metadata service](/docs/vpc?topic=vpc-imd-metadata-summary).
 {: tip}
 
-You [enable the metadata service](/docs/vpc?topic=vpc-imd-get-metadata#imd-metadata-service-enable) by setting a toggle in the VPC UI, CLI, or API. You can enable the service when you create an instance or update an existing instance.
+You [enable the metadata service](/docs/vpc?topic=vpc-imd-get-metadata&interface=api#imd-metadata-service-enable) by setting a toggle in the VPC UI, CLI, or API. You can enable the service when you create an instance or update an existing instance.
 
 The metadata service intercepts all requests to the service's IP, and then routes them to the specific services to handle these requests. As part of the request to the metadata service, you have to include the instance identity access token.
 

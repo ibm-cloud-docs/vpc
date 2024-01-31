@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-12-18"
+  years: 2020, 2024
+lastupdated: "2024-01-23"
 
 keywords: network load balancer, public, listener, pool, round-robin
 
@@ -121,7 +121,7 @@ The following example illustrates using the CLI to create a {{site.data.keyword.
 
 To create a network load balancer with the CLI, follow these steps:
 
-1. Set up your [CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+1. Set up your [CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 1. Log in to your account from the CLI. After you enter the password, the system prompts which account and region that you want to use.
 

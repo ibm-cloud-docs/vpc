@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2022-08-15"
+  years: 2017, 2024
+lastupdated: "2024-01-23"
 
 keywords: l7, layer 7, monitor, metrics, connection
 
@@ -276,7 +276,7 @@ To do so, follow these steps:
 
 1. Select a region for your monitoring instance.
 
-   If you do not have an existing load balancer, see [Creating an IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancer) to provision one.
+   If you do not have an existing load balancer, see [Creating an IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancers&interface=ui) to provision one.
    {: tip}
 
    The region should match the location of your existing load balancer.

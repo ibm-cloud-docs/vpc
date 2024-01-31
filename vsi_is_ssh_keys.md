@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2023
-lastupdated: "2023-12-18"
+  years: 2018, 2024
+lastupdated: "2024-01-30"
 
 keywords:
 
@@ -25,7 +25,7 @@ Managing keys by using the {{site.data.keyword.cloud_notm}} console or CLI has n
 * RSA
 * Ed25519
 
-You can generate new RSA key pairs using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images. 
+You can generate new RSA key pairs using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images.
 {: note}
 
 ## Before you begin
@@ -186,7 +186,7 @@ data "ibm_is_ssh_key" "example" {
 {: #generating-ssh-keys-ui}
 {: ui}
 
-Use the following steps to create a new SSH key. You can create only RSH SSH key types. To use an Ed25519 SSH key, that SSH key must be imported. For more information, see [Importing an SSH key by using the UI](#importing-ssh-keys-ui).
+Use the following steps to create a new SSH key. You can create only RSH SSH key types. To use an Ed25519 SSH key, that SSH key must be imported. For more information, see For more information, see [Importing an SSH key by using the UI](/docs/vpc?topic=vpc-managing-ssh-keys&interface=ui#importing-ssh-keys-ui).
 
 1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > SSH keys**.
 1. Click **Create** and enter the information that is in Table 1.
@@ -273,7 +273,7 @@ ibmcloud is key-create KEY_NAME (KEY | @KEY_FILE) [--resource-group-id RESOURCE_
 {: #importing-ssh-keys-api}
 {: api}
 
-To import a new SSH key by using the API, use the [Create a key](/apidocs/vpc/latest#create-key). The file that you import is `id_rsa.pub` or `id_ed25519.pub`, which contains your public key. You can't create a brand-new SSH key by using the API. However, you can create a new SSH key by using the UI and from the UI, generate the API code snippet that you need that includes the new SSH key. For more information, see [Creating an SSH key by using the UI](#generating-ssh-keys-ui).
+To import a new SSH key by using the API, use the [Create a key](/apidocs/vpc/latest#create-key). The file that you import is `id_rsa.pub` or `id_ed25519.pub`, which contains your public key. You can't create a brand-new SSH key by using the API. However, you can create a new SSH key by using the UI and from the UI, generate the API code snippet that you need that includes the new SSH key. For more information, see [Creating an SSH key by using the UI](/docs/vpc?topic=vpc-managing-ssh-keys&interface=ui#generating-ssh-keys-ui).
 
 For the `name` property, specify the name of the SSH key. For `public_key` property, enter in the public key information. For the `type` property, specify either `rsa` or `ed25519` for the SSH key type.
 
@@ -300,7 +300,7 @@ To import a new SSH key, complete the following steps.
 1. Create a resource block type of `ibm_is_ssh_key` with the required values. For the `name` attribute, specify the dummy name of the SSH key. For `public_key` attribute, enter in the dummy public key information.
 
    ```terraform
-   resource "ibm_is_ssh_key" "example_sshkey" { 
+   resource "ibm_is_ssh_key" "example_sshkey" {
      name = "my-key"
      public_key = "public-key"
    }
@@ -368,7 +368,7 @@ To update an existing SSH key by using the Terraform, use [ibm_is_ssh_keys](http
     ```
    {: codeblock}
 
-1. Run `terraform apply` to update the resource with the new name. 
+1. Run `terraform apply` to update the resource with the new name.
 
 ## Deleting your SSH key by using the CLI
 {: #deleting-ssh-keys-cli}

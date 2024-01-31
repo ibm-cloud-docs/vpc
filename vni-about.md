@@ -123,7 +123,7 @@ The `status` value is determined according to the following table:
 You can use a VNI to manage the IP addresses and security groups in a separate resource with a lifecycle that is independent of your target resource.
 
 1. Ensure that you have a VPC and subnet attached. For more information, see creating VPC resources [using the IBM Cloud console](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console) or [creating with CLI and API](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api).
-1. Review [planning considerations](/docs/vpc?topic=vpc-vni-planning) and any [known issues and limitations](/docs/vpc?topic=vpc-vni-known-issues).
+1. Review [planning considerations](/docs/vpc?topic=vpc-vni-about#vni-planning) and any [known issues and limitations](/docs/vpc?topic=vpc-vni-known-issues).
 1. Ensure that you have the correct [IAM permissions](/docs/vpc?topic=vpc-vni-iam) to create a VNI.
 1. [Create a virtual network interface](/docs/vpc?topic=vpc-vni-create&interface=ui) with a private IP address, a public IP address, and security groups.
 1. Attach your VNI to a supported target resource when provisioning the target. Currently, there are three supported target types:

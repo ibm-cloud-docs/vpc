@@ -35,7 +35,7 @@ A bucket that is associated with a flow log collector was deleted, or is not acc
 Follow these steps to resolve this issue:
 {: tsResolve}
 
-1. Create an {{site.data.keyword.cos_full_notm}} bucket with the same `<BucketName>` specified in the error message. To create a {{site.data.keyword.cos_full_notm}} bucket, see the [{{site.data.keyword.cos_full_notm}}](/catalog/services/cloud-object-storage){: external} ordering page.
+1. Create an {{site.data.keyword.cos_full_notm}} bucket with the same `<BucketName>` specified in the error message. To create a {{site.data.keyword.cos_full_notm}} bucket, see the [{{site.data.keyword.cos_full_notm}}](/objectstorage/create){: external} ordering page.
 
    The {{site.data.keyword.cos_full_notm}} bucket must be a single-region bucket in the same region as the target resource. Additionally, it is recommended that you secure the bucket through IAM access groups and audit logging.
    {: note}

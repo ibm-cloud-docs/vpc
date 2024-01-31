@@ -6,7 +6,7 @@ lastupdated: "2023-07-11"
 
 keywords: monitoring metrics, platform metrics, metrics, vpc metrics, vpc monitoring metrics
 
-subcollection: cloud-infrastructure
+subcollection: vpc
 
 ---
 

@@ -1,9 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2023
-lastupdated: "2023-08-15"
-
+  years: 2019, 2024
+lastupdated: "2024-01-30"
 
 keywords: api, change log, metadata, new features, restrictions, migration, versioned change
 
@@ -28,6 +27,16 @@ Some changes, such as new response properties or new optional request parameters
 - Follow HTTP redirect rules for any `3xx` HTTP status code
 - Consume only the resources and properties your application needs to function
 - Avoid depending on behavior that is not explicitly documented
+
+## 30 January 2024
+{: #30-january-2024-metadata}
+
+### For all version dates
+{: #30-january-2024-all-version-dates-metadata}
+
+**Reservations for Virtual Servers for VPC.** Accounts that have been granted special approval to preview this feature can now purchase a [capacity reservation](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc) for a specified instance profile in a specified zone. When [retrieving an instance](/apidocs/vpc-metadata#get-instance), the new `reservation` and  `reservation_affinity` properties indicate the reservation and reservation affinity policy in effect for the virtual server instance. The new `health_state` property indicates the instance's overall health state, while an accompanying `health_reasons` property indicates the reason for any unhealthy health states, such as a failed reservation.
+
+For more information, see the [API change log](/docs/vpc?topic=vpc-api-change-log#30-january-2024) and [Provisioning reserved capacity for VPC](/docs/vpc?topic=vpc-provisioning-reserved-capacity-vpc).
 
 ## 19 December 2023
 {: #19-december-2023-metadata}

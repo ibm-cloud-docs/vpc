@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-01-02"
+lastupdated: "2024-01-23"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -99,32 +99,221 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
 
 To use Backup for VPC in your account to create policies, plans and run backup jobs, create the following service-to-service authorizations:
 
+* `backup-policy` (source) to `instance` (target) with _Operator_ role
 * `backup-policy` (source) to `volume` (target) with _Operator_ role
 * `backup-policy` (source) to `snapshot` (target) with _Editor_ role
-* `backup-policy` (source) to `instance` (target) with _Operator_ role
 * `backup-policy` (source) to `snapshot-consistency-group` (target) with _Editor_ role
 
-Run the `ibmcloud iam authorization-policy-create` command to create the following 3 authorization policies.
+1. Create four JSON files with the following information for the authorization policies.
+   * Instance service:
+     ```json
+     {
+       "type": "authorization",
+       "subjects": [
+           {
+            "attributes": [
+                {
+                    "name": "accountId",
+                    "value": "ACCOUNT_ID"
+                },
+                {
+                    "name": "serviceName",
+                    "value": "is"
+                },
+                {
+                    "name": "resourceType",
+                    "value": "backup-policy"
+                }
+               ]
+           }
+       ],
+       "roles": [
+           {
+            "role_id": "crn:v1:bluemix:public:iam::::role:Operator"
+           }
+       ],
+       "resources": [
+           {
+            "attributes": [
+                {
+                    "name": "accountId",
+                    "value": "ACCOUNT_ID"
+                },
+                {
+                    "name": "serviceName",
+                    "operator": "stringEquals",
+                    "value": "is"
+                },
+                {
+                    "name": "instanceId",
+                    "value": "*",
+                    "operator": "stringEquals"
+                }
+            ]
+          }
+       ]
+     }
+     ```
+     {: codeblock}
 
-```sh
-ibmcloud iam authorization-policy-create is is Operator --source-resource-type backup-policy --target-resource-type volume
-```
-{: pre}
+   * Block Storage volume service:
+     ```json
+     {
+       "type": "authorization",
+       "subjects": [
+           {
+            "attributes": [
+                {
+                    "name": "accountId",
+                    "value": "ACCOUNT_ID"
+                },
+                {
+                    "name": "serviceName",
+                    "value": "is"
+                },
+                {
+                    "name": "resourceType",
+                    "value": "backup-policy"
+                }
+               ]
+           }
+       ],
+       "roles": [
+           {
+            "role_id": "crn:v1:bluemix:public:iam::::role:Operator"
+           }
+       ],
+       "resources": [
+           {
+            "attributes": [
+                {
+                    "name": "accountId",
+                    "value": "ACCOUNT_ID"
+                },
+                {
+                    "name": "serviceName",
+                    "operator": "stringEquals",
+                    "value": "is"
+                },
+                {
+                    "name": "volumeId",
+                    "value": "*",
+                    "operator": "stringEquals"
+                }
+            ]
+           }
+       ]
+     }
+     ```
+     {: codeblock}
 
-```sh
-ibmcloud iam authorization-policy-create is is Editor --source-resource-type backup-policy --target-resource-type snapshot
-```
-{: pre}
+   * Block Storage snapshot service:
+     ```json
+     {
+       "type": "authorization",
+       "subjects": [
+           {
+            "attributes": [
+                {
+                    "name": "accountId",
+                    "value": "ACCOUNT_ID"
+                },
+                {
+                    "name": "serviceName",
+                    "value": "is"
+                },
+                {
+                    "name": "resourceType",
+                    "value": "backup-policy"
+                }
+               ]
+           }
+       ],
+       "roles": [
+           {
+            "role_id": "crn:v1:bluemix:public:iam::::role:Editor"
+           }
+       ],
+       "resources": [
+           {
+            "attributes": [
+                {
+                    "name": "accountId",
+                    "value": "ACCOUNT_ID"
+                },
+                {
+                    "name": "serviceName",
+                    "operator": "stringEquals",
+                    "value": "is"
+                },
+                {
+                    "name": "snapshotId",
+                    "value": "*",
+                    "operator": "stringEquals"
+                }
+            ]
+           }
+          ]
+     }
+     ```
+     {: codeblock}
 
-```sh
-ibmcloud iam authorization-policy-create is is Operator --source-resource-type backup-policy --target-resource-type instance 
-```
-{: pre}
+   * Snapshot consistency group:
+    ```json
+      {
+       "type": "authorization",
+       "subjects": [
+        {
+            "attributes": [
+                {
+                    "name": "accountId",
+                    "value": "ACCOUNT_ID"
+                },
+                {
+                    "name": "serviceName",
+                    "value": "is"
+                },
+                {
+                    "name": "resourceType",
+                    "value": "backup-policy"
+                }
+            ]
+        }
+       ],
+       "roles": [
+        {
+            "role_id": "crn:v1:bluemix:public:iam::::role:Editor"
+        }
+       ],
+       "resources": [
+        {
+            "attributes": [
+                {
+                    "name": "accountId",
+                    "value": "ACCOUNT_ID"
+                },
+                {
+                    "name": "serviceName",
+                    "operator": "stringEquals",
+                    "value": "is"
+                },
+                {
+                    "name": "snapshotConsistencyGroupId",
+                    "value": "*",
+                    "operator": "stringEquals"
+                }
+            ]
+        }
+       ]
+      }
+      ```
+      {: codeblock}
 
-```sh
-ibmcloud iam authorization-policy-create is is Editor --source-resource-type backup-policy --target-resource-type snapshot-consistency-group
-```
-{: pre}
+1. Then, use the json files to run the following CLI command.
+   ```sh
+   ibmcloud iam authorization-policy-create --file ~/Documents/policy.json
+   ```
+   {: pre}
 
 For more information about all of the parameters that are available for this command, see [ibmcloud iam authorization-policy-create](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_authorization_policy_create).
 
@@ -178,12 +367,39 @@ For more information about all of the parameters that are available for this com
 
 To use Backup for VPC in your account to create policies, plans and run backup jobs, create the following service-to-service authorizations:
 
+* `is.backup-policy` (source) to `is.instance` (target) with _operator_ role.
 * `is.backup-policy` (source) to `is.volume` (target) with _operator_ role.
 * `is.backup-policy` (source) to `is.snapshot` (target) with _editor_ role.
-* `is.backup-policy` (source) to `is.instance` (target) with _operator_ role.
 * `is.backup-policy` (source) to `is.snapshot-consistency-group` with _editor_ role
 
 Make the request to the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy), similar to the following examples.
+
+```json
+curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H 
+'Authorization: Bearer $TOKEN' -H 
+'Content-Type: application/json' -d 
+'{
+   "type": "access",
+   "description": "Operator role for the Backup service to the Virtual Server service",
+   "subjects": [
+    {"attributes": [
+       {"name": "serviceName","value": "is"},
+       {"name": "accountId","value": "$ACCOUNT_ID"},
+       {"name": "resourceType","value": "backup-policy"}]
+    }
+   ],
+  "roles":[
+    {"role_id": "crn:v1:bluemix:public:iam::::role:Operator"}
+   ],
+   "resources":[
+    {"attributes":[
+      {"name": "accountId","value": "$ACCOUNT_ID"},
+      {"name": "serviceName","value": "is","operator": "stringEquals"},
+      {"name": "instanceId","value": "*","operator": "stringEquals"}]
+    }
+  ]
+}'
+```
 
 ```json
 curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H 
@@ -247,7 +463,7 @@ curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H
 'Content-Type: application/json' -d 
 '{
    "type": "access",
-   "description": "Operator role for the Backup service to the Virtual Server service",
+   "description": "Editor role for the Backup service to the Snapshot consistency groups",
    "subjects": [
     {"attributes": [
        {"name": "serviceName","value": "is"},
@@ -256,13 +472,13 @@ curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H
     }
    ],
   "roles":[
-    {"role_id": "crn:v1:bluemix:public:iam::::role:Operator"}
+    {"role_id": "crn:v1:bluemix:public:iam::::role:Editor"}
    ],
    "resources":[
     {"attributes":[
       {"name": "accountId","value": "$ACCOUNT_ID"},
       {"name": "serviceName","value": "is","operator": "stringEquals"},
-      {"name": "instanceId","value": "*","operator": "stringEquals"}]
+      {"name": "snapshotConsistencyGroupId","value": "*","operator": "stringEquals"}]
     }
   ]
 }'

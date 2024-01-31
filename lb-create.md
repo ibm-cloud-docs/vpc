@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-12-18"
+  years: 2021, 2024
+lastupdated: "2024-01-23"
 
 keywords:
 
@@ -165,7 +165,7 @@ The following example illustrates using the CLI to create an {{site.data.keyword
 
 To create an application load balancer from the CLI, follow these steps:
 
-1. Set up your [CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+1. Set up your [CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 1. Use the terminal to log in to your account using the CLI. After you enter the password, the system prompts which account and region you want to use:
 

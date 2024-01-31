@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 433 172">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: 0em;
+      }
+
+      .cls-2 {
+        letter-spacing: 0em;
+      }
+
+      .cls-3 {
+        letter-spacing: .01em;
+      }
+
+      .cls-4, .cls-5, .cls-6 {
+        stroke: #000;
+        stroke-width: 2px;
+      }
+
+      .cls-7 {
+        letter-spacing: 0em;
+      }
+
+      .cls-8 {
+        letter-spacing: 0em;
+      }
+
+      .cls-9 {
+        letter-spacing: 0em;
+      }
+
+      .cls-10 {
+        letter-spacing: 0em;
+      }
+
+      .cls-11 {
+        letter-spacing: 0em;
+      }
+
+      .cls-5 {
+        fill: none;
+      }
+
+      .cls-5, .cls-6 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-12 {
+        letter-spacing: 0em;
+      }
+
+      .cls-13 {
+        fill: #dae8fc;
+        stroke: #6c8ebf;
+      }
+
+      .cls-14 {
+        fill: #f5f5f5;
+        stroke: #666;
+      }
+
+      .cls-15 {
+        letter-spacing: 0em;
+      }
+
+      .cls-16 {
+        letter-spacing: 0em;
+      }
+
+      .cls-17 {
+        letter-spacing: 0em;
+      }
+
+      .cls-18 {
+        letter-spacing: 0em;
+      }
+
+      .cls-19 {
+        font-family: IBMPlexSans, 'IBM Plex Sans';
+        font-size: 12px;
+      }
+
+      .cls-20 {
+        letter-spacing: 0em;
+      }
+    </style>
+  </defs>
+  <g id="shapes">
+    <g>
+      <rect class="cls-13" x=".5" y=".5" width="120" height="90" rx="13.5" ry="13.5" pointer-events="all"/>
+      <rect class="cls-14" x="52.5" y="64.5" width="120" height="60" rx="9" ry="9" pointer-events="all"/>
+      <rect class="cls-13" x="312.5" y=".5" width="120" height="90" rx="13.5" ry="13.5" pointer-events="all"/>
+      <path class="cls-5" d="m112.5,127.5v34h260v-60.76" pointer-events="stroke"/>
+      <circle class="cls-4" cx="112.5" cy="124.5" r="3" pointer-events="all"/>
+      <path class="cls-6" d="m372.5,92.74l4,8h-8l4-8Z" pointer-events="all"/>
+    </g>
+  </g>
+  <g id="text">
+    <text class="cls-19" transform="translate(335.06 36.66)"><tspan x="0" y="0">Vi</tspan><tspan class="cls-1" x="10.31" y="0">r</tspan><tspan x="14.76" y="0">tual se</tspan><tspan class="cls-11" x="50.72" y="0">r</tspan><tspan class="cls-18" x="55.25" y="0">v</tspan><tspan x="61.05" y="0">er </tspan><tspan x="9.64" y="14.4">in</tspan><tspan class="cls-16" x="19.46" y="14.4">s</tspan><tspan x="25.22" y="14.4">tan</tspan><tspan class="cls-8" x="42.65" y="14.4">c</tspan><tspan x="48.62" y="14.4">e 2</tspan></text>
+    <text class="cls-19" transform="translate(23.06 36.66)"><tspan x="0" y="0">Vi</tspan><tspan class="cls-1" x="10.31" y="0">r</tspan><tspan x="14.76" y="0">tual se</tspan><tspan class="cls-11" x="50.72" y="0">r</tspan><tspan class="cls-18" x="55.25" y="0">v</tspan><tspan x="61.05" y="0">er </tspan><tspan x="9.64" y="14.4">in</tspan><tspan class="cls-16" x="19.46" y="14.4">s</tspan><tspan x="25.22" y="14.4">tan</tspan><tspan class="cls-8" x="42.65" y="14.4">c</tspan><tspan x="48.62" y="14.4">e 1</tspan></text>
+    <text class="cls-19" transform="translate(71.91 91.34)"><tspan x="0" y="0">Vi</tspan><tspan class="cls-1" x="10.31" y="0">r</tspan><tspan x="14.76" y="0">tual net</tspan><tspan class="cls-20" x="55.91" y="0">w</tspan><tspan x="65.06" y="0">ork </tspan><tspan x="13.72" y="14.4">in</tspan><tspan class="cls-12" x="23.54" y="14.4">t</tspan><tspan x="27.7" y="14.4">e</tspan><tspan class="cls-1" x="34.29" y="14.4">r</tspan><tspan class="cls-7" x="38.74" y="14.4">fa</tspan><tspan class="cls-8" x="49.04" y="14.4">c</tspan><tspan class="cls-7" x="55" y="14.4">e 1</tspan></text>
+    <text class="cls-19" transform="translate(155.78 140.66)"><tspan x="0" y="0">M</tspan><tspan class="cls-17" x="9.74" y="0">ov</tspan><tspan x="22.18" y="0">e vi</tspan><tspan class="cls-2" x="40.5" y="0">r</tspan><tspan x="44.95" y="0">tual net</tspan><tspan class="cls-20" x="86.1" y="0">w</tspan><tspan x="95.25" y="0">ork in</tspan><tspan class="cls-12" x="125.35" y="0">t</tspan><tspan x="129.51" y="0">e</tspan><tspan class="cls-1" x="136.1" y="0">r</tspan><tspan x="140.55" y="0">fa</tspan><tspan class="cls-8" x="150.85" y="0">c</tspan><tspan x="156.81" y="0">e 1</tspan><tspan class="cls-12" x="15.32" y="14.4">t</tspan><tspan class="cls-10" x="19.49" y="14.4">o vi</tspan><tspan class="cls-2" x="37.94" y="14.4">r</tspan><tspan x="42.4" y="14.4">tual se</tspan><tspan class="cls-3" x="78.36" y="14.4">r</tspan><tspan class="cls-15" x="82.88" y="14.4">v</tspan><tspan x="88.69" y="14.4">er in</tspan><tspan class="cls-9" x="112.33" y="14.4">s</tspan><tspan x="118.09" y="14.4">tan</tspan><tspan class="cls-8" x="135.53" y="14.4">c</tspan><tspan x="141.49" y="14.4">e 2</tspan></text>
+  </g>
+</svg>

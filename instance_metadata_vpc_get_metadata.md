@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-01-23"
+  years: 2022, 2024
+lastupdated: "2024-01-30"
 
 keywords:
 
@@ -52,7 +52,7 @@ In the request, you specify an expiration time for the token. The default is 5 m
 
 The response (a JSON payload) contains the instance identity access token. Use this token to access the metadata service.
 
-You can also generate an IAM token from this token and use the RIAS API to call IAM-enabled services. For more information, see [Generate an IAM token from an instance identity access token](#imd-token-exchange).
+You can also generate an IAM token from this token and use the RIAS API to call IAM-enabled services. For more information, see [Generate an IAM token from an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-token-exchange).
 
 ### Acquire an instance identity access token
 {: #imd-json-token-usemd}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-01-08"
+lastupdated: "2024-01-30"
 
 subcollection: vpc
 
@@ -32,7 +32,7 @@ The following operating systems are available as stock images when you create a 
 | Fedora Core OS | x86-64 |
 | Red Hat Enterprise Linux 7.x, 8.x, 9.x | x86-64 |
 | Red Hat Enterprise Linux for SAP 7.x, 8.x, 9.x | x86-64 |
-| Rocky Linux 8.x | x86-64 |
+| Rocky Linux 8.x, 9.x | x86-64 |
 | SUSE Linux Enterprise Server 12.x, 15.x | x86-64 |
 | SUSE Linux Enterprise Server for SAP 12.x, 15.x | x86-64 |
 | Ubuntu 20.04.x, 22.04.x | x86-64 |

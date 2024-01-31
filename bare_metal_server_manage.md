@@ -39,30 +39,30 @@ To manage your servers, complete the following steps.
 1. In [{{site.data.keyword.cloud_notm}} dashboard](https://cloud.ibm.com){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**.
 2. On the **Bare metal servers** page, click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for the server that you want to manage. You can perform the following actions:
 
-### Viewing your bare metal servers 
+### Viewing your bare metal servers
 {: #viewing-bare-metal-server-ui}
 
 You can view the summary of all bare metal server on the bare metal server page, or you can click an individual server name to view details and make changes. From the details page, you can also view the associated network interface, access its subnet, and reserve or delete a floating IP address.
 
-1. In the [{{site.data.keyword.cloud_notm}} dashboard ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}), go to **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**
+1. In the [{{site.data.keyword.cloud_notm}} dashboard ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}), go to **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**
 
 2. Click the name of the bare metal server that you want to view.
 
-### Rebooting a bare metal server 
+### Rebooting a bare metal server
 {: #reboot-bare-metal-servers-ui}
 
 The reboot action immediately powers off and powers on the bare metal server.
 
-1. In the [{{site.data.keyword.cloud_notm}} dashboard ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}), go to **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**
+1. In the [{{site.data.keyword.cloud_notm}} dashboard ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}), go to **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**
 
 2. Click the name of the bare metal server that you want to reboot.
 
 3. Click **Actions...**, then click **Reboot**.
 
-### Stopping and starting a bare metal server 
+### Stopping and starting a bare metal server
 {: #stop-start-bare-metal-servers-ui}
 
-1. In the [{{site.data.keyword.cloud_notm}} dashboard ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}), go to **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**
+1. In the [{{site.data.keyword.cloud_notm}} dashboard ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}), go to **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**
 
 2. Click the name of the bare metal server that you want to start or stop.
 
@@ -75,7 +75,7 @@ Billing continues after the bare metal server is stopped.
 {: #delete-bare-metal-servers-ui}
 {: ui}
 
-1. In the [{{site.data.keyword.cloud_notm}} dashboard ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}), go to **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**
+1. In the [{{site.data.keyword.cloud_notm}} dashboard ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}), go to **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**
 
 2. Click the name of the bare metal server that you want to delete.
 
@@ -117,7 +117,7 @@ ibmcloud is bare-metal-server-restart $bare_metal_server_id [-f, --force] [-q, -
 The `[-f, --force]` flag forces the operation without confirmation.
 {: tip}
 
-### Stopping and starting a bare metal server 
+### Stopping and starting a bare metal server
 {: #stop-start-bare-metal-servers-cli}
 
 Use the following CLI command to stop and start your bare metal server.
@@ -190,7 +190,7 @@ curl -X POST "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/rest
 
 For more information of the API request, see [Restart a bare metal server](/apidocs/vpc/latest#create-bare-metal-server-restart).
 
-### Stopping and starting a bare metal server 
+### Stopping and starting a bare metal server
 {: #stop-start-bare-metal-servers-api}
 
 Use the following API requests to stop or start a bare metal server.
