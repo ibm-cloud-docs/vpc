@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020 
-lastupdated: "2020-11-10"
+  years: 2020, 2024
+lastupdated: "2024-01-30"
 
 keywords: bulk provision instances, vsis, virtual server instance, bulk provision with instance group
 
@@ -22,7 +22,7 @@ You can provision a large number of virtual server instances at the same time by
 ## Before you begin
 {: #before-bp-cli-tutorial}
 
-1. Make sure that you completed set up for your [{{site.data.keyword.cloud}} CLI environment](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup) and your [{{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
+1. Make sure that you completed set up for your [{{site.data.keyword.cloud}} CLI environment](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup) and your [{{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli).
 2. Make sure that you have the required IBM {{site.data.keyword.iamshort}} (IAM) permissions to create instance group resources. For more information, see [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls). 
 3. Make sure that you have created an [instance template](/docs/vpc?topic=vpc-create-instance-template) with the instance details that are used to provision like instances in your group.
 
@@ -82,7 +82,7 @@ Resource group      ID                                 Name
 ```
 {: screen}
 
-For more examples of the `ibmcloud is instance-group-create` command, see the [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-group-create).
+For more examples of the `ibmcloud is instance-group-create` command, see the [VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference#instance-group-create).
 
 Need more help? You can always run `ibmcloud is instance-group-create --help` to display help for creating an instance group.
 {: tip}
@@ -94,12 +94,12 @@ After your instance group is created with the number of instances you need, you 
 
 |    Instance group command  |       Description                |
 | -------------------------- | -------------------------------- |
-| [ibmcloud is instance-group-update](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-group-update) | Update an instance group. |
-| [ibmcloud is instance-group-delete](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-group-delete) | Delete instance groups. |
-| [ibmcloud is instance-group-membership](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-group-membership) | View details of a member of an instance group. |
-| [ibmcloud is instance-group-membership-delete](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-group-membership-delete) | Delete membership for an instance group. |
-| [ibmcloud is instance-group-memberships](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-group-memberships) | List all members for an instance group. |
-| [ibmcloud is instance-group-memberships-delete](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-group-memberships-delete) | Delete all memberships for an instance group. |
+| [ibmcloud is instance-group-update](/docs/vpc?topic=vpc-vpc-reference#instance-group-update) | Update an instance group. |
+| [ibmcloud is instance-group-delete](/docs/vpc?topic=vpc-vpc-reference#instance-group-delete) | Delete instance groups. |
+| [ibmcloud is instance-group-membership](/docs/vpc?topic=vpc-vpc-reference#instance-group-membership) | View details of a member of an instance group. |
+| [ibmcloud is instance-group-membership-delete](/docs/vpc?topic=vpc-vpc-reference#instance-group-membership-delete) | Delete membership for an instance group. |
+| [ibmcloud is instance-group-memberships](/docs/vpc?topic=vpc-vpc-reference#instance-group-memberships) | List all members for an instance group. |
+| [ibmcloud is instance-group-memberships-delete](/docs/vpc?topic=vpc-vpc-reference#instance-group-memberships-delete) | Delete all memberships for an instance group. |
 {: caption="Table 2. CLI commands for managing instance groups" caption-side="top"}
 
 Optionally, you can set auto scaling policies for your instance group to dynamically add or remove virtual server instances from your group. For more information, see [Creating an instance group for auto scaling](/docs/vpc?topic=vpc-creating-auto-scale-instance-group).

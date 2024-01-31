@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2019, 2023
+  years: 2019, 2024
 lastupdated: "2023-12-14"
 
 keywords:
@@ -132,7 +132,7 @@ Table 1 describes these services:
 
 | Key Management Service | HSM Encryption Certification | Description |
 | ----- | ----- | ----- |
-| [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect/concepts?topic=key-protect-getting-started-tutorial) | FIPS 140-2 _Level 3_ compliance | With A multi-tenant KMS, you can import or create your root keys and securely manage them.  |
+| [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial) | FIPS 140-2 _Level 3_ compliance | With A multi-tenant KMS, you can import or create your root keys and securely manage them.  |
 | [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started) | FIPS 140-2 _Level 4_ compliance | The highest level of security. A single-tenant KMS and hardware security module (HSM) that is controlled by you. Import or create your root keys and securely manage them. Create an HSM master key to encrypt the content of key storage, including root keys. Only you have access to your keys and data. |
 {: caption="Table 1. Available key management service options" caption-side="bottom"}
 
@@ -140,7 +140,7 @@ You might see {{site.data.keyword.keymanagementserviceshort}} being described as
 {: note}
 
 ### Envelope encryption
-{: #vpc-envelope-ecryption-byok}
+{: #vpc-envelope-encryption-byok}
 
 Root keys serve as key-wrapping keys and are an important part of envelope encryption. With envelope encryption, root keys encrypt LUKS passphrases (also called _key encryption keys_) which, in turn, secure _data encryption keys_ (DEKs) that encrypt your data on the virtual disk. Figure 1 illustrates this process.
 

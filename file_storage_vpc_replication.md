@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2022, 2023
+  years: 2022, 2024
 lastupdated: "2023-12-12"
 
 keywords: file share, file storage, replication, replica, 
@@ -78,7 +78,7 @@ You can use replication to address disaster recovery concerns. The replication a
 
    Use replication to facilitate certain administrative tasks such as upgrades with greater availability. Migrate data between two zones that might be running different levels of application code. Running in two environments independently can allow greater flexibility in your deployment process.
 
-* Data migration or geographic expansion. [New]{: tag-new}
+* Data migration or geographic expansion.
  
    You can use replication to migrate data between two MZR regions easily. After your data is replicated, you can [remove the replication relationship](/docs/vpc?topic=vpc-file-storage-manage-replication#fs-remove-replication) and your replica file share becomes available with your data ready to use independently in the new region.
 

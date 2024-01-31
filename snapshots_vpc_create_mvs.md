@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-12-18"
+  years: 2022, 2024
+lastupdated: "2024-01-05"
 
 keywords: consistency groups, Block Storage snapshots, multi-volume snapshot, instance snapshot,
 
@@ -33,7 +33,7 @@ Before you start, gather the following information:
 
 In the console, you can create a consistency group snapshot of {{site.data.keyword.block_storage_is_short}} volumes that are attached to a running virtual server instance.
 
-1. Click the **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage snapshots**.
+1. Click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage snapshots**.
 1. From the list of consistency groups that is initially empty, click **Create**.
 1. Enter the required information to define your snapshot group and select the virtual server instance that has the volumes that you want to include in your snapshot consistency group.
 
@@ -43,7 +43,7 @@ In the console, you can create a consistency group snapshot of {{site.data.keywo
    | Snapshot type  | Select Multiple volumes. |
    | Virtual Server instance | From the list, select the server instance. |
    | Consistency group name  | Provide a unique name for the consistency group. The name cannot exceed 64 characters. If you leave this field empty, the system auto-generates a name for you. The snapshots in the consistency group are named by using the first 16 characters of the group name and 3-4 auto-generated characters. |
-   | Resource group | Select a [resource group](/docs/vpc?topic=vpc-iam-getting-started#resources-and-resource-groups) for the snapshot, or use the default. You can't change the resource group after the snapshot is created. |
+   | Resource group | Select a [Resource group](/docs/vpc?topic=vpc-iam-getting-started&interface=ui#iam-resource-groups) for the snapshot, or use the default. You can't change the resource group after the snapshot is created. |
    | Tags           | Specify any user tags that you want to identify this resource. |
    | Access management tags | Specify any [access management tags](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#storage-add-access-mgt-tags) for this resource. |
    | Volumes        | Select the volumes that you want to include in the group from the list. |
@@ -121,9 +121,9 @@ For more information about available command options, see [`ibmcloud is snapshot
 {: #mvsnapshot-create-api}
 {: api}
 
-Before you begin, [retrieve the instance details](/apidocs/latest#get-instance){: external} of the virtual server instance that you want to capture in the snapshot consistency group. Note the CRNs or IDs of the `volume_attachments` and the `boot_volume_attachment`.
+Before you begin, [retrieve the instance details](/apidocs/vpc/latest#get-instance){: external} of the virtual server instance that you want to capture in the snapshot consistency group. Note the CRNs or IDs of the `volume_attachments` and the `boot_volume_attachment`.
 
-You can programmatically create a consistency group by calling the `/snapshot_consistency_groups` method in the [VPC API](/apidocs/vpc-scoped#create-snapshot-consistency-groups){: external} as shown in the following sample request.
+You can programmatically create a consistency group by calling the `/snapshot_consistency_groups` method in the [VPC API](/apidocs/vpc/latest#create-snapshot-consistency-group){: external} as shown in the following sample request.
 
 ```sh
 curl -X POST \
@@ -238,3 +238,5 @@ resource "ibm_is_snapshot_consistency_group" "is_snapshot_consistency_group" {
 }
 ```
 {: codeblock}
+
+For more information about the arguments and attributes, see [ibm_is_snapshot_consistency_group](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_snapshot_consistency_group){: external}.

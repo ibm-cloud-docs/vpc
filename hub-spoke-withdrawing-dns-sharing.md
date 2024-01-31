@@ -30,7 +30,7 @@ You can disconnect DNS sharing to a hub VPC with the UI, CLI, API, or Terraform.
 To disconnect DNS sharing to a DNS hub VPC, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to the account where the DNS-shared VPC resides.
-1. Select the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>VPCs**.
+1. Select the **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>VPCs**.
 1. Click the DNS-shared VPC whose DNS sharing you want to disconnect.
 1. Scroll to the Optional DNS settings section, then expand the DNS resolver settings and click **Edit**.
 1. In the Edit DNS resolver settings side panel, disable the DNS hub.
@@ -46,7 +46,7 @@ The hub VPC administrator can revoke the IAM service-to-service (s2s) authorizat
 
 To disconnect DNS sharing to a DNS hub VPC with the CLI, follow these steps:
 
-1. [Set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+1. [Set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 1. Log in to your account with the CLI. After you enter the password, the system prompts you for the account and region you want to use:
 
     ```sh

@@ -100,7 +100,7 @@ You can create one or more dedicated groups and hosts in your {{site.data.keywor
 * IBM Cloud CLI
 * The vpc-infrastructure plugin
 
-2. Have an [{{site.data.keyword.vpc_short}} created](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
+2. Have an [{{site.data.keyword.vpc_short}} created](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli).
 
 ### Gathering information to create a dedicated group by using the CLI
 {: #gather-info-dedicated-group-cli}
@@ -204,7 +204,7 @@ ibmcloud is dedicated-host-group-create --zone us-south-1 --family memory --clas
 
 In the output, be sure to note the ID for the dedicated host group that is created. In this example the ID for myDedicatedHostGroup is `0076-edf611ff-0fd6-44bf-b5f3-102eeb3cf928`.
 
-For a full list of command options, see [ibmcloud is dedicated-host-group-create](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#dedicated-host-group-create).
+For a full list of command options, see [ibmcloud is dedicated-host-group-create](/docs/vpc?topic=vpc-vpc-reference#dedicated-host-group-create).
 
 ### Gathering information to create a dedicated host by using the CLI
 {: #gather-info-dedicated-host-cli}
@@ -242,7 +242,7 @@ ibmcloud is dedicated-host-create --profile mx2-host-152x1216 --host-group 0076-
 ```
 {: pre}
 
-For a full list of command options, see [ibmcloud is dedicated-host-create](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#dedicated-host-create).
+For a full list of command options, see [ibmcloud is dedicated-host-create](/docs/vpc?topic=vpc-vpc-reference#dedicated-host-create).
 
 
 ## Creating dedicated hosts and groups by using the API

@@ -36,7 +36,7 @@ To initiate sending VPN logs to {{site.data.keyword.la_full_notm}}, you need the
 
 To send IBM Cloud VPN for VPC logs in to an instance of {{site.data.keyword.la_full_notm}}, follow these steps:
 
-1. From the {{site.data.keyword.cloud_notm}} console, click the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) &gt; **Observability** to access the Observability dashboard.
+1. From the {{site.data.keyword.cloud_notm}} console, click the **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) &gt; **Observability** to access the Observability dashboard.
 1. Select **Logging**. The list of logging instances appears.
 1. Click **Options** &gt; **Edit platform**.
 1. Select the region where the VPN gateway is provisioned and the logging instance that the logs should be sent to. This ensures logs from all VPN gateways in the selected region are sent to the chosen logging instance.
@@ -48,7 +48,7 @@ To send IBM Cloud VPN for VPC logs in to an instance of {{site.data.keyword.la_f
 
 To view the {{site.data.keyword.cloud_notm}} {{site.data.keyword.vpn_vpc_short}} logs in the {{site.data.keyword.la_full_notm}} instance:
 
-1. Open the {{site.data.keyword.la_full_notm}} instance dashboard. 
+1. Open the {{site.data.keyword.la_full_notm}} instance dashboard.
 1. Apply the source filter for **is.vpn** to filter logs from {{site.data.keyword.vpn_vpc_short}}.
 1. Click the **Sources** filter menu.
 1. Click **Apply**.

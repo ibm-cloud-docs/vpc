@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-12-12"
+  years: 2021, 2024
+lastupdated: "2024-01-09"
 
 keywords: bare metal servers, baremetal, what is bare metal, about bare metal, bare metal features, bare metal benefits
 
@@ -71,7 +71,7 @@ You are responsible for security on your bare metal server. That means upgrading
 
 Pay-as-you-go bandwidth is per gigabyte. Your billing charges accrue from provision to cancellation, and are billed in arrears. Total pricing includes bare metal server instance profiles and software, internet data transfers, and optional VPC services. Each additional component is priced separately and included as part of your total IBM Cloud VPC charge. Service tiers are bound to your account, not to any specific VPC.
 
-For more information about pricing, see [Pricing](https://www.ibm.com/cloud/vpc/pricing#tab_2651670).
+For more information about pricing, see the [bare metal server provisioning page](https://cloud.ibm.com/vpc-ext/provision/bm){: external}.
 
 ## Bare Metal Servers for VPC versus bare metal servers on classic infrastructure
 {: #vs-classic-bare-metal}

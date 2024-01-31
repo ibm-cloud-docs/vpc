@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-12-18"
+  years: 2022, 2024
+lastupdated: "2024-01-05"
 
 keywords: Backup, backup snapshot, create backups, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -39,7 +39,7 @@ You can use the UI to create a backup policy and plan.
 
 Use the following steps to create a backup policy by using the UI.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Backup policies**. The **Create** tab is selected by default.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Backup policies**. The **Create** tab is selected by default.
 
    The UI displays a notification message when service-to-service authorizations are incorrect or missing on your account.
 
@@ -57,10 +57,10 @@ Use the following steps to create a backup policy by using the UI.
    | - Name       | Provide a unique name for your backup policy that easily identifies the policy. Standard naming conventions apply to policies, plans, and backups. For example, see the [naming conventions for Snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-naming). |
    | - Resource group | Optionally, specify a resource group for your policy. It can't be changed after you enter it. \n For more information, see [best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup). |
    | - Resource tags  | Optional tags to help you group and manage your backup policy. Consider writing tags as key:value pairs. For more information, see [Working with tags](/docs/account?topic=account-tag&interface=ui).|
-   | **Target resource type** [New]{: tag-new} | Choose between individual storage volumes or multiple volumes that are attached to the same virtual server instance. \n When you choose to create a policy to back up volumes that are attached to the same virtual server instance you can choose to include the boot volume, too. |
+   | **Target resource type**  | Choose between individual storage volumes or multiple volumes that are attached to the same virtual server instance. \n When you choose to create a policy to back up volumes that are attached to the same virtual server instance you can choose to include the boot volume, too. |
    | **Tags for target resources** | Specify the user tags to apply to your target resources ({{site.data.keyword.block_storage_is_short}} volumes or virtual server instances) in your selected region. If multiple resources use the same tag, backups are created for all tagged resources. If a resource has multiple tags, it needs to match only one tag that is associated with the backup policy. After the backup policy is created, existing resources with any of the tags for target resources are automatically associated. |
    | **Scope**    | This option is applicable only to Enterprise accounts. As an Enterprise account administrator, you can specify whether the backup policy applies to the Enterprise account alone or the Enterprise account and all of its subaccounts. Check the box to enable the policy for all accounts of the Enterprise. |
-   | **Plan**     | Click **Create** to create backup plan for this policy. In the side panel, specify the plan details. When finished, click **Create**. The page refreshes with a summary of the plan details. You can create up to four backup plans. All apply to the volumes with tags that match the backup policy. \n For more information about options, see [Specify a backup plan](#backup-plan-ui). |
+   | **Plan**     | Click **Create** to create backup plan for this policy. In the side panel, specify the plan details. When finished, click **Create**. The page refreshes with a summary of the plan details. You can create up to four backup plans. All apply to the volumes with tags that match the backup policy. \n For more information about options, see the next section. |
    {: caption="Table 1. Backup policy provisioning selections" caption-side="bottom"}
 
 1. Click **Create backup policy**. The order summary side panel shows the backup policy and all plans that were created for it.
@@ -71,7 +71,7 @@ If you're not ready to order yet or just looking for pricing information, you ca
 ### Creating a backup plan in the UI
 {: #backup-plan-ui}
 
-You can schedule backups in your plan on a daily, weekly, or monthly basis by using predefined settings, or by way of a `cron-spec` expression. The following steps continue from [Creating a backup policy](#backup-policy-create-ui) and describe the Create backup plan side panel.
+You can schedule backups in your plan on a daily, weekly, or monthly basis by using predefined settings, or by way of a `cron-spec` expression. The following steps describe the Create backup plan side panel.
 
 1. In the Create plane side panel, the plan status toggle is set to "enabled", by default.
 
@@ -122,7 +122,7 @@ You can schedule backups in your plan on a daily, weekly, or monthly basis by us
 
 Use the cost estimator to see what your backups might cost based on the rate of expected change in your {{site.data.keyword.block_storage_is_short}} volumes.
 
-1. After you [create your backup policy and plan](#backup-policy-create-ui), on the side panel of the Backup summary, click **Add to estimate**.
+1. After you create your backup policy and plan, on the side panel of the Backup summary, click **Add to estimate**.
 
 2. On the Estimate side panel, enter your expected usage to the initial costs. The backup policy is without charge. You pay for the amount of backup storage that is used. Provide the following estimates:
 
@@ -235,8 +235,6 @@ For more information about available command options, see [`ibmcloud is backup-p
 
 ### Creating a backup policy for consistency group from the CLI for an account
 {: #backup-create-policy-noplan-instance}
-
-[New]{: tag-new}
 
 Run the `ibmcloud is backup-policy-create` command to create a backup policy without a backup plan. Use the options `--match-resource-type`, `--included-content`,`--match-tags`, and `--name` to give your policy a name and identify the tag that you want to use for your target resources. After the policy is created, you can [add backup plans](#backup-create-plan-cli) to it later on.
 
@@ -723,8 +721,6 @@ A successful response looks like the following example.
 
 ### Creating a backup policy and plan for a consistency group of Block Storage volumes
 {: #backup-policy-create-api-instance}
-
-[New]{: tag-new}
 
 Make a `POST /backup_policies` request to create a new backup policy. The value of `match_resource_type` is `instance`. To create backups of only the data volumes, specify the `included_content` option as `data volumes`. If you want to include the boot volume in the backup operation, specify `boot-volume` as part of the `included_content` option as well. The `match_user_tags` property identifies the backup tags on the virtual server instance resources and associates the attached {{site.data.keyword.block_storage_is_short}} volumes with this policy and plan. In this example, the frequency of the backup plan is defined with a `cron_spec`, and only the data volumes are included in the backup.
 

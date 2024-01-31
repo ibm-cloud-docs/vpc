@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-12-18"
+  years: 2022, 2024
+lastupdated: "2024-01-04"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -11,6 +11,7 @@ subcollection: vpc
 ---
 
 {{site.data.keyword.attribute-definition-list}}
+<!--- comment: linked help topic -->
 
 # Viewing file shares and mount targets
 {: #file-storage-view}
@@ -83,10 +84,10 @@ The following table describes the information on the file share details page.
 | **File share replication relationship** | Shows the name, location, and status of the source and the replica file shares \n * If no replica file shares were created, click **Create replica** to [create one](/docs/vpc?topic=vpc-file-storage-create-replication). \n * To break the replication relationship, click **Remove replication relationship**. Then, the replica file share becomes an independent read/write file share.|
 | Replication frequency | Hover over the information icon to see an explanation of the cron replication schedule. |
 | Status | Replication status; for example, _suspended_ or _available_. |
-| Last sync start time [New]{: tag-new} | The date and time of the last replication start. |
-| Last sync completion time [New]{: tag-new} | The date and time of the last replication ended. |
-| Transfer rate [New]{: tag-new} | It shows the speed at which data was copied from the source file share to its replica during the last sync. |
-| Transfer amount [New]{: tag-new}| The amount of data that is copied from the source file share to its replica during the last sync. |
+| Last sync start time | The date and time of the last replication start. |
+| Last sync completion time | The date and time of the last replication ended. |
+| Transfer rate | It shows the speed at which data was copied from the source file share to its replica during the last sync. |
+| Transfer amount | The amount of data that is copied from the source file share to its replica during the last sync. |
 | Replication role | Source or replica file share. |
 | File share Name | Click the file share name to see its details. |
 | Location | It displays the zone information of the file share. |
@@ -112,7 +113,7 @@ You can see all file shares that have a mount target to a VPC by viewing the VPC
 2. Click the name of a file share to see the details page. 
 3. Scroll to the Mount targets section to see the list of mount targets. The list contains the names and statuses of the mount target, and the VPC that the mount target belongs to.
 4. Click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions") to reveal the Actions menu. The Actions menu has 3 options: Rename, View path, and Delete. 
-5. Click View path to see the mount path information that you can copy and paste in your mounting commands.
+5. Click **View path** to see the mount path information that you can copy and paste in your mounting commands.
 
 ## Viewing file share and mount targets from the CLI
 {: #file-storage-view-shares-targets-cli}
@@ -139,7 +140,7 @@ r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   my-file-share           stable      
 ```
 {: screen}
 
-For more information about the command options, see [`ibmcloud is shares`](/docs/vpc?topic=vpc-vpc-reference#shares).
+For more information about the command options, see [`ibmcloud is shares`](/docs/vpc?topic=vpc-vpc-reference#shares-list).
 
 ### Viewing details of a file share from the CLI
 {: #fs-share-details-cli}
@@ -220,7 +221,7 @@ Replication status reasons   Status code   Status message
 ```
 {: screen}
 
-For more information about the command options, see [`ibmcloud is share`](/docs/vpc?topic=vpc-vpc-reference#share).
+For more information about the command options, see [`ibmcloud is share`](/docs/vpc?topic=vpc-vpc-reference#share-view).
 
 ### View mount targets for a file share from the CLI
 {: #fs-view-mount-shares-cli}
@@ -235,7 +236,7 @@ r006-fdbffc45-618c-49f1-bb08-ec530d7be378   my-source-mount-target   my-vpc   st
 ```
 {: screen}
 
-For more information about the command options, see [`ibmcloud is share-mount-targets`](/docs/vpc?topic=vpc-vpc-reference#share-mount-targets).
+For more information about the command options, see [`ibmcloud is share-mount-targets`](/docs/vpc?topic=vpc-vpc-reference#share-mount-targets-list).
 
 ### View mount target details from the CLI
 {: #fs-get-mountpath-cli}
@@ -263,13 +264,13 @@ Created                     2023-10-19T15:42:54+00:00
 ```
 {: screen}
 
-For more information about the command options, see [`ibmcloud is share-mount-target`](/docs/vpc?topic=vpc-vpc-reference#share-mount-target).
+For more information about the command options, see [`ibmcloud is share-mount-target`](/docs/vpc?topic=vpc-vpc-reference#share-mount-target-view).
 
 ## View file shares and mount targets with the API
 {: #file-storage-view-shares-targets-api}
 {: api}
 
-You can programmatically view shares and mount targets by calling the `/shares` method in the [VPC API](/apidocs/vpc/latest#list-share){: external} as shown in the following sample requests.
+You can programmatically view shares and mount targets by calling the `/shares` method in the [VPC API](/apidocs/vpc/latest#list-shares){: external} as shown in the following sample requests.
 
 You must provide the `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/apidocs/vpc/latest#api-generation-parameter).
 {: requirement}
@@ -722,9 +723,16 @@ The attributes that are exported include ID, name, creation date, mount path, su
 
 For more information, see [ibm_is_share_target](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_share_target){: external}.
 
-
 ## Next steps
 {: #fs-view-next-steps}
 
-* [Create file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create).
-* [Manage your file shares](/docs/vpc?topic=vpc-file-storage-managing).
+Mount your file shares. Mounting is a process by which a server's operating system makes files and directories on the storage device available for users to access through the server's file system. For more information, see the following topics:
+* [IBM Cloud File Share Mount Helper utility](/docs/vpc?topic=vpc-fs-mount-helper-utility)
+* [Mounting file shares on Red Hat Linux](/docs/vpc?topic=vpc-file-storage-vpc-mount-RHEL).
+* [Mounting file shares in CentOS](/docs/vpc?topic=vpc-file-storage-mount-centos).
+* [Mounting file shares on Ubuntu](/docs/vpc?topic=vpc-file-storage-vpc-mount-ubuntu).
+* [Mounting file shares on z/OS](/docs/vpc?topic=vpc-file-storage-vpc-mount-zos)
+
+Manage your file shares and data.
+* [Manage your file shares](/docs/vpc?topic=vpc-file-storage-managing). You can rename a file share. You can increase its capacity and modify its IOPS. You can add mount targets to a file share. You can rename or delete a mount target. You can delete a file share when you no longer need it.
+* [Create a file share with replication](/docs/vpc?topic=vpc-file-storage-create-replication). With the replication feature, you can keep a read-only copy of your file share in another zone. The replica share is updated from the source share on a schedule that you specify. Replication provides a way to recover from an incident at the primary site, when data becomes inaccessible or an application fails. Replication can also be used for geographical expansion.

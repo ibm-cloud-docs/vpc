@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2023
-lastupdated: "2023-12-18"
+  years: 2019, 2024
+lastupdated: "2024-01-04"
 
 keywords:
 
@@ -39,7 +39,7 @@ You can detach a {{site.data.keyword.block_storage_is_short}} volume that is att
 
 To detach a volume, complete the following steps.
 
-1. Go to the list of all {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
+1. Go to the list of all {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
 1. Locate the volume and then, click the overflow icon (...) to open a list of options.
 1. From the options menu, click **Detach from instance**.
 1. Confirm by clicking **Detach instance** in the open window.
@@ -55,7 +55,7 @@ When you use a {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} ins
 To transfer a {{site.data.keyword.block_storage_is_short}} volume to another virtual server instance, complete the following steps.
 
 1. [Detach the volume from its virtual server instance](#detach).
-1. Go to the virtual server instance to which you want to transfer the volume. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
+1. Go to the virtual server instance to which you want to transfer the volume. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 1. Select a virtual server instance from the list.
 1. Under Attached Storage volumes, click the plus sign to add a volume. All {{site.data.keyword.block_storage_is_short}}are displayed.
 1. From the list of volumes, select the volume that you previously detached.
@@ -65,7 +65,7 @@ To transfer a {{site.data.keyword.block_storage_is_short}} volume to another vir
 
 A {{site.data.keyword.block_storage_is_short}} data volume is attached by default when you provision the volume during virtual server instance creation. When you detach a volume from an instance, it exists as an unattached volume and is displayed in the list of [all {{site.data.keyword.block_storage_is_short}} volumes](/docs/vpc?topic=vpc-viewing-block-storage#viewvols). You can attach it to another instance from the list of {{site.data.keyword.block_storage_is_short}} volumes.
 
-1. Go to the list of all {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
+1. Go to the list of all {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
 1. Locate the volume and then click overflow icon (...) to open a list of options.
 1. From the options menu, click **Attach to instance**.
 1. Select an available virtual server instance.
@@ -76,10 +76,10 @@ A {{site.data.keyword.block_storage_is_short}} data volume is attached by defaul
 
 You can change the name of an existing volume to make it more meaningful.
 
-1. Go to the list of all {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
+1. Go to the list of all {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
 1. Locate the volume and then click the name of the volume to go to the Volume Details page.
 1. Click the pencil icon after the name of the volume to edit the name. Provide a valid volume name.
-   Valid volume names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. Volume names must begin with a lowercase letter. Volume names must be unique across the entire VPC infrastructure. For example, if you create two volumes with the same name in the same account and region, a "volume name duplicate" error is triggered.
+   Valid volume names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. Volume names must begin with a lowercase letter. Volume names must be unique across the entire VPC infrastructure. For example, if you create two volumes with the same name in the same account and region, a `volume name duplicate` error is triggered.
    {: important}
 
 1. Confirm your edit.
@@ -90,7 +90,7 @@ You can change the name of an existing volume to make it more meaningful.
 
 Add user tags to {{site.data.keyword.block_storage_is_short}}from the list of volumes or the volumes details page.
 
-1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
+1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In [{{site.data.keyword.cloud_notm}} console)](/login){: external}, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
 2. Locate the volume from the list that you want to add user tags.
 3. In the **tags** column, click **Add tags**.
 4. In the Add tags menu, enter the user tags that you want to apply to this volume. Tags display as you type.
@@ -98,7 +98,7 @@ Add user tags to {{site.data.keyword.block_storage_is_short}}from the list of vo
    You can also add **access management tags** to a volume from the Add tags menu. For more information about creating and adding access management tags, see [Apply access management tags to a volume](#storage-add-access-mgt-tags).
    {: note}
 
-5. When you're done adding tags, click **Save**. When you refresh the screen, the list of {{site.data.keyword.block_storage_is_short}}shows the number of tags that are added in the **Tags** column.
+5. When you're done adding tags, click **Save**. When you refresh the screen, the list of {{site.data.keyword.block_storage_is_short}} shows the number of tags that are added in the **Tags** column.
 
 You can also add tags from the volume details page. To do so, follow these steps.
 
@@ -113,7 +113,7 @@ You can add user tags that are associated with a backup policy to a {{site.data.
 
 From the [volume details](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#view-vol-details-ui) page, you can view the backup policies that are applied to the volume and add user tags that are associated with a backup policy.
 
-1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
+1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In [{{site.data.keyword.cloud_notm}} console)](/login){: external}, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
 2. Locate the volume that you want and click the name link.
 3. From the {{site.data.keyword.block_storage_is_short}}details page, click the **Backup policies** tab.
 4. Click **Attach**.
@@ -122,7 +122,7 @@ From the [volume details](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui
 
 When you go to the [backup policy page](/docs/vpc?topic=vpc-backup-view-policies&interface=ui#backup-view-vol-backup-policies), the volume for which you added tags shows up in the list of volumes.
 
-For more information about creating backups, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-about). For more information about user tags, see [Working with tags](/docs/account?topic=account-tag).
+For more information about creating backups, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-service-about). For more information about user tags, see [Working with tags](/docs/account?topic=account-tag).
 
 ## Managing {{site.data.keyword.block_storage_is_short}} from the CLI
 {: #managing-block-storage-cli}
@@ -141,7 +141,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 
    This command returns a URL and prompts for a passcode. Go to that URL in your browser and log in. If successful, you get a one-time passcode. Copy this passcode and paste it as a response on the prompt. After successful authentication, you are prompted to choose your account. If you have access to multiple accounts, select the account that you want to log in as. Respond to any remaining prompts to finish logging in.
 
-2. Select the current generation of VPC. 
+2. Select the current generation of VPC.
    ```sh
    ibmcloud is target --gen 2
    ```
@@ -162,27 +162,27 @@ See the following example.
 ```sh
 $ ibmcloud is volume-update r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac --name demo-volume-update
 Updating volume 933c8781-f7f5-4a8f-8a2d-3bfc711788ee under account Test Account as test.user@ibm.com...
-ID                                     r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   
-Name                                   demo-volume-update   
-CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a123456::volume:r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   
-Status                                 available   
-Attachment state                       unattached   
-Capacity                               100   
-IOPS                                   3000   
-Bandwidth(Mbps)                        393   
-Profile                                general-purpose   
-Encryption key                         -   
-Encryption                             provider_managed   
-Resource group                         defaults   
-Created                                2023-06-29T16:14:59+00:00   
-Zone                                   us-east-1   
-Health State                           ok   
-Volume Attachment Instance Reference   -   
-Active                                 false   
-Unattached capacity update supported   false   
-Unattached iops update supported       false   
-Busy                                   false   
-Tags                                   -   
+ID                                     r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac
+Name                                   demo-volume-update
+CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a123456::volume:r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac
+Status                                 available
+Attachment state                       unattached
+Capacity                               100
+IOPS                                   3000
+Bandwidth(Mbps)                        393
+Profile                                general-purpose
+Encryption key                         -
+Encryption                             provider_managed
+Resource group                         defaults
+Created                                2023-06-29T16:14:59+00:00
+Zone                                   us-east-1
+Health State                           ok
+Volume Attachment Instance Reference   -
+Active                                 false
+Unattached capacity update supported   false
+Unattached iops update supported       false
+Busy                                   false
+Tags                                   -
 ```
 {: screen}
 
@@ -201,18 +201,18 @@ Use the `--name` option and specify a new name for the volume attachment. Specif
 ```sh
 $ ibmcloud is instance-volume-attachment-update kj-test-ro otp1 --name one-true-pairing --auto-delete false
 Updating volume attachment otp1 of instance kj-test-ro under account Test Account as user test.user@ibm.com...
-                     
-ID                0757-6757e676-0bf5-4b79-9a5b-29c24e17420c   
-Name              one-true-pairing   
-Volume            ID                                          Name      
-                  r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   demo-volume-update      
-                     
-Status            attached   
-Bandwidth(Mbps)   393   
-Type              data   
-Device            0757-6757e676-0bf5-4b79-9a5b-29c24e17420c-bxsh7   
-Auto delete       false   
-Created           2023-06-29T18:14:57+00:00  
+
+ID                0757-6757e676-0bf5-4b79-9a5b-29c24e17420c
+Name              one-true-pairing
+Volume            ID                                          Name
+                  r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   demo-volume-update
+
+Status            attached
+Bandwidth(Mbps)   393
+Type              data
+Device            0757-6757e676-0bf5-4b79-9a5b-29c24e17420c-bxsh7
+Auto delete       false
+Created           2023-06-29T18:14:57+00:00
 ```
 {: screen}
 
@@ -223,7 +223,7 @@ For more information about available command options, see [`ibmcloud is instance
 {: help}
 {: support}
 
-Use the `instance-volume-attachment-detach` command to detach a volume from an instance and delete the volume attachment. The {{site.data.keyword.block_storage_is_short}} volume is not deleted; you can later [attach it to another instance](/docs/vpc?topic=vpc-attaching-block-storage-cli).
+Use the `instance-volume-attachment-detach` command to detach a volume from an instance and delete the volume attachment. The {{site.data.keyword.block_storage_is_short}} volume is not deleted; you can later [attach it to another instance](/docs/vpc?topic=vpc-attaching-block-storage&interface=cli#attaching-block-storage-cli).
 
 In the syntax for this command, INSTANCE is the ID or name of the instance. VOLUME_ATTACHMENT is the ID or name of the volume attachment. You can specify multiple volume attachments. For more information about volume attachments, see the CLI reference for [creating a volume attachment](/docs/vpc?topic=vpc-vpc-reference&interface=cli#instance-volume-attachment-add).
 
@@ -395,7 +395,7 @@ With the [Global Search and Tagging API](/docs/account?topic=account-tag&interfa
 
 Add an access management tag to an existing volume or when you [create a volume](/docs/vpc?topic=vpc-creating-block-storage). To add access management tags to an existing volume, complete the following steps.
 
-1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
+1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
 2. Locate the volume from the list.
 3. In the **tags** column, click **Add tags**.
 4. In the Add tags menu, enter the access management tags in the access management tag field. Tags that you created display as you type.
@@ -435,7 +435,7 @@ You cannot delete an active {{site.data.keyword.block_storage_is_short}} volume.
 
 To delete a volume, complete the following steps.
 
-1. Go to the list of all {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
+1. Go to the list of all {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
 1. Locate the volume that you want to delete and then click the overflow icon (...) to open a list of options.
 1. From the options menu, click **Delete**.
 1. Confirm the deletion.
@@ -451,7 +451,7 @@ You don't need to set automatic deletion for boot volumes. Boot volumes are crea
 
 To enable Auto Delete for an existing {{site.data.keyword.block_storage_is_short}} data volume that is attached to an instance, follow these steps:
 
-1. Locate the virtual server instance to which the data volume is attached. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
+1. Locate the virtual server instance to which the data volume is attached. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 1. Under **Attached {{site.data.keyword.block_storage_is_short}} volumes**, select a volume.
 1. On the next page, click **Auto Delete** to enable.
 1. Confirm your selection.
@@ -503,7 +503,7 @@ To verify that the volume is deleted, list the volumes by making a `GET /volumes
 ### Sanitizing your data before you delete a volume
 {: #block-storage-sanitization}
 
-When you delete a {{site.data.keyword.block_storage_is_short}} volume, IBM guarantees that your data is inaccessible on the physical disk and is eventually [eradicated](#block-storage-data-eradication). If you have extra compliance requirements such as NIST 800-88 Guidelines for Media Sanitization, you must perform data sanitation procedures before you delete your volumes. For more information, see the [NIST 800-88 Guidelines for Media Sanitation](https://csrc.nist.gov/publications/detail/sp/800-88/rev-1/final){: external}.
+When you delete a {{site.data.keyword.block_storage_is_short}} volume, IBM guarantees that your data is inaccessible on the physical disk and is eventually [eradicated](#block-storage-data-eradication). If you have extra compliance requirements such as NIST 800-88 Guidelines for Media Sanitization, you must perform data sanitation procedures before you delete your volumes. For more information, see the [NIST 800-88 Guidelines for Media Sanitation](https://csrc.nist.gov/pubs/sp/800/88/r1/final){: external}.
 
 Sanitizing and deleting the volume means your data can't be restored.
 
@@ -516,7 +516,7 @@ With Administrator privileges, you can assign volume-level user access to the {{
 |--------|-------------|
 | Services | Select **Infrastructure Services**. |
 | Resource Type | Select **Block Storage for VPC**. |
-| Volume ID | Enter the [volume ID](/docs/vpc?topic=vpc-viewing-block-storage#view-vol-details) to assign access to a specific volume. |
+| Volume ID | Enter the [volume ID](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#view-vol-details-ui) to assign access to a specific volume. |
 | Select Roles | Assign platform access roles, typically, Operator. |
 {: caption="Table 1. Information for IAM" caption-side="bottom"}
 

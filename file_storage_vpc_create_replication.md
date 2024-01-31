@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2022, 2023
+  years: 2022, 2024
 lastupdated: "2023-12-12"
 
 keywords: file share, file storage, source volume, replica share, 
@@ -222,7 +222,6 @@ Replication status reasons   Status code   Status message
    ```
    {: screen}
 
-[New]{: tag-new}
 When you create a replica of a file share in another region, you must use the CRN of the source file share. If the source file share has `user_managed` encryption, you must provide the `encryption_key`. The `encryption_key` value must not be specified otherwise. See the following example.
 
 ```sh
@@ -326,7 +325,6 @@ curl -X POST \
 ```
 {: pre}
 
-[New]{: tag-new}
 When you create a replica of a file share in another region, you must use the CRN of the source file share. If the source file share has `user_managed` encryption, you must provide the `encryption_key`. The `encryption_key` value must not be specified otherwise.
 {: requirement}
 
@@ -368,7 +366,6 @@ resource "ibm_is_share" "my-replica" {
 ```
 {: screen}
 
-[New]{: tag-new}
 When you create a replica of a file share in another region, you must use the CRN of the source file share. If the source file share has `user_managed` encryption, you must provide the `encryption_key`. The `encryption_key` value must not be specified otherwise. See the following example.
 
 ```terraform

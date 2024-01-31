@@ -6,8 +6,7 @@ lastupdated: "2023-01-23"
 
 keywords: IBM Cloud monitoring, vpc monitoring, dashboards, dashboard
 
-subcollection: cloud-infrastructure
-
+subcollection: vpc
 ---
 
 {{site.data.keyword.attribute-definition-list}}

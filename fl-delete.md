@@ -31,7 +31,7 @@ To delete a flow log collector, click the Actions menu ![Actions menu](images/ov
 {: #fl-deleting-cli}
 {: cli}
 
-Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 To delete a flow log collector by using the CLI, run the following command:
 

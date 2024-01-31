@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2022, 2023
+  years: 2022, 2024
 lastupdated: "2023-12-18"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
@@ -180,7 +180,7 @@ The new volume appears in the list of Storage volumes. Hover over the camera ico
 
 Use the CLI to create a boot or data volume from a backup snapshot. The commands are the same as the ones that are used to restore a volume from a manually created snapshot. For more information, see [Restore a volume from a snapshot with the CLI](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=cli#snapshots-vpc-restore-CLI).
 
-For more information about all backup service commands, see the [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+For more information about all backup service commands, see the [VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference&interface=ui#backup-policy).
 
 ## Restoring a volume from a backup snapshot with the API
 {: #baas-vpc-restore-API}

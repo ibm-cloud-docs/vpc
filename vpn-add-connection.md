@@ -53,7 +53,7 @@ To add a VPN connection to an existing VPN gateway, follow these steps:
 {: #vpn-using-cli-add-connection}
 {: cli}
 
-Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 To create a VPN connection from the CLI, enter the following command:
 
@@ -99,7 +99,7 @@ Where:
 {: #vpn-using-cli-vpn-gateway-connection-local-cidr-add}
 {: cli}
 
-Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 To add a local CIDR to a VPN gateway connection from the CLI, enter the following command:
 
@@ -130,7 +130,7 @@ Where:
 {: #vpn-using-cli-vpn-gateway-connection-peer-cidr-add}
 {: cli}
 
-Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 To add a peer CIDR to a VPN gateway connection from the CLI, enter the following command:
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-12-18"
+  years: 2021, 2024
+lastupdated: "2024-01-05"
 
 keywords:
 
@@ -38,8 +38,6 @@ You can restore volumes at various stages of the VPC lifecycle.
 * When you provision a virtual server instance, you can specify a snapshot of a boot or a snapshot of data volume. The restored boot volume is used to start the new instance. Restored data volumes are automatically attached to the instance as auxiliary storage.
 * When you want to add a new auxiliary storage to your existing instance, you can restore a data volume from a nonbootable snapshot.
 * When you create an unattached (stand-alone) {{site.data.keyword.block_storage_is_short}} volume from a snapshot, you can still attach the volume to an instance later.
-
-[New]{: tag-new}
 
 Restoring an instance directly from snapshot consistency group identifier is not supported. However, you can restore a virtual server instance by restoring all of its boot and data volumes from the snapshots that are part of a consistency group. 
 
@@ -121,7 +119,7 @@ From the list of {{site.data.keyword.block_storage_is_short}} snapshots, you can
 
 Follow these steps to create a volume from the snapshot details page in the UI.
 
-1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes and select a volume. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Storage > Block Storage volumes**.
+1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes and select a volume. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
 2. On the {{site.data.keyword.block_storage_is_short}} volume details page, select the **Snapshots and Backups** tab. A list of snapshots that were created manually or by backup policies is shown.
 3. From the list, click the snapshot name to go to its details page.
 4. From the **Actions** menu, click **Create volume**.
@@ -131,11 +129,9 @@ Follow these steps to create a volume from the snapshot details page in the UI.
 ### Creating volumes for a virtual server instance from a consistency group
 {: #snapshots-vpc-restore-cr-details-ui}
 
-[New]{: tag-new}
-
 Follow these steps to create volumes for virtual server instance from the consistency groups page in the UI.
 
-1. Go to the list of {{site.data.keyword.block_storage_is_short}} snapshot consistency groups. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Storage > Block Storage snapshots**.
+1. Go to the list of {{site.data.keyword.block_storage_is_short}} snapshot consistency groups. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage snapshots**.
 1. Select a snapshot consistency group from the list. It must be in a `stable` state.
 1. From the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Actions"), select **Create virtual server**.
    * If the group has more than one bootable snapshot, you can choose the one that you want to use for the boot volume of the new virtual server instance. Then, click **Configure virtual server**.
@@ -152,7 +148,7 @@ Follow these steps to create volumes for virtual server instance from the consis
 
 Follow these steps to create a boot and a data volume from snapshots when you provision a new virtual server instance.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Compute> Virtual server instances**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute> Virtual server instances**.
 2. Click **Create** and provision your new instance. For more information about the required fields, see the table in [Creating virtual server instances in the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
 3. For the operating system, click **Change image**, then click the tab for **Snapshots**. The most recent bootable snapshot is listed.
    * If you want to use a different snapshot, click **Edit**. From the list of snapshots, select a bootable snapshot for your instance's operating system. Click **Save**. This action populates the snapshot data in the boot volume field on the provisioning page.
@@ -170,7 +166,7 @@ Follow these steps to create a boot and a data volume from snapshots when you pr
 
 You can also create a data volume from a snapshot for an existing instance. Choose from the list of virtual server instances.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Compute> Virtual server instances**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute> Virtual server instances**.
 2. From the list, click the name of an instance. The instance must be in a _running_ state.
 3. On the Instance details page, scroll to the list of Storage volumes and click **Attach volumes**. A side panel opens for you to define the volume attachment.
 4. From the Attach storage volume panel, expand the list of Block Volumes, and select **Create a data volume**.
@@ -326,11 +322,11 @@ For more information about available command options, see [`ibmcloud is volume-c
 {: #snapshots-vpc-restore-API}
 {: api}
 
-You can programmatically restore a volume during instance provisioning by calling the `/instances` method in the [VPC API](/apidocs/latest#create-instance){: external} as shown in the following sample request. You can also create a stand-alone volume by calling the `/volumes` method in the [VPC API](/apidocs/latest#create-volume).
+You can programmatically restore a volume during instance provisioning by calling the `/instances` method in the [VPC API](/apidocs/vpc/latest#create-instance){: external} as shown in the following sample request. You can also create a stand-alone volume by calling the `/volumes` method in the [VPC API](/apidocs/vpc/latest#create-volume).
 
 Before you begin, gather information about the snapshot or snapshots that you want to use to restore a volume or volumes.
-   - If you want to restore a volume from a single snapshot, locate the snapshot first and view its details. You can use the API to [list all the snapshots of an account in a region](/apidocs/latest#list-snapshots){: external} and select from the list. Then, [retrieve the snapshot](/apidocs/latest#get-snapshot){: external} details.
-   - If you want to restore an instance by restoring multiple volumes from a consistency group, you need to gather information about the snapshots in the consistency group. [List all the consistency groups in the region](/apidocs/vpc-scoped#list-snapshot-consistency-groups){: external}. Then, take the ID of the consistency group that you want to restore and use it to [retrieve the snapshot consistency group](/apidocs/vpc-scoped#get-snapshot-consistency-group){: external} details.
+   - If you want to restore a volume from a single snapshot, locate the snapshot first and view its details. You can use the API to [list all the snapshots of an account in a region](/apidocs/vpc/latest#list-snapshots){: external} and select from the list. Then, [retrieve the snapshot](/apidocs/vpc/latest#get-snapshot){: external} details.
+   - If you want to restore an instance by restoring multiple volumes from a consistency group, you need to gather information about the snapshots in the consistency group. [List all the consistency groups in the region](/apidocs/vpc/latest#list-snapshot-consistency-groups){: external}. Then, take the ID of the consistency group that you want to restore and use it to [retrieve the snapshot consistency group](/apidocs/vpc/latest#get-snapshot-consistency-group){: external} details.
 
 ### Creating a boot volume when you provision an instance with the API
 {: #snapshots-vpc-restore-boot-api}

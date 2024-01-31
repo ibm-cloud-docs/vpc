@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2019, 2021
+  years: 2019, 2024
 
-lastupdated: "2021-08-09"
+lastupdated: "2024-01-26"
 
 keywords:
 
@@ -101,7 +101,7 @@ This example illustrates general cases only. In your scenarios, you might want t
 ### Example steps
 {: #acl-example-steps}
 
-The following example steps skip the prerequisite steps of using the CLI to create a VPC, which must be done first. For more information, see [Using the CLI to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
+The following example steps skip the prerequisite steps of using the CLI to create a VPC, which must be done first. For more information, see [Using the CLI to create VPC resources](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli).
 
 #### Step 1. Create the ACLs
 {: #step-1-create-the-acls}
@@ -274,8 +274,8 @@ ibmcloud is network-acl-rule-add 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3 allow inbo
 
 These links provide additional information about {{site.data.keyword.cloud_notm}} ACLs for VPC.
 
-* [Network ACL CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#network-acls)
+* [Network ACL CLI reference](/docs/vpc?topic=vpc-vpc-reference#network-acls)
 * [Network ACL API reference](/apidocs/vpc/latest#list-network-acls)
-* [Network ACL required permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls#network-acl-authorizations-required-for-api-and-cli-calls)
+* [Network ACL required permissions](/docs/account?topic=account-iam-service-roles-actions#is.network-acl-roles)
 * [Network ACL Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-network-acl)
 * [Network ACL quotas](/docs/vpc?topic=vpc-quotas#acl-quotas)

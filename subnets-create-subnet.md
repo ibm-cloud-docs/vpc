@@ -33,7 +33,7 @@ Before you begin, you must be assigned one or more IAM access roles that include
 
 You can create a subnet in VPC by using the UI, CLI, or API.
 
-If you use an IP range outside of the ranges [RFC 1918](https://tools.ietf.org/html/rfc1918){: external} defines (10.0.0.0/8, 172.16.0.0/12, or 192.168.0.0/16) for a subnet, the instances attached to that subnet might be unable to reach parts of the public internet. If you plan to configure VPCs that use both non-RFC-1918 addresses and also have public connectivity (floating IPs or public gateways), make sure to use a custom route that contains the Delegate-VPC action.
+If you use an IP range outside of the ranges [RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918){: external} defines (10.0.0.0/8, 172.16.0.0/12, or 192.168.0.0/16) for a subnet, the instances attached to that subnet might be unable to reach parts of the public internet. If you plan to configure VPCs that use both non-RFC-1918 addresses and also have public connectivity (floating IPs or public gateways), make sure to use a custom route that contains the Delegate-VPC action.
 {: tip}
 
 ### Creating subnets in VPC using the UI
@@ -43,7 +43,7 @@ If you use an IP range outside of the ranges [RFC 1918](https://tools.ietf.org/h
 To create a subnet in your VPC instance, take the following steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
-1. Select the navigation menu icon ![navigation menu](../icons/icon_hamburger.svg), then click **VPC Infrastructure**.
+1. Select the **Navigation Menu** ![navigation menu](../icons/icon_hamburger.svg), then click **VPC Infrastructure**.
 1. Click **Subnets**.
 1. Click **Create +** on the Subnets for VPC list table.
 1. In the Location section, provide the following information:

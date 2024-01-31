@@ -89,5 +89,5 @@ For each DNS-shared VPC:
 {: #dns-hub-spoke-related-links}
 
 * [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-dns-resolution-bindings)
-* [IAM permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls#dns-resolution)
+* [IAM permissions](/docs/vpc?topic=vpc-at-events#events-dns-resolution-bindings)
 * [Troubleshooting issues](/docs/vpc?topic=vpc-troubleshoot-hub-spoke-1)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-12-18"
+lastupdated: "2023-01-30"
 
 keywords: creating bare metal servers
 
@@ -24,7 +24,7 @@ Use the following information to create a bare metal server on your {{site.data.
 
 Use the following steps to create a bare metal server by using the {{site.data.keyword.cloud}} console. You can also check out the following [video](https://mediacenter.ibm.com/media/t/1_j2pdfua6){: external} to learn more about creating a bare metal server.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**.
 
 1. Click **Create** and enter the information that is in Table 1.
 
@@ -329,12 +329,12 @@ Before you can use the CLI to create bare metal server, you need to gather the i
 
 | Server details | Listing options |
 |---------|---------|
-| Image | [List all images](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#images) |
-| Keys | [List all keys](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#keys)  \n  \n If you don't have any available SSH keys, use [Create a key](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#key-create) to create one.  \n  \n **Note:**  SSH keys can either be RSA or Ed25519. You can generate new RSA key pairs using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images.  \n For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
-| Subnet | [List all subnets](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#subnets) |
-| Security groups (optional) | [List all security groups](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#security-groups) |
-| Profile | [List all bare metal server profiles](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#bare-metal-server-profiles) |
-| Zone | [List all regions](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#regions)  \n List all zones in a region](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#zones) |
+| Image | [List all images](/docs/vpc?topic=vpc-vpc-reference#images) |
+| Keys | [List all keys](/docs/vpc?topic=vpc-vpc-reference#keys)  \n  \n If you don't have any available SSH keys, use [Create a key](/docs/vpc?topic=vpc-vpc-reference#key-create) to create one.  \n  \n **Note:**  SSH keys can either be RSA or Ed25519. You can generate new RSA key pairs using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images.  \n For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
+| Subnet | [List all subnets](/docs/vpc?topic=vpc-vpc-reference#subnets) |
+| Security groups (optional) | [List all security groups](/docs/vpc?topic=vpc-vpc-reference#security-groups) |
+| Profile | [List all bare metal server profiles](/docs/vpc?topic=vpc-vpc-reference#bare-metal-server-profiles) |
+| Zone | [List all regions](/docs/vpc?topic=vpc-vpc-reference#regions)  \n List all zones in a region](/docs/vpc?topic=vpc-vpc-reference#zones) |
 {: caption="Table 3. Information that you need to create a bare metal server by using the CLI" caption-side="bottom"}
 
 ### Creating a bare metal server

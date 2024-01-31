@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-12-14"
+  years: 2020, 2024
+lastupdated: "2024-01-04"
 
 keywords: data encryption, data storage, bring your own keys, BYOK, key management, key encryption, personal data, data deletion, data security
 
@@ -27,7 +27,7 @@ All Block Storage volumes are encrypted by default with IBM-managed encryption. 
 
 For more security and control, you can protect your data with your own root keys (also called a customer root key or CRK). This feature is commonly called Bring Your Own Key, or BYOK. Root keys encrypt the keys that safeguard your data. You can import your root keys to {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}, or have either key management service create one for you.
 
-The KMS stores your key and makes it available during volume and custom image encryption. {{site.data.keyword.keymanagementserviceshort}} provides FIPS 140-2 Level 3 compliance. Hyper Protect Crypto Services offers the highest level of security with FIPS 140-2 Level 4 compliance. Your key material is protected in transit (when it's transported) and at rest (when it is stored).
+The KMS stores your key and makes it available during volume and custom image encryption.  {{site.data.keyword.keymanagementserviceshort}}  provides FIPS 140-2 Level 3 compliance. Hyper Protect Crypto Services offers the highest level of security with FIPS 140-2 Level 4 compliance. Your key material is protected in transit (when it's transported) and at rest (when it is stored).
 
 Customer-managed encryption is available for custom images, boot volumes, and data volumes. When an instance is provisioned from an encrypted custom image, its boot volume is encrypted by using the image’s root key. You can also choose a different root key. Data volumes are encrypted by using root keys when you provision a virtual server instance or when you create a stand-alone volume.
 
@@ -35,7 +35,7 @@ Images and volumes are often referred to as being encrypted with a root key when
 
 For example, if you provision two volumes by using the same root key, unique passphrases are generated for each volume, which are then encrypted with the root key. Envelope encryption provides more protection for your data, and ensures that the root key can be rotated without having to reencrypt the data. For more information about envelope encryption, see [Protecting your sensitive data in VPC](#data-encryption).
 
-All your interaction with {{site.data.keyword.vpn_vpc_short}} is encrypted. For example, when you use an API or interact with the service through the User Interface to configure VPN gateways and VPN connections, all such interactions are encrypted end-to-end. Likewise, data elements that are related to your configuration are encrypted in transit and at rest. No personal or sensitive data is stored, processed, or transmitted. Data at rest is stored in an encrypted database.
+All your interaction with {{site.data.keyword.vpn_vpc_short}} is encrypted. For example, when you use an API or interact with the service through the console to configure VPN gateways and VPN connections, all such interactions are encrypted end-to-end. Likewise, data elements that are related to your configuration are encrypted in transit and at rest. No personal or sensitive data is stored, processed, or transmitted. Data at rest is stored in an encrypted database.
 
 After the {{site.data.keyword.vpn_vpc_short}} is provisioned and the network connections are created, the encryption of data that you choose to transmit across the network is your responsibility.
 
@@ -44,7 +44,7 @@ After the {{site.data.keyword.vpn_vpc_short}} is provisioned and the network con
 
 The instance storage disk or disks, which are attached to the virtual server instance, cannot be shared with any other virtual servers and cannot be accessed by any other virtual servers in the future. They are one-time use, single-attach, for the virtual server that requested the instance storage.
 
-Instance storage data is secured with on-disk encryption. The physical disks that are used for instance storage are self-encrypting with the strong AES-256 encryption standard. The data is automatically decrypted when your instance accesses the data. When your instance is shut down or deleted, the underlying storage space is erased and unrecoverable. At that point, the data is unrecoverable. For more information, see [Introduction to encryption](/docs/key-protect?topic=key-protect-basics).
+Instance storage data is secured with on-disk encryption. The physical disks that are used for instance storage are self-encrypting with the strong AES-256 encryption standard. The data is automatically decrypted when your instance accesses the data. When your instance is shut down or deleted, the underlying storage space is erased and unrecoverable. At that point, the data is unrecoverable.
 
 Data is automatically encrypted on the physical media at the drive level. However, customer-managed keys are not supported for instance storage. For sensitive data, it is strongly recommended that users utilize software-based file system encryption such as LUKS for Linux&reg; or BitLocker for Windows&reg;. This technology allows end users to encrypt entirely within the instance, and can provide additional protection for sensitive data in-transit between the instances and the physical drive media. Some operating systems also provide FIPS certified encryption algorithms that may also be used. See [Encrypting block devices using LUKS](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/security_hardening/encrypting-block-devices-using-luks_security-hardening) for an example of how to encrypt on Red Hat Enterprise Linux&reg; however, refer to the Operating System documentation or specific information on how to encrypt each device.
 
@@ -53,7 +53,7 @@ Data is automatically encrypted on the physical media at the drive level. Howeve
 
 {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} provide a higher level of protection called envelope encryption.
 
-[Envelope encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-envelope-ecryption-byok) encrypts one encryption key with another encryption key. A DEK encrypts your actual data. The DEK is never stored. Rather, it's encrypted by a key encryption key. The LUKS passphrase is then encrypted by a root key, which creates a WDEK. To decrypt data, the WDEK is unwrapped so you can access the data that's stored on the volume. This process is possible only by accessing the root key that is stored in your KMS instance. Root keys in {{site.data.keyword.hscrypto}} instances are also protected by a [hardware security module (HSM)](#x6704988){: term} master key.
+[Envelope encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-envelope-encryption-byok) encrypts one encryption key with another encryption key. A DEK encrypts your actual data. The DEK is never stored. Rather, it's encrypted by a key encryption key. The LUKS passphrase is then encrypted by a root key, which creates a WDEK. To decrypt data, the WDEK is unwrapped so you can access the data that's stored on the volume. This process is possible only by accessing the root key that is stored in your KMS instance. Root keys in {{site.data.keyword.hscrypto}} instances are also protected by a [hardware security module (HSM)](#x6704988){: term} master key.
 
 You control access to your root keys stored in KMS instances within {{site.data.keyword.cloud}} by using {{site.data.keyword.iamlong}} (IAM). You grant access to a service to use your keys. You can also revoke access at any time, for example, if you suspect your keys might be compromised, or [delete your root keys](#delete-root-keys).
 
@@ -66,7 +66,7 @@ For Block Storage volumes and encrypted images, you can rotate the root keys for
 
 Consider regional and cross-regional implications when you choose to use customer-managed encryption. For more information, see [Regional and cross regional considerations](/docs/vpc?topic=vpc-vpc-encryption-about#byok-cross-region-keys).
 
-With {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} you can create, import, and manage your root keys. You can assign access policies to the keys, assign users or service IDs to the keys, or give the key access only to a specific service. The first 20 keys are without cost.
+With  {{site.data.keyword.keymanagementserviceshort}}  or {{site.data.keyword.hscrypto}} you can create, import, and manage your root keys. You can assign access policies to the keys, assign users or service IDs to the keys, or give the key access only to a specific service. The first 20 keys are without cost.
 
 ### About customer-managed encrypted volumes and images
 {: #about-encryption_volumes-images}
@@ -137,5 +137,5 @@ To delete all persisted data that {{site.data.keyword.vpc_short}} stores, choose
 Removing your personal and sensitive information requires all of your {{site.data.keyword.vpc_short}} resources to be deleted as well. Make sure that you back up your data before you proceed.
 {: note}
 
-* Open an {{site.data.keyword.cloud_notm}} support case. Contact IBM Support to remove your personal and sensitive information from {{site.data.keyword.vpc_short}}. For more information, see [Getting support](/docs/get-support?topic=get-support-getting-customer-support).
+* Open an {{site.data.keyword.cloud_notm}} support case. Contact IBM Support to remove your personal and sensitive information from {{site.data.keyword.vpc_short}}. For more information, see [Using the Support Center](/docs/get-support?topic=get-support-using-avatar).
 * End your {{site.data.keyword.cloud_notm}} subscription. After you end your {{site.data.keyword.cloud_notm}} subscription, {{site.data.keyword.vpc_short}} deletes all service resources that you created, which includes all persisted data that is associated with those resources.

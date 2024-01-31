@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-12-18"
+  years: 2020, 2024
+lastupdated: "2024-01-23"
 
 keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
 
@@ -18,10 +18,10 @@ subcollection: vpc
 The {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) conducts periodic health checks to monitor the health of the back-end ports, and it forwards client traffic to them accordingly. If a back-end server port is found to be unhealthy, no new connections are forwarded to it. The load balancer continues to monitor the health of unhealthy ports, and it resumes their use if they become healthy again, which means that they successfully pass the user-defined health check attempts.
 {: shortdesc}
 
-You can configure health checks when [creating a application load balancer](/docs/vpc?topic=vpc-load-balancer#load-balancer), or afterwards by performing the following procedure:
+You can configure health checks when [creating a application load balancer](/docs/vpc?topic=vpc-load-balancers&interface=ui), or afterwards by performing the following procedure:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Load balancers**.
+1. Select the **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Load balancers**.
 1. Click on the ALB you want to change.
 1. On the ALB details page, click the back-end pools tab then select the pool you want to edit.
 1. Select the new options for your health checks. You have the following options:

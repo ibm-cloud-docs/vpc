@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-09-26"
+  years: 2022, 2024
+lastupdated: "2024-01-04"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, faqs
 
@@ -28,7 +28,7 @@ To create a backup policy and plans and for the backup jobs to run correctly, mu
 {: faq}
 {: #faq-baas-ee-2}
 
-When you log in any of the child accounts in the UI, you can view the AIM authorizations by clicking **Manage > Access (IAM) > Authorizations**. 
+When you log in any of the child accounts in the UI, you can view the IAM authorizations by clicking **Manage > Access (IAM) > Authorizations**. 
 
 If any of the required authorizations are missing, the backup job fails. When the backup job fails for this reason, an error message is generated that looks like the following example.
 
@@ -99,7 +99,7 @@ ibmcloud enterprise show
 ### Obtain enterprise CRN in the UI
 {: #faq-baas-ee-5-ui}
 
-In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the enterprise dashboard. From there, you can view the enterprise details, accounts, users, and billing information. For more information, see [What is an enterprise](https://test.cloud.ibm.com/docs/secure-enterprise?topic=secure-enterprise-what-is-enterprise).
+In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the enterprise dashboard. From there, you can view the enterprise details, accounts, users, and billing information. For more information, see [What is an enterprise](/docs/secure-enterprise?topic=secure-enterprise-what-is-enterprise).
 
 ### Obtain enterprise CRN from the CLI
 {: #faq-baas-ee-5-cli}

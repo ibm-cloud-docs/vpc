@@ -35,7 +35,7 @@ To initiate sending VPN logs to {{site.data.keyword.la_full_notm}}, you need the
 
 To send {{site.data.keyword.cloud_notm}} {{site.data.keyword.vpn_vpc_short}} logs in to an instance of {{site.data.keyword.la_full_notm}}, follow these steps:
 
-1. From the {{site.data.keyword.cloud_notm}} console, click the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) &gt; **Observability** to access the Observability dashboard.
+1. From the {{site.data.keyword.cloud_notm}} console, click the **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) &gt; **Observability** to access the Observability dashboard.
 1. Select **Logging**. The list of logging instances appears.
 1. Click **Options** &gt; **Edit platform**.
 1. Select the region where the VPN server is provisioned and the logging instance that the logs should be sent to. This ensures logs from all VPN servers in the selected region are sent to the chosen logging instance.

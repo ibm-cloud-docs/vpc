@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-12-18"
+  years: 2021, 2024
+lastupdated: "2024-01-04"
 
 keywords: snapshots, Block Storage snapshots, manage snapshots, fast restore clone, backup snapshot, remote copy, cross-regional copy
 
@@ -107,7 +107,7 @@ Tags                   -
 ```
 {: screen}
 
-For more information about available command options, see [`ibmcloud is snapshots`](/docs/vpc?topic=vpc-vpc-reference#snapshots).
+For more information about available command options, see [`ibmcloud is snapshots`](/docs/vpc?topic=vpc-vpc-reference#snapshots-list).
 
 ## Renaming a snapshot with the API
 {: #snapshots-vpc-rename-api}
@@ -187,7 +187,7 @@ use the following steps to add tags from the snapshot details page.
 4. In the new window, enter a user tag or access management tag in the respective fields.
 5. Click **Save**.
 
-When the user tags are matched with a backup policy, a backup is triggered based on the backup plan schedule. For more information, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-policy-create).
+When the user tags are matched with a backup policy, a backup is triggered based on the backup plan schedule. For more information, see [Creating a backup policy](/docs/vpc?topic=vpc-create-backup-policy-and-plan).
 
 ## Adding tags to a snapshot from the CLI
 {: #snapshots-vpc-add-tags-cli}
@@ -231,7 +231,7 @@ Tags                   env:test,env:prod
 ```
 {: screen}
 
-When the user tags are matched with a backup policy, a backup is triggered based on the backup plan schedule. For more information, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-policy-create).
+When the user tags are matched with a backup policy, a backup is triggered based on the backup plan schedule. For more information, see [Creating a backup policy](/docs/vpc?topic=vpc-create-backup-policy-and-plan).
 
 ## Adding user tags to a snapshot with the API
 {: #snapshots-vpc-add-tags-api}
@@ -254,7 +254,7 @@ curl -X PATCH \
 ```
 {: codeblock}
 
-When the user tags are matched with a backup policy, a backup is triggered based on the backup plan schedule. For more information, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-policy-create).
+When the user tags are matched with a backup policy, a backup is triggered based on the backup plan schedule. For more information, see [Creating a backup policy](/docs/vpc?topic=vpc-create-backup-policy-and-plan).
 
 ## Editing fast restore zones in the UI
 {: #snapshots-edit-fast-restore}
@@ -986,7 +986,7 @@ Table 2 describes the snapshot states in the snapshot lifecycle.
 | Failed | The snapshot failed to br created, the volume can't be restored from a snapshot. |
 | Suspended | Snapshot is temporarily unavailable. |
 | Updating | You changed something about the snapshot and it is being updated. |
-| Deleting | The snapshot is [deleting](#snapshots-vpc-delete). |
+| Deleting | The snapshot is being deleted. |
 | Deleted | The snapshot was deleted and is not available to restore volumes. |
 {: caption="Table 2. Snapshot lifecycle states" caption-side="bottom"}
 
@@ -995,7 +995,7 @@ Table 2 describes the snapshot states in the snapshot lifecycle.
 
 The Snapshot for VPC service is integrated with the {{site.data.keyword.compliance_full}} to help you manage security and compliance for your organization. For snapshots, you can set up a goal that checks whether snapshots are encrypted by using customer-managed keys. By using the {{site.data.keyword.compliance_short}} to validate the snapshot resource configurations in your account against a profile, you can identify potential issues as they arise.
 
-Because snapshots are created from {{site.data.keyword.block_storage_is_short}} volumes, {{site.data.keyword.block_storage_is_short}} goals provide an extra level of security. For more information, see [Monitoring security and compliance posture with VPC](/docs/vpc?topic=vpc-manage-security-compliance#monitor-vpc). For more information about creating security and compliance goals, see [Defining rules](/docs/security-compliance?topic=security-compliance-rules-define&interface=ui) in the Security and Compliance Documentation.
+Because snapshots are created from {{site.data.keyword.block_storage_is_short}} volumes, {{site.data.keyword.block_storage_is_short}} goals provide an extra level of security. For more information, see [Getting started with Security and Compliance Center](/docs/security-compliance?topic=security-compliance-getting-started). For more information about creating security and compliance goals, see [Defining rules](/docs/security-compliance?topic=security-compliance-rules-define&interface=ui) in the Security and Compliance Documentation.
 
 ## Next steps
 {: #snapshots-vpc-manage-next-steps}

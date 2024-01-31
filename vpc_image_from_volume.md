@@ -50,7 +50,7 @@ To create an image from a volume, the volume must meet the following requirement
 
 You can create a custom image from a boot volume in several ways.
 
-* In the [UI](/docs/vpc?topic=vpc-create-ifv#image-from-volume-vpc-ui), you can create a custom image from any of the following places.
+* In the [UI](/docs/vpc?topic=vpc-create-ifv#create-image-from-volume-vpc-ui), you can create a custom image from any of the following places.
 
    - The Custom images for VPC page,
    - The list of instances on the Virtual server instances for VPC page,

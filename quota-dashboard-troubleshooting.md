@@ -6,7 +6,7 @@ lastupdated: "2022-02-15"
 
 keywords: IBM Cloud monitoring troubleshooting, quota monitoring troubleshooting
 
-subcollection: cloud-infrastructure
+subcollection: vpc
 
 ---
 
@@ -43,11 +43,11 @@ Creating or deleting one of the following resources sends metric events for the 
 - security-group
    - For more information, see [About security groups](/docs/vpc?topic=vpc-using-security-groups&interface=ui).
 - subnet
-   - For more information on creating a subnet, see [Using the IBM Cloud console to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console), [Using the REST APIs to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis), or [Using the CLI to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-cli#create-a-subnet-cli).
-   - For more information on deleting a subnet, see [Deleting VPC resources by using the UI](/docs/vpc?topic=vpc-deleting-using-console), [Deleting VPC resources by using the CLI](/docs/vpc?topic=vpc-deleting-using-cli), or [Deleting VPC resources by using the API](/docs/vpc?topic=vpc-deleting-using-api).
+   - For more information on creating a subnet, see [Using the IBM Cloud console to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console), [Using the REST APIs to create VPC resources](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=api), or [Using the CLI to create VPC resources](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli#create-a-subnet-cli).
+   - For more information on deleting a subnet, see [Deleting VPC resources by using the UI](/docs/vpc?topic=vpc-deleting-vpc-resources&interface=ui), [Deleting VPC resources by using the CLI](/docs/vpc?topic=vpc-deleting-vpc-resources&interface=cli), or [Deleting VPC resources by using the API](/docs/vpc?topic=vpc-deleting-vpc-resources&interface=api).
 - floating-ip
-   - For more information on creating a floating IP, see [Using the IBM Cloud console to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console), [Using the REST APIs to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis), or [Using the CLI to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-cli#create-a-subnet-cli).
-   - For more information on deleting a floating IP, see [Deleting VPC resources by using the UI](/docs/vpc?topic=vpc-deleting-using-console), [Deleting VPC resources by using the CLI](/docs/vpc?topic=vpc-deleting-using-cli), or [Deleting VPC resources by using the API](/docs/vpc?topic=vpc-deleting-using-api).
+   - For more information on creating a floating IP, see [Using the IBM Cloud console to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console), [Using the REST APIs to create VPC resources](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=api), or [Using the CLI to create VPC resources](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli#create-a-subnet-cli).
+   - For more information on deleting a floating IP, see [Deleting VPC resources by using the UI](/docs/vpc?topic=vpc-deleting-vpc-resources&interface=ui), [Deleting VPC resources by using the CLI](/docs/vpc?topic=vpc-deleting-vpc-resources&interface=cli), or [Deleting VPC resources by using the API](/docs/vpc?topic=vpc-deleting-vpc-resources&interface=api).
 - network-acl
    - For more information, see [About network ACLs](/docs/vpc?topic=vpc-using-acls). -->
 - load-balancer

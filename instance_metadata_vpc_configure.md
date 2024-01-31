@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-12-18"
+  years: 2022, 2024
+lastupdated: "2024-01-30"
 
 keywords:
 
@@ -37,7 +37,7 @@ In the request, you specify an expiration time for the token. The default is 5 m
 
 The response (a JSON payload) contains the instance identity access token. Use this token to access the metadata service.
 
-You can also generate an IAM token from this token and use the RIAS API to call IAM-enabled services. For more information, see [Generate an IAM token from an instance identity access token](#imd-token-exchange).
+You can also generate an IAM token from this token and use the RIAS API to call IAM-enabled services. For more information, see [Generate an IAM token from an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-token-exchange).
 
 ### Acquiring an instance identity access token
 {: #imd-json-token}
@@ -113,23 +113,23 @@ For more information about trusted profiles, see [Using a trusted profile to cal
 
 Instance identity certificates are required to successfully enable and use encryption in transit between virtual server instances and {{site.data.keyword.filestorage_vpc_full}} shares. To generate an instance identity certificate for the instance, make a `POST /instance_identity/v1/certificates` call with the instance identity access token and a certificate signing request (CSR).
 
-You can obtain the certificate signing requests (CSRs) from the open-source command-line toolkit, [OpenSSL](https://www.openssl.org/docs/){: external}. 
+You can obtain the certificate signing requests (CSRs) from the open-source command-line toolkit, [OpenSSL](https://www.openssl.org/docs/){: external}.
 
    1. The following command generates a *Certificate Signing Request* (CSR) and *RSA Key Pair* by using openssl. When you run the command, replace the country code `US` with your two-digit country code in `'/C=US'`.
       ```sh
       openssl req -sha256 -newkey rsa:4096 -subj '/C=US' -out ./sslcert.csr -keyout file.key -nodes
       ```
       {: pre}
-      
+
        If you're using a different software to create the CSR, you might be prompted to enter information about your location such as country code (C), state (ST), locality (L), your organization name (O), and organization unit (OU). Any one of these naming attributes can be used. Any other naming attributes, such as common name for example are rejected. CSRs with Common Name specified are rejected because when you make the request to the Metadata API, the system applies instance ID values to the subject Common Name for the instance identity certificates. CSRs with extensions are also rejected.
       {: important}
- 
+
    2. Format the csr before you make an API call to metadata service by using the following command.
       ```sh
       awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' sslcert.csr
       ```
       {: pre}
-   
+
 Then, you can make the API request to the Metadata service. See the following example. The `csr` value is required, the `expires_in` value is optional. The default value for expiration is 3600, which equals 1 hour.
 
 ```sh
@@ -179,7 +179,7 @@ From the {{site.data.keyword.cloud}} console, you can enable or disable the inst
 
 Use the UI to enable the metadata service on an existing instance.
 
-1. Go to the list of instances. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
+1. Go to the list of instances. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 
 2. Click the name of an instance to go to the details page.
 
@@ -192,7 +192,7 @@ Use the UI to enable the metadata service on an existing instance.
 
 The following procedure shows how to enable the metadata service when you create a new virtual server instance.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 
 2. Click **Create**.
 
@@ -207,7 +207,7 @@ The following procedure shows how to enable the metadata service when you create
 
 This procedure shows how to disable the metadata service for an instance on which it is enabled. By default, the metadata service is disabled when you create a new instance.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 
 2. Click an instance from the list to go to its details page.
 
@@ -232,7 +232,7 @@ Before you begin:
 
 2. After you install the IBM Cloud CLI, set the target to generation 2 by running the `ibmcloud is target --gen 2` command.
 
-3. Make sure that you [created an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-cli#create-a-vpc-cli).
+3. Make sure that you [created an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli#create-a-vpc-cli).
 
 #### Enable or disable the metadata service when you create an instance by using the CLI
 {: #imd-enable-on-instance-cli}
@@ -304,7 +304,7 @@ ibmcloud is instance-create-from-template --template-id {template_id} --name my-
 
 If you override the instance template by running the `ibmcloud is instance-template-create-override-source-template` command, you can enable or disable the metadata service by specifying the `metadata-service` parameter with `true` or `false`.
 
-For more information about these commands, see the [VPC CLI Reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference). For more information about creating an instance template from the CLI, see [Creating an instance template](/docs/vpc?topic=vpc-creating-auto-scale-instance-group&interface=cli#creating-instance-template-cli).
+For more information about these commands, see the [VPC CLI Reference](/docs/vpc?topic=vpc-set-up-environment&interface=cli). For more information about creating an instance template from the CLI, see [Creating an instance template](/docs/vpc?topic=vpc-creating-auto-scale-instance-group&interface=cli#creating-instance-template-cli).
 
 ### Enable or disable instance metadata from the API
 {: #imd-metadata-service-enable-api}
@@ -419,7 +419,7 @@ You can configure features of the metadata service by using the UI. When the met
 
 You can select an existing trusted profile for the instance metadata service.
 
-**Select a trusted profile when you provision an instance** To select a trusted profile, navigate to the Default trusted profile option and select a trusted profile from a list of preexisting trusted profiles. 
+**Select a trusted profile when you provision an instance** To select a trusted profile, navigate to the Default trusted profile option and select a trusted profile from a list of preexisting trusted profiles.
 
 For more information, see [Create a trusted profile for the instance](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-trusted-profile-config).
 
@@ -483,32 +483,32 @@ The following example shows an instance with the metadata service enabled.
 ```sh
 $ ibmcloud is instance instance-name -q
 
-ID                                    0716_9cc6d74d-4b77-4cca-b1f4-31cc6edefe01   
-Name                                  instance-name   
-CRN                                   crn:v1:bluemix:public:is:us-south-1:a/a1234567::instance:0716_9cc6d74d-4b77-4cca-b1f4-31cc6edefe01   
-Status                                running   
-Availability policy on host failure   restart   
-Startable                             true   
-Profile                               bx2-2x8   
-Architecture                          amd64   
-vCPUs                                 2   
-Memory(GiB)                           8   
-Bandwidth(Mbps)                       4000   
-Volume bandwidth(Mbps)                1000   
-Network bandwidth(Mbps)               3000   
-Lifecycle Reasons                     Code   Message      
-                                      -      -      
+ID                                    0716_9cc6d74d-4b77-4cca-b1f4-31cc6edefe01
+Name                                  instance-name
+CRN                                   crn:v1:bluemix:public:is:us-south-1:a/a1234567::instance:0716_9cc6d74d-4b77-4cca-b1f4-31cc6edefe01
+Status                                running
+Availability policy on host failure   restart
+Startable                             true
+Profile                               bx2-2x8
+Architecture                          amd64
+vCPUs                                 2
+Memory(GiB)                           8
+Bandwidth(Mbps)                       4000
+Volume bandwidth(Mbps)                1000
+Network bandwidth(Mbps)               3000
+Lifecycle Reasons                     Code   Message
+                                      -      -
 
-Lifecycle State                       stable   
-Metadata service                      Enabled   Protocol   Response hop limit      
-                                      false     http       1      
+Lifecycle State                       stable
+Metadata service                      Enabled   Protocol   Response hop limit
+                                      false     http       1
 
-Image                                 ID                                          Name      
-                                      r006-1025e040-7d6f-408c-b4db-6156dc986fc7   ibm-ubuntu-22-04-1-minimal-amd64-2      
-                                         
-Numa Count                            1   
-VPC                                   ID                                          Name      
-                                      r006-ac1c1ae4-5573-42eb-9194-854c9a3d5555   fode      
+Image                                 ID                                          Name
+                                      r006-1025e040-7d6f-408c-b4db-6156dc986fc7   ibm-ubuntu-22-04-1-minimal-amd64-2
+
+Numa Count                            1
+VPC                                   ID                                          Name
+                                      r006-ac1c1ae4-5573-42eb-9194-854c9a3d5555   fode
 
 .
 .
@@ -621,7 +621,7 @@ To enable secure access on an existing instance, use the [PATCH /instances/{id}]
 {: #set-hop-limit-api}
 {: api}
 
-You can set the hop limit for IP response packets from the metadata service using the `metadata_service.response_hop_limit` property 
+You can set the hop limit for IP response packets from the metadata service using the `metadata_service.response_hop_limit` property
 
 This property applies only when the metadata service is enabled by setting `metadata_service.enabled` to `true`. The default is `false`.
 

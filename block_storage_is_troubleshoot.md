@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2023
-lastupdated: "2023-12-18"
+  years: 2019, 2024
+lastupdated: "2024-01-04"
 
 keywords: Block Storage, virtual private cloud, volume, data storage, troubleshooting, troubleshoot
 
@@ -38,13 +38,13 @@ Any of the following causes might apply:
 Verify that the volume wasn't detached from a virtual server instance and deleted. Search for the instance to which you last attached the volume from the list of all virtual server instances:
 {: tsResolve}
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 
 1. Select a virtual server instance from the list of all virtual servers.
 
 If the volume is not attached as expected and does not appear in the list of volumes, it was probably deleted. Because deleting a volume completely removes its data, it cannot be restored.
 
-If you use the CLI, verify that you entered the correct command syntax for viewing volumes. See [View all Block Storage volumes from the CLI](/docs/vpc?topic=vpc-viewing-block-storage-cli). Verify that you specified the correct resource group or zone.
+If you use the CLI, verify that you entered the correct command syntax for viewing volumes. See [Viewing all Block Storage volumes from the CLI](/docs/vpc?topic=vpc-viewing-block-storage&interface=cli#viewall-vol-cli). Verify that you specified the correct resource group or zone.
 
 ## Cannot update a volume name by using the API or CLI
 {: #troubleshoot-topic-2}
@@ -59,8 +59,8 @@ This condition might appear in the API or CLI in the following scenarios.
 * In the API, when you send a `PATCH` request to rename the volume.
 * In the CLI, when you specify the `ibmcloud is volume-update` command.
 
-You might be renaming the volume with an invalid volume name. In this case, you see a 400 "validation_invalid_name" error.
-You might also be specifying a valid volume name, but one that is already in the VPC. For example, if you create two volumes from compute resources that are in the same account, the same region, and have the same name, you see a 400 "volume_name_duplicate" error.
+You might be renaming the volume with an invalid volume name. In this case, you see a `400 - validation_invalid_name` error.
+You might also be specifying a valid volume name, but one that is already in the VPC. For example, if you create two volumes from compute resources that are in the same account, the same region, and have the same name, you see a `400 - volume_name_duplicate` error.
 {: tsCauses}
 
 **Note:** The UI prevents you from entering an invalid volume name.
@@ -115,10 +115,10 @@ As best practice, delete all storage or image resources before you remove IAM au
 ## Resolving volume resize issues while a snapshot is taken
 {: #troubleshoot-topic-6}
 
-If you take a snapshot of a volume and resize the source volume while the snapshot is being created, you get an error.
+If you take a snapshot of a volume and increase the capacity of the source volume while the snapshot is being created, you get an error.
 {: tsSymptoms}
 
-While the snapshot is in a _pending_ state, a volume resize error displays with the message "The resize validation failed." The correct message says, "volume is locked."
+While the snapshot is in the _pending_ state, a volume resize operation fails with the error messages `The resize validation failed` and `volume is locked`.
 {: tsCauses}
 
 Wait until the snapshot is created and it is in an _available_ state before you resize the source volume.

@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2019, 2023
+  years: 2019, 2024
 lastupdated: "2023-10-30"
 
 keywords: Block Storage for VPC, iscsi for VPC, SAN for VPC

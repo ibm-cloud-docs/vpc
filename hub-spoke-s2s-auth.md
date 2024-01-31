@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-12-18"
+  years: 2023, 2024
+lastupdated: "2024-01-24"
 
 keywords:
 
@@ -38,12 +38,11 @@ To create an IAM s2s authorization policy in the UI, follow these steps:
    - If you're setting up authorization in your account, select **This account**.
    - If you're setting up authorization in the enterprise account, select **Other account**.
 1. For source service, select **VPC Infrastructure Services** from the list.
-1. Select the scope. Choose **Resources based on selected attributes**.
+1. Select the scope. Choose **Specific resources**.
 1. Click **Resource type**. From the list, select **Virtual Private Cloud**.
 1. For the target service, select **VPC Infrastructure Services** from the list.
-1. Select the scope. Choose **Resources based on selected attributes**.
-1. Click **Resource type**. Select **Virtual Private Cloud**.
-1. Then, under Platform access, select the role.
+1. Select the scope. Choose **All resources**.
+1. In the Roles section under Service access, select **DNSBindingConnector**.
 1. Click **Authorize**.
 1. When you are returned to the **Manage authorizations** page, click **Create** again and follow the same steps to set up authorizations for the other two services.
 
@@ -53,7 +52,7 @@ To create an IAM s2s authorization policy in the UI, follow these steps:
 
 To create an IAM s2s authorization policy from the CLI, follow these steps:
 
-1. [Set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+1. [Set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 1. Log in to your account with the CLI. After you enter the password, the system prompts which account and region that you want to use:
 
    ```sh

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-12-18"
+  years: 2022, 2024
+lastupdated: "2024-01-05"
 
 keywords: consistency group, snapshots, backups, instance snapshot, instance backup,
 
@@ -25,7 +25,7 @@ If you update the backup consistency group to keep the individual snapshots afte
 {: #update-consistencygroup-ui}
 {: ui}
 
-1. Go to the list of snapshot consistency groups. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage Snapshots**.
+1. Go to the list of snapshot consistency groups. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage Snapshots**.
 1. On the Consistency groups tab, click the name of a group on the list to display the consistency group details.
 1. You can change the following attributes:
    * To change the name on the group, click the pencil icon and enter the new name.
@@ -35,7 +35,7 @@ If you update the backup consistency group to keep the individual snapshots afte
 {: #delete-consistencygroup-ui}
 {: ui}
 
-1. Go to the list of snapshot consistency groups. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage Snapshots**.
+1. Go to the list of snapshot consistency groups. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage Snapshots**.
 1. On the Consistency groups tab, click the name of a group on the list.
 1. Click the Actions > Delete.
 1. Type `Delete`.
@@ -108,7 +108,7 @@ For more information about available command options, see [`ibmcloud is snapshot
 {: #update-consistencygroup-api}
 {: api}
 
-You can programmatically update a consistency group by calling the `/snapshot_consistency_groups/{id}` method in the [VPC API](/apidocs/vpc-scoped#update-snapshot-consistency-group){: external} as shown in the following sample request. You can use the API to update the name of the resource and switch the `delete_snapshots_on_delete` property to keep the snapshots after the snapshot consistency group is deleted.
+You can programmatically update a consistency group by calling the `/snapshot_consistency_groups/{id}` method in the [VPC API](/apidocs/vpc/latest#update-snapshot-consistency-group){: external} as shown in the following sample request. You can use the API to update the name of the resource and switch the `delete_snapshots_on_delete` property to keep the snapshots after the snapshot consistency group is deleted.
 
 ```sh
 curl -X PATCH\
@@ -124,7 +124,7 @@ curl -X PATCH\
 {: #delete-consistencygroup-api}
 {: api}
 
-You can programmatically delete a consistency group by calling the `/snapshot_consistency_groups/{id}` method in the [VPC API](/apidocs/vpc-scoped#delete-snapshot-consistency-group){: external} as shown in the following sample request.
+You can programmatically delete a consistency group by calling the `/snapshot_consistency_groups/{id}` method in the [VPC API](/apidocs/vpc/latest#delete-snapshot-consistency-group){: external} as shown in the following sample request.
 
 ```sh
 curl -X DELETE\
@@ -132,6 +132,50 @@ curl -X DELETE\
 -H "Authorization: $iam_token"
 ```
 {: pre}
+
+## Updating a consistency group with Terraform
+{: #update-consistencygroup-terraform}
+{: terraform}
+
+To update a snapshot consistency group, use the `ibm_is_snapshot_consistency_group` resource. You can update the name of the resource, change the `delete_snapshots_on_delete` property, which can be either `true` or `false`. You can also update the tags that are attached to the snapshots.
+
+```terraform
+resource "ibm_is_snapshot_consistency_group" "example" {
+  delete_snapshots_on_delete = true
+  name = "example-snapshot-consistency-group"
+  snapshots {
+    [ 
+      name = "snapshot-1"
+      source_volume = {id = "ibm_is_instance.example.volume_attachments[0].volume_id_1"}
+      user_tags = ["my-tag"]
+    ].
+    [ 
+      name = "snapshot-2"
+      source_volume = {id = "ibm_is_instance.example.volume_attachments[0].volume_id_2"}
+      user_tags = ["my-tag"]
+    ]
+  }
+}
+```
+{: codeblock}
+
+Changing the `resource_group` and `source_volume` values of the member snapshots forces Terraform to destroy the snapshots and create different snapshots.
+
+For more information about the arguments and attributes, see [ibm_is_snapshot_consistency_group](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_snapshot_consistency_group){: external}.
+
+
+## Deleting a consistency group with Terraform
+{: #delete-consistencygroup-terraform}
+{: terraform}
+
+Use the `terraform destroy` command to conveniently destroy a remote object such as a snapshot consistency group. The following example deletes `my-snapshot-consistency-group`.
+
+```terraform
+terraform destroy --target ibm_is_snapshot_consistency_group.my-snapshot-consistency-group
+```
+{: codeblock}
+
+For more information, see [terraform destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy){: external}.
 
 ## Activity Tracker events
 {: #consistency-groups-at-events}

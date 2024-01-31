@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-06-30"
+  years: 2020, 2024
+lastupdated: "2024-01-04"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -30,11 +30,11 @@ After you provisioned and attached a data volume to a virtual server instance, y
 
 Billing for the volume is automatically updated to add the pro-rated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.
 
-To expand a volume, it must be in an _available_ state and the instance must be running. Your user authorization is verified before the volume is expanded. You can use the UI, CLI, API, or Terraform to expand volume capacity. You can expand the volume multiple times, up to its [maximum capacity limit](#exp-vols-capacity-IOPs-limitations). After the volume is expanded, you can't reduce the volume capacity.
+To expand a volume, it must be in an _available_ state and the instance must be running. Your user authorization is verified before the volume is expanded. You can use the UI, CLI, API, or Terraform to expand volume capacity. You can expand the volume multiple times, up to its maximum capacity limit. After the volume is expanded, you can't reduce the volume capacity.
 
 Expanded capacity is determined by the maximum that is allowed by the volume's profile.
 
-Volumes that were created by using an [IOPS tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers-beta) can be expanded to the maximum size for its IOPS tier:
+Volumes that were created by using an [IOPS tier profile](/docs/vpc?topic=vpc-block-storage-profiles) can be expanded to the maximum size for its IOPS tier:
 
 * A general-purpose, 3 IOPS/GB profile can be expanded up to 16,000 GB.
 * A 5 IOPS/GB profile can be expanded up to 9,600 GB.
@@ -59,7 +59,7 @@ By default, when you create an instance from a stock image, a 100 GB, 3,000 IOPS
 
 Regardless of the image type, you can increase boot volume capacity from its minimum provisioned size up to 250 GB. You can increase the capacity either when you provision an instance or later by updating the boot volume. For more information, see [Increasing boot volume capacity](/docs/vpc?topic=vpc-resize-boot-volumes).
 
-The boot volume expansion takes effect without a reboot. However, to use the increased boot volume space, you must expand your operating system so the increased boot volume capacity is recognized. For more information, see [Modifying a Linux OS for expanding boot volumes](/docs/vpc?topic=vpc-modifying-the-linux-os-expanded-boot-volume).
+The boot volume expansion takes effect without a reboot. However, to use the increased boot volume space, you must expand your operating system so the increased boot volume capacity is recognized.
 {: note}
 
 ## Requirements
@@ -94,10 +94,10 @@ Limitations for resizing boot and data volumes apply in this release.
 ### Data volume limitations
 {: #expand-vol-limitations}
 
-* You cannot expand a volume that is at its maximum capacity for its [IOPS tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers-beta) or [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) volume range.
+* You cannot expand a volume that is at its maximum capacity for its [IOPS tier profile](/docs/vpc?topic=vpc-block-storage-profiles) or [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) volume range.
 
 * Data volumes can expand to 16,000 GB, with the following limitations:
-    * If the volume was created by using an [IOPS tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers-beta) that limits capacity to less than 16,000 GB, it can expand only to the allowed capacity for that tier.
+    * If the volume was created by using an [IOPS tier profile](/docs/vpc?topic=vpc-block-storage-profiles) that limits capacity to less than 16,000 GB, it can expand only to the allowed capacity for that tier.
     * If the volume was provisioned with a [custom profile](/docs/vpc?topic=vpc-block-storage-profiles#custom) that is created in a range that doesn't allow expanding to 16,000 GB, it can expand only to its maximum capacity for that custom range.
     * Volumes can expand multiple times until maximum capacity is reached.
 * IOPS can increase to the maximum that is allowed by the IOPS tier profile. For the increased IOPS to take effect, you must restart the virtual server instance, or detach and reattach the volume from the instance. This behavior is unlike a capacity increase that doesn't incur any downtime.

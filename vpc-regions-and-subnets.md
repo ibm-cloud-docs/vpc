@@ -68,7 +68,7 @@ To bring your own subnets:
 2. For each zone in which you plan to create subnets, create one or more address prefixes.
 3. When you create subnets in each zone, specify IP ranges that are within one of the address prefixes that you created for that zone.
 
-If you use an IP range outside of those ranges [RFC 1918](https://tools.ietf.org/html/rfc1918){: external} (`10.0.0.0/8`, `172.16.0.0/12`, or `192.168.0.0/16`) defined for a subnet, the instances that you attach to that subnet might be unable to reach parts of the public internet. If you plan to configure VPCs that use both non-RFC-1918 addresses and also have public connectivity (floating IPs or public gateways), make sure to use a custom route that contains the `Delegate-VPC` action.
+If you use an IP range outside of those ranges [RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918){: external} (`10.0.0.0/8`, `172.16.0.0/12`, or `192.168.0.0/16`) defined for a subnet, the instances that you attach to that subnet might be unable to reach parts of the public internet. If you plan to configure VPCs that use both non-RFC-1918 addresses and also have public connectivity (floating IPs or public gateways), make sure to use a custom route that contains the `Delegate-VPC` action.
 {: tip}
 
 ## Address prefixes and the {{site.data.keyword.cloud_notm}} console

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2023
-lastupdated: "2023-12-18"
+  years: 2019, 2024
+lastupdated: "2024-01-04"
 
 keywords:
 
@@ -27,7 +27,7 @@ List all {{site.data.keyword.block_storage_is_short}} volumes and view details f
 ### Viewing information about all {{site.data.keyword.block_storage_is_short}} volumes in the UI
 {: #viewvols-ui}
 
-Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
+Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console)](/login){: external}, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
 
 By default, {{site.data.keyword.block_storage_is_short}} volumes display for all resource groups in your region. In the list of all **{{site.data.keyword.block_storage_is_short}} volumes**, you see the following information.
 
@@ -35,13 +35,13 @@ By default, {{site.data.keyword.block_storage_is_short}} volumes display for all
 |-------|-------------|
 | Region | The region where these volumes are located, for example, US South. Click the down arrow to see volumes in a different region in which you have an account.)
 | Name | Click the name of the volume to see individual volume details. |
-| Status | Status of the volume, which functions as the default filter for all rows. For more information about volume statuses, see [{{site.data.keyword.block_storage_is_short}} volume statuses](/docs/vpc?topic=vpc-managing-block-storage#status). |
+| Status | Status of the volume, which functions as the default filter for all rows. |
 | Location | Availability zone in your region, inherited from the VPC (for example, US South 1).|
 | Size | Size of the volume you specified, in GBs.|
 | Attachment type | Data, for a secondary volume attached to an instance, boot when attached as a boot volume, or blank for an unattached volume.|
-| Health | Health monitors the overall health of the volume, such as I/O performance and data consistency. Volume health statuses are `OK` or `degraded`. Volumes in a degraded state have degraded performance, capacity, or experience connection problems. Volumes being restored from a snapshot also show a degraded state. The service displays a possible reason for the degraded state so that you can resolve any issues. For more information, see [{{site.data.keyword.block_storage_is_short}} volume health states](/docs/vpc?topic=vpc-managing-block-storage#block-storage-vpc-health-states). |
+| Health | Health monitors the overall health of the volume, such as I/O performance and data consistency. Volume health statuses are `OK` or `degraded`. Volumes in a degraded state have degraded performance, capacity, or experience connection problems. Volumes being restored from a snapshot also show a degraded state. The service displays a possible reason for the degraded state so that you can resolve any issues. For more information, see [{{site.data.keyword.block_storage_is_short}} volume health states](/docs/vpc?topic=vpc-block-storage-vpc-monitoring#block-storage-vpc-health-states). |
 | Encryption | Encryption with IBM-managed keys is enabled by default on all volumes. You can also use your own root keys in a {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} instance to protect your data. For more information, see [Creating {{site.data.keyword.block_storage_is_short}} volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption). |
-| Tags | Number of user tags that are applied to the volume. Click the number in this column to view or edit the tags in the new window. If no tags were applied to the volume, click **Add tags** and add them in the new window. User tags can associate the volume with a [backup policy](/docs/vpc?topic=vpc-backup-about) for creating backups of the volume. For more information, see [Add tags to {{site.data.keyword.block_storage_is_short}} volumes for backup policies](https://test.cloud.ibm.com/docs/vpc?topic=vpc-managing-block-storage&interface=ui#block-storage-add-tags).
+| Tags | Number of user tags that are applied to the volume. Click the number in this column to view or edit the tags in the new window. If no tags were applied to the volume, click **Add tags** and add them in the new window. User tags can associate the volume with a [backup policy](/docs/vpc?topic=vpc-backup-service-about) for creating backups of the volume. For more information, see [Adding user tags that are associated with a backup policy to a volume in the UI](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#add-user-tags-volumes-ui).
 | Actions (...) | Click the icon (...) to display a menu of context-specific actions you can take. For example, an available, unattached volume would have menu options for attaching to an instance, renaming, and deleting the volume. An attached volume would allow for unattaching the volume from an instance and creating an [image from the volume](/docs/vpc?topic=vpc-image-from-volume-vpc).|
 {: caption="Table 1. Details about all volumes" caption-side="bottom"}
 
@@ -51,8 +51,8 @@ Actions menu selections change, depending on whether the volume is a boot volume
 
 | Volume type | Action | Description |
 |-------------|--------|-------------|
-| **Boot** | Create image. | Create an image from the boot volume. For more information, see [Create an image from the list of boot volumes](/docs/vpc?topic=vpc-create-ifv#import-custom-image-vol).
-| | Create snapshot. | Create a "bootable snapshot" from the boot volume. A snapshot is a point in time copy of the volume. For more information, see [Create a snapshot in the UI](/docs/vpc?topic=vpc-snapshots-vpc-create#snapshots-vpc-create-from-volume-list).
+| **Boot** | Create image. | Create an image from the boot volume. For more information, see [Creating an image from the list of boot volumes](/docs/vpc?topic=vpc-create-ifv#import-custom-image-vol).
+| | Create snapshot. | Create a "bootable" snapshot from the boot volume. A snapshot is a point in time copy of the volume. For more information, see [Creating a snapshot in the UI](/docs/vpc?topic=vpc-snapshots-vpc-create&interface=ui#snapshots-vpc-create-ui).
 | | Detach from instance. | If the boot volume is attached as a secondary volume, you can [detach it](/docs/vpc?topic=vpc-managing-block-storage#detach) from the instance. |
 | **Data** | Create snapshot. | Create a point in time copy of the data volume. |
 | | Detach from instance. | [Detach](/docs/vpc?topic=vpc-managing-block-storage#detach) the data volume from the instance. |
@@ -66,7 +66,7 @@ Actions menu selections change, depending on whether the volume is a boot volume
 
 To view details about a {{site.data.keyword.block_storage_is_short}} volume, go to the list of all {{site.data.keyword.block_storage_is_short}} volumes and select a volume. By default, the Overview tab is selected for volume details. Click the **Snapshots and Backups** tab to view a list of snapshots that were created manually or by a backup policy.
 
-Next to the name of the volume is the [volume status](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#status) and tags that are associated with this volume. [User tags](/docs/vpc?topic=vpc-block-storage-about&interface=ui#storage-about-user-tags) identify the resource and when associated with a backup policy, are used for creating [backup snapshots](/docs/vpc?topic=vpc-backup-about) of the volume. With [Access management tags](/docs/vpc?topic=vpc-block-storage-about&interface=ui#storage-about-mgt-tags), you can create flexible resource groupings for managing access. For more information about these tags, see [Working with tags](/docs/account?topic=account-tag).
+Next to the name of the volume is the [volume status](/docs/vpc?topic=vpc-block-storage-vpc-monitoring#block-storage-vpc-status) and tags that are associated with this volume. [User tags](/docs/vpc?topic=vpc-block-storage-about&interface=ui#storage-about-user-tags) identify the resource and when associated with a backup policy, are used for creating [backup snapshots](/docs/vpc?topic=vpc-backup-service-about) of the volume. With [Access management tags](/docs/vpc?topic=vpc-block-storage-about&interface=ui#storage-about-mgt-tags), you can create flexible resource groupings for managing access. For more information about these tags, see [Working with tags](/docs/account?topic=account-tag).
 
 The Actions menu on the volume details page shows the actions that you can take, depending on whether the volume is a boot or data volume, and attached or unattached. For more information, see Table 4.
 
@@ -77,7 +77,7 @@ The {{site.data.keyword.block_storage_is_short}} volumes details page shows volu
 | **Volume details** | |
 | Name  | Name of the volume you specified when you created the volume. Click the pencil icon to edit the volume name. The volume name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. Volume names must be unique for the account and for the region. |
 | Volume ID | System-generated volume ID. |
-| Health |  Health monitors the overall health of the volume, such as I/O performance and data consistency. Volume health statuses are `OK` or `degraded`. Volumes in a degraded state have less than OK performance, capacity, or experience connection problems. Volumes that are being restored from a snapshot also show a degraded state. The service displays a possible reason for the degraded state so you can resolve it. For more information, see [{{site.data.keyword.block_storage_is_short}} volume health states](/docs/vpc?topic=vpc-managing-block-storage#block-storage-vpc-health-states). |
+| Health |  Health monitors the overall health of the volume, such as I/O performance and data consistency. Volume health statuses are `OK` or `degraded`. Volumes in a degraded state have less than OK performance, capacity, or experience connection problems. Volumes that are being restored from a snapshot also show a degraded state. The service displays a possible reason for the degraded state so you can resolve it. For more information, see [{{site.data.keyword.block_storage_is_short}} volume health states](/docs/vpc?topic=vpc-block-storage-vpc-monitoring#block-storage-vpc-health-states). |
 | Resource group | Resource group defined when you set up your VPC. Resource groups manage access to resources but do not affect billing or monitoring.|
 | Attachment type | Data, for a secondary volume attached to an instance, boot when attached as a boot volume, or blank for an unattached volume.|
 | Created date | System-generated date when the volume was created.|
@@ -104,7 +104,7 @@ Table 4 shows Actions menu options from the volume details page.
 |--------|-------------|
 | Create snapshot | Create a snapshot from a data volume or a "bootable snapshot" from a boot volume. Data volumes must be attached to a virtual server instance. For more information, see [Create a snapshot in the UI](/docs/vpc?topic=vpc-snapshots-vpc-create&interface=ui#snapshots-vpc-create-ui).
 | Create image | Create an image from the boot volume. For more information, see [Create an image from the list of boot volumes](/docs/vpc?topic=vpc-create-ifv#import-custom-image-vol).
-| Expand volume | [Increase the size](/docs/vpc?topic=vpc-expand-block-storage-vol-concepts) of a data volume in GBs. |
+| Expand volume | [Increase the size](/docs/vpc?topic=vpc-about-increasing-volume-capacity) of a data volume in GBs. |
 | Edit IOPS profile | For data volumes that are attached to a virtual server instance, increase or decrease IOPS by [editing the IOPS profile](/docs/vpc?topic=vpc-adjusting-volume-iops). |
 | Delete | [Delete](/docs/vpc?topic=vpc-managing-block-storage#delete) the volume. You must first detach the volume from an instance before you attempt to delete it. |
 {: caption="Table 4. Actions menu options one the volume details page." caption-side="bottom"}
@@ -114,7 +114,7 @@ Table 4 shows Actions menu options from the volume details page.
 
 You can view information about an attached {{site.data.keyword.block_storage_is_short}} volume from the **Virtual server instance details** page:
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances** and select an instance.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances** and select an instance.
 
 2. Under **Attached Block Storage volumes**, click the name of a volume to go to the volume details page.
 
@@ -123,13 +123,13 @@ You can view information about an attached {{site.data.keyword.block_storage_is_
 
 If you created snapshots of a {{site.data.keyword.block_storage_is_short}} boot or data volume, you can see the snapshots on the volume details page.
 
-1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
+1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console)](/login){: external}, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
 
 2. Select a volume from the list.
 
 3. On the volume details page, click the **Snapshots and Backups** tab. A list of snapshots is displayed with the name, status, size, encryption type, and when it was created. It also shows whether the snapshot was created by the user or a [backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=ui#baas-comparison). The snapshots display in descending order, with the most recently created snapshot in first place.
 
-You can see details for a snapshot, create a new snapshot, and manage snapshots from the Volume details page. For example, from the overflow menu (ellipsis), you can delete the most recent snapshot. For more information, see:
+You can see details for a snapshot, create a new snapshot, and manage snapshots from the Volume details page. For example, from the Actions menu ![Actions icon](../icons/action-menu-icon.svg "Actions"), you can delete the most recent snapshot. For more information, see one of the following topics.
 
 * [View details of a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view-snapshot-ui).
 * [Create a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view-snapshot-ui).
@@ -140,7 +140,7 @@ You can see details for a snapshot, create a new snapshot, and manage snapshots 
 
 View all backup policies associated with a {{site.data.keyword.block_storage_is_short}} volume. All policies that have the user tag that is applied to this volume are listed. To add volumes to a policy, add user tags to the volume that are in the backup policy's tags for target resources. When you remove tags from a volume that are in a backup policy, the volume is no longer be backed up.
 
-1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
+1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console)](/login){: external}, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
 
 2. Locate the volume that you want and click the name link.
 
@@ -222,7 +222,7 @@ Tags                                   -
 
 In the example, the volume is attached to a virtual server instance, so the named and IDd of the volume attachment and instance are also displayed in the command output. The Active property is `true` because the virtual server instance to which the volume is attached is running. The `busy` property with the value `false` indicates that this volume is not performing an operation that must be serialized.
 
-For more information about available command options, see [`ibmcloud is volume`](/docs/cli?topic=cli-vpc-reference#volume).
+For more information about available command options, see [`ibmcloud is volume`](/docs/cli?topic=cli-vpc-reference#volume-view).
 
 ### Viewing all {{site.data.keyword.block_storage_is_short}} volumes from the CLI
 {: #viewall-vol-cli}
@@ -258,7 +258,7 @@ r014-eef16365-17e3-4627-bc8b-c7c3dd1d6a81   kj-test-ro-boot-1629867631000       
 ```
 {: screen}
 
-For more information about available command options, see [`ibmcloud is volumes`](/docs/cli?topic=cli-vpc-reference#volumes).
+For more information about available command options, see [`ibmcloud is volumes`](/docs/cli?topic=cli-vpc-reference#volumes-list).
 
 ## Viewing {{site.data.keyword.block_storage_is_short}} volumes with the API
 {: #viewing-block-storage-api}
@@ -470,7 +470,7 @@ A successful response provides details of the volume, including capacity and IOP
 ```
 {: codeblock}
 
-### Additional properties for boot volumes
+### Extra properties for boot volumes
 {: #viewvol-boot}
 
 When you request to view details of boot volumes, two extra properties are returned in a `GET /volumes` and `GET /volumes/{id}` response.
@@ -479,7 +479,7 @@ When you request to view details of boot volumes, two extra properties are retur
 
 * The `busy` property indicates whether this volume is performing an operation that must be serialized. If an operation requires serialization, the operation fails unless this property is `false`.
 
-Example response:
+See the following example.
 
 ```json
   "active": "true",

@@ -15,7 +15,7 @@ subcollection: vpc
 # About client-to-site VPN servers
 {: #vpn-client-to-site-overview}
 
-Client VPN for VPC provides client-to-site connectivity, which allows remote devices to securely connect to the VPC network using an OpenVPN software client. This solution is useful for telecommuters who want to connect to the IBM Cloud from a remote location, such as a home office, while still maintaining secure connectivity.  
+Client VPN for VPC provides client-to-site connectivity, which allows remote devices to securely connect to the VPC network using an OpenVPN software client. This solution is useful for telecommuters who want to connect to the IBM Cloud from a remote location, such as a home office, while still maintaining secure connectivity.
 
 Highlights include:
 
@@ -79,7 +79,7 @@ When you integrate the client-to-site VPN server with the transit gateway, you m
 ### Use case 4: Integrating with a site-to-site VPN gateway
 {: #integrating-with-site-to-site-vpn-gateway}
 
-Integrate with a site-to-site VPN gateway if you want to access your on-premises private network at the same time as when you connect to IBM VPCs. This use case removes the requirement to maintain multiple VPN servers simultaneously. You can access your on-premises private network from a client-to-site VPN server directly.  
+Integrate with a site-to-site VPN gateway if you want to access your on-premises private network at the same time as when you connect to IBM VPCs. This use case removes the requirement to maintain multiple VPN servers simultaneously. You can access your on-premises private network from a client-to-site VPN server directly.
 
 ![Network topology: Integrating with a site-to-site VPN gateway](images/vpn-server-use-case-vpn-gateway.png){: caption="Figure 5. Network topology: Integrating with a site-to-site VPN gateway" caption-side="bottom"}
 
@@ -87,9 +87,9 @@ Integrate with a site-to-site VPN gateway if you want to access your on-premises
 {: #vin-client-to-site-related-links}
 
 * [Quotas](/docs/vpc?topic=vpc-quotas#vpn-server-quotas)
-* [Required permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls#vpn-server-authorizations-required-for-api-and-cli-calls)
+* [Required permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls#client-to-site-vpn-server-tasks)
 * [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-vpn-server)
-* [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#vpn-server-clis)
+* [VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference#vpn-server-clis)
 * [VPC API reference](/apidocs/vpc)
 * [FAQs for client-to-site VPN servers](/docs/vpc?topic=vpc-faqs-vpn-server)
 * [Troubleshooting client-to-site VPN servers](/docs/vpc?topic=vpc-troubleshooting-authentication-error)

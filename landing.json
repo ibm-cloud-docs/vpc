@@ -1,10 +1,10 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2023-12-18",
+    "lastupdated": "2024-01-25",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
-      "cli": "/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference",
+      "cli": "/docs/vpc?topic=vpc-set-up-environment&interface=cli",
       "terraform": "https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance"
     },
     "section_recommended": [
@@ -31,19 +31,19 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
-          "date": "15 December 2023",
-          "title": "IBM Wazi as a Service and LinuxONE (s390x processor architecture) dedicated host (LA)",
-          "description": "You can now create dedicated hosts with s390x memory profiles in the Spain (Madrid) and US South (Dallas) regions to carve out a single-tenant compute node and create virtual server instances according to your needs."
+          "date": "24 January 2024",
+          "title": "Next generation instance profiles available in London region (select availability)",
+          "description": "The 3rd generation of IBM Cloud Virtual Servers for VPC are now available as a Select Availability offering in the London region, in addition to the Dallas region. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel® Xeon® Scalable processors to provide the most powerful and performant general-purpose profiles available. For more information, see Next generation instance profiles. In the Balanced family, see the bx3d profiles tab. In the Compute family, see the cx3d profiles tab. In the Memory family, see the mx3d profiles tab. 3rd generation dedicated host profiles are also available."
         },
         {
-          "date": "15 December 2023",
-          "title": "VPC route advertisement to Direct Link and Transit Gateway",
-          "description": "You can now advertise routes in VPC ingress routing tables to Direct Link, Transit Gateway, or both."
+          "date": "16 January 2024",
+          "title": "Reservations for VPC (SA) ",
+          "description": "You can now provision reservations for VPC. A reservation is a great option if you want guaranteed resources for future deployments and cost savings. You can choose between either a 1 or 3-year contract term for your reservation. Reservations are available in only the Sydney region."
         },
         {
-          "date": "12 December 2023",
-          "title": "File Storage for VPC - Cross-region Replication",
-          "description": "Customers who have VPCs in multiple regions in the same geography can now create replicas of their file shares in another zone of a different region."
+          "date": "11 January 2024",
+          "title": "UI enhancement to VPC download button",
+          "description": "Previously, when you downloaded a list of resources from a table, you could only download the current page if the resource list length was more than 200 records. With this UI enhancement, you can now download all the pages regardless of length of the resource list."
         }
       ]
     }

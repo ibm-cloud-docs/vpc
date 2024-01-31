@@ -35,7 +35,7 @@ The Status for the load balancer now shows **Deleting**. Refresh the page to con
 {: #alb-deleting-cli}
 {: cli}
 
-Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 To delete an ALB from the CLI, run the following command:
 

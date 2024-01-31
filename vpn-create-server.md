@@ -30,7 +30,7 @@ Before you provision a VPN server, complete the following prerequisites in the f
 1. Review [Planning considerations for VPN servers](/docs/vpc?topic=vpc-client-to-site-vpn-planning).
 1. Decide which VPN client authentication mode to use: certificate-based, user ID and passcode, or both. For more information, see [Setting up client-to-site authentication](/docs/vpc?topic=vpc-client-to-site-authentication).
 1. [Create a Secrets Manager service instance](/docs/secrets-manager?topic=secrets-manager-create-instance) and [manage certificates](/docs/vpc?topic=vpc-client-to-site-authentication#creating-cert-manager-instance-import).
-   
+
    It is recommended that you [create a private certificate](/docs/secrets-manager?topic=secrets-manager-private-certificates) with [these considerations](/docs/vpc?topic=vpc-client-to-site-authentication#using-private-certificate) in mind.
    {: note}
 
@@ -48,7 +48,7 @@ To create a client-to-site VPN server in the UI:
 
 1. Complete all prerequisites in the "Before you begin" section.
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** icon![menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>VPNs** in the Network section.
+1. Select the **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>VPNs** in the Network section.
 1. Click **Create** in the upper right of the page.
 1. In the VPN type section, click **Client-to-site servers**.
 
@@ -96,7 +96,7 @@ To create a client-to-site VPN server in the UI:
 
       ![VPN client authentication section](images/vpn-client-authentication.png){: caption="VPN client authentication section" caption-side="bottom"}
 
-1. In the Security groups section, select at least one security group. 
+1. In the Security groups section, select at least one security group.
 
    To configure one or more security groups and their rules or, to optionally configure access control lists (ACLs) on the subnet where you plan to deploy the VPN server and other VPC subnets that communicate over the VPN tunnel, see [Configuring ACLs and security groups for use with a VPN server](/docs/vpc?topic=vpc-acls-security-groups-vpn).
    {: note}
@@ -125,7 +125,7 @@ To create a client-to-site VPN server in the UI:
 {: #vpn-create-server-cli}
 {: cli}
 
-Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 To create a VPN server from the CLI, enter the following command:
 

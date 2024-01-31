@@ -483,7 +483,7 @@ ibmcloud is vpn-gateway-connections $vpn_gateway
 ### Congratulations!
 {: #congratulations-cli-tutorials}
 
-You successfully created and configured your VPC from the {{site.data.keyword.cloud_notm}} CLI. To try out more CLI commands, see the [CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#vpc-reference).
+You successfully created and configured your VPC from the {{site.data.keyword.cloud_notm}} CLI. To try out more CLI commands, see the [CLI reference](/docs/vpc?topic=vpc-vpc-reference#vpc-reference).
 
 ## Using the REST APIs to create VPC resources
 {: #creating-a-vpc-using-the-rest-apis}
@@ -997,7 +997,7 @@ You can monitor the CPU, volume, memory, and network usage of your instance over
 {: #delete-resources-api-tutorial}
 
 You can delete resources anytime. However, a resource can't be deleted if it is required by other resources.
-For example, a VPC can't be deleted if it contains instances, subnets, or public gateways. For instructions on deleting a VPC and all its resources, see [Deleting a VPC with the REST APIs](/docs/vpc?topic=vpc-deleting-using-api).
+For example, a VPC can't be deleted if it contains instances, subnets, or public gateways. For instructions on deleting a VPC and all its resources, see [Deleting a VPC with the REST APIs](/docs/vpc?topic=vpc-deleting-vpc-resources&interface=api).
 
 ### Congratulations!
 {: #congratulations-api-tutorial}

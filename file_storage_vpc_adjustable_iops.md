@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-12-18"
+  years: 2022, 2024
+lastupdated: "2024-01-03"
 
 keywords: file share, file storage, IOPS, performance needs, adjust IOPS
 
@@ -36,7 +36,7 @@ By using this feature, you can:
     The maximum IOPS for a file share for a 3 IOPS/GB tier profile is 96,000 IOPS. All other profiles are capped at 48,000 IOPS. For 96,000 IOPS to be realized, a single file share must be accessed by multiple virtual server instances. A single file share that is accessed by one instance is limited to 48,000 IOPS.
     {: note}
 
-* Adjust IOPS when you're using a [custom IOPS](/docs/vpc?topic=vpc-file-storage-profiles#custom) or [dp2](/docs/vpc?topic=vpc-file-storage-profiles#dp2-profile) profile. The IOPS range is based on the file share size. For example, for a file share that's 25 GB, you can increase IOPS anywhere in the range 100-1,000 IOPS with a custom profile. If you later [increase the size of a file share](/docs/vpc?topic=vpc-file-storage-expand-capacity) to the next highest band, you can increase the IOPS again.
+* Adjust IOPS when you're using a [custom IOPS](/docs/vpc?topic=vpc-file-storage-profiles#fs-custom) or [dp2](/docs/vpc?topic=vpc-file-storage-profiles#dp2-profile) profile. The IOPS range is based on the file share size. For example, for a file share that's 25 GB, you can increase IOPS anywhere in the range 100-1,000 IOPS with a custom profile. If you later [increase the size of a file share](/docs/vpc?topic=vpc-file-storage-expand-capacity) to the next highest band, you can increase the IOPS again.
 
 * Adjust IOPS from an IOPS tier profile to a custom or dp2 profile. In this case, the file share size restricts the custom or dp2 band that you select. For example, if you're adjusting IOPS for file share with a 3 IOPS/GB profile and it's 12,000 GB, you can adjust the IOPS by using a custom or dp2 profile. It's possible because both support a share size of 12,000 GB. If the file share size was greater than 16,000 GB, the custom profile would not support adjusting IOPS, but the dp2 profile would because it supports share sizes to 32,000 GB. The IOPS tier maximum sizes are 32,000 GB for 3 IOPS/GB, 9,600 GB for 5 IOPS/GB, and 4,800 GB for 10 IOPS/GB. When you move from a tiered profile to a custom or dp2 profile, billing is update based on the specified IOPS.
 
@@ -44,7 +44,7 @@ By using this feature, you can:
 
 To adjust a file share's IOPS, the file share must be in a _stable_ state. Your user authorization is verified before IOPS is adjusted.
 
-You can use the [UI](#fs-adjust-vpc-iops-ui-file), [CLI](#fs-adjust-vpc-iops-cli-file), or [API](#fs-adjust-vpc-iops-api-file) to adjust IOPS. You can adjust the file share's IOPS multiple times up to its maximum limit or reduce IOPS to its minimum limit.
+You can use the UI, the CLI, the API, or Terraform to adjust IOPS. You can adjust the file share's IOPS multiple times up to its maximum limit or reduce IOPS to its minimum limit.
 
 You can monitor the progress of your file share's IOPS change from the UI or CLI. You can also use the [Activity Tracker](/docs/vpc?topic=vpc-at-events) to verify that the IOPS were adjusted.
 
@@ -55,7 +55,7 @@ The following limitations apply.
 
 * To adjust IOPS, the file share must be in a _stable_ state.
 * For a file share created with an [IOPS tier profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#fs-tiers) to increase or decrease IOPS, select a different profile for the file share size. If the file share size exceeds that of the new IOPS tier profile, you can't change the profile.
-* A [custom IOPS profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#custom) can expand to the maximum allowed by the custom band. You can't switch custom bands unless you increase the file share size and then move to a higher band.
+* A [custom IOPS profile](/docs/vpc?topic=vpc-file-storage-profiles#fs-custom) can expand to the maximum allowed by the custom band. You can't switch custom bands unless you increase the file share size and then move to a higher band.
 * A [dp2 profile](/docs/vpc?topic=vpc-file-storage-profiles&nterface=ui#dp2-profile) can expand to the maximum allowed by the dp2 band. You can't switch dp2 bands unless you increase the file share size and then move to a higher band.
 * Adjusting IOPS by moving between profiles is restricted by the file share size.
 * When you use a custom or dp2 profile, IOPS can be adjusted multiple times until the maximum or minimum limit is reached.
@@ -90,7 +90,7 @@ Follow these steps to adjust IOPS by selecting a new IOPS tier or custom IOPS ba
 ### Adjusting IOPS for a Custom or dp2 profile
 {: #adjust-iops-cli-file}
 
-From the CLI, use the `share-update` command with the `--iops` property to indicate the new IOPS size for a custom or dp2 profile. The IOPS that you indicate must be within the range for the size of the file share (see [Custom IOPS profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#custom) or [dp2](/docs/vpc?topic=vpc-file-storage-profiles#dp2-profile)).
+From the CLI, use the `share-update` command with the `--iops` property to indicate the new IOPS size for a custom or dp2 profile. The IOPS that you indicate must be within the range for the size of the file share (see [Custom IOPS profile](/docs/vpc?topic=vpc-file-storage-profiles#fs-custom) or [dp2](/docs/vpc?topic=vpc-file-storage-profiles#dp2-profile)).
 
 Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 {: requirement}

@@ -170,5 +170,5 @@ Unlike security groups, network ACLs can be assigned across VPCs. Therefore, del
 
 The following topics provide more examples on how to delete VPC resources by using the IBM Cloud Console, CLI, or API.
 
-* [Deleting a VPC and its associated resources](/docs/vpc?topic=vpc-deleting-a-vpc-and-its-associated-resources&interface=ui)
+* [Deleting a VPC and its associated resources](/docs/vpc?topic=vpc-deleting-vpc-resources&interface=ui)
 

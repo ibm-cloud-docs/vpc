@@ -61,7 +61,7 @@ To unbind an IP address by using the IBM Cloud console, follow these steps:
 
 You can bind or unbind a reserved IP address by using the CLI.
 
-Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 ### Binding a reserved IP to an endpoint gateway
 {: #vpe-binding-endpoint-gateway-cli}

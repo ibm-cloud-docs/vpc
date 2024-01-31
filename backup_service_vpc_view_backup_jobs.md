@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2022, 2023
+  years: 2022, 2024
 lastupdated: "2023-12-18"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, view backup lists,
@@ -221,7 +221,7 @@ cloudshell:~$ ibmcloud is backup-policy-jobs r138-0521986d-963c-4c18-992d-d6a7a9
 ```
 {: screen}
 
-For more information about available command options, see [`ibmcloud is backup-policy-jobs`](/docs/vpc?topic=vpc-vpc-reference#backup-policy-jobs).
+For more information about available command options, see [`ibmcloud is backup-policy-jobs`](/docs/vpc?topic=vpc-vpc-reference#backup-policy-jobs-list).
 
 ### View details of a backup job from the CLI
 {: #backup-view-jobs-details-cli}
@@ -280,7 +280,7 @@ cloudshell:~$ ibmcloud is backup-policy-job new-policy-23 r138-25828175-2b51-424
 ```
 {: screen}
 
-For more information about available command options, see [`ibmcloud is backup-policy-jobs`](/docs/vpc?topic=vpc-vpc-reference#backup-policy-jobs).
+For more information about available command options, see [`ibmcloud is backup-policy-jobs`](/docs/vpc?topic=vpc-vpc-reference#backup-policy-jobs-list).
 
 ## View backup jobs with the API
 {: #backup-view-jobs-api}
@@ -491,5 +491,5 @@ For more information about the arguments and attributes, see [ibm_is_backup_poli
 {: #backup-jobs-next-steps}
 
 * [Apply tags to your resources for backups](/docs/vpc?topic=vpc-backup-use-policies).
-* [Create more backup policies](/docs/vpc?topic=vpc-backup-policy-create&interface=ui).
+* [Create more backup policies](/docs/vpc?topic=vpc-create-backup-policy-and-plan&interface=ui).
 * [Restore a volume from a backup snapshot](/docs/vpc?topic=vpc-baas-vpc-restore).

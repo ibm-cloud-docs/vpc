@@ -28,7 +28,7 @@ When you are provisioning a flow log collector, keep in mind that [the finest gr
 Before you create a flow log collector, make sure that you meet the following prerequisites:
 
 1. Make sure that at least one VPC, a subnet, and a virtual server instance exist. For instructions, see [Creating a VPC and subnet](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vpc-and-subnet) and [Creating a virtual server instance](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vsi).
-1. Make sure that an {{site.data.keyword.cos_full}} instance with a bucket exists for your flow logs. To create an {{site.data.keyword.cos_short}} bucket, see the [{{site.data.keyword.cos_full_notm}}](/catalog/services/cloud-object-storage){: external} ordering page.
+1. Make sure that an {{site.data.keyword.cos_full}} instance with a bucket exists for your flow logs. To create an {{site.data.keyword.cos_short}} bucket, see the [{{site.data.keyword.cos_full_notm}}](/objectstorage/create){: external} ordering page.
 
    The {{site.data.keyword.cos_short}} bucket must be a single-region bucket in the same region as the target resource. Additionally, it is recommended that you secure the bucket through IAM access groups and audit logging.
    {: important}
@@ -55,7 +55,7 @@ Before you create a flow log collector, make sure that you meet the following pr
 
    * Click **Authorize**.
 
-   For more information, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth#create-auth).
+   For more information, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth&interface=ui#create-auth).
    {: note}
 
 ## Prerequisites from the CLI
@@ -65,7 +65,7 @@ Before you create a flow log collector, make sure that you meet the following pr
 Before you create a flow log collector, make sure that you meet the following prerequisites:
 
 1. Make sure that at least one VPC, a subnet, and a virtual server instance exist. For instructions, see [Creating a VPC and subnet](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vpc-and-subnet) and [Creating a virtual server instance](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vsi).
-1. Make sure that an {{site.data.keyword.cos_full}} instance with a bucket exists for your flow logs. To create an {{site.data.keyword.cos_short}} bucket, see the [{{site.data.keyword.cos_full_notm}}](/catalog/services/cloud-object-storage) ordering page.
+1. Make sure that an {{site.data.keyword.cos_full}} instance with a bucket exists for your flow logs. To create an {{site.data.keyword.cos_short}} bucket, see the [{{site.data.keyword.cos_full_notm}}](/objectstorage/create) ordering page.
 
    The {{site.data.keyword.cos_short}} bucket must be a single-region bucket in the same region as the target resource. Additionally, it is recommended that you secure the bucket through IAM access groups and audit logging.
    {: important}
@@ -85,7 +85,7 @@ Before you create a flow log collector, make sure that you meet the following pr
 
    ![{{site.data.keyword.cos_short}} Service credentials](images/flow-logs-service-credentials.png){: caption="{{site.data.keyword.cos_short}} Service credentials" caption-side="bottom"}
 
-   For more information, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth#create-auth).
+   For more information, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth&interface=ui#create-auth).
    {: note}
 
 ## Prerequisites with the API
@@ -95,7 +95,7 @@ Before you create a flow log collector, make sure that you meet the following pr
 Before you create a flow log collector, make sure that you meet the following prerequisites:
 
 1. Make sure that at least one VPC, a subnet, and a virtual server instance exist. For instructions, see [Creating a VPC and subnet](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vpc-and-subnet) and [Creating a virtual server instance](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vsi).
-1. Make sure that an {{site.data.keyword.cos_full}} instance with a bucket exists for your flow logs. To create an {{site.data.keyword.cos_short}} bucket, see the [{{site.data.keyword.cos_full_notm}}](/catalog/services/cloud-object-storage){: external} ordering page.
+1. Make sure that an {{site.data.keyword.cos_full}} instance with a bucket exists for your flow logs. To create an {{site.data.keyword.cos_short}} bucket, see the [{{site.data.keyword.cos_full_notm}}](/objectstorage/create){: external} ordering page.
 
    The {{site.data.keyword.cos_short}} bucket must be a single-region bucket in the same region as the target resource. Additionally, it is recommended that you secure the bucket through IAM access groups and audit logging.
    {: important}
@@ -123,7 +123,7 @@ Before you create a flow log collector, make sure that you meet the following pr
 
    * Click **Authorize**.
 
-   For more information, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth#create-auth).
+   For more information, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth&interface=ui#create-auth).
    {: note}
 
 ## Creating a flow log collector in the UI
@@ -143,7 +143,7 @@ To create a flow log collector by using the IBM Cloud console, follow these step
 
    * **Name** - Type a unique name for your flow log collector.
    * **Resource group** - Select a resource group for your flow log collector. You can use the default group for this flow log, or choose from the list (if defined). For more information, see [Best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup).
-   * **Tags** - Optionally, add tags to organize, track usage costs, or manage access to your resources. 
+   * **Tags** - Optionally, add tags to organize, track usage costs, or manage access to your resources.
    * **Access management tags** - Optionally, add access management tags to resources to help organize access control relationships. The only supported format for access management tags is `key:value`. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
 
 1. From the **Attach the flow log connector to** menu, choose a target type for the flow log. Depending on your selection, additional fields might be required.
@@ -163,7 +163,7 @@ To create a flow log collector by using the IBM Cloud console, follow these step
 {: #fl-ordering-cli}
 {: cli}
 
-Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 To create a flow log collector by using the CLI, run the following command:
 

@@ -47,7 +47,7 @@ After you created a dedicated host, you can start provisioning virtual server in
 * IBM Cloud CLI
 * The infrastructure-service plug-in 
 
-2. Have an [{{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
+2. Have an [{{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli).
 
 ### Gathering information to create an instance on a dedicated host by using the CLI
 {: #gather-info-dedicated-host-vsi-cli}
@@ -93,7 +93,7 @@ ibmcloud is instance-create my-instance-name r006-e49dbfc6-03b5-4609-b680-684311
 ```
 {: pre}
 
-For a full list of command options, see [ibmcloud is instance-create](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-create).
+For a full list of command options, see [ibmcloud is instance-create](/docs/vpc?topic=vpc-vpc-reference#instance-create).
 
 ## Creating instances on dedicated hosts by using the API
 {: #creating-dedicated-instance-api}

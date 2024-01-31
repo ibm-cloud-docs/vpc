@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-12-18"
+  years: 2021, 2024
+lastupdated: "2024-01-05"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
@@ -65,7 +65,7 @@ By clicking the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Acti
    - Copy UUID  
    - Copy the Cloud Resource Name (CRN). 
    - [Create volume](/docs/vpc?topic=vpc-snapshots-vpc-restore#snapshots-vpc-restore-ui).
-   - [Edit fast restore](https://test.cloud.ibm.com/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-edit-fast-restore).
+   - [Edit fast restore](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-edit-fast-restore).
    - [Delete](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-delete-snapshot-ui). 
    - [Delete all snapshots for a volume](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-delete-all-ui).
 
@@ -81,7 +81,7 @@ The snapshot details panel shows the information that is described in the follow
 
 | Field | Description |
 |-------|-------------|
-| Name  | The name of the snapshot, which you can change by clicking the pencil icon. For more information, see [Change the snapshot name](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-rename). |
+| Name  | The name of the snapshot, which you can change by clicking the pencil icon. For more information, see [Naming snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-naming). |
 | Snapshot ID | Copiable GUID of the snapshot. |
 | Bootable | Yes or No. |
 | CRN | Copiable CRN of the snapshot. |
@@ -97,13 +97,11 @@ The snapshot details panel shows the information that is described in the follow
 {: caption="Table 3. Snapshot details" caption-side="bottom"}
 
 By clicking the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Actions"), you can display a menu of context-specific actions.
-   - [Create a volume from the snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore#snapshots-restore-create-vol-ui)
+   - [Create a volume from the snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui)
    - [Edit fast restore](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-edit-fast-restore), or delete a snapshot.
 
 ### Listing all consistency groups of snapshots in the UI
 {: #consistency-group-vpc-view-list-ui}
-
-[New]{: tag-new}
 
 In the console, you can view a list of all consistency groups that you created, with the most recent one at the beginning of the list. You can filter the list to view specific consistency groups.
 
@@ -142,8 +140,6 @@ By clicking the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Acti
 
 ### Viewing details of a consistency group in the UI
 {: #snapshot-vpc-view-consistency-group-ui}
-
-[New]{: tag-new}
 
 To see detailed information about a consistency group, locate the group on the Block Storage snapshots for VPC list. Then, click the name of a consistency group. 
 
@@ -237,7 +233,7 @@ r138-e6664842-b370-496a-9ae7-da3fb647707c   snappy-snap-snap                    
 ```
 {: screen}
 
-For more information about available snapshot command options, see [`ibmcloud is snapshots`](/docs/vpc?topic=vpc-vpc-reference#snapshots).
+For more information about available snapshot command options, see [`ibmcloud is snapshots`](/docs/vpc?topic=vpc-vpc-reference#snapshots-list).
 
 ### Viewing all snapshots of a volume from the CLI
 {: #snapshots-vpc-view-all-snapshots-cli}
@@ -261,7 +257,7 @@ r138-e6664842-b370-496a-9ae7-da3fb647707c   snappy-snap-snap                 sta
 ```
 {: screen}
 
-For more information about available command options, see [`ibmcloud is snapshots`](/docs/vpc?topic=vpc-vpc-reference#snapshots).
+For more information about available command options, see [`ibmcloud is snapshots`](/docs/vpc?topic=vpc-vpc-reference#snapshots-list).
 
 ### Viewing all snapshots in a consistency group from the CLI
 {: #snapshots-cr-vpc-view-all-cli}
@@ -285,7 +281,7 @@ r174-7311f226-8259-46be-9bfa-5b2cd08bdf2f   snapshot-no-1   stable   r174-bf5957
 ```
 {: screen}
 
-For more information about available command options, see [`ibmcloud is snapshots`](/docs/vpc?topic=vpc-vpc-reference#snapshots).
+For more information about available command options, see [`ibmcloud is snapshots`](/docs/vpc?topic=vpc-vpc-reference#snapshots-list).
 
 ### Viewing details of a snapshot from the CLI
 {: #snapshots-vpc-view-details-cli}
@@ -366,7 +362,7 @@ Tags                       env:prod,env:test
 ```
 {: screen}
 
-For more information about available command options, see [`ibmcloud is snapshots`](/docs/vpc?topic=vpc-vpc-reference#snapshots).
+For more information about available command options, see [`ibmcloud is snapshots`](/docs/vpc?topic=vpc-vpc-reference#snapshots-list).
 
 ### Viewing all fast restore snapshot clones from the CLI
 {: #snapshots-view-zonal-clones-cli}
@@ -382,7 +378,7 @@ eu-de-3   true        2023-02-17T20:29:21+00:00
 ```
 {: screen}
 
-For more information about available command options, see [`ibmcloud is snapshot-clones`](/docs/vpc?topic=vpc-vpc-reference#snapshot-clones).
+For more information about available command options, see [`ibmcloud is snapshot-clones`](/docs/vpc?topic=vpc-vpc-reference#snapshot-clones-list).
 
 ### Viewing details of a fast restore snapshot clone from the CLI
 {: #snapshots-clone-details-cli}
@@ -400,7 +396,7 @@ Href        https://eu-de.iaas.cloud.ibm.com/v1/regions/eu-de/zones/eu-de-3
 ```
 {: screen}
 
-For more information about available command options, see [`ibmcloud is snapshot-clone`](/docs/vpc?topic=vpc-vpc-reference#snapshot-clone).
+For more information about available command options, see [`ibmcloud is snapshot-clone`](/docs/vpc?topic=vpc-vpc-reference#snapshot-clone-view).
 
 ### Viewing details of a remote region snapshot copy from the CLI
 {: #snapshots-regional-copy-details-cli}
@@ -449,8 +445,6 @@ Service Tags           -
 
 ### Viewing all snapshot consistency groups from the CLI
 {: #snapshots-vpc-view-all-consistency-groups-cli}
-
-[New]{: tag-new}
 
 Run the `snapshot-consistency-groups` command to list all consistency groups in a region.
 
@@ -847,9 +841,7 @@ A successful response shows information that is similar to the following example
 ### Viewing all snapshot consistency groups with the API
 {: #snapshots-vpc-view-all-consistency-groups-apip}
 
-[New]{: tag-new}
-
-You can programmatically list all consistency groups by calling the `/snapshot_consistency_groups` method in the [VPC API](/apidocs/vpc-scoped#list-snapshot-consistency-groups){: external} as shown in the following sample request.
+You can programmatically list all consistency groups by calling the `/snapshot_consistency_groups` method in the [VPC API](/apidocs/vpc/latest#list-snapshot-consistency-groups){: external} as shown in the following sample request.
 
 ```sh
 GET /snapshot_consistency_groups
@@ -859,9 +851,7 @@ GET /snapshot_consistency_groups
 ### Viewing details of a snapshot consistency group with the API
 {: #snapshots-vpc-view-a-consistency-group-api}
 
-[New]{: tag-new}
-
-You can programmatically retrieve details of a consistency group by calling the `/snapshot_consistency_groups` method in the [VPC API](/apidocs/vpc-scoped#get-snapshot-consistency-group){: external} as shown in the following sample request.
+You can programmatically retrieve details of a consistency group by calling the `/snapshot_consistency_groups` method in the [VPC API](/apidocs/vpc/latest#get-snapshot-consistency-group){: external} as shown in the following sample request.
 
 ```sh
 GET /snapshot_consistency_groups/r006-e8707243-96b3-4c27-be1f-57eff0196207
@@ -994,8 +984,6 @@ For more information, see [ibm_is_snapshot_clone](https://registry.terraform.io/
 ### Listing all consistency groups with Terraform
 {: #snapshots-vpc-view-consistency-groups-terraform}
 
-[New]{: tag-new}
-
 Import the details of a collection of consistency groups as a read-only data source.
 
 ```terraform
@@ -1009,8 +997,6 @@ For more information, see [ibm_is_consistency_groups](https://registry.terraform
 
 ### Listing details of a consistency group with Terraform
 {: #snapshots-vpc-view-consistency-group_details-terraform}
-
-[New]{: tag-new}
 
 Import the details of a snapshot consistency group as a read-only data source. You can specify the consistency group by either the ID or the name of the consistency group.
 

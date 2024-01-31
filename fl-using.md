@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-05-11"
+  years: 2020, 2024
+lastupdated: "2024-01-26"
 
 keywords: flow logs, getting started
 
@@ -72,7 +72,7 @@ If an overlap exists, the most targeted flow log collector takes precedence. Thi
 
 To get started using flow log collectors, follow these steps:
 
-1. Complete any [prerequisites](/docs/vpc?topic=vpc-ordering-flow-log-collector#fl-before-you-begin) before ordering IBM Cloud Flow Logs.
+1. Complete any [prerequisites](/docs/vpc?topic=vpc-ordering-flow-log-collector&interface=ui#fl-before-you-begin-ui) before ordering IBM Cloud Flow Logs.
 2. Decide on the collection scope and [create one or more flow log collectors](/docs/vpc?topic=vpc-ordering-flow-log-collector).
 3. Review the flow logs that were generated. See [Viewing flow log objects](/docs/vpc?topic=vpc-fl-analyze) for details.
 
@@ -87,7 +87,7 @@ With IBM Cloud Flow Logs for VPC, you can validate that network connections and 
 ### Use case 1: Analyzing flow logs
 {: #analyzing-flow-logs-using-example}
 
-You can review and download a [flow log example solution](https://github.com/IBM-Cloud/vpc-flowlogs-logdna){: external} of how to use a trigger function to read a flow log {{site.data.keyword.cos_short}} object and write it to IBM Log Analysis.
+You can review and download a [flow log example solution](https://github.com/IBM-Cloud/vpc-flowlogs){: external} of how to use a trigger function to read a flow log {{site.data.keyword.cos_short}} object and write it to IBM Log Analysis.
 
 ### Use case 2: Setting up finest granularity wins
 {: #finest-granularity-wins-example}
@@ -127,10 +127,10 @@ Consider a scenario where an attacker initiates connections to different TCP por
 
 These links provide additional information about {{site.data.keyword.cloud_notm}} Flow Logs for VPC.
 
-* [Flow logs CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#flow-logs-cli-ref)
+* [Flow logs CLI reference](/docs/vpc?topic=vpc-vpc-reference#flow-logs-cli-ref)
 * [Flow logs API reference](/apidocs/vpc/latest#list-flow-log-collectors)
 * [FAQs for flow log collectors](/docs/vpc?topic=vpc-fl-faq)
 * [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-flow-logs)
-* [Blog: Time Series Analytics for IBM Virtual Private Cloud (VPC) Flows Using Grafana](https://www.ibm.com/cloud/blog/time-series-analytics-for-ibm-virtual-private-cloud-flows-using-grafana){: external}
-* [Blog: Use IBM Log Analysis to Analyze VPC Network Traffic from IBM Cloud Flow Logs for VPC](https://www.ibm.com/cloud/blog/use-ibm-log-analysis-with-logdna-to-analyze-vpc-network-traffic-from-ibm-cloud-flow-logs-for-vpc){: external}
-* [Blog: Indexing and Searching VPC Flow Logs in IBM Cloud Databases for Elasticsearch](https://www.ibm.com/cloud/blog/indexing-and-searching-vpc-flow-logs-in-ibm-cloud-databases-for-elasticsearch){: external}
+* [Blog: Time Series Analytics for IBM Virtual Private Cloud (VPC) Flows Using Grafana](https://www.ibm.com/blog/time-series-analytics-for-ibm-virtual-private-cloud-flows-using-grafana/){: external}
+* [Blog: Use IBM Log Analysis to Analyze VPC Network Traffic from IBM Cloud Flow Logs for VPC](https://www.ibm.com/blog/use-ibm-log-analysis-with-logdna-to-analyze-vpc-network-traffic-from-ibm-cloud-flow-logs-for-vpc/){: external}
+* [Blog: Indexing and Searching VPC Flow Logs in IBM Cloud Databases for Elasticsearch](https://www.ibm.com/blog/indexing-and-searching-vpc-flow-logs-in-ibm-cloud-databases-for-elasticsearch/){: external}

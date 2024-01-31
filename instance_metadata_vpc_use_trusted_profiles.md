@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-12-05"
+lastupdated: "2023-12-20"
 
 keywords:
 
@@ -36,7 +36,7 @@ The instance inherits the access rights that are defined in the default trusted 
 
 2. After the installation of the VPC CLI plug-in, set the target to generation 2 by running the `ibmcloud is target --gen 2` command.
 
-3. Make sure that you [created an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-cli#create-a-vpc-cli).
+3. Make sure that you [created an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli#create-a-vpc-cli).
 
 4. Configure a floating IP so that you can ping the virtual servers over the floating IP address and SSH into them.
 
@@ -86,9 +86,12 @@ For more information, see the IAM documentation on [setting up trusted profiles]
 ## End-to-end procedure for using a trusted profile to call IAM-enabled services
 {: #imd-trusted-profile-md-ex}
 
+Default trusted profiles cannot be changed on existing instances. A default trusted profile can be specified only while you provision an instance.
+{: important}
+
 1. Create a [trusted profile](/docs/account?topic=account-create-trusted-profile) for the new instance.
 
-2. Create the instance and specify a default trusted profile. With the VPC API, set the `auto_link` property to `true` to automatically link the trusted profile to the instance. Specify the trusted profile ID or the CRN of the trusted profile. For example:
+2. Create the instance and specify a default trusted profile while you provision the instance. With the VPC API, set the `auto_link` property to `true` to automatically link the trusted profile to the instance. Specify the trusted profile ID or the CRN of the trusted profile. For example:
 
     ```curl
     curl -X POST "$vpc_api_endpoint/v1/instances?version=2022-01-11&generation=2" -H "Authorization: $iam_token"

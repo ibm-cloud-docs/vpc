@@ -72,7 +72,7 @@ To delete a route using the UI, follow these steps:
 {: #create-route-cli-c2s}
 {: cli}
 
-Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 To create a VPN server route from the CLI, enter the following command:
 
@@ -144,7 +144,7 @@ Where:
 {: #view-routes-cli}
 {: cli}
 
-Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 To view a list of VPN server routes for a VPN server from the CLI, enter the following command:
 
@@ -239,7 +239,7 @@ To view a route on a VPN server with the API, follow these steps:
    ```
    {: codeblock}
 
-1. Perform a GET on `/vpn_servers/{vpn_server_id}/routes/{id}`. For details, see [`list_vpn-server_routes`](/apidocs/vpc/latest#list_vpn_server_routes).
+1. Perform a GET on `/vpn_servers/{vpn_server_id}/routes/{id}`. For details, see [`list_vpn-server_routes`](/apidocs/vpc/latest#list-vpn-server-routes).
 
    ```sh
    curl -sS -X GET \

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-12-18"
+  years: 2021, 2024
+lastupdated: "2024-01-04"
 
 keywords: file storage, file share, performance, IOPS, block size, capacity, range
 
@@ -132,7 +132,7 @@ dp2    defined_performance
 ```
 {: screen}
 
-For more information about the command options, see [`ibmcloud is share-profiles`](/docs/vpc?topic=vpc-vpc-reference#share-profiles).
+For more information about the command options, see [`ibmcloud is share-profiles`](/docs/vpc?topic=vpc-vpc-reference#share-profiles-list).
 
 ## Viewing profiles with the API
 {: #fs-using-api-iops-profiles}

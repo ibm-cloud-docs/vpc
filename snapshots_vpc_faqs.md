@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-12-05"
+  years: 2022, 2024
+lastupdated: "2024-01-02"
 
 keywords: Block Storage, snapshots, cross-regional copy, fast restore, backup, restore volume
 
@@ -70,7 +70,7 @@ Restoring a volume from a snapshot creates an entirely new boot or data volume. 
 
 For best performance, you can enable snapshots for fast restore. By using the fast restore feature, you can create a volume from a snapshot that is fully provisioned when the volume is created. For more information, see [Snapshots fast restore](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_fast_restore).
 
-## I restored a {{site.data.keyword.block_storage_is_short}} volume from a snapshot, and it's not performing at the expected levels. Is this normal?
+## Is it normal for a volume that I restored from a snapshot to not perform at the expected level?
 {: faq}
 {: #faq-snapshot-performance}
 

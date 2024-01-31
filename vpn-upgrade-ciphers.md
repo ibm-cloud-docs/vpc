@@ -68,15 +68,15 @@ To upgrade the auto-negotiation policy by using the UI, follow these steps:
 {: #upgrade-vpn-old-auto-procedure-ui-cli}
 {: cli}
 
-Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 To upgrade the auto-negotiation policy from the CLI, follow these steps:
 
 1. Store the VPN gateway ID (or name) and VPN connection ID (or name) variables to be used in the CLI command, for example:
 
-   `vpn_gateway` - Find the VPN gateway ID (or name) by using the [get VPN gateways](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference&interface=cli#vpn-gateways) command, and then populate the variable.
+   `vpn_gateway` - Find the VPN gateway ID (or name) by using the [list VPN gateways](/docs/vpc?topic=vpc-vpc-reference&interface=cli#vpn-gateways-list) command, and then populate the variable.
 
-   `connection` - Find the VPN gateway connection ID (or name) by using the [get VPN gateway connections](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference&interface=cli#vpn-gateway-connections) command, and then populate the variable.
+   `connection` - Find the VPN gateway connection ID (or name) by using the [list VPN gateway connections](/docs/vpc?topic=vpc-vpc-reference&interface=cli#vpn-gateway-connections-list) command, and then populate the variable.
 
     ```sh
     export vpn_gateway=<vpn_gateway_id_or_name>
@@ -334,13 +334,13 @@ To upgrade a custom IPsec policy by using the UI, follow these steps:
 {: #upgrade-vpn-custom-ike-policy-procedure-cli}
 {: cli}
 
-Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 To upgrade a custom IKE policy from the CLI, following these steps:
 
 1. Find and store the IKE policy ID or name variable to be used in your CLI code, for example:
 
-   `ike_policy` - Find the ID (or name) of IKE policy that contains weak ciphers by using the [list IKE policies](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference&interface=cli#ike-policies) command, and then populate the variable.
+   `ike_policy` - Find the ID (or name) of IKE policy that contains weak ciphers by using the [list IKE policies](/docs/vpc?topic=vpc-vpc-reference&interface=cli#ike-policies-list) command, and then populate the variable.
 
     ```sh
     export ike_policy=<your_ike_policy_id_or_name>
@@ -392,13 +392,13 @@ To upgrade a custom IKE policy from the CLI, following these steps:
 {: #upgrade-vpn-custom-ipsec-policy-procedure-cli}
 {: cli}
 
-Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 To upgrade a custom IPsec policy from the CLI, follow these steps:
 
 1. Find and store the IPsec policy ID (or name) variable to be used in your CLI code, for example:
 
-   `ipsec_policy` - Find the ID (or name) of the IPsec policy that contains weak ciphers by using the [list IPsec policies](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference&interface=cli#ipsec-policies) command, and then populate the variable:
+   `ipsec_policy` - Find the ID (or name) of the IPsec policy that contains weak ciphers by using the [list IPsec policies](/docs/vpc?topic=vpc-vpc-reference&interface=cli#ipsec-policies-list) command, and then populate the variable:
 
     ```sh
     export ipesc_policy=<your_ipsec_policy_id_or_name>
@@ -453,7 +453,7 @@ To upgrade a custom IPsec policy from the CLI, follow these steps:
 {: #upgrade-vpn-custom-ike-policy-procedure-api}
 {: api}
 
-Before you begin, make sure to [set up your API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
+Before you begin, make sure to [set up your API environment](/docs/vpc?topic=vpc-set-up-environment&interface=api#cli-prerequisites-setup).
 
 To upgrade a custom IKE policy with the API, follow these steps:
 
@@ -501,7 +501,7 @@ To upgrade a custom IKE policy with the API, follow these steps:
 {: #upgrade-vpn-custom-ipsec-policy-procedure-api}
 {: api}
 
-Before you begin, make sure to [set up your API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
+Before you begin, make sure to [set up your API environment](/docs/vpc?topic=vpc-set-up-environment&interface=api#cli-prerequisites-setup).
 
 To upgrade the IPsec policy with the API, follow these steps:
 

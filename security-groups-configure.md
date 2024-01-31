@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2023
-lastupdated: "2023-12-18"
+  years: 2018, 2024
+lastupdated: "2024-1-26"
 
 keywords:
 
@@ -135,7 +135,7 @@ ibmcloud is security-group-rule-add $sg inbound icmp --icmp-type 8 --icmp-code 0
 ```
 {: pre}
 
-For more information on setting up security groups by using the CLI, see [Security groups](https://cloud.ibm.com/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#security-groups-cli-ref){: external}.
+For more information on setting up security groups by using the CLI, see [Setting up your API and CLI environment](/docs/vpc?topic=vpc-set-up-environment).
 
 ## Setting up the security groups for your resource with the API
 {: #sg-using-api}
@@ -145,7 +145,7 @@ The following example demonstrates how to create and manage security groups by u
 
 To use security groups, first you must have a running {{site.data.keyword.vpc_short}}.
 
-For instructions about creating a VPC and subnet, see [Creating a VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis).
+For instructions about creating a VPC and subnet, see [Creating a VPC](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=api).
 
 ### Step 1: Create a security group
 {: #step-1-create-a-security-group}

@@ -153,7 +153,7 @@ You can create an instance group in your {{site.data.keyword.vpc_short}} to auto
 ### Before you begin
 {: #before-cli-tutorial-autoscale}
 
-Make sure that you set up your [{{site.data.keyword.cloud}} CLI environment](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup) and your [{{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
+Make sure that you set up your [{{site.data.keyword.cloud}} CLI environment](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup) and your [{{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli).
 {: important}
 
 To create an auto scale instance group by using the CLI, you must complete the following tasks:
@@ -255,7 +255,7 @@ Use the following commands to determine the required information for creating a 
    ```
    {: screen}
 
-   If you don't have one available, you can create an {{site.data.keyword.vpc_short}} by using the `ibmcloud is vpc-create` command. For more information about creating an {{site.data.keyword.vpc_short}}, see [IBM Cloud VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#vpcs).
+   If you don't have one available, you can create an {{site.data.keyword.vpc_short}} by using the `ibmcloud is vpc-create` command. For more information about creating an {{site.data.keyword.vpc_short}}, see [IBM Cloud VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference#vpcs).
 
 1. List the available profiles for creating your instance template.
 
@@ -303,7 +303,7 @@ Use the following commands to determine the required information for creating a 
 
    For the best performance of an auto scale instance group, ensure that you use a subnet size of 32 or greater.
 
-   If you don't have one available, you can create a subnet by using the `ibmcloud is subnet-create` command. For more information about creating a subnet, see [IBM Cloud VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#subnets).
+   If you don't have one available, you can create a subnet by using the `ibmcloud is subnet-create` command. For more information about creating a subnet, see [IBM Cloud VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference#subnets).
 
 1. List the available images for creating your instance template.
    You can create an instance by using a stock image, a custom image from your account, or an image that was shared with your account from a private catalog. Run one of the following commands based on the image that you plan to use.
@@ -391,7 +391,7 @@ Primary Network Interface ID   Name      Subnet ID                              
 If you want to create an instance template from an image shared from a private catalog, replace `--image_ID` with either `--catalog-offering` or `catalog-offering_version`.
 {: note}
 
-For more examples of the `ibmcloud is instance-template-create` command, see the [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-template-create).
+For more examples of the `ibmcloud is instance-template-create` command, see the [VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference#instance-template-create).
 
 When you create an instance template, validation steps are performed that ensure you can use your template to provision a virtual server instance. Need more help? You can always run `ibmcloud is help instance-template-create` to display help for creating an instance template.
 {: tip}
@@ -459,7 +459,7 @@ Resource group      ID                                 Name
 ```
 {: screen}
 
-For more examples of the `ibmcloud is instance-group-create` command, see the [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-group-create).
+For more examples of the `ibmcloud is instance-group-create` command, see the [VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference#instance-group-create).
 
 Need more help? You can always run `ibmcloud is instance-group-create --help` to display help for creating an instance group.
 {: tip}
@@ -504,7 +504,7 @@ Max Membership Count   20
 ```
 {: screen}
 
-For more examples of the `ibmcloud is instance-group-manager-create` command, see the [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-group-manager-create).
+For more examples of the `ibmcloud is instance-group-manager-create` command, see the [VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference#instance-group-manager-create).
 
 Need more help? You can always run `ibmcloud is instance-group-manager-create --help` to display help for creating an instance group manager.
 {: tip}
@@ -596,7 +596,7 @@ Policy Type    target
 
 The response indicates that the auto scale manager needs to scale up the number of instances in your group when the average CPU utilization reaches 50 percent. Likewise, the auto scale manager also scales down the number of instances in your group when the average CPU utilization drops to less than 50 percent.
 
-For more examples of the `ibmcloud is instance-group-manager-policy-create` command, see the [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-group-manager-policy-create).
+For more examples of the `ibmcloud is instance-group-manager-policy-create` command, see the [VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference#instance-group-manager-policy-create).
 
 You can define more than one target metric policy, but only one policy for each type of metric. Need more help? You can always run `ibmcloud is instance-group-manager-policy-create --help` to display help for creating a scaling policy.
 {: tip}

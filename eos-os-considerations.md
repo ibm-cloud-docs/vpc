@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-12-07"
+  years: 2023, 2024
+lastupdated: "2024-01-08"
 
 keywords:
 
@@ -94,6 +94,15 @@ If you choose to continue with an EOS OS, consider the following information:
 
 Debian 10 EOS date is 30 June 2024. Support for this software discontinues on 30 June 2024. After deprecation, clients can't download the software. For existing customers, upgrade to the latest version.
 For more information, see the [Debian documentation](https://www.debian.org/releases/bookworm/amd64/release-notes/ch-upgrading.en.html){: external}.
+
+## Red Hat Enterprise Linux 7
+{: #upgrading-rhel-7-os-vpc}
+
+Red Hat Enterprise Linux 7 EOS date is 30 June 2024. Support for this software discontinues on 30 June 2024. After deprecation, clients can't download the software.
+
+If you decide to upgrade with the in-place method on Red Hat OS, open a ticket with {{site.data.keyword.IBM_notm}} support to update the OS version that is recorded on {{site.data.keyword.Bluemix}}. You must inform {{site.data.keyword.IBM_notm}} support when your upgrade is completed for uninterrupted support for your upgraded instances. You can open a support ticket in the [customer portal](https://cloud.ibm.com/).
+
+For existing customers, upgrade to the latest version. For more information, see the [Red Hat Enterprise Linux documentation](https://access.redhat.com/support/policy/updates/errata).
 
 ## Windows 2012 and Windows 2012 R2 EOS
 {: #upgrading-windows-2012-os}
