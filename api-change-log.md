@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2023-12-19"
+lastupdated: "2024-01-30"
 
 keywords: vpc, api, change log, new features, restrictions, migration
 
@@ -53,6 +53,20 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 30 January 2024
+{: #30-january-2024}
+
+### For all version dates
+{: #30-january-2024-all-version-dates}
+
+**Reservations for Virtual Servers for VPC.** Accounts that have been granted special approval to preview this feature can now purchase a [capacity reservation](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc) for a specified instance profile in a specified zone. Reservations provide resources for future deployments and cost savings over the life of the term within the availability zone of your choice.
+
+When [creating](/apidocs/vpc/latest#create-reservation) or [updating](/apidocs/vpc/latest#update-reservation) a reservation, specify the `capacity.total` and `committed_use.term` properties to use for this reservation. Optionally specify the `committed_use.expiration_policy` property to apply when the committed use term expires (default: `release`). Specify the `profile.name` and `profile.resource_type` properties of the profile, and the `zone` property to use for this reservation. After you confirm the reservation is configured the way you want it, you must [activate the reservation](/apidocs/vpc/latest#activate-reservation). The reservation cannot be deleted until the committed use term expires. To provision an instance using a reservation's capacity, specify the reservation using the `reservation_affinity.pool` property when [creating the instance](/apidocs/vpc/latest#create-instance). You can also [update an instance](/apidocs/vpc/latest#update-instance) that's been provisioned to associate it with a reservation. 
+
+When [retrieving an instance](/apidocs/vpc/latest#get-instance), the new `reservation_affinity` property indicates the reservation affinity policy in effect for the virtual server instance. The new `health_state` property indicates the instance's overall health state, while an accompanying `health_reasons` property indicates the reason for any unhealthy health states, such as a failed reservation.
+
+For more information, see [Provisioning reserved capacity for VPC](/docs/vpc?topic=vpc-provisioning-reserved-capacity-vpc). 
 
 ## 19 December 2023
 {: 19-december-2023}
