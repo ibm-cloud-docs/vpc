@@ -25,7 +25,7 @@ Each flow log object contains individual flow logs. To view or analyze the flow 
 
 1. Ensure that you created an instance of {{site.data.keyword.sqlquery_full}}. To create a service instance, see [Getting started with IBM Cloud Data Engine](/docs/sql-query).
 
-   {{site.data.keyword.cosfull_notm}} offers Lite (free) and Standard pricing plans. If you are using the Lite plan, you will not be able to perform tasks that are available with the Standard plan, such as creating tables or using SQL queries. Instead, see [Viewing generated flow log object files from the {{site.data.keyword.cos_short}} bucket](/docs/vpc?topic=vpc-fl-analyze&interface=ui#alternative-method) and alternative methods documented in the following procedures.
+   {{site.data.keyword.cos_full_notm}} offers Lite (free) and Standard pricing plans. If you are using the Lite plan, you will not be able to perform tasks that are available with the Standard plan, such as creating tables or using SQL queries. Instead, see [Viewing generated flow log object files from the {{site.data.keyword.cos_short}} bucket](/docs/vpc?topic=vpc-fl-analyze&interface=ui#alternative-method) and alternative methods documented in the following procedures.
    {: note}
 
 1. Launch {{site.data.keyword.sqlquery_full}}.
