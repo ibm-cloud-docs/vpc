@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-08-03"
+lastupdated: "2023-01-30"
 
 keywords: bare metal server network, bare metal network, nics, pci, vlan, network overview
 

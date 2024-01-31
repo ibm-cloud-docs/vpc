@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020 
-lastupdated: "2020-11-10"
+  years: 2020, 2024
+lastupdated: "2024-01-30"
 
 keywords: bulk provision instances, vsis, virtual server instance, bulk provision with instance group
 
