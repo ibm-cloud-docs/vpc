@@ -6,7 +6,7 @@ lastupdated: "2022-02-15"
 
 keywords: IBM Cloud monitoring troubleshooting, quota monitoring troubleshooting
 
-subcollection: cloud-infrastructure
+subcollection: vpc
 
 ---
 

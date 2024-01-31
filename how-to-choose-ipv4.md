@@ -21,7 +21,7 @@ Use Classless Inter-Domain Routing (CIDR) notation in the format `<IPv4_address>
 For a definition on CIDR notation, see [RFC 1518](https://tools.ietf.org/html/rfc1518) and [RFC 1519](https://tools.ietf.org/html/rfc1519).
 {: note}
 
-If you use an IP range outside of the ranges [RFC 1918](https://tools.ietf.org/html/rfc1918) defines (`10.0.0.0/8`, `172.16.0.0/12`, or `192.168.0.0/16`) for a subnet, the instances that are attached to that subnet might be unable to reach parts of the public internet. If you plan to configure VPCs that use both non-RFC-1918 addresses and also have public connectivity (floating IP addresses or public gateways), make sure to use a custom route that contains the `Delegate-VPC` action.
+If you use an IP range outside of the ranges [RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918) defines (`10.0.0.0/8`, `172.16.0.0/12`, or `192.168.0.0/16`) for a subnet, the instances that are attached to that subnet might be unable to reach parts of the public internet. If you plan to configure VPCs that use both non-RFC-1918 addresses and also have public connectivity (floating IP addresses or public gateways), make sure to use a custom route that contains the `Delegate-VPC` action.
 
 The smaller the number after the slash, the more IP addresses that you are allocating. The number after the slash represents the number of leading bits in the subnet's prefix mask.
 {: tip}

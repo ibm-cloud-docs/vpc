@@ -58,7 +58,7 @@ The system-implicit routing table contains:
     {: note}
 
 ## Determining route preference
-{: #cr-determining-route-preference}
+{: #cr-determining-route-pref}
 
 You can designate the route priority (`0`-`4`) of VPC routes to determine which routes have a higher priority when there are multiple routes for a given destination. Existing routes and new routes, created without a priority value, are automatically set to the default priority (`2`).
 {: shortdesc}
@@ -200,11 +200,12 @@ The following limitations and guidelines apply to {{site.data.keyword.cloud_notm
 {: #routes-general}
 
 * Currently, you cannot use a custom routing table for both ingress (attached to a traffic source) and egress (attached to a subnet) traffic. In addition, the default custom routing table cannot be associated with an ingress traffic source.
+* Currently, return traffic might fail due to asymmetric routing. This issue impacts all services that depend on ECMP static routes. For example, suppose you create two ECMP routes in VPC A with the destination being `10.134.39.64/26`, and the next hops are `192.168.2.4` and `192.168.2.5` respectively. These next hops are NFV device IP addresses. When you send traffic from instance A in the VPC, the packet is randomly routed to one of the next hops, and there is no guarantee that the return traffic will follow the same path as the forwarding traffic due to the ECMP hash algorithm on the other side. This phenomenon is known as _asymmetric routing_. When asymmetric routing occurs, there is no problem with routing itself, but the security group will drop the traffic even if there are security group rules to allow this traffic because the security group sees the traffic in one path only. In general, it is advisable to avoid using ECMP routes.
 * The ability to reach a next hop IP address in a custom route is not a determining factor in whether the route is used for forward traffic. This can cause issues when multiple routes with the same prefix (but different next hop IP addresses) are used, as traffic to unreachable next hop IP addresses might not be delivered.
 * {{site.data.keyword.cloud_notm}} VPC permits the use of RFC-1918 and IANA-registered IPv4 address spaces privately within your VPC, with some exceptions in the IANA special-purpose ranges, and select ranges assigned to {{site.data.keyword.cloud_notm}} services. When using IANA-registered ranges within your enterprise, and within VPCs in conjunction with {{site.data.keyword.cloud_notm}} Transit Gateway or {{site.data.keyword.cloud_notm}} Direct Link, you must install custom routes in each zone. For more information, see [Routing considerations for IANA-registered IP assignments](/docs/vpc?topic=vpc-interconnectivity#routing-considerations-iana).
-* In cases where there are 2 different advertised routes to the same destination, the following limitations apply:
-   - In cases where the "nexthop" for both routes is in the same zone, the route with the higher priority (that is, a lower value for "priority") will be used as the "primary" path and the route with the lower priority (that is, a higher value for "priority") will be used as the "backup" path. If the priority for both the routes is the same, ECMP will be used to route the traffic equally across the 2 routes.
-   - In cases where the "nexthop" for both routes is in different zones, the Transit Gateway or Direct Link router chooses the best route. In this case, that is the oldest advertised route.
+* In the case where there are 2 different advertised routes to the same destination, the following limitations apply:
+   - When the next-hop for both routes is in the same zone, the route with the higher priority (that is, a lower value for `priority`) will be used as the primary path and the route with the lower priority (that is, a higher value for `priority`) will be used as the backup path. If the priority for both routes is the same, ECMP is used to route the traffic equally across the 2 routes.
+   - When the next-hop for both routes is in different zones, the Transit Gateway or Direct Link router chooses the best route. In this case, that is the oldest advertised route.
 
 ### Route priority
 {: #route-rules-considerations}

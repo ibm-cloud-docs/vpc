@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-12-18"
+  years: 2022, 2024
+lastupdated: "2024-01-23"
 
 keywords:
 
@@ -33,7 +33,7 @@ Before binding DNS zones to load balancers, you must first create DNS zones and 
 
 1. DNS zones must be created before they can be bound to a load balancer. For more information, see [Managing DNS zones](/docs/dns-svcs?topic=dns-svcs-managing-dns-zones).
 
-1. To give a load balancer access to your DNS zone, you must enable service-to-service authorization. This grants your load balancer access to the DNS zone. For more information, see [Granting access between services](/docs/account?topic=account-serviceauth#create-auth). Make sure to choose **VPC Infrastructure Services** as the source service, **Load Balancer for VPC** as the resource type, **DNS Services** as the target service, and assign the **Manager** service access role.
+1. To give a load balancer access to your DNS zone, you must enable service-to-service authorization. This grants your load balancer access to the DNS zone. For more information, see [Granting access between services](/docs/account?topic=account-serviceauth&interface=ui#create-auth). Make sure to choose **VPC Infrastructure Services** as the source service, **Load Balancer for VPC** as the resource type, **DNS Services** as the target service, and assign the **Manager** service access role.
 
 ## Working with DNS zones in the UI
 {: #dns-zones-ui}
@@ -49,7 +49,7 @@ You can bind a DNS zone to a load balancer when you create a load balancer. If y
 To bind a DNS zone when [creating a load balancer](/docs/vpc?topic=vpc-load-balancers), follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the Navigation Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Load balancers** in the Network section.
+1. Select the **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Load balancers** in the Network section.
 1. Click **Create**.
 1. Configure the VPC, type, subnet, listeners, and pools as needed.
 1. Under the DNS type section, choose **Private**.
@@ -62,7 +62,7 @@ To bind a DNS zone when [creating a load balancer](/docs/vpc?topic=vpc-load-bala
 To bind a DNS zone to an existing load balancer, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the Navigation Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Load balancers** in the Network section.
+1. Select the **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Load balancers** in the Network section.
 1. From the list of load balancers, select the load balancer to view its details page.
 1. Click **Bind private DNS** in the Private DNS section.
 1. Enter the DNS instance, and DNS zone information.
@@ -77,7 +77,7 @@ When migrating to a private DNS zone for an existing load balancer, the default 
 To unbind a DNS zone from a load balancer, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the Navigation Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Load balancers** in the Network section.
+1. Select the **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Load balancers** in the Network section.
 1. From the list of load balancers, select the load balancer to view its details page.
 1. Click the **Unbind** button in the Private DNS section
 1. Verify the action by clicking **Unbind** again.
@@ -96,7 +96,7 @@ You will need the CRN of the private DNS that you want to bind to your load bala
 
 To create an application load balancer with a private DNS zone, follow these steps:
 
-1. Set up your [CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+1. Set up your [CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 1. Use the terminal to log in to your account. After you enter the password, the system prompts which account and region that you want to use:
 
    ```sh
@@ -114,36 +114,36 @@ ibmcloud is lbc pdns-alb-example private --subnet 0767-064498f3-4df5-4fa5-b2ed-d
 Sample output:
 
 ```sh
-ID                           r014-e424acb0-24af-49a0-ab50-c5969304eb94   
-Name                         pdns-alb-example   
-CRN                          crn:v1:bluemix:public:is:us-east:a/be636a7a6e4d4b6296bedf669ce8f757::load-balancer:r014-e424acb0-24af-49a0-ab50-c5969304eb94   
-Family                       Application   
-Datapath logging active      false   
-Host name                    e424acb0-us-east.example.com   
-Subnets                      ID                                          Name      
-                             0767-064498f3-4df5-4fa5-b2ed-de5a3bfea024   lb-subnet      
-                                
-Public IPs                      
-Private IPs                     
-Provision status             create_pending   
-Operating status             offline   
-Is public                    false   
-Listeners                       
-Pools                        ID   Name      
-                                
-Resource group               ID                                 Name      
-                             42c4f51adc3147b4b4049ad9826c30a1   Default      
-                                
-Created                      2023-02-10T13:18:11-06:00   
-DNS                          Instance CRN                                                                                                      Zone      
-                             crn:v1:bluemix:public:dns-svcs:global:a/be636a7a6e4d4b6296bedf669ce8f757:c7295f57-4d25-4832-9d7e-a032de0c278c::   0671b738-57f0-468e-8086-10bc480ac00e 
-                             
-Instance Group Supported     -   
-SourceIP Session Supported   -   
-Security groups              ID                                          Name      
-                             r014-b739c959-fb3c-44cc-9ec5-41c45b4d637e   astonish-backing-shadiness-frostlike-cosmos-hunk      
-                                
-UDP Supported                false  
+ID                           r014-e424acb0-24af-49a0-ab50-c5969304eb94
+Name                         pdns-alb-example
+CRN                          crn:v1:bluemix:public:is:us-east:a/be636a7a6e4d4b6296bedf669ce8f757::load-balancer:r014-e424acb0-24af-49a0-ab50-c5969304eb94
+Family                       Application
+Datapath logging active      false
+Host name                    e424acb0-us-east.example.com
+Subnets                      ID                                          Name
+                             0767-064498f3-4df5-4fa5-b2ed-de5a3bfea024   lb-subnet
+
+Public IPs
+Private IPs
+Provision status             create_pending
+Operating status             offline
+Is public                    false
+Listeners
+Pools                        ID   Name
+
+Resource group               ID                                 Name
+                             42c4f51adc3147b4b4049ad9826c30a1   Default
+
+Created                      2023-02-10T13:18:11-06:00
+DNS                          Instance CRN                                                                                                      Zone
+                             crn:v1:bluemix:public:dns-svcs:global:a/be636a7a6e4d4b6296bedf669ce8f757:c7295f57-4d25-4832-9d7e-a032de0c278c::   0671b738-57f0-468e-8086-10bc480ac00e
+
+Instance Group Supported     -
+SourceIP Session Supported   -
+Security groups              ID                                          Name
+                             r014-b739c959-fb3c-44cc-9ec5-41c45b4d637e   astonish-backing-shadiness-frostlike-cosmos-hunk
+
+UDP Supported                false
 ```
 {: screen}
 
@@ -161,7 +161,7 @@ To use the CLI to update an application load balancer with a private DNS zone, f
    ```sh
    ibmcloud login --sso
    ```
-   
+
 1. Update your load balancer with the private DNS zone information:
 
    ```sh
@@ -172,39 +172,39 @@ To use the CLI to update an application load balancer with a private DNS zone, f
 Sample output:
 
 ```sh
-ID                           r014-e68a40fb-2b94-4a92-b8bd-dc9bb92c3ef3   
-Name                         pdns-alb-update-example   
-CRN                          crn:v1:bluemix:public:is:us-east:a/be636a7a6e4d4b6296bedf669ce8f757::load-balancer:r014-e68a40fb-2b94-4a92-b8bd-dc9bb92c3ef3   
-Family                       Application   
-Datapath logging active      false   
-Host name                    e68a40fb-us-east.example.com   
-Subnets                      ID                                          Name      
-                             0767-064498f3-4df5-4fa5-b2ed-de5a3bfea024   lb-subnet      
-                                
-Public IPs                      
-Reserved IPs                 ID                                          Address        Subnet      
-                             0767-16871e0f-c43a-4b6e-8491-a3e075362046   10.241.64.11   0767-064498f3-4df5-4fa5-b2ed-de5a3bfea024      
-                             0767-a7db5d37-42cf-473e-ab27-07b679d64ceb   10.241.64.12   0767-064498f3-4df5-4fa5-b2ed-de5a3bfea024      
-                                
-Provision status             update_pending   
-Operating status             online   
-Is public                    false   
-Listeners                       
-Pools                        ID   Name      
-                                
-Resource group               ID                                 Name      
-                             42c4f51adc3147b4b4049ad9826c30a1   Default      
-                                
-Created                      2023-02-10T13:36:44-06:00 
-DNS                          Instance CRN                                                                                                      Zone      
+ID                           r014-e68a40fb-2b94-4a92-b8bd-dc9bb92c3ef3
+Name                         pdns-alb-update-example
+CRN                          crn:v1:bluemix:public:is:us-east:a/be636a7a6e4d4b6296bedf669ce8f757::load-balancer:r014-e68a40fb-2b94-4a92-b8bd-dc9bb92c3ef3
+Family                       Application
+Datapath logging active      false
+Host name                    e68a40fb-us-east.example.com
+Subnets                      ID                                          Name
+                             0767-064498f3-4df5-4fa5-b2ed-de5a3bfea024   lb-subnet
+
+Public IPs
+Reserved IPs                 ID                                          Address        Subnet
+                             0767-16871e0f-c43a-4b6e-8491-a3e075362046   10.241.64.11   0767-064498f3-4df5-4fa5-b2ed-de5a3bfea024
+                             0767-a7db5d37-42cf-473e-ab27-07b679d64ceb   10.241.64.12   0767-064498f3-4df5-4fa5-b2ed-de5a3bfea024
+
+Provision status             update_pending
+Operating status             online
+Is public                    false
+Listeners
+Pools                        ID   Name
+
+Resource group               ID                                 Name
+                             42c4f51adc3147b4b4049ad9826c30a1   Default
+
+Created                      2023-02-10T13:36:44-06:00
+DNS                          Instance CRN                                                                                                      Zone
                              crn:v1:bluemix:public:dns-svcs:global:a/be636a7a6e4d4b6296bedf669ce8f757:c7295f57-4d25-4832-9d7e-a032de0c278c::   0671b738-57f0-468e-8086-10bc480ac00e
 
-Instance Group Supported     -   
-SourceIP Session Supported   -   
-Security groups              ID                                          Name      
-                             r014-b739c959-fb3c-44cc-9ec5-41c45b4d637e   astonish-backing-shadiness-frostlike-cosmos-hunk      
-                                
-UDP Supported                false  
+Instance Group Supported     -
+SourceIP Session Supported   -
+Security groups              ID                                          Name
+                             r014-b739c959-fb3c-44cc-9ec5-41c45b4d637e   astonish-backing-shadiness-frostlike-cosmos-hunk
+
+UDP Supported                false
 ```
 {: screen}
 
@@ -220,47 +220,47 @@ To update an application load balancer with the default public DNS zone, follow 
    ibmcloud login --sso
    ```
    {: pre}
-   
+
 1. Update your load balancer with `reset-dns` flag.
 
    ```sh
    ibmcloud is load-balancer-update pdns-alb-update-example --reset-dns
    ```
    {: pre}
-   
+
 Sample output:
 
 ```sh
-ID                           r014-e68a40fb-2b94-4a92-b8bd-dc9bb92c3ef3   
-Name                         pdns-alb-update-example   
-CRN                          crn:v1:bluemix:public:is:us-east:a/be636a7a6e4d4b6296bedf669ce8f757::load-balancer:r014-e68a40fb-2b94-4a92-b8bd-dc9bb92c3ef3   
-Family                       Application   
-Datapath logging active      false   
-Host name                    e68a40fb-us-east.lb.appdomain.cloud   
-Subnets                      ID                                          Name      
-                             0767-064498f3-4df5-4fa5-b2ed-de5a3bfea024   lb-subnet      
-                                
-Public IPs                      
-Reserved IPs                 ID                                          Address        Subnet      
-                             0767-16871e0f-c43a-4b6e-8491-a3e075362046   10.241.64.11   0767-064498f3-4df5-4fa5-b2ed-de5a3bfea024      
-                             0767-a7db5d37-42cf-473e-ab27-07b679d64ceb   10.241.64.12   0767-064498f3-4df5-4fa5-b2ed-de5a3bfea024      
-                                
-Provision status             update_pending   
-Operating status             online   
-Is public                    false   
-Listeners                       
-Pools                        ID   Name      
-                                
-Resource group               ID                                 Name      
-                             42c4f51adc3147b4b4049ad9826c30a1   Default      
-                                
-Created                      2023-02-10T13:36:44-06:00   
-Instance Group Supported     -   
-SourceIP Session Supported   -   
-Security groups              ID                                          Name      
-                             r014-b739c959-fb3c-44cc-9ec5-41c45b4d637e   astonish-backing-shadiness-frostlike-cosmos-hunk      
-                                
-UDP Supported                false 
+ID                           r014-e68a40fb-2b94-4a92-b8bd-dc9bb92c3ef3
+Name                         pdns-alb-update-example
+CRN                          crn:v1:bluemix:public:is:us-east:a/be636a7a6e4d4b6296bedf669ce8f757::load-balancer:r014-e68a40fb-2b94-4a92-b8bd-dc9bb92c3ef3
+Family                       Application
+Datapath logging active      false
+Host name                    e68a40fb-us-east.lb.appdomain.cloud
+Subnets                      ID                                          Name
+                             0767-064498f3-4df5-4fa5-b2ed-de5a3bfea024   lb-subnet
+
+Public IPs
+Reserved IPs                 ID                                          Address        Subnet
+                             0767-16871e0f-c43a-4b6e-8491-a3e075362046   10.241.64.11   0767-064498f3-4df5-4fa5-b2ed-de5a3bfea024
+                             0767-a7db5d37-42cf-473e-ab27-07b679d64ceb   10.241.64.12   0767-064498f3-4df5-4fa5-b2ed-de5a3bfea024
+
+Provision status             update_pending
+Operating status             online
+Is public                    false
+Listeners
+Pools                        ID   Name
+
+Resource group               ID                                 Name
+                             42c4f51adc3147b4b4049ad9826c30a1   Default
+
+Created                      2023-02-10T13:36:44-06:00
+Instance Group Supported     -
+SourceIP Session Supported   -
+Security groups              ID                                          Name
+                             r014-b739c959-fb3c-44cc-9ec5-41c45b4d637e   astonish-backing-shadiness-frostlike-cosmos-hunk
+
+UDP Supported                false
 ```
 {: screen}
 

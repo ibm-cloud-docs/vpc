@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-12-18"
+  years: 2021, 2024
+lastupdated: "2024-01-26"
 
 keywords:
 
@@ -21,7 +21,7 @@ The {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) allows you 
 Security groups are a convenient way to secure your ALB instances. With a security group attached to your load balancer, you have full control over inbound and outbound traffic to and from the load balancer's listeners and its back-end targets. This feature also makes it convenient to tighten the security posture of the load balancers' back-end targets. Instead of identifying the load balancers using their IP addresses or CIDR range, back-end targets can simply use the load balancer's security group as the source in their own security group definition. This ensures that traffic from all load balancer appliances is allowed automatically, irrespective of their IP addresses.
 
 ## Network traffic rules
-{: #alb-traffic rules}
+{: #alb-traffic-rules}
 
 The following tables provide best practices for inbound and outbound traffic for both public and private application load balancers.
 
@@ -104,14 +104,14 @@ Ensure that the security groups exist that you want to attach to your ALB. Also 
 To create a security group using the UI:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the Navigation Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Security Groups** in the Network section.
+1. Select the **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Security Groups** in the Network section.
 1. Click **Create**.
 1. Provide a unique name for your security group.
 1. Select the VPC for your security group.
    The security group must be created in the same VPC as the load balancer.
 1. Click **Add** to configure inbound and outbound rules that define what type of traffic is allowed to and from the security group. For each rule, complete the following information:
    * Specify a CIDR block or IP address for the permitted traffic. Alternatively, you can specify a security group in the same VPC to allow traffic to or from all sources that are attached to the selected security group.
-   * Select the protocols and ports to which the rule applies. For best practices about network rules, see [Network traffic rules](/docs/vpc?topic=vpc-alb-integration-with-security-groups#alb-traffic).
+   * Select the protocols and ports to which the rule applies. For best practices about network rules, see [Network traffic rules](/docs/vpc?topic=vpc-alb-integration-with-security-groups#alb-traffic-rules).
 
    **Tips:**
    * All rules are evaluated, regardless of the order in which they're added.
@@ -142,10 +142,10 @@ Then, configure outbound rules that allow TCP traffic to your back-end target:
 ### Procedure: Attaching security groups during ALB creation
 {: #create-alb-with-security-groups}
 
-To attach security groups when [creating your application load balancer](/docs/vpc?topic=vpc-load-balancer), follow these steps:
+To attach security groups when [creating your application load balancer](/docs/vpc?topic=vpc-load-balancers&interface=ui), follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the Navigation Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Load balancers** in the Network section.
+1. Select the **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Load balancers** in the Network section.
 1. Click **Create**.
 1. Configure the name, VPC, type, subnet, listeners, and pools as needed.
 1. Select the checkboxes of the security groups that you want to attach from the security group table.
@@ -163,18 +163,18 @@ Load balancers created prior to 25 February 2021 do not have a security group at
 {: important}
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the Navigation Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Load balancers** in the Network section.
+1. Select the **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Load balancers** in the Network section.
 1. From the list of load balancers, select the load balancer to view its details page.
 1. Click the **Attached security groups** tab to view attached security groups.
 1. To attach one or more security groups, click **Attach**.
-   You can select a maximum of five security groups to attach to an ALB.   
+   You can select a maximum of five security groups to attach to an ALB.
 1. Select the security group to attach.
 1. Click **Attach**.
 
 To detach a security group from a load balancer, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the Navigation Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Load balancers** in the Network section.
+1. Select the **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Load balancers** in the Network section.
 1. From the list of load balancers, select the load balancer to view its details page.
 1. Click the **Attached security groups** tab to view attached security groups.
 1. To detach a security group, click the security group's Action menu ![Actions icon](../icons/action-menu-icon.svg).

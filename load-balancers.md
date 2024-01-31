@@ -79,7 +79,7 @@ ALB's and NLB's determine their pricing based on the following metrics.
 
 *Instance hours per month:* Measures the number of hours ALB or NLB is used per calendar month.
 
-*Data processed:* Measures how much data, in gigabytes (GB), that is processed by ALB or NLB in a calendar month.  
+*Data processed:* Measures how much data, in gigabytes (GB), that is processed by ALB or NLB in a calendar month.
 
 ## Application load balancer data flow
 {: #alb-data-flow}
@@ -104,4 +104,4 @@ Return).
 * [Load balancer API reference](/apidocs/vpc/latest#list-load-balancers)
 * [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls)
 * [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-load-balancers)
-* [Quotas](/docs/vpc?topic=vpc-quotas#load-balancer-quotas)
+* [Quotas](/docs/vpc?topic=vpc-quotas)

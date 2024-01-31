@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2019, 2021
+  years: 2019, 2024
 
-lastupdated: "2021-09-20"
+lastupdated: "2024-01-30"
 
 keywords: resource, access, role, role-based, authorization, policy, access group, resource group, permission, assign, administrator, operator, editor, viewer, user, team, scenario, manage, create, IAM
 
@@ -19,7 +19,7 @@ subcollection: vpc
 {{site.data.keyword.vpc_full}} uses role-based access control that enables account administrators to control their users' access to VPC resources. Access can be assigned to individual users or to groups of users by using {{site.data.keyword.Bluemix_notm}} Identity and Access Management (IAM).
 {: shortdesc}
 
-For more information about IAM roles, see [IAM roles and actions](/docs/vpc?topic=vpc-iam-getting-started#iam-roles). For more information about the minimum IAM roles that a user or service ID need to interact with an {{site.data.keyword.vpc_full}} (VPC) infrastructure resource, see [Required permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls).
+For more information about IAM roles, see [IAM roles and actions](/docs/vpc/vpc?topic=vpc-iam-getting-started&interface=ui#iam-roles). For more information about the minimum IAM roles that a user or service ID need to interact with an {{site.data.keyword.vpc_full}} (VPC) infrastructure resource, see [Required permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls).
 {: note}
 
 This document shows examples of how the account administrator can use the {{site.data.keyword.cloud_notm}} console to grant the correct permissions for managing VPC infrastructure resources. It covers the following scenarios:
@@ -183,6 +183,6 @@ Changes to IAM access policies for VPC can take up to 10 minutes to take effect.
 ## Related links
 {: #permissions-related-links}
 
-* [Managing identity and access](/docs/vpc?topic=vpc-iam-getting-started#iam-roles)
+* [Managing identity and access](/docs/vpc?topic=vpc-iam-getting-started&interface=ui#iam-roles)
 * [Managing users and access](/docs/account?topic=account-iamuserinv)
 * [What is IAM](/docs/account?topic=account-iamoverview)

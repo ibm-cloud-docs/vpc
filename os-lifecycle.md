@@ -4,7 +4,7 @@ copyright:
 
   years: 2022, 2024
 
-lastupdated: "2024-01-05"
+lastupdated: "2024-01-30"
 
 
 keywords: operating system end of support (eos)
@@ -97,7 +97,8 @@ The version of Rocky Linux is updated regularly, with the previous release depre
 
 | Operating sytem | End of support | License model |
 |-----------------|----------------|---------------|
-| Rocky Linux 8.latest | N/A | Free |
+| Rocky Linux 8.x | 31 May 2029 | Free |
+| Rocky Linux 9.x | 31 May 2032 | Free |
 {: caption="Table 5. Lifecycle for Rocky Linux operating systems" caption-side="bottom"}
 
 ## SUSE Linux Enterprise Server (SLES)

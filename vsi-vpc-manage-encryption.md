@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2023-12-18"
+lastupdated: "2024-01-30"
 
 keywords:
 
@@ -24,7 +24,7 @@ In {{site.data.keyword.cloud}}, you can secure your resources with your own root
 Manage your root keys by taking the following actions:
 
    * View the association of root keys to the resources that they protect by [viewing root key registrations](#byok-root-key-registration).
-   * View key rotation information by looking at [root key registration](#byok-root-key-verify-rotation) in the KMS instance.
+   * View key rotation information by looking at [root key registration](/docs/vpc?topic=vpc-vpc-encryption-managing&interface=ui#byok-root-key-verify-rotation) in the KMS instance.
    * [Rotate your root keys](/docs/vpc?topic=vpc-vpc-key-rotation) at regular intervals or manually rotate imported root keys. Shortening the crypto period of a key reduces the possibility of a security breach.
    * Decide whether importing your own HSM root key or generating a root key by the KMS is preferable. If you want to set up a rotation policy for automatic key rotation, you must use KMS-generated root keys.
    * See what happens to your [root key state](#byok-root-key-states) when you take certain actions, such as disabling the key.
@@ -57,7 +57,7 @@ When you create volume, snapshot, file share, or custom image with customer-mana
    {: note}
 
 1. Click **KMS Keys** ({{site.data.keyword.hscrypto}}) or **Key** ({{site.data.keyword.keymanagementserviceshort}}). The list of all keys in the instance is displayed. The Last updated column shows the date when the key was created or rotated.
-1. Click the Actions menu in the row of the key that you want to know more about. Select **View key details**. A side panel opens and information about the key is displayed. You can see the key name, key ID, CRN, creation date, version date, last updated date, last rotated date, and so on. 
+1. Click the Actions menu in the row of the key that you want to know more about. Select **View key details**. A side panel opens and information about the key is displayed. You can see the key name, key ID, CRN, creation date, version date, last updated date, last rotated date, and so on.
 
 After you [rotate the key](/docs/vpc?topic=vpc-vpc-key-rotation), the version ID field and key version date are updated. The rotated key retains its original name and ID in the list of KMS instances.
 
@@ -201,7 +201,7 @@ Restoring an imported root key returns the key to an _active_ state, and reestab
 
 To see a list of deleted root keys for a KMS instance, you can filter by key state. For example, to filter a list of deleted root keys in a {{site.data.keyword.keymanagementserviceshort}} instance in the UI:
 
-1. Go to the [{{site.data.keyword.cloud_notm}} console](/vpc){: external} > **Resource List** > **Security**, 
+1. Go to the [{{site.data.keyword.cloud_notm}} console](/vpc){: external} > **Resource List** > **Security**,
 1. Locate, and click the KMS instance.
 1. On the **Keys** page, the list of root keys that are stored in this instance is displayed.
 1. Click the **Filter icon![Filter icon](/images/filter-icon.png)** to see more information.
@@ -232,11 +232,11 @@ You can use the UI to disable, enable, delete, or restore your root keys. Table 
 
 | User action | {{site.data.keyword.keymanagementserviceshort}} UI procedure | {{site.data.keyword.hscrypto}} UI procedure |
 |-------------|--------------------------|-------------------|
-| Disable key | [Disabling a root key](/docs/key-protect?topic=key-protect-disable-keys#disable-ui). | [Disabling a root key](/docs/hs-crypto?topic=hs-crypto-disable-keys#disable-ui). |
-| Enable key | [Enabling a root key](/docs/key-protect?topic=key-protect-disable-keys#enable-ui). | [Enabling a root key](/docs/hs-crypto?topic=hs-crypto-disable-keys#enable-ui). |
-| Delete key | [Deleting keys in the console (single authorization)](/docs/key-protect?topic=key-protect-delete-keys#delete-key-gui). | [Deleting keys with the GUI (single authorization)](/docs/hs-crypto?topic=hs-crypto-delete-keys#delete-keys-gui). |
-| | [Deleting a key with dual authorization](/docs/key-protect?topic=key-protect-delete-dual-auth-keys#delete-dual-auth-keys-api). | [Authorize deletion for a key with the GUI (dual authorization)](/docs/hs-crypto?topic=hs-crypto-delete-dual-auth-keys#set-key-deletion-console). |
-| Restore key | [Restoring a deleted key with the console](/docs/key-protect?topic=key-protect-restore-keys#restore-ui). | [Restoring a deleted key with the GUI](/docs/hs-crypto?topic=hs-crypto-restore-keys#restore-ui). |
+| Disable key | [Disabling a root key](/docs/key-protect?topic=key-protect-disable-keys&interface=ui#disable-ui). | [Disabling a root key](/docs/hs-crypto?topic=hs-crypto-disable-keys#disable-ui). |
+| Enable key | [Enabling a root key](/docs/key-protect?topic=key-protect-disable-keys&interface=ui#enable-ui). | [Enabling a root key](/docs/hs-crypto?topic=hs-crypto-disable-keys#enable-ui). |
+| Delete key | [Deleting keys in the console (single authorization)](/docs/key-protect?topic=key-protect-delete-keys&interface=ui#delete-key-gui). | [Deleting keys with the GUI (single authorization)](/docs/hs-crypto?topic=hs-crypto-delete-keys&interface=ui#delete-keys-gui). |
+| | [Deleting a key with dual authorization](/docs/key-protect?topic=key-protect-delete-dual-auth-keys&interface=ui#delete-dual-auth-keys-api). | [Authorize deletion for a key with the GUI (dual authorization)](/docs/hs-crypto?topic=hs-crypto-delete-dual-auth-keys&interface=ui#set-key-deletion-console). |
+| Restore key | [Restoring a deleted key with the console](/docs/key-protect?topic=key-protect-restore-keys&interface=ui#restore-ui). | [Restoring a deleted key with the GUI](/docs/hs-crypto?topic=hs-crypto-restore-keys&interface=ui#restore-ui). |
 {: caption="Table 5. UI procedures for managing root keys" caption-side="bottom"}
 
 ### Manage root keys with the API
@@ -250,11 +250,11 @@ Because deleting a root key makes all resources that are protected by it unusabl
 
 | User action | {{site.data.keyword.keymanagementserviceshort}} API procedure | {{site.data.keyword.hscrypto}} API procedure |
 |-------------|---------------------------|--------------------|
-| Disable key | [Disabling a root key](/docs/key-protect?topic=key-protect-disable-keys#disable-api) | [Disabling a root key](/docs/hs-crypto?topic=hs-crypto-disable-keys#disable-api) |
-| Enable key | [Enabling a disabled root key](/docs/key-protect?topic=key-protect-disable-keys#enable-api) | [Enabling a disabled root key](/docs/hs-crypto?topic=hs-crypto-disable-keys#enable-api) |
-| Delete key | [Deleting keys with the API (single authorization)](/docs/key-protect?topic=key-protect-delete-keys#delete-key-api) | [Deleting keys with the API (single authorization)](/docs/hs-crypto?topic=hs-crypto-delete-keys#delete-keys-api) |
-| | [Authorize deletion for a key with the API (dual authorization)](/docs/key-protect?topic=key-protect-delete-dual-auth-keys#set-key-deletion-api) | [Authorize deletion for a key with the API (dual authorization)](/docs/hs-crypto?topic=hs-crypto-delete-dual-auth-keys#set-key-deletion-api) |
-| Restore key | [Restoring a deleted key with the API](/docs/key-protect?topic=key-protect-restore-keys#restore-api) | [Restoring a deleted key with the API](/docs/hs-crypto?topic=hs-crypto-restore-keys#restore-api) |
+| Disable key | [Disabling a root key](/docs/key-protect?topic=key-protect-disable-keys&interface=api#disable-api) | [Disabling a root key](/docs/hs-crypto?topic=hs-crypto-disable-keys#disable-api) |
+| Enable key | [Enabling a disabled root key](/docs/key-protect?topic=key-protect-disable-keys&interface=api#enable-api) | [Enabling a disabled root key](/docs/hs-crypto?topic=hs-crypto-disable-keys#enable-api) |
+| Delete key | [Deleting keys with the API (single authorization)](/docs/key-protect?topic=key-protect-delete-keys&interface=api#delete-key-api) | [Deleting keys with the API (single authorization)](/docs/hs-crypto?topic=hs-crypto-delete-keys&interface=api#delete-keys-api) |
+| | [Authorize deletion for a key with the API (dual authorization)](/docs/key-protect?topic=key-protect-delete-dual-auth-keys&interface=api#set-key-deletion-api) | [Authorize deletion for a key with the API (dual authorization)](/docs/hs-crypto?topic=hs-crypto-delete-dual-auth-keys&interface=api#set-key-deletion-api) |
+| Restore key | [Restoring a deleted key with the API](/docs/key-protect?topic=key-protect-restore-keys&interface=api#restore-api) | [Restoring a deleted key with the API](/docs/hs-crypto?topic=hs-crypto-restore-keys&interface=api#restore-api) |
 {: caption="Table 6. API procedures for managing root keys" caption-side="bottom"}
 
 ### Removing service authorization to a root key

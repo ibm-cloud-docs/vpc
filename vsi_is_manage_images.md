@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2023
-lastupdated: "2023-12-18"
+  years: 2019, 2024
+lastupdated: "2024-01-30"
 
 keywords:
 
@@ -116,7 +116,7 @@ To view details for a custom image, complete the following steps.
 1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images**.
 2. On the **Custom images** tab, click the name of a custom image to view details about that image.
 3. On the **Image details** page you can edit the name of the image, add tags, and copy the CRN for the image.
-4. From the **Actions** menu of the Image details page, you can create a virtual server instance from the custom image or deleting the image. For a full list of possible actions, see [Managing custom images by using the UI](#custom-images-managing-ui).
+4. From the **Actions** menu of the Image details page, you can create a virtual server instance from the custom image or deleting the image. For a full list of possible actions, see [Managing custom images by using the UI](/docs/vpc?topic=vpc-managing-custom-images&interface=ui#custom-images-managing-ui).
 
 ## Viewing custom image details by using the CLI
 {: #custom-image-details-cli}
@@ -307,7 +307,7 @@ ibmcloud is image-export-jobs 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479
 ```
 {: pre}
 
-For more information, see [ibmcloud is image-export-jobs](/docs/vpc?topic=vpc-vpc-reference#image-export-jobs) in the VPC CLI reference page.
+For more information, see [ibmcloud is image-export-jobs](/docs/vpc/docs/vpc?topic=vpc-vpc-reference#image-export-jobs) in the VPC CLI reference page.
 
 ### Viewing image export job details by using the CLI
 {: #custom-image-export-job-details-cli}
@@ -432,7 +432,7 @@ To share a custom image to a private catalog, complete the following steps.
 1. Click **Create catalog offering** to share the image to the private catalog.
 1. After the image is created, click **Validate image**.
 
-This process shares only the custom image to the private catalog. The validation process occurs within the private catalog. Clicking **Validate image** takes you to a new page and from this screen, you can start with [Step 3: Validate the virtual server image in Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui&locale=en#catalog-vsivpc-review-images) to complete the validation process.
+This process shares only the custom image to the private catalog. The validation process occurs within the private catalog. Clicking **Validate image** takes you to a new page and from this screen, you can start with [Step 3: Validate the virtual server image in Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui#catalog-vsivpc-review-images) to complete the validation process.
 {: note}
 
 ## Sharing a custom image to a private catalog by using the CLI
@@ -504,7 +504,7 @@ You can change the lifecycle status of an {{site.data.keyword.vpc_short}} custom
 
 To make an immediate status change using Terraform, use the [`ibm_is_image_deprecate`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_image_deprecate){: external} or [`ibm_is_image_obsolete`](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_image_obsolete){: external} resource commands. use one of the following examples. For the `name` variable, specify the name of the custom image for the status change.
 
-You can make an immediate status change only if a future status change is not scheduled. To remove a scheduled status change, see [Remove a scheduled custom image lifecycle status change by using Terraform](#schedule-ilm-reset-status-change-terraform). After you remove the scheduled status change, you can make an immediate status change.
+You can make an immediate status change only if a future status change is not scheduled. To remove a scheduled status change, see [Remove a scheduled custom image lifecycle status change by using Terraform](/docs/vpc?topic=vpc-managing-custom-images&interface=terraform#schedule-ilm-reset-status-change-terraform). After you remove the scheduled status change, you can make an immediate status change.
 {: note}
 
 * Change image lifecycle status to `deprecated`.
@@ -539,7 +539,7 @@ You can make an immediate status change only if a future status change is not sc
    ```
    {: pre}
 
-To schedule a status change, use one of the following examples. 
+To schedule a status change, use one of the following examples.
 
 For the `deprecation_at` or `obsolescence_at` attribute, specify a date in the ISO 8601 (`YYYY-MM-DDThh:mm:ss+hh:mm`) date and time format.
 
@@ -585,7 +585,7 @@ When scheduling the date and time, you can't use your current date and time. For
 {: #schedule-ilm-reset-status-change-terraform}
 {: terraform}
 
-To remove any scheduled status change, update the `deprecation_at` or `obsolescence_at` attributes to `null`. This attribute change removes the date and time from the image and the image is no longer scheduled for that status change. 
+To remove any scheduled status change, update the `deprecation_at` or `obsolescence_at` attributes to `null`. This attribute change removes the date and time from the image and the image is no longer scheduled for that status change.
 
 * To change an image from `deprecated` to `available`, change the `deprecation_at` property to `null`.
 
@@ -594,7 +594,7 @@ To remove any scheduled status change, update the `deprecation_at` or `obsolesce
      name               = "example-image"
      href               = "cos://us-south/buckettesttest/livecd.ubuntu-cpc.azure.vhd"
      operating_system   = "ubuntu-16-04-amd64"
-     deprecation_at       = null   
+     deprecation_at       = null
    }
    ```
    {: pre}
@@ -606,7 +606,7 @@ To remove any scheduled status change, update the `deprecation_at` or `obsolesce
      name               = "example-image"
      href               = "cos://us-south/buckettesttest/livecd.ubuntu-cpc.azure.vhd"
      operating_system   = "ubuntu-16-04-amd64"
-     obsolescence_at    = null  
+     obsolescence_at    = null
    }
    ```
    {: pre}
@@ -618,7 +618,7 @@ To remove any scheduled status change, update the `deprecation_at` or `obsolesce
      name               = "example-image"
      href               = "cos://us-south/buckettesttest/livecd.ubuntu-cpc.azure.vhd"
      operating_system   = "ubuntu-16-04-amd64"
-     deprecation_at     = null   
+     deprecation_at     = null
      obsolescence_at    = null
    }
    ```

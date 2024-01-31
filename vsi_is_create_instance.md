@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2023
-lastupdated: "2023-12-18"
+  years: 2018, 2024
+lastupdated: "2024-01-30"
 
 keywords:
 
@@ -53,7 +53,7 @@ Use the following steps to create a virtual server instance.
    |-------|-------|
    | Profile |  The profile families are Balanced, Compute, Memory, Ultra High Memory, Very High Memory, and GPU. For more information, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles). When you create an {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} instance, make sure that you select secure execution-enabled profiles, otherwise provisioning fails. For more information, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles). \n \n Some profiles might not be available because the number of network interfaces in the virtual server exceed profile limits. You can remove network interfaces to select from more profiles. For more information, see [Resizing a virtual server](/docs/vpc?topic=vpc-resizing-an-instance). |
    {: caption="Table 3. Profile selections" caption-side="bottom"}
-   
+
     *For z/OS virtual server instances only:* z/OS virtual server instances require a minimum profile of 2 vCPUs x 16 GB RAM (2x16). One vCPU of the selected profile is reserved for running the service. When you select the profile for any z/OS stock images with RAM smaller than 8 GB, you might encounter the `IAR057D` message. For more information, see [IAR057D](https://www.ibm.com/docs/en/zos/2.5.0?topic=messages-iar057d){: external}.
     {: note}
 
@@ -153,17 +153,17 @@ Use the following commands to determine the required information for creating a 
    ```sh
    $ ibmcloud is regions
    Listing regions under account Test Account as user test.user@ibm.com...
-   Name       Endpoint                              Status   
-   au-syd     https://au-syd.iaas.cloud.ibm.com     available   
-   br-sao     https://br-sao.iaas.cloud.ibm.com     available   
-   ca-tor     https://ca-tor.iaas.cloud.ibm.com     available   
-   eu-de      https://eu-de.iaas.cloud.ibm.com      available   
-   eu-es      https://eu-es.iaas.cloud.ibm.com      available   
-   eu-gb      https://eu-gb.iaas.cloud.ibm.com      available    
-   jp-osa     https://jp-osa.iaas.cloud.ibm.com     available   
-   jp-tok     https://jp-tok.iaas.cloud.ibm.com     available   
-   us-east    https://us-east.iaas.cloud.ibm.com    available   
-   us-south   https://us-south.iaas.cloud.ibm.com   available   
+   Name       Endpoint                              Status
+   au-syd     https://au-syd.iaas.cloud.ibm.com     available
+   br-sao     https://br-sao.iaas.cloud.ibm.com     available
+   ca-tor     https://ca-tor.iaas.cloud.ibm.com     available
+   eu-de      https://eu-de.iaas.cloud.ibm.com      available
+   eu-es      https://eu-es.iaas.cloud.ibm.com      available
+   eu-gb      https://eu-gb.iaas.cloud.ibm.com      available
+   jp-osa     https://jp-osa.iaas.cloud.ibm.com     available
+   jp-tok     https://jp-tok.iaas.cloud.ibm.com     available
+   us-east    https://us-east.iaas.cloud.ibm.com    available
+   us-south   https://us-south.iaas.cloud.ibm.com   available
    ```
    {: screen}
 
@@ -186,10 +186,10 @@ Use the following commands to determine the required information for creating a 
    ```sh
    $ ibmcloud is zones
    Listing zones in target region us-south under account Test Account as user test.user@ibm.com...
-   Name         Region     Status   
-   us-south-1   us-south   available   
-   us-south-2   us-south   available   
-   us-south-3   us-south   available   
+   Name         Region     Status
+   us-south-1   us-south   available
+   us-south-2   us-south   available
+   us-south-3   us-south   available
    ```
    {: screen}
 
@@ -399,7 +399,7 @@ Use the following steps to create a basic virtual server instance from a stock i
    ```
    {: pre}
 
-   For example, the following `instance-create` command uses the sample values that are found in the [Gathering information](#gather-info-to-create-virtual-servers-cli) section.
+   For example, the following `instance-create` command uses the sample values that are found in the [Gathering information](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli#gather-info-to-create-virtual-servers-cli) section.
 
    ```sh
    ibmcloud is instance-create \
@@ -736,7 +736,7 @@ You can create instances by using the API.
 {: #before-you-begin-create-instance-api}
 {: api}
 
-Ensure that you have the required access. To call these methods, you must be assigned one or more IAM access roles that include the following actions, depending on any listed conditions. You can check your access by going to the **Users** page of [{{site.data.keyword.iamshort}} dashboard](https://test.cloud.ibm.com/iam/overview){: external}.
+Ensure that you have the required access. To call these methods, you must be assigned one or more IAM access roles that include the following actions, depending on any listed conditions. You can check your access by going to the **Users** page of [{{site.data.keyword.iamshort}} dashboard](https://cloud.ibm.com/iam/overview){: external}.
 
 ### Gathering information to create an instance by using the API
 {: #gather-info-to-create-virtual-servers-api}
@@ -1013,7 +1013,7 @@ Gather the following information by using `DataSource` command.
    ```
    {: codeblock}
 
-   * Select an image that is shared from a private catalog for the instance. For more information, see the Terraform documentation on [ibm_is_images](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_images). You can select an image from the list to create the instance as shown in the section [Go to Creating an instance by using Terraform section](#create-instance-terraform)
+   * Select an image that is shared from a private catalog for the instance. For more information, see the Terraform documentation on [ibm_is_images](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_images). You can select an image from the list to create the instance as shown in the section [Go to Creating an instance by using Terraform section](/docs/vpc?topic=vpc-creating-virtual-servers&interface=terraform#create-instance-terraform).
 
    If you select a catalog image that belongs to a different account, you have more considerations and limitations to review. See [Using cross-account image references in a private catalog in Terraform](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#private-catalog-image-reference-vpc-terraform).
      {: note}

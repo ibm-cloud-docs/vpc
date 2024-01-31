@@ -123,29 +123,27 @@ Yes. You can find more information in [Using IBM Log Analysis to view VPN logs](
 
 To send all traffic from the VPC side to the on-premises side, set peer CIDRs to `0.0.0.0/0` when creating a connection.
 
-When a connection is created successfully, the VPN service adds a `0.0.0.0/0` via `<VPN gateway private IP>` route into the default routing table of the VPC. However, this new route can cause routing issues, such as virtual servers in different subnets not being able to communicate with each other, and VPN gateways not communicating with on-premises VPN gateways. 
+When a connection is created successfully, the VPN service adds a `0.0.0.0/0` via `<VPN gateway private IP>` route into the default routing table of the VPC. However, this new route can cause routing issues, such as virtual servers in different subnets not being able to communicate with each other, and VPN gateways not communicating with on-premises VPN gateways.
 
-   To troubleshooting routing issues, see [Why aren't my VPN gateways or virtual server instances communicating?](/docs/vpc?topic=vpc-troubleshoot-routing-issues). 
+   To troubleshooting routing issues, see [Why aren't my VPN gateways or virtual server instances communicating?](/docs/vpc?topic=vpc-troubleshoot-routing-issues).
 
-## Does IBM complete quarterly ASV scans of data-plane VPN appliances?  
+## Does IBM complete quarterly ASV scans of data-plane VPN appliances?
 {: #vpn-asv}
 {: faq}
 
 Approved Scanning Vendor (ASV) quarterly scanning is a requirement of the Payment Card Industry (PCI) Security Standards Council. ASV scanning of VPN data-plane appliances is solely a customer responsibility. IBM does not use ASVs to scan data-plane appliances because these scans can negatively impact customer workload functions and performance.
 
-## What metrics am I charged for if I am using VPN gateway for VPC?  
+## What metrics am I charged for if I am using VPN gateway for VPC?
 {: #vpn-billing}
 {: faq}
 
 The following metrics are collected for VPN gateway billing on a monthly basis:
 
 * VPN Gateway Instance Hour: How much time your VPN gateway instance is up and running.
-* VPN Connection Hour: How much time each of your VPN connections is established and maintained on the VPN gateway.  
+* VPN Connection Hour: How much time each of your VPN connections is established and maintained on the VPN gateway.
 * Floating IP: The number of active floating IP addresses being used by the VPN gateway instance.
 
-See the **IBM Cloud VPN** tab on the [Pricing](https://www.ibm.com/cloud/vpc/pricing) page for the unit pricing per hour in each region for VPN gateway.
-
-While using a VPN gateway, you are also charged for all outbound public internet traffic billed at VPC data rates. See the *Data Transfer* tab on the [Pricing](https://www.ibm.com/cloud/vpc/pricing) page for details about the unit pricing for outbound data transfer.
+While using a VPN gateway, you are also charged for all outbound public internet traffic billed at VPC data rates.
 {: note}
 
 ## Why doesn't the route-based VPN gateway route the traffic?
