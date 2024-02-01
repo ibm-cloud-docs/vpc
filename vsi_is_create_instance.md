@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-01-30"
+lastupdated: "2024-02-01"
 
 keywords:
 
@@ -24,7 +24,7 @@ You can create one or more virtual server instances in your {{site.data.keyword.
 
 Use the following steps to create a virtual server instance.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 
 2. Click **Create** and begin by entering the information in Table 1.
 
@@ -37,13 +37,13 @@ Use the following steps to create a virtual server instance.
    | Access management tags | Access management tags help you apply flexible access policies on specific resources. For more information, see the [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial) UI tutorial. |
    {: caption="Table 1. Selections to begin instance provisioning" caption-side="bottom"}
 
-3. Select an image and profile for the instance. To select from all available images, click **Change image**. You can select an image, a snapshot of a boot volume, or an existing boot volume. If the geographic location where you are provisioning an instance supports it, you have the option to select *x86* or *s390x* architecture. Table 2 describes image, snapshot, and existing volume options. Then, select a profile. To select from all available vCPU and RAM combinations, click **Change profile**.  Table 3 describes profile selection. {: #select-image-and-profile}
+3. Select an image and profile for the instance. To select from all available images, click **Change image**. You can select an image, a snapshot of a boot volume, or an existing boot volume. If the geographic location where you are provisioning an instance supports it, you can select *x86* or *s390x* architecture. Table 2 describes image, snapshot, and existing volume options. Then, select a profile. To select from all available vCPU and RAM combinations, click **Change profile**. Table 3 describes profile selection. {: #select-image-and-profile}
 
    | Field | Value |
    |-------|-------|
    | Stock image | Select from available stock images and click **Save**. \n - For more information about available stock images, see [x86 virtual server images](/docs/vpc?topic=vpc-about-images) and [s390x virtual server images](/docs/vpc?topic=vpc-vsabout-images). All operating system images use cloud-init that you can use to enter user metadata that is associated with the instance for post-provisioning scripts. Metadata isn't supported for {{site.data.keyword.cloud}} Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instances and z/OS virtual server instances.  \n - If you plan to use Windows operating systems with SQL Server, see the [About Microsoft SQL on VPC](/docs/microsoft?topic=microsoft-mssql-about).  |
    | Custom image  | Select from available custom images and click **Save**. If no custom images are available, click **Create**. \n - A custom image can be an image that you customize and upload to {{site.data.keyword.cos_full_notm}}, which you can then import into {{site.data.keyword.vpc_short}}. For more information about custom images, see [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images).  \n - You can also use a custom image that was created from a boot volume. For more information about creating an image from a volume, see [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc). \n - You can also select either an RHEL or Windows custom image and bring your own license (BYOL). For more information about creating BYOL custom images, see [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about). |
-   | Catalog image | Select from available catalog images and click **Save**. \n - A catalog image is a custom image that is imported into a private catalog. For more information about catalog images, see [VPC considerations when using custom images in a private catalog](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=ui).  \n **Note:** If you select a catalog image that belongs to a different account, you have more considerations and limitations to review. See [Using cross-account image references in a private catalog in the UI](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=ui#private-catalog-image-reference-vpc-ui). \n - To create a private catalog, see the tutorial [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui).|
+   | Catalog image | Select from available catalog images and click **Save**. \n - A catalog image is a custom image that is imported into a private catalog. For more information about catalog images, see [VPC considerations for custom images in a private catalog](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=ui).  \n **Note:** If you select a catalog image that belongs to a different account, you have more considerations and limitations to review. See [Using cross-account image references in a private catalog in the UI](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=ui#private-catalog-image-reference-vpc-ui). \n - To create a private catalog, see the tutorial [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui).|
    | Snapshot | Select a snapshot of a boot volume that includes an operating system and click **Save**. If no snapshots are available, click **Create**. \n - Filter the list of snapshots for [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-use-fast-restore). With this option, you can create the boot volume quickly by using a snapshot that is cached in a different zone of your region. For more information about restoring a volume from a snapshot, see [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore). |
    | Existing volume | Select an existing boot volume that is not attached to an instance and click **Save**.  |
    {: caption="Table 2. Instance provisioning image, snapshot, or volume selections" caption-side="bottom"}
@@ -54,15 +54,12 @@ Use the following steps to create a virtual server instance.
    | Profile |  The profile families are Balanced, Compute, Memory, Ultra High Memory, Very High Memory, and GPU. For more information, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles). When you create an {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} instance, make sure that you select secure execution-enabled profiles, otherwise provisioning fails. For more information, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles). \n \n Some profiles might not be available because the number of network interfaces in the virtual server exceed profile limits. You can remove network interfaces to select from more profiles. For more information, see [Resizing a virtual server](/docs/vpc?topic=vpc-resizing-an-instance). |
    {: caption="Table 3. Profile selections" caption-side="bottom"}
 
-    *For z/OS virtual server instances only:* z/OS virtual server instances require a minimum profile of 2 vCPUs x 16 GB RAM (2x16). One vCPU of the selected profile is reserved for running the service. When you select the profile for any z/OS stock images with RAM smaller than 8 GB, you might encounter the `IAR057D` message. For more information, see [IAR057D](https://www.ibm.com/docs/en/zos/2.5.0?topic=messages-iar057d){: external}.
-    {: note}
-
 4. Complete SSH keys, storage, and networking details by specifying the information in Table 3.
 
    | Field | Value |
    |-------|-------|
    | SSH keys | You must select an existing public SSH key or click **Create an SSH key** to create a new one. For more information about creating an SSH key, see [Creating your SSH key by using the UI](/docs/vpc?topic=vpc-ssh-keys&interface=ui#generate-ssh-keys-ui). SSH keys are used to securely connect to the instance after it's running. |
-   | | **Note:**  SSH keys can either be RSA or Ed25519. You can generate new RSA key pairs using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images. |
+   | | **Note:** Alpha-numeric combinations are limited to 100 characters. SSH keys can be either RSA or Ed25519. You can create only RSA SSH keys. For an Ed25519 SSH key, you must upload the key information. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images. |
    | | For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
    | Boot volume | The default boot volume size for most profiles is 100 GB. The default boot volume size for a z/OS virtual server instance is 250 GB. If you're importing a custom image, the boot volume capacity can be 10 - 250 GB, depending on what the image requires. Images that are smaller than 10 GB are rounded up to 10 GB. You can toggle the auto-delete option for the boot volume. |
    | |You can increase the size of the boot volume up to 250 GB by clicking the **Size** pencil icon. In the side panel, increase the boot volume size in the **Create size** field. The size must be more than the current size up to 250 GB. |
@@ -71,7 +68,7 @@ Use the following steps to create a virtual server instance.
    | |To create a data volume, click **Create** in the Data volumes section. Define the volume in the side panel. For more information about provisioning the volume, see [Create and attach a Block Storage volume when you create a new instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi). |
    | | Specify any user tags that you want to associate with the data volume you're creating and attaching to the instance. |
    | Virtual private cloud | Specify the IBM Cloud VPC where you want to create your instance. You can use the default VPC, another existing VPC, or you can create a new VPC. To create a new VPC, click **New VPC**. |
-   | Network interfaces | By default the virtual server instance is created with a single primary network interface. You can click the pencil icon to edit the details of the network interface, for example, the subnet or security group that's associated with the interface. To include extra secondary network interfaces, click **New interface**. You can create and assign up to 15 network interfaces for your virtual server instance, depending on the vCPU count that is included in the instance profile. For more information, see [About network interfaces](/docs/vpc?topic=vpc-using-instance-vnics#about-network-interfaces).   \n [Select availability]{: tag-green} If your account has special approval to preview the virtual network interface feature, you can select the type of network interface that you want to use. You can select the new option **Network attachment with a virtual network interface** or the legacy option **Instance network interface**. Whichever type of network interface option that you select when provisioning the virtual server persists through the lifecycle of the virtual server. You can click **Attach** to create a network attachment with an existing virtual network interface. For more information, see [About virtual network interfaces](/docs/vpc?topic=vpc-vni-about). |
+   | Network interfaces | By default the virtual server instance is created with a single primary network interface. You can click the pencil icon to edit the details of the network interface, for example, the subnet or security group that's associated with the interface. To include extra secondary network interfaces, click **Create**. You can create and assign up to 15 network interfaces for your virtual server instance, depending on the vCPU count that is included in the instance profile. For more information, see [About network interfaces](/docs/vpc?topic=vpc-using-instance-vnics#about-network-interfaces).  \n [Select availability]{: tag-green} If your account has special approval to preview the virtual network interface feature, you can select the type of network interface that you want to use. You can select the new option **Network attachment with a virtual network interface** or the legacy option **Instance network interface**. Whichever type of network interface option that you select when you provision the virtual server persists through the lifecycle of the virtual server. You can click **Attach** to create a network attachment with an existing virtual network interface. For more information, see [About virtual network interfaces](/docs/vpc?topic=vpc-vni-about). |
    {: caption="Table 4. Selections to complete instance provisioning" caption-side="bottom"}
 
 5. For Advanced options, you can choose to complete more instance configurations.
@@ -83,6 +80,7 @@ Use the following steps to create a virtual server instance.
    | Trusted profile (optional) | If you enable the metadata service, you can select a trusted profile and link it to this instance. Click **Select a trusted profile**. In the side panel, select a trusted profile and click **Select trusted profile** to link it to the instance. A message displays if none exist or if you don't have access to link it. For more information, see [Create a trusted profile](/docs/account?topic=account-trustedprofile-compute-tutorial#trusted-profile-compute-create). For more information about acquiring access, see [IAM authorizations for linking trusted profiles](/docs/vpc?topic=vpc-imd-trusted-profile-metadata&interface=ui#imd-iam-auth). |
    | Add to dedicated host | This selection is disabled by default. To create the virtual server instance in a single-tenant space, click the toggle to enable the dedicated host. To provision a dedicated instance, you must have a dedicated host available or [create one](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances). |
    | Add to placement group | Placement groups are disabled by default. Click the toggle to enable placement groups. Then, select or create a placement group for the instance. If you add a placement group, the instance is placed according to the placement group policy. For more information, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc). |
+   | Add to reservation [Select availability]{: tag-green} | If you have an active reservation, click the toggle to add the virtual server instance to that reservation. For more information, see [About Reservations for VPC](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc). |
    | Host failure auto restart | This setting is enabled by default. To disable host failure auto restart, click the toggle. For more information, see [Host failure recovery policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=ui). |
    {: caption="Table 5. Instance provisioning advanced options selections" caption-side="bottom"}
 
@@ -132,7 +130,7 @@ Gather the following information by using the associated commands.
 | Image | `ibmcloud is image` | [List all images](/docs/vpc?topic=vpc-vpc-reference#images-list)|
 | Boot volume | `ibmcloud is volumes` | [List all volumes](/docs/vpc?topic=vpc-vpc-reference#volumes-list) |
 | Profile | `ibmcloud is instances` | [List all virtual server instances](/docs/vpc?topic=vpc-vpc-reference#instances-list) |
-| Keys | `ibmcloud is keys` | [List all keys](/docs/vpc?topic=vpc-vpc-reference#keys)  \n  \n If you don't have any available SSH keys, use [Create a key](/docs/vpc?topic=vpc-vpc-reference#key-create) to create one.  \n  \n **Note:**  SSH keys can either be RSA or Ed25519. You can generate new RSA key pairs using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images.  \n For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
+| Keys | `ibmcloud is keys` | [List all keys](/docs/vpc?topic=vpc-vpc-reference#keys)  \n  \n If you don't have any available SSH keys, use [Create a key](/docs/vpc?topic=vpc-vpc-reference#key-create) to create one.  \n  \n **Note:** RSA and Ed25519 are the two types of SSH keys that you can use. However, you can't use the Ed25519 SSH key type with Windows or VMware images. You can use only RSA SSH keys for these images.  \n For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
 | VPC | `ibmcloud is vpcs` | [List all VPCs](/docs/vpc?topic=vpc-vpc-reference#vpcs-list) |
 | Subnet | `ibmcloud is subnets` | [List all subnets](/docs/vpc?topic=vpc-vpc-reference#subnets-list) |
 | Zone | `ibmcloud is zones` | [List all regions](/docs/vpc?topic=vpc-vpc-reference#zones-list) |
@@ -153,17 +151,17 @@ Use the following commands to determine the required information for creating a 
    ```sh
    $ ibmcloud is regions
    Listing regions under account Test Account as user test.user@ibm.com...
-   Name       Endpoint                              Status
-   au-syd     https://au-syd.iaas.cloud.ibm.com     available
-   br-sao     https://br-sao.iaas.cloud.ibm.com     available
-   ca-tor     https://ca-tor.iaas.cloud.ibm.com     available
-   eu-de      https://eu-de.iaas.cloud.ibm.com      available
-   eu-es      https://eu-es.iaas.cloud.ibm.com      available
-   eu-gb      https://eu-gb.iaas.cloud.ibm.com      available
-   jp-osa     https://jp-osa.iaas.cloud.ibm.com     available
-   jp-tok     https://jp-tok.iaas.cloud.ibm.com     available
-   us-east    https://us-east.iaas.cloud.ibm.com    available
-   us-south   https://us-south.iaas.cloud.ibm.com   available
+   Name       Endpoint                              Status   
+   au-syd     https://au-syd.iaas.cloud.ibm.com     available   
+   br-sao     https://br-sao.iaas.cloud.ibm.com     available   
+   ca-tor     https://ca-tor.iaas.cloud.ibm.com     available   
+   eu-de      https://eu-de.iaas.cloud.ibm.com      available   
+   eu-es      https://eu-es.iaas.cloud.ibm.com      available   
+   eu-gb      https://eu-gb.iaas.cloud.ibm.com      available    
+   jp-osa     https://jp-osa.iaas.cloud.ibm.com     available   
+   jp-tok     https://jp-tok.iaas.cloud.ibm.com     available   
+   us-east    https://us-east.iaas.cloud.ibm.com    available   
+   us-south   https://us-south.iaas.cloud.ibm.com   available   
    ```
    {: screen}
 
@@ -186,10 +184,10 @@ Use the following commands to determine the required information for creating a 
    ```sh
    $ ibmcloud is zones
    Listing zones in target region us-south under account Test Account as user test.user@ibm.com...
-   Name         Region     Status
-   us-south-1   us-south   available
-   us-south-2   us-south   available
-   us-south-3   us-south   available
+   Name         Region     Status   
+   us-south-1   us-south   available   
+   us-south-2   us-south   available   
+   us-south-3   us-south   available   
    ```
    {: screen}
 
@@ -210,7 +208,7 @@ Use the following commands to determine the required information for creating a 
 
    If you do not have an available VPC, you can create one by using the **`ibmcloud is vpc-create`** command. For more information about creating a VPC, see [ibmcloud is vpc-create](/docs/vpc?topic=vpc-vpc-reference#vpc-create).
 
-1. List the subnets that are associated with the {{site.data.keyword.vpc_short}}.
+4. List the subnets that are associated with the {{site.data.keyword.vpc_short}}.
 
    ```sh
    ibmcloud is subnets
@@ -229,7 +227,7 @@ Use the following commands to determine the required information for creating a 
 
    If you do not have a subnet available, you can create one by using the **`ibmcloud is subnet-create`** command. For more information about creating a subnet, see [ibmcloud is subnet-create](/docs/vpc?topic=vpc-vpc-reference#subnet-create).
 
-1. List the available profiles for creating your instance.
+5. List the available profiles for creating your instance.
 
    ```sh
    ibmcloud is instance-profiles
@@ -264,7 +262,7 @@ Use the following commands to determine the required information for creating a 
    ```
    {: screen}
 
-1. List the available stock images, custom images, or images that are shared with your account from a private catalog for creating your instance. If you are creating an instance from an existing boot volume, skip this step.
+6. List the available stock images, custom images, or images that are shared with your account from a private catalog for creating your instance. If you are creating an instance from an existing boot volume, skip this step.
 
    * To list all available stock or custom images, run the following command.
 
@@ -321,12 +319,12 @@ Use the following commands to determine the required information for creating a 
        Save the `offering_crn` and `offering_version_crn`in variables, which are used later to provision an instance.
 
        ```sh
-       offering_crn="crn:v1:bluemix:public:globalcatalog-collection:global:a/efe5afc483594adaa8325e2b4d1290df:0b322820-dafd-4b5e-b694-6465da6f008a:offering:136559f6-4588-4af2-8585-f3c625eee09d"
-       offering_version_crn="crn:v1:bluemix:public:globalcatalog-collection:global:a/efe5afc483594adaa8325e2b4d1290df:0b322820-dafd-4b5e-b694-6465da6f008a:version:136559f6-4588-4af2-8585-f3c625eee09d/8ae92879-e253-4a7c-b09f-8d30af12e518"
+       offering_crn="crn:v1:bluemix:public:globalcatalog-collection:global:a/a1234567:0b322820-dafd-4b5e-b694-6465da6f008a:offering:136559f6-4588-4af2-8585-f3c625eee09d"
+       offering_version_crn="crn:v1:bluemix:public:globalcatalog-collection:global:a/a1234567:0b322820-dafd-4b5e-b694-6465da6f008a:version:136559f6-4588-4af2-8585-f3c625eee09d/8ae92879-e253-4a7c-b09f-8d30af12e518"
        ```
        {: pre}
 
-1. List the available boot volumes for creating your instance.
+7. List the available boot volumes for creating your instance.
    If you are creating an instance from an image, skip this step.
    To create an instance from an existing volume, you must use a volume compatible with the instance options chosen previously. A compatible volume is in the same zone as the instance that is being provisioned, in an unattached state, and has an OS compatible with the profile that is selected in step 5.
    Use the `volumes` subcommand to see the compatible volumes.
@@ -339,7 +337,7 @@ Use the following commands to determine the required information for creating a 
 
    You can optionally [create a boot volume from a bootable snapshot](#create-instance-bootable-snapshot-cli) and use that for your image. To list all snapshots for a volume, see [View all snapshots that were created from the Block Storage for VPC volume](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#view-snapshots-for-volume).
 
-1. List the available SSH keys that you can associate with your instance.
+8. List the available SSH keys that you can associate with your instance.
 
    ```sh
    ibmcloud is keys
@@ -356,7 +354,7 @@ Use the following commands to determine the required information for creating a 
 
    If you do not have an SSH key available, you can create an SSH key by using the [ibmcloud is key-create](/docs/vpc?topic=vpc-vpc-reference#key-create) command. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys).
 
-1. List all the available placement groups that you can associate with your instance.
+9. List all the available placement groups that you can associate with your instance.
 
     ```sh
     ibmcloud is placement-groups
@@ -399,7 +397,7 @@ Use the following steps to create a basic virtual server instance from a stock i
    ```
    {: pre}
 
-   For example, the following `instance-create` command uses the sample values that are found in the [Gathering information](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli#gather-info-to-create-virtual-servers-cli) section.
+   For example, the following `instance-create` command uses the sample values that are found in the [Gathering information](#gather-info-to-create-virtual-servers-cli) section.
 
    ```sh
    ibmcloud is instance-create \
@@ -427,9 +425,9 @@ Use the following steps to create a basic virtual server instance from a stock i
    {: note}
 
    ```text
-   ID                                    0717-_67b1179a-8b25-4ac9-8bc0-7f3027466ed0
+   ID                                    0726_67b1179a-8b25-4ac9-8bc0-7f3027466ed0
    Name                                  my-instance
-   CRN                                   crn:v1:public:is:us-south-2:a/2d1bace7b46e4815a81e52c6ffeba5cf::instance:0717-_67b1179a-8b25-4ac9-8bc0-7f3027466ed0
+   CRN                                   crn:v1:public:is:us-south-2:a/a1234567::instance:0726_67b1179a-8b25-4ac9-8bc0-7f3027466ed0
    Status                                pending
    Availability policy on host failure   restart
    Startable                             true
@@ -472,19 +470,19 @@ Use the following steps to create a basic virtual server instance from a stock i
 
    For a full list of command options, see [ibmcloud is instance-create](/docs/vpc?topic=vpc-vpc-reference#instance-create).
 
-2. Next, run the following `instance` details command to verify that you can see your new instance and view the network interfaces that were created for the new instance. `0717-_67b1179a-8b25-4ac9-8bc0-7f3027466ed0` is the virtual server instance ID that was assigned when the instance was created in the previous step.
+2. Next, run the following `instance` details command to verify that you can see your new instance and view the network interfaces that were created for the new instance. `0726_67b1179a-8b25-4ac9-8bc0-7f3027466ed0` is the virtual server instance ID that was assigned when the instance was created in the previous step.
 
    ```sh
-   ibmcloud is instance 0717-_67b1179a-8b25-4ac9-8bc0-7f3027466ed0
+   ibmcloud is instance 0726_67b1179a-8b25-4ac9-8bc0-7f3027466ed0
    ```
    {: pre}
 
    For this example, you see the following response. The status now shows *running*. Check the Network Interfaces section to locate the ID of the network interface.
 
    ```text
-   ID                                    0717-_67b1179a-8b25-4ac9-8bc0-7f3027466ed0
+   ID                                    0726_67b1179a-8b25-4ac9-8bc0-7f3027466ed0
    Name                                  my-instance
-   CRN                                   crn:v1:public:is:us-south-2:a/2d1bace7b46e4815a81e52c6ffeba5cf::instance:0717-_67b1179a-8b25-4ac9-8bc0-7f3027466ed0
+   CRN                                   crn:v1:public:is:us-south-2:a/a1234567::instance:0726_67b1179a-8b25-4ac9-8bc0-7f3027466ed0
    Status                                running
    Availability policy on host failure   restart
    Startable                             true
@@ -538,12 +536,12 @@ Use the following steps to create a basic virtual server instance from a stock i
    ID               r006-9b79b9bc-a2dc-4337-865a-57d9b9198b76
    Address          169.59.214.164
    Name             my-floatingip
-   CRN              crn:v1:public:is:us-south-2:a/2d1bace7b46e4815a81e52c6ffeba5cf::floating-ip:r006-9b79b9bc-a2dc-4337-865a-57d9b9198b76
+   CRN              crn:v1:public:is:us-south-2:a/a1234567::floating-ip:r006-9b79b9bc-a2dc-4337-865a-57d9b9198b76
    Status           available
    Zone             us-south-2
    Created          2023-03-23T22:13:07+00:00
    Target           ID                                          Target type         Instance ID                                 Target interface name   Target interface private IP
-                    0717-4db768bb-65c3-4045-8712-523e62eeabd2   network_interface   0717-_67b1179a-8b25-4ac9-8bc0-7f3027466ed0   primary                 -
+                    0717-4db768bb-65c3-4045-8712-523e62eeabd2   network_interface   0726_67b1179a-8b25-4ac9-8bc0-7f3027466ed0   primary                 -
 
 
    Resource group   ID                                 Name
@@ -596,7 +594,7 @@ Use the following steps to create a virtual server instance from a private catal
    ```
    {: pre}
 
-   Where the following argument and option values are used
+   Where the following argument and option values are used.
 
       * INSTANCE_NAME: `my-instance`
       * VPC: `r006-35b9cf35-616e-462e-a145-cf8db4062fcf`
@@ -614,7 +612,7 @@ Use the following steps to create a virtual server instance from a private catal
 
    For a full list of command options, see [ibmcloud is instance-create](/docs/vpc?topic=vpc-vpc-reference#instance-create).
 
-2. Next, run the following `instance` details command to verify that you can see your new instance and view the network interfaces that were created for the new instance. For `INSTANCE` specify the ID that was assigned to your new virtual server instance in the previous step.
+2. Next, run the following `instance` details command to verify that you can see your new instance and view the network interfaces that were created for the new instance. For `INSTANCE`, specify the ID that was assigned to your new virtual server instance in the previous step.
 
    ```sh
    ibmcloud is instance INSTANCE
@@ -686,7 +684,7 @@ Use the following steps to create a virtual server instance from a bootable volu
 
    For a full list of command options, see [ibmcloud is instance-create](/docs/vpc?topic=vpc-vpc-reference#instance-create).
 
-2. Next, run the following `instance` details command to verify that you can see your new instance and view the network interfaces that were created for the new instance. For `INSTANCE` specify the ID that was assigned to your new virtual server instance in the previous step.
+2. Next, run the following `instance` details command to verify that you can see your new instance and view the network interfaces that were created for the new instance. For `INSTANCE`, specify the ID that was assigned to your new virtual server instance in the previous step.
 
    ```sh
    ibmcloud is instance INSTANCE
@@ -736,7 +734,7 @@ You can create instances by using the API.
 {: #before-you-begin-create-instance-api}
 {: api}
 
-Ensure that you have the required access. To call these methods, you must be assigned one or more IAM access roles that include the following actions, depending on any listed conditions. You can check your access by going to the **Users** page of [{{site.data.keyword.iamshort}} dashboard](https://cloud.ibm.com/iam/overview){: external}.
+Make sure that you have the required access. To call these methods, you must be assigned one or more IAM access roles that include the following actions, depending on any listed conditions. You can check your access by going to the **Users** page of [{{site.data.keyword.iamshort}} dashboard](https://test.cloud.ibm.com/iam/overview){: external}.
 
 ### Gathering information to create an instance by using the API
 {: #gather-info-to-create-virtual-servers-api}
@@ -1013,7 +1011,7 @@ Gather the following information by using `DataSource` command.
    ```
    {: codeblock}
 
-   * Select an image that is shared from a private catalog for the instance. For more information, see the Terraform documentation on [ibm_is_images](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_images). You can select an image from the list to create the instance as shown in the section [Go to Creating an instance by using Terraform section](/docs/vpc?topic=vpc-creating-virtual-servers&interface=terraform#create-instance-terraform).
+   * Select an image that is shared from a private catalog for the instance. For more information, see the Terraform documentation on [ibm_is_images](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_images). You can select an image from the list to create the instance as shown in the section [Go to Creating an instance by using Terraform section](#create-instance-terraform).
 
    If you select a catalog image that belongs to a different account, you have more considerations and limitations to review. See [Using cross-account image references in a private catalog in Terraform](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#private-catalog-image-reference-vpc-terraform).
      {: note}
@@ -1059,7 +1057,7 @@ Gather the following information by using `DataSource` command.
    ```
    {: codeblock}
 
-   SSH keys can either be RSA or Ed25519. You can generate new RSA key pairs using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images.
+   SSH keys can be either RSA or Ed25519. You can generate new RSA key pairs by using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images.
    {: note}
 
 1. Create a subnet_reserved_ip resource or use an existing subnet_reserved_ip by referring to the subnet_reserved_ip data source. For more information, see the Terraform documentation on [ibm_is_subnet_reserved_ip](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_subnet_reserved_ip)
