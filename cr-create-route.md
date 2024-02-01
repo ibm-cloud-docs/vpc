@@ -186,7 +186,7 @@ To create a destination route with the API, follow these steps:
 
 To create a route with Terraform, follow these steps:
 
-1. [Set up your Terraform environment](/docs/vpc?topic=vpc-terraform-setup).
+1. Set up your Terraform environment.
 1. Create a route:
 
    ```terraform

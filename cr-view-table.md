@@ -121,7 +121,7 @@ To view the details of a routing table with the API, follow these steps:
 
 To view details of all or a specific routing table with Terraform, follow these steps:
 
-1. [Set up your Terraform environment](/docs/vpc?topic=vpc-terraform-setup).
+1. Set up your Terraform environment.
 1. Use one of the following examples:
 
    * To list and view details of all routing tables for a VPC:

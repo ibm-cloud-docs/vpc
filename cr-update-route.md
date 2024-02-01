@@ -110,9 +110,9 @@ To update a destination route with the API, follow these steps:
    -H "Authorization: Bearer $iam_token" \
    -d '{
       "name": "my-vpc-route-updated"
-    }'   
+    }'
    ```
-   {: codeblock}    
+   {: codeblock}
 
 ## Updating a route with Terraform
 {: #cr-update-route-terraform}
@@ -120,7 +120,7 @@ To update a destination route with the API, follow these steps:
 
 To update a route with Terraform, follow these steps:
 
-1. [Set up your Terraform environment](/docs/vpc?topic=vpc-terraform-setup).
+1. Set up your Terraform environment.
 1. Update priority in the existing route resource:
 
    ```terraform

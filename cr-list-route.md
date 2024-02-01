@@ -53,7 +53,7 @@ To list all the routes of a VPC routing table, run the following command:
 ```sh
 ibmcloud is vpc-routing-table-routes VPC ROUTING_TABLE [--output JSON] [-q, --quiet]
 ```
-{: pre} 
+{: pre}
 
 Where:
 
@@ -84,12 +84,12 @@ To view details of a route with the API, follow these steps:
    export RouteId=<your_route_id>
    ```
    {: codeblock}
-   
+
 1. List all routes in a routing table:
 
    ```curl
    curl -X GET "$vpc_api_endpoint/v1/vpcs/$vpc_id/routing_tables?version=$api_version&generation=2" \
-   -H "Authorization: Bearer $iam_token"   
+   -H "Authorization: Bearer $iam_token"
 
 ## Listing routes of a routing table with Terraform
 {: #cr-list-route-terraform}
@@ -97,7 +97,7 @@ To view details of a route with the API, follow these steps:
 
 To list routes of a routing table with Terraform, follow these steps:
 
-1. [Set up your Terraform environment](/docs/vpc?topic=vpc-terraform-setup).
+1. Set up your Terraform environment.
 1. Use one of the following examples:
 
    * To list all the routes:

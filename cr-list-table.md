@@ -88,7 +88,7 @@ To list the routing tables for a VPC with the API, follow these steps:
 
 To list all routing tables or a specific routing table with Terraform, follow these steps:
 
-1. [Set up your Terraform environment](/docs/vpc?topic=vpc-terraform-setup).
+1. Set up your Terraform environment.
 1. Use one of the following examples:
 
    * To list all routing tables for a VPC:
