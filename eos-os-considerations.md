@@ -117,7 +117,7 @@ If you decide to upgrade with the in-place method on Windows OS, open a ticket w
 No additional licensing costs are incurred to move to a newer software version when you use {{site.data.keyword.IBM_notm}}’s License Included options. {{site.data.keyword.Bluemix}} is governed by the Service Provider License Agreement (SPLA) with Microsoft. For more information, see [License Mobility Deployment Process](/docs/microsoft?topic=microsoft-microsoft-license-mobility-process).
 
 ## Troubleshooting
-{: #troubleshooting-upgrading-your-os}
+{: #troubleshooting-upgrading-your-os-vpc}
 
 If you encounter problems after your OS is upgrade is complete, open a support ticket. IBM Support investigates each issue on a
 case-by-case basis. You can open a support ticket in the customer portal.
