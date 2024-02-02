@@ -51,7 +51,7 @@ Users in your account will be able to create instances and bare metal servers wi
 ## How could the upcoming changes cause a failure?
 {: #vni-api-actions-preparing}
 
-Until this feature becomes generally available, you won't be able to perform mitigation steps or testing. However, review this section now to prepare for the behavior changes that could lead to API client and workflow failures. When the feature becomes generally available, revisit this topic for guidance on how to mitigate these hazards.
+Until this feature becomes generally available, you won't be able to perform mitigation steps or testing. However, review this section now to prepare for the behavior changes that could lead to API client and workflow failures. When the feature becomes generally available, revisit this topic for guidance on how to mitigate these hazards.  If you do not want your account to be affected by expanded support for virtual network interfaces when it becomes generally available, you'll have the option to temporarily defer this feature.
 {: important}
 
 ### Virtual network interfaces changes
@@ -129,3 +129,4 @@ Bookmark this guidance. When the feature becomes generally available, this page 
 
 Behavior changes introduced by this feature represent the types of hazards you should evaluate in your code. Starting 12 March 2024, someone in your account might start performing operations that could break your automation. Before the feature becomes generally available, compare these changes to any client automation you've created and assess any risk. Prepare for behavior changes that could lead to API client and workflow failures by starting to update the design for your automation, even if you won't be able to test it yet.
 
+If you you need more time to test expanded support for virtual network interfaces, or if you do not want your account to be affected by this feature when it becomes generally available, you'll have the option to temporarily defer this feature.
