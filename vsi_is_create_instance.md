@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-02-01"
+lastupdated: "2024-02-02"
 
 keywords:
 
@@ -397,7 +397,7 @@ Use the following steps to create a basic virtual server instance from a stock i
    ```
    {: pre}
 
-   For example, the following `instance-create` command uses the sample values that are found in the [Gathering information](#gather-info-to-create-virtual-servers-cli) section.
+   For example, the following `instance-create` command uses the sample values that are found in the [Gathering information](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli#gather-info-to-create-virtual-servers-cli) section.
 
    ```sh
    ibmcloud is instance-create \
@@ -1011,7 +1011,7 @@ Gather the following information by using `DataSource` command.
    ```
    {: codeblock}
 
-   * Select an image that is shared from a private catalog for the instance. For more information, see the Terraform documentation on [ibm_is_images](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_images). You can select an image from the list to create the instance as shown in the section [Go to Creating an instance by using Terraform section](#create-instance-terraform).
+   * Select an image that is shared from a private catalog for the instance. For more information, see the Terraform documentation on [ibm_is_images](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_images). You can select an image from the list to create the instance as shown in the section [Go to Creating an instance by using Terraform section](/docs/vpc?topic=vpc-creating-virtual-servers&interface=terraform#create-instance-terraform).
 
    If you select a catalog image that belongs to a different account, you have more considerations and limitations to review. See [Using cross-account image references in a private catalog in Terraform](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#private-catalog-image-reference-vpc-terraform).
      {: note}
