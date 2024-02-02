@@ -327,6 +327,11 @@ toc:
                 - vni-add-sg.md
             - vni-attach.md
             - vni-known-issues.md
+            - topicgroup:
+                label: Virtual network interface hazardous change remediation
+                topics:
+                - topic: vni-api-introduction.md
+                   navtitle: Preparing for changes to virtual network interfaces, instances, bare metal servers, and file shares
         - topicgroup:
             label: Floating IP addresses
             topics:
