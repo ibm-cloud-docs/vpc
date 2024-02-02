@@ -119,5 +119,5 @@ No additional licensing costs are incurred to move to a newer software version w
 ## Troubleshooting
 {: #troubleshooting-upgrading-your-os-vpc}
 
-If you encounter problems after your OS is upgrade is complete, open a support ticket. IBM Support investigates each issue on a
-case-by-case basis. You can open a support ticket in the customer portal.
+If you encounter problems after your OS is upgrade is complete, open a support case. IBM Support investigates each issue on a
+case-by-case basis. You can open a support case in the customer portal. For more information about support, see [Using the Support Center](/docs/get-support?topic=get-support-using-avatar).
