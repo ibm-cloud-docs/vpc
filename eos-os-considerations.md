@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-01-08"
+lastupdated: "2024-02-02"
 
 keywords:
 
@@ -79,7 +79,7 @@ If you encounter problems during the in-place upgrade process, IBM can't provide
 - After the in-place upgrade is complete, create a full backup of the upgraded instance, not an incremental backup.
 
 ### Continue with your EOS OS at your own risk
-{: #continue-using-your-eos-os}
+{: #continue-using-your-eos-os-vpc}
 
 If you choose to continue with an EOS OS, consider the following information:
 
