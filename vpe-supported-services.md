@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-10-09"
+  years: 2020, 2024
+lastupdated: "2024-02-02"
 
 keywords: virtual private endpoints, endpoint gateway, VPE
 subcollection: vpc
@@ -59,5 +59,5 @@ with your account.
 * Watson Speech to Text ([Instructions](/docs/watson?topic=watson-virtual-private-endpoints))
 * Watson Text to Speech ([Instructions](/docs/watson?topic=watson-virtual-private-endpoints))
 
-This topic will be updated as additional services are supported.
+This topic updates as additional services are supported.
 {: note}
