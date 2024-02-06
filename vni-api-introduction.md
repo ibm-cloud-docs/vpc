@@ -124,6 +124,7 @@ Behavior change
 :   _Possible failure_: Workflows that delete file share mount targets, and then delete subnets, may fail. Failure occurs when the subnets are no longer referenced by any resources.
 
 ## What actions can you take to avoid a disruption?
+{: #vni-api-preventive-actions}
 
 Bookmark this guidance. When the feature becomes generally available, this page will be updated to include guidance on how to mitigate hazards introduced by the changes.
 
