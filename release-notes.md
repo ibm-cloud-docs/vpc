@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-01-31"
+lastupdated: "2024-02-06"
 
 keywords:
 
@@ -27,11 +27,11 @@ For more information about changes to the {{site.data.keyword.vpc_short}} API, s
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
 
-## January 2024
-{: #vpc-jan24}
+## February 2024
+{: #vpc-feb24}
 
-### 30 January 2024
-{: #vpc-jan3024}
+### 06 February 2024
+{: #vpc-feb0624}
 {: release-note}
 
 New Madrid region for ux2d profiles (GA)
