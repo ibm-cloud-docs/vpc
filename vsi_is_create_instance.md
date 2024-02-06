@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-02-02"
+lastupdated: "2024-02-06"
 
 keywords:
 
@@ -151,17 +151,17 @@ Use the following commands to determine the required information for creating a 
    ```sh
    $ ibmcloud is regions
    Listing regions under account Test Account as user test.user@ibm.com...
-   Name       Endpoint                              Status   
-   au-syd     https://au-syd.iaas.cloud.ibm.com     available   
-   br-sao     https://br-sao.iaas.cloud.ibm.com     available   
-   ca-tor     https://ca-tor.iaas.cloud.ibm.com     available   
-   eu-de      https://eu-de.iaas.cloud.ibm.com      available   
-   eu-es      https://eu-es.iaas.cloud.ibm.com      available   
-   eu-gb      https://eu-gb.iaas.cloud.ibm.com      available    
-   jp-osa     https://jp-osa.iaas.cloud.ibm.com     available   
-   jp-tok     https://jp-tok.iaas.cloud.ibm.com     available   
-   us-east    https://us-east.iaas.cloud.ibm.com    available   
-   us-south   https://us-south.iaas.cloud.ibm.com   available   
+   Name       Endpoint                              Status
+   au-syd     https://au-syd.iaas.cloud.ibm.com     available
+   br-sao     https://br-sao.iaas.cloud.ibm.com     available
+   ca-tor     https://ca-tor.iaas.cloud.ibm.com     available
+   eu-de      https://eu-de.iaas.cloud.ibm.com      available
+   eu-es      https://eu-es.iaas.cloud.ibm.com      available
+   eu-gb      https://eu-gb.iaas.cloud.ibm.com      available
+   jp-osa     https://jp-osa.iaas.cloud.ibm.com     available
+   jp-tok     https://jp-tok.iaas.cloud.ibm.com     available
+   us-east    https://us-east.iaas.cloud.ibm.com    available
+   us-south   https://us-south.iaas.cloud.ibm.com   available
    ```
    {: screen}
 
@@ -184,10 +184,10 @@ Use the following commands to determine the required information for creating a 
    ```sh
    $ ibmcloud is zones
    Listing zones in target region us-south under account Test Account as user test.user@ibm.com...
-   Name         Region     Status   
-   us-south-1   us-south   available   
-   us-south-2   us-south   available   
-   us-south-3   us-south   available   
+   Name         Region     Status
+   us-south-1   us-south   available
+   us-south-2   us-south   available
+   us-south-3   us-south   available
    ```
    {: screen}
 
@@ -734,7 +734,7 @@ You can create instances by using the API.
 {: #before-you-begin-create-instance-api}
 {: api}
 
-Make sure that you have the required access. To call these methods, you must be assigned one or more IAM access roles that include the following actions, depending on any listed conditions. You can check your access by going to the **Users** page of [{{site.data.keyword.iamshort}} dashboard](https://test.cloud.ibm.com/iam/overview){: external}.
+Make sure that you have the required access. To call these methods, you must be assigned one or more IAM access roles that include the following actions, depending on any listed conditions. You can check your access by going to the **Users** page of [{{site.data.keyword.iamshort}} dashboard](https://cloud.ibm.com/iam/overview){: external}.
 
 ### Gathering information to create an instance by using the API
 {: #gather-info-to-create-virtual-servers-api}
