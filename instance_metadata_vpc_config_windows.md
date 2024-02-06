@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-12-05"
+  years: 2021, 2024
+lastupdated: "2024-02-06"
 
 keywords:
 
@@ -30,7 +30,7 @@ The information in this topic is presented as separate steps. More likely, you w
 
 Running as administrator, locate the IP of the default gateway. A convenient way is to use Powershell `Get-NetRoute` command.
 
-Locate the IP of the default gateway by using the PowerShell Get-NetRoute cmdlet. This command gets the next hop for the default route, also known as the default gateway. For more information, see the Windows Powershell documentation for [Get-NetRoute](https://docs.microsoft.com/en-us/powershell/module/nettcpip/get-netroute?view=windowsserver2019-ps).
+Locate the IP of the default gateway by using the PowerShell Get-NetRoute cmdlet. This command gets the next hop for the default route, also known as the default gateway. For more information, see the Windows Powershell documentation for [Get-NetRoute](https://learn.microsoft.com/en-us/powershell/module/nettcpip/get-netroute?view=windowsserver2019-ps){: external}.
 
 From the Windows terminal, the following example invokes the Powershell `Get-NetRoute` command to get the default IP routes and pass the routes to the SelectObject cmdlet, which then displays the NextHop property for each default route.
 
