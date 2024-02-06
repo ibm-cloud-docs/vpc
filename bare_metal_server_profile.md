@@ -21,7 +21,7 @@ When you create a bare metal server, you can select from a profile family that b
 ## About profile families
 {: #profile-familiy}
 
-Profiles are grouped by the _vCPUs:Memory_ ratio across all the VPC compute offerings. You can choose from the following profile families:
+Profiles are grouped by the *vCPUs:Memory* ratio across all the VPC compute offerings. You can choose from the following profile families:
 
 | Family | vCPU:Memory ratio | Description |
 |-----|-----|-----|
