@@ -44,7 +44,6 @@ Updated `workload` section for Hyper Protect Secure Build
 New Madrid region for ux2d profiles (GA)
 :   The Ultra High Memory family of profiles are now available in the Spain (Madrid) region. The addition of this region makes the ux2d profiles available in all regions. For more information, see the [Ultra High Memory](/docs/vpc?topic=vpc-profiles&interface=ui#uhmemory) profile information.
 
-
 ## January 2024
 {: #vpc-jan24}
 
