@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-02-06"
+lastupdated: "2024-02-07"
 
 keywords:
 
@@ -30,12 +30,22 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## February 2024
 {: #vpc-feb24}
 
+### 07 February 2024
+{: #vpc-feb0724}
+{: release-note}
+
+Updated `workload` section for Hyper Protect Secure Build
+:   The `workload` section for Hyper Protect Secure Build is updated based on the IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-13`. For more information, see [Configuring and using Hyper Protect Secure Build in {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-about-hpsb#hpvs_hpsb).
+
 ### 06 February 2024
 {: #vpc-feb0624}
 {: release-note}
 
 New Madrid region for ux2d profiles (GA)
 :   The Ultra High Memory family of profiles are now available in the Spain (Madrid) region. The addition of this region makes the ux2d profiles available in all regions. For more information, see the [Ultra High Memory](/docs/vpc?topic=vpc-profiles&interface=ui#uhmemory) profile information.
+
+## January 2024
+{: #vpc-jan24}
 
 ### 24 January 2024
 {: #vpc-jan2424}
