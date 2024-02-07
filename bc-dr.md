@@ -23,7 +23,7 @@ subcollection: vpc
 
 For more information about your responsibilities, see [Understanding your responsibilities when you use Virtual Private Cloud](/docs/vpc?topic=vpc-responsibilities-vpc).
 
-## Disaster recovery strategy 
+## Disaster recovery strategy
 {: #bc-dr-strategy}
 
 {{site.data.keyword.cloud_notm}} has [business continuity](#x3026801){: term} plans in place to provide for the recovery of services within hours if a disaster occurs. You are responsible for your data backup and associated recovery of your content.
@@ -32,8 +32,8 @@ IBM Cloud VPC provides mechanisms to protect your data and restore service funct
 
 | Disaster recovery objective | Target Value   |
 |---|---|
-|  RPO | VPN for VPC: 24 hours |
-|  RTO | VPN for VPC: 5 hours  |
+|  RPO | VPN for VPC (site-to-site): 24 hours |
+|  RTO | VPN for VPC (site-to-site): 5 hours  |
 {: caption="Table 1. RPO and RTO for IBM Cloud VPC services" caption-side="bottom"}
 
 ## Locations

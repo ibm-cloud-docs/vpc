@@ -27,7 +27,6 @@ For more information about changes to the {{site.data.keyword.vpc_short}} API, s
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
 
-
 ## February 2024
 {: #vpc-feb24}
 
@@ -38,6 +37,14 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 Updated `workload` section for Hyper Protect Secure Build
 :   The `workload` section for Hyper Protect Secure Build is updated based on the IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-13`. For more information, see [Configuring and using Hyper Protect Secure Build in {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-about-hpsb#hpvs_hpsb).
 
+### 06 February 2024
+{: #vpc-feb0624}
+{: release-note}
+
+New Madrid region for ux2d profiles (GA)
+:   The Ultra High Memory family of profiles are now available in the Spain (Madrid) region. The addition of this region makes the ux2d profiles available in all regions. For more information, see the [Ultra High Memory](/docs/vpc?topic=vpc-profiles&interface=ui#uhmemory) profile information.
+
+
 ## January 2024
 {: #vpc-jan24}
 
@@ -47,7 +54,6 @@ Updated `workload` section for Hyper Protect Secure Build
 
 Next generation instance profiles available in London region (select availability)
 :   The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are now available as a Select Availability offering in the London region, in addition to the Dallas region. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel&reg; Xeon&reg; Scalable processors to provide the most powerful and performant general-purpose profiles available. For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles). In the [Balanced](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) family, see the *bx3d* profiles tab. In the [Compute](/docs/vpc?topic=vpc-profiles&interface=ui#compute) family, see the *cx3d* profiles tab. In the [Memory](/docs/vpc?topic=vpc-profiles&interface=ui#memory) family, see the *mx3d* profiles tab. 3rd generation dedicated host profiles are also available. For more information, see *bx3d*, *cx3d*, and *mx3d* profiles in [x86-64 dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
-
 
 ### 16 January 2024
 {: #vpc-jan1624}

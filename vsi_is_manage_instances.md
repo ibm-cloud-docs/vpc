@@ -92,7 +92,7 @@ The start action starts a virtual server instance that is in a stopped state.
 
 From the *Virtual server instances* page in {{site.data.keyword.cloud_notm}} console, click **Stop** or **Start**.
 
-_For z/OS virtual server instances only_. You must shut down all the subsystems in the z/OS system to halt the virtual server instance. For more information, see [Shutting down z/OS virtual server instances](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=vpc-shutting-down-zos-virtual-server-instances){: external}.
+*For z/OS virtual server instances only*. You must shut down all the subsystems in the z/OS system to halt the virtual server instance. For more information, see [Shutting down z/OS virtual server instances](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=vpc-shutting-down-zos-virtual-server-instances){: external}.
 {: note}
 
 ## Stop a virtual server instance by using the CLI

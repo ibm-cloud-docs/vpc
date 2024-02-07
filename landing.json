@@ -25,7 +25,7 @@
       }
     ],
     "section_learn": {
-      "architecture": "https://www.ibm.com/cloud/architecture/architectures/virtual-private-cloud"
+      "architecture": "https://www.ibm.com/topics/vpc"
     },
     "section_updates": {
       "view_more": "/docs/vpc?topic=vpc-release-notes",

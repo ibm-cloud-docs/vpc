@@ -15,7 +15,7 @@ subcollection: vpc
 # User data
 {: #user-data}
 
-[comment]: # (linked help topic)
+<!-- comment: linked help topic -->
 
 When you create an {{site.data.keyword.vsi_is_full}} instance, you can specify optional user data that automatically performs common configuration tasks or runs scripts. For more information about user data and usernames, see [IAM access](/docs/account?topic=account-userroles).
 {: shortdesc}

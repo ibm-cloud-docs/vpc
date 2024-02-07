@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-01-30"
+lastupdated: "2024-02-06"
 
 keywords:
 
@@ -331,7 +331,7 @@ After you import a custom image, you can view the checksum that was generated fo
 
 If you generate a checksum locally for your image before you import it, you can compare the two checksums to make sure that they are identical. Matching checksums indicate that the image is unaltered.
 
-To validate as custom image by using the API, use the [List all images](https://test.cloud.ibm.com/apidocs/vpc/latest#list-images).
+To validate as custom image by using the API, use the [List all images](/apidocs/vpc/latest#list-images).
 
 For the `$image_id`, specify the ID of the custom image you want to validate.
 
