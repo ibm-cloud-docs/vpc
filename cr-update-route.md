@@ -58,7 +58,7 @@ Where:
 :   Is the new name of the route.
 
 `--priority`
-:   Is the route's priority. Smaller values have higher priority. If a custom routing table contains routes with the same destination, the route with the highest priority (smallest value) is selected.
+:   Is the route's priority. Lower values have higher priority. If a custom routing table contains routes with the same destination, the route with the highest priority (smallest value) is selected.
 
 `--next-hop`
 :   If the action is **deliver**, this is the IP address or VPN connection ID or name of the next hop to which to route packets.
