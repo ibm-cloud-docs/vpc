@@ -98,7 +98,7 @@ Make a request to the [IAM Policy Management API](/apidocs/iam-policy-management
    '{
      "type": "access",
      "description": "Reader role for the Block service to interact with the KeyProtect service.",
-     "subjects": [{"attributes": [{"name": "serviceName","value": "is"},{"name": "resourceType","value": "server-protect"}]}],
+     "subjects": [{"attributes": [{"name": "serviceName","value": "server-protect"}]}],
      "roles":[{"role_id": "crn:v1:bluemix:public:iam::::role:Reader"}],
      "resources":[{"attributes": [{"name": "serviceName","value": "kms"}]}]
      }'
