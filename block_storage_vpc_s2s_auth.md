@@ -63,21 +63,19 @@ $ ibmcloud iam authorization-policies
 Getting authorization policies under account a1234567 as test.user@ibm.com...
 OK
                            
-ID:                        8a2ef8a5-2e4c-46ea-b2e7-d4b0d0a0e1a5
-Source service name:       is
+ID:                        1f722de4-c3e6-4765-b0d3-482ec77a04f8
+Source service name:       server-protect
 Source service instance:   All instances
-Source resource type:      server-protect
-Target service name:       hs-crypto
-Target service instance:   All instances
+Target service name:       kms
+Target service instance:   51042d7f-f0df-4915-bd39-6a49957c9175
 Roles:                     Reader
                            
-ID:                        d2df60ea-5575-4bd1-9cd6-f35c52576577
-Source service name:       is
+ID:                        605cb9b9-ba0d-456b-8c22-180abee66c47
+Source service name:       server-protect
 Source service instance:   All instances
-Source resource type:      server-protect
-Target service name:       kms
+Target service name:       hs-crypto
 Target service instance:   All instances
-Roles:                     Authorization Delegator, Reader
+Roles:                     Reader 
 ```
 {: screen}
 
