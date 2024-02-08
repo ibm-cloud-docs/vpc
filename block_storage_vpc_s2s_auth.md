@@ -37,9 +37,7 @@ You can access the **Manage authorizations** by clicking **Manage** > **Access (
 
 1. On the **Manage authorizations** page, click **Create**. 
 1. On the **Grant a service authorization** page, select the source account.
-1. For the source service, select **VPC Infrastructure Services** from the list.
-1. Select the scope. Choose **Resources based on selected attributes**.
-1. Click **Resource type**. From the list, select **Block Storage for VPC**.
+1. For the source service, select **Cloud Block Storage** from the list.
 1. For the target service, select **Hyper Protect Crypto Services** or **KeyProtect** from the list. 
 1. Check the box to enable authorization to be delegated by source and dependent services.
 1. Then, under Service access, select the role `Reader`.
@@ -49,10 +47,10 @@ You can access the **Manage authorizations** by clicking **Manage** > **Access (
 {: #block-s2s-auth-encryption-cli}
 {: cli}
 
-Run the `ibmcloud iam authorization-policy-create` command to create authorization policies for the Block service to interact with one or both Key Management Services ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}). The source service is `is` with the `--source-resource-type server-protect` and the target service is either `kms` or `hs-crypto`. The role that you need to assign is `Reader`. The following example creates an authorization policy between the Block service and {{site.data.keyword.keymanagementserviceshort}}.
+Run the `ibmcloud iam authorization-policy-create` command to create authorization policies for the Block service to interact with one or both Key Management Services ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}). The source service is `server-protect` and the target service is either `kms` or `hs-crypto`. The role that you need to assign is `Reader`. The following example creates an authorization policy between the Block service and {{site.data.keyword.keymanagementserviceshort}}.
 
 ```sh
-$ ibmcloud iam authorization-policy-create is kms Reader --source-resource-type server-protect
+$ ibmcloud iam authorization-policy-create server-protect kms Reader
 Creating authorization policy under account a1234567 as test.user@ibm.com...
 OK
 ```
