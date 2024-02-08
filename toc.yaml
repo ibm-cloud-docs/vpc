@@ -562,6 +562,7 @@ toc:
                 topics:
                 - block_storage_is_create.md
                 - block_storage_vpc_byok_encryption.md
+                - block_storage_vpc_byok_multitenant_encryption.md
                 - block_storage_vpc_manage_storage_limits.md
             - block_storage_is_attach.md
             - block_storage_is_use_volume_lin.md
