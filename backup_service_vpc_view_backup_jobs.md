@@ -151,7 +151,7 @@ cloudshell:~$ ibmcloud is backup-policy-jobs r006-0723c648-9a47-4d51-b1ba-349e21
             "crn": "crn:v1:bluemix:public:is:us-south-2:a/a1234567::volume:r006-6afe1361-b592-45ab-b23b-6cca9982e371",
             "href": "https://us-south.iaas.cloud.ibm.com/v1/volumes/r006-6afe1361-b592-45ab-b23b-6cca9982e371",
             "id": "r006-6afe1361-b592-45ab-b23b-6cca9982e371",
-            "name": "vicky-block-test3",
+            "name": "my-block-test3",
             "resource_type": "volume"
         },
         "status": "succeeded",
