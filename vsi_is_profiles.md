@@ -2,7 +2,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-02-06"
+lastupdated: "2024-02-08"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, very high memory, gpu, sap, olap, oltp, nvidia, cascade lake
 
@@ -22,6 +22,8 @@ A profile is a combination of instance attributes, such as the number of vCPUs, 
 {: shortdesc}
 
 For more information about profiles for IBM Z (s390x processor architecture), see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles).
+
+For more information about SAP profiles, see [Intel Virtual Server certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc) and [Intel Virtual Server certified profiles on VPC infrastructure for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc).
 
 The following profile families are available:
 
