@@ -104,10 +104,10 @@ cloudshell:~$ ibmcloud is backup-policy-jobs r006-0723c648-9a47-4d51-b1ba-349e21
             "name": "my-plan-b",
             "resource_type": "backup_policy_plan"
         },
-        "completed_at": "2024-01-09T10:06:37.000Z",
-        "created_at": "2024-01-09T10:06:20.000Z",
-        "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/r006-0723c648-9a47-4d51-b1ba-349e21e715b6/jobs/r006-34b55043-c473-4b69-b722-b7254ffe707a",
-        "id": "r006-34b55043-c473-4b69-b722-b7254ffe707a",
+        "completed_at": "2024-01-17T10:06:37.000Z",
+        "created_at": "2024-01-17T10:06:19.000Z",
+        "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/r006-0723c648-9a47-4d51-b1ba-349e21e715b6/jobs/r006-60497743-43b4-4e7d-a221-0f6927653c6b",
+        "id": "r006-60497743-43b4-4e7d-a221-0f6927653c6b",
         "job_type": "creation",
         "resource_type": "backup_policy_job",
         "source": {
@@ -121,13 +121,10 @@ cloudshell:~$ ibmcloud is backup-policy-jobs r006-0723c648-9a47-4d51-b1ba-349e21
         "status_reasons": [],
         "target_snapshots": [
             {
-                "crn": "crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot:r006-fb5715e6-6b4f-4952-86c1-3987f32bc7fc",
-                "deleted": {
-                    "more_info": "https://cloud.ibm.com/apidocs/vpc#deleted-resources"
-                },
-                "href": "https://us-south.iaas.cloud.ibm.com/v1/snapshots/r006-fb5715e6-6b4f-4952-86c1-3987f32bc7fc",
-                "id": "r006-fb5715e6-6b4f-4952-86c1-3987f32bc7fc",
-                "name": "-deleted-3987f32bc7fc",
+                "crn": "crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot:r006-d609337c-a25e-4b6c-bcfd-4cfdf3d96af3",
+                "href": "https://us-south.iaas.cloud.ibm.com/v1/snapshots/r006-d609337c-a25e-4b6c-bcfd-4cfdf3d96af3",
+                "id": "r006-d609337c-a25e-4b6c-bcfd-4cfdf3d96af3",
+                "name": "my-plan-b-8c3b424fd90b-4d05",
                 "resource_type": "snapshot"
             }
         ]
@@ -188,44 +185,37 @@ ibmcloud is backup-policy-job POLICY JOB_ID [--output JSON] [-q, --quiet]
 The following example shows the output when you run the command by using the policy name and the job ID as arguments, and the `--output JSON` option.
 
 ```json
-cloudshell:~$ ibmcloud is backup-policy-job new-policy-23 r138-25828175-2b51-4247-ba01-79c538f68282 --output JSON
+$ ibmcloud is backup-policy-job my-backup-policy-v2 r006-60497743-43b4-4e7d-a221-0f6927653c6b -json
 {
     "auto_delete": true,
-    "auto_delete_after": 15,
+    "auto_delete_after": 30,
     "backup_policy_plan": {
-        "href": "https://eu-de.iaas.cloud.ibm.com/v1/backup_policies/r138-0521986d-963c-4c18-992d-d6a7a99d115f/plans/r138-6f4f08ba-e0bb-470f-bbfb-f3a22aebbfa9",
-        "id": "r138-6f4f08ba-e0bb-470f-bbfb-f3a22aebbfa9",
-        "name": "my-policy-plan-b",
+        "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/r006-0723c648-9a47-4d51-b1ba-349e21e715b6/plans/r006-e888bb31-7bf2-4885-a9f3-d448c1c37326",
+        "id": "r006-e888bb31-7bf2-4885-a9f3-d448c1c37326",
+        "name": "my-plan-b",
         "resource_type": "backup_policy_plan"
     },
-    "completed_at": "2023-02-23T20:12:37.000Z",
-    "created_at": "2023-02-23T20:12:14.000Z",
-    "href": "https://eu-de.iaas.cloud.ibm.com/v1/backup_policies/r138-0521986d-963c-4c18-992d-d6a7a99d115f/jobs/r138-25828175-2b51-4247-ba01-79c538f68282",
-    "id": "r138-25828175-2b51-4247-ba01-79c538f68282",
+    "completed_at": "2024-01-17T10:06:37.000Z",
+    "created_at": "2024-01-17T10:06:19.000Z",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/r006-0723c648-9a47-4d51-b1ba-349e21e715b6/jobs/r006-60497743-43b4-4e7d-a221-0f6927653c6b",
+    "id": "r006-60497743-43b4-4e7d-a221-0f6927653c6b",
     "job_type": "creation",
     "resource_type": "backup_policy_job",
     "source": {
-        "crn": "crn:v1:bluemix:public:is:eu-de-2:a/a123456::volume:r010-18ee3ad3-0b7e-4c3a-ba92-226073696049",
-        "href": "https://eu-de.iaas.cloud.ibm.com/v1/volumes/r010-18ee3ad3-0b7e-4c3a-ba92-226073696049",
-        "id": "r010-18ee3ad3-0b7e-4c3a-ba92-226073696049",
-        "name": "fra-vsi-boot-1645484638000",
+        "crn": "crn:v1:bluemix:public:is:us-south-2:a/a1234567::volume:r006-6afe1361-b592-45ab-b23b-6cca9982e371",
+        "href": "https://us-south.iaas.cloud.ibm.com/v1/volumes/r006-6afe1361-b592-45ab-b23b-6cca9982e371",
+        "id": "r006-6afe1361-b592-45ab-b23b-6cca9982e371",
+        "name": "my-block-test3",
         "resource_type": "volume"
-    },
-    "source_volume": {
-        "crn": null,
-        "href": null,
-        "id": null,
-        "name": null
     },
     "status": "succeeded",
     "status_reasons": [],
-    "target_snapshot": null,
     "target_snapshots": [
         {
-            "crn": "crn:v1:bluemix:public:is:eu-de:a/a123456::snapshot:r138-d9ec292d-c638-46dd-bc4d-d9eb500d2925",
-            "href": "https://eu-de.iaas.cloud.ibm.com/v1/snapshots/r138-d9ec292d-c638-46dd-bc4d-d9eb500d2925",
-            "id": "r138-d9ec292d-c638-46dd-bc4d-d9eb500d2925",
-            "name": "my-policy-plan-b-b2a849936b7c-4200",
+            "crn": "crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot:r006-d609337c-a25e-4b6c-bcfd-4cfdf3d96af3",
+            "href": "https://us-south.iaas.cloud.ibm.com/v1/snapshots/r006-d609337c-a25e-4b6c-bcfd-4cfdf3d96af3",
+            "id": "r006-d609337c-a25e-4b6c-bcfd-4cfdf3d96af3",
+            "name": "my-plan-b-8c3b424fd90b-4d05",
             "resource_type": "snapshot"
         }
     ]
