@@ -37,7 +37,7 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 Updated `workload` section for Hyper Protect Secure Build
 :   The `workload` section for Hyper Protect Secure Build is updated based on the IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-13`. For more information, see [Configuring and using Hyper Protect Secure Build in {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-about-hpsb#hpvs_hpsb).
 
-UI enhancement: New SAP Certified filter when selecting an instance profile
+UI enhancement New SAP Certified filter when selecting an instance profile
 :   When provisioning a virtual server, you can now use the **SAP Certified** filter on the Select an instance profile page to narrow the results to include only the available SAP profiles (SAP HANA, SAP NetWeaver, or SAP Business One). When the SAP Certified filter is selected, the profile results display the SAP certification status for the specific SAP enabled profiles.
 
 ### 06 February 2024
