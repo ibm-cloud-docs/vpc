@@ -94,7 +94,7 @@ Behavior change
 {: #vni-api-at-event-changes}
 
 Behavior change
-:   Many new [activity tracker events](/docs/vpc?topic=vpc-at-events#events-network-virtual-network-interface) will be associated with virtual network interfaces. Also, some existing activity tracker events have been [corrected](/docs/vpc?topic=vpc-release-notes#vpc-dec1923):
+:   Many new [activity tracker events](/docs/vpc?topic=vpc-at-events#events-vni) will be associated with virtual network interfaces. Also, some existing activity tracker events have been [corrected](/docs/vpc?topic=vpc-release-notes#vpc-dec1923):
 
     - [Bare metal events](/docs/vpc?topic=vpc-at-events#events-compute-bm)
     - [Floating IP events](/docs/vpc?topic=vpc-at-events&interface=api#events-network-floatingIP)
