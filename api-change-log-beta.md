@@ -47,7 +47,7 @@ To update the `enable_secure_boot` and `confidential_compute_mode` properties, t
 ### For all version dates
 {: #19-september-2023-all-version-dates-beta}
 
-**New {{site.data.keyword.block_storage_is_full}} profile.** For accounts that have been granted special approval to preview this feature a new `defined_performance` family is introduced for data and boot [volumes](/apidocs/vpc-beta/latest#create-volume). The `defined_performance` volume profile family contains the `sdp` profile, which provides similar functionality to the `custom` volume profile. The new profile introduces the ability to make capacity increases and IOPS changes to volumes, even when they're not attached to a virtual server instance. The properties `unattached_capacity_update_supported` and `unattached_iops_update_supported` properties have been added to all volumes and volume profiles so you can make use of these capabilities in your automation. For more information, see [The `sdp` profile](/docs/vpc?topic=vpc-block-storage-about&interface=api#block-storage-acadia-intro) and [Viewing available IOPS profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=api#view-iops-profiles).
+**New {{site.data.keyword.block_storage_is_full}} profile.** For accounts that have been granted special approval to preview this feature a new `defined_performance` family is introduced for data and boot [volumes](/apidocs/vpc-beta/initial#create-volume). The `defined_performance` volume profile family contains the `sdp` profile, which provides similar functionality to the `custom` volume profile. The new profile introduces the ability to make capacity increases and IOPS changes to volumes, even when they're not attached to a virtual server instance. The properties `unattached_capacity_update_supported` and `unattached_iops_update_supported` properties have been added to all volumes and volume profiles so you can make use of these capabilities in your automation. For more information, see [About Block Storage for VPC](/docs/vpc?topic=vpc-block-storage-about&interface=api#block-storage-acadia-intro) and [Viewing available IOPS profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=api#view-iops-profiles).
 
 ## 8 August 2023
 {: #8-august-2023-beta}
@@ -59,7 +59,7 @@ This release introduces the following behavior changes for users with accounts t
 
 **Fail over to replica share.** When making API requests using a `version` query parameter of `2023-08-08` or later, the default value for the  `fallback_policy` property has been changed to `fail`, and the replication relationship between the shares is broken.
 
-**Retrieve source share information for a replica share.** When making API requests using a `version` query parameter of `2023-08-08` or later, requests to [retrieve the source file share for a replica file share](/apidocs/vpc-beta/latest#get-share-source) now return a more concise source share reference, instead of a share.
+**Retrieve source share information for a replica share.** When making API requests using a `version` query parameter of `2023-08-08` or later, requests to [retrieve the source file share for a replica file share](/apidocs/vpc-beta/initial#get-share-source) now return a more concise source share reference, instead of a share.
 
 For more information, see [About file share replication](/docs/vpc?topic=vpc-file-storage-replication) and [2023-08-08` API migration (file shares)](/docs/vpc?topic=vpc-2023-08-08-migration-file-shares).
 
@@ -71,15 +71,15 @@ For more information, see [About file share replication](/docs/vpc?topic=vpc-fil
 
 **Data encryption in transit for file shares.** For users with accounts that have access to file shares, you can now enable secure end-to-end encryption of your data in transit between the file share and the authorized client.
 
-When [creating a mount target for a file share](/apidocs/vpc-beta/latest#create-share-mount-target) with a virtual network interface, you can now specify a `transit_encryption` property value of `none` (default) or `user_managed`, which encrypts the data in transit by using IPsec with an instance identity certificate. For more information, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-eit) and [Creating instance identity certificates](/docs/vpc?topic=vpc-metadata-beta-api-change-log#11-july-2023-metadata-beta).
+When [creating a mount target for a file share](/apidocs/vpc-beta/initial#create-share-mount-target) with a virtual network interface, you can now specify a `transit_encryption` property value of `none` (default) or `user_managed`, which encrypts the data in transit by using IPsec with an instance identity certificate. For more information, see [Encryption in transit](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-eit) and [Instance identity certificates](/docs/vpc?topic=vpc-metadata-beta-api-change-log#11-july-2023-metadata-beta) in the Beta VPC Instance Metadata API change log.
 
-**File share access control modes.** For users with accounts that have access to file shares, you can now control the way a share is accessed when [creating](/apidocs/vpc-beta/latest#create-share) and [updating](/apidocs/vpc-beta/latest#update-share) a file share. Specifying `access_control_mode` property value `security_group` now allows the use of security groups to manage which resources can access the file share. By using security groups, access can now be restricted to specific clients. When you specify `access_control_mode` property value `vpc`, all clients in each mount target's VPC will continue to have access to this share.
+**File share access control modes.** For users with accounts that have access to file shares, you can now control the way a share is accessed when [creating](/apidocs/vpc-beta/initial#create-share) and [updating](/apidocs/vpc-beta/initial#update-share) a file share. Specifying `access_control_mode` property value `security_group` now allows the use of security groups to manage which resources can access the file share. By using security groups, access can now be restricted to specific clients. When you specify `access_control_mode` property value `vpc`, all clients in each mount target's VPC will continue to have access to this share.
 
 The default value of `access_control_mode` depends on the `version` query parameter date and the profile selected. When making API requests with a `version` query parameter of `2023-07-11` or later, the default is `security_group`. For requests that are using a `version` query parameter of `2023-07-10` or earlier, the default is `vpc`. File shares must be based on the [`dp2` profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile) to use the `security_group` value. See [2023-07-11 API migration (file shares)](/docs/vpc?topic=vpc-2023-07-11-migration-file-shares) for guidance on migrating `access_control_mode` from `vpc` to `security_group`.
 
-When [creating a mount target](/apidocs/vpc-beta/latest#create-share-mount-target) for a file share with `access_control_mode` set to `security_group`, you must also create a virtual network interface by using the `virtual_network_interface` property. For more information, see [About virtual network interfaces](/docs/vpc?topic=vpc-vni-about&interface=api) and [Mount target access modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-mount-access-mode). You must use an `access_control_mode` of `security_group` to enable [Data encryption in transit for file shares](/docs/vpc?topic=vpc-file-storage-vpc-eit).
+When [creating a mount target](/apidocs/vpc-beta/initial#create-share-mount-target) for a file share with `access_control_mode` set to `security_group`, you must also create a virtual network interface by using the `virtual_network_interface` property. For more information, see [About virtual network interfaces](/docs/vpc?topic=vpc-vni-about&interface=api) and [Mount target access modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-mount-access-mode). You must use an `access_control_mode` of `security_group` to enable [Data encryption in transit for file shares](/docs/vpc?topic=vpc-file-storage-vpc-eit).
 
-This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#08-august-2023).
+This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#8-august-2023).
 
 ## 13 June 2023
 {: #13-june-2023-beta}
@@ -87,7 +87,7 @@ This feature is now generally available. See the [VPC API change log](/docs/vpc?
 ### For all version dates
 {: #13-june-2023-all-version-dates-beta}
 
-**Image lifecycle management property name changes.** For accounts that have been granted special approval to preview the image lifecycle management feature, the `deprecated_at` and `obsoleted_at` properties for [images](/apidocs/vpc-beta/latest#create-image) requests have been renamed `deprecation_at` and `obsolescence_at`, respectively. Original property names `deprecated_at` and `obsoleted_at` will continue to be supported until the feature becomes generally available. Requests that specify the original and revised property names simultaneously will be rejected.
+**Image lifecycle management property name changes.** For accounts that have been granted special approval to preview the image lifecycle management feature, the `deprecated_at` and `obsoleted_at` properties for [images](/apidocs/vpc-beta/initial#create-image) requests have been renamed `deprecation_at` and `obsolescence_at`, respectively. Original property names `deprecated_at` and `obsoleted_at` will continue to be supported until the feature becomes generally available. Requests that specify the original and revised property names simultaneously will be rejected.
 
 This feature is now generally available. Support for property names `deprecated_at` and `obsoleted_at` has been removed. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#11-july-2023).
 
@@ -99,18 +99,18 @@ This feature is now generally available. Support for property names `deprecated_
 
 This release introduces the following features for users with accounts that have access to file shares.
 
-**File shares property and request path name changes.** When making API requests using a `version` query parameter of `2023-05-30` or later, the shares `targets` property has been changed to `mount_targets`. This change applies when [creating](/apidocs/vpc-beta/latest#create-share), [updating](/apidocs/vpc-beta/latest#update-share), [listing](/apidocs/vpc-beta/latest#list-shares), and [retrieving](/apidocs/vpc-beta/latest#get-share) a file share, and when [listing all mount targets for a file share](/apidocs/vpc-beta/latest#list-share-mount-targets).
+**File shares property and request path name changes.** When making API requests using a `version` query parameter of `2023-05-30` or later, the shares `targets` property has been changed to `mount_targets`. This change applies when [creating](/apidocs/vpc-beta/initial#create-share), [updating](/apidocs/vpc-beta/initial#update-share), [listing](/apidocs/vpc-beta/initial#list-shares), and [retrieving](/apidocs/vpc-beta/initial#get-share) a file share, and when [listing all mount targets for a file share](/apidocs/vpc-beta/initial#list-share-mount-targets).
 
-The name change also applies to the method paths: Requests using a `version` query parameter of `2023-05-30` or later must use `/shares/{share_id}/mount_targets` (instead of `/shares/{share_id}/targets`) in the request URL. This change applies when [creating](/apidocs/vpc-beta/latest#create-share-mount-target), [updating](/apidocs/vpc-beta/latest#update-share-mount-target), [listing](/apidocs/vpc-beta/latest#list-share-mount-targets), [retrieving](/apidocs/vpc-beta/latest#get-share-mount-target), and [deleting](/apidocs/vpc-beta/latest#delete-share-mount-target) share mount targets.
+The name change also applies to the method paths: Requests using a `version` query parameter of `2023-05-30` or later must use `/shares/{share_id}/mount_targets` (instead of `/shares/{share_id}/targets`) in the request URL. This change applies when [creating](/apidocs/vpc-beta/initial#create-share-mount-target), [updating](/apidocs/vpc-beta/initial#update-share-mount-target), [listing](/apidocs/vpc-beta/initial#list-share-mount-targets), [retrieving](/apidocs/vpc-beta/initial#get-share-mount-target), and [deleting](/apidocs/vpc-beta/initial#delete-share-mount-target) share mount targets.
 
 See [Updating to the `2023-05-30` version (file shares, mount targets)](/docs/vpc?topic=vpc-2023-05-30-migration-file-shares) for guidance on migrating from `targets` to  `mount_targets`.
 
-This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#08-august-2023). Support for the `targets` property has been removed.
+This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#8-august-2023). Support for the `targets` property has been removed.
 
 ### For all version dates
 {: #30-may-2023-all-version-dates-beta}
 
-**Enforcement of file shares beta API requests.** Starting with API version `2023-05-30`, all requests made for [shares methods](/apidocs/vpc-beta/latest#list-shares) must include the [`maturity=beta`](/apidocs/vpc-beta/latest#maturity-query-parameter-beta) query parameter. Requests that omit the `maturity=beta` query parameter will be regarded as requests against the [VPC GA API](/apidocs/vpc), which does not yet support shares. As a result, those requests will fail.
+**Enforcement of file shares beta API requests.** Starting with API version `2023-05-30`, all requests made for [shares methods](/apidocs/vpc-beta/initial#list-shares) must include the [`maturity=beta`](/apidocs/vpc-beta/initial#maturity-query-parameter-beta) query parameter. Requests that omit the `maturity=beta` query parameter will be regarded as requests against the [VPC GA API](/apidocs/vpc), which does not yet support shares. As a result, those requests will fail.
 
 ## 11 April 2023
 {: #11-april-2023-beta}
@@ -118,18 +118,18 @@ This feature is now generally available. See the [VPC API change log](/docs/vpc?
 ### For all version dates
 {: #11-april-2023-all-version-dates-beta}
 
-**Revised file share profiles.** For users with accounts that have access to file shares, a new `dp2` profile is now available when [creating](/apidocs/vpc-beta/latest#create-share) and [updating](/apidocs/vpc-beta/latest#update-share) a file share. Profiles in the existing `custom` and `tiered` families have been deprecated and will remain available only to accounts that have already provisioned file shares with those profiles. The deprecated profiles also will not be included in the upcoming general availability release for file shares.
+**Revised file share profiles.** For users with accounts that have access to file shares, a new `dp2` profile is now available when [creating](/apidocs/vpc-beta/initial#create-share) and [updating](/apidocs/vpc-beta/initial#update-share) a file share. Profiles in the existing `custom` and `tiered` families have been deprecated and will remain available only to accounts that have already provisioned file shares with those profiles. The deprecated profiles also will not be included in the upcoming general availability release for file shares.
 
 The `dp2` profile belongs to a new `defined_performance` file share profile family, which provides similar functionality to the deprecated `custom` file share profile family. While existing file shares using profiles in the `custom` and `tiered` families will continue to work, you are encouraged to update all your file shares to the new `dp2` profile in preparation for general availability of the file share service. Bulk migration of existing file shares is not supported. For more information, see [dp2 file storage profile](/docs/vpc?topic=vpc-file-storage-profiles#dp2-profile).
 
-**IOPS and size configuration for file share profiles.** New file share properties `size` and `iops` are also provided in the API responses when [retrieving a file share profile](/apidocs/vpc-beta/latest#get-share-profile). The `size` property shows the permitted capacity range (in gigabytes) for a share with the profile. The `iops` property shows the permitted IOPS range for a share with the profile. The maximum IO operations each client that accesses the file can perform is 48,000 IOPS. When multiple clients access the file share, the share can handle a maximum of 96,000 IO operations per second.
+**IOPS and size configuration for file share profiles.** New file share properties `size` and `iops` are also provided in the API responses when [retrieving a file share profile](/apidocs/vpc-beta/initial#get-share-profile). The `size` property shows the permitted capacity range (in gigabytes) for a share with the profile. The `iops` property shows the permitted IOPS range for a share with the profile. The maximum IO operations each client that accesses the file can perform is 48,000 IOPS. When multiple clients access the file share, the share can handle a maximum of 96,000 IO operations per second.
 
 This API feature was released to production on `2023-04-11`, but this announcement was not included at the time.
 {: note}
 
-This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#08-august-2023).
+This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#8-august-2023).
 
-**Image lifecycle management.** Accounts that have been granted special approval to preview this feature can now [deprecate](/apidocs/vpc-beta/latest#deprecate-image) or [obsolete](/apidocs/vpc-beta/latest#obsolete-image) custom images directly. Alternatively, you can schedule transition at a later date by specifying the `deprecated_at` or `obsoleted_at` properties when [creating](/apidocs/vpc-beta/latest#create-image) or [updating](/apidocs/vpc-beta/latest#update-image) an image. If you need to revert a status change, you can transition `deprecated` or `obsolete` images back to `available`. For more information, see [Managing custom images](/docs/vpc?topic=vpc-managing-custom-images&interface=api#custom-images-list-api).
+**Image lifecycle management.** Accounts that have been granted special approval to preview this feature can now [deprecate](/apidocs/vpc-beta/initial#deprecate-image) or [obsolete](/apidocs/vpc-beta/initial#obsolete-image) custom images directly. Alternatively, you can schedule transition at a later date by specifying the `deprecated_at` or `obsoleted_at` properties when [creating](/apidocs/vpc-beta/initial#create-image) or [updating](/apidocs/vpc-beta/initial#update-image) an image. If you need to revert a status change, you can transition `deprecated` or `obsolete` images back to `available`. For more information, see [Managing custom images](/docs/vpc?topic=vpc-managing-custom-images&interface=api).
 
 `deprecated` custom images remain usable, while `obsolete` images cannot be used to provision instances or bare metal servers.
 {: note}
@@ -142,9 +142,9 @@ This feature is now generally available. See the [VPC API change log](/docs/vpc?
 ### For all version dates
 {: #14-february-2023-all-version-dates-beta}
 
-**Exporting custom images.** Accounts that have been granted special approval to preview this feature can now [export custom images](/apidocs/vpc-beta/latest#create-image-export-job) to an authorized IBM Cloud Object Storage bucket. Specify the target `storage_bucket` to export the image to.   The image will be exported as `qcow2` unless you specify another value using the `format` property. 
+**Exporting custom images.** Accounts that have been granted special approval to preview this feature can now [export custom images](/apidocs/vpc-beta/initial#create-image-export-job) to an authorized IBM Cloud Object Storage bucket. Specify the target `storage_bucket` to export the image to. The image will be exported as `qcow2` unless you specify another value using the `format` property.
 
-For more information, see [Exporting a custom image to IBM Cloud Object Storage](/docs/vpc?topic=vpc-managing-custom-images&interface=api#custom-image-export-to-cos-api), or start using the new [export jobs](/apidocs/vpc-beta/latest#list-image-export-jobs) methods.
+For more information, see [Exporting a custom image to IBM Cloud Object Storage](/docs/vpc?topic=vpc-managing-custom-images&interface=api#custom-image-export-to-cos-api), or start using the new [export jobs](/apidocs/vpc-beta/initial#list-image-export-jobs) methods.
 
 This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#2-may-2023).
 
@@ -154,16 +154,16 @@ This feature is now generally available. See the [VPC API change log](/docs/vpc?
 ### For all version dates
 {: #20-december-2022-all-version-dates-beta}
 
-**Backup for VPC.** Backup policy jobs are now generally available. The following updates have been made for [listing backup policy jobs](/apidocs/vpc/latest#list-backup-policy-jobs) and [retrieving a backup policy job](/apidocs/vpc/latest#get-backup-policy-job) since the beta release:
+**Backup for VPC.** Backup policy jobs are now generally available. The following updates have been made for [listing backup policy jobs](/apidocs/vpc-beta/initial#list-backup-policy-jobs) and [retrieving a backup policy job](/apidocs/vpc-beta/initial#get-backup-policy-job) since the beta release:
 
 * The `source_volume` property has been replaced by the `source` property.
 * The `target_snapshot` property has been replaced by the `target_snapshots` array property.
 
 See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#20-december-2022).
 
-**Instance provision by volume.** Accounts that have been granted special approval to preview this feature can now reuse an existing boot volume to provision a virtual server instance by specifying the existing volume's `id` or `crn` sub-property of the `boot_volume_attachment` property. The specified volume must be unattached and must have an operating system with the same architecture as the instance profile. Volumes now include an `attachment_state` property and an expanded `operating_system` property you can use to view a volume's eligibility. You can also use the new [list volumes](/apidocs/vpc-beta/latest#list-volumes) filters to list volumes that have specific `attachment_state`, `operating_system`, and `encryption_type` values.
+**Instance provision by volume.** Accounts that have been granted special approval to preview this feature can now reuse an existing boot volume to provision a virtual server instance by specifying the existing volume's `id` or `crn` sub-property of the `boot_volume_attachment` property. The specified volume must be unattached and must have an operating system with the same architecture as the instance profile. Volumes now include an `attachment_state` property and an expanded `operating_system` property you can use to view a volume's eligibility. You can also use the new [list volumes](/apidocs/vpc-beta/initial#list-volumes) filters to list volumes that have specific `attachment_state`, `operating_system`, and `encryption_type` values.
 
-By default, a boot volume attached to a virtual server instance is deleted when the instance is deleted. To preserve the boot volume when deleting a virtual server instance, change the `delete_volume_on_instance_delete` property to `false` by updating the [boot volume attachment](/apidocs/vpc-beta/latest#update-instance-volume-attachment). See [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui), [Creating VPC resources with CLI and API](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli) for more information.
+By default, a boot volume attached to a virtual server instance is deleted when the instance is deleted. To preserve the boot volume when deleting a virtual server instance, change the `delete_volume_on_instance_delete` property to `false` by updating the [boot volume attachment](/apidocs/vpc-beta/initial#update-instance-volume-attachment). See [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui), [Creating VPC resources with CLI and API](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli) for more information.
 
 This feature is now generally available. Since the beta release, by default, only a boot volume created as part of provisioning a virtual server instance will be deleted when the instance is deleted. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#21-march-2023).
 
@@ -173,7 +173,7 @@ This feature is now generally available. Since the beta release, by default, onl
 ### For all version dates
 {: #16-august-2022-all-version-dates-beta}
 
-**Sharing images across an enterprise account.** Accounts that have been granted special approval to preview this feature can now use a [catalog to share custom images](/docs/vpc?topic=vpc-planning-custom-images#custom-image-cloud-private-catalog){: external} with users in other accounts within the same enterprise. When you [create an image](/apidocs/vpc-beta/latest#create-image), a new `catalog_offering` property includes a `published` sub-property that is set to `false` by default. When the custom image is imported to a catalog the `published` sub-property is set to `true`, indicating that the image is added to a catalog offering `version` and is managed from a catalog. If you are authorized to the catalog offering `version`, you can [provision virtual server instances](/apidocs/vpc-beta/latest#create-instance) using that custom image by specifying its `catalog_offering.version.crn`. To use the custom image associated with the latest version in the offering, specify `catalog_offering.offering.crn` instead. The image may not be deleted from your IBM Virtual Private Cloud while it is managed from a catalog.
+**Sharing images across an enterprise account.** Accounts that have been granted special approval to preview this feature can now use a [catalog to share custom images](/docs/vpc?topic=vpc-planning-custom-images) with users in other accounts within the same enterprise. When you [create an image](/apidocs/vpc-beta/initial#create-image), a new `catalog_offering` property includes a `published` sub-property that is set to `false` by default. When the custom image is imported to a catalog the `published` sub-property is set to `true`, indicating that the image is added to a catalog offering `version` and is managed from a catalog. If you are authorized to the catalog offering `version`, you can [provision virtual server instances](/apidocs/vpc-beta/initial#create-instance) using that custom image by specifying its `catalog_offering.version.crn`. To use the custom image associated with the latest version in the offering, specify `catalog_offering.offering.crn` instead. The image may not be deleted from your IBM Virtual Private Cloud while it is managed from a catalog.
 
 For more information, see the tutorial [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial) and the [Import offering](/apidocs/resource-catalog/private-catalog#import-offering){: external} method in the Catalog Management API.
 
@@ -185,9 +185,9 @@ This feature is now generally available. The `catalog_offering.published` proper
 ### For all version dates
 {: #12-july-2022-all-version-dates-beta}
 
-**File storage cross-account encryption.**  Accounts that have been granted special approval to preview this feature can now use cross-account customer-managed encryption keys (CRKs) when [creating a file share](/apidocs/vpc-beta/latest#create-share) with [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption). With this feature, the CRK account owner [invites you](/docs/account?topic=account-iamuserinv) and sets the IAM delegated policy to the CRKs. Afterward, specify your IAM token to create a file share with an `encryption_key` CRN from the CRK account. For more information, see [Cross-account encryption for multitenant file storage resources](/docs/vpc?topic=vpc-vpc-byok-cross-acct-key-file).
+**File storage cross-account encryption.**  Accounts that have been granted special approval to preview this feature can now use cross-account customer-managed encryption keys (CRKs) when [creating a file share](/apidocs/vpc-beta/initial#create-share) with [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption). With this feature, the CRK account owner [invites you](/docs/account?topic=account-iamuserinv&interface=api) and sets the IAM delegated policy to the CRKs. Afterward, specify your IAM token to create a file share with an `encryption_key` CRN from the CRK account. For more information, see [Cross-account encryption for file storage resources](/docs/vpc?topic=vpc-vpc-byok-cross-acct-key-file&interface=api).
 
-This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#08-august-2023).
+This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#8-august-2023).
 
 ## 5 July 2022
 {: #5-july-2022-beta}
@@ -197,11 +197,11 @@ This feature is now generally available. See the [VPC API change log](/docs/vpc?
 
 **Client VPN for VPC.**  Client-to-site connectivity is now  generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#5-july-2022).
 
-The following updates have been made since the [beta release](#24-august-2021):
+The following updates have been made since the [24 August 2021 beta release](#24-august-2021-beta):
 
-- You can use IBM Cloud Secrets Manager for server authentication when [creating a VPN server](/apidocs/vpc/latest#create-vpn-server)
-- You can specify a VPN server when [adding a security group target](/apidocs/vpc/latest#add-security-group-target)
-- You can [update a VPN server](/apidocs/vpc/latest#update-vpn-server) to be highly available, or detach a subnet to downgrade to a stand-alone deployment
+- You can use IBM Cloud Secrets Manager for server authentication when [creating a VPN server](/apidocs/vpc-beta/initial#create-vpn-server)
+- You can specify a VPN server when [adding a target to a security group](/apidocs/vpc-beta/initial#create-security-group-target-binding)
+- You can [update a VPN server](/apidocs/vpc-beta/initial#update-vpn-server) to be highly available, or detach a subnet to downgrade to a stand-alone deployment
 
 ## 14 June 2022
 {: #14-june-2022-beta}
@@ -209,11 +209,11 @@ The following updates have been made since the [beta release](#24-august-2021):
 ### For all version dates
 {: #14-june-2022-all-version-dates-beta}
 
-**File storage adjustable IOPS.** Accounts that have been granted special approval to preview this feature can now [update the IOPS of an existing file share](/apidocs/vpc-beta/latest#update-share). For a file share using a `custom` profile, specify the `iops` property. For a file share using a profile in the `tiered` profile family, specify another tier within the `tiered` family, which will set the `iops` based on the share's size.
+**File storage adjustable IOPS.** Accounts that have been granted special approval to preview this feature can now [update the IOPS of an existing file share](/apidocs/vpc-beta/initial#update-share). For a file share using a `custom` profile, specify the `iops` property. For a file share using a profile in the `tiered` profile family, specify another tier within the `tiered` family, which will set the `iops` based on the share's size.
 
 You can also change a share between the `tiered` and `custom` profile families so long as the requested `iops` and `size` are supported by the requested profile. For more information about file share profiles, see [File Storage for VPC profiles](/docs/vpc?topic=vpc-file-storage-profiles). For information about adjusting IOPS with a profile, or changing between `tiered` and `custom` profiles, see [Adjusting file share IOPS](/docs/vpc?topic=vpc-adjusting-share-iops&interface=api).
 
-This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#08-august-2023).
+This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#8-august-2023).
 
 ## 31 May 2022
 {: #31-may-2022-beta}
@@ -221,7 +221,7 @@ This feature is now generally available. See the [VPC API change log](/docs/vpc?
 ### For all version dates
 {: #31-may-2022-all-version-dates-beta}
 
-**AMD support for instances and dedicated hosts.** Accounts that have been granted special approval to preview this feature can select new profiles for [dedicated hosts](/apidocs/vpc-beta/latest#list-dedicated-host-profiles) and [instances](/apidocs/vpc-beta/latest#list-instance-profiles). When provisioning or managing an instance or dedicated host, use the new `vcpu_manufacturer` property to choose between profiles from different processor manufacturers.
+**AMD support for instances and dedicated hosts.** Accounts that have been granted special approval to preview this feature can select new profiles for [dedicated hosts](/apidocs/vpc-beta/initial#list-dedicated-host-profiles) and [instances](/apidocs/vpc-beta/initial#list-instance-profiles). When provisioning or managing an instance or dedicated host, use the new `vcpu_manufacturer` property to choose between profiles from different processor manufacturers.
 
 This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#28-march-2023).
 
@@ -231,9 +231,9 @@ This feature is now generally available. See the [VPC API change log](/docs/vpc?
 ### For all version dates
 {: #24-may-2022-all-version-dates-beta}
 
-**Backup for VPC.** Accounts with special approval to preview this feature can now [create](/apidocs/vpc-beta/latest#create-backup-policy-plan) up to four plans for backup policies. You can now also [update](/apidocs/vpc-beta/latest#update-backup-policy-plan) and [delete](/apidocs/vpc-beta/latest#delete-backup-policy-plan) existing plans, and [add backup plans](/vpc-beta/latest#create-backup-policy) to existing policies. You can use one of the new `deletion_trigger` sub-properties to specify a custom backup deletion policy. For more information, see [Managing backup policies](/docs/vpc?topic=vpc-backup-service-manage&interface=api).
+**Backup for VPC.** Accounts with special approval to preview this feature can now [create](/apidocs/vpc-beta/initial#create-backup-policy-plan) up to four plans for backup policies. You can now also [update](/apidocs/vpc-beta/initial#update-backup-policy-plan) and [delete](/apidocs/vpc-beta/initial#delete-backup-policy-plan) existing plans, and [add backup plans](/vpc-beta/initial#create-backup-policy) to existing policies. You can use one of the new `deletion_trigger` sub-properties to specify a custom backup deletion policy. For more information, see [Managing backup policies](/docs/vpc?topic=vpc-backup-service-manage&interface=api).
 
-Backup policies now also include information about [backup policy jobs](/apidocs/vpc-beta/latest#list-backup-policy-jobs). A [backup policy job](/docs/vpc?topic=vpc-backup-view-policy-jobs&interface=api) is automatically created each time a backup has to be created or deleted to meet the backup policy's settings. For more information, see [Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
+Backup policies now also include information about [backup policy jobs](/apidocs/vpc-beta/initial#list-backup-policy-jobs). A [backup policy job](/docs/vpc?topic=vpc-backup-view-policy-jobs&interface=api) is automatically created each time a backup has to be created or deleted to meet the backup policy's settings. For more information, see [Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
 
 The backup API is now generally available, with the exception of the backup jobs API, which remains in beta. See the [Change log](/docs/vpc?topic=vpc-api-change-log#21-june-2022).
 
@@ -247,14 +247,14 @@ The backup jobs API is now generally available. See the [VPC API change log](/do
 
 **File share replication.** Accounts that have been granted special approval to preview this feature can now set up replication between a file share in one zone and a replica file share in another zone in the same region. [Using replication](/docs/vpc?topic=vpc-file-storage-replication) is a good way to recover from an incident at your primary site, if data becomes inaccessible or an applications fails.
 
-- When [creating a new file share](/apidocs/vpc-beta/latest#create-share), you can now configure replication by specifying the new `replica_share` property. To create a replica for an existing file share, create a new share and specify the existing file share as `source_share`, along with the replication schedule, using the `replication_cron_spec` property.
-- You can now [retrieve the source file share for a replica file share](/apidocs/vpc-beta/latest#get-share-source). Returned information also includes the replication schedule, role, status, and status reasons.
-- You can now [split the source file from a replica share](/apidocs/vpc-beta/latest#delete-share-source), which removes the replication relationship between a source share and its replica share, resulting in two independent read-write file shares. This action cannot be reversed. For more information, see [Remove the replication relationship](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=api#fs-remove-replication).
-- You can now [fail over to the replica file share](/apidocs/vpc-beta/latest#failover-share), which reverses the replication relationship. You can optionally specify `split` for the `fallback_policy` to trigger a split if the failover operation fails or times out. For more information, see [Replication failover](/docs/vpc?topic=vpc-file-storage-failover&interface=api).
+- When [creating a new file share](/apidocs/vpc-beta/initial#create-share), you can now configure replication by specifying the new `replica_share` property. To create a replica for an existing file share, create a new share and specify the existing file share as `source_share`, along with the replication schedule, using the `replication_cron_spec` property.
+- You can now [retrieve the source file share for a replica file share](/apidocs/vpc-beta/initial#get-share-source). Returned information also includes the replication schedule, role, status, and status reasons.
+- You can now [split the source file from a replica share](/apidocs/vpc-beta/initial#delete-share-source), which removes the replication relationship between a source share and its replica share, resulting in two independent read-write file shares. This action cannot be reversed. For more information, see [Remove the replication relationship](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=api#fs-remove-replication).
+- You can now [fail over to the replica file share](/apidocs/vpc-beta/initial#failover-share), which reverses the replication relationship. You can optionally specify `split` for the `fallback_policy` to trigger a split if the failover operation fails or times out. For more information, see [Replication failover](/docs/vpc?topic=vpc-file-storage-failover&interface=api).
 
-**File storage native tagging.** Accounts that have been granted special approval to preview this feature can now specify `user_tags` when [creating a new file share](/apidocs/vpc-beta/latest#create-share) or [updating an existing file share](/apidocs/vpc-beta/latest#update-share). Adding user tags to a file share helps you organize your resources. For details, see [Add user tags to a file share](/docs/vpc?topic=vpc-file-storage-managing&interface=api#fs-add-user-tags).
+**File storage native tagging.** Accounts that have been granted special approval to preview this feature can now specify `user_tags` when [creating a new file share](/apidocs/vpc-beta/initial#create-share) or [updating an existing file share](/apidocs/vpc-beta/initial#update-share). Adding user tags to a file share helps you organize your resources. For details, see [Add user tags to a file share](/docs/vpc?topic=vpc-file-storage-managing&interface=api#fs-add-user-tags).
 
-This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#08-august-2023).
+This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#8-august-2023).
 
 ## 22 March 2022
 {: #22-march-2022-beta}
@@ -262,7 +262,7 @@ This feature is now generally available. See the [VPC API change log](/docs/vpc?
 ### For all version dates
 {: #22-march-2022-all-version-dates-beta}
 
-**VPN client-to-site servers update.** You can now [update the subnets for a VPN server](/apidocs/vpc-beta/latest#update-vpn-server) after the VPN is provisioned. For example, you can upgrade a stand-alone VPN server (one subnet) to a High Availability (HA) VPN server (two subnets in different zones). You can also detach a subnet to downgrade an HA VPN server to a stand-alone deployment, or change an attached subnet after your VPN server is provisioned. For more information, see [Upgrading to an HA VPN server](/docs/vpc?topic=vpc-vpn-client-to-site-change-server-types&interface=api).
+**VPN client-to-site servers update.** You can now [update the subnets for a VPN server](/apidocs/vpc-beta/initial#update-vpn-server) after the VPN is provisioned. For example, you can upgrade a stand-alone VPN server (one subnet) to a High Availability (HA) VPN server (two subnets in different zones). You can also detach a subnet to downgrade an HA VPN server to a stand-alone deployment, or change an attached subnet after your VPN server is provisioned. For more information, see [Upgrading to an HA VPN server](/docs/vpc?topic=vpc-vpn-client-to-site-change-server-types&interface=api).
 
 ## 8 March 2022
 {: #8-march-2022-beta}
@@ -270,7 +270,7 @@ This feature is now generally available. See the [VPC API change log](/docs/vpc?
 ### For all version dates
 {: #8-march-2022-all-version-dates-beta}
 
-**Backup for VPC.** Accounts that have been granted special approval to preview this feature can now create backup policies to automatically back up block storage volumes. Use the new [backup service APIs](/apidocs/vpc-beta/latest#list-backup-policies) to create, list, and manage backup policies. Backup policies control which source volumes are selected for backup by [matching user tags](/docs/vpc?topic=vpc-backup-service-about#backup-service-about-tags) in the volume with tags defined in the backup policy. For this beta release, a backup policy contains one [backup plan](/apidocs/vpc-beta/latest#create-backup-policy-plan) in which a `deletion_trigger` specifies the maximum number of days to keep each backup after creation. For more information, see [About Backup for VPC (Beta)](/docs/vpc?topic=vpc-backup-service-about).
+**Backup for VPC.** Accounts that have been granted special approval to preview this feature can now create backup policies to automatically back up block storage volumes. Use the new [backup service APIs](/apidocs/vpc-beta/initial#list-backup-policies) to create, list, and manage backup policies. Backup policies control which source volumes are selected for backup by [matching user tags](/docs/vpc?topic=vpc-backup-service-about&interface=api#backup-service-about-tags) in the volume with tags defined in the backup policy. For this beta release, a backup policy contains one [backup plan](/apidocs/vpc-beta/initial#create-backup-policy-plan) in which a `deletion_trigger` specifies the maximum number of days to keep each backup after creation. For more information, see [About Backup for VPC](/docs/vpc?topic=vpc-backup-service-about&interface=api).
 
 ## 14 December 2021
 {: #14-december-2021-beta}
@@ -288,12 +288,12 @@ This feature is now generally available. See the [VPC API change log](/docs/vpc?
 ### For all version dates
 {: #23-november-2021-all-version-dates-beta}
 
-**Customer-managed encryption for file shares.** Accounts that have been granted special approval to preview this feature can now use customer-managed encryption, also called Bring Your Own Key (BYOK), to [create a file share](/apidocs/vpc-beta/latest#create-share) that is encrypted using your root key. Specify the new `encryption_key` property and `crn` sub-property of the root key that you either imported to {{site.data.keyword.cloud_notm}} or created in Key Protect or Hyper Protect Crypto Services (HPCS). For more information, see [Creating file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption&interface=api).
+**Customer-managed encryption for file shares.** Accounts that have been granted special approval to preview this feature can now use customer-managed encryption, also called Bring Your Own Key (BYOK), to [create a file share](/apidocs/vpc-beta/initial#create-share) that is encrypted using your root key. Specify the new `encryption_key` property and `crn` sub-property of the root key that you either imported to {{site.data.keyword.cloud_notm}} or created in Key Protect or Hyper Protect Crypto Services (HPCS). For more information, see [Creating file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption&interface=api).
 
 You can also use the API to rotate the root keys that are protecting your file shares. See [Key rotation for VPC resources](/docs/vpc?topic=vpc-vpc-key-rotation&interface=api#vpc-key-rotation-api-procedure) for details.
 {: tip}
 
-**Supplemental user/group IDs for file shares.** Accounts that have been granted special approval to preview this feature can now access supplemental user/group IDs for file shares. When a process runs on Unix/Linux, the operating system identifies a user with a user ID (UID) and/or group with a group ID (GID). These IDs determine which system resources a user or group can access. When you [create a file share](/apidocs/vpc-beta/latest#create-share), you can specify the new `initial_owner` property and specify a `uid`, `gid`, or both sub-properties to control access to the share. For more information, see [Add supplemental IDs when you create a file share from the API](/docs/vpc?topic=vpc-file-storage-create&interface=api#fs-add-supplemental-id-api).
+**Supplemental user/group IDs for file shares.** Accounts that have been granted special approval to preview this feature can now access supplemental user/group IDs for file shares. When a process runs on Unix/Linux, the operating system identifies a user with a user ID (UID) and/or group with a group ID (GID). These IDs determine which system resources a user or group can access. When you [create a file share](/apidocs/vpc-beta/initial#create-share), you can specify the new `initial_owner` property and specify a `uid`, `gid`, or both sub-properties to control access to the share. For more information, see [Adding supplemental IDs when you create a file share from the API](/docs/vpc?topic=vpc-file-storage-create&interface=api#fs-add-supplemental-id-api).
 
 ## 24 August 2021
 {: #24-august-2021-beta}
@@ -301,7 +301,7 @@ You can also use the API to rotate the root keys that are protecting your file s
 ### For all version dates
 {: #24-august-2021-all-version-dates-beta}
 
-**VPN client-to-site servers.** Until now, the {{site.data.keyword.vpn_full}} service supported only site-to-site connectivity, which connects your on-premises network to the {{site.data.keyword.cloud_notm}}. This beta release adds client-to-site connectivity, which allows remote devices to securely connect to the VPC network using an OpenVPN software client. This solution is useful for telecommuters who want to connect to the {{site.data.keyword.cloud_notm}} from a remote location, such as a home office. For more information, see [About VPN servers (client-to-site)](/docs/vpc?topic=vpc-vpn-client-to-site-overview) or check out the new [API methods](/apidocs/vpc-beta/latest#list-vpn-servers).
+**VPN client-to-site servers.** Until now, the {{site.data.keyword.vpn_full}} service supported only site-to-site connectivity, which connects your on-premises network to the {{site.data.keyword.cloud_notm}}. This beta release adds client-to-site connectivity, which allows remote devices to securely connect to the VPC network using an OpenVPN software client. This solution is useful for telecommuters who want to connect to the {{site.data.keyword.cloud_notm}} from a remote location, such as a home office. For more information, see [About VPN servers (client-to-site)](/docs/vpc?topic=vpc-vpn-client-to-site-overview) or check out the new [API methods](/apidocs/vpc-beta/initial#list-vpn-servers).
 
 This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#5-july-2022).
 
@@ -311,9 +311,9 @@ This feature is now generally available. See the [VPC API change log](/docs/vpc?
 ### For all API version dates
 {: #17-august-2021-all-version-dates-beta}
 
-**File storage for VPC.** Accounts that have been granted special approval to preview this feature can now increase file share size in gigabyte increments up to 32 TB (depending on the file share's profile). The increase takes effect immediately. For more information, see [Expanding file share capacity](/docs/vpc?topic=vpc-file-storage-expand-capacity&interface=api). You can also specify the maximum input/output operations per second (IOPS) when [creating](/apidocs/vpc-beta/latest#create-share) a file share, within the range available for its size. For more information, see [Custom IOPS profile](/docs/vpc?topic=vpc-file-storage-profiles#fs-custom).
+**File storage for VPC.** Accounts that have been granted special approval to preview this feature can now increase file share size in gigabyte increments up to 32 TB (depending on the file share's profile). The increase takes effect immediately. For more information, see [Expanding file share capacity](/docs/vpc?topic=vpc-file-storage-expand-capacity&interface=api). You can also specify the maximum input/output operations per second (IOPS) when [creating](/apidocs/vpc-beta/initial#create-share) a file share, within the range available for its size. For more information, see [Custom IOPS profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=api#fs-custom).
 
-This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#08-august-2023).
+This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#8-august-2023).
 
 ## 10 August 2021
 {: #10-august-2021-beta}
@@ -321,7 +321,7 @@ This feature is now generally available. See the [VPC API change log](/docs/vpc?
 ### For all version dates
 {: #10-august-2021-all-version-dates-beta}
 
-**Beta VPC instance metadata API.** Accounts that have been granted special approval to preview this feature can now preview the new beta {{site.data.keyword.vpc_full}} (VPC) [Instance Metadata API](/apidocs/vpc-metadata-beta). This API provides access to VPC instance metadata, including instance initialization data, network interfaces, volume attachments, public SSH keys, and placement groups. Use the [VPC create instance API](/apidocs/vpc-beta/latest#create-instance) or the [VPC update instance API](/apidocs/vpc-beta/latest#update-instance) to enable or disable the metadata service endpoint for a particular instance. For more information, see [About VPC Instance Metadata](/docs/vpc?topic=vpc-imd-about).
+**Beta VPC instance metadata API.** Accounts that have been granted special approval to preview this feature can now preview the new beta {{site.data.keyword.vpc_full}} (VPC) [Instance Metadata API](/apidocs/vpc-metadata-beta/initial). This API provides access to VPC instance metadata, including instance initialization data, network interfaces, volume attachments, public SSH keys, and placement groups. Use the [VPC create instance](/apidocs/vpc-beta/initial#create-instance) or [VPC update instance](/apidocs/vpc-beta/initial#update-instance) methods to enable or disable the metadata service endpoint for a particular instance. For more information, see [About VPC Instance Metadata](/docs/vpc?topic=vpc-imd-about).
 
 ## 27 July 2021
 {: #27-july-2021-beta}
@@ -333,8 +333,8 @@ This feature is now generally available. See the [VPC API change log](/docs/vpc?
 
 The following API methods have been enhanced:
 
-- [List instances](/apidocs/vpc-beta/latest#list-instances) returns a new `gpu` property with four additional sub-properties: `count`, `manufacturer`, `model`, and `memory`
-- [Retrieve an instance profile](/apidocs/vpc-beta/latest#get-instance-profile) returns four new properties: `gpu_count`, `gpu_manufacturer`, `gpu_model`, and `gpu_memory`
+- [List instances](/apidocs/vpc-beta/initial#list-instances) returns a new `gpu` property with four additional sub-properties: `count`, `manufacturer`, `model`, and `memory`
+- [Retrieve an instance profile](/apidocs/vpc-beta/initial#get-instance-profile) returns four new properties: `gpu_count`, `gpu_manufacturer`, `gpu_model`, and `gpu_memory`
 
 For more information, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
 
@@ -346,7 +346,7 @@ This feature is now generally available. See the [VPC API change log](/docs/vpc?
 ### For all version dates
 {: #20-july-2021-all-version-dates-beta}
 
-**Bare metal servers for VPC.** Accounts that have been granted special approval to preview this feature can now create bare metal servers to host VMware clusters in {{site.data.keyword.vpc_short}}. You can set up VMware management applications and create VMware virtual machines on the bare metal servers. As bare metal servers are integrated with the VPC platform, you can take advantage of the network and security capabilities of {{site.data.keyword.vpc_short}}. For more information, see [About Bare Metal Servers for VPC (beta)](/docs/vpc?topic=vpc-about-bare-metal-servers) or dive into the new [API methods](/apidocs/vpc-beta/latest#list-bare-metal-server-profiles).
+**Bare metal servers for VPC.** Accounts that have been granted special approval to preview this feature can now create bare metal servers to host VMware clusters in {{site.data.keyword.vpc_short}}. You can set up VMware management applications and create VMware virtual machines on the bare metal servers. As bare metal servers are integrated with the VPC platform, you can take advantage of the network and security capabilities of {{site.data.keyword.vpc_short}}. For more information, see [About Bare Metal Servers for VPC (beta)](/docs/vpc?topic=vpc-about-bare-metal-servers) or dive into the new [API methods](/apidocs/vpc-beta/initial#list-bare-metal-server-profiles).
 
 This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#1-february-2022).
 
@@ -356,7 +356,7 @@ This feature is now generally available. See the [VPC API change log](/docs/vpc?
 ### For all version dates
 {: #24-june-2021-all-version-dates-beta}
 
-**Placement groups.** Placement groups for {{site.data.keyword.vpc_full}} are logical groupings of virtual server instances that can be configured to reduce the risk of correlated failures inherent in your physical environment, such as networking issues, power loss, or hardware failure. Define a placement group strategy for high-availability workloads, such as for host or power spread. For more information, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc) or dive into the new [API methods](/apidocs/vpc-beta/latest#list-placement-groups).
+**Placement groups.** Placement groups for {{site.data.keyword.vpc_full}} are logical groupings of virtual server instances that can be configured to reduce the risk of correlated failures inherent in your physical environment, such as networking issues, power loss, or hardware failure. Define a placement group strategy for high-availability workloads, such as for host or power spread. For more information, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc) or dive into the new [API methods](/apidocs/vpc-beta/initial#list-placement-groups).
 
 This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#17-august-2021).
 
@@ -366,9 +366,9 @@ This feature is now generally available. See the [VPC API change log](/docs/vpc?
 ### For all version dates
 {: #6-april-2021-all-version-dates-beta}
 
-**File storage for VPC.** Accounts that have been granted special approval to preview this feature can now create NFS-based file shares in a zone in your region. Share file storage over multiple virtual service instances within the same zone across multiple VPCs. Learn about [creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-vpc-about), and explore the new [API methods](/apidocs/vpc-beta/latest#list-share-profiles).
+**File storage for VPC.** Accounts that have been granted special approval to preview this feature can now create NFS-based file shares in a zone in your region. Share file storage over multiple virtual service instances within the same zone across multiple VPCs. Learn about [creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-vpc-about), and explore the new [API methods](/apidocs/vpc-beta/initial#list-share-profiles).
 
-This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#08-august-2023).
+This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#8-august-2023).
 
 ## 19 March 2021
 {: #19-march-2021-beta}
@@ -376,7 +376,7 @@ This feature is now generally available. See the [VPC API change log](/docs/vpc?
 ### For all version dates
 {: #19-march-2021-all-version-dates-beta}
 
-**Instance resize.** You can now resize an instance by providing the `profile` property in the API method `PATCH /instances/{id}` ([Update an instance](/apidocs/vpc-beta/latest#update-instance)). For more information, see [Resizing a virtual server instance](/docs/vpc?topic=vpc-resizing-an-instance&interface=api).
+**Instance resize.** You can now resize an instance by providing the `profile` property in the API method `PATCH /instances/{id}` ([Update an instance](/apidocs/vpc-beta/initial#update-instance)). For more information, see [Resizing a virtual server instance](/docs/vpc?topic=vpc-resizing-an-instance&interface=api).
 
 This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#30-march-2021).
 
@@ -400,7 +400,7 @@ This feature is now generally available. See the [VPC API change log](/docs/vpc?
 ### For all version dates
 {: #5-march-2021-all-version-dates-beta}
 
-**Instance resize.** Accounts that have been granted special approval to preview this feature can now resize an instance by providing the `profile` property in the API method `PATCH /instances/{id}` ([Update an instance](/apidocs/vpc-beta/latest#update-instance)). For more information, see [Resizing a virtual server instance](/docs/vpc?topic=vpc-resizing-an-instance&interface=api).
+**Instance resize.** Accounts that have been granted special approval to preview this feature can now resize an instance by providing the `profile` property in the API method `PATCH /instances/{id}` ([Update an instance](/apidocs/vpc-beta/initial#update-instance)). For more information, see [Resizing a virtual server instance](/docs/vpc?topic=vpc-resizing-an-instance&interface=api).
 
 This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#30-march-2021).
 
@@ -410,13 +410,13 @@ This feature is now generally available. See the [VPC API change log](/docs/vpc?
 ### For all version dates
 {: #22-february-2021-all-version-dates-beta}
 
-**Block storage snapshots.** Accounts that have been granted special approval to preview this feature can now create and use [snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about) and explore the new [snapshots API methods](/apidocs/vpc-beta/latest#list-snapshots).
+**Block storage snapshots.** Accounts that have been granted special approval to preview this feature can now create and use [snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about) and explore the new [snapshots API methods](/apidocs/vpc-beta/initial#list-snapshots).
 
 This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#18-may-2021).
 
 **Virtual server instance console.** Accounts that have been granted special approval to preview this feature can now access instances by connecting to a VNC or serial console. Learn about [accessing virtual server instances by using VNC or serial consoles](/docs/vpc?topic=vpc-vsi_is_connecting_console&interface=api), and explore the new instance console API methods:
 
-- [Create a console access token for an instance](/apidocs/vpc-beta/latest#create-instance-console-access-token)
-- [Retrieve the console WebSocket for an instance](/apidocs/vpc-beta/latest#get-instance-console)
+- [Create a console access token for an instance](/apidocs/vpc-beta/initial#create-instance-console-access-token)
+- [Retrieve the console WebSocket for an instance](/apidocs/vpc-beta/initial#get-instance-console)
 
 This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#30-march-2021).

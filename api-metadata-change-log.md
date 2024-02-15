@@ -44,7 +44,15 @@ For more information, see the [API change log](/docs/vpc?topic=vpc-api-change-lo
 ### For all version dates
 {: #19-december-2023-all-version-dates-metadata}
 
-**Virtual network interface support.** Accounts that have been granted special approval can preview a new feature that expands the support for [virtual network interfaces](/docs/vpc?topic=vpc-vni-about). You can now [list](/apidocs/vpc-metadata#list-instance-network-attachments) and [view](/apidocs/vpc-metadata#get-instance-network-attachment) an instance's network attachments, and you can [list](/apidocs/vpc-metadata#list-virtual-network-interfaces) and [view](get-virtual-network-interface) virtual network interfaces targeting the instance. For compatibility with existing clients, an instance with virtual network interfaces now includes a read-only representation of its network attachments and virtual network interfaces as legacy network interface child resources. For more information, see the [API change log](/docs/vpc?topic=vpc-api-change-log#19-december-2023), and learn about [support for old API clients](/docs/vpc?topic=vpc-vni-about&interface=ui#vni-old-api-clients).
+**Virtual network interface support.** Accounts that have been granted special approval can preview a new feature that expands the support for [virtual network interfaces](/docs/vpc?topic=vpc-vni-about). You can now [list](/apidocs/vpc-metadata#list-instance-network-attachments) and [view](/apidocs/vpc-metadata#get-instance-network-attachment) an instance's network attachments, and you can [list](/apidocs/vpc-metadata#list-virtual-network-interfaces) and [view](/apidocs/vpc-metadata#get-virtual-network-interface) virtual network interfaces targeting the instance. For compatibility with existing clients, an instance with virtual network interfaces now includes a read-only representation of its network attachments and virtual network interfaces as legacy network interface child resources. For more information, see the [API change log](/docs/vpc?topic=vpc-api-change-log#19-december-2023), and learn about [support for old API clients](/docs/vpc?topic=vpc-vni-about&interface=ui#vni-old-api-clients).
+
+## 17 October 2023
+{: #17-october-2023-metadata}
+
+### For all version dates
+{: #17-october-all-version-dates-metadata}
+
+**Non-uniform memory access (NUMA) awareness on instances.**  When [retrieving an instance](/apidocs/vpc-metadata#get-instance), the new `numa_count` property indicates the number of NUMA nodes on which a virtual server instance is provisioned. For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=api#next-gen-profiles). See also [Non-uniform memory access (NUMA) awareness on dedicated hosts and instances](/docs/vpc?topic=vpc-api-change-log#17-october-2023) in the VPC API change log.
 
 ## 15 August 2023
 {: #15-august-2023-metadata}
@@ -68,7 +76,7 @@ For more information, see the [API change log](/docs/vpc?topic=vpc-api-change-lo
 ### For all version dates
 {: #14-february-2023-all-version-dates-metadata}
 
-**VPC instance metadata new endpoint URL.** You can now use the fully qualified domain name (FQDN) `api.metadata.cloud.ibm.com` for the metadata service endpoint. The FQDN resolves to the link-local IP address `169.254.169.254` without requiring the application of special configurations. For more information, see [Endpoint URLs](/apidocs/vpc-metadata#endpoint-url) in the VPC Instance Metadata API.
+**VPC instance metadata new endpoint URL.** You can now use the fully qualified domain name (FQDN) `api.metadata.cloud.ibm.com` for the metadata service endpoint. The FQDN resolves to the link-local IP address `169.254.169.254` without requiring the application of special configurations. For more information, see [Endpoint URLs](/apidocs/vpc-metadata#endpoint-url-metadata) in the VPC Instance Metadata API.
 
 **VPC instance metadata communication protocol and hop limit.** You can now view the communication protocol and hop limit for IP response packets used by the [VPC Instance Metadata service](/docs/vpc?topic=vpc-imd-about). When you [retrieve the instance](/apidocs/vpc-metadata#get-instance), the new `protocol` and `response_hop_limit` properties will be shown. For more information, see [Configure the instance metadata service](/docs/vpc?topic=vpc-imd-configure-service&interface=api).
 

@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2021, 2023
+  years: 2021, 2024
 lastupdated: "2023-08-15"
 
 keywords: api, change log, beta, metadata
@@ -46,7 +46,7 @@ This feature is now generally available. See the [VPC Instance Metadata API chan
 
 See also [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial) and the [Import offering](/apidocs/resource-catalog/private-catalog#import-offering){: external} method in the Catalog Management API.
 
-This feature is now generally available. See the [VPC Instance Metadata API change log](/docs/vpc?topic=vpc-metadata-api-change-log#27-september-2022).
+This feature is now generally available. See the [VPC Instance Metadata API change log](/docs/vpc?topic=vpc-metadata-api-change-log#27-september-2022-metadata).
 
 ## 1 March 2022
 {: #1-march-2022-metadata-beta}
