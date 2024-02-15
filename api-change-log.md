@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2024
 lastupdated: "2024-01-30"
 
-keywords: api, change log, new features, restrictions, migration
+keywords: vpc, api, change log, new features, restrictions, migration
 
 subcollection: vpc
 
@@ -301,7 +301,7 @@ As a result, you will no longer be able to create an IKE/IPsec policy or VPN con
 
 **VCPU manufacturer support for instances and dedicated hosts.** When [provisioning](/apidocs/vpc/latest#create-instance) an instance or dedicated host, you can now use the new `vcpu_manufacturer` property in the [instance](/apidocs/vpc/latest#list-instance-profiles) or [dedicated host](/apidocs/vpc/latest#list-dedicated-host-profiles) profile to choose between profiles from different processor manufacturers. You can also view the virtual server instance VCPU configuration through the `vcpu` sub-property `manufacturer`. For more information and limitations, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) and [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui#balanced-dh-pr).
 
-**Network interface configuration for instance profiles.** When you [retrieve an instance profile](/apidocs/vpc/latest#get-instance-profile) or [list all instance profiles](/apidocs/vpc/latest#list-instance-profiles), the response now provides a `network_interface_count` property. When the `type` is `range`, the new property provides `max` and `min` sub-properties that denote the maximum and minimum number of network interfaces that are supported for a virtual server instance with the specified profile. The values for `max` and `min` include both the primary network interface and secondary network interfaces. When the `type` is `dependent`, the network interface count depends on another value that is specified when the instance is created. For more information about instance profiles and network interface count, see [Bandwidth allocation with multiple network interfaces](/docs/vpc?topic=vpc-profiles&interface=api#bandwidth-multi-vnic).
+**Network interface configuration for instance profiles.** When you [retrieve an instance profile](/apidocs/vpc/latest#get-instance-profile) or [list all instance profiles](/apidocs/vpc/latest#list-instance-profiles), the response now provides a `network_interface_count` property. When the `type` is `range`, the new property provides  `max` and `min` sub-properties that denote the maximum and minimum number of network interfaces that are supported for a virtual server instance with the specified profile. The values for `max` and `min` include both the primary network interface and secondary network interfaces. When the `type` is `dependent`, the network interface count depends on another value that is specified when the instance is created. For more information about instance profiles and network interface count, see [Bandwidth allocation with multiple network interfaces](/docs/vpc?topic=vpc-profiles&interface=api#bandwidth-multi-vnic).
 
 **Private DNS integration for load balancers.** When you [create](/apidocs/vpc/latest#create-load-balancer) or [update](/apidocs/vpc/latest#update-load-balancer) a load balancer, you can now bind the IP addresses of your VPC load balancers to your private DNS zone by specifying the new `dns.instance` and `dns.zone` properties. When you specify these properties, load balancer IPs will no longer be registered to the publicly resolvable `lb.appdomain.cloud` domain name. For more information, see [IBM Cloud Network Load Balancer for VPC](/docs/vpc?topic=vpc-nlb-dns&interface=api) and [IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-lb-dns&interface=api).
 
@@ -946,7 +946,7 @@ The `delegate_vpc` property is not required if a VPC uses only RFC-1918 addresse
 
 The following API methods have been updated:
 
-- View the `delegate_vpc` property in the requests and responses for `/vpcs/{vpc_id}/routing_tables/{routing_table_id}/routes`.
+- View the `delegate_vpc` property in the requests and responses for `/vpcs/{vpc_id}/routing_tables/{routing_table_id}/routes`.
 - View reserved IP ranges in `POST /vpcs/{vpc_id}/address_prefixes`, which creates an address pool prefix.
 
 ## 27 January 2021
