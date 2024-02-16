@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-02-15"
+lastupdated: "2024-02-26"
 
 keywords:
 
@@ -29,6 +29,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## February 2024
 {: #vpc-feb24}
+
+### 26 February 2024
+{: #vpc-feb2624}
+{: release-note}
+
+GPU l4 profiles with PCIe now available
+:   New `l4` GPU profiles that include NVIDIA's L4 24GB GPU are now available in the EU Germany (Frankfurt), Australia (Sydney), and Japan (Tokyo) regions. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 ### 07 February 2024
 {: #vpc-feb0724}
