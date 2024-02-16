@@ -2,7 +2,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-02-08"
+lastupdated: "2024-02-29"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, very high memory, gpu, sap, olap, oltp, nvidia, cascade lake
 
@@ -297,32 +297,71 @@ The GPU profile family includes both `-v100` and `-a100` profiles. The GPU profi
 
 * GPU `-v100` profiles include 1 or 2 NVIDIA V100 PCIe 16 GB GPUs. All OS images are supported on these GPU profiles.  
 * GPU `-a100` profile includes 8 NVIDIA A100 NVlink 80 GB GPUs. This GPU profile supports only Linux OS images Ubuntu or RHEL. 
+* GPU `-l4` profiles include NVIDIA L4 24GB GPUs.
+* GPU `-l4Os` profiles include NVIDIA L4Os 48GB GPUs.
 
 The `gx2-80x1280x8a100` profile is available for select customers. Contact IBM Sales or open a [support case](https://cloud.ibm.com/unifiedsupport/supportcenter) if you are interested in this offering.
 {: preview}
 
 See [Download drivers](https://www.nvidia.com/Download/index.aspx?lang=en-us) to review the most current versions that are supported. NVIDIA GPU drivers must be installed separately. 
 
+### Select availability for the a100, l4, and l4Os GPU profiles
+{: #gpu-select-availabilty}
+[Select availability]{: tag-green}
+
+- The `gx2-80x1280x8a100` GPU profile is available for select customers. Contact IBM Sales or open a [support case](https://cloud.ibm.com/unifiedsupport/supportcenter) if you are interested in this offering.
+- The `l4` and`l4Os` GPU profiles are only available in the EU Germany (Frankfurt), Australia (Sydney), and Japan (Tokyo) regions.
+
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Number of GPUs | Instance storage (GB) |
 |---------|---------|---------|---------|---------|---------|---------|
-| **V100** 16 GB GPU profiles | | | | | | |
 | gx2-8x64x1v100 | 8 | 4 | 64 | 16 | 1 | - |
 | gx2-16x128x1v100 | 16 | 8 | 128 | 32 | 1 | - |
 | gx2-16x128x2v100 | 16 | 8 | 128 | 32 | 2 | - |
 | gx2-32x256x2v100 | 32 | 16 | 256 | 64 | 2 | - |
-| **A100** 80 GB GPU profiles | | | | | | |
-| gx2-80x1280x8a100 | 80 | 40 | 1280 | 200 | 8 | 4x3200 |
-{: caption="Table 8. GPU profile options" caption-side="bottom"}
+{: caption="Table 8. GPU gx2 v100 16 GB profile options for Intel x86-64 instances" caption-side="bottom"}
 {: #gpu-intel-x86-64}
-{: tab-title="gx2"}
+{: tab-title="gx2 v100"}
 {: tab-group="GPU"}
 {: class="simple-tab-table"}
-{: summary="GPU profiles options for Intel x86-64 virtual server instances."}
+{: summary="GPU gx2 v100 16 GB profile options for Intel x86-64 virtual server instances."}
 
-### Considerations for v100 and a100 GPU profiles
+| Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Number of GPUs | Instance storage (GB) |
+|---------|---------|---------|---------|---------|---------|---------|
+| gx2-80x1280x8a100 | 80 | 40 | 1280 | 200 | 8 | 4x3200 |
+{: caption="Table 8. GPU gx2 a100 80 GB profile options for Intel x86-64 instances" caption-side="bottom"}
+{: #gpu-intel-x86-64}
+{: tab-title="gx2 a100"}
+{: tab-group="GPU"}
+{: class="simple-tab-table"}
+{: summary="GPU gx2 a100 80 GB profile options for Intel x86-64 virtual server instances."}
+
+| Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Number of GPUs | Instance storage (GB) |
+|---------|---------|---------|---------|---------|---------|---------|
+| gx3-16x80x1l4 | 16 | 8 | 80 | 32 | 1 | - |
+| gx3-32x160x2l4 | 32 | 16 | 160 | 64 | 2 | - |
+| gx3-64x320x4l4 | 64 | 32 | 320 | 128 | 4 | - |
+{: caption="Table 8. GPU gx3 l4 24 GB profile options for Intel x86-64 instances" caption-side="bottom"}
+{: #gpu-intel-x86-64}
+{: tab-title="gx3 l4"}
+{: tab-group="GPU"}
+{: class="simple-tab-table"}
+{: summary="GPU gx3 l4 24 GB profile options for Intel x86-64 virtual server instances."}
+
+| Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Number of GPUs | Instance storage (GB) |
+|---------|---------|---------|---------|---------|---------|---------|
+| gx3-24x120x1l40s | 24 | 12 | 120 | 50 | 1 | - |
+| gx3-48x240x-2l40s | 48 | 24 | 240 | 100 | 2 | - |
+{: caption="Table 8. GPU gx3 l4Os 24 GB profile options for Intel x86-64 instances" caption-side="bottom"}
+{: #gpu-intel-x86-64}
+{: tab-title="gx3 l4Os"}
+{: tab-group="GPU"}
+{: class="simple-tab-table"}
+{: summary="GPU gx3 l4Os 24 GB profile options for Intel x86-64 virtual server instances."}
+
+### Considerations for v100, a100, L4, and L4Os GPU profiles
 {: #considerations-gpu-profiles}
 
-When you create a `-v100` or `-a100` GPU profile, keep the following recommendations in mind.
+When you create a `-v100`, `-a100`, `l4`, or `l4Os` GPU profile, keep the following recommendations in mind.
 
 - During {{site.data.keyword.Bluemix_notm}} periodic maintenance, GPU workloads aren't secure live migrated. Instead, the virtual server instance is restarted. You are notified 30 days in advance of any maintenance where the virtual server instance restarts. For more information, see [Understanding cloud maintenance operations](/docs/vpc?topic=vpc-about-cloud-maintenance).
 - If you are using GPU profiles, you need to install the NVIDA driver onto your virtual server instance. For more information, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
