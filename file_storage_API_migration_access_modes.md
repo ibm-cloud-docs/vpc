@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2023
+  years: 2023, 2024
 lastupdated: "2023-12-05"
 
 keywords: file storage, file share, mount target, API change, access mode, vpc, security group
@@ -24,7 +24,7 @@ Before you adopt beta release version `2023-07-11` or later, be aware of the fol
 - In the [share mount targets](/apidocs/vpc-beta#list-share-mount-targets) methods, the `virtual_network_interface` property value has been added. Learn [about virtual network interfaces](/docs/vpc?topic=vpc-vni-about&interface=api).
 - When [creating a mount target](/apidocs/vpc-beta#create-share-mount-target) for a file share with `access_control_mode` set to `security group`, you must specify the `virtual_network_interface` property to create a virtual network interface.
 
-All requests that are using the following methods enforce the existing requirement that you provide the [`maturity=beta`](/apidocs/vpc-beta/latest#maturity-query-parameter-beta) query parameter:
+All requests that are using the following methods enforce the existing requirement that you provide the [`maturity=beta`](/apidocs/vpc-beta/initial#maturity-query-parameter-beta) query parameter:
 
 - [Create a file share](/apidocs/vpc-beta#create-share)
 - [Create a mount target for a file share](/apidocs/vpc-beta#create-share-mount-target)
