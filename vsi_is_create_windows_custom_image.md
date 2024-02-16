@@ -200,7 +200,7 @@ Complete the following steps to customize the virtual server that you created by
    ```
    {: pre}
 
-1. After you run sysprep, your virtual server shuts down. Then, you can continue with [Step 4 - Creating an image template of your customized virtual server](/docs/vpc?topic=vpc-migrate-vsi-to-vpc#migrate-new-image template)- https://test.cloud.ibm.com/docs/vpc?topic=vpc-migrate-vsi-to-vpc#migrate-new-image.
+1. After you run sysprep, your virtual server shuts down. Then, you can continue with [Step 4 - Creating an image template of your customized virtual server](/docs/vpc?topic=vpc-migrate-vsi-to-vpc#migrate-new-image template)
 
 ## Uploading a custom image
 {: #complete-custom-image-win}
