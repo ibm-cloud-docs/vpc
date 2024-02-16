@@ -2,7 +2,7 @@
 
 copyright:
   years:  2021, 2023
-lastupdated: "2023-08-17"
+lastupdated: "2024-02-16"
 
 keywords: IBM Cloud monitoring, platform metrics, metrics, vpc metrics, vpc monitoring metrics, Quota metrics, quota dashboard
 
