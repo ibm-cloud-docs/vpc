@@ -2,7 +2,7 @@
 
 copyright:
   years:  2020, 2023
-lastupdated: "2023-07-11"
+lastupdated: "2024-02-16"
 
 keywords: monitoring metrics, platform metrics, metrics, vpc metrics, vpc monitoring metrics
 
@@ -324,7 +324,7 @@ These attributes are available to segment one or more attributes as described in
 | `IBM IS Generation, 1 or 2` | `ibm_is_generation` | IBM IS Generation (`1` for Gen. 1 (Classic) or `2` for Gen. 2 (VPC) ) |
 | `MAC address of the network interface` | `ibm_is_mac_address` | MAC address of the corresponding network interface that is attached to the virtual server instance |
 | `Network interface index` | `ibm_is_nic_index` | Index of the network interface that is attached to the virtual server, starting from 0 |
-| `Resource name` | `ibm_resource_name` | Resource name - for example, the virtual server instance name |
+| `Resource name` | `ibm_is_resource_name` | Resource name - for example, the virtual server instance name |
 | `ID of the volume` | `ibm_is_volume_id` | UUID of storage volume that is attached to the virtual server instance |
 | `Virtual CPU index` | `ibm_is_vcpu_index` | Index of the virtual CPU within the virtual server instance, starting from 0 |
 {: caption="Table 22: Available attributes for segmenting one or more attributes" caption-side="bottom"}
