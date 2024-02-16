@@ -93,9 +93,9 @@ The following attributes are available for segmenting one or more attributes as 
 
 | Attribute name | Attribute | Attribute description |
 |-----------|----------------|-----------------------|
-| `Associated Resource` | `ibm_secondary_resource_id` | The ID of a linked or associated resource |
+| `Associated Resource` | `ibm_is_secondary_resource_id` | The ID of a linked or associated resource |
 | `IBM IS Generation` | `ibm_is_generation` | IBM IS Generation |
-| `Name of resource type for quota` | `ibm_resource_quota_name` | The name of the resource type being monitored for quota usage/limit
+| `Name of resource type for quota` | `ibm_is_resource_quota_name` | The name of the resource type being monitored for quota usage/limit
 {: caption="Table 5: Additional attributes" caption-side="top"}
 
 ## Next steps
