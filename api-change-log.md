@@ -62,11 +62,11 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 
 **Reservations for Virtual Servers for VPC.** Accounts that have been granted special approval to preview this feature can now purchase a [capacity reservation](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc) for a specified instance profile in a specified zone. Reservations provide resources for future deployments and cost savings over the life of the term within the availability zone of your choice.
 
-When [creating](/apidocs/vpc/latest#create-reservation) or [updating](/apidocs/vpc/latest#update-reservation) a reservation, specify the `capacity.total` and `committed_use.term` properties to use for this reservation. Optionally specify the `committed_use.expiration_policy` property to apply when the committed use term expires (default: `release`). Specify the `profile.name` and `profile.resource_type` properties of the profile, and the `zone` property to use for this reservation. After you confirm the reservation is configured the way you want it, you must [activate the reservation](/apidocs/vpc/latest#activate-reservation). The reservation cannot be deleted until the committed use term expires. To provision an instance using a reservation's capacity, specify the reservation using the `reservation_affinity.pool` property when [creating the instance](/apidocs/vpc/latest#create-instance). You can also [update an instance](/apidocs/vpc/latest#update-instance) that's been provisioned to associate it with a reservation. 
+When [creating](/apidocs/vpc/latest#create-reservation) or [updating](/apidocs/vpc/latest#update-reservation) a reservation, specify the `capacity.total` and `committed_use.term` properties to use for this reservation. Optionally specify the `committed_use.expiration_policy` property to apply when the committed use term expires (default: `release`). Specify the `profile.name` and `profile.resource_type` properties of the profile, and the `zone` property to use for this reservation. After you confirm the reservation is configured the way you want it, you must [activate the reservation](/apidocs/vpc/latest#activate-reservation). The reservation cannot be deleted until the committed use term expires. To provision an instance using a reservation's capacity, specify the reservation using the `reservation_affinity.pool` property when [creating the instance](/apidocs/vpc/latest#create-instance). You can also [update an instance](/apidocs/vpc/latest#update-instance) that's been provisioned to associate it with a reservation.
 
 When [retrieving an instance](/apidocs/vpc/latest#get-instance), the new `reservation_affinity` property indicates the reservation affinity policy in effect for the virtual server instance. The new `health_state` property indicates the instance's overall health state, while an accompanying `health_reasons` property indicates the reason for any unhealthy health states, such as a failed reservation.
 
-For more information, see [Provisioning reserved capacity for VPC](/docs/vpc?topic=vpc-provisioning-reserved-capacity-vpc). 
+For more information, see [Provisioning reserved capacity for VPC](/docs/vpc?topic=vpc-provisioning-reserved-capacity-vpc).
 
 ## 19 December 2023
 {: #19-december-2023}
@@ -99,6 +99,7 @@ When [creating](/apidocs/vpc/latest#create-vpc-routing-table) a routing table, t
 **Cross-region replication of file shares.** When [creating a file share](/apidocs/vpc/latest#create-share), you can now specify a zone in an associated partner region to create a replica file share. For more information about cross-region pairings, see [About file share replication](/docs/vpc?topic=vpc-file-storage-replication). A [service-to-service authorization for cross-region replication](/docs/vpc?topic=vpc-file-s2s-auth&interface=api#file-s2s-auth-replication-api) between the regional file services must be created before creating a replica.
 
 An important difference between setting up in-region and cross-region replication is configuring the encryption for the replica share.
+
 - When the replica is created in another zone of the same region, the encryption type and the encryption key are inherited from the source share and can't be changed.
 - When the replica is created in another region, only the encryption type is inherited. Therefore, if the source share has `user_managed` encryption, you must specify the root key by using the `encryption_key` property when creating the replica share.
 {: note}
@@ -652,7 +653,7 @@ Before using this feature on a load balancer, update client applications that in
 ### For all version dates
 {: #1-february-2022-all-version-dates}
 
-**Bare metal servers for VPC.** You can now create bare metal servers to host VMware&reg; clusters in {{site.data.keyword.vpc_short}}. You can set up VMware management applications and create VMware virtual machines on the bare metal servers. The new [bare metal server](/vpc/latest#list-bare-metal-servers) APIs use a similar structure and employ the same concepts as the existing [instance](/apidocs/vpc?code=go#list-instances) APIs. There is also a parallel but separate set of [bare metal server profile](/apidocs/vpc/latest#list-bare-metal-server-profiles) APIs with similar conventions to the existing [instance profile](/apidocs/vpc-scoped#list-instance-profiles) APIs. After you've learned one concept, it will apply to the other. However, be aware that there are some [limitations](/docs/vpc?topic=vpc-known-issues#bare-metal-servers-limitations).
+**Bare metal servers for VPC.** You can now create bare metal servers to host VMware&reg; clusters in {{site.data.keyword.vpc_short}}. You can set up VMware management applications and create VMware virtual machines on the bare metal servers. The new [bare metal server](/apidocs/vpc/latest#list-bare-metal-servers) APIs use a similar structure and employ the same concepts as the existing [instance](/apidocs/vpc/latest#list-instances) APIs. There is also a parallel but separate set of [bare metal server profile](/apidocs/vpc/latest#list-bare-metal-server-profiles) APIs with similar conventions to the existing [instance profile](/apidocs/vpc/latest#list-instance-profiles) APIs. After you've learned one concept, it will apply to the other. However, be aware that there are some [limitations](/docs/vpc?topic=vpc-known-issues#bare-metal-servers-limitations).
 
 For more information, see [About Bare Metal Servers for VPC](/docs/vpc?topic=vpc-about-bare-metal-servers) and [Bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=api), or dive into the new [API methods](/apidocs/vpc/latest#list-bare-metal-server-profiles).
 
@@ -1097,6 +1098,7 @@ The following new methods are available for [instance groups](/apidocs/vpc/lates
 You can also use the new [instance template](/apidocs/vpc/latest#list-instance-templates) feature independently of auto scale. For example, create a template, and then create instances from that template, without creating an instance group.
 
 The following new endpoints are now available for instances:
+
 - `GET` and `POST` for `/instance/templates`
 - `GET`, `PATCH`, and `DELETE` for `/instance/templates/{id}`
 
