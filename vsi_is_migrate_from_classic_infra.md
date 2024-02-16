@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-02-12"
+lastupdated: "2024-02-16"
 
 keywords: migrate virtual server from classic infrastructure, migrate to vpc, migrate image template, image template, import image to vpc infrastructure, migrate virtual server, migrate instance
 
