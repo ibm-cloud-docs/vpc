@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-01-30"
+lastupdated: "2024-02-20"
 
 keywords:
 
@@ -307,7 +307,7 @@ ibmcloud is image-export-jobs 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479
 ```
 {: pre}
 
-For more information, see [ibmcloud is image-export-jobs](/docs/vpc/docs/vpc?topic=vpc-vpc-reference#image-export-jobs) in the VPC CLI reference page.
+For more information, see [ibmcloud is image-export-jobs](/docs/vpc?topic=vpc-vpc-reference#image-export-jobs-list) in the VPC CLI reference page.
 
 ### Viewing image export job details by using the CLI
 {: #custom-image-export-job-details-cli}
