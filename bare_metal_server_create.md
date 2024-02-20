@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-01-30"
+  years: 2021, 2024
+lastupdated: "2024-02-20"
 
 keywords: creating bare metal servers
 
@@ -379,4 +379,3 @@ ibmcloud is bare-metal-server $bare_metal_server_id --output JSON
 When the bare metal server status changes to **Running**, you can connect to it.
 
 * For x86 architecture, you can connect to VMware ESXi Direct Console User Interface (DCUI) and ESXi's web client. For more information, see [Connecting to ESXi bare metal servers](/docs/vpc?topic=vpc-connect-to-ESXi-bare-metal-servers).
-* For s390x architecture, you can connect to the s390x bare metal server by using the SSH key and its floating IP. For more information, see [Connecting to s390x bare metal servers](/docs/vpc?topic=vpc-connect-to-s390x-bare-metal-servers).
