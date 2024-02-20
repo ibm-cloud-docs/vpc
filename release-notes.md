@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-02-29"
+lastupdated: "2024-02-21"
 
 keywords:
 
@@ -30,8 +30,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## February 2024
 {: #vpc-feb24}
 
-### 20 February 2024
-{: #vpc-feb2024}
+### 21 February 2024
+{: #vpc-feb2124}
 {: release-note}
 
 GPU l4Os profiles with PCIe now available
