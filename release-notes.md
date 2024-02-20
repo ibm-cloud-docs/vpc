@@ -37,6 +37,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 GPU l4Os profiles with PCIe now available
 :   New `l4Os` GPU profiles that include NVIDIA's L4Os 48GB GPU are now available in the Australia (Sydney) and Japan (Tokyo) regions. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
+### 20 February 2024
+{: #vpc-feb2024}
+{: release-note}
+
+Next generation instance profiles available in Frankfurt region (select availability)
+:   The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are now available as a select availability offering in the Frankfurt region, in addition to the Dallas and London regions. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel&reg; Xeon&reg; Scalable processors to provide the most powerful and performant general-purpose profiles available. For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles). In the [Balanced](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) family, see the *bx3d* profiles tab. In the [Compute](/docs/vpc?topic=vpc-profiles&interface=ui#compute) family, see the *cx3d* profiles tab. In the [Memory](/docs/vpc?topic=vpc-profiles&interface=ui#memory) family, see the *mx3d* profiles tab. 3rd generation dedicated host profiles are also available. For more information, see *bx3d*, *cx3d*, and *mx3d* profiles in [x86-64 dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+
 ### 07 February 2024
 {: #vpc-feb0724}
 {: release-note}

@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2023
+  years: 2023, 2024
 lastupdated: "2023-12-05"
 
 keywords: file storage, file share, mount target, API change
@@ -24,7 +24,7 @@ Before you adopt the beta release version `2023-05-30` or later, be aware of the
 - When [creating](/apidocs/vpc-beta#create-share) a file share, you must specify the `mount_targets` property instead of the `targets` property
 - When making [share mount targets](/apidocs/vpc-beta#list-share-mount-targets) method requests, you must use the method URL `/shares/{id}/mount_targets` instead of `/shares/{id}/targets`.
 
-All requests that use the following methods enforce the existing requirement that you provide the [`maturity=beta`](/apidocs/vpc-beta/latest#maturity-query-parameter-beta) query parameter:
+All requests that use the following methods enforce the existing requirement that you provide the [`maturity=beta`](/apidocs/vpc-beta/initial#maturity-query-parameter-beta) query parameter:
 
 - [Create a file share](/apidocs/vpc-beta#create-share)
 - [Create a mount target for a file share](/apidocs/vpc-beta#create-share-mount-target)
