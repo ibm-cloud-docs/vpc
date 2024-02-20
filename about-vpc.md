@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2017, 2023
-lastupdated: "2023-05-11"
+  years: 2017, 2023, 2024
+lastupdated: "2024-02-16"
 
 keywords: vpc, virtual private cloud, private cloud network, quick provisioning, logical isolation, security, cloud-native, workloads, BYOIP, high availability, ACL, Access control list, Block Storage volumes
 
@@ -58,6 +58,14 @@ For instance-level protection, use *security groups* that act as virtual firewal
 A *region* is the geographical location where you deploy the VPC's services, resources, and applications. Each region contains *zones*, which are logically isolated data centers with independent infrastructures. You can deploy resources in multiple zones to achieve fault tolerance and high availability.
 
 Use load balancers to distribute your network traffic across a set of virtual server instances to improve performance and availability. You can set up a load balancer to distribute incoming application traffic across instances in a single zone or across multiple zones within a region.
+
+## Interconnectivity
+{: #about-interconnectivity}
+
+IBM has the following offerings that can help you interconnect VPCs:
+
+* [IBM Cloud Direct Link](/docs/dl?topic=dl-get-started-with-ibm-cloud-dl) allows you to interconnect a VPC with an on-prem network.
+* [IBM Cloud Transit Gateway](/docs/transit-gateway?topic=transit-gateway-getting-started&interface=ui) allows you to interconnect VPCs to each other and various other resources.
 
 ## Classic access
 {: #about-classic-access}
