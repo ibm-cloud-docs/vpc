@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-02-15"
+lastupdated: "2024-02-20"
 
 keywords:
 
@@ -30,8 +30,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## February 2024
 {: #vpc-feb24}
 
-### 15 February 2024
-{: #vpc-feb1524}
+### 20 February 2024
+{: #vpc-feb2024}
 {: release-note}
 
 Next generation instance profiles available in Frankfurt region (select availability)
