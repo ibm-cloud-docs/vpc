@@ -246,7 +246,7 @@ To export the image template that you created from the modified virtual server t
 {: #migrate-import-image}
 
 1. In the {{site.data.keyword.cloud_notm}} console, click **Navigation menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images**.
-1. On the **Custom images** tab, click **Import Custom Image**. For more information, see [Importing a custom image](/docs/vpc?topic=vpc-managing-images#import-custom-image).
+1. On the **Custom images** tab, click **Import Custom Image**. For more information, see [Importing a custom image](/docs/vpc?topic=vpc-importing-custom-images-vpc&interface=ui#import-custom-image-cloud-object-storage-ui).
 
 ### Step 7 - Using a custom image to create a virtual server in {{site.data.keyword.vpc_short}}
 {: #migrate-create-virtual-server}
