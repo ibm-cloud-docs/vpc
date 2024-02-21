@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-12-18"
+  years: 2022, 2024
+lastupdated: "2024-02-21"
 
 keywords:
 
@@ -33,7 +33,6 @@ When you provision a virtual server on your VPC, you need to select an image to 
 * [x86 virtual server images](/docs/vpc?topic=vpc-about-images)
 * [s390x virtual server images](/docs/vpc?topic=vpc-vsabout-images)
 * [Bare metal server images](/docs/vpc?topic=vpc-bare-metal-image)
-* [s390x bare metal server images](/docs/vpc?topic=vpc-s390x-bare-metal-images)
 
 All available stock images can be found in **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images > Stock images**.
 
