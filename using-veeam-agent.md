@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-12-09"
+  years: 2020, 2024
+lastupdated: "2024-02-21"
 
 keywords: instance backup, veeam, veeam license, order license, virtual private cloud
 
@@ -23,7 +23,7 @@ The Veeam Agent is not supported for LinuxONE (s390x processor architecture).
 
 The following example provides information on installing, configuring, and using the Linux Agent on a virtual server instance that is provisioned with CentOS. Similar instructions apply to the other operating system types, although you need to replace any OS-specific commands. The example provides instructions on how to perform a volume backup and restore. If you prefer to do file and folder backup and restore operations, you use a similar procedure. The wanted restore point is mounted, and the wanted backup files are copied to the virtual server instance.
 
-Full image-level (entire machine) backup and restore is not supported. 
+Full image-level (entire machine) backup and restore is not supported.
 {: important}
 
 ## Before you begin
@@ -64,7 +64,7 @@ After you provisioned your instance and configured the secondary volume, [downlo
 ## Backing up
 {: #backing-up-veeam-agent}
 
-To perform a backup operation of a volume on the CentOS virtual server instance, complete the steps that are outlined in the [Veeam Agent for Linux 4.0 guide](https://helpcenter.veeam.com/docs/agentforlinux/userguide/backup_job_create_gui.html?ver=40){: external}.
+To perform a backup operation of a volume on the CentOS virtual server instance, complete the steps that are outlined in the [Veeam Agent for Linux 4.0 guide](https://helpcenter.veeam.com/archive/agentforlinux/40/userguide/backup_job_create_gui.html){: external}.
 
 To begin, select _Configure_ from the initial menu. As you go through the Veeam Agent control windows, be sure to make the following selections:
 
