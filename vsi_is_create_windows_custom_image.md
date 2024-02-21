@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-02-16"
+lastupdated: "2024-02-21"
 
 keywords: creating a Windows custom image, cloudbase-init, qcow2
 
@@ -97,7 +97,7 @@ Use the following steps to create a custom Windows image.
       * Use SCP to copy the ISO file on a Linux or macOS client.
    1. Mount and open the ISO file.
    1. Copy all relevant virtio drivers from `virtio-win.iso` file for the respective operating system, put the drivers into a folder called `Drivers`, then copy the `Drivers` folder into the operating system ISO folder.
-   1. Download the [Windows Assessment and Deployment toolkit (ADK)](https://go.microsoft.com/fwlink/?linkid=2196127){: external}. To get the `oscdimg.exe` utility, install only the Deployment Tools.
+   1. Download the [Windows Assessment and Deployment toolkit (ADK)](https://download.microsoft.com/download/6/7/4/674ec7db-7c89-4f2b-8363-689055c2b430/adk/adksetup.exe){: external}. To get the `oscdimg.exe` utility, install only the Deployment Tools.
    1. Create a bootable Windows ISO that incorporates all virtio drivers in the `Drivers` folder by using the `oscdimg.exe` command.
 
       ```sh
