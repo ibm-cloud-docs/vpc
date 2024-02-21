@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-01-31"
+lastupdated: "2024-02-20"
 
 keywords:
 
@@ -301,7 +301,7 @@ When you create an instance template, validation steps are performed to make sur
 
 The instance template defines the details of the virtual server instances that are created from the template. For example, specify the profile (vCPU and memory), image, attached volumes, and network interfaces for the instance template. You can create one or more instance templates in your {{site.data.keyword.vpc_short}} by using the command-line interface (API).
 
-For more information about creating a virtual server instance with a custom image shared from a private catalog, see [Provision from a private catalog image](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli#instance-create-from-private-catalog-image-api).
+For more information about creating a virtual server instance with a custom image shared from a private catalog, see [Provision from a private catalog image](/docs/vpc?topic=vpc-creating-virtual-servers&interface=api#create-instance-private-catalog-image-api).
 
 ### Before you begin
 {: #before-instance-api}
