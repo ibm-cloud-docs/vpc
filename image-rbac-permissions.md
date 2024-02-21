@@ -15,11 +15,11 @@ subcollection: vpc
 # Using granular RBAC permissions for custom images
 {: #using-granular-RBAC-permissions-for-custom-images}
 
-The VPC image service allows the [creation of custom images](/docs/vpc?topic=vpc-managing-custom-images&interface=ui). These images are only visible and usable within a single account. Custom images are assigned to a [Resource group](/docs/account?topic=account-rgs) when they are created. Users can have multiple resource groups to host custom images with different access control privileges or assign permissions directly to an image, restricting their access to specific users. These access privileges are referred to as role-based access control, or RBAC.
+The VPC image service allows the [creation of custom images](/docs/vpc?topic=vpc-planning-custom-images). These images are only visible and usable within a single account. Custom images are assigned to a [Resource group](/docs/account?topic=account-rgs) when they are created. Users can have multiple resource groups to host custom images with different access control privileges or assign permissions directly to an image, restricting their access to specific users. These access privileges are referred to as role-based access control, or RBAC.
 
 The custom resource group that hosts the images can contain a set of images. The resource group can control either a single image or multiple images. It's common for a family of images to be hosted within a resource group. This hosting can make management of the control of the images easier because the access rules are attached to the resource group.
 
-The process that is described here is for the console. However, this function can also be carried out with the [API](/apidocs/iam-identity-token-api) and from the [CLI](/docs/account?topic=account-rgs#rgs_cli).
+The process that is described here is for the console. However, this function can also be carried out with the [API](/apidocs/iam-identity-token-api) and from the [CLI](/docs/account?topic=account-rgs&interface=cli#rgs_cli).
 {: shortdesc}
 
 ## Creating a custom resource group for image access controls
