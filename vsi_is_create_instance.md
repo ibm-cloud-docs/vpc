@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-02-06"
+lastupdated: "2024-02-21"
 
 keywords:
 
@@ -289,7 +289,7 @@ Use the following commands to determine the required information for creating a 
 
    * To list all available images shared from a private catalog, run the following commands:
 
-      If you select a catalog image that belongs to a different account, you have extra considerations and limitations to review. See [Using cross-account image references in a private catalog in the CLI](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#private-catalog-image-reference-vpc-cli)
+      If you select a catalog image that belongs to a different account, you have extra considerations and limitations to review. See [Using cross-account image references in a private catalog in the CLI](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=cli#private-catalog-image-reference-vpc-cli)
       {: note}
 
        - To list all available private catalog image offerings, run the following command.
@@ -981,7 +981,7 @@ Make sure that you set up [Terraform for VPC](https://registry.terraform.io/prov
 {: #terraform-create-private-catalog}
 {: terraform}
 
-This step is optional. If you plan to share images from a private catalog, the private catalog must be created first. If you select a catalog image that belongs to a different account, review [Using cross-account image references in a private catalog in Terraform](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#private-catalog-image-reference-vpc-terraform) for more considerations and limitations. To create a private catalog, see the tutorial [Onboarding a virtual server image with Terraform](/docs/account?topic=account-catalog-vsi-tutorial&interface=ui).
+This step is optional. If you plan to share images from a private catalog, the private catalog must be created first. If you select a catalog image that belongs to a different account, review [Using cross-account image references in a private catalog in Terraform](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=terraform#private-catalog-image-reference-vpc-terraform) for more considerations and limitations. To create a private catalog, see the tutorial [Onboarding a virtual server image with Terraform](/docs/account?topic=account-catalog-vsi-tutorial&interface=ui).
 
 ### Gathering information to create an instance by using Terraform
 {: #gather-info-to-create-virtual-servers-terraform}
