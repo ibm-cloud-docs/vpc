@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-02-20"
+lastupdated: "2024-02-21"
 
 keywords: resource, access, role, role-based, authorization, policy, access group, resource group, permission, assign, administrator, operator, editor, viewer, user, team, scenario, manage, create, IAM
 
@@ -106,7 +106,7 @@ Create four access groups with the following names, and assign the appropriate u
 * `production_team_manage_vpcs`
 * `production_team_view_vpcs`
 
-For more information about how to create access groups and assign users to the access groups, see [Create access groups](/docs/account?topic=account-groups#create_ag).
+For more information about how to create access groups and assign users to the access groups, see [Create access groups](/docs/account?topic=account-groups&interface=ui#create_ag).
 
 ### Step 3: Add IAM policies to the access groups
 {: #step-3-add-iam-policies-to-the-access-groups}
@@ -183,6 +183,6 @@ Changes to IAM access policies for VPC can take up to 10 minutes to take effect.
 ## Related links
 {: #permissions-related-links}
 
-* [Managing identity and access](/docs/vpc?topic=vpc-iam-getting-started&interface=ui#iam-roles)
+* [Managing identity and access](/docs/vpc?topic=vpc-iam-getting-started)
 * [Managing users and access](/docs/account?topic=account-iamuserinv)
 * [What is IAM](/docs/account?topic=account-iamoverview)
