@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2024-02-08",
+    "lastupdated": "2024-02-22",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
@@ -31,6 +31,11 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
+          "date": "20 February 2024",
+          "title": "Next generation instance profiles available in Frankfurt region (select availability)",
+          "description": "The 3rd generation of IBM Cloud Virtual Servers for VPC are now available as a select availability offering in the Frankfurt region, in addition to the Dallas and London regions. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel® Xeon® Scalable processors to provide the most powerful and performant general-purpose profiles available. For more information, see Next generation instance profiles. In the Balanced family, see the bx3d profiles tab. In the Compute family, see the cx3d profiles tab. In the Memory family, see the mx3d profiles tab. 3rd generation dedicated host profiles are also available. For more information, see bx3d, cx3d, and mx3d profiles in x86-64 dedicated host profiles."
+        },
+        {
           "date": "07 February 2024",
           "title": "Updated workload section for Hyper Protect Secure Build",
           "description": "The workload section for Hyper Protect Secure Build is updated based on the IBM Hyper Protect Container Runtime image ibm-hyper-protect-container-runtime-1-0-s390x-13."
@@ -39,11 +44,6 @@
           "date": "06 February 2024",
           "title": "New Madrid region for ux2d profiles (GA)",
           "description": "The Ultra High Memory family of profiles are now available in the Spain (Madrid) region. The addition of this region makes the ux2d profiles available in all regions."
-        },
-        {
-          "date": "01 February 2024",
-          "title": "UI enhancement: New SAP Certified filter when selecting an instance profile",
-          "description": "When provisioning a virtual server, you can now use the SAP Certified filter on the Select an instance profile page to narrow the results to include only the available SAP profiles (SAP HANA, SAP NetWeaver, or SAP Business One). When the SAP Certified filter is selected, the profile results display the SAP certification status for the specific SAP enabled profiles."
         }
       ]
     }
