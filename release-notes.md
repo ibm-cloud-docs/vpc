@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-02-20"
+lastupdated: "2024-03-12"
 
 
 keywords:
@@ -27,6 +27,25 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 For more information about changes to the {{site.data.keyword.vpc_short}} API, see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
+
+## March 2024
+{: #vpc-mar24}
+
+### 12 March 2024
+{: #vpc-mar1224}
+{: release-note}
+
+Virtual Network Interfaces for VPC
+:   A new feature is generally available in the Virtual Private Cloud (VPC) service that expands the support for [virtual network interfaces](/docs/vpc?topic=vpc-vni-about). The following features are available.
+   - Virtual network interfaces have an independent lifecycle, which means that when you delete a resource to which the virtual network interface is attached, the virtual network interface persists and retains its IP address.
+   - New instances and bare metal servers can be created with virtual network interfaces attached to new child resources called network attachments.
+   - Virtual network interfaces support secondary IP addresses.
+   - For compatibility with existing clients, instances and bare metal servers with virtual network interfaces include a read-only representation of their network attachments and virtual network interfaces as legacy network interface child resources.
+   - For instances and bare metal servers with virtual network interfaces, the IAM permissions for options to allow IP spoofing or disable infrastructure NAT are managed on their attached virtual network interfaces.
+   - Flow log collectors can target instance network attachments and virtual network interfaces.
+
+   If you have automation for managing your virtual network interfaces, bare metal servers, and file share mount targets, and you are not interested in expanded support for virtual network interfaces, you'll have the option to opt out when the feature becomes generally available.
+   {: note}
 
 ## February 2024
 {: #vpc-feb24}
