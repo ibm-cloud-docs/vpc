@@ -33,7 +33,7 @@
         {
           "date": "20 February 2024",
           "title": "Next generation instance profiles available in Frankfurt region (select availability)",
-          "description": "The 3rd generation of IBM Cloud Virtual Servers for VPC are now available as a select availability offering in the Frankfurt region, in addition to the Dallas and London regions. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel® Xeon® Scalable processors to provide the most powerful and performant general-purpose profiles available. For more information, see Next generation instance profiles. In the Balanced family, see the bx3d profiles tab. In the Compute family, see the cx3d profiles tab. In the Memory family, see the mx3d profiles tab. 3rd generation dedicated host profiles are also available. For more information, see bx3d, cx3d, and mx3d profiles in x86-64 dedicated host profiles."
+          "description": "The 3rd generation of IBM Cloud Virtual Servers for VPC are now available as a select availability offering in the Frankfurt region, in addition to the Dallas and London regions. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel® Xeon® Scalable processors to provide the most powerful and performant general-purpose profiles available. For more information, see Next generation instance profiles. In the Balanced family, see the bx3d profiles tab. In the Compute family, see the cx3d profiles tab. In the Memory family, see the mx3d profiles tab. 3rd generation dedicated host profiles are also available."
         },
         {
           "date": "07 February 2024",
