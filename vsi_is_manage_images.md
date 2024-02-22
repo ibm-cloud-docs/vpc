@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-02-20"
+lastupdated: "2024-02-22"
 
 keywords:
 
@@ -222,7 +222,7 @@ For more information, see [ibmcloud is image-export-job-create](/docs/vpc?topic=
 
 You can export an {{site.data.keyword.vpc_short}} custom image to {{site.data.keyword.cos_full_notm}} by using the application programming interface (API).
 
-To export a custom image by using the API, use [Create an image export job](/apidocs/vpc/latest#create_image_export_job).
+To export a custom image by using the API, use [Create an image export job](/apidocs/vpc/latest#create-image-export-job).
 
 For the`$image_id` variable, specify the ID of the custom image that you want to export. You can optionally specify a meaningful `name` for the image export job. In this example, the export job name is `my-image-export`. For the `storage_bucket` `name` subproperty, specify the name of the {{site.data.keyword.cos_full_notm}} bucket where you want to export the custom image. In this example, the bucket name is `bucket-27200-lwx4cfvcue`. Alternatively, you can use the `crn` subproperty to specify the CRN of the bucket.
 
@@ -352,7 +352,7 @@ For more information, see [ibmcloud is image-export-job-update](/docs/vpc?topic=
 {: #custom-image-export-job-history-api}
 {: api}
 
-To view the export history of a specific custom image by using the API, use [List all image export jobs](/apidocs/vpc/latest#list_image_export_jobs).
+To view the export history of a specific custom image by using the API, use [List all image export jobs](/apidocs/vpc/latest#create-image-export-job).
 
 For the`$image_id` variable, specify the ID of the custom image for which you want to display export jobs.
 

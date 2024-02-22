@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-01-30"
+lastupdated: "2024-02-22"
 
 keywords: Block Storage, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, fihe share
 
@@ -324,7 +324,7 @@ When you unwrap (decrypt) a wrapped data encryption key (WDEK) by using a rotate
 ### Listing root key versions
 {: #api-byok-list-root-key}
 
-To see all versions of a root key that you rotated, make a `GET /keys/{key_ID}/versions` call. The older versions remain valid for decrypting existing resources but can't be used to encrypt new ones. They are removed from the list upon their expiration date or when no more resources are encrypted by them. For an example request and response, see [List key versions](/apidocs/key-protect#list-key-versions).
+To see all versions of a root key that you rotated, make a `GET /keys/{key_ID}/versions` call. The older versions remain valid for decrypting existing resources but can't be used to encrypt new ones. They are removed from the list upon their expiration date or when no more resources are encrypted by them. For an example request and response, see [List key versions](/apidocs/key-protect#getkeys).
 
 For more information about programmatically managing your keys, see the [{{site.data.keyword.keymanagementserviceshort}} API reference](/apidocs/key-protect).
 

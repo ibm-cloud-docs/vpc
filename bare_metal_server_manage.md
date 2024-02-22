@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-12-18"
+  years: 2021, 2024
+lastupdated: "2024-02-22"
 
 keywords: bare metal servers, managing, operation, manage bare metal server, manage bare metal, manage server, restart bare metal, stop bare metal, delete bare metal, reboot bare metal, restart server, stop server, delete server
 
@@ -188,7 +188,7 @@ curl -X POST "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/rest
 ```
 {: pre}
 
-For more information of the API request, see [Restart a bare metal server](/apidocs/vpc/latest#create-bare-metal-server-restart).
+For more information of the API request, see [Restart a bare metal server]( /apidocs/vpc/latest#create-bare-metal-server).
 
 ### Stopping and starting a bare metal server
 {: #stop-start-bare-metal-servers-api}
@@ -215,7 +215,7 @@ curl -X POST "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/stop
 Billing continues after the bare metal server is stopped.
 {: note}
 
-For more information about the API request, see [Stop a bare metal server](/apidocs/vpc/latest#create-bare-metal-server-stop).
+For more information about the API request, see [Stop a bare metal server](/apidocs/vpc/latest#create-bare-metal-server).
 
 #### Starting the bare metal server
 {: #start-bm-api}
@@ -228,7 +228,7 @@ curl -X POST "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/star
 ```
 {: pre}
 
-For more information about the API request, see [Start a bare metal server](/apidocs/vpc/latest#create-bare-metal-server-start).
+For more information about the API request, see [Start a bare metal server](/apidocs/vpc/latest#create-bare-metal-server).
 
 ### Deleting a bare metal server by using the API
 {: #delete-bare-metal-servers-api}
