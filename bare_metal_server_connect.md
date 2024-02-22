@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2023-12-18"
+  years: 2021, 2024
+lastupdated: "2024-02-22"
 
 keywords: bare metal server connect esxi, connect to esxi, connect to esxi, bare metal connect esxi, bare metal esxi, windows serial console, connect to windows console, connect to windows serial console, serial console, connect to serial console
 
@@ -200,7 +200,7 @@ You need the following information to attach a floating IP to the bare metal ser
 * Network interface ID
 * Floating IP ID
 
-Use the [List the network interfaces](/docs/vpc?topic=vpc-vpc-reference#bare-metal-server-network-interfaces) command to find the ID of the network interface. Use the [ibmcloud is floating-ips](/docs/vpc?topic=vpc-vpc-reference#floating-ips) command to find the reserved floating IP IDs, or, use the [ibmcloud is floating-ip-reserve](/docs/vpc?topic=vpc-vpc-reference#floating-ip-reserve) command to reserve a new one.
+Use the [List the network interfaces](/docs/vpc?topic=vpc-vpc-reference#bare-metal-server-network-interface-view) command to find the ID of the network interface. Use the [ibmcloud is floating-ips](/docs/vpc?topic=vpc-vpc-reference#floating-ip-view) command to find the reserved floating IP IDs, or, use the [ibmcloud is floating-ip-reserve](/docs/vpc?topic=vpc-vpc-reference#floating-ip-reserve) command to reserve a new one.
 {: tip}
 
 After you collect all the required information, use the following command to attach the floating IP to the bare metal server:
