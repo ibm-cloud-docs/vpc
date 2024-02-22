@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2024
 
-lastupdated: "2024-01-05"
+lastupdated: "2024-02-15"
 
 keywords:
 
@@ -171,7 +171,7 @@ This VPC feature is available only to accounts with special approval to preview 
 
 | Resource | Quota |
 |--------|-----|
-| Boot and secondary volumes | 300 total VPC volumes per region |
+| Boot and secondary volumes | 750 total VPC volumes per region |
 | Snapshots and backup snapshots | Up to 750 per volume in a region |
 {: caption="Table 12. Quotas for Block Storage volumes and snapshots" caption-side="bottom"}
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-09-25"
+  years: 2020, 2024
+lastupdated: "2024-02-21"
 
 keywords: license, virtual private cloud, BYOL, virtual server instance, instance, custom image, encryption
 subcollection: vpc
@@ -20,7 +20,7 @@ For Red Hat Enterprise Linux&reg; and Windows operating systems, you can bring y
 ## BYOL concepts
 {: #byol-vpc-concepts}
 
-With the BYOL feature, you can use your own license for a custom image that you create at your site and then upload to {{site.data.keyword.cos_full_notm}}. When you import your custom image from {{site.data.keyword.cos_full_notm}} to the VPC, {{site.data.keyword.cloud_notm}} provides Red Hat Enterprise Linux and Windows *BYOL* operating system options that you must select to indicate that you are using a BYOL operating system. You use your BYOL custom images to create virtual server instances, just as you would from a stock image.
+With the BYOL feature, you can use your own license for a custom image that you create at your site and then upload to {{site.data.keyword.cos_full_notm}}. When you import your custom image from {{site.data.keyword.cos_full_notm}} to the VPC, {{site.data.keyword.cloud_notm}} provides Red Hat Enterprise Linux and Windows _BYOL_ operating system options that you must select to indicate that you are using a BYOL operating system. You use your BYOL custom images to create virtual server instances, just as you would from a stock image.
 
 The BYOL feature on LinuxONE (s390x processor architecture) supports Red Hat Enterprise Linux (RHEL), and SUSE Linux Enterprise Server (SLES) operating systems.
 
@@ -118,7 +118,7 @@ To see all of the operating system versions from the API, make a`GET /operating_
 ```
 {: codeblock}
 
-For more information from Microsoft about licensing, see the [Microsoft Licensing FAQ](https://www.microsoft.com/en-us/licensing/news/new-software-assurance-benefit-to-support-hosting-from-third-party-providers){: external}; the blog post, [New licensing benefits make bringing workloads and licenses to partners’ clouds easier](https://blogs.partner.microsoft.com/mpn/new-licensing-benefits-make-bringing-workloads-and-licenses-to-partners-clouds-easier/){: external}; and a training video, [Outsourcing software licensing changes](https://licensingschool.eventbuilder.com/hostingcustomer){: external}.
+For more information from Microsoft about licensing, see the [Microsoft Licensing FAQ](https://www.microsoft.com/en-us/licensing/news/new-software-assurance-benefit-to-support-hosting-from-third-party-providers){: external}; the blog post, [New licensing benefits make bringing workloads and licenses to partners’ clouds easier](https://blogs.partner.microsoft.com/partner/new-licensing-benefits-make-bringing-workloads-and-licenses-to-partners-clouds-easier/){: external}; and a training video, [Outsourcing software licensing changes](https://licensingschool.eventbuilder.com/hostingcustomer){: external}.
 
 For more information about creating a Windows custom image, see [Creating a Windows custom image](/docs/vpc?topic=vpc-create-windows-custom-image).
 

@@ -144,7 +144,7 @@ To create a routing table with the API, follow these steps:
 
 To update a routing table with Terraform, follow these steps:
 
-1. [Set up your Terraform environment](/docs/vpc?topic=vpc-terraform-setup).
+1. Set up your Terraform environment.
 1. Use one of the following examples:
 
    * To update a routing table:

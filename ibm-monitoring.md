@@ -2,7 +2,7 @@
 
 copyright:
   years:  2021, 2023
-lastupdated: "2023-01-23"
+lastupdated: "2024-02-16"
 
 keywords: IBM Cloud monitoring, vpc monitoring, dashboards, dashboard
 
@@ -23,12 +23,12 @@ Each monitoring dashboard has the relevant metrics for its associated service as
 
 | Dashboard name | Metric definition dictionary |
 |----------|----------|
-| VPC VSI Gen 2 Overview | [VPC virtual server instances metrics definitions](/docs/vpc?topic=vpc-vpc-monitoring-metrics) |
+| Virtual Server for VPC Overview | [VPC virtual server instances metrics definitions](/docs/vpc?topic=vpc-vpc-monitoring-metrics) |
 | VPC Gen 2 VPN | [Monitoring VPN for VPC metrics](/docs/vpc?topic=vpc-vpn-monitoring-metrics&interface=ui) |
 | VPC Gen 2 Load Balancer | [Monitoring Application Load Balancer for VPC metrics](/docs/vpc?topic=vpc-monitoring-metrics-alb) |
 | VPC Gen 2 Load Balancer | [Monitoring Network Load Balancer for VPC metrics](/docs/vpc?topic=vpc-nlb_monitoring-metrics) |
-| VPC Flow Logs Overview | [Monitoring flow logs for VPC metrics](/docs/vpc?topic=vpc-fl-monitoring-metrics) |
-| VPC Resource Quota Overview | [VPC quota metrics definitions](/docs/vpc?topic=vpc-vpc-quota-metrics) |
+| Flow Logs for VPC Overview | [Monitoring flow logs for VPC metrics](/docs/vpc?topic=vpc-fl-monitoring-metrics) |
+| VPC Infrastructure Service Resource Quota Overview | [VPC quota metrics definitions](/docs/vpc?topic=vpc-vpc-quota-metrics) |
 {: caption="Table 1: VPC metric definitions" caption-side="bottom"}
 
 To see a list of Cloud services outside of VPC that offer monitoring, see [Cloud services](/docs/monitoring?topic=monitoring-cloud_services).

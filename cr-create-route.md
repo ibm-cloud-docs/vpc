@@ -116,7 +116,7 @@ Where:
 :   Is the action to perform with a packet that matches the route. Actions are **delegate_vpc**, **delegate**, **deliver**, and **drop**.
 
 `--priority`
-:   Is the route's priority. Values are `0`, `1`, `2`, `3`, and `4`. The default value is `2`.  Smaller values have higher priority. If a custom routing table contains routes with the same destination, the route with the highest priority (smallest value) is selected.
+:   Is the route's priority. Values are `0`, `1`, `2`, `3`, and `4`. The default value is `2`.  Lower values have higher priority. If a custom routing table contains routes with the same destination, the route with the highest priority (smallest value) is selected.
 
 `--next-hop`
 :   If the action is **deliver**, enter the IP address or VPN connection ID of the next hop to which to route packets.
@@ -186,7 +186,7 @@ To create a destination route with the API, follow these steps:
 
 To create a route with Terraform, follow these steps:
 
-1. [Set up your Terraform environment](/docs/vpc?topic=vpc-terraform-setup).
+1. Set up your Terraform environment.
 1. Create a route:
 
    ```terraform

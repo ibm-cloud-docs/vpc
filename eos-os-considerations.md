@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-01-08"
+lastupdated: "2024-02-02"
 
 keywords:
 
@@ -79,7 +79,7 @@ If you encounter problems during the in-place upgrade process, IBM can't provide
 - After the in-place upgrade is complete, create a full backup of the upgraded instance, not an incremental backup.
 
 ### Continue with your EOS OS at your own risk
-{: #continue-using-your-eos-os}
+{: #continue-using-your-eos-os-vpc}
 
 If you choose to continue with an EOS OS, consider the following information:
 
@@ -117,7 +117,7 @@ If you decide to upgrade with the in-place method on Windows OS, open a ticket w
 No additional licensing costs are incurred to move to a newer software version when you use {{site.data.keyword.IBM_notm}}’s License Included options. {{site.data.keyword.Bluemix}} is governed by the Service Provider License Agreement (SPLA) with Microsoft. For more information, see [License Mobility Deployment Process](/docs/microsoft?topic=microsoft-microsoft-license-mobility-process).
 
 ## Troubleshooting
-{: #troubleshooting-upgrading-your-os}
+{: #troubleshooting-upgrading-your-os-vpc}
 
-If you encounter problems after your OS is upgrade is complete, open a support ticket. IBM Support investigates each issue on a
-case-by-case basis. You can open a support ticket in the customer portal.
+If you encounter problems after your OS is upgrade is complete, open a support case. IBM Support investigates each issue on a
+case-by-case basis. You can open a support case in the customer portal. For more information about support, see [Using the Support Center](/docs/get-support?topic=get-support-using-avatar).

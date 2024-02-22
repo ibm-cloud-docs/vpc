@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-08-04"
+lastupdated: "2024-02-16"
 
 keywords:
 
@@ -68,7 +68,7 @@ The following attributes are available for segmenting one or more attributes as 
 | Attribute | Attribute Name | Attribute Description |
 |-----------|----------------|-----------------------|
 | `IBM IS Generation 2` | `ibm_is_generation` | IBM IS Generation ( `2` for Gen. 2) |
-| `Flow log collector VPS attachment` | `ibm_flow_log_collector_instance` | The virtual server instance ID where the flow log collector is attached. |
+| `Flow log collector VPS attachment` | `ibm_is_flow_log_collector_instance` | The virtual server instance ID where the flow log collector is attached. |
 {: caption="Table 3: Additional attributes" caption-side="bottom"}
 
 ## Enabling metrics monitoring

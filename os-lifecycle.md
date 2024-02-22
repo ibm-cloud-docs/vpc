@@ -4,7 +4,7 @@ copyright:
 
   years: 2022, 2024
 
-lastupdated: "2024-01-30"
+lastupdated: "2024-02-21"
 
 
 keywords: operating system end of support (eos)
@@ -18,7 +18,7 @@ subcollection: vpc
 # Lifecycle for guest operating systems
 {: #guest-os-lifecycle}
 
-In the lifecycle of an operating system, end of support (EOS) is the last date that {{site.data.keyword.cloud}} delivers standard support for a version or release of a product. The end of support date is aligned to the vendor and community support dates. A notification is sent out 90 days before support for an operating system is withdrawn. 
+In the lifecycle of an operating system, end of support (EOS) is the last date that {{site.data.keyword.cloud}} delivers standard support for a version or release of a product. The end of support date is aligned to the vendor and community support dates. A notification is sent out 90 days before support for an operating system is withdrawn.
 {: shortdesc}
 
 | Image status | Description |
@@ -55,7 +55,7 @@ The following table describes the end of support date and license model for Debi
 ## Fedora CoreOS
 {: #fedora-coreos}
 
-The version of Fedora&reg; CoreOS is updated regularly, with the previous release deprecating when a new version is released. This guest OS is a free operating system. For more information, see [Fedora](https://getfedora.org/){: external}.
+The version of Fedora&reg; CoreOS is updated regularly, with the previous release deprecating when a new version is released. This guest OS is a free operating system. For more information, see [Fedora](https://fedoraproject.org/){: external}.
 
 | Operating sytem | End of support | License model |
 |-----------------|----------------|---------------|

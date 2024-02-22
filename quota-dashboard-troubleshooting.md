@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years:  2021, 2022
-lastupdated: "2022-02-15"
+  years:  2021, 2024
+lastupdated: "2024-02-21"
 
 keywords: IBM Cloud monitoring troubleshooting, quota monitoring troubleshooting
 
@@ -53,7 +53,7 @@ Creating or deleting one of the following resources sends metric events for the 
 - load-balancer
    - For more information, see:
       - [Creating a network load balancer for VPC](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer&interface=ui) and [Deleting an IBM Cloud Network Load Balancer for VPC](/docs/vpc?topic=vpc-nlb-deleting&interface=ui).
-      - [Creating an IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancer&interface=ui) and [Deleting an IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-alb-deleting&interface=ui).
+      - [Creating an IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancers) and [Deleting an IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-alb-deleting&interface=ui).
 - volume
    - For more information, see [Creating Block Storage volumes](/docs/vpc?topic=vpc-creating-block-storage) and [Delete a Block Storage data volume](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#delete).
 

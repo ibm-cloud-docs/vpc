@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-10-09"
+  years: 2020, 2024
+lastupdated: "2024-02-13"
 
 keywords: virtual private endpoints, endpoint gateway, VPE
 subcollection: vpc
@@ -23,7 +23,7 @@ with your account.
 
 * {{site.data.keyword.appconfig_short}} ([Endpoint URLs](/apidocs/app-configuration#endpoints-urls))
 * Catalog Management ([Endpoint URLs](/apidocs/resource-catalog/private-catalog#endpoint-url))
-* Cloud Object Storage
+* Cloud Object Storage ([Instructions](/docs/cloud-object-storage?topic=cloud-object-storage-vpes))
 * Code Engine ([Instructions](/docs/codeengine?topic=codeengine-vpe))
 * {{site.data.keyword.registryshort_notm}} ([Instructions](/docs/Registry?topic=Registry-registry_vpe))
 * Context-based restrictions ([Endpoint URLs](/apidocs/context-based-restrictions#endpoint-urls))
@@ -59,5 +59,5 @@ with your account.
 * Watson Speech to Text ([Instructions](/docs/watson?topic=watson-virtual-private-endpoints))
 * Watson Text to Speech ([Instructions](/docs/watson?topic=watson-virtual-private-endpoints))
 
-This topic will be updated as additional services are supported.
+This topic updates as additional services are supported.
 {: note}

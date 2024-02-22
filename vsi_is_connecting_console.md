@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-12-18"
+  years: 2020, 2024
+lastupdated: "2024-02-20"
 
 keywords: vnc console, serial console, virtual server instance
 
@@ -67,7 +67,7 @@ The console can be opened by using any of the [supported browsers](/docs/overvie
 For the serial console, you can configure `getty` to log in automatically without a password by using the `-a root` flag.
 {: tip}
 
-To enable the serial console service for custom Linux images, make sure that the argument `console=ttyS0` is present on the kernel command line. For more information, see [Step 2 - Check kernel arguments](/docs/vpc?topic=vpc-create-linux-custom-image#kernel-args) in [Creating a Linux custom image](/docs/vpc?topic=vpc-create-linux-custom-image).
+To enable the serial console service for custom Linux images, make sure that the argument `console=ttyS0` is present on the kernel command line. For more information, see [Step 1 - Start with a single image file in qcow2 or VHD format](/docs/vpc?topic=vpc-create-linux-custom-image#single-image-qcow2) in [Creating a Linux custom image](/docs/vpc?topic=vpc-create-linux-custom-image).
 {: note}
 
 ## Using the IBM Cloud UI to connect to a console

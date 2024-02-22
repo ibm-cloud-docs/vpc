@@ -30,7 +30,7 @@ To add a security group to an existing virtual network interface, follow these s
 1. Select the **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Virtual network interfaces**.
 1. Click the name of the virtual network interface that you want to add a security group to in the Virtual network interfaces for VPC table.
 1. Click the **Attached resources** tab.
-1. In the Security groups section, click **Attach*.
+1. In the Security groups section, click **Attach**.
 1. In the Attach security group panel that appears, select a security group from the list.
 1. Click **Attach** to attach the security group to your virtual network interface, or click **Cancel**.
 

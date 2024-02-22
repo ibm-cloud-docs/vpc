@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2023
-lastupdated: "2023-08-21"
+  years: 2018, 2024
+lastupdated: "2024-02-21"
 
 
 keywords: known issues, bugs, defects
@@ -97,11 +97,6 @@ Because all bare metal profiles are VMware&reg; certified, the `supported_image_
 {: #custom-images-private-catalog-known-issues}
 
 **Issue:** If you have imported one or more images into a virtual server image for VPC catalog product offering version and you edit that version, an additional version ending in "draft" is created. You can't provision an instance from this draft version. Draft versions might appear on the Virtual server instance creation page in the UI or in the output of the CLI command `ibmcloud is catalog-image-offering`.
-
-## VPC property issue for Security and Compliance Center
-{: #RCS-4957}
-
-**Issue:** If you set a [config rule](/docs/vpc?topic=vpc-manage-security-compliance&interface=ui#govern-vpc) for a virtual server instance with the `metadata_service_enabled` property set to *is_false*, the compliance policy currently has no effect.
 
 ## Additional authorizations beyond those defined in the API specification
 {: #api-spec-auth-known-issue}

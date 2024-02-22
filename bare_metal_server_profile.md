@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-01-30"
+lastupdated: "2024-02-02"
 
 keywords:
 
@@ -21,7 +21,7 @@ When you create a bare metal server, you can select from a profile family that b
 ## About profile families
 {: #profile-familiy}
 
-Profiles are grouped by the _vCPUs:Memory_ ratio across all the VPC compute offerings. You can choose from the following profile families:
+Profiles are grouped by the *vCPUs:Memory* ratio across all the VPC compute offerings. You can choose from the following profile families:
 
 | Family | vCPU:Memory ratio | Description |
 |-----|-----|-----|
@@ -85,7 +85,7 @@ See the following table to see the available profile configurations.
 {: summary="Use the buttons before the table to change the context of the table. The column headers identify the hardware class."}
 
 ### Understanding the naming rule of the profiles
-{: #profile-naming-rule}
+{: #profile-naming-rule-bm-x86-64}
 
 The following information describes the naming rule of the profiles.
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-12-18"
+  years: 2020, 2024
+lastupdated: "2024-02-21"
 
 keywords: auto scale, autoscale, virtual server instance, creating, UI, console, instance group
 
@@ -99,7 +99,7 @@ You can set a static number of instances or choose to dynamically scale instance
 
 If you want to include a load balancer for your instance group to balance incoming requests across instances and configure specific health checks, you must create the load balancer before you create the instance group. For more information, see the following topics:
 
-- [About application load balancers](/docs/vpc?topic=vpc-load-balancers-about) and [Creating an IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancer)
+- [About application load balancers](/docs/vpc?topic=vpc-load-balancers-about) and [Creating an IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancers)
 - [About network load balancers](/docs/vpc?topic=vpc-network-load-balancers), [Creating an IBM Cloud Network Load Balancer for VPC](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer), and [Creating an IBM Cloud Private Network Load Balancer with routing mode for VPC](/docs/vpc?topic=vpc-nlb-vnf)
 
 For more information about health checks for load balancer pools, see the following topics:
@@ -255,7 +255,7 @@ Use the following commands to determine the required information for creating a 
    ```
    {: screen}
 
-   If you don't have one available, you can create an {{site.data.keyword.vpc_short}} by using the `ibmcloud is vpc-create` command. For more information about creating an {{site.data.keyword.vpc_short}}, see [IBM Cloud VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference#vpcs).
+   If you don't have one available, you can create an {{site.data.keyword.vpc_short}} by using the `ibmcloud is vpc-create` command. For more information about creating an {{site.data.keyword.vpc_short}}, see [IBM Cloud VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference#vpc-create).
 
 1. List the available profiles for creating your instance template.
 
@@ -303,7 +303,7 @@ Use the following commands to determine the required information for creating a 
 
    For the best performance of an auto scale instance group, ensure that you use a subnet size of 32 or greater.
 
-   If you don't have one available, you can create a subnet by using the `ibmcloud is subnet-create` command. For more information about creating a subnet, see [IBM Cloud VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference#subnets).
+   If you don't have one available, you can create a subnet by using the `ibmcloud is subnet-create` command. For more information about creating a subnet, see [IBM Cloud VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference#subnet-create).
 
 1. List the available images for creating your instance template.
    You can create an instance by using a stock image, a custom image from your account, or an image that was shared with your account from a private catalog. Run one of the following commands based on the image that you plan to use.
@@ -403,7 +403,7 @@ After you have your instance template in hand, your next step is to create an in
 
 If you want to include a load balancer for your instance group to balance incoming requests across instances and configure specific health checks, you must create the load balancer before you create the instance group. For more information, see
 
-- [About application load balancers](/docs/vpc?topic=vpc-load-balancers-about) and [Creating an IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancer).
+- [About application load balancers](/docs/vpc?topic=vpc-load-balancers-about) and [Creating an IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancers).
 - [About network load balancers](/docs/vpc?topic=vpc-network-load-balancers) and [Creating an IBM Cloud Network Load Balancer for VPC](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer).
 
 For more information about health checks for load balancer pools, see

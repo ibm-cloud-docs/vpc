@@ -20,9 +20,6 @@ toc:
        - link:
           label: What is Virtual Private Cloud?
           href:  https://www.ibm.com/topics/vpc
-       - link:
-          label: Architecture Center VPC Resources
-          href: https://www.ibm.com/cloud/architecture/architectures/virtual-private-cloud/resources
        - about-vpc.md
        - quotas.md
        - topicgroup:
@@ -327,6 +324,11 @@ toc:
                 - vni-add-sg.md
             - vni-attach.md
             - vni-known-issues.md
+            - topicgroup:
+                label: Virtual network interface hazardous change remediation
+                topics:
+                - topic: vni-api-introduction.md
+                  navtitle: Preparing for changes to virtual network interfaces, instances, bare metal servers, and file shares
         - topicgroup:
             label: Floating IP addresses
             topics:
@@ -557,6 +559,7 @@ toc:
                 topics:
                 - block_storage_is_create.md
                 - block_storage_vpc_byok_encryption.md
+                - block_storage_vpc_byok_multitenant_encryption.md
                 - block_storage_vpc_manage_storage_limits.md
             - block_storage_is_attach.md
             - block_storage_is_use_volume_lin.md
@@ -834,6 +837,5 @@ toc:
         - limitations.md
         - known-issues.md
         - metadata-error-codes.md
-        - errors.md
         - enable-local-browser-storage-for-notifications.md
         - getting-help.md

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-01-30"
+lastupdated: "2024-02-20"
 
 keywords:
 
@@ -44,7 +44,7 @@ You can manage an image by using the {{site.data.keyword.cloud_notm}} console.
 | Copy | Copy the UUID of the custom image. |
 | View checksum | View the checksum for the custom image. |
 | Schedule lifecycle | Opens the **Schedule image lifecycle** panel. You can make an immediate status change or schedule a statue change for a future date and time. You can schedule a single status change or schedule the complete lifecycle of the images. The image statuses are:  \n  \n * `available`: The image can be used to create an instance.  \n  \n * `deprecated`: The image is still available to use to provision and instance. Using the `deprecated` status can discourage use of the image before the status changes to `obsolete`.  \n * `obsolete`: The image is not available to use to provision an instancce.  \n  \n * Schedule complete lifecycle: You can schedule both the `deprecated` and `obsolete` status changes at the same time.  \n  \n You can move back and forth between the three statuses. Only the statuses you can change to are displayed. You can schedule status changes by by using calendar date and time or number of days. The obsolescence dates must always be after the deprecation date.|
-| Delete | Delete the custom image.  \n  \n  If you want to delete a custom image in a private catalog, see [Deleting a custom image in a private catalog](/docs/vpc?topic=vpc-planning-custom-images#deleting-private-catalog-custom-image-vpc). |
+| Delete | Delete the custom image.  \n  \n  If you want to delete a custom image in a private catalog, see [Deleting a custom image in a private catalog](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=ui#deleting-private-catalog-custom-image-vpc). |
 {: caption="Table 1. Custom image actions" caption-side="bottom"}
 
 ## Listing custom images by using the CLI
@@ -60,7 +60,7 @@ ibmcloud is images --visibility private
 ```
 {: pre}
 
-For more information, see [ibmcloud is images](/docs/vpc?topic=vpc-vpc-reference#images) in the VPC CLI reference page.
+For more information, see [ibmcloud is images](/docs/vpc?topic=vpc-vpc-reference&interface=ui#images-list) in the VPC CLI reference page.
 
 ## Listing all images by using the API
 {: #custom-images-list-api}
@@ -131,7 +131,7 @@ ibmcloud is image IMAGE
 ```
 {: pre}
 
-For more information, see [ibmcloud is image](/docs/vpc?topic=vpc-vpc-reference#image) in the VPC CLI reference page.
+For more information, see [ibmcloud is image](/docs/vpc?topic=vpc-vpc-reference&interface=ui#image-view) in the VPC CLI reference page.
 
 ## Retrieving custom image details by using the API
 {: #custom-image-retrieve-api}
@@ -307,7 +307,7 @@ ibmcloud is image-export-jobs 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479
 ```
 {: pre}
 
-For more information, see [ibmcloud is image-export-jobs](/docs/vpc/docs/vpc?topic=vpc-vpc-reference#image-export-jobs) in the VPC CLI reference page.
+For more information, see [ibmcloud is image-export-jobs](/docs/vpc?topic=vpc-vpc-reference#image-export-jobs-list) in the VPC CLI reference page.
 
 ### Viewing image export job details by using the CLI
 {: #custom-image-export-job-details-cli}
@@ -320,7 +320,7 @@ ibmcloud is image-export-job IMAGE JOB
 ```
 {: pre}
 
-For more information, see [ibmcloud is image-export-job](/docs/vpc?topic=vpc-vpc-reference#image-export-job) in the VPC CLI reference page.
+For more information, see [ibmcloud is image-export-job](/docs/vpc?topic=vpc-vpc-reference&interface=ui#image-export-job-view) in the VPC CLI reference page.
 
 ### Deleting or canceling an image export job by using the CLI
 {: #custom-image-export-job-delete-cli}

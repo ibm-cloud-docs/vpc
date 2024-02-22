@@ -58,7 +58,7 @@ Where:
 :   Is the new name of the route.
 
 `--priority`
-:   Is the route's priority. Smaller values have higher priority. If a custom routing table contains routes with the same destination, the route with the highest priority (smallest value) is selected.
+:   Is the route's priority. Lower values have higher priority. If a custom routing table contains routes with the same destination, the route with the highest priority (smallest value) is selected.
 
 `--next-hop`
 :   If the action is **deliver**, this is the IP address or VPN connection ID or name of the next hop to which to route packets.
@@ -110,9 +110,9 @@ To update a destination route with the API, follow these steps:
    -H "Authorization: Bearer $iam_token" \
    -d '{
       "name": "my-vpc-route-updated"
-    }'   
+    }'
    ```
-   {: codeblock}    
+   {: codeblock}
 
 ## Updating a route with Terraform
 {: #cr-update-route-terraform}
@@ -120,7 +120,7 @@ To update a destination route with the API, follow these steps:
 
 To update a route with Terraform, follow these steps:
 
-1. [Set up your Terraform environment](/docs/vpc?topic=vpc-terraform-setup).
+1. Set up your Terraform environment.
 1. Update priority in the existing route resource:
 
    ```terraform

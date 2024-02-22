@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-01-17"
+lastupdated: "2024-02-16"
 
 keywords:
 
@@ -20,7 +20,7 @@ subcollection: vpc
 {{site.data.keyword.cloud}} Reservations are a great option when you want significant cost savings and guaranteed resources for future deployments. You can choose a 1 or 3-year term, server quantity, specific profile, and provision those servers when needed.
 {: shortdesc}
 
-{{site.data.keyword.cloud}} Reservations are available in only the Sydney multizone region.
+{{site.data.keyword.cloud}} Reservations are available in only the Frankfurt (_eu-de_), London (_eu-gb_), Madrid (_eu-es_), Osaka (_jp-osa_), Sao Paulo (_br-sao_), Sydney (_au-syd_), Toronto (_ca-tor_), and Washington DC (_us-east_) multizone regions.
 {: note}
 
 Reservations offers many advantages, including the following benefits:
@@ -36,7 +36,7 @@ Reservations offers many advantages, including the following benefits:
 ## Supported profile families
 {: #reserved-virtual-servers-vpc-supported-profiles}
 
-The following x86 Balanced profiles for virtual servers are available when you provision a reservation in the Sydney multizone region.
+The following x86 Balanced profiles for virtual servers are available when you provision a reservation in an available multizone region.
 
 * bx2-2x8
 * bx2d-2x8
@@ -44,18 +44,6 @@ The following x86 Balanced profiles for virtual servers are available when you p
 * bx2d-4x16
 
 For more information about profiles, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles).
-
-<!-- | Family | Description |
-| -------- | ----------- |
-| Balanced | Best for midsized databases and common cloud applications with moderate traffic. |
-| Compute | Best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers. |
-| Memory  | Best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads. |
-| Very High Memory | Optimized for running small to medium in-memory databases and OLAP workloads, such as SAP BW/4 HANA.  |
-| Ultra High Memory | Optimized to run large in-memory databases and OLTP workloads, such as SAP S/4 HANA. |
-| GPU | Provide on-demand access to NVIDIA V100 and A100 GPUs to accelerate AI, high-performance computing, data science, and graphics workloads. |
-| Optimized storage | Offer temporary SSD instance storage disks at a ratio of 1 vCPU to 300 GB instance storage with a smaller price point per GB. These profiles are designed for storage-dense workloads and offer `virtio` interface type for attached disks. |
-| s390x (LinuxONE) | Provides dedicated CPU core, memory, and I/O channel to better manage your high-performance workloads. |
-{: caption="Table 2. Supported reserved virtual server profile families" caption-side="top"}-->
 
 ## Limitations
 {: #limitations-reserved-virtual-servers-vpc}

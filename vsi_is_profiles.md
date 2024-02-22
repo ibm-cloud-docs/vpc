@@ -1,7 +1,8 @@
 ---
 copyright:
   years: 2019, 2024
-lastupdated: "2024-01-23"
+
+lastupdated: "2024-02-21"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, very high memory, gpu, sap, olap, oltp, nvidia, cascade lake
 
@@ -21,6 +22,8 @@ A profile is a combination of instance attributes, such as the number of vCPUs, 
 {: shortdesc}
 
 For more information about profiles for IBM Z (s390x processor architecture), see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles).
+
+For more information about SAP profiles, see [Intel Virtual Server certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc) and [Intel Virtual Server certified profiles on VPC infrastructure for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc).
 
 The following profile families are available:
 
@@ -44,12 +47,12 @@ Profiles with AMD manufactured processors are available in the Toronto region.
 ## Balanced
 {: #balanced}
 
-Balanced profiles provide a mix of performance and scalability for more common workloads. The Balanced profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Balanced profiles that are available for Intel&reg; x86-64, and AMD x86-64 processors. 
+Balanced profiles provide a mix of performance and scalability for more common workloads. The Balanced profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Balanced profiles that are available for Intel&reg; x86-64, and AMD x86-64 processors.
 
 Balanced profiles with the bx2d prefix are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Spain (Madrid), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions.
 {: preview}
 
-3rd generation profiles with the bx3d prefix are available in the Dallas and London regions to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). To access profiles for 3rd generation virtual server instances that include vCPU that is greater than 64 vCPU, contact IBM Support. For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
+3rd generation profiles with the bx3d prefix are available in the Dallas, London, and Frankfurt regions to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). To access profiles for 3rd generation virtual server instances that include vCPU that is greater than 64 vCPU, contact IBM Support. For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
 {: preview}
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
@@ -129,7 +132,7 @@ Compute profiles are best for workloads with intensive CPU demands, such as high
 Compute profiles with the cx2d prefix are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Spain (Madrid), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions.
 {: preview}
 
-3rd generation profiles with the cx3d prefix are available in the Dallas and London regions to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). To access profiles for 3rd generation virtual server instances that include vCPU that is greater than 64 vCPU, contact IBM Support. For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
+3rd generation profiles with the cx3d prefix are available in the Dallas, London, and Frankfurt regions to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). To access profiles for 3rd generation virtual server instances that include vCPU that is greater than 64 vCPU, contact IBM Support. For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
 {: preview}
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
@@ -153,7 +156,7 @@ Compute profiles with the cx2d prefix are available in the US South (Dallas), US
 | cx2-128x256 | 128 | 64 | 256 | 80 | - |
 | cx2d-128x256 | 128 | 64 | 256 | 80 | 2x2400 |
 {: caption="Table 4. Compute profile options for x86-64 instances" caption-side="bottom"}
-{: #compute-intel-x86-64}
+{: #compute-intel-x86-64-cx2d}
 {: tab-title="cx2"}
 {: tab-group="Compute"}
 {: class="simple-tab-table"}
@@ -173,7 +176,7 @@ Compute profiles with the cx2d prefix are available in the US South (Dallas), US
 | cx3d-128x320 | 128 / 64  | 2 | 320 | 200 | 2x2080 |
 | cx3d-176x440 | 176 / 88 | 2 | 440 | 200 | 2x2860 |
 {: caption="Table 4. Compute profile options for x86-64 instances" caption-side="bottom"}
-{: #compute-intel-x86-64}
+{: #compute-intel-x86-64-cx2d}
 {: tab-title="cx3d"}
 {: tab-group="Compute"}
 {: class="simple-tab-table"}
@@ -187,7 +190,7 @@ Memory profiles are best for memory intensive workloads, such as large caching w
 Memory profiles with the mx2d prefix are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Spain (Madrid), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions.
 {: preview}
 
-3rd generation profiles with the mx3d prefix are available in the Dallas and London regions to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). To access profiles for 3rd generation virtual server instances that include vCPU that is greater than 64 vCPU, contact IBM Support. For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
+3rd generation profiles with the mx3d prefix are available in the Dallas, London, and Frankfurt regions to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). To access profiles for 3rd generation virtual server instances that include vCPU that is greater than 64 vCPU, contact IBM Support. For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
 {: preview}
 
 
@@ -212,7 +215,7 @@ Memory profiles with the mx2d prefix are available in the US South (Dallas), US 
 | mx2-128x1024| 128 | 64 | 1024 | 80 | - |
 | mx2d-128x1024| 128 | 64 | 1024 | 80 | 2x2400 |
 {: caption="Table 5. Memory mx2 profile options for x86-64 instances " caption-side="bottom"}
-{: #memory-intel-x86-64}
+{: #memory-intel-x86-64-mx2d}
 {: tab-title="mx2"}
 {: tab-group="Memory"}
 {: class="simple-tab-table"}
@@ -232,7 +235,7 @@ Memory profiles with the mx2d prefix are available in the US South (Dallas), US 
 | mx3d-128x1280 | 128 / 64 | 2 | 1280 | 200 | 2x2080 |
 | mx3d-176x1760 | 176 / 88 | 2 | 1760 | 200 | 2x2860 |
 {: caption="Table 5. Memory mx3d Beta profile options for x86-64 instances " caption-side="bottom"}
-{: #memory-intel-x86-64}
+{: #memory-intel-x86-64-mx3d}
 {: tab-title="mx3d"}
 {: tab-group="Memory"}
 {: class="simple-tab-table"}
@@ -266,9 +269,6 @@ Very High Memory profiles offer 1 vCPU to 14 GiB of RAM to host small to medium 
 
 Ultra High Memory profiles are hosted exclusively on the latest generation Intel® Xeon® Platinum Cascade Lake server hosts. This profile family offers our highest vCPU to memory ratio with 28 GiB of memory for every 1 vCPU of compute and up to 5.7 TiB of available RAM and is optimized for running memory intensive applications and in-memory database such as SAP HANA, Memcached, or Redis. All Very High Memory profiles are provisioned with temporary SSD-backed [instance storage](/docs/vpc?topic=vpc-instance-storage) at no additional charge.
 
-Ultra High Memory profiles are available in the US South (Dallas), US East (Washington DC), Brazil (São Paulo), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions.
-{: preview}
-
 The following Ultra High Memory profiles are available for x86-64 processors:
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
@@ -295,13 +295,13 @@ The following Ultra High Memory profiles are available for x86-64 processors:
 
 The GPU profile family includes both `-v100` and `-a100` profiles. The GPU profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage).
 
-* GPU `-v100` profiles include 1 or 2 NVIDIA V100 PCIe 16 GB GPUs. All OS images are supported on these GPU profiles.  
-* GPU `-a100` profile includes 8 NVIDIA A100 NVlink 80 GB GPUs. This GPU profile supports only Linux OS images Ubuntu or RHEL. 
+* GPU `-v100` profiles include 1 or 2 NVIDIA V100 PCIe 16 GB GPUs. All OS images are supported on these GPU profiles.
+* GPU `-a100` profile includes 8 NVIDIA A100 NVlink 80 GB GPUs. This GPU profile supports only Linux OS images Ubuntu or RHEL.
 
 The `gx2-80x1280x8a100` profile is available for select customers. Contact IBM Sales or open a [support case](https://cloud.ibm.com/unifiedsupport/supportcenter) if you are interested in this offering.
 {: preview}
 
-See [Download drivers](https://www.nvidia.com/Download/index.aspx?lang=en-us) to review the most current versions that are supported. NVIDIA GPU drivers must be installed separately. 
+See [Download drivers](https://www.nvidia.com/Download/index.aspx?lang=en-us) to review the most current versions that are supported. NVIDIA GPU drivers must be installed separately.
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Number of GPUs | Instance storage (GB) |
 |---------|---------|---------|---------|---------|---------|---------|
@@ -412,12 +412,12 @@ For more information, see [Bandwidth allocation for instance profiles](/docs/vpc
 ### Bandwidth allocation with multiple network interfaces
 {: #bandwidth-multi-vnic}
 
-You can add up to 15 network interfaces for your virtual server instance, depending on the vCPU count that is included in the instance profile. 
+You can add up to 15 network interfaces for your virtual server instance, depending on the vCPU count that is included in the instance profile.
 * 2-16 vCPUs: Up to 5 network interfaces
 * 17-48 vCPUs: Up to 10 network interfaces
 * 49 or more vCPUs: Up to 15 network interfaces
 
-With multiple network interfaces, bandwidth is distributed evenly across the network interfaces that are attached to the virtual server instance. 
+With multiple network interfaces, bandwidth is distributed evenly across the network interfaces that are attached to the virtual server instance.
 
 For more information, see [Managing network interfaces](/docs/vpc?topic=vpc-using-instance-vnics).
 
@@ -500,7 +500,7 @@ curl -X GET \
 
 [Select availability]{: tag-green}
 
-The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are available to provision in the Dallas and London regions. This new generation features virtual server profile families that are hosted exclusively on Intel 4th Generation Xeon Scalable processors to provide the most powerful and performant general-purpose profiles available. These 3rd generation profiles provide the following enhancements:
+The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are available to provision in the Dallas, London, and Frankfurt regions. This new generation features virtual server profile families that are hosted exclusively on Intel 4th Generation Xeon Scalable processors to provide the most powerful and performant general-purpose profiles available. These 3rd generation profiles provide the following enhancements:
 
 - Improved performance with DDR 5 memory DIMMs, PCI Gen 5 interconnects, and more memory per vCPU than prior generation profiles.
 - A wide variety of profiles sizes with core to memory ratios optimized to maximize performance and economics for intensive workloads.
@@ -509,7 +509,7 @@ The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_i
 - Local instance storage is included with all profiles for easy access to temporary storage and swap space. For more information about the temporary nature of instance storage, see [Lifecycle of instance storage](/docs/vpc?topic=vpc-instance-storage#instance-storage-lifecycle).
 - A 3rd generation profile can be resized to a 2nd generation profile. A 2nd generation profile can be resized to a 3rd generation profile. For more information, see [Resizing between Gen 2 and Gen 3 profiles](/docs/vpc?topic=vpc-resizing-an-instance&interface=ui#resizing-instance-generations).
 
-To access profiles for 3rd generation virtual server instances that include vCPU that is greater than 64 vCPU, contact IBM Support. 
+To access profiles for 3rd generation virtual server instances that include vCPU that is greater than 64 vCPU, contact IBM Support.
 {: preview}
 
 ## Intel Hyper-Threading Technology
@@ -524,8 +524,8 @@ If you want to disable Intel&reg; Hyper-Threading, see [Disabling Intel Hyper-Th
 
 After you choose a profile, it's time to create an instance.
 
-* [Creating an instance by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#creating-virtual-servers-ui)
-* [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli#creating-virtual-servers-cli)
-* [Creating an instance by using the API](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=api#select-profile-and-image)
-* [Creating an instance by using Terraform](/docs/vpc?topic=vpc-creating-virtual-servers&interface=terraform#create-instance-terraform)
+* [Creating an instance by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui)
+* [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli)
+* [Creating an instance by using the API](/docs/vpc?topic=vpc-creating-virtual-servers&interface=api)
+* [Creating an instance by using Terraform](/docs/vpc?topic=vpc-creating-virtual-servers&interface=terraform)
 * [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus)

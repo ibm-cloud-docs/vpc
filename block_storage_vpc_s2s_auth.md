@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2023-12-18"
+lastupdated: "2024-02-08"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -37,9 +37,7 @@ You can access the **Manage authorizations** by clicking **Manage** > **Access (
 
 1. On the **Manage authorizations** page, click **Create**. 
 1. On the **Grant a service authorization** page, select the source account.
-1. For the source service, select **VPC Infrastructure Services** from the list.
-1. Select the scope. Choose **Resources based on selected attributes**.
-1. Click **Resource type**. From the list, select **Block Storage for VPC**.
+1. For the source service, select **Cloud Block Storage** from the list.
 1. For the target service, select **Hyper Protect Crypto Services** or **KeyProtect** from the list. 
 1. Check the box to enable authorization to be delegated by source and dependent services.
 1. Then, under Service access, select the role `Reader`.
@@ -49,10 +47,10 @@ You can access the **Manage authorizations** by clicking **Manage** > **Access (
 {: #block-s2s-auth-encryption-cli}
 {: cli}
 
-Run the `ibmcloud iam authorization-policy-create` command to create authorization policies for the Block service to interact with one or both Key Management Services ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}). The source service is `is` with the `--source-resource-type volume` and the target service is either `kms` or `hs-crypto`. The role that you need to assign is `Reader`. The following example creates an authorization policy between the Block service and {{site.data.keyword.keymanagementserviceshort}}.
+Run the `ibmcloud iam authorization-policy-create` command to create authorization policies for the Block service to interact with one or both Key Management Services ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}). The source service is `server-protect` and the target service is either `kms` or `hs-crypto`. The role that you need to assign is `Reader`. The following example creates an authorization policy between the Block service and {{site.data.keyword.keymanagementserviceshort}}.
 
 ```sh
-$ ibmcloud iam authorization-policy-create is kms Reader --source-resource-type volume
+$ ibmcloud iam authorization-policy-create server-protect kms Reader
 Creating authorization policy under account a1234567 as test.user@ibm.com...
 OK
 ```
@@ -65,21 +63,19 @@ $ ibmcloud iam authorization-policies
 Getting authorization policies under account a1234567 as test.user@ibm.com...
 OK
                            
-ID:                        8a2ef8a5-2e4c-46ea-b2e7-d4b0d0a0e1a5
-Source service name:       is
+ID:                        1f722de4-c3e6-4765-b0d3-482ec77a04f8
+Source service name:       server-protect
 Source service instance:   All instances
-Source resource type:      volume
-Target service name:       hs-crypto
-Target service instance:   All instances
+Target service name:       kms
+Target service instance:   51042d7f-f0df-4915-bd39-6a49957c9175
 Roles:                     Reader
                            
-ID:                        d2df60ea-5575-4bd1-9cd6-f35c52576577
-Source service name:       is
+ID:                        605cb9b9-ba0d-456b-8c22-180abee66c47
+Source service name:       server-protect
 Source service instance:   All instances
-Source resource type:      volume
-Target service name:       kms
+Target service name:       hs-crypto
 Target service instance:   All instances
-Roles:                     Authorization Delegator, Reader
+Roles:                     Reader 
 ```
 {: screen}
 
@@ -91,7 +87,7 @@ For more information about all of the parameters that are available for this com
 
 Make a request to the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy) to create the service-to-service authorization for the source volume's Block service to interact with a Key Management Service instance ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}).
 
-* The following example shows how you can authorize the Block service `is.volume` (source) to interact with the {{site.data.keyword.keymanagementserviceshort}} service `kms` (target) with the _Reader_ role.
+* The following example shows how you can authorize the Block service `is.server-protect` (source) to interact with the {{site.data.keyword.keymanagementserviceshort}} service `kms` (target) with the _Reader_ role.
 
    ```sh
    curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H 
@@ -100,7 +96,7 @@ Make a request to the [IAM Policy Management API](/apidocs/iam-policy-management
    '{
      "type": "access",
      "description": "Reader role for the Block service to interact with the KeyProtect service.",
-     "subjects": [{"attributes": [{"name": "serviceName","value": "is"},{"name": "resourceType","value": "volume"}]}],
+     "subjects": [{"attributes": [{"name": "serviceName","value": "server-protect"}]}],
      "roles":[{"role_id": "crn:v1:bluemix:public:iam::::role:Reader"}],
      "resources":[{"attributes": [{"name": "serviceName","value": "kms"}]}]
      }'
@@ -119,7 +115,7 @@ The following example creates an authorization policy between the Block service 
 ```terraform 
 resource "ibm_iam_authorization_policy" "mypolicy4keyprotect" {
   source_service_name  = "is"
-  source_resource_type = "volume"
+  source_resource_type = "server-protect"
   target_service_name  = "kms"
   roles                = ["Reader"]
 }
@@ -130,7 +126,7 @@ The following example creates an authorization policy between the Block service 
 ```terraform 
 resource "ibm_iam_authorization_policy" "mypolicy4HPCS" {
   source_service_name  = "is"
-  source_resource_type = "volume"
+  source_resource_type = "server-protect"
   target_service_name  = "hs-crypto"
   roles                = ["Reader"]
 }

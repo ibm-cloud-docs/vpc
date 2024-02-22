@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-01-05"
+lastupdated: "2024-02-08"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -67,7 +67,7 @@ You can view details of a backup policy by using the UI.
    | Applied resources | The number of volumes that are covered by the policy. This list includes volumes that were created by users for the account. If the policy is an enterprise-wide policy, the list shows volumes of the enterprise account, and not the volumes of its child accounts. |
    | Tags for target resources | This field shows the user tags that can trigger the creation of a backup when they are applied to a resource. \n - You can click the pencil icon to add more tags. For more information, see [Edit tags for target resources](/docs/vpc?topic=vpc-backup-service-manage&interface=ui#backup-edit-tags). \n - See also [Applying backup policies to resources by using tags](/docs/vpc?topic=vpc-backup-use-policies). |
    | Target resource type  | The backup policy can apply to individual block **volumes** or a consistency group of block volumes of **instances**. |
-   | Last backup job | It shows the date and time when the last backup job ran.|
+   | Last backup job | It shows the date and time when the last backup job ran. Backup jobs create or delete backup snapshots based on the plan frequency and retention settings. To see which type of job ran last, click **view**. |
    | Enterprise account CRN | This value is only shown when the backup policy is an enterprise-wide policy. It is the Cloud Resource Name of the Enterprise that created the policy.|
    | Health | The current health state of the policy. For more information, see the [FAQs](/docs/vpc?topic=vpc-backup-service-enterprise-faq&interface=terraform#faq-baas-ee-5).|
    {: caption="Table 2. Backup policy details" caption-side="bottom"}

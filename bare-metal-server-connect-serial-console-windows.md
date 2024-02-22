@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-11-07"
+  years: 202, 2024
+lastupdated: "2024-02-21"
 
 keywords: windows serial console, connect to windows console, connect to windows serial console, serial console, connect to serial console
 
@@ -17,7 +17,7 @@ subcollection: vpc
 {: #connect-to-serial-console-with-windows}
 
 
-Serial console isn't enabled by default on Windows&reg;. You need to enable it by using the following script. 
+Serial console isn't enabled by default on Windows&reg;. You need to enable it by using the following script.
 
 ```sh
 #ps1_sysnative
@@ -32,5 +32,5 @@ The restart command works only if the windows `cloudbase-init` service allows fo
 
 For more information about enabling serial console for Windows, see the following links.
 
-* [Boot Parameters to Enable EMS Redirection](https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/boot-parameters-to-enable-ems-redirection)
+* [Boot Parameters to Enable EMS Redirection](https://learn.microsoft.com/en-us/windows-hardware/drivers/devtest/boot-parameters-to-enable-ems-redirection){: external}
 * [Using the Serial Console on Windows IaaS VMs](https://techcommunity.microsoft.com/t5/itops-talk-blog/using-the-serial-console-on-windows-iaas-vms/ba-p/2272295)

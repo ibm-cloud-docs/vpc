@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-01-30"
+lastupdated: "2024-02-21"
 
 keywords:
 
@@ -273,7 +273,7 @@ Do not remove IAM authorization between Cloud Block Storage and the KMS instance
 
 To make your data inaccessible, but retain it on the {{site.data.keyword.cloud_notm}}:
 
-1. [Remove IAM authorization](/docs/account?topic=account-serviceauth#remove-auth) from the source Cloud Block Storage service to your target key management service instance.
+1. [Remove IAM authorization](/docs/account?topic=account-serviceauth&interface=ui#remove-auth) from the source Cloud Block Storage service to your target key management service instance.
 1. [Stop all virtual server instances](/docs/vpc?topic=vpc-managing-virtual-server-instances#stop-and-start) with attached encrypted volumes that are secured by that root key.
 
 You can also [disable a root key](#byok-disable-root-keys), which suspends the key and temporarily revokes access to it.
