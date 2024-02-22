@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-02-21"
+lastupdated: "2024-02-22"
 
 keywords:
 
@@ -204,7 +204,7 @@ To see a list of deleted root keys for a KMS instance, you can filter by key sta
 1. Go to the [{{site.data.keyword.cloud_notm}} console](/vpc){: external} > **Resource List** > **Security**,
 1. Locate, and click the KMS instance.
 1. On the **Keys** page, the list of root keys that are stored in this instance is displayed.
-1. Click the **Filter icon![Filter icon](/images/filter-icon.png)** to see more information.
+1. Click the **Filter icon![Filter icon](../../icons/filter.svg)** to see more information.
 1. Under **States**, click the down arrow to display all key states.
 1. Select **Deleted**.
 
@@ -234,9 +234,9 @@ You can use the UI to disable, enable, delete, or restore your root keys. Table 
 |-------------|--------------------------|-------------------|
 | Disable key | [Disabling a root key](/docs/key-protect?topic=key-protect-disable-keys&interface=ui#disable-ui). | [Disabling a root key](/docs/hs-crypto?topic=hs-crypto-disable-keys#disable-ui). |
 | Enable key | [Enabling a root key](/docs/key-protect?topic=key-protect-disable-keys&interface=ui#enable-ui). | [Enabling a root key](/docs/hs-crypto?topic=hs-crypto-disable-keys#enable-ui). |
-| Delete key | [Deleting keys in the console (single authorization)](/docs/key-protect?topic=key-protect-delete-keys&interface=ui#delete-key-gui). | [Deleting keys with the GUI (single authorization)](/docs/hs-crypto?topic=hs-crypto-delete-keys&interface=ui#delete-keys-gui). |
+| Delete key | [Deleting keys in the console (single authorization)](/docs/key-protect?topic=key-protect-delete-keys&interface=ui). | [Deleting keys with the GUI (single authorization)](/docs/hs-crypto?topic=hs-crypto-delete-keys&interface=ui#delete-keys-gui). |
 | | [Deleting a key with dual authorization](/docs/key-protect?topic=key-protect-delete-dual-auth-keys&interface=ui#delete-dual-auth-keys-api). | [Authorize deletion for a key with the GUI (dual authorization)](/docs/hs-crypto?topic=hs-crypto-delete-dual-auth-keys&interface=ui#set-key-deletion-console). |
-| Restore key | [Restoring a deleted key with the console](/docs/key-protect?topic=key-protect-restore-keys&interface=ui#restore-ui). | [Restoring a deleted key with the GUI](/docs/hs-crypto?topic=hs-crypto-restore-keys&interface=ui#restore-ui). |
+| Restore key | [Restoring a deleted key with the console](/docs/key-protect?topic=key-protect-restore-keys&interface=ui#restore-ui). | [Restoring a deleted key with the GUI](/docs/hs-crypto?topic=hs-crypto-restore-keys&interface=ui#restore-keys-ui). |
 {: caption="Table 5. UI procedures for managing root keys" caption-side="bottom"}
 
 ### Manage root keys with the API
@@ -253,8 +253,8 @@ Because deleting a root key makes all resources that are protected by it unusabl
 | Disable key | [Disabling a root key](/docs/key-protect?topic=key-protect-disable-keys&interface=api#disable-api) | [Disabling a root key](/docs/hs-crypto?topic=hs-crypto-disable-keys#disable-api) |
 | Enable key | [Enabling a disabled root key](/docs/key-protect?topic=key-protect-disable-keys&interface=api#enable-api) | [Enabling a disabled root key](/docs/hs-crypto?topic=hs-crypto-disable-keys#enable-api) |
 | Delete key | [Deleting keys with the API (single authorization)](/docs/key-protect?topic=key-protect-delete-keys&interface=api#delete-key-api) | [Deleting keys with the API (single authorization)](/docs/hs-crypto?topic=hs-crypto-delete-keys&interface=api#delete-keys-api) |
-| | [Authorize deletion for a key with the API (dual authorization)](/docs/key-protect?topic=key-protect-delete-dual-auth-keys&interface=api#set-key-deletion-api) | [Authorize deletion for a key with the API (dual authorization)](/docs/hs-crypto?topic=hs-crypto-delete-dual-auth-keys&interface=api#set-key-deletion-api) |
-| Restore key | [Restoring a deleted key with the API](/docs/key-protect?topic=key-protect-restore-keys&interface=api#restore-api) | [Restoring a deleted key with the API](/docs/hs-crypto?topic=hs-crypto-restore-keys&interface=api#restore-api) |
+| | [Authorize deletion for a key with the API (dual authorization)](/docs/key-protect?topic=key-protect-delete-dual-auth-keys&interface=api#delete-dual-auth-keys-key-api) | [Authorize deletion for a key with the API (dual authorization)](/docs/hs-crypto?topic=hs-crypto-delete-dual-auth-keys&interface=api#set-key-deletion-api) |
+| Restore key | [Restoring a deleted key with the API](/docs/key-protect?topic=key-protect-restore-keys&interface=api#restore-api) | [Restoring a deleted key with the API](/docs/hs-crypto?topic=hs-crypto-restore-keys&interface=api#restore-keys-api) |
 {: caption="Table 6. API procedures for managing root keys" caption-side="bottom"}
 
 ### Removing service authorization to a root key
@@ -274,7 +274,7 @@ Do not remove IAM authorization between Cloud Block Storage and the KMS instance
 To make your data inaccessible, but retain it on the {{site.data.keyword.cloud_notm}}:
 
 1. [Remove IAM authorization](/docs/account?topic=account-serviceauth&interface=ui#remove-auth) from the source Cloud Block Storage service to your target key management service instance.
-1. [Stop all virtual server instances](/docs/vpc?topic=vpc-managing-virtual-server-instances#stop-and-start) with attached encrypted volumes that are secured by that root key.
+1. [Stop all virtual server instances](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#stop-and-start) with attached encrypted volumes that are secured by that root key.
 
 You can also [disable a root key](#byok-disable-root-keys), which suspends the key and temporarily revokes access to it.
 
