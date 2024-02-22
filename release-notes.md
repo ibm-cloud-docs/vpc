@@ -28,6 +28,16 @@ For more information about changes to the {{site.data.keyword.vpc_short}} API, s
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
 
+## February 2024
+{: #vpc-feb24}
+
+### 20 February 2024
+{: #vpc-feb2024}
+{: release-note}
+
+Virtual Network Interfaces for VPC [Select availability]
+:   You can now create virtual network interfaces for your VPC instances. Virtual network interfaces have an independent lifecycle, which means that when you delete a resource to which the virtual network interface is attached, the virtual network interface persists and retains its IP address. For more information, see [About virtual network interfaces](/docs/vpc?topic=vpc-vni-about).
+
 ## January 2024
 {: #vpc-jan24}
 
@@ -37,7 +47,6 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 Next generation instance profiles available in London region (select availability)
 :   The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are now available as a Select Availability offering in the London region, in addition to the Dallas region. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel&reg; Xeon&reg; Scalable processors to provide the most powerful and performant general-purpose profiles available. For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles). In the [Balanced](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) family, see the *bx3d* profiles tab. In the [Compute](/docs/vpc?topic=vpc-profiles&interface=ui#compute) family, see the *cx3d* profiles tab. In the [Memory](/docs/vpc?topic=vpc-profiles&interface=ui#memory) family, see the *mx3d* profiles tab. 3rd generation dedicated host profiles are also available. For more information, see *bx3d*, *cx3d*, and *mx3d* profiles in [x86-64 dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
-
 
 ### 16 January 2024
 {: #vpc-jan1624}
@@ -52,17 +61,6 @@ Reservations for VPC (select availability)
 
 UI enhancement to VPC download button
 :   Previously, when you downloaded a list of resources from a table, you could download only the current page if the resource list length was more than 200 records. With this UI enhancement, you can now download all the pages regardless of length of the resource list.
-
-
-## February 2024
-{: #vpc-feb24}
-
-### 20 February 2024
-{: #vpc-feb2024}
-{: release-note}
-
-Virtual Network Interfaces for VPC [Select availability]{: tag-preview}
-:   You can now create virtual network interfaces for your VPC instances. Virtual network interfaces have an independent lifecycle, which means that when you delete a resource to which the virtual network interface is attached, the virtual network interface persists and retains its IP address. For more information, see [About virtual network interfaces](/docs/vpc?topic=vpc-vni-about).
 
 ## December 2023
 {: #vpc-dec23}
