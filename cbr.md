@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-01-27"
+  years: 2022, 2024
+lastupdated: "2024-02-23"
 
 keywords: context-based restrictions for VPC Infrastructure Services
 

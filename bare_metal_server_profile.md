@@ -68,7 +68,7 @@ See the following table to see the available profile configurations.
 | mx2-metal-96x768 | 96 | 768 | 960 GB | 100 |
 | mx2d-metal-96x768 | 96 | 768 | 960 GB  \n 25.6 TB secondary storage (allocation of 8 x 3200) | 100 |
 {: caption="Table 2. Profile families" caption-side='top"}
-{: #bare-metal-memory-profiles}
+{: #bare-metal-memory-profiles-mx2d}
 {: tab-title="Memory profile"}
 {: tab-group="profile-configurations"}
 {: class="simple-tab-table"}
@@ -78,7 +78,7 @@ See the following table to see the available profile configurations.
 |---------|---------|---------|---------|---------|
 | vx2d-metal-96x1536 | 96 | 1536 | 960 GB   \n 25.6 TB secondary storage (allocation of 8 x 3200) | 100 |
 {: caption="Table 2. Profile families" caption-side='top"}
-{: #bare-metal-memory-profiles}
+{: #bare-metal-memory-profiles-vx2d}
 {: tab-title="Very High Memory profile"}
 {: tab-group="profile-configurations"}
 {: class="simple-tab-table"}
