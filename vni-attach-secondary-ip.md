@@ -21,6 +21,20 @@ A secondary IP addresses in virtual network interfaces can help you operate netw
 Secondary IP addresses can be created when you create your virtual network interface, or they can be added to the virtual network interface after the VNI creation. For steps to add a secondary IP while you create a VNI, see [Creating a virtual network interface](/docs/vpc?topic=vpc-vni-create).
 
 ## Creating a secondary IP address in an existing virtual network interface
+{: #create-secondary-ip-existing-vni}
+
+You can add secondary IP addresses to a VNI with the UI, CLI, API, or Terraform.
+
+### Attaching a secondary IP address to an existing virtual network interface in the UI
+{: #vni-existing-secondary-ip-ui}
+{: ui}
+
+To add a secondary IP address to an existing virtual network interface, follow these steps.
+
+1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
+1. Select the **Navigation Menu** icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Virtual network interfaces**.
+1. Click the name of the virtual network interface that you want to add a secondary IP address to in the Virtual network interfaces for VPC table.
+1. Click the **Attached resources** tab.
 1. In the Secondary IPs section, click **Attach**.
 1. In the Attach secondary IPs panel that appears, specify whether you want an address created for you, or if you want to type in your own address.
     - If you select to have an address created for you, specify the quantity of addresses you want to create.

@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years:  2023
+  years: 2023
 lastupdated: "2023-10-30"
 
 keywords:
@@ -16,6 +16,7 @@ subcollection: vpc
 {: #vnimonitoring}
 
 You can use IBM Cloud Activity Tracker to monitor virtual network interfaces from your Log Analysis instance.
+{: shortdesc}
 
 
 ## Monitoring Virtual Network Interfaces by using IBM Cloud Activity Tracker

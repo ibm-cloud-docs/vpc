@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years:  2023
+  years: 2023
+lastupdated: "2023-10-30"
 
 keywords:
 
@@ -42,6 +43,7 @@ You can create a virtual network interface with the UI, CLI, API, or Terraform.
 To create a virtual network interface in the UI, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
+1. Select the **Navigation Menu** icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Virtual network interfaces**.
 1. On the Virtual network interfaces for VPC page, click **Create**.
 1. In the Location section, edit the following fields, if necessary.
     * **Geography**: Indicates the geography where you want the virtual network interface created.
