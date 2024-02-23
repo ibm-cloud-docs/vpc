@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-02-22"
+lastupdated: "2024-02-23"
 
 keywords: Block Storage, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, fihe share
 
@@ -29,7 +29,7 @@ You can have several root keys in each KMS instance available for key rotation. 
 
 You can set up a rotation policy to schedule automatic key rotation. The KMS generates a new root key at the rotation interval and automatically replaces the root key with new key material.
 
-For any root keys that you import to the KMS instance because you're providing new key material that is not in the KMS, you can't set up automatic key rotation. Instead, you must [manually rotate](/docs/vpc?topic=vpc-vpc-key-rotation&interface=ui#vpc-key-rotation-ui) your keys by using the new cryptographic key material that you imported.
+For any root keys that you import to the KMS instance because you're providing new key material that is not in the KMS, you can't set up automatic key rotation. Instead, you must manually rotate your keys by using the new cryptographic key material that you imported.
 
 The key rotation feature is available for root keys and does not apply to standard encryption keys.
 {: note}
@@ -43,7 +43,7 @@ When you rotate a root key, the service identifies all resources that are protec
 
 The new version of the root key is used to unwrap the newly rewrapped LUKS passphrase the next time the resource is decrypted. For example, it is used when you decrypt a volume upon restarting an instance.
 
-The service retires the old root key version but it remains available for decrypting existing resources. You can list the key versions to see how many times the key was rotated and see the latest version. Older versions of the root key continue to work until they expire or until no resources are available to decrypt. If you manually [disable](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-disable-root-keys) or [delete](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-delete-root-keys) the root key or reboot the instance, the old key no longer functions.
+The service retires the old root key version but it remains available for decrypting existing resources. You can list the key versions to see how many times the key was rotated and see the latest version. Older versions of the root key continue to work until they expire or until no resources are available to decrypt. If you manually [disable](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-disable-root-keys) or [delete](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-delete-root-keys) the root key or restart the instance, the old key no longer functions.
 
 After your root keys are rotated, the new root key version becomes available for encrypting new resources.
 
@@ -60,14 +60,14 @@ Rotating your root keys provides these security benefits:
 * You can limit how long your data is protected by a single root key. By shortening the time that your resources are encrypted with a particular root key, you decrease the probability of a security breach.
 * You limit the number of resources encrypted with any one version of the root key because resources created after key rotation are encrypted with different key material.
 * If your organization detects a security threat, you can immediately rotate your keys to protect your resources.
-* Rotating keys mitigates costs that are associated with key compromises.
+* Rotating keys mitigates the costs that are associated with key compromises.
 
 ### Key rotation options
 {: #vpc-key-rotation-options}
 
 You can rotate your root keys in your KMS instance by setting a rotation policy or by manually rotating your keys. A rotation policy automatically rotates your keys based on a schedule; manual rotation rotates keys on demand.
 
-If you're using {{site.data.keyword.hscrypto}}, you can also rotate master keys by using [IBM Cloud TKE CLI plug-in](/docs/hs-crypto?topic=hs-crypto-rotate-master-key-cli). Information in the following sections pertains to rotating root keys only.
+If you're using {{site.data.keyword.hscrypto}}, you can also rotate master keys by using the [Hyper Protect Crypto Services Trusted Key Entry CLI plug-in](/docs/hs-crypto?topic=hs-crypto-hpcs-cli-plugin#tke-cli-plugin). Information in the following sections pertains to rotating root keys only.
 {: note}
 
 You can set a [rotation policy](/docs/key-protect?topic=key-protect-set-rotation-policy) for a KMS-generated root key and define a rotation schedule to automatically rotate your key. In your KMS instance, you can set a rotation interval in the range of 1 - 12 months.
@@ -82,7 +82,7 @@ For more information about these options, see [Comparing your key rotation optio
 ### Root key metadata
 {: #vpc-key-rotation-metadata}
 
-When you rotate your root key, key retains the same metadata and key ID. All that changed is the root key ciphertext and the `keyVersion` data.
+When you rotate your root key, the key retains the same metadata and key ID. The key rotation changed the root key ciphertext and the `keyVersion` data.
 
 ## Prerequisites for key rotation
 {: #prerequisites-byok-key-rotation}
@@ -90,24 +90,24 @@ When you rotate your root key, key retains the same metadata and key ID. All tha
 To perform key rotation:
 
 * Import one or more root keys to the KMS instance, or have the KMS generate one for you. See [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-encryption-prereqs).
-* Select one KMS for key rotation. Key rotation modifies key material within that instance.
+* Select one KMS for key rotation. Key rotation modifies the key material within that instance.
 * Any root key can be rotated, and if the key is protecting a resource, the key is rewrapped.
-* If you initially imported a root key, you must provide new base64-encoded key material to rotate the key.
+* If you initially imported a root key, you must provide a new base64-encoded key material to rotate the key.
 * Locate the KMS instance ID. See [Retrieving your instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
 * Locate the root key ID and CRN. Using the CLI, see [Step 1 - Obtain service instance and root key information](/docs/vpc?topic=vpc-block-storage-vpc-encryption#byok-cli-setup-prereqs). To view a list of available root keys, also see this information for [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-view-keys) or [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-view-keys).
 * To use the API service, first locate the API endpoint in the UI:
-    1. From the [{{site.data.keyword.cloud_notm}} console](/vpc){: external} **Resource List**, under **Services**, click the KMS instance. (The pane also shows the instance CRN and GUID.)
+    1. From the [{{site.data.keyword.cloud_notm}} console](/vpc){: external} **Resource List**, under **Services**, click the KMS instance. (The pane also shows the instance's CRN and GUID.)
     2. Click **View Key Details** for the API endpoint.
 
 ## Rotate keys in the UI
 {: #vpc-key-rotation-ui}
 {: ui}
 
-This process rotates your root key to a new key version that you can use to reencrypt your data. These steps pertain to {{site.data.keyword.keymanagementserviceshort}}, but similar steps are available for [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-rotate-keys#rotate-root-key-gui).
+This process rotates your root key to a new key version that you can use to reencrypt your data. These steps pertain to {{site.data.keyword.keymanagementserviceshort}}, but similar steps are available for [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-rotate-keys&interface=ui#rotate-root-key-gui).
 
 [After you create a root key](/docs/key-protect?topic=key-protect-create-root-keys), follow this procedure:
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/vpc){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > Resource List** to view a list of your resources.
+1. In the [{{site.data.keyword.cloud_notm}} console](/vpc){: external}, go to the **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) > Resource List** to view a list of your resources.
 2. In th IBM Cloud resource list, click **Security**, and select your {{site.data.keyword.keymanagementserviceshort}} instance.
 3. In the **Keys** page, locate the key that you want to rotate.
 4. Click the Actions icon (ellipsis) and select **Rotate**.
@@ -131,7 +131,7 @@ Before you begin, you need:
 * The instance ID for the {{site.data.keyword.keymanagementserviceshort}} service instance where your customer root keys are stored.
 * The list of available keys and their associated CRNs within your {{site.data.keyword.keymanagementserviceshort}} service instance.
 
-You also need to install the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in. For more information, see [Step 1 - Obtain service instance and root key information](/docs/vpc?topic=vpc-vpc-vsi-instances-byok#byok-cli-setup-prereqs).
+You also need to install the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in. For more information, see [Setting up your key management service and keys](/docs/vpc?topic=vpc-create-encrypted-custom-image#kms-prereqs).
 
 ### CLI procedure for imported keys
 {: #CLI-vpc-imported-key-procedure}
@@ -210,7 +210,7 @@ This procedure describes creating a new root key with base64 key material. It st
 
 Using the API service, rotating a root key with new key material creates a new root key version that wraps (encrypts) the DEK used to rewrap (reencrypt) your data. The process for manually rotating a key with the {{site.data.keyword.keymanagementserviceshort}} API is described here, but the overall process is similar for {{site.data.keyword.hscrypto}}.
 
-If you initially imported a root key by using an import token, follow the steps in [Using an import token to rotate a key](/docs/key-protect?topic=key-protect-rotate-keys#rotate-keys-secure-api).
+If you initially imported a root key by using an import token, follow the steps in [Using an import token to rotate a key](/docs/key-protect?topic=key-protect-rotate-keys&interface=api#rotate-keys-secure-api).
 {: note}
 
 ### Before you begin
@@ -301,7 +301,7 @@ Follow these steps to rotate a root key by using the {{site.data.keyword.keymana
     | `key_ID`  | **Required.** The unique identifier for the root key that you want to rotate. |
     | `IAM_token` | **Required.** Your IBM Cloud access token. Include the full contents of the IAM token, including the Bearer value, in the cURL request. For more information, see [Retrieving an access token](/docs/key-protect?topic=key-protect-retrieve-access-token) |
     | `instance_ID` | **Required.** The unique identifier that is assigned to your {{site.data.keyword.keymanagementserviceshort}} service instance. For more information, see [Retrieving an instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID). |
-    | `key_material` | The new base64 encoded key material that you want to store and manage in the service. This value is required if you initially imported the key material when you added the key to the service. \n To rotate a key that was initially generated by {{site.data.keyword.keymanagementserviceshort}}, omit the `payload` attribute and pass an empty request entity-body. To rotate an imported key, provide a key material that meets the following requirements: \n * The key must be 128, 192, or 256 bits. \n * The bytes of data, for example 32 bytes for 256 bits, must be encoded by using base64 encoding. |
+    | `key_material` | The new Base64 encoded key material that you want to store and manage in the service. This value is required if you initially imported the key material when you added the key to the service. \n To rotate a key that was initially generated by {{site.data.keyword.keymanagementserviceshort}}, omit the `payload` attribute and pass an empty request entity-body. To rotate an imported key, provide a key material that meets the following requirements: \n * The key must be 128, 192, or 256 bits. \n * The bytes of data, for example 32 bytes for 256 bits, must be encoded by using Base64 encoding. |
     {: caption="Table 1. Variables for key rotation" caption-side="bottom"}
 
 5. Optionally, verify that the key was rotated by running the following call to browse the keys in your {{site.data.keyword.keymanagementserviceshort}} service instance.
@@ -316,7 +316,7 @@ Follow these steps to rotate a root key by using the {{site.data.keyword.keymana
 
    Review the `lastRotateDate` and `keyVersion` values in the response to inspect the date and time that your key was last rotated. The `keyVersion` attribute contains identifying information that describes the latest version of the root key.
 
-When your root keys are successfully rotated, an HTTP `204 No Content` response is returned, which indicates that your root key was replaced by new key material.
+When your root keys are successfully rotated, an HTTP `204 No Content` response is returned, which indicates that your root key was replaced by the new key material.
 
 When you unwrap (decrypt) a wrapped data encryption key (WDEK) by using a rotated root key, the service returns a new ciphertext in the response entity-body. Each ciphertext remains available for unwrap actions. If you unwrap a DEK with a previous ciphertext, the service also returns the latest ciphertext and latest key version in the response. Use the latest ciphertext for future unwrap operations.
 {: note}
@@ -324,7 +324,7 @@ When you unwrap (decrypt) a wrapped data encryption key (WDEK) by using a rotate
 ### Listing root key versions
 {: #api-byok-list-root-key}
 
-To see all versions of a root key that you rotated, make a `GET /keys/{key_ID}/versions` call. The older versions remain valid for decrypting existing resources but can't be used to encrypt new ones. They are removed from the list upon their expiration date or when no more resources are encrypted by them. For an example request and response, see [List key versions](/apidocs/key-protect#getkeys).
+To see all versions of a root key that you rotated, make a `GET /keys/{key_ID}/versions` call. The older versions remain valid for decrypting existing resources but can't be used to encrypt new ones. They are removed from the list upon their expiration date or when no more resources use them for encryption. For an example request and response, see [List key versions](/apidocs/key-protect#getkeyversions).
 
 For more information about programmatically managing your keys, see the [{{site.data.keyword.keymanagementserviceshort}} API reference](/apidocs/key-protect).
 
