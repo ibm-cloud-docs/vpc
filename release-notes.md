@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-02-20"
+lastupdated: "2024-02-23"
 
 keywords:
 
@@ -29,6 +29,10 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## February 2024
 {: #vpc-feb24}
+{: release-note}
+
+London 1 AZ for bare metal servers
+:   The London 1 availability zone (AZ) is now available for Bare Metal Servers for VPC.
 
 ### 20 February 2024
 {: #vpc-feb2024}
