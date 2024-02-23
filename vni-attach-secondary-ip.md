@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years:  2023
+  years: 2023
+lastupdated: "2023-11-16"
 
 keywords:
 
@@ -11,43 +12,24 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Updating a virtual network interface
-{: #vni-updating}
+# Attaching secondary IP addresses to a virtual network interface
+{: #attach-secondary-ip-addresses}
 
-This VPC feature is available only to accounts with special approval to preview this feature.
-{: preview}
+A secondary IP addresses in virtual network interfaces can help you operate network appliances such as load balancers or firewalls that have multiple IP addresses for each network interface. These addresses must be in the same subnet as your network interface, and will be associated with the security group that your network interface is a member of.
+{: shortdesc}
 
+Secondary IP addresses can be created when you create your virtual network interface, or they can be added to the virtual network interface after the VNI creation. For steps to add a secondary IP while you create a VNI, see [Creating a virtual network interface](/docs/vpc?topic=vpc-vni-create).
 
-## Updating a virtual network interface in the UI
-{: #vni-update-ui}
-{: ui}
+## Creating a secondary IP address in an existing virtual network interface
+1. In the Secondary IPs section, click **Attach**.
+1. In the Attach secondary IPs panel that appears, specify whether you want an address created for you, or if you want to type in your own address.
+    - If you select to have an address created for you, specify the quantity of addresses you want to create.
+    - If you select to specify your own address, you can select from a list of existing IP addresses, or type in an IP address in the field provided.
+1. Select whether you want auto-release enabled for the secondary IP addresses.
+1. Click **Attach** to attach the secondary IP address to your virtual network interface, or click **Cancel**.
 
-To update an existing virtual network interface, follow these steps.
-
-1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Click the name of the virtual network interface in the Virtual network interfaces for VPC table.
-1. In the Overview view of the Details page, you can click the Edit icon ![Edit icon](/images/edit.png) to edit the change of the virtual network interface.
-1. Click the switch for Infrastructure NAT to the wanted state.
-    * **Enabled** includes one floating IP address, and supports virtual servers, bare metal servers, and file shares.
-    * **Disabled** supports multiple floating IP addresses only on bare metal servers. Virtual servers and file shares as virtual network interface targets are not supported.
-1. Click the switch for Allow IP spoofing to the wanted state. IP spoofing supports only virtual server instances and bare metal servers. File shares are not supported.
-1. Click the switch to enable or disable auto release for this virtual network interface.
-
-    Auto release cannot be enabled without a target device.
-    {: note}
-
-1. In the Attached resources section, use the Display resource list menu to view the security groups or secondary IPs attached to the virtual network interface.
-    * Clicking **Manage attached resources** in the Attached resources section takes you to the Attached resources tab.
-1. To create devices or attach existing devices, follow the links in the Target device details section.
-1. In the Floating IPs section, click **Attach** to reserve a new floating IP or attach an existing floating IP.
-
-    If a floating IP is attached, the virtual network interface is be accepted as a file share mount target. If infrastructure NAT is enabled, at most one floating IP can be attached.
-    {: note}
-
-1. In the Attached resources tab, view secondary IPs and security groups that are already attached, or create secondary IPs or security groups to attach to your virtual network interface.
-
-## Updating a virtual network interface from the CLI
-{: #virtual-network-interface-update-cli}
+## Attaching a secondary IP address to an existing virtual network interface from the CLI
+{: #vni-existing-secondary-ip-cli}
 {: cli}
 
 Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
@@ -57,7 +39,7 @@ export IBMCLOUD_IS_FEATURE_VNI_PHASE_II=true
 ```
 {: pre}
 
-To update a virtual network interface from the CLI, enter the following command:
+Then run the following command: [examples only show rename]{: tag-red}
 
 ```sh
 ibmcloud is virtual-network-interface-update VIRTUAL_NETWORK_INTERFACE --name NEW_NAME [--allow-ip-spoofing false | true] [--auto-delete false | true] [--enable-infrastructure-nat false | true] [--output JSON] [-q, --quiet]
@@ -70,7 +52,7 @@ Where:
 :   ID or name of the virtual network interface.
 
 `--name`
-:   New name of the virtual network interface.
+:   Name of the virtual network interface.
 
 `--allow-ip-spoofing`
 :   Indicates whether source IP spoofing is allowed on this interface. If `false`, source IP spoofing is prevented on this interface. If `true`, source IP spoofing is allowed on this interface. One of: `false`, `true`.
@@ -88,26 +70,26 @@ Where:
 :   Suppress verbose output.
 
 ### Command examples
-{: #cli-command-examples-virtual-network-interface-update}
+{: #vni-existing-secondary-ip-cli-command-examples}
 
 - `ibmcloud is virtual-network-interface-update 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 --name new-vni`
 - `ibmcloud is virtual-network-interface-update new-vni --name new-share`
 - `ibmcloud is virtual-network-interface-update 7208-8918786e-5958-42fc-9e4b-410c5a58b164 --name cli-vni-1 --allow-ip-spoofing false --auto-delete false --enable-infrastructure-nat false`
 - `ibmcloud is virtual-network-interface-update cli-vni-1 --name cli-vni-2 --allow-ip-spoofing false --auto-delete true --enable-infrastructure-nat false`
 
-## Updating a virtual network interface with the API
-{: #vni-api-update}
-{: api}
 
-To update a virtual network interface with the API, follow these steps:
+## Attaching a secondary IP to an existing virtual network interface from the API
+{: #vni-existing-secondary-ip-api}
+{: api}
 
 1. Set up your API environment [with the right variables](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
 1. Store any additional variables to be used in the API commands; for example:
 
     * `version` (string): The API version, in format `YYYY-MM-DD`.
     * `virtual_network_interface_id` (string): The virtual network interface identifier.
+    * `secondary_ip` (array): The information about the secondary IP you wish to attach.
 
-1. When all variables are initiated, update the virtual network interface:
+1. When all variables are initiated, add the secondary IP to the existing virtual network interface: [examples only show rename]{: tag-red}
 
     ```sh
     curl -X PATCH \
@@ -119,11 +101,11 @@ To update a virtual network interface with the API, follow these steps:
     ```
     {: codeblock}
 
-## Updating a virtual network interface with Terraform
-{: #vni-terraform-update}
+## Attaching a secondary IP to an existing virtual network interface with Terraform
+{: #vni-terraform-existing-secondary-ip}
 {: terraform}
 
-The following example updates a virtual network interface by using Terraform:
+The following example adds a secondary IP to an existing virtual network interface by using Terraform: [examples only show rename]{: tag-red}
 
 ```terraform
 resource "ibm_is_virtual_network_interface" "my_virtual_network_interface_instance" {

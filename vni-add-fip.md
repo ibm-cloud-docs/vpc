@@ -2,7 +2,6 @@
 
 copyright:
   years:  2023
-lastupdated: "2023-12-18"
 
 keywords:
 
@@ -95,7 +94,7 @@ Where:
 {: #vni-api-add-fip}
 {: api}
 
-To add a floating IP address to a virtual network interface with the API, follow these steps:
+To attach a floating IP address to a virtual network interface with the API, follow these steps:
 
 1. Set up your API environment [with the right variables](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
 1. Store any additional variables to be used in the API commands; for example:
@@ -104,7 +103,7 @@ To add a floating IP address to a virtual network interface with the API, follow
     * `virtual_network_interface_id` (string): The virtual network interface identifier.
     * `floating_ip_id` (string): The floating IP identifier.
 
-1. When all variables are initiated, add the floating IP address to the virtual network interface:
+1. When all variables are initiated, attach the floating IP address to the virtual network interface:
 
     ```sh
     curl -X PUT \
@@ -117,7 +116,7 @@ To add a floating IP address to a virtual network interface with the API, follow
 {: #vni-terraform-add-fip}
 {: terraform}
 
-The following example adds a floating IP address to a virtual network interface by using Terraform:
+The following example attaches a floating IP address to a virtual network interface by using Terraform:
 
 ```terraform
 resource "ibm_is_virtual_network_interface_floating_ip" "my_vni_floatingip" {
