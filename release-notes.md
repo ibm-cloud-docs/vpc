@@ -29,6 +29,9 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## February 2024
 {: #vpc-feb24}
+
+### 23 February 2024
+{: #vpc-feb2324}
 {: release-note}
 
 London 1 AZ for bare metal servers
