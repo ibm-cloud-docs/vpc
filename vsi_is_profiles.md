@@ -176,7 +176,7 @@ Compute profiles with the cx2d prefix are available in the US South (Dallas), US
 | cx3d-128x320 | 128 / 64  | 2 | 320 | 200 | 2x2080 |
 | cx3d-176x440 | 176 / 88 | 2 | 440 | 200 | 2x2860 |
 {: caption="Table 4. Compute profile options for x86-64 instances" caption-side="bottom"}
-{: #compute-intel-x86-64-cx2d}
+{: #compute-intel-x86-64-cx3d}
 {: tab-title="cx3d"}
 {: tab-group="Compute"}
 {: class="simple-tab-table"}
