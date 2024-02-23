@@ -204,9 +204,9 @@ You can create an instance by using a stock image, a custom image from your acco
 
        ```sh
        $ ibmcloud is images | grep -i "debian.*available.*amd64.*public"
-       r006-17cc6c08-f628-46f4-8bf4-a8edab749722   ibm-debian-10-13-minimal-amd64-4                    available    amd64   debian-10-amd64                      10.x Buster/Stable - Minimal Install                     1               public       provider     none           Default          -   
-       r006-b721bf3b-393b-4386-a618-d1ea8c004e1c   ibm-debian-11-7-minimal-amd64-2                     available    amd64   debian-11-amd64                      11.x Bullseye/Stable - Minimal Install                   1               public       provider     none           Default          -   
-       r006-e66ebfcd-4aac-44e2-b504-1f6f4c003518   ibm-debian-12-0-minimal-amd64-1                     available    amd64   debian-12-amd64                      12.x Bookworm/Stable - Minimal Install                   1               public       provider     none           Default          -   
+       r006-17cc6c08-f628-46f4-8bf4-a8edab749722   ibm-debian-10-13-minimal-amd64-4                    available    amd64   debian-10-amd64                      10.x Buster/Stable - Minimal Install                     1               public       provider     none           Default          -
+       r006-b721bf3b-393b-4386-a618-d1ea8c004e1c   ibm-debian-11-7-minimal-amd64-2                     available    amd64   debian-11-amd64                      11.x Bullseye/Stable - Minimal Install                   1               public       provider     none           Default          -
+       r006-e66ebfcd-4aac-44e2-b504-1f6f4c003518   ibm-debian-12-0-minimal-amd64-1                     available    amd64   debian-12-amd64                      12.x Bookworm/Stable - Minimal Install                   1               public       provider     none           Default          -
        ```
        {: screen}
 
@@ -222,7 +222,7 @@ You can create an instance by using a stock image, a custom image from your acco
 
 * Select an image shared from a private catalog for the instance
 
-     If you select a catalog image that belongs to a different account, you have further considerations and limitations to review. See [Using cross-account image references in a private catalog in the CLI](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#private-catalog-image-reference-vpc-cli)
+     If you select a catalog image that belongs to a different account, you have further considerations and limitations to review. See [Using cross-account image references in a private catalog in the CLI](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=cli#private-catalog-image-reference-vpc-cli)
      {: note}
 
     - To list all available private catalog image offerings, run the following command.
@@ -471,7 +471,7 @@ ibmcloud is vpn-gateway-connection-create my-vpn-conn $vpn_gateway 169.61.161.15
 In this example, `169.61.161.150` is the peer gateway address, which specifies the IP address of the VPN gateway for the network outside your VPC. The `mykey` value is the authentication key of the VPN gateway for the network outside your VPC. It's a string of hexadecimal digits, or a passphrase of printable ASCII characters. To be compatible with most peer gateway types, this string must follow these rules:
       * Can be a combination of digits, lower or upper case characters, or the following special characters: `- + & ! @ # $ % ^ * ( ) . , :`
       * The length of the string must be 6 - 128 characters.
-      * Cannot start with `0x` or `0s`.    
+      * Cannot start with `0x` or `0s`.
 
 The status of the VPN connection is `down` when it is first created and becomes `up` after the connection is established. To check the status of VPN connections on a VPN gateway, run this command:
 
@@ -541,7 +541,7 @@ The previous example does not create a VPC with classic access. If the VPC needs
 ### Creating a private catalog
 {: #api-create-private-catalog}
 
-This step is optional. If you plan share images from a private catalog, the private catalog must be created first. If you select a catalog image that belongs to a different account, you have further considerations and limitations to review. See [Using cross-account image references in a private catalog in the UI](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#private-catalog-image-reference-vpc-ui). To create a private catalog, see the tutorial [Onboarding software to your catalog by using the CLI](/docs/account?topic=account-create-private-catalog&interface=cli#create-cicd-product).
+This step is optional. If you plan share images from a private catalog, the private catalog must be created first. If you select a catalog image that belongs to a different account, you have further considerations and limitations to review. See [Using cross-account image references in a private catalog in the UI](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=ui#private-catalog-image-reference-vpc-ui). To create a private catalog, see the tutorial [Onboarding software to your catalog by using the CLI](/docs/account?topic=account-create-private-catalog&interface=cli#create-cicd-product).
 
 ### Creating a subnet
 {: #create-subnet-api-tutorial}
@@ -697,7 +697,7 @@ profile_name="b2-2x8"
 
 * Select an image shared from a private catalog for your instance.
 
-    If you select a catalog image that belongs to a different account, you have further considerations and limitations to review. See [Using cross-account image references in a private catalog in the API](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#private-catalog-image-reference-vpc-api)
+    If you select a catalog image that belongs to a different account, you have further considerations and limitations to review. See [Using cross-account image references in a private catalog in the API](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=api#private-catalog-image-reference-vpc-api)
      {: note}
 
     You can either provision an instance from the private catalog image at the latest version in a catalog product offering or from a specific version in the catalog product offering.
@@ -991,7 +991,7 @@ To connect to a Windows image, log in using its decrypted password. For instruct
 ### Monitoring your instance
 {: #monitoring-your-instance-api-tutorial}
 
-You can monitor the CPU, volume, memory, and network usage of your instance over time in the {{site.data.keyword.cloud_notm}} console. Because the monitoring data is stored in {{site.data.keyword.mon_full_notm}}, you must be authenticated to an {{site.data.keyword.mon_full_notm}} instance in your account. For more information, see [IBM Cloud monitoring services](/docs/cloud-infrastructure?topic=cloud-infrastructure-monitoring).
+You can monitor the CPU, volume, memory, and network usage of your instance over time in the {{site.data.keyword.cloud_notm}} console. Because the monitoring data is stored in {{site.data.keyword.mon_full_notm}}, you must be authenticated to an {{site.data.keyword.mon_full_notm}} instance in your account. For more information, see [IBM Cloud Monitoring](/docs/cloud-infrastructure?topic=cloud-infrastructure-monitoring-iaas).
 
 ### (Optional): Deleting the resources
 {: #delete-resources-api-tutorial}
