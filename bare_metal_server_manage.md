@@ -188,7 +188,7 @@ curl -X POST "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/rest
 ```
 {: pre}
 
-For more information of the API request, see [Restart a bare metal server]( /apidocs/vpc/latest#create-bare-metal-server).
+For more information of the API request, see [Restart a bare metal server](/apidocs/vpc/latest#create-bare-metal-server).
 
 ### Stopping and starting a bare metal server
 {: #stop-start-bare-metal-servers-api}
