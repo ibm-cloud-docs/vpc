@@ -40,12 +40,15 @@ Currently, VMware ESXi, Windows, RHEL, RHELfor SAP, Debian GNU, SUSE Linux Enter
 {: #faq-bare-metal-2}
 {: faq}
 
-Two storage options are available that include secondary local NVMe drives.
+One storage option is available that includes secondary local NVMe drives. All profiles include a pair of RAID1 boot drives.
 
-* The `bx2-metal-192x768` profile provides mirrored 960 GB SATA M.2 drives as boot storage only. 
-* The `bx2d-metal-192x768` profile provides mirrored 960 GB SATA M.2 drives as boot storage and 16 3.2 TB U.2 NVMe SSDs as secondary local storage to support vSAN, or user-managed RAID. 
+* Profiles that are denoted with a `d` like `bx2d-metal-96x384`, provide mirrored 960 GB SATA M.2 drives as boot storage and 8 3.2 TB U.2 NVMe SSDs as secondary local storage to support vSAN, or user-managed RAID. Oppositely, a profile without the `d` denotation such as `bx2-metal-96x384` only provide mirrored 960 GB SATA M.2 drives for boot.
 
-{{site.data.keyword.block_storage_is_short}} is not supported. {{site.data.keyword.filestorage_vpc_short}} is compatible. However, security groups access mode, mounts with virtual network interfaces, and encryption in transit are not supported between {{site.data.keyword.filestorage_vpc_short}} and {{site.data.keyword.bm_is_short}}. For more information about file storage, see [About {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-file-storage-vpc-about).
+- {{site.data.keyword.block_storage_is_short}} is not supported.
+- {{site.data.keyword.filestorage_vpc_short}} is supported.
+- Encryption in transit is not supported between {{site.data.keyword.filestorage_vpc_short}} and {{site.data.keyword.bm_is_short}}.
+ 
+For more information about file storage, see [About {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-file-storage-vpc-about).
 
 ## What is required to set up my Bare Metal Servers for VPC? 
 {: #faq-bare-metal-3}
@@ -57,7 +60,7 @@ When you are planning to create the bare metal servers, you can go through the c
 {: #faq-bare-metal-4}
 {: faq}
 
-Bare metal servers are available in eu-de, us-east, and us-south regions.
+Bare metal servers are available in us-south, us-east, ca-tor, eu-de, eu-gb, eu-es, and jp-tok regions. See [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui).
 
 ## Do I need to configure multiple network interfaces on a bare metal server to support the full 100 Gbps bandwidth?
 {: #faq-bare-metal-5}
@@ -69,7 +72,7 @@ No. You can add as many or as few vNICs as you need. Every interface can take ad
 {: #faq-bare-metal-6}
 {: faq}
 
-The number NVMe drives that are supported depends on the profile that you select. The 4-socket profile with drives supports 16 3.2 TB NVMe drives and the planned 2-socket profile with drives supports eight 3.2 TB NVMe drives. These NVMe drives are in addition to the 960 Gb boot drive. 
+Eight 3.2 TB NVMe drives are supported on specific profiles. These NVMe drives are in addition to the 960 Gb boot drive, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui).
 
 No other drive configurations are supported and drive size, type, and quantity can't be changed.
 {: note} 
@@ -80,7 +83,7 @@ For more information about profiles, see [Profiles for Bare Metal Servers for VP
 {: #faq-bare-metal-7}
 {: faq}
 
-The boot disk supports RAID 1 by using a hardware RAID controller. If you use a profile with NVMe drives, it is recommended that you use a software RAID option.  
+The boot disk supports RAID 1 by using a hardware RAID controller. If you use a profile with NVMe drives, use a software RAID option that is configured through your choice of Operating System. 
  
 Secondary drives use a JBOD configuration and aren't supported by a hardware RAID controller. 
 
