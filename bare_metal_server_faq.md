@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-12-18"
+  years: 2021, 2024
+lastupdated: "2024-02-23"
 
 subcollection: vpc
 
@@ -113,7 +113,7 @@ Bare Metal Servers for VPC supports only UEFI images.
 
 You are billed for Bare Metal Servers for VPC based on the server profile that you selected. Billing stops only when you delete the bare metal server. Powering off the server doesn't change billing. For more information about billing and pricing, contact your IBM Sales representative.
 
-You are also billed for other VPC services and resources that are attached to any bare metal servers. For more information about pricing for Bare Metal Servers on VPC, see [Pricing](https://www.ibm.com/cloud/vpc/pricing).
+You are also billed for other VPC services and resources that are attached to any bare metal servers. For the most up-to-date pricing information, you can create a cost estimate by clicking **Add to estimate** from the Create Bare metal server for VPC page in the {{site.data.keyword.cloud}} console.
 
 ## How is billing for bare metal severs different from virtual server instances?
 {: #faq-bare-metal-12}
