@@ -39,7 +39,7 @@ To adjust the time interval for the dashboard
 Creating or deleting one of the following resources sends metric events for the associated quota resource name.
 
 - vpc
-   - For more information on creating a VPC, see [Getting started with Virtual Private Cloud (VPC)](/docs/vpc?topic=vpc-getting-started&interface=ui#create-and-configure-vpc).
+   - For more information on creating a VPC, see [Getting started with Virtual Private Cloud (VPC)](/docs/vpc?topic=vpc-getting-started#create-and-configure-vpc).
 - security-group
    - For more information, see [About security groups](/docs/vpc?topic=vpc-using-security-groups&interface=ui).
 - subnet
