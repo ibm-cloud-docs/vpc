@@ -31,6 +31,7 @@ To create a virtual network interface, you must have the following prerequisites
 
 * A VPC instance
 * A subnet in which to create a virtual network interface
+* Make sure that you have the appropriate [IAM permissions](/docs/account?topic=account-iam-service-roles-actions#is.virtual-network-interface-roles). You must have IAM Administrator role permission to configure IP spoofing and infrastructure NAT.
 
 You can create a virtual network interface with the UI, CLI, API, or Terraform.
 
