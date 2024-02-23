@@ -309,6 +309,7 @@ toc:
             - vni-about.md
             - vni-about-secondary-ip.md
             - vni-iam.md
+            - vni-monitoring
             - topicgroup:
                 label: Working with virtual network interfaces
                 topics:
@@ -320,6 +321,7 @@ toc:
                 label: Attaching IBM Cloud resources to virtual network interfaces
                 topics:
                 - vni-add-fip.md
+                - vni-about-secondary-ip.md
                 - vni-add-rip.md
                 - vni-add-sg.md
             - vni-attach.md
