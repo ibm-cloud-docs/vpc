@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-01-30"
+  years: 2021, 2024
+lastupdated: "2024-02-22"
 
 keywords: bare metal server network, bare metal network, nics, pci, vlan, network overview
 
@@ -53,7 +53,7 @@ The following list highlights characteristics of the PCI and VLAN interfaces.
 
 * You can associate more than one floating IP with a network interface. Having multiple floating IPs enables the VMware NSX-T Data Center to assign floating IPs to the VMware VMs.
 
-* You can identify the target PCI interface in vSphere through its MAC address. You can retrieve the MAC address for the PCI interface through the UI, [CLI](/docs/vpc?topic=vpc-vpc-reference#bare-metal-server-network-interface), or [API](/apidocs/vpc/latest#list-bare-metal-server-network-interfaces).
+* You can identify the target PCI interface in vSphere through its MAC address. You can retrieve the MAC address for the PCI interface through the UI, [CLI](/docs/vpc?topic=vpc-vpc-reference#bare-metal-server-network-interface-view), or [API](/apidocs/vpc/latest#list-bare-metal-server-network-interfaces).
 
 ### Limitations of network interfaces
 {: #nic-limits}

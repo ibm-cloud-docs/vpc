@@ -2,7 +2,7 @@
 
 To make an immediate status change, use one of the following examples. For the`$image_id` variable, specify the ID of the custom image for the status change.
 
-You can make an immediate status change only if a future status change is not scheduled. To remove a scheduled status change, see [Remove a scheduled custom image lifecycle status change by using the API](#schedule-ilm-reset-status-change-API). After you remove the scheduled status change, you can make an immediate status change.
+You can make an immediate status change only if a future status change is not scheduled. To remove a scheduled status change, see [Remove a scheduled custom image lifecycle status change by using the API](/docs/vpc?topic=vpc-managing-custom-images&interface=api#schedule-ilm-reset-status-change-API). After you remove the scheduled status change, you can make an immediate status change.
 {: note}
 
 - Change image lifecycle status to `deprecated`.
@@ -19,7 +19,7 @@ You can make an immediate status change only if a future status change is not sc
    ```
    {: pre}
 
-To schedule a status change, use one of the following examples. 
+To schedule a status change, use one of the following examples.
 
 For the `deprecation_at` or `obsolescence_at` properties, specify a date in the ISO 8601 (`YYYY-MM-DDThh:mm:ss+hh:mm`) date and time format.
 

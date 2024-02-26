@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-12-07"
+  years: 2020, 2024
+lastupdated: "2024-02-21"
 
 keywords: instance backup, veeam, replication software
 
@@ -59,7 +59,7 @@ You must complete the following requirements before creating a backup job for th
 #### Creating a volume backup job
 {: #creating-volume-backup-job}
 
-To create a backup job for a CentOS virtual server instance, complete the steps that are outlined in this [Veeam Backup and Replication guide](https://helpcenter.veeam.com/docs/backup/agents/agent_job_create_linux.html?ver=100){: external}.
+To create a backup job for a CentOS virtual server instance, complete the steps that are outlined in this [Veeam Backup and Replication guide](https://helpcenter.veeam.com/archive/backup/100/agents/agent_job_create_linux.html){: external}.
 
 To begin, start the Veeam Backup and Replication software. From the _HOME_ menu, select **Backup Job > Linux Computer**. As you navigate through the Veeam Backup and Replication software control panes, be sure to make the following selections:
 

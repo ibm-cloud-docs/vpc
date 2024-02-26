@@ -278,7 +278,7 @@ ibmcloud is image IMAGE
 ```
 {: pre}
 
-For more information, see [ibmcloud is image](/docs/vpc?topic=vpc-vpc-reference#image)in the VPC CLI reference page.
+For more information, see [ibmcloud is image](/docs/vpc?topic=vpc-vpc-reference&interface=ui#image-view)in the VPC CLI reference page.
 
 The following example views the details of a custom image with the id of `r134-1d1e92e9-6550-4d06-8483-d674310045fd`.
 

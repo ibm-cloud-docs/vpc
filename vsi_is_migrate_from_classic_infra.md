@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-02-16"
+lastupdated: "2024-02-20"
 
 keywords: migrate virtual server from classic infrastructure, migrate to vpc, migrate image template, image template, import image to vpc infrastructure, migrate virtual server, migrate instance
 
@@ -44,7 +44,7 @@ The following list is an overview of the migration steps.
 6. Import the custom image to the {{site.data.keyword.vpc_short}} infrastructure.
 7. Use the custom image to create a virtual server in {{site.data.keyword.vpc_short}}.
 
-For more information about using shell scripts to migrate a virtual server, see [Automate the migration of a workload based on Virtual Servers from Classic Infrastructure to VPC](https://www.ibm.com/cloud/blog/automate-the-migration-of-a-workload-based-on-virtual-servers){: external} and [vpc-tutorials](https://github.com/IBM-Cloud/vpc-tutorials/tree/master/vpc-migrate-from-classic){: external}.
+For more information about using shell scripts to migrate a virtual server, see [vpc-tutorials](https://github.com/IBM-Cloud/vpc-tutorials/tree/master/vpc-migrate-from-classic){: external}.
 {: tip}
 
 ### Step 1 - Identifying the virtual server to migrate and create an image template
@@ -84,7 +84,7 @@ Complete the following customizations to prepare your image for the {{site.data.
 {: #customize-linux-instance}
 
 Follow the instructions in [Creating a Linux custom image](/docs/vpc?topic=vpc-create-linux-custom-image) to customize on your Linux instance. Your instance needs to meet the following requirements.
-   * The following [arguments](/docs/vpc?topic=vpc-create-linux-custom-image#kernel-args) are present on the kernel command line: `nomodeset`, `nofb`, `vga=normal`, `console=ttyS0`.
+   * The following arguments are present on the kernel command line: `nomodeset`, `nofb`, `vga=normal`, `console=ttyS0`.
    * [Virtio drivers](/docs/vpc?topic=vpc-create-linux-custom-image#virtio-drivers) are installed, plus any code that is needed by Virtio.
    * Your image is [cloud-init enabled](/docs/vpc?topic=vpc-create-linux-custom-image#cloud-init).
    * For any auxiliary storage volumes that are mounted, you must include the _fstab_ entry `nofail`.
@@ -145,7 +145,7 @@ Complete the following customizations on your Windows virtual server to prepare 
    1. From the mounted ISO, run `virtio-win-guest-tools.exe` and complete the installation.
       1. Locate the downloaded ISO and double-click it to mount it.
       1. From the mounted ISO, run `virtio-win-guest-tools.exe` and complete the installation.
-1. Install and configure cloudbase-init from [Cloudbase-Init installation package](https://www.cloudbase.it/downloads/CloudbaseInitSetup_Stable_x64.msi){: external}.
+1. Install and configure cloudbase-init from [Cloudbase-Init installation package](https://www.cloudbase.it/downloads/CloudbaseInitSetup_1_1_4_x64.msi){: external}.
 1. Modify the `cloudbase-init.conf` file (`C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf\cloudbase-init.conf`) to match the following values. Don't remove any other content from the file.
 
    ```text
@@ -246,7 +246,7 @@ To export the image template that you created from the modified virtual server t
 {: #migrate-import-image}
 
 1. In the {{site.data.keyword.cloud_notm}} console, click **Navigation menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images**.
-1. On the **Custom images** tab, click **Import Custom Image**. For more information, see [Importing a custom image](/docs/vpc?topic=vpc-managing-images#import-custom-image).
+1. On the **Custom images** tab, click **Import Custom Image**. For more information, see [Importing a custom image](/docs/vpc?topic=vpc-importing-custom-images-vpc&interface=ui#import-custom-image-cloud-object-storage-ui).
 
 ### Step 7 - Using a custom image to create a virtual server in {{site.data.keyword.vpc_short}}
 {: #migrate-create-virtual-server}
