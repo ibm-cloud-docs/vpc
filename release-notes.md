@@ -1959,7 +1959,7 @@ Network load balancer (Beta)
 :   Network load balancers are available in a limited beta. Use network load balancers to distribute traffic among multiple server instances within the same region of your VPC. For more information, see [Load balancers overview](/docs/vpc?topic=vpc-nlb-vs-elb) and [About network load balancers](/docs/vpc?topic=vpc-network-load-balancers).
 
 VPN for VPC update
-:   Access VPN monitoring metrics by using [Monitoring VPN for VPC metrics](/docs/vpc?topic=vpc-sysdig-monitoring-metrics).
+:   Access VPN monitoring metrics by using [Monitoring VPN gateway for VPC metrics](/docs/vpc?topic=vpc-vpn-monitoring-metrics&interface=ui).
 
 ## June 2020
 {: #vpc-jun20}
