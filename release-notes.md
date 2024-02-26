@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-02-21"
+lastupdated: "2024-02-27"
 
 keywords:
 
@@ -30,8 +30,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## February 2024
 {: #vpc-feb24}
 
-### 21 February 2024
-{: #vpc-feb2124}
+### 27 February 2024
+{: #vpc-feb2724}
 {: release-note}
 
 GPU l4 profiles now available
