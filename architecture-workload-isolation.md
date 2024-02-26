@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-01-12"
+  years: 2020, 2024
+lastupdated: "2023-02-20"
 
 keywords: public isolation for VPC, compute isolation for VPC, VPC architecture, workload isolation in VPC
 
@@ -55,7 +55,7 @@ The following table lists the main dependencies of the VPC service and the purpo
 
 | Service | Purpose |
 | ------- | ------- |
-| {{site.data.keyword.iamlong}} | Provides authentication and authorization for all VPC requests. For more information about required IAM permissions, see [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls). |
+| {{site.data.keyword.iamlong}} | Provides authentication and authorization for all VPC requests. For more information, see [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started). |
 | IBM Cloud Kubernetes Service (IKS) | Hosts clusters of containers which run the regional microservices of the VPC service. |
 | IBM Cloud Catalog | Provides structured, globally consistent metadata for VPC resource profiles. |
 | IBM Cloud CLI (ibmcloud) | Provides access to the VPC APIs via a command line interface. The plugin is is available for VPC Infrastructure. |
@@ -84,7 +84,7 @@ The following table lists the main dependencies of the VPC service and the purpo
 | Operational Support Systems Event Data Broker (OSS EDB) | Monitors the health of the internal components of the VPC service. |
 | Ops Dashboard | Allows IBM's operations team to track the inventory and consumption of VPC resources. |
 | {{site.data.keyword.databases-for-elasticsearch_full_notm}} | Houses tracing data that is used for debugging, troubleshooting, and performance monitoring of the internal components of the VPC service. |
-| {{site.data.keyword.mon_full_notm}} | Sends metrics to {{site.data.keyword.mon_full}}. These metrics are used to debug, troubleshoot, and monitor performance of the VPC service. You can also use {{site.data.keyword.mon_full_notm}} to monitor the health and performance of your virtual private cloud. For more information, see [Monitoring metrics](/docs/vpc?topic=virtual-servers-sysdig-monitoring-metrics). |
+| {{site.data.keyword.mon_full_notm}} | Sends metrics to {{site.data.keyword.mon_full}}. These metrics are used to debug, troubleshoot, and monitor performance of the VPC service. You can also use {{site.data.keyword.mon_full_notm}} to monitor the health and performance of your virtual private cloud. For more information, see [IBM Cloud VPC monitoring dashboards](/docs/vpc?topic=vpc-ibm-monitoring). |
 | IBM Cloud Secrets Manager | Stores and manages certificates that are used to securely deploy VPC components, and to secure communication between VPC components. |
 | Digicert | Issuer of cloud.ibm.com SSL certificates. |
 | DNS Services | Maps IBM Cloud services FQDN to IP addresses that provides access to those services within the customer's VPC. |

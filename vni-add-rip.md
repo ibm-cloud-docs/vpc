@@ -18,8 +18,11 @@ subcollection: vpc
 This VPC feature is available only to accounts with special approval to preview this feature.
 {: preview}
 
-You can add a reserved IP to a VNI with the UI, CLI, API, or Terraform.
+The primary IP address of a virtual network interface is a reserved IP address.
 {: shortdesc}
+
+You can add a reserved IP to a VNI with the UI, CLI, API, or Terraform.
+
 
 ## Attaching a reserved IP to a virtual network interface in the UI
 {: #vni-add-rip-ui}
@@ -117,4 +120,4 @@ resource "ibm_is_virtual_network_interface_ip" "vni_reservedip" {
 	reserved_ip = ibm_is_subnet_reserved_ip.my_reservedip.reserved_ip
 }
 ```
-{ :codeblock}
+{: codeblock}

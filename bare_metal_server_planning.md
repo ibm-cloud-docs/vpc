@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-07-06"
+  years: 2021, 2024
+lastupdated: "2024-02-22"
 
 keywords: planning bare metal servers
 
@@ -21,7 +21,7 @@ When you are planning to create a bare metal server on {{site.data.keyword.vpc_f
 | Item | Considerations |
 |----------|---------|
 | Required IAM permissions | ___ Make sure that your account has the required user permissions. You must be assigned the `Editor` role of the target resource group to create bare metal servers in this resource group.  \n - For x86 architecture, you also need `Bare Metal Console Administrator` to access the ESXi Direct Console User Interface (DCUI) and `Bare Metal Advanced Network Operator` to modify IP spoofing and infrastructure NAT configuration on network interfaces.  \n - For s390x architecture, only IP spoofing is supported.  \n If you have authorization as an `Editor` or `Admin` for a VPC resource group, then you also inherit authorization to create, delete, and modify servers within that resource group. |
-| Account limits | ___ Check your [account limits](/docs/vpc?topic=vpc-quotas#service-limits) for concurrent resources. The maximum number of servers per account is 25. |
+| Account limits | ___ Check your [account limits](/docs/vpc?topic=vpc-quotas) for concurrent resources. The maximum number of servers per account is 25. |
 | Image | - For x86 architecture, you can use the VMware ESXi image Licensed ESXi 7.x image.  \n - For s390x architecture, choose an IBM-provided Linux image or select a supported custom image for BYOL (bring your own license). |
 | SSH key | ___ Make sure that your [SSH key](/docs/vpc?topic=vpc-ssh-keys#ssh-keys) is available. |
 | Location | ___ Determine what region and zone to select. |

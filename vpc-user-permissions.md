@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-01-30"
+lastupdated: "2024-02-21"
 
 keywords: resource, access, role, role-based, authorization, policy, access group, resource group, permission, assign, administrator, operator, editor, viewer, user, team, scenario, manage, create, IAM
 
@@ -19,7 +19,7 @@ subcollection: vpc
 {{site.data.keyword.vpc_full}} uses role-based access control that enables account administrators to control their users' access to VPC resources. Access can be assigned to individual users or to groups of users by using {{site.data.keyword.Bluemix_notm}} Identity and Access Management (IAM).
 {: shortdesc}
 
-For more information about IAM roles, see [IAM roles and actions](/docs/vpc/vpc?topic=vpc-iam-getting-started&interface=ui#iam-roles). For more information about the minimum IAM roles that a user or service ID need to interact with an {{site.data.keyword.vpc_full}} (VPC) infrastructure resource, see [Required permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls).
+For more information about IAM access policies and IAM roles and actions, see [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started). 
 {: note}
 
 This document shows examples of how the account administrator can use the {{site.data.keyword.cloud_notm}} console to grant the correct permissions for managing VPC infrastructure resources. It covers the following scenarios:
@@ -106,7 +106,7 @@ Create four access groups with the following names, and assign the appropriate u
 * `production_team_manage_vpcs`
 * `production_team_view_vpcs`
 
-For more information about how to create access groups and assign users to the access groups, see [Create access groups](/docs/account?topic=account-groups#create_ag).
+For more information about how to create access groups and assign users to the access groups, see [Create access groups](/docs/account?topic=account-groups&interface=ui#create_ag).
 
 ### Step 3: Add IAM policies to the access groups
 {: #step-3-add-iam-policies-to-the-access-groups}
@@ -183,6 +183,6 @@ Changes to IAM access policies for VPC can take up to 10 minutes to take effect.
 ## Related links
 {: #permissions-related-links}
 
-* [Managing identity and access](/docs/vpc?topic=vpc-iam-getting-started&interface=ui#iam-roles)
+* [Managing identity and access](/docs/vpc?topic=vpc-iam-getting-started)
 * [Managing users and access](/docs/account?topic=account-iamuserinv)
 * [What is IAM](/docs/account?topic=account-iamoverview)

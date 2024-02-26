@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2023
-lastupdated: "2023-12-18"
+  years: 2018, 2024
+lastupdated: "2024-02-21"
 
 keywords: ssh public keys, OpenSSH, add ssh key, ssh key, manage ssh key, generate ssh key, locate ssh key
 
@@ -34,10 +34,10 @@ On {{site.data.keyword.vpc_short}}, RSA is the default SSH key type. You can sel
 
 In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, you can go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > SSH keys** to manage your SSH keys. From here you can create, rename, or delete keys. If you select to create a key, that key must be an RSA SSH key type. You can upload an Ed25519 SSH key type, you just can't generate one within VPC.
 
-You can generate new RSA key pairs using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images. 
+You can generate new RSA key pairs using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images.
 {: note}
 
-You can generate new RSA key pairs using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. 
+You can generate new RSA key pairs using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded.
 
 ## SSH key types: RSA and Ed25519 in the CLI
 {: #ssh-key-types-cli}
@@ -129,7 +129,7 @@ If you choose to import an existing SSH key file, look for a file that is called
 
 If you want to generate an SSH key outside of {{site.data.keyword.vpc_short}}, run the `ssh-keygen` command and follow the prompts. For example, you can generate an RSA SSH key on your Linux or Mac system by running the command `ssh-keygen -t rsa -C "user_ID"`.
 
-Press **Enter** to accept the default location for the file. The command generates two files. The generated public key is in the `<your key>.pub` file. For Windows&reg;, you can use [PuTTYgen](https://www.ssh.com/ssh/putty/windows/puttygen){: external} to generate an SSH key.
+Press **Enter** to accept the default location for the file. The command generates two files. The generated public key is in the `<your key>.pub` file. For Windows&reg;, you can use [PuTTYgen](https://www.ssh.com/academy/ssh/putty/windows/puttygen){: external} to generate an SSH key.
 
 If you are using OpenSSH version 7.8 or higher and plan to access a Windows server, use the following command to generate the key in PEM format. `ssh-keygen -m PEM -t rsa -C "user_ID"`
 {: important}

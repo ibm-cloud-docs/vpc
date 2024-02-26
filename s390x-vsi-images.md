@@ -85,7 +85,7 @@ The following list explains the variables that make up the components of the ima
 * The `architecture` component provides the vCPU architecture that is supported by the operating system image, such as *amd64* or *s390x*.
 * The `build` component is a small, non-negative integer that is incremented each time a new build of the operating system is created. For image names that are otherwise identical, the image with the highest build value is the most recent image for that operating system.
 
-You can obtain the current list of images, including stock images, by running the following command in the command-line interface: [ibmcloud is images](/docs/vpc?topic=vpc-vpc-reference#images).
+You can obtain the current list of images, including stock images, by running the following command in the command-line interface: [ibmcloud is images](/docs/vpc?topic=vpc-vpc-reference&interface=ui#image-view).
 
 The image naming convention is subject to change. The list of image names is not intended to be programmatically parsed or interpreted. You can use the [GET /images](/apidocs/vpc#get-image) API to obtain metadata in a structured format.
 {: important}
