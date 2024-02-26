@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2023
-lastupdated: "2023-01-30"
+  years: 2019, 2024
+lastupdated: "2024-02-26"
 
 keywords: responsibilities, ha, high availability, disaster recovery
 
@@ -17,13 +17,13 @@ subcollection: vpc
 {: help}
 {: support}
 
-Learn about the management responsibilities that you have when you use {{site.data.keyword.vpc_full}} (VPC). {{site.data.keyword.vpc_short}} customer responsibilities apply across all VPC infrastructure services, unless otherwise noted. For overall terms of use, see [Cloud Services terms](/docs/overview/terms-of-use?topic=overview-terms#terms).
+Learn about the management responsibilities that you have when you use {{site.data.keyword.vpc_full}} (VPC). {{site.data.keyword.vpc_short}} customer responsibilities apply across all VPC infrastructure services, unless otherwise noted. For overall terms of use, see [Cloud Services terms](/docs/overview/?topic=overview-terms#terms).
 {: shortdesc}
 
 ## Overview of shared responsibilities
 {: #overview-by-resource}
 
-{{site.data.keyword.vpc_short}} is an infrastructure-as-a-service (IaaS) offering in the [{{site.data.keyword.cloud_notm}} shared responsibility model](/docs/overview/terms-of-use?topic=overview-shared-responsibilities). Review the following table of who is responsible for particular cloud resources when you use {{site.data.keyword.vpc_short}}. Then, you can view more granular tasks for shared responsibilities in [Tasks for shared responsibilities by area](#task-responsibilities).
+{{site.data.keyword.vpc_short}} is an infrastructure-as-a-service (IaaS) offering in the [{{site.data.keyword.cloud_notm}} shared responsibility model](/docs/overview/?topic=overview-shared-responsibilities). Review the following table of who is responsible for particular cloud resources when you use {{site.data.keyword.vpc_short}}. Then, you can view more granular tasks for shared responsibilities in [Tasks for shared responsibilities by area](#task-responsibilities).
 
 | Resource | Incident and Operations Management | Change Management | Identity and Access Management | Security and Regulation Compliance | Disaster Recovery |
 |----|---|----|----|---|----|
@@ -53,7 +53,7 @@ Incident and operations management includes tasks such as monitoring, event mana
 
 | Task | {{site.data.keyword.IBM_notm}} Responsibilities |  Your Responsibilities |
 |----------|-----------------------|-----------------------|
-| Infrastructure | {{site.data.keyword.IBM_notm}} deploys a fully managed, highly available, secured, IBM-owned infrastructure. | The Customer uses the provided API, CLI, or UI console to provision compute and storage, and to adjust networking configurations to meet the needs of their workload. To automate the provisioning and management of VPC service instances, you can use automation tools, such as IBM Cloud Schematics or Terraform. |  
+| Infrastructure | {{site.data.keyword.IBM_notm}} deploys a fully managed, highly available, secured, IBM-owned infrastructure. | The Customer uses the provided API, CLI, or UI console to provision compute and storage, and to adjust networking configurations to meet the needs of their workload. To automate the provisioning and management of VPC service instances, you can use automation tools, such as IBM Cloud Schematics or Terraform. |
 | Availability | {{site.data.keyword.IBM_notm}} fulfills requests for VPC infrastructure, such as VPCs, subnets, virtual server instances, Block Storage volumes, security groups, access control lists, floating IP addresses, public gateways, and SSH keys across multiple availability zones (AZs) and multi-zone regions (MZRs). | The Customer designs and deploys their workload in a way that achieves high availability by using our provided tools, such as multiple availability zones. At a high level, you are responsible for deploying workloads in different zones of the region, by using at least two load balancers that are located in different zones, and either by using DNS records to point to the load balancers or ensuring that your application can handle the list of IP addresses that it can connect to. For more information, see [Deploy isolated workloads across multiple locations and zones](/docs/solution-tutorials?topic=solution-tutorials-vpc-multi-region). |
 | Bring your own CIDR | {{site.data.keyword.IBM_notm}} provides the ability to bring your own CIDR block to a subnet. | The Customer ensures the CIDR blocks that they specify for their VPC do not conflict with CIDR blocks that are used by any other network that they plan to connect to their VPC. |
 | Monitoring | {{site.data.keyword.IBM_notm}} provides built-in virtual server instance monitoring and IBM Cloud Monitoring. | The Customer monitors the health of their workload by using either the built-in virtual server instance monitoring or IBM Cloud Monitoring. |
