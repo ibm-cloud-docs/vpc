@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2021, 2023
+  years: 2021, 2024
 lastupdated: "2023-12-18"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance
@@ -55,12 +55,12 @@ Use the UI to import your custom image by choosing to create and import an image
 | Resource group | Select a resource group for the instance. |
 | Tags |  You can assign a label to this resource so that you can easily filter resources in your resource list. |
 | Region | Select the location, or specific geographic area, where you want your custom image to be available for provisioning.|
-| Source | Select the source for the custom image by choosing either [Virtual server instance boot volume](#import-custom-boot-image-vsi) (default) or [Block Storage boot volume](#import-custom-image-vol). |
+| Source | Select the source for the custom image by choosing either [Virtual server instance boot volume](#import-custom-image-vsi) (default) or [Block Storage boot volume](#import-custom-image-vol). |
 | Manage image lifecycle (optional) | Select to schedule status changes for the image. You can schedule a single status change or schedule the complete lifecycle of the images. The image statuses are:  \n  \n * `available`: The image can be used to create an instance.  \n  \n * `deprecated`: The image is still available to use to provision and instance. Using the `deprecated` status can discourage use of the image before the status changes to `obsolete`.  \n * `obsolete`: The image is not available to use to provision an instancce.  \n  \n * Schedule complete lifecycle: You can schedule both the `deprecated` and `obsolete` status changes at the same time.  \n  \n You can move back and forth between the three statuses. Only the statuses you can change to are displayed. You can schedule status changes by using calendar date and time or number of days. The obsolescence date must always be after the deprecation date. |
 {: caption="Table 1. Import custom image user interface fields" caption-side="bottom"}
 
 ### Create an image from a virtual server instance boot volume
-{: #import-custom-boot-image-vsi}
+{: #import-custom-image-vsi}
 
 When you select **Virtual server instance boot volume** as the source of your custom image, a list of instances displays. To create an image from the instance's boot volume:
 
@@ -482,7 +482,7 @@ Stop the running instance by specifying the `stop` action in a `POST /instances`
 
 ```sh
 curl -X POST \
-"$vpc_api_endpoint/v1/instances/$instance_id/actions?version=2023-08-04&generation=2"\
+"$vpc_api_endpoint/v1/instances/$instance_id/actions?version=2023-08-04&generation=2"\ 
 -H "Authorization: Bearer $iam_token"\
 -d '{
   "type": "stop"
