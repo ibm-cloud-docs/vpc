@@ -46,7 +46,7 @@ Table 1 describes the information on the Backup policy list page. The default re
 | Created date (local) | Date and time of when the backup was created. |
 {: caption="Table 1. Backup policy list view" caption-side="bottom"}
 
-[^Note1]: For the backup operation to be successful, the tagged volumes must be attached to running virtual server instances. Unattached volumes are not backed up even if they have the right tag. 
+[^Note1]: For the backup operation to be successful, the tagged volumes must be attached to running virtual server instances. Unattached volumes are not backed up even if they have the right tags. 
 
 By clicking the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Actions"), you can display a menu of context-specific actions.
    - Restore
