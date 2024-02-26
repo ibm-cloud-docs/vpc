@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-12-05"
+  years: 2022, 2024
+lastupdated: "2024-02-21"
 
 keywords:
 
@@ -85,4 +85,4 @@ Consider the following options for controlling network traffic to your virtual s
 ## Manage security and compliance with VPC Infrastructure Services
 {: #imd-compliance}
 
-{{site.data.keyword.compliance_short}} can help you monitor your VPC infrastructure to validate resource configurations in your account against a profile and identify potential issues as they arise. See [Available goals for Virtual Servers](/docs/vpc?topic=vpc-manage-security-compliance#virtual-servers-available-goals) to define security standards for your virtual server instances.
+[{{site.data.keyword.compliance_short}}](/docs/security-compliance?topic=security-compliance-getting-started) can help you monitor your VPC infrastructure to validate resource configurations in your account against a profile and identify potential issues as they arise. 

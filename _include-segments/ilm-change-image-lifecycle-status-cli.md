@@ -1,6 +1,6 @@
 To make an immediate status change, use one of the following examples.
 
-You can make an immediate status change only if a future status change is not scheduled. To remove a scheduled status change, see [Remove a scheduled custom image lifecycle status change by using the CLI](#schedule-reset-ilm-status-change-cli). After you remove the scheduled status change, you can make an immediate status change.
+You can make an immediate status change only if a future status change is not scheduled. To remove a scheduled status change, see [Remove a scheduled custom image lifecycle status change by using the CLI](/docs/vpc?topic=vpc-managing-custom-images&interface=cli#schedule-reset-ilm-status-change-cli). After you remove the scheduled status change, you can make an immediate status change.
 {: note}
 
 - Change the image lifecycle status to `deprecate`.

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-06-08"
+  years: 2020, 2024
+lastupdated: "2023-02-20"
 
 subcollection: vpc
 
@@ -22,7 +22,7 @@ If you are using {{site.data.keyword.cloud_notm}} console, you need to create an
 you choose the dynamic scaling method, you must create scaling policies. For more information, see [Setting up auto scale with
 the UI](/docs/vpc?topic=vpc-creating-auto-scale-instance-group#setting-up-autoscale-overview). If you are using the {{site.data.keyword.cloud_notm}} CLI
 or API you must also create an instance group manager. For more information, see
-[Setting up auto scale with the CLI](/docs/vpc?topic=vpc-creating-auto-scale-instance-group#setting-up-auto-scale-with-the-cli).
+[Setting up auto scale with the CLI](/docs/vpc?topic=vpc-creating-auto-scale-instance-group&interface=cli#setting-up-autoscale-cli).
 
 ## How much am I charged for using auto scale?
 {: #faq-auto-scale-1}

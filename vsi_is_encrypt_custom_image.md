@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2023
-lastupdated: "2023-01-23"
+  years: 2019, 2024
+lastupdated: "2024-02-22"
 
 keywords: creating an encrypted custom image, qcow2
 
@@ -195,7 +195,7 @@ The following example steps are specific to {{site.data.keyword.keymanagementser
       ```
       {: screen}
 
-   3. Wrap your encoded passphrase with your CRK by running the `ibmcloud kp key wrap` command. While the passphrase that is used to generate the encrypted image is not technically a data encryption key, it is the terminology that Key Protect uses for data in wraps and unwraps. The data that is returned from Key Protect is referred to as the WDEK. For more information, see [kp key wrap](/docs/key-protect?topic=key-protect-cli-reference#kp-key-wrap). 
+   3. Wrap your encoded passphrase with your CRK by running the `ibmcloud kp key wrap` command. While the passphrase that is used to generate the encrypted image is not technically a data encryption key, it is the terminology that Key Protect uses for data in wraps and unwraps. The data that is returned from Key Protect is referred to as the WDEK. For more information, see [kp key wrap](//docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-wrap). 
 
       ```sh
       ibmcloud kp key wrap KEY_ID -i INSTANCE_ID -p PLAINTEXT
@@ -229,6 +229,6 @@ Make sure that you created the required authorizations in IBM {{site.data.keywor
 ## Next steps
 {: #encrypt-next-steps}
 
-When your image is successfully encrypted, your KMS is set up, and you created the required keys, you can [import](/docs/vpc?topic=vpc-planning-custom-images#custom-image-using-COS) the image to {{site.data.keyword.vpc_short}}. When the image is available in {{site.data.keyword.vpc_short}}, you can use it to provision instances. Make sure that you have [Granted access to {{site.data.keyword.cos_full_notm}} to import images](/docs/vpc?topic=vpc-object-storage-prereq).  
+When your image is successfully encrypted, your KMS is set up, and you created the required keys, you can [import](/docs/vpc?topic=vpc-importing-custom-images-vpc) the image to {{site.data.keyword.vpc_short}}. When the image is available in {{site.data.keyword.vpc_short}}, you can use it to provision instances. Make sure that you have [Granted access to {{site.data.keyword.cos_full_notm}} to import images](/docs/vpc?topic=vpc-object-storage-prereq).  
 
 When you are ready to provision a new virtual server instance with the encrypted image, no encryption information is needed. The wrapped data encryption key (WDEK) and the CRN of the customer root key (CRK) are stored as metadata with the image.

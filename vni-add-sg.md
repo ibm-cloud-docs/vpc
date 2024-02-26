@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years:  2023
-lastupdated: "2023-12-18"
+  years: 2023
+lastupdated: "2023-10-30"
 
 keywords:
 
@@ -18,6 +18,9 @@ subcollection: vpc
 This VPC feature is available only to accounts with special approval to preview this feature.
 {: preview}
 
+Security groups give you a convenient way to apply rules that establish filtering to a target of a virtual server instance, based on its IP address. Virtual network interfaces can be a target for a security group.
+{: shortdesc}
+
 You can add security groups to a VNI with the UI, CLI, API, or Terraform.
 
 ## Attaching a security group to a virtual network interface in the UI
@@ -27,7 +30,7 @@ You can add security groups to a VNI with the UI, CLI, API, or Terraform.
 To add a security group to an existing virtual network interface, follow these steps.
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Virtual network interfaces**.
+1. Select the **Navigation Menu** icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Virtual network interfaces**.
 1. Click the name of the virtual network interface that you want to add a security group to in the Virtual network interfaces for VPC table.
 1. Click the **Attached resources** tab.
 1. In the Security groups section, click **Attach**.

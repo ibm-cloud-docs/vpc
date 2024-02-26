@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2020, 2022
+  years: 2020, 2024
 
-lastupdated: "2022-11-18"
+lastupdated: "2024-02-21"
 
 keywords: troubleshooting bare metal servers, hardware issues, firmware
 
@@ -25,7 +25,7 @@ The following topics cover common difficulties that you might encounter, and off
 {: troubleshoot}
 {: support}
 
-If your bare metal server experiences a hardware issue, you can request support by creating a support case. Click [here](/unifiedsupport/cases/add%C2%A0) to create a support case. For more information about creating a case, see [Support cases](/docs/vpc?topic=vpc-getting-help#support-tickets).
+If your bare metal server experiences a hardware issue, you can request support by creating a support case. For more information, see [Creating support cases](/docs/get-support?topic=get-support-open-case).
 
 After the operation team receives the case, the server goes into a maintenance state.
 
@@ -57,4 +57,4 @@ If your custom image fails to boot, open the console and debug the operating sys
 * An unsigned operating system. Disable secure boot and try starting the system again.
 * UEFI boot not support. Verify that the image has an EFI disk partition with an EFI boot loader.
 
-If you need more help, open a [support case](/unifiedsupport/cases/add%C2%A0).
+If you need more help, you can request support by creating a support case. For more information, see [Creating support cases](/docs/get-support?topic=get-support-open-case).

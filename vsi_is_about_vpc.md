@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-01-22"
+lastupdated: "2024-02-21"
 
 keywords: virtual server instances, VSI, compute, virtual machines, planning, best practices, instances, virtual servers, virtual server instance, Virtual servers for VPC, gen 2, generation 2, infrastructure, infrastructure as a service, IaaS
 
@@ -36,7 +36,7 @@ To review and start deploying compute resources, see the following topics:
 |[Virtual Servers for Classic](/docs/virtual-servers?topic=virtual-servers-getting-started-tutorial)| When you create an x86-based virtual server in classic infrastructure, you have several options. You can choose between a public (multi-tenancy) environment or a dedicated (single-tenancy) environment. Then, depending on the chosen environment, you select hourly, monthly, or transient virtual servers. For public virtual servers, you also choose to use either SAN-based storage or local storage. |
 {: caption="Table 1. Deployment options" caption-side="bottom"}
 
-To compare all virtual compute options, see [Compare Virtual Compute options](https://www.ibm.com/cloud/virtual-servers/options){: external}.
+To compare all virtual compute options, see [IBM Cloud Virtual Server for VPC - Compute features](https://www.ibm.com/products/virtual-servers/features){: external}.
 
 ## Creating virtual servers for VPC
 {: #creating-vsis-for-vpc}

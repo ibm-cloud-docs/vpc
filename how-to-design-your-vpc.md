@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2023
-lastupdated: "2023-01-27"
+  years: 2017, 2024
+lastupdated: "2024-02-23"
 
 keywords: subnet, address prefixes, design, addressing
 
@@ -12,10 +12,10 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Designing an addressing plan for a VPC 
+# Designing an addressing plan for a VPC
 {: #vpc-addressing-plan-design}
 
-The first step in designing your {{site.data.keyword.vpc_full}} is designing your addressing plan. 
+The first step in designing your {{site.data.keyword.vpc_full}} is designing your addressing plan.
 {: shortdesc}
 
 A properly designed addressing plan has two goals:
@@ -30,10 +30,10 @@ Although each {{site.data.keyword.vpc_short}} deploys to a specific region, the 
 The same design steps are involved, no matter whether the application is contained completely on the cloud, or whether parts of the application are running in another location.
 {: tip}
 
-When you create VPC instances that you intend to interconnect by using [IBM Cloud Transit Gateway](/docs/transit-gateway?topic=transit-gateway-getting-started), avoid selecting **Default address prefixes**. Create your VPC instances with nonoverlapping prefixes for [successful connectivity](/docs/transit-gateway?topic=transit-gateway-troubleshooting#overlapping-vpc-prefixes-and-classic-subnets). 
+When you create VPC instances that you intend to interconnect by using [IBM Cloud Transit Gateway](/docs/transit-gateway?topic=transit-gateway-getting-started), avoid selecting **Default address prefixes**. Create your VPC instances with nonoverlapping prefixes for [successful connectivity](/docs/transit-gateway?topic=transit-gateway-overlapping-vpc-prefixes-and-classic-subnets).
 
-When you create VPC instances that you also intend to interconnect with your IBM Cloud classic infrastructure by using [IBM Cloud Transit Gateway](/docs/transit-gateway?topic=transit-gateway-getting-started), do not use IP addresses in your instances in the `10.0.0.0/14`, `10.200.0.0/14`, `10.198.0.0/15`, and `10.254.0.0/16` blocks. Also, avoid IP addresses from your classic infrastructure subnets. 
-  
+When you create VPC instances that you also intend to interconnect with your IBM Cloud classic infrastructure by using [IBM Cloud Transit Gateway](/docs/transit-gateway?topic=transit-gateway-getting-started), do not use IP addresses in your instances in the `10.0.0.0/14`, `10.200.0.0/14`, `10.198.0.0/15`, and `10.254.0.0/16` blocks. Also, avoid IP addresses from your classic infrastructure subnets.
+
 For more information about designing your VPC instances for use with IBM Cloud Transit Gateway, see [Planning for IBM Cloud Transit Gateway](/docs/transit-gateway?topic=transit-gateway-helpful-tips).
 {: important}
 
@@ -67,17 +67,17 @@ The next step is to determine each tier's subnet size (in terms of available add
 
 Consider the following information when you plan each tier's subnet size:
 
-* The database tier (the back end) is the least likely to need dynamic scaling, so these subnets are the smallest. That is, these subnets can contain the least number of available addresses. 
+* The database tier (the back end) is the least likely to need dynamic scaling, so these subnets are the smallest. That is, these subnets can contain the least number of available addresses.
     * _This example uses a `/27` CIDR block, which allows for 27 addresses in this tier._
-* The middle tier is the most likely to need dynamic scaling, so these subnets are the largest. That is, they must contain the greatest number of available addresses. 
+* The middle tier is the most likely to need dynamic scaling, so these subnets are the largest. That is, they must contain the greatest number of available addresses.
     * _This example uses a `/25` CIDR block, which allows for 123 addresses in this tier._
-* The front-end tier fits in the middle; it doesn't need as many addresses as the middle tier, but it needs more than the database tier does. 
+* The front-end tier fits in the middle; it doesn't need as many addresses as the middle tier, but it needs more than the database tier does.
     * _This example uses a `/26` CIDR block, which allows for 59 addresses in this tier._
 
 ## Combining the subnets and selecting the address prefixes
 {: #combining-the-subnets-and-selecting-the-address-prefixes}
 
-To select an acceptable address prefix for each zone, you need a subnet size that's large enough to accommodate all three of the subnets in each tier, and still leave room for horizontal scaling and future expansion. 
+To select an acceptable address prefix for each zone, you need a subnet size that's large enough to accommodate all three of the subnets in each tier, and still leave room for horizontal scaling and future expansion.
 
 A `/24` address prefix is the smallest prefix into which these three subnets can be combined (27 + 123 + 59). Select the next larger subnet size, not the smallest. Assigning the next larger subnet size (`/23`) allows for horizontal scaling beyond the limits that were given previously because it allows for adding new subnets to each layer, from within the same address prefix.
 
