@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-01-30"
+lastupdated: "2024-02-21"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance, instances, virtual servers, creating virtual servers, virtual server instances, virtual machines, Virtual Servers for VPC, compute, vsi, vpc, creating, UI, console
 
@@ -45,7 +45,7 @@ This tutorial requires the following prerequisites.
 {: #creating-a-resource-group}
 {: step}
 
-You can use [resource groups](/docs/vpc?topic=vpc-iam-getting-started&interface=ui#resources-and-resource-groups) to organize images.
+You can use [resource groups](/docs/vpc?topic=vpc-iam-getting-started&interface=ui#iam-resource-groups) to organize images.
 
 1. Log in to the [{{site.data.keyword.Bluemix_notm}} console](/login){: external}.
 2. Click **Manage** > **Account**.
@@ -74,7 +74,7 @@ Complete the following actions to import your custom image in the UI.
 | Resource group | Image resources |
 | Tags | Custom image |
 | Region | Dallas 2 |
-| Source | [Virtual server instance boot volume](#import-custom-image-vsi) (default) |
+| Source | [Virtual server instance boot volume](#import-custom-boot-image-vsi) (default) |
 {: caption="Table 1. Custom image provision user interface fields" caption-side="bottom"}
 
 ### Create an image from a virtual server instance boot volume

@@ -78,7 +78,7 @@ Table 3 outlines the message IDs that are generated for dedicated hosts:
 
 | Message ID             | Type   | Learn More  |
 |------------------------|--------|---------------------|
-| `dedicated-host.00001` | `err`  | [`Failed to create dedicated host <Dedicated Host ID> due to insufficient capacity in zone.`](/docs/vpc?topic=vpc-why-did-a-dedicated-host-fail-to-create-) |
+| `dedicated-host.00001` | `err`  | [`Failed to create dedicated host <Dedicated Host ID> due to insufficient capacity in zone.`](/docs/vpc?topic=vpc-why-did-a-dedicated-host-fail-to-create) |
 | `dedicated-host.00002` | `info` | `Provisioned a virtual server instance on dedicated host <Dedicated Host ID>.`              |
 | `dedicated-host.00003` | `info` | `Removed a virtual server instance on dedicated host <Dedicated Host ID>.`              |
 {: caption="Table 3. Message IDs that are generated for dedicated hosts" caption-side="bottom"}

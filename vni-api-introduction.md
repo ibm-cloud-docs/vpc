@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-02-02"
+lastupdated: "2024-02-20"
 
 keywords: virtual network interfaces, hazardous change remediation, mitigation
 
@@ -20,6 +20,9 @@ Starting 12 March 2024, a new feature will be enabled in the Virtual Private Clo
 
 If you have workflows or automation for managing your instances, bare metal servers, and file share mount targets, read this guidance regardless of whether you plan to use virtual network interfaces.
 {: important}
+
+Check for new information in this page when it is updated on 12 March 2024.
+{: tip}
 
 ## What are we changing?
 {: #vni-api-changes}

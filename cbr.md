@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-01-27"
+  years: 2022, 2024
+lastupdated: "2024-02-23"
 
 keywords: context-based restrictions for VPC Infrastructure Services
 
@@ -46,7 +46,7 @@ tutorial for [Leveraging context-based restrictions to secure your resources](/d
 
 VPC Infrastructure Services is a composite service made up of a number of child services.
 Context-based restrictions can be created for {{site.data.keyword.vpc_short}} or any of its child services;
-for example, [subnets](/docs/vpc?topic=vpc-about-subnets-vpc), [virtual server instances](/docs/vpc?topic=vpc-vsi_best_practice), and [Block Storage volumes](/docs/vpc?topic=vpc-creating-block-storage&interface=cli).
+for example, [subnets](/docs/vpc?topic=vpc-about-subnets-vpc), [virtual server instances](https://cloud.ibm.com/docs/vpc?topic=vpc-vsi_best_practices), and [Block Storage volumes](/docs/vpc?topic=vpc-creating-block-storage&interface=cli).
 
 See the [rule creation section](#cbr-rules) for details on how you can create rules with the
 required attributes for each service.
@@ -131,13 +131,13 @@ The `serviceRef` attribute for VPC Infrastructure Services is `is` and Cloud Blo
 {: cli}
 
 1. To create network zones from the CLI,
-   [install the CBR CLI plug-in](/docs/account?topic=cli-cbr-plugin#install-cbr-plugin).
+   [install the CBR CLI plug-in](/docs/account?topic=account-cbr-plugin&interface=ui).
 1. Use the `cbr-zone-create` command to add network locations, VPCs, and service references to
    network zones. For more information, see the CBR
-   [CLI reference](/docs/account?topic=cli-cbr-plugin#cbr-zones-cli).
+   [CLI reference](/docs/account?topic=account-cbr-plugin&interface=ui#cbr-zones-cli).
 
    To find a list of available service reference targets, run the `ibmcloud cbr service-ref-targets`
-   [command](/docs/account?topic=cli-cbr-plugin#cbr-cli-service-ref-targets-command). The
+   [command](/docs/account?topic=account-cbr-plugin&interface=ui#cbr-cli-service-ref-targets-command). The
    `service_name` for VPC Infrastructure Services is `is` and Cloud Block Storage is `server-protect`.
    {: tip}
 
@@ -237,8 +237,8 @@ access only from the specified network zone via a private endpoint.
 {: #rules-cli}
 {: cli}
 
-1. To create rules from the CLI, [install the CBR CLI plug-in](/docs/account?topic=cli-cbr-plugin#install-cbr-plugin).
-1. Use the `ibmcloud cbr rule-create` [command](/docs/account?topic=cli-cbr-plugin#cbr-cli-rule-create-command) to create CBR rules. For more information, see the CBR [CLI reference](/docs/account?topic=cli-cbr-plugin#cbr-zones-cli).
+1. To create rules from the CLI, [install the CBR CLI plug-in](/docs/account?topic=account-cbr-plugin&interface=ui).
+1. Use the `ibmcloud cbr rule-create` [command](/docs/account?topic=account-cbr-plugin&interface=ui#cbr-cli-rule-create-command) to create CBR rules. For more information, see the CBR [CLI reference](/docs/account?topic=account-cbr-plugin&interface=ui#cbr-zones-cli).
 
 The examples in this section are enforcement rules. You can make them report-only by adding `--enforcement-mode report`.
 

@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2024
 
-lastupdated: "2024-01-10"
+lastupdated: "2024-02-22"
 
 keywords: connecting, windows
 
@@ -85,11 +85,11 @@ After you create your Windows instance and complete the prerequisites, complete 
     ibmcloud is instance-initialization-values 0xx4e27x-33xx-4e7x-a08b-bexx2ac3xx0c --private-key "@~/.ssh/id_rsa"
     ```
     {: pre}
-    
-    You can also use the API to get the encrypted password, which returns the decoded and decrypted password. For more information, see [Retrieve configuration that is used to initialize the instance API](/apidocs/vpc/latest#retrieve-configuration-used-to-initialize-the-inst).
+
+    You can also use the API to get the encrypted password, which returns the decoded and decrypted password. For more information, see [Retrieve initialization configuration for an instance](/apidocs/vpc/latest#get-instance-initialization).
     {: tip}
 
-3. After you obtain your instance password, you can optionally associate a floating IP address to your Windows instance so you can connect to it from an internet location. Run the following command to associate a floating IP address to your instance, where `NIC` is the ID or Name of the target network interface (for example, `eth0`).   
+3. After you obtain your instance password, you can optionally associate a floating IP address to your Windows instance so you can connect to it from an internet location. Run the following command to associate a floating IP address to your instance, where `NIC` is the ID or Name of the target network interface (for example, `eth0`).
 
    ```sh
    ibmcloud is floating-ip-reserve <FLOATING_IP_NAME> --nic <NIC>
@@ -108,7 +108,7 @@ After you connect to your instance, you can [manage your instances](/docs/vpc?to
     1. In the navigation pane of the {{site.data.keyword.cloud_notm}} console, click **Compute > Virtual server instances** and click your instance to view its details.
     1. Scroll down to the **Encrypted password** field. Copy the value and paste it into a text file, for example, encrypted_pwd.txt.
 
-    You can also use the API to get the encrypted password, or the CLI, which returns the decoded and decrypted password. For more information, see [Retrieve configuration used to initialize the instance API](/apidocs/vpc/latest#retrieve-configuration-used-to-initialize-the-inst) and [instance-initialization-values](/docs/vpc?topic=vpc-vpc-reference#instance-initialization-values).
+    You can also use the API to get the encrypted password, or the CLI, which returns the decoded and decrypted password. For more information, see [[Retrieve initialization configuration for an instance](/apidocs/vpc/latest#get-instance-initialization).
     {: tip}
 
 1. Decode the encrypted password and store it in a new file (for example, decoded_pwd.txt) by running the following command: `cat encrypted_pwd.txt | base64 -d > decoded_pwd.txt`

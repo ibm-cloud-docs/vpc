@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-12-18"
+  years: 2022, 2024
+lastupdated: "2024-02-20"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, storage optimized
 
@@ -88,7 +88,7 @@ Ensure that you select a secure execution enabled profile (for example, cz2e-2x4
 | cz2-8x16 | 8 | 4 | 16 | 16 |
 | cz2-16x32 | 16 | 8 | 32 | 32 |
 {: caption="Table 3. Compute profiles options for s390x instances" caption-side="bottom"}
-{: #compute-se-s390x}
+{: #compute-s390x}
 {: tab-title="s390x"}
 {: tab-group="Compute"}
 {: class="simple-tab-table"}
@@ -261,4 +261,4 @@ After you choose a profile, it's time to create an instance.
 
 * [Creating an instance by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers)
 * [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli)
-* [Creating an instance by using the API](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=api#select-profile-and-image)
+* [Creating an instance by using the API](/docs/vpc?topic=vpc-creating-virtual-servers&interface=api#create-instance-api)

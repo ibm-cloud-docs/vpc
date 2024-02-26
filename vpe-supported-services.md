@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-13"
+lastupdated: "2024-02-22"
 
 keywords: virtual private endpoints, endpoint gateway, VPE
 subcollection: vpc
@@ -21,7 +21,7 @@ When configuring a VPE gateway, you are shown a customized list of common servic
 with your account.
 {: note}
 
-* {{site.data.keyword.appconfig_short}} ([Endpoint URLs](/apidocs/app-configuration#endpoints-urls))
+* {{site.data.keyword.appconfig_short}} ([Endpoint URLs](/apidocs/app-configuration#endpoint-url))
 * Catalog Management ([Endpoint URLs](/apidocs/resource-catalog/private-catalog#endpoint-url))
 * Cloud Object Storage ([Instructions](/docs/cloud-object-storage?topic=cloud-object-storage-vpes))
 * Code Engine ([Instructions](/docs/codeengine?topic=codeengine-vpe))
