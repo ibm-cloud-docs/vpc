@@ -299,9 +299,6 @@ The GPU profile family includes both `-v100`, `-a100`, `l4`, and `l4Os` profiles
 * GPU `-l4` profiles include NVIDIA L4 24GB GPUs.
 * GPU `-l4Os` profiles include NVIDIA L4Os 48GB GPUs.
 
-The `gx2-80x1280x8a100` profile is available for select customers. Contact IBM Sales or open a [support case](https://cloud.ibm.com/unifiedsupport/supportcenter) if you are interested in this offering.
-{: preview}
-
 See [Download drivers](https://www.nvidia.com/Download/index.aspx?lang=en-us) to review the most current versions that are supported. NVIDIA GPU drivers must be installed separately.
 
 ### Select availability for the a100, l4, and l4Os GPU profiles
