@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2023
-lastupdated: "2023-01-27"
+  years: 2019, 2024
+lastupdated: "2024-02-26"
 
 keywords: delete, resources
 
@@ -40,9 +40,9 @@ The following table summarizes the types of VPC resources and the relationships 
 ## VPC resources cannot be deleted in a transient state
 {: #deleting-status}
 
-VPC resources cannot be deleted when they are in a transient state, such as `pending`. All resources must be in a "final" state, such as `available` or `failed`, before they can be deleted. You must wait for the resource to get to `available` or `failed` before you try to delete the resource. [Contact support](/docs/vpc-on-classic?topic=vpc-on-classic-getting-help-and-support) if a resource does not show an `available` or `failed` status within 30 minutes.
+VPC resources cannot be deleted when they are in a transient state, such as `pending`. All resources must be in a "final" state, such as `available` or `failed`, before they can be deleted. You must wait for the resource to get to `available` or `failed` before you try to delete the resource. [Contact support](/docs/vpc?topic=vpc-getting-help) if a resource does not show an `available` or `failed` status within 30 minutes.
 
-After you request to delete a resource, the resource enters a transient state of `deleting`. Wait for the resource to disappear from the list before you try to delete the parent or attached resource. In some situations, the delete operation might fail, and the resource enters a `failed` status within a few minutes. Contact support if a resource doesn't disappear or show a `failed` status within 30 minutes after you made a delete request. After the resource is in `failed` status, you can attempt to delete it again. [Contact support](/docs/vpc-on-classic?topic=vpc-on-classic-getting-help-and-support) if you are unable to delete a resource in `failed` status.
+After you request to delete a resource, the resource enters a transient state of `deleting`. Wait for the resource to disappear from the list before you try to delete the parent or attached resource. In some situations, the delete operation might fail, and the resource enters a `failed` status within a few minutes. Contact support if a resource doesn't disappear or show a `failed` status within 30 minutes after you made a delete request. After the resource is in `failed` status, you can attempt to delete it again. [Contact support](/docs/vpc?topic=vpc-getting-help) if you are unable to delete a resource in `failed` status.
 
 ## Follow this order when you delete a VPC
 {: #deleting-order}
@@ -171,4 +171,3 @@ Unlike security groups, network ACLs can be assigned across VPCs. Therefore, del
 The following topics provide more examples on how to delete VPC resources by using the IBM Cloud Console, CLI, or API.
 
 * [Deleting a VPC and its associated resources](/docs/vpc?topic=vpc-deleting-vpc-resources&interface=ui)
-

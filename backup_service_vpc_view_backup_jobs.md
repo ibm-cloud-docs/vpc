@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-02-08"
+lastupdated: "2024-02-26"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, view backup lists,
 
@@ -29,7 +29,7 @@ List all backup jobs. Select a backup job and review its details.
 
 From the backup policy details page, you can list all backup jobs for that policy. The jobs are listed with the oldest one first. Backup jobs show all backups that were created by the backup policy for the selected region.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Backup policies**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Backup policies**.
 1. Click a policy name.
 1. Click the **Backup jobs** tab. Table 1 describes the information on the Backup jobs page.
 
@@ -55,7 +55,7 @@ From the list of backup jobs, click the Actions icon ![Actions icon](../icons/ac
 | Name     | The name of the backup policy that created the snapshot. You can change the backup policy settings by clicking the pencil icon. For more information, see [Managing backup policies](/docs/vpc?topic=vpc-backup-service-manage). |
 | Status   | The status of the snapshot, such as _Stable_. For a list of snapshot statuses, see [Snapshot statuses](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-status). |
 | Size     | Size in GBs of the snapshot, it is inherited from the source volume. |
-| Source   | Displays the Source volume from which the snapshot was taken. If the source was deleted, the name appears without a link. |
+| Source   | This field shows the Source volume from which the snapshot was taken. If the source was deleted, the name appears without a link. |
 | Bootable | It indicates whether the snapshot was created from a boot volume. |
 {: caption="Table 2. Snapshot details side panel" caption-side="bottom"}
 
@@ -377,10 +377,10 @@ A successful response looks like the following example.
 
 When you view details of a backup job by making a `GET /backup_policies/{backup_policy_id}/jobs/{backup_job_id}` request, the `status` property indicates whether the job `failed`, is `running`, or `succeeded`. The API also provides status reasons with the following codes:
 
-* `internal_error`: the code indicates an internal error. Contact IBM support if your see this code.
-* `snapshot_pending`: the code indicates that a backup snapshot in the `pending` [snapshot lifecycle state](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-status) cannot be deleted.
-* `snapshot_volume_limit`: the code indicates that the [snapshot limit](/docs/vpc?topic=vpc-snapshots-vpc-faqs&interface=ui#faq-snapshot-3) for the source volume is reached.
-* `source_volume_busy`: the code indicates that the source volume is busy after multiple retries.
+* `internal_error` - the code indicates an internal error. Contact IBM support if your see this code.
+* `snapshot_pending` - the code indicates that a backup snapshot in the `pending` [snapshot lifecycle state](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-status) cannot be deleted.
+* `snapshot_volume_limit` - the code indicates that the [snapshot limit](/docs/vpc?topic=vpc-snapshots-vpc-faqs&interface=ui#faq-snapshot-3) for the source volume is reached.
+* `source_volume_busy` - the code indicates that the source volume is busy after multiple retries.
 
 ## View backup jobs with Terraform
 {: #backup-view-jobs-terraform}

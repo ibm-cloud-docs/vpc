@@ -37,12 +37,16 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 GPU l4Os profiles with PCIe now available
 :   New `l4Os` GPU profiles that include NVIDIA's L4Os 48GB GPU are now available in the Australia (Sydney) and Japan (Tokyo) regions. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
+GPU l4 profiles now available
+:   New `l4` GPU profiles that include NVIDIA's L4 24GB GPU are now available in the Australia (Sydney) and Japan (Tokyo) regions. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+
 ### 23 February 2024
 {: #vpc-feb2324}
 {: release-note}
 
 London 1 AZ for bare metal servers
 :   The London 1 availability zone (AZ) is now available for Bare Metal Servers for VPC.
+
 
 ### 20 February 2024
 {: #vpc-feb2024}
@@ -226,7 +230,7 @@ Security group integration for network load balancers
 {: release-note}
 
 VPNs for VPC: Diagnose unhealthy VPN gateways and servers
-:   When you see an existing VPN gateway or server in a `degraded` or `faulted` state, you can now diagnose the issue. You are presented with reasons for the state and actions to resolve the issue. For more information, see [Diagnosing VPN gateway health](/docs/vpc?topic=vpc-vpn-health), [Diagnosing VPN gateway connection health](docs/vpc?topic=vpc-vpn-health#vpn-connection-health), and [Diagnosing VPN server health](/docs/vpc?topic=vpc-vpn-server-health).
+:   When you see an existing VPN gateway or server in a `degraded` or `faulted` state, you can now diagnose the issue. You are presented with reasons for the state and actions to resolve the issue. For more information, see [Diagnosing VPN gateway health](/docs/vpc?topic=vpc-vpn-health), [Diagnosing VPN gateway connection health](/docs/vpc?topic=vpc-vpn-health#vpn-connection-health), and [Diagnosing VPN server health](/docs/vpc?topic=vpc-vpn-server-health).
 
 Next generation instance profiles available in Dallas region (select availability)
 :   The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are available as a Select Availability offering in the Dallas region. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel&reg; Xeon&reg; Scalable processors to provide the most powerful and performant general-purpose profiles available. For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles). In the [Balanced](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) family, see the *bx3d* profiles tab. In the [Compute](/docs/vpc?topic=vpc-profiles&interface=ui#compute) family, see the *cx3d* profiles tab. In the [Memory](/docs/vpc?topic=vpc-profiles&interface=ui#memory) family, see the *mx3d* profiles tab. 3rd generation dedicated host profiles are also available. For more information, see *bx3d*, *cx3d*, and *mx3d* profiles in [x86-64 dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
@@ -343,7 +347,7 @@ File Storage for VPC (GA)
 {: release-note}
 
 VPC services using IBM Cloud Metrics Routing
-:    You can use IBM Cloud Metrics Routing to manage metrics at the account-level by configuring targets and routes that define where data points are routed. This platform service can only route metrics that are generated in [supported regions](/docs/metrics-router?topic=metrics-router-regions#regions-metrics-router) by enabled services. Other regions, where IBM Cloud Metrics Routing is not available, continue to manage metrics by using [IBM Cloud Monitoring](/docs/monitoring?topic=monitoring-getting-started).
+:    You can use IBM Cloud Metrics Routing to manage metrics at the account-level by configuring targets and routes that define where data points are routed. This platform service can only route metrics that are generated in [supported regions](/docs/metrics-router?topic=metrics-router-regions) by enabled services. Other regions, where IBM Cloud Metrics Routing is not available, continue to manage metrics by using [IBM Cloud Monitoring](/docs/monitoring?topic=monitoring-getting-started).
 
    For a list of supported IBM Cloud VPC services, see [IBM Cloud services that generate metrics that are managed through IBM Cloud Metrics Routing](/docs/metrics-router?topic=metrics-router-cloud-services-mr#vpc). To learn more about IBM Cloud Metrics Routing, see [Getting started with IBM Cloud Metrics Routing](/docs/metrics-router?topic=metrics-router-getting-started).
 
@@ -981,7 +985,7 @@ Snapshot and Backup for VPC
 {: release-note}
 
 Sharing images across an enterprise account (beta)
-:    You can now share or publish custom images to other accounts within your enterprise by using a private catalog. A private catalog provides a way for you to manage access to products for multiple accounts. You can use any existing x86 virtual server custom image with a private catalog, with the exception of an encrypted image. For more information, see [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#custom-image-cloud-private-catalog).
+:    You can now share or publish custom images to other accounts within your enterprise by using a private catalog. A private catalog provides a way for you to manage access to products for multiple accounts. You can use any existing x86 virtual server custom image with a private catalog, with the exception of an encrypted image. For more information, see [Getting started with Catalog Images on VPC](/docs/vpc?topic=vpc-getting-started-images-on-vpc-catalog).
 
 
 ## June 2022
@@ -1416,7 +1420,7 @@ Client-to-site VPN servers (Beta)
 {: release-note}
 
 HTTPS redirect listeners
-:   The [HTTPS redirect feature](/docs/vpc?topic=vpc-load-balancers#https-redirect-listener) is now available on Application Load Balancer for VPC to redirect traffic from an HTTP load balancer listener to an HTTPS listener. You can configure an HTTPS redirect on either [load balancer listeners](/docs/vpc?topic=vpc-load-balancers), [load balancer policies](/docs/vpc?topic=vpc-layer-7-load-balancing), or both.
+:   The [HTTPS redirect feature](/docs/vpc?topic=vpc-load-balancers&interface=ui) is now available on Application Load Balancer for VPC to redirect traffic from an HTTP load balancer listener to an HTTPS listener. You can configure an HTTPS redirect on either [load balancer listeners](/docs/vpc?topic=vpc-load-balancers), [load balancer policies](/docs/vpc?topic=vpc-layer-7-load-balancing), or both.
 
 Virtual server instances for VPC
 :   When you provision an instance, you can now allocate I/O bandwidth between storage and network bandwidth from the total instance bandwidth. The maximum bandwidth capacity is determined by the instance profile that you selected during instance provisioning. For more information, see [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles).
@@ -1966,7 +1970,7 @@ Network load balancer (Beta)
 :   Network load balancers are available in a limited beta. Use network load balancers to distribute traffic among multiple server instances within the same region of your VPC. For more information, see [Load balancers overview](/docs/vpc?topic=vpc-nlb-vs-elb) and [About network load balancers](/docs/vpc?topic=vpc-network-load-balancers).
 
 VPN for VPC update
-:   Access VPN monitoring metrics by using [Monitoring VPN for VPC metrics](/docs/vpc?topic=vpc-sysdig-monitoring-metrics).
+:   Access VPN monitoring metrics by using [Monitoring VPN gateway for VPC metrics](/docs/vpc?topic=vpc-vpn-monitoring-metrics&interface=ui).
 
 ## June 2020
 {: #vpc-jun20}
@@ -2054,7 +2058,7 @@ Documentation correction
 {: release-note}
 
 Load balancer for VPC update
-:   Access load balancer monitoring metrics (throughput, active connections, connection rate) using [IBM Cloud Monitoring](/docs/vpc?topic=vpc-monitoring-metrics).
+:   Access load balancer monitoring metrics (throughput, active connections, connection rate) using [IBM Cloud Monitoring](/docs/monitoring?topic=monitoring-getting-started).
 
    The following cipher suites are supported for load balancer HTTPS listeners:
 
@@ -2073,7 +2077,7 @@ Load balancer for VPC update
 {: release-note}
 
 {{site.data.keyword.mon_full_notm}} monitoring
-:   Monitor virtual server instances using {{site.data.keyword.mon_full_notm}}. Use the new **Add monitoring** button on the instance's **Monitoring** page to provision an instance of the monitoring service. If a monitoring instance is already provisioned for the region, use the **Launch monitoring** button to view metrics associated with the instance. For more information, see [Monitoring metrics](/docs/vpc?topic=vpc-sysdig-monitoring-metrics).
+:   Monitor virtual server instances using {{site.data.keyword.mon_full_notm}}. Use the new **Add monitoring** button on the instance's **Monitoring** page to provision an instance of the monitoring service. If a monitoring instance is already provisioned for the region, use the **Launch monitoring** button to view metrics associated with the instance. For more information, see [Monitoring metrics](/docs/vpc?topic=vpc-vpn-monitoring-metrics&interface=ui)
 
 Updated styling
 :   VPC pages in {{site.data.keyword.IBM_notm}} console now use [Carbon 10](https://carbondesignsystem.com/){: external}, the IBM open source design system, which improves consistency and quality.

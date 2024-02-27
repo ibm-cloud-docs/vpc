@@ -50,7 +50,7 @@ The following key facts are important to remember about deletion:
 * Most delete requests are _asynchronous_, which means that the resource might show a **deleting** status in list queries when it was not yet deleted completely.
 * You must poll to make sure that the child resource is no longer in the list view before you try to delete the parent resource.
 
-If the status of the resource changes from `deleting` to `failed`, you can try to delete the resource again. If you cannot delete a resource in `failed` status, [Contact support](/docs/virtual-servers?topic=virtual-servers-virtual-server-help-and-support).
+If the status of the resource changes from `deleting` to `failed`, you can try to delete the resource again. If you cannot delete a resource in `failed` status, [Contact support](/docs/virtual-servers?topic=virtual-servers-gettinghelp).
 {: tip}
 
 ### Step 1: Find all subnets within the VPC that you want to delete
