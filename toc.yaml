@@ -308,8 +308,6 @@ toc:
             topics:
             - vni-about.md
             - vni-about-secondary-ip.md
-            - vni-iam.md
-            - vni-monitoring
             - topicgroup:
                 label: Working with virtual network interfaces
                 topics:
