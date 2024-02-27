@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-02-26"
+lastupdated: "2024-02-27"
 
 keywords: responsibilities, ha, high availability, disaster recovery
 
@@ -17,7 +17,7 @@ subcollection: vpc
 {: help}
 {: support}
 
-Learn about the management responsibilities that you have when you use {{site.data.keyword.vpc_full}} (VPC). {{site.data.keyword.vpc_short}} customer responsibilities apply across all VPC infrastructure services, unless otherwise noted. For overall terms of use, see [Cloud Services terms](/docs/overview/?topic=overview-terms#terms).
+Learn about the management responsibilities that you have when you use {{site.data.keyword.vpc_full}} (VPC). {{site.data.keyword.vpc_short}} customer responsibilities apply across all VPC infrastructure services, unless otherwise noted. For overall terms of use, see [Cloud Services terms](/docs/overview?topic=overview-terms).
 {: shortdesc}
 
 ## Overview of shared responsibilities
