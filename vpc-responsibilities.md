@@ -23,7 +23,7 @@ Learn about the management responsibilities that you have when you use {{site.da
 ## Overview of shared responsibilities
 {: #overview-by-resource}
 
-{{site.data.keyword.vpc_short}} is an infrastructure-as-a-service (IaaS) offering in the [{{site.data.keyword.cloud_notm}} shared responsibility model](/docs/overview/?topic=overview-shared-responsibilities). Review the following table of who is responsible for particular cloud resources when you use {{site.data.keyword.vpc_short}}. Then, you can view more granular tasks for shared responsibilities in [Tasks for shared responsibilities by area](#task-responsibilities).
+{{site.data.keyword.vpc_short}} is an infrastructure-as-a-service (IaaS) offering in the [{{site.data.keyword.cloud_notm}} shared responsibility model](/docs/overview?topic=overview-shared-responsibilities). Review the following table of who is responsible for particular cloud resources when you use {{site.data.keyword.vpc_short}}. Then, you can view more granular tasks for shared responsibilities in [Tasks for shared responsibilities by area](#task-responsibilities).
 
 | Resource | Incident and Operations Management | Change Management | Identity and Access Management | Security and Regulation Compliance | Disaster Recovery |
 |----|---|----|----|---|----|
