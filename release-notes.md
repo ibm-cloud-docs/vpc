@@ -1409,7 +1409,7 @@ Client-to-site VPN servers (Beta)
 {: release-note}
 
 HTTPS redirect listeners
-:   The [HTTPS redirect feature](/docs/vpc?topic=vpc-load-balancers&interface=ui#https-redirect-listener) is now available on Application Load Balancer for VPC to redirect traffic from an HTTP load balancer listener to an HTTPS listener. You can configure an HTTPS redirect on either [load balancer listeners](/docs/vpc?topic=vpc-load-balancers), [load balancer policies](/docs/vpc?topic=vpc-layer-7-load-balancing), or both.
+:   The [HTTPS redirect feature](/docs/vpc?topic=vpc-load-balancers&interface=ui) is now available on Application Load Balancer for VPC to redirect traffic from an HTTP load balancer listener to an HTTPS listener. You can configure an HTTPS redirect on either [load balancer listeners](/docs/vpc?topic=vpc-load-balancers), [load balancer policies](/docs/vpc?topic=vpc-layer-7-load-balancing), or both.
 
 Virtual server instances for VPC
 :   When you provision an instance, you can now allocate I/O bandwidth between storage and network bandwidth from the total instance bandwidth. The maximum bandwidth capacity is determined by the instance profile that you selected during instance provisioning. For more information, see [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles).
@@ -2066,7 +2066,7 @@ Load balancer for VPC update
 {: release-note}
 
 {{site.data.keyword.mon_full_notm}} monitoring
-:   Monitor virtual server instances using {{site.data.keyword.mon_full_notm}}. Use the new **Add monitoring** button on the instance's **Monitoring** page to provision an instance of the monitoring service. If a monitoring instance is already provisioned for the region, use the **Launch monitoring** button to view metrics associated with the instance. For more information, see [Monitoring metrics](/docs/vpc?topic=vpc-sysdig-monitoring-metrics).
+:   Monitor virtual server instances using {{site.data.keyword.mon_full_notm}}. Use the new **Add monitoring** button on the instance's **Monitoring** page to provision an instance of the monitoring service. If a monitoring instance is already provisioned for the region, use the **Launch monitoring** button to view metrics associated with the instance. For more information, see [Monitoring metrics](/docs/vpc?topic=vpc-vpn-monitoring-metrics&interface=ui)
 
 Updated styling
 :   VPC pages in {{site.data.keyword.IBM_notm}} console now use [Carbon 10](https://carbondesignsystem.com/){: external}, the IBM open source design system, which improves consistency and quality.
