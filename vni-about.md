@@ -164,8 +164,9 @@ For this example, a single virtual server instance is running three instances of
 
 These links provide additional information about virtual network interfaces for VPC:
 
-* [IAM permissions](/docs/account?topic=account-iam-service-roles-actions#is.virtual-network-interface-roles)
 * [Activity tracker events](/docs/vpc?topic=vpc-at-events&interface=ui#events-vni)
+* [FAQs](/docs/vpc?topic=vpc-vni-faq)
+* [IAM permissions](/docs/account?topic=account-iam-service-roles-actions#is.virtual-network-interface-roles)
 * [Quotas](/docs/vpc?topic=vpc-quotas&interface=ui#virtual-network-interfaces-quotas)
 * [Terraform registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_virtual_network_interface){: external}
 * [Troubleshooting](/docs/vpc?topic=vpc-troubleshoot-vni-1)
