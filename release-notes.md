@@ -34,6 +34,9 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-feb2724}
 {: release-note}
 
+GPU l4Os profiles with PCIe now available
+:   New `l4Os` GPU profiles that include NVIDIA's L4Os 48GB GPU are now available in the Australia (Sydney) and Japan (Tokyo) regions. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+
 GPU l4 profiles now available
 :   New `l4` GPU profiles that include NVIDIA's L4 24GB GPU are now available in the Australia (Sydney) and Japan (Tokyo) regions. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
