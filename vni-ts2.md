@@ -35,5 +35,5 @@ This may be indicated with an authorization error message when running the follo
 A lack of Administrator permissions can prevent you from being able to configure your virtual network interface.
 {: tsCauses}
 
-Contact the account administrator associated with the virtual network interface's IP address to finish configuring your virtual network interface. To learn more, see [IAM permissions](/docs/account?topic=account-iam-service-roles-actions#is.virtual-network-interface-roles).
+Contact the account administrator associated with the virtual network interface's IP address to finish configuring your virtual network interface.
 {: tsResolve}
