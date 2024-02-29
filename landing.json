@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2024-02-22",
+    "lastupdated": "2024-02-29",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
@@ -31,19 +31,19 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
-          "date": "20 February 2024",
-          "title": "Next generation instance profiles available in Frankfurt region (select availability)",
-          "description": "The 3rd generation of IBM Cloud Virtual Servers for VPC are now available as a select availability offering in the Frankfurt region, in addition to the Dallas and London regions. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel® Xeon® Scalable processors to provide the most powerful and performant general-purpose profiles available. For more information, see Next generation instance profiles. In the Balanced family, see the bx3d profiles tab. In the Compute family, see the cx3d profiles tab. In the Memory family, see the mx3d profiles tab. 3rd generation dedicated host profiles are also available."
+          "date": "27 February 2024",
+          "title": "GPU l4Os profiles with PCIe now available",
+          "description": "New l4Os GPU profiles that include NVIDIA's L4Os 48GB GPU are now available in the EU Germany (Frankfurt), Spain (Madrid), Australia (Sydney), and Japan (Tokyo) regions."
         },
         {
-          "date": "07 February 2024",
-          "title": "Updated workload section for Hyper Protect Secure Build",
-          "description": "The workload section for Hyper Protect Secure Build is updated based on the IBM Hyper Protect Container Runtime image ibm-hyper-protect-container-runtime-1-0-s390x-13."
+          "date": "27 February 2024",
+          "title": "GPU l4 profiles now available",
+          "description": "New l4 GPU profiles that include NVIDIA's L4 24GB GPU are now available in the Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Spain (Madrid), Australia (Sydney), and Japan (Tokyo) regions."
         },
         {
-          "date": "06 February 2024",
-          "title": "New Madrid region for ux2d profiles (GA)",
-          "description": "The Ultra High Memory family of profiles are now available in the Spain (Madrid) region. The addition of this region makes the ux2d profiles available in all regions."
+          "date": "23 February 2024",
+          "title": "London 1 AZ for bare metal servers",
+          "description": "The London 1 availability zone (AZ) is now available for Bare Metal Servers for VPC."
         }
       ]
     }
