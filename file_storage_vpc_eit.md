@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-12-11"
+  years: 2023, 2024
+lastupdated: "2024-02-29"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -20,7 +20,7 @@ You can establish an encrypted mount connection between the virtual server insta
 
 If you choose to use Encryption-in-transit, you need to balance your requirements between performance and enhanced security. Encrypting data in transit can have some performance impact due to the processing that is needed to encrypt and decrypt the data at the endpoints. The impact depends on the workload characteristics. Workloads that perform synchronous writes or bypass VSI caching, such as databases, might have a substantial performance impact when EIT is enabled. To determine EIT’s performance impact, benchmark your workload with and without EIT. 
 
-Even without EIT, the data is moving through a secure data center network. For more information about network security, see [Security in your VPC](/docs/vpc?topic=vpc-security-in-your-vpc) and [Protecting Virtual Private Cloud (VPC) Infrastructure Services with context-based restrictions](/docs/vpc?topic=vpc-cbr).
+Even without EIT, the data moves through a secure data center network. For more information about network security, see [Security in your VPC](/docs/vpc?topic=vpc-security-in-your-vpc) and [Protecting Virtual Private Cloud (VPC) Infrastructure Services with context-based restrictions](/docs/vpc?topic=vpc-cbr).
 
 ## Overview
 {: #file-storage-eit-overview}
@@ -41,10 +41,18 @@ Encryption in transit is not supported on {{site.data.keyword.bm_is_short}}.
 
 To use the feature, the following requirements need to be met:
 - The file share must be based on the [`dp2` profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=api#dp2-profile) and be configured with [Security Group access mode](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-share-mount-targets). 
-- The mount target must be created with a [virtual network interface](/docs/vpc?topic=vpc-vni-about). For more information, see [Creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create).
+- The mount target must be created with a [virtual network interface](/docs/vpc?topic=vpc-vni-about). The virtual server instance and the mount target must be members of the same [security group](/docs/vpc?topic=vpc-using-security-groups). For more information, see [Creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create).
 - Data encryption in transit must be enabled. In the UI, you can toggle encryption in transit on when you create the mount target. The API `transit_encryption` property accepts the `user_managed` value to enable the feature.
-- When you configure the virtual server instance to access the file share, you must configure IPsec Transport Mode for the mount target address. [Install](https://docs.strongswan.org/docs/5.9/install/install.html){: external} and configure the strongSwan client.
-- Obtain the X.509 certificates that are needed for authentication. The same certificates cannot be used across multiple regions.
+- [Instance metadata service](/docs/vpc?topic=vpc-imd-about) must be enabled for the virtual server instance.
+
+### Configure the host and obtain a certificate
+{: #file-storage-eit-manual-setup}
+
+The {{site.data.keyword.cloud}} file service provides a [Mount Helper utility](/docs/vpc?topic=vpc-fs-mount-helper-utility) to automate the following tasks that are performed on the virtual server instance.
+{: fast-path}
+
+1. When you configure the virtual server instance to access the file share, you must configure [IPsec Transport Mode](https://docs.strongswan.org/docs/6.0/howtos/ipsecProtocol.html#_ipsec_transport_mode){: external} for the mount target address. [Install](https://docs.strongswan.org/docs/5.9/install/install.html){: external} and configure the strongSwan client.
+2. Obtain the X.509 certificates that are needed for authentication. The same certificates cannot be used across multiple regions.
    1. The following command generates a *Certificate Signing Request* (CSR) and *RSA Key Pair* by using openssl.
       ```sh
       openssl req -sha256 -newkey rsa:4096 -subj '/C=US' -out ./sslcert.csr -keyout file.key -nodes
@@ -65,8 +73,6 @@ To use the feature, the following requirements need to be met:
       ```
       {: pre}
 
-- [Instance metadata service](/docs/vpc?topic=vpc-imd-about) must be enabled for the virtual server instance. 
-   - Make a `PUT /instance_identity/v1/token` API call to get a token from metadata service to be used for subsequent calls. For more information, see [Acquiring an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-json-token).
-   - Make a `POST /instance_identity/v1/certificates` call and specify the instance identity token in the HTTP Authorization header, plus a Certificate Signing Request (as `csr` property) and a validity duration (as `expires_in` property). The call returns a new client certificate and intermediate certificate chain that allows the client to access file shares by using IPsec Encryption in Transit. For more information, see [Generating an instance identity certificate by using an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-acquire-certificate).    
-
-The {{site.data.keyword.cloud}} file service provides a [Mount Helper utility](/docs/vpc?topic=vpc-fs-mount-helper-utility) to automate these tasks.
+3. Then, use the [Instance metadata service](/docs/vpc?topic=vpc-imd-about) to create a client certificate. 
+   1. Make a `PUT /instance_identity/v1/token` API request to get a token from metadata service to be used for subsequent calls. For more information, see [Acquiring an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-json-token).
+   2. Make a `POST /instance_identity/v1/certificates` request and specify the instance identity token in the HTTP Authorization header, plus a Certificate Signing Request (as `csr` property) and a validity duration (as `expires_in` property). The call returns a new client certificate and intermediate certificate chain that allows the client to access file shares by using IPsec Encryption in Transit. For more information, see [Generating an instance identity certificate by using an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-acquire-certificate).    
