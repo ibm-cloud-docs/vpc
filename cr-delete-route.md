@@ -92,4 +92,4 @@ To delete a route with Terraform, follow these steps:
       terraform destroy --target="ibm_is_vpc_routing_table_route.example"
       ```
 
-      For information about the `terraform destroy` command, see the [Terraform Registry](https://developer.hashicorp.com/terraform/tutorials/state/resource-targeting#destroy-your-infrastructure).{: external}
+      For more information about the `terraform destroy` command, see the [Terraform Registry](https://developer.hashicorp.com/terraform/tutorials/state/resource-targeting#destroy-your-infrastructure).{: external}

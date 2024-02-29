@@ -573,7 +573,7 @@ Use the following steps to create a virtual server instance from a private catal
        ZONE_NAME \
        PROFILE_NAME \
        SUBNET \
-       --catalog-offering <CRN for the IBM Cloud catalog offering> or --catalog-offering-version <The CRN for the version of a IBM Cloud catalog offering> \
+       --catalog-offering <CRN for the IBM Cloud catalog offering> or --catalog-offering-version <The CRN for the version of an IBM Cloud catalog offering> \
        --keys KEYS \
        --placement-group PLACEMENT_GROUP_NAME \
    ```

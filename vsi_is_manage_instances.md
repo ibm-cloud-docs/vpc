@@ -369,7 +369,7 @@ To adjust the bandwidth of an instance:
 
 1. Go to a virtual service instance.
 2. Select **Bandwidth allocation**.
-3. On the **Edit bandwidth allocation** screen, adjust the value for **Storage bandwidth**. You can increase the bandwidth that is allocated for your Block Storage boot and attached data volumes. For information about how storage bandwidth is allocated, see [Bandwidth allocation for Block Storage volumes](/docs/vpc?topic=vpc-block-storage-bandwidth). After you set storage bandwidth, network bandwidth is automatically adjusted so the total bandwidth of the instance equals the displayed Total bandwidth value. The value for Network bandwidth or Storage bandwidth cannot be set to less than 500 Mbps.
+3. On the **Edit bandwidth allocation** screen, adjust the value for **Storage bandwidth**. You can increase the bandwidth that is allocated for your Block Storage boot and attached data volumes. For more information about how storage bandwidth is allocated, see [Bandwidth allocation for Block Storage volumes](/docs/vpc?topic=vpc-block-storage-bandwidth). After you set storage bandwidth, network bandwidth is automatically adjusted so the total bandwidth of the instance equals the displayed Total bandwidth value. The value for Network bandwidth or Storage bandwidth cannot be set to less than 500 Mbps.
 
 To view the new bandwidth allocation, you must either stop and start the instance, or detach and reattach secondary volumes.
 {: note}

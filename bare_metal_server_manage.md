@@ -23,7 +23,7 @@ You can perform the following actions by using the UI, API, or CLI:
 | Action | Description |
 |--------|-------------|
 | Stop| Stop the server using a soft stop or a hard stop.  \n - Soft stop can take a few seconds to several minutes to stop shut down the server, depending on the state of the operating system. If the operating system is not responding and the soft stop can not complete, a hard stop is required.  \n - Hard stop shuts down the bare metal server immediately. This prevents the operating system from shutting down gracefully. |
-| Start | Start a stopped server. This action is not available if the the status is Running. |
+| Start | Start a stopped server. This action is not available if the status is Running. |
 | Reboot | Immediately powers off a running server and then powers it back on. |
 | Delete | To delete a server, the server must be powered off. If the server has a floating IP address, the floating IP address must be unassociated or released before the server is deleted. The delete action permanently removes a server and its connected vNIC, boot volume, and data from your account. |
 {: caption="Table 1. Actions available for bare metal servers" caption-side="bottom"}

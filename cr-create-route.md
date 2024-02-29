@@ -201,4 +201,4 @@ To create a route with Terraform, follow these steps:
    }
    ```
 
-      For information about the `ibm_is_vpc_routing_table_route` resource, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_vpc_routing_table_route).{: external}
+      For more information about the `ibm_is_vpc_routing_table_route` resource, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_vpc_routing_table_route).{: external}

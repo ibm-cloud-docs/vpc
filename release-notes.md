@@ -223,7 +223,7 @@ Security group integration for network load balancers
 :   For enhanced security, network load balancers can now be associated with security groups. You can associate one or more security groups with a new network load balancer when creating it, as well as associate security groups with your existing network load balancers. For more information, see [Integrating an IBM Cloud Network Load Balancer for VPC with security groups](/docs/vpc?topic=vpc-nlb-integration-with-security-groups).
 
  Very High Memory profiles available in all regions (GA)
-:   The Very High Memory family of profiles are now available in the Spain (Madrid) region. This makes the vx2d profiles available in all regions. For more information on the Very High Memory profile family, see [Very High Memory](/docs/vpc?topic=vpc-profiles&interface=ui#vhmemory).
+:   The Very High Memory family of profiles are now available in the Spain (Madrid) region. This makes the vx2d profiles available in all regions. For more information about the Very High Memory profile family, see [Very High Memory](/docs/vpc?topic=vpc-profiles&interface=ui#vhmemory).
 
 ### 12 October 2023
 {: #vpc-oct1223}
@@ -296,7 +296,7 @@ IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1
 :   You can now roll or rotate the seeds that are used in the contract to improve the security posture or if the seed is compromised. For more information, see [The workload - volumes subsection](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_volumes), and [The env - volumes subsection](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_env_vol).
 
 Ultra High Memory profiles are now available in the United Kingdom region
-:   The Ultra High Memory profile family (`ux2d`) is now available in the United Kingdome (London) region. For more information on this profile family, see [Ultra High Memory](/docs/vpc?topic=vpc-profiles&interface=ui#uhmemory). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+:   The Ultra High Memory profile family (`ux2d`) is now available in the United Kingdome (London) region. For more information about this profile family, see [Ultra High Memory](/docs/vpc?topic=vpc-profiles&interface=ui#uhmemory). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 ## August 2023
 {: #vpc-august23}
@@ -792,7 +792,7 @@ IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1
 {: release-note}
 
 Access management tags to manage VPC resources
-:   You can now use access management tags to control access to VPC resources, such as virtual server instances and Block Storage volumes. See the [Access management tags](/docs/vpc?topic=vpc-iam-getting-started&interface=ui#iam-access-management-tags) section in [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started). For information on using access management tags, see the following IAM resources:
+:   You can now use access management tags to control access to VPC resources, such as virtual server instances and Block Storage volumes. See the [Access management tags](/docs/vpc?topic=vpc-iam-getting-started&interface=ui#iam-access-management-tags) section in [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started). For more information about using access management tags, see the following IAM resources:
     * [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial) UI tutorial
     * [Working with tags](/docs/account?topic=account-tag&interface=ui)
     * [Granting users access to tag resources and service IDs](/docs/account?topic=account-access&interface=ui)
@@ -961,7 +961,7 @@ Health check metrics for application load balancer pools
 * A metric for reporting the total number of members in a pool.
 * A second metric for reporting the total number of healthy (or active) members in a pool.
 
-:   For more information on these new metrics or the IBM Cloud Monitoring service, refer to [Monitoring Application Load Balancer for VPC metrics](/docs/vpc?topic=vpc-monitoring-metrics-alb).
+:   For more information about these new metrics or the IBM Cloud Monitoring service, refer to [Monitoring Application Load Balancer for VPC metrics](/docs/vpc?topic=vpc-monitoring-metrics-alb).
 
 ### 09 August 2022
 {: #vpc-august0922}
@@ -1652,7 +1652,7 @@ New monitoring metrics
    For more information, refer to [Monitoring Application Load Balancer for VPC metrics](/docs/vpc?topic=vpc-monitoring-metrics-alb).
 
 Private network load balancers
-:   {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) now supports the creation of private network load balancers. A private NLB is a load balancer only accessible from within the VPC network and/or where the client has reachability to the VPC network (for example, through Direct Link or a transit gateway). To create private load balancers, you must have a dedicated subnet with no custom routes configured for the subnet. For information on creating a private NLB, refer to [Creating a network load balancer for VPC](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer).
+:   {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) now supports the creation of private network load balancers. A private NLB is a load balancer only accessible from within the VPC network and/or where the client has reachability to the VPC network (for example, through Direct Link or a transit gateway). To create private load balancers, you must have a dedicated subnet with no custom routes configured for the subnet. For more information about creating a private NLB, refer to [Creating a network load balancer for VPC](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer).
 
 ### 19 March 2021
 {: #vpc-mar1921}
@@ -1750,7 +1750,7 @@ Customer-managed encryption (GA)
 {: release-note}
 
 Customer-managed encryption (GA)
-:   For Block Storage volumes and encrypted custom images, deleting or disabling a customer root key (CRK) is now managed by these VPC services. When you delete a root key, the resources become unusable for normal operations. A new `unusable` status and reason code `encryption_key_deleted` or `encryption_key_disabled` has been added to the API for `GET / volumes` and `GET / image` methods. These statuses also appear in the CLI and UI. For more information, see [Disabling root keys](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-disable-root-keys) and [Deleting root keys](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-delete-root-keys). For information on key states and resource statuses, see [User actions that impact root key states and resource status](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-root-key-states).
+:   For Block Storage volumes and encrypted custom images, deleting or disabling a customer root key (CRK) is now managed by these VPC services. When you delete a root key, the resources become unusable for normal operations. A new `unusable` status and reason code `encryption_key_deleted` or `encryption_key_disabled` has been added to the API for `GET / volumes` and `GET / image` methods. These statuses also appear in the CLI and UI. For more information, see [Disabling root keys](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-disable-root-keys) and [Deleting root keys](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-delete-root-keys). For more information about key states and resource statuses, see [User actions that impact root key states and resource status](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-root-key-states).
 
 :   The Washington D.C. multi-zone region will be enabled in January 2021. This feature is available in all other multi-zone regions.
 

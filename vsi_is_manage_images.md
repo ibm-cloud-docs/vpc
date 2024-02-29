@@ -21,7 +21,7 @@ After you import a custom image to {{site.data.keyword.vpc_short}}, you can view
 To manage an image from volume, see [Managing image from volume](/docs/vpc?topic=vpc-image-from-volume-vpc-manage&interface=ui). To use a custom image in a private catalog, see [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui).
 {: note}
 
-{{site.data.keyword.cloud}} Identity and Access Management (IAM) enables you to securely authenticate users for platform services and control access to resources consistently across {{site.data.keyword.cloud_notm}}. For information about access requirements for custom images, see the IAM roles and actions information in [Image Service for VPC](/docs/account?topic=account-iam-service-roles-actions#is.image-roles).
+{{site.data.keyword.cloud}} Identity and Access Management (IAM) enables you to securely authenticate users for platform services and control access to resources consistently across {{site.data.keyword.cloud_notm}}. For more information about access requirements for custom images, see the IAM roles and actions information in [Image Service for VPC](/docs/account?topic=account-iam-service-roles-actions#is.image-roles).
 
 For details about the `$vpc_api_endpoint` and `$iam_token` variables in the following examples, see the Authentication and Endpoint URLs sections in [Virtual Private Cloud API Introduction](/apidocs/vpc/latest#about-vpc-api).
 {: api}
@@ -439,19 +439,19 @@ This process shares only the custom image to the private catalog. The validation
 {: #sharing-custom-image-private-catalog-cli}
 {: cli}
 
-You can only share a custom image to a private catalog from {{site.data.keyword.vpc_short}} by using the UI. For information on onboarding to a private catalog using the CLI, see [Onboarding software to your account](/docs/account?topic=account-create-private-catalog&interface=cli).
+You can only share a custom image to a private catalog from {{site.data.keyword.vpc_short}} by using the UI. For more information about onboarding to a private catalog using the CLI, see [Onboarding software to your account](/docs/account?topic=account-create-private-catalog&interface=cli).
 
 ## Sharing a custom image to a private catalog by using the API
 {: #sharing-custom-image-private-catalog-api}
 {: api}
 
-You can only share a custom image to a private catalog from {{site.data.keyword.vpc_short}} by using the UI. For information on onboarding to a private catalog using the API, see [Onboarding software to your account](/docs/account?topic=account-create-private-catalog&interface=api).
+You can only share a custom image to a private catalog from {{site.data.keyword.vpc_short}} by using the UI. For more information about onboarding to a private catalog using the API, see [Onboarding software to your account](/docs/account?topic=account-create-private-catalog&interface=api).
 
 ## Sharing a custom image to a private catalog by using Terraform
 {: #sharing-custom-image-private-catalog-terraform}
 {: terraform}
 
-You can only share a custom image to a private catalog from {{site.data.keyword.vpc_short}} by using the UI. For information on onboarding to a private catalog using the Terraform, see [Onboarding software to your account](/docs/account?topic=account-create-private-catalog&interface=terraform).
+You can only share a custom image to a private catalog from {{site.data.keyword.vpc_short}} by using the UI. For more information about onboarding to a private catalog using the Terraform, see [Onboarding software to your account](/docs/account?topic=account-create-private-catalog&interface=terraform).
 
 ## Schedule a custom image lifecycle status change in the UI
 {: #schedule-ilm-status-change-ui}

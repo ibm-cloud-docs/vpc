@@ -43,7 +43,7 @@ VPE supports Administrator, Editor, Operator, and Viewer platform-access roles. 
 
 [^E]:A user must have Operator privileges for a reserved IP resource to bind a reserved IP when an endpoint gateway is created. To create an endpoint gateway without binding a reserved IP, a user requires only Administrator or Editor privileges.
 
-For information about assigning user roles in the console, see [Managing access to resources](/docs/account?topic=account-assign-access-resources).
+For more information about assigning user roles in the console, see [Managing access to resources](/docs/account?topic=account-assign-access-resources).
 
 ## Viewing VPE resources in the Resource list
 {: #viewing-vpe-resources-in-resource-list}

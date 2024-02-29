@@ -21,7 +21,7 @@ A profile is a combination of instance attributes, such as the number of vCPUs, 
 
 The secure execution profiles that become available when you enable confidential computing and select IBM Hyper Protect as the operating system for your virtual instance, can be identified by the fourth character of the profile name which is an "e", such as bz2e.
 
-For information about profiles for x86 processor architecture, see [x86 instance profiles](/docs/vpc?topic=vpc-profiles).
+For more information about profiles for x86 processor architecture, see [x86 instance profiles](/docs/vpc?topic=vpc-profiles).
 For more information about confidential computing, see [Confidential computing with LinuxONE](/docs/vpc?topic=vpc-about-se).
 
 The following profile families are available:

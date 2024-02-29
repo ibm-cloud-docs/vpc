@@ -129,5 +129,5 @@ The custom image you create for bare metal servers must support the following:
 * Bare Metal servers require the pensando ionic device driver for networking. This is normally an in-box driver for 5.x linux kernels. If the ionic driver is not part of your kernel, you can include it as a kernel module and use DKMS to manage kernel upgrades.
 
 
-To create secure execution based custom images by using the Cloud Object Storage option, see [Preparing the workload](https://www.ibm.com/docs/en/linux-on-systems?topic=tasks-prepare-workload). For information about creating secure execution based images, [IBM Secure Execution for Linux](https://www.ibm.com/docs/en/linux-on-systems?topic=overview-introducing-secure-execution-linux).
+To create secure execution based custom images by using the Cloud Object Storage option, see [Preparing the workload](https://www.ibm.com/docs/en/linux-on-systems?topic=tasks-prepare-workload). For more information about creating secure execution based images, [IBM Secure Execution for Linux](https://www.ibm.com/docs/en/linux-on-systems?topic=overview-introducing-secure-execution-linux).
 {: note}

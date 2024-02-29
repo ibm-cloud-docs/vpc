@@ -132,7 +132,7 @@ To view details of all or a specific routing table with Terraform, follow these 
       }
       ```
 
-      For information about the `ibm_is_vpc_routing_tables` resource, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_vpc_routing_tables).{: external}
+      For more information about the `ibm_is_vpc_routing_tables` resource, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_vpc_routing_tables).{: external}
 
    * To retrieve a single routing table specified by the identifier:
 
@@ -143,7 +143,7 @@ To view details of all or a specific routing table with Terraform, follow these 
       }
       ```
 
-      For information about the `ibm_is_vpc_routing_table` resource, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_vpc_routing_table).{: external}
+      For more information about the `ibm_is_vpc_routing_table` resource, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_vpc_routing_table).{: external}
 
    * To retrieve the default routing table for the VPC specified by the identifier:
 
@@ -153,4 +153,4 @@ To view details of all or a specific routing table with Terraform, follow these 
       }
       ```
 
-      For information about the `ibm_is_vpc_default_routing_table` resource, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_vpc_default_routing_table).{: external}
+      For more information about the `ibm_is_vpc_default_routing_table` resource, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_vpc_default_routing_table).{: external}

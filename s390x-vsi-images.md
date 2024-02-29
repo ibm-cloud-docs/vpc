@@ -48,7 +48,7 @@ You can choose a profile based on your requirements. You can choose from balance
 The {{site.data.keyword.waziaas_short}} z/OS dev and test stock image is available in the US South (Dallas), Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), United Kingdom (London), Spain (Madrid), US East (Washington DC), and US South (Dallas) regions. For more information, see [{{site.data.keyword.waziaas_full_notm}} documentation](https://www.ibm.com/docs/en/wazi-aas/1.0.0){: external}.
 {: note}
 
-For information about images for x86 processor architecture, see [x86 virtual server images](/docs/vpc?topic=vpc-about-images).
+For more information about images for x86 processor architecture, see [x86 virtual server images](/docs/vpc?topic=vpc-about-images).
 
 With a cloud-init enabled image, you can provide user data. In the **User Data** field on the order form, you can enter optional cloud-init user data for the server. For more information about user data and automation, see [User data](/docs/vpc?topic=vpc-user-data).
 
@@ -95,7 +95,7 @@ The image naming convention is subject to change. The list of image names is not
 
 You can import an image from {{site.data.keyword.cos_full_notm}} to use for creating a new virtual server instance.
 
-To create secure execution based custom images by using the {{site.data.keyword.cos_full_notm}} option, see [Preparing the workload](https://www.ibm.com/docs/en/linux-on-systems?topic=tasks-prepare-workload). For information about creating secure execution based images, see [IBM Secure Execution for Linux](https://www.ibm.com/docs/en/linux-on-systems?topic=virtualization-introducing-secure-execution-linux).
+To create secure execution based custom images by using the {{site.data.keyword.cos_full_notm}} option, see [Preparing the workload](https://www.ibm.com/docs/en/linux-on-systems?topic=tasks-prepare-workload). For more information about creating secure execution based images, see [IBM Secure Execution for Linux](https://www.ibm.com/docs/en/linux-on-systems?topic=virtualization-introducing-secure-execution-linux).
 
 The {{site.data.keyword.waziaas_full_notm}} (Wazi aaS) custom image can be created only by using IBM Wazi Image Builder, which is a separately orderable product from [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/){: external}. Extra requirements are needed to use Wazi Image Builder. The image cost is the premium that is applied to cover the cost of technologies that allows for z/OS dev and test images to run on IBM Z hardware on IBM’s cloud infrastructure as a service layer.
 

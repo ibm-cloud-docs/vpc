@@ -96,4 +96,4 @@ Using instance storage comes with some restrictions. Keep the following in mind 
 To prevent loss of critical data, review the data retention policy and ensure that critical data is stored on persistent storage. For more information, see [Lifecycle of instance storage](#instance-storage-lifecycle).
 {: tip}
 
-For information about provisioning a virtual server instance with instance storage, see [Managing instance storage](/docs/vpc?topic=vpc-instance-storage-provisioning).
+For more information about provisioning a virtual server instance with instance storage, see [Managing instance storage](/docs/vpc?topic=vpc-instance-storage-provisioning).

@@ -19,7 +19,7 @@ You can configure the User Datagram Protocol (UDP) for the {{site.data.keyword.n
 UDP is only supported on network load balancers. When configuring UDP and attaching a pool to your listener, you must configure the pool with the same protocol as the listener.
 {: important}
 
-For information about limitations, see [IBM Cloud Network Load Balancer for VPC limitations](/docs/vpc?topic=vpc-nlb-limitations) and [Port range limitations](/docs/vpc?topic=vpc-nlb-port-ranges&interface=ui#port-range-limitations).
+For more information about limitations, see [IBM Cloud Network Load Balancer for VPC limitations](/docs/vpc?topic=vpc-nlb-limitations) and [Port range limitations](/docs/vpc?topic=vpc-nlb-port-ranges&interface=ui#port-range-limitations).
 
 ## Configuring UDP using the UI
 {: #udp-ui}

@@ -636,7 +636,7 @@ To upgrade the IPsec policy by using the SDK, follow these Go language example s
    ```
    {: codeblock}
 
-For more information on SDK Go or other languages, see the [VPC SDK reference](/apidocs/vpc/latest?code=go#update-ipsec-policy).
+For more information about SDK Go or other languages, see the [VPC SDK reference](/apidocs/vpc/latest?code=go#update-ipsec-policy).
 
 ### Upgrading a VPN from a custom IKE policy with Terraform
 {: #upgrade-vpn-custom-ike-policy-procedure-terraform}

@@ -128,7 +128,7 @@ Be sure to select VPC infrastructure from the menu icon.
 | Virtual private cloud | Block Storage server instance |
 | Resource group | User resources |
 | Location | Dallas 2 |
-| SSH Key | You must select an existing public SSH key or click **Create an SSH key** to create a new one. For more information on creating a SSH key, see [Creating your SSH key using the UI](/docs/vpc?topic=vpc-ssh-keys&interface=ui#generate-ssh-keys-ui). SSH keys are used to securely connect to the instance after it's running. |
+| SSH Key | You must select an existing public SSH key or click **Create an SSH key** to create a new one. For more information about creating an SSH key, see [Creating your SSH key using the UI](/docs/vpc?topic=vpc-ssh-keys&interface=ui#generate-ssh-keys-ui). SSH keys are used to securely connect to the instance after it's running. |
 | | **Note:**  SSH keys can either be RSA or Ed25519. You can generate new RSA key pairs using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images. |
 | | For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
 | Data volumes | You can add one or more secondary data volumes to be included when you provision the instance. To add a volume, click **Create** and specify the information in Table 2. When finished, click **Save**. |
