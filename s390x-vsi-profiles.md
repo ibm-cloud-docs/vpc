@@ -208,7 +208,7 @@ The third character represents the generation of the IBM Cloud infrastructure wh
 - "2": IBM Cloud Virtual Servers for VPC
 
 
-The fourth character is a "e", such as bz2e, which identifies the profile as a secure execution profile. These profiles are available when you select IBM Hyper Protect Container Runtime image as the image for provisioning the virtual server instance. For more information, see [s390x virtual server images](/docs/vpc?topic=vpc-vsabout-images). The characters after "-" represents the number of vCPUs and the size of RAM (GiB). For example, "2x8" means that this profile has 2 vCPU and 8 GiB of RAM.
+The fourth character is an "e", such as bz2e, which identifies the profile as a secure execution profile. These profiles are available when you select IBM Hyper Protect Container Runtime image as the image for provisioning the virtual server instance. For more information, see [s390x virtual server images](/docs/vpc?topic=vpc-vsabout-images). The characters after "-" represents the number of vCPUs and the size of RAM (GiB). For example, "2x8" means that this profile has 2 vCPU and 8 GiB of RAM.
 
 Using “bz2-4x16” as an example, you can know from the name that it is a balanced profile that provides 4 vCPUs of compute and 16 GiB of memory. The profile is deployed on an s390x host and is for the second-generation VPC.
 
