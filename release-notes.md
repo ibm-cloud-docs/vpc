@@ -819,7 +819,7 @@ Terraform is now available for sharing images across an enterprise account
 {: release-note}
 
 Context-based restrictions (limited availability)
-:   For accounts authorized to preview this functionality, account owners and administrators are now are now able to define and enforce network access policies for IBM Cloud VPC resources. For more information and for specific VPC Infrastructure services that are supported for context-based restrictions, see [Protecting Virtual Private Cloud (VPC) Infrastructure Services with context-based restrictions (limited availability)](/docs/vpc?topic=vpc-cbr).
+:   For accounts authorized to preview this functionality, account owners and administrators are now able to define and enforce network access policies for IBM Cloud VPC resources. For more information and for specific VPC Infrastructure services that are supported for context-based restrictions, see [Protecting Virtual Private Cloud (VPC) Infrastructure Services with context-based restrictions (limited availability)](/docs/vpc?topic=vpc-cbr).
 
 ### 19 October 2022
 {: #vpc-oct1922}
