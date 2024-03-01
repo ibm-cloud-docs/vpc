@@ -25,7 +25,7 @@ You can create an image from a volume in several ways.
 
 * Select an instance and create an image from that instance's boot volume. The new image inherits the boot volume encryption (customer-managed or IBM-managed).
 
-* Select an instance, create an image from that instance's boot volume, and specify different encryption. For example, if the instance's boot volume was encrypted with IBM-managed encryption, you can select customer-managed encryption for the new image.
+* Select an instance, create an image from that instance's boot volume, and specify a different encryption. For example, if the boot volume was encrypted with IBM-managed encryption, you can select customer-managed encryption for the new image.
 
 * Create an image from a boot volume in the list of Block Storage volumes. The volume must be a boot volume that is attached to a virtual server instance.
 
@@ -43,7 +43,7 @@ Use the UI to create an image from a volume that is attached to an available vir
 
 Use the UI to import your custom image by choosing to create and import an image from a volume.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external},click the **Navigation Menu** ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) Compute > Images**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) Compute > Images**.
 
 2. On the **Custom images** tab, click **Create**. The Import custom image page is displayed.
 
@@ -56,13 +56,13 @@ Use the UI to import your custom image by choosing to create and import an image
 | Tags |  You can assign a label to this resource so that you can easily filter resources in your resource list. |
 | Region | Select the location, or specific geographic area, where you want your custom image to be available for provisioning.|
 | Source | Select the source for the custom image by choosing either [Virtual server instance boot volume](#import-custom-image-vsi) (default) or [Block Storage boot volume](#import-custom-image-vol). |
-| Manage image lifecycle (optional) | Select to schedule status changes for the image. You can schedule a single status change or schedule the complete lifecycle of the images. The image statuses are:  \n  \n * `available`: The image can be used to create an instance.  \n  \n * `deprecated`: The image is still available to use to provision and instance. Using the `deprecated` status can discourage use of the image before the status changes to `obsolete`.  \n * `obsolete`: The image is not available to use to provision an instancce.  \n  \n * Schedule complete lifecycle: You can schedule both the `deprecated` and `obsolete` status changes at the same time.  \n  \n You can move back and forth between the three statuses. Only the statuses you can change to are displayed. You can schedule status changes by using calendar date and time or number of days. The obsolescence date must always be after the deprecation date. |
+| Manage image lifecycle (optional) | Select to schedule status changes for the image. You can schedule a single status change or schedule the complete lifecycle of the images. The image statuses are:  \n  \n * `available`: The image can be used to create an instance.  \n  \n * `deprecated`: The image is still available to use to provision and instance. Using the `deprecated` status can discourage use of the image before the status changes to `obsolete`.  \n * `obsolete`: The image is not available to use to provision an instance.  \n  \n * Schedule complete lifecycle: You can schedule both the `deprecated` and `obsolete` status changes at the same time.  \n  \n You can move back and forth between the three statuses. Only the statuses you can change to are displayed. You can schedule status changes by using calendar date and time or number of days. The obsolescence date must always be after the deprecation date. |
 {: caption="Table 1. Import custom image user interface fields" caption-side="bottom"}
 
 ### Create an image from a virtual server instance boot volume
 {: #import-custom-image-vsi}
 
-When you select **Virtual server instance boot volume** as the source of your custom image, a list of instances displays. To create an image from the instance's boot volume:
+When you select the **Virtual server instance boot volume** as the source of your custom image, a list of instances displays. To create an image from the instance's boot volume:
 
 1. On the **Import custom image** page, select **Virtual server instance boot volume** (default).
 
@@ -80,7 +80,7 @@ When you select **Virtual server instance boot volume** as the source of your cu
 ### Create an image from the list of boot volumes
 {: #import-custom-image-vol}
 
-When you select **Block Storage boot volume** as the source of your custom image, a list of Block Storage volumes displays.
+When you select a **Block Storage boot volume** as the source of your custom image, a list of Block Storage volumes displays.
 
 To create an image from the volume:
 
@@ -126,7 +126,7 @@ When the image from a volume is created, it appears in the list of custom images
 
 2. On the **Custom images** tab, click the image name to see the volume from which it was created. The image details panel links to the source volume.
 
-To use this image when you create a new instance, select it as operating system type when you create an instanceL
+To use this image when you create a new instance, select it as the operating system type when you create an instanceL
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 
@@ -214,12 +214,12 @@ Specify the name of the custom image to be created by using the `IMAGE_NAME` var
 
 To schedule the `deprecate-at` or `obsolete-at` properties, specify a date in the ISO 8601 (`YYYY-MM-DDThh:mm:ss+hh:mm`) date and time format.
 
-* `YYYY` is the four digit year
-* `MM` is the two digit month
-* `DD` is the two digit day
+* `YYYY` is the four-digit year
+* `MM` is the two-digit month
+* `DD` is the two-digit day
 * `T` separates the date and time information
-* `hh` is the two digit hours
-* `mm` is the two digit minutes
+* `hh` is the two-digit hours
+* `mm` is the two-digit minutes
 * `+hh:mm` or `-hh:mm` is the UTC time zone
 
 Thus, the date of 30 September 2023 at 8:00 PM in the North American Central Standard Time Zone (CST) would be `2023-09-30T20:00:00-06:00`
@@ -428,7 +428,7 @@ The response includes information about the root key:
 
 You can also create an image from a boot volume that is attached to an existing instance. This procedure:
 
-1. Lists all instances and then, gets the ID of a boot volume that is attached to an available, running instance.
+1. Lists all instances and then gets the ID of a boot volume that is attached to an available running instance.
 2. Stops the running instance.
 3. Creates an image by using the ID of the boot volume image.
 

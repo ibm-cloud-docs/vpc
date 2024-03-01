@@ -28,7 +28,7 @@ Images from volumes have their own lifecycles that you can manage.
 ## IAM permissions for creating an image from volume
 {: #ifv-iam}
 
-IAM enables you to securely authenticate users for platform services and control access to resources consistently across {{site.data.keyword.cloud}}. The following table shows access requirements for creating an image from a volume.
+IAM enables you to securely authenticate users for platform services and control access to resources consistently across {{site.data.keyword.cloud}}. The following table shows the access requirements for creating an image from a volume.
 
 | Operation | Action | API call | IAM access roles |
 |-----------|--------|----------|------------------|
@@ -53,7 +53,7 @@ The following table describes the lifecycle states for custom images that are cr
 | Failed | Image creation failed. |
 | Deleting | The image is being deleted. |
 | Deprecated | You can use the image to create an instance. Using the `deprecated` status can discourage use of the image before the status changes to `obsolete`. |
-| Obsolete | You can't use the image to a create an instance. If you try to use an obsolete image to create an instance, you receive a message that the image can't be used to create an instance. This status allows a reversible disabiling of an image before you delete the image. |
+| Obsolete | You can't use the image to a create an instance. If you try to use an obsolete image to create an instance, you receive a message that the image can't be used to create an instance. This status allows a reversible disabling of an image before you delete the image. |
 {: caption="Table 3. Image lifecycle states" caption-side="bottom"}
 
 ## Scheduling an image from volume lifecycle status by using the UI
@@ -104,7 +104,7 @@ You can change the lifecycle status of a {{site.data.keyword.vpc_short}} image f
 ## Performance considerations
 {: #ifv-performance}
 
-Several factors can impact how quickly your image from volume is queued and created, such as size of the image and number of jobs in the queue. If an image is taking longer than you want to wait, you can cancel the job.
+Several factors can impact how quickly your image from volume is queued and created, such as the size of the image and number of jobs in the queue. If an image is taking longer than you want to wait, you can cancel the job.
 
 ### Performance during image creation
 {: #ifv-image-created}
