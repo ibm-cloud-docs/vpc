@@ -1800,7 +1800,7 @@ Support for datapath log forwarding with Log Analysis
 :   Datapath log forwarding with {{site.data.keyword.la_full_notm}} is now available for IBM Cloud Application Load Balancer for VPC. Data and health check logs are valuable for debugging, analysis, and maintenance purposes. With the datapath logging feature enabled, your load balancer forwards these logs to your account's {{site.data.keyword.la_full_notm}} dashboard. For more information, see [Datapath log forwarding with Log Analysis](/docs/vpc?topic=vpc-datapath-logging#datapath-logging).
 
 UI enhancements
-:   You can now provision a VPC from the within the New virtual server for VPC page.
+:   You can now provision a VPC from within the New virtual server for VPC page.
 
 ### 12 November 2020
 {: #vpc-nov1220}

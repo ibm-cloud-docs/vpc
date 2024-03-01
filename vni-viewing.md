@@ -18,7 +18,7 @@ subcollection: vpc
 This VPC feature is available only to accounts with special approval to preview this feature.
 {: preview}
 
-With virtual network interfaces, where you view resources has changed. In older network interfaces, you can view the details of the resources by going to the resource directly. In a virtual network interface, you can view the resource's details from the within the virtual network interface.
+With virtual network interfaces, where you view resources has changed. In older network interfaces, you can view the details of the resources by going to the resource directly. In a virtual network interface, you can view the resource's details from within the virtual network interface.
 {: shortdesc}
 
 You can view the details of a VNI with the UI, CLI, API, or Terraform.
