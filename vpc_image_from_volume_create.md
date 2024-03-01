@@ -222,9 +222,9 @@ To schedule the `deprecate-at` or `obsolete-at` properties, specify a date in th
 * `mm` is the two digit minutes
 * `+hh:mm` or `-hh:mm` is the UTC time zone
 
-Thus, the date of 30 September 2023 at 8:00 p.m. in the North American Central Standard Time Zone (CST) would be `2023-09-30T20:00:00-06:00`
+Thus, the date of 30 September 2023 at 8:00 PM in the North American Central Standard Time Zone (CST) would be `2023-09-30T20:00:00-06:00`
 
-When scheduling the date and time, you can't use your current date and time. For example, if it is 8 a.m. on June 12, then the scheduled date and time must be after 8 a.m. on June 12. If you define both the `deprecate-at` and `obsolete-at` dates and times, the `deprecate-at` date must be after the `obsolete-at` date and time.
+When scheduling the date and time, you can't use your current date and time. For example, if it is 8:00 AM on June 12, then the scheduled date and time must be after 8:00 AM on June 12. If you define both the `deprecate-at` and `obsolete-at` dates and times, the `deprecate-at` date must be after the `obsolete-at` date and time.
 
 ```sh
 ibmcloud is image-create IMAGE_NAME [--source-volume VOLUME_ID] [--deprecate-at YYYY-MM-DDThh:mm:ss+hh:mm] [--obsolete-at YYYY-MM-DDThh:mm:ss+hh:mm]
@@ -306,7 +306,7 @@ curl -X POST \
 
 The source boot volume originates from an image. This boot volume is used to populate the new image's operating system information.
 
-Create an image with a `POST /images` request and pass the boot volume ID of the instance that you created in [Step 1](#ifv-create-instance) as source volume. See the following example:
+Create an image with a `POST /images` request and pass the boot volume ID of the instance that you created in [Step 1](#ifv-create-instance) as the source volume. See the following example:
 
 ```sh
 curl -X POST \
@@ -435,7 +435,7 @@ You can also create an image from a boot volume that is attached to an existing 
 #### Step 1 - Locating the instance and the boot volume ID
 {: #ifv-locate-instance}
 
-Make a `GET /instances` call to list all instances and locate the available, running instance that you need. See the following example:
+Make a `GET /instances` call to list all instances and locate the available running instance that you need. See the following example:
 
 ```sh
 curl -X GET \
@@ -517,17 +517,17 @@ The `name` can't be used by another image in the region and names that start wit
 
 To schedule the `deprecation_at` or `obsolescence_at` properties, specify a date in the ISO 8601 (`YYYY-MM-DDThh:mm:ss+hh:mm`) date and time format.
 
-* `YYYY` is the four digit year
-* `MM` is the two digit month
-* `DD` is the two digit day
+* `YYYY` is the four-digit year
+* `MM` is the two-digit month
+* `DD` is the two-digit day
 * `T` separates the date and time information
-* `hh` is the two digit hours
-* `mm` is the two digit minutes
+* `hh` is the two-digit hours
+* `mm` is the two-digit minutes
 * `+hh:mm` or `-hh:mm` is the UTC time zone
 
-Thus, the date of 30 September 2023 at 8:00 p.m. in the North American Central Standard Time Zone (CST) would be `2023-09-30T20:00:00-06:00`
+Thus, the date of 30 September 2023 at 8:00 PM in the North American Central Standard Time Zone (CST) would be `2023-09-30T20:00:00-06:00`
 
-When scheduling the date and time, you can't use your current date and time. For example, if it is 8 a.m. on June 12, then the scheduled date and time must be after 8 a.m. on June 12. If you define both the `deprecation_at` and `obsolescence_at` dates and times, the `obsolescence_at` date must be after the `deprecation_at` date and time.
+When scheduling the date and time, you can't use your current date and time. For example, if it is 8:00 AM on June 12, then the scheduled date and time must be after 8:00 AM on June 12. If you define both the `deprecation_at` and `obsolescence_at` dates and times, the `obsolescence_at` date must be after the `deprecation_at` date and time.
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/images?version=2023-02-21&generation=2"\

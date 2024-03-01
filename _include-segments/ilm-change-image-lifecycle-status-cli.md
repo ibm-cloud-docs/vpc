@@ -29,9 +29,9 @@ For the `deprecate-at` or `obsolete-at` option, specify a date in the ISO 8601 (
 * `mm` is the two digit minutes
 * `+hh:mm` or `-hh:mm` is the UTC time zone
 
-Thus, the date of 30 September 2023 at 8:00 p.m. in the North American Central Standard Time Zone (CST) would be `2023-09-30T20:00:00-06:00`
+Thus, the date of 30 September 2023 at 8:00 PM in the North American Central Standard Time Zone (CST) would be `2023-09-30T20:00:00-06:00`
 
-When scheduling the date and time, you can't use your current date and time. For example, if it is 8 a.m. on June 12, then the scheduled date and time must be after 8 a.m. on June 12. If you define both the `deprecate-at` and `obsolete-at` dates, the `obsolete-at` date must be after the `deprecate-at` date.
+When scheduling the date and time, you can't use your current date and time. For example, if it is 8:00 AM on June 12, then the scheduled date and time must be after 8:00 AM on June 12. If you define both the `deprecate-at` and `obsolete-at` dates, the `obsolete-at` date must be after the `deprecate-at` date.
 
 ```sh
 ibmcloud is image-update IMAGE [--deprecate-at YYYY-MM-DDThh:mm:ss+hh:mm] [--obsolete-at YYYY-MM-DDThh:mm:ss+hh:mm]

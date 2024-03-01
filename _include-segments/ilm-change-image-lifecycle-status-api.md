@@ -31,9 +31,9 @@ For the `deprecation_at` or `obsolescence_at` properties, specify a date in the 
 * `mm` is the two digit minutes
 * `+hh:mm` or `-hh:mm` is the UTC time zone
 
-Thus, the date of 30 September 2023 at 8:00 p.m. in the North American Central Standard Time Zone (CST) would be `2023-09-30T20:00:00-06:00`
+Thus, the date of 30 September 2023 at 8:00 PM in the North American Central Standard Time Zone (CST) would be `2023-09-30T20:00:00-06:00`
 
-When scheduling the date and time, you can't use your current date and time. For example, if it is 8 a.m. on June 12, then the scheduled date and time must be after 8 a.m. on June 12. If you define both the `deprecation_at` and `obsolescence_at` dates and times, the `obsolescence_at` date must be after the `deprecation_at` date and time.
+When scheduling the date and time, you can't use your current date and time. For example, if it is 8:00 AM on June 12, then the scheduled date and time must be after 8:00 AM on June 12. If you define both the `deprecation_at` and `obsolescence_at` dates and times, the `obsolescence_at` date must be after the `deprecation_at` date and time.
 
 - Schedule a status change to `deprecated`.
 
