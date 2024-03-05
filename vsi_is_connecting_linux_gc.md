@@ -104,6 +104,6 @@ Optionally, you can locate the floating IP address that is associated to the ins
 2. When you are ready to end your connection, run the following command:
 
    ```sh
-   # exit
+   exit
    ```
    {: pre}
