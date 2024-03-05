@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2023-12-18"
+lastupdated: "2024-03-05"
 
 keywords: file storage, file share, replication, replica, source share, failover, 
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Replication failover
 {: #file-storage-failover}
 
-Failover to the replica file share keeps your data available if your source file share becomes unavailable. Failover switches the replication relationship so that the replica file share becomes the source file share and the source share becomes the read-only replica file share.
+A failover to the replica file share keeps your data available if your source file share becomes unavailable. The failover switches the replication relationship so that the replica file share becomes the source file share and the source share becomes the read-only replica file share.
 {: shortdesc}
 
 ## Replication failover concepts
@@ -25,9 +25,9 @@ When you create a replica file share, the replica pulls data from the source fil
 
 When you initiate a failover, you can choose what happens if the failover operation fails or times out. The default timeout is 5 minutes.
 
-* If you decide to keep the replication relationship, the system "falls back" to the source share. Even though the replication and failover failed, the system attempts to replicate data again at the next scheduled time. This option can be used when the primary site is scheduled for [routine maintenance](#fs-failover-maintenance). You can fall back to the original share when the maintenance is complete and the site is stable again. Replication can resume.
+* If you decide to keep the replication relationship, the system "falls back" to the source share. Even though the replication and the failover failed, the system attempts to replicate data again at the next scheduled time. This option can be used when the primary site is scheduled for [routine maintenance](#fs-failover-maintenance). You can fall back to the original share when the maintenance is complete and the site is stable again. Replication can resume.
 
-* If you decide to remove the replication relationship, the system splits the two file shares apart, and they become independent read/write file shares. This option can be used for failover in a [disaster recovery](#fs-failover-dr) situation when it's more important to start your application up as quickly as possible on the replica site, while the future of the original site is uncertain. 
+* If you decide to remove the replication relationship, the system splits the two file shares apart, and they become independent read/write file shares. This option can be used for failover in a [disaster recovery](#fs-failover-dr) situation when it's more important to start your application up as quickly as possible. So you can continue normal operations on the replica site, while the future of the original site is uncertain. 
 
 A failover operation or a replica split cannot occur when another operation is being performed on the source or replica file share (for example, the file share size is being expanded). The split or failover operation remains pending until the other operation completes.
 {: important}
@@ -39,7 +39,7 @@ The [failover status](/docs/vpc?topic=vpc-file-storage-managing#file-storage-vpc
 
 Use a failover for routine maintenance on the primary site or when the site is having problems. The process works as follows.
 
-* The source file share in zone A refuses all read and write operations and the system attempts to pull a final copy of the share's data to the replica share in zone B.
+* The source file share in zone A refuses all read and write operations. Then, the system attempts to pull a final copy of the share's data to the replica share in zone B.
 * The data is copied to the replica file share, which becomes read/write and is considered the new source site. (The replication relationship is reversed.)
 * The service attempts to replicate data from the active source in zone B to the original share in zone A as scheduled. If the data transfer fails, the system attempts again at the next scheduled replication time.
 * You can fall back to the original share when the maintenance is done and the site is stable again. Or, you can keep the replica share as your source share.
@@ -47,7 +47,7 @@ Use a failover for routine maintenance on the primary site or when the site is h
 ### Failover in a disaster recovery situation
 {: #fs-failover-dr}
 
-Failover is also an option for disaster recovery. If the original site is confirmed to be unavailable and you need your application started as soon as possible on the replica location, choose the remove replication relationship option as the fallback policy when you initiate the failover. Failover for disaster recovery works like this:
+Failover is also an option for disaster recovery. If the original site is confirmed to be unavailable and you need your application started as soon as possible on the replica location, choose the option to remove the replication relationship as the fallback policy when you initiate the failover. Failover for disaster recovery works in the following way:
 
 * The file share at the source site refuses all read and write operations and the system attempts to pull a final copy of the share's data to the replica file share.
 * When the data-pull times out and fails, the file service breaks the replication relationship. The replica file share becomes read/write and operates as an independent file share. It can be mounted and managed as a normal file share.
@@ -94,7 +94,7 @@ The file share details page is updated, and the replication relationship shows t
 Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 {: requirement}
 
-1. Locate the replica file share that you want to failover to by listing all file shares in the region with the `ibmcloud is shares` command
+1. Locate the replica file share that you want to fail over to by listing all file shares in the region with the `ibmcloud is shares` command
 
    ```sh
    $ ibmcloud is shares
@@ -116,7 +116,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    ```
    {: screen}
 
-   * The following example specifies `split` for the `fallback-policy` property. If the failover operations fails, the replica share is split from the source file share. If the failover fails, the results is two independent read/write file shares.
+   * The following example specifies `split` for the `fallback-policy` property. If the failover operation fails, the replica share is split from the source file share. If the failover fails, the result is two independent read/write file shares.
 
    ```sh
    ibmcloud is share-replica-failover my-source-file-share  --fallback-policy split
@@ -131,11 +131,11 @@ For more information about the command options, see [`ibmcloud is share-replica-
 {: #fs-failover-procedure-api}
 {: api}
 
-Make a `POST /shares/{share_id}/failover` request and specify the `timeout` and `fallback_policy` properties. The minimum timeout is 300 seconds and the maximum 3600 seconds. This request fails a source file share over to the replica share, which is specified by the replica file share ID.
+Make a `POST /shares/{share_id}/failover` request and specify the `timeout` and `fallback_policy` properties. The minimum timeout is 300 seconds and the maximum 3600 seconds. This request initiates a failover of a source file share to the replica share, which is specified by the replica file share ID.
 
 The `fallback_policy` property can have the values: `split` or `fail`. When `fail` is specified, if the failover operation fails or the timeout is reached, the failover operation is unsuccessful. The replication relationship remains unchanged.
 
-If you specify `split` for the `fallback_policy` property, the replica share is split from the source share whenever a failover operation fails. The result is two independent read/write file shares. In this case, because the final file synchronization could not complete, the replica share might not contain all the data of the source file share. Use this option for disaster recovery, when the source file share is known to be unreachable.
+If you specify `split` for the `fallback_policy` property, the replica share is split from the source share whenever a failover operation fails. The result is two independent read/write file shares. In this case, because the final file synchronization did not complete, the replica share might not contain all the data of the source file share. Use this option for disaster recovery, when the source file share is known to be unreachable.
 
 If the `fallback_policy` property is not specified in the request, the system defaults to `split` when the failover operation fails.
 
