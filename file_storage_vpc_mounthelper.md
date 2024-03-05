@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-11-10"
+  years: 2023, 2024
+lastupdated: "2024-03-05"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # IBM Cloud File Share Mount Helper utility
 {: #fs-mount-helper-utility}
 
-Mount Helper is an open source automation tool that configures and establishes secure IPsec communication between customer virtual server instance and the file share. It ensures that the communication between the virtual server instance and zonal file share service is encrypted.
+Mount Helper is an open source automation tool that configures and establishes secure IPsec communication between customer virtual server instance and the file share. It ensures that the communication between the virtual server instance and the zonal file share service is encrypted.
 {: shortdesc}
 
 The utility uses strongSwan and [`swanctl`](https://docs.strongswan.org/docs/5.9/swanctl/swanctl.html) to configure IPsec on the virtual server instance with Linux OS.
@@ -31,7 +31,7 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
 ## Requirements
 {: #fs-eit-requirements}
 
-* [Instance metadata service](/docs/vpc?topic=vpc-imd-about) must be enabled on the virtual server instance. If it's not enabled yet, follow the instructions for [enabling instance metadata in the UI.](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-enable-service-ui){: ui}[enabling instance metadata from the CLI.](/docs/vpc?topic=vpc-imd-configure-service&interface=cli#imd-metadata-service-enable-cli){: cli}[enabling instance metadata from the API.](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-metadata-service-enable-api){: api}
+* [Instance metadata service](/docs/vpc?topic=vpc-imd-about) must be enabled on the virtual server instance. If it is not enabled yet, follow the instructions for [enabling instance metadata in the UI.](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-enable-service-ui){: ui}[enabling instance metadata from the CLI.](/docs/vpc?topic=vpc-imd-configure-service&interface=cli#imd-metadata-service-enable-cli){: cli}[enabling instance metadata from the API.](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-metadata-service-enable-api){: api}
 * The file share must have [security group access mode](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-mount-access-mode), so the VPC's security access groups can be used to define which virtual server instances can mount the share.
 * The virtual server instance and the mount target must be members of the same [security group](/docs/vpc?topic=vpc-using-security-groups).
 * The mount target must be created with a [virtual network interface](/docs/vpc?topic=vpc-vni-about), so it has an IP address within the VPC that represents the virtual NFS server.
@@ -55,7 +55,7 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
 ## Installation and configuration of the Mount Helper
 {: #fs-eit-installation}
 
-[SSH into the Compute instance](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#next-steps-after-creating-virtual-servers-ui) where you want to mount the file share. Then, you can  download the package directly from Github, or build the utility from the source code. 
+[SSH into the Compute instance](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#next-steps-after-creating-virtual-servers-ui) where you want to mount the file share. Then, you can download the package directly from GitHub, or build the utility from the source code. 
 
 ### Downloading the installation package
 {: #download-from-github}
@@ -72,7 +72,7 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
    ```
    {: pre}
    
-   The tar file contains the following contents: installation and uninstallation scripts, `rpm` and `deb` packages, root CA certificates, and configuration file.
+   The tar file contains the following contents: installation and uninstallation scripts, `rpm` and `deb` packages, root CA certificates, and the configuration file.
 
    Closed environments: To install Mount Helper on a virtual server instance without internet connection, create or update a local repository on the VSI based on the OS. Copy the Mount Helper package along with its dependencies to the local directory.
    {: note}
@@ -83,10 +83,10 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
    ```
    {: pre}
 
-   The `region` argument is used to copy region-specific root CA cert to the strongSwan certificates location. If no region is specified, then the utility copies all the root CA certs.
+   The `region` argument is used to copy region-specific root CA cert to the strongSwan certificate location. If no region is specified, then the utility copies all the root CA certs.
    {: note}
 
-1. Optional - Every installation image is accompanied by a file that contains the checksum value for the image file. For example, the image file ibmshare-0.0.1.tar.gz is accompanied by the ibmshare-0.0.1.tar.gz.sha256 file that contains checksum value. To verify the integrity of the downloaded package, use the following commands.
+1. Optional - Every installation image is accompanied by a file that contains the checksum value for the image file. For example, the image file ibmshare-0.0.1.tar.gz is accompanied by the ibmshare-0.0.1.tar.gz.sha256 file that contains the checksum value. To verify the integrity of the downloaded package, use the following commands.
    ```sh
    curl -LO https://github.com/IBM/vpc-file-storage-mount-helper/releases/download/latest/mount.ibmshare-latest.tar.gz.sha256
    ```
@@ -104,7 +104,7 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
    ```
    {: screen}
 
-1. Optional - By default, certificates last 1 hour and new certificates are fetched every 45 minutes. However, you can modify the `certificate_duration_seconds` option in the configuration file `/etc/ibmcloud/share.conf` to a different time interval. The new value must be between 5 minutes and 1 hour, and expressed in seconds.
+1. Optional - By default, a certificate lasts 1 hour, and new certificates are fetched every 45 minutes. However, you can modify the `certificate_duration_seconds` option in the configuration file `/etc/ibmcloud/share.conf` to a different time interval. The new value must be between 5 minutes and 1 hour, and expressed in seconds.
    ```sh
    certificate_duration_seconds = 600
    ```
