@@ -122,7 +122,7 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
 ### Building the Mount Helper utility from the source code
 {: #build-from-source-code}
 
-- On Debian based instances, run the following commands:
+- On Debian-based instances, run the following commands:
     ```sh
     apt-get update -y
     apt-get install git make python3 -y
@@ -131,7 +131,7 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
     make build-deb
     ```
 
-- On RPM based instances, run the following commands:
+- On RPM-based instances, run the following commands:
    ```sh
    yum update -y
    yum install git make python3 rpm-build -y
