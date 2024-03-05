@@ -66,13 +66,13 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
     ```
     {: codeblock}
 
-1. Extract the tar file.
+1. Extract the compressed file.
    ```sh
    tar -xvf mount.ibmshare-latest.tar.gz
    ```
    {: pre}
    
-   The tar file contains the following contents: installation and uninstallation scripts, `rpm` and `deb` packages, root CA certificates, and the configuration file.
+   The file contains the following items: installation and uninstallation scripts, `rpm` and `deb` packages, root CA certificates, and the configuration file.
 
    Closed environments: To install Mount Helper on a virtual server instance without internet connection, create or update a local repository on the VSI based on the OS. Copy the Mount Helper package along with its dependencies to the local directory.
    {: note}
