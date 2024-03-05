@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-02-28"
+lastupdated: "2024-03-05"
 
 keywords:
 
@@ -29,6 +29,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## February 2024
 {: #vpc-feb24}
+
+### 29 February 2024
+{: #vpc-feb2924}
+{: release-note}
+
+UI navigation change to Auto scale
+:   Previously, Auto scale was found in VPC Infrastructure > Auto scale in the IBM Console navigation. This path is now changed. The new navigation path is **VPC Infrastructure > Compute > Auto scale**.
 
 ### 27 February 2024
 {: #vpc-feb2724}
