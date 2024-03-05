@@ -25,7 +25,7 @@ The instance template defines the details of the virtual server instances that a
 
 To create an instance template, complete the following steps.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Auto scale > Instance templates**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Instance templates**.
 2. Click **New instance template** and enter the information that is in Table 1.
 3. Click **Create instance template** when the information is complete.
 
