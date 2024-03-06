@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-12-18"
+  years: 2023, 2024
+lastupdated: "2024-03-06"
 
 keywords:
 
@@ -24,7 +24,7 @@ Enable a VPC as the DNS hub so that other VPCs can create DNS resolution binding
 {: #hub-prerequisites}
 
 * Before you enable a VPC as a DNS hub, review [Planning considerations](/docs/vpc?topic=vpc-hub-spoke-planning-considerations) and [Known issues and limitations](/docs/vpc?topic=vpc-hub-spoke-limitations).
-* Ensure that the VPC you choose to enable as a hub has the DNS resolver type set to System (the default). For more information, see [Setting the DNS resolver type](/docs/vpc?topic=vpc-hub-spoke-configure-dns-resolver&interface=ui).
+* Ensure that the VPC you choose to enable as a hub has the DNS resolver type set to System (the default) or Manual. For more information, see [Setting the DNS resolver type](/docs/vpc?topic=vpc-hub-spoke-configure-dns-resolver&interface=ui).
 
 You can enable a VPC as a DNS hub with the UI, CLI, API, or Terraform.
 
@@ -35,7 +35,7 @@ You can enable a VPC as a DNS hub with the UI, CLI, API, or Terraform.
 To enable a VPC as a DNS hub in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>VPCs**.
+1. Select the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg), then click > **VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) > **VPCs**.
 1. Click the link of the Virtual Private Cloud that you want to designate as the DNS hub VPC.  The Overview page is displayed.
 1. Scroll to the Optional DNS settings section at the end of the page, then expand the DNS hub section and enable the DNS hub switch.
 
