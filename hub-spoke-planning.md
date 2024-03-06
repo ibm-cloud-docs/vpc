@@ -31,7 +31,8 @@ Review the following planning considerations for the hub VPC:
 * You can designate a VPC as a hub when you create a VPC, or any time after it's created. When a VPC is designated as a hub, it cannot have any DNS resolution bindings.
 * You can create more than one hub VPC in an account, as long as you don't have overlapping DNS-shared VPCs.
 * You cannot cancel or delete the hub designation on a VPC if it has a DNS resolution binding to a DNS-shared VPC.
-* You can only initiate the binding creation or deletion from a DNS-shared VPC.
+* You can initiate a DNS resolution binding only on a DNS-shared VPC.
+* Only an authorized user can delete the DNS resolution binding from a hub VPC and a DNS-shared VPC. To delete the DNS resolution binding from a hub VPC, the user must be assigned the `is.vpc.dns-resolution-binding.delete` and `is.vpc.dns-resolution-binding.disconnect` IAM actions. You can assign the user with the `DNS Binding Connector` access policy and Administrator or Editor platform roles.
 
 ## DNS-shared VPC considerations
 {: #spoke-considerations}
