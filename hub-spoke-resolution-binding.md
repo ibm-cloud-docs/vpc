@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-12-18"
+  years: 2023, 2024
+lastupdated: "2024-03-06"
 
 keywords:
 
@@ -28,7 +28,7 @@ Before you create a DNS resolution binding, review the following prerequisites:
 
 * Review [Planning considerations](/docs/vpc?topic=vpc-hub-spoke-planning-considerations) and [Known issues and limitations](/docs/vpc?topic=vpc-hub-spoke-limitations).
 * Ensure a [VPC enabled as a DNS hub](/docs/vpc?topic=vpc-hub-spoke-configure-hub) already exists.
-* If the hub VPC is in a different account than the VPC where you plan to create a DNS resolution binding, the hub VPC administrator must create an IAM authorization policy that allows this DNS-shared VPC to have Read permission on the hub VPC. For more information, see [Establishing service-to-service authorization](/docs/vpc?topic=vpc-hub-spoke-s2s-auth&interface=api).
+* The hub VPC administrator must create an IAM service-to-service authorization policy that allows this DNS-shared VPC to have Read permission on the hub VPC. This `DNS Binding Connector` role on the hub VPC is required regardless of whether the DNS-shared VPC is in the same or a different account. For more information, see [Establishing service-to-service authorization](/docs/vpc?topic=vpc-hub-spoke-s2s-auth&interface=api).
 
 You can create a DNS resolution binding with the UI, CLI, API, or Terraform.
 
