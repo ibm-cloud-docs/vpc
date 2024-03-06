@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2024-02-26"
+lastupdated: "2024-03-04"
 
 keywords: data center latency, latency dashboard, network latency
 subcollection: vpc
