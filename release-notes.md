@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-03-05"
+lastupdated: "2024-03-06"
 
 keywords:
 
@@ -26,6 +26,16 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 For more information about changes to the {{site.data.keyword.vpc_short}} API, see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
+
+## March 2024
+{: #vpc-mar24}
+
+### 06 March 2024
+{: #vpc-mar0624}
+{: release-note}
+
+GPU l4 and l4Os profiles now available in US East region
+:   The `l4` and `l4Os` GPU profiles are now available in the US East (Washington DC) region. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 ## February 2024
 {: #vpc-feb24}
