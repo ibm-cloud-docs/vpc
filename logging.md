@@ -32,8 +32,6 @@ VPC services generate platform logs in the same region where they are available.
 
 To launch the {{site.data.keyword.la_short}} web UI to view these logs, see [Navigating to the web UI](/docs/log-analysis?topic=log-analysis-launch).
 
-#  Networking link should be VPC link, but one doesn't exist. Opening PR for log-analysis team.
-
 For more information about the locations where VPC logs are available, see [VPC infrastructure services locations](/docs/log-analysis?topic=log-analysis-cloud_services_locations#cs_locations_networking).
 
 ## Fields per log type
