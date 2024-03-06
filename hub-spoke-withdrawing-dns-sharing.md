@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-12-18"
+  years: 2023, 2024
+lastupdated: "2024-03-06"
 
 keywords:
 
@@ -15,13 +15,18 @@ subcollection: vpc
 # Disconnecting DNS sharing to a hub VPC
 {: #remove-sharing-spoke-hub}
 
-This VPC feature is available only to accounts with special approval to preview this feature.
-{: preview}
-
 When you want to disconnect DNS sharing to a DNS hub VPC, the DNS-shared VPC authorized user can unshare the Virtual Private Endpoint (VPE) gateways to the DNS hub VPC.
 {: shortdesc}
 
 You can disconnect DNS sharing to a hub VPC with the UI, CLI, API, or Terraform.
+
+## Before you begin
+{: #dns-sharing-before-you-begin}
+
+Before you disconnect DNS sharing, make sure to meet the following prerequisites:
+
+* To disconnect DNS sharing from a DNS-shared (spoke) VPC with DNS resolver type set to Delegated, you must first update the resolver type to System or Manual. Then, delete the DNS resolution binding.
+* To disconnect DNS sharing from a hub VPC, the hub VPC user must be assigned the **DNS Binding Connector** IAM role.
 
 ## Disconnecting DNS sharing to a hub VPC in the UI
 {: #hub-spoke-disconnect-from-hub-ui}
@@ -30,7 +35,7 @@ You can disconnect DNS sharing to a hub VPC with the UI, CLI, API, or Terraform.
 To disconnect DNS sharing to a DNS hub VPC, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to the account where the DNS-shared VPC resides.
-1. Select the **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>VPCs**.
+1. Select the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg), then click > **VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) > **VPCs**.
 1. Click the DNS-shared VPC whose DNS sharing you want to disconnect.
 1. Scroll to the Optional DNS settings section, then expand the DNS resolver settings and click **Edit**.
 1. In the Edit DNS resolver settings side panel, disable the DNS hub.
