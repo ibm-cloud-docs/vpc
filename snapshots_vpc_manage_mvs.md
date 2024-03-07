@@ -61,7 +61,7 @@ Updating snapshot consistency group multiple-snapshots-consistency-group-1 under
                                
 ID                          r174-ed7c034e-9bd1-4474-83d0-f5b050f1490a   
 Name                        my-consistency-group   
-CRN                         crn:v1:bluemix:public:is:us-south:a/a123456::snapshot-consistency-group:r174-ed7c034e-9bd1-4474-83d0-f5b050f1490a   
+CRN                         crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot-consistency-group:r174-ed7c034e-9bd1-4474-83d0-f5b050f1490a   
 Href                        https://us-south.iaas.cloud.ibm.com/v1/snapshot_consistency_groups/r174-ed7c034e-9bd1-4474-83d0-f5b050f1490a   
 Status                      stable   
 Backup policy plan          -   

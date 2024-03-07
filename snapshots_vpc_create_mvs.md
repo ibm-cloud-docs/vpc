@@ -101,7 +101,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
                                
    ID                          r006-4625d29b-3ac9-4bee-aca8-9366c4fd0c44   
    Name                        multiple-snapshots-consistency-group-1   
-   CRN                         crn:v1:bluemix:public:is:us-south:a/a123456::snapshot-consistency-group:r006-4625d29b-3ac9-4bee-aca8-9366c4fd0c44   
+   CRN                         crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot-consistency-group:r006-4625d29b-3ac9-4bee-aca8-9366c4fd0c44   
    Href                        https://us-south.iaas.cloud.ibm.com/v1/snapshots/r006-4625d29b-3ac9-4bee-aca8-9366c4fd0c44   
    Status                      pending   
    Backup policy plan          -   
