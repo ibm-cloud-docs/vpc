@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2023-12-18"
+lastupdated: "2024-03-07"
 
 keywords: vpc Block Storage, provision Block Storage for vpc, bootable snapshots, create volume from snapshot, fast restore
 
@@ -27,14 +27,14 @@ Before you get started, make sure that you [created a VPC](/docs/vpc?topic=vpc-c
 
 Use the {{site.data.keyword.cloud_notm}} console to create a {{site.data.keyword.block_storage_is_short}} volume when you create a virtual server instance or as a stand-alone volume.
 
-### Creating and attach a {{site.data.keyword.block_storage_is_short}} volume when you create a new instance
+### Creating and attaching a {{site.data.keyword.block_storage_is_short}} volume when you create an instance
 {: #create-from-vsi}
 {: help}
 {: support}
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
-2. From the list of virtual server instances, click **Create**.
-3. In the Virtual server for VPC provisioning page, select Server type, Location, OS, Profile, Placement Group, and so on. For more information about provisioning the instance, see [Creating a virtual server instance with the UI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#creating-virtual-servers-ui). The details of the boot volume that is to be created are displayed on the page. You can edit the boot volume by clicking the pencil icon to change the size, encryption, and add any user tags to identify this resource.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
+2. From the list of virtual server instances, click **Create**. 
+3. In the Virtual server for VPC provisioning page, select Server type, Location, OS, Profile, Placement Group, and so on. For more information about provisioning the instance, see [Creating a virtual server instance with the UI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#creating-virtual-servers-ui). The details of the boot volume that is to be created are displayed on the page. You can edit the boot volume by clicking the pencil icon to change the size, encryption, and add any user tags to identify this resource. 
 4. To create a data volume and attach it to the instance, in the Data volumes section of the instance provisioning page, click **Create**. In the side panel, specify the volume details. Table 1 shows the values that need to be defined.
 
    | Field | Value |
@@ -46,11 +46,11 @@ Use the {{site.data.keyword.cloud_notm}} console to create a {{site.data.keyword
    | Auto Delete | Enable this feature to automatically delete this volume when the attached virtual server instance is deleted. You can change this setting later on the virtual server details page. |
    | Size | Enter a volume size in GBs. Volume sizes can be 10 - 16,000 GB. |
    | Profile | Select [Tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) and select the IOPS tier list. If your performance requirements don't fall within a predefined IOPS tier, select [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) and select an IOPS value within the range for that volume size. |
-   | Encryption | Provider-managed encryption is enabled by default on all volumes. \n You can also choose to create an envelop encryption with your own root keys. Encryption keys are created and mainted in Key Management Services ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}). For more information, see [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-encryption-prereqs). |
+   | Encryption | Provider-managed encryption is enabled by default on all volumes. \n You can also choose to create an envelop encryption with your own root keys. Encryption keys are created and maintained in Key Management Services ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}). For more information, see [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-encryption-prereqs). |
    {: caption="Table 1. {{site.data.keyword.block_storage_is_short}} volume values to be specified during instance provisioning." caption-side="bottom"}
 
    If you created volume snapshots previously, the option to import one becomes available. Click the **Snapshots** toggle, and select a snapshot from the list. Then, complete the required fields and click **Create** to provision the volume. A {{site.data.keyword.block_storage_is_short}} volume is created and attached to the virtual server instance. On the instance details page, the Data volumes list is updated to show the new volume.
-
+   
    For more information, see [Restoring a volume by using fast restore](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-use-fast-restore).
    {: tip}
 
@@ -58,12 +58,12 @@ Use the {{site.data.keyword.cloud_notm}} console to create a {{site.data.keyword
 
 A {{site.data.keyword.block_storage_is_short}} volume can be attached to only one virtual server at a time. On the {{site.data.keyword.block_storage_is_short}} volume summary page, you can view details about the virtual server instance by selecting the instance name under **Attached instances**.
 
-### Creating and attach a {{site.data.keyword.block_storage_is_short}} volume from an existing instance
+### Creating and attaching a {{site.data.keyword.block_storage_is_short}} volume from an existing instance
 {: #create-from-existing-vsi}
 
-You can create a new {{site.data.keyword.block_storage_is_short}} volume from an existing instance.
+You can create a {{site.data.keyword.block_storage_is_short}} volume from an existing instance.
 
-1. Go to the list of virtual server instances. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
+1. Go to the list of virtual server instances. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 2. Select an instance from the list.
 3. On the instance details page, scroll to **Storage volumes** and click **Attach**.
 4. In the side panel, click the down arrow under **Block volumes** and select **Create a data volume**. The side panel expands with fields to define the volume. For more information about these fields, see table 1.
@@ -77,28 +77,33 @@ You can create a new {{site.data.keyword.block_storage_is_short}} volume from an
 
 You can create a {{site.data.keyword.block_storage_is_short}} volume independent of virtual server provisioning and attach the volume to an instance later.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
 2. Click **Create**.
 3. On the {{site.data.keyword.block_storage_is_short}} provisioning page, enter the required information to define the new volume (see Table 2).
 
    | Field | Value |
    |-------|-------|
-   | Location | The geography, region, and zone are inherited from the VPC (for example, North America, Dallas, Dallas-1). You can select a different zone in your location from the menu by clicking the pencil icon. |
+   | **Location** | The geography, region, and zone are inherited from the VPC (for example, North America, Dallas, Dallas-1). You can select a different zone in your location from the menu by clicking the pencil icon. |
+   | **Details** | In the Details section, you must specify the name of the volume and the resource group that the volume is to be added to. Optionally, you can add user and access management tags. |
    | Name | Specify a meaningful name for your volume. For example, provide a name that describes your compute or workload function. The volume name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. Volume names must be unique across the entire VPC infrastructure. You can later edit the name. |
    | Resource Group | Specify a [Resource group](/docs/vpc?topic=vpc-iam-getting-started&interface=ui#iam-resource-groups). |
    | Tags | Specify [user tags](/docs/vpc?topic=vpc-block-storage-about&interface=ui#storage-about-user-tags) to organize your resources and for use by [backup policies](/docs/vpc?topic=vpc-backup-service-about). |
    | Access management tags | Specify [access management tags](/docs/vpc?topic=vpc-block-storage-about&interface=ui#storage-about-mgt-tags) that were created in IAM to help you manage access to your volumes. |
-   | Snapshot | Optionally, click **Select snapshot** to create the volume with data from the selected snapshot. You can create data volumes with Nonbootable snapshots, and boot volumes with Bootable snapshots. For more information, see [Create a stand-alone {{site.data.keyword.block_storage_is_short}} volume from a snapshot](#create-vol-from-snapshot-ui). |
-   | Profile | **IOPS tiers** are shown by default. Click the tab for **Custom** IOPS. |
+   | **Optional configurations** | In the Optional configuration section, you can specify whether you want to create the volume with data from a snapshot. Also, you can choose to apply a backup policy. |
+   | Import from snapshot | Click **Select snapshot** to create the volume with data from the selected snapshot. You can create data volumes with Nonbootable snapshots, and boot volumes with Bootable snapshots. For more information, see [Create a stand-alone {{site.data.keyword.block_storage_is_short}} volume from a snapshot](#create-vol-from-snapshot-ui). |
+   | Apply backup policy | |
+   | **Profile** | In the Profile section, you can specify the performance profile of your volume, its IOPS, and capacity. |
    | | For [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers), select the tile with the performance level that you require and specify the volume size in GBs. Volume sizes can be 10 - 16,000 GB. |
    | | For [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) IOPS, specify the size of your volume and IOPS range based on the size of the volume. As you type the IOPS value, the UI shows the acceptable range. You can also click the **storage size** link to see a table of size and IOPS ranges. For more information, see [Custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#custom). |
-   | Encryption | Encryption with IBM-managed keys is enabled by default on all volumes. You can also choose **Customer Managed** and use [your own encryption key](/docs/vpc?topic=vpc-block-storage-vpc-encryption). |
+   | **Encryption at rest** | Encryption with IBM-managed keys is enabled by default on all volumes. You can also choose to use [your own encryption key](/docs/vpc?topic=vpc-block-storage-vpc-encryption) by selecting your key management service: ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}). |
+   | Encryption service instance | Select the data encryption instance from the list. If you don't have an instance yet, you can click the link to create one. |
+   | Key name | Select the data encryption key within the {{site.data.keyword.keymanagementserviceshort}} instance that you want to use for encrypting the volume. |
    {: caption="Table 2. Values for defining a {{site.data.keyword.block_storage_is_short}} volume" caption-side="bottom"}
 
 4. When you're finished, click **Create volume**. You're returned to the {{site.data.keyword.block_storage_is_short}} volumes page, where a message indicates that the volume is being created (volume status is _pending_). A second message displays when the volume is created (volume status is _available_).
 5. To see details of the new volume, select the **View resource** link in the second message to go to the Volume details page.
-
-If you're not ready to order yet or just looking for pricing information, you can add the information that you see in the side panel to an Estimate. For more information about how this feature works, see [Estimating your costs](/docs/billing-usage?topic=billing-usage-cost).
+   
+If you're not ready to order yet or just looking for pricing information, you can add the information that you see in the side panel to an Estimate. For more information about how this feature works, see [Estimating your costs](/docs/billing-usage?topic=billing-usage-cost).    
 {: tip}
 
 ### Creating a stand-alone {{site.data.keyword.block_storage_is_short}} volume from a snapshot in the UI
@@ -106,9 +111,9 @@ If you're not ready to order yet or just looking for pricing information, you ca
 
 When you [create a {{site.data.keyword.block_storage_is_short}} volume](#create-standalone-vol), you can select a snapshot and use its data to create the new volume. The snapshots that are presented are in a stable state. The data volume that is created from the snapshot is not attached to an instance and appears in the [list of {{site.data.keyword.block_storage_is_short}} volumes](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#viewvols-ui). You can later attach the volume to an instance.
 
-You can restore a boot volume from a "bootable" snapshot. The boot volume is restored when you create a new virtual server instance.
+You can restore a boot volume from a "bootable" snapshot. The boot volume is restored when you create a virtual server instance.
 
-1. In the [{{site.data.keyword.cloud_notm}} console)](/login){: external}, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
+1. In the [{{site.data.keyword.cloud_notm}} console)](/login){: external}, click the **Navigation menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
 2. Select **Create**.
 3. Specify the volume name, optional resource group and tags, and specify the location. You're going to use the data from a snapshot to provision the volume.
 4. Under **Snapshot (optional)**, click **Select snapshot**. From the list, select a snapshot. All snapshots that are presented are in a _stable_ state.
@@ -139,7 +144,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 
    This command returns a URL and prompts for a passcode. Go to that URL in your browser and log in. If successful, you get a one-time passcode. Copy this passcode and paste it as a response on the prompt. After successful authentication, you are prompted to choose your account. If you have access to multiple accounts, select the account that you want to log in as. Respond to any remaining prompts to finish logging in.
 
-2. Select the current generation of VPC.
+2. Select the current generation of VPC. 
    ```sh
    ibmcloud is target --gen 2
    ```
@@ -166,29 +171,29 @@ See the following example.
 $ ibmcloud is volume-create demovolume1 custom us-east-1 --capacity 500 --iops 3000 --tags env:test,env:prod
 Creating volume demovolume1 in resource group Default under account VPC 01 as user rtuser1@mycompany.com...
 
-ID                                     r014-e45f9c8c-4655-4a3e-9d90-70c2d64d1746
-Name                                   demovolume1
-CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a123456::volume:r014-e45f9c8c-4655-4a3e-9d90-70c2d64d1746
-Status                                 pending
-Attachment state                       unattached
-Capacity                               500
-IOPS                                   3000
-Bandwidth(Mbps)                        6291
-Profile                                custom
-Encryption key                         -
-Encryption                             provider_managed
-Resource group                         defaults
-Created                                2023-07-24T16:20:52+00:00
-Zone                                   us-east-1
-Health State                           inapplicable
-Volume Attachment Instance Reference   -
-Active                                 false
-Busy                                   false
-Tags                                   env:test,env:prod
+ID                                     r014-e45f9c8c-4655-4a3e-9d90-70c2d64d1746   
+Name                                   demovolume1   
+CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a1234567::volume:r014-e45f9c8c-4655-4a3e-9d90-70c2d64d1746   
+Status                                 pending   
+Attachment state                       unattached   
+Capacity                               500   
+IOPS                                   3000   
+Bandwidth(Mbps)                        6291   
+Profile                                custom   
+Encryption key                         -   
+Encryption                             provider_managed   
+Resource group                         defaults   
+Created                                2023-07-24T16:20:52+00:00   
+Zone                                   us-east-1   
+Health State                           inapplicable   
+Volume Attachment Instance Reference   -   
+Active                                 false   
+Busy                                   false   
+Tags                                   env:test,env:prod 
 ```
 {: screen}
 
-Capacity, indicated in megabytes, can range 10 - 16,000 GBs. If not specified, the default capacity is 100 GBs. IOPS values can be 100 - 48,000 IOPS, depending on the profile and volume size. If not specified, the IOPS value defaults to the valid configuration per volume profile. For more information, see the table of [custom IOPS](/docs/vpc?topic=vpc-block-storage-profiles#custom).
+Capacity, indicated in megabytes, can range from 10 - 16,000 GBs. If not specified, the default capacity is 100 GBs. IOPS values can be 100 - 48,000 IOPS, depending on the profile and volume size. If not specified, the IOPS value defaults to the valid configuration per volume profile. For more information, see the table of [custom IOPS](/docs/vpc?topic=vpc-block-storage-profiles#custom).
 
 The volume name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. Volume names must be unique across the entire VPC infrastructure.
 {: requirement}
@@ -212,28 +217,28 @@ ibmcloud is volume-create VOLUME_NAME PROFILE_NAME ZONE_NAME [--encryption-key E
 The following example shows a volume with custom IOPS and capacity that is created with customer-managed encryption.
 
 ```sh
-$ ibmcloud is volume-create demo-cli-volume custom us-east-1 --capacity 300 --iops 1500 --encryption-key crn:v1:bluemix:public:kms:us-east:a/a123456:3b05b403-8f51-4dac-9114-c777d0a760d4:key:7a8a2761-08e3-455f-a348-144ed604bba9
+$ ibmcloud is volume-create demo-cli-volume custom us-east-1 --capacity 300 --iops 1500 --encryption-key crn:v1:bluemix:public:kms:us-east:a/a1234567:3b05b403-8f51-4dac-9114-c777d0a760d4:key:7a8a2761-08e3-455f-a348-144ed604bba9
 Creating volume demo-cli-volume under account Test Account as user test.user@ibm.com...
-
-ID                                     r014-3984600c-6f4d-4940-82de-519a867fa3c0
-Name                                   demo-cli-volume
-CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a123456::volume:r014-3984600c-6f4d-4940-82de-519a867fa3c0
-Status                                 pending
-Attachment state                       unattached
-Capacity                               300
-IOPS                                   1500
-Bandwidth(Mbps)                        3145
-Profile                                custom
-Encryption key                         crn:v1:bluemix:public:kms:us-east:a/a123456:3b05b403-8f51-4dac-9114-c777d0a760d4:key:7a8a2761-08e3-455f-a348-144ed604bba9
-Encryption                             user_managed
-Resource group                         defaults
-Created                                2023-06-29T20:10:52+00:00
-Zone                                   us-east-1
-Health State                           inapplicable
-Volume Attachment Instance Reference   -
+                                          
+ID                                     r014-3984600c-6f4d-4940-82de-519a867fa3c0   
+Name                                   demo-cli-volume   
+CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a1234567::volume:r014-3984600c-6f4d-4940-82de-519a867fa3c0   
+Status                                 pending   
+Attachment state                       unattached   
+Capacity                               300   
+IOPS                                   1500   
+Bandwidth(Mbps)                        3145   
+Profile                                custom   
+Encryption key                         crn:v1:bluemix:public:kms:us-east:a/a1234567:3b05b403-8f51-4dac-9114-c777d0a760d4:key:7a8a2761-08e3-455f-a348-144ed604bba9   
+Encryption                             user_managed   
+Resource group                         defaults   
+Created                                2023-06-29T20:10:52+00:00   
+Zone                                   us-east-1   
+Health State                           inapplicable   
+Volume Attachment Instance Reference   -   
 Active                                 false
-Busy                                   false
-Tags                                   -
+Busy                                   false   
+Tags                                   - 
 ```
 {: screen}
 
@@ -250,7 +255,7 @@ Creating volume volume-4 under account Test Account as user test.user@ibm.com...
 
 ID                                     r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac
 Name                                   volume-4
-CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a123456::volume:r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac
+CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a1234567::volume:r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac
 Status                                 pending
 Attachment state                       unattached
 Capacity                               100
@@ -276,21 +281,21 @@ For more information, see [ibmcloud is volume-create](/docs/vpc?topic=vpc-vpc-re
 {: #create-vol-as-attachment-cli}
 {: cli}
 
-You can use the `instance-volume-attachment-add` command to create a volume and attach it to an instance. The following example creates a volume with the `sdp` profile, 100 GB capacity, and 100 IOPS.
+You can use the `instance-volume-attachment-add` command to create a volume and attach it to an instance. The following example creates a volume with the `custom` profile, 100 GB capacity, and 100 IOPS.
 
 ```sh
-ibmcloud is instance-volume-attachment-add acd-vol-attach1 my-instance-acadia-1 --profile sdp --new-volume-name acd-vol-2 --iops 100 --capacity 100
-Creating volume attachment acd-vol-attach1 for instance my-instance-acadia-1 under account vpc-1 as user test.user@ibm.com...
-
-ID                730f-5f63eb4d-2683-4dd6-a20a-5ab06b4061c6
-Name              acd-vol-attach1
-Volume            -
-Status            attaching
-Bandwidth(Mbps)   14
-Type              data
-Device            -
-Auto delete       false
-Created           2023-05-05T07:42:33+05:30
+ibmcloud is instance-volume-attachment-add acd-vol-attach1 my-instance-acadia-1 --profile custom --new-volume-name acd-vol-2 --iops 100 --capacity 100
+Creating volume attachment acd-vol-attach1 for instance my-instance-acadia under account Test Account as user test.user@ibm.com...
+                     
+ID                730f-5f63eb4d-2683-4dd6-a20a-5ab06b4061c6   
+Name              acd-vol-attach1   
+Volume            -   
+Status            attaching   
+Bandwidth(Mbps)   14   
+Type              data   
+Device            -   
+Auto delete       false   
+Created           2023-05-05T07:42:33+05:30   
 ```
 {: codeblock}
 
@@ -350,7 +355,7 @@ Data volumes                          ID   Name   Attachment ID                 
 {: screen}
 
 
-### Creating an instance template and add user tags to volumes from the CLI
+### Creating an instance template and adding user tags to volumes from the CLI
 {: #create-instance-template-vol-cli}
 {: cli}
 
@@ -778,7 +783,7 @@ For more information about the arguments and attributes, see [ibm_is_instance_vo
 ## Next steps
 {: #next-step-creating-block-storage-vpc}
 
-When you refresh the {{site.data.keyword.block_storage_is_short}} volumes page in the console, the new volume appears at the beginning of the list of volumes. If the volume was created successfully, it shows a status of Available. For stand-alone volumes, the Attachment Type column is blank (-). The Action menu (...) at the end of a table row provides a link for [attaching a {{site.data.keyword.block_storage_is_short}} volume to an instance](/docs/vpc?topic=vpc-attaching-block-storage&interface=ui#attach).
+When you refresh the {{site.data.keyword.block_storage_is_short}} volumes page, the new volume appears at the beginning of the list of volumes. If the volume was created successfully, it shows a status of Available. For stand-alone volumes, the Attachment Type column is blank (-). The Action menu (...) at the end of a table row provides a link for [attaching a {{site.data.keyword.block_storage_is_short}} volume to an instance](/docs/vpc?topic=vpc-attaching-block-storage&interface=ui#attach).
 
 You can continue creating more {{site.data.keyword.block_storage_is_short}} volumes or manage existing volumes.
 
