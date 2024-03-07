@@ -34,7 +34,7 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-mar0724}
 {: release-note}
 
-UI Update
+UI update for Block storage
 :    When you create a {{site.data.keyword.block_storage_is_short}} volume from the Block storage volumes for VPC list, you can now choose to import data from a snapshot and to apply a backup policy as part of the new **Optional configurations** section.
 
 ### 06 March 2024
