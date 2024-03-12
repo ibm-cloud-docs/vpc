@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2019, 2023
+  years: 2019, 2024
 
-lastupdated: "2023-12-12"
+lastupdated: "2024-03-12"
 
 keywords:
 
@@ -221,9 +221,6 @@ The following table lists the actions that are related to load balancers and the
 ### Virtual network interface events
 {: #events-vni}
 
-This VPC feature is available only to accounts with special approval to preview this feature.
-{: preview}
-
 The following table lists the actions that are related to virtual network interfaces and the generation of events.
 
 | Resource | Action | Description |
@@ -237,9 +234,6 @@ The following table lists the actions that are related to virtual network interf
 
 ### Virtual network interface target resource events
 {: #events-vni-target-resource-events}
-
-This VPC feature is available only to accounts with special approval to preview this feature.
-{: preview}
 
 The following table lists the actions that are related to the target resources of virtual network interfaces and the generation of events.
 
