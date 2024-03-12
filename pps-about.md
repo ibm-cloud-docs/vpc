@@ -15,7 +15,7 @@ subcollection: vpc
 # About Private Path services
 {: #using-private-path-services}
 
-The beta release of IBM Cloud Private Path services is only available to allowlisted users. Contact Gilberto Tellez, Product Manager (`ghtellez@us.ibm.com`) if you are interested in getting early access to this beta offering. 
+The beta release of IBM Cloud Private Path services is only available to allowlisted users. Contact your IBM Support representative if you are interested in getting early access to this beta offering.
 {: beta}
 
 Private Path services provide private connectivity for {{site.data.keyword.cloud_notm}} and third-party services. A Private Path service requires a Private Path network load balancer to deploy a service on IBM Cloud and a Virtual Private Endpoint (VPE) gateway for consumers to connect to the service. Traffic stays on the IBM backbone without traversing the internet.
@@ -87,9 +87,9 @@ First, a Consumer's application connects to the Consumer's VPE gateway within th
 
 These links provide additional information about Private Path services for VPC:
 
-* [Private Path services CLI reference](/docs/vpc?topic=vpc-vpc-reference) 
-* [Private Path services API reference](/apidocs/vpc) 
-* [IAM permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls#private-path-service-authorizations) 
-* [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-private-path-service-events) 
+* [Private Path services CLI reference](/docs/vpc?topic=vpc-vpc-reference)
+* [Private Path services API reference](/apidocs/vpc)
+* [IAM permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls#private-path-service-authorizations)
+* [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-private-path-service-events)
 * [Quotas and service limits](/docs/vpc?topic=vpc-quotas#ppnlb-quotas)
 * [Private Path services FAQs](/docs/vpc?topic=vpc-faqs-private-path)
