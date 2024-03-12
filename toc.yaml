@@ -824,6 +824,7 @@ toc:
                 label: Troubleshooting load balancers
                 topics:
                 - lb-ts-401.md
+                - lb-ts-auth-errors.md
                 - lb-ts-maintenance-pending.md
                 - lb-ts-unknown
                 - lb-ts-faulted.md
