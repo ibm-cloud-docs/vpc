@@ -30,6 +30,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## March 2024
 {: #vpc-mar24}
 
+### 11 March 2024
+{: #vpc-mar1124}
+{: release-note}
+
+GPU l40S profiles now available in Canada and United Kingdom regions
+:   The `l40S` GPU profiles are now available in the Canada (Toronto) and United Kingdom (London) regions. These regionsa are in addition to US East (Washington DC), EU Germany (Frankfurt), Spain (Madrid), Australia (Sydney), and Japan (Tokyo) regions. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+
 ### 07 March 2024
 {: #vpc-mar0724}
 {: release-note}
