@@ -104,7 +104,7 @@ To view details of all or a specific routing table with Terraform, follow these 
       }
       ```
 
-      For information about the `ibm_is_subnet_routing_table_attachment` resource, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_subnet_routing_table_attachment).{: external}
+      For more information about the `ibm_is_subnet_routing_table_attachment` resource, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_subnet_routing_table_attachment).{: external}
 
    * On an existing subnet resource, update the `routing_table` attribute specified by the identifier:
 
@@ -118,4 +118,4 @@ To view details of all or a specific routing table with Terraform, follow these 
       }
       ```
 
-      For information about the `routing_table` resource, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_subnet#routing_table).{: external}
+      For more information about the `routing_table` resource, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_subnet#routing_table).{: external}

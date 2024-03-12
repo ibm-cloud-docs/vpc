@@ -53,7 +53,7 @@ On {{site.data.keyword.vpc_short}}, RSA is the default SSH key type. You can sel
 * For Windows or VMware images, you must use the RSA SSH key type. The Ed25519 SSH key type can't be used with Windows or VMware images.
 * For Linux images, the Ed25519 SSH key type can be used only if the SSH server for the operating system supports that key type.
 
-In the CLI, you can specify which type of key by using the `--key-type` option. You can't create SSH keys within the CLI, you can import only an existing SSH key. The default `--key-type` is RSA. If you try to import a Ed25519 SSH key and don't specify the `ed25519` key type, the process fails.
+In the CLI, you can specify which type of key by using the `--key-type` option. You can't create SSH keys within the CLI, you can import only an existing SSH key. The default `--key-type` is RSA. If you try to import an Ed25519 SSH key and don't specify the `ed25519` key type, the process fails.
 
 ```sh
 --key-type ed25519
@@ -76,7 +76,7 @@ On {{site.data.keyword.vpc_short}}, RSA is the default SSH key type. You can sel
 
 You can't create SSH keys within the API, you can import only an existing SSH key. You can generate a new RSA SSH key pair within the UI. You have the option when you create an SSH key to copy the API code snippet for that key.
 
-In the API, you can specify which type of key by using the `type` variable. The default `type` is RSA. If you try to import a Ed25519 SSH key and don't specify the `ed25519` key type, the process fails.
+In the API, you can specify which type of key by using the `type` variable. The default `type` is RSA. If you try to import an Ed25519 SSH key and don't specify the `ed25519` key type, the process fails.
 
 ```sh
 "type":"ed25519"

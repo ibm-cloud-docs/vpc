@@ -84,7 +84,7 @@ Updating snapshot r138-e6664842-b370-496a-9ae7-da3fb647707c under account Test A
 
 ID                     r138-e6664842-b370-496a-9ae7-da3fb647707c
 Name                   snappy-snap-snap
-CRN                    crn:v1:bluemix:public:is:eu-de:a/a123456::snapshot:r138-e6664842-b370-496a-9ae7-da3fb647707c
+CRN                    crn:v1:bluemix:public:is:eu-de:a/a1234567::snapshot:r138-e6664842-b370-496a-9ae7-da3fb647707c
 Status                 stable
 Clones                 Zone      Available   Created
                        eu-de-3   true        2023-02-17T20:28:53+00:00
@@ -208,7 +208,7 @@ Updating snapshot r138-e6664842-b370-496a-9ae7-da3fb647707c under account Test A
 
 ID                     r138-e6664842-b370-496a-9ae7-da3fb647707c
 Name                   snappy-snap-snap
-CRN                    crn:v1:bluemix:public:is:eu-de:a/a123456::snapshot:r138-e6664842-b370-496a-9ae7-da3fb647707c
+CRN                    crn:v1:bluemix:public:is:eu-de:a/a1234567::snapshot:r138-e6664842-b370-496a-9ae7-da3fb647707c
 Status                 stable
 Clones                 Zone      Available   Created
                        eu-de-3   true        2023-02-17T20:28:53+00:00
@@ -452,13 +452,13 @@ Use the following steps to delete a remote region copy by using the UI.
 You can create a cross-regional copy of a snapshot by using the `snapshot-create` command with the `--source-snapshot-crn` option and the source snapshot CRN, which creates a snapshot in the target region by using the CRN of a snapshot from the source region. The created snapshot uses the customer-defined encryption key if the CRN of an encryption key was also specified.
 
 ```sh
-ibmcloud is snapshot-create --name my-cli-snapshot-crc --source-snapshot-crn crn:v1:bluemix:public:is:us-south:a/a123456::snapshot:r006-b9590a48-63a3-445e-b819-3f2c0b82daf8
+ibmcloud is snapshot-create --name my-cli-snapshot-crc --source-snapshot-crn crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot:r006-b9590a48-63a3-445e-b819-3f2c0b82daf8
 
 Creating snapshot my-cli-snapshot-crc under account Test Account as user test.user@ibm.com...
 
 ID                     r142-bd4532c0-e73c-44f9-a017-89e5368c521a
 Name                   my-cli-snapshot-crc
-CRN                    crn:v1:bluemix:public:is:us-east:a/a123456::snapshot:r142-bd4532c0-e73c-44f9-a017-89e5368c521a
+CRN                    crn:v1:bluemix:public:is:us-east:a/a1234567::snapshot:r142-bd4532c0-e73c-44f9-a017-89e5368c521a
 Status                 pending
 Clones                 Zone   Available   Created
 
@@ -471,7 +471,7 @@ Bootable               true
 Encryption             provider_managed
 Encryption key         -
 Source Snapshot        ID                                          Name                   Remote Region   CRN                                                                                                                        Resource type
-                       r006-b9590a48-63a3-445e-b819-3f2c0b82daf8   cli-snap-crc-test-sn   us-south        crn:v1:bluemix:public:is:us-south:a/a123456::snapshot:r006-b9590a48-63a3-445e-b819-3f2c0b82daf8   snapshot
+                       r006-b9590a48-63a3-445e-b819-3f2c0b82daf8   cli-snap-crc-test-sn   us-south        crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot:r006-b9590a48-63a3-445e-b819-3f2c0b82daf8   snapshot
 
 Minimum capacity(GB)   100
 Size(GB)               1

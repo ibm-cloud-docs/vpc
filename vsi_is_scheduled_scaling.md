@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-12-18"
+  years: 2021, 2024
+lastupdated: "2024-03-05"
 
 keywords: scheduled scaling, instance scaling, virtual server instance scaling, scheduled actions, scaling actions
 
@@ -44,7 +44,7 @@ For more information about auto scale, see [Auto scale for VPC](/docs/vpc?topic=
 
 To create a one-time scheduled action, use the following steps.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Auto scale > Instance groups**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Instance groups**.
 2. Select the instance group that you want to create a scheduled action for by clicking its name.
 3. Click **Scheduled actions**.
 4. In the new screen, click **Create**
@@ -58,7 +58,7 @@ To create a one-time scheduled action, use the following steps.
 
 To create a recurring scheduled action, use the following steps.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Auto scale > Instance groups**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Auto scale > Instance groups**.
 2. Select the instance group that you want to create a scheduled action for by clicking its name.
 3. Click **Scheduled actions**.
 4. In the new screen, click **Create**

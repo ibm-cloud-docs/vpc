@@ -135,7 +135,7 @@ ibmcloud is security-group-rule-add $sg inbound icmp --icmp-type 8 --icmp-code 0
 ```
 {: pre}
 
-For more information on setting up security groups by using the CLI, see [Setting up your API and CLI environment](/docs/vpc?topic=vpc-set-up-environment).
+For more information about setting up security groups by using the CLI, see [Setting up your API and CLI environment](/docs/vpc?topic=vpc-set-up-environment).
 
 ## Setting up the security groups for your resource with the API
 {: #sg-using-api}
@@ -197,4 +197,4 @@ curl -X DELETE "$vpc_api_endpoint/v1/security_groups/$sg?version=$api_version&ge
 ```
 {: pre}
 
-For more information on setting up your security group with the API, see [Security groups](https://cloud.ibm.com/apidocs/vpc/latest#list-security-groups){: external}.
+For more information about setting up your security group with the API, see [Security groups](https://cloud.ibm.com/apidocs/vpc/latest#list-security-groups){: external}.

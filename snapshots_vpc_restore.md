@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-01-05"
+lastupdated: "2024-03-07"
 
 keywords:
 
@@ -81,7 +81,7 @@ You can create volumes from various pages in the {{site.data.keyword.cloud_notm}
 
 From the list of {{site.data.keyword.block_storage_is_short}} snapshots, you can create an {{site.data.keyword.block_storage_is_short}} volume and specify whether it's to be attached to a virtual server instance or unattached (stand-alone). If you choose to attach a data volume, you can select an existing virtual server instance or choose to create an instance. The new volumes are added to the [list of {{site.data.keyword.block_storage_is_short}} volumes](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#viewvols-ui).
 
-1. Go to the list of {{site.data.keyword.block_storage_is_short}} snapshots. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Storage > Block Storage snapshots**.
+1. Go to the list of {{site.data.keyword.block_storage_is_short}} snapshots. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage snapshots**.
 2. Select a snapshot from the list. It must be in a `stable` state.
 3. From the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Actions"), select **Create volume**.
 4. In the side panel, choose whether you want to create an unattached data volume, create and attach a volume to an existing instance, or create a volume and provision a new instance.
@@ -119,7 +119,7 @@ From the list of {{site.data.keyword.block_storage_is_short}} snapshots, you can
 
 Follow these steps to create a volume from the snapshot details page in the UI.
 
-1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes and select a volume. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
+1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes and select a volume. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
 2. On the {{site.data.keyword.block_storage_is_short}} volume details page, select the **Snapshots and Backups** tab. A list of snapshots that were created manually or by backup policies is shown.
 3. From the list, click the snapshot name to go to its details page.
 4. From the **Actions** menu, click **Create volume**.
@@ -131,12 +131,12 @@ Follow these steps to create a volume from the snapshot details page in the UI.
 
 Follow these steps to create volumes for virtual server instance from the consistency groups page in the UI.
 
-1. Go to the list of {{site.data.keyword.block_storage_is_short}} snapshot consistency groups. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage snapshots**.
+1. Go to the list of {{site.data.keyword.block_storage_is_short}} snapshot consistency groups. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage snapshots**.
 1. Select a snapshot consistency group from the list. It must be in a `stable` state.
 1. From the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Actions"), select **Create virtual server**.
    * If the group has more than one bootable snapshot, you can choose the one that you want to use for the boot volume of the new virtual server instance. Then, click **Configure virtual server**.
    * If only one bootable snapshot is in the consistency group, you're taken directly to the VPC provisioning page. 
-1. The information about your region, profile, boot volume and data volumes is populated in the New virtual server for VPC provisioning page.
+1. The information about your region, profile, boot volume, and data volumes is populated in the New virtual server for VPC provisioning page.
 
    If you change the profile selection to **Image** or **Existing volume**, the boot volume snapshot is removed. The data volumes section is also populated with the nonbootable snapshots from the consistency group. You can remove a snapshot or create another data volume. However, if you removed a data volume and want to add it back, you must return to the step of selecting the consistency group again.
    {: important}
@@ -148,7 +148,7 @@ Follow these steps to create volumes for virtual server instance from the consis
 
 Follow these steps to create a boot and a data volume from snapshots when you provision a new virtual server instance.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute> Virtual server instances**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute> Virtual server instances**.
 2. Click **Create** and provision your new instance. For more information about the required fields, see the table in [Creating virtual server instances in the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
 3. For the operating system, click **Change image**, then click the tab for **Snapshots**. The most recent bootable snapshot is listed.
    * If you want to use a different snapshot, click **Edit**. From the list of snapshots, select a bootable snapshot for your instance's operating system. Click **Save**. This action populates the snapshot data in the boot volume field on the provisioning page.
@@ -166,7 +166,7 @@ Follow these steps to create a boot and a data volume from snapshots when you pr
 
 You can also create a data volume from a snapshot for an existing instance. Choose from the list of virtual server instances.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute> Virtual server instances**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute> Virtual server instances**.
 2. From the list, click the name of an instance. The instance must be in a _running_ state.
 3. On the Instance details page, scroll to the list of Storage volumes and click **Attach volumes**. A side panel opens for you to define the volume attachment.
 4. From the Attach storage volume panel, expand the list of Block Volumes, and select **Create a data volume**.
@@ -241,7 +241,7 @@ A successful response looks like the following example.
 ```zsh
 Creating instance my-instance-restore1 in resource group under account VP01 as user rtuser1@mycompany.com...
 
-ID               0717-eded6dcd-4f3c-4e79-a0cb-00f7c72f38cd
+ID               r006-eded6dcd-4f3c-4e79-a0cb-00f7c72f38cd
 Name             my-instance-restore1
 CRN              crn:v1:bluemix:public:is:us-south-1/a1234567::instance:7101_eded6dcd-4f3c-4e79-a0cb-00f7c72f38cd
 Status           pending
@@ -500,7 +500,7 @@ resource "ibm_is_instance" "example" {
 
 For more information about the arguments and attributes, see [ibm_is_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance){: external}.
 
-### Creating and attach a data volume to an instance with Terraform
+### Creating and attaching a data volume to an instance with Terraform
 {: #snapshots-vpc-restore-data-terraform}
 
 To restore a data volume from a nonbootable snapshot and attach the volume to an instance, use the `ibm_is_instance_volume_attachment` resource. See the following example.

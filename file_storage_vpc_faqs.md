@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2023-12-12"
+lastupdated: "2024-03-06"
 
 keywords: file share, file storage, replication, replica, size increase, capacity, encryption, BYOK, security group
 
@@ -109,7 +109,7 @@ File shares are not elastic. Currently, you can provision a minimum of 10 GiB to
 
 You can increase the size of a file share from its original capacity in GiB increments up to 32,000 GiB capacity, depending on your [file share profile](/docs/vpc?topic=vpc-file-storage-profiles). For more information, see [expanding file share capacity](/docs/vpc?topic=vpc-file-storage-expand-capacity).
 
-### Is there a way to replicate my file shares in case of events?
+### Is there a way to replicate my file shares to protect my data from disastrous events?
 {: faq}
 {: #faq-fs-mgt-9}
 
@@ -155,17 +155,10 @@ You can migrate file shares that were created by using either the IOPS tier prof
 {: faq}
 {: #faq-fs-access-mode}
 
-Yes. When you create a file share, you have to specify the access control mode. It can either be based on Security Groups, which restrict the access to the file share to specific resources in the VPC, or or the access mode can allow for VPC-wide file share mounting. For more information, see [Mount target access modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-mount-access-mode).
+Yes. When you create a file share, you must specify the access control mode. It can either be based on Security Groups, which restrict the access to the file share to specific resources in the VPC. Or the access mode can allow for VPC-wide file share mounting. For more information, see [Mount target access modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-mount-access-mode).
 
 ## Performance questions
 {: #file-storage-vpc-performance-questions}
-
-### What read/write latency can I expect?
-{: faq}
-{: #faq-fs-perf-1}
-{: support}
-
-You can expect an average latency less than 100 ms for writes and less than 50 ms for reads for block sizes less than one MB.
 
 ### Can I adjust the performance of my file shares?
 {: faq}
@@ -210,7 +203,7 @@ By default, your file share data is protected at rest with IBM-managed encryptio
 {: faq}
 {: #faq-fs-sec-4}
 
-You can enable secure end-to-end encryption of your data when you use file shares with security-group-based access control mode and mount targets with virtual network interfaces. When such a mount target is attached and the share is mounted, the virtual network interface performs security group policy check to ensure only authorized instances can communicate with the share. The traffic between the authorized virtual server instance and the file share can be IPsec encapsulated by the client. For more information, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit).
+You can enable secure end-to-end encryption of your data when you use file shares with security-group-based access control mode and mount targets with virtual network interfaces. When such a mount target is attached and the share is mounted, the virtual network interface performs security group policy check to ensure that only authorized instances can communicate with the share. The traffic between the authorized virtual server instance and the file share can be IPsec encapsulated by the client. For more information, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit).
 
 Encryption in transit is not supported between {{site.data.keyword.filestorage_vpc_short}} and {{site.data.keyword.bm_is_short}}.
 {: restriction}

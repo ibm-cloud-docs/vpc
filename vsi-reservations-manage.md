@@ -198,7 +198,7 @@ ID                                          Name               Status    Reserve
 {: #retrieve-reservation-cli-vpc}
 {: cli}
 
-You can retrieve a specific {{site.data.keyword.vpc_short}} reservation in your region by using the command-line interface (CLI). To retrieve a specific reservations by using the CLI, use the `ibmcloud is reservation` command. You must specify the name or ID of the specific reservation by using the `RESERVATION_NAME` for the specific reservation you want to retrieve.
+You can retrieve a specific {{site.data.keyword.vpc_short}} reservation in your region by using the command-line interface (CLI). To retrieve a specific reservation by using the CLI, use the `ibmcloud is reservation` command. You must specify the name or ID of the specific reservation by using the `RESERVATION_NAME` for the specific reservation you want to retrieve.
 
 ```sh
 ibmcloud is reservation RESERVATION_NAME
@@ -233,7 +233,7 @@ Capacity          Allocated   Available   Total   Used   Status
 {: #update-reservation-cli-vpc}
 {: cli}
 
-You update a specific {{site.data.keyword.vpc_short}} reservation in your region by using the command-line interface (CLI). To update a specific reservations by using the CLI, use the `ibmcloud is reservation-update` command. You must specify the name or ID of the specific reservation by using the `RESERVATION_NAME` for the specific reservation you want to update. Use the `NEW_NAME` variable in the `--name` option to rename the reservation.
+You update a specific {{site.data.keyword.vpc_short}} reservation in your region by using the command-line interface (CLI). To update a specific reservation by using the CLI, use the `ibmcloud is reservation-update` command. You must specify the name or ID of the specific reservation by using the `RESERVATION_NAME` for the specific reservation you want to update. Use the `NEW_NAME` variable in the `--name` option to rename the reservation.
 
 ```sh
 ibmcloud is reservation-update RESERVATION_NAME [--name NEW_NAME]

@@ -100,7 +100,7 @@ Updating volume r010-bdb8fc70-8afb-4622-826a-d65a9fc477a4 under account Test Acc
                                           
 ID                                     r010-bdb8fc70-8afb-4622-826a-d65a9fc477a4   
 Name                                   my-bootable-snapshot-restore-21   
-CRN                                    crn:v1:bluemix:public:is:eu-de-2:a/a123456::volume:r010-bdb8fc70-8afb-4622-826a-d65a9fc477a4   
+CRN                                    crn:v1:bluemix:public:is:eu-de-2:a/a1234567::volume:r010-bdb8fc70-8afb-4622-826a-d65a9fc477a4   
 Status                                 available   
 Capacity                               100   
 IOPS                                   3000   

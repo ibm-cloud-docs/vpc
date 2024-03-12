@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-09-12"
+  years: 2023, 2024
+lastupdated: "2024-03-06"
 
 keywords:
 
@@ -31,7 +31,8 @@ Review the following planning considerations for the hub VPC:
 * You can designate a VPC as a hub when you create a VPC, or any time after it's created. When a VPC is designated as a hub, it cannot have any DNS resolution bindings.
 * You can create more than one hub VPC in an account, as long as you don't have overlapping DNS-shared VPCs.
 * You cannot cancel or delete the hub designation on a VPC if it has a DNS resolution binding to a DNS-shared VPC.
-* You can only initiate the binding creation or deletion from a DNS-shared VPC.
+* You can initiate a DNS resolution binding only on a DNS-shared VPC.
+* Only an authorized user can delete the DNS resolution binding from a hub VPC and a DNS-shared VPC. To delete the DNS resolution binding from a hub VPC, the user must be assigned the `is.vpc.dns-resolution-binding.delete` and `is.vpc.dns-resolution-binding.disconnect` IAM actions. You can assign the user with the `DNS Binding Connector` access policy and Administrator or Editor platform roles.
 
 ## DNS-shared VPC considerations
 {: #spoke-considerations}
@@ -43,7 +44,7 @@ Review the following planning considerations for the DNS-shared (spoke) VPCs:
 * When the DNS-shared VPC has its resolver being delegated to the DNS hub VPC's custom resolver, disabling DNS sharing on an individual endpoint gateway in the DNS-shared VPC might cause DNS resolution failure on the DNS-shared VPC for this endpoint gateway.
 * You cannot create more than one DNS resolution binding for a DNS-shared VPC.
 * You can view the DNS resolution binding details to get information about the hub VPC and which endpoint gateways in the DNS-shared VPC have DNS sharing enabled.
-* You can delete a DNS resolution binding at any time.
+* You cannot delete the DNS resolution binding on a DNS-shared (spoke) VPC if the DNS resolver type is set to Delegated. You must first update the DNS resolver type to System or Manual, and then delete the DNS resolution binding.
 * For the DNS-shared VPC to use the delegated DNS server on the hub VPC, the hub VPC must run the custom resolver on its networks.
 * You can enable or disable DNS sharing on each individual endpoint gateway in the DNS-shared VPC.
 * You can configure the DNS resolver of the DNS-shared VPC to the custom resolver on the hub VPC.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-01-30"
+lastupdated: "2024-02-22"
 
 keywords: bulk provision instances, vsis, virtual server instance, bulk provision with instance group
 
@@ -96,9 +96,9 @@ After your instance group is created with the number of instances you need, you 
 | -------------------------- | -------------------------------- |
 | [ibmcloud is instance-group-update](/docs/vpc?topic=vpc-vpc-reference#instance-group-update) | Update an instance group. |
 | [ibmcloud is instance-group-delete](/docs/vpc?topic=vpc-vpc-reference#instance-group-delete) | Delete instance groups. |
-| [ibmcloud is instance-group-membership](/docs/vpc?topic=vpc-vpc-reference#instance-group-membership) | View details of a member of an instance group. |
+| [ibmcloud is instance-group-membership](/docs/vpc?topic=vpc-vpc-reference#instance-group-membership-view) | View details of a member of an instance group. |
 | [ibmcloud is instance-group-membership-delete](/docs/vpc?topic=vpc-vpc-reference#instance-group-membership-delete) | Delete membership for an instance group. |
-| [ibmcloud is instance-group-memberships](/docs/vpc?topic=vpc-vpc-reference#instance-group-memberships) | List all members for an instance group. |
+| [ibmcloud is instance-group-memberships](/docs/vpc?topic=vpc-vpc-reference#instance-group-memberships-list) | List all members for an instance group. |
 | [ibmcloud is instance-group-memberships-delete](/docs/vpc?topic=vpc-vpc-reference#instance-group-memberships-delete) | Delete all memberships for an instance group. |
 {: caption="Table 2. CLI commands for managing instance groups" caption-side="top"}
 

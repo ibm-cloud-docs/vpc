@@ -109,7 +109,7 @@ To list routes of a routing table with Terraform, follow these steps:
       }
       ```
 
-      For information about the `ibm_is_vpc_routing_table_routes` resource, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_vpc_routing_table_routes).{: external}
+      For more information about the `ibm_is_vpc_routing_table_routes` resource, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_vpc_routing_table_routes).{: external}
 
    * To retrieve a single route with an identifier:
 
@@ -121,4 +121,4 @@ To list routes of a routing table with Terraform, follow these steps:
       }
       ```
 
-      For information about the `ibm_is_vpc_routing_table_route` resource, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_vpc_routing_table_route).{: external}
+      For more information about the `ibm_is_vpc_routing_table_route` resource, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_vpc_routing_table_route).{: external}

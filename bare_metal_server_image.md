@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-08-31"
+  years: 2021, 2024
+lastupdated: "2024-02-23"
 
 subcollection: vpc
 
@@ -98,7 +98,7 @@ For more information about custom images, see [Getting started with custom image
 ## Special considerations for bare metal network performance upgrade
 {: #bare-metal-pensando-considerations}
 
-For improved packet rates on bare metal servers, update stock and custom Linux images to the latest available Pensando DSC drivers. For more information, see the [AMD Pensando Support](https://www.amd.com/en/support/pensando){: external}.
+For improved packet rates on bare metal servers, update stock and custom Linux images to the latest available Pensando DSC drivers. For more information, see the [AMD Pensando Support](https://www.amd.com/en/support/accelerators/pensando.html){: external}.
 
 
 ### Linux distributions
@@ -106,7 +106,7 @@ For improved packet rates on bare metal servers, update stock and custom Linux i
 
 To install the latest driver on a Linux distribution:
 
-1. Download the Pensando Linux driver package at [AMD Pensando Support](https://www.amd.com/en/support/pensando){: external}.
+1. Download the Pensando Linux driver package at [AMD Pensando Support](https://www.amd.com/en/support/accelerators/pensando.html){: external}.
    
 2. Extract the image.
    

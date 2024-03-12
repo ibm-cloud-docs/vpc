@@ -304,11 +304,29 @@ toc:
             - subnets-about.md
             - subnets-create-subnet.md
         - topicgroup:
+            label: Private Path services
+            topics:
+            - pps-about.md
+            - pps-create.md
+            - pps-verify.md
+            - pps-publish.md
+            - pps-communicate.md
+            - pps-review.md
+            - pps-revoke.md
+            - pps-account-id-responsibilities.md
+            - topicgroup:
+                label: Managing access policies
+                topics:
+                - pps-about-account-policies.md
+                - pps-create-policy.md
+                - pps-update-policy.md
+            - pps-delete.md
+            - pps-limitations.md
+        - topicgroup:
             label: Virtual network interfaces
             topics:
             - vni-about.md
             - vni-about-secondary-ip.md
-            - vni-iam.md
             - topicgroup:
                 label: Working with virtual network interfaces
                 topics:
@@ -321,8 +339,8 @@ toc:
                 topics:
                 - vni-add-fip.md
                 - vni-add-rip.md
+                - vni-attach-secondary-ip.md
                 - vni-add-sg.md
-            - vni-attach.md
             - vni-known-issues.md
             - topicgroup:
                 label: Virtual network interface hazardous change remediation
@@ -737,6 +755,7 @@ toc:
             - lb-faqs.md
             - instance_metadata_vpc_faqs.md
             - faqs-placement-groups.md
+            - vni-faq.md
             - vpe-faqs.md
             - vpn-faqs.md
             - vpn-client-to-site-faqs.md

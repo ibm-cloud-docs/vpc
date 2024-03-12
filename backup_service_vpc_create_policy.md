@@ -183,7 +183,7 @@ Creating backup policy my-backup-policy-v1 under account Test Account as user te
 
 ID                     r006-d6052504-516f-4923-938b-9e9def977428
 Name                   my-backup-policy-v1
-CRN                    crn:v1:bluemix:public:is:us-south:a/a123456::backup-policy:0717-d123456
+CRN                    crn:v1:bluemix:public:is:us-south:a/a1234567::backup-policy:0717-d123456
 Status                 pending
 Plans                  ID   Name   Resource type
 
@@ -305,7 +305,7 @@ Creating backup policy my-backup-policy-v2 under Test Account as user test.user@
 
 ID                     r006-0723c648-9a47-4d51-b1ba-349e21e715b6
 Name                   my-backup-policy-v2
-CRN                    crn:v1:bluemix:public:is:us-south:a/a123456::backup-policy:r006-0723c648-9a47-4d51-b1ba-349e21e715b6
+CRN                    crn:v1:bluemix:public:is:us-south:a/a1234567::backup-policy:r006-0723c648-9a47-4d51-b1ba-349e21e715b6
 Status                 pending
 Plans                  ID                                          Name        Resource type
                        r006-e888bb31-7bf2-4885-a9f3-d448c1c37326   my-plan-b   backup_policy_plan
@@ -406,7 +406,7 @@ Creating backup policy backup-policy-v1 under account Test Account as user test.
 
 ID                     r138-0521986d-963c-4c18-992d-d6a7a99d115f
 Name                   backup-policy-v1
-CRN                    crn:v1:bluemix:public:is:eu-de:a/a123456::backup-policy:r138-0521986d-963c-4c18-992d-d6a7a99d115f
+CRN                    crn:v1:bluemix:public:is:eu-de:a/a1234567::backup-policy:r138-0521986d-963c-4c18-992d-d6a7a99d115f
 Status                 pending
 Plans                  ID                                          Name               Resource type
                        r138-2129a79a-5629-4069-bf79-7bb0af3b0bd3   my-policy-plan-a   backup_policy_plan
@@ -985,7 +985,7 @@ curl -X POST "$vpc_api_endpoint/v1/backup_policies/8758bd18-344b-486a-b606-5b8cb
         "remote_region_policies": {
           "delete_over_count": 5,
           "encryption_key": [
-            {"CRN": "crn:v1:bluemix:public:kms:us-south:a/a123456:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd617"}
+            {"CRN": "crn:v1:bluemix:public:kms:us-south:a/a1234567:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd617"}
           ],
           "region": [{"name":"us-east"}]
         },
@@ -1010,7 +1010,7 @@ A successful response shows that the clone policy is created.
   "name": "my-hourly-plan-2",
   "remote_region_policies": {
     "delete_over_count": 5,
-    "encryption_key": "crn:v1:bluemix:public:kms:us-south:a/a123456:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd617" ,
+    "encryption_key": "crn:v1:bluemix:public:kms:us-south:a/a1234567:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd617" ,
     "region": [
       {"name": "us-east"},
       {"href": "https://us-east.iaas.cloud.ibm.com/v1/regions/us-east/zones/us-east-2"}
@@ -1129,7 +1129,7 @@ resource "ibm_is_backup_policy_plan" "example" {
   }
   remote_copy_policies {
     delete_over_count = 1
-    encryption_key = "crn:v1:bluemix:public:kms:us-south:a/a123456:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd6179"
+    encryption_key = "crn:v1:bluemix:public:kms:us-south:a/a1234567:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd6179"
     region = "us-south"
   }
 }

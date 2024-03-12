@@ -2,7 +2,7 @@
 
 To make an immediate status change, use one of the following examples. For the`$image_id` variable, specify the ID of the custom image for the status change.
 
-You can make an immediate status change only if a future status change is not scheduled. To remove a scheduled status change, see [Remove a scheduled custom image lifecycle status change by using the API](#schedule-ilm-reset-status-change-API). After you remove the scheduled status change, you can make an immediate status change.
+You can make an immediate status change only if a future status change is not scheduled. To remove a scheduled status change, see [Remove a scheduled custom image lifecycle status change by using the API](/docs/vpc?topic=vpc-managing-custom-images&interface=api#schedule-ilm-reset-status-change-API). After you remove the scheduled status change, you can make an immediate status change.
 {: note}
 
 - Change image lifecycle status to `deprecated`.
@@ -19,7 +19,7 @@ You can make an immediate status change only if a future status change is not sc
    ```
    {: pre}
 
-To schedule a status change, use one of the following examples. 
+To schedule a status change, use one of the following examples.
 
 For the `deprecation_at` or `obsolescence_at` properties, specify a date in the ISO 8601 (`YYYY-MM-DDThh:mm:ss+hh:mm`) date and time format.
 
@@ -31,9 +31,9 @@ For the `deprecation_at` or `obsolescence_at` properties, specify a date in the 
 * `mm` is the two digit minutes
 * `+hh:mm` or `-hh:mm` is the UTC time zone
 
-Thus, the date of 30 September 2023 at 8:00 p.m. in the North American Central Standard Time Zone (CST) would be `2023-09-30T20:00:00-06:00`
+Thus, the date of 30 September 2023 at 8:00 PM in the North American Central Standard Time Zone (CST) would be `2023-09-30T20:00:00-06:00`
 
-When scheduling the date and time, you can't use your current date and time. For example, if it is 8 a.m. on June 12, then the scheduled date and time must be after 8 a.m. on June 12. If you define both the `deprecation_at` and `obsolescence_at` dates and times, the `obsolescence_at` date must be after the `deprecation_at` date and time.
+When scheduling the date and time, you can't use your current date and time. For example, if it is 8:00 AM on June 12, then the scheduled date and time must be after 8:00 AM on June 12. If you define both the `deprecation_at` and `obsolescence_at` dates and times, the `obsolescence_at` date must be after the `deprecation_at` date and time.
 
 - Schedule a status change to `deprecated`.
 

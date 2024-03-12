@@ -244,7 +244,7 @@ VPC                         ID                                          Name
 Access control mode         security_group   
 Resource type               share_mount_target   
 Virtual network interface   ID                                          Name      
-                            0717-13c070d8-d038-49c6-95f5-e8503c5595e3   my-share-vni-1      
+                            r006-13c070d8-d038-49c6-95f5-e8503c5595e3   my-share-vni-1      
                                
 Lifecycle state             pending   
 Mount path                  -   

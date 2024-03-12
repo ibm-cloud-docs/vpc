@@ -17,7 +17,7 @@ subcollection: vpc
 A dedicated host profile is a combination of attributes, such as the number of vCPUs, amount of RAM, and optionally instance storage that define the amount of compute capacity that is provided in a host that is provisioned exclusively for your use.
 {: shortdesc}
 
-For information about dedicated host profiles for x86 processor architecture, see [x86-64 dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles).
+For more information about dedicated host profiles for x86 processor architecture, see [x86-64 dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles).
 
 For Wazi as a Service, dedicated hosts are currently available in the Spain (Madrid) and US South (Dallas) region only.
 {: note}

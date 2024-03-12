@@ -23,7 +23,7 @@ subcollection: vpc
 Do not remove or modify the DNS records created by the load balancer service. Doing so can result in your private DNS and load balancer configurations becoming out of sync, which can cause data path issues.
 {: attention}
 
-For information on linking your own private DNS record name to a load balancer, refer to the solution tutorial [Team based privacy using IAM, VPC, Transit Gateway and DNS](/docs/vpc?topic=vpc-vpc-tg-dns-iam&interface=ui).
+For more information about linking your own private DNS record name to a load balancer, refer to the solution tutorial [Team based privacy using IAM, VPC, Transit Gateway and DNS](/docs/vpc?topic=vpc-vpc-tg-dns-iam&interface=ui).
 {: tip}
 
 ## Before you begin
@@ -278,7 +278,7 @@ You will need the CRN of the private DNS that you want to bind to your load bala
 
 To specify a private DNS zone during creation:
 
-Specify the `dns` information in the `POST /load_balancers` call. For more information on this creation payload, see [Creating an application load balancer with the API](/docs/vpc?topic=vpc-load-balancers&interface=api#lb-api-creating-network-load-balancer).
+Specify the `dns` information in the `POST /load_balancers` call. For more information about this creation payload, see [Creating an application load balancer with the API](/docs/vpc?topic=vpc-load-balancers&interface=api#lb-api-creating-network-load-balancer).
 {: note}
 
 ```sh
@@ -375,7 +375,7 @@ You will need the CRN of the private DNS that you want to bind to your load bala
 
 To use the API to bind an existing load balancer to a private DNS zone:
 
-Specify the `dns` information in the `PATCH /load_balancers` call. For more information on this `PATCH` payload, see [Creating an application load balancer with the API](/docs/vpc?topic=vpc-load-balancers&interface=api#lb-api-creating-network-load-balancer).
+Specify the `dns` information in the `PATCH /load_balancers` call. For more information about this `PATCH` payload, see [Creating an application load balancer with the API](/docs/vpc?topic=vpc-load-balancers&interface=api#lb-api-creating-network-load-balancer).
 {: note}
 
 ```sh
@@ -476,7 +476,7 @@ Sample output:
 
 To use the API to unbind an existing load balancer to a private DNS zone:
 
-Specify null `dns` information in the `PATCH /load_balancers call`. For more information on this `PATCH` payload, see [Creating an application load balancer with the API](/docs/vpc?topic=vpc-load-balancers&interface=api#lb-api-creating-network-load-balancer).
+Specify null `dns` information in the `PATCH /load_balancers call`. For more information about this `PATCH` payload, see [Creating an application load balancer with the API](/docs/vpc?topic=vpc-load-balancers&interface=api#lb-api-creating-network-load-balancer).
 {: note}
 
 ```sh

@@ -208,9 +208,9 @@ To schedule the `deprecation_at` or `obsolescence_at` attributes, specify a date
 * `mm` is the two digit minutes
 * `+hh:mm` or `-hh:mm` is the UTC time zone
 
-Thus, the date of 30 September 2023 at 8:00 p.m. in the North American Central Standard Time Zone (CST) would be `2023-09-30T20:00:00-06:00`
+Thus, the date of 30 September 2023 at 8:00 PM in the North American Central Standard Time Zone (CST) would be `2023-09-30T20:00:00-06:00`
 
-When scheduling the date and time, you can't use your current date and time. For example, if it is 8 a.m. on June 12, then the scheduled date and time must be after 8 a.m. on June 12. If you define both the `deprecation_at` and `obsolescence_at` dates and times, the `obsolescence_at` date must be after the `deprecation_at` date and time.
+When scheduling the date and time, you can't use your current date and time. For example, if it is 8:00 AM on June 12, then the scheduled date and time must be after 8:00 AM on June 12. If you define both the `deprecation_at` and `obsolescence_at` dates and times, the `obsolescence_at` date must be after the `deprecation_at` date and time.
 
 The following example imports a custom image with the name of `example-image`, source location of `cos://us-south/buckettesttest/livecd.ubuntu-cpc.azure.vhd`, and the operating system for the image is `ubuntu-16-04-amd64`. The image is scheduled to be deprecated on `2023-11-28T15:10:00.000Z`. The image is scheduled to be obsolete on `2023-11-28T15:10:00.000Z`.
 
@@ -278,7 +278,7 @@ ibmcloud is image IMAGE
 ```
 {: pre}
 
-For more information, see [ibmcloud is image](/docs/vpc?topic=vpc-vpc-reference#image)in the VPC CLI reference page.
+For more information, see [ibmcloud is image](/docs/vpc?topic=vpc-vpc-reference&interface=ui#image-view)in the VPC CLI reference page.
 
 The following example views the details of a custom image with the id of `r134-1d1e92e9-6550-4d06-8483-d674310045fd`.
 

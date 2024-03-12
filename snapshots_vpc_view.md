@@ -301,7 +301,7 @@ Getting snapshot c2bc3194-0cab-40c4-9434-db9f26218700 under account vpc1 as user
 
 ID                         c2bc3194-0cab-40c4-9434-db9f26218700
 Name                       my-snapshot
-CRN                        crn:v1:bluemix:public:is:us-south:a/a123456::snapshot:c2bc3194-0cab-40c4-9434-db9f26218700
+CRN                        crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot:c2bc3194-0cab-40c4-9434-db9f26218700
 Status                     stable
 Source volume              ID                                          Name
                            fe027a90-19e7-4cb5-bda3-4c0e35d2bcdf        test5-vol
@@ -319,7 +319,7 @@ Operating system           Name             Vendor   Version                 Fam
                            centos-8-amd64   CentOS   8.x - Minimal Install   CentOS   amd64          CentOS 8.x - Minimal Install (amd64)
 
 Snapshot Consistency Group ID                                          Name                                   CRN                                                                    Resource type  
-                             r174-4625d29b-3ac9-4bee-aca8-9366c4fd0c44 multiple-snapshots-consistency-group-1   crn:v1:bluemix:public:is:us-south:a/a123456::snapshot-consistency-group:r174-4625d29b-3ac9-4bee-aca8-9366c4fd0c44   snapshot_consistency_group      
+                             r174-4625d29b-3ac9-4bee-aca8-9366c4fd0c44 multiple-snapshots-consistency-group-1   crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot-consistency-group:r174-4625d29b-3ac9-4bee-aca8-9366c4fd0c44   snapshot_consistency_group      
 
 Resource group               ID                                     Name
                              ef2694fe-d6d1-4136-94c3-0ae315204e6b   Default
@@ -409,7 +409,7 @@ Getting snapshot my-cli-snapshot-crc-target under account Test Account as user t
 
 ID                     r142-bd4532c0-e73c-44f9-a017-89e5368c521a
 Name                   my-cli-snapshot-crc-target
-CRN                    crn:v1:bluemix:public:is:us-east:a/a123456::snapshot:r142-bd4532c0-e73c-44f9-a017-89e5368c521a
+CRN                    crn:v1:bluemix:public:is:us-east:a/a1234567::snapshot:r142-bd4532c0-e73c-44f9-a017-89e5368c521a
 Status                 stable
 Clones                 Zone   Available   Created
 
@@ -422,7 +422,7 @@ Bootable               true
 Encryption             provider_managed
 Encryption key         -
 Source Snapshot        ID                                          Name                   Remote Region   CRN                                                                                                                        Resource type
-                       r006-b9590a48-63a3-445e-b819-3f2c0b82daf8   cli-snap-crc-test-sn   us-south        crn:v1:bluemix:public:is:us-south:a/a123456::snapshot:r006-b9590a48-63a3-445e-b819-3f2c0b82daf8   snapshot
+                       r006-b9590a48-63a3-445e-b819-3f2c0b82daf8   cli-snap-crc-test-sn   us-south        crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot:r006-b9590a48-63a3-445e-b819-3f2c0b82daf8   snapshot
 
 Minimum capacity(GB)   100
 Size(GB)               2

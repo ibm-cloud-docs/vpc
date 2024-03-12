@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2023
-lastupdated: "2023-03-31"
+  years: 2019, 2024
+lastupdated: "2024-02-23"
 
 keywords: delete, resources, ui, console, cli, infrastructure, command line interface
 
@@ -25,7 +25,7 @@ Before you can delete an {{site.data.keyword.vpc_full}} in the {{site.data.keywo
 
 To delete a VPC by using the console:
 
-1. Find all subnets in the VPC. Click **VPCs** in the navigation pane and select your VPC. 
+1. Find all subnets in the VPC. Click **VPCs** in the navigation pane and select your VPC.
 2. On the VPC details page, go to the **Subnets in this VPC** list and select a subnet to view its details.
 3. Delete any resources that are attached to the subnet. In the navigation pane, click **Attached resources**. Select each attached instance, load balancer, and VPN gateway to go its details page and click the delete icon. Attached instances must be stopped before you can delete them.
 
@@ -44,13 +44,13 @@ The following examples show how to delete resources from your {{site.data.keywor
 
 The following key facts are important to remember about deletion:
 
-* A VPC cannot be deleted until it is empty. 
-* All containing resources must be deleted successfully before the parent resource can be deleted. 
-* If the resource is pending a deletion, it shows a `deleting` status when viewed in list queries. 
-* Most delete requests are _asynchronous_, which means that the resource might show a **deleting** status in list queries when it was not yet deleted completely. 
-* You must poll to make sure that the child resource is no longer in the list view before you try to delete the parent resource. 
+* A VPC cannot be deleted until it is empty.
+* All containing resources must be deleted successfully before the parent resource can be deleted.
+* If the resource is pending a deletion, it shows a `deleting` status when viewed in list queries.
+* Most delete requests are _asynchronous_, which means that the resource might show a **deleting** status in list queries when it was not yet deleted completely.
+* You must poll to make sure that the child resource is no longer in the list view before you try to delete the parent resource.
 
-If the status of the resource changes from `deleting` to `failed`, you can try to delete the resource again. If you cannot delete a resource in `failed` status, [Contact support](/docs/vpc-on-classic?topic=vpc-on-classic-getting-help-and-support).
+If the status of the resource changes from `deleting` to `failed`, you can try to delete the resource again. If you cannot delete a resource in `failed` status, [Contact support](/docs/virtual-servers?topic=virtual-servers-gettinghelp).
 {: tip}
 
 ### Step 1: Find all subnets within the VPC that you want to delete
@@ -131,7 +131,7 @@ The status of the Load Balancer changes to `deleting` immediately, but it is sti
 #### Delete all network interfaces in the subnet, if any
 {: #deleting-nics-cli}
 
-An instance can have multiple network interfaces, and those network interfaces can belong to multiple subnets of the VPC. Before a subnet can be deleted, any network interface in the subnet must first be deleted. 
+An instance can have multiple network interfaces, and those network interfaces can belong to multiple subnets of the VPC. Before a subnet can be deleted, any network interface in the subnet must first be deleted.
 
 The only way to delete a network interface in a subnet is to delete the instance.
 {: note}
@@ -213,9 +213,6 @@ The status of the VPC changes to `deleting` immediately, but it might take a few
 {: #deleting-using-api}
 {: api}
 
-Deleting an {{site.data.keyword.vpc_full}} by using the REST APIs follows the same general steps in the
-[deleting](/docs/vpc-on-classic?topic=vpc-on-classic-deleting) process as deletion by using the [CLI](/docs/vpc-on-classic?topic=vpc-on-classic-deleting-using-cli).
-
 The following steps are the main parts in the process:
 
 1. Find all subnets in the VPC that you want to delete.
@@ -253,7 +250,7 @@ vpc="0738-3524fef5-da35-4622-bf9a-31614964649d"
 To get the list of all subnets in your account, run the following command:
 
 ```bash
-curl -X GET "$vpc_api_endpoint/v1/subnets?version=$version&generation=2" \     
+curl -X GET "$vpc_api_endpoint/v1/subnets?version=$version&generation=2" \
      -H "Authorization:$iam_token"
 ```
 {: pre}
@@ -285,7 +282,7 @@ curl -X GET "$rias_endpoint/v1/vpn_gateways?version=$version&generation=2" \
 Run the following command for each VPN gateway in the subnet that you want to delete, where `$vpnid` is the ID of the VPN gateway.
 
 ```bash
-curl -X DELETE "$rias_endpoint/v1/vpn_gateways/$vpnid?version=$version&generation=2" \     
+curl -X DELETE "$rias_endpoint/v1/vpn_gateways/$vpnid?version=$version&generation=2" \
      -H "Authorization:$iam_token"
 ```
 {: pre}
@@ -298,7 +295,7 @@ The status of the VPN gateway changes to `deleting` immediately, but it is still
 To list all load balancers in your account, run the following command:
 
 ```bash
-curl -X GET "$rias_endpoint/v1/load_balancers?version=$version&generation=2" \     
+curl -X GET "$rias_endpoint/v1/load_balancers?version=$version&generation=2" \
      -H "Authorization:$iam_token"
 ```
 {: pre}
@@ -306,7 +303,7 @@ curl -X GET "$rias_endpoint/v1/load_balancers?version=$version&generation=2" \
 Run the following command for each load balancer in the subnet that you want to delete, where `$lbid` is the ID of the load balancer.
 
 ```bash
-curl -X DELETE "$rias_endpoint/v1/load_balancers/$lbid?version=$version&generation=2" \     
+curl -X DELETE "$rias_endpoint/v1/load_balancers/$lbid?version=$version&generation=2" \
      -H "Authorization:$iam_token"
 ```
 {: pre}
@@ -321,7 +318,7 @@ An instance can have multiple network interfaces, and those network interfaces c
 To list all network interfaces of an instance, run the following command:
 
 ```bash
-curl -X GET "$vpc_api_endpoint/v1/instances/$vsi/network_interfaces?version=$version&generation=2" \     
+curl -X GET "$vpc_api_endpoint/v1/instances/$vsi/network_interfaces?version=$version&generation=2" \
      -H "Authorization:$iam_token"
 ```
 {: pre}
@@ -331,7 +328,7 @@ If a secondary network interface exists in the subnet you are trying to delete, 
 To list all instances in your account, run the following command:
 
 ```bash
-curl -X GET "$vpc_api_endpoint/v1/instances?version=$version&generation=2" \     
+curl -X GET "$vpc_api_endpoint/v1/instances?version=$version&generation=2" \
      -H "Authorization:$iam_token"
 ```
 {: pre}
@@ -342,7 +339,7 @@ Instances must be stopped before you can delete them. For more information, see 
 {: tip}
 
 ```bash
-curl -X DELETE "$vpc_api_endpoint/v1/instances/$vsi?version=$version&generation=2" \     
+curl -X DELETE "$vpc_api_endpoint/v1/instances/$vsi?version=$version&generation=2" \
      -H "Authorization:$iam_token"
 ```
 {: pre}
@@ -355,7 +352,7 @@ The status of the instance changes to `deleting` immediately, but it still might
 After all the resources inside the subnet are deleted and are not returned when you run a list query, run the following command to delete the subnet:
 
 ```bash
-curl -X DELETE "$vpc_api_endpoint/v1/subnets/$subnet?version=$version&generation=2" \     
+curl -X DELETE "$vpc_api_endpoint/v1/subnets/$subnet?version=$version&generation=2" \
      -H "Authorization:$iam_token"
 ```
 {: pre}
@@ -368,7 +365,7 @@ The status of the subnet changes to `deleting` immediately, but it might take a 
 To list all public gateways in your account, run the following command:
 
 ```bash
-curl -X GET "$vpc_api_endpoint/v1/public_gateways?version=$version&generation=2" \     
+curl -X GET "$vpc_api_endpoint/v1/public_gateways?version=$version&generation=2" \
      -H "Authorization:$iam_token"
 ```
 {: pre}
@@ -376,7 +373,7 @@ curl -X GET "$vpc_api_endpoint/v1/public_gateways?version=$version&generation=2"
 For each public gateway in the VPC you want to delete, run the following command to delete the public gateway, where `$gateway` is the public gateway ID.
 
 ```bash
-curl -X DELETE "$vpc_api_endpoint/v1/public_gateways/$gateway?version=$version&generation=2" \     
+curl -X DELETE "$vpc_api_endpoint/v1/public_gateways/$gateway?version=$version&generation=2" \
      -H "Authorization:$iam_token"
 ```
 {: pre}
@@ -388,7 +385,7 @@ curl -X DELETE "$vpc_api_endpoint/v1/public_gateways/$gateway?version=$version&g
 After all subnets and public gateways in the VPC are deleted, run the following command to delete the VPC, where `$vpc` is the ID of the VPC you are deleting.
 
 ```bash
-curl -X DELETE "$vpc_api_endpoint/v1/vpcs/$vpc?version=$version&generation=2" \     
+curl -X DELETE "$vpc_api_endpoint/v1/vpcs/$vpc?version=$version&generation=2" \
      -H "Authorization:$iam_token"
 ```
 {: pre}

@@ -45,7 +45,7 @@ This tutorial requires the following prerequisites.
 {: #creating-a-resource-group}
 {: step}
 
-You can use [resource groups](/docs/vpc?topic=vpc-iam-getting-started&interface=ui#resources-and-resource-groups) to organize images.
+You can use [resource groups](/docs/vpc?topic=vpc-iam-getting-started&interface=ui#iam-resource-groups) to organize images.
 
 1. Log in to the [{{site.data.keyword.Bluemix_notm}} console](/login){: external}.
 2. Click **Manage** > **Account**.

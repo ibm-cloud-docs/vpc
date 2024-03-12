@@ -164,7 +164,7 @@ $ ibmcloud is volume-update r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac --name dem
 Updating volume 933c8781-f7f5-4a8f-8a2d-3bfc711788ee under account Test Account as test.user@ibm.com...
 ID                                     r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac
 Name                                   demo-volume-update
-CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a123456::volume:r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac
+CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a1234567::volume:r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac
 Status                                 available
 Attachment state                       unattached
 Capacity                               100

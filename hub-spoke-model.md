@@ -32,7 +32,7 @@ When multiple VPCs are connected together using transit gateways, direct links, 
 
 1. Ensure that you create or have existing VPCs to use for your hub VPC and DNS-shared VPCs. These VPCs can be in multiple accounts. These VPCs must already be configured using a transit gateway or other datapath connectivity.
 
-   For information about creating a VPC, see [Using the IBM Cloud console to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console){: external} or [Creating VPC resources with CLI and API](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=api).
+   For more information about creating a VPC, see [Using the IBM Cloud console to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console){: external} or [Creating VPC resources with CLI and API](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=api).
 {: note}
 
 1. [Enable a VPC as the hub VPC](/docs/vpc?topic=vpc-hub-spoke-configure-hub).

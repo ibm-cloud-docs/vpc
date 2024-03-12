@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-21"
+lastupdated: "2024-03-05"
 
 keywords: auto scale, autoscale, virtual server instance, creating, UI, console, instance group
 
@@ -77,7 +77,7 @@ All resources that are defined in an instance template must all be in the same r
 
 To create an instance template, complete the following steps.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Auto scale > Instance templates**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Instance templates**.
 2. Click **New instance template** and enter the information that is in Table 1.
 3. Click **Create instance template** when the information is complete.
 
@@ -111,7 +111,7 @@ Not all network load balancer offerings support integration with instance groups
 {: important}
 
 1. Make sure that you have the required IBM {{site.data.keyword.iamshort}} (IAM) [permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls) to create an instance group.
-2. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Auto scale > Instance groups**.
+2. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Instance groups**.
 3. Click **New instance group** and enter the information in Table 2.
 4. If you want to create dynamic scaling policies as part of instance group creation, see [Creating scaling policies](#creating-scaling-policies). You can also [add policies later](/docs/vpc?topic=vpc-managing-instance-group#creating-target-policies) after you create your instance group.
 5. Click **Create instance group** when the information is complete.

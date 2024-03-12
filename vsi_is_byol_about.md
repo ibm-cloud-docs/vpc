@@ -22,7 +22,7 @@ For Red Hat Enterprise Linux&reg; and Windows operating systems, you can bring y
 
 With the BYOL feature, you can use your own license for a custom image that you create at your site and then upload to {{site.data.keyword.cos_full_notm}}. When you import your custom image from {{site.data.keyword.cos_full_notm}} to the VPC, {{site.data.keyword.cloud_notm}} provides Red Hat Enterprise Linux and Windows _BYOL_ operating system options that you must select to indicate that you are using a BYOL operating system. You use your BYOL custom images to create virtual server instances, just as you would from a stock image.
 
-The BYOL feature on LinuxONE (s390x processor architecture) supports Red Hat Enterprise Linux (RHEL), and SUSE Linux Enterprise Server (SLES) operating systems.
+The BYOL feature on LinuxONE (s390x processor architecture) only supports SUSE Linux Enterprise Server (SLES) operating systems currently.
 
 Images with a Red Hat Enterprise Linux BYOL or a Windows BYOL operating system can be used to provision an instance on a public or dedicated host.
 

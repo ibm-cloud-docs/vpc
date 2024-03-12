@@ -51,7 +51,7 @@ To view details about a dedicated host, complete the following step:
 ## Managing dedicated groups
 {: #manage-dedicated-groups}
 
-When you have a dedicated group created, you can create new dedicated hosts within the group. You can also create new virtual server instances on the hosts in the the group. If you no longer need a dedicated group, you can delete it. 
+When you have a dedicated group created, you can create new dedicated hosts within the group. You can also create new virtual server instances on the hosts in the group. If you no longer need a dedicated group, you can delete it. 
 
 To complete management tasks on your dedicated groups, complete the following steps.
 

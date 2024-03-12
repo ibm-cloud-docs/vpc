@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-10-30"
+  years: 2023, 2024
+lastupdated: "2024-03-12"
 
 keywords:
 
@@ -19,9 +19,6 @@ content-type: troubleshoot
 {: troubleshoot}
 {: support}
 
-This VPC feature is available only to accounts with special approval to preview this feature.
-{: preview}
-
 If you cannot configure your virtual network interface, it might be because you do not have IAM Administrator permissions.
 {: shortdesc}
 
@@ -35,5 +32,5 @@ This may be indicated with an authorization error message when running the follo
 A lack of Administrator permissions can prevent you from being able to configure your virtual network interface.
 {: tsCauses}
 
-Contact the account administrator associated with the virtual network interface's IP address to finish configuring your virtual network interface. To learn more, see [Managing access for virtual network interfaces](/docs/vpc?topic=vpc-vni-iam&interface=ui).
+Contact the account administrator associated with the virtual network interface's IP address to finish configuring your virtual network interface.
 {: tsResolve}

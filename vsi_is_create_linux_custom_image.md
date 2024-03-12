@@ -24,7 +24,7 @@ You can begin with an image template from the {{site.data.keyword.cloud_notm}} C
 
 {{site.data.content.custom-image-requirements-list}}
 
-To create secure execution-based custom images by using the {{site.data.keyword.cos_full_notm}} option, see [Preparing the workload](https://www.ibm.com/docs/en/linux-on-systems?topic=tasks-prepare-workload). For information about creating secure execution-based images, [IBM Secure Execution for Linux](https://www.ibm.com/docs/en/linux-on-systems?topic=virtualization-introducing-secure-execution-linux).
+To create secure execution-based custom images by using the {{site.data.keyword.cos_full_notm}} option, see [Preparing the workload](https://www.ibm.com/docs/en/linux-on-systems?topic=tasks-prepare-workload). For more information about creating secure execution-based images, [IBM Secure Execution for Linux](https://www.ibm.com/docs/en/linux-on-systems?topic=virtualization-introducing-secure-execution-linux).
 
 <!--ed25519 note is shared with several other files building-custom-os.md, vsi_is_create_linux_custom_image.md -->
 {{_include-segments/linux-ed25519-ssh-key-type-note.md}}

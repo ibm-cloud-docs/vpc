@@ -47,7 +47,7 @@ The following operating systems are available as stock images when you create a 
 | Windows Server 2019 Standard Edition with SQL Server 2019 Web Edition | x86-64
 {: caption="Table 2. Supported x86_64 virtual server operating system bundle stock image" caption-side="bottom"}
 
-For information about images for IBM Z (s390x processor architecture), see [s390x virtual server images](/docs/vpc?topic=vpc-vsabout-images).
+For more information about images for IBM Z (s390x processor architecture), see [s390x virtual server images](/docs/vpc?topic=vpc-vsabout-images).
 
 When you order an instance, the images are cloud-init enabled to optimize creation times. With a cloud-init enabled image, you can provide user data. In the **User Data** field on the order form, you can enter optional cloud-init user data for the server. For more information about user data and automation, see [User data](/docs/vpc?topic=vpc-user-data).
 

@@ -32,7 +32,7 @@ VPC services generate platform logs in the same region where they are available.
 
 To launch the {{site.data.keyword.la_short}} web UI to view these logs, see [Navigating to the web UI](/docs/log-analysis?topic=log-analysis-launch).
 
-For more information about the locations where VPC logs are available, see [VPC infrastructure services locations](/docs/log-analysis?topic=log-analysis-cloud_services_locations#cloud_services_locations_vpc_infrastructure).
+For more information about the locations where VPC logs are available, see [VPC infrastructure services locations](/docs/log-analysis?topic=log-analysis-cloud_services_locations#cs_locations_networking).
 
 ## Fields per log type
 {: #logging_fields}
@@ -78,7 +78,7 @@ Table 3 outlines the message IDs that are generated for dedicated hosts:
 
 | Message ID             | Type   | Learn More  |
 |------------------------|--------|---------------------|
-| `dedicated-host.00001` | `err`  | [`Failed to create dedicated host <Dedicated Host ID> due to insufficient capacity in zone.`](/docs/vpc?topic=vpc-why-did-a-dedicated-host-fail-to-create-) |
+| `dedicated-host.00001` | `err`  | [`Failed to create dedicated host <Dedicated Host ID> due to insufficient capacity in zone.`](/docs/vpc?topic=vpc-why-did-a-dedicated-host-fail-to-create) |
 | `dedicated-host.00002` | `info` | `Provisioned a virtual server instance on dedicated host <Dedicated Host ID>.`              |
 | `dedicated-host.00003` | `info` | `Removed a virtual server instance on dedicated host <Dedicated Host ID>.`              |
 {: caption="Table 3. Message IDs that are generated for dedicated hosts" caption-side="bottom"}

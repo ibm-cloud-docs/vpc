@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-02-20"
+lastupdated: "2024-02-27"
 
 keywords:
 
@@ -21,7 +21,7 @@ After you import a custom image to {{site.data.keyword.vpc_short}}, you can view
 To manage an image from volume, see [Managing image from volume](/docs/vpc?topic=vpc-image-from-volume-vpc-manage&interface=ui). To use a custom image in a private catalog, see [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui).
 {: note}
 
-{{site.data.keyword.cloud}} Identity and Access Management (IAM) enables you to securely authenticate users for platform services and control access to resources consistently across {{site.data.keyword.cloud_notm}}. For information about access requirements for custom images, see the IAM roles and actions information in [Image Service for VPC](/docs/account?topic=account-iam-service-roles-actions#image-service-for-vpc).
+{{site.data.keyword.cloud}} Identity and Access Management (IAM) enables you to securely authenticate users for platform services and control access to resources consistently across {{site.data.keyword.cloud_notm}}. For more information about access requirements for custom images, see the IAM roles and actions information in [Image Service for VPC](/docs/account?topic=account-iam-service-roles-actions#is.image-roles).
 
 For details about the `$vpc_api_endpoint` and `$iam_token` variables in the following examples, see the Authentication and Endpoint URLs sections in [Virtual Private Cloud API Introduction](/apidocs/vpc/latest#about-vpc-api).
 {: api}
@@ -43,7 +43,7 @@ You can manage an image by using the {{site.data.keyword.cloud_notm}} console.
 | Share to catalog | Share the {{site.data.keyword.vpc_short}} custom image to an existing private catalog. |
 | Copy | Copy the UUID of the custom image. |
 | View checksum | View the checksum for the custom image. |
-| Schedule lifecycle | Opens the **Schedule image lifecycle** panel. You can make an immediate status change or schedule a statue change for a future date and time. You can schedule a single status change or schedule the complete lifecycle of the images. The image statuses are:  \n  \n * `available`: The image can be used to create an instance.  \n  \n * `deprecated`: The image is still available to use to provision and instance. Using the `deprecated` status can discourage use of the image before the status changes to `obsolete`.  \n * `obsolete`: The image is not available to use to provision an instancce.  \n  \n * Schedule complete lifecycle: You can schedule both the `deprecated` and `obsolete` status changes at the same time.  \n  \n You can move back and forth between the three statuses. Only the statuses you can change to are displayed. You can schedule status changes by by using calendar date and time or number of days. The obsolescence dates must always be after the deprecation date.|
+| Schedule lifecycle | Opens the **Schedule image lifecycle** panel. You can make an immediate status change or schedule a statue change for a future date and time. You can schedule a single status change or schedule the complete lifecycle of the images. The image statuses are:  \n  \n * `available`: The image can be used to create an instance.  \n  \n * `deprecated`: The image is still available to use to provision and instance. Using the `deprecated` status can discourage use of the image before the status changes to `obsolete`.  \n * `obsolete`: The image is not available to use to provision an instancce.  \n  \n * Schedule complete lifecycle: You can schedule both the `deprecated` and `obsolete` status changes at the same time.  \n  \n You can move back and forth between the three statuses. Only the statuses you can change to are displayed. You can schedule status changes by using calendar date and time or number of days. The obsolescence dates must always be after the deprecation date.|
 | Delete | Delete the custom image.  \n  \n  If you want to delete a custom image in a private catalog, see [Deleting a custom image in a private catalog](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=ui#deleting-private-catalog-custom-image-vpc). |
 {: caption="Table 1. Custom image actions" caption-side="bottom"}
 
@@ -222,7 +222,7 @@ For more information, see [ibmcloud is image-export-job-create](/docs/vpc?topic=
 
 You can export an {{site.data.keyword.vpc_short}} custom image to {{site.data.keyword.cos_full_notm}} by using the application programming interface (API).
 
-To export a custom image by using the API, use [Create an image export job](/apidocs/vpc/latest#create_image_export_job).
+To export a custom image by using the API, use [Create an image export job](/apidocs/vpc/latest#create-image-export-job).
 
 For the`$image_id` variable, specify the ID of the custom image that you want to export. You can optionally specify a meaningful `name` for the image export job. In this example, the export job name is `my-image-export`. For the `storage_bucket` `name` subproperty, specify the name of the {{site.data.keyword.cos_full_notm}} bucket where you want to export the custom image. In this example, the bucket name is `bucket-27200-lwx4cfvcue`. Alternatively, you can use the `crn` subproperty to specify the CRN of the bucket.
 
@@ -352,7 +352,7 @@ For more information, see [ibmcloud is image-export-job-update](/docs/vpc?topic=
 {: #custom-image-export-job-history-api}
 {: api}
 
-To view the export history of a specific custom image by using the API, use [List all image export jobs](/apidocs/vpc/latest#list_image_export_jobs).
+To view the export history of a specific custom image by using the API, use [List all image export jobs](/apidocs/vpc/latest#create-image-export-job).
 
 For the`$image_id` variable, specify the ID of the custom image for which you want to display export jobs.
 
@@ -439,19 +439,19 @@ This process shares only the custom image to the private catalog. The validation
 {: #sharing-custom-image-private-catalog-cli}
 {: cli}
 
-You can only share a custom image to a private catalog from {{site.data.keyword.vpc_short}} by using the UI. For information on onboarding to a private catalog using the CLI, see [Onboarding software to your account](/docs/account?topic=account-create-private-catalog&interface=cli).
+You can only share a custom image to a private catalog from {{site.data.keyword.vpc_short}} by using the UI. For more information about onboarding to a private catalog using the CLI, see [Onboarding software to your account](/docs/account?topic=account-create-private-catalog&interface=cli).
 
 ## Sharing a custom image to a private catalog by using the API
 {: #sharing-custom-image-private-catalog-api}
 {: api}
 
-You can only share a custom image to a private catalog from {{site.data.keyword.vpc_short}} by using the UI. For information on onboarding to a private catalog using the API, see [Onboarding software to your account](/docs/account?topic=account-create-private-catalog&interface=api).
+You can only share a custom image to a private catalog from {{site.data.keyword.vpc_short}} by using the UI. For more information about onboarding to a private catalog using the API, see [Onboarding software to your account](/docs/account?topic=account-create-private-catalog&interface=api).
 
 ## Sharing a custom image to a private catalog by using Terraform
 {: #sharing-custom-image-private-catalog-terraform}
 {: terraform}
 
-You can only share a custom image to a private catalog from {{site.data.keyword.vpc_short}} by using the UI. For information on onboarding to a private catalog using the Terraform, see [Onboarding software to your account](/docs/account?topic=account-create-private-catalog&interface=terraform).
+You can only share a custom image to a private catalog from {{site.data.keyword.vpc_short}} by using the UI. For more information about onboarding to a private catalog using the Terraform, see [Onboarding software to your account](/docs/account?topic=account-create-private-catalog&interface=terraform).
 
 ## Schedule a custom image lifecycle status change in the UI
 {: #schedule-ilm-status-change-ui}
@@ -551,9 +551,9 @@ For the `deprecation_at` or `obsolescence_at` attribute, specify a date in the I
 * `mm` is the two digit minutes
 * `+hh:mm` or `-hh:mm` is the UTC time zone
 
-Thus, the date of 30 September 2023 at 8:00 p.m. in the North American Central Standard Time Zone (CST) would be `2023-09-30T20:00:00-06:00`
+Thus, the date of 30 September 2023 at 8:00 PM in the North American Central Standard Time Zone (CST) would be `2023-09-30T20:00:00-06:00`
 
-When scheduling the date and time, you can't use your current date and time. For example, if it is 8 a.m. on June 12, then the scheduled date and time must be after 8 a.m. on June 12. If you define both the `deprecation_at` and `obsolescence_at` dates and times, the `obsolescence_at` date must be after the `deprecation_at` date and time.
+When scheduling the date and time, you can't use your current date and time. For example, if it is 8:00 AM on June 12, then the scheduled date and time must be after 8:00 AM on June 12. If you define both the `deprecation_at` and `obsolescence_at` dates and times, the `obsolescence_at` date must be after the `deprecation_at` date and time.
 
 * Schedule a status change to `deprecated`.
 

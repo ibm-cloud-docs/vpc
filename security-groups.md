@@ -74,7 +74,7 @@ Because a resource can have multiple security groups associated with it, all the
 *	Remote - Describes the set of network interfaces to which this rule allows traffic (or from which, for outbound rules).
     You can specify this value as either an IP address, a CIDR block, or all the identifiers of a single security group (ID, CRN, and name). If this value is omitted, a CIDR block of `0.0.0.0/0` is used to allow traffic from any source (or to any source, for outbound rules).
 
-For more information on setting up security group rules using the CLI, see the [Command list cheat sheet](/docs/vpc?topic=vpc-configuring-the-security-group&interface=cli#command-list-cheat-sheet). For more information on setting up security group rules using the API, see [Setting up the security group for your virtual server instance by using the API](/docs/vpc?topic=vpc-configuring-the-security-group&interface=api#sg-using-api).
+For more information about setting up security group rules by using the CLI, see the [Command list cheat sheet](/docs/vpc?topic=vpc-configuring-the-security-group&interface=cli#command-list-cheat-sheet). For more information about setting up security group rules by using the API, see [Setting up the security group for your virtual server instance by using the API](/docs/vpc?topic=vpc-configuring-the-security-group&interface=api#sg-using-api).
 
 ## Getting started
 {: #sg-getting-started}
@@ -103,7 +103,7 @@ Continuing with this example, if you are discontented with the default security 
 Any new rules you create on the default security group will be applied to all current and future resources that are assigned to the default security group.
 {: important}
 
-For more information on updating the default security group, see [Updating default security group rules](/docs/vpc?topic=vpc-updating-the-default-security-group#updating-the-default-security-group).
+For more information about updating the default security group, see [Updating default security group rules](/docs/vpc?topic=vpc-updating-the-default-security-group#updating-the-default-security-group).
 
 ### Use case 2: Customizing security groups and rules when creating a new resource
 {: #sg-use-case-2}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2023-12-18"
+lastupdated: "2024-03-07"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -70,7 +70,7 @@ You can restore a volume from a backup snapshot in the following ways.
 
 From the list of {{site.data.keyword.block_storage_is_short}} snapshots, you can create a {{site.data.keyword.block_storage_is_short}} volume and specify whether it is attached to a virtual server instance or unattached (stand-alone). If you choose to attach a volume, you can select an existing virtual server instance or choose to create an instance. The new volumes are added to the [list of {{site.data.keyword.block_storage_is_short}} volumes](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#viewvols-ui).
 
-1. Go to the list of {{site.data.keyword.block_storage_is_short}} snapshots. In the [{{site.data.keyword.cloud_notm}} console](/login){: external},click the **Navigation Menu** ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) Storage > {{site.data.keyword.block_storage_is_short}} snapshots**.
+1. Go to the list of {{site.data.keyword.block_storage_is_short}} snapshots. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **Storage > {{site.data.keyword.block_storage_is_short}} snapshots**.
 
 2. Select a backup snapshot from the list. The **Created by** column shows which snapshots were created by a backup policy. Snapshots must be in a `stable` state for restoration.
 
@@ -98,11 +98,10 @@ From the list of {{site.data.keyword.block_storage_is_short}} snapshots, you can
    | - Resource group | Use default or select from the list of available groups. |
    | - Zone | Inherited from the snapshot. |
    | - Auto-delete | Inherited from the snapshot. |
-   | - Size | Enter a volume size allowed by the profile. The default is the minimum provisioning size based on the snapshot. |
    | **Profile** | Defaults to the snapshot's IOPS tier or custom profile. You can change the profile. |
    | - IOPS | For IOPS tiers, specify an IOPS tier profile. For custom IOPS, select a range. |
-   | - Size | Enter a volume size allowed by the profile. The default is the minimum size required. |
-   | **Encryption** | Inherited from the snapshot. If the encryption is provider-managed, you can change it to customer-managed encryption and select either {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. If the encryption is already customer-managed, you can choose a different key management service but not to provider-managed encryption. |
+   | - Size | Enter a volume size allowed by the profile. The default is the minimum provisioning size based on the snapshot. |
+   | **Encryption** | Inherited from the snapshot. If the encryption is provider-managed, you can change it to customer-managed encryption and select either {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. If the encryption is already customer-managed, you can choose a different key management service but you can't change to provider-managed encryption. |
    {: caption="Table 1. Create {{site.data.keyword.block_storage_is_short}} volume options." caption-side="bottom"}
 
 5. When you're finished, click **Save**. The new volume is created.
@@ -115,7 +114,7 @@ Hover over the name of a volume that is attached to an instance in the instance 
 
 Use the following steps to create a volume from the snapshot details page.
 
-1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external},click the **Navigation Menu** ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) Storage > {{site.data.keyword.block_storage_is_short}} snapshots**.
+1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **Storage > {{site.data.keyword.block_storage_is_short}} snapshots**.
 
    You can go to the backup snapshots details page in other ways. For example, when you view a list of [backup jobs](/docs/vpc?topic=vpc-backup-view-policy-jobs&interface=ui#backup-view-jobs-ui), you can click the snapshots link for a backup job and go to the details page.
    {: tip}
@@ -135,7 +134,7 @@ Use the following steps to create a volume from the snapshot details page.
 
 Follow these steps to create a boot and data volume from snapshots when you provision a new virtual server instance.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Compute > Virtual server instances**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Compute > Virtual server instances**.
 
 2. Click **Create** and provision your new instance with the information from the table in [Creating virtual server instances in the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
 
@@ -158,7 +157,7 @@ After the instance is created, you can click the instance name to see the instan
 
 You can create a data volume from a snapshot for an existing instance. Choose from the list of virtual server instances.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external},click the **Navigation Menu** ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) Compute > Virtual server instances**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) Compute > Virtual server instances**.
 
 2. From the list, click the name of an instance. The instance must be in a _Running_ state.
 
@@ -180,7 +179,7 @@ The new volume appears in the list of Storage volumes. Hover over the camera ico
 
 Use the CLI to create a boot or data volume from a backup snapshot. The commands are the same as the ones that are used to restore a volume from a manually created snapshot. For more information, see [Restore a volume from a snapshot with the CLI](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=cli#snapshots-vpc-restore-CLI).
 
-For more information about all backup service commands, see the [VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference&interface=ui#backup-policy).
+For more information about all backup service commands, see the [VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference&interface=cli).
 
 ## Restoring a volume from a backup snapshot with the API
 {: #baas-vpc-restore-API}

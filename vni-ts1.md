@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-10-30"
+  years: 2023, 2024
+lastupdated: "2024-03-12"
 
 keywords:
 
@@ -18,9 +18,6 @@ content-type: troubleshoot
 {: #troubleshoot-vni-1}
 {: troubleshoot}
 {: support}
-
-This VPC feature is available only to accounts with special approval to preview this feature.
-{: preview}
 
 The secondary IP is most likely unreachable because you haven't configured it properly.
 {: shortdesc}

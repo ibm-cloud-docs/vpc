@@ -20,7 +20,7 @@ Access to {{site.data.keyword.vpc_full}} service instances for users in your acc
 
 The access policy that you assign users in your account determines what actions a user can perform within the context of the service or specific instance that you select. The allowable actions are customized and defined by the `VPC Infrastructure Services` as operations that you are allowed to perform on the service. Each action is mapped to an IAM platform or service role that you can assign to a user.
 
-If a specific role and its actions don't fit the use case that you're looking to address, you can [create a custom role](/docs/account?topic=account-custom-roles#custom-access-roles) and pick the actions to include.
+If a specific role and its actions don't fit the use case that you're looking to address, you can [create a custom role](/docs/account?topic=account-custom-roles&interface=ui#custom-access-roles) and pick the actions to include.
 {: tip}
 
 IAM access policies enable access to grant at different levels. The following are some options that are included:
@@ -101,9 +101,9 @@ The following links take you directly to the specific infrastructure service on 
 {: #storage-iam-roles-actions}
 
 - [Block Storage for VPC](/docs/account?topic=account-iam-service-roles-actions#is.volume-roles)
-- [Block Storage Snapshots for VPC](/docs/account?topic=account-iam-service-roles-actions#is.snapshot-roles) 
+- [Block Storage Snapshots for VPC](/docs/account?topic=account-iam-service-roles-actions#is.snapshot-roles)
 - [Backup as a Service for VPC](/docs/account?topic=account-iam-service-roles-actions#is.backup-policy-roles)
-- [File Storage for VPC](/docs/account?topic=account-iam-service-roles-actions#file-storage-for-vpc)
+- [File Storage for VPC](/docs/account?topic=account-iam-service-roles-actions#is.share-roles)
 
 Some VPC tasks require authorizations for multiple IAM actions. For example, create virtual server instance not only requires `is.instance.instance.create`, it also requires `is.vpc.vpc.operate`, `is.subnet.subnet.operate`, `is.security-group.security-group.operate`, and `is.volume.volume.create`. Additional conditional actions might be required. For example, if you provision an instance on a dedicated host, you need `is.dedicated-host.dedicated-host-group.operate` and `is.dedicated-host.dedicated-host.operate`. The Virtual Private Cloud API reference includes an Authorization section for each API call, for example, [Create an instance](/apidocs/vpc/latest#create-instance).
 {: note}

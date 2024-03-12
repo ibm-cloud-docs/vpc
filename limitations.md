@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2022
-lastupdated: "2022-09-26"
+  years: 2018, 2024
+lastupdated: "2024-03-01"
 
 keywords: limitations, restrictions
 
@@ -66,15 +66,13 @@ An {{site.data.keyword.vpc_short}} cannot be peered with other VPCs natively. It
 * Every x86-based profile has a network performance value of 2 Gbps per vCPU, with a cap of 80 Gbps.
 * Each x86-based network interface has a network performance cap of 16 Gbps. <!-- You might need to attach multiple network interfaces to your virtual server instance to optimize network performance. -->
 * Start and Stop actions are not registered under virtual server instance activity in the UI.
-* Activity Tracker logs (request logs and resource lifecycle event logs) are not available.
-* Updating the profile of a created instance is not supported.
 * The placement group of the instance can't be changed after an instance is provisioned with a placement group. You must delete the instance to remove it from the placement group.
 * API support for creating new instances from an existing boot volume is temporarily suspended. For more information, see the [API change log](/docs/vpc?topic=vpc-api-change-log).
 
 ## Storage restrictions
 {: #storage-restrictions}
 
-Block Storage volume names must be unique across the entire VPC infrastructure. A volume that is created on VPC compute resources can't have the same name as a volume created on the classic infrastructure. For more information about volume naming, see [Guidelines for naming volumes](/docs/vpc?topic=vpc-managing-block-storage#volume-name-conventions).
+Block Storage volume names must be unique across the entire VPC infrastructure. A volume that is created on VPC compute resources can't have the same name as a volume created on the classic infrastructure. For more information about volume naming, see [Creating Block Storage for VPC volumes](/docs/vpc?topic=vpc-creating-block-storage&interface=ui#creating-block-storage-ui).
 
 ## LinuxONE (s390x processor architecture) virtual server instance restrictions
 {: #LinuxONE-vsi-restrictions}

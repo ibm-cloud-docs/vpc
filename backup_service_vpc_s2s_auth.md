@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-01-23"
+lastupdated: "2024-03-12"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -56,7 +56,7 @@ To create a service-to-service authorization policy, follow this procedure:
    |--------------------------------|---------------------------------|-----------|
    | IBM Cloud Backup for VPC       | Block Storage for VPC           | Operator |
    | IBM Cloud Backup for VPC       | Block Storage Snapshots for VPC | Editor   |
-   | IBM Cloud Backup for VPC       | Multi Volume Snapshots for VPC  | Editor   |
+   | IBM Cloud Backup for VPC       | Multi-Volume Snapshots for VPC  | Editor   |
    | IBM Cloud Backup for VPC       | Virtual Server for VPC          | Operator | 
    {: caption="Table 1. Service-to-service authorizations" caption-side="bottom"}
 
@@ -73,7 +73,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
    |--------------------------------|---------------------------------|-----------|
    | IBM Cloud Backup for VPC       | Block Storage for VPC           | Operator  |
    | IBM Cloud Backup for VPC       | Block Storage Snapshots for VPC | Editor    |
-   | IBM Cloud Backup for VPC       | Multi Volume Snapshots for VPC  | Editor    |
+   | IBM Cloud Backup for VPC       | Multi-Volume Snapshots for VPC  | Editor    |
    | IBM Cloud Backup for VPC       | Virtual Server for VPC          | Operator  | 
    | IBM Cloud Backup for VPC       | IBM Cloud Backup for VPC        | Editor    |
    {: caption="Table 2. Service-to-service authorizations for the Enterprise" caption-side="bottom"}
@@ -309,7 +309,7 @@ To use Backup for VPC in your account to create policies, plans and run backup j
       ```
       {: codeblock}
 
-1. Then, use the json files to run the following CLI command.
+1. Then, use the JSON files to run the following CLI command.
    ```sh
    ibmcloud iam authorization-policy-create --file ~/Documents/policy.json
    ```
@@ -636,37 +636,129 @@ For more information, see the api spec for [IAM Policy Management](/apidocs/iam-
 
 Create an authorization policy between services by using the `ibm_iam_authorization_policy` resource argument in your `main.tf` file.
 
-```terraform 
+```terraform
 resource "ibm_iam_authorization_policy" "policy1" {
-  source_service_name  = "is"
-  source_resource_type = "backup-policy"
-  target_service_name  = "is"
-  target_resource_type = "volume"
-  roles                = ["Operator"]
+  subject_attributes {
+    name  = "accountId"
+    value = data.ibm_iam_account_settings.iam.account_id
+  }
+  subject_attributes {
+    name  = "serviceName"
+    value = "is"
+  }
+  subject_attributes {
+    name  = "resourceType"
+    value = "backup-policy"
+  }
+  resource_attributes {
+    name  = "accountId"
+    operator = "stringEquals"
+    value = data.ibm_iam_account_settings.iam.account_id
+  }
+  resource_attributes {
+    name  = "serviceName"
+    operator = "stringEquals"
+    value = "is"
+  }
+  resource_attributes {
+    name  = "volumeId"
+    operator = "stringExists"
+    value = "true"
+  }
+  roles   = ["Operator"]
 }
 
 resource "ibm_iam_authorization_policy" "policy2" {
-  source_service_name  = "is"
-  source_resource_type = "backup-policy"
-  target_service_name  = "is"
-  target_resource_type = "snapshot"
-  roles                = ["Editor"]
+  subject_attributes {
+    name  = "accountId"
+    value = data.ibm_iam_account_settings.iam.account_id
+  }
+  subject_attributes {
+    name  = "serviceName"
+    value = "is"
+  }
+  subject_attributes {
+    name  = "resourceType"
+    value = "backup-policy"
+  }
+  resource_attributes {
+    name  = "accountId"
+    operator = "stringEquals"
+    value = data.ibm_iam_account_settings.iam.account_id
+  }
+  resource_attributes {
+    name  = "serviceName"
+    operator = "stringEquals"
+    value = "is"
+  }
+  resource_attributes {
+    name  = "snapshotId"
+    operator = "stringExists"
+    value = "true"
+  }
+  roles   = ["Editor"]
 }
 
 resource "ibm_iam_authorization_policy" "policy3" {
-  source_service_name  = "is"
-  source_resource_type = "backup-policy"
-  target_service_name  = "is"
-  target_resource_type = "snapshot-consistency-group"
-  roles                = ["Editor"]
+  subject_attributes {
+    name  = "accountId"
+    value = data.ibm_iam_account_settings.iam.account_id
+  }
+  subject_attributes {
+    name  = "serviceName"
+    value = "is"
+  }
+  subject_attributes {
+    name  = "resourceType"
+    value = "backup-policy"
+  }
+  resource_attributes {
+    name  = "accountId"
+    operator = "stringEquals"
+    value = data.ibm_iam_account_settings.iam.account_id
+  }
+  resource_attributes {
+    name  = "serviceName"
+    operator = "stringEquals"
+    value = "is"
+  }
+  resource_attributes {
+    name  = "snapshotConsistencyGroupId"
+    operator = "stringExists"
+    value = "true"
+  }
+  roles   = ["Editor"]
 }
 
 resource "ibm_iam_authorization_policy" "policy4" {
-  source_service_name  = "is"
-  source_resource_type = "backup-policy"
-  target_service_name  = "is"
-  target_resource_type = "instance"
-  roles                = ["Operator"]
+  subject_attributes {
+    name  = "accountId"
+    value = data.ibm_iam_account_settings.iam.account_id
+  }
+  subject_attributes {
+    name  = "serviceName"
+    value = "is"
+  }
+  subject_attributes {
+    name  = "resourceType"
+    value = "backup-policy"
+  }
+  resource_attributes {
+    name  = "accountId"
+    operator = "stringEquals"
+    value = data.ibm_iam_account_settings.iam.account_id
+  }
+  resource_attributes {
+    name  = "serviceName"
+    operator = "stringEquals"
+    value = "is"
+  }
+  resource_attributes {
+    name  = "instanceId"
+    operator = "stringExists"
+    value = "true"
+  }
+  roles   = ["Operator"]
 }
 ```
 {: screen}
