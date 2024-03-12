@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-12-11"
+  years: 2023, 2024
+lastupdated: "2024-03-07"
 
 keywords:
 
@@ -15,9 +15,6 @@ subcollection: vpc
 
 # About virtual network interfaces
 {: #vni-about}
-
-This VPC feature is available only to accounts with special approval to preview it.
-{: preview}
 
 A virtual network interface (VNI) is a logical abstraction of a network interface in a subnet. It can be attached to a target resource, providing that resource with network connectivity. As a top-level resource with a CRN, a VNI's lifecycle is independent of the target resource it is attached to (unless `auto_delete` is set to `true`). In addition, it has its own set of IAM permissions.
 {: shortdesc}
@@ -165,6 +162,7 @@ For this example, a single virtual server instance is running three instances of
 These links provide additional information about virtual network interfaces for VPC:
 
 * [Activity tracker events](/docs/vpc?topic=vpc-at-events&interface=ui#events-vni)
+* [FAQs](/docs/vpc?topic=vpc-vni-faq&interface=ui)
 * [IAM permissions](/docs/account?topic=account-iam-service-roles-actions#is.virtual-network-interface-roles)
 * [Quotas](/docs/vpc?topic=vpc-quotas&interface=ui#virtual-network-interfaces-quotas)
 * [Terraform registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_virtual_network_interface){: external}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-10-30"
+  years: 2023, 2024
+lastupdated: "2024-03-07"
 
 keywords:
 
@@ -15,10 +15,7 @@ subcollection: vpc
 # Deleting a virtual network interface
 {: #vni-deleting}
 
-This VPC feature is available only to accounts with special approval to preview this feature.
-{: preview}
-
-When you no longer need a virtual network interface, you can delete it by using the UI, CLI, API, or Terraform.
+When you no longer need a virtual network interface, you can delete it by using the UI, CLI, API, or Terraform. Make sure that no attachments remain in the virtual network interface before attempting to delete.
 {: shortdesc}
 
 ## Deleting a virtual network interface in the UI
@@ -28,7 +25,7 @@ When you no longer need a virtual network interface, you can delete it by using 
 To delete a virtual network interface, follow these steps.
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Virtual network interfaces**.
+1. Select the **Navigation Menu** icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Virtual network interfaces**.
 1. Click the name of the virtual network interface that you want to delete in the Virtual network interfaces for VPC table.
 1. Click the **Actions** menu on the Details page, and select **Delete**.
 1. Confirm that you want to delete this virtual network interface in the window that appears, or click **Cancel**.

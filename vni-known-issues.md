@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-10-30"
+  years: 2023, 2024
+lastupdated: "2024-03-07"
 
 keywords:
 
@@ -15,14 +15,12 @@ subcollection: vpc
 # Virtual network interface known limitations
 {: #vni-known-issues}
 
-This VPC feature is available only to accounts with special approval to preview this feature.
-{: preview}
-
 The following known limitations apply to this virtual network interface release:
 {: shortdesc}
 
 * With infrastructure NAT enabled for a virtual network interface, no more than one floating IP can target the virtual network interface.
 * When a floating IP is attached to a virtual network interface, network address translation (NAT) is performed between the floating IP’s public address and the virtual network interface’s primary IP address.
+* Creating an instance group from an instance template that has a virtual network interface with `allow_ip_spoofing` set to `true` is not yet supported.
 * Not all virtual network interface targets support all virtual network interface policies. The following list shows the current incompatibilities.
     * Virtual server instances do not support disabling infrastructure NAT.
     * The `allow_ip_spoofing` property cannot be `true` when the target is a file share mount target.
