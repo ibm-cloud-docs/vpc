@@ -319,10 +319,9 @@ toc:
                 label: Attaching IBM Cloud resources to virtual network interfaces
                 topics:
                 - vni-add-fip.md
-                - vni-attach-secondary-ip.md
                 - vni-add-rip.md
+                - vni-attach-secondary-ip.md
                 - vni-add-sg.md
-            - vni-attach.md
             - vni-known-issues.md
             - topicgroup:
                 label: Virtual network interface hazardous change remediation
@@ -737,6 +736,7 @@ toc:
             - lb-faqs.md
             - instance_metadata_vpc_faqs.md
             - faqs-placement-groups.md
+            - vni-faq.md
             - vpe-faqs.md
             - vpn-faqs.md
             - vpn-client-to-site-faqs.md
