@@ -24,7 +24,7 @@ You can delete an endpoint gateway by using the UI, the CLI, or the API.
 
 To delete an endpoint gateway, follow these steps:
 
-1. Navigate to the list of endpoint gateways for VPC. From the [{{site.data.keyword.cloud}} console](/login){: external}, select the **Navigation Menu** icon![menu icon](/images/menu_icon.png), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Virtual private endpoint gateways** in the Network section.
+1. Navigate to the list of endpoint gateways for VPC. From the [{{site.data.keyword.cloud}} console](/login){: external}, select the **Navigation Menu** icon ![menu icon](/images/menu_icon.png), then click > **VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Virtual private endpoint gateways** in the Network section.
 
    The Virtual private endpoint gateways for VPC page shows all endpoint gateways for all VPCs in the region.
 
