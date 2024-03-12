@@ -304,6 +304,25 @@ toc:
             - subnets-about.md
             - subnets-create-subnet.md
         - topicgroup:
+            label: Private Path services
+            topics:
+            - pps-about.md
+            - pps-create.md
+            - pps-verify.md
+            - pps-publish.md
+            - pps-communicate.md
+            - pps-review.md
+            - pps-revoke.md
+            - pps-account-id-responsibilities.md
+            - topicgroup:
+                label: Managing access policies
+                topics:
+                - pps-about-account-policies.md
+                - pps-create-policy.md
+                - pps-update-policy.md
+            - pps-delete.md
+            - pps-limitations.md
+        - topicgroup:
             label: Virtual network interfaces
             topics:
             - vni-about.md
