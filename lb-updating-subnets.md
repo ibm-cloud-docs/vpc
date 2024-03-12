@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-01-23"
+lastupdated: "2024-02-14"
 
 keywords: application load balancer, subnet, APIs, vpc network, update, detach, attach, etag
 
@@ -24,7 +24,7 @@ You can update subnets for an {{site.data.keyword.cloud}} {{site.data.keyword.al
 To update subnets for an ALB by in the {{site.data.keyword.cloud_notm}} console, perform the following procedure:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** icon![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Load balancers**.
+1. Select the **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click  **VPC Infrastructure** ![VPC icon](../../icons/vpc.svg)  > **Load balancers**.
 1. Select the load balancer whose subnets you want to update.
 1. Select **Overview**, click the **Edit subnets** button, then select the subnets you want to attach or detach.
    * **Attach**: Add a new subnet to the load balancer.

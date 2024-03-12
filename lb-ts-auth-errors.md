@@ -19,7 +19,7 @@ content-type: troubleshoot
 {: troubleshoot}
 
 The beta release of IBM Cloud Private Path services is only available to allowlisted users. Contact your IBM Support representative if you are interested in getting early access to this beta offering.
-{: preview}
+{: beta}
 
 If you receive an authorization error when creating a Private Path network load balancer, most likely your account ID is not onboarded.
 

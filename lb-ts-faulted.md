@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-01-23"
+lastupdated: "2024-02-14"
 
 keywords: load balancer, network, faqs
 
