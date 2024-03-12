@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-12-18"
+  years: 2023, 2024
+lastupdated: "2024-03-12"
 
 keywords:
 
@@ -14,9 +14,6 @@ subcollection: vpc
 
 # Viewing details of a virtual network interface
 {: #vni-viewing}
-
-This VPC feature is available only to accounts with special approval to preview this feature.
-{: preview}
 
 With virtual network interfaces, where you view resources has changed. In older network interfaces, you can view the details of the resources by going to the resource directly. In a virtual network interface, you can view the resource's details from within the virtual network interface.
 {: shortdesc}

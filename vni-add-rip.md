@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years:  2023
-lastupdated: "2023-10-30"
+  years: 2023, 2024
+lastupdated: "2024-03-12"
 
 keywords:
 
@@ -15,28 +15,25 @@ subcollection: vpc
 # Attaching a reserved IP to a virtual network interface
 {: #vni-add-rip}
 
-This VPC feature is available only to accounts with special approval to preview this feature.
-{: preview}
-
-The primary IP address of a virtual network interface is a reserved IP address.
+A VNI is created with a primary IP address, which can be an existing reserved IP or created with the virtual network interface. The primary IP address of a virtual network interface is a reserved IP address.
 {: shortdesc}
 
 You can add a reserved IP to a VNI with the UI, CLI, API, or Terraform.
 
 
-## Attaching a reserved IP to a virtual network interface in the UI
+## Determining the primary reserved IP for a virtual network interface in the UI
 {: #vni-add-rip-ui}
 {: ui}
 
 In the UI, the primary IP address of the virtual network interface is a reserved IP. Reserved IPs can be added to a virtual network interface in three ways.
 
-* When you create a virtual network interface, you must specify a subnet. If you specify _only_ a subnet, a reserved IP address is automatically allocated from that subnet, and assigned as the primary IP address of the VNI.
-* As you are creating a virtual network interface, you can select an existing reserved IP address that isn't already attached to another resource. This reserved IP address is used as the primary IP address for your VNI.
-* If you specify a subnet and give it an IP address that is a valid address in the subnet, but isn't currently allocated to a reserved IP, a reserved IP is created with that address. This reserved IP address is used as the primary IP address for your VNI.
+* When you create a virtual network interface, you must specify a subnet. If you specify _only_ a subnet, a reserved IP address is automatically allocated from that subnet, and assigned as the primary IP address of the virtual network interface.
+* While you are creating a virtual network interface, you can select an existing reserved IP address that isn't already attached to another resource. This reserved IP address is used as the primary IP address for your virtual network interface.
+* If you specify a subnet and give it an IP address that is a valid address in the subnet, but isn't currently allocated to a reserved IP, a reserved IP is created with that address. This reserved IP address is used as the primary IP address for your virtual network interface.
 
 For more information about adding a primary (reserved) IP to your virtual network interface, see step 10 in [Creating a virtual network interface](/docs/vpc?topic=vpc-vni-create&interface=ui).
 
-## Attaching a reserved IP to a virtual network interface from the CLI
+## Determining the primary reserved IP for a virtual network interface from the CLI
 {: #vni-add-rip-cli}
 {: cli}
 
@@ -90,7 +87,7 @@ Where:
 * `ibmcloud is subnet-reserved-ip-create my-subnet --name my-reserved-ip --address 10.240.64.10 --target my-vpe --trt endpoint_gateway`
 * `ibmcloud is subnet-reserved-ip-create my-subnet --name my-reserved-ip --address 10.240.64.10 --target my-vni --trt virtual_network_interface`
 
-## Attaching a reserved IP to a virtual network interface from the API
+## Determining the primary reserved IP for a virtual network interface from the API
 {: #vni-add-rip-api}
 {: api}
 
@@ -99,16 +96,18 @@ Where:
 
     * `version` (string): The API version, in format `YYYY-MM-DD`.
     * `virtual_network_interface_id` (string): The virtual network interface identifier.
-    * `id` (string): The reserved IP identifier.
+    * `reserved_ip_id` (string): The reserved IP identifier.
 
 1. When all variables are initiated, add the reserved IP:
 
-```sh
-curl -X PUT "https://au-syd.iaas.cloud.ibm.com/v1/virtual_network_interfaces/my_virtual_network_interface_id/ips/my_reserved_ip?version=2023-10-18&generation=2" -H  "accept: application/json"
-```
-{: codeblock}
+    ```sh
+    curl -X PUT \
+    "$vpc_api_endpoint/v1/virtual_network_interfaces/$virtual_network_interface_id/ips/$reserved_ip_id?version=$version&generation=2" \
+    -H "Authorization: Bearer $iam_token"
+    ```
+    {: codeblock}
 
-## Attaching a reserved IP to a virtual network interface with Terraform
+## Determining the primary reserved IP for a virtual network interface with Terraform
 {: #vni-terraform-add-rip}
 {: terraform}
 

@@ -26,7 +26,7 @@ Only services that support Virtual Private Endpoints for VPC show up in the list
 
 To view details of an endpoint gateway by using the {{site.data.keyword.cloud}} console, follow these steps:
 
-1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation Menu** icon![menu icon](/images/menu_icon.png), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Virtual private endpoint gateways** in the Network section.
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation Menu** icon ![menu icon](/images/menu_icon.png), then click > **VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Virtual private endpoint gateways** in the Network section.
 
    The Virtual private endpoint gateways for VPC page shows all endpoint gateways for all VPCs in the region.
 

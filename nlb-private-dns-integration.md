@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-01-23"
+lastupdated: "2024-02-14"
 
 keywords:
 
@@ -33,7 +33,7 @@ Before binding DNS zones to load balancers, you must first create DNS zones and 
 
 1. DNS zones must be created before they can be bound to a load balancer. For more information, see [Managing DNS zones](/docs/dns-svcs?topic=dns-svcs-managing-dns-zones).
 
-1. To give a load balancer access to your DNS zone, you must enable service-to-service authorization. This grants your load balancer access to the DNS zone. For more information, see [Granting access between services](/docs/account?topic=account-serviceauth&interface=ui#create-auth). Make sure to choose **VPC Infrastructure Services** as the source service, **Load Balancer for VPC** as the resource type, **DNS Services** as the target service, and assign the **Writer** service access role.
+1. To give a load balancer access to your DNS zone, you must enable service-to-service authorization. This grants your load balancer access to the DNS zone. For more information, see [Granting access between services](/docs/account?topic=account-serviceauth&interface=ui#create-auth). Make sure to choose **VPC Infrastructure Services** as the source service, **Load Balancer for VPC** as the resource type, **DNS Services** as the target service, and assign the **Manager** service access role.
 
 ## Working with DNS zones in the UI
 {: #dns-zones-ui-nlb}
@@ -49,7 +49,7 @@ You can bind a DNS zone to a load balancer when you create a load balancer. If y
 To bind a DNS zone when [creating a load balancer](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer), follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Load balancers** in the Network section.
+1. Select the **Navigation Menu** icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **VPC Infrastructure > Load balancers** in the Network section.
 1. Click **Create**.
 1. Configure the VPC, type, subnet, listeners, and pools as needed.
 1. Under the DNS type section, choose **Private**.
@@ -62,7 +62,7 @@ To bind a DNS zone when [creating a load balancer](/docs/vpc?topic=vpc-nlb-ui-cr
 To bind a DNS zone to an existing load balancer, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Load balancers** in the Network section.
+1. Select the **Navigation Menu** icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **VPC Infrastructure > Load balancers** in the Network section.
 1. From the list of load balancers, select the load balancer to view its details page.
 1. Click **Bind private DNS** in the Private DNS section.
 1. Enter the DNS instance, and DNS zone information.
@@ -77,7 +77,7 @@ When migrating to a private DNS zone for an existing load balancer, the default 
 To unbind a DNS zone from a load balancer, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Load balancers** in the Network section.
+1. Select the **Navigation Menu** icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **VPC Infrastructure > Load balancers** in the Network section.
 1. From the list of load balancers, select the load balancer to view its details page.
 1. Click the **Unbind** button in the Private DNS section
 1. Verify the action by clicking **Unbind** again.
@@ -91,7 +91,7 @@ You can bind and unbind DNS zones to a network load balancer during provisioning
 ### Creating a load balancer bound to a private DNS zone from the CLI
 {: #create-lb-with-dns-zone-cli-nlb}
 
-You will need the CRN of the private DNS that you want to bind to your load balancer. To find it, click Navigation Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg) > **Resource List** from the {{site.data.keyword.cloud_notm}} console. Click the table row of the DNS whose CRN you want to find. The CRN is shown in the side panel that appears.
+You will need the CRN of the private DNS that you want to bind to your load balancer. To find it, click **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg) > **Resource List** from the {{site.data.keyword.cloud_notm}} console. Click the table row of the DNS whose CRN you want to find. The CRN is shown in the side panel that appears.
 {: tip}
 
 To create a network load balancer with a private DNS zone, follow these steps:
@@ -150,7 +150,7 @@ UDP Supported                false
 ### Binding an existing load balancer to a private DNS zone from the CLI
 {: #binding-dns-zone-to-lb-cli-nlb}
 
-You will need the CRN of the private DNS that you want to bind to your load balancer. To find it, click Navigation Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg) > **Resource List** from the {{site.data.keyword.cloud_notm}} console. Click the table row of the DNS whose CRN you want to find. The CRN is shown in the side panel that appears.
+You will need the CRN of the private DNS that you want to bind to your load balancer. To find it, click **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg) > **Resource List** from the {{site.data.keyword.cloud_notm}} console. Click the table row of the DNS whose CRN you want to find. The CRN is shown in the side panel that appears.
 {: tip}
 
 To use the CLI to update a network load balancer with a private DNS zone, follow these steps:
@@ -273,7 +273,7 @@ You can bind and unbind DNS zones to a network load balancer during provisioning
 ### Creating a load balancer bound to a private DNS zone with the API
 {: #create-lb-with-dns-zone-api-nlb}
 
-You will need the CRN of the private DNS that you want to bind to your load balancer. To find it, click Navigation Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg) > **Resource List** from the {{site.data.keyword.cloud_notm}} console. Click the table row of the DNS whose CRN you want to find. The CRN is shown in the side panel that appears.
+You will need the CRN of the private DNS that you want to bind to your load balancer. To find it, click **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg) > **Resource List** from the {{site.data.keyword.cloud_notm}} console. Click the table row of the DNS whose CRN you want to find. The CRN is shown in the side panel that appears.
 {: tip}
 
 To specify a private DNS zone during creation:
@@ -369,7 +369,7 @@ Sample output:
 ### Binding an existing load balancer to a private DNS zone with the API
 {: #binding-dns-zone-to-lb-api-nlb}
 
-You will need the CRN of the private DNS that you want to bind to your load balancer. To find it, click Navigation Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg) > **Resource List** from the {{site.data.keyword.cloud_notm}} console. Click the table row of the DNS whose CRN you want to find. The CRN is shown in the side panel that appears.
+You will need the CRN of the private DNS that you want to bind to your load balancer. To find it, click **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg) > **Resource List** from the {{site.data.keyword.cloud_notm}} console. Click the table row of the DNS whose CRN you want to find. The CRN is shown in the side panel that appears.
 {: tip}
 
 

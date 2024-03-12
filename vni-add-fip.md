@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-11-16"
+  years: 2023, 2024
+lastupdated: "2024-03-12"
 
 keywords:
 
@@ -15,10 +15,7 @@ subcollection: vpc
 # Attaching floating IPs to a virtual network interface
 {: #vni-add-fip}
 
-This VPC feature is available only to accounts with special approval to preview this feature.
-{: preview}
-
-Floating IP addresses are IP addresses that are provided by the system and are reachable from the public internet. You can use floating IP addresses with virtual network interfaces to implement failover in high availability configurations.
+Floating IP addresses are IP addresses that are provided by the system and are reachable from the public internet. A floating cannot be attached to a virtual network interface if that virtual network interface is attached to a share mount target.
 {: shortdesc}
 
 You can attach floating IPs to a VNI with the UI, CLI, API, or Terraform.
@@ -30,7 +27,7 @@ You can attach floating IPs to a VNI with the UI, CLI, API, or Terraform.
 To attach a floating IP to an existing virtual network interface, follow these steps.
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Virtual network interfaces**.
+1. Select the **Navigation Menu** icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Virtual network interfaces**.
 1. Click the name of the virtual network interface that you want to attach a floating IP to in the Virtual network interfaces for VPC table.
 1. In the Floating IPs section, click **Attach**.
 1. In the Attach floating IP panel that appears, you can do one of the following:

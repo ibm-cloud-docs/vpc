@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-03-07"
+lastupdated: "2024-03-12"
 
 keywords:
 
@@ -30,6 +30,29 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## March 2024
 {: #vpc-mar24}
 
+### 12 March 2024
+{: #vpc-mar1224}
+{: release-note}
+
+Virtual Network Interfaces for VPC
+:   A new feature is generally available in the Virtual Private Cloud (VPC) service that expands the support for [virtual network interfaces](/docs/vpc?topic=vpc-vni-about). The following features are available.
+   - Virtual network interfaces have an independent lifecycle, which means that when you delete a resource to which the virtual network interface is attached, the virtual network interface persists and retains its IP address.
+   - New instances and bare metal servers can be created with virtual network interfaces attached to new child resources called network attachments.
+   - Virtual network interfaces support secondary IP addresses.
+   - For compatibility with existing clients, instances and bare metal servers with virtual network interfaces include a read-only representation of their network attachments and virtual network interfaces as legacy network interface child resources.
+   - For instances and bare metal servers with virtual network interfaces, the IAM permissions for options to allow IP spoofing or disable infrastructure NAT are managed on their attached virtual network interfaces.
+   - Flow log collectors can target instance network attachments and virtual network interfaces.
+
+   You can choose to defer access to this feature through [IBM Support](/unifiedsupport/supportcenter). Users in an account that has deferred access will not be able to create instances or bare metal servers with virtual network interfaces. If you need more time to assess, remediate, and test changes for virtual network interfaces, request deferral for your production accounts while you complete the mitigations using your test accounts.
+   {: note}
+
+### 11 March 2024
+{: #vpc-mar1124}
+{: release-note}
+
+GPU l40S profiles now available in Canada and United Kingdom regions
+:   The `l40S` GPU profiles are now available in the Canada (Toronto) and United Kingdom (London) regions. These regionsa are in addition to US East (Washington DC), EU Germany (Frankfurt), Spain (Madrid), Australia (Sydney), and Japan (Tokyo) regions. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+
 ### 07 March 2024
 {: #vpc-mar0724}
 {: release-note}
@@ -41,8 +64,8 @@ UI update for Block storage
 {: #vpc-mar0624}
 {: release-note}
 
-GPU l4 and l4Os profiles now available in US East region
-:   The `l4` and `l4Os` GPU profiles are now available in the US East (Washington DC) region. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+GPU l4 and l40S profiles now available in US East region
+:   The `l4` and `l40S` GPU profiles are now available in the US East (Washington DC) region. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 ## February 2024
 {: #vpc-feb24}
@@ -58,10 +81,10 @@ UI navigation change to Auto scale
 {: #vpc-feb2724}
 {: release-note}
 
-GPU l4Os profiles with PCIe now available 
-:   New `l4Os` GPU profiles that include NVIDIA's L4Os 48GB GPU are now available in the EU Germany (Frankfurt), Spain (Madrid), Australia (Sydney), and Japan (Tokyo) regions. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+GPU l40S profiles with PCIe now available
+:   New `l40S` GPU profiles that include NVIDIA's L40S 48GB GPU are now available in the EU Germany (Frankfurt), Spain (Madrid), Australia (Sydney), and Japan (Tokyo) regions. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
-GPU l4 profiles now available 
+GPU l4 profiles now available
 :   New `l4` GPU profiles that include NVIDIA's L4 24GB GPU are now available in the Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Spain (Madrid),  Australia (Sydney), and Japan (Tokyo) regions. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 ### 23 February 2024
@@ -75,6 +98,9 @@ London 1 AZ for bare metal servers
 ### 20 February 2024
 {: #vpc-feb2024}
 {: release-note}
+
+Virtual Network Interfaces for VPC [Select availability]
+:   You can now create virtual network interfaces for your VPC instances. Virtual network interfaces have an independent lifecycle, which means that when you delete a resource to which the virtual network interface is attached, the virtual network interface persists and retains its IP address. For more information, see [About virtual network interfaces](/docs/vpc?topic=vpc-vni-about).
 
 Next generation instance profiles available in Frankfurt region (select availability)
 :   The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are now available as a select availability offering in the Frankfurt region, in addition to the Dallas and London regions. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel&reg; Xeon&reg; Scalable processors to provide the most powerful and performant general-purpose profiles available. For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles). In the [Balanced](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) family, see the *bx3d* profiles tab. In the [Compute](/docs/vpc?topic=vpc-profiles&interface=ui#compute) family, see the *cx3d* profiles tab. In the [Memory](/docs/vpc?topic=vpc-profiles&interface=ui#memory) family, see the *mx3d* profiles tab. 3rd generation dedicated host profiles are also available. For more information, see *bx3d*, *cx3d*, and *mx3d* profiles in [x86-64 dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).

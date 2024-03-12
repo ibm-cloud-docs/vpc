@@ -82,9 +82,6 @@ For x86 architecture-based bare metal servers, PCI interfaces can be only create
 ### Creating a virtual network interface
 {: #bare-metal-vni}
 
-This VPC feature is available only to accounts with special approval to preview this feature.
-{: preview}
-
 You can create a virtual network interface without attaching it to a target. The virtual network interface can exist even when its target is removed. For more information, see [Working with virtual network interfaces](/docs/vpc?topic=vpc-vni-create&interface=ui).
 
 Virtual network interfaces can be attached to new bare metal server instances, and cannot be added to existing bare metal server instances with child network interfaces.

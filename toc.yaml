@@ -304,6 +304,25 @@ toc:
             - subnets-about.md
             - subnets-create-subnet.md
         - topicgroup:
+            label: Private Path services
+            topics:
+            - pps-about.md
+            - pps-create.md
+            - pps-verify.md
+            - pps-publish.md
+            - pps-communicate.md
+            - pps-review.md
+            - pps-revoke.md
+            - pps-account-id-responsibilities.md
+            - topicgroup:
+                label: Managing access policies
+                topics:
+                - pps-about-account-policies.md
+                - pps-create-policy.md
+                - pps-update-policy.md
+            - pps-delete.md
+            - pps-limitations.md
+        - topicgroup:
             label: Virtual network interfaces
             topics:
             - vni-about.md
@@ -319,10 +338,9 @@ toc:
                 label: Attaching IBM Cloud resources to virtual network interfaces
                 topics:
                 - vni-add-fip.md
-                - vni-attach-secondary-ip.md
                 - vni-add-rip.md
+                - vni-attach-secondary-ip.md
                 - vni-add-sg.md
-            - vni-attach.md
             - vni-known-issues.md
             - topicgroup:
                 label: Virtual network interface hazardous change remediation
@@ -468,8 +486,8 @@ toc:
                 - lb-ig-integration.md
                 - lb-sg-integration.md
                 - lb-private-dns-integration.md
-                - lb-datapath-logging.md
                 - lb-api.md
+                - lb-datapath-logging.md
                 - lb-limitations.md
             - topicgroup:
                 label: Network Load Balancer for VPC
@@ -477,18 +495,19 @@ toc:
                 - nlb-about.md
                 - nlb-create.md
                 - nlb-vnf-create.md
+                - ppnlb-create.md
                 - nlb-update.md
                 - nlb-delete.md
                 - nlb-health-checks.md
                 - nlb-listeners.md
-                - nlb-ig-integration.md
-                - nlb-sg-integration.md
-                - nlb-udp.md
                 - nlb-port-range.md
                 - nlb-pools.md
                 - nlb-private-dns-integration.md
-                - nlb-privatelb.md
+                - nlb-ig-integration.md
+                - nlb-sg-integration.md
+                - nlb-udp.md
                 - nlb-monitoring-metrics.md
+                - nlb-privatelb.md
                 - nlb-limitations.md
         - topicgroup:
             label: Flow logs
@@ -737,6 +756,7 @@ toc:
             - lb-faqs.md
             - instance_metadata_vpc_faqs.md
             - faqs-placement-groups.md
+            - vni-faq.md
             - vpe-faqs.md
             - vpn-faqs.md
             - vpn-client-to-site-faqs.md
@@ -805,11 +825,18 @@ toc:
                 label: Troubleshooting load balancers
                 topics:
                 - lb-ts-401.md
+                - lb-ts-auth-errors.md
                 - lb-ts-maintenance-pending.md
                 - lb-ts-unknown
                 - lb-ts-faulted.md
                 - lb-ts-409.md
                 - lb-ts-backend-members.md
+            - topicgroup:
+                label: Troubleshooting Private Path services
+                topics:
+                - ts-pps1.md
+                - ts-pps2.md
+                - ts-pps3.md
             - topicgroup:
                 label: Troubleshooting site-to-site VPN gateways
                 topics:

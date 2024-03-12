@@ -54,7 +54,7 @@ To create a managed pool and attach an instance group, perform the following pro
 
     Configure scaling policies only if you are using a dynamic scaling method.
 
-    When you configure these policies, you define certain metrics (such as the CPU utilization percentage) and the target utilization you want for that metric. Together, the metric and the average target utilization determine when your instance group dynamically adds or removes virtual server instances to or from the group. 
+    When you configure these policies, you define certain metrics (such as the CPU utilization percentage) and the target utilization you want for that metric. Together, the metric and the average target utilization determine when your instance group dynamically adds or removes virtual server instances to or from the group.
     {: tip}
 
 ## Related links

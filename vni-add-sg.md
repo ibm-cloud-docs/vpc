@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-10-30"
+  years: 2023, 2024
+lastupdated: "2024-03-12"
 
 keywords:
 
@@ -14,9 +14,6 @@ subcollection: vpc
 
 # Attaching security groups to a virtual network interface
 {: #vni-add-sg}
-
-This VPC feature is available only to accounts with special approval to preview this feature.
-{: preview}
 
 Security groups give you a convenient way to apply rules that establish filtering to a target of a virtual server instance, based on its IP address. Virtual network interfaces can be a target for a security group.
 {: shortdesc}
@@ -30,7 +27,7 @@ You can add security groups to a VNI with the UI, CLI, API, or Terraform.
 To add a security group to an existing virtual network interface, follow these steps.
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Virtual network interfaces**.
+1. Select the **Navigation Menu** icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Virtual network interfaces**.
 1. Click the name of the virtual network interface that you want to add a security group to in the Virtual network interfaces for VPC table.
 1. Click the **Attached resources** tab.
 1. In the Security groups section, click **Attach**.
@@ -79,19 +76,17 @@ Where:
 1. Store any additional variables to be used in the API commands; for example:
 
     * `version` (string): The API version, in format `YYYY-MM-DD`.
+    * `security_group_id` (string): The security group identifier.
     * `virtual_network_interface_id` (string): The virtual network interface identifier.
-    * `security_groups` (array): The information about the security group you wish to attach.
-        * `crn` (string): The CNR of this security group.
-        * `href` (string): The canonical URL of this security group.
-        * `id` (string): The unique identifier of this security group.
-        * `name` (string): The name for this security group. The name is unique across all security groups for the VPC.
 
-1. When all variables are initiated, add the security group to the virtual network interface:
+1. When all variables are initiated, add the virtual network interface as a target of the security group:
 
-```sh
-curl -X POST "https://au-syd.iaas.cloud.ibm.com/v1/virtual_network_interfaces?version=2023-10-18&generation=2" -H  "accept: application/json" -H  "Content-Type: application/json" -d "{\"name\":\"my-virtual-network-interface\",\"target\":{\"id\":\"69e55145-cc7d-4d8e-9e1f-cc3fb60b1793\"}}"
-```
-{: codeblock}
+    ```sh
+    curl -X PUT \
+    "$vpc_api_endpoint/v1/security_groups/$security_group_id/targets/$virtual_network_interface_id?version=$version&generation=2" \
+    -H "Authorization: Bearer $iam_token"
+    ```
+    {: codeblock}
 
 ## Attaching a security group to a virtual network interface with Terraform
 {: #vni-terraform-add-sg}

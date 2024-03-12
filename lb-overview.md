@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-01-23"
+lastupdated: "2024-02-14"
 
 keywords: listener, pool, round-robin, weighted, layer 7, datapath logging, http2, websocket
 
@@ -18,7 +18,7 @@ subcollection: vpc
 Use {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) to distribute traffic among multiple server instances within the same region of your VPC.
 {: shortdesc}
 
-If you have public and private workloads and layer 7 traffic, use an application load balancer. 
+If you have public and private workloads and layer 7 traffic, use an application load balancer.
 
 ## Types of application load balancers
 {: #types-load-balancer}
@@ -86,10 +86,25 @@ With this method, the back-end server instance that serves the least number of c
 
 Front-end listeners are load balancer application ports for receiving incoming requests, while back-end pools are the application servers behind the load balancers.
 
+### Guidelines for using listeners
+{: #listener-guidelines}
+
+Review the following guidelines for front-end listeners:
+
+* You can define up to 10 front-end listeners and map them to back-end pools on your back-end application servers.
+* The FQDN assigned to your load balancer and the front-end listener ports are exposed to the public internet. Incoming user requests are received on these ports.
+* The supported front-end listener and back-end pool protocols are HTTP, HTTPS, and TCP.
+* You can configure an HTTP/HTTPS front-end listener with an HTTP/HTTPS back-end pool.
+* HTTP/2 is supported for listeners only.
+* HTTP and HTTPS listeners and pools are interchangeable.
+* You can only configure a TCP front-end listener with a TCP back-end pool.
+* You can attach up to 50 virtual server instances to a back-end pool. Traffic is sent to each instance on its specified data port. This data port does not need to be the same one as the front-end listener port.
+* "Private only" endpoints for Secrets Manager are not supported with HTTPS listeners. To configure an HTTPS listener in an ALB, you must upload your TLS certificates to a "Public and private" endpoint.
+
 ### HTTPS redirect listener
 {: #https-redirect-listener}
 
-HTTPS redirect listeners redirect the traffic from an HTTP listener to an HTTPS listener. This does not require any rules applied on the listener.
+HTTPS redirect listeners redirect the traffic from an HTTP listener to an HTTPS listener. This action does not require any rules applied on the listener.
 
 For instance, if a service listens on port 443 with HTTPS and a user tries to access the service on port 80 using HTTP, then the request automatically redirects to port 443 with HTTPS.
 
@@ -100,23 +115,10 @@ If policies are present on the HTTPS redirect listener, then the policies are ev
 
 Property  | Description
 ------------- | -------------
-Listener | The HTTPS listener to which a request redirects. 
+Listener | The HTTPS listener to which a request redirects.
 HTTP status code | Status code of the response returned by the application load balancer. The acceptable values are: `301`, `302`, `303`, `307`, or `308`.
 URI | The relative URI to which a request redirects. This is an optional property.
 {: caption="Table 2. HTTPS redirect listener properties" caption-side="bottom"}
-
-### Guidelines for using listeners
-{: #listener-guidelines}
-
-* You can define up to 10 front-end listeners and map them to back-end pools on the back-end application servers. 
-* The FQDN assigned to your load balancer and the front-end listener ports are exposed to the public internet. Incoming user requests are received on these ports.
-* The supported front-end listener and back-end pool protocols are HTTP, HTTPS, and TCP. 
-* You can configure an HTTP/HTTPS front-end listener with an HTTP/HTTPS back-end pool. 
-* HTTP/2 is supported for listeners only. 
-* HTTP and HTTPS listeners and pools are interchangeable. 
-* You can only configure a TCP front-end listener with a TCP back-end pool.
-* You can attach up to 50 virtual server instances to a back-end pool. Traffic is sent to each instance on its specified data port. This data port does not need to be the same one as the front-end listener port.
-* "Private only" endpoints for Secrets Manager are not supported with HTTPS listeners. To configure an HTTPS listener in an ALB, you must upload your TLS certificates to a "Public and private" endpoint.
 
 ## Elasticity
 {: #alb-elasticity}
@@ -126,15 +128,15 @@ The application load balancer scales out by adding compute resources when load i
 ## SSL offloading and required authorizations
 {: #ssl-offloading-and-required-authorizations}
 
-SSL offloading allows the application load balancer service to terminate all incoming HTTPS connections.
+Secure Sockets Layer (SSL) offloading allows the application load balancer service to terminate all incoming HTTPS connections.
 
 When an HTTPS listener is configured with an HTTP pool, the HTTPS request is terminated at the front-end and the load balancer establishes a plain-text HTTP communication with the back-end server instance. With this technique, CPU-intensive SSL handshakes and encryption or decryption tasks are shifted away from the back-end server instances, allowing them to use all their CPU cycles for processing application traffic.
 
-SSL offloading requires you to provide an SSL certificate for the application load balancer to perform SSL offloading tasks. You can manage the SSL certificates through the [{{site.data.keyword.secrets-manager_full_notm}}](/docs/secrets-manager?topic=secrets-manager-getting-started). 
+SSL offloading requires you to provide an SSL certificate for the application load balancer to perform SSL offloading tasks. You can manage the SSL certificates through the [{{site.data.keyword.secrets-manager_full_notm}}](/docs/secrets-manager?topic=secrets-manager-getting-started).
 
-{{site.data.content.load-balancer-grant-service-auth}} 
+{{site.data.content.load-balancer-grant-service-auth}}
 
-To prevent errors, you must establish the required authorization between your load balancer and {{site.data.keyword.secrets-manager_full_notm}}. In addition, updating certificates in Secrets Manager does not automatically update your ALB. For your load balancer to reflect any changes in the certificate, make a small update (such as changing the health check interval or timeout value) to cause a refresh. This will update the certificate on your load balancer to match the certificate in Secrets Manager. You can then revert any changes you made back to their original values.
+To prevent errors, you must establish the required authorization between your load balancer and {{site.data.keyword.secrets-manager_full_notm}}. In addition, updating certificates in Secrets Manager does not automatically update your ALB. For your load balancer to reflect any changes in the certificate, make a small update (such as changing the health check interval or timeout value) to cause a refresh. This action will update the certificate on your load balancer to match the certificate in Secrets Manager. You can then revert any changes that you made back to their original values.
 {: important}
 
 Transport Layer Security (TLS) 1.2 and 1.3 are supported. However, TLS 1.3 is used by default unless you specifically configure the client side to utilize 1.2. Application load balancers honor all supported TLS 1.3 ciphers sent by the client-side request.
@@ -152,19 +154,19 @@ The following lists the supported ciphers (in order of precedence):
 * `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`
 * `TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256`
 
-### Locating the certificate CRN 
+### Locating the certificate CRN
 {: #locating-alb-crn}
 
-When configuring authentication for an application load balancer during provisioning using the UI, you can choose to specify the Secrets Manager and SSL certificate, or the certificate's CRN. You might want to do this if you cannot view the Secrets Manager in the drop-down menu, which means you don't have access to the Secrets Manager instance. Keep in mind that you must enter the CRN if using the API to create an ALB.
+When configuring authentication for an application load balancer during provisioning in the UI, you can choose to specify the Secrets Manager and SSL certificate, or the certificate's CRN. You might want to do this if you cannot view the Secrets Manager in the drop-down menu, which means you don't have access to the Secrets Manager instance. Keep in mind that you must enter the CRN if using the API to create an ALB.
 
 To obtain the CRN, you must have permission to access the Secrets Manager instance.
 {: note}
 
 To find a certificate's CRN, follow these steps:
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu icon ![Navigation Menu icon](../icons/icon_hamburger.svg) > Resource list**. 
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu icon ![Navigation Menu icon](../icons/icon_hamburger.svg) > Resource list**.
 1. Click to expand **Services and software**, then select the Secrets Manager that you want to find the CRN for.
-1. Select anywhere in the table row of the certificate to open the Certificate details side panel. The certificate CRN is listed. 
+1. Select anywhere in the table row of the certificate to open the Certificate details side panel. The certificate CRN is listed.
 
 ## End-to-end SSL encryption
 {: #end-to-end-ssl-encryption}
@@ -209,14 +211,14 @@ Application load balancers support end-to-end HTTP2 traffic, and works with list
 ## WebSocket support
 {: #websocket-support}
 
-WebSocket provides full-duplex communication channels over a single TCP connection. Application load balancers support WebSocket with every type of listener protocol (HTTP/HTTPS/TCP). 
+WebSocket provides full-duplex communication channels over a single TCP connection. Application load balancers support WebSocket with every type of listener protocol (HTTP/HTTPS/TCP).
 
 ## Architecture
 {: #nlb-architecture}
 
-The following diagram illustrates the deployment architecture for the ALB.
+Figure 1 illustrates the deployment architecture for the ALB.
 
-![Application load balancer for VPC](images/alb_arc.png "Application load balancer"){: caption="Application load balancer" caption-side="bottom"}
+![Application load balancer for VPC](images/alb_arc.png "Application load balancer"){: caption="Figure 1: Application load balancer" caption-side="bottom"}
 
 In this diagram, "Client Resources" represents the resources (VPCs and subnets, for instance) that belong to the client ecosystem.
 {: note}
@@ -225,10 +227,9 @@ In this diagram, "Client Resources" represents the resources (VPCs and subnets, 
 {: #permissions-related-links-alb}
 
 * [Load balancer CLI reference](/docs/vpc?topic=vpc-vpc-reference#lb-anchor)
-* [Load balancer API reference](/apidocs/vpc/latest#list-load-balancer-profiles)
+* [Load balancer API reference](/apidocs/vpc#list-load-balancer-profiles)
 * [ALB for VPC infrastructure resources for Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_lb){: external} (VPC infrastructure > Resources)
 * [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls)
 * [{{site.data.keyword.cloudaccesstraillong_notm}} events](/docs/vpc?topic=vpc-at-events#events-load-balancers)
 * [FAQs for application load balancers](/docs/vpc?topic=vpc-load-balancer-faqs)
-* [ALB Quotas](/docs/vpc?topic=vpc-quotas&interface=ui#alb-quotas)
-* [NLB Quotas](/docs/vpc?topic=vpc-quotas&interface=ui#nlb-quotas)
+* [Quotas](/docs/vpc?topic=vpc-quotas&interface=ui#alb-quotas)
