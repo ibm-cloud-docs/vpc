@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-10-24"
+lastupdated: "2023-11-08"
 
 keywords:
 
@@ -15,62 +15,102 @@ subcollection: vpc
 # Load balancers for VPC overview
 {: #nlb-vs-elb}
 
-{{site.data.keyword.cloud_notm}} provides two families of load balancers for VPC, {{site.data.keyword.alb_full}} (ALB) and {{site.data.keyword.nlb_full}} (NLB). There are several differences between the two that you should be aware of when choosing a load balancer.
+{{site.data.keyword.cloud}} provides two families of load balancers for VPC, {{site.data.keyword.alb_full}} (ALB) and {{site.data.keyword.nlb_full}} (NLB).
 {: shortdesc}
 
-{{site.data.keyword.cloud_notm}} provides public- and private-facing application load balancers. An application load balancer provides layer 7 and layer 4 load balancing on {{site.data.keyword.cloud_notm}} and supports SSL offloading. All incoming and outgoing packets flow through the load balancer.
+## Types of load balancers
+{: #load-balancer-types}
 
-Application load balancers are primarily intended for layer 7, web-based workloads and support virtual server instances, bare metal server instances, and Power Systems™ Virtual Server instances connected over IBM Cloud Direct Link as back-end pool members. In contrast, a network load balancer provides only layer 4 load balancing on {{site.data.keyword.cloud_notm}}, and does not support SSL offloading. The client sends public network traffic to the network load balancer, which forwards it to target virtual servers. Then, the target virtual servers respond directly to the client by using Direct Server Return (DSR). Network load balancers are primarily intended for workloads that require low latency and high data throughput.
+There are several differences between the types of load balancers that you should be aware of.
 
-This gives network load balancers an advantage over application load balancers by enhancing performance in the following ways:
+### Private Path network load balancers
+{: #load-balancer-pplb}
 
-* The return traffic from the target servers bypasses the network load balancer and responds directly to the client.
-* The network load balancer is only required to process incoming traffic, which allows it to be a fast distributor of traffic/load.
-* The network load balancer has a single highly available VIP that can be used directly, instead of through the assigned fully qualified domain name (FQDN). This helps clients that must use an IP to access the application/service served by the load balancer. It also helps with faster recovery in the event of failures compared to a DNS-based availability that the application load balancer uses.
+The beta release of IBM Cloud Private Path services is only available to allowlisted users. Contact your IBM Support representative if you are interested in getting early access to this beta offering.
+{: beta}
+
+Private Path NLBs are required when you use [Private Path services](/docs/vpc?topic=vpc-using-private-path-services) to keep network traffic on a private path that never intersects with the public internet. For more information, see the [Private Path solutions guide](/docs/private-path).
+
+Private Path services will only work with Private Path NLBs.
+{: important}
+
+### Application load balancers
+{: #load-balancer-alb}
+
+{{site.data.keyword.cloud_notm}} provides public- and private-facing ALBs that support Secure Sockets Layer (SSL) offloading. An ALB provides layer 7 and layer 4 load balancing on {{site.data.keyword.cloud_notm}}, but ALBs are primarily intended for layer 7, web-based workloads. ALBs support virtual server instances, bare metal server instances, and Power Systems Virtual Server instances connected over {{site.data.keyword.dl_full_notm}} as back-end pool members. For more information, see [About application load balancers](/docs/vpc?topic=vpc-load-balancers-about&interface=ui).
+
+### Network load balancers
+{: #load-balancer-nlb}
+
+In contrast to ALBs, an NLB provides only layer 4 load balancing on {{site.data.keyword.cloud_notm}}, and does not support SSL offloading. The client sends public network traffic to the NLB, which forwards it to target virtual servers. Then, these virtual servers respond directly to the client by using Direct Server Return (DSR). NLBs are primarily intended for workloads that require low latency and high data throughput.
+
+This gives network load balancers an advantage over ALBs by enhancing performance in the following ways:
+
+* The return traffic from the target servers bypasses the NLB and responds directly to the client.
+* The NLB is only required to process incoming traffic, which allows it to be a fast distributor of traffic/load.
+* The NLB has a single, highly available virtual IP that can be used directly, instead of through an assigned fully qualified domain name (FQDN). This helps clients that must use an IP to access the application/service served by the load balancer. It also allows for faster failure recovery compared to the DNS-based availability of application load balancers.
+
+{{site.data.keyword.nlb_full}} supports public, private, Private Path, and private-type with routing mode enabled load balancer configurations. For more information, see [About network load balancers](/docs/vpc?topic=vpc-network-load-balancers&interface=ui).
+
+Use Figure 1 to help you (the User) choose the right load balancer for your requirements.
+
+![Load balancer decision tree](/images/loadbalancer_decision_tree.svg "Choosing a load balancer"){: caption="Figure 1: Choosing a network load balancer" caption-side="bottom"}
+
+## Load balancer comparison chart
+{: #lb-comparison-chart}
 
 The following table provides a comparison of the types of load balancers.
 
-|                             |  Network load balancer | Application load balancer            |
-|-----------------------------|--------------------------|--------------------|
-| HA mode                     | Active-standby (with single VIP)   |  Active-active (with multiple VIPs assigned to a DNS name) |
-| Instance group support | No | Yes (see [Integrating an ALB for VPC with instance groups](/docs/vpc?topic=vpc-lbaas-integration-with-instance-groups)) |
-| Monitoring metrics| Yes | Yes |
-| Multi-zone support          |  Yes [^footnote1] (see [Multi-zone support](/docs/vpc?topic=vpc-network-load-balancers#nlb-use-case-2)) | Yes |
-| Security group support | Yes (see [Integrating a network load balancer with security groups](/docs/vpc?topic=vpc-nlb-integration-with-security-groups)) | Yes (see [Integrating an ALB for VPC with security groups](/docs/vpc?topic=vpc-alb-integration-with-security-groups)) |
-| Source IP address is preserved | Yes | Yes |
-| SSL offloading              |  No              | Yes |
-| Supported protocols         |  TCP, UDP | HTTPS, HTTP, TCP  |
-| Transport layer             |   Layer 4  | Layer 4, Layer 7 |
-| Types of load balancers |  Public and private | Public and private |
-| Virtual IP Address (VIP)   |  Single    | Multiple |
-| Route mode for VNFs   | Yes (see [Setting up high availability for Virtual Network Functions (VNF)](/docs/vpc?topic=vpc-about-vnf)) | No |
-| Virtual Servers on VPC   |  Yes    | Yes |
-| Member type  |  Virtual server instances | Virtual server instances, Bare Metal, Power Systems Virtual Server |
-| Power Systems Virtual Server instances connected over Direct Link |  No | Yes (No support for instance groups) |
-{: caption="Table 1. Comparison of network and application load balancers" caption-side="bottom"}
+| Feature | Application load balancer  \n (Public/Private)| Network load balancer  \n (Public/Private) | Network load balancer  \n (Private Path) |
+|------|-----|------|------|
+| [HA mode](/docs/vpc?topic=vpc-nlb-vs-elb#nlb-ha-mode) | Active-Active (with multiple virtual IPs (VIPs) assigned to a DNS name) | Active-Standby (with single VIP) | Active-Active (Regional HA) |
+| Instance group support | Yes (see [Integrating an ALB for VPC with instance groups](/docs/vpc?topic=vpc-lbaas-integration-with-instance-groups)) | No | No |
+| Monitoring metrics | Yes | Yes | No |
+| [Multi-zone support](/docs/vpc?topic=vpc-nlb-vs-elb#nlb-mz-support) | Yes | Limited [^footnote1] (see [Multi-zone support](/docs/vpc?topic=vpc-nlb-vs-elb#nlb-mz-support)) | Yes |
+| Security group support | Yes (see [Integrating an ALB for VPC with security groups](/docs/vpc?topic=vpc-alb-integration-with-security-groups)) | Yes (see [Integrating a network load balancer with security groups](/docs/vpc?topic=vpc-nlb-integration-with-security-groups) | No |
+| Source IP address is preserved | Yes, with proxy protocol | Yes | Yes |
+| SSL offloading | Yes  | No | No |
+| Supported protocols | HTTPS, HTTP, TCP | TCP, UDP | TCP |
+| Transport layer | Layer 4, Layer 7  | Layer 4  | Layer 4 |
+| Virtual IP address (VIP)| Multiple | Single | N/A |
+| Routing mode for VNFs  | No | Yes (see [About virtual network functions over VPC](/docs/vpc?topic=vpc-about-vnf))| No |
+| Virtual servers on VPC | Yes | Yes | Yes |
+| Member type | Virtual server instances, Bare Metal, Power Systems Virtual Server | Virtual server instances | Virtual server instances |
+| Power Systems Virtual Server instances connected over Direct Link | Yes (No support for instance groups) | No | No |
+| Port range | No | Public only [^footnote2] | No |
+{: caption="Table 1. Comparison of private path network, network and application load balancers" caption-side="bottom"}
 
-[^footnote1]: Network load balancers can accept members across all three availability zones, but the NLB itself resides in one specific zone.
+[^footnote1]: NLBs can accept members across all three availability zones, but the NLB itself resides in one specific zone. NLB with routing mode does not support multi-zone support.
+
+[^footnote2]: NLB with routing mode supports a port range for all ports.
+
+For more information, such as load balancer architecture, methods, and use cases, see [About application load balancers](/docs/vpc?topic=vpc-load-balancers-about) and [About network load balancers](/docs/vpc?topic=vpc-network-load-balancers).
+{: tip}
 
 ## High Availability mode
 {: #nlb-ha-mode}
 
 The application load balancer is configured in active-active mode. All compute resources of the load balancer are actively involved in forwarding traffic.
 
-High Availability (HA) is achieved by using a Domain Name Service (DNS). The Virtual IP (VIP) of each compute resource is registered to the assigned DNS. If any of the compute resources go down, the other resources continue to forward traffic.
+High Availability (HA) is achieved by using a Domain Name Service (DNS). The VIP of each compute resource is registered to the assigned DNS. If any of the compute resources go down, the other resources continue to forward traffic.
 
 An NLB is configured in active-standby mode. A single VIP is registered with DNS, and traffic is forwarded through that compute resource. If an active compute resource goes down, the standby takes over and the VIP is transferred to the standby.
+
+A Private Path NLB instance runs in all zones where members are configured and can serve traffic as long as there are healthy members in any of the zones.
 
 ## Multi-zone support
 {: #nlb-mz-support}
 
-Network load balancers can accept members across all three availability zones, but the NLB itself resides in one specific zone. A zone is identified by the subnet that is selected when a load balancer is created. Cloud Internet Services (CIS) Global Load Balancer or Private DNS can be used with multiple zonal network load balancers for multi-zone availability.
+Public and Private: Public and Private Network load balancers can accept members across all three availability zones, but the NLB itself resides in one specific zone. A zone is identified by the subnet that is selected when a load balancer is created. Cloud Internet Services (CIS) Global Load Balancer or Private DNS can be used with multiple zonal network load balancers for multi-zone availability.
 
 The application load balancer can also be configured to span multiple zones. The back-end servers can be in any zone within a region.
+
+A Private Path NLB can accept members in all three zones and can serve traffic as long as there are healthy members (no matter in which zone). Even if the zone holding the subnet defined for the Private Path NLB is down, the load balancer remains up and able to serve traffic to members in other zones.
 
 ## Integration with private catalogs
 {: #load-balancer-integration-with-private-catalog}
 
-{{site.data.keyword.cloud_notm}} Application Load Balancer and Network Load Balancer both integrate with private catalogs to centrally manage access to products in the {{site.data.keyword.cloud_notm}} catalog and your own catalogs. You can customize your private catalogs to allow or disallow load balancer provisioning to specific users in your account. For more information, see [Customizing what's available in your private catalogs](/docs/account?topic=account-restrict-by-user).
+ALBs and NLBs both integrate with private catalogs to centrally manage access to products in the {{site.data.keyword.cloud_notm}} catalog and your own catalogs. You can customize your private catalogs to allow or disallow load balancer provisioning to specific users in your account. For more information, see [Customizing what's available in your private catalogs](/docs/account?topic=account-restrict-by-user).
 
 ## Pricing metrics
 {: #lb-pricing-metrics}
@@ -81,27 +121,12 @@ ALB's and NLB's determine their pricing based on the following metrics.
 
 *Data processed:* Measures how much data, in gigabytes (GB), that is processed by ALB or NLB in a calendar month.
 
-## Application load balancer data flow
-{: #alb-data-flow}
-
-A client makes a request by using the FQDN that is registered to the load balancer instance. A DNS server handles the request and distributes the traffic in a round robin fashion to the back-end servers (server instances hosting the application). Eventually the back-end server responds, and the response flows back through the load balancer, then back to the client.
-
-![ALB traffic flow](images/alb-datapath.svg){: caption="Figure 1. Application load balancer traffic flow" caption-side="bottom}
-
-## Network load balancer data flow
-{: #nlb-data-flow}
-
-The client sends the TCP request to the network load balancer. The client source IP is preserved
-after the network load balancer forwards the request to the back-end target. After the target
-generates the response, the response is sent directly to the client that uses DSR (Direct Server
-Return).
-
-![Network load balancer traffic flow](images/nlb-datapath.png){: caption="Figure 2. Network load balancer traffic flow" caption-side="bottom}
-
 ## Related links
 {: #lb-related-links}
 
-* [Load balancer API reference](/apidocs/vpc/latest#list-load-balancers)
+* [About application load balancers](/docs/vpc?topic=vpc-load-balancers-about)
+* [About network load balancers](/docs/vpc?topic=vpc-network-load-balancers)
+* [Load balancer API reference](/apidocs/vpc#list-load-balancers)
 * [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls)
 * [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-load-balancers)
-* [Quotas](/docs/vpc?topic=vpc-quotas)
+* [Quotas and service limits](/docs/vpc?topic=vpc-quotas#load-balancer-quotas)
