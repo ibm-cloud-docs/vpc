@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-10-30"
+  years: 2023, 2024
+lastupdated: "2024-03-12"
 
 keywords:
 
@@ -14,9 +14,6 @@ subcollection: vpc
 
 # Updating a virtual network interface
 {: #vni-updating}
-
-This VPC feature is available only to accounts with special approval to preview this feature.
-{: preview}
 
 If you need to make changes to a virtual network interface, you can update it by using the UI, CLI, API, or Terraform.
 {: shortdesc}
