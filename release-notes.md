@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-03-07"
+lastupdated: "2024-03-12"
 
 keywords:
 
@@ -41,8 +41,8 @@ UI update for Block storage
 {: #vpc-mar0624}
 {: release-note}
 
-GPU l4 and l4Os profiles now available in US East region
-:   The `l4` and `l4Os` GPU profiles are now available in the US East (Washington DC) region. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+GPU l4 and l40S profiles now available in US East region
+:   The `l4` and `l40S` GPU profiles are now available in the US East (Washington DC) region. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 ## February 2024
 {: #vpc-feb24}
@@ -58,10 +58,10 @@ UI navigation change to Auto scale
 {: #vpc-feb2724}
 {: release-note}
 
-GPU l4Os profiles with PCIe now available 
-:   New `l4Os` GPU profiles that include NVIDIA's L4Os 48GB GPU are now available in the EU Germany (Frankfurt), Spain (Madrid), Australia (Sydney), and Japan (Tokyo) regions. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+GPU l40S profiles with PCIe now available
+:   New `l40S` GPU profiles that include NVIDIA's L40S 48GB GPU are now available in the EU Germany (Frankfurt), Spain (Madrid), Australia (Sydney), and Japan (Tokyo) regions. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
-GPU l4 profiles now available 
+GPU l4 profiles now available
 :   New `l4` GPU profiles that include NVIDIA's L4 24GB GPU are now available in the Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Spain (Madrid),  Australia (Sydney), and Japan (Tokyo) regions. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 ### 23 February 2024
