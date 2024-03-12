@@ -830,6 +830,12 @@ toc:
                 - lb-ts-409.md
                 - lb-ts-backend-members.md
             - topicgroup:
+                label: Troubleshooting Private Path services
+                topics:
+                - ts-pps1.md
+                - ts-pps2.md
+                - ts-pps3.md
+            - topicgroup:
                 label: Troubleshooting site-to-site VPN gateways
                 topics:
                 - vpn-ts-unable-establish-connection.md
