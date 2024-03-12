@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-01-30"
+lastupdated: "2024-03-12"
 
 keywords: vpc, api, change log, new features, restrictions, migration
 
@@ -53,6 +53,26 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 12 March 2024
+{: #12-march-2024}
+
+### For all version dates
+{: #12-march-2024-all-version-dates}
+
+**Virtual network interfaces.** Accounts that have not requested a feature deferral through [IBM Support](/unifiedsupport/supportcenter) can use a new feature that expands the support for [virtual network interfaces](https://cloud.ibm.com/docs/vpc?topic=vpc-vni-about).
+
+Your account is affected by these changes if you have API clients (such as custom automations, auditing scripts, or dashboards) that interact with instances, bare metal servers, network interfaces, or file shares. For more information about what changed, along with guidance on avoiding possible failures due to these changes, see [Mitigating behavior changes to virtual network interfaces, instances, bare metal servers, and file shares](/docs/vpc?topic=vni-api-introduction).
+{: important}
+
+- You can now create [instances](/apidocs/vpc/latest#create-instance) and [bare metal servers](/apidocs/vpc/latest#create-bare-metal-server) with virtual network interfaces attached to new child resources called network attachments. You can specify a `primary_network_attachment` (instead of a `primary_network_interface`) and provide either the identity of an already created virtual network interface, or a subnet to create a new virtual network interface for the instance or bare metal server.
+- Virtual network interfaces now have lifecycles that are independent of the resources they are attached to. You can [update](/apidocs/vpc/latest#update-virtual-network-interface) the `auto_delete` property to `false` to allow a virtual network interface to persist beyond the lifecycle of its original bare metal server or instance, and be re-attached to another bare metal server or instance.
+- Virtual network interfaces now support [secondary IP addresses](/docs/vpc?topic=vpc-vni-about-secondary-ip). You can now [add](/apidocs/vpc/latest#add-virtual-network-interface-ip) and [remove](/apidocs/vpc/latest#remove-virtual-network-interface-ip) reserved IPs to and from a virtual network interface.
+- For compatibility with existing clients, instances and bare metal servers with virtual network interfaces now include a read-only representation of their network attachments and virtual network interfaces as old-style network interface child resources. Learn about [support for old API clients](/docs/vpc?topic=vpc-vni-about&interface=ui#vni-old-api-clients).
+- For instances and bare metal servers with virtual network interfaces, the IAM permissions for options to allow IP spoofing or disable infrastructure NAT are now managed on their attached virtual network interfaces. When [creating](/apidocs/vpc/latest#create-virtual-network-interface) or [updating](/apidocs/vpc/latest#update-virtual-network-interface) a virtual network interface, you can set non-default values for the `allow_ip_spoofing` and `enable_infrastructure_nat` properties only if you have the `is.virtual-network-interface.virtual-network-interface.manage-ip-spoofing` and `is.virtual-network-interface.virtual-network-interface.manage-infrastructure-nat` IAM permissions respectively.
+- You can now use [flow log collectors](/apidocs/vpc/latest#create-flow-log-collector) to target instance network attachments and virtual network interfaces. There is no support for flow logs for bare metal servers and share mount targets.
+
+**Resource suspension for instance groups.** The [list all instance groups](/apidocs/vpc/latest#list-instance-groups) and [retrieve an instance group](/apidocs/vpc/latest#get-instance-group) methods now include `lifecycle_reasons` and `lifecycle_state` properties. An instance group that violates the IBM Cloud [Acceptable Use Policy](https://www.ibm.com/services/us/imc/html/aup1.html){: external} will have its `lifecycle_state` property set to `suspended`. A suspended instance group will not auto scale or self heal, and you cannot enable, update, or delete it.
 
 ## 30 January 2024
 {: #30-january-2024}
