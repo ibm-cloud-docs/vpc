@@ -486,8 +486,8 @@ toc:
                 - lb-ig-integration.md
                 - lb-sg-integration.md
                 - lb-private-dns-integration.md
-                - lb-datapath-logging.md
                 - lb-api.md
+                - lb-datapath-logging.md
                 - lb-limitations.md
             - topicgroup:
                 label: Network Load Balancer for VPC
@@ -495,18 +495,19 @@ toc:
                 - nlb-about.md
                 - nlb-create.md
                 - nlb-vnf-create.md
+                - ppnlb-create.md
                 - nlb-update.md
                 - nlb-delete.md
                 - nlb-health-checks.md
                 - nlb-listeners.md
-                - nlb-ig-integration.md
-                - nlb-sg-integration.md
-                - nlb-udp.md
                 - nlb-port-range.md
                 - nlb-pools.md
                 - nlb-private-dns-integration.md
-                - nlb-privatelb.md
+                - nlb-ig-integration.md
+                - nlb-sg-integration.md
+                - nlb-udp.md
                 - nlb-monitoring-metrics.md
+                - nlb-privatelb.md
                 - nlb-limitations.md
         - topicgroup:
             label: Flow logs
