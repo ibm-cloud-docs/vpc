@@ -173,9 +173,6 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 ### Virtual network interfaces
 {: #virtual-network-interfaces-quotas}
 
-This VPC feature is available only to accounts with special approval to preview this feature.
-{: preview}
-
 | Resource | Quota |
 |--------|-----|
 | IP addresses | 8 per virtual network interface |

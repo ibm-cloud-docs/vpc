@@ -81,9 +81,6 @@ To add a network interface to your virtual server instance, complete the followi
 ### Adding a virtual network interface
 {: #add-virtual-network-interface}
 
-This VPC feature is a preview and available only to accounts with special approval.
-{: preview}
-
 You can create a virtual network interface without attaching it to a target. The virtual network interface can exist even when its target is removed. For more information, see [Working with virtual network interfaces](/docs/vpc?topic=vpc-vni-create&interface=ui).
 
 Virtual network interfaces can be attached to new virtual server instances, and cannot be added to existing virtual server instances with child network interfaces.
