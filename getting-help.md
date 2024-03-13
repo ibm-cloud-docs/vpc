@@ -13,7 +13,7 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # Getting help and support for VPC
-{: #vpc-getting-help-and-support-for-vpc}
+{: #getting-help-and-support-for-vpc}
 
 If you experience an issue or have questions when using VPC infrastructure services, you can use the following resources before you open a support case.
 {: shortdesc}
