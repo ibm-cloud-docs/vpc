@@ -32,7 +32,7 @@ The typical process for creating private connectivity between Providers and Cons
 
 For more information, see the [Private Path solution guide](/docs/private-path){: external}.
 
-Your ability to complete the following actions depends on the level of IAM permissions that are associated with your IBM Cloud account. For more information, see [Required permissions: Private Path service tasks](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls#private-path-service-authorizations){: external}.
+Your ability to complete the following actions depends on the level of IAM permissions that are associated with your IBM Cloud account. For more information, see [Required permissions](/docs/account?topic=account-iam-service-roles-actions#is.load-balancer-roles){: external}.
 
 ## Getting started with Private Path service
 {: #pps-getting-started}
@@ -42,7 +42,7 @@ As a service provider, follow these steps to get started:
 1. Make sure that you have a Virtual Private Cloud (VPC) and at least one subnet in the selected VPC.
 1. Create a Private Path NLB.
 
-   * You can create a Private Path NLB when you create your Private Path service, or you can use the [Load balancer for VPC](https://cloud.ibm.com/vpc-ext/provision/loadBalancer){: external} provisioning page to create one. To create a Private Path load balancer separate from the Private Path service, see [Creating a Private Path network load balancer](/docs/vpc?topic=vpc-ppnlb-ui-creating-private-path-network-load-balancer){: external}.
+   * You can create a Private Path NLB when you create your Private Path service, or you can use the [Load balancer for VPC](/vpc-ext/provision/loadBalancer){: external} provisioning page to create one. To create a Private Path load balancer separate from the Private Path service, see [Creating a Private Path network load balancer](/docs/vpc?topic=vpc-ppnlb-ui-creating-private-path-network-load-balancer){: external}.
    * You must use the same account within the same VPC region for your Private Path NLB and Private Path service.
 
 1. [Create a Private Path service](/docs/vpc?topic=vpc-pps-ui-creating&interface=ui){: external}.
@@ -89,7 +89,7 @@ These links provide additional information about Private Path services for VPC:
 
 * [Private Path services CLI reference](/docs/vpc?topic=vpc-vpc-reference)
 * [Private Path services API reference](/apidocs/vpc)
-* [IAM permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls#private-path-service-authorizations)
+* [IAM permissions](/docs/account?topic=account-iam-service-roles-actions#is.load-balancer-roles)
 * [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-private-path-service-events)
 * [Quotas and service limits](/docs/vpc?topic=vpc-quotas#ppnlb-quotas)
 * [Private Path services FAQs](/docs/vpc?topic=vpc-faqs-private-path)
