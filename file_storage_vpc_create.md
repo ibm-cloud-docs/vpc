@@ -729,9 +729,6 @@ The following response shows that access control mode is `security_group`, which
 ### Creating a file share and mount target by specifying a virtual network interface
 {: #fs-create-file-share-vni-api}
 
-This VPC feature is available only to accounts with special approval to preview this feature.
-{: preview}
-
 This operation requires that you have already [created a virtual network interface](/docs/vpc?topic=vpc-vni-create&interface=api) and that the virtual network interface is not currently attached to another resource.
 
 Make a `POST /shares` request and create a mount target with a virtual network interface. Specify the identity of an unattached virtual network interface in the mount target's `virtual_network_interface` property.
