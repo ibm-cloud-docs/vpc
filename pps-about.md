@@ -13,7 +13,7 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # About Private Path services
-{: #using-private-path-services}
+{: #private-path-service-intro}
 
 The beta release of IBM Cloud Private Path services is only available to allowlisted users. Contact your IBM Support representative if you are interested in getting early access to this beta offering.
 {: beta}
@@ -42,7 +42,7 @@ As a service provider, follow these steps to get started:
 1. Make sure that you have a Virtual Private Cloud (VPC) and at least one subnet in the selected VPC.
 1. Create a Private Path NLB.
 
-   * You can create a Private Path NLB when you create your Private Path service, or you can use the [Load balancer for VPC](/vpc-ext/provision/loadBalancer){: external} provisioning page to create one. To create a Private Path load balancer separate from the Private Path service, see [Creating a Private Path network load balancer](/docs/vpc?topic=vpc-ppnlb-ui-creating-private-path-network-load-balancer){: external}.
+   * You can create a Private Path NLB when you create your Private Path service, or you can use the [Load balancer for VPC](/vpc-ext/provision/loadBalancer){: external} provisioning page to create one. To create a Private Path load balancer separate from the Private Path service, see [Creating a Private Path network load balancer](/docs/vpc?topic=vpc-ppnlb-ui-creating-private-path-network-load-balancer&interface=ui){: external}.
    * You must use the same account within the same VPC region for your Private Path NLB and Private Path service.
 
 1. [Create a Private Path service](/docs/vpc?topic=vpc-pps-ui-creating&interface=ui){: external}.
@@ -91,5 +91,4 @@ These links provide additional information about Private Path services for VPC:
 * [Private Path services API reference](/apidocs/vpc)
 * [IAM permissions](/docs/account?topic=account-iam-service-roles-actions#is.load-balancer-roles)
 * [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-private-path-service-events)
-* [Quotas and service limits](/docs/vpc?topic=vpc-quotas#ppnlb-quotas)
-* [Private Path services FAQs](/docs/vpc?topic=vpc-faqs-private-path)
+* [Quotas and service limits](/docs/vpc?topic=vpc-quotas)
