@@ -34,7 +34,7 @@ For the on-prem version of {{site.data.keyword.hpvs}}, see [IBM Hyper Protect Vi
 The {{site.data.keyword.hpvs}} for VPC takes advantage of the IBM Secure Execution for Linux to provide a boundary around each instance and provides the following benefits:
 
 - Secure Execution boundary for protection from internal and external threats
-   
+
    {{site.data.keyword.hpvs}} for VPC provides technical assurance that unauthorized users, including IBM Cloud admins, do not have access to the application. Workloads are locked down by individual, instance-level secure boundaries.
 
 - Multiparty contract and attestation of deployment
@@ -53,7 +53,7 @@ The {{site.data.keyword.hpvs}} for VPC takes advantage of the IBM Secure Executi
 - Built on the Virtual Private Cloud (VPC) infrastructure for extra network security
 
    Choose from various profile sizes and grow as needed to protect containerized applications and pay-as-you-go on an hourly basis.
-   
+
    Leverage your existing or common [network security groups](/docs/vpc?topic=vpc-security-in-your-vpc)  and [logging infrastructure](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc).
 
 Complete the following steps to get started with {{site.data.keyword.hpvs}} for VPC. Most importantly, a valid [contract](/docs/vpc?topic=vpc-about-contract_se) is required for creating an instance.
@@ -72,10 +72,10 @@ It's important to read the following information and complete the required prepa
    Apart from using the stock image, you can choose to securely build your own image with {{site.data.keyword.hpvs}} and use that image to provision a {{site.data.keyword.hpvs}} for VPC instance. For more information, see [Hyper Protect Secure Build](/docs/vpc?topic=vpc-about-hpsb).
 
 - [Prepare a contract](/docs/vpc?topic=vpc-about-contract_se)
-   
+
    When you create an instance, you must pass a **valid contract** in the **User Data** field. The IBM Hyper Protect Container Runtime image consists of different components or services that decrypts the contract (if it's encrypted), validates the contract schema, checks for contract signature, creates the passphrase to encrypt the disk device, and brings up the container that's specified in the contract.
 
-   If no contract is passed, the instance eventually shuts down. 
+   If no contract is passed, the instance eventually shuts down.
    {: important}
 
 - [Set up logging](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc)
@@ -94,10 +94,10 @@ It's important to read the following information and complete the required prepa
       After you select the operating system and proceed with the deployment, you can view the status of the deployment and also view the logs on the serial console to confirm whether the instance is a {{site.data.keyword.hpvs}} for VPC instance. You can also use the information from this log to troubleshoot provisioning issues. For more information, see [Accessing virtual server instances by using VNC or serial consoles](/docs/vpc?topic=vpc-vsi_is_connecting_console&interface=ui).
 
 - Data volume
-   
+
    Currently, the instance supports only one data volume and [encrypted by default with the seed or passphrase that you provide](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_volumes), which ensures that your workload data is protected. Even though you can add multiple data volumes, they're ignored and only one of them is encrypted. It's recommended that you attach one data volume to the instance during instance creation so that data from the container is stored in the data volume. It's also recommended that you take a snapshot of the data volume so that you can revert to it in case you face any issues in the future.
 
-   Starting from the HPCR image version `ibm-hyper-protect-container-runtime-1-0-s390x-9`, for new {{site.data.keyword.hpvs}} for VPC instances, the data volume is partitioned into two parts. The first partition (100Mib) is reserved for internal metadata; the second partition remains as the data volume for workload. Only new volumes are partitioned, and you can't use the partitioned volume with an older version of the HPCR image. Provisioning with an existing encrypted volume also works. The difference is that the existing volume does not get partitioned, and you can also go back to an older image with this volume. 
+   Starting from the HPCR image version `ibm-hyper-protect-container-runtime-1-0-s390x-9`, for new {{site.data.keyword.hpvs}} for VPC instances, the data volume is partitioned into two parts. The first partition (100Mib) is reserved for internal metadata; the second partition remains as the data volume for workload. Only new volumes are partitioned, and you can't use the partitioned volume with an older version of the HPCR image. Provisioning with an existing encrypted volume also works. The difference is that the existing volume does not get partitioned, and you can also go back to an older image with this volume.
 
    When you create a {{site.data.keyword.hpvs}} for VPC instance, detaching the data volume attached to the running instance causes the workload running on the instance to fail. It's recommended that you do not detach the data volume.
 
@@ -113,9 +113,9 @@ After you finish planning and have the contract ready, you can create a {{site.d
 - [Creating an instance by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui). On the [provisioning page](https://cloud.ibm.com/vpc-ext/provision/vs?architecture=s390x&secureExecution=true){: external}, make sure that you select **IBM Z, LinuxONE** for **Architecture**, and turn on the **Run your workload with an OS and a profile protected by Secure Execution** toggle under **Confidential computing**.
 - [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli)
 
-See the [troubleshooting documentation](/docs/vpc?topic=vpc-hyper-protect-virtual-server-shutdown) or [get support](/docs/vpc?topic=vpc-getting-help&interface=cli) if you have any problems with the instance.
+See the [troubleshooting documentation](/docs/vpc?topic=vpc-hyper-protect-virtual-server-shutdown) or [get support](/docs/vpc?topic=vpc-help-and-support-vpc&interface=cli) if you have any problems with the instance.
 
-You can use [Terraform](/docs/vpc?topic=vpc-terraform-for-hyper-protect-virtual-servers-for-vpc) to automate operations with {{site.data.keyword.hpvs}} for VPC. 
+You can use [Terraform](/docs/vpc?topic=vpc-terraform-for-hyper-protect-virtual-servers-for-vpc) to automate operations with {{site.data.keyword.hpvs}} for VPC.
 
 You can use your {{site.data.keyword.hpvs}} for VPC instance in **private-only** network configurations, in which the VPC doesn't have a public gateway and the virtual server instance doesn't have a floating IP. You can connect to private endpoints of other services, including container registry and [IBM Log Analysis](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc). The prerequisite is to have a DNS server attached to your virtual server instance. You don't need to do any additional configurations.
 
