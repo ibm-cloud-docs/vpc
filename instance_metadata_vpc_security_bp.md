@@ -59,7 +59,7 @@ sudo iptables --append OUTPUT --proto tcp --destination 169.254.169.254 --match 
 {: pre}
 
 ## Limit trusted profiles for compute resource identities
-{: #imd-limit-trusted profiles}
+{: #imd-limit-trusted-profiles}
 
 Limit trusted profiles that you create for compute resource identities. Optionally, don't assign a compute resource identity to an instance.
 
@@ -85,4 +85,4 @@ Consider the following options for controlling network traffic to your virtual s
 ## Manage security and compliance with VPC Infrastructure Services
 {: #imd-compliance}
 
-[{{site.data.keyword.compliance_short}}](/docs/security-compliance?topic=security-compliance-getting-started) can help you monitor your VPC infrastructure to validate resource configurations in your account against a profile and identify potential issues as they arise. 
+[{{site.data.keyword.compliance_short}}](/docs/security-compliance?topic=security-compliance-getting-started) can help you monitor your VPC infrastructure to validate resource configurations in your account against a profile and identify potential issues as they arise.

@@ -23,7 +23,7 @@ Security groups are a convenient way to secure your NLB instances. With a securi
 If a network load balancer has no associated security groups, then the security group rules will allow all traffic and the filtration will be done at the VSI level (according to the `iptables` rules).
 
 ## Network traffic rules
-{: #nlb-traffic rules}
+{: #nlb-traffic-rules}
 
 The following tables provide best practices for inbound and outbound traffic for both public and private network load balancers.
 

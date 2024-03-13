@@ -280,7 +280,7 @@ ping <public-ip-address>
 {: pre}
 
 ### Connecting to Linux images
-{: #connecting-to-linux images}
+{: #connecting-to-linux-images}
 
 Since you created your instance with a public SSH key, you can now connect to it directly by using your private key:
 

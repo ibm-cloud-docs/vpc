@@ -226,7 +226,7 @@ Complete the following customizations on your Windows virtual server to prepare 
    {: important}
 
 ### Step 4 - Creating an image template of your customized virtual server
-{: #migrate-new-image template}
+{: #migrate-new-image-template}
 
 When your customizations are complete on your backup virtual server, create a new image template by using the following steps.
 

@@ -58,7 +58,7 @@ When you are prompted to select a region, select us-south.
 Respond to any remaining prompts to finish logging in.
 
 ### Selecting the generation of VPC
-{: #select-the-generation }
+{: #select-the-generation}
 
 Use the following command to configure the CLI plug-in to target generation 2 virtual server instances for VPC.
 

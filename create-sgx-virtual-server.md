@@ -25,7 +25,7 @@ Confidential computing with Intel SGX for VPC is available only to select users 
 {: note}
 
 ## Creating a virtual server with SGX
-{: #creating-a virtual-server-with-sgx-vpc}
+{: #creating-a-virtual-server-with-sgx-vpc}
 
 Use the following steps to create a virtual server with SGX.
 
