@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-003-13"
+  years: 2024
+lastupdated: "2024-03-14"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc, hyper protect secure build, hpsb, sbs
 

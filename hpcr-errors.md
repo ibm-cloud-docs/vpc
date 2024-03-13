@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-06-28"
+  years: 2023, 2024
+lastupdated: "2024-03-14"
 
 keywords: hyper protect container runtime, error messages, troubleshooting
 
