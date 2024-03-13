@@ -35,7 +35,7 @@ As discussed in the [Load balancers for VPC overview](/docs/vpc?topic=vpc-nlb-vs
 
 The beta release of IBM Cloud Private Path services is only available to allowlisted users. Contact your IBM Support representative if you are interested in getting early access to this beta offering.
 {: beta}
-      
+
 A Private Path service only works with a Private Path NLB.
 {: important}
 
@@ -50,7 +50,7 @@ To get started using network load balancers, follow these steps:
    * [Create a private network load balancer with routing mode](/docs/vpc?topic=vpc-nlb-vnf).
    * [Create a Private Path network load balancer](/docs/vpc?topic=vpc-ppnlb-ui-creating-private-path-network-load-balancer).
 
-For more information, see [Choosing a load balancer](/docs/vpc?topic=vpc-nlb-vs-elb&interface=ui#choosing-load-balancer) and the [Load balancer comparison chart](/docs/vpc?topic=vpc-nlb-vs-elb&interface=ui#lb-comparison-chart).
+For more information, see [Types of load balancers](/docs/vpc?topic=vpc-nlb-vs-elb&interface=ui#load-balancer-types) and the [Load balancer comparison chart](/docs/vpc?topic=vpc-nlb-vs-elb&interface=ui#lb-comparison-chart).
 {: note}
 
 ## Load-balancing methods
