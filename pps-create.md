@@ -216,7 +216,7 @@ To create a Private Path service with the API, follow these steps:
 ## Next steps
 {: #pps-next-steps}
 
-1. [Verify connectivity to your Private Path service](/docs/vpc?topic=vpc-pps-verify&interface=ui){: external}
-1. [Publish your Private Path service](/docs/vpc?topic=vpc-pps-activating&interface=ui){: external}
-1. [Communicate connection information to consumers](/docs/vpc?topic=vpc-pps-ui-communicate&interface=ui){: external}
-1. [Review connection requests](/docs/vpc?topic=vpc-pps-ui-reviewing&interface=ui) and [Create account policies](/docs/vpc?topic=vpc-pps-create-account-policy&interface=ui){: external}
+1. [Verify connectivity to your Private Path service](/docs/vpc?topic=vpc-pps-verify&interface=ui)
+1. [Publish your Private Path service](/docs/vpc?topic=vpc-pps-activating&interface=ui)
+1. [Communicate connection information to consumers](/docs/vpc?topic=vpc-pps-ui-communicate&interface=ui)
+1. [Review connection requests](/docs/vpc?topic=vpc-pps-ui-reviewing&interface=ui) and [Create account policies](/docs/vpc?topic=vpc-pps-create-account-policy&interface=ui)

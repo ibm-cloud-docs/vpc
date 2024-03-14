@@ -25,7 +25,7 @@ The beta release of IBM Cloud Private Path services is only available to allowli
 * Providers may only register a single domain per Private Path service, and creating a domain will create a DNS zone which is entirely managed by IBM DNS. This is the same limitation that applies to existing IBM VPE services today. For example, a Private Path service with "service_endpoints": ["api1.service.com","api2.service.com"] will create a DNS Zone of service.com; all other endpoints ( such as www.service.com ) will not resolve. If the Provider uses two separate Private Path services instead, they could register each as api1.service.com and api2.service.com respectively, without affecting the root domain.
 * Providers may not update service endpoints once the Private Path service is created. If they want to change endpoints, they must create a new Private Path service.
 
-## Related Links
+## Related link
 {: #ppsg-limitations-related-links}
 
-* [Network load balancer limitations](/docs/vpc?topic=vpc-nlb-limitations)
+[Network load balancer limitations](/docs/vpc?topic=vpc-nlb-limitations)

@@ -142,5 +142,5 @@ The following example shows how to create an account policy with the API.
 ## Related links
 {: #pps-create-policies-related-links}
 
-- [About account policies](/docs/vpc?topic=vpc-pps-about-account-policies&interface=ui){: external}
-- [Updating and deleting an account policy](/docs/vpc?topic=vpc-pps-update-account&interface=ui){: external}
+- [About account policies](/docs/vpc?topic=vpc-pps-about-account-policies&interface=ui)
+- [Updating and deleting an account policy](/docs/vpc?topic=vpc-pps-update-account&interface=ui)

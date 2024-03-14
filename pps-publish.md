@@ -141,5 +141,5 @@ To publish a Private Path service with the API, follow these steps:
 ## Next steps
 {: #pps-next-steps-after-activation}
 
-* [Communicate connection information to consumers](/docs/vpc?topic=vpc-pps-ui-communicate){: external}
-* [Review connection requests](/docs/vpc?topic=vpc-pps-ui-reviewing&interface=ui){: external} and [Create account policies](/docs/vpc?topic=vpc-pps-create-account-policy&interface=ui){: external}
+1. [Communicate connection information to consumers](/docs/vpc?topic=vpc-pps-ui-communicate)
+1. [Review connection requests](/docs/vpc?topic=vpc-pps-ui-reviewing&interface=ui) and [Create account policies](/docs/vpc?topic=vpc-pps-create-account-policy&interface=ui)

@@ -187,5 +187,5 @@ The following example shows how to use the API to delete an account policy.
 ## Related links
 {: #pps-update-policies-related-links}
 
-- [About account policies](/docs/vpc?topic=vpc-pps-about-account-policies&interface=ui){: external}
-- [Creating an account policy](/docs/vpc?topic=vpc-pps-create-account-policy&interface=ui){: external}
+- [About account policies](/docs/vpc?topic=vpc-pps-about-account-policies&interface=ui)
+- [Creating an account policy](/docs/vpc?topic=vpc-pps-create-account-policy&interface=ui)

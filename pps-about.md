@@ -88,7 +88,7 @@ First, a Consumer's application connects to the Consumer's VPE gateway within th
 These links provide additional information about Private Path services for VPC:
 
 * [Private Path services CLI reference](/docs/vpc?topic=vpc-vpc-reference)
-* [Private Path services API reference](/apidocs/vpc)
+* [Private Path services API reference (Beta)](/apidocs/vpc-beta)
 * [IAM permissions](/docs/account?topic=account-iam-service-roles-actions#is.load-balancer-roles)
 * [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-private-path-service-events)
 * [Quotas and service limits](/docs/vpc?topic=vpc-quotas)
