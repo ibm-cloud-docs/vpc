@@ -45,7 +45,7 @@ As a service provider, follow these steps to get started:
    * You can create a Private Path NLB when you create your Private Path service, or you can use the [Load balancer for VPC](/vpc-ext/provision/loadBalancer){: external} provisioning page to create one. To create a Private Path load balancer separate from the Private Path service, see [Creating a Private Path network load balancer](/docs/vpc?topic=vpc-ppnlb-ui-creating-private-path-network-load-balancer&interface=ui){: external}.
    * You must use the same account within the same VPC region for your Private Path NLB and Private Path service.
 
-1. [Create a Private Path service](/docs/vpc?topic=vpc-pps-ui-creating&interface=ui){: external}.
+1. [Create a Private Path service](/docs/vpc?topic=vpc-private-path-service-about&interface=ui){: external}.
 
    * Set the default policy for when an account doesn’t have a specific policy that is assigned to it. The default policy (**Review**) allows you to permit or deny each request, whereas **Permit** and **Deny** automate the process for connection requests without specific account policies.
    * Create account policies for specific account IDs now or later. These policies determine what action to take when the provider receives a request from a specific account, and take precedence over the default policy.
