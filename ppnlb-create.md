@@ -20,7 +20,7 @@ The beta release of IBM Cloud Private Path services is only available to allowli
 
 You can use a Private Path network load balancer (NLB) only with a Private Path service. Create the Private Path NLB from the [Load Balancers for VPC page](/vpc-ext/provision/loadBalancer){: external} or as a part of the Private Path service provisioning process.
 
-A Private Path service allows service providers to enable and manage private connectivity for consumers of their hosted service. This Private Path service requires a Private Path NLB to establish a secure connection with each consumer's Virtual Private Endpoint (VPE) gateway. For more information, see [About Private Path services](/docs/vpc?topic=vpc-using-private-path-services&interface=ui){: external}.
+A Private Path service allows service providers to enable and manage private connectivity for consumers of their hosted service. This Private Path service requires a Private Path NLB to establish a secure connection with each consumer's Virtual Private Endpoint (VPE) gateway. For more information, see [About Private Path services](/docs/vpc?topic=vpc-private-path-service-intro).
 {: note}
 
 ## Before you begin
