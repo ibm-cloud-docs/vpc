@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-02-21"
+lastupdated: "2024-03-15"
 
 keywords: confidential computing, secure execution, logging for hyper protect virtual server for vpc
 
@@ -32,7 +32,7 @@ Logging to Log Analysis is dependent on the state and health of the Log Analysis
 {: note}
 
 1. [Log in to your IBM Cloud account](/login){: external}.
-2. [Provision a Log Analysis instance](/docs/log-analysis?topic=log-analysis-provision). Choose a plan according to your requirements.
+2. [Provision a Log Analysis instance](/docs/log-analysis?topic=log-analysis-provision). Choose a plan according to your requirements.  
 3. After you create the Log Analysis instance, click it open and click **Open dashboard**.
 4. Click the question mark icon (**Install Instructions**) at the lower left of the page. On the **Add Log Source** page, under **Via Syslog**, click **rsyslog**.
 5. Make a note of the ingestion key value at the upper right of the page, and the endpoint value. In the following example, the endpoint value is `syslog-u.au-syd.logging.cloud.ibm.com`.
@@ -68,6 +68,18 @@ Logging to Log Analysis is dependent on the state and health of the Log Analysis
     {: codeblock}
 
    When the {{site.data.keyword.hpvs}} for VPC instance boots, it extracts the Log Analysis information from the contract and configures accordingly so that all the logs are routed to the endpoint specified. Then, you can open the Log Analysis dashboard and view the logs from the virtual server instance.
+7. If the LogDNA is used for collecting logs from multiple systems, you can utilise custom tags to isolate logs optionally. 
+Following is an example of a custom tag:
+  
+   ```yaml
+   env:
+      logging:
+         logDNA:
+               hostname: ${RSYSLOG_LOGDNA_HOSTNAME}
+               ingestionKey: ${LOGDNA_INGESTION_KEY}
+               tags: ["custom tag name 1", "custom tag name 2"]
+   ```
+**Note:** Special characters and escape sequences are not supported. The instance will remove these characters from the tags.
 
 
 ## Syslog
@@ -213,7 +225,7 @@ You can follow the following procedure to create the required certificates and k
    CN = client.example.org
    ```
 
-   Make sure to update `dn` with your values. Whether the actual values play a role depends on the `StreamDriver.Authmode` setting (which appears in the following documentation). In this example, we use the setting `StreamDriver.Authmode="x509/certvalid"` and in this case, the value of `dn` does **not** play a role (since all valid client certificates are accepted). Adjust this according to your needs. For more information, see [StreamDriver.Authmode](https://www.rsyslog.com/doc/configuration/modules/imtcp.html#streamdriver-authmode).
+   Make sure to update `dn` with your values. Whether the actual values play a role depends on the `StreamDriver.Authmode` setting (which appears in the following documentation). In this example, we use the setting `StreamDriver.Authmode="x509/certvalid"` and in this case, the value of `dn` does **not** play a role (since all valid client certificates are accepted). Adjust this according to your needs. For more information, see [StreamDriver.Authmode](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imtcp.html#streamdriver-authmode).
    {: note}
 
    Create the key and certificate:
@@ -235,7 +247,7 @@ You can follow the following procedure to create the required certificates and k
 Configure the contract with the following template.
 
 ```yaml
-env:
+env: 
     logging:
         syslog:
             hostname: ${HOSTNAME}
@@ -255,7 +267,7 @@ Use the content of the following files in preparation to fill in the placeholder
 
 Example:
 ```yaml
-env:
+env: 
     logging:
         syslog:
             hostname: 9.20.7.92
@@ -321,7 +333,7 @@ There are many ways to set up a compatible server endpoint. The following exampl
    type="imtcp"
    port="${PORT}"
    ruleset="journal-output"
-   )
+   )    
    ```
    {: codeblock}
 
@@ -332,11 +344,11 @@ There are many ways to set up a compatible server endpoint. The following exampl
    The `gnutls` package poses [requirements on the signatures](https://www.gnutls.org/manual/html_node/Digital-signatures.html) for the client certificate. Make sure to meet them.
    {: note}
 
-   In this configuration, we accept any client certificate that is signed by the certificate authority via the `x509/certvalid` mode. This may change depending on the `StreamDriver.Authmode` setting. See [StreamDriver.Authmode](https://www.rsyslog.com/doc/configuration/modules/imtcp.html#streamdriver-authmode).
+   In this configuration, we accept any client certificate that is signed by the certificate authority via the `x509/certvalid` mode. This may change depending on the `StreamDriver.Authmode` setting. See [StreamDriver.Authmode](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imtcp.html#streamdriver-authmode).
    {: note}
-
+   
 4. Restart the syslog service.
-
+   
    ```sh
    service syslog restart
    ```

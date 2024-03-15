@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-12-05"
+  years: 2022, 2024
+lastupdated: "2024-03-15"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -466,7 +466,7 @@ images:
 ### The `workload` - `volumes` subsection
 {: #hpcr_contract_volumes}
 
-The `volumes` section needs to be provided in the contract only if a data volume is attached to the instance at the time of creation. The information provided in this section is used to mount the attached data volume (provided by the user) and is later encrypted by using the "seeds" provided in the `workload` and `env` sections. You can provide any path of your choice for the "mount" field. The path provided by the user is used internally to mount the data volume. The mount path provided in the contract must match the path provided under the volumes section of the `docker-compose.yaml` file, so that all the data associated with the container workload is stored in this data volume.
+The `volumes` section needs to be provided in the contract only if a data volume is attached to the instance at the time of creation. The information provided in this section is used to mount the attached data volume (provided by the user) and is later encrypted using the "seeds" provided in the `workload` and `env` sections. You can provide any path of your choice for the "mount" field. The path provided by the user is used internally to mount the data volume. The mount path provided in the contract must match the path provided under the volumes section of the `docker-compose.yaml` file, so that all the data associated with the container workload is stored in this data volume.
 
 The `volumes` subsection has support for auto encryption of the data volume with user-provided seeds. If a data volume is attached to the {{site.data.keyword.hpvs}} instance, it is encrypted automatically with the seeds that are provided through the "seed" field in the `volumes` subsections of the contract. Thus two seeds must be provided, one through the `workload` section (by the workload persona) and the other through the `env` section (by the deployer persona). These two seeds are internally converted to UTF8 sequences and then concatenated. Later, the hash (SHA256) of the concatenated sequence is computed as a hexdigest, which is used as the LUKS passphrase to encrypt the data volume.
 
@@ -553,6 +553,7 @@ logging:
     hostname: <host name of the Log Analysis instance>
     ingestionKey: <ingestion Key of the Log Analysis instance>
     port: <port default-6514>
+    tags: ["custom tag name 1", "custom tag name 2"]
 ```
 {: codeblock}
 
@@ -677,13 +678,21 @@ The encryption and attestation certificates are signed by the IBM intermediate c
 ### Downloading the encryption certificate and extracting the public key
 {: #encrypt_downloadcert}
 
-1. Download the certificate. The following table lists the expiry dates for the encryption certificates based on the version of the image.
+1. Download the certificate. The following table lists the encryption certificate expiry dates and image deprecation/obsolete date based on the version of the image.
 
-   | Image version| Certificate link | Expiry date |
-   | -------- | ----------- | ----------- |
-   | `ibm-hyper-protect-container-runtime-1-0-s390x-14` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-14-encrypt.crt){: external} | 05 October 2024 |
-   | `ibm-hyper-protect-container-runtime-1-0-s390x-13` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-13-encrypt.crt){: external} | 05 October 2024 |
-   {: caption="Table 1. Encryption certificate expiry dates" caption-side="bottom"}
+   | Image version| Certificate link | Encryption cert expiry date | Deprecation date | Obsolete Date |
+   | -------- | ----------- | ----------- | ----------- | ----------- |
+   | `ibm-hyper-protect-container-runtime-1-0-s390x-15` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-15-encrypt.crt){: external} | 08 March 2025 |   |   |
+   | `ibm-hyper-protect-container-runtime-1-0-s390x-14` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-14-encrypt.crt){: external} | 05 October 2024 | 15 April 2024 |   |
+   {: caption="Table 1. Encryption certificate expiry dates and image deprecation/ obsolete dates" caption-side="bottom"}
+
+  **Note:** 
+  * Deprecated: You can use the image to create an instance using IBM Cloud CLI. Using the deprecated status can discourage the use of the image before changing the status to obsolete.
+  * Obsolete: You can not use the image to create an instance. If you try to use an obsolete image to create an instance, you will receive a message that states that you can not use the image to create an instance. 
+
+  To check the image deprecation or obsolete status, you can also use the IBM Cloud image list command.
+
+  You can refer to the [documentation](/docs/vpc?topic=vpc-vpc-reference&interface=ui#images-list) for the image list command to get the status of the image.
 
 
 2. Validate the encryption certificate by following the instructions [here](/docs/vpc?topic=vpc-cert_validate#validate_encrypt_cert).
@@ -708,10 +717,10 @@ Complete the following steps on an Ubuntu system, to encrypt the workload sectio
 
 2. Create the [workload section](#hpcr_contract_workload) of the contract and add the contents in the `workload.yaml` file.
 
-3. Export the complete path of the `workload.yaml` file and `ibm-hyper-protect-container-runtime-1-0-s390x-14-encrypt.crt`:
+3. Export the complete path of the `workload.yaml` file and `ibm-hyper-protect-container-runtime-1-0-s390x-15-encrypt.crt`:
    ```yaml
    WORKLOAD="<PATH to workload.yaml>"
-   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-14-encrypt.crt>"
+   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-15-encrypt.crt>"
    ```
    {: pre}
 
@@ -721,7 +730,7 @@ Complete the following steps on an Ubuntu system, to encrypt the workload sectio
    ```
    {: pre}
 
-5. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-14-encrypt.crt`:
+5. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-15-encrypt.crt`:
    ```yaml
    ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY -certin | base64 -w0 )"
    ```
@@ -755,10 +764,10 @@ Complete the following steps on an Ubuntu system, to encrypt the `env` section u
 
 1. Create the [`env` section](#hpcr_contract_env) of the contract and add the contents in the `env.yaml` file.
 
-2. Export the complete path of the `env.yaml` file and `ibm-hyper-protect-container-runtime-1-0-s390x-14-encrypt.crt`:
+2. Export the complete path of the `env.yaml` file and `ibm-hyper-protect-container-runtime-1-0-s390x-15-encrypt.crt`:
    ```yaml
    ENV="<PATH to env.yaml>"
-   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-14-encrypt.crt>"
+   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-15-encrypt.crt>"
    ```
    {: pre}
 
@@ -768,7 +777,7 @@ Complete the following steps on an Ubuntu system, to encrypt the `env` section u
    ```
    {: pre}
 
-4. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-14-encrypt.crt`:
+4. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-15-encrypt.crt`:
    ```yaml
    ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY  -certin | base64 -w0)"
    ```
@@ -798,11 +807,12 @@ Complete the following steps on an Ubuntu system, to encrypt the `env` section u
 ## Contract signature
 {: #hpcr_contract_sign}
 
-Contract signature is an optional feature that can be used with the contract. You can choose to sign a contract before it is passed as input. Contracts that are in plain text or encrypted can be signed. Validation of the contract signature is done by the {{site.data.keyword.hpvs}} for VPC image.
-The purpose of this signature feature is to ensure that the `workload` and `env` sections are always used together and are not tampered with by a third party. The signature of the `workload` and the `env` sections are added as the value to the `envWorkloadSignature` section.
+
+Contract signature is an optional feature that can be used with the contract. You can choose to sign a contract before it is passed as input. You can also set expiry of contract during signature. Contracts that are in plain text or encrypted can be signed. Validation of the contract signature is done by the {{site.data.keyword.hpvs}} for VPC image.
+The purpose of this signature feature is to ensure that the `workload` and `env` sections are always used together and are not tampered with by a third party. This feature also supports setting expiry for contract. That is, If the instance is booted after the signature has expired, the boot process will fail. The signature of the `workload` and the `env` sections are added as the value to the `envWorkloadSignature` section.
 The following are two sections in a contract that are relevant while creating and adding a contract signature:
 * `envWorkloadSignature`: This is section where the signature of the other sections of the contract is added. This section is not required for a contract that is not signed.
-* `signingKey`: This is a subsection that must be added to the `env` section of the contract. This holds the value to the user-generated public key, whose corresponding private key was used to create the contract signature.
+* `signingKey`: This is a subsection that must be added to the `env` section of the contract. This holds the value to the user-generated public key, whose corresponding private key was used to create the contract signature. Public key or certificate can also be parsed as base64 string.
 
 Complete the following steps on an Ubuntu system, to create the contract signature:
 1. Use the following command to generate key pair to sign the contract (note that "test1234" is the passphrase to generate keys, you can use your own):
@@ -819,7 +829,92 @@ Complete the following steps on an Ubuntu system, to create the contract signatu
    ```
    {: pre}
 
-3. Create the `env.yaml` file. The following is an example:
+3. Optionally, if you want to pass the signing key as base64:
+    ```sh
+    key=$(cat public.pem | base64 -w 0)
+    echo $key
+    ```
+    {: pre}
+
+4. Optionally, if you want to enable contract expiry, follow the steps mentioned below:
+  i. Use the following command to generate a certificate request:
+      ```
+      openssl req -new -key private.pem -passin pass:test1234 -out csr.pem
+      ```
+  ii. The command generates the certificate.
+      a. Use the following command to generate private key for CA:
+        ```
+        openssl genrsa -out personal_ca.key 2048
+        ```
+      b. Generate a self-signed CA certificate using the following command:
+        ```
+        openssl req -new -x509 -key personal_ca.key -out personal_ca.crt
+        ```
+      c. The following command signs CSR with self signed CA certificate along with number of days for the certificate to be valid. The end date of the generated certificate is the contract expiry date:
+        ```
+        openssl x509 -req -in csr.pem -CA personal_ca.crt -CAkey personal_ca.key -CAcreateserial -out certificate.pem -days 365
+        ```
+  iii. The following command is an example of how you can get the certificate:
+        ```sh
+        certificate=$(awk -vRS="\n" -vORS="\\\n" '1' certificate.pem)
+        echo ${certificate%\\n}
+        ```
+        {: pre}
+  iv. (optional) The following command is an example of how to get the certificate in base64 format:
+      ```sh
+      certificate=$(cat certificate.pem | base64 -w 0)
+      echo $certificate
+      ```
+      {: pre}
+
+5. Create the `env.yaml` file. The following is an example:
+  i. If `signingkey` is a public key:
+      ```yaml
+      env: |
+      type: env
+      logging:
+          logDNA:
+          hostname: syslog-a.eu-gb.logging.cloud.ibm.com
+          ingestionKey: cfae1522876e860e58f5844a33bdcaa8
+          port: 6514
+      volumes:
+          test:
+          seed: hogwarts
+      signingKey: "-----BEGIN PUBLIC KEY-----\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAvLaeSA8Nc3p99HNUMwon\n5lMMALAsIxRRpWUaEZ5IcUky2sgCi/rSmxU2sm6FK/BmCftk33f5W2BsYHdY9R/0\nELZ9A4POQcJsPF3ronU2QHwnRjcqYuUFXmf1VqfPPLpELriFNoCb2FN2zCa+VUmu\n+fGhroZ3Fr9kBPwJhGr917E5jeCQ+MzsGkulcTvr0SfvThiZQQ/KlU0R35ThamF3\n8C0F5IQBpqDUwDFmWvD5lF2SmprpluDBFEj8LLfLxvW9M2Qwku6nGUnnFReg3vNH\n7IF0SRr1K1AdO5hEmevCdyG9hgTdUY6dXcjntiN/kbqXErILknvzDnb4jyPZZRdK\ndrOzVt8hjbdmkS396SrMFtA++QrV3GNZl5zCscpn6d8S7BEA8mDzroo2UAbrypVP\n9l9AmzUnmnPCpZQySUUHoY0xG2vgMSA50CWH7Uwjmpixr02Td4/LU8fE7NWCO6ci\nx4++ANSaxu+uuZ2Pe1OjjgV98r06ZUs38eaxptLZqLpn3N6w8WAJxGwSLapZwNtP\ng2spUXu2Eh/TN5t4/ly5iXOsyIy8IPtTrUPX7rpaaqFZ72P6BJLj3WLEvOG/eF/8\nBTjrsZAjb8YjkO1uGk10IPa63sniZWe5vlm9w9UKy2uGuy6RhWxwoVHRRbfhboQF\nsO20dsVwgTZn8c46HMD2PoMCAwEAAQ==\n-----END PUBLIC KEY----"
+      ```
+     {: codeblock}
+  ii. If `signingkey` is a certificate:
+      ```yaml
+      env: |
+    type: env
+    logging:
+        logDNA:
+        hostname: syslog-a.eu-gb.logging.cloud.ibm.com
+        ingestionKey: cfae1522876e860e58f5844a33bdcaa8
+        port: 6514
+    volumes:
+        test:
+        seed: hogwarts
+    signingKey: "-----BEGIN CERTIFICATE-----\nMIIFETCCAvkCFBAMxyO6Cl7BNKBGxtlAzHpI2oiNMA0GCSqGSIb3DQEBCwUAMEUx\nCzAJBgNVBAYTAkFVMRMwEQYDVQQIDApTb21lLVN0YXRlMSEwHwYDVQQKDBhJbnRl\ncm5ldCBXaWRnaXRzIFB0eSBMdGQwHhcNMjQwMTMwMDM1ODMzWhcNMjQwNTA5MDM1\nODMzWjBFMQswCQYDVQQGEwJBVTETMBEGA1UECAwKU29tZS1TdGF0ZTEhMB8GA1UE\nCgwYSW50ZXJuZXQgV2lkZ2l0cyBQdHkgTHRkMIICIjANBgkqhkiG9w0BAQEFAAOC\nAg8AMIICCgKCAgEAv5h6i7Fn1DMUM+3AnPPZUNMe1ss3KL/AmUmptwlAPErVoH1k\naiqTUsSNjXctj+nk95I+e2nugw/HlaVT1eRgEtvjssheXKboFn+zW/i31Nq9USgQ\nZA325VtchYlgJLXMPaH/ukBUr0UI4LnjC/dNdAQzKwWPNF2Jlv5wKX8OBVOQO9Df\nExVmcEkKDoh0nZk5eOA8vzJGhfr8TvQx9FQFsP4OXTwQgcdZV26mLm0bMkqEt3o5\n8OSpisqNGY1XnMHjOWNqSbErkpbIKEFAQSnWmzEvJdHsQX+7eTF7CisHJREseT4s\nUSuIFBZKXbS3qq6EL/EYviu0EGnY/rkJJcIRb8hycqHRgoITT2bWT7PSMUyXoX3G\nVKfp/xKFhkYzoRDSb5S0lh8sugmoRkioAkw6G56CP2hablPZRUMmUKceFfOG/k4L\nei8qJtbfQJ9BlCNRPpjqY3sGSdeXI4zefyQ8xxcus9Sl5wXZV86lz2lO/fz3Cvpd\n0eKvfv5uXyvF3O36lrlEERmSukaZYaEJECjxOUeafc7E1DVyIaMpc2SOum1crwMG\nRKhnU1JShDON0yClnKOlACfjFIpdpEMpE4lLps1x+PXV+x21zGBMUvXYa4xpbyWR\nK1gfMWmuvGOivl9y0mPSIeyJ9R/7bSRAbcYJR4N99TrtWxZU1yQi7HSRV5cCAwEA\nATANBgkqhkiG9w0BAQsFAAOCAgEAg006zJ4ZKwT8moOOl3PdThFUcf8rrIlec9Iy\nqPcWSqt5UTeYLIe58oGhhQmcaIRUOQaib5JqH2ukzqpo+gsJ3zZb3eIn4FB7cKef\nLqaiemOveEe1/qSwAGqMZyZELssiOflhnJdzuYSRWO8DO6Q6JMqQthDcw20budjO\nzP4nhXQqT+s8ljzqSJW77hDbrNAezTz/0SJFDtaMBs5UweX//7/4sXtJ8kBIBSxd\n7y4w8tuuxUaXOtYMjNrJAYLwFVeeO8CFURpbEuv7ABT0k8U4E8C6j4U4Jysx4XVP\nZj36rIAtvctchh0yAhHz8whXe1tvaFw9wzRDATnThFAuJG4Z07K2/rlDP9kO9wmn\ng8hHxKeqQMJDp29e0sGkz8oDi6Mz24k9CqFJJ0CUz1ntz7rrDkA3QwQbFRzk938y\n3rSfePO5qXlUQ9mm05hYr1EKKceTLEowc4XOouNLlUWGiRshRR1szMw5C29prFJ2\nyYuV9tBaFYkq7dnh8JnmrreEvAnsKyyECxMmtV/W701OSUYBcThwgAo+hkEeOJ+/\nwrOS7yoJqDF1y+5LLQJmUlrLCPXem3ZTa4UMe1p2g7ge7Dg6Zud9NDBcMigdHByt\nJP/i9PcJSEWrccWJ1ajToUCZ0wqfJ3Z4KqoEd0fadQhb32AuDUbu7E12EUFNPGIH\n8rQKbDU=\n-----END CERTIFICATE-----"
+    ```
+    {: codeblock}
+  iii. If `singingkey` is a base64 encoded signing key or certificate:
+      ```yaml
+        env: |
+        type: env
+        logging:
+            logDNA:
+            hostname: syslog-a.eu-gb.logging.cloud.ibm.com
+            ingestionKey: cfae1522876e860e58f5844a33bdcaa8
+            port: 6514
+        volumes:
+            test:
+            seed: hogwarts
+        signingKey: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tXG5NSUlGRVRDQ0F2a0NGQkFNeHlPNkNsN0JOS0JHeHRsQXpIcEkyb2lOTUEwR0NTcUdTSWIzRFFFQkN3VUFNRVV4XG5DekFKQmdOVkJBWVRBa0ZWTVJNd0VRWURWUVFJREFwVGIyMWxMVk4wWVhSbE1TRXdId1lEVlFRS0RCaEpiblJsXG5jbTVsZENCWGFXUm5hWFJ6SUZCMGVTQk1kR1F3SGhjTk1qUXdNVE13TURNMU9ETXpXaGNOTWpRd05UQTVNRE0xXG5PRE16V2pCRk1Rc3dDUVlEVlFRR0V3SkJWVEVUTUJFR0ExVUVDQXdLVTI5dFpTMVRkR0YwWlRFaE1COEdBMVVFXG5DZ3dZU1c1MFpYSnVaWFFnVjJsa1oybDBjeUJRZEhrZ1RIUmtNSUlDSWpBTkJna3Foa2lHOXcwQkFRRUZBQU9DXG5BZzhBTUlJQ0NnS0NBZ0VBdjVoNmk3Rm4xRE1VTSszQW5QUFpVTk1lMXNzM0tML0FtVW1wdHdsQVBFclZvSDFrXG5haXFUVXNTTmpYY3RqK25rOTVJK2UybnVndy9IbGFWVDFlUmdFdHZqc3NoZVhLYm9Gbit6Vy9pMzFOcTlVU2dRXG5aQTMyNVZ0Y2hZbGdKTFhNUGFIL3VrQlVyMFVJNExuakMvZE5kQVF6S3dXUE5GMkpsdjV3S1g4T0JWT1FPOURmXG5FeFZtY0VrS0RvaDBuWms1ZU9BOHZ6SkdoZnI4VHZReDlGUUZzUDRPWFR3UWdjZFpWMjZtTG0wYk1rcUV0M281XG44T1NwaXNxTkdZMVhuTUhqT1dOcVNiRXJrcGJJS0VGQVFTbldtekV2SmRIc1FYKzdlVEY3Q2lzSEpSRXNlVDRzXG5VU3VJRkJaS1hiUzNxcTZFTC9FWXZpdTBFR25ZL3JrSkpjSVJiOGh5Y3FIUmdvSVRUMmJXVDdQU01VeVhvWDNHXG5WS2ZwL3hLRmhrWXpvUkRTYjVTMGxoOHN1Z21vUmtpb0FrdzZHNTZDUDJoYWJsUFpSVU1tVUtjZUZmT0cvazRMXG5laThxSnRiZlFKOUJsQ05SUHBqcVkzc0dTZGVYSTR6ZWZ5UTh4eGN1czlTbDV3WFpWODZsejJsTy9mejNDdnBkXG4wZUt2ZnY1dVh5dkYzTzM2bHJsRUVSbVN1a2FaWWFFSkVDanhPVWVhZmM3RTFEVnlJYU1wYzJTT3VtMWNyd01HXG5SS2huVTFKU2hET04weUNsbktPbEFDZmpGSXBkcEVNcEU0bExwczF4K1BYVit4MjF6R0JNVXZYWWE0eHBieVdSXG5LMWdmTVdtdXZHT2l2bDl5MG1QU0lleUo5Ui83YlNSQWJjWUpSNE45OVRydFd4WlUxeVFpN0hTUlY1Y0NBd0VBXG5BVEFOQmdrcWhraUc5dzBCQVFzRkFBT0NBZ0VBZzAwNnpKNFpLd1Q4bW9PT2wzUGRUaEZVY2Y4cnJJbGVjOUl5XG5xUGNXU3F0NVVUZVlMSWU1OG9HaGhRbWNhSVJVT1FhaWI1SnFIMnVrenFwbytnc0ozelpiM2VJbjRGQjdjS2VmXG5McWFpZW1PdmVFZTEvcVN3QUdxTVp5WkVMc3NpT2ZsaG5KZHp1WVNSV084RE82UTZKTXFRdGhEY3cyMGJ1ZGpPXG56UDRuaFhRcVQrczhsanpxU0pXNzdoRGJyTkFlelR6LzBTSkZEdGFNQnM1VXdlWC8vNy80c1h0SjhrQklCU3hkXG43eTR3OHR1dXhVYVhPdFlNak5ySkFZTHdGVmVlTzhDRlVScGJFdXY3QUJUMGs4VTRFOEM2ajRVNEp5c3g0WFZQXG5aajM2cklBdHZjdGNoaDB5QWhIejh3aFhlMXR2YUZ3OXd6UkRBVG5UaEZBdUpHNFowN0syL3JsRFA5a085d21uXG5nOGhIeEtlcVFNSkRwMjllMHNHa3o4b0RpNk16MjRrOUNxRkpKMENVejFudHo3cnJEa0EzUXdRYkZSems5Mzh5XG4zclNmZVBPNXFYbFVROW1tMDVoWXIxRUtLY2VUTEVvd2M0WE9vdU5MbFVXR2lSc2hSUjFzek13NUMyOXByRkoyXG55WXVWOXRCYUZZa3E3ZG5oOEpubXJyZUV2QW5zS3l5RUN4TW10Vi9XNzAxT1NVWUJjVGh3Z0FvK2hrRWVPSisvXG53ck9TN3lvSnFERjF5KzVMTFFKbVVsckxDUFhlbTNaVGE0VU1lMXAyZzdnZTdEZzZadWQ5TkRCY01pZ2RIQnl0XG5KUC9pOVBjSlNFV3JjY1dKMWFqVG9VQ1owd3FmSjNaNEtxb0VkMGZhZFFoYjMyQXVEVWJ1N0UxMkVVRk5QR0lIXG44clFLYkRVPVxuLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLVxu
+    ```
+    {: codeblock}
+
+6. Create the `env.yaml` file. The following is an example:
    ```yaml
    env: |
      type: env
@@ -835,32 +930,32 @@ Complete the following steps on an Ubuntu system, to create the contract signatu
    ```
    {: codeblock}
 
-4. Use the following command to export complete path of `env.yaml` and `ibm-hyper-protect-container-runtime-1-0-s390x-14-encrypt.crt`:
+7. Use the following command to export complete path of `env.yaml` and `ibm-hyper-protect-container-runtime-1-0-s390x-15-encrypt.crt`:
    ```sh
    ENV="<PATH to env.yaml>"
-   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-14-encrypt.crt>"
+   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-15-encrypt.crt>"
    ```
    {: pre}
 
-5. Use the following command to create a random password:
+8. Use the following command to create a random password:
    ```sh
    PASSWORD="$(openssl rand 32 | base64 -w0)"
    ```
    {: pre}
 
-6. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-14-encrypt.crt.`:
+9. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-15-encrypt.crt.`:
    ```yaml
    ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY  -certin | base64 -w0)"
    ```
    {: pre}
 
-7. Use the following command to encrypt `env.yaml` with a random password:
+10. Use the following command to encrypt `env.yaml` with a random password:
    ```sh
    ENCRYPTED_ENV="$(echo -n "$PASSWORD" | base64 -d | openssl enc -aes-256-cbc -pbkdf2 -pass stdin -in "$ENV" | base64 -w0)"
    ```
    {: pre}
 
-8. Use the following command to extract the encrypted `env` section:
+11. Use the following command to extract the encrypted `env` section:
    ```sh
    echo "hyper-protect-basic.${ENCRYPTED_PASSWORD}.${ENCRYPTED_ENV}"
    ```
@@ -868,6 +963,14 @@ Complete the following steps on an Ubuntu system, to create the contract signatu
 
 Steps 4 - 8 are used to encrypt the `env` section. If you choose to not encrypt this section, skip these steps.
 {: note}
+
+A notification about the expiry of the contract will be sent to your logging service. 
+Timelines for the notification are as follows:
+- On the first of every month
+- Everyday for 30 days before the expiry
+- Once in every 4 hours if the contract is about to expire in 7 days
+- Each and every hour if the contract has already expired or is about to expire in a day
+
 
 ## Preparing the signature
 {: #hpcr_signature_prepare}

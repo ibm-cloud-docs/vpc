@@ -1,0 +1,686 @@
+---
+
+copyright:
+  years: 2023, 2024
+lastupdated: "2024-03-14"
+
+keywords: hyper protect container runtime, error messages, troubleshooting
+
+subcollection: vpc
+
+---
+
+{{site.data.keyword.attribute-definition-list}}
+
+
+# Error messages
+{: #hpcr-msgs}
+
+The following list shows the error messages from Hyper Protect Container Runtime. 
+
+- **HPL02002E**:
+   - Name: LUKS_FORMAT_FAILED
+   - Message: LUKS Format operation failed.
+   - Explanation: Disk encryption failed at LUKS Format step
+   - System Action: Device is not encrypted
+   - User Action: Verify the input device state and retry
+- **HPL02003E**:
+   - Name: LUKS_OPEN_FAILED
+   - Message: LUKS Open operation failed.
+   - Explanation: Disk encryption failed at LUKS Open step
+   - System Action: Device is encrypted but no active path
+   - User Action: Validate LUKS key, input device state and retry
+- **HPL02004E**:
+   - Name: LUKS_RESIZE_FAILED
+   - Message: LUKS Resize operation failed.
+   - Explanation: Disk encryption failed at LUKS Resize step
+   - System Action: Resized size of device is not encrypted
+   - User Action: Validate LUKS key and restart VSI
+- **HPL02005E**:
+   - Name: CREATE_FS_FAILED
+   - Message: Create Filesystem operation failed.
+   - Explanation: Disk encryption failed at create filesystem
+   - System Action: Device is LUKS encrypted but fileSystem not created
+   - User Action: Validate the device state and retry
+- **HPL02006E**:
+   - Name: EXTEND_FS_FAILED
+   - Message: Extend Filesystem operation failed.
+   - Explanation: Disk encryption failed at extend filesystem
+   - System Action: Resized Device size is not extended for fs
+   - User Action: Validate the device state and retry
+- **HPL02007E**:
+   - Name: MOUNT_DEVICE_FAILED
+   - Message: Mount device operation failed.
+   - Explanation: Disk encryption failed at mount device
+   - System Action: Device is not mounted or already mounted
+   - User Action: Check the logs and retry if not mounted
+- **HPL02120E**:
+   - Name: UNEXPECTED_ERROR
+   - Message: Unexpected error occurred while processing request.
+   - Explanation: Unexpected error occurred while processing request.
+   - System Action: Disk Encryption command failed with unexpected error
+   - User Action: Check the logs for details
+- **HPL02121E**:
+   - Name: INVALID_INPUT
+   - Message: Invalid input value {value} is provided to {param}.
+   - Explanation: Input is invalid
+   - System Action: Disk Encryption command failed with invalid input Error
+   - User Action: Correct the input
+- **HPL02122E**:
+   - Name: RESOURCE_NOT_FOUND
+   - Message: Input {resource} doesn't exist
+   - Explanation: Provided input resource does not exist in the system
+   - System Action: Disk Encryption command failed with resource does not exist error
+   - User Action: Correct the input
+- **HPL02123E**:
+   - Name: ALREADY_IN_USE
+   - Message: Input {resource} already in use.
+   - Explanation: Provided input resource is already in use
+   - System Action: Disk Encryption command failed with resource already in use error
+   - User Action: Correct the input
+- **HPL02125E**:
+   - Name: LUKS_PASSWORD_CHANGE_FAILURE
+   - Message: LUKS Password change operation failed
+   - Explanation: LUKS Password change operation failed
+   - System Action: LUKS Password change operation failed
+   - User Action: Check the logs and validate input keys
+- **HPL02001I**:
+   - Name: ENCRYPTION_SUCCESS
+   - Message: Encryption completed successfully
+   - Explanation: Disk Encryption completed successfully
+   - System Action: Disk Encryption completed successfully
+   - User Action: enjoy your product
+- **HPL02002I**:
+   - Name: MOUNT_SUCCESS
+   - Message: Mounting a device at {mount_point} is successful
+   - Explanation: Mounting the device at specified mount point is successful
+   - System Action: Mounting the device at specified mount point is successful
+   - User Action: None
+- **HPL11000E**:
+   - Name: INTERNAL_ERROR
+   - Message: Internal error.
+   - Explanation: The VSI could not be started.
+   - System Action: Boot aborted.
+   - User Action: None.
+- **HPL11001E**:
+   - Name: INVALID_CONTRACT
+   - Message: Unable to parse/decrypt contract.
+   - Explanation: Parsing/decryption of the contract failed.
+   - System Action: Boot aborted.
+   - User Action: Validate contract format and encryption.
+- **HPL11002E**:
+   - Name: ENCRYPT_ATTESTATION
+   - Message: Unable to encrypt attestation document.
+   - Explanation: Encryption of the attestation document failed.
+   - System Action: Boot aborted.
+   - User Action: Validate attestation encryption key.
+- **HPL11003E**:
+   - Name: INSUFFICIENT_MEMORY
+   - Message: VSI memory size is too low.
+   - Explanation: The VSI could not be started. Insufficient memory.
+   - System Action: Boot aborted.
+   - User Action: Ensure VSI RAM size is at least 4 GiB.
+- **HPL11099I**:
+   - Name: BOOTLOADER_END
+   - Message: Bootloader end.
+   - Explanation: The VSI bootloader has finished.
+   - System Action: None.
+   - User Action: None.
+- **HPL18001E**:
+   - Name: RECOVER_BACKUP_KEY_FILE
+   - Message: unable to recover backup file.
+   - Explanation: Backedup wrappedkey is not recoverable.
+   - System Action: Key in the metadatapartition is not rolledback.
+   - User Action: Consult console logs for root cause.
+- **HPL18002E**:
+   - Name: REWRAP_FAILED_ERROR
+   - Message: {datavolume} : Error occurred while rewrapping the key after rotation.
+   - Explanation: Rewrapping the key after rotation failed.
+   - System Action: Continues to Validate CRK.
+   - User Action: Consult console logs for root cause.
+- **HPL18003E**:
+   - Name: START_KEY_DAEMON_FAILED
+   - Message: Failed to start Key daemon
+   - Explanation: Invalid invokation of key daemon.Starting key daemon failed.
+   - System Action: Key daemon is not started.
+   - User Action: Consult console logs for root cause.
+- **HPL18004E**:
+   - Name: KEY_DAEMON_FAILED
+   - Message: Key daemon With Error
+   - Explanation: Key daemon failed with Error.
+   - System Action: Close the Luks Layer of DataVolume
+   - User Action: Consult console logs for root cause.
+- **HPL18006E**:
+   - Name: MISSING_CONFIG_ERROR
+   - Message: Missing Required config file.
+   - Explanation: Some config files are missing
+   - System Action: Keydaemon Fails and closes the LUKS volume.
+   - User Action: Consult console logs for root cause.
+- **HPL18007E**:
+   - Name: SAVE_KEY_FAILED_ERROR
+   - Message: {datavolume} : Error occurred while saving the rotated key to metadata partition.
+   - Explanation: Rewrapping the key after rotation failed.
+   - System Action: Continues to Validate CRK.
+   - User Action: Consult console logs for root cause.
+- **HPL18001I**:
+   - Name: KEY_ROTATED_NOTIFY
+   - Message: {datavolume} : Key rotation detected and wrapped key is updated.
+   - Explanation: HPCS key rotation is detected and action performed
+   - System Action: Detected Key rotation and updated the keyfile
+   - User Action: check logs for more information
+- **HPL18002I**:
+   - Name: KEY_REACHABLE_NOTIFY
+   - Message: {datavolume} : Key state becomes valid before timeout finishes. Resuming the daemon.
+   - Explanation: HPCS key instance is reachable and daemon resumed
+   - System Action: KeyDaemon continues to poll for key state
+   - User Action: check logs for more information
+- **HPL18003I**:
+   - Name: KEY_DAEMON_STARTED_NOTIFY
+   - Message: {datavolume} : Started the KeyDaemon successfully.
+   - Explanation: Keydaemon started successsfully
+   - System Action: KeyDaemon continues to poll for key state
+   - User Action: check logs for more information
+- **HPL18001W**:
+   - Name: UNEXPECTED_FAILURE
+   - Message: {datavolume} : Unexpected failure in the keydaemon.
+   - Explanation: some unexpected error occurred in keydaemon
+   - System Action: Reboots the VSI.
+   - User Action: Consult console logs for root cause.
+- **HPL18002W**:
+   - Name: KEY_NOT_VALID_WARNING
+   - Message: {datavolume} : Key is in invalid state - {keystate} 
+   - Explanation: HPCS key poll detected key in invalid state
+   - System Action: waits for timeout before recheck and reboots on failure
+   - User Action: check logs for more information
+- **HPL18003W**:
+   - Name: REBOOT_WARNING
+   - Message: {datavolume} : Triggering VSI Reboot 
+   - Explanation: Reboot triggered by Keydaemon Failure 
+   - System Action: Reboots VSi in few seconds
+   - User Action: check logs for more information
+- **HPL10000E**:
+   - Name: SERVICE_FAILED
+   - Message: One or more service failed
+   - Explanation: One or more service failed.
+   - System Action: System will be shut down.
+   - User Action: Consult logs for root cause.
+- **HPL10001I**:
+   - Name: SERVICE_SUCCESS
+   - Message: Services succeeded
+   - Explanation: Relevant services started successfully.
+   - System Action: No action required.
+   - User Action: No action required.
+- **HPL08000E**:
+   - Name: CONTRACT_NOT_EXISTS
+   - Message: Unable to find contract file.
+   - Explanation: The contract file does not exists.
+   - System Action: Contract Validation failed.
+   - User Action: Retry operation by providing valid contract.
+- **HPL08001E**:
+   - Name: PARSE_CONTRACT
+   - Message: Unable to parse the contract.
+   - Explanation: The contract file cannot be parsed.
+   - System Action: Logging fails to setup.
+   - User Action: Check logs for details and take necessary actions.
+- **HPL08002E**:
+   - Name: EXTRACT_COMPOSE
+   - Message: Unable to extract the compose.
+   - Explanation: The compose data cannot be extracted.
+   - System Action: Logging fails to setup.
+   - User Action: Check logs for details and take necessary actions.
+- **HPL08003E**:
+   - Name: EXTRACT_ENV
+   - Message: Unable to extract the env.
+   - Explanation: The env data cannot be extracted .
+   - System Action: Logging fails to setup.
+   - User Action: Check logs for details and take necessary actions.
+- **HPL08004E**:
+   - Name: DOCKER_COMMAND
+   - Message: Unable to run docker command.
+   - Explanation: The docker command failed to execute .
+   - System Action: Logging fails to setup.
+   - User Action: Check logs for details and take necessary actions.
+- **HPL08005E**:
+   - Name: COMPOSE_NOT_EXISTS
+   - Message: Unable to find compose file.
+   - Explanation: The compose file does not exists.
+   - System Action: Logging fails to setup.
+   - User Action: Retry operation by providing valid contract.
+- **HPL08006E**:
+   - Name: REMOVE_SEED_FAILED
+   - Message: Unable to delete seed.
+   - Explanation: Unable to delete seed
+   - System Action: Logging fails to setup.
+   - User Action: Retry operation by providing valid contract.
+- **HPL08007E**:
+   - Name: REMOVE_SEED_FILE_FAILED
+   - Message: Unable to delete seed file.
+   - Explanation: Unable to delete seed file
+   - System Action: Logging fails to setup.
+   - User Action: Retry operation by providing valid contract.
+- **HPL15000E**:
+   - Name: PARSE_CONTRACT
+   - Message: Unable to parse the contract.
+   - Explanation: The contract file cannot be parsed.
+   - System Action: Podman play fails to setup.
+   - User Action: Consult console logs for root cause.
+- **HPL15001E**:
+   - Name: LOCATE_CONTRACT
+   - Message: Unable to locate the contract file.
+   - Explanation: The contract file cannot be found.
+   - System Action: Podman play fails to setup.
+   - User Action: Consult console logs for root cause.
+- **HPL15002E**:
+   - Name: PROCESSING_FAILED
+   - Message: Unable to process k8s documents in the contract.
+   - Explanation: An error occurred while setting up the k8s yaml.
+   - System Action: Podman play fails to setup.
+   - User Action: Consult console logs for root cause.
+- **HPL15003I**:
+   - Name: PROCESSING_SUCCESSFUL
+   - Message: Successfully produced {COUNT, plural, =0 {no document} =1 {one document} other {# documents}}.
+   - Explanation: Podman play setup successful.
+   - System Action: Podman continues to start the pods.
+   - User Action: Relax.
+- **HPL15004I**:
+   - Name: POD_STARTUP_SUCCESSFUL
+   - Message: The pod started successfully.
+   - Explanation: Podman play setup successful.
+   - System Action: Pods continue to run.
+   - User Action: Relax.
+- **HPL15005E**:
+   - Name: POD_STARTUP_FAILED
+   - Message: The pod failed to start.
+   - Explanation: Podman play failed to start the pod.
+   - System Action: The VSI will shut down.
+   - User Action: Consult the logs to get more information about the root cause of this failure.
+- **HPL15006I**:
+   - Name: NOTHING_TO_DO
+   - Message: No pod definitions found.
+   - Explanation: The contract did not contain any pod definitions, nothing to do.
+   - System Action: The VSI continue its startup.
+   - User Action: Add pod descriptors to the contract or use docker compose.
+- **HPL05000E**:
+   - Name: PARSE_CONTRACT
+   - Message: Unable to parse the contract.
+   - Explanation: The contract file cannot be parsed.
+   - System Action: Contract Validation failed.
+   - User Action: Check logs and correct the contract file.
+- **HPL05001E**:
+   - Name: VALIDATE_CONTRACT
+   - Message: Unable to validate the contract semantically.
+   - Explanation: The contract file does not follow the required schema.
+   - System Action: Contract Validation failed.
+   - User Action: Adjust the contract according to the schema.
+- **HPL05002E**:
+   - Name: CONTRACT_NOT_EXISTS
+   - Message: Unable to find contract file.
+   - Explanation: The contract file does not exists.
+   - System Action: Contract Validation failed.
+   - User Action: Retry operation by providing valid contract.
+- **HPL05003E**:
+   - Name: EXTRACT_WORKLOAD
+   - Message: Unable to extract the contract.
+   - Explanation: Failed to extract contract to a new file.
+   - System Action: Contract Validation failed.
+   - User Action: Retry operation by providing valid contract.
+- **HPL14000I**:
+   - Name: DNS_LOOKUP_READY
+   - Message: Network connectivity check completed successfully.
+   - Explanation: The network connectivity check done at system startup, as a prequisite to the hps-init target completed successfully.
+   - System Action: System startup continues.
+   - User Action: Nothing
+- **HPL14001E**:
+   - Name: DNS_LOOKUP_FAILED
+   - Message: Network connectivity check failed.
+   - Explanation: The network connectivity check done at system startup, as a prequisite to the hps-init target failed.
+   - System Action: System startup stops.
+   - User Action: Make sure to configure a DNS server
+- **HPL14002E**:
+   - Name: DNS_LOOKUP_TIMEOUT
+   - Message: Network connectivity check timeoud out.
+   - Explanation: The network connectivity check done at system startup, as a prequisite to the hps-init target timed out.
+   - System Action: System startup stops.
+   - User Action: Make sure to configure a DNS server
+- **HPL06000E**:
+   - Name: CONTRACT_NOT_EXISTS
+   - Message: Unable to find contract file.
+   - Explanation: The contract file does not exists.
+   - System Action: Image service fails
+   - User Action: Retry operation by providing valid contract.
+- **HPL06001E**:
+   - Name: PARSE_CONTRACT
+   - Message: Unable to parse the contract.
+   - Explanation: The contract file cannot be parsed.
+   - System Action: Image service fails.
+   - User Action: Check logs for details and take necessary actions.
+- **HPL06002E**:
+   - Name: EXTRACT_COMPOSE
+   - Message: Unable to extract the compose.
+   - Explanation: The compose data cannot be extracted.
+   - System Action: Image service fails
+   - User Action: Check logs for details and take necessary actions.
+- **HPL06003E**:
+   - Name: EXTRACT_ENV
+   - Message: Unable to extract the env.
+   - Explanation: The env data cannot be extracted .
+   - System Action: Image service fails
+   - User Action: Check logs for details and take necessary actions.
+- **HPL06004E**:
+   - Name: DOCKER_COMMAND
+   - Message: Unable to run docker command.
+   - Explanation: The docker command failed to execute .
+   - System Action: Image service fails
+   - User Action: Check logs for details and take necessary actions.
+- **HPL06005E**:
+   - Name: READ_CONTRACT
+   - Message: Unable to read contract file.
+   - Explanation: The contract file could be read.
+   - System Action: Image service fails
+   - User Action: Check logs for details and take necessary actions.
+- **HPL06006E**:
+   - Name: DECOMPRESS_COMPOSE
+   - Message: Unable decode compose tar gz.
+   - Explanation: The compose is not properly tar and gzipped or it could be corrupted.
+   - System Action: Image service fails
+   - User Action: Do tar and gzip properly.
+- **HPL06007E**:
+   - Name: TAR_READER
+   - Message: Error reading tar file.
+   - Explanation: Unable to read tar file. tar could be empty or corrupt.
+   - System Action: Image service fails
+   - User Action: Do tar and gzip properly.
+- **HPL06008E**:
+   - Name: NO_COMPOSE
+   - Message: The compose blob does not contain docker-compose.yaml or docker-compose.yml
+   - Explanation: The compose blob does not contain docker-compose.yaml or docker-compose.yml
+   - System Action: Image service fails
+   - User Action: Please tar and gzip compose yaml file and retry.
+- **HPL06009E**:
+   - Name: PARSE_COMPOSE_CONTRACT
+   - Message: Unable to parse the compose contract.
+   - Explanation: The compose contract cannot be parsed.
+   - System Action: Image service fails.
+   - User Action: Check logs for details and take necessary actions.
+- **HPL06010E**:
+   - Name: CONTRACT_IMAGE_MISMATCH
+   - Message: Image present in compose yaml is not present in image contract. Hence could not be verified.
+   - Explanation: Image present in compose yaml is not present in image contract. Hence could not be verified.
+   - System Action: Image service fails.
+   - User Action: Check logs for details and take necessary actions.
+- **HPL06011E**:
+   - Name: JSON_PARSE
+   - Message: Error parsing json content.
+   - Explanation: Error parsing json content.
+   - System Action: Image service fails.
+   - User Action: Check logs for details and take necessary actions.
+- **HPL16000E**:
+   - Name: PARSE_CONTRACT
+   - Message: Unable to parse the contract.
+   - Explanation: The contract file cannot be parsed.
+   - System Action: Logging fails to setup.
+   - User Action: Consult console logs for root cause.
+- **HPL16001E**:
+   - Name: LOCATE_CONTRACT
+   - Message: Unable to locate the contract file.
+   - Explanation: The contract file cannot be found.
+   - System Action: Podman play fails to setup.
+   - User Action: Consult console logs for root cause.
+- **HPL16002E**:
+   - Name: PROCESSING_FAILED
+   - Message: Unable to process k8s policy fromthe contract.
+   - Explanation: An error occurred while setting up the k8s policy json.
+   - System Action: Podman play fails to setup.
+   - User Action: Consult console logs for root cause.
+- **HPL16003I**:
+   - Name: PROCESSING_SUCCESSFUL
+   - Message: Successfully produced {COUNT, plural, =0 {no document} =1 {one document} other {# documents}}.
+   - Explanation: Podman play setup successful.
+   - System Action: Podman continues to start the pods.
+   - User Action: Relax.
+- **HPL01000E**:
+   - Name: PARSE_CONTRACT
+   - Message: Unable to parse the contract.
+   - Explanation: The contract file cannot be parsed.
+   - System Action: Logging fails to setup.
+   - User Action: Consult console logs for root cause.
+- **HPL01001E**:
+   - Name: VALIDATE_CONTRACT
+   - Message: Unable to validate the contract semantically.
+   - Explanation: The contract file does not follow the required schema.
+   - System Action: Logging fails to setup.
+   - User Action: Adjust the contract according to the schema.
+- **HPL01002W**:
+   - Name: NO_LOG_CONFIG
+   - Message: No log config, logging will be sent to local journald only.
+   - Explanation: The contract file does not contain remote logging config.
+   - System Action: Startup continues but logging has not been setup.
+   - User Action: Adjust the contract according to the schema.
+- **HPL01003E**:
+   - Name: INVALID_INGESTION_HOSTNAME
+   - Message: The ingestion hostname [{HOSTNAME}] is invalid.
+   - Explanation: The ingestion hostname needs to be of the form ^(syslog[^.]*)\.(.+)$.
+   - System Action: Startup continues but logging has not been setup.
+   - User Action: Adjust the contract according to the schema.
+- **HPL01004E**:
+   - Name: INVALID_LOGDNA_INGESTION_CONFIG
+   - Message: Validation of the logDNA config for host [{HOSTNAME}] failed with message [{MESSAGE}].
+   - Explanation: The logDNA configuration is invalid.
+   - System Action: Startup continues but logging has not been setup.
+   - User Action: Adjust the contract according to the schema.
+- **HPL01005E**:
+   - Name: MISSING_PEM_BLOCK
+   - Message: The provided PEM file does not contain a block.
+   - Explanation: The PEM data is invalid.
+   - System Action: Startup continues but logging has not been setup.
+   - User Action: Provide valid PEM data.
+- **HPL01006E**:
+   - Name: UNKNOWN_PRIVATE_KEY_TYPE
+   - Message: Unknown type of private key.
+   - Explanation: The expected type of the private key in a PEM block is unexpected.
+   - System Action: Startup continues but logging has not been setup.
+   - User Action: Provide valid PEM data.
+- **HPL01007E**:
+   - Name: MISSING_SERVER_CERTIFICATE
+   - Message: Server certificate is missing.
+   - Explanation: The server certificate does not contain a valid x509 certificate.
+   - System Action: Startup continues but logging has not been setup.
+   - User Action: Provide a valid certificate.
+- **HPL01008E**:
+   - Name: MISSING_CLIENT_CERTIFICATE
+   - Message: Client certificate is missing.
+   - Explanation: The client certificate does not contain a valid x509 certificate.
+   - System Action: Startup continues but logging has not been setup.
+   - User Action: Provide a valid certificate.
+- **HPL01009E**:
+   - Name: MISSING_PRIVATE_KEY
+   - Message: Private key is missing.
+   - Explanation: The private key for client authentication valid private key.
+   - System Action: Startup continues but logging has not been setup.
+   - User Action: Provide a valid private key.
+- **HPL01010I**:
+   - Name: LOGGING_SETUP_SUCCESSFUL
+   - Message: Logging has been setup successfully.
+   - Explanation: The logging service has completed and applied the configuration.
+   - System Action: System startup continues.
+   - User Action: Enjoy logs.
+- **HPL01011E**:
+   - Name: INVALID_SYSLOG_INGESTION_CONFIG
+   - Message: Validation of the sysLog config for host [{HOSTNAME}] failed.
+   - Explanation: The sysLog configuration is invalid.
+   - System Action: Startup continues but logging has not been setup.
+   - User Action: Adjust the contract according to the schema.
+- **HPL09000E**:
+   - Name: PARSE_CONTRACT
+   - Message: Unable to parse the contract.
+   - Explanation: The contract file cannot be parsed.
+   - System Action: Logging fails to setup.
+   - User Action: Consult console logs for root cause.
+- **HPL09001E**:
+   - Name: VALIDATE_CONTRACT
+   - Message: Unable to validate the contract semantically.
+   - Explanation: The contract file does not follow the required schema.
+   - System Action: Logging fails to setup.
+   - User Action: Adjust the contract according to the schema.
+- **HPL12000E**:
+   - Name: PARSE_CONTRACT
+   - Message: Unable to parse the contract.
+   - Explanation: The contract file cannot be parsed.
+   - System Action: Contract Signature Validation failed.
+   - User Action: Check logs and correct the contract file.
+- **HPL12001E**:
+   - Name: VALIDATE_CONTRACT_SIGNATURE
+   - Message: Unable to validate the contract signature semantically.
+   - Explanation: The contract file envWorkload signature verification failed with given signingKey.
+   - System Action: Contract Signature Validation failed.
+   - User Action: Adjust the contract according to the schema.
+- **HPL12002E**:
+   - Name: EXTRACT_CONTRACT_NOT_EXISTS
+   - Message: Unable to find extracted contract file.
+   - Explanation: The extracted contract file does not exists.
+   - System Action: Contract Signature Validation failed.
+   - User Action: Retry operation by providing valid contract.
+- **HPL12003E**:
+   - Name: EXTRACT_OPENSSL_ARGS_ERROR
+   - Message: Unable to extract openssl values.
+   - Explanation: Error in extracting values for signature validation.
+   - System Action: Contract Signature Validation failed.
+   - User Action: Retry operation by providing valid contract.
+- **HPL12004E**:
+   - Name: DEPENDENCY_ARGS_MISSING_ERROR
+   - Message: Unable to find dependency parameters.
+   - Explanation: Dependency parameters are missing for signature validation.
+   - System Action: Contract Signature Validation failed.
+   - User Action: Retry operation by providing valid contract.
+- **HPL12005E**
+  - Name: CONTRACT_VALID
+  - Message: The contract is valid.
+  - Explanation: The signing certificate is valid.
+  - System Action: No action.
+  - User Action: No action.
+- **HPL12006E**
+  - Name: CONTRACT_WILL_EXPIRE
+  - Message: The contract is going to expire.
+  - Explanation: The signing certificate is going to expire.
+  - System Action: No action.
+  - User Action: Renew Signing certificate present in the contract before expiry.
+- **HPL12007E**
+  - Name: CONTRACT_EXPIRED
+  - Message: The contract has expired.
+  - Explanation: The signing certificate parsed in contract has expired.
+  - System Action: The Contract has expired.
+  - User Action: Renew signing certificate present in the contract.
+- **HPL07000E**:
+   - Name: PARSE_CONTRACT
+   - Message: Unable to parse the contract.
+   - Explanation: The contract file cannot be parsed.
+   - System Action: Disk encryption fails to setup.
+   - User Action: Consult console logs for root cause.
+- **HPL07001E**:
+   - Name: VALIDATE_CONTRACT
+   - Message: Unable to validate the contract semantically.
+   - Explanation: The contract file does not follow the required schema.
+   - System Action: Disk encryption fails to setup.
+   - User Action: Adjust the contract according to the schema.
+- **HPL07002E**:
+   - Name: MOUNT_MUST_BE_DIRECTORY
+   - Message: The mount point [{mount}] must be a folder.
+   - Explanation: Mount points must be folders.
+   - System Action: Disk encryption fails to setup.
+   - User Action: Adjust the contract according to the schema.
+- **HPL07003I**:
+   - Name: MOUNTING_VOLUMES_DONE
+   - Message: Mounting volumes done
+   - Explanation: Disks have been mounted successfully.
+   - System Action: System startup continues.
+   - User Action: Enjoy your product.
+- **HPL07003E**:
+   - Name: CREATING_PARTITIONS_FAILED
+   - Message: Creating second partition on [{volume}] failed
+   - Explanation: There are some issues while creating partitions
+   - System Action: Disk encryption fails to setup. System startup continues.
+   - User Action: Please look into the logs
+- **HPL07004E**:
+   - Name: RESIZE_PARTITION_FAILED
+   - Message: Resize of partition on [{volume}] failed
+   - Explanation: There are some issues while resizing partition
+   - System Action: Disk encryption fails to setup. System startup continues.
+   - User Action: Please look into the logs
+- **HPL07005E**:
+   - Name: TWO_PARTITIONS_NOT_AVAILABLE
+   - Message: Two paritions are not available on [{volume}]
+   - Explanation: Second partition not available
+   - System Action: Disk encryption fails to setup. System startup continues.
+   - User Action: Please look into the logs
+- **HPL07006E**:
+   - Name: UNSUPPORTED_NUMBER_OF_PARTITIONS
+   - Message: Volume [{volume}] has {count, plural, =0 {no partition} =1 {one partition} other {# partitions}}. This is an unsupported scenario.
+   - Explanation: Unsupported number of partitions
+   - System Action: Disk encryption fails to setup. System startup continues.
+   - User Action: Please look into the logs
+- **HPL07007E**:
+   - Name: WRITE_TO_META_PARTITION_ERROR
+   - Message: Write to meta partition results in error
+   - Explanation: Issues while creating config files in meta partition
+   - System Action: Disk encryption fails to setup. System startup continues.
+   - User Action: Please look into the logs
+- **HPL07008E**:
+   - Name: MOUNT_META_PARTITION_FAILED
+   - Message: Mounting meta partition on [{volume}] failed
+   - Explanation: There are some issues while mounting meta partition
+   - System Action: Disk encryption fails to setup. System startup continues.
+   - User Action: Please look into the logs
+- **HPL07009E**:
+   - Name: REMOUNT_META_PARTITION_FAILED
+   - Message: Re-mounting meta partition on [{volume}] failed
+   - Explanation: There are some issues while remounting meta partition
+   - System Action: Disk encryption fails to setup. System startup continues.
+   - User Action: Please look into the logs
+- **HPL07010E**:
+   - Name: HPCS_CONNECTION_FAILED
+   - Message: KMS connection failed
+   - Explanation: There are some issues while connecting to KMS
+   - System Action: Disk encryption fails to setup. System startup continues.
+   - User Action: Please look into the logs
+- **HPL07011E**:
+   - Name: WRAP_KEY_FAILED
+   - Message: Wrap key from KMS instance returned empty
+   - Explanation: There are issues while wrapping the key
+   - System Action: Disk encryption fails to setup. System startup continues.
+   - User Action: Please look into the logs
+- **HPL07012E**:
+   - Name: UNWRAP_KEY_FAILED
+   - Message: Unwrap key operation failed
+   - Explanation: There are issues while unwrapping the rotated key
+   - System Action: Disk encryption fails to setup. System startup continues.
+   - User Action: Please look into the logs
+- **HPL07013E**:
+   - Name: LUKSKEY_GENRN_ERROR
+   - Message: Generating LUKS key from env seed, workload seed and KMS generated seed failed
+   - Explanation: There are issues while generating the new luks key
+   - System Action: Disk encryption fails to setup. System startup continues.
+   - User Action: Please look into the logs
+- **HPL07004I**:
+   - Name: ENCRYPTION_SUCCESSFUL_USING_BYOK
+   - Message: Successfully encrypted the disk using BYOK
+   - Explanation: Disks have been encrypted successfully.
+   - System Action: System startup continues.
+   - User Action: Enjoy your product.
+- **HPL07005I**:
+   - Name: ENCRYPTION_SUCCESSFUL
+   - Message: Successfully encrypted the disk
+   - Explanation: Disks have been encrypted successfully.
+   - System Action: System startup continues.
+   - User Action: Enjoy your product.
+- **HPL07014E**:
+   - Name: REPLACE_SEED_FAILED
+   - Message: Unable to replace seed.
+   - Explanation: Unable to replace seed
+   - System Action: Volume mount service has been failed. Unable to remove seed from contract.
+   - User Action: Retry operation by providing valid contract.
+- **HPL07015E**:
+   - Name: VOLUMES_NAMING_INVALID
+   - Message: Volumes naming in contract is invalid.
+   - Explanation: Volume names in env and workload sections of contract are not matching.
+   - System Action: Volume mount service has been failed. Volume names in env and workload sections of contract are not matching.
+   - User Action: Retry operation by providing valid contract.
