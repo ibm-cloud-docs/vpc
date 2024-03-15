@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-03-14"
+lastupdated: "2024-03-13"
 
 keywords:
 
@@ -45,6 +45,8 @@ IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1
 
 Updated `workload` section for Hyper Protect Secure Build
 :   The `workload` section for Hyper Protect Secure Build is updated based on the IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-15`. For more information, see [Configuring and using Hyper Protect Secure Build in {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-about-hpsb#hpvs_hpsb).
+
+**Note:** From April 15, only the latest IBM Hyper Protect Container Runtime image will be available on IBM Cloud GUI. For more information, see [Downloading the encryption certificate and extracting the public key](/docs/vpc?topic=vpc-about-contract_se#encrypt_downloadcert)
 {: note}
 
 ### 12 March 2024
