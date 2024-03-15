@@ -53,13 +53,6 @@ Updated `workload` section for Hyper Protect Secure Build
 {: #vpc-mar1224}
 {: release-note}
 
-GPU l4 and l40S profiles now available in US South region
-:   The `l4` and `l40S` GPU profiles are now available US South (Dallas) region. For the `l4` profiles, these regions are in addition to US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Spain (Madrid), Australia (Sydney), and Japan (Tokyo) regions. For the `l40S` profiles, this region is in addition to US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Spain (Madrid), Australia (Sydney), and Japan (Tokyo) regions. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
-
-### 12 March 2024
-{: #vpc-mar1224}
-{: release-note}
-
 Virtual Network Interfaces for VPC
 :   A new feature is generally available in the Virtual Private Cloud (VPC) service that expands the support for [virtual network interfaces](/docs/vpc?topic=vpc-vni-about). The following features are available.
    - Virtual network interfaces have an independent lifecycle, which means that when you delete a resource to which the virtual network interface is attached, the virtual network interface persists and retains its IP address.
@@ -71,6 +64,9 @@ Virtual Network Interfaces for VPC
 
    You can choose to defer access to this feature through [IBM Support](/unifiedsupport/supportcenter). Users in an account that has deferred access will not be able to create instances or bare metal servers with virtual network interfaces. If you need more time to assess, remediate, and test changes for virtual network interfaces, request deferral for your production accounts while you complete the mitigations using your test accounts.
    {: note}
+
+GPU l4 and l40S profiles now available in US South region
+:   The `l4` and `l40S` GPU profiles are now available US South (Dallas) region. For the `l4` profiles, these regions are in addition to US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Spain (Madrid), Australia (Sydney), and Japan (Tokyo) regions. For the `l40S` profiles, this region is in addition to US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Spain (Madrid), Australia (Sydney), and Japan (Tokyo) regions. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 ### 11 March 2024
 {: #vpc-mar1124}
