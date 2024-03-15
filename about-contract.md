@@ -812,7 +812,7 @@ Contract signature is an optional feature that can be used with the contract. Yo
 The purpose of this signature feature is to ensure that the `workload` and `env` sections are always used together and are not tampered with by a third party. This feature also supports setting expiry for contract. That is, If the instance is booted after the signature has expired, the boot process will fail. The signature of the `workload` and the `env` sections are added as the value to the `envWorkloadSignature` section.
 The following are two sections in a contract that are relevant while creating and adding a contract signature:
 * `envWorkloadSignature`: This is section where the signature of the other sections of the contract is added. This section is not required for a contract that is not signed.
-* `signingKey`: This is a subsection that must be added to the `env` section of the contract. This holds the value to the user-generated public key, whose corresponding private key was used to create the contract signature. Certificate can also be parsed as base64 string.
+* `signingKey`: This is a subsection that must be added to the `env` section of the contract. This holds the value to the user-generated public key, whose corresponding private key was used to create the contract signature. Public key or certificate can also be parsed as base64 string.
 
 Complete the following steps on an Ubuntu system, to create the contract signature:
 1. Use the following command to generate key pair to sign the contract (note that "test1234" is the passphrase to generate keys, you can use your own):
@@ -835,6 +835,7 @@ Complete the following steps on an Ubuntu system, to create the contract signatu
     echo $key
     ```
     {: pre}
+
 4. Optionally, if you want to enable contract expiry, follow the steps mentioned below:
   i. Use the following command to generate a certificate request:
       ```
@@ -865,6 +866,7 @@ Complete the following steps on an Ubuntu system, to create the contract signatu
       echo $certificate
       ```
       {: pre}
+
 5. Create the `env.yaml` file. The following is an example:
   i. If `signingkey` is a public key:
       ```yaml
@@ -912,20 +914,7 @@ Complete the following steps on an Ubuntu system, to create the contract signatu
     ```
     {: codeblock}
 
-
-  
-
-
-    
-
-
-
-
-
-
-
-
-Create the `env.yaml` file. The following is an example:
+6. Create the `env.yaml` file. The following is an example:
    ```yaml
    env: |
      type: env
@@ -941,32 +930,32 @@ Create the `env.yaml` file. The following is an example:
    ```
    {: codeblock}
 
-4. Use the following command to export complete path of `env.yaml` and `ibm-hyper-protect-container-runtime-1-0-s390x-15-encrypt.crt`:
+7. Use the following command to export complete path of `env.yaml` and `ibm-hyper-protect-container-runtime-1-0-s390x-15-encrypt.crt`:
    ```sh
    ENV="<PATH to env.yaml>"
    CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-15-encrypt.crt>"
    ```
    {: pre}
 
-5. Use the following command to create a random password:
+8. Use the following command to create a random password:
    ```sh
    PASSWORD="$(openssl rand 32 | base64 -w0)"
    ```
    {: pre}
 
-6. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-15-encrypt.crt.`:
+9. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-15-encrypt.crt.`:
    ```yaml
    ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY  -certin | base64 -w0)"
    ```
    {: pre}
 
-7. Use the following command to encrypt `env.yaml` with a random password:
+10. Use the following command to encrypt `env.yaml` with a random password:
    ```sh
    ENCRYPTED_ENV="$(echo -n "$PASSWORD" | base64 -d | openssl enc -aes-256-cbc -pbkdf2 -pass stdin -in "$ENV" | base64 -w0)"
    ```
    {: pre}
 
-8. Use the following command to extract the encrypted `env` section:
+11. Use the following command to extract the encrypted `env` section:
    ```sh
    echo "hyper-protect-basic.${ENCRYPTED_PASSWORD}.${ENCRYPTED_ENV}"
    ```
@@ -974,6 +963,14 @@ Create the `env.yaml` file. The following is an example:
 
 Steps 4 - 8 are used to encrypt the `env` section. If you choose to not encrypt this section, skip these steps.
 {: note}
+
+A notification about the expiry of the contract will be sent to your logging service. 
+Timelines for the notification are as follows:
+- On the first of every month
+- Everyday for 30 days before the expiry
+- Once in every 4 hours if the contract is about to expire in 7 days
+- Each and every hour if the contract has already expired or is about to expire in a day
+
 
 ## Preparing the signature
 {: #hpcr_signature_prepare}
