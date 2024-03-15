@@ -156,7 +156,7 @@ tmpfs              800872       0     800872   0% /run/user/0
 {: faq}
 {: #faq-block-storage-7}
 
-You can create up to 300 total {{site.data.keyword.block_storage_is_short}} volumes (data and boot) per account in a region. To increase this [quota](/docs/vpc?topic=vpc-quotas#block-storage-quotas), open a [support case](/docs/vpc?topic=vpc-help-and-support-vpc) and specify the zone where you need more volumes.
+You can create up to 300 total {{site.data.keyword.block_storage_is_short}} volumes (data and boot) per account in a region. To increase this [quota](/docs/vpc?topic=vpc-quotas#block-storage-quotas), open a [support case](/docs/vpc?topic=vpc-getting-help-and-support-for-vpc) and specify the zone where you need more volumes.
 
 ### After a data volume is created with a specific capacity, can the capacity later be increased?
 {: faq}

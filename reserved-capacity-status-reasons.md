@@ -31,6 +31,6 @@ See the following information to understand the health state of your reservation
 | `unallocated` | Capacity in the reservation isn't allocated and isn't available to use. |
 {: caption="Table 1. Reservation capacity status" caption-side="top"}
 
-If you need more help, contact [support](/docs/vpc?topic=vpc-help-and-support-vpc).
+If you need more help, contact [support](/docs/vpc?topic=vpc-getting-help-and-support-for-vpc).
 
 For more information about managing reserved capacity, see [Managing reserved capacity for VPC](/docs/vpc?topic=vpc-managing-reserved-capacity-vpc).
