@@ -30,8 +30,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## March 2024
 {: #vpc-mar24}
 
-### 13 March 2024
-{: #vpc-mar1324}
+### 12 March 2024
+{: #vpc-mar1224}
 {: release-note}
 
 GPU l4 and l40S profiles now available in US South region
