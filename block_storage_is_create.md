@@ -91,7 +91,7 @@ You can create a {{site.data.keyword.block_storage_is_short}} volume independent
    | Access management tags | Specify [access management tags](/docs/vpc?topic=vpc-block-storage-about&interface=ui#storage-about-mgt-tags) that were created in IAM to help you manage access to your volumes. |
    | **Optional configurations** | In the Optional configuration section, you can specify whether you want to create the volume with data from a snapshot. Also, you can choose to apply a backup policy. |
    | Import from snapshot | Click **Select snapshot** to create the volume with data from the selected snapshot. You can create data volumes with Nonbootable snapshots, and boot volumes with Bootable snapshots. For more information, see [Create a stand-alone {{site.data.keyword.block_storage_is_short}} volume from a snapshot](#create-vol-from-snapshot-ui). |
-   | Apply backup policy | |
+   | Apply backup policy | Click **Apply** to open the side panel. Select a policy from the drop-down list. After the selection is made, the details of the backup policy is displayed. Then, select at least one of the policy's tags to apply to the target volume. |
    | **Profile** | In the Profile section, you can specify the performance profile of your volume, its IOPS, and capacity. |
    | | For [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers), select the tile with the performance level that you require and specify the volume size in GBs. Volume sizes can be 10 - 16,000 GB. |
    | | For [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) IOPS, specify the size of your volume and IOPS range based on the size of the volume. As you type the IOPS value, the UI shows the acceptable range. You can also click the **storage size** link to see a table of size and IOPS ranges. For more information, see [Custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#custom). |
@@ -285,7 +285,7 @@ You can use the `instance-volume-attachment-add` command to create a volume and 
 
 ```sh
 ibmcloud is instance-volume-attachment-add acd-vol-attach1 my-instance-acadia-1 --profile custom --new-volume-name acd-vol-2 --iops 100 --capacity 100
-Creating volume attachment acd-vol-attach1 for instance my-instance-acadia under account Test Account as user test.user@ibm.com...
+Creating volume attachment acd-vol-attach1 for instance my-instance-1 under account Test Account as user test.user@ibm.com...
                      
 ID                730f-5f63eb4d-2683-4dd6-a20a-5ab06b4061c6   
 Name              acd-vol-attach1   
@@ -305,7 +305,7 @@ For more information, see [ibmcloud is instance-volume-attachment-add](/docs/vpc
 {: #create-instance-vol-cli}
 {: cli}
 
-You can specify user tags for boot and data volumes when you create a virtual server instance. Run the `instance-create` command and specify user tags in the `user_tags` option. You can also edit the tags later or add more tags to the specified volume. For more information, see the [VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference&interface=cli#instance-create).
+You can specify user tags for boot and data volumes when you create a virtual server instance. Run the `instance-create` command and specify user tags in the `user_tags` option. You can also edit the tags later or add more tags to the specified volume. For more information, see the [VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference).
 
 In the example command,
 
@@ -698,7 +698,7 @@ resource "ibm_is_volume" "example" {
   zone           = "us-south-1"
   iops           = 1000
   capacity       = 200
-  encryption_key = "crn:v1:bluemix:public:kms:us-south:a/a1234567:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd6179"
+  encryption_key = "crn:v1:bluemix:public:kms:us-south:a/dffc98a0f1f0f95f6613b3b752286b87:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd6179"
 }
 ```
 {: codeblock}

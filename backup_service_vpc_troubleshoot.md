@@ -74,7 +74,7 @@ You receive a `backup_policies_not_found` error with the following message: _Bac
 The backup policy that you are trying to find is either deleted or never existed.
 {: tsCauses}
 
-To address this error, list the policies and see whether the backup policy ID that you're looking for is in the list. If you still need help with the error, contact [support](/docs/vpc?topic=vpc-getting-help).
+To address this error, list the policies and see whether the backup policy ID that you're looking for is in the list. If you still need help with the error, contact [support](/docs/vpc?topic=vpc-getting-help-and-support-for-vpc).
 {: tsResolve}
 
 For more information about viewing your backup policies, see [Viewing backup policies](/docs/vpc?topic=vpc-backup-view-policies).
@@ -88,7 +88,7 @@ You receive a `backup_policy_plan_not_found` error with the following message: _
 The backup policy plan that you are trying to find is either deleted or never existed.
 {: tsCauses}
 
-To address this error, list the backup policy plans and see whether the plan ID that you're looking for is in the list. If you still need help with the error, contact [support](/docs/vpc?topic=vpc-getting-help).
+To address this error, list the backup policy plans and see whether the plan ID that you're looking for is in the list. If you still need help with the error, contact [support](/docs/vpc?topic=vpc-getting-help-and-support-for-vpc).
 {: tsResolve}
 
 For more information about viewing your backup policies and plans, see [Viewing backup policies](/docs/vpc?topic=vpc-backup-view-policies).
@@ -102,7 +102,7 @@ You receive a `backup_jobs_not_found` error with the following message: _Job wit
 The job that you are trying to find is either deleted or never existed.
 {: tsCauses}
 
-To address this error, list the jobs and see whether the job ID that you're looking for is in the list. If you still need help with the error, contact [support](/docs/vpc?topic=vpc-getting-help).
+To address this error, list the jobs and see whether the job ID that you're looking for is in the list. If you still need help with the error, contact [support](/docs/vpc?topic=vpc-getting-help-and-support-for-vpc).
 {: tsResolve}
 
 For more information about viewing your backup jobs list, see [Viewing backup jobs](/docs/vpc?topic=vpc-backup-view-policy-jobs).

@@ -43,7 +43,7 @@ Use the following steps to create a backup policy by using the UI.
 
    The UI displays a notification message when service-to-service authorizations are incorrect or missing on your account.
 
-   If your account doesn't allow for the required service-to-service authorizations and user access roles to create a backup policy, [contact IBM support](/docs/vpc?topic=vpc-getting-help&interface=ui) for help.
+   If your account doesn't allow for the required service-to-service authorizations and user access roles to create a backup policy, [contact IBM support](/docs/vpc?topic=vpc-getting-help-and-support-for-vpc&interface=ui) for help.
    {: note}
 
 1. Enter information for each section of the provisioning form. Optionally create a backup plan for the policy.

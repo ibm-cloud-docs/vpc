@@ -92,6 +92,6 @@ The following example shows how to use the API to verify connectivity to a Priva
 ## Next steps
 {: #pps-next-step-after-verify}
 
-* [Publish your Private Path service](/docs/vpc?topic=vpc-pps-activating&interface=ui){: external}
-* [Communicate connection information to consumers](/docs/vpc?topic=vpc-pps-ui-communicate&interface=ui){: external}
-* [Review connection requests](/docs/vpc?topic=vpc-pps-ui-reviewing&interface=ui){: external} and [Create account policies](/docs/vpc?topic=vpc-pps-create-account-policy&interface=ui){: external}
+1. [Publish your Private Path service](/docs/vpc?topic=vpc-pps-activating&interface=ui)
+1. [Communicate connection information to consumers](/docs/vpc?topic=vpc-pps-ui-communicate&interface=ui)
+1. [Review connection requests](/docs/vpc?topic=vpc-pps-ui-reviewing&interface=ui) and [Create account policies](/docs/vpc?topic=vpc-pps-create-account-policy&interface=ui)

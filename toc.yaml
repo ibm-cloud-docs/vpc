@@ -420,7 +420,6 @@ toc:
                 topics:
                 - vpn-using.md
                 - vpn-create.md
-                - vpn-upgrade-ciphers.md
                 - vpn-add-connection.md
                 - vpn-create-ike-policy.md
                 - vpn-create-ipsec-policy.md
@@ -486,8 +485,8 @@ toc:
                 - lb-ig-integration.md
                 - lb-sg-integration.md
                 - lb-private-dns-integration.md
-                - lb-datapath-logging.md
                 - lb-api.md
+                - lb-datapath-logging.md
                 - lb-limitations.md
             - topicgroup:
                 label: Network Load Balancer for VPC
@@ -495,18 +494,19 @@ toc:
                 - nlb-about.md
                 - nlb-create.md
                 - nlb-vnf-create.md
+                - ppnlb-create.md
                 - nlb-update.md
                 - nlb-delete.md
                 - nlb-health-checks.md
                 - nlb-listeners.md
-                - nlb-ig-integration.md
-                - nlb-sg-integration.md
-                - nlb-udp.md
                 - nlb-port-range.md
                 - nlb-pools.md
                 - nlb-private-dns-integration.md
-                - nlb-privatelb.md
+                - nlb-ig-integration.md
+                - nlb-sg-integration.md
+                - nlb-udp.md
                 - nlb-monitoring-metrics.md
+                - nlb-privatelb.md
                 - nlb-limitations.md
         - topicgroup:
             label: Flow logs
@@ -824,11 +824,18 @@ toc:
                 label: Troubleshooting load balancers
                 topics:
                 - lb-ts-401.md
+                - lb-ts-auth-errors.md
                 - lb-ts-maintenance-pending.md
                 - lb-ts-unknown
                 - lb-ts-faulted.md
                 - lb-ts-409.md
                 - lb-ts-backend-members.md
+            - topicgroup:
+                label: Troubleshooting Private Path services
+                topics:
+                - ts-pps1.md
+                - ts-pps2.md
+                - ts-pps3.md
             - topicgroup:
                 label: Troubleshooting site-to-site VPN gateways
                 topics:

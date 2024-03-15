@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2018, 2021
-lastupdated: "2022-07-01"
+  years: 2018, 2024
+lastupdated: "2024-03-12"
 
-keywords:  
+keywords:
 
 subcollection: vpc
 
@@ -12,34 +12,63 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# {{site.data.keyword.cloud_notm}} {{site.data.keyword.nlb_full}} limitations
+# Network load balancer limitations
 {: #nlb-limitations}
 
-Known limitations for {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) are as follows:
+The following lists contain known limitations for {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) and {{site.data.keyword.cloud}} Private Path Network Load Balancer.
+{: shortdesc}
 
-* The NLB requires the member and port combination to be unique. In other words:
-   * A member with instance X and port Y cannot be added to a pool of NLB A, if a member with instance X and port Y exists in a pool of NLB B.
-* An NLB member VSI’s port can only be used for NLB traffic.
+## Known limitations for {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB)
+{: #limitations-network-load-balancers}
+
+* The NLB requires the member and port combination to be unique.
+* An NLB member virtual server instance’s port can be used for only NLB traffic.
 * There is a one-to-one mapping between listener and pool.
 * The NLB uses the primary network interfaces of its associated members for data traffic. Non-primary network interfaces are not supported.
 * To ensure service availability, use a dedicated subnet with your NLBs. Clients and members should reside in an alternate subnet.
-* Two members with the same instance X and port Y cannot exist at the same time for an NLB. In this case, your traffic will not route correctly.
+* Two members with the same instance X and port Y cannot exist at the same time for an NLB. In this case, your traffic does not route correctly.
 * For an NLB with routing mode enabled:
-   * The only supported back-end targets are VNF instances. When using APIs, the listener `port_min` and `port_max` should be set to `1` and `65535` respectively; `port` should be left empty.
+   * The only supported back-end targets are Virtual Network Function (VNF) instances. When APIs are used, the listener `port_min` and `port_max` is to be set to `1` and `65535` respectively; `port` is to be left empty.
    * Only one listener is supported.
    * The NLB and the VNF back-end targets must be in the same subnet.
 * The default load balancer quota is 50 per region. To increase the number, you must [create a support case](/docs/get-support?topic=get-support-open-case).
 * When you create a listener for a network load balancer, you can specify a `protocol` of `tcp` or `udp`. However, each listener in the network load balancer must have a unique `port`. 
-* For Private NLB, the NLB service might add rules to custom routing tables to ensure service availability for some failure conditions. As a result, if the client is outside the zone and/or VPC of the NLB, you must add an ingress custom routing table to the VPC where the NLB resides with the proper traffic source selected.
+* [Private NLB]{: tag-blue} The NLB service might add rules to custom routing tables to ensure service availability for some failure conditions. As a result, if the client is outside the zone and/or VPC of the NLB, you must add an ingress custom routing table to the VPC where the NLB resides with the proper traffic source selected.
+* [Private NLB]{: tag-blue} Depending on the location of the clients, you must ensure that ingress routing tables exist (as described in Table 1).
 
-   For Private NLB, depending on the location of the clients, you must ensure that ingress routing tables exist (as described in Table 1).
-
-| Client location | Routing table type | Traffic source |
-|----|----|----|
-| On-prem | Ingress | Direct link |
-| Another VPC or classic infrastructure | Ingress | Transit gateway |
-| Another availability zone of the same VPC | Ingress | VPC zone |
-{: caption="Table 1: Traffic sources that require ingress custom routing tables" caption-side="bottom"}
+   | Client location | Routing table type | Traffic source |
+   |----|----|----|
+   | On-prem | Ingress | Direct link |
+   | Another VPC or classic infrastructure | Ingress | Transit gateway |
+   | Another availability zone of the same VPC | Ingress | VPC zone |
+   {: caption="Table 1: Traffic sources that require ingress custom routing tables." caption-side="bottom"}
 
    For more information, see [About routing tables and routes](/docs/vpc?topic=vpc-about-custom-routes).
-   {: note}
+   {: note}  
+
+## Known limitations for {{site.data.keyword.cloud}} Private Path network load balancers
+{: #limitations-private-path-network-load-balancers}
+
+The beta release of IBM Cloud Private Path services is only available to allowlisted users. Contact your IBM Support representative if you are interested in getting early access to this beta offering.
+{: beta}
+
+* Providers may not update service endpoints once the Private Path service is created. If you want to change endpoints, you must create a new Private Path service.
+* Currently, a Virtual Private Endpoint gateway associated with a Private Path Network load balancer can specify only one regional endpoint. 
+* Access to a Virtual Private Endpoint gateway associated with Private Path Network load balancer from Direct Link or Transit Gateway is not supported.
+* Private Path network load balancer Load Balancer Members and/or Private Path network load balancer consumers on Bare Metal are not supported.
+* No support for accessing Private Path network load balancer from remote regions. The consumer Virtual Private Endpoint gateway and the Private Path network load balancer instance must reside in same region. 
+* Offloading client and server side Private Path network load balancer packet processing to NIC is not supported.
+* UDP is not supported in datapath.
+* Autoscaler integration is not supported.
+* Datapath Metadata service is not currently supported. This service will enable Private Path network load balancer members to access information about incoming connections like client VPC, client Virtual Server Instance IP, client Virtual Private Endpoint gateway IP, and more. 
+* QoS, Noisy neighbor or DDOS protection is not supported.
+* Live migration support on consumer (Virtual Private Endpoint gateway) side is not supported (Virtual Private Endpoint gateway does not support live migration today).
+* Access to Private Path network load balancers from CSE (classic) is not supported.
+* Access to a Virtual Private Endpoint gateway associated with Private Path network load balancer from on-prem via direct-link or a different VPC via transit gateway is not supported.
+* Target members not running in a GEN2 VPC Virtual Server Instance(e.g. on-prem) is not supported.
+* Security Group / Network Access Control List on the load balancer itself is not supported.
+
+### Related Links
+{: #nlb-limitations-related-links}
+
+* [Private Path service limitations](/docs/vpc?topic=vpc-ppsg-limitations)

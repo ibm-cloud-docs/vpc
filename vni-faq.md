@@ -45,4 +45,4 @@ No. When creating a virtual server instance or bare metal server, the use of vir
 {: faq}
 {: support}
 
-You can still use the older-style network interface. However, to benefit from the new style's many enhancements, you should plan to adopt the new virtual network interfaces. When planning to adopt virtual network interfaces, mitigate any risk associated with the adoption by referring to [Mitigating behavior changes to virtual network interfaces, instances, bare metal servers, and file shares](/docs/vpc?topic=vni-api-introduction).
+You can still use the older-style network interface. However, to benefit from the new style's many enhancements, you should plan to adopt the new virtual network interfaces. When planning to adopt virtual network interfaces, mitigate any risk associated with the adoption by referring to [Mitigating behavior changes to virtual network interfaces, instances, bare metal servers, and file shares](/docs/vpc?topic=vpc-vni-api-introduction).

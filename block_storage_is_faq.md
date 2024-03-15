@@ -80,7 +80,7 @@ The following table shows the same number of bytes expressed in decimal and bina
 |                 2 TB |              1.81 TiB |
 {: caption="Table 1. Decimal vs Binary units" caption-side="bottom"}
 
-The storage system uses base-2 units for volume allocation. So if your volume is provisioned as 4,000 GB, that's really 4,000 GiB or 4,294,967,296,000 bytes of storage space. The provisioned volume size is actually larger than 4 TB. However, your operating system might display the storage size as 3.9 T because it uses base-2 conversion and the T stands for TiB, not TB. 
+The storage system uses base-2 units for volume allocation. So if your volume is provisioned as 4,000 GB, that's really 4,000 GiB or 4,294,967,296,000 bytes of storage space. The provisioned volume size is actually larger than 4 TB. However, your operating system might display the storage size as 3.9 T because it uses base-2 conversion and the T stands for TiB, not TB.
 
 ### Why does the available capacity that I see in my OS not match the capacity that I provisioned?
 {: faq}
@@ -95,28 +95,28 @@ Take the volume `docs-block-test3` as an example. We specified 1200 GB during pr
 ```sh
 $ ibmcloud is volume r006-6afe1361-b592-45ab-b23b-6cca9982e371
 Getting volume r006-6afe1361-b592-45ab-b23b-6cca9982e371 under account Test Account as user test.user@ibm.com...
-                                          
-ID                                     r006-6afe1361-b592-45ab-b23b-6cca9982e371   
-Name                                   docs-block-test3   
-CRN                                    crn:v1:bluemix:public:is:us-south-2:a/1234567::volume:r006-6afe1361-b592-45ab-b23b-6cca9982e371   
-Status                                 available   
-Attachment state                       attached   
-Capacity                               1200   
-IOPS                                   3600   
-Bandwidth(Mbps)                        471   
-Profile                                general-purpose   
-Encryption key                         -   
-Encryption                             provider_managed   
-Resource group                         defaults   
-Created                                2023-08-24T02:32:40+00:00   
-Zone                                   us-south-2   
-Health State                           ok   
-Volume Attachment Instance Reference   Attachment type   Instance ID                                 Instance name        Auto delete   Attachment ID                               Attachment name      
-                                       data              0727_e99798c7-9783-4f92-8207-96af48561454   docs-demo-instance   false         0727-bc38ec2b-a566-412f-8f76-8eefe5fc9f2c   untaken-senior-coronary-accurate      
-                                          
-Active                                 true   
-Adjustable IOPS                        false   
-Busy                                   false   
+
+ID                                     r006-6afe1361-b592-45ab-b23b-6cca9982e371
+Name                                   docs-block-test3
+CRN                                    crn:v1:bluemix:public:is:us-south-2:a/1234567::volume:r006-6afe1361-b592-45ab-b23b-6cca9982e371
+Status                                 available
+Attachment state                       attached
+Capacity                               1200
+IOPS                                   3600
+Bandwidth(Mbps)                        471
+Profile                                general-purpose
+Encryption key                         -
+Encryption                             provider_managed
+Resource group                         defaults
+Created                                2023-08-24T02:32:40+00:00
+Zone                                   us-south-2
+Health State                           ok
+Volume Attachment Instance Reference   Attachment type   Instance ID                                 Instance name        Auto delete   Attachment ID                               Attachment name
+                                       data              0727_e99798c7-9783-4f92-8207-96af48561454   docs-demo-instance   false         0727-bc38ec2b-a566-412f-8f76-8eefe5fc9f2c   untaken-senior-coronary-accurate
+
+Active                                 true
+Adjustable IOPS                        false
+Busy                                   false
 Tags                                   dev:test
 ```
 {: screen}
@@ -156,7 +156,7 @@ tmpfs              800872       0     800872   0% /run/user/0
 {: faq}
 {: #faq-block-storage-7}
 
-You can create up to 300 total {{site.data.keyword.block_storage_is_short}} volumes (data and boot) per account in a region. To increase this [quota](/docs/vpc?topic=vpc-quotas#block-storage-quotas), open a [support case](/docs/vpc?topic=vpc-getting-help) and specify the zone where you need more volumes.
+You can create up to 300 total {{site.data.keyword.block_storage_is_short}} volumes (data and boot) per account in a region. To increase this [quota](/docs/vpc?topic=vpc-quotas#block-storage-quotas), open a [support case](/docs/vpc?topic=vpc-getting-help-and-support-for-vpc) and specify the zone where you need more volumes.
 
 ### After a data volume is created with a specific capacity, can the capacity later be increased?
 {: faq}
@@ -245,7 +245,7 @@ You can change the name of an existing volume in the UI. For more information, s
 {: #faq-block-storage-10}
 
 You do not have to pre-warm a volume. You can see the specified throughput immediately upon provisioning the volume when you create the volume from an image.
-You can experience degraded performance when you provision the volume by restoring a snapshot. 
+You can experience degraded performance when you provision the volume by restoring a snapshot.
 
 ### What is a {{site.data.keyword.block_storage_is_short}} snapshot?
 {: faq}

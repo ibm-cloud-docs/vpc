@@ -24,8 +24,8 @@ You can use custom Internet Key Exchange (IKE) policies to define security param
 
 To create an IKE policy using the UI, follow these steps:
 
-1. From the VPNs for VPC list page, select the **Site-to-site gateways > IKE policies** tabs. 
-1. Click **Create +** and specify the following information:   
+1. From the VPNs for VPC list page, select the **Site-to-site gateways > IKE policies** tabs.
+1. Click **Create +** and specify the following information:
    * **Name** - Enter a name for the IKE policy.
    * **Resource group** - Select the resource group for this IKE policy.
    * **Region** - Select the region for this IKE policy.
@@ -55,7 +55,7 @@ ibmcloud is ike-policy-create IKE_POLICY_NAME AUTHENTICATION_ALGORITHM DH_GROUP 
 
 Where:
 
-`md-5` and `sha-1` authentication algorithms, `2` and `5` DH groups, and the `triple_des` encryption algorithm were deprecated on 20 September 2022 and are no longer supported in the UI. If you currently use these ciphers, you must [upgrade weak cipher suites on a VPN gateway](/docs/vpc?topic=vpc-upgrading-weak-ciphers&interface=ui) before end of support is announced for use with the CLI and API.
+`md-5` and `sha-1` authentication algorithms, `2` and `5` DH groups, and the `triple_des` encryption algorithm were deprecated on 20 September 2022 and are no longer supported in the UI.
 {: deprecated}
 
 - **IKE_POLICY_NAME** - Name of the IKE policy.
@@ -113,7 +113,7 @@ To create an IKE policy using the API, follow these steps:
          }'
    ```
    {: codeblock}
-   
+
 ## Creating an IKE policy by using Terraform
 {: #vpn-using-terraform-create-ike-policy}
 {: terraform}
@@ -137,5 +137,5 @@ See the [Terraform registry](https://registry.terraform.io/providers/IBM-Cloud/i
 {: #vpn-ike-policy-next-steps}
 
 * [Create an IPsec policy](/docs/vpc?topic=vpc-creating-ipsec-policy) if you decide to use custom IPsec policy instead of auto-negotiation.
-* Create a VPN connection if you have not already done so when creating your VPN gateway. If you did not create a VPN connection, you can do so after the VPN gateway is provisioned. For more information, see [Adding connections to a VPN gateway](/docs/vpc?topic=vpc-vpn-adding-connections).  
+* Create a VPN connection if you have not already done so when creating your VPN gateway. If you did not create a VPN connection, you can do so after the VPN gateway is provisioned. For more information, see [Adding connections to a VPN gateway](/docs/vpc?topic=vpc-vpn-adding-connections).
 * For a route-based VPN, select or [create a routing table](/docs/vpc?topic=vpc-create-vpc-routing-table). Then, [create a route using the VPN connection type](/docs/vpc?topic=vpc-create-vpc-route).

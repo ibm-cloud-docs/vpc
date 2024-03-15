@@ -45,7 +45,7 @@ The features of VPE for VPC include:
 For supported {{site.data.keyword.cloud_notm}} services, see [VPE supported services](/docs/vpc?topic=vpc-vpe-supported-services).
 
 ## VPE connectivity patterns
-{: #vpe-connectivity patterns}
+{: #vpe-connectivity-patterns}
 
 VPE for VPC IP addresses use a multi-zone-region, logical endpoint gateway to connect to a service endpoint on the {{site.data.keyword.cloud_notm}} private backbone. The endpoint gateway is designed to support the best practice of binding a single IP from each zone of the VPC. You can create an endpoint gateway with  zero IP addresses and bind IPs as each zone is brought online.
 
@@ -86,4 +86,3 @@ These links provide additional information about {{site.data.keyword.cloud}} VPE
 * [VPE for VPC infrastructure resources for Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_virtual_endpoint_gateway){: external} (VPC infrastructure > Resources)
 * [Troubleshooting VPE gateways](/docs/vpc?topic=vpc-troubleshoot-create-reserved-ip)
 * [VPE Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-vpe)
-

@@ -116,7 +116,7 @@ To view the details of a routing table with the API, follow these steps:
    {: codeblock}
 
 ## Viewing details of a routing table with Terraform
-{: #cr-view details-terraform}
+{: #cr-view-details-terraform}
 {: terraform}
 
 To view details of all or a specific routing table with Terraform, follow these steps:

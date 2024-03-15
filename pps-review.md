@@ -222,5 +222,5 @@ If `set_account_policy` is set to `true`:
 ## Related links
 {: #related-links-review-requests}
 
-* [About account policies](/docs/vpc?topic=vpc-pps-about-account-policies){: external}
-* [Create an account policy](/docs/vpc?topic=vpc-pps-create-account-policy){: external}
+* [About account policies](/docs/vpc?topic=vpc-pps-about-account-policies)
+* [Create an account policy](/docs/vpc?topic=vpc-pps-create-account-policy)

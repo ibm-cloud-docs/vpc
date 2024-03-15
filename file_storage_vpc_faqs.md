@@ -49,7 +49,7 @@ No, file shares can be mounted only on supported on Linux operating systems or a
 {: faq}
 {: #faq-fs-7}
 
-For more information about who to contact, see [Getting help and support](/docs/vpc?topic=vpc-getting-help). Provide as much information as you can, including error messages, screen captures, and API error codes and responses. Include any messages from the VPC and the file storage service.
+For more information about who to contact, see [Getting help and support](/docs/vpc?topic=vpc-getting-help-and-support-for-vpc). Provide as much information as you can, including error messages, screen captures, and API error codes and responses. Include any messages from the VPC and the file storage service.
 
 ### How am I charged for usage?
 {: faq}
@@ -199,7 +199,7 @@ Yes. You can specify the security group access control mode to restrict mounting
 
 By default, your file share data is protected at rest with IBM-managed encryption. You can also bring your own keys to the {{site.data.keyword.cloud}} and use them to encrypt your file shares. For more information, see [Creating file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption). By using the API, you can link a primary account that holds a root key to a secondary account, then use that key to encrypt new file shares in the secondary account. For more information, see [Cross-account encryption for multitenant storage resources](/docs/vpc?topic=vpc-getting-started).
 
-### Is my data protected during transit? 
+### Is my data protected during transit?
 {: faq}
 {: #faq-fs-sec-4}
 

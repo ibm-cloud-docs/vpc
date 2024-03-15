@@ -665,7 +665,7 @@ Client-to-site VPN server private certificate support
 {: release-note}
 
 Client-server timeout for application load balancers
-:    You can now configure the client and server timeout parameters for IBM Cloud Application Load Balancer for VPC by using the UI, CLI, and API. The maximum timeout period for each listener is 2 hours, and the minimum is 50 seconds. If you need a timeout amount greater than 2 hours, open a [support case](/docs/vpc?topic=vpc-getting-help) with IBM Support. For more information about setting the client and server timeout period, refer to [Creating an application load balancer](/docs/vpc?topic=vpc-load-balancers&interface=ui). This functionality is only available for application load balancers.
+:    You can now configure the client and server timeout parameters for IBM Cloud Application Load Balancer for VPC by using the UI, CLI, and API. The maximum timeout period for each listener is 2 hours, and the minimum is 50 seconds. If you need a timeout amount greater than 2 hours, open a [support case](/docs/vpc?topic=vpc-getting-help-and-support-for-vpc) with IBM Support. For more information about setting the client and server timeout period, refer to [Creating an application load balancer](/docs/vpc?topic=vpc-load-balancers&interface=ui). This functionality is only available for application load balancers.
 
 ## February 2023
 {: #vpc-feb23}
