@@ -53,6 +53,13 @@ Updated `workload` section for Hyper Protect Secure Build
 {: #vpc-mar1224}
 {: release-note}
 
+GPU l4 and l40S profiles now available in US South region
+:   The `l4` and `l40S` GPU profiles are now available US South (Dallas) region. For the `l4` profiles, these regions are in addition to US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Spain (Madrid), Australia (Sydney), and Japan (Tokyo) regions. For the `l40S` profiles, this region is in addition to US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Spain (Madrid), Australia (Sydney), and Japan (Tokyo) regions. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+
+### 12 March 2024
+{: #vpc-mar1224}
+{: release-note}
+
 Virtual Network Interfaces for VPC
 :   A new feature is generally available in the Virtual Private Cloud (VPC) service that expands the support for [virtual network interfaces](/docs/vpc?topic=vpc-vni-about). The following features are available.
    - Virtual network interfaces have an independent lifecycle, which means that when you delete a resource to which the virtual network interface is attached, the virtual network interface persists and retains its IP address.
@@ -697,7 +704,7 @@ Client-to-site VPN server private certificate support
 {: release-note}
 
 Client-server timeout for application load balancers
-:    You can now configure the client and server timeout parameters for IBM Cloud Application Load Balancer for VPC by using the UI, CLI, and API. The maximum timeout period for each listener is 2 hours, and the minimum is 50 seconds. If you need a timeout amount greater than 2 hours, open a [support case](/docs/vpc?topic=vpc-getting-help) with IBM Support. For more information about setting the client and server timeout period, refer to [Creating an application load balancer](/docs/vpc?topic=vpc-load-balancers&interface=ui). This functionality is only available for application load balancers.
+:    You can now configure the client and server timeout parameters for IBM Cloud Application Load Balancer for VPC by using the UI, CLI, and API. The maximum timeout period for each listener is 2 hours, and the minimum is 50 seconds. If you need a timeout amount greater than 2 hours, open a [support case](/docs/vpc?topic=vpc-getting-help-and-support-for-vpc) with IBM Support. For more information about setting the client and server timeout period, refer to [Creating an application load balancer](/docs/vpc?topic=vpc-load-balancers&interface=ui). This functionality is only available for application load balancers.
 
 ## February 2023
 {: #vpc-feb23}

@@ -118,7 +118,7 @@ mount /dev/vdb1 /myvolumedir
 {: pre}
 
 ## Step 7 - Accessing the new file system
-{: #linux-procedure-use-file system}
+{: #linux-procedure-use-file-system}
 
 To see your new file system, run the following command.
 

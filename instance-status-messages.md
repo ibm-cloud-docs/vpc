@@ -28,7 +28,7 @@ Your virtual server instance didn't start because of an unexpected error. To add
 * Stop and restart the instance.
 * Delete the instance and try again.
 
-If you still need help with the error, contact [support](/docs/vpc?topic=vpc-help-and-support-vpc).
+If you still need help with the error, contact [support](/docs/vpc?topic=vpc-getting-help-and-support-for-vpc).
 
 For more information about managing your instance, see [Managing virtual server instances](/docs/vpc?topic=vpc-managing-virtual-server-instances).
 
@@ -44,7 +44,7 @@ Your virtual server instance didn't start because the instance doesn't have enou
 * Provision a smaller instance profile that requires fewer resources.
 * Delete the instance and try again.
 
-If you still need help with the error, contact [support](/docs/vpc?topic=vpc-help-and-support-vpc).
+If you still need help with the error, contact [support](/docs/vpc?topic=vpc-getting-help-and-support-for-vpc).
 
 For more information about managing your instance, see [Managing virtual server instances](/docs/vpc?topic=vpc-managing-virtual-server-instances).
 
@@ -60,7 +60,7 @@ Your virtual server instance didn't start because the instance doesn't have enou
 * Delete the failed instance and create an instance in another availability zone.
 * Remove the instance from the placement group and restart the instance.
 
-If you still need help with the error, contact [support](/docs/vpc?topic=vpc-help-and-support-vpc).
+If you still need help with the error, contact [support](/docs/vpc?topic=vpc-getting-help-and-support-for-vpc).
 
 For more information about managing your virtual server instance and placement groups, see the following topics:
 * [Managing virtual server instances](/docs/vpc?topic=vpc-managing-virtual-server-instances)
@@ -76,7 +76,7 @@ Your virtual server instance did not start because of an unexpected failure. To 
 * Stop and restart the instance.
 * Delete the instance and try again.
 
-If you still need help with the error, contact [support](/docs/vpc?topic=vpc-help-and-support-vpc).
+If you still need help with the error, contact [support](/docs/vpc?topic=vpc-getting-help-and-support-for-vpc).
 
 For more information, see [Managing virtual server instances](/docs/vpc?topic=vpc-managing-virtual-server-instances)
 
@@ -90,7 +90,7 @@ Your virtual server instance did not start because of a network resource failure
 * Stop and restart the instance.
 * Delete the instance and try again.
 
-If you still need help with the error, contact [support](/docs/vpc?topic=vpc-help-and-support-vpc).
+If you still need help with the error, contact [support](/docs/vpc?topic=vpc-getting-help-and-support-for-vpc).
 
 For more information about managing network interfaces, see [Managing network interfaces](/docs/vpc?topic=vpc-using-instance-vnics)
 
@@ -104,7 +104,7 @@ Your virtual server instance did not start because of an unexpected network inte
 * Stop and restart the instance.
 * Delete the instance and try again.
 
-If you still need help with the error, contact [support](/docs/vpc?topic=vpc-help-and-support-vpc).
+If you still need help with the error, contact [support](/docs/vpc?topic=vpc-getting-help-and-support-for-vpc).
 
 For more information about managing your instance and IP addresses, see the following topics:
 * [Managing virtual server instances](/docs/vpc?topic=vpc-managing-virtual-server-instances)
@@ -121,7 +121,7 @@ Your virtual server instance did not start because of a storage volume or storag
 * Delete the instance and try again.
 * Check your storage resources and try again.
 
-If you still need help with the error, contact [support](/docs/vpc?topic=vpc-help-and-support-vpc).
+If you still need help with the error, contact [support](/docs/vpc?topic=vpc-getting-help-and-support-for-vpc).
 
 For more information about storage, see the following topics:
 * [About file storage](/docs/vpc?topic=vpc-file-storage-vpc-about)
@@ -136,7 +136,7 @@ The virtual server instance is unusable because the encryption key for the boot 
 
 To resolve this error, restore the encryption key and try again. For more information about restoring your encryption key, see [Restoring keys](/docs/key-protect?topic=key-protect-restore-keys&interface=ui).
 
-If you still need help with the error, contact [support](/docs/vpc?topic=vpc-help-and-support-vpc).
+If you still need help with the error, contact [support](/docs/vpc?topic=vpc-getting-help-and-support-for-vpc).
 
 ## Error: `stopped_for_image_creation`
 {: #stopped-for-image-creation}
@@ -147,7 +147,7 @@ The virtual server instance can't start instance because the image is being crea
 
 To resolve this error, try to start the instance again after the image creation process is complete.
 
-If you still need help with the error, contact [support](/docs/vpc?topic=vpc-help-and-support-vpc).
+If you still need help with the error, contact [support](/docs/vpc?topic=vpc-getting-help-and-support-for-vpc).
 
 For more information about creating images, see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers) or [Creating virtual server instances by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli).
 
@@ -163,6 +163,6 @@ To address this error, try the follow possible resolutions:
 Stop and restart the instance.
 Delete the instance and try again.
 
-If you still need help with the error, contact [support](/docs/vpc?topic=vpc-help-and-support-vpc).
+If you still need help with the error, contact [support](/docs/vpc?topic=vpc-getting-help-and-support-for-vpc).
 
 For morre information about unexpected host failures, see [Host Failure Recovery Policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=ui).

@@ -51,7 +51,7 @@ Use Figure 1 to help you (the User) choose the right load balancer for your requ
 The beta release of IBM Cloud Private Path services is only available to allowlisted users. Contact your IBM Support representative if you are interested in getting early access to this beta offering.
 {: beta}
 
-Private Path NLBs are required when you use [Private Path services](/docs/vpc?topic=vpc-using-private-path-services) to keep network traffic on a private path that never intersects with the public internet. For more information, see the [Private Path solutions guide](/docs/private-path).
+Private Path NLBs are required when you use [Private Path services](/docs/vpc?topic=vpc-private-path-service-intro) to keep network traffic on a private path that never intersects with the public internet. For more information, see the [Private Path solutions guide](/docs/private-path).
 
 Private Path services will only work with Private Path NLBs.
 {: important}

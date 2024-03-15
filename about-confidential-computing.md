@@ -113,7 +113,7 @@ After you finish planning and have the contract ready, you can create a {{site.d
 - [Creating an instance by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui). On the [provisioning page](https://cloud.ibm.com/vpc-ext/provision/vs?architecture=s390x&secureExecution=true){: external}, make sure that you select **IBM Z, LinuxONE** for **Architecture**, and turn on the **Run your workload with an OS and a profile protected by Secure Execution** toggle under **Confidential computing**.
 - [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli)
 
-See the [troubleshooting documentation](/docs/vpc?topic=vpc-hyper-protect-virtual-server-shutdown) or [get support](/docs/vpc?topic=vpc-help-and-support-vpc&interface=cli) if you have any problems with the instance.
+See the [troubleshooting documentation](/docs/vpc?topic=vpc-hyper-protect-virtual-server-shutdown) or [get support](/docs/vpc?topic=vpc-getting-help-and-support-for-vpc&interface=cli) if you have any problems with the instance.
 
 You can use [Terraform](/docs/vpc?topic=vpc-terraform-for-hyper-protect-virtual-servers-for-vpc) to automate operations with {{site.data.keyword.hpvs}} for VPC.
 

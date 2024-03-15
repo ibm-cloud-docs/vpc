@@ -49,7 +49,7 @@ No, file shares can be mounted only on supported on Linux operating systems or a
 {: faq}
 {: #faq-fs-7}
 
-For more information about who to contact, see [Getting help and support](/docs/vpc?topic=vpc-help-and-support-vpc). Provide as much information as you can, including error messages, screen captures, and API error codes and responses. Include any messages from the VPC and the file storage service.
+For more information about who to contact, see [Getting help and support](/docs/vpc?topic=vpc-getting-help-and-support-for-vpc). Provide as much information as you can, including error messages, screen captures, and API error codes and responses. Include any messages from the VPC and the file storage service.
 
 ### How am I charged for usage?
 {: faq}

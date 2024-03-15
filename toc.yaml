@@ -420,7 +420,6 @@ toc:
                 topics:
                 - vpn-using.md
                 - vpn-create.md
-                - vpn-upgrade-ciphers.md
                 - vpn-add-connection.md
                 - vpn-create-ike-policy.md
                 - vpn-create-ipsec-policy.md

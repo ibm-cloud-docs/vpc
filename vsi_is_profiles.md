@@ -2,7 +2,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-03-12"
+lastupdated: "2024-03-15"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, very high memory, gpu, sap, olap, oltp, nvidia, cascade lake
 
@@ -306,8 +306,8 @@ See [Download drivers](https://www.nvidia.com/Download/index.aspx?lang=en-us) to
 [Select availability]{: tag-green}
 
 - The `gx2-80x1280x8a100` GPU profile is available for select customers. Contact IBM Sales or open a [support case](https://cloud.ibm.com/unifiedsupport/supportcenter) if you are interested in this offering.
-- The `l4` GPU profiles are only available in the US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Spain (Madrid),  Australia (Sydney), and Japan (Tokyo) regions.
-- The `l40S` GPU profiles are only available in the US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Spain (Madrid), Australia (Sydney), and Japan (Tokyo) regions.
+- The `l4` GPU profiles are only available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Spain (Madrid),  Australia (Sydney), and Japan (Tokyo) regions.
+- The `l40S` GPU profiles are only available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Spain (Madrid), Australia (Sydney), and Japan (Tokyo) regions.
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Number of GPUs | Instance storage (GB) |
 |---------|---------|---------|---------|---------|---------|---------|
@@ -393,7 +393,7 @@ In addition, the `-a100` profiles have the following restrictions.
 
 Storage Optimized profiles are hosted exclusively on Intel® Xeon® Platinum Cascade Lake servers. This profile family offers our highest vCPU to [instance storage](/docs/vpc?topic=vpc-instance-storage) ratio with 300 GB of storage for every 1 vCPU and is optimized for running data lake and other workloads requiring more intensive data capabilities. All storage optimized profiles are provisioned with temporary SSD-backed instance storage at no additional charge. For more information, see [Lifecycle of instance storage](/docs/vpc?topic=vpc-instance-storage#instance-storage-lifecycle).
 
-Storage Optimized profiles are available in the US East (Washington) and Japan (Osaka) regions.
+Storage Optimized profiles are available in the US South (Dallas), US East (Washington DC), United Kingdom (London), EU Germany (Frankfurt), Japan (Tokyo), and Japan (Osaka) regions.
 {: preview}
 
 The following Storage Optimized profiles are available for x86-64 processors:
