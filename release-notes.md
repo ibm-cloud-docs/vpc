@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-03-15"
+lastupdated: "2024-03-18"
 
 keywords:
 
@@ -134,6 +134,25 @@ Virtual Network Interfaces for VPC (Select availability)
 
 Next generation instance profiles available in Frankfurt region (select availability)
 :   The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are now available as a select availability offering in the Frankfurt region, in addition to the Dallas and London regions. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel&reg; Xeon&reg; Scalable processors to provide the most powerful and performant general-purpose profiles available. For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles). In the [Balanced](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) family, see the *bx3d* profiles tab. In the [Compute](/docs/vpc?topic=vpc-profiles&interface=ui#compute) family, see the *cx3d* profiles tab. In the [Memory](/docs/vpc?topic=vpc-profiles&interface=ui#memory) family, see the *mx3d* profiles tab. 3rd generation dedicated host profiles are also available. For more information, see *bx3d*, *cx3d*, and *mx3d* profiles in [x86-64 dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+
+### 13 February 2024
+{: #vpc-feb1324}
+{: release-note}
+
+Dashboard template IDs
+:  Template IDs and dashboard names for Virtual server for VPC, Flow logs for VPC, and VPC Infrastructure Service Resource Quota Overview are changed.
+- *VPC service metric definitions dashboard names:*
+   - `VPC VSI Gen 2 Overview` is changed to `Virtual Server for VPC Overview`
+   - `VPC Flow Logs Overview` is changed to `Flow Logs for VPC Overview`
+   - `VPC Resource Quota Overview` is changed to `VPC Infrastructure Service Resource Quota Overview`
+- *VPC virtual server instances metrics definitions:*
+   - `ibm_resource_name` is changed to `ibm_is_resource_name`
+- *Monitoring flow logs for VPC metrics:*
+   - `ibm_flow_log_collector_instance` is changed to `ibm_is_flow_log_collector_instance`
+- *VPC Infrastructure Service Resource Quota Overview:*
+   - `ibm_secondary_resource_id` is changed to `ibm_is_secondary_resource_id`
+   - `ibm_resource_quota_name` is changed to `ibm_is_resource_quota_name`
+For more information, see [IBM Cloud VPC monitoring dashboards](/docs/vpc?topic=vpc-ibm-monitoring#vpc-metric-definitions).
 
 ### 07 February 2024
 {: #vpc-feb0724}
