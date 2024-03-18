@@ -2,24 +2,43 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-22"
+lastupdated: "2024-02-13"
 
-keywords: virtual private endpoints, endpoint gateway, VPE
+keywords: virtual private endpoints, endpoint gateway, VPE services
 subcollection: vpc
 
 ---
 
 {{site.data.keyword.attribute-definition-list}}
 
-# VPE-enabled services
+# Connecting to a service
 {: #vpe-supported-services}
+
+You can create a Virtual Private Endpoint (VPE) gateway to connect to an IBM Cloud service, or an IBM service or third-party application (Private Path beta) that is hosted outside of IBM Cloud.
+
+The beta release of IBM Cloud Private Path services is only available to allowlisted users. Contact your IBM Support representative if you are interested in getting early access to this beta offering.
+{: beta}
+
+Here are your two choices:
+
+* **IBM Cloud service**
+
+   Select this option to connect to an IBM Cloud service. When configuring a VPE gateway, you are shown a customized list of common services and any services that were provisioned
+with your account. See [VPE-enabled services](/docs/vpc?topic=vpc-request-connection-to-service#vpe-supported-services) for a complete list of IBM Cloud services that are enabled for VPE gateway connectivity.
+
+* **Non-IBM Cloud service** (Private Path beta only)
+
+   Select this option if you received connection information from a provider of a service or application that includes a cloud resource name (CRN) to a Private Path service. A Private Path service is what your provider sets up to create a connection to their service or application over the IBM Cloud private network.
+
+   After you create a VPE gateway, a connection request is sent for review to the provider of the service that you are trying to connect to. Keep in mind that your account ID is shared in this request. To track the progress of your request, go to the [Virtual private endpoint gateways for VPC](/vpc-ext/network/endpointGateways){: external} dashboard to view the status of your request. The status of your VPE gateway remains `Pending` until your connection request is either accepted (`Stable`) or rejected (`Failed`).
+
+   If you have any questions, contact your service provider.
+
+## VPE-enabled services
+{: #vpe-enabled-supported-services}
 
 The following IBM Cloud services are enabled for Virtual Private Endpoints (VPE) gateway connectivity.
 {: shortdesc}
-
-When configuring a VPE gateway, you are shown a customized list of common services and any services that were provisioned
-with your account.
-{: note}
 
 * {{site.data.keyword.appconfig_short}} ([Endpoint URLs](/apidocs/app-configuration#endpoint-url))
 * Catalog Management ([Endpoint URLs](/apidocs/resource-catalog/private-catalog#endpoint-url))
@@ -33,12 +52,14 @@ with your account.
 * Enterprise Billing Units ([Endpoint URLs](/apidocs/enterprise-apis/billing-unit#endpoint-url))
 * Enterprise Management ([Endpoint URLs](/apidocs/enterprise-apis/enterprise#endpoint-url))
 * Enterprise Usage Reports ([Endpoint URLs](/apidocs/enterprise-apis/resource-usage-reports#endpoint-url))
-* {{site.data.keyword.en_short}} ([Endpoint URLs](/apidocs/event-notifications#endpoint-list))
+* {{site.data.keyword.en_short}} ([Endpoint URLs](/apidocs/event-notifications#event-notifications-endpoint-url))
 * Event Streams for IBM Cloud ([Endpoint URLs](/apidocs/event-streams/adminrest))
 * Global Catalog ([Endpoint URLs](/apidocs/resource-catalog/global-catalog#endpoint-url))
 * Global Search ([Endpoint URLs](/apidocs/search#endpoint-url))
 * Global Tagging ([Endpoint URLs](/apidocs/tagging#endpoint-url))
 * {{site.data.keyword.hscrypto}} ([Instructions](/docs/hs-crypto?topic=hs-crypto-virtual-private-endpoints-for-vpc))
+* {{site.data.keyword.ihsdbaas_mongodb_full}} ([Instructions](/docs/hyper-protect-dbaas-for-mongodb?topic=hyper-protect-dbaas-for-mongodb-virtual-private-endpoint))
+* {{site.data.keyword.ihsdbaas_postgresql_full}} ([Instructions](/docs/hyper-protect-dbaas-for-postgresql?topic=hyper-protect-dbaas-for-postgresql-virtual-private-endpoint))
 * IAM Access Groups ([Endpoint URLs](/apidocs/iam-access-groups#endpoint-urls))
 * IAM Identity Services ([Endpoint URLs](/apidocs/iam-identity-token-api#endpoints))
 * IAM Policy Management ([Endpoint URLs](/apidocs/iam-policy-management#endpoint-urls))
@@ -47,13 +68,13 @@ with your account.
 * Resource Controller ([Endpoint URLs](/apidocs/resource-controller/resource-controller#endpoint-url))
 * Resource Manager ([Endpoint URLs](/apidocs/resource-controller/resource-manager#endpoint-urls))
 * Schematics ([Instructions](/docs/schematics?topic=schematics-private-endpoints#endpoint-setup))
-* {{site.data.keyword.secrets-manager_short}} ([Instructions](/docs/secrets-manager?topic=secrets-manager-endpoints))*
+* {{site.data.keyword.secrets-manager_short}} ([Instructions](/docs/secrets-manager?topic=secrets-manager-endpoints))
 * Security and Compliance Center ([Instructions](/docs/security-compliance?topic=security-compliance-private-endpoints))
-* Transit Gateway
+* Transit Gateway ([Instructions](/docs/transit-gateway?topic=transit-gateway-vpe-for-ibm-cloud-transit-gateway))
 * Usage Metering ([Endpoint URLs](/apidocs/usage-metering#endpoint))
 * Usage Reports ([Endpoint URLs](/apidocs/metering-reporting#endpoint))
-* User Management ([Endpoint URLs](//apidocs/user-management#endpoint-url))
-* VPC API ([Endpoint URLs](/apidocs/vpc/latest#endpoint-url)) ([About VPE for VPC](/docs/vpc?topic=vpc-about-vpe))
+* User Management ([Endpoint URLs](/apidocs/user-management#endpoint-url))
+* VPC API ([Endpoint URLs](/apidocs/vpc#endpoint-url)) ([About VPE for VPC](/docs/vpc?topic=vpc-about-vpe))
 * Watson Assistant ([Instructions](/docs/watson?topic=watson-virtual-private-endpoints))
 * Watson Discovery ([Instructions](/docs/watson?topic=watson-virtual-private-endpoints))
 * Watson Speech to Text ([Instructions](/docs/watson?topic=watson-virtual-private-endpoints))

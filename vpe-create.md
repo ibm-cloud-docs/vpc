@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-12-18"
+  years: 2020, 2024
+lastupdated: "2024-2-22"
 
 keywords: virtual private endpoints, VPE, endpoint gateway
 
@@ -16,8 +16,11 @@ subcollection: vpc
 {: help}
 {: support}
 
-You can create an endpoint gateway for an IBM Cloud service that you want to access on your private VPC network by using the UI, CLI, or API.
+You can create an endpoint gateway for an {{site.data.keyword.cloud}} or third-party service or application (Private Path beta) that you want to access on your private VPC network. You can use the UI, CLI, API, or Terraform.
 {: shortdesc}
+
+The beta release of IBM Cloud Private Path services is only available to allowlisted users. Contact your IBM Support representative if you are interested in getting early access to this beta offering.
+{: beta}
 
 ## Before you begin
 {: #vpe-before-you-begin}
@@ -37,7 +40,7 @@ Before creating an endpoint gateway, ensure that you review [Planning for virtua
 To create an endpoint gateway in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 {: shortdesc}
 
-1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation Menu** icon![menu icon](/images/menu_icon.png), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Virtual private endpoint gateways** in the Network section. The Virtual private endpoint gateways for VPC page appears.
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the Menu icon ![Menu icon](/images/menu_icon.png), then click **VPC Infrastructure > Virtual private endpoint gateways** in the Network section. The Virtual private endpoint gateways for VPC page appears.
 1. Click **Create** to go to the provisioning page.
 1. In the Details section, enter values for the following fields:
    * **Name** - Type a unique name for your endpoint gateway.
@@ -56,7 +59,13 @@ To create an endpoint gateway in the {{site.data.keyword.cloud_notm}} console, f
    Endpoint gateways created before support for security groups being introduced do not have a security group that is attached and allow all inbound traffic. If you attach a security group to a VPE that does not have a security group, you cannot revert to having no security groups. You can revert to the previous "allow all inbound traffic" behavior by attaching a security group with rules for allowing all inbound traffic. However, such a rule is inherently less secure than having a more restrictive security group in place, and is not recommended.
    {: important}
 
-1. In the Cloud service section, select the {{site.data.keyword.cloud_notm}} service that you want to access using this endpoint gateway. The region is pre-selected to optimize performance.
+1. In the Request connection to a service section, select either an {{site.data.keyword.cloud_notm}} or non-{{site.data.keyword.cloud_notm}} service to access with this endpoint gateway.
+
+   * For IBM Cloud services, select an available IBM Cloud service offering from the menu, then select a cloud service offering and region. The region is pre-selected to optimize performance.
+   * (Private Path beta only) For non-IBM Cloud services, enter the cloud resource name (CRN) of the Private Path service (obtained from your service provider).
+
+      Your connection request is sent to the service provider for review. The review may be automated based on the provider's chosen accouont policy, or it could take days if the provider has chosen to manually review their requests. If your request is permitted, you will receive notification and can then access the service. If your request is denied, contact the service provider.
+      {: note}
 
 1. In the Reserved IP section, select a reserved IP address. You can choose:
 
@@ -64,7 +73,7 @@ To create an endpoint gateway in the {{site.data.keyword.cloud_notm}} console, f
    * **Select from existing IPs** - Choose from a list of existing IP addresses.
    * **Select one later** - Select an IP address after creating the endpoint gateway.
 
-1. Review the order Summary, then click **Create an endpoint gateway**. The endpoint gateway is requested for use.
+1. Review the order Summary, then click **Create virtual private endpoint gateway**. The endpoint gateway is requested for use.
 
 ## Creating an endpoint gateway from the CLI
 {: #vpe-ordering-cli}
@@ -101,6 +110,20 @@ To create an endpoint gateway from the CLI, follow these steps:
    `--target`
    :   Indicates the name, or CRN, of a provider cloud service instance.
 
+1. Create an endpoint gateway by attaching the target type for a Private Path service (Private Path beta release only - requires feature flag):
+
+   ```sh
+   ibmcloud is endpoint-gateway-create (--target-type private_path_service_gateway | provider_cloud_service | provider_infrastructure_service) --target TARGET [--vpc VPC] [--name NAME]    [--rip RIP --subnet SUBNET | (--new-reserved-ip NEW_RESERVED_IP1 --new-reserved-ip NEW_RESERVED_IP2 ...)] [--sg SG] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name        RESOURCE_GROUP_NAME] [--output JSON] [-q, --quiet]
+   ```
+   {: codeblock}
+
+   Where:
+
+   - **--target-type**: The type of target for this endpoint gateway. One of: **private_path_service_gateway**, **provider_cloud_service**, **provider_infrastructure_service**.
+   - **--vpc**: ID or name of the VPC.
+   - **--target**: The name of the provider infrastructure service or the CRN for a provider cloud service instance. You can use command **ibmcloud is endpoint-gateway-targets** to list the provider cloud and infrastructure services that are qualified to be set as the endpoint gateway target.
+   - **--name**: New name of the endpoint gateway.
+
    You can use command `ibmcloud is endpoint-gateway-targets` to list the provider cloud and infrastructure services that are qualified to be set as endpoint gateway target.
    {: note}
 
@@ -123,7 +146,7 @@ To create an endpoint gateway from the CLI, follow these steps:
 
 To create an endpoint gateway with the API, follow these steps:
 
-1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
+1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 1. Store the following values in variables to be used in the API command:
 
    * `ResourceGroupId` - First, get your resource group and then populate the variable:
@@ -175,9 +198,11 @@ To create an endpoint gateway with the API, follow these steps:
       ```
       {: codeblock}
 
+      When creating an endpoint gateway to connect to a Private Path service, make sure '"resource type" = "private_path_service_gateway"'.
+      {: note}
 
       After you create an endpoint gateway for your service instance and assign a reserved IP address, you must bind the IP addresses from your VPC network to the endpoint gateway. See [Binding and unbinding a reserved IP address](/docs/vpc?topic=vpc-bind-unbind-reserved-ip) for details. These bound IP addresses become the VPE to access the service mapped to the endpoint gateway.
-      {: note}
+      {: important}
 
    * To create an endpoint gateway with an associated reserved IP address:
 
@@ -201,8 +226,78 @@ To create an endpoint gateway with the API, follow these steps:
       ```
       {: codeblock}
 
+      When creating an endpoint gateway to connect to a Private Path service, make sure '"resource type" = "private_path_service_gateway"'.
+      {: note}
+
 After an endpoint gateway is created for an {{site.data.keyword.cloud_notm}} service, it presents the endpoints associated with it. You can edit the endpoint gateway, such as binding/unbinding IPs, changing the resource group, and updating tags. If you need to change the service endpoints for any reason, you must delete and recreate the endpoint gateway.
 {: important}
+
+## Creating an endpoint gateway with Terraform
+{: #creating-endpoint-gateway-terraform}
+{: terraform}
+
+You can use Terraform to create an endpoint gateway.
+
+To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
+{: requirement}
+
+The following example creates a VPE gateway.
+
+```terraform
+resource "ibm_is_virtual_endpoint_gateway" "example" {
+
+  name = "example-endpoint-gateway"
+  target {
+    name          = "ibm-ntp-server"
+    resource_type = "provider_infrastructure_service"
+  }
+  vpc            = ibm_is_vpc.example.id
+  resource_group = data.ibm_resource_group.example.id
+  security_groups = [ibm_is_security_group.example.id]
+}
+
+resource "ibm_is_virtual_endpoint_gateway" "example1" {
+  name = "example-endpoint-gateway-1"
+  target {
+    name          = "ibm-ntp-server"
+    resource_type = "provider_infrastructure_service"
+  }
+  vpc = ibm_is_vpc.example.id
+  ips {
+    subnet = ibm_is_subnet.example.id
+    name   = "example-reserved-ip"
+  }
+  resource_group = data.ibm_resource_group.example.id
+  security_groups = [ibm_is_security_group.example.id]
+}
+
+resource "ibm_is_virtual_endpoint_gateway" "example3" {
+  name = "example-endpoint-gateway-2"
+  target {
+    name          = "ibm-ntp-server"
+    resource_type = "provider_infrastructure_service"
+  }
+  vpc = ibm_is_vpc.example.id
+  ips {
+    subnet = ibm_is_subnet.example.id
+    name   = "example-reserved-ip"
+  }
+  resource_group = data.ibm_resource_group.example.id
+  security_groups = [ibm_is_security_group.example.id]
+}
+
+resource "ibm_is_virtual_endpoint_gateway" "example4" {
+  name = "example-endpoint-gateway-3"
+  target {
+    crn           = "crn:v1:bluemix:public:cloud-object-storage:global:::endpoint:s3.direct.mil01.cloud-object-storage.appdomain.cloud"
+    resource_type = "provider_cloud_service"
+  }
+  vpc            = ibm_is_vpc.example.id
+  resource_group = data.ibm_resource_group.example.id
+  security_groups = [ibm_is_security_group.example.id]
+}
+```
+{: codeblock}
 
 ## After creating a VPE gateway
 {: #after-create-vpe-gateway}
@@ -210,4 +305,5 @@ After an endpoint gateway is created for an {{site.data.keyword.cloud_notm}} ser
 If you return to the Virtual private endpoint gateways for VPC page, your endpoint gateway shows in the table.
 
 * For IBM Cloud services, the status of your endpoint gateway changes from `Updating` to `Stable`. You can click the Actions menu ![Actions menu](images/overflow.png) to rename, reserve or bind an IP, unbind an IP, or delete an endpoint gateway.
+* For non-IBM Cloud (third party) services, your endpoint gateway status is `Pending` until the service provider either permits or denies your connect request. Status changes to `Stable` when connectivity is established. You can click **Track** or expand the table row of the endpoint gateway to view the progress of your request.
 * Optionally, there is a DNS resolution binding switch in the table row of the VPE gateway that allows you to enable or disable DNS sharing for this endpoint gateway. For more information, see [About DNS sharing for VPE gateways](/docs/vpc?topic=vpc-hub-spoke-model).
