@@ -152,6 +152,7 @@ Dashboard template IDs
 - *VPC Infrastructure Service Resource Quota Overview:*
    - `ibm_secondary_resource_id` is changed to `ibm_is_secondary_resource_id`
    - `ibm_resource_quota_name` is changed to `ibm_is_resource_quota_name`
+   
 For more information, see [IBM Cloud VPC monitoring dashboards](/docs/vpc?topic=vpc-ibm-monitoring#vpc-metric-definitions).
 
 ### 07 February 2024
