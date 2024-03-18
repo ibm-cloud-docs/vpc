@@ -54,7 +54,7 @@ The following example shows how to use the CLI to verify connectivity to a Priva
 
 Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli){: external}.
 
-You must export the feature flag for Private Path service and Private Path network load balancer related commands to run successfully.
+You must first export the feature flag to use the CLI for Private Path beta release offerings.
 {: important}
 
 To export the feature flag, enter the following commands:

@@ -144,12 +144,6 @@ Where:
 
 `ibmcloud is vpc-routing-table-route-update 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3 72b27b5c-f4b0-48bb-b954-5becc7c1d456 72b27b5c-f4b0-48bb-b954-5becc7c1d4ef --name my-vpc-route --next-hop 10.0.0.2`
 
-To see advertise custom routes options in the CLI, you must export a feature flag:
-
-`export IBMCLOUD_IS_FEATURE_ADVERTISE_CUSTOM_ROUTES=true`
-
-`ibmcloud is vpc-routing-table-route-create 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3 72b27b5c-f4b0-48bb-b954-5becc7c1d456 --name my-vpc-route --action deliver --zone us-south-1 --destination 172.0.0.0/24 --priority 1 --advertise true --next-hop 10.0.0.2`
-
 ## Creating a route with the API
 {: #cr-route-using-the-api}
 {: api}

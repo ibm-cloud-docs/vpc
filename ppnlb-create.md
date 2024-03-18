@@ -98,7 +98,7 @@ To create and configure {{site.data.keyword.nlb_full}} in the {{site.data.keywor
 
 The following example illustrates creating a Private Path NLB with the CLI. In this example, the Private Path NLB is in front of one VPC virtual server instance (ID `0716_6acdd058-4607-4463-af08-d4999d983945`) running a TCP server that listens on port `9090`. The load balancer has a front-end listener, which allows secure access to the TCP server.
 
-You must export the feature flag for Private Path service and Private Path network load balancer related commands to run successfully.
+You must first export the feature flag to use the CLI for Private Path beta release offerings.
 {: important}
 
 To export the feature flag, enter the following commands:
