@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-03-12"
+lastupdated: "2024-03-19"
 
 keywords: vpc, api, change log, new features, restrictions, migration
 
@@ -53,6 +53,16 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 19 March 2024
+{: 19-march-2024}
+
+## For all version dates
+{: #19-march-2024-all-version-dates}
+
+**Sharing DNS resolution for endpoint gateways across VPCs.** When multiple VPCs are connected together using Transit Gateway, Direct Link, or other connectivity options, a VPC in the connected topology can now be enabled as a DNS hub to centralize the DNS resolution for endpoint gateways. When [creating](/apidocs/vpc/latest#create-vpc) or [updating](/apidocs/vpc/latest#update-vpc) a VPC, the `dns` property includes new configuration options for DNS. Specify the `dns.enable_hub` property as `true` to enable the VPC as a DNS hub (default is `false`). Specify a DNS hub VPC when [creating a DNS resolution binding](/apidocs/vpc/latest#create-vpc-dns-resolution-binding) on another VPC to share its DNS resolution with that DNS hub VPC. The `dns.resolution_binding_count` response property specifies how many other VPCs a VPC is bound to for DNS resolution sharing. For more information, see [About DNS sharing for VPE gateways](/docs/vpc?topic=vpc-hub-spoke-model).
+
+**Configuring DNS resolvers for a VPC.** You can now use the `dns.resolver` property to configure the DNS resolvers for a VPC. Use a `dns.resolver.type` of `manual` to specify the DNS resolvers by IP address. Use a `dns.resolver.type` of `delegated` to specify another VPC (typically a DNS hub VPC) whose DNS resolvers will be used. Use a `dns.resolver.type` of `system` to restore the system default DNS resolvers. When `dns.resolver.type` is `manual`, [updating](/apidocs/vpc/latest#update-vpc) specifying the VPC's `dns.resolver.manual_servers` requires the [`If-Match` header](/apidocs/vpc/latest#concurrent-update-protection) also be provided with the VPC's current `ETag` value.
 
 ## 12 March 2024
 {: #12-march-2024}
