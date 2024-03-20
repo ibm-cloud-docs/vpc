@@ -827,48 +827,44 @@ Complete the following steps on an Ubuntu system, to create the contract signatu
    key=$(awk -vRS="\n" -vORS="\\\n" '1' public.pem)
    echo ${key%\\n}
    ```
-   {: pre}
 
 3. Optionally, if you want to pass the signing key as base64:
     ```sh
     key=$(cat public.pem | base64 -w 0)
     echo $key
     ```
-    {: pre}
 
 4. Optionally, if you want to enable contract expiry, follow the steps mentioned below:
-  i. Use the following command to generate a certificate request:
+   1. Use the following command to generate a certificate request:
       ```
       openssl req -new -key private.pem -passin pass:test1234 -out csr.pem
       ```
-  ii. The command generates the certificate.
-      a. Use the following command to generate private key for CA:
+   2. The command generates the certificate.
+       - Use the following command to generate private key for CA:
         ```
         openssl genrsa -out personal_ca.key 2048
         ```
-      b. Generate a self-signed CA certificate using the following command:
+       - Generate a self-signed CA certificate using the following command:
         ```
         openssl req -new -x509 -key personal_ca.key -out personal_ca.crt
         ```
-      c. The following command signs CSR with self signed CA certificate along with number of days for the certificate to be valid. The end date of the generated certificate is the contract expiry date:
+       - The following command signs CSR with self signed CA certificate along with number of days for the certificate to be valid. The end date of the generated certificate is the contract expiry date:
         ```
         openssl x509 -req -in csr.pem -CA personal_ca.crt -CAkey personal_ca.key -CAcreateserial -out certificate.pem -days 365
         ```
-  iii. The following command is an example of how you can get the certificate:
+   3. The following command is an example to get the certificate:
         ```sh
         certificate=$(awk -vRS="\n" -vORS="\\\n" '1' certificate.pem)
         echo ${certificate%\\n}
         ```
-        {: pre}
-  iv. (optional) The following command is an example of how to get the certificate in base64 format:
+   4. Optionally, use the following command as an example to get the certificate in base64 format:
       ```sh
       certificate=$(cat certificate.pem | base64 -w 0)
       echo $certificate
       ```
-      {: pre}
 
 5. Create the `env.yaml` file. The following is an example:
-  i. If `signingkey` is a public key:
+   1. If `signingkey` is a public key:
       ```yaml
       env: |
       type: env
@@ -882,23 +878,21 @@ Complete the following steps on an Ubuntu system, to create the contract signatu
           seed: hogwarts
       signingKey: "-----BEGIN PUBLIC KEY-----\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAvLaeSA8Nc3p99HNUMwon\n5lMMALAsIxRRpWUaEZ5IcUky2sgCi/rSmxU2sm6FK/BmCftk33f5W2BsYHdY9R/0\nELZ9A4POQcJsPF3ronU2QHwnRjcqYuUFXmf1VqfPPLpELriFNoCb2FN2zCa+VUmu\n+fGhroZ3Fr9kBPwJhGr917E5jeCQ+MzsGkulcTvr0SfvThiZQQ/KlU0R35ThamF3\n8C0F5IQBpqDUwDFmWvD5lF2SmprpluDBFEj8LLfLxvW9M2Qwku6nGUnnFReg3vNH\n7IF0SRr1K1AdO5hEmevCdyG9hgTdUY6dXcjntiN/kbqXErILknvzDnb4jyPZZRdK\ndrOzVt8hjbdmkS396SrMFtA++QrV3GNZl5zCscpn6d8S7BEA8mDzroo2UAbrypVP\n9l9AmzUnmnPCpZQySUUHoY0xG2vgMSA50CWH7Uwjmpixr02Td4/LU8fE7NWCO6ci\nx4++ANSaxu+uuZ2Pe1OjjgV98r06ZUs38eaxptLZqLpn3N6w8WAJxGwSLapZwNtP\ng2spUXu2Eh/TN5t4/ly5iXOsyIy8IPtTrUPX7rpaaqFZ72P6BJLj3WLEvOG/eF/8\nBTjrsZAjb8YjkO1uGk10IPa63sniZWe5vlm9w9UKy2uGuy6RhWxwoVHRRbfhboQF\nsO20dsVwgTZn8c46HMD2PoMCAwEAAQ==\n-----END PUBLIC KEY----"
       ```
-     {: codeblock}
-  ii. If `signingkey` is a certificate:
-      ```yaml
-      env: |
-    type: env
-    logging:
-        logDNA:
-        hostname: syslog-a.eu-gb.logging.cloud.ibm.com
-        ingestionKey: cfae1522876e860e58f5844a33bdcaa8
-        port: 6514
-    volumes:
-        test:
-        seed: hogwarts
-    signingKey: "-----BEGIN CERTIFICATE-----\nMIIFETCCAvkCFBAMxyO6Cl7BNKBGxtlAzHpI2oiNMA0GCSqGSIb3DQEBCwUAMEUx\nCzAJBgNVBAYTAkFVMRMwEQYDVQQIDApTb21lLVN0YXRlMSEwHwYDVQQKDBhJbnRl\ncm5ldCBXaWRnaXRzIFB0eSBMdGQwHhcNMjQwMTMwMDM1ODMzWhcNMjQwNTA5MDM1\nODMzWjBFMQswCQYDVQQGEwJBVTETMBEGA1UECAwKU29tZS1TdGF0ZTEhMB8GA1UE\nCgwYSW50ZXJuZXQgV2lkZ2l0cyBQdHkgTHRkMIICIjANBgkqhkiG9w0BAQEFAAOC\nAg8AMIICCgKCAgEAv5h6i7Fn1DMUM+3AnPPZUNMe1ss3KL/AmUmptwlAPErVoH1k\naiqTUsSNjXctj+nk95I+e2nugw/HlaVT1eRgEtvjssheXKboFn+zW/i31Nq9USgQ\nZA325VtchYlgJLXMPaH/ukBUr0UI4LnjC/dNdAQzKwWPNF2Jlv5wKX8OBVOQO9Df\nExVmcEkKDoh0nZk5eOA8vzJGhfr8TvQx9FQFsP4OXTwQgcdZV26mLm0bMkqEt3o5\n8OSpisqNGY1XnMHjOWNqSbErkpbIKEFAQSnWmzEvJdHsQX+7eTF7CisHJREseT4s\nUSuIFBZKXbS3qq6EL/EYviu0EGnY/rkJJcIRb8hycqHRgoITT2bWT7PSMUyXoX3G\nVKfp/xKFhkYzoRDSb5S0lh8sugmoRkioAkw6G56CP2hablPZRUMmUKceFfOG/k4L\nei8qJtbfQJ9BlCNRPpjqY3sGSdeXI4zefyQ8xxcus9Sl5wXZV86lz2lO/fz3Cvpd\n0eKvfv5uXyvF3O36lrlEERmSukaZYaEJECjxOUeafc7E1DVyIaMpc2SOum1crwMG\nRKhnU1JShDON0yClnKOlACfjFIpdpEMpE4lLps1x+PXV+x21zGBMUvXYa4xpbyWR\nK1gfMWmuvGOivl9y0mPSIeyJ9R/7bSRAbcYJR4N99TrtWxZU1yQi7HSRV5cCAwEA\nATANBgkqhkiG9w0BAQsFAAOCAgEAg006zJ4ZKwT8moOOl3PdThFUcf8rrIlec9Iy\nqPcWSqt5UTeYLIe58oGhhQmcaIRUOQaib5JqH2ukzqpo+gsJ3zZb3eIn4FB7cKef\nLqaiemOveEe1/qSwAGqMZyZELssiOflhnJdzuYSRWO8DO6Q6JMqQthDcw20budjO\nzP4nhXQqT+s8ljzqSJW77hDbrNAezTz/0SJFDtaMBs5UweX//7/4sXtJ8kBIBSxd\n7y4w8tuuxUaXOtYMjNrJAYLwFVeeO8CFURpbEuv7ABT0k8U4E8C6j4U4Jysx4XVP\nZj36rIAtvctchh0yAhHz8whXe1tvaFw9wzRDATnThFAuJG4Z07K2/rlDP9kO9wmn\ng8hHxKeqQMJDp29e0sGkz8oDi6Mz24k9CqFJJ0CUz1ntz7rrDkA3QwQbFRzk938y\n3rSfePO5qXlUQ9mm05hYr1EKKceTLEowc4XOouNLlUWGiRshRR1szMw5C29prFJ2\nyYuV9tBaFYkq7dnh8JnmrreEvAnsKyyECxMmtV/W701OSUYBcThwgAo+hkEeOJ+/\nwrOS7yoJqDF1y+5LLQJmUlrLCPXem3ZTa4UMe1p2g7ge7Dg6Zud9NDBcMigdHByt\nJP/i9PcJSEWrccWJ1ajToUCZ0wqfJ3Z4KqoEd0fadQhb32AuDUbu7E12EUFNPGIH\n8rQKbDU=\n-----END CERTIFICATE-----"
+   2. If `signingkey` is a certificate:
+    ```yaml
+        env: |
+      type: env
+      logging:
+          logDNA:
+          hostname: syslog-a.eu-gb.logging.cloud.ibm.com
+          ingestionKey: cfae1522876e860e58f5844a33bdcaa8
+          port: 6514
+      volumes:
+          test:
+          seed: hogwarts
+      signingKey: "-----BEGIN CERTIFICATE-----\nMIIFETCCAvkCFBAMxyO6Cl7BNKBGxtlAzHpI2oiNMA0GCSqGSIb3DQEBCwUAMEUx\nCzAJBgNVBAYTAkFVMRMwEQYDVQQIDApTb21lLVN0YXRlMSEwHwYDVQQKDBhJbnRl\ncm5ldCBXaWRnaXRzIFB0eSBMdGQwHhcNMjQwMTMwMDM1ODMzWhcNMjQwNTA5MDM1\nODMzWjBFMQswCQYDVQQGEwJBVTETMBEGA1UECAwKU29tZS1TdGF0ZTEhMB8GA1UE\nCgwYSW50ZXJuZXQgV2lkZ2l0cyBQdHkgTHRkMIICIjANBgkqhkiG9w0BAQEFAAOC\nAg8AMIICCgKCAgEAv5h6i7Fn1DMUM+3AnPPZUNMe1ss3KL/AmUmptwlAPErVoH1k\naiqTUsSNjXctj+nk95I+e2nugw/HlaVT1eRgEtvjssheXKboFn+zW/i31Nq9USgQ\nZA325VtchYlgJLXMPaH/ukBUr0UI4LnjC/dNdAQzKwWPNF2Jlv5wKX8OBVOQO9Df\nExVmcEkKDoh0nZk5eOA8vzJGhfr8TvQx9FQFsP4OXTwQgcdZV26mLm0bMkqEt3o5\n8OSpisqNGY1XnMHjOWNqSbErkpbIKEFAQSnWmzEvJdHsQX+7eTF7CisHJREseT4s\nUSuIFBZKXbS3qq6EL/EYviu0EGnY/rkJJcIRb8hycqHRgoITT2bWT7PSMUyXoX3G\nVKfp/xKFhkYzoRDSb5S0lh8sugmoRkioAkw6G56CP2hablPZRUMmUKceFfOG/k4L\nei8qJtbfQJ9BlCNRPpjqY3sGSdeXI4zefyQ8xxcus9Sl5wXZV86lz2lO/fz3Cvpd\n0eKvfv5uXyvF3O36lrlEERmSukaZYaEJECjxOUeafc7E1DVyIaMpc2SOum1crwMG\nRKhnU1JShDON0yClnKOlACfjFIpdpEMpE4lLps1x+PXV+x21zGBMUvXYa4xpbyWR\nK1gfMWmuvGOivl9y0mPSIeyJ9R/7bSRAbcYJR4N99TrtWxZU1yQi7HSRV5cCAwEA\nATANBgkqhkiG9w0BAQsFAAOCAgEAg006zJ4ZKwT8moOOl3PdThFUcf8rrIlec9Iy\nqPcWSqt5UTeYLIe58oGhhQmcaIRUOQaib5JqH2ukzqpo+gsJ3zZb3eIn4FB7cKef\nLqaiemOveEe1/qSwAGqMZyZELssiOflhnJdzuYSRWO8DO6Q6JMqQthDcw20budjO\nzP4nhXQqT+s8ljzqSJW77hDbrNAezTz/0SJFDtaMBs5UweX//7/4sXtJ8kBIBSxd\n7y4w8tuuxUaXOtYMjNrJAYLwFVeeO8CFURpbEuv7ABT0k8U4E8C6j4U4Jysx4XVP\nZj36rIAtvctchh0yAhHz8whXe1tvaFw9wzRDATnThFAuJG4Z07K2/rlDP9kO9wmn\ng8hHxKeqQMJDp29e0sGkz8oDi6Mz24k9CqFJJ0CUz1ntz7rrDkA3QwQbFRzk938y\n3rSfePO5qXlUQ9mm05hYr1EKKceTLEowc4XOouNLlUWGiRshRR1szMw5C29prFJ2\nyYuV9tBaFYkq7dnh8JnmrreEvAnsKyyECxMmtV/W701OSUYBcThwgAo+hkEeOJ+/\nwrOS7yoJqDF1y+5LLQJmUlrLCPXem3ZTa4UMe1p2g7ge7Dg6Zud9NDBcMigdHByt\nJP/i9PcJSEWrccWJ1ajToUCZ0wqfJ3Z4KqoEd0fadQhb32AuDUbu7E12EUFNPGIH\n8rQKbDU=\n-----END CERTIFICATE-----"
     ```
-    {: codeblock}
-  iii. If `singingkey` is a base64 encoded signing key or certificate:
+   3. If `singingkey` is a base64 encoded signing key or certificate:
       ```yaml
         env: |
         type: env
@@ -911,51 +905,49 @@ Complete the following steps on an Ubuntu system, to create the contract signatu
             test:
             seed: hogwarts
         signingKey: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tXG5NSUlGRVRDQ0F2a0NGQkFNeHlPNkNsN0JOS0JHeHRsQXpIcEkyb2lOTUEwR0NTcUdTSWIzRFFFQkN3VUFNRVV4XG5DekFKQmdOVkJBWVRBa0ZWTVJNd0VRWURWUVFJREFwVGIyMWxMVk4wWVhSbE1TRXdId1lEVlFRS0RCaEpiblJsXG5jbTVsZENCWGFXUm5hWFJ6SUZCMGVTQk1kR1F3SGhjTk1qUXdNVE13TURNMU9ETXpXaGNOTWpRd05UQTVNRE0xXG5PRE16V2pCRk1Rc3dDUVlEVlFRR0V3SkJWVEVUTUJFR0ExVUVDQXdLVTI5dFpTMVRkR0YwWlRFaE1COEdBMVVFXG5DZ3dZU1c1MFpYSnVaWFFnVjJsa1oybDBjeUJRZEhrZ1RIUmtNSUlDSWpBTkJna3Foa2lHOXcwQkFRRUZBQU9DXG5BZzhBTUlJQ0NnS0NBZ0VBdjVoNmk3Rm4xRE1VTSszQW5QUFpVTk1lMXNzM0tML0FtVW1wdHdsQVBFclZvSDFrXG5haXFUVXNTTmpYY3RqK25rOTVJK2UybnVndy9IbGFWVDFlUmdFdHZqc3NoZVhLYm9Gbit6Vy9pMzFOcTlVU2dRXG5aQTMyNVZ0Y2hZbGdKTFhNUGFIL3VrQlVyMFVJNExuakMvZE5kQVF6S3dXUE5GMkpsdjV3S1g4T0JWT1FPOURmXG5FeFZtY0VrS0RvaDBuWms1ZU9BOHZ6SkdoZnI4VHZReDlGUUZzUDRPWFR3UWdjZFpWMjZtTG0wYk1rcUV0M281XG44T1NwaXNxTkdZMVhuTUhqT1dOcVNiRXJrcGJJS0VGQVFTbldtekV2SmRIc1FYKzdlVEY3Q2lzSEpSRXNlVDRzXG5VU3VJRkJaS1hiUzNxcTZFTC9FWXZpdTBFR25ZL3JrSkpjSVJiOGh5Y3FIUmdvSVRUMmJXVDdQU01VeVhvWDNHXG5WS2ZwL3hLRmhrWXpvUkRTYjVTMGxoOHN1Z21vUmtpb0FrdzZHNTZDUDJoYWJsUFpSVU1tVUtjZUZmT0cvazRMXG5laThxSnRiZlFKOUJsQ05SUHBqcVkzc0dTZGVYSTR6ZWZ5UTh4eGN1czlTbDV3WFpWODZsejJsTy9mejNDdnBkXG4wZUt2ZnY1dVh5dkYzTzM2bHJsRUVSbVN1a2FaWWFFSkVDanhPVWVhZmM3RTFEVnlJYU1wYzJTT3VtMWNyd01HXG5SS2huVTFKU2hET04weUNsbktPbEFDZmpGSXBkcEVNcEU0bExwczF4K1BYVit4MjF6R0JNVXZYWWE0eHBieVdSXG5LMWdmTVdtdXZHT2l2bDl5MG1QU0lleUo5Ui83YlNSQWJjWUpSNE45OVRydFd4WlUxeVFpN0hTUlY1Y0NBd0VBXG5BVEFOQmdrcWhraUc5dzBCQVFzRkFBT0NBZ0VBZzAwNnpKNFpLd1Q4bW9PT2wzUGRUaEZVY2Y4cnJJbGVjOUl5XG5xUGNXU3F0NVVUZVlMSWU1OG9HaGhRbWNhSVJVT1FhaWI1SnFIMnVrenFwbytnc0ozelpiM2VJbjRGQjdjS2VmXG5McWFpZW1PdmVFZTEvcVN3QUdxTVp5WkVMc3NpT2ZsaG5KZHp1WVNSV084RE82UTZKTXFRdGhEY3cyMGJ1ZGpPXG56UDRuaFhRcVQrczhsanpxU0pXNzdoRGJyTkFlelR6LzBTSkZEdGFNQnM1VXdlWC8vNy80c1h0SjhrQklCU3hkXG43eTR3OHR1dXhVYVhPdFlNak5ySkFZTHdGVmVlTzhDRlVScGJFdXY3QUJUMGs4VTRFOEM2ajRVNEp5c3g0WFZQXG5aajM2cklBdHZjdGNoaDB5QWhIejh3aFhlMXR2YUZ3OXd6UkRBVG5UaEZBdUpHNFowN0syL3JsRFA5a085d21uXG5nOGhIeEtlcVFNSkRwMjllMHNHa3o4b0RpNk16MjRrOUNxRkpKMENVejFudHo3cnJEa0EzUXdRYkZSems5Mzh5XG4zclNmZVBPNXFYbFVROW1tMDVoWXIxRUtLY2VUTEVvd2M0WE9vdU5MbFVXR2lSc2hSUjFzek13NUMyOXByRkoyXG55WXVWOXRCYUZZa3E3ZG5oOEpubXJyZUV2QW5zS3l5RUN4TW10Vi9XNzAxT1NVWUJjVGh3Z0FvK2hrRWVPSisvXG53ck9TN3lvSnFERjF5KzVMTFFKbVVsckxDUFhlbTNaVGE0VU1lMXAyZzdnZTdEZzZadWQ5TkRCY01pZ2RIQnl0XG5KUC9pOVBjSlNFV3JjY1dKMWFqVG9VQ1owd3FmSjNaNEtxb0VkMGZhZFFoYjMyQXVEVWJ1N0UxMkVVRk5QR0lIXG44clFLYkRVPVxuLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLVxu
-    ```
-    {: codeblock}
-
+        ```
 6. Create the `env.yaml` file. The following is an example:
    ```yaml
-   env: |
-     type: env
-     logging:
-       logDNA:
-         hostname: syslog-a.eu-gb.logging.cloud.ibm.com
-         ingestionKey: cfae1522876e860e58f5844a33bdcaa8
-         port: 6514
-     volumes:
-       test:
-         seed: hogwarts
-     signingKey: "-----BEGIN PUBLIC KEY-----\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAvLaeSA8Nc3p99HNUMwon\n5lMMALAsIxRRpWUaEZ5IcUky2sgCi/rSmxU2sm6FK/BmCftk33f5W2BsYHdY9R/0\nELZ9A4POQcJsPF3ronU2QHwnRjcqYuUFXmf1VqfPPLpELriFNoCb2FN2zCa+VUmu\n+fGhroZ3Fr9kBPwJhGr917E5jeCQ+MzsGkulcTvr0SfvThiZQQ/KlU0R35ThamF3\n8C0F5IQBpqDUwDFmWvD5lF2SmprpluDBFEj8LLfLxvW9M2Qwku6nGUnnFReg3vNH\n7IF0SRr1K1AdO5hEmevCdyG9hgTdUY6dXcjntiN/kbqXErILknvzDnb4jyPZZRdK\ndrOzVt8hjbdmkS396SrMFtA++QrV3GNZl5zCscpn6d8S7BEA8mDzroo2UAbrypVP\n9l9AmzUnmnPCpZQySUUHoY0xG2vgMSA50CWH7Uwjmpixr02Td4/LU8fE7NWCO6ci\nx4++ANSaxu+uuZ2Pe1OjjgV98r06ZUs38eaxptLZqLpn3N6w8WAJxGwSLapZwNtP\ng2spUXu2Eh/TN5t4/ly5iXOsyIy8IPtTrUPX7rpaaqFZ72P6BJLj3WLEvOG/eF/8\nBTjrsZAjb8YjkO1uGk10IPa63sniZWe5vlm9w9UKy2uGuy6RhWxwoVHRRbfhboQF\nsO20dsVwgTZn8c46HMD2PoMCAwEAAQ==\n-----END PUBLIC KEY----"
+    env: |
+      type: env
+      logging:
+        logDNA:
+          hostname: syslog-a.eu-gb.logging.cloud.ibm.com
+          ingestionKey: cfae1522876e860e58f5844a33bdcaa8
+          port: 6514
+      volumes:
+        test:
+          seed: hogwarts
+      signingKey: "-----BEGIN PUBLIC KEY-----\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAvLaeSA8Nc3p99HNUMwon\n5lMMALAsIxRRpWUaEZ5IcUky2sgCi/rSmxU2sm6FK/BmCftk33f5W2BsYHdY9R/0\nELZ9A4POQcJsPF3ronU2QHwnRjcqYuUFXmf1VqfPPLpELriFNoCb2FN2zCa+VUmu\n+fGhroZ3Fr9kBPwJhGr917E5jeCQ+MzsGkulcTvr0SfvThiZQQ/KlU0R35ThamF3\n8C0F5IQBpqDUwDFmWvD5lF2SmprpluDBFEj8LLfLxvW9M2Qwku6nGUnnFReg3vNH\n7IF0SRr1K1AdO5hEmevCdyG9hgTdUY6dXcjntiN/kbqXErILknvzDnb4jyPZZRdK\ndrOzVt8hjbdmkS396SrMFtA++QrV3GNZl5zCscpn6d8S7BEA8mDzroo2UAbrypVP\n9l9AmzUnmnPCpZQySUUHoY0xG2vgMSA50CWH7Uwjmpixr02Td4/LU8fE7NWCO6ci\nx4++ANSaxu+uuZ2Pe1OjjgV98r06ZUs38eaxptLZqLpn3N6w8WAJxGwSLapZwNtP\ng2spUXu2Eh/TN5t4/ly5iXOsyIy8IPtTrUPX7rpaaqFZ72P6BJLj3WLEvOG/eF/8\nBTjrsZAjb8YjkO1uGk10IPa63sniZWe5vlm9w9UKy2uGuy6RhWxwoVHRRbfhboQF\nsO20dsVwgTZn8c46HMD2PoMCAwEAAQ==\n-----END PUBLIC KEY----"
    ```
    {: codeblock}
 
-7. Use the following command to export complete path of `env.yaml` and `ibm-hyper-protect-container-runtime-1-0-s390x-15-encrypt.crt`:
+6. Use the following command to export complete path of `env.yaml` and `ibm-hyper-protect-container-runtime-1-0-s390x-15-encrypt.crt`:
    ```sh
    ENV="<PATH to env.yaml>"
    CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-15-encrypt.crt>"
    ```
    {: pre}
 
-8. Use the following command to create a random password:
+7. Use the following command to create a random password:
    ```sh
    PASSWORD="$(openssl rand 32 | base64 -w0)"
    ```
    {: pre}
 
-9. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-15-encrypt.crt.`:
+8.  Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-15-encrypt.crt.`:
    ```yaml
    ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY  -certin | base64 -w0)"
    ```
    {: pre}
 
-10. Use the following command to encrypt `env.yaml` with a random password:
+9.  Use the following command to encrypt `env.yaml` with a random password:
    ```sh
    ENCRYPTED_ENV="$(echo -n "$PASSWORD" | base64 -d | openssl enc -aes-256-cbc -pbkdf2 -pass stdin -in "$ENV" | base64 -w0)"
    ```
    {: pre}
 
-11. Use the following command to extract the encrypted `env` section:
+10. Use the following command to extract the encrypted `env` section:
    ```sh
    echo "hyper-protect-basic.${ENCRYPTED_PASSWORD}.${ENCRYPTED_ENV}"
    ```
