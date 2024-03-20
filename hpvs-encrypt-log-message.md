@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-12-05"
+lastupdated: "2023-12-04"
 
 keywords: logging for hyper protect virtual server for vpc, encrypt log messages for hyper protect virtual server for vpc
 
@@ -82,7 +82,8 @@ As recommended in [contract encryption](/docs/vpc?topic=vpc-about-contract_se#hp
 
    Compress and encrypt the folder, as the `compose` subsection requires this for the `archive` value. Use the following command to obtain the `base64` encoded archive as a file named `compose.b64`. Use the raw content of `compose.b64` for the value of `archive` under the `compose` subsection.
    ```sh
-   tar czvf - -C <COMPOSE_FOLDER> . | base64 -w0 > compose.b64
+   tar czvf compose.tgz docker-compose.yml logging.pub
+   base64 -w0 compose.tgz > compose.b64
    ```
    {: codeblock}
 

@@ -135,12 +135,17 @@ The following information is available at the `/var/hyperprotect/` directory:
 |-- cidata
 |   |-- meta-data
 |   |-- user-data
-|   `-- vendor-data
+|   |-- vendor-data
 |-- README
 |-- se-checksums.txt[.enc]
 |-- se-signature.bin
 |-- se-version
-`-- user-data.decrypted
+|-- user-data.decrypted
+|-- workload
+|-- env
+|-- envWorkloadSignature
+|-- attestationPublicKey
+
 ```
 {: codeblock}
 
@@ -162,6 +167,8 @@ d983daaf51a2d42b9f102afdf8751863d9668db8abf5148a59520169e171205c cidata/meta-dat
 3bee754bb0c58bb691242b0d1787bc5b1f71d22885d9444b581e4b51adecac0d cidata/vendor-data
 d5f677c156ef070df2685575c1a3ef4ebec5dfad02fa19239846adb1764918b7 env
 2001d3ea193abbe23a4217effceec1ba4824a6e3c1a33396371244dbf8abaae9 workload
+d388326d90583b2140831e821311aedaee1ad4b4e721b458f8769d3f9267b0dc attestationPublicKey
+
 ```
 {: codeblock}
 
