@@ -2,7 +2,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-03-15"
+lastupdated: "2024-03-20"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, very high memory, gpu, sap, olap, oltp, nvidia, cascade lake
 
@@ -16,7 +16,7 @@ subcollection: vpc
 # x86-64 instance profiles
 {: #profiles}
 
-When you provision {{site.data.keyword.vsi_is_full}}, you can select from six families of profiles: Balanced, Compute, Memory, Very High Memory, Ultra High Memory, Storage Optimized, and GPU.
+When you provision {{site.data.keyword.vsi_is_full}}, you can select from seven families of profiles: Balanced, Compute, Memory, Ultra High Memory, Very High Memory, Storage Optimized, and GPU.
 
 A profile is a combination of instance attributes, such as the number of vCPUs, amount of RAM, network bandwidth, and default bandwidth allocation. The attributes define the size and capabilities of the virtual server instance that is provisioned. In the {{site.data.keyword.Bluemix_notm}} console, you can select the most recently used profile or click **View All Profiles** to choose the profile that best fits your needs.
 {: shortdesc}
