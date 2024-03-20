@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-03-18"
+lastupdated: "2024-03-20"
 
 keywords:
 
@@ -36,14 +36,14 @@ Reservations offer many advantages, including the following benefits:
 ## Supported profiles
 {: #reserved-virtual-servers-vpc-supported-profiles}
 
-The following x86 Balanced profiles for virtual servers are available when you provision a reservation in an available MZR.
+The following x86 Balanced profiles for virtual servers are available when you provision a reservation in all [ten available MZRs](/docs/overview?topic=overview-locations).
 
 * bx2-2x8
 * bx2d-2x8
 * bx2-4x16
 * bx2d-4x16
 
-The following profiles are available in only the Dallas (_us-south_), Frankfurt (_eu-de_), and London (_eu-gb_) MZRs.
+The following compute and memory profiles are available in only the Dallas (_us-south_), Frankfurt (_eu-de_), and London (_eu-gb_) MZRs.
 
 | Balanced profiles | Compute profiles | Memory profiles |
 | --- | --- | --- |
