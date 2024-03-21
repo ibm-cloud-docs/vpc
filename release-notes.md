@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-03-18"
+lastupdated: "2024-03-21"
 
 keywords:
 
@@ -28,6 +28,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## March 2024
 {: #vpc-mar24}
+
+### 21 March 2024
+{: #vpc-mar2124}
+{: release-note}
+
+ESXi 7 End of Market for Bare Metal for VPC
+:   ESXi 7 is no longer available when you provision a Bare Metal for VPC server.
 
 ### 15 March 2024
 {: #vpc-mar1524}
