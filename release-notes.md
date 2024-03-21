@@ -29,8 +29,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## March 2024
 {: #vpc-mar24}
 
-### 21 March 2024
-{: #vpc-mar2124}
+### 28 March 2024
+{: #vpc-mar2824}
 {: release-note}
 
 ESXi 7 End of Market for Bare Metal for VPC
