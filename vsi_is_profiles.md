@@ -41,7 +41,7 @@ The following profile families are available:
 2nd generation profiles with instance storage and 2nd generation profiles with 64 or more vCPUs are deployed exclusively on the Intel&reg;'s second-generation quad processor Xeon&reg; Platinum 8260 Cascade Lake with 96 cores that are running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz or Intel&reg;'s quad processor Xeon&reg; Gold 6248 Cascade Lake with 80 cores that are running at a base speed of 2.5 GHz and an all-core turbo frequency of 3.1 GHz.
 {: note}
 
-Profiles with AMD manufactured processors are available in the Toronto region.
+Profiles with AMD manufactured processors are available in only the Toronto region.
 {: preview}
 
 ## Balanced
