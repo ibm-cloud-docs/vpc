@@ -29,6 +29,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## March 2024
 {: #vpc-mar24}
 
+### 21 March 2024
+{: #vpc-mar2124}
+{: release-note}
+
+UI Enhancement to SSH Keys
+:   The UI process for uploading SSH keys is improved where you **Select SSH key input method**. Improvements were made to the ability to copy and paste, drag and drop, and the upload buttons. Previously, these three actions were all individually located. These actions are now combined to use the same space within the UI. 
+
 ### 15 March 2024
 {: #vpc-mar1524}
 {: release-note}
