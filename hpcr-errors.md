@@ -327,19 +327,19 @@ The following list shows the error messages from Hyper Protect Container Runtime
 - **HPL14000I**:
    - Name: DNS_LOOKUP_READY
    - Message: Network connectivity check completed successfully.
-   - Explanation: The network connectivity check done at system startup, as a prequisite to the hps-init target completed successfully.
+   - Explanation: The network connectivity check done at system startup, as a prerequisite to the hps-init target completed successfully.
    - System Action: System startup continues.
    - User Action: Nothing
 - **HPL14001E**:
    - Name: DNS_LOOKUP_FAILED
    - Message: Network connectivity check failed.
-   - Explanation: The network connectivity check done at system startup, as a prequisite to the hps-init target failed.
+   - Explanation: The network connectivity check done at system startup, as a prerequisite to the hps-init target failed.
    - System Action: System startup stops.
    - User Action: Make sure to configure a DNS server
 - **HPL14002E**:
    - Name: DNS_LOOKUP_TIMEOUT
    - Message: Network connectivity check timeoud out.
-   - Explanation: The network connectivity check done at system startup, as a prequisite to the hps-init target timed out.
+   - Explanation: The network connectivity check done at system startup, as a prerequisite to the hps-init target timed out.
    - System Action: System startup stops.
    - User Action: Make sure to configure a DNS server
 - **HPL06000E**:
