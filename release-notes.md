@@ -29,7 +29,6 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## March 2024
 {: #vpc-mar24}
 
-
 ### 22 March 2024
 {: #vpc-mar2224}
 {: release-note}
@@ -41,7 +40,6 @@ Private Path Services for VPC Beta
 
    For more information, see the [Private Path solution guide](/docs/private-path?topic=private-path-overview). If you are interested in getting early access to this beta offering, contact your IBM Support representative.
    {: note}
-
 
 ### 15 March 2024
 {: #vpc-mar1524}
