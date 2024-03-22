@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-03-21"
+lastupdated: "2024-03-22"
 
 keywords:
 
@@ -28,6 +28,18 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## March 2024
 {: #vpc-mar24}
+
+### 22 March 2024
+{: #vpc-mar2224}
+{: release-note}
+
+Private Path Services for VPC Beta
+:   Accounts that are granted special approval to preview this feature can now create a [Private Path service](/docs/vpc?topic=vpc-private-path-service-intro&interface=ui) and [Private Path network load balancer](/docs/vpc?topic=vpc-ppnlb-ui-creating-private-path-network-load-balancer&interface=ui).
+
+   Private Path services provide private connectivity for IBM Cloud and third-party services. A Private Path service requires a Private Path network load balancer to deploy a service on IBM Cloud and a Virtual Private Endpoint (VPE) gateway for consumers to connect to the service. Traffic stays on the IBM Cloud backbone without traversing the public internet. 
+
+   For more information, see the [Private Path solution guide](/docs/private-path?topic=private-path-overview). If you are interested in getting early access to this beta offering, contact your IBM Support representative.
+   {: note}
 
 ### 21 March 2024
 {: #vpc-mar2124}
