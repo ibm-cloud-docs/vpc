@@ -87,7 +87,7 @@ Integrate with a site-to-site VPN gateway if you want to access your on-premises
 {: #vin-client-to-site-related-links}
 
 * [Quotas](/docs/vpc?topic=vpc-quotas#vpn-server-quotas)
-* [Required permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls#client-to-site-vpn-server-tasks)
+* [Required permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls#vpn-server-authorizations-required-for-api-and-cli-calls)
 * [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-vpn-server)
 * [VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference#vpn-server-clis)
 * [VPC API reference](/apidocs/vpc)
