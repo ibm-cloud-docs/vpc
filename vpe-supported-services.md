@@ -24,7 +24,7 @@ Here are your two choices:
 * **IBM Cloud service**
 
    Select this option to connect to an IBM Cloud service. When configuring a VPE gateway, you are shown a customized list of common services and any services that were provisioned
-with your account. See [VPE-enabled services](/docs/vpc?topic=vpc-request-connection-to-service#vpe-supported-services) for a complete list of IBM Cloud services that are enabled for VPE gateway connectivity.
+with your account. See [VPE-enabled services](/docs/vpc?topic=vpc-vpe-supported-services#vpe-enabled-supported-services) for a complete list of IBM Cloud services that are enabled for VPE gateway connectivity.
 
 * **Non-IBM Cloud service** (Private Path beta only)
 
