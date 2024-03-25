@@ -29,6 +29,12 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## March 2024
 {: #vpc-mar24}
 
+### 25 March 2024
+{: #vpc-mar2524}
+
+Reservations for VPC (GA)
+:   Reservations for VPC are now GA (generally available). A reservation is a great option if you want guaranteed resources for future deployments and cost savings. You can choose between either a 1 or 3-year contract term for your reservation. Reservations are available the US South (Dallas), US East (Washington DC), Brazil (São Paulo), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Spain (Madrid), Japan (Osaka), Japan (Tokyo), and Australia (Sydney) multizone regions (MZRs). For more information, see [About reservations for VPC](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc).
+
 ### 22 March 2024
 {: #vpc-mar2224}
 {: release-note}
