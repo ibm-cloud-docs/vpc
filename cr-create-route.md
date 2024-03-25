@@ -64,7 +64,7 @@ To create a route in the UI, follow these steps:
    * **Name** - Type a name for the new route.
    * **Destination CIDR** - The destination CIDR of the route (for example, `10.0.0.0/16`).
    * **Priority** - Enter a priority from `0` to `4`. The default value is `2`.
-      For more information, see [Determining route preference](/docs/vpc?topic=vpc-cr-determining-route-preference).
+      For more information, see [Determining route preference](/docs/vpc?topic=vpc-about-custom-routes#cr-determining-route-pref).
    * **Action** - The action to perform with a packet that matches the route. Values are:
 
       * **Delegate** - Routes the packet by using the system routing table.
