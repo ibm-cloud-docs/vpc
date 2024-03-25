@@ -445,7 +445,6 @@ toc:
                 - vpn-limitations.md
                 - vpn-mtu.md
                 - vpn-api-example.md
-                - vpn-policy-based-ingress-routing-integration-example.md
             - topicgroup:
                 label: Client-to-site-servers
                 topics:
