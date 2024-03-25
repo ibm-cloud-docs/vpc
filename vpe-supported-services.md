@@ -70,7 +70,7 @@ The following IBM Cloud services are enabled for Virtual Private Endpoints (VPE)
 * Schematics ([Instructions](/docs/schematics?topic=schematics-private-endpoints#endpoint-setup))
 * {{site.data.keyword.secrets-manager_short}} ([Instructions](/docs/secrets-manager?topic=secrets-manager-endpoints))
 * Security and Compliance Center ([Instructions](/docs/security-compliance?topic=security-compliance-private-endpoints))
-* Transit Gateway ([Instructions](/docs/transit-gateway?topic=transit-gateway-vpe-for-ibm-cloud-transit-gateway))
+* Transit Gateway
 * Usage Metering ([Endpoint URLs](/apidocs/usage-metering#endpoint))
 * Usage Reports ([Endpoint URLs](/apidocs/metering-reporting#endpoint))
 * User Management ([Endpoint URLs](/apidocs/user-management#endpoint-url))
