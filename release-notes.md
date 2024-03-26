@@ -33,8 +33,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-mar2824}
 {: release-note}
 
-ESXi 7 End of Market for Bare Metal for VPC
-:   ESXi 7 is no longer available when you provision a Bare Metal for VPC server.
+VMware ESXi 7 End of Market for Bare Metal for VPC
+:   VMware ESXi image on Bare Metal Servers for VPC will no longer be available when you provision a bare metal for VPC servers. If looking to deploy a VMware solution in VPC, consider provisioning VMware Cloud Foundation (VCF) through IBM Cloud VMware Solutions. For more information about this solution, see [VMware Cloud Foundation overview](/docs/vmwaresolutions?topic=vmwaresolutions-vpc-vcf-ovw). For more information on the updated packaging and pricing for VMware® portfolio, see [Packaging and pricing for VMware by Broadcom](/docs/vmwaresolutions?topic=vmwaresolutions-vmwaresol_packaging-pricing).
 
 ### 15 March 2024
 {: #vpc-mar1524}
