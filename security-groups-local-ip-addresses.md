@@ -28,7 +28,7 @@ Allowing specific local IP addresses or address ranges with a security group rul
 
 You can apply an inbound security group rule that allows only specific local destination IP addresses. You can also apply an outbound security group rule that allows only specific local source IP addresses.
 
-You can apply security group rules (inbound and outbound) by using the UI, CLI, API, and Terraform.
+You can apply security group rules (inbound and outbound) by using the UI, CLI, and API.
 
 **Tips:**
 * All rules are evaluated, regardless of the order in which they're added.
@@ -212,4 +212,4 @@ You can create security group rules by using the API:
 
 * [About virtual network interfaces](/docs/vpc?topic=vpc-vni-about&interface=ui)
 * [About secondary IP addresses](/docs/vpc?topic=vpc-vni-about-secondary-ip&interface=ui)
-* [Activity Tracker events](/docs/vpc?topic=vpc-at-events)
+* [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-network-security-group)
