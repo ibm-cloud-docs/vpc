@@ -45,6 +45,7 @@ The following lists contain known limitations for {{site.data.keyword.cloud}} {{
 
    For more information, see [About routing tables and routes](/docs/vpc?topic=vpc-about-custom-routes).
    {: note}  
+* You can have a maximum of 128 direct server return configurations for each backend member VSI.
 
 ## Known limitations for {{site.data.keyword.cloud}} Private Path network load balancers
 {: #limitations-private-path-network-load-balancers}
