@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-03-27"
+lastupdated: "2024-03-28"
 
 keywords:
 
@@ -29,8 +29,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## March 2024
 {: #vpc-mar24}
 
-### 27 March 2024
-{: #vpc-mar2724}
+### 28 March 2024
+{: #vpc-mar2824}
 {: release-note}
 
 Next generation instance profiles available in Washington DC region (select availability)
