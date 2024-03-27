@@ -133,7 +133,7 @@ toc:
             - include: ../containers/cs_tutorial_vpc.md
             - include: ../solution-tutorials/vpc-tg-dns-iam.md
             - include: ../solution-tutorials/vpc-site2site-vpn.md
-
+            - include: ../solution-tutorials?topic=solution-tutorials-vpc-pps-basics
     - navgroup:
         id: howto
         topics:
