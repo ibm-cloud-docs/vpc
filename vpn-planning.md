@@ -25,3 +25,11 @@ Review the following considerations before creating a VPN gateway:
 * If your peer VPN gateway is behind a NAT device and has no public IP, you can associate a FQDN with the NATed IP address, and then use this FQDN instead of an IP address when you create a VPN connection. In this way, the default peer IKE identity is the FQDN. You can specify the peer IKE identity to override this default when you create the VPN connection if the default does not match the real IKE identity of your peer VPN gateway.
 * You can select an establish mode ((bidirectional or peer only) when creating a VPN connection. Keep in mind that if your peer VPN gateway has no public IP address when creating a VPN connect, make sure to select **Peer only**. In this case, the peer VPN gateway is responsible for bringing a connection up if one goes down.
 * After a VPN connection is provisioned, you cannot change the peer gateway address from IP address to FQDN, or from FQDN to IP address.
+
+## IBM Power Virtual Servers: Automate deployment of your workspace
+{: #vpn-s2s-automate-deployment-powervs-workspace}
+
+A site-to-site VPN automation project is available that provides a Terraform module to create a site-to-site VPN gateway, allows a secure connection over the internet from your local on-premises network to private resources in a Power Virtual Server workspace. This Terraform IaC creates a policy-based VPN gateway and connection with local and peer policies. A Transit Gateway and IBM Power Virtual Server workspace are created by default, but you can override the default by specifying existing ones.
+
+The Github repository for this automation project is located in the [IBM /
+power-vpn-gateway Github repository](https://github.com/IBM/power-vpn-gateway/){: external}. This project [Readme file](https://github.com/IBM/power-vpn-gateway/blob/master/README.md){: external} create a VPN gateway and attaches it to a new or existing Power Virtual Server workspace, providing secure access to the IBM Cloud Power infrastructure.
