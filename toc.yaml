@@ -390,7 +390,7 @@ toc:
             - security-groups.md
             - security-groups-configure.md
             - security-groups-default.md
-            - security-groups-local-ip-addresses
+            - security-groups-local-ip-addresses.md
         - topicgroup:
             label: Routing tables
             topics:
