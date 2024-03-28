@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-01-05"
+lastupdated: "2024-03-27"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -57,7 +57,6 @@ From the Backup policy details page, you can include or exclude {{site.data.keyw
 
 2. On the Overview tab, look for **Boot volume** in the Policy details, and click the pencil icon to change the value.
 
-
 ### Editing a backup plan in the UI
 {: #backup-edit-delete-plan-ui}
 
@@ -68,13 +67,6 @@ After you provisioned a backup policy and created a backup plan, you can edit th
 2. Select **Edit**. The plan details appear in the side panel. You can modify the same information that you specified when you created the plan, such as the name and backup frequency. You can enable or disable fast restore, or change which regions fast restore is available in. You can also enable or disable the creation and retention of copies in other regions.
 
 3. Confirm your selections when you're finished.
-
-### Reviewing backup jobs in the UI
-{: #backup-jobs-manage}
-
-You can see backup jobs that are running, completed, or failed when a backup is triggered. For more information, see [Viewing backup policy jobs](/docs/vpc?topic=vpc-backup-view-policy-jobs).
-
-
 
 ## Managing backup policies and plans from the CLI
 {: #backup-manage-policy-cli}
@@ -334,8 +326,6 @@ Resource type        backup_policy_plan
 
 For more information about available command options, see [`ibmcloud is backup-policy-plan-update`](/docs/cli?topic=cli-vpc-reference#backup-policy-plan-update){: external}.
 
-
-
 ## Managing backup policies and plans with the API
 {: #backup-manage-policy-api}
 {: api}
@@ -527,7 +517,6 @@ A successful response shows that the remote region policy is created.
 ```
 {: codeblock}
 
-
 ## Managing backup policies and plans with Terraform
 {: #backup-manage-policy-terraform}
 {: terraform}
@@ -593,36 +582,6 @@ resource "ibm_is_backup_policy_plan" "example" {
 {: codeblock}
 
 For more information about the arguments and attributes, see [ibm_is_backup_policy_plan](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_backup_policy_plan){: external}.
-
-## Backup policy statuses
-{: #backup-policy-statuses}
-
-Table 1 shows the lifecycle statuses of the backup policies.
-
-| Status    | Description |
-|-----------|-------------|
-| `Stable`  | A policy and a plan are actively creating backups or are available for creating new backups. |
-| `Pending` | A policy and a plan are being created. |
-| `Deleting`| A policy and a plan are being deleted. |
-| `Deleted` | A policy and a plan no longer exist. |
-{: caption="Table 1. Backup policy statuses." caption-side="bottom"}
-
-Table 2 shows the health states of the backup policies.
-
-| Health state | Meaning |
-|--------------|---------|
-|`ok`          | No abnormal behavior was detected. |
-|`degraded`    | Experiencing compromised performance, capacity, or connectivity. |
-|`faulted`     | Unreachable, inoperative, or otherwise entirely incapacitated. |
-|`inapplicable`| The health state does not apply because of the current lifecycle state. A resource with a lifecycle state of `failed` or `deleting` also has a health state of `inapplicable`. A `pending` resource can also have this state.|
-{: caption="Table 2. Backup policy health states." caption-side="bottom"}
-
-## Activity Tracker events
-{: #backup-activity-tracker}
-
-When a backup is created, an event is triggered in the Activity Tracker for the [Backup service](/docs/vpc?topic=vpc-at-events&interface=ui#events-backup-service) and [Snapshots service](/docs/vpc?topic=vpc-at-events&interface=ui#events-snapshots).
-
-Similarly, when the service fails to create a backup due to missing authorization, an event is triggered to notify you. For more information, see [Activity Tracker events](/docs/vpc?topic=vpc-at-events).
 
 ## Backup policy deletion overview
 {: #backup-delete}
@@ -772,7 +731,7 @@ The response indicates that all backup plans are deleted.
 {: #backup-delete-plan-terraform}
 {: terraform}
 
-Use the `terraform destroy` command to conveniently destroy a remote object such as a single backup plan or backup policy. The following example destroys the `example-backup-policy-plan`.
+Use the `terraform destroy` command to conveniently delete a remote object such as a single backup plan or backup policy. The following example erases the `example-backup-policy-plan`.
 
 ```terraform
 terraform destroy --target ibm_is_backup_policy_plan.example.id

@@ -28,6 +28,16 @@ Some changes, such as new response properties or new optional request parameters
 - Consume only the resources and properties your application needs to function
 - Avoid depending on behavior that is not explicitly documented
 
+## 26 March 2024
+{: #26-march-2024-metadata}
+
+### For all version dates
+{: #26-march-2024-all-version-dates-metadata}
+
+**Reservations for Virtual Servers for VPC.** You can now purchase a [capacity reservation](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc) for a specified instance profile in a specified zone. When [retrieving an instance](/apidocs/vpc-metadata#get-instance), the new `reservation` and  `reservation_affinity` properties indicate the reservation and reservation affinity policy in effect for the virtual server instance. The new `health_state` property indicates the instance's overall health state, while an accompanying `health_reasons` property indicates the reason for any unhealthy health states, such as a failed reservation.
+
+For more information, see the [API change log](/docs/vpc?topic=vpc-api-change-log#26-march-2024) and [Provisioning reserved capacity for VPC](/docs/vpc?topic=vpc-provisioning-reserved-capacity-vpc).
+
 ## 30 January 2024
 {: #30-january-2024-metadata}
 
@@ -37,6 +47,8 @@ Some changes, such as new response properties or new optional request parameters
 **Reservations for Virtual Servers for VPC.** Accounts that have been granted special approval to preview this feature can now purchase a [capacity reservation](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc) for a specified instance profile in a specified zone. When [retrieving an instance](/apidocs/vpc-metadata#get-instance), the new `reservation` and  `reservation_affinity` properties indicate the reservation and reservation affinity policy in effect for the virtual server instance. The new `health_state` property indicates the instance's overall health state, while an accompanying `health_reasons` property indicates the reason for any unhealthy health states, such as a failed reservation.
 
 For more information, see the [API change log](/docs/vpc?topic=vpc-api-change-log#30-january-2024) and [Provisioning reserved capacity for VPC](/docs/vpc?topic=vpc-provisioning-reserved-capacity-vpc).
+
+This feature is now generally available. See the [26 March 2024](#26-march-2024-metadata) announcement.
 
 ## 19 December 2023
 {: #19-december-2023-metadata}

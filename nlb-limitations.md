@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-03-12"
+lastupdated: "2024-03-27"
 
 keywords:
 
@@ -45,6 +45,7 @@ The following lists contain known limitations for {{site.data.keyword.cloud}} {{
 
    For more information, see [About routing tables and routes](/docs/vpc?topic=vpc-about-custom-routes).
    {: note}  
+* You can have a maximum of 128 direct server return configurations for each backend member VSI.
 
 ## Known limitations for {{site.data.keyword.cloud}} Private Path network load balancers
 {: #limitations-private-path-network-load-balancers}
@@ -66,7 +67,7 @@ The beta release of IBM Cloud Private Path services is only available to allowli
 * Access to Private Path network load balancers from CSE (classic) is not supported.
 * Access to a Virtual Private Endpoint gateway associated with Private Path network load balancer from on-prem via direct-link or a different VPC via transit gateway is not supported.
 * Target members not running in a GEN2 VPC Virtual Server Instance(e.g. on-prem) is not supported.
-* Security Group / Network Access Control List on the load balancer itself is not supported.
+* Security Groups and Network Access Control Lists on the load balancer itself are not supported.
 
 ### Related Links
 {: #nlb-limitations-related-links}

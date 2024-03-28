@@ -24,7 +24,7 @@ Here are your two choices:
 * **IBM Cloud service**
 
    Select this option to connect to an IBM Cloud service. When configuring a VPE gateway, you are shown a customized list of common services and any services that were provisioned
-with your account. See [VPE-enabled services](/docs/vpc?topic=vpc-request-connection-to-service#vpe-supported-services) for a complete list of IBM Cloud services that are enabled for VPE gateway connectivity.
+with your account. See [VPE-enabled services](/docs/vpc?topic=vpc-vpe-supported-services#vpe-enabled-supported-services) for a complete list of IBM Cloud services that are enabled for VPE gateway connectivity.
 
 * **Non-IBM Cloud service** (Private Path beta only)
 
@@ -58,8 +58,6 @@ The following IBM Cloud services are enabled for Virtual Private Endpoints (VPE)
 * Global Search ([Endpoint URLs](/apidocs/search#endpoint-url))
 * Global Tagging ([Endpoint URLs](/apidocs/tagging#endpoint-url))
 * {{site.data.keyword.hscrypto}} ([Instructions](/docs/hs-crypto?topic=hs-crypto-virtual-private-endpoints-for-vpc))
-* {{site.data.keyword.ihsdbaas_mongodb_full}} ([Instructions](/docs/hyper-protect-dbaas-for-mongodb?topic=hyper-protect-dbaas-for-mongodb-virtual-private-endpoint))
-* {{site.data.keyword.ihsdbaas_postgresql_full}} ([Instructions](/docs/hyper-protect-dbaas-for-postgresql?topic=hyper-protect-dbaas-for-postgresql-virtual-private-endpoint))
 * IAM Access Groups ([Endpoint URLs](/apidocs/iam-access-groups#endpoint-urls))
 * IAM Identity Services ([Endpoint URLs](/apidocs/iam-identity-token-api#endpoints))
 * IAM Policy Management ([Endpoint URLs](/apidocs/iam-policy-management#endpoint-urls))
@@ -70,7 +68,7 @@ The following IBM Cloud services are enabled for Virtual Private Endpoints (VPE)
 * Schematics ([Instructions](/docs/schematics?topic=schematics-private-endpoints#endpoint-setup))
 * {{site.data.keyword.secrets-manager_short}} ([Instructions](/docs/secrets-manager?topic=secrets-manager-endpoints))
 * Security and Compliance Center ([Instructions](/docs/security-compliance?topic=security-compliance-private-endpoints))
-* Transit Gateway ([Instructions](/docs/transit-gateway?topic=transit-gateway-vpe-for-ibm-cloud-transit-gateway))
+* Transit Gateway
 * Usage Metering ([Endpoint URLs](/apidocs/usage-metering#endpoint))
 * Usage Reports ([Endpoint URLs](/apidocs/metering-reporting#endpoint))
 * User Management ([Endpoint URLs](/apidocs/user-management#endpoint-url))

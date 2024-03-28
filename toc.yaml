@@ -85,6 +85,7 @@ toc:
                - about-hp-securebuild.md
                - hpvs-override-registry.md
                - hpvs-deploy-pay-now.md
+               - hpcr-errors.md
            - host-failure-recovery.md
        - about-reserved-virtual-servers.md
        - topicgroup:
@@ -133,7 +134,8 @@ toc:
             - include: ../containers/cs_tutorial_vpc.md
             - include: ../solution-tutorials/vpc-tg-dns-iam.md
             - include: ../solution-tutorials/vpc-site2site-vpn.md
-
+            - include: ../solution-tutorials/vpc-pps-basics.md
+            
     - navgroup:
         id: howto
         topics:
@@ -390,6 +392,7 @@ toc:
             - security-groups.md
             - security-groups-configure.md
             - security-groups-default.md
+            - security-groups-local-ip-addresses.md
         - topicgroup:
             label: Routing tables
             topics:
@@ -420,6 +423,7 @@ toc:
                 topics:
                 - vpn-using.md
                 - vpn-create.md
+                - vpn-planning.md
                 - vpn-add-connection.md
                 - vpn-create-ike-policy.md
                 - vpn-create-ipsec-policy.md
@@ -445,7 +449,6 @@ toc:
                 - vpn-limitations.md
                 - vpn-mtu.md
                 - vpn-api-example.md
-                - vpn-policy-based-ingress-routing-integration-example.md
             - topicgroup:
                 label: Client-to-site-servers
                 topics:
@@ -590,7 +593,7 @@ toc:
                 - block_storage_vpc_expandable_boot_volume.md
                 - block_storage_vpc_expandable_data_volumes.md
                 - block_storage_vpc_adjustable_iops.md
-            - block_storage_vpc_monitoring.md
+                - block_storage_vpc_monitoring.md
         - topicgroup:
             label: Snapshots
             topics:
@@ -626,6 +629,7 @@ toc:
                 topics:
                 - backup_service_vpc_view_policy.md
                 - backup_service_vpc_manage_policy.md
+                - backup_service_vpc_monitoring.md
                 - backup_service_vpc_view_backup_jobs.md
             - backup_service_vpc_restore.md
         - topicgroup:
@@ -721,9 +725,6 @@ toc:
             - link:
                label: Terraformer for VPC
                href: https://github.com/GoogleCloudPlatform/terraformer/blob/master/docs/ibmcloud.md
-            - link:
-               label: Tabular Terraform for VPC
-               href: https://github.com/ibm-cloud-architecture/tabular-terraform
             - hpvs-terraform.md
         - link:
             label: Exporter tool

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-01-04"
+lastupdated: "2024-03-27"
 
 keywords:
 
@@ -151,7 +151,7 @@ View all backup policies associated with a {{site.data.keyword.block_storage_is_
 | Field | Description |
 |-------|-------------|
 | Policy name | Click the policy name to go to that backup policy. |
-| Status | [Status of the backup policy](/docs/vpc?topic=vpc-backup-service-manage&interface=ui#backup-policy-statuses). |
+| Status | [Status of the backup policy](/docs/vpc?topic=vpc-backup-vpc-monitoring&interface=ui). |
 | Last run time | The last scheduled run of the backup policy that created a backup. |
 {: caption="Table 5. Backup policies associated with a {{site.data.keyword.block_storage_is_short}} volume." caption-side="bottom"}
 
