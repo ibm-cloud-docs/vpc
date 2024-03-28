@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-02-02"
+lastupdated: "2024-03-28"
 
 keywords:
 
@@ -115,6 +115,19 @@ If you decide to upgrade with the in-place method on Windows OS, open a ticket w
 - Update the OS version that is recorded on {{site.data.keyword.Bluemix}}. You must inform {{site.data.keyword.IBM_notm}} support when your upgrade is completed for uninterrupted support for your upgraded instances.
 
 No additional licensing costs are incurred to move to a newer software version when you use {{site.data.keyword.IBM_notm}}’s License Included options. {{site.data.keyword.Bluemix}} is governed by the Service Provider License Agreement (SPLA) with Microsoft. For more information, see [License Mobility Deployment Process](/docs/microsoft?topic=microsoft-microsoft-license-mobility-process).
+
+## CentOS 7 and CentOS Stream 8
+{: #upgrading-centos-7}
+
+CentOS 7 EOS date is 30 June 2024. Support for this software discontinues on 30 June 2024. After deprecation, clients can't download the software.
+
+CentOS Stream 8 EOS date is 31 May 2024. Support for this software discontinues on 31 May 2024. After deprecation, clients can't download the software.
+
+You can use the following conversion tools to change your operating system to Rocky Linux 8/9 or RHEL 8/9. Alternatively, you can can perform OS reload, side-by-side upgrade, or migrate to a new server with a CentOS Stream 9. You can use the following conversion tools to change your OS:
+
+- The migration tool available from the OS distribution you are migrating to. {{site.data.keyword.cloud_notm}} does not provide or support for these OS conversion tools.
+- The [migrate2rocky](https://github.com/rocky-linux/rocky-tools/tree/main/migrate2rocky){: external} tool available from Rocky Linux. For more information, see the [Rocky Linux documentation]([https://docs.rockylinux.org/guides/migrate2rocky/](https://docs.rockylinux.org/)){: external}.
+- The [Convert2RHEL](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/migration-process/convert2rhel-how-to-convert-from-centos-linux-to-red-hat-enterprise-linux){: external} tool available from RHEL. For more information, see the [RHEL documentation](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/migration-process/convert2rhel-how-to-convert-from-centos-linux-to-red-hat-enterprise-linux){: external}.
 
 ## Troubleshooting
 {: #troubleshooting-upgrading-your-os-vpc}

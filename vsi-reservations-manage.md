@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-01-16"
+lastupdated: "2024-03-25"
 
 subcollection: vpc
 
@@ -12,8 +12,6 @@ subcollection: vpc
 
 # Managing a reservation for VPC
 {: #managing-reserved-capacity-vpc}
-
-[Select Availability]{: tag-green}
 
 After you provision your reservation, you can manage the reservation with the following actions.
 {: shortdesc}

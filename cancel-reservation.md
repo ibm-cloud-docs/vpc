@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-01-16"
+lastupdated: "2024-03-25"
 
 keywords: 
 
@@ -11,10 +11,8 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Deleting a reservation
+# Deleting an inactive or expired reservation
 {: #reserved-capacity-cancel-reservation}
-
-[Select Availability]{: tag-green}
 
 After you purchase a reservation, you can't delete it before the end of the term. However, you can delete an inactive or expired reservation.
 {: shortdesc}
