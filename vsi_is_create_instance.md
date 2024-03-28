@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-03-12"
+lastupdated: "2024-03-25"
 
 keywords:
 
@@ -80,7 +80,7 @@ Use the following steps to create a virtual server instance.
    | Trusted profile (optional) | If you enable the metadata service, you can select a trusted profile and link it to this instance. Click **Select a trusted profile**. In the side panel, select a trusted profile and click **Select trusted profile** to link it to the instance. A message displays if none exist or if you don't have access to link it. For more information, see [Create a trusted profile](/docs/account?topic=account-trustedprofile-compute-tutorial#trusted-profile-compute-create). For more information about acquiring access, see [IAM authorizations for linking trusted profiles](/docs/vpc?topic=vpc-imd-trusted-profile-metadata&interface=ui#imd-iam-auth). |
    | Add to dedicated host | This selection is disabled by default. To create the virtual server instance in a single-tenant space, click the toggle to enable the dedicated host. To provision a dedicated instance, you must have a dedicated host available or [create one](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances). |
    | Add to placement group | Placement groups are disabled by default. Click the toggle to enable placement groups. Then, select or create a placement group for the instance. If you add a placement group, the instance is placed according to the placement group policy. For more information, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc). |
-   | Add to reservation [Select availability]{: tag-green} | If you have an active reservation, click the toggle to add the virtual server instance to that reservation. For more information, see [About Reservations for VPC](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc). |
+   | Add to reservation | If you have an active reservation, click the toggle to add the virtual server instance to that reservation. For more information, see [About Reservations for VPC](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc). |
    | Host failure auto restart | This setting is enabled by default. To disable host failure auto restart, click the toggle. For more information, see [Host failure recovery policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=ui). |
    {: caption="Table 5. Instance provisioning advanced options selections" caption-side="bottom"}
 
@@ -89,8 +89,6 @@ Use the following steps to create a virtual server instance.
 ## Next steps after an instance is created in the UI
 {: #next-steps-after-creating-virtual-servers-ui}
 {: ui}
-
-<!---A series of emails is sent to your administrator: Acknowledgment of the virtual server instance order, order approval and processing, and a message that the instance is created.--->
 
 After the instance is created, you need to [associate a floating IP address to the instance](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#reserving-a-floating-ip-address). Then, you can connect to your instance. For more information, see [Connecting to your Linux instance](/docs/vpc?topic=vpc-vsi_is_connecting_linux), [Connecting to your Windows instance](/docs/vpc?topic=vpc-vsi_is_connecting_windows), or [Connecting to your z/OS instance](/docs/vpc?topic=vpc-vsi_is_connecting_zos).
 
