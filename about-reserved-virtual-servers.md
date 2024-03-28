@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-03-20"
+lastupdated: "2024-03-25"
 
 keywords:
 
@@ -14,8 +14,6 @@ subcollection: vpc
 
 # About Reservations for VPC
 {: #about-reserved-virtual-servers-vpc}
-
-[Select availability]{: tag-green}
 
 {{site.data.keyword.cloud}} Reservations are a great option when you want significant cost savings and guaranteed resources for future deployments. You can choose a 1 or 3-year term, server quantity, specific profile, and provision those servers when needed.
 {: shortdesc}

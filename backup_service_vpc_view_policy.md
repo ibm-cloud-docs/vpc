@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-02-26"
+lastupdated: "2024-03-27"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -39,7 +39,7 @@ Table 1 describes the information on the Backup policy list page. The default re
 | Field | Value |
 |-------|-------|
 | Name | Click the name of a policy to see its details. |
-| Status | The status of the policy, such as _Stable_. For more information about policy statuses, see [Backup policy statuses](/docs/vpc?topic=vpc-backup-service-manage#backup-policy-statuses). |
+| Status | The status of the policy, such as _Stable_. For more information about policy statuses, see [Backup policy statuses](/docs/vpc?topic=vpc-backup-vpc-monitoring). |
 | Applied resources | Number of resources ({{site.data.keyword.block_storage_is_short}} volumes or virtual server instances) that are tagged to be backed up by the policy [^Note1]. The number is a link that takes you to a list of resources that apply for the policy. |
 | Tags for target resources | Tags for target {{site.data.keyword.block_storage_is_short}} volumes that you are backing up. |
 | Last run time (local) | The most recent time a job ran for the backup policy. If the field is blank, the volumes don't have matching tags for a job to run. |
@@ -102,6 +102,7 @@ You can use this list of {{site.data.keyword.block_storage_is_short}} volumes or
 3. Click the **Applied resources** tab.
 
    - If the policy is for individual {{site.data.keyword.block_storage_is_short}} volumes, a list of the volumes that are backed up by this policy is shown. Information about the volumes includes the volume name, status, volume size, and encryption type.
+
      | Field | Description |
      |-------|-------------|
      | Name | Name of the volume. Click the pencil icon to edit. |
@@ -113,6 +114,7 @@ You can use this list of {{site.data.keyword.block_storage_is_short}} volumes or
      You can add other volumes to this policy by clicking **Add volumes**. The informational side panel provides a list of tags for target resources that you can apply to the volume, and a link to the [list of {{site.data.keyword.block_storage_is_short}} volumes](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#viewvols-ui). You must apply at least one of the policy's tags for target resources to the volume. |
 
    - If the policy is for multi-volume backups of a consistency group of {{site.data.keyword.block_storage_is_short}} volumes, a list of virtual server instances is shown. The list contains the virtual server instances whose Block Storage volumes are backed up this policy. Information about the virtual server instances includes the name, status, VPC, and profile.
+   
       | Field  | Description |
       |--------|-------------|
       | Name   | Name of the volume. Click the pencil icon to edit. |
@@ -174,7 +176,7 @@ r138-5c719085-cf26-456e-9216-984866659e29   my-backup-policy-v2   stable   defau
 ```
 {: screen}
 
-For more information about available command options, see [`ibmcloud is backup-policies`](/docs/vpc?topic=vpc-vpc-reference#backup-policies-list).
+For more information about available command options, see [`ibmcloud is backup-policies`](/docs/vpc?topic=vpc-vpc-reference#backup-policies-list). For more information about the values in the `Status` column, see [Backup policy statuses](/docs/vpc?topic=vpc-backup-vpc-monitoring)
 
 ### Listing all backup policies filtered by user tags from the CLI
 {: #backup-view-all-filter-by-tags-cli}
@@ -218,7 +220,7 @@ Getting backup policy my-backup-policy-v2 under account Test Account as user tes
 
 ID                      r006-0723c648-9a47-4d51-b1ba-349e21e715b6
 Name                    my-backup-policy-v2
-CRN                     crn:v1:bluemix:public:is:us-south:a/a1234567::backup-policy:0717-0723c648-9a47-4d51-b1ba-349e21e715b6
+CRN                     crn:v1:bluemix:public:is:us-south:a/a1234567::backup-policy:r006-0723c648-9a47-4d51-b1ba-349e21e715b6
 Status                  stable
 Last job completed at   2023-09-26T10:13:18.000Z
 Plans                   ID                                          Name        Resource type
@@ -236,12 +238,12 @@ Created at              2023-09-05T16:30:09+00:00
 The following example uses the policy ID and the option to receive the response in JSON format. This policy creates consistency group backups in the child accounts of an Enterprise.
 
 ```sh
-$ ibmcloud is backup-policy 0717-0723c648-9a47-4d51-b1ba-349e21e715b6 --output JSON
+$ ibmcloud is backup-policy r006-0723c648-9a47-4d51-b1ba-349e21e715b6 --output JSON
 {
     "created_at": "2023-09-05T16:30:09.000Z",
-    "crn": "crn:v1:bluemix:public:is:us-south:a/a1234567::backup-policy:0717-0723c648-9a47-4d51-b1ba-349e21e715b6",
-    "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/0717-0723c648-9a47-4d51-b1ba-349e21e715b6",
-    "id": "0717-0723c648-9a47-4d51-b1ba-349e21e715b6",
+    "crn": "crn:v1:bluemix:public:is:us-south:a/a1234567::backup-policy:r006-0723c648-9a47-4d51-b1ba-349e21e715b6",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/r006-0723c648-9a47-4d51-b1ba-349e21e715b6",
+    "id": "r006-0723c648-9a47-4d51-b1ba-349e21e715b6",
     "lifecycle_state": "stable",
     "match_resource_type": "instance",
     "included_content": "data_volumes",
@@ -249,8 +251,8 @@ $ ibmcloud is backup-policy 0717-0723c648-9a47-4d51-b1ba-349e21e715b6 --output J
     "name": "my-backup-policy-v2",
     "plans": [
         {
-            "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/0717-0723c648-9a47-4d51-b1ba-349e21e715b6/plans/0717-e888bb31-7bf2-4885-a9f3-d448c1c37326",
-            "id": "0717-e888bb31-7bf2-4885-a9f3-d448c1c37326",
+            "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/r006-0723c648-9a47-4d51-b1ba-349e21e715b6/plans/r006-e888bb31-7bf2-4885-a9f3-d448c1c37326",
+            "id": "r006-e888bb31-7bf2-4885-a9f3-d448c1c37326",
             "name": "my-plan-b",
             "resource_type": "backup_policy_plan"
         }
@@ -566,6 +568,8 @@ curl -X GET\
 ```
 {: codeblock}
 
+For more information about the values of the `health_state` and `lifecycle_state` fields, see [Monitoring backup policy health states, lifecycle status, and events](/docs/vpc?topic=vpc-backup-vpc-monitoring).
+
 ### Listing all plans for a backup policy with the API
 {: #backup-view-plans-api}
 
@@ -687,7 +691,7 @@ The response shows the remote region policy information. In this example, the ou
   "name": "my-hourly-plan-2",
   "remote_region_policies": {
     "delete_over_count": 5,
-    "encryption_key": "crn:v1:bluemix:public:kms:us-south:a/a1234567:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd617" ,
+    "encryption_key": "crn:v1:bluemix:public:kms:us-south:a/dffc98a0f1f0f95f6613b3b752286b87:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd617" ,
     "region": [
       {"name": "us-east"},
       {"href": "https://us-east.iaas.cloud.ibm.com/v1/regions/us-east/zones/us-east-2"}

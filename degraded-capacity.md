@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-02-01"
+lastupdated: "2024-03-25"
 
 keywords: health status reasons, instance health status, virtual server health status,
 
@@ -13,8 +13,6 @@ subcollection: vpc
 
 # Degraded capacity
 {: #reserved-capacity-degraded-capacity}
-
-[Select Availability]{: tag-green}
 
 A reservation that experiences a loss of capacity reports a _capacity status_ of `degraded`.
 {: shortdesc}

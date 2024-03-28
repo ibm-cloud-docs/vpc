@@ -4,7 +4,7 @@ copyright:
 
   years: 2022, 2024
 
-lastupdated: "2024-02-21"
+lastupdated: "2024-03-28"
 
 
 keywords: operating system end of support (eos)
@@ -38,6 +38,7 @@ The following table describes the end of support date and license model for Cent
 |-----------------|----------------|---------------|
 | CentOS 8 minimal | 31 December 2021 | Free |
 | CentOS 7.9 minimal | 30 June 2024  | Free |
+| CentOS Stream 8 | 31 May 2024 | Free |
 {: caption="Table 1. Lifecycle for CentOS operating systems" caption-side="bottom"}
 
 ## Debian

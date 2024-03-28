@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-01-23"
+lastupdated: "2024-03-25"
 
 subcollection: vpc
 
@@ -12,8 +12,6 @@ subcollection: vpc
 
 # Provisioning a reservation for VPC
 {: #provisioning-reserved-capacity-vpc}
-
-[Select availability]{: tag-green}
 
 You can provision a reservation through the UI, CLI, or API.
 {: shortdesc}

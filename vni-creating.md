@@ -73,7 +73,7 @@ To create a virtual network interface in the UI, follow these steps:
 1. Review the information in the Summary panel, and click **Create virtual network interface**.
 
 ## Creating a virtual network interface from the CLI
-{: #virtual-network-interface-create}
+{: #virtual-network-interface-create-cli}
 {: cli}
 
 Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
