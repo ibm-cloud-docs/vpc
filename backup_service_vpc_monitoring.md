@@ -62,10 +62,10 @@ Table 2 shows all the health states that the backup policies can have.
 |`inapplicable`| The health state does not apply because of the current lifecycle state. A resource with a lifecycle state of `failed` or `deleting` also has a health state of `inapplicable`. A `pending` resource can also have this state.|
 {: caption="Table 2. Backup policy health states." caption-side="bottom"}
 
-## Reviewing backup jobs in the UI
+## Reviewing backup jobs
 {: #backup-jobs-manage}
 
-You can see backup jobs that are running, completed, or failed when a backup is triggered. For more information, see [Viewing backup policy jobs](/docs/vpc?topic=vpc-backup-view-policy-jobs).
+Backup jobs create or delete backup snapshots based on the backup plan's frequency and retention settings. You can use the UI, CLI, API, or Terraform to check on the status of the backup jobs. You can see backup jobs that are running, completed, or failed when a backup is triggered. For more information, see [Viewing backup policy jobs](/docs/vpc?topic=vpc-backup-view-policy-jobs).
 
 ## Activity Tracker events
 {: #backup-activity-tracker}
