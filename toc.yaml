@@ -85,6 +85,7 @@ toc:
                - about-hp-securebuild.md
                - hpvs-override-registry.md
                - hpvs-deploy-pay-now.md
+               - hpcr-errors.md
            - host-failure-recovery.md
        - about-reserved-virtual-servers.md
        - topicgroup:
