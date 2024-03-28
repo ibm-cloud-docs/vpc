@@ -159,3 +159,13 @@ Use the `instance-update` command to resize a virtual server.
    Where:
       * `instance-id` is the ID of the instance that you want to resize
       * `profile-id` is the ID of the profile that you want to use
+
+## Resize a virtual server and reservations
+{: #resize-virtual-server-reservation}
+
+Keep the following information in mind when you resize a virtual server that's in a reservation. For more information about reservations, see [About Reservations for VPC](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc).
+
+If the instance that you want to resize is attached to a reservation, the instance profile can't update if the profile doesn't match the profile of its associated reservation.
+
+If the instance that you want to resize is a new profile, you need to first detach the instance from the reservation. The instance profile can then be updated and then a new reservation attached to the instance with a matching profile.
+
