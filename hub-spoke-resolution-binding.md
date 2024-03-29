@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-03-06"
+lastupdated: "2024-03-29"
 
 keywords:
 
@@ -12,23 +12,20 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Creating a DNS resolution binding
+# Creating and deleting a DNS resolution binding
 {: #hub-spoke-resolution-bindings}
-
-This VPC feature is available only to accounts with special approval to preview this feature.
-{: preview}
 
 Create a DNS resolution binding between a VPC and a DNS hub VPC so that the DNS hub VPC can resolve the DNS hostnames of Virtual Private Endpoint (VPE) gateways residing on the DNS-shared (spoke) VPC. Keep in mind that VPE gateways bound to the DNS-shared VPCs must also be enabled for resolution binding (the default setting).
 {: shortdesc}
 
 ## Before you begin
-{: #pps-prerequisites}
+{: #vpe-before-you-begin-prerequisites}
 
 Before you create a DNS resolution binding, review the following prerequisites:
 
 * Review [Planning considerations](/docs/vpc?topic=vpc-hub-spoke-planning-considerations) and [Known issues and limitations](/docs/vpc?topic=vpc-hub-spoke-limitations).
 * Ensure a [VPC enabled as a DNS hub](/docs/vpc?topic=vpc-hub-spoke-configure-hub) already exists.
-* The hub VPC administrator must create an IAM service-to-service authorization policy that allows this DNS-shared VPC to have Read permission on the hub VPC. This `DNS Binding Connector` role on the hub VPC is required regardless of whether the DNS-shared VPC is in the same or a different account. For more information, see [Establishing service-to-service authorization](/docs/vpc?topic=vpc-hub-spoke-s2s-auth&interface=api).
+* The hub VPC administrator must create an IAM service-to-service authorization policy that allows this DNS-shared VPC to have `DNSBindingConnector` permission on the hub VPC. This `DNSBindingConnector` role on the hub VPC is required regardless of whether the DNS-shared VPC is in the same or a different account. For more information, see [Establishing service-to-service authorization](/docs/vpc?topic=vpc-hub-spoke-s2s-auth&interface=api).
 
 You can create a DNS resolution binding with the UI, CLI, API, or Terraform.
 
@@ -39,7 +36,7 @@ You can create a DNS resolution binding with the UI, CLI, API, or Terraform.
 To create a DNS resolution binding in the IBM Cloud console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>VPCs**.
+1. Select the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg), then click > **VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) > **VPCs**.
 1. Click the Virtual Private Cloud in which you want to share DNS records with the DNS hub VPC.
 1. Scroll to the Optional DNS settings section, then expand the DNS resolution binding section and click **Create**.
 1. In the Create side panel, enter a name for the resolution binding.
@@ -47,6 +44,18 @@ To create a DNS resolution binding in the IBM Cloud console, follow these steps:
 1. Click **Create** to create the DNS resolution binding.
 
    The VPC with the DNS resolution binding now shows a `DNS-Shared` tag next to its name.
+
+## Deleting a DNS resolution binding in the UI
+{: #delete-dns-resolution-binding-ui}
+{: ui}
+
+To delete a DNS resolution binding in the IBM Cloud console, follow these steps:
+
+1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
+1. Select the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg), then click > **VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) > **VPCs**.
+1. Click the Virtual Private Cloud in which you want to delete the DNS resolution binding.
+1. Scroll to the Optional DNS settings section, then expand the DNS resolution binding section.
+1. Click **Delete**. If there is more than one binding, click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg), then click **Delete**.
 
 ## Creating a DNS resolution binding from the CLI
 {: #create-dns-resolution-binding-cli}
@@ -98,55 +107,11 @@ To create a DNS resolution binding, enter the following command:
 * `ibmcloud is vpc-dns-resolution-binding-create my-vpc --name my-dns-res-binding --target-vpc my-dns-binding-vpc --output JSON`
 * `ibmcloud is vpc-dns-resolution-binding-create 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 --name my-dns-res-binding --target-vpc my-dns-binding-vpc --output JSON`
 
-To view details of a DNS resolution binding:
-
-```bash
-ibmcloud is vpc-dns-resolution-binding VPC DNS_RESOLUTION_BINDING [--output JSON] [-q, --quiet]
-```
-Where:
-
-`VPC`
-:    Specifies the ID or name of the VPC.
-
-`DNS_RESOLUTION_BINDING`
-:    Specifies the ID or name of the DNS resolution binding.
-
-`--output JSON`
-:    Specifies the output format, only JSON is supported. One of: `JSON`.
-
-`--q, --quiet`
-:    Suppresses verbose output.
-
-To update a DNS resolution binding:
-
-```bash
-ibmcloud is vpc-dns-resolution-binding-update VPC DNS_RESOLUTION_BINDING [--name NAME] [--output JSON] [-q, --quiet]
-```
-
-Where:
-
-`VPC`
-:    Specifies the ID or name of the VPC.
-
-`DNS_RESOLUTION_BINDING`
-:    Specifies the ID or name of the DNS resolution binding.
-
-`--name`
-:    Specifies the name for this DNS resolution binding.
-
-`--output JSON`
-:    Specifies the output format, only JSON is supported. One of: `JSON`.
-
-`--q, --quiet`
-:    Suppresses verbose output.
-
-### Command example
-{: #command-examples-resolution-binding2}
+## Deleting a DNS resolution binding from the CLI
+{: #delete-dns-resolution-binding-cli}
 {: cli}
 
-`ibmcloud is vpc-dns-resolution-binding-update r006-e5b9726b-c975-46bd-b713-c8aea55d51d8 r006-75ccea7b-c705-4b50-934d-2152f9eab4ec --name my-dns-resolution-updated --output JSON`
-
-To delete one or more resolution bindings:
+To delete one or more resolution bindings with the CLI, follow these steps:
 
 ```bash
 ibmcloud is vpc-dns-resolution-binding-delete VPC (DNS_RESOLUTION_BINDING1 DNS_RESOLUTION_BINDING2 ...) [--output JSON] [-f, --force] [-q, --quiet]
@@ -172,22 +137,11 @@ Where:
 `--q, --quiet`
 :    Suppresses verbose output.
 
-To list all resolution bindings:
+### Command example
+{: #command-examples-delete-binding2}
+{: cli}
 
-```bash
-ibmcloud is vpc-dns-resolution-bindings VPC [--output JSON] [-q, --quiet]
-```
-
-Where:
-
-`VPC`
-:    Specifies the ID or name of the VPC.
-
-`--output JSON`
-:    Specifies the output format, only JSON is supported. One of: `JSON`.
-
-`--q, --quiet`
-:    Suppresses verbose output.
+`ibmcloud is vpc-dns-resolution-binding-delete r006-e5b9726b-c975-46bd-b713-c8aea55d51d8 r006-75ccea7b-c705-4b50-934d-2152f9eab4ec --name my-dns-resolution --output JSON`
 
 ##  Creating a DNS resolution binding with the API
 {: #create-dns-resolution-binding-api}
@@ -233,6 +187,10 @@ Sample output:
 }
 ```
 {: screen}
+
+##  Deleting a DNS resolution binding with the API
+{: #delete-dns-resolution-binding-api}
+{: api}
 
 To delete a DNS resolution binding with the API, follow these steps:
 
@@ -298,7 +256,18 @@ resource "ibm_is_vpc_dns_resolution_binding" "my_dns_resolution_binding" {
 ```
 {: codeblock}
 
+##  Deleting a DNS resolution binding with Terraform
+{: #delete-dns-resolution-binding-terraform}
+{: terraform}
+
+To delete a DNS resolution binding with Terraform, see the following example:
+
+```terraform
+terraform destroy --target ibm_is_vpc_dns_resolution_binding.my_dns_resolution_binding
+```
+{: codeblock}
+
 ## Next step
 {: #next-step-dns-resolver-type}
 
-* [Configure a DNS custom resolver](/docs/dns-svcs?topic=dns-svcs-ui-create-cr&interface=ui) on the DNS hub VPC to be responsible for resolving DNS queries from hub and DNS-shared VPCs, as well as those from on-prem networks.
+[Configure a DNS custom resolver](/docs/dns-svcs?topic=dns-svcs-ui-create-cr&interface=ui) on the DNS hub VPC to be responsible for resolving DNS queries from hub and DNS-shared VPCs, as well as those from on-prem networks.

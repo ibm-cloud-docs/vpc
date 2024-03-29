@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-09-12"
+  years: 2023, 2024
+lastupdated: "2024-03-29"
 
 keywords:
 
@@ -18,9 +18,6 @@ content-type: troubleshoot
 {: #troubleshoot-hub-spoke-5}
 {: troubleshoot}
 {: support}
-
-Configuring DNS sharing for VPE gateways is a feature that is available only to accounts with special approval.
-{: preview}
 
 There are three configurations ("default","private_resolver","custom_resolver") with the "system" DNS resolver. These configurations are automatically updated by the system. However, if you run into the issue where the configuration fails to automatically update, follow these steps for the update to be successful.
 {: shortdesc}

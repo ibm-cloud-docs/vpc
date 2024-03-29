@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-09-12"
+  years: 2023, 2024
+lastupdated: "2024-03-29"
 
 keywords:
 
@@ -18,9 +18,6 @@ content-type: troubleshoot
 {: #troubleshoot-hub-spoke-3}
 {: troubleshoot}
 {: support}
-
-Configuring DNS sharing for VPE gateways is a feature that is available only to accounts with special approval.
-{: preview}
 
 When you configure DNS sharing for Virtual Private Endpoint (VPE) gateways, you might encounter issues. Often, you can recover by following a few steps.
 {: shortdesc}

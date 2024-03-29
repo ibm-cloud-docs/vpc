@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-03-06"
+lastupdated: "2024-03-29"
 
 keywords:
 
@@ -15,16 +15,13 @@ subcollection: vpc
 # Enabling a VPC as a DNS hub
 {: #hub-spoke-configure-hub}
 
-This VPC feature is available only to accounts with special approval to preview this feature.
-{: preview}
-
-Enable a VPC as the DNS hub so that other VPCs can create DNS resolution bindings with this VPC, and centralize the DNS resolution for VPE gateways with DNS resolution binding enabled.
+You can enable a VPC as the DNS hub so that other VPCs can create DNS resolution bindings with this VPC, as well as centralize the DNS resolution for VPE gateways with DNS resolution bindings enabled.
 
 ## Before you begin
 {: #hub-prerequisites}
 
 * Before you enable a VPC as a DNS hub, review [Planning considerations](/docs/vpc?topic=vpc-hub-spoke-planning-considerations) and [Known issues and limitations](/docs/vpc?topic=vpc-hub-spoke-limitations).
-* Ensure that the VPC you choose to enable as a hub has the DNS resolver type set to System (the default) or Manual. For more information, see [Setting the DNS resolver type](/docs/vpc?topic=vpc-hub-spoke-configure-dns-resolver&interface=ui).
+* Ensure that the VPC you choose to enable as a hub has its DNS resolver type set to System (the default) or Manual. For more information, see [Setting the DNS resolver type](/docs/vpc?topic=vpc-configure-dns-resolver&interface=ui).
 
 You can enable a VPC as a DNS hub with the UI, CLI, API, or Terraform.
 
@@ -36,7 +33,7 @@ To enable a VPC as a DNS hub in the {{site.data.keyword.cloud_notm}} console, fo
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 1. Select the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg), then click > **VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) > **VPCs**.
-1. Click the link of the Virtual Private Cloud that you want to designate as the DNS hub VPC.  The Overview page is displayed.
+1. Click the link of the Virtual Private Cloud that you want to designate as the DNS hub VPC. The Overview page displays.
 1. Scroll to the Optional DNS settings section at the end of the page, then expand the DNS hub section and enable the DNS hub switch.
 
    The Virtual private clouds table now show a `DNS-hub` tag next to the name of the designated hub VPC.
@@ -48,7 +45,7 @@ To enable a VPC as a DNS hub in the {{site.data.keyword.cloud_notm}} console, fo
 To enable a VPC as a DNS hub with the CLI, follow these steps:
 
 1. [Set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
-1. Log in to your account with the CLI. After you enter the password, the system prompts which account and region that you want to use:
+1. Log in to your account with the CLI. After you enter the password, the system asks which account and region that you want to use:
 
     ```sh
     ibmcloud login --sso
@@ -78,7 +75,7 @@ To enable a VPC as a DNS hub with the CLI, follow these steps:
    :    Indicates the type of the DNS resolver to use. One of: `system` (default), `manual`.
 
    `--dns-resolver-manual-servers`
-   :    Valid when the resolver type is `manual`. Configure manual DNS server addresses for the VPC. MANUAL_SERVERS|@MANUAL_SERVERS, manual servers in JSON or a JSON file.
+   :    Valid when the resolver type is `manual`. Configure manual DNS server addresses for the VPC. `MANUAL_SERVERS|@MANUAL_SERVERS` manual servers in JSON or a JSON file.
 
 ## Enabling a VPC as a DNS hub with the API
 {: #hub-spoke-api}
@@ -151,9 +148,9 @@ You can use Terraform to enable a VPC as a DNS hub.
 To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
 {: requirement}
 
-VPC infrastructure services use a regional specific endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the appropriate region in the provider block in the `provider.tf` file.
+VPC infrastructure services use a regional specific endpoint, which targets `us-south` by default. If your VPC is created in another region, make sure to target the appropriate region in the provider block of the `provider.tf` file.
 
-See the following example of targeting a region other than the default `us-south`.
+The following example details targeting a region other than the default `us-south`:
 
 ```terraform
 provider "ibm" {

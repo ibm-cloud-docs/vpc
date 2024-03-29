@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-03-06"
+lastupdated: "2024-03-29"
 
 keywords:
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Disconnecting DNS sharing to a hub VPC
 {: #remove-sharing-spoke-hub}
 
-When you want to disconnect DNS sharing to a DNS hub VPC, the DNS-shared VPC authorized user can unshare the Virtual Private Endpoint (VPE) gateways to the DNS hub VPC.
+To disconnect DNS sharing to a DNS hub VPC, the DNS-shared VPC authorized user can unshare the Virtual Private Endpoint (VPE) gateways to the DNS hub VPC.
 {: shortdesc}
 
 You can disconnect DNS sharing to a hub VPC with the UI, CLI, API, or Terraform.
@@ -23,10 +23,10 @@ You can disconnect DNS sharing to a hub VPC with the UI, CLI, API, or Terraform.
 ## Before you begin
 {: #dns-sharing-before-you-begin}
 
-Before you disconnect DNS sharing, make sure to meet the following prerequisites:
+Before you disconnect DNS sharing, review the following prerequisites:
 
-* To disconnect DNS sharing from a DNS-shared (spoke) VPC with DNS resolver type set to Delegated, you must first update the resolver type to System or Manual. Then, delete the DNS resolution binding.
-* To disconnect DNS sharing from a hub VPC, the hub VPC user must be assigned the **DNS Binding Connector** IAM role.
+* To disconnect DNS sharing from a DNS-shared (spoke) VPC with its DNS resolver type set to `Delegated`, you must first update the resolver type to `System` or `Manual`. Then, delete the DNS resolution binding.
+* To disconnect DNS sharing from a hub VPC, the hub VPC user must be assigned the `DNSBindingConnector` IAM role.
 
 ## Disconnecting DNS sharing to a hub VPC in the UI
 {: #hub-spoke-disconnect-from-hub-ui}
@@ -52,7 +52,7 @@ The hub VPC administrator can revoke the IAM service-to-service (s2s) authorizat
 To disconnect DNS sharing to a DNS hub VPC with the CLI, follow these steps:
 
 1. [Set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
-1. Log in to your account with the CLI. After you enter the password, the system prompts you for the account and region you want to use:
+1. Log in to your account with the CLI. After you enter the password, the system prompts you for the account and region that you want to use:
 
     ```sh
     ibmcloud login --sso
@@ -80,8 +80,8 @@ To disconnect DNS sharing to a DNS hub VPC with the CLI, follow these steps:
    `DNS_RESOLUTION_BINDINGS1`
    :    Specifies the ID or name of the VPC DNS resolution binding.
 
-   `DNS_RESOLUTION_BINDINGS1`
-   :    Specifies the ID or name of the VPC DNS resolution binding.
+   `DNS_RESOLUTION_BINDINGS2`
+   :    Specifies the ID or name of the second VPC DNS resolution binding.
 
    `--output`
    :    Specifies the output format, only JSON is supported. One of: `JSON`.
@@ -134,7 +134,7 @@ You can use Terraform to disconnect DNS sharing to a DNS hub VPC.
 To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
 {: requirement}
 
-VPC infrastructure services use a regional specific endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the appropriate region in the provider block in the `provider.tf` file.
+VPC infrastructure services use a regional specific endpoint, which targets `us-south` by default. If you create your VPC in another region, make sure to target the appropriate region in the provider block of the `provider.tf` file.
 
 See the following example of targeting a region other than the default `us-south`.
 
@@ -162,3 +162,13 @@ resource "ibm_is_vpc" "example" {
 terraform destroy -target=ibm_is_vpc_dns_resolution_binding.my_dns_resolution_binding
 ```
 {: codeblock}
+
+## Considerations after disconnecting DNS sharing
+{: #considerations-after-disconnecting-dns-sharing}
+
+When a hub VPC owner deletes a DNS resolution binding, it can result in a degraded health state for the DNS-shared (spoke) VPC when the DNS-shared VPC delegates its DNS resolver to use the hub VPC's custom resolver. To restore the VPC's health from `Degraded` state, the DNS-shared VPC owner can update its DNS resolver type to `System`.
+
+When a DNS-shared VPC owner deletes a DNS resolution binding, depending on whether the DNS-shared VPC is granted the [service-to-service IAM authorization policy](/docs/vpc?topic=vpc-hub-spoke-s2s-auth&interface=ui) on the hub VPC with the `DNSBindingConnector` role, the system either deletes the DNS resolution binding on the hub side (when authorized) or puts the hub's binding in `Faulted` state.
+
+For more information, see [Monitoring a VPC for status and health](/docs/vpc?topic=vpc-vpc-states&interface=ui).
+{: note}
