@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-03-28"
+lastupdated: "2024-03-29"
 
 keywords:
 
@@ -28,6 +28,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## March 2024
 {: #vpc-mar24}
+
+### 29 March 2024
+{: #vpc-mar2924}
+{: release-note}
+
+Sharing DNS resolution for endpoint gateways across VPCs
+:   When multiple VPCs are connected together using Transit Gateway, Direct Link, or other connectivity options, a VPC in the connected topology can now be enabled as a DNS hub to centralize the DNS resolution for Virtual Private Endpoint (VPE) gateways. For more information, see [About DNS sharing for VPE gateways](/docs/vpc?topic=vpc-hub-spoke-model).  
 
 ### 28 March 2024
 {: #vpc-mar2824}
