@@ -10,16 +10,16 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Reserved capacity status reasons
-{: #reserved-capacity-status-reasons}
+# Reserved capacity status messages
+{: #reserved-capacity-status-messages}
 
-If you receive a capacity health status message for a reservation, you can use the following information to help determine the message.
+If you receive a capacity status message for a reservation, you can use the following information to help determine the message.
 {: shortdesc}
 
-## Health states
-{: #reservation-health-states}
+## Capacity status
+{: #reserved-capacity-status-message-reasons}
 
-See the following information to understand the health state of your reservation.
+See the following information to understand the status of your reservation.
 
 | Status  | Reason |
 | ------------ | ----------- |
@@ -30,5 +30,3 @@ See the following information to understand the health state of your reservation
 {: caption="Table 1. Reservation capacity status" caption-side="top"}
 
 If you need more help, contact [support](/docs/vpc?topic=vpc-getting-help-and-support-for-vpc).
-
-For more information about managing reserved capacity, see [Managing reserved capacity for VPC](/docs/vpc?topic=vpc-managing-reserved-capacity-vpc).
