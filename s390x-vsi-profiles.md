@@ -35,7 +35,7 @@ The following profile families are available:
 
 s390x processor architecture profiles can be used to provision {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}}, LinuxONE virtual server instances, and z/OS virtual server instances.
 
-For the LinuxONE and z/OS virtual server instances, the profiles are available in the US South (Dallas), Japan (Tokyo), Brazil (São Paulo), Madrid (Spain), Canada (Toronto), United Kingdom (London), and US East (Washington DC) regions.
+For the LinuxONE and z/OS virtual server instances, the profiles are available in the US South (Dallas), Japan (Tokyo), Brazil (São Paulo), Spain (Madrid), Canada (Toronto), United Kingdom (London), and US East (Washington DC) regions.
 {: preview}
 
 ## Balanced
