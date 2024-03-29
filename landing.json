@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2024-03-22",
+    "lastupdated": "2024-03-29",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
@@ -31,19 +31,19 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
-          "date": "22 March 2024",
-          "title": "Private Path Services for VPC Beta",
-          "description": "Accounts that are granted special approval to preview this feature can now create a Private Path service and Private Path network load balancer. Private Path services provide private connectivity for IBM Cloud and third-party services. A Private Path service requires a Private Path network load balancer to deploy a service on IBM Cloud and a Virtual Private Endpoint (VPE) gateway for consumers to connect to the service. Traffic stays on the IBM Cloud backbone without traversing the public internet."
+          "date": "29 March 2024",
+          "title": "Sharing DNS resolution for endpoint gateways across VPCs",
+          "description": "When multiple VPCs are connected together using Transit Gateway, Direct Link, or other connectivity options, a VPC in the connected topology can now be enabled as a DNS hub to centralize the DNS resolution for Virtual Private Endpoint (VPE) gateways."
         },
         {
-          "date": "21 March 2024",
-          "title": "UI Enhancement to SSH Keys",
-          "description": "The UI process for uploading SSH keys is improved where you Select SSH key input method. Improvements were made to the ability to copy and paste, drag and drop, and the upload buttons. Previously, these three actions were all individually located. These actions are now combined to use the same space within the UI. You can also set the expiry of contract during signature. Contract signature is an optional feature that can be used with the contract. You can choose to sign a contract before it is passed as input. Contracts that are in plain text or encrypted can be signed. Certificate can also be parsed as base64 string."
+          "date": "28 March 2024",
+          "title": "VMware ESXi 7 End of Market for Bare Metal for VPC",
+          "description": "VMware ESXi image on Bare Metal Servers for VPC will no longer be available when you provision a bare metal for VPC servers. If looking to deploy a VMware solution in VPC, consider provisioning VMware Cloud Foundation (VCF) through IBM Cloud VMware Solutions."
         },
         {
-          "date": "15 March 2024",
-          "title": "IBM Hyper Protect Container Runtime image ibm-hyper-protect-container-runtime-1-0-s390x-15 updates",
-          "description": "For the IBM Hyper Protect Container Runtime image version ibm-hyper-protect-container-runtime-1-0-s390x-15, new certificates are available. You can also set the expiry of contract during signature. Contract signature is an optional feature that can be used with the contract. You can choose to sign a contract before it is passed as input. Contracts that are in plain text or encrypted can be signed. Certificate can also be parsed as base64 string. Validation of the contract signature is done by the Hyper Protect Virtual Servers for VPC image. You can validate the certificates that you download for contract encryption and attestation."
+          "date": "28 March 2024",
+          "title": "Next generation instance profiles available in Washington DC region (select availability)",
+          "description": "The 3rd generation of IBM Cloud Virtual Servers for VPC are now available as a select availability offering in the US East (Washington DC) region, in addition to the US South (Dallas), United Kingdom (London), and EU Germany (Frankfurt) regions. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel® Xeon® Scalable processors to provide the most powerful and performant general-purpose profiles available."
         }
       ]
     }
