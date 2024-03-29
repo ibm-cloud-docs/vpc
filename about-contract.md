@@ -922,36 +922,36 @@ Complete the following steps on an Ubuntu system, to create the contract signatu
    ```
    {: codeblock}
 
-6. Use the following command to export complete path of `env.yaml` and `ibm-hyper-protect-container-runtime-1-0-s390x-15-encrypt.crt`:
+7. Use the following command to export complete path of `env.yaml` and `ibm-hyper-protect-container-runtime-1-0-s390x-15-encrypt.crt`:
    ```sh
    ENV="<PATH to env.yaml>"
    CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-15-encrypt.crt>"
    ```
    {: pre}
 
-7. Use the following command to create a random password:
+8. Use the following command to create a random password:
    ```sh
    PASSWORD="$(openssl rand 32 | base64 -w0)"
    ```
    {: pre}
 
-8.  Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-15-encrypt.crt.`:
+9. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-15-encrypt.crt.`:
    ```yaml
    ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY  -certin | base64 -w0)"
    ```
    {: pre}
 
-9.  Use the following command to encrypt `env.yaml` with a random password:
-   ```sh
-   ENCRYPTED_ENV="$(echo -n "$PASSWORD" | base64 -d | openssl enc -aes-256-cbc -pbkdf2 -pass stdin -in "$ENV" | base64 -w0)"
-   ```
-   {: pre}
+10. Use the following command to encrypt `env.yaml` with a random password:
+    ```yaml
+    ENCRYPTED_ENV="$(echo -n "$PASSWORD" | base64 -d | openssl enc -aes-256-cbc -pbkdf2 -pass stdin -in "$ENV" | base64 -w0)"
+    ```
+    {: pre}
 
-10. Use the following command to extract the encrypted `env` section:
-   ```sh
-   echo "hyper-protect-basic.${ENCRYPTED_PASSWORD}.${ENCRYPTED_ENV}"
-   ```
-   {: pre}
+11. Use the following command to extract the encrypted `env` section:
+    ```yaml
+    echo "hyper-protect-basic.${ENCRYPTED_PASSWORD}.${ENCRYPTED_ENV}"
+    ```
+    {: pre}
 
 Steps 4 - 8 are used to encrypt the `env` section. If you choose to not encrypt this section, skip these steps.
 {: note}
