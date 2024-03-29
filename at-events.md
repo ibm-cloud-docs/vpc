@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-03-12"
+lastupdated: "2024-03-29"
 
 keywords:
 
@@ -63,10 +63,7 @@ The following table lists the actions that are related to VPC routing tables and
 ### DNS resolution binding events
 {: #events-dns-resolution-bindings}
 
-This VPC feature is available only to accounts with special approval to preview this feature.
-{: preview}
-
-New events:
+The following table lists the actions that are related to DNS resolution bindings.
 
 | Resource  | Action  | Description  |
 |:----------------|:-----------------------|:-----------------------|
