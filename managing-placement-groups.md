@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-12-18"
+  years: 2021, 2024
+lastupdated: "2024-03-28"
 
 keywords: virtual private cloud, private cloud network, placement group, placement group strategy, host spread, power spread, generation 2, gen 2
 
@@ -371,3 +371,13 @@ data "ibm_is_placement_group" "d_is_placement_group" {
 }
 ```
 {: pre}
+
+## Using placement groups with a reservation
+{: #placement-groups-with-reservation}
+
+Keep the following information in mind when you use a placement group with a reservation. For more information about reservations, see [About Reservations for VPC](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc).
+
+Support for an instance with both a placement group and reservation target isn't supported yet.
+{: important}
+
+Placement groups and reservations are mutually exclusive. Meaning, that an instance that is a member of a placement group can't be created or updated to also target a reservation. Such a POST or PATCH API request results in an error.
