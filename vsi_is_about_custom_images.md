@@ -83,7 +83,7 @@ If you plan to import an image from a file, you must provision an instance of {{
 
 [Beta]{: tag-blue}
 
-Generic operating system custom images support is a beta feature that is available for evaluation and testing purposes.
+Generic operating system custom images is a beta feature that is available to select customers for evaluation and testing purposes. To request to be included in the evaluation of this beta feature, contact IBM Support. 
 {: beta}
 
 You can use a specific operating system that is not listed in {{site.data.keyword.Bluemix_notm}} by specifying a generic operating system when you import a custom image. You have multiple generic operating system options. You can select a generic operating system that is based on the CPU architecture and initialization strategy appropriate for your custom image operating system.
