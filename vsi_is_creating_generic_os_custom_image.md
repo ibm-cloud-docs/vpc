@@ -17,7 +17,7 @@ subcollection: vpc
 
 [Beta]{: tag-blue}
 
-Generic operating system custom images is a beta feature that is available for evaluation and testing purposes.
+Generic operating system custom images is a beta feature that is available to select customers for evaluation and testing purposes. To request to be included in the evaluation of this beta feature, contact IBM Support. 
 {: beta}
 
 You can specify a generic operating system during image import to create an image that contains any operating system that you want. When you provision a server from a generic operating system custom image, the operating system-specific initialization actions aren't performed automatically. You must specify each specific action by using user data.
