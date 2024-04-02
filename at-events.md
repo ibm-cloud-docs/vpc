@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-03-29"
+lastupdated: "2024-04-04"
 
 keywords:
 
@@ -461,6 +461,7 @@ Some fields for Bare Metal Servers for VPC AT events will be changing between th
 | Bare Metal Server | is.bare-metal-server.network-interface-floating-ip.attach | Floating IP was associated with a network interface |
 | Bare Metal Server | is.bare-metal-server.network-interface-floating-ip.detach | Floating IP was disassociated from a network interface |
 | Bare Metal Server | is.bare-metal-server.bare-metal-server-profile.read | One or more bare metal server profiles was retrieved |
+| Bare Metal Server | is.bare-metal-server.bare-metal-server-firmware.update | Lists the old and new firmware versions. |
 {: caption="Table 20. Actions that generate events for Bare Metal Server" caption-side="bottom"}
 
 ### Key events
