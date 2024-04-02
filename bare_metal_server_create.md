@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-3-12"
+lastupdated: "2024-04-04"
 
 keywords: creating bare metal servers
 
@@ -17,6 +17,8 @@ subcollection: vpc
 
 Use the following information to create a bare metal server on your {{site.data.keyword.vpc_full}} (VPC) with the configuration of your choice.
 {: shortdesc}
+
+If you want to use an operating system image that is hosted on your own server or on a public server, review [Network booting your own operating system with Bare Metal Servers on VPC](/docs/vpc?topic=vpc-network-boot-bare-metal-servers) before creating your bare metal server.
 
 ## Creating a bare metal server by using the UI
 {: #creating-bare-metal-ui}
