@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-12-13"
+  years: 2023, 2024
+lastupdated: "2024-04-02"
 
 keywords: sgx, intel sgx, software guard extension, confidential computing, trusted execution environment, TEE, data protection
 
@@ -16,7 +16,7 @@ subcollection: vpc
 # Confidential computing with Intel Software Guard Extensions (SGX) for Virtual Servers for VPC
 {: #about-sgx-vpc}
 
-[Select availability Beta]{: tag-blue}
+[Select availability]{: tag-green}
 
 Confidential computing with Intel&reg; Software Guard Extensions (SGX) protects your data through hardware-based server security by using isolated memory regions that are known as encrypted enclaves. This hardware-based computation helps protect your data from disclosure or modification. Which means that your sensitive data is encrypted while it is in virtual server instance memory by allowing applications to run in private memory space. To use SGX, you must install the SGX drivers and platform software on SGX-capable worker nodes. Then, design your app to run in an SGX environment. For more information about SGX, see [Intel Software Guard Extensions](https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/overview.html).
 {: shortdesc}
@@ -43,10 +43,6 @@ So, all Intel SGXs are TEEs, but not all TEEs are Intel SGXs.
 
 When you develop a confidential computing application, you must design it so you can segment the information that needs encryption. At run time, the segmented information is kept confidential through attestation. When a request for information from the segmented code or app data is received, the encrypted enclave verifies that the request comes from the part of the application that exists outside of the enclave within the same application before it shares any information. Through the attestation process, information is kept confidential and data leakage is prevented. For more information about attestation with Intel SGX, see [Attestation with Intel SGX and Data Center Attestation Primitives (DCAP)](/docs/vpc?topic=vpc-about-attestation-sgx-dcap-vpc).
 
-<!--Attestation in SGX is the process of demonstrating that an operation is instantiated. SGX attestation confirms that the intended software or code is running within an encrypted enclave. In other words, attestation provides evidence that you are running in an SGX platform that is inside a properly instantiated encrypted enclave, on a system that has a known security configuration.
-
-Attestation is signed and verified when you provision a server with ECDSA signed collateral that is then saved in the caching service. While SGX helps uphold the integrity and confidentiality of your data (thanks to the encrypted enclaves), SGX doesn't protect against all attack types - such as side-channel attacks.-->
-
 ### Confidential computing with SGX use cases
 {: #scenarios-sgx-vpc}
 
@@ -60,18 +56,16 @@ The following are some of the use cases for confidential computing with SGX.
 
 * **Digital Assets** is the trusted platform for digital custody solutions, for storing and transferring high value digital assets in highly secure wallets, reliable at scale.
 
-## Requirements
-{: #requirements-sgx-vpc}
-
-* A VPC
-
 ## SGX-compatible profiles
 {: #compatible-profiles-confidential-computing-vpc-sgx}
 
 The following profiles support SGX.
 
-* All Balanced _bx3d_ profiles
-* All Compute _cx3d_ profiles
+* All Balanced _bx3dc_ profiles
+* All Compute _cx3dc_ profiles
+
+   For Gen3 profiles, you can enable and disable secure boot. But when you toggle between enable and disable the machine type changes. So, make sure that you create a snapshot before change this setting. 
+   {: important}
 
 For more information about profiles, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles).
 
@@ -89,7 +83,7 @@ Keep the following limitations in mind if you want to use SGX.
 * Only the following images support SGX. Keep in mind that images with kernel versions 5.11 and prior don't support SGX.
    - Red Hat 8.6, 8.8, 9.0, 9.2
    - Ubuntu 20.04, 22.04
-   - CentOS Stream 8
+   - CentOS Stream 8, 9
    - Rocky Linux 8.8, 9.2
    - Debian 11, 12
    - SLES 15 SP4, SP5
