@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-02-23"
+lastupdated: "2024-04-04"
 
 subcollection: vpc
 
@@ -28,9 +28,10 @@ The following operating systems are available as images when you create a bare m
 | [Custom image](#bare-metal-custom-images) | x86-64 |
 | Debian 11 | x86-64 |
 | Microsoft Windows 2016 Full standard, 2019 Full standard, 2022 Full standard | x86-64 |
-| [Red Hat Enterprise Linux](#bare-metal-images-rhel-considerations) 8.4, 8.6 | x86-64 |
-| Red Hat Enterprise Linux for SAP | x86-64 |
-| SUSE Red Hat Enterprise Linux for SAP  \n  \n For more information about SAP and bare metal servers, see [SAP fast path for IBM Cloud Intel bare metal servers](/docs/sap?topic=sap-fast-path-site-map-intel-bm). | x86-64 |
+| [Red Hat Enterprise Linux](#bare-metal-images-rhel-considerations) 9.x, 8.x| x86-64 |
+| Red Hat Enterprise Linux for SAP 9.x, 8.8, 8.6, 8.4 | x86-64 |
+| SUSE Red Hat Enterprise Linux 15, 12 | x86-64 |
+| SUSE Red Hat Enterprise Linux for SAP 15, 12  \n  \n For more information about SAP and bare metal servers, see [SAP fast path for IBM Cloud Intel bare metal servers](/docs/sap?topic=sap-fast-path-site-map-intel-bm). | x86-64 
 | [Ubuntu](#bare-metal-images-ubuntu-considerations) 22, 20.04 | x86-64 |
 | [VMware ESXi](#bare-metal-images-vmware-esxi-considerations) | x86-64 |
 {: caption="Table 1. Bare metal server images" caption-side="bottom"}
