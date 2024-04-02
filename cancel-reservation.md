@@ -38,6 +38,8 @@ Reservations can be deleted for cases such as degraded capacity. All deletion re
 {: #reservation-delete-cli}
 {: cli}
 
+<!--To delete a reservation by using the CLI, use the `ibmcloud is reservation-delete` command.-->
+
 Use the following command to delete a reservation.
 
 ```sh
@@ -60,3 +62,16 @@ Where the following argument and option values are used
 * --force, -f: Force the operation without confirmation
 * --output: Specify output format, only JSON is supported. One of: JSON.
 * -q, --quiet: Suppress verbose output.
+
+## Deleting an inactive or expired reservation with the API
+{: #delete-inactive-expired-reservation-api-vpc}
+{: api}
+
+You can delete a {{site.data.keyword.vpc_short}} reservation in your region by using the application programming interface (API). To delete a reservation by using the API, use [Delete a reservation](/apidocs/vpc/latest#delete-reservation).
+
+Specify a `DELETE /reservation` request delete a reservation. See the following example.
+
+```sh
+curl -X DELETE "$vpc_api_endpoint/v1/reservations/$id?version=2024-01-27&generation=2" - H "Authorization: Bearer $iam_token"
+```
+{: pre}
