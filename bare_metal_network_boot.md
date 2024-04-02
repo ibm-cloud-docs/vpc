@@ -17,7 +17,7 @@ subcollection: vpc
 
 [Beta]{: tag-blue}
 
-Network booting your operating system on a bare metal server is a beta feature that is available for evaluation and testing purposes.
+Network booting your operating system on a bare metal server is a beta feature that is available to select customers for evaluation and testing purposes. To request to be included in the evaluation of this beta feature, contact IBM Support. 
 {: beta}
 
 When you create a bare metal server on {{site.data.keyword.vpc_full}} (VPC), you can select to network boot an operating system over the network. The operating system image can be hosted on your own server or on a public server. You can install the booted operating system to a disk or you can run the operating system without a disk.
