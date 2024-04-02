@@ -50,6 +50,25 @@ You can attach a virtual server to a reservation.
 1. From the virtual servers list, click **Actions** > **Attach**.
 1. Select the server you want to attach to the reservation and click **Attach**.
 
+<!--
+
+### Attach a virtual server instance to your reservation with the CLI
+{: #attach-vsi-reservation-cli-vpc}
+{: cli}
+
+### Detatch a virtual server instance to your reservation with the UI
+{: #attach-vsi-reservation-ui-vpc}
+{: ui}
+
+### Detatch a virtual server instance to your reservation with the CLI
+{: #attach-vsi-reservation-cli-vpc}
+{: cli}
+
+### Detatch a virtual server instance to your reservation with the API
+{: #attach-vsi-reservation-api-vpc}
+{: api}
+-->
+
 ### Detaching a server from reservation with the UI
 {: #removing-adding-server-reservation-ui-vpc}
 {: ui}
@@ -388,3 +407,93 @@ bx3-2x10           intel               amd64          balanced           2      
 bx3d-2x10          intel               amd64          balanced           2       10            4000              1000                     -      1x65          1               5               current    one_year,three_year
 ```
 {: screen}
+
+## Managing reservation with the API
+{: #managing-reservation-api-vpc}
+{: api}
+
+To manage a reservation using the application programming interface (API), you need an IAM role that includes the following actions. For more information, see [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started).
+
+   - is.reservation.reservation.list
+   - is.reservation.reservation.read
+   - is.reservation.reservation.create
+   - is.reservation.reservation.delete
+   - is.reservation.reservation.read
+   - is.reservation.reservation.update
+
+### List all reservations
+{: #list-reservation-api-vpc}
+{: api}
+
+You can list all of the {{site.data.keyword.vpc_short}} reservations in your region by using the application programming interface (API). To list all reservations by using the API, use [List all images](/apidocs/vpc/latest#list-reservations).
+
+Specify a `GET /reservations` request to list all of the reservations. See the following example.
+
+```sh
+curl -X GET "$vpc_api_endpoint/v1/reservations?version=2024-01-27&generation=2" -H "Authorization: Bearer $iam_token"
+```
+{: pre}
+
+The reservations are sorted first by their `create_at` property value. The newest reservations are listed first. If reservations have identical `created_at` property values, they are then sorted by their `name` property values. The list of reservations defaults to 50 reservations, but you can increase this up to 100.
+
+You can filter the list further with the following property values.
+
+* `name`
+* `resource_group.id`
+* `zone.name`
+
+### Delete a reservation
+{: #delete-reservation-api-vpc}
+{: api}
+
+You can delete a {{site.data.keyword.vpc_short}} reservation in your region by using the application programming interface (API). To delete a reservation by using the API, use [Delete a reservation](/apidocs/vpc/latest#delete-reservation).
+
+Specify a `DELETE /reservation` request delete a reservation. See the following example.
+
+```sh
+curl -X DELETE "$vpc_api_endpoint/v1/reservations/$id?version=2024-01-27&generation=2" - H "Authorization: Bearer $iam_token"
+```
+{: pre}
+
+### Retrieve reservations
+{: #retrieve-reservation-api-vpc}
+{: api}
+
+You can retrieve a specific {{site.data.keyword.vpc_short}} reservation in your region by using the application programming interface (API). To retrieve a specific reservation by using the API, use [Retrieve a reservation](/apidocs/vpc/latest#get-reservation).
+
+Specify a `GET /reservation/{id}` request retrieve a specific reservation where `id` is the reservation identifier of the reservation you are retrieving. The identifier is in the URL. See the following example.
+
+```sh
+curl -X GET "$vpc_api_endpoint/v1/reservations/$id?version=2024-01-27&generation=2" - H "Authorization: Bearer $iam_token"
+```
+{: pre}
+
+### Update a reservation
+{: #update-reservation-api-vpc}
+{: api}
+
+You update a specific {{site.data.keyword.vpc_short}} reservation in your region by using the application programming interface (API). To update a specific reservation by using the API, use [Update a reservation](/apidocs/vpc/latest#update-reservation).
+
+Specify a `PATCH /reservations/{id}` request to update a specific reservation where `id` is the reservation identifier of the reservation you are retrieving. The identifier is in the URL. See the following example.
+
+```sh
+curl -X PATCH "$vpc_api_endpoint/v1/reservations/$id?version=2024-01-27&generation=2" -H "Authorization: Bearer $iam_token" -d '{
+      "committed_use": {
+        "expiration_policy": "release"
+      }
+    }'
+```
+{: pre}
+
+### Activate a reservation
+{: #activate-reservation-api-vpc}
+{: api}
+
+You can activate a specific {{site.data.keyword.vpc_short}} reservations in your region by using the application programming interface (API). To activate a specific reservation by using the API, use [Activiate a reservation](/apidocs/vpc/latest#activate-reservation).
+
+Specify a `POST /reservations/{id}/activate` request to update a specific reservation where `id` is the reservation identifier of the reservation you are retrieving. The identifier is in the URL. See the following example.
+
+```sh
+curl -X POST "$vpc_api_endpoint/v1/reservations/$id/activate?version=2024-01-27&generation=2" -H "Authorization: Bearer $iam_token"
+```
+{: pre}
