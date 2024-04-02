@@ -231,6 +231,7 @@ toc:
             topics:
             - bare_metal_server_planning.md
             - bare_metal_server_create.md
+            - bare_metal_network_boot.md
             - bare_metal_server_connect.md
             - bare_metal_server_connect_windows.md
             - bare-metal-server-connect-serial-console-windows.md
@@ -269,6 +270,7 @@ toc:
                 - vsi_is_create_linux_custom_image.md
                 - vsi_is_create_windows_custom_image.md
                 - vsi_is_create_zos_custom_image.md
+                - vsi_is_creating_generic_os_custom_image.md
                 - vsi_is_migrate_from_classic_infra.md
                 - vsi_is_encrypt_custom_image.md
                 - building-custom-os.md
