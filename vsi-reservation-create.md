@@ -17,6 +17,7 @@ You can provision a reservation through the UI, CLI, or API.
 {: shortdesc}
 
 Reservations are available in only the Sydney region with the following virtual server profiles:
+
 * bx2-2x8
 * bx2d-2x8
 * bx2-4x16
@@ -54,11 +55,6 @@ In the {{site.data.keyword.cloud_notm}}, complete the following steps to provisi
    {: caption="Table 1. Reservation UI provisioning selections" caption-side="top"}
 
 4. Click **Create a reservation**.
-
-## Next step
-{: #next-step-provisioning-reserved}
-
-After your reservation is provisioned and active, you can Attach an existing virtual server to your reservation. Or, you can Create virtual servers in your reservation by using the IBM Cloud console, the CLI, or the API. For more information about creating a virtual server, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers).
 
 ## Attaching an existing virtual server to a reservation with the UI
 {: #attach-virtual-server-ui-vpc}
@@ -99,14 +95,14 @@ Ready to create a reservation with the CLI? Before you can run the `is.reservati
 
 Gather the following information by using the associated commands.
 
-| Reservation details | Listing options | VPC CLI reference documentation |
-| ---------------- | ----------------|---------------------------------|
-| Capacity        | Amount of capacity to reserve (limit of 200 vCPUs).  |  |
-| Term length             | (1 or 3-year term length) |  |
-| Server profile          |  Keep the following rules in mind when you provision a reservation.  \n - You can't change profiles after your reservation is created.  \n - You can't combine different profile sizes.  \n - Your reserved virtual servers must all have the same size (all resources must be identical). |  |
-| Zone               | Select the specific location for your workload. Locations are composed of regions; each region is a separate geographic area. Keep in mind that you can't select individual locations for each virtual server that you provision within this reserved capacity. Your selection is the location for all virtual server instances that you provision within this reservation. |  |
-| Name                    | The name for your reservation. |  |
-{: caption="Table 2. Required reservation details for the CLI" caption-side="bottom"}
+| Reservation details | Listing options |
+| ---------------- | ----------------|
+| Capacity        | Amount of capacity to reserve (limit of 200 vCPUs). |
+| Term length             | (1 or 3-year term length) |
+| Server profile          |  Keep the following rules in mind when you provision a reservation.  \n - You can't change profiles after your reservation is created.  \n - You can't combine different profile sizes.  \n - Your reserved virtual servers must all have the same size (all resources must be identical). |
+| Zone               | Select the specific location for your workload. Locations are composed of regions; each region is a separate geographic area. Keep in mind that you can't select individual locations for each virtual server that you provision within this reserved capacity. Your selection is the location for all virtual server instances that you provision within this reservation. |
+| Name                    | The name for your reservation. |
+{: caption="Table 2. Required reservation details for the CLI" captin-side="bottom"}
 
 ## Provisioning a reservation by using the CLI
 {: #provision-reserved-capacity-cli-vpc}
@@ -160,7 +156,7 @@ Where the following argument and option values are used.
 * --output: Specify output format, only JSON is supported. One of: JSON.
 * -q, --quiet: Suppress verbose output.
 
-## Next steps
+### Next step
 {: #next-step-provisioning-reserved-vpc}
 
 After your reservation is provisioned and active, you can **Attach** or **Create** virtual servers by using the {{site.data.keyword.cloud_notm}} console, the CLI, or the API. For more information about creating a virtual server, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers).
@@ -177,3 +173,37 @@ You can attach an existing virutal server to a reservation by using the CLI. To 
 ibmcloud is instance-update <instance-name> -reservation-affinity-policy manual --reservation-affinity-pool <reservation-name>
 ```
 {: pre}
+
+## Creating a reservation with the API
+{: #create-reservation-api-vpc}
+{: api}
+
+You can create a {{site.data.keyword.vpc_short}} reservation in your region by using the application programming interface (API). To create a reservation by using the API, use [Create a reservation](/apidocs/vpc/latest#create-reservation).
+
+Specify a `Post /reservations` request create a new reservation. See the following example.
+
+```sh
+curl -X POST "$vpc_api_endpoint/v1/reservations?version=2024-01-27&generation=2" -H "Authorization: Bearer $iam_token" -d '{
+      "capacity": {
+        "total": 10
+      },
+      "committed_use": {
+        "expiration_policy": "renew",
+        "term": "one_year"
+      },
+      "name": "my-reservation",
+      "profile": {
+        "name": "bx2-4x16",
+        "resource_type": "instance_profile"
+      },
+      "zone": {
+        "name": "us-south-1"
+      }
+    }'
+```
+{: pre}
+
+## Next steps
+{: #next-step-provisioning-reserved}
+
+After your reservation is provisioned and active, you can Attach an existing virtual server to your reservation. Or, you can Create virtual servers in your reservation by using the IBM Cloud console, the CLI, or the API. For more information about creating a virtual server, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers).
