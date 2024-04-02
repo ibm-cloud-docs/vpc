@@ -137,26 +137,6 @@ For more information, see [Custom Linux kernel build options for bare metal serv
 
 For more information about bare metal server images, see [Bare metal server images](/docs/vpc?topic=vpc-bare-metal-image).
 
-## Secure boot-supported custom images
-{: #bare-metal-server-custom-images-secure-boot-considerations}
-
-Secure boot helps make sure that the system runs only authentic software by verifying the digital signature of all boot components. Secure boot halts the boot process if the signature verification fails. Secure boot prevents the loading of unsigned or malicious code during boot.
-
-Custom images that support secure boot have some requirements that you need to be aware of.
-
-- UEFI boot
-   - UEFI boot requires a dedicated EFI partition that contains EFI firmware. Traditional BIOS boot is not supported.
-- GPT partitioned disk
-
-You can verify that the image successfully booted in secure boot mode by using the following mokutil command.
-
-```text
-mokutil --sb-state
-```
-{: codeblock}
-
-For more information about secure boot, see [Confidential computing with secure boot for Virtual Servers for VPC](/docs/vpc?topic=vpc-confidential-computing-with-secure-boot-vpc).
-
 ## z/OS Wazi aaS custom images
 {: #custom-image-zos}
 
