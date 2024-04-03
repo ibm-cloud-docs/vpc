@@ -72,7 +72,7 @@ Currently, the `port_min` and `port_max` properties are supported only when rout
 Generic operating system custom image is a beta feature that is available to select customers for evaluation and testing purposes. To request to be included in the evaluation of this beta feature, contact IBM Support. 
 {: beta}
 
-**Issue:** The metadata for Block Storage Snapshots and boot volumes do not include the `operating_system.user_data_format` or `operating_system.allow_user_image_creation` API properties. The APIs for these resources that return metadata about them is not going to be different from what was displayed before this feature. The new `operating_system` properties will not be included in the `operating_system` object within that data.
+**Issue:** Currently, for the beta release, the metadata for Block Storage Snapshots and boot volumes do not include the new `operating_system.user_data_format` or `operating_system.allow_user_image_creation` API properties. This issue will be fixed by the end of the beta period.
 
 ### Checksum not available for some public images
 {: #RIOS-1410}
