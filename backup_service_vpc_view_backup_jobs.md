@@ -68,7 +68,7 @@ You can view a list of backup jobs by specifying the ID or name of the backup po
 ### View a list of backup jobs from the CLI
 {: #backup-view-jobs-list-cli}
 
-Run the `backup-policy-jobs` command to view the backup jobs for your backup snapshots. Status indicates when backup snapshots are being created, failed completion, or succeeded completion.
+Run the `backup-policy-jobs` command to view the backup jobs for your backup snapshots. Status indicates when the backup job is running, if the backup job failed or succeeded.
 
 ```text
 ibmcloud is backup-policy-jobs POLICY [--volume VOLUME] [--snapshot SNAPSHOT] [--snapshot-crn SNAPSHOT_CRN] [--status failed | running | succeeded] [--plan PLAN] [--output JSON] [-q, --quiet]
@@ -283,7 +283,7 @@ A successful response looks like the following example.
         {
           "code": "source_volume_busy",
           "message": "string",
-          "more_info": "https://cloud.ibm.com/docs/__TBD__"
+          "more_info": "https://cloud.ibm.com/docs/vpc?..."
         }
       ],
       "target_snapshot": {
@@ -355,7 +355,7 @@ A successful response looks like the following example.
     {
       "code": "source_volume_busy",
       "message": "string",
-      "more_info": "https://cloud.ibm.com/docs/..."
+      "more_info": "https://cloud.ibm.com/docs/vpc?...."
     }
   ],
   "target_snapshot": {
@@ -377,7 +377,7 @@ A successful response looks like the following example.
 
 When you view details of a backup job by making a `GET /backup_policies/{backup_policy_id}/jobs/{backup_job_id}` request, the `status` property indicates whether the job `failed`, is `running`, or `succeeded`. The API also provides status reasons with the following codes:
 
-* `internal_error` - the code indicates an internal error. Contact IBM support if your see this code.
+* `internal_error` - the code indicates an internal error. Contact IBM support if you see this code.
 * `snapshot_pending` - the code indicates that a backup snapshot in the `pending` [snapshot lifecycle state](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-status) cannot be deleted.
 * `snapshot_volume_limit` - the code indicates that the [snapshot limit](/docs/vpc?topic=vpc-snapshots-vpc-faqs&interface=ui#faq-snapshot-3) for the source volume is reached.
 * `source_volume_busy` - the code indicates that the source volume is busy after multiple retries.
