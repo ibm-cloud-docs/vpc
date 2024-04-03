@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-03-26"
+lastupdated: "2024-04-03"
 
 keywords:
 
@@ -206,6 +206,31 @@ You can create security group rules by using the API:
      }
    }
    ```
+
+## Creating security group rules with Terraform
+{: #security-groups-secondary-ip-terraform}
+{: terraform}
+
+To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started){: external}.
+{: requirement}
+
+The following Terraform example shows how to create inbound security group rules.
+The `local` parameter in the resource accepts an IP address or CIDR block and is also in the response state and response of data sources `ibm_is_security_group_rules` and `ibm_is_security_group_rule`.
+{: note}
+
+```terraform
+resource "ibm_is_security_group_rule" "example2" {
+  group     = ibm_is_security_group.example.id
+  direction = "inbound"
+  remote    = "127.0.0.1"
+  local = "192.168.3.0/24"
+  udp {
+    port_min = 805
+    port_max = 807
+  }
+}
+```
+{: codeblock}
 
 ## Related topics
 {: #security-groups-related-topics}
