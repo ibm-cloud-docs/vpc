@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-03-29"
+lastupdated: "2024-04-04"
 
 keywords:
 
@@ -25,6 +25,19 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 For more information about changes to the {{site.data.keyword.vpc_short}} API, see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
+
+## April 2024
+{: #vpc-apr24}
+
+### 04 April 2024
+{: #vpc-apr0424}
+{: release-note}
+
+Generic operating system custom images with Virtual Server Instances and Bare Metal Servers for VPC (beta)
+:   When you create a server on {{site.data.keyword.vpc_full}} (VPC) using an x86 profile, you can use an operating system that is not listed in IBM Cloud by specifying a generic operating system custom image. You can create this image by specifying either the `generic-operating-system-amd64` or `generic-operating-system-amd64-esxi-kickstart` operating system type when you create the custom image. When you provision a server by using a generic operating system custom image, most operating system-specific provisioning steps aren't performed, such as console setup and automatic registration. You must provide the appropriate user data if you want your generic operating system custom image to perform these steps. For more information, see [Generic operating system custom images](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#generic-os-custom-images) and [Creating a generic operating system custom image](/docs/vpc?topic=vpc-create-generic-os-custom-image&interface=ui).
+
+Network boot of operating systems with Bare Metal Servers for VPC (beta)
+:   When you create a bare metal server on IBM Cloud® Virtual Private Cloud (VPC), you can select to network boot an operating system over the network. The operating system image can be hosted on your own server or on a public server. You can install the booted operating system to a disk or you can run the operating system without a disk. For more information, see [Network booting your own operating system with Bare Metal Servers on VPC](/docs/vpc?topic=vpc-network-boot-bare-metal-servers&interface=ui).
 
 ## March 2024
 {: #vpc-mar24}
