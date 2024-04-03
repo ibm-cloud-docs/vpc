@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-1-27"
+lastupdated: "2024-04-03"
 
 keywords:
 
@@ -40,6 +40,9 @@ After the service is published, it cannot be unpublished.
 {: important}
 
 The Private Path service is now exposed for other accounts to connect to the service through Virtual Private Endpoint (VPE) gateways.
+
+After publishing, the Private Path service name will be visible to customers connecting to the Private Path service.
+{: note}
 
 ## Activating a Private Path service from the CLI
 {: #pps-cli-publish-private-path-service}
