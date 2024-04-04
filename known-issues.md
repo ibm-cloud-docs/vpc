@@ -61,6 +61,25 @@ The floating IP associated with a bare metal network interface is not available 
 
 Currently, the `port_min` and `port_max` properties are supported only when routing mode is enabled, and only when the entire port range is specified (`port_min` of `1` and `port_max` of `65535`). Support for allowing an arbitrary port range to be specified is planned for a future release.
 
+## Network booting your own operating system with Bare Metal Servers on VPC
+{: #network-boot-bm-vpc}
+
+[Beta]{: tag-blue}
+
+Network booting your own operating system with Bare Metal Servers on VPC is a beta feature that is available to select customers for evaluation and testing purposes. To request to be included in the evaluation of this beta feature, contact IBM Support. 
+{: beta}
+
+**Issue:** Currently, the initial beta-level support for network boot doesn't process user data during server creation. As a result, the server will only boot into the iPXE shell – visible via VNC console. This issue will be resolved by the end of the beta period. 
+
+**Workaround:** Any iPXE commands that you provide in the user data can be entered at the iPXE shell prompt. If you provide an URL to an iPXE script in the user data, you should perform the following commands:
+
+```sh
+dhcp
+ntp pool.ntp.org
+chain <your url here>
+```
+{: codeblock}
+
 ## Image known issues
 {: #image-vpc-known-issues}
 
