@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-04-04"
+lastupdated: "2024-04-09"
 
 keywords: creating bare metal servers
 
