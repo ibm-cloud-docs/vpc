@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-04-04"
+lastupdated: "2024-04-09"
 
 keywords:
 
@@ -29,8 +29,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## April 2024
 {: #vpc-apr24}
 
-### 04 April 2024
-{: #vpc-apr0424}
+### 09 April 2024
+{: #vpc-apr0924}
 {: release-note}
 
 Generic operating system custom images with Virtual Server Instances and Bare Metal Servers for VPC (beta)
