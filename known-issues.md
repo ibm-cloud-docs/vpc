@@ -69,7 +69,7 @@ Currently, the `port_min` and `port_max` properties are supported only when rout
 Network booting your own operating system with Bare Metal Servers on VPC is a beta feature that is available to select customers for evaluation and testing purposes. To request to be included in the evaluation of this beta feature, contact IBM Support. 
 {: beta}
 
-**Issue:** Currently, the initial beta-level support for network boot doesn't process user data during server creation. As a result, the server will only boot into the iPXE shell – visible via VNC console. This issue will be resolved by the end of the beta period. 
+**Issue:** Currently, the initial beta-level support for network boot doesn't process user data during server creation. As a result, the server will only boot into the iPXE shell – visible via VNC console. 
 
 **Workaround:** Any iPXE commands that you provide in the user data can be entered at the iPXE shell prompt. If you provide an URL to an iPXE script in the user data, you should perform the following commands:
 
@@ -91,7 +91,7 @@ chain <your url here>
 Generic operating system custom image is a beta feature that is available to select customers for evaluation and testing purposes. To request to be included in the evaluation of this beta feature, contact IBM Support. 
 {: beta}
 
-**Issue:** Currently, for the beta release, the metadata for Block Storage Snapshots and boot volumes do not include the new `operating_system.user_data_format` or `operating_system.allow_user_image_creation` API properties. This issue will be fixed by the end of the beta period.
+**Issue:** Currently, for the beta release, the metadata for Block Storage Snapshots and boot volumes do not include the new `operating_system.user_data_format` or `operating_system.allow_user_image_creation` API properties. 
 
 ### Checksum not available for some public images
 {: #RIOS-1410}
