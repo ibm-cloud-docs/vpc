@@ -29,8 +29,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## April 2024
 {: #vpc-april24}
 
-### 05 April 2024
-{: #vpc-april0524}
+### 08 April 2024
+{: #vpc-april0824}
 {: release-note}
 
 Next generation instance profiles available in Madrid region (select availability)
