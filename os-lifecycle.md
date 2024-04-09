@@ -21,7 +21,7 @@ subcollection: vpc
 In the lifecycle of an operating system, end of support (EOS) is the last date that {{site.data.keyword.cloud}} delivers standard support for a version or release of a product. The end of support date is aligned to the vendor and community support dates. A notification is sent out 90 days before support for an operating system is withdrawn.
 {: shortdesc}
 
-If you are using the generic operating system custom image, refer to your vendor documentation for EOS dates. For more information, see [Generic operating system custom images](/docs/vpc?topic=vpc-planning-custom-images#generic-os-custom-images).
+If you are using a generic operating system custom image, refer to your vendor documentation for EOS dates. For more information, see [Generic operating system custom images](/docs/vpc?topic=vpc-planning-custom-images#generic-os-custom-images).
 
 | Image status | Description |
 | -------------- | -------------- |
