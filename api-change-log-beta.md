@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-03-12"
+lastupdated: "2024-04-09"
 
 keywords: api, change log, beta
 
@@ -25,6 +25,21 @@ There are no backward-compatibility guarantees as a feature progresses through i
 {: important}
 
 To review the change log of generally available API features, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log).
+
+## 9 April 2024
+{: #9-april-2024-beta}
+
+### For all version dates
+{: #9-april-2024-all-version-dates-beta}
+
+**Generic operating system custom images and network bootable bare metal servers.** Accounts that have been granted special approval to preview this feature can now create a [generic operating system custom image](/docs/vpc?topic=vpc-create-generic-os-custom-image), which is an image containing an operating system that is not specifically defined in IBM Cloud VPC. Such approved accounts can also use a specific new [stock image](/docs/vpc?topic=vpc-getting-started-images-on-vpc-stock) to create a bare metal server that will [network boot an image](/docs/vpc?topic=vpc-network-boot-bare-metal-servers&interface=api) using iPXE.
+
+To facilitate these features, two new immutable operating system properties, `user_data_format` and `allow_user_image_creation`, and one new immutable image property, `user_data_format`, are provided. The operating system property `user_data_format` (possible values `cloud_init`, `esxi_kickstart`, `ipxe`) populates the image [`user_data_format` property](/docs/vpc?topic=vpc-planning-custom-images#custom-image-user-data-format), which specifies how `user_data` is interpreted and used when [creating a virtual server instance](/apidocs/vpc-beta/initial#create-instance) or [creating a bare metal server](/apidocs/vpc-beta/initial#create-bare-metal-server). The operating system property `allow_user_image_creation` indicates whether an operating system may be used to create a custom image.
+
+For more information, see [Importing and validating custom images into VPC](/docs/vpc?topic=vpc-importing-custom-images-vpc&interface=api).
+
+Images that are used to create virtual server instances or to [create instance templates](/apidocs/vpc-beta/initial#create-instance-template) must have a `user_data_format` value of `cloud_init`.
+{: important}
 
 ## 12 March 2024
 {: #12-march-2024-beta}
