@@ -137,8 +137,8 @@ To import a custom image by using the API, use [Create an image](/apidocs/vpc/la
 
 The `name` can't be used by another image in the region and names that start with `ibm-` are reserved for system-provided images. Specify the `file.href` subproperty with the location of the image. Specify the `operating_system.name` subproperty with the name of the image operating system.
 
-The generic operating systems have `family` of `Generic`. Be sure to select the one with `allow_user_image_creation` value of `true` and the `user_data_format` needed for your operating system to boot and initialize correctly. For more information, see [User data format considerations](/docs/vpc?topic=vpc-planning-custom-images#custom-image-user-data-format).
-{: note}
+Generic operating system custom images is a beta feature that is available for evaluation and testing purposes. The generic operating systems have `family` of `Generic`. Be sure to select the one with `allow_user_image_creation` value of `true` and the `user_data_format` needed for your operating system to boot and initialize correctly. For more information, see [User data format considerations](/docs/vpc?topic=vpc-planning-custom-images#custom-image-user-data-format).
+{: beta}
 
 The following example imports a custom image with the name of `my-image`, source location of `cos://us-south/my-bucket/my-image.qcow2`, and the operating system for the image is `debian-9-amd64`.
 
