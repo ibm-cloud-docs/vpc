@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-04-05"
+lastupdated: "2024-04-11"
 
 keywords:
 
@@ -28,6 +28,18 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## April 2024
 {: #vpc-april24}
+
+### 11 April 2024
+{: #vpc-apr1124}
+{: release-note}
+
+Third-party image billing and metering
+:   When you select a catalog image, you now have associated billing plans to choose from. Catalog images are billed in one of the following ways:
+
+   * Free trial
+   * Useage-based
+   * Subscription-based (monthly or yearly)
+   * BYOL
 
 ### 08 April 2024
 {: #vpc-april0824}
