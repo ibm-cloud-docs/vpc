@@ -20,7 +20,7 @@ To configure DNS sharing for VPE gateways between hub and DNS-shared VPCs on dif
 
 **Notes:**
 
-* If a DNS-shared VPC and the hub VPC are using the same or different accounts, as the hub VPC administrator, you must create an IAM service-to-service authorization policy that gives this DNS-shared VPC the `DNSBindingConnector` permission on the hub VPC. 
+* If a DNS-shared VPC and the hub VPC are using the same or different accounts, as the hub VPC administrator, you must create an IAM service-to-service authorization policy that gives this DNS-shared VPC the `DNSBindingConnector` permission on the hub VPC.
 * Currently, the UI allows only **All VPC instances** to have the `DNSBindingConnector` permission on the hub VPC. To indicate a "specific" VPC, you must use the API or wrap an API request in a JSON file to use with the CLI. Example code is provided for use with the [CLI](/docs/vpc?topic=vpc-hub-spoke-s2s-auth&interface=cli#indicate-specific-vpc-instance-cli) and [API](/docs/vpc?topic=vpc-hub-spoke-s2s-auth&interface=api#indicate-specific-vpc-instance).
 
 You can establish s2s authorization with the UI, CLI, API, or Terraform.
@@ -39,7 +39,12 @@ To create an IAM s2s authorization policy in the UI, follow these steps:
    - If you're setting up authorization in the enterprise account, select **Other account**.
 1. For the source service, select **VPC Infrastructure Services** from the list.
 1. Select the scope. Choose **Specific resources**.
-1. Click **Resource type**. From the list, select **Virtual Private Cloud**.
+1. Select **Resource type**. From the list, select **Virtual Private Cloud**.
+1. Select **Source service instance**. Choose **All instances**.
+
+   To select a specific instance, you must use the [CLI](/docs/vpc?topic=vpc-hub-spoke-s2s-auth&interface=cli#indicate-specific-vpc-instance-cli) or [API](/docs/vpc?topic=vpc-hub-spoke-s2s-auth&interface=api#indicate-specific-vpc-instance) instructions. This is a known limitation.
+   {: note}
+
 1. For the target service, select **VPC Infrastructure Services** from the list.
 1. Select the scope. Choose **Specific resources**.
 1. Click **Resource type**. From the list, select **Virtual Private Cloud**.
