@@ -83,19 +83,14 @@ If you plan to import an image from a file, you must provision an instance of {{
 
 [Beta]{: tag-blue}
 
-Generic operating system custom images is a beta feature that is available to select customers for evaluation and testing purposes. To request to be included in the evaluation of this beta feature, contact IBM Support. 
+Generic operating system custom images is a beta feature that is available to select customers for evaluation and testing purposes. To request to be included in the evaluation of this beta feature, contact IBM Support.
 {: beta}
 
 You can use a specific operating system that is not listed in {{site.data.keyword.Bluemix_notm}} by specifying a generic operating system when you import a custom image. You have multiple generic operating system options. You can select a generic operating system that is based on the CPU architecture and initialization strategy appropriate for your custom image operating system.
 
-Generic operating system custom images are supported for x86 architecture. These images are listed in the custom images list. Bare metal server generic operating system custom images must follow requirements for all bare metal server custom images. For more information, see [Bare metal server custom images](/docs/vpc?topic=vpc-planning-custom-images#bare-metal-server-custom-images-considerations).
+Generic operating system custom images are supported for x86 (amd64) architecture. These images are listed in the custom images list. Bare metal server generic operating system custom images must follow requirements for all bare metal server custom images. For more information, see [Bare metal server custom images](/docs/vpc?topic=vpc-planning-custom-images#bare-metal-server-custom-images-considerations).
 
-You can use one of the following generic operating system types to create generic custom images.
-
-- `generic-operating-system-amd64`
-- `generic-operating-system-amd64-esxi-kickstart`
-
-Select the generic operating system based on the initialization type of the actual operating system. For more information, see [User data format considerations](/docs/vpc?topic=vpc-planning-custom-images#custom-image-user-data-format)
+The generic operating system custom images use a `generic` value for some of their properties, such as `vendor` and `family`. When you create the custom image, select the generic operating system based on the initialization type of the actual operating system. For more information, see [User data format considerations](/docs/vpc?topic=vpc-planning-custom-images#custom-image-user-data-format).
 
 When you provision a server by using a generic operating system custom image, most operating system-specific provisioning steps aren't performed, such as console setup and automatic registration. You must provide the appropriate user data if you want your generic operating system custom image to perform these steps. You are also responsible for handling licensing and related costs because {{site.data.keyword.IBM_notm}} is not aware of the actual operating system installed.
 
