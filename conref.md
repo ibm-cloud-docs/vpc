@@ -42,8 +42,7 @@ The profile families are Balanced, Compute, Memory, Ultra High Memory, Very High
 All custom images must meet the following requirements：
 - Contain a single file or volume
 - Is in qcow2 or vhd format
-- Is cloud-init enabled
-- The operating system is supported as a [stock image](/docs/vpc?topic=vpc-about-images#stock-images)
+- Is cloud-init enabled or can be booted using ESXi kickstart
 - Size doesn't exceed 250 GB
 - The minimum size is 10 GB. For any image that is less than 10 GB, the size is rounded up to 10 GB.
 {: #custom-image-requirements-list}
@@ -51,10 +50,10 @@ All custom images must meet the following requirements：
 For more information about custom images, see [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images).
 {: #custom-image-information-link}
 
-To import a custom image into a private catalog, see [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui).
+To import a a custom image into a private catalog, see [Importing software to your private catalogOnboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui).
 {: #access-custom-image-private-catalog}
 
-When you want to delete an {{site.data.keyword.vpc_short}} custom image that is part of a private catalog offering, you must first remove that image from the associated version in the private catalog offering. Then, you can delete the custom image from {{site.data.keyword.vpc_short}}. To delete the custom image from the private catalog, see [Deprecating a private product](/docs/account?topic=account-deprecate-product&interface=ui).
+When you want to delete an {{site.data.keyword.vpc_short}} custom image that is part of a private catalog offering, you must first remove that image from the associated version in the private catalog offering. Then, you can delete the custom image from {{site.data.keyword.vpc_short}}.  To delete the custom image from the private catalog, see [Deprecating a private product](/docs/account?topic=account-deprecate-product&interface=ui).
 {: #delete-custom-image-private-catalog}
 
 # Content references for instance template
