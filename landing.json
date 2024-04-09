@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2024-03-29",
+    "lastupdated": "2024-04-05",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
@@ -31,6 +31,11 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
+          "date": "03 April 2024",
+          "title": "Next generation instance profiles available in Toronto region (select availability)",
+          "description": "The 3rd generation of IBM Cloud Virtual Servers for VPC are now available as a select availability offering in the Canada (Toronto) region, in addition to the US East (Washington DC), US South (Dallas), United Kingdom (London), and EU Germany (Frankfurt) regions. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel® Xeon® Scalable processors to provide the most powerful and performant general-purpose profiles available."
+        },
+        {
           "date": "29 March 2024",
           "title": "Sharing DNS resolution for endpoint gateways across VPCs",
           "description": "When multiple VPCs are connected together using Transit Gateway, Direct Link, or other connectivity options, a VPC in the connected topology can now be enabled as a DNS hub to centralize the DNS resolution for Virtual Private Endpoint (VPE) gateways."
@@ -39,11 +44,6 @@
           "date": "28 March 2024",
           "title": "VMware ESXi 7 End of Market for Bare Metal for VPC",
           "description": "VMware ESXi image on Bare Metal Servers for VPC will no longer be available when you provision a bare metal for VPC servers. If looking to deploy a VMware solution in VPC, consider provisioning VMware Cloud Foundation (VCF) through IBM Cloud VMware Solutions."
-        },
-        {
-          "date": "28 March 2024",
-          "title": "Next generation instance profiles available in Washington DC region (select availability)",
-          "description": "The 3rd generation of IBM Cloud Virtual Servers for VPC are now available as a select availability offering in the US East (Washington DC) region, in addition to the US South (Dallas), United Kingdom (London), and EU Germany (Frankfurt) regions. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel® Xeon® Scalable processors to provide the most powerful and performant general-purpose profiles available."
         }
       ]
     }

@@ -31,17 +31,18 @@ You can establish s2s authorization with the UI, CLI, API, or Terraform.
 
 To create an IAM s2s authorization policy in the UI, follow these steps:
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Manage > Access (IAM)**. The **Manage access and users** page displays.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Manage > Access (IAM)**. The IBM Cloud Identity and Access Management page displays.
 1. From the side panel, select **Authorizations**.
-1. On the **Manage authorizations** page, click **Create**.
-1. On the **Grant a service authorization** page, select source account.
+1. On the Manage authorizations page, click **Create**.
+1. On the Grant a service authorization page, select source account.
    - If you're setting up authorization in your account, select **This account**.
    - If you're setting up authorization in the enterprise account, select **Other account**.
 1. For the source service, select **VPC Infrastructure Services** from the list.
 1. Select the scope. Choose **Specific resources**.
 1. Click **Resource type**. From the list, select **Virtual Private Cloud**.
 1. For the target service, select **VPC Infrastructure Services** from the list.
-1. Select the scope. Choose **All resources**.
+1. Select the scope. Choose **Specific resources**.
+1. Click **Resource type**. From the list, select **Virtual Private Cloud**.
 1. In the Roles section under Service access, select **DNSBindingConnector**.
 1. Click **Authorize**.
 1. When you are returned to the **Manage authorizations** page, click **Create** again and follow the same steps to set up authorizations for the other two services.
