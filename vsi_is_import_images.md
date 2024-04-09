@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-02-06"
+lastupdated: "2024-04-09"
 
 keywords:
 
@@ -58,7 +58,7 @@ When you have an image available in {{site.data.keyword.cos_full_notm}}, you can
 | Location | Select the specific geographic region where your image is stored. |
 | Bucket | Select the {{site.data.keyword.cos_full_notm}} bucket where your image is stored.|
 | Name | Select the image file in the {{site.data.keyword.cos_full_notm}} service instance that you want to import. If you are importing an encrypted image, the image must be encrypted with LUKS encryption by using QEMU and your own passphrase. For more information, see [Encrypting the image](/docs/vpc?topic=vpc-create-encrypted-custom-image#manually-encrypt-image). |
-| Operating System | Select the operating system that is included in your image. \n \n For custom images with Red Hat Enterprise Linux or Windows operating systems, you can bring your own license (BYOL) or license through {{site.data.keyword.cloud_notm}}. \n \n For Red Hat Enterprise Linux or Windows [BYOL custom images](/docs/vpc?topic=vpc-byol-vpc-about), you must select the OS with `-byol` appended to the name. For example, if you have a Windows 2019 BYOL custom image, select *windows-2019-amd64-byol* for the operating system. Failure to select the `-byol` version of the operating system when you import a BYOL custom image might result in a virtual server that is unable to start. \n \n If you configured your Red Hat Enterprise Linux or Windows custom image to license through {{site.data.keyword.cloud_notm}}, you must select the non-BYOL operating system. For example, if you have a Windows 2019 custom image that you plan to license through {{site.data.keyword.cloud_notm}}, select *windows-2019-amd64* as the operating system when you import the custom image. |
+| Operating System | Select the operating system that is included in your image. \n \n For custom images with Red Hat Enterprise Linux or Windows operating systems, you can bring your own license (BYOL) or license through {{site.data.keyword.cloud_notm}}. \n \n For Red Hat Enterprise Linux or Windows [BYOL custom images](/docs/vpc?topic=vpc-byol-vpc-about), you must select the OS with `-byol` appended to the name. For example, if you have a Windows 2019 BYOL custom image, select *windows-2019-amd64-byol* for the operating system. Failure to select the `-byol` version of the operating system when you import a BYOL custom image might result in a virtual server that is unable to start. \n \n If you configured your Red Hat Enterprise Linux or Windows custom image to license through {{site.data.keyword.cloud_notm}}, you must select the non-BYOL operating system. For example, if you have a Windows 2019 custom image that you plan to license through {{site.data.keyword.cloud_notm}}, select *windows-2019-amd64* as the operating system when you import the custom image. \n \n For a custom image that uses a generic OS, select `Generic` and then select the appropriate version. \n \n **Notes:** \n \n * For a custom image using an operating system not listed in {{site.data.keyword.vpc_short}}, you must create a custom image that uses a generic OS. For more information, see [Creating a generic operating system custom image](/docs/vpc?topic=vpc-create-generic-os-custom-image&interface=ui). \n \n * Select the ESXi kickstart version if your image requires that technology to boot and initialize. However, this option is only available for bare metal servers. |
 | Encryption | The default selection is **Provider managed**. If you have not encrypted your image by using QEMU, use the default value, **Provider managed**. If you are importing an image that you have encrypted by using QEMU and your own passphrase, select the key management service where your customer root key (CRK) that protects your passphrase is stored. Select either **Key Protect** or **Hyper Protect Crypto Services**. VHD format images are not supported for encryption. |
 | Encryption service instance | For an encrypted image, select the specific instance of the key management service where your CRK that wraps your encryption passphrase is stored. For more information, see [Setting up your key management service and keys](/docs/vpc?topic=vpc-create-encrypted-custom-image#kms-prereqs). |
 | Key name | Select the customer root key (CRK) that you used to wrap your encryption passphrase. For more information, see [Setting up your key management service and keys](/docs/vpc?topic=vpc-create-encrypted-custom-image#kms-prereqs). |
@@ -70,7 +70,7 @@ When you have an image available in {{site.data.keyword.cos_full_notm}}, you can
 {: #import-custom-image-cloud-object-storage-cli}
 {: cli}
 
-Make sure that your compatible custom image is available in {{site.data.keyword.cos_full_notm}}. For more information, see [Creating a Linux custom image](/docs/vpc?topic=vpc-create-linux-custom-image), [Creating a Windows custom image](/docs/vpc?topic=vpc-create-windows-custom-image), [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about) and [Uploading data](/docs/cloud-object-storage?topic=cloud-object-storage-upload) to {{site.data.keyword.cos_full_notm}}.
+Make sure that your compatible custom image is available in {{site.data.keyword.cos_full_notm}}. For more information, see [Creating a Linux custom image](/docs/vpc?topic=vpc-create-linux-custom-image), [Creating a Windows custom image](/docs/vpc?topic=vpc-create-windows-custom-image), [Creating a generic operating system custom image](/docs/vpc?topic=vpc-create-generic-os-custom-image), [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about) and [Uploading data](/docs/cloud-object-storage?topic=cloud-object-storage-upload) to {{site.data.keyword.cos_full_notm}}.
 
 When you have an image available in {{site.data.keyword.cos_full_notm}}, you can import it to {{site.data.keyword.vpc_short}} infrastructure by using the command-line interface (CLI).
 
@@ -129,13 +129,16 @@ For more information, see [ibmcloud is image-create](/docs/vpc?topic=vpc-vpc-ref
 {: #import-custom-image-cloud-object-storage-api}
 {: api}
 
-Make sure that your compatible custom image is available in {{site.data.keyword.cos_full_notm}}. For more information, see [Creating a Linux custom image](/docs/vpc?topic=vpc-create-linux-custom-image), [Creating a Windows custom image](/docs/vpc?topic=vpc-create-windows-custom-image), [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about) and [Uploading data](/docs/cloud-object-storage?topic=cloud-object-storage-upload) to {{site.data.keyword.cos_full_notm}}.
+Make sure that your compatible custom image is available in {{site.data.keyword.cos_full_notm}}. For more information, see [Creating a Linux custom image](/docs/vpc?topic=vpc-create-linux-custom-image), [Creating a Windows custom image](/docs/vpc?topic=vpc-create-windows-custom-image), [Creating a generic operating system custom image](/docs/vpc?topic=vpc-create-generic-os-custom-image), [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about), and [Uploading data](/docs/cloud-object-storage?topic=cloud-object-storage-upload) to {{site.data.keyword.cos_full_notm}}.
 
 When you have an image available in {{site.data.keyword.cos_full_notm}}, you can import it to {{site.data.keyword.vpc_short}} infrastructure by using the application programming interface (API).
 
 To import a custom image by using the API, use [Create an image](/apidocs/vpc/latest#create-image).
 
 The `name` can't be used by another image in the region and names that start with `ibm-` are reserved for system-provided images. Specify the `file.href` subproperty with the location of the image. Specify the `operating_system.name` subproperty with the name of the image operating system.
+
+The generic operating systems have `family` of `Generic`. Be sure to select the one with `allow_user_image_creation` value of `true` and the `user_data_format` needed for your operating system to boot and initialize correctly. For more information, see [User data format considerations](/docs/vpc?topic=vpc-planning-custom-images#custom-image-user-data-format).
+{: note}
 
 The following example imports a custom image with the name of `my-image`, source location of `cos://us-south/my-bucket/my-image.qcow2`, and the operating system for the image is `debian-9-amd64`.
 
