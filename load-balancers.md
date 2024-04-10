@@ -88,7 +88,7 @@ The following table provides a comparison of the types of load balancers.
 | Monitoring metrics | Yes | Yes | No |
 | [Multi-zone support](/docs/vpc?topic=vpc-nlb-vs-elb#nlb-mz-support) | Yes | Limited [^footnote1] (see [Multi-zone support](/docs/vpc?topic=vpc-nlb-vs-elb#nlb-mz-support)) | Yes |
 | Security group support | Yes (see [Integrating an ALB for VPC with security groups](/docs/vpc?topic=vpc-alb-integration-with-security-groups)) | Yes (see [Integrating a network load balancer with security groups](/docs/vpc?topic=vpc-nlb-integration-with-security-groups) | No |
-| Source IP address is preserved | Yes, with proxy protocol | Yes | Yes |
+| Source IP address is preserved | Yes, with proxy protocol | Yes | No |
 | SSL offloading | Yes  | No | No |
 | Supported protocols | HTTPS, HTTP, TCP | TCP, UDP | TCP |
 | Transport layer | Layer 4, Layer 7  | Layer 4  | Layer 4 |
