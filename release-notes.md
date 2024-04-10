@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-04-09"
+lastupdated: "2024-04-19"
 
 keywords:
 
@@ -28,6 +28,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## April 2024
 {: #vpc-apr24}
+
+### 19 April 2024
+{: #vpc-apr1924}
+{: release-note}
+
+GPU l4 and l40S profiles now available in Brazil region (GA)
+:   The `l4` and `l40S` GPU profiles are now available in the Brazil (São Paulo) region. With this additional region, these profiles are now available in all regions. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 ### 09 April 2024
 {: #vpc-apr0924}
