@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-03-25"
+lastupdated: "2024-04-10"
 
 keywords:
 
@@ -18,9 +18,6 @@ subcollection: vpc
 {{site.data.keyword.cloud}} Reservations are a great option when you want significant cost savings and guaranteed resources for future deployments. You can choose a 1 or 3-year term, server quantity, specific profile, and provision those servers when needed.
 {: shortdesc}
 
-{{site.data.keyword.cloud}} Reservations are available in only the US South (Dallas), US East (Washington DC), Brazil (São Paulo), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Spain (Madrid), Japan (Osaka), Japan (Tokyo), and Australia (Sydney) multizone regions (MZRs).
-{: note}
-
 Reservations offer many advantages, including the following benefits:
 
 | Benefit | Description |
@@ -34,29 +31,23 @@ Reservations offer many advantages, including the following benefits:
 ## Supported profiles
 {: #reserved-virtual-servers-vpc-supported-profiles}
 
-The following x86 Balanced profiles for virtual servers are available when you provision a reservation in all [ten available MZRs](/docs/overview?topic=overview-locations).
+The following x86 profiles for virtual servers are available when you provision a reservation in all [ten available MZRs](/docs/overview?topic=overview-locations).
 
-* bx2-2x8
-* bx2d-2x8
-* bx2-4x16
-* bx2d-4x16
+* bx2 profiles
+* bx2d profiles
+* cx2 profiles
+* cx2d profiles
+* mx2 profiles
+* mx2d profiles
+* ux2d profiles
+* vx2d profiles
 
-The following compute and memory profiles are available in only the Dallas (_us-south_), Frankfurt (_eu-de_), and London (_eu-gb_) MZRs.
+The following profiles are available in specific MZRs.
 
-| Balanced profiles | Compute profiles | Memory profiles |
-| --- | --- | --- |
-| bx3d-2x10 | cx3d-2x5 | mx3d-128x1280  |
-| bx3d-4x20 |  cx3d-4x10 | mx3d-16x160  |
-| bx3d-8x40 |  cx3d-8x20 |  mx3d-176x1760 |
-| b3d-16x80 |  cx3d-16x40 |  mx3d-24x240 |
-| bx3d-24x120 |  cx3d-24x60 |  mx3d-2x20 |
-| bx3d-32x160 | cx3d-32x80 |  mx3d-32x320 |
-| bx3d-48x240 | cx3d-48x120  |  mx3d-48x480 |
-| bx3d-64x320 | cx3d-64x160  | mx3d-4x40 |
-| bx3d-96x480 | cx3d-96x240 | mx3d-64x640  |
-| bx3d-128x640 | cx3d-128x320 | mx3d-8x80 |
-| bx3d-176x880 | cx3d-176x440  |  mx3d-96x960 |
-{: caption="Table 2. Supported Gen 3 profiles for reservations" caption-side="top"}
+* bx2a profiles are available in Toronto only.
+* bx3d, cx3d, and mx3d profiles are available in Dallas, Frankfurt, London, Madrid, Toronto, and Washington DC.
+* gx2 profiles are available in all regions except Madrid.
+* ox2 profiles are available in Dallas, Frankfurt, London, Osaka, Tokyo, and Washington DC.
 
 For more information about profiles, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles).
 
