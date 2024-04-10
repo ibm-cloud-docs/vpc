@@ -2,7 +2,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-04-08"
+lastupdated: "2024-04-19"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, very high memory, gpu, sap, olap, oltp, nvidia, cascade lake
 
@@ -301,13 +301,8 @@ The GPU profile family includes both `-v100`, `-a100`, `l4`, and `l40S` profiles
 
 See [Download drivers](https://www.nvidia.com/Download/index.aspx?lang=en-us) to review the most current versions that are supported. NVIDIA GPU drivers must be installed separately.
 
-### Select availability for the a100, l4, and l40S GPU profiles
-{: #gpu-select-availabilty}
-[Select availability]{: tag-green}
-
-- The `gx2-80x1280x8a100` GPU profile is available for select customers. Contact IBM Sales or open a [support case](https://cloud.ibm.com/unifiedsupport/supportcenter) if you are interested in this offering.
-- The `l4` GPU profiles are only available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Spain (Madrid),  Australia (Sydney), and Japan (Tokyo) regions.
-- The `l40S` GPU profiles are only available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Spain (Madrid), Australia (Sydney), and Japan (Tokyo) regions.
+The `gx2-80x1280x8a100` GPU profile is available for select customers. Contact IBM Sales or open a [support case](https://cloud.ibm.com/unifiedsupport/supportcenter) if you are interested in this offering.
+{: preview}
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Number of GPUs | Instance storage (GB) |
 |---------|---------|---------|---------|---------|---------|---------|
