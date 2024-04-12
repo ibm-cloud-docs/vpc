@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2024-04-05",
+    "lastupdated": "2024-04-12",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
@@ -31,18 +31,18 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
-          "date": "03 April 2024",
-          "title": "Next generation instance profiles available in Toronto region (select availability)",
-          "description": "The 3rd generation of IBM Cloud Virtual Servers for VPC are now available as a select availability offering in the Canada (Toronto) region, in addition to the US East (Washington DC), US South (Dallas), United Kingdom (London), and EU Germany (Frankfurt) regions. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel® Xeon® Scalable processors to provide the most powerful and performant general-purpose profiles available."
+          "date": "11 April 2024",
+          "title": "Third-party image billing and metering",
+          "description": "When you select a catalog image, you now have associated billing plans to choose from. Catalog images are billed in one of the following ways: free trial, useage-based, subscription-based, or BYOL"
         },
         {
-          "date": "29 March 2024",
-          "title": "Sharing DNS resolution for endpoint gateways across VPCs",
-          "description": "When multiple VPCs are connected together using Transit Gateway, Direct Link, or other connectivity options, a VPC in the connected topology can now be enabled as a DNS hub to centralize the DNS resolution for Virtual Private Endpoint (VPE) gateways."
+          "date": "09 April 2024",
+          "title": "Generic operating system custom images with Virtual Server Instances and Bare Metal Servers for VPC (beta)",
+          "description": "When you create a server on IBM Cloud® Virtual Private Cloud (VPC) using an x86 profile, you can use an operating system that is not listed in IBM Cloud by specifying a generic operating system custom image. You can create this custom image by specifying one of the new operating systems with properties that indicate it is generic. When you provision a server by using a generic operating system custom image, most operating system-specific provisioning steps aren't performed, such as console setup and automatic registration. You must provide the appropriate user data if you want your generic operating system custom image to perform these steps."
         },
         {
-          "date": "28 March 2024",
-          "title": "VMware ESXi 7 End of Market for Bare Metal for VPC",
+          "date": "09 April 2024",
+          "title": "Network boot of operating systems with Bare Metal Servers for VPC (beta)",
           "description": "VMware ESXi image on Bare Metal Servers for VPC will no longer be available when you provision a bare metal for VPC servers. If looking to deploy a VMware solution in VPC, consider provisioning VMware Cloud Foundation (VCF) through IBM Cloud VMware Solutions."
         }
       ]
