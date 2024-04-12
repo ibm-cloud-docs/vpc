@@ -2,7 +2,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-04-08"
+lastupdated: "2024-04-11"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, very high memory, gpu, sap, olap, oltp, nvidia, cascade lake
 
@@ -49,7 +49,7 @@ Profiles with AMD manufactured processors are available in only the Toronto regi
 
 Balanced profiles provide a mix of performance and scalability for more common workloads. The Balanced profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Balanced profiles that are available for Intel&reg; x86-64, and AMD x86-64 processors.
 
-Balanced profiles with the bx2d prefix are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Spain (Madrid), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions.
+Storage Optimized profiles are available in the US South (Dallas), US East (Washington DC), United Kingdom (London), EU Germany (Frankfurt), EU Spain (Madrid), Japan (Tokyo), and Japan (Osaka) regions.
 {: preview}
 
 3rd generation profiles with the bx3d prefix are available in the Dallas, London, Frankfurt, Washington DC, Toronto, and Madrid regions to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). To access profiles for 3rd generation virtual server instances that include vCPU that is greater than 64 vCPU, contact IBM Support. For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).

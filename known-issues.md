@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-02-22"
+lastupdated: "2024-04-09"
 
 
 keywords: known issues, bugs, defects
@@ -61,15 +61,33 @@ The floating IP associated with a bare metal network interface is not available 
 
 Currently, the `port_min` and `port_max` properties are supported only when routing mode is enabled, and only when the entire port range is specified (`port_min` of `1` and `port_max` of `65535`). Support for allowing an arbitrary port range to be specified is planned for a future release.
 
-## Checksum not available for some public images
+## Image known issues
+{: #image-vpc-known-issues}
+
+### Generic OS limitation for Block Storage Snapshots and boot volume
+{: #generic-os-snapshot-and-boot-volume}
+
+[Beta]{: tag-blue}
+
+Generic operating system custom image is a beta feature that is available to select customers for evaluation and testing purposes. To request to be included in the evaluation of this beta feature, contact IBM Support. 
+{: beta}
+
+**Issue:** Currently, for the beta release, the metadata for Block Storage Snapshots and boot volumes do not include the new `operating_system.user_data_format` or `operating_system.allow_user_image_creation` API properties. 
+
+### Checksum not available for some public images
 {: #RIOS-1410}
 
 **Issue:** When you use the API or CLI to list images, some public stock images might not include a checksum. The checksum is for informational purposes only for stock images. No fix is available.
 
-## Boot volume has larger minimum provisioned size when you create a custom image by using IFV
+### Boot volume has larger minimum provisioned size when you create a custom image by using IFV
 {: #boot-volume-larger-minimum-provisioned-size}
 
 **Issue**: If your custom image is not encrypted and the image is under 100 GB virtual disk size, deploying that image to an instance and creating a custom image from that instance's boot volume (Image from a volume feature) results in a `minimum_provisioned_size` of 100 GB. No fix is available.
+
+### Custom images in a private catalog known issue
+{: #custom-images-private-catalog-known-issues}
+
+**Issue:** If you have imported one or more images into a virtual server image for VPC catalog product offering version and you edit that version, an additional version ending in "draft" is created. You can't provision an instance from this draft version. Draft versions might appear on the Virtual server instance creation page in the UI or in the output of the CLI command `ibmcloud is catalog-image-offering`.
 
 ## Bare metal servers limitations
 {: #bare-metal-servers-limitations}
@@ -92,11 +110,6 @@ Because all bare metal profiles are VMware&reg; certified, the `supported_image_
 {: #at-virtual-server-instances-known-issues}
 
 **Issue:** AT event log entries are missing `target.resourceGroupId` for some actions related to virtual server instances, such as updating or creating a virtual server instance. Instead, the resource group ID might appear in either the `requestData` or `responseData` sections of the event.
-
-## Custom images in a private catalog known issue
-{: #custom-images-private-catalog-known-issues}
-
-**Issue:** If you have imported one or more images into a virtual server image for VPC catalog product offering version and you edit that version, an additional version ending in "draft" is created. You can't provision an instance from this draft version. Draft versions might appear on the Virtual server instance creation page in the UI or in the output of the CLI command `ibmcloud is catalog-image-offering`.
 
 ## Additional authorizations beyond those defined in the API specification
 {: #api-spec-auth-known-issue}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-02-20"
+lastupdated: "2024-04-09"
 
 keywords:
 
@@ -15,20 +15,30 @@ subcollection: vpc
 # Getting started with custom images
 {: #planning-custom-images}
 
-Custom images are used to create new virtual servers with your own settings and configurations. You can create a Linux&reg; custom image, a Windows&reg; custom image, or a z/OS Wazi aaS custom image. You can import your custom image directly into {{site.data.keyword.vpc_full}} from {{site.data.keyword.cos_full}} or create one from an existing virtual server boot volume. You can also create an image template to migrate a virtual server from the Classic infrastructure. After a custom image is created and imported into {{site.data.keyword.vpc_short}}, you can import it into a private catalog, with some limitations. For more information about these limitations, see [VPC considerations when using custom images in a private catalog](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=ui).
+Custom images are used to create new virtual servers with your own settings and configurations. You can create a Linux&reg; custom image, a Windows&reg; custom image, a z/OS Wazi aaS custom image, or a generic operating system custom image. You can import your custom image directly into {{site.data.keyword.vpc_full}} from {{site.data.keyword.cos_full}} or create one from an existing virtual server boot volume. You can also create an image template to migrate a virtual server from the Classic infrastructure. After a custom image is created and imported into {{site.data.keyword.vpc_short}}, you can import it into a private catalog, with some limitations. For more information about these limitations, see [VPC considerations when you use custom images in a private catalog](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=ui).
 {: shortdesc}
 
-On the console, you can find custom images by clicking **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images > Custom images**. Image from a volume are part of the custom images tab. For more information about image from a volume, see [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc). 
+On the console, you can find custom images by clicking **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Compute > Images > Custom images**. Images that are from a volume are part of the custom images tab. For more information about creating an image from a volume, see [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc).
+
+## Creating a custom image
+{: #create-custom-image}
+
+To create a custom image, see one of the following links.
+
+- [Creating a custom Linux image](/docs/vpc?topic=vpc-create-linux-custom-image)
+- [Creating a custom Windows image](/docs/vpc?topic=vpc-create-windows-custom-image)
+- [Creating a z/OS Wazi aaS custom image](/docs/vpc?topic=vpc-create-zos-custom-image)
+- [Creating a generic operating system custom image](/docs/vpc?topic=vpc-create-generic-os-custom-image&interface=ui)
 
 ## Using a custom image to create a server
 {: #custom-image-create-vsi}
 
-To create a virtual server using a custom image, see one of the following:
+To create a virtual server by using a custom image, see one of the following links.
 
-* [Creating a virtual server instance with the UI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#creating-virtual-servers-ui)
-* [Creating a virtual server instance with the CLI - provision with a stock or custom image](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli#instance-create-from-image-cli)
-* [Creating a virtual server instance with the API - provision from a stock or custom image](/docs/vpc?topic=vpc-creating-virtual-servers&interface=api#create-instance-stock-custom-image-api)
-* [Creating an instance using Terraform](/docs/vpc?topic=vpc-creating-virtual-servers&interface=terraform#create-instance-using-terraform)
+- [Creating a virtual server instance with the UI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#creating-virtual-servers-ui)
+- [Creating a virtual server instance with the CLI - provision with a stock or custom image](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli#instance-create-from-image-cli)
+- [Creating a virtual server instance with the API - provision from a stock or custom image](/docs/vpc?topic=vpc-creating-virtual-servers&interface=api#create-instance-stock-custom-image-api)
+- [Creating an instance by using Terraform](/docs/vpc?topic=vpc-creating-virtual-servers&interface=terraform#create-instance-using-terraform)
 
 ## Prerequisites and limitations
 {: #custom-image-prerequisites}
@@ -38,14 +48,15 @@ Before you create a custom image, you must verify that your custom image meets t
 ### Custom image considerations
 {: #custom-image-considerations}
 
+<!-- Reused information list of custom image requirements shared with vsi_is_creating_generic_os_custom_image.md- see conref.md file-->
 {{site.data.content.custom-image-requirements-list}}
 
 ### Operating system considerations
 {: #custom-image-operating-systems}
 
-* Make sure that your image is supported as an [x86 stock image](/docs/vpc?topic=vpc-about-images) or an [s390x stock image](/docs/vpc?topic=vpc-vsabout-images) on {{site.data.keyword.vpc_full}}.
-* If you choose to create a custom image with your own license, specify the appropriate operating system version that appends `-byol` to the name when you import the image. For more information, see [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about).
-* ISO images of licensed operating systems, such as Windows&reg; and Linux&reg;, and open source operating systems, such as CentOS and Ubuntu, aren't provided by {{site.data.keyword.cloud}}. If you need these ISO images, you can download them from the respective vendor website.
+- Make sure that the selected operating system specifies the correct user data format type. For more information, see [User data format considerations](#custom-image-user-data-format).
+- If you choose to create a custom image with your own license, specify the appropriate operating system version that appends `-byol` to the name when you import the image. For more information, see [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about).
+- ISO images of licensed operating systems, such as Windows&reg; and Linux&reg;, and open source operating systems, such as CentOS and Ubuntu, aren't provided by {{site.data.keyword.cloud}}. If you need these ISO images, you can download them from the respective vendor website.
 
 ### {{site.data.keyword.cos_full_notm}} considerations
 {: #custom-image-cloud-object-storage}
@@ -67,20 +78,55 @@ If you plan to import an image from a file, you must provision an instance of {{
 | `archived`             | `obsolete`                 |
 {: caption="Table 2. Catalog image lifecycle status and the corresponding VPC status" caption-side="bottom"}
 
+## Generic operating system custom images
+{: #generic-os-custom-images}
+
+[Beta]{: tag-blue}
+
+Generic operating system custom images is a beta feature that is available to select customers for evaluation and testing purposes. To request to be included in the evaluation of this beta feature, contact IBM Support.
+{: beta}
+
+You can use a specific operating system that is not listed in {{site.data.keyword.Bluemix_notm}} by specifying a generic operating system when you import a custom image. You have multiple generic operating system options. You can select a generic operating system that is based on the CPU architecture and initialization strategy appropriate for your custom image operating system.
+
+Generic operating system custom images are supported for x86 (amd64) architecture. These images are listed in the custom images list. Bare metal server generic operating system custom images must follow requirements for all bare metal server custom images. For more information, see [Bare metal server custom images](/docs/vpc?topic=vpc-planning-custom-images#bare-metal-server-custom-images-considerations).
+
+The generic operating systems use a generic value for some of their properties, such as `generic` for the `vendor` property and `Generic` for the `family` property. When you create a generic operating system custom image, select the generic operating system based on the initialization type of the actual operating system. For more information, see [User data format considerations](/docs/vpc?topic=vpc-planning-custom-images#custom-image-user-data-format).
+
+When you provision a server by using a generic operating system custom image, most operating system-specific provisioning steps aren't performed, such as console setup and automatic registration. You must provide the appropriate user data if you want your generic operating system custom image to perform these steps. You are also responsible for handling licensing and related costs because {{site.data.keyword.IBM_notm}} is not aware of the actual operating system installed.
+
+## User data format considerations
+{: #custom-image-user-data-format}
+
+[Beta]{: tag-blue}
+
+When you create a server that specifies your custom image, the initialization strategy determines how the user data is used. The `user_data_format` property of an image specifies this initialization strategy. This property is set from the image operating system `user_data_format` property, which contains one of the following values.
+
+- `cloud_init`
+- `esxi_kickstart` (This value works only for bare metal servers.)
+
+- For cloud-init, user data and SSH keys are provided to the operating system on a cloud-init disk. A default user account is not created. You must use your SSH key to log in unless you set up another login mechanism through cloud-init. For virtual server instances, you might need to set up networking during initialization. For example,
+
+   See [Creating a custom Linux image](/docs/vpc?topic=vpc-create-linux-custom-image) or [Creating a custom Windows image](/docs/vpc?topic=vpc-create-windows-custom-image) documentation for details about using cloud-init data.
+
+- For ESXi kickstart, user data is provided to the operating system in a kickstart script. A default user account is created. Retrieve the server's initialization data to obtain the generated password. See VMware documentation for details of kickstart scripts.
+
+Use security best practices to limit access to any files that you expose on the internet.
+{: important}
+
 ## Bare metal server custom images
 {: #bare-metal-server-custom-images-considerations}
 
 Bare metal servers have some limitations that you need to be aware of.
 
-* Encrypted images aren't supported
+- Encrypted images aren't supported.
 
 To create a custom image for bare metal servers, the custom image must support the following information:
 
-* UEFI boot
-   * UEFI boot requires a dedicated EFI partition that contains EFI firstware. Traditional BIOS boot is not supported.
-* Pensando iconic network device drivers
-* Intel chip set device drivers
-   * These device drivers are usually part of the default kernel build options. Windows requires extra device drivers, but you can install these drivers later.
+- UEFI boot
+   - UEFI boot requires a dedicated EFI partition that contains EFI firmware. Traditional BIOS boot isn't supported.
+- Pensando iconic network device drivers
+- Intel chip set device drivers
+   - These device drivers are usually part of the default kernel build options. Windows requires extra device drivers, but you can install these drivers later.
 
 For more information, see [Custom Linux kernel build options for bare metal servers](/docs/vpc?topic=vpc-configuration-requirements-for-custom-linux-kernels#custom-linux-kernel-linuxone-options).
 
@@ -91,12 +137,11 @@ For more information about bare metal server images, see [Bare metal server imag
 
 You can use IBM Wazi Image Builder to create your own custom z/OS-based {{site.data.keyword.waziaas_full_notm}} (Wazi aaS) image and import the custom image into {{site.data.keyword.vpc_full}}.
 
-IBM Wazi Image Builder is a separately orderable product from [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/){: external}. Extra requirements are needed to use Wazi Image Builder. The image cost is the premium that is applied to cover the cost of technologies that allows for z/OS dev and test images to run on IBM Z hardware in IBM’s cloud infrastructure as a service layer.
+IBM Wazi Image Builder is a separately orderable product from [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/){: external}. Extra requirements are needed to use Wazi Image Builder. The image cost is the premium that is applied to cover the cost of technologies that allows for z/OS dev and test images to run on IBM Z hardware on IBM’s cloud infrastructure as a service layer.
 
 The z/OS Wazi aaS custom image must meet the following requirements:
-* qcow2 format
-* z/OS 2.4 or z/OS 2.5 operating system
-* See [Prerequisites](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=builder-prerequisites){: external} for required PTF fixes on z/OS and other IBM software products to allow them to run as a guest of IBM Z Hypervisor as a Service (zHYPaaS).
+- qcow2 format
+- z/OS 2.4 or z/OS 2.5 operating system
 
 For more information, see [Bringing your own image with Wazi Image Builder](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=bringing-your-own-image-wazi-image-builder){: external}.
 

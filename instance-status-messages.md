@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2021, 2022
+  years: 2021, 2024
 lastupdated: "2022-03-10"
 
 keywords: instance status message, instance status, VPC error message, error message, virtual server error

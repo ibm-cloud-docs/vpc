@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-02-22"
+lastupdated: "2024-04-09"
 
 keywords: creating a linux custom image, cloud-init, qcow2
 
@@ -16,7 +16,7 @@ subcollection: vpc
 # Creating a Linux custom image
 {: #create-linux-custom-image}
 
-You can create your own custom Linux-based image to import into {{site.data.keyword.vpc_full}}. You can then use the custom image to deploy a virtual server in the {{site.data.keyword.vpc_full}} infrastructure.
+You can create your own custom Linux-based image to import into {{site.data.keyword.vpc_full}}. You can then use the custom image to deploy a virtual server or bare metal server in the {{site.data.keyword.vpc_full}}  infrastructure.
 {: shortdesc}
 
 You can begin with an image template from the {{site.data.keyword.cloud_notm}} Classic infrastructure. For more information, see [Migrating a virtual server from the classic infrastructure](/docs/vpc?topic=vpc-migrate-vsi-to-vpc). Did you know that you can also create a custom image of a boot volume that is attached to an instance at import time? For more information, see [About creating an image from volume](/docs/vpc?topic=vpc-image-from-volume-vpc).
