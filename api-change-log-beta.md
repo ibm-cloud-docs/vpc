@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-04-09"
+lastupdated: "2024-04-12"
 
 keywords: api, change log, beta
 
@@ -54,13 +54,13 @@ Images that are used to create virtual server instances or to [create instance t
 - `availability` indicates the availability of a load balancer.  Load balancers with `subnet` availability remain available if at least one of its subnets is in a zone that's available. Load balancers with `region` availability remain available if at least one zone in the region is available. Private path network load balancers have `region` availability. Other load balancers have `subnet` availability.
 The `value` for load balancer profiles properties `route_mode_supported`, `security_groups_supported`, `udp_supported`, and `logging_supported` is set to `false` for private path load balancers. Additionally, private path load balancers do not support setting or updating the `dns` property, because a private path network load balancers are accessed using endpoint gateways where DNS is configured.
 
-**Private path service gateway.** Accounts that have been granted special approval to preview this feature can now [create private path service gateways](/apidocs/vpc-beta/initial#create-private-path-service-gateway). Creating, [updating](/apidocs/vpc-beta/initial#update-private-path-service-gateway), and [deleting](/apidocs/vpc-beta/initial#delete-private-path-service-gateway) private path service gateways allows you to configure and manage access to [private path services](/docs/vpc?topic=vpc-pps-ui-creating&interface=api). Private path service gateways also have two sub-resources:
+**Private path service gateway.** Accounts that have been granted special approval to preview this feature can now [create private path service gateways](/apidocs/vpc-beta/initial#create-private-path-service-gateway). Creating, [updating](/apidocs/vpc-beta/initial#update-private-path-service-gateway), and [deleting](/apidocs/vpc-beta/initial#delete-private-path-service-gateway) private path service gateways allows you to configure and manage access to [private path services](/docs/vpc?topic=vpc-private-path-service-about&interface=api). Private path service gateways also have two sub-resources:
 
 - [Account policies](/apidocs/vpc-beta/initial#list-private-path-service-gateway-account-policies) provide per-account access policies that supersede the private path service gateway's default access policy.  You can [create](/apidocs/vpc-beta/initial#create-private-path-service-gateway-account-policy), [update](/apidocs/vpc-beta/initial#update-private-path-service-gateway-account-policy), and [delete](/apidocs/vpc-beta/initial#delete-private-path-service-gateway-account-policy) policies to `permit`, `deny`, or manually `review` requests from any account. You can also [revoke](/apidocs/vpc-beta/initial#revoke-account-for-private-path-service-gateway) current and future access for an account. For more information, see [About account policies](/docs/vpc?topic=vpc-pps-about-account-policies).
 
 - [Endpoint gateway bindings](/apidocs/vpc-beta/initial#list-private-path-service-gateway-endpoint-gateway) represent each request to access to the private path service gateway. The associated account policy is applied to all `pending` endpoint gateway bindings. If an associated account policy doesn't exist, the private path service gateway's `default_access_policy` is used.  If the resulting policy is `review`, you will be able to explicitly approve or deny the request, and optionally set a new policy for future requests from the account.
 
-Learn about [creating private path service gateways](/docs/vpc?topic=vpc-private-path-service-about), and explore the new [API methods](/apidocs/vpc-beta#list-private-path-service-gateways).
+Learn about [creating private path service gateways](/docs/vpc?topic=vpc-private-path-service-about).
 
 ## 19 December 2023
 {: #19-december-2023-beta}
