@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-04-09"
+lastupdated: "2024-04-11"
 
 keywords:
 
@@ -38,6 +38,18 @@ Generic operating system custom images with Virtual Server Instances and Bare Me
 
 Network boot of operating systems with Bare Metal Servers for VPC (beta)
 :   When you create a bare metal server on {{site.data.keyword.vpc_full}} (VPC), you can select to network boot an operating system over the network. The operating system image can be hosted on your own server or on a public server. You can install the booted operating system to a disk or you can run the operating system without a disk. For more information, see [Network booting your own operating system with Bare Metal Servers on VPC](/docs/vpc?topic=vpc-network-boot-bare-metal-servers&interface=ui).
+
+### 11 April 2024
+{: #vpc-apr1124}
+{: release-note}
+
+Third-party image billing and metering
+:   When you select a catalog image, you now have associated billing plans to choose from. Catalog images are billed in one of the following ways:
+
+   * Free trial
+   * Useage-based
+   * Subscription-based (monthly or yearly)
+   * BYOL
 
 ### 08 April 2024
 {: #vpc-april0824}
