@@ -29,16 +29,6 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## April 2024
 {: #vpc-apr24}
 
-### 09 April 2024
-{: #vpc-apr0924}
-{: release-note}
-
-Generic operating system custom images with Virtual Server Instances and Bare Metal Servers for VPC (beta)
-:   When you create a server on {{site.data.keyword.vpc_full}} (VPC) using an x86 profile, you can use an operating system that is not listed in IBM Cloud by specifying a generic operating system custom image. You can create this custom image by specifying one of the new operating systems with properties that indicate it is generic. When you provision a server by using a generic operating system custom image, most operating system-specific provisioning steps aren't performed, such as console setup and automatic registration. You must provide the appropriate user data if you want your generic operating system custom image to perform these steps. For more information, see [Generic operating system custom images](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#generic-os-custom-images) and [Creating a generic operating system custom image](/docs/vpc?topic=vpc-create-generic-os-custom-image&interface=ui).
-
-Network boot of operating systems with Bare Metal Servers for VPC (beta)
-:   When you create a bare metal server on {{site.data.keyword.vpc_full}} (VPC), you can select to network boot an operating system over the network. The operating system image can be hosted on your own server or on a public server. You can install the booted operating system to a disk or you can run the operating system without a disk. For more information, see [Network booting your own operating system with Bare Metal Servers on VPC](/docs/vpc?topic=vpc-network-boot-bare-metal-servers&interface=ui).
-
 ### 11 April 2024
 {: #vpc-apr1124}
 {: release-note}
@@ -50,6 +40,16 @@ Third-party image billing and metering
    * Useage-based
    * Subscription-based (monthly or yearly)
    * BYOL
+
+### 09 April 2024
+{: #vpc-apr0924}
+{: release-note}
+
+Generic operating system custom images with Virtual Server Instances and Bare Metal Servers for VPC (beta)
+:   When you create a server on {{site.data.keyword.vpc_full}} (VPC) using an x86 profile, you can use an operating system that is not listed in IBM Cloud by specifying a generic operating system custom image. You can create this custom image by specifying one of the new operating systems with properties that indicate it is generic. When you provision a server by using a generic operating system custom image, most operating system-specific provisioning steps aren't performed, such as console setup and automatic registration. You must provide the appropriate user data if you want your generic operating system custom image to perform these steps. For more information, see [Generic operating system custom images](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#generic-os-custom-images) and [Creating a generic operating system custom image](/docs/vpc?topic=vpc-create-generic-os-custom-image&interface=ui).
+
+Network boot of operating systems with Bare Metal Servers for VPC (beta)
+:   When you create a bare metal server on {{site.data.keyword.vpc_full}} (VPC), you can select to network boot an operating system over the network. The operating system image can be hosted on your own server or on a public server. You can install the booted operating system to a disk or you can run the operating system without a disk. For more information, see [Network booting your own operating system with Bare Metal Servers on VPC](/docs/vpc?topic=vpc-network-boot-bare-metal-servers&interface=ui).
 
 ### 08 April 2024
 {: #vpc-april0824}
