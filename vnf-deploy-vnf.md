@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-01-27"
+  years: 2022, 2024
+lastupdated: "2024-04-15"
 
 keywords:
 
@@ -42,13 +42,10 @@ Before you start deploying VNF, meet the following requirements:
 
 Currently, the following IBM Cloud VNF catalog offerings are available:
 
-* [Check Point Security Gateway](/catalog/content/checkpoint-iaas-gw-ibm-vpc-1.0.7-9ed8dbde-2931-45f5-a7a7-0c90ce0d2686-global){: external}
 * [Fortinet FortiGate Firewall A/P HA](/catalog/content/ibm-fortigate-AP-HA-terraform-deploy-5dd3e4ba-c94b-43ab-b416-c1c313479cec-global){: external}
 * [Fortinet FortiGate Next-Generation Firewall - Single VM](/catalog/content/ibm-fortigate-terraform-deploy-1f878ca9-069f-42ca-9ed9-5b461d4d5231-global){: external}
 * [F5 Big-IP](/catalog/content/ibmcloud_schematics_bigip_multinic_declared-1.0-d33f1544-e938-478a-b0dd-d883370f08d0-global){: external}
 * [IaaS Security Management](/catalog/content/checkpoint-iaas-mgmt-ibm-vpc-1.0.7-9ea27a83-e5e7-43d9-9e8f-df8dd1befc5a-global){: external}
-* [Juniper vSRX](/catalog/content/juniper-vsrx-catalog-deploy-1.4-dc1e707c-33dd-4321-b2a5-c22dbf0dd0ee-global){: external}
-* [Palo Alto VM-Series](/catalog/content/ibmcloud-vmseries-1.9-6470816d-562d-4627-86a5-fe3ad4e94b30-global){: external}
 
 ## Next step
 {: #next-step-create-nlb}

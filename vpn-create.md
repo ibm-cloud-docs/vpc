@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-02-28"
+lastupdated: "2024-04-15"
 
 keywords:
 subcollection: vpc
@@ -41,7 +41,7 @@ To create a VPN gateway by using the UI:
    * **Access management tags** - Optionally, add access management tags to resources to help organize access control relationships. The only supported format for access management tags is `key:value`. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
    * **Region** - Shows the region where the VPC is located and where the VPN gateway will provision.
    * **Virtual Private Cloud** - Select the VPC for the VPN gateway.
-   * **Subnet** - Select the subnet in which to create the VPN gateway. See [Planning considerations](/docs/vpc?topic=vpc-vpn-create-gateway#planning-considerations-vpn) for important subnet information.
+   * **Subnet** - Select the subnet in which to create the VPN gateway. See [Planning considerations](/docs/vpc?topic=vpc-vpn-create-gateway&interface=ui#planning-considerations-vpn) for important subnet information.
    * **Mode** - Select to create a policy-based or a route-based VPN. For more information about VPN types, see [VPN features](/docs/vpc?topic=vpc-using-vpn#vpn-features).
 1. In the **VPN connection for VPC** section, toggle the switch on to establish connectivity between this gateway and the network outside your VPN. You can also create a VPN connection after you provision the gateway.
 

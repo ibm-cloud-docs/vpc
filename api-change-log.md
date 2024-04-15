@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-03-26"
+lastupdated: "2024-04-15"
 
 keywords: vpc, api, change log, new features, restrictions, migration
 
@@ -604,7 +604,7 @@ A response code of `204` will continue to be returned for API requests using a `
 - A **VPN client** represents a client connecting from the internet. You can [retrieve the OpenVPN client configuration](/apidocs/vpc/latest#get-vpn-server-client-configuration) to use to configure a VPN client for a VPN server. For more information, see [Setting up a client VPN environment and connecting to a VPN server](/docs/vpc?topic=vpc-vpn-client-environment-setup) and the new [VPN client methods](/apidocs/vpc/latest#list-vpn-server-clients).
 - A **VPN route** controls which subnets the VPN client can access and how the traffic from the VPN client reaches these subnets. For more information, see [Managing VPN routes](/docs/vpc?topic=vpc-vpn-client-to-site-routes) and the new [VPN server route methods](/apidocs/vpc/latest#list-vpn-server-routes).
 
-**Configuring route propagation for VPN gateways and VPN servers.** When you [create a VPC routing table](/apidocs/vpc/latest#create-vpc-routing-table), you can now control if the routing table accepts routes from a VPN gateway or server by specifying the `accept_routes_from` property. When you [view a route in a VPC routing table](/apidocs/vpc/latest#get-vpc-routing-table-route), the new `origin` property shows who created the route (either `user` or `service`), and the `service` routes include a new `creator` property that references the resource that created the route. Routes with the `creator` property present cannot be deleted directly. For more information, see [Configuring route propagation for VPN gateways](/docs/vpc?topic=vpc-vpn-site-to-site-routes-propagating) and [VPN servers](/docs/vpc?topic=vpc-vpn-client-to-site-route-propagation).
+**Configuring route propagation for VPN gateways and VPN servers.** When you [create a VPC routing table](/apidocs/vpc/latest#create-vpc-routing-table), you can now control if the routing table accepts routes from a VPN gateway or server by specifying the `accept_routes_from` property. When you [view a route in a VPC routing table](/apidocs/vpc/latest#get-vpc-routing-table-route), the new `origin` property shows who created the route (either `user` or `service`), and the `service` routes include a new `creator` property that references the resource that created the route. Routes with the `creator` property present cannot be deleted directly. For more information, see [Configuring route propagation for VPN gateways](/docs/vpc?topic=vpc-advertise-routes-s2s&interface=ui) and [VPN servers](/docs/vpc?topic=vpc-vpn-client-to-site-route-propagation).
 
 **Concurrent update protection.** ETags returned on `GET`, `POST`, and `PATCH` requests represent the modifiable state of the resource. When updating the `accept_routes_from` property on a [routing table](/apidocs/vpc/latest#update-vpc-routing-table), or updating the `client_authentication`, `client_dns_servers`, or `subnets` properties on a [VPN server](/apidocs/vpc/latest#update-vpn-server), you must provide the resource's ETag using the `If-Match` header. For general guidance on the use of ETags, see [Concurrent update protection](/apidocs/vpc/latest#concurrent-update-protection).
 
