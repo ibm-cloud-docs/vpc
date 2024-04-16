@@ -16,7 +16,7 @@ subcollection: vpc
 # Creating a virtual server with SGX
 {: #creating-virtual-servers-with-sgx-vpc}
 
-[Select availability Beta]{: tag-blue}
+[Beta]{: tag-blue}
 
 You can create one or more virtual server instances with SGX in your {{site.data.keyword.cloud}} VPC.
 {: shortdesc}
