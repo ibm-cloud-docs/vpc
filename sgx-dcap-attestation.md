@@ -15,7 +15,7 @@ subcollection: vpc
 # Attestation with Intel SGX and Data Center Attestation Primitives (DCAP) for Virtual Servers for VPC
 {: #about-attestation-sgx-dcap-vpc}
 
-[Select availability Beta]{: tag-blue}
+[Beta]{: tag-blue}
 
 Attestation with SGX confirms that the intended software or code is running within an encrypted enclave. In other words, attestation with SGX provides evidence that you are running inside a properly instantiated encrypted enclave, on a system that has a known security configuration. With Intel SGX DCAP, you can use remote attestation to check that software is properly running in a secure enclave.
 {: shortdesc}
