@@ -59,15 +59,15 @@ The following table provides some examples of how application I/O size and provi
 
 | Average I/O Size (KB) | IOPS | Throughput (MBps) |
 |-----------------|------|-------------------|
-| 4 (typical for Linux&reg;) | 1,000 | 4^1^ |
-| 8 (typical for Oracle) | 1,000  | 8^1^ |
+| 4 (typical for Linux&reg;) | 1,000 | 4¹ |
+| 8 (typical for Oracle) | 1,000  | 8¹ |
 | 16 | 1,000 | 16 |
 | 32 (typical for SQL Server) | 500 | 16 |
 | 64 | 250 | 16 |
 | 128 | 128 | 16 |
 {: caption="Table 1. Examples of how application I/O size and IOPS affect the throughput" caption-side="top"}
 
-^1^If your cap is 1,000 IOPS or 16 K average I/O size, the throughput caps at whatever limit is reached first.
+¹If your cap is 1,000 IOPS or 16 K average I/O size, the throughput caps at whatever limit is reached first.
 
 Maximum IOPS can still be obtained when you use smaller I/O sizes, but throughput is less. The following example shows how throughput decreases for smaller average I/O sizes, when max IOPS is maintained.
 
