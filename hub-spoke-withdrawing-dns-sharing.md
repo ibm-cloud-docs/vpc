@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-03-29"
+lastupdated: "2024-04-16"
 
 keywords:
 
@@ -170,5 +170,5 @@ When a hub VPC owner deletes a DNS resolution binding, it can result in a degrad
 
 When a DNS-shared VPC owner deletes a DNS resolution binding, depending on whether the DNS-shared VPC is granted the [service-to-service IAM authorization policy](/docs/vpc?topic=vpc-hub-spoke-s2s-auth&interface=ui) on the hub VPC with the `DNSBindingConnector` role, the system either deletes the DNS resolution binding on the hub side (when authorized) or puts the hub's binding in `Faulted` state.
 
-For more information, see [Monitoring a VPC for status and health](/docs/vpc?topic=vpc-vpc-states&interface=ui).
+For more information, see [Monitoring a VPC for status and health](/docs/vpc?topic=vpc-vpc-states).
 {: note}
