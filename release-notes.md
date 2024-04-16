@@ -667,7 +667,7 @@ Removal of weak VPN for VPC ciphers
     * Encryption algorithm `triple_des`
     * Diffie–Hellman groups `2` and `5`
 
-   After this date, you cannot create an IKE/IPsec policy or connection that includes a weak cipher, but you can still [upgrade weak cipher suites](/docs/vpc?topic=vpc-upgrading-weak-ciphers&interface=ui) on an existing policy or connection. Starting 10 July 2023, any existing connections with customized IKE or IPsec policies that contain weak ciphers will be disabled, and any connections with auto IKE or IPsec policies that were created before September 20, 2022 will be forced to upgrade to the [enhanced auto-negotiation policy](/docs/vpc?topic=vpc-using-vpn#policy-negotiation).
+   After this date, you cannot create an IKE/IPsec policy or connection that includes a weak cipher, but you can still upgrade weak cipher suites on an existing policy or connection. Starting 10 July 2023, any existing connections with customized IKE or IPsec policies that contain weak ciphers will be disabled, and any connections with auto IKE or IPsec policies that were created before September 20, 2022 will be forced to upgrade to the [enhanced auto-negotiation policy](/docs/vpc?topic=vpc-using-vpn#policy-negotiation).
 
 ### 11 May 2023
 {: #vpc-may1123}
@@ -903,7 +903,7 @@ End of support (EOS) for deprecated VPN for VPC IKE and IPsec ciphers
    - Encryption algorithm `triple_des`
    - Diffie–Hellman groups `2` and `5`
 
-   Effective today, these ciphers are no longer supported in the UI and EOS for use with the CLI and API is forthcoming. If you didn't upgrade to more secure ciphers, do so now. For more information, see [Upgrading weak cipher suites on a VPN gateway](/docs/vpc?topic=vpc-upgrading-weak-ciphers).
+   Effective today, these ciphers are no longer supported in the UI and EOS for use with the CLI and API is forthcoming. If you didn't upgrade to more secure ciphers, do so now.
 
 ### 05 January 2023
 {: #vpc-jan0523}
@@ -1082,7 +1082,7 @@ Deprecated VPN for VPC ciphers
    - Encryption algorithm `triple_des`
    - Diffie–Hellman groups `2` and `5`
 
-   You have until 13 December 2022 to upgrade to more secure ciphers. After this date, VPN connections using deprecated ciphers show a `status` of `down` (and no longer transfer data) until you upgrade from the weak cipher. For more information, see [Upgrading weak cipher suites on a VPN gateway](/docs/vpc?topic=vpc-upgrading-weak-ciphers).
+   You have until 13 December 2022 to upgrade to more secure ciphers. After this date, VPN connections using deprecated ciphers show a `status` of `down` (and no longer transfer data) until you upgrade from the weak cipher.
 
 Additional VPN for VPC ciphers
 :    VPN gateways now provide new algorithms to help meet your security and compliance requirements.
