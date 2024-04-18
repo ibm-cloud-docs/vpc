@@ -21,7 +21,7 @@ You can define the port range for the {{site.data.keyword.cloud}} {{site.data.ke
 After you attach a pool to the listener, the back-end target has the same port range as the listener.
 {: important}
 
-The port range feature is not supported on private network load balancers. Only Private Path and public network load balancers can use this feature.
+Private network load balancers do not support the port range feature. Only Private Path and public network load balancers can use this feature.
 {: note}
 
 Currently, all VPEs connected to a Private Path network load balancer can connect to any port in the range.
