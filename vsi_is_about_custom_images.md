@@ -36,6 +36,7 @@ On the console, you can find custom images by clicking **Menu icon ![Menu icon](
 
 To create a custom image, see one of the following links.
 
+- [Creating an image from a volume](/docs/vpc?topic=vpc-create-ifv)
 - [Creating a custom Linux image](/docs/vpc?topic=vpc-create-linux-custom-image)
 - [Creating a custom Windows image](/docs/vpc?topic=vpc-create-windows-custom-image)
 - [Creating a z/OS Wazi aaS custom image](/docs/vpc?topic=vpc-create-zos-custom-image)
