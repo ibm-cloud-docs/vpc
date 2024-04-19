@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-03-13"
+lastupdated: "2024-04-19"
 
 keywords:  network, VPN, VPN gateways, encryption
 
@@ -27,7 +27,7 @@ Select `VPN gateway` in the following cases:
 ## Setting up a transit gateway with VPN for VPC
 {: #setup-tg-with-vpn-vpc}
 
-When you [create a transit gateway](/docs/transit-gateway?topic=transit-gateway-ordering-transit-gateway&interface=ui) to connect VPCs you must [create an ingress routing table](/docs/vpc?topic=vpc-create-vpc-routing-table&interface=ui) in the VPC where the VPN gateway is, and make sure to select **VPN gateway** if you want VPN gateway routes propagated to it. Also, you must turn the **Advertise to** switch to **On** when selecting **Transit gateway**. 
+When you [create a transit gateway](/docs/transit-gateway?topic=transit-gateway-ordering-transit-gateway&interface=ui) to connect VPCs you must [create an ingress routing table](/docs/vpc?topic=vpc-create-vpc-routing-table&interface=ui) in the VPC where the VPN gateway is, and make sure to select **VPN gateway** if you want VPN gateway routes propagated to it. Also, you must turn the **Advertise to** switch to **On** when selecting **Transit gateway**.
 
 After the connection is established, the route displays `On` in the Advertise column of the routing table. The on-prem routes are automatically advertised through the transit gateway after the ingress routing table accepts routes from the VPN gateway.
 
@@ -39,7 +39,7 @@ For troubleshooting purposes, you can select or deselect `VPN gateway` to check 
 ## VPN for VPC migration to advertise routes
 {: #migrate-to-advertise-routes-s2s}
 
-With Transit Gateway route advertisement support beginning 19 April 2024, existing policy-based VPN gateway customers who use address prefixes can choose from the following options:
+With Transit Gateway route advertisement support beginning 03 May 2024, existing policy-based VPN gateway customers who use address prefixes can choose from the following options:
 
 * Keep address prefixes in VPC. If you decide to keep using address prefixes, there is nothing else that you need to do.
 * Migrate to advertise routes by following these these steps:
