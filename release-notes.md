@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-04-16"
+lastupdated: "2024-04-18"
 
 keywords:
 
@@ -29,8 +29,9 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## April 2024
 {: #vpc-apr24}
 
-### 11 April 2024
-{: #vpc-apr1124}
+
+### 18 April 2024
+{: #vpc-apr1824}
 {: release-note}
 
 Third-party image billing and metering
