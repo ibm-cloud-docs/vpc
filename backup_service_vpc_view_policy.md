@@ -15,7 +15,7 @@ subcollection: vpc
 # Viewing backup policies
 {: #backup-view-policies}
 
-You can list and view all backup policies that you created for your {{site.data.keyword.block_storage_is_short}} volumes in the console, from the CLI, with the API, or Terraform. You can review the details of individual policies, and view the number of resources that have tags that match a backup policy.
+You can list and view all backup policies that you created for your storage resources in the console, from the CLI, with the API, or Terraform. You can review the details of individual policies, and view the number of resources that have tags that match a backup policy.
 {: shortdesc}
 
 For the backup operation to be successful, the tagged resources must be attached to running virtual server instances. Unattached volumes are not backed up even if they have the right tags. 
@@ -121,7 +121,7 @@ You can use this list of {{site.data.keyword.block_storage_is_short}} volumes or
       | Status | Status of the volume. |
       | Virtual private cloud | The name of the VPC that the virtual server instance is in. Click it to go to the details page of the VPC. |
       | Profile| The Compute profile of the virtual server instance. |
-      {: caption="Table 4. List of virtual server instances." caption-side="top"}
+      {: caption="Table 5. List of virtual server instances." caption-side="top"}
 
        Click **Add virtual server instance** to add the attached volumes of a virtual server instance to this policy. The informational side panel provides a list of tags for target resources that you can apply to the virtual server instance. It also contains a link to the list of virtual server instances of your account. You must apply at least one of the policy's tags for target resources to the volume.
 
