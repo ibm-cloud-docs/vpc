@@ -15,7 +15,7 @@ subcollection: vpc
 # Applying backup policies to resources with tags
 {: #backup-use-policies}
 
-Apply backup policies by adding user tags to new or existing volumes, virtual server instances, or shares or shares. When these tags match a backup policy tag, a backup is created.
+Apply backup policies by adding user tags to new or existing volumes, or virtual server instances. When these tags match a backup policy tag, a backup is created.
 {: shortdesc}
 
 Up to 100 tags can be attached or detached in the same operation. Keeping the number of tags low can make it easier to track their usage and your backups.
