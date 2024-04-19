@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-04-16"
+lastupdated: "2024-04-19"
 
 keywords:
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Planning snapshots
+# Planning {{site.data.keyword.block_storage_is_short}} snapshots
 {: #snapshots-vpc-planning}
 
 When you plan a snapshot strategy for your {{site.data.keyword.block_storage_is_short}} volumes, you might find this checklist helpful. Remember, snapshots can be used to create copies of your volumes and the data they contain can be used to clone or replicate data to other availability zones and regions.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-01-05"
+lastupdated: "2024-04-19"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Viewing snapshots and consistency groups
+# Viewing {{site.data.keyword.block_storage_is_short}} snapshots and consistency groups
 {: #snapshots-vpc-view}
 
 You can view a list of all snapshots and consistency groups, and drill down to see information about a particular snapshot. Choose the UI, CLI, API, or Terraform to retrieve this information.
@@ -29,7 +29,7 @@ You can use the UI to list your snapshots and consistency groups.
 
 In the console, you can view a list of all snapshots that you created, with the most recent one at the beginning of the list. You can filter the list to view specific snapshots.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage snapshots for VPC**. The page has two main tabs: Snapshot consistency group and Snapshots.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage snapshots for VPC**. The page has two main tabs: Snapshot consistency group and Snapshots.
 
 1. Select the **Snapshots** tab. The snapshots are listed for a specific region. If you want to see snapshots in another region, click the arrow to expand the list and select a different region. By default, the newest snapshots are displayed at the beginning of the list.
 
@@ -88,7 +88,7 @@ The snapshot details panel shows the information that is described in the follow
 | Resource group | Resource group defined when you set up your VPC. |
 | Created date | Date and time that the snapshot resource creation process started. |
 | Captured date | The date and time that this snapshot was captured. |
-| Created by | This field shows either `User` or `Backup policy`. If the snapshot is created by a backup policy, the UI also diplays the name of the backup plan that created the backup snapshot. |
+| Created by | This field shows either `User` or `Backup policy`. If the snapshot is created by a backup policy, the UI also displays the name of the backup plan that created the backup snapshot. |
 | Size| Size in GBs of the snapshot, inherited from the source volume. |
 | Source volume | Source volume from which the first snapshot was taken. Click the link for volume details. If the volume was deleted, the name appears without a link. |
 | Encryption | Provider-managed or customer-managed encryption. For customer-managed encryption, the KMS instance, root key name, and root key ID are shown. |
@@ -105,7 +105,7 @@ By clicking the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Acti
 
 In the console, you can view a list of all consistency groups that you created, with the most recent one at the beginning of the list. You can filter the list to view specific consistency groups.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage snapshots for VPC**. The page has two main tabs: Snapshot consistency group and Snapshots.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage snapshots for VPC**. The page has two main tabs: Snapshot consistency group and Snapshots.
 
 1. Select the **Snapshot consistency group** tab. The groups are listed for a specific region. If you want to see consistency groups in another region, click the arrow to expand the list and select a different region. By default, the newest snapshot groups are displayed at the beginning of the list.
 
@@ -147,10 +147,10 @@ The overview section provides details about the consistency group and the virtua
 
 | Field | Description |
 |-------|-------------|
-| Name  | The unique name of the consistency group. If you want to update it, click on the pencil icon. |
+| Name  | The unique name of the consistency group. If you want to update it, click the pencil icon. |
 | Consistency group ID | This field shows the ID string of the consistency group.   |
 | CRN  | Cloud Resource Name of the consistency group.  |
-| Created by  | The field shows either `user` for a manually created snapshot, or [backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-concepts) for automated snapshots. |
+| Created by  | The field shows either `user` for a manually created snapshot, or a [backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-concepts) for automated snapshots. |
 | Resource group  | The resource group that the consistency group belongs to. |
 | Created date | It shows the date when the consistency group was created.  |
 | Delete snapshot members | It shows whether the snapshots are deleted or kept when the consistency group is deleted. Click the toggle to change the status. |
@@ -262,7 +262,7 @@ For more information about available command options, see [`ibmcloud is snapshot
 ### Viewing all snapshots in a consistency group from the CLI
 {: #snapshots-cr-vpc-view-all-cli}
 
-Run the `snapshots` command and specify the consistency group ID, name or CRN.
+Run the `snapshots` command and specify the consistency group ID, name, or CRN.
 
 ```sh
 ibmcloud is snapshots --volume CONSISTENCY_GROUP_ID
