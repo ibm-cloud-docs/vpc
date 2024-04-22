@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-04-18"
+lastupdated: "2024-04-22"
 
 keywords: port, range, nlb, configuring
 
@@ -23,8 +23,6 @@ After you attach a pool to the listener, the back-end target has the same port r
 
 Private network load balancers do not support the port range feature. Only Private Path and public network load balancers can use this feature.
 {: note}
-
-Currently, all VPEs connected to a Private Path network load balancer can connect to any port in the range.
 
 ## Configuring the port range in the UI
 {: #port-range-ui}
