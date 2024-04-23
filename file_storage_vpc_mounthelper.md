@@ -77,11 +77,13 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
    Closed environments: To install Mount Helper on a virtual server instance without internet connection, create or update a local repository on the VSI based on the OS. Copy the Mount Helper package along with its dependencies to the local directory.
    {: note}
 
-1. To install the Mount Helper and all the dependencies, use the following script. Specify the region where the file share is going to be mounted. The `region` argument is used to copy region-specific root CA cert to the strongSwan certificate location. If no region is specified, then the utility copies all the root CA certs.
+1. To install the Mount Helper and all the dependencies, use the following script and specify the region where the file share is going to be mounted.
    ```sh
    ./install.sh region=dal
    ```
    {: pre}
+
+    The `region` argument is used to copy region-specific root CA cert to the strongSwan certificate location. If no region is specified, then the utility copies all the root CA certs. The following table shows the values that you can use to specify the region.
 
    | Location / Region                 | Value |
    |-----------------------------------|-------|
