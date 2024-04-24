@@ -15,10 +15,10 @@ subcollection: vpc
 # Resource suspension
 {: #resource-suspension}
 
-Individual resources that violate {{site.data.keyword.cloud}} [terms of service](https://www.ibm.com/services/us/imc/html/aup1.html){: external} are suspended. Potential resources that can be suspended include virtual server instances, autoscale groups, bare metal servers, VPN gateways and VPN servers.
+Individual resources that violate {{site.data.keyword.cloud}} [terms of service](https://www.ibm.com/services/us/imc/html/aup1.html){: external} are suspended. Potential resources that can be suspended include virtual server instances, instance groups, bare metal servers, VPN gateways, and VPN servers.
 {: shortdesc}
 
-When a resource is suspended, changes are not allowed. For example, suspended bare metal servers and virtual server instances are powered off. Connections to VPN gateways and servers are disabled.
+While a resource is suspended, it cannot be used, modified, or deleted. For example, suspended bare metal servers and virtual server instances are powered off, and their configuration cannot be changed. Connections to VPN gateways and servers are disabled.
 
 ## Restoring access
 {: #restore-access}
