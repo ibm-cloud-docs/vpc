@@ -29,17 +29,16 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## April 2024
 {: #vpc-apr24}
 
-
 ### 18 April 2024
 {: #vpc-apr1824}
 {: release-note}
 
-Third-party image billing and metering
+Third-party image billing and metering (beta)
 :   When you select a catalog image, you now have associated billing plans to choose from. Catalog images are billed in one of the following ways:
 
    * Free trial
-   * Useage-based
-   * Subscription-based (monthly or yearly)
+   * Usage-based billing
+   * Subscription-based (monthly or yearly) billing
    * BYOL
 
 ### 09 April 2024
