@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-03-29"
+lastupdated: "2024-04-24"
 
 keywords:
 
@@ -239,11 +239,13 @@ See the following example of targeting a region other than the default `us-south
 ```terraform
 resource "ibm_iam_authorization_policy" "policy" {
 
-    roles                  = [
+  #"DNSBindingConnector",
 
-        "DNSBindingConnector",
+  roles = [
 
-    ]
+    "DNS Binding Connector",
+
+  ]
 
     subject_attributes {
 
