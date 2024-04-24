@@ -68,6 +68,7 @@ toc:
                label: Confidential computing with SGX for Virtual Servers for VPC
                topics:
                - about-sgx-confidential-computing.md
+               - confidential-computing-secure-boot.md
                - sgx-dcap-attestation.md
                - create-sgx-virtual-server.md
            - topicgroup:
