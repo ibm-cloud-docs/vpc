@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-03-25"
+lastupdated: "2024-04-24"
 
 keywords:
 
@@ -17,6 +17,8 @@ subcollection: vpc
 
 You can create one or more virtual server instances in your {{site.data.keyword.vpc_short}} by using the {{site.data.keyword.cloud_notm}} console, CLI, API, or Terraform.
 {: shortdesc}
+
+When you create a virtual server, you specify information such as the location and name for your virtual server. You specify an operating system image, a profile that defines the combination of vCPU and RAM, and SSH keys to securely connect to your virtual server. You have the option to add data volumes in addition to the boot volume. You can also specify the type of network interface that is created for your virtual server. Finally, you can select from advanced options for your virtual server configuration. 
 
 ## Creating a virtual server instance with the UI
 {: #creating-virtual-servers-ui}
