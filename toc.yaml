@@ -756,8 +756,12 @@ toc:
                 - backup_service_vpc_enterprise_faq.md
                 - file_storage_vpc_faqs.md
             - fl-faq.md
-            - nlb-faqs.md
-            - lb-faqs.md
+            - topicgroup:
+                label: FAQs for load balancers
+                topics:
+                - lb-faqs.md
+                - nlb-faqs.md
+            - faq-private-path.md
             - instance_metadata_vpc_faqs.md
             - faqs-placement-groups.md
             - vni-faq.md
