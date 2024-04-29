@@ -314,7 +314,7 @@ In the future, load balancer profiles may be introduced that do not support inst
 - Encryption algorithm `triple_des`
 - Diffie–Hellman groups `2` and `5`
 
-As a result, you will no longer be able to create an IKE/IPsec policy or VPN connection that includes a weak cipher, but you can still [upgrade weak cipher suites](/docs/vpc?topic=vpc-upgrading-weak-ciphers&interface=ui) on an existing policy or connection. For more information, see [Upgrading weak cipher suites on a VPN gateway](/docs/vpc?topic=vpc-upgrading-weak-ciphers&interface=api).
+As a result, you will no longer be able to create an IKE/IPsec policy or VPN connection that includes a weak cipher.
 
 ## 2 May 2023
 {: #2-may-2023}
@@ -514,7 +514,7 @@ s390x bare metal servers have different network bandwidth and maximum network in
 - Encryption algorithm `triple_des`
 - Diffie–Hellman groups `2` and `5`
 
-You have until 13 December 2022 to upgrade to more secure ciphers. After this date, VPN connections using deprecated ciphers will have a `status` of `down` (and no longer transfer data) until you upgrade from the weak cipher. For more information, see [Upgrading weak cipher suites on a VPN gateway](/docs/vpc?topic=vpc-upgrading-weak-ciphers).
+You have until 13 December 2022 to upgrade to more secure ciphers. After this date, VPN connections using deprecated ciphers will have a `status` of `down` (and no longer transfer data) until you upgrade from the weak cipher.
 
 **Additional VPN for VPC ciphers.** VPN gateways now provide new algorithms to help meet your security and compliance requirements.
 
