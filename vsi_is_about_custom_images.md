@@ -98,11 +98,6 @@ If you plan to import an image from a file, you must provision an instance of {{
 ## Generic operating system custom images
 {: #generic-os-custom-images}
 
-[Beta]{: tag-blue}
-
-Generic operating system custom images is a beta feature that is available to select customers for evaluation and testing purposes. To request to be included in the evaluation of this beta feature, contact IBM Support.
-{: beta}
-
 You can use a specific operating system that is not listed in {{site.data.keyword.Bluemix_notm}} by specifying a generic operating system when you import a custom image. You have multiple generic operating system options. You can select a generic operating system that is based on the CPU architecture and initialization strategy appropriate for your custom image operating system.
 
 Generic operating system custom images are supported for x86 (amd64) architecture. These images are listed in the custom images list. Bare metal server generic operating system custom images must follow requirements for all bare metal server custom images. For more information, see [Bare metal server custom images](/docs/vpc?topic=vpc-planning-custom-images#bare-metal-server-custom-images-considerations).
@@ -113,8 +108,6 @@ When you provision a server by using a generic operating system custom image, mo
 
 ## User data format considerations
 {: #custom-image-user-data-format}
-
-[Beta]{: tag-blue}
 
 When you create a server that specifies your custom image, the initialization strategy determines how the user data is used. The `user_data_format` property of an image specifies this initialization strategy. This property is set from the image operating system `user_data_format` property, which contains one of the following values.
 
