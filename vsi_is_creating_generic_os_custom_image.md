@@ -25,8 +25,7 @@ You can specify a generic operating system during image import to create an imag
 <!-- Reused information list of custom image requirements shared with vsi_is_about_custom_images.md- see conref.md file-->
 {{site.data.content.custom-image-requirements-list}}
 
-<!-- Reused information link to Getting Started with custom images - see conref.md file-->
-{{site.data.content.custom-image-information-link}}
+For more information about generic operating system custom images, see [Generic operating system custom images](/docs/vpc?topic=vpc-planning-custom-images#generic-os-custom-images) and [User data format considerations](/docs/vpc?topic=vpc-planning-custom-images#generic-os-custom-images).
 
 ## Step 1 - Start with a single image file in qcow2 or VHD format
 {: #generic-os-single-image-qcow2}
