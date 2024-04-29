@@ -15,7 +15,7 @@ content-type: troubleshoot
 {{site.data.keyword.attribute-definition-list}}
 
 # Why can't the DNS hub VPC resolve records for an endpoint gateway in a DNS-shared VPC?
-{: #troubleshoot-hub-spoke-1}
+{: #troubleshoot-hub-1}
 {: troubleshoot}
 {: support}
 
@@ -43,10 +43,10 @@ You must perform the following configuration steps in the following order, or a 
 When a new DNS-shared VPC wants to connect to a DNS hub, follow these steps:
 
 1. Ensure that there is connectivity between the DNS hub and DNS-shared VPCs.
-1. The shared VPC owner creates a DNS resolution binding to connect to the DNS hub VPC. For more information, see [Creating a DNS resolution binding](/docs/vpc?topic=vpc-hub-spoke-resolution-bindings).
+1. The shared VPC owner creates a DNS resolution binding to connect to the DNS hub VPC. For more information, see [Creating a DNS resolution binding](/docs/vpc?topic=vpc-vpe-dns-sharing-resolution-bindings).
 1. The DNS-shared VPC owner configures the shared VPC's DNS resolver to Delegated type to connect to the custom resolver on the hub VPC. Only then does the lifecycle state of the DNS resolution binding change to `Stable`. For more information, see [Setting the DNS resolver type](/docs/vpc?topic=vpc-configure-dns-resolver).
 
 When a DNS-shared VPC wants to disconnect from a hub VPC, follow these steps:
 
 1. The DNS-shared VPC owner configures the DNS-shared VPC's resolver type to System. For more information, see [Setting the DNS resolver type](/docs/vpc?topic=vpc-configure-dns-resolver).
-1. The DNS-shared VPC owner deletes the DNS resolution binding. For more information, see [Disconnecting DNS sharing to a hub VPC](/docs/vpc?topic=vpc-remove-sharing-spoke-hub&interface=ui).
+1. The DNS-shared VPC owner deletes the DNS resolution binding. For more information, see [Disconnecting DNS sharing to a hub VPC](/docs/vpc?topic=vpc-remove-sharing-hub&interface=ui).

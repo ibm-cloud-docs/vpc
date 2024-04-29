@@ -15,7 +15,7 @@ content-type: troubleshoot
 {{site.data.keyword.attribute-definition-list}}
 
 # Why can't I create or delete a cross-account DNS resolution binding or delegated resolver type in a DNS-shared VPC?
-{: #troubleshoot-hub-spoke-4}
+{: #troubleshoot-hub-4}
 {: troubleshoot}
 {: support}
 
@@ -28,5 +28,5 @@ When creating or deleting a DNS resolution binding between a DNS-shared VPC and 
 If the hub and DNS-shared VPCs are in different accounts, IAM uses a delegation token to check if the service-to-service (s2s) authorization grants Read access on the hub VPC to the DNS-shared VPC. If IAM denies this action, a `401 unauthorized` error message is returned.
 {: tsCauses}
 
-If the DNS hub and DNS-shared VPCs are on different accounts, you must have an s2s authorization policy granting Read access on the hub VPC to the DNS-shared VPC. For more information, see [Establishing service-to-service authorization](/docs/vpc?topic=vpc-hub-spoke-s2s-auth).
+If the DNS hub and DNS-shared VPCs are on different accounts, you must have an s2s authorization policy granting Read access on the hub VPC to the DNS-shared VPC. For more information, see [Establishing service-to-service authorization](/docs/vpc?topic=vpc-vpe-dns-sharing-s2s-auth).
 {: tsResolve}

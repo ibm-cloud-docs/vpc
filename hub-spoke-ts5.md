@@ -15,7 +15,7 @@ content-type: troubleshoot
 {{site.data.keyword.attribute-definition-list}}
 
 # Why can't I update the system DNS resolver for the DNS hub VPC from "custom_resolver" to "private_resolver" or "default"?
-{: #troubleshoot-hub-spoke-5}
+{: #troubleshoot-hub-5}
 {: troubleshoot}
 {: support}
 

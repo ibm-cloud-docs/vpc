@@ -13,9 +13,9 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # Creating and deleting a DNS resolution binding
-{: #hub-spoke-resolution-bindings}
+{: #vpe-dns-sharing-resolution-bindings}
 
-Create a DNS resolution binding between a VPC and a DNS hub VPC so that the DNS hub VPC can resolve the DNS hostnames of Virtual Private Endpoint (VPE) gateways residing on the DNS-shared (spoke) VPC. Keep in mind that VPE gateways bound to the DNS-shared VPCs must also be enabled for resolution binding (the default setting).
+Create a DNS resolution binding between a VPC and a DNS hub VPC so that the DNS hub VPC can resolve the DNS hostnames of Virtual Private Endpoint (VPE) gateways residing on the DNS-shared VPC. Keep in mind that VPE gateways bound to the DNS-shared VPCs must also be enabled for resolution binding (the default setting).
 {: shortdesc}
 
 ## Before you begin
@@ -23,9 +23,9 @@ Create a DNS resolution binding between a VPC and a DNS hub VPC so that the DNS 
 
 Before you create a DNS resolution binding, review the following prerequisites:
 
-* Review [Planning considerations](/docs/vpc?topic=vpc-hub-spoke-planning-considerations) and [Known issues and limitations](/docs/vpc?topic=vpc-hub-spoke-limitations).
-* Ensure a [VPC enabled as a DNS hub](/docs/vpc?topic=vpc-hub-spoke-configure-hub) already exists.
-* The hub VPC administrator must create an IAM service-to-service authorization policy that allows this DNS-shared VPC to have `DNSBindingConnector` permission on the hub VPC. This `DNSBindingConnector` role on the hub VPC is required regardless of whether the DNS-shared VPC is in the same or a different account. For more information, see [Establishing service-to-service authorization](/docs/vpc?topic=vpc-hub-spoke-s2s-auth&interface=api).
+* Review [Planning considerations](/docs/vpc?topic=vpc-vpe-dns-sharing-planning-considerations) and [Known issues and limitations](/docs/vpc?topic=vpc-vpe-dns-sharing-limitations).
+* Ensure a [VPC enabled as a DNS hub](/docs/vpc?topic=vpc-vpe-dns-sharing-configure-hub) already exists.
+* The hub VPC administrator must create an IAM service-to-service authorization policy that allows this DNS-shared VPC to have `DNSBindingConnector` permission on the hub VPC. This `DNSBindingConnector` role on the hub VPC is required regardless of whether the DNS-shared VPC is in the same or a different account. For more information, see [Establishing service-to-service authorization](/docs/vpc?topic=vpc-vpe-dns-sharing-s2s-auth&interface=api).
 
 You can create a DNS resolution binding with the UI, CLI, API, or Terraform.
 

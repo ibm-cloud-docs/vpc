@@ -13,20 +13,20 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # Enabling a VPC as a DNS hub
-{: #hub-spoke-configure-hub}
+{: #vpe-dns-sharing-configure-hub}
 
 You can enable a VPC as the DNS hub so that other VPCs can create DNS resolution bindings with this VPC, as well as centralize the DNS resolution for VPE gateways with DNS resolution bindings enabled.
 
 ## Before you begin
 {: #hub-prerequisites}
 
-* Before you enable a VPC as a DNS hub, review [Planning considerations](/docs/vpc?topic=vpc-hub-spoke-planning-considerations) and [Known issues and limitations](/docs/vpc?topic=vpc-hub-spoke-limitations).
+* Before you enable a VPC as a DNS hub, review [Planning considerations](/docs/vpc?topic=vpc-vpe-dns-sharing-planning-considerations) and [Known issues and limitations](/docs/vpc?topic=vpc-vpe-dns-sharing-limitations).
 * Ensure that the VPC you choose to enable as a hub has its DNS resolver type set to System (the default) or Manual. For more information, see [Setting the DNS resolver type](/docs/vpc?topic=vpc-configure-dns-resolver&interface=ui).
 
 You can enable a VPC as a DNS hub with the UI, CLI, API, or Terraform.
 
 ## Enabling a VPC as a DNS hub in the UI
-{: #hub-spoke-ui}
+{: #vpe-dns-sharing-ui}
 {: ui}
 
 To enable a VPC as a DNS hub in the {{site.data.keyword.cloud_notm}} console, follow these steps:
@@ -39,7 +39,7 @@ To enable a VPC as a DNS hub in the {{site.data.keyword.cloud_notm}} console, fo
    The Virtual private clouds table now show a `DNS-hub` tag next to the name of the designated hub VPC.
 
 ## Enabling a VPC as a DNS hub from the CLI
-{: #hub-spoke-cli}
+{: #vpe-dns-sharing-cli}
 {: cli}
 
 To enable a VPC as a DNS hub with the CLI, follow these steps:
@@ -78,7 +78,7 @@ To enable a VPC as a DNS hub with the CLI, follow these steps:
    :    Valid when the resolver type is `manual`. Configure manual DNS server addresses for the VPC. `MANUAL_SERVERS|@MANUAL_SERVERS` manual servers in JSON or a JSON file.
 
 ## Enabling a VPC as a DNS hub with the API
-{: #hub-spoke-api}
+{: #vpe-dns-sharing-api}
 {: api}
 
 To enable a VPC as a DNS hub with the API, follow these steps:
@@ -140,7 +140,7 @@ Sample output:
 {: screen}
 
 ## Enabling a VPC as a DNS hub with Terraform
-{: #hub-spoke-terraform}
+{: #vpe-dns-sharing-terraform}
 {: terraform}
 
 You can use Terraform to enable a VPC as a DNS hub.
@@ -178,9 +178,9 @@ resource "ibm_is_vpc" "example" {
 {: codeblock}
 
 ## Next steps
-{: #hub-spoke-next-step-dns-resolution-binding}
+{: #vpe-dns-sharing-next-step-dns-resolution-binding}
 
 * [Create VPE gateways](/docs/vpc?topic=vpc-ordering-endpoint-gateway) for multi-tenant services in the hub VPC and enable DNS sharing for each endpoint gateway.
-* [Create a DNS resolution binding](/docs/vpc?topic=vpc-hub-spoke-resolution-bindings) to allow VPE gateway DNS records between a DNS-shared VPC and the DNS hub VPC.
-* If you have different accounts for the hub VPC and a DNS-shared VPC, the hub VPC administrator must [create a service-to-service (s2s) authorization policy](/docs/vpc?topic=vpc-hub-spoke-s2s-auth) to give Read access to the DNS-shared VPC account.
+* [Create a DNS resolution binding](/docs/vpc?topic=vpc-vpe-dns-sharing-resolution-bindings) to allow VPE gateway DNS records between a DNS-shared VPC and the DNS hub VPC.
+* If you have different accounts for the hub VPC and a DNS-shared VPC, the hub VPC administrator must [create a service-to-service (s2s) authorization policy](/docs/vpc?topic=vpc-vpe-dns-sharing-s2s-auth) to give Read access to the DNS-shared VPC account.
 * Ensure that DNS resolution binding is disabled on redundant or conflicting VPEs on the DNS-shared VPCs. By default, the DNS resolution binding switch is enabled on VPEs.
