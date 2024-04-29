@@ -57,6 +57,11 @@ Adjustable network bandwidth for Sapphire Rapids bare metal servers is a beta fe
 ### Updating the firmware for a bare metal server by using the UI
 {: #update-firmware-bare-metal-servers-ui}
 
+[Beta]{: tag-blue}
+
+Updating the firmware for a bare metal server is a beta feature that is available for evaluation and testing purposes.
+{: beta}
+
 This action is only displayed if the server is stopped and a firmware update is available. It is recommended to back up your server before any firmware update.
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**
