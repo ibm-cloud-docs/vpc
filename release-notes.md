@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-04-18"
+lastupdated: "2024-04-29"
 
 keywords:
 
@@ -38,7 +38,6 @@ Third-party image billing and metering (beta)
 
    * Free trial
    * Usage-based billing
-   * Subscription-based (monthly or yearly) billing
    * BYOL
 
 ### 09 April 2024
