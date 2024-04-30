@@ -36,4 +36,4 @@ Lists known limitations for IBM Cloud VPN for VPC.
    Creating a route in an ingress routing table with a next hop being a VPN gateway connection is not supported.
    {: note}
 
-* *Known issue:* If the `local.ike_identities` and `peer.ike_identity` are not set explicitly when you create a VPN gateway connection, when you `PATCH` `peer.address` or `peer.fqdn` these identities are changed to match the updated value, instead of remaining unchanged. Conversely, if the `local.ike_identities` and `peer.ike_identity` are set explicitly when you create a VPN gateway connection, these identities cannot be changed without deleting the VPN gateway connection.
+* *Known issue:* Patch peer address or FQDN issue - If the `local.ike_identities` and `peer.ike_identity` are not set explicitly when you created the VPN gateway connection, when you `PATCH` `peer.address` or `peer.fqdn` they will be changed to match the updated value, instead of being left unchanged.  Conversely, if the `local.ike_identities` and `peer.ike_identity` are set explicitly when you created the VPN gateway connection, they cannot be changed without deleting the VPN gateway connection.
