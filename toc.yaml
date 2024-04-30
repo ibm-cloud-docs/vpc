@@ -867,6 +867,7 @@ toc:
                 - vpn-ts-vpn-server-fix-bad-service-routes.md
             - resource-suspension.md
             - instance-status-messages.md
+            - instance-lifecycle-status-messages.md
             - quota-dashboard-troubleshooting.md
             - ts-asymmetric-routing.md
         - limitations.md
