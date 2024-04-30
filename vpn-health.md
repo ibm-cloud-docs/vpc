@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2023. 2024
+  years: 2023, 2024
 lastupdated: "2024-03-20"
 
 keywords: vpn, health
