@@ -144,6 +144,7 @@ toc:
         - topicgroup:
             label: Updating to the latest API code
             topics:
+            - vpn_advanced_configuration_api_migration.md
             - backup_service_API_migration_instance_backups.md
             - vpn-api-migration.md
             - file_storage_API_replication_fallback_policy.md
