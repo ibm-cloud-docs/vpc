@@ -431,7 +431,6 @@ toc:
                 - vpn-add-connection.md
                 - vpn-create-ike-policy.md
                 - vpn-create-ipsec-policy.md
-                - vpn-site-to-site-routes.md
                 - vpn-onprem.md
                 - vpn-onprem-aws.md
                 - vpn-onprem-check-point.md
