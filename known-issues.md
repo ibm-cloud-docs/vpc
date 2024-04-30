@@ -28,7 +28,7 @@ Known issues might change over time, so check back occasionally.
 {: #vpc-vpn-gateway-known-issues}
 
 ### Updating the `peer.address` or `peer.fqdn` of a VPN gateway connection issue
-{: #vpc-vpn-gateway-patch-peer-known-issue}
+{: #vpc-vpn-gateway-connection-update-peer-known-issue}
 
 **Issue:** If the `local.ike_identities` and `peer.ike_identity` properties are not set explicitly when you created the VPN gateway connection, when you [update a VPN gateway connection](/apidocs/vpc/latest#update-vpn-gateway-connection) and specify either `peer.address` or `peer.fqdn` the property value will be changed to match the updated value, instead of being left unchanged. Conversely, if the `local.ike_identities` and `peer.ike_identity` properties are set explicitly when you created the VPN gateway connection, the values cannot be changed without deleting the VPN gateway connection.
 
