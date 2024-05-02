@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-04-18"
+lastupdated: "2024-05-02"
 
 keywords:
 
@@ -29,7 +29,6 @@ When your custom image is created, you can plan and manage the lifecycle of the 
 You can also share your custom images with other accounts by using a private catalog. For more information on using custom images in a private catalog, see [Getting started with Catalog Images on VPC](/docs/vpc?topic=vpc-getting-started-images-on-vpc-catalog&interface=ui). 
 
 On the console, you can find custom images by clicking **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Compute > Images > Custom images**. Images that are from a volume are part of the custom images tab. 
-
 
 ## Creating a custom image
 {: #create-custom-image}
@@ -100,7 +99,7 @@ If you plan to import an image from a file, you must provision an instance of {{
 
 [Beta]{: tag-blue}
 
-Generic operating system custom images is a beta feature that is available to select customers for evaluation and testing purposes. To request to be included in the evaluation of this beta feature, contact IBM Support.
+Generic operating system custom images support is a beta feature that is available for evaluation and testing purposes.
 {: beta}
 
 You can use a specific operating system that is not listed in {{site.data.keyword.Bluemix_notm}} by specifying a generic operating system when you import a custom image. You have multiple generic operating system options. You can select a generic operating system that is based on the CPU architecture and initialization strategy appropriate for your custom image operating system.
@@ -149,6 +148,26 @@ For more information, see [Custom Linux kernel build options for bare metal serv
 
 For more information about bare metal server images, see [Bare metal server images](/docs/vpc?topic=vpc-bare-metal-image).
 
+## Secure boot-supported custom images
+{: #bare-metal-server-custom-images-secure-boot-considerations}
+
+Secure boot helps make sure that the system runs only authentic software by verifying the digital signature of all boot components. Secure boot halts the boot process if the signature verification fails. Secure boot prevents the loading of unsigned or malicious code during boot.
+
+Custom images that support secure boot have some requirements that you need to be aware of.
+
+- UEFI boot
+   - UEFI boot requires a dedicated EFI partition that contains EFI firmware. Traditional BIOS boot is not supported.
+- GPT partitioned disk
+
+You can verify that the image successfully booted in secure boot mode by using the following mokutil command.
+
+```text
+mokutil --sb-state
+```
+{: codeblock}
+
+For more information about secure boot, see [Confidential computing with secure boot for Virtual Servers for VPC](/docs/vpc?topic=vpc-confidential-computing-with-secure-boot-vpc).
+
 ## z/OS Wazi aaS custom images
 {: #custom-image-zos}
 
@@ -168,6 +187,6 @@ For more information, see [Bringing your own image with Wazi Image Builder](http
 * [Using granular RBAC permissions for custom images](/docs/vpc?topic=vpc-using-granular-RBAC-permissions-for-custom-images)
 * [Configuration requirements for custom Linux kernel](/docs/vpc?topic=vpc-configuration-requirements-for-custom-linux-kernels)
 * [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc&interface=ui)
-* [Importing and validating custom images into VPC](/docs/vpc?topic=vpc-importing-custom-images-vpc)
+* [Importing and validating custom images into VPC](/docs/vpc?topic=vpc-importing-custom-images-vpc).
 * [Managing custom images](/docs/vpc?topic=vpc-managing-custom-images&interface=ui)
 * [Managing image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc-manage&interface=ui)
