@@ -34,7 +34,7 @@ Make sure that you created a VPC.
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 1. Click **Create** and select or enter the following information.
-1. Select a location. Location must be **North America** > **Dallas** > **US-South zone 3 (DAL13)**.
+1. Select a location. Location must be **North America** > **Dallas**.
 1. Enter a unique name for your virtual server instance.
 1. Select from the available images. For more information about SGX-supported images, see [Limitations](/docs/vpc?topic=vpc-about-sgx-vpc#limitations-confidential-computing-vpc-sgx).
 1. Select an SGX-supported profile by clicking **Confidential Computing**. Keep in mind that only the Balanced _bx3dc_ profiles and Compute _cx3dc_ profiles support SGX.
