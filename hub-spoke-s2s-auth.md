@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-03-29"
+lastupdated: "2024-04-24"
 
 keywords:
 
@@ -13,7 +13,7 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # Establishing service-to-service authorization
-{: #hub-spoke-s2s-auth}
+{: #vpe-dns-sharing-s2s-auth}
 
 To configure DNS sharing for VPE gateways between hub and DNS-shared VPCs on different accounts, the hub VPC administrator must establish an IAM service-to-service (s2s) authorization policy. For more information, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth).
 {: shortdesc}
@@ -21,12 +21,12 @@ To configure DNS sharing for VPE gateways between hub and DNS-shared VPCs on dif
 **Notes:**
 
 * If a DNS-shared VPC and the hub VPC are using the same or different accounts, as the hub VPC administrator, you must create an IAM service-to-service authorization policy that gives this DNS-shared VPC the `DNSBindingConnector` permission on the hub VPC.
-* Currently, the UI allows only **All VPC instances** to have the `DNSBindingConnector` permission on the hub VPC. To indicate a "specific" VPC, you must use the API or wrap an API request in a JSON file to use with the CLI. Example code is provided for use with the [CLI](/docs/vpc?topic=vpc-hub-spoke-s2s-auth&interface=cli#indicate-specific-vpc-instance-cli) and [API](/docs/vpc?topic=vpc-hub-spoke-s2s-auth&interface=api#indicate-specific-vpc-instance).
+* Currently, the UI allows only **All VPC instances** to have the `DNSBindingConnector` permission on the hub VPC. To indicate a "specific" VPC, you must use the API or wrap an API request in a JSON file to use with the CLI. Example code is provided for use with the [CLI](/docs/vpc?topic=vpc-vpe-dns-sharing-s2s-auth&interface=cli#indicate-specific-vpc-instance-cli) and [API](/docs/vpc?topic=vpc-vpe-dns-sharing-s2s-auth&interface=api#indicate-specific-vpc-instance).
 
 You can establish s2s authorization with the UI, CLI, API, or Terraform.
 
 ## Creating an IAM s2s authorization policy in the UI
-{: #hub-spoke-s2s-auth-procedure-ui}
+{: #vpe-dns-sharing-s2s-auth-procedure-ui}
 {: ui}
 
 To create an IAM s2s authorization policy in the UI, follow these steps:
@@ -42,7 +42,7 @@ To create an IAM s2s authorization policy in the UI, follow these steps:
 1. Select **Resource type**. From the list, select **Virtual Private Cloud**.
 1. Select **Source service instance**. Choose **All instances**.
 
-   To select a specific instance, you must use the [CLI](/docs/vpc?topic=vpc-hub-spoke-s2s-auth&interface=cli#indicate-specific-vpc-instance-cli) or [API](/docs/vpc?topic=vpc-hub-spoke-s2s-auth&interface=api#indicate-specific-vpc-instance) instructions. This is a known limitation.
+   To select a specific instance, you must use the [CLI](/docs/vpc?topic=vpc-vpe-dns-sharing-s2s-auth&interface=cli#indicate-specific-vpc-instance-cli) or [API](/docs/vpc?topic=vpc-vpe-dns-sharing-s2s-auth&interface=api#indicate-specific-vpc-instance) instructions. This is a known limitation.
    {: note}
 
 1. For the target service, select **VPC Infrastructure Services** from the list.
@@ -53,7 +53,7 @@ To create an IAM s2s authorization policy in the UI, follow these steps:
 1. When you are returned to the **Manage authorizations** page, click **Create** again and follow the same steps to set up authorizations for the other two services.
 
 ## Creating an IAM s2s authorization policy from the CLI
-{: #hub-spoke-s2s-auth-procedure-cli}
+{: #vpe-dns-sharing-s2s-auth-procedure-cli}
 {: cli}
 
 To create an IAM s2s authorization policy from the CLI, follow these steps:
@@ -97,7 +97,7 @@ Where the `JSON_FILE` contains:
 {: pre}
 
 ## Creating an IAM s2s authorization policy with the API
-{: #hub-spoke-s2s-auth-procedure-api}
+{: #vpe-dns-sharing-s2s-auth-procedure-api}
 {: api}
 
 To create an IAM s2s authorization policy with the API, follow these steps:
@@ -239,12 +239,14 @@ See the following example of targeting a region other than the default `us-south
 ```terraform
 resource "ibm_iam_authorization_policy" "policy" {
 
-    roles                  = [
-
-        "DNSBindingConnector",
-
-    ]
-
+  #"DNSBindingConnector",
+  
+  roles = [
+  
+    "DNS Binding Connector",
+    
+  ]
+ 
     subject_attributes {
 
         name  = "accountId"

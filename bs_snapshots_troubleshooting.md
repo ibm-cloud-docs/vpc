@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2023-02-07"
+lastupdated: "2024-04-19"
 
 keywords:
 
@@ -14,7 +14,7 @@ content-type: troubleshoot
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Troubleshooting Snapshots for VPC
+# Troubleshooting {{site.data.keyword.block_storage_is_short}} snapshots
 {: #snapshots-vpc-troubleshooting}
 
 When you create or manage Snapshots for VPC, you might encounter issues. Often, you can recover by following a few steps. Issues, symptoms, likely causes, and resolutions are described in the following sections.

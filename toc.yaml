@@ -68,6 +68,7 @@ toc:
                label: Confidential computing with SGX for Virtual Servers for VPC
                topics:
                - about-sgx-confidential-computing.md
+               - confidential-computing-secure-boot.md
                - sgx-dcap-attestation.md
                - create-sgx-virtual-server.md
            - topicgroup:
@@ -101,10 +102,10 @@ toc:
                topics:
                - block_storage_vpc_about.md
                - block_storage_vpc_capacity_performance.md
-               - block_storage_is_profiles.md
+               - block_storage_vpc_profiles.md
                - block_storage_vpc_bandwidth.md
                - block_storage_vpc_expand_vol_about.md
-           - snapshots_vpc_about.md
+           - bs_snapshots_about.md
            - backup_service_vpc_about.md
            - topicgroup:
                label: File Storage
@@ -135,7 +136,7 @@ toc:
             - include: ../solution-tutorials/vpc-tg-dns-iam.md
             - include: ../solution-tutorials/vpc-site2site-vpn.md
             - include: ../solution-tutorials/vpc-pps-basics.md
-            
+
     - navgroup:
         id: howto
         topics:
@@ -143,6 +144,7 @@ toc:
         - topicgroup:
             label: Updating to the latest API code
             topics:
+            - vpn_advanced_configuration_api_migration.md
             - backup_service_API_migration_instance_backups.md
             - vpn-api-migration.md
             - file_storage_API_replication_fallback_policy.md
@@ -171,6 +173,7 @@ toc:
             - classic-access.md
             - connect-to-cos.md
             - dns-svcs-about.md
+            - vpc-monitoring.md
             - topicgroup:
                 label: Deleting a VPC
                 topics:
@@ -429,7 +432,6 @@ toc:
                 - vpn-add-connection.md
                 - vpn-create-ike-policy.md
                 - vpn-create-ipsec-policy.md
-                - vpn-site-to-site-routes.md
                 - vpn-onprem.md
                 - vpn-onprem-aws.md
                 - vpn-onprem-check-point.md
@@ -580,18 +582,18 @@ toc:
             - topicgroup:
                 label: Creating Block Storage volumes
                 topics:
-                - block_storage_is_create.md
+                - block_storage_vpc_create.md
                 - block_storage_vpc_byok_encryption.md
                 - block_storage_vpc_byok_multitenant_encryption.md
                 - block_storage_vpc_manage_storage_limits.md
-            - block_storage_is_attach.md
-            - block_storage_is_use_volume_lin.md
-            - block_storage_is_use_volume_win.md
+            - block_storage_vpc_attach.md
+            - block_storage_vpc_use_volume_lin.md
+            - block_storage_vpc_use_volume_win.md
             - topicgroup:
                 label: Managing Block Storage volumes
                 topics:
-                - block_storage_is_view.md
-                - block_storage_is_manage.md
+                - block_storage_vpc_view.md
+                - block_storage_vpc_manage.md
                 - block_storage_vpc_expandable_boot_volume.md
                 - block_storage_vpc_expandable_data_volumes.md
                 - block_storage_vpc_adjustable_iops.md
@@ -599,19 +601,19 @@ toc:
         - topicgroup:
             label: Snapshots
             topics:
-            - snapshots_vpc_planning.md
+            - bs_snapshots_planning.md
             - topicgroup:
                 label: Creating snapshots and consistency groups
                 topics:
-                - snapshots_vpc_create.md
-                - snapshots_vpc_create_mvs.md
+                - bs_snapshots_create.md
+                - bs_snapshots_create_mvs.md
             - topicgroup:
                 label: Managing snapshots and consistency groups
                 topics:
-                - snapshots_vpc_view.md
-                - snapshots_vpc_manage.md
-                - snapshots_vpc_manage_mvs.md
-            - snapshots_vpc_restore.md
+                - bs_snapshots_view.md
+                - bs_snapshots_manage.md
+                - bs_snapshots_manage_mvs.md
+            - bs_snapshots_restore.md
         - topicgroup:
             label: Backup service
             topics:
@@ -748,14 +750,18 @@ toc:
             - topicgroup:
                 label: FAQs for storage
                 topics:
-                - block_storage_is_faq.md
-                - snapshots_vpc_faqs.md
+                - block_storage_vpc_faq.md
+                - bs_snapshots_faqs.md
                 - backup_service_vpc_faq.md
                 - backup_service_vpc_enterprise_faq.md
                 - file_storage_vpc_faqs.md
             - fl-faq.md
-            - nlb-faqs.md
-            - lb-faqs.md
+            - topicgroup:
+                label: FAQs for load balancers
+                topics:
+                - lb-faqs.md
+                - nlb-faqs.md
+            - faq-private-path.md
             - instance_metadata_vpc_faqs.md
             - faqs-placement-groups.md
             - vni-faq.md
@@ -777,9 +783,9 @@ toc:
                 - troubleshooting-hpvs-shutdown.md
                 - troubleshooting-hpvs-decryption.md
                 - troubleshooting-hpvs-single-volume-workload.md
-            - block_storage_is_troubleshoot.md
+            - block_storage_vpc_troubleshoot.md
             - file_storage_vpc_troubleshoot.md
-            - snapshots_vpc_troubleshooting.md
+            - bs_snapshots_troubleshooting.md
             - backup_service_vpc_troubleshoot.md
             - topicgroup:
                 label: Troubleshooting custom images
@@ -861,6 +867,7 @@ toc:
                 - vpn-ts-vpn-server-fix-bad-service-routes.md
             - resource-suspension.md
             - instance-status-messages.md
+            - instance-lifecycle-status-messages.md
             - quota-dashboard-troubleshooting.md
             - ts-asymmetric-routing.md
         - limitations.md

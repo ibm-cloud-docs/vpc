@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-03-12"
+lastupdated: "2024-04-19"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -46,10 +46,10 @@ To create a service-to-service authorization policy, follow this procedure:
 1. On the **Manage authorizations** page, click **Create**. 
 1. On the **Grant a service authorization** page, select the source account. As you're setting up authorization for the Backup service in your account, select **This account**.
 1. For the source service, select **VPC Infrastructure Services** from the list.
-1. Select the scope. Choose **Resources based on selected attributes**.
+1. Select the scope. Choose **Specific resources**.
 1. Click **Resource type**. From the list, select **IBM Cloud Backup for VPC**.
 1. For the target service, select **VPC Infrastructure Services** from the list. 
-1. Select the scope. Choose **Resources based on selected attributes**.
+1. Select the scope. Choose **Specific resources**.
 1. Click **Resource type**. Select one of the following services. You need to create authorization for all of them.
    
    | Source service - resource type | Target service - resource type  | Dependent service user role |
@@ -81,10 +81,10 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
 1. On the **Manage authorizations** page, click **Create**. 
 1. On the **Grant a service authorization** page, select the source account. As you're setting up authorization for the Backup service of the enterprise account, select **Other account**, and enter the Enterprise account's ID.
 1. For the source service, select **VPC Infrastructure Services** from the list.
-1. Select the scope. Choose **Resources based on selected attributes**.
+1. Select the scope. Choose **Specific resources**.
 1. Click **Resource type**. From the list, select **IBM Cloud Backup for VPC**.
 1. For the target service, select **VPC Infrastructure Services** from the list. 
-1. Select the scope. Choose **Resources based on selected attributes**.
+1. Select the scope. Choose **Specific resources**.
 1. Click **Resource type**. From the list, select **IBM Cloud Backup for VPC**.
 1. Then, under Platform access, select the **Editor** role.
 1. Click **Authorize**.

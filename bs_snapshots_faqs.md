@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-01-02"
+lastupdated: "2024-04-19"
 
 keywords: Block Storage, snapshots, cross-regional copy, fast restore, backup, restore volume
 
@@ -12,10 +12,10 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# FAQs for {{site.data.keyword.block_storage_is_short}} Snapshots
+# FAQs for {{site.data.keyword.block_storage_is_short}} snapshots
 {: #snapshots-vpc-faqs}
 
-The following questions often arise about the {{site.data.keyword.block_storage_is_short}} Snapshots offering. If you have other questions you'd like to see answered here, provide feedback by using the **Open doc issue** or **Edit topic** links at the end of the topic.
+The following questions often arise about the {{site.data.keyword.block_storage_is_short}} snapshots offering. If you have other questions you'd like to see answered here, provide feedback by using the **Open doc issue** or **Edit topic** links at the end of the topic.
 {: shortdesc}
 
 ## What is a snapshot?
@@ -130,6 +130,6 @@ You can copy a snapshot from one region to another region, and later use that sn
 
 A consistency group is a collection of snapshots that are managed as a single unit. It is used to create snapshots of multiple volumes that are attached to the same virtual server instance at the same time to preserve data consistency. 
 
-The snapshots are loosely coupled. The snapshots can be used to create new volumes. They can be copied to another region individually, and can be preserved after the consistency group is deleted. However, you can't copy a consistency group to another region or use the ID of the consistency group to create a new virtual server instance.
+The snapshots are loosely coupled. The snapshots can be used to create new volumes. They can be copied to another region individually, and can be preserved after the consistency group is deleted. However, you can't copy a consistency group to another region or use the ID of the consistency group to create a virtual server instance.
 
 For more information, see [Snapshot consistency groups](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#multi-volume-snapshots).

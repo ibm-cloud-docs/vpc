@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2023-12-05"
+lastupdated: "2024-04-19"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -25,7 +25,7 @@ To ensure that you're using the VPC Backup Service most effectively and economic
 
 * Keep costs down by retaining backups for only while you need them to prevent data loss. Plan timely backups to restore data that might be deleted or corrupted. Think about the type of events that might happen. Ask how much data you can afford to lose. The answers can help you decide on a backup interval and retention policy.
 
-* Ask how quickly you need to recover the data. Frequent backups that cover smaller incremental changes to your data afford quicker restoration. Run a volume restore and a test failover to get an idea of the time it can take.
+* Ask how quickly you need to recover the data. Run a volume restore and a test failover to get an idea of the time it can take.
 
 * For best performance, stagger your backup jobs by creating backup plans with different intervals. You can have up to four different backup plans per backup policy.
 

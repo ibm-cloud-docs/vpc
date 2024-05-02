@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-07-07"
+  years: 2021, 2024
+lastupdated: "2024-04-30"
 
 keywords:
 
@@ -62,7 +62,7 @@ The VPN server is deployed in a selected Multi-zone Region (MZR) and VPC. All vi
 ### Use case 2: A VPN client can access the internet through the VPN server
 {: #access-internet-use-case}
 
-When the administrator enforces the VPN server in full-tunnel mode, all traffic from customer devices is sent to the VPN server, including internet traffic. The VPN server forwards the internet traffic to the IBM Cloud infrastructure Edge node and finally reaches the internet.
+When the administrator enforces the VPN server in full-tunnel mode, all traffic from customer devices is sent to the VPN server, including internet traffic. The VPN server forwards the traffic to the internet through the IBM Cloud infrastructure.
 
 ![Network topology: A VPN client can access the internet through the VPN server](images/vpn-connect-to-internet.png){: caption="Figure 3. Network topology: A VPN client can access the internet through the VPN server" caption-side="bottom"}
 
@@ -73,7 +73,7 @@ Generally, it is recommended to provision VPC resources in multiple regions for 
 
 ![Network topology: Integrating with a transit gateway](images/vpn-server-use-case-tgw-integration.png){: caption="Figure 4. Network topology: Integrating with a transit gateway" caption-side="bottom"}
 
-When you integrate the client-to-site VPN server with the transit gateway, you must add one or more VPN routes with the destination set to the CIDR of the subnet in other VPCs or classic networks, and set the route action to `translate`. For more information, see [Managing VPN routes](/docs/vpc?topic=vpc-vpn-client-to-site-routes).
+When you integrate the client-to-site VPN server with the transit gateway, you must add one or more VPN routes with the destination set to the CIDR of the subnet in other VPCs or classic networks, and set the route action to `Deliver` or `Translate`. For more information, see [Managing VPN routes](/docs/vpc?topic=vpc-vpn-client-to-site-routes).
 {: note}
 
 ### Use case 4: Integrating with a site-to-site VPN gateway
@@ -87,7 +87,7 @@ Integrate with a site-to-site VPN gateway if you want to access your on-premises
 {: #vin-client-to-site-related-links}
 
 * [Quotas](/docs/vpc?topic=vpc-quotas#vpn-server-quotas)
-* [Required permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls#vpn-server-authorizations-required-for-api-and-cli-calls)
+* [Required permissions](/docs/account?topic=account-iam-service-roles-actions#is.vpn-server-roles)
 * [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-vpn-server)
 * [VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference#vpn-server-clis)
 * [VPC API reference](/apidocs/vpc)

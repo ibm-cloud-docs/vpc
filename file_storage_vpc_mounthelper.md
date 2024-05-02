@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-03-05"
+lastupdated: "2024-04-23"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -33,9 +33,9 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
 
 * [Instance metadata service](/docs/vpc?topic=vpc-imd-about) must be enabled on the virtual server instance. If it is not enabled yet, follow the instructions for [enabling instance metadata in the UI.](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-enable-service-ui){: ui}[enabling instance metadata from the CLI.](/docs/vpc?topic=vpc-imd-configure-service&interface=cli#imd-metadata-service-enable-cli){: cli}[enabling instance metadata from the API.](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-metadata-service-enable-api){: api}
 * The file share must have [security group access mode](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-mount-access-mode), so the VPC's security access groups can be used to define which virtual server instances can mount the share.
+* Data encryption in transit must be enabled for the mount target either in the UI or with the API.
 * The virtual server instance and the mount target must be members of the same [security group](/docs/vpc?topic=vpc-using-security-groups).
 * The mount target must be created with a [virtual network interface](/docs/vpc?topic=vpc-vni-about), so it has an IP address within the VPC that represents the virtual NFS server.
-* Data encryption in transit must be enabled for the mount target either in the UI or with the API.
 
 ## Restrictions
 {: #fs-eit-restrictions}
@@ -77,14 +77,26 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
    Closed environments: To install Mount Helper on a virtual server instance without internet connection, create or update a local repository on the VSI based on the OS. Copy the Mount Helper package along with its dependencies to the local directory.
    {: note}
 
-1. To install the Mount Helper and all the dependencies, use the following script. Specify the region where the file share is going to be mounted. The available regions are `dal`, `fra`, `lon`, `osa`, `sao`, `syd`, `tok`, `tor`, `wdc`.
+1. To install the Mount Helper and all the dependencies, use the following script and specify the region where the file share is going to be mounted.
    ```sh
    ./install.sh region=dal
    ```
    {: pre}
 
-   The `region` argument is used to copy region-specific root CA cert to the strongSwan certificate location. If no region is specified, then the utility copies all the root CA certs.
-   {: note}
+    The `region` argument is used to copy region-specific root CA cert to the strongSwan certificate location. If no region is specified, then the utility copies all the root CA certs. The following table shows the values that you can use to specify the region.
+
+   | Location / Region                 | Value |
+   |-----------------------------------|-------|
+   | Australia (Sydney) / `au-syd`     | `syd` |
+   | Brazil (Sao Paulo) / `br-sao`     | `sao` |
+   | Canada (Toronto) / `ca-tor`       | `tor` |
+   | Germany (Frankfurt) / `eu-de`     | `fra` | 
+   | United Kingdom (London) / `eu-gb` | `lon` | 
+   | Japan (Osaka)/ `jp-osa`           | `osa` | 
+   | Japan (Tokyo) / `jp-tok`          | `tok` |   
+   | US East (Washington, DC) / `us-east`| `wdc` |
+   | US South (Dallas, TX) / `us-south`  | `dal` |
+   {: caption="Table 2 - This table shows the region values that the script accepts." caption-side="bottom"}
 
 1. Optional - Every installation image is accompanied by a file that contains the checksum value for the image file. For example, the image file ibmshare-0.0.1.tar.gz is accompanied by the ibmshare-0.0.1.tar.gz.sha256 file that contains the checksum value. To verify the integrity of the downloaded package, use the following commands.
    ```sh

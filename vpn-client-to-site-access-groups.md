@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-07-07"
+  years: 2021, 2024
+lastupdated: "2024-04-30"
 
 keywords:
 
@@ -39,5 +39,5 @@ To create an IAM access group and grant the user role to connect to the VPN serv
 
         Each user receives an email asking them to join an account in IBM Cloud.
 
-For more information, see [Setting up access groups](/docs/account?topic=account-groups). For IAM required permissions and the minimum IAM role to perform a task, see [Client-to-site VPN server tasks](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls#vpn-server-authorizations-required-for-api-and-cli-calls).
+For more information, see [Setting up access groups](/docs/account?topic=account-groups). For IAM required permissions and the minimum IAM role to perform a task, see [VPN Client for VPC](/docs/account?topic=account-iam-service-roles-actions#is.vpn-server-roles).
 {: note}

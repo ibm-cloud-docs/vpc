@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-03-26"
+lastupdated: "2024-04-30"
 
 keywords: vpc, api, change log, new features, restrictions, migration
 
@@ -53,6 +53,28 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 30 April 2024
+{: #30-april-2024}
+
+The `2024-04-30` release includes incompatible changes. To avoid regressions in client functionality, read and follow [Updating to the `2024-04-30` version (VPN gateway connection)](/docs/vpc?topic=2024-04-30-migration-vpn-advanced-configuration) before specifying version `2024-04-30` or later in any API requests.
+{: important}
+
+### For version `2024-04-30` or later
+{: #version-2024-04-30}
+
+**Advanced VPN gateway configuration.** Using a `version` query parameter of `2024-04-30` or later, you can specify `peer.fqdn` instead of `peer.address` when [creating](/apidocs/vpc/latest#create-vpn-gateway-connection) or [updating](/apidocs/vpc/latest#update-vpn-gateway-connection) a VPN gateway connection. You can also now fully control the local and peer IKE identities assigned to a VPN gateway connection by using properties `local.ike_identities` and `peer.ike_identity`. If unspecified, the local IKE identities will default to the public IP addresses of the VPN gateway and member's VPN connection tunnel. The peer identity will default to either the peer's address or FQDN, depending on what was specified.
+
+For migration guidance, see [Updating to the `2024-04-30` version (VPN gateway connection)](/docs/vpc?topic=2024-04-30-migration-vpn-advanced-configuration). See also the [known issue](/docs/vpc?topic=vpc-known-issues#vpc-vpn-gateway-connection-update-peer-known-issue) about updating the `peer.address` or `peer.fqdn` of a VPN connection tunnel.
+
+**Migration of VPN gateway connection CIDR paths.** Using a `version` query parameter of `2024-04-30` or later, API paths for [listing](/apidocs/vpc/latest#list-vpn-gateway-connection-local-cidrs), [removing](/apidocs/vpc/latest#remove-vpn-gateway-connection-local-cidr), [checking](/apidocs/vpc/latest#check-vpn-gateway-connection-local-cidr), or [setting](/apidocs/vpc/latest#add-vpn-gateway-connection-local-cidr) a local CIDR, and [listing](/apidocs/vpc/latest#list-vpn-gateway-connection-peer-cidrs), [removing](/apidocs/vpc/latest#remove-vpn-gateway-connection-peer-cidr), [checking](/apidocs/vpc/latest#check-vpn-gateway-connection-peer-cidr), or [setting](/apidocs/vpc/latest#add-vpn-gateway-connection-peer-cidr) a peer CIDR are changed. See [Updating to the `2024-04-30` version (VPN gateway connection)](/docs/vpc?topic=2024-04-30-migration-vpn-advanced-configuration) for guidance on migration.
+
+**VPN gateway connection schema change.**  As of version `2023-04-30`, the VPN gateway connection `peer_address`, `peer_cidrs`, and `local_cidrs` properties have been replaced by new `peer` and `local` properties. These changes apply to all methods that interact with VPN gateway connections, including [creating](/apidocs/vpc/latest#create-vpn-gateway-connection), [retrieving](/apidocs/vpc/latest#get-vpn-gateway-connection), and [updating](/apidocs/vpc/latest#update-vpn-gateway-connection) a VPN gateway connection.  See [Updating to the `2024-04-30` version (VPN gateway connection)](/docs/vpc?topic=2024-04-30-migration-vpn-advanced-configuration) for a full list of affected methods and guidance on migration.
+
+### For all version dates
+{: #30-april-2024-all-version-dates}
+
+**Establish mode for VPN gateway connections.** When [creating](/apidocs/vpc/latest#create-vpn-gateway-connection) or [updating](/apidocs/vpc/latest#update-vpn-gateway-connection) a VPN gateway connection, you can specify the new `establish_mode` property to control which side of the gateway can initiate the connection by setting the value to `bidirectional` (default) or `peer_only`.
 
 ## 26 March 2024
 {: #26-march-2024}
@@ -314,7 +336,7 @@ In the future, load balancer profiles may be introduced that do not support inst
 - Encryption algorithm `triple_des`
 - Diffie–Hellman groups `2` and `5`
 
-As a result, you will no longer be able to create an IKE/IPsec policy or VPN connection that includes a weak cipher, but you can still [upgrade weak cipher suites](/docs/vpc?topic=vpc-upgrading-weak-ciphers&interface=ui) on an existing policy or connection. For more information, see [Upgrading weak cipher suites on a VPN gateway](/docs/vpc?topic=vpc-upgrading-weak-ciphers&interface=api).
+As a result, you will no longer be able to create an IKE/IPsec policy or VPN connection that includes a weak cipher.
 
 ## 2 May 2023
 {: #2-may-2023}
@@ -514,7 +536,7 @@ s390x bare metal servers have different network bandwidth and maximum network in
 - Encryption algorithm `triple_des`
 - Diffie–Hellman groups `2` and `5`
 
-You have until 13 December 2022 to upgrade to more secure ciphers. After this date, VPN connections using deprecated ciphers will have a `status` of `down` (and no longer transfer data) until you upgrade from the weak cipher. For more information, see [Upgrading weak cipher suites on a VPN gateway](/docs/vpc?topic=vpc-upgrading-weak-ciphers).
+You have until 13 December 2022 to upgrade to more secure ciphers. After this date, VPN connections using deprecated ciphers will have a `status` of `down` (and no longer transfer data) until you upgrade from the weak cipher.
 
 **Additional VPN for VPC ciphers.** VPN gateways now provide new algorithms to help meet your security and compliance requirements.
 
@@ -604,7 +626,7 @@ A response code of `204` will continue to be returned for API requests using a `
 - A **VPN client** represents a client connecting from the internet. You can [retrieve the OpenVPN client configuration](/apidocs/vpc/latest#get-vpn-server-client-configuration) to use to configure a VPN client for a VPN server. For more information, see [Setting up a client VPN environment and connecting to a VPN server](/docs/vpc?topic=vpc-vpn-client-environment-setup) and the new [VPN client methods](/apidocs/vpc/latest#list-vpn-server-clients).
 - A **VPN route** controls which subnets the VPN client can access and how the traffic from the VPN client reaches these subnets. For more information, see [Managing VPN routes](/docs/vpc?topic=vpc-vpn-client-to-site-routes) and the new [VPN server route methods](/apidocs/vpc/latest#list-vpn-server-routes).
 
-**Configuring route propagation for VPN gateways and VPN servers.** When you [create a VPC routing table](/apidocs/vpc/latest#create-vpc-routing-table), you can now control if the routing table accepts routes from a VPN gateway or server by specifying the `accept_routes_from` property. When you [view a route in a VPC routing table](/apidocs/vpc/latest#get-vpc-routing-table-route), the new `origin` property shows who created the route (either `user` or `service`), and the `service` routes include a new `creator` property that references the resource that created the route. Routes with the `creator` property present cannot be deleted directly. For more information, see [Configuring route propagation for VPN gateways](/docs/vpc?topic=vpc-vpn-site-to-site-routes-propagating) and [VPN servers](/docs/vpc?topic=vpc-vpn-client-to-site-route-propagation).
+**Configuring route propagation for VPN gateways and VPN servers.** When you [create a VPC routing table](/apidocs/vpc/latest#create-vpc-routing-table), you can now control if the routing table accepts routes from a VPN gateway or server by specifying the `accept_routes_from` property. When you [view a route in a VPC routing table](/apidocs/vpc/latest#get-vpc-routing-table-route), the new `origin` property shows who created the route (either `user` or `service`), and the `service` routes include a new `creator` property that references the resource that created the route. Routes with the `creator` property present cannot be deleted directly. For more information, see [Configuring route propagation for VPN gateways](/docs/vpc?topic=vpc-advertise-routes-s2s&interface=ui) and [VPN servers](/docs/vpc?topic=vpc-vpn-client-to-site-route-propagation).
 
 **Concurrent update protection.** ETags returned on `GET`, `POST`, and `PATCH` requests represent the modifiable state of the resource. When updating the `accept_routes_from` property on a [routing table](/apidocs/vpc/latest#update-vpc-routing-table), or updating the `client_authentication`, `client_dns_servers`, or `subnets` properties on a [VPN server](/apidocs/vpc/latest#update-vpn-server), you must provide the resource's ETag using the `If-Match` header. For general guidance on the use of ETags, see [Concurrent update protection](/apidocs/vpc/latest#concurrent-update-protection).
 

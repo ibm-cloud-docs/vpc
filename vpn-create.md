@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-02-28"
+lastupdated: "2024-04-30"
 
 keywords:
 subcollection: vpc
@@ -41,15 +41,18 @@ To create a VPN gateway by using the UI:
    * **Access management tags** - Optionally, add access management tags to resources to help organize access control relationships. The only supported format for access management tags is `key:value`. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
    * **Region** - Shows the region where the VPC is located and where the VPN gateway will provision.
    * **Virtual Private Cloud** - Select the VPC for the VPN gateway.
-   * **Subnet** - Select the subnet in which to create the VPN gateway. See [Planning considerations](/docs/vpc?topic=vpc-vpn-create-gateway#planning-considerations-vpn) for important subnet information.
-   * **Mode** - Select to create a policy-based or a route-based VPN. For more information about VPN types, see [VPN features](/docs/vpc?topic=vpc-using-vpn#vpn-features).
+   * **Subnet** - Select the subnet in which to create the VPN gateway. See [Planning considerations](/docs/vpc?topic=vpc-planning-considerations-vpn) for important subnet information.
+   * **Mode** - Select either a policy-based or route-based VPN. For more information about VPN types, see [VPN features](/docs/vpc?topic=vpc-using-vpn#vpn-features).
 1. In the **VPN connection for VPC** section, toggle the switch on to establish connectivity between this gateway and the network outside your VPN. You can also create a VPN connection after you provision the gateway.
 
     * **VPN connection name** - Enter a name for the connection, such as `my-connection`.
-    * **Peer gateway address** - Specify the IP address or FQDN of the VPN gateway for the network outside your VPC.
-    * **Establish mode** - Select either **Bidirectional** or **Peer only**. Bidirectional mode initiates IKE protocol negotiations (or rekeying processes) from either side of the VPN gateway. Peer only mode allows the peer to initiate IKE protocol negotiations for this VPN gateway connection. The peer is also responsible for initiating the rekeying process after the connection is established.
+    * **Peer gateway address** - Specify the peer device through a public IP address or FQDN of the VPN gateway for the network outside your VPC.
+    * **Establish mode** - Select either **Bidirectional** or **Peer only**.
 
-      If your peer device is behind a NAT device and doesn't have a public IP address, make sure to use **Peer only**.
+       - **Bidirectional** mode initiates IKE protocol negotiations (or rekeying processes) from either side of the VPN gateway.
+       - **Peer only** mode allows the peer to initiate IKE protocol negotiations for this VPN gateway connection. The peer is also responsible for initiating the rekeying process after the connection is established.
+
+      If your peer device is behind a NAT device and doesn't have a public IP address, make sure to specify **Peer only**.
       {: important}
 
     * **Preshared key** - Specify the authentication key of the VPN gateway for the network outside your VPC. The preshared key is a string of hexadecimal digits, or a passphrase of printable ASCII characters. To be compatible with most peer gateway types, this string must follow these rules:
@@ -63,7 +66,7 @@ To create a VPN gateway by using the UI:
         Subnet range overlap between local and peer subnets is not allowed.
         {: important}
 
-1. In the Dead peer detection section, configure how the VPN gateway sends messages to check that the peer gateway is active. Specify the following information:
+1. In the **Dead peer detection** section, configure how the VPN gateway sends messages to check that the peer gateway is active. Specify the following information:
 
     * **Action** - The dead peer detection action to take if a peer gateway stops responding. For example, select **Restart** if you want the gateway to immediately renegotiate the connection.
     * **Interval (sec)** - How often to check that the peer gateway is active. By default, messages are sent every 2 seconds.
@@ -75,13 +78,12 @@ To create a VPN gateway by using the UI:
    The IKE and IPsec security options that you specify for the connection must be the same options that are set on the peer gateway for the network outside your VPC.
    {: important} {: #ike-identities}
 
-1. In the Advanced options section, you can specify optional IKE identities. One peer IKE identity can be specified at most.
+1. In the Advanced options section, you can customize local and peer IKE identities instead of using the default IKE identity. One peer IKE identity can be specified at most.
 
-   For policy-based VPN gateways, you can configure one local IKE identity at most.
+   For policy-based VPN gateways, you can configure one local IKE identity at most. For route-based VPN gateways, if you want to configure a local IKE identity, you must provide two. You can provide values for the members or leave the input fields empty.
+   {: note}
 
-   For route-based VPN gateways, if you want to configure a local IKE identity, you must provide two. You can provide values for the members or leave the input fields empty.
-
-   * **Local IKE identities** - Select a type for the local IKE identity, then enter its value. For example, you can enter an IPv4 address (`9.168.3.4`), a FQDN (`my-vpn.example.com`), hostname (`my-host`), or base64-encoded key ID (`MTIzNA==`).
+   * **Local IKE identities** - Select a type for the local IKE identity, then enter its value. For example, you can enter a single 4 octet IPv4 address (`9.168.3.4`), a FQDN (`my-vpn.example.com`), hostname (`my-host`), or base64-encoded key ID (`MTIzNA==`).
 
       * Static route mode consists of two members in active-active mode, where the first identity applies to the first member and the second identity applies to the second member. If you do not specify local IKE identities, then the type is an IPv4 address, and the value is the public IP address of the member’s VPN connection tunnel.
 
@@ -110,25 +112,25 @@ ibmcloud is vpn-gateway-create VPN_GATEWAY_NAME SUBNET
 Where:
 
 `VPN_GATEWAY_NAME`
-    : Name of the VPN gateway.
+    : The name of the VPN gateway.
 
 `SUBNET`
-    : ID of the subnet.
+    : The ID of the subnet.
 
 `--mode`
-    : Mode of the VPN gateway. One of: `policy`, `route`.
+    : The mode of the VPN gateway. One of: `policy`, `route`.
 
 `--resource-group-id`
-    : ID of the resource group. This option is mutually exclusive with `--resource-group-name`.
+    : The ID of the resource group. This option is mutually exclusive with `--resource-group-name`.
 
 `--resource-group-name`
-    : Name of the resource group. This option is mutually exclusive with `--resource-group-id`.
+    : The name of the resource group. This option is mutually exclusive with `--resource-group-id`.
 
 `--output`
     : Output in JSON format.
 
 `-q, --quiet`
-    : Suppress verbose output.
+    : An option that suppresses verbose output.
 
 ### Command examples
 {: #cli-cmd-examples-vpn-gateway-create}
@@ -208,4 +210,4 @@ After you create a VPN gateway, you can:
 * [Create an IKE policy](/docs/vpc?topic=vpc-creating-ike-policy) if you decide to use a custom IKE policy instead of auto-negotiation.
 * [Create an IPsec policy](/docs/vpc?topic=vpc-creating-ipsec-policy) if you decide to use a custom IPsec policy instead of auto-negotiation.
 * Create a VPN connection if you have not already done so when provisioning your VPN gateway. For more information, see [Adding connections to a VPN gateway](/docs/vpc?topic=vpc-vpn-adding-connections).
-* For a route-based VPN, select to [create a routing table](/docs/vpc?topic=vpc-create-vpc-routing-table), then [create a route by using the VPN connection type](/docs/vpc?topic=vpc-create-vpc-route).
+* To create a route-based VPN, first [create a routing table](/docs/vpc?topic=vpc-create-vpc-routing-table), then [create a route by using the VPN connection type](/docs/vpc?topic=vpc-create-vpc-route).

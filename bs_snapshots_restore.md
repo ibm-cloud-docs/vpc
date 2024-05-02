@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-03-07"
+lastupdated: "2024-04-19"
 
 keywords:
 
@@ -241,7 +241,7 @@ A successful response looks like the following example.
 ```zsh
 Creating instance my-instance-restore1 in resource group under account VP01 as user rtuser1@mycompany.com...
 
-ID               r006-eded6dcd-4f3c-4e79-a0cb-00f7c72f38cd
+ID               0717-eded6dcd-4f3c-4e79-a0cb-00f7c72f38cd
 Name             my-instance-restore1
 CRN              crn:v1:bluemix:public:is:us-south-1/a1234567::instance:7101_eded6dcd-4f3c-4e79-a0cb-00f7c72f38cd
 Status           pending
@@ -539,6 +539,6 @@ resource "ibm_is_volume" "storage" {
 For more information about the arguments and attributes, see [ibm_is_volume](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_volume){: external}.
 
 ## Next steps
-{: #snapshots_vpc_restore_next_steps}
+{: #bs_snapshots_restore_next_steps}
 
 You can [create](/docs/vpc?topic=vpc-snapshots-vpc-create) more snapshots or [manage](/docs/vpc?topic=vpc-snapshots-vpc-manage) existing snapshots.

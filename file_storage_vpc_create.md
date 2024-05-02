@@ -355,7 +355,7 @@ For more information about how to create a file share with customer-managed encr
 ### Creating a file share with a replica in another zone with the CLI
 {: #fs-create-share-with-replica-cli}
 
-For more information about how to create a file share with a replica simultanously, see [Create a file share with replication from the CLI](/docs/vpc?topic=vpc-file-storage-create-replication&interface=cli#fs-create-new-share-replica-cli).
+For more information about how to create a file share with a replica simultaneously, see [Create a file share with replication from the CLI](/docs/vpc?topic=vpc-file-storage-create-replication&interface=cli#fs-create-new-share-replica-cli).
 
 ## Creating a file share with the API
 {: #file-storage-create-api}

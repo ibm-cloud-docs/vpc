@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-01-05"
+lastupdated: "2024-04-19"
 
 keywords: snapshots, Block Storage, snapshot clone, remote copy, fast restore, Block Storage snapshot, cross-regional snapshot
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Creating snapshots
+# Creating {{site.data.keyword.block_storage_is_short}} snapshots
 {: #snapshots-vpc-create}
 
 With the UI, CLI, API, or Terraform, you can create a snapshot of a {{site.data.keyword.block_storage_is_short}} volume that is attached to a virtual server instance. You can create a snapshot of a boot or a data volume. If the volume is not attached to a server instance, you can't create a snapshot of it.
@@ -32,19 +32,19 @@ In the console, you can create a snapshot of a {{site.data.keyword.block_storage
 1. You can access the Block Storage snapshot for VPC provisioning screen in the [{{site.data.keyword.cloud}} console](/login){: external} in multiple ways.
 
    - From the **[Block Storage snapshots for VPC](/vpc-ext/storage/snapshots)** list,
-      1. click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage snapshots**.
+      1. click the **Navigation menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage snapshots**.
       2. From the list of snapshots that is initially empty, click **Create**.
 
    - From the **[Block Storage volumes for VPC](/vpc-ext/storage/storageVolumes)** list,
-      1. click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
+      1. click the **Navigation menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
       2. From the list of volumes, locate a boot or data volume that is attached to an instance.
-      3. Click the overflow menu (...) and select **Create snapshot**.
+      3. Click the Actions menu (![Actions menu](images/overflow.png)) and select **Create snapshot**.
 
    - From the **Block Storage volume details** screen,
      1. Go to the volume details page in one of these ways.
 
-         - Go to the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**. Select the instance that contains the volume that you want to make a snapshot of. From the [instance details page](/vpc-ext/compute/vs), scroll to the list of attached volumes and click the name of the volume.
-         - click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**. From the list of Block Storage volumes, select the volume that you want to make a snapshot of.
+         - Go to the **Navigation menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**. Select the instance that contains the volume that you want to make a snapshot of. From the [instance details page](/vpc-ext/compute/vs), scroll to the list of attached volumes and click the name of the volume.
+         - click the **Navigation menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**. From the list of Block Storage volumes, select the volume that you want to make a snapshot of.
 
      2. On the volume details page, select **Create snapshot** from the **Actions** menu.
 
@@ -86,8 +86,8 @@ The fast restore feature is billed at an extra hourly rate for each zone that it
 
 In the previous section, you saw how to create a cross-regional snapshot copy when you take a new snapshot in the UI. You can also create cross-regional copies of existing snapshots.
 
-1. In the console, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage snapshots**.
-2. From the list of snapshots, click the overflow menu (...) and select **Copy snapshot**.
+1. In the console, click the **Navigation menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage snapshots**.
+2. From the list of snapshots, click the Actions menu (![Actions menu](images/overflow.png)) and select **Copy snapshot**.
 3. Select the region where you want to create the copy.
 
    You can have only one copy per region. You can't create a copy in the local (source) region.
@@ -652,7 +652,7 @@ resource "ibm_is_snapshot" "snapshot" {
 For more information about the arguments and attributes, see [ibm_is_snapshot](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_snapshot){: external}.
 
 ## Next steps
-{: #snapshots_vpc_create_next_steps}
+{: #bs_snapshots_create_next_steps}
 
 After you create a snapshot, you can view more details about it or restore a volume from the snapshot.
 

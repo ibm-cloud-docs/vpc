@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-03-28"
+lastupdated: "2024-04-22"
 
 keywords:
 
@@ -126,7 +126,7 @@ CentOS Stream 8 EOS date is 31 May 2024. Support for this software discontinues 
 You can use the following conversion tools to change your operating system to Rocky Linux 8/9 or RHEL 8/9. Alternatively, you can can perform OS reload, side-by-side upgrade, or migrate to a new server with a CentOS Stream 9. You can use the following conversion tools to change your OS:
 
 - The migration tool available from the OS distribution you are migrating to. {{site.data.keyword.cloud_notm}} does not provide or support for these OS conversion tools.
-- The [migrate2rocky](https://github.com/rocky-linux/rocky-tools/tree/main/migrate2rocky){: external} tool available from Rocky Linux. For more information, see the [Rocky Linux documentation]([https://docs.rockylinux.org/guides/migrate2rocky/](https://docs.rockylinux.org/)){: external}.
+- The [migrate2rocky](https://github.com/rocky-linux/rocky-tools/tree/main/migrate2rocky){: external} tool available from Rocky Linux. For more information, see the [Rocky Linux documentation](https://docs.rockylinux.org/){: external}.
 - The [Convert2RHEL](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/migration-process/convert2rhel-how-to-convert-from-centos-linux-to-red-hat-enterprise-linux){: external} tool available from RHEL. For more information, see the [RHEL documentation](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/migration-process/convert2rhel-how-to-convert-from-centos-linux-to-red-hat-enterprise-linux){: external}.
 
 ## Troubleshooting

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-01-05"
+lastupdated: "2024-04-19"
 
 keywords: snapshots, Block Storage, volumes, cross-regional snapshot, restore volume, copy snapshot
 
@@ -12,10 +12,10 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# About Block Storage Snapshots for VPC
+# About {{site.data.keyword.block_storage_is_short}} snapshots
 {: #snapshots-vpc-about}
 
-Block Storage Snapshots for VPC are a regional offering that is used create a point-in-time copy of your {{site.data.keyword.block_storage_is_short}} boot or data volume. The initial snapshot that you take is a full backup of the volume. Subsequent snapshots of the same volume are incremental, so they capture only the changes that occurred after the last snapshot was taken. You can restore data to a new volume during instance provisioning, from an existing instance, and when you create an unattached volume.
+{{site.data.keyword.block_storage_is_short}} snapshots are a regional offering that is used to create a point-in-time copy of your boot or data volume. The initial snapshot that you take is a full backup of the volume. Subsequent snapshots of the same volume are incremental, so they capture only the changes that occurred after the last snapshot was taken. You can restore data to a new volume during instance provisioning, from an existing instance, and when you create an unattached volume.
 {: shortdesc}
 
 ## Snapshots concepts
@@ -35,7 +35,7 @@ When you take a second snapshot, it captures only the changes that occurred sinc
 
 You can create a virtual server instance with a boot volume that was initialized from a snapshot. The instance profile of the new instance is not required to match the instance that was used to create the snapshot. You can also import a snapshot of a data volume when you create and attach a new data volume to the instance. You can specify user tags for these snapshots.
 
-You can create a volume from a snapshot at any time. This process is called restoring a volume, and it can be performed when you create an instance, modify an instance, or when you create a stand-alone volume. For more information, see [Restoring a volume from a snapshot](#snapshots_vpc_restore_overview). You can also restore a fully provisioned volume by using the fast restore feature after initial provisioning.
+You can create a volume from a snapshot at any time. This process is called restoring a volume, and it can be performed when you create an instance, modify an instance, or when you create a stand-alone volume. For more information, see [Restoring a volume from a snapshot](#bs-snapshots-restore-overview). You can also restore a fully provisioned volume by using the fast restore feature after initial provisioning.
 
 Snapshots have a lifecycle that is independent from the source {{site.data.keyword.block_storage_is_short}} volume. You can delete the original volume and the snapshot persists. However, do not detach the volume from the instance during snapshot creation. You need to wait until the snapshot becomes `stable` before you detach, otherwise you can't reattach the volume to an instance. Snapshots are crash-consistent. If the virtual server stops for any reason, the snapshot data is safe on the disk.
 
@@ -119,9 +119,6 @@ The following limitations apply to this release:
 * You can delete any snapshot that you take. However, snapshots must be in a `stable` or `pending` state and not actively restoring a volume.
 * You can delete a {{site.data.keyword.block_storage_is_short}} volume and all its snapshots. All snapshots must be in a `stable` or `pending` state. No snapshot can be actively restoring a volume.
 * Restoring an instance directly from snapshot consistency group identifier is not supported.
-* Multi-volume snapshot is not supported for volumes created with sdp profile
-* Fast Restore is not supported for snapshots from volumes created with sdp profile
-* Cross-regional snapshot copies are not supported for volumes created with sdp profile
 
 ## Create and work with snapshots
 {: #snapshots-vpc-procedure-overview}
@@ -142,7 +139,7 @@ For more information about creating and managing consistency groups, see the fol
 * [View](/docs/vpc?topic=vpc-snapshots-vpc-view) and [manage](/docs/vpc?topic=vpc-snapshots-vpc-manage-consistency-groups) your consistency groups.
 
 ## Restore a volume from a snapshot
-{: #snapshots_vpc_restore_overview}
+{: #bs-snapshots-restore-overview}
 
 You can create a volume from a snapshot at any time. This process is called restoring a volume. Volume data restoration begins immediately as the volume is hydrated, but performance is degraded until the volume is fully restored. The volume does not need to be attached to an instance. For more information, see [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore).
 

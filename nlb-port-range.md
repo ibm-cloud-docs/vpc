@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2022
-lastupdated: "2022-12-12"
+  years: 2018, 2024
+lastupdated: "2024-04-22"
 
 keywords: port, range, nlb, configuring
 
@@ -21,7 +21,7 @@ You can define the port range for the {{site.data.keyword.cloud}} {{site.data.ke
 After you attach a pool to the listener, the back-end target has the same port range as the listener.
 {: important}
 
-The port range feature is not supported on private network load balancers. Only public NLBs can use this feature.
+Private network load balancers do not support the port range feature. Only Private Path and public network load balancers can use this feature.
 {: note}
 
 ## Configuring the port range in the UI

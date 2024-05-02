@@ -30,13 +30,13 @@ There are three DNS resolver types:
 ## Before you begin
 {: #dns-resolver-prerequisites}
 
-Before you set the DNS resolver type, review [Planning considerations](/docs/vpc?topic=vpc-hub-spoke-planning-considerations) and [Known issues and limitations](/docs/vpc?topic=vpc-hub-spoke-limitations).
+Before you set the DNS resolver type, review [Planning considerations](/docs/vpc?topic=vpc-vpe-dns-sharing-planning-considerations) and [Known issues and limitations](/docs/vpc?topic=vpc-vpe-dns-sharing-limitations).
 {: important}
 
 You can set the DNS resolver type with the UI, CLI, API, or Terraform.
 
 ## Setting the DNS resolver type in the UI
-{: #hub-spoke-resolver-ui}
+{: #vpe-dns-sharing-resolver-ui}
 {: ui}
 
 To set the DNS resolver type on a DNS-shared VPC, follow these steps:
@@ -117,7 +117,7 @@ ibmcloud is vpcu my-vpc --dns-resolver-type system
 ```
 
 ## Setting the DNS resolver type with the API
-{: #hub-spoke-resolver-api}
+{: #vpe-dns-sharing-resolver-api}
 {: api}
 
 To set the DNS resolver type with the API, follow these steps:
@@ -126,14 +126,25 @@ To set the DNS resolver type with the API, follow these steps:
 1. To set a DNS-shared VPC to use the hub VPC's DNS using the `delegated` resolver type:
 
    ```curl
-   curl -X PATCH -sH "Authorization:${iam_token}" "${vpc_api_endpoint}/v1/vpcs/${vpc_id}?version=${api_version}&generation=2" -d '{"dns": {"resolver": {"type":"delegated", "vpc": {"id": "${hub_vpc_id}"}}}}'
+   curl -X PATCH -sH "Authorization:${iam_token}" "${vpc_api_endpoint}/v1/vpcs/${vpc_id}?version=${api_version}&generation=2" -d '
+   {
+     "dns": {
+       "resolver": {
+         "type":"delegated",
+         "vpc": {
+           "id": "${hub_vpc_id}"
+         }
+       }
+     }
+   }'
    ```
    {: codeblock}
 
 1. To set a VPC to use `manual` DNS server addresses:
 
    ```curl
-     curl -X PATCH -sH "Authorization:${iam_token}" "${vpc_api_endpoint}/v1/vpcs/${vpc_id}?version=${api_version}&generation=2" -d '{
+   curl -X PATCH -sH "Authorization:${iam_token}" "${vpc_api_endpoint}/v1/vpcs/${vpc_id}?version=${api_version}&generation=2" -d '
+   {
      "dns": {
        "resolver": {
          "type": "manual",
@@ -166,12 +177,20 @@ To set the DNS resolver type with the API, follow these steps:
 1. To restore a VPC to the default `system` configuration:
 
    ```curl
-     curl -X PATCH -sH "Authorization:${iam_token}" "${vpc_api_endpoint}/v1/vpcs/${vpc_id}?version=${api_version}&generation=2" -d '{"dns": {"resolver": {"type":"system"}}}'
+   curl -X PATCH -sH "Authorization:${iam_token}" "${vpc_api_endpoint}/v1/vpcs/${vpc_id}?version=${api_version}&generation=2" -d '
+   {
+     "dns": {
+       "resolver": {
+         "type":"system",
+         "vpc": null
+       }
+     }
+   }'
    ```
    {: codeblock}
 
 ## Setting the DNS resolver type with Terraform
-{: #hub-spoke-resolver-terraform}
+{: #vpe-dns-sharing-resolver-terraform}
 {: terraform}
 
 You can use Terraform to set the DNS resolver type.

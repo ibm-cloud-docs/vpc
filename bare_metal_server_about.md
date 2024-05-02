@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-01-09"
+lastupdated: "2024-04-17"
 
 keywords: bare metal servers, baremetal, what is bare metal, about bare metal, bare metal features, bare metal benefits
 
@@ -91,7 +91,7 @@ Keep the following lifecycle operations differences in mind:
 
 * For bare metal servers, you can restart, or power the server off and on. When you power off a server, the server is powered off physically, but the data on it is preserved, and you continue to be billed.
 
-* For virtual server instances, you can restart, stop, and start the instance. But these functions don't impact the physical server status. Billing is suspended for some types of instances when powered off. However, any persistent storage continues to be billed. For more information about suspend billing, see [Suspend billing for VPC](/docs/vpc?topic=vpc-suspend-billing).
+* For virtual server instances, you can restart, stop, and start the instance. Bhese functions don't impact the physical server status. Except for instances on dedicated hosts, billing is suspended when the instance is powered off. Any persistent storage continues to be billed. For more information about suspend billing, see [Suspend billing for VPC](/docs/vpc?topic=vpc-suspend-billing).
 
 <!--## High-level architecture of Bare Metal Servers for VPC
 {: #architecture-diagram}-->

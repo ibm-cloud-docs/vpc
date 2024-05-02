@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2023-06-30"
+lastupdated: "2024-04-15"
 
 keywords:
 
@@ -51,26 +51,26 @@ For more information, see [Bandwidth allocation for instance profiles](/docs/vpc
 
 IOPS value is based on a 16 KB block size (for all the tiers) with a 50-50 read/write random workload. Each 16 KB of data read/written counts as one read/write operation; a single write of less than 16 KB counts as a single write operation.
 
-Baseline throughput is determined by the number of IOPS multiplied by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB or custom IOPS tiers. The higher the IOPS that you specify, the higher the throughput. Maximum throughput is 1024 Mbps.
+Baseline throughput is determined by the number of IOPS multiplied by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB or custom IOPS tiers. The higher the IOPS that you specify, the higher the throughput. Maximum throughput is 1024 MBps.
 
 The application I/O size directly impacts storage performance. If the application I/O size is smaller than the throughput multiplier that is used by the profile to calculate the volume’s bandwidth limit, the IOPS limit is reached before the throughput limit. Conversely, if the application I/O size is larger, the throughput limit is reached before the IOPS limit.
 
-The following table provides some examples of how application I/O size and provisioned IOPS affect the throughput, which is calculated as average application I/O size x IOPS = Throughput in Mbps.
+The following table provides some examples of how application I/O size and provisioned IOPS affect the throughput, which is calculated as average application I/O size x IOPS = Throughput in MBps.
 
-| Average I/O Size (KB) | IOPS | Throughput (Mbps) |
+| Average I/O Size (KB) | IOPS | Throughput (MBps) |
 |-----------------|------|-------------------|
-| 4 (typical for Linux&reg;) | 1,000 | 4&sup1; |
-| 8 (typical for Oracle) | 1,000  | 8&sup1; |
+| 4 (typical for Linux&reg;) | 1,000 | 4¹ |
+| 8 (typical for Oracle) | 1,000  | 8¹ |
 | 16 | 1,000 | 16 |
 | 32 (typical for SQL Server) | 500 | 16 |
 | 64 | 250 | 16 |
 | 128 | 128 | 16 |
 {: caption="Table 1. Examples of how application I/O size and IOPS affect the throughput" caption-side="top"}
 
-&sup1;If your cap is 1,000 IOPS or 16 K average I/O size, the throughput caps at whatever limit is reached first.
+¹If your cap is 1,000 IOPS or 16 K average I/O size, the throughput caps at whatever limit is reached first.
 
 Maximum IOPS can still be obtained when you use smaller I/O sizes, but throughput is less. The following example shows how throughput decreases for smaller average I/O sizes, when max IOPS is maintained.
 
-* 16 KB * 6,000 IOPS == ~94 Mbps
-* 8 KB * 6,000 IOPS == ~47 Mbps
-* 4 KB * 6,000 IOPS == ~23 Mbps
+* 16 KB * 6,000 IOPS == ~94 MBps
+* 8 KB * 6,000 IOPS == ~47 MBps
+* 4 KB * 6,000 IOPS == ~23 MBps

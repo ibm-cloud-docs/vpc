@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-01-04"
+lastupdated: "2024-04-19"
 
 keywords: snapshots, Block Storage snapshots, manage snapshots, fast restore clone, backup snapshot, remote copy, cross-regional copy
 
@@ -12,10 +12,10 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Managing snapshots
+# Managing {{site.data.keyword.block_storage_is_short}} snapshots
 {: #snapshots-vpc-manage}
 
-You can manage existing snapshots in several ways. Rename existing snapshots to make them simplier to identify. Add user tags to snapshots for use by the VPC backup service. Enable of disable fast restore copies of a snapshot. Delete snapshots that you no longer need and free up space for new snapshots. Verify {{site.data.keyword.iamshort}} access. Verify snapshot statuses.
+You can manage existing snapshots in several ways. Rename existing snapshots to make them simpler to identify. Add user tags to snapshots for use by the VPC backup service. Enable of disable fast restore copies of a snapshot. Delete snapshots that you no longer need and free up space for new snapshots. Verify {{site.data.keyword.iamshort}} access. Verify snapshot statuses.
 {: shortdesc}
 
 ## Naming snapshots
@@ -25,7 +25,7 @@ Consider naming the snapshot to indicate the volume that you copied. For example
 
 Snapshot names adhere to the same requirements as volume names. Valid names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. Snapshot names must begin with a lowercase letter and must be unique across the VPC. The UI provides name checking as a convenience. For example, if you end a snapshot name with a hyphen (-), the UI notifies you of the error. It also checks for duplicate names.
 
-When you create a cross-regional copy of a snapshot, the new snapshot is named `[copy]-[source-snapshot-name]`. For example, a cross-regional copy of the snapshot _my-volume-snapshot1_ is automatically named _copy-my-volume-snapshot1_ when it is placed in the target region. Cross-regional copies of snapshots are independent from the source snapshot and the source volume, and the copies can be managed like any other normal snapshot.
+When you create a cross-regional copy of a snapshot, the new snapshot is named `[copy]-[source-snapshot-name]`. For example, a cross-regional copy of the snapshot-my-volume-snapshot1_ is automatically named _copy-my-volume-snapshot1_ when it is placed in the target region. Cross-regional copies of snapshots are independent from the source snapshot and the source volume, and the copies can be managed like any other normal snapshot.
 
 ## Renaming a snapshot in the UI
 {: #snapshots-vpc-rename-ui}
@@ -33,7 +33,7 @@ When you create a cross-regional copy of a snapshot, the new snapshot is named `
 
 Use the following steps to rename a snapshot by using the UI.
 
-1. Go to the list of snapshots. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu** ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Snapshots**.
+1. Go to the list of snapshots. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu** ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Snapshots**.
 2. Click the name of a snapshot from the list.
 3. Click the pencil icon.
 4. Provide a [new name](#snapshots-vpc-naming) for the snapshot, save, and confirm your changes.
@@ -122,12 +122,12 @@ curl -X PATCH \
 "$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2022-01-12&generation=2" \
    -H "Authorization: Bearer ${API_TOKEN}" \
    -d '{
-     "name": "my-snapshop1-renamed"
+     "name": "my-snapshot-renamed"
    }'
 ```
 {: codeblock}
 
-You can use the same call to rename a cross-regional copy. The cross-regional copy is independent from the source snapshot and source volume, and can be managed like any other snaphot.
+You can use the same call to rename a cross-regional copy. The cross-regional copy is independent from the source snapshot and source volume, and can be managed like any other snapshot.
 
 ## Updating a snapshot with Terraform
 {: #snapshots-vpc-rename-terraform}
@@ -420,9 +420,9 @@ curl -X DELETE \
 
 Use the following steps to create cross-regional copies of snapshots from the Snapshots for VPC list or from the snapshot details page.
 
-1. In the console, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage snapshots**.
+1. In the console, click the **Navigation menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage snapshots**.
 2. In the list of snapshots, find the snapshot that you want to duplicate in another region.
-3. click the overflow menu (...) and select **Copy snapshot**.
+3. click the Actions menu (![Actions menu](images/overflow.png)) and select **Copy snapshot**.
 4. Select the region where you want to create the copy.
 
    You can have only one copy per region. If no regions are available for copies, the option Copy Snapshot is disabled.
@@ -440,7 +440,7 @@ Snapshot copies in a remote region are independent from the parent snapshot and 
 
 Use the following steps to delete a remote region copy by using the UI.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu** ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Snapshots**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu** ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Snapshots**.
 2. Click the Actions menu (ellipsis) in the row of the snapshot that you want to delete.
 3. Select **Delete**.
 4. Confirm the deletion and click **Delete**.
@@ -621,7 +621,7 @@ curl -X DELETE https://us-east.iaas.cloud.ibm.com/v1/snapshots/{id}
 {: #snapshots-remote-copy-create-terraform}
 {: terraform}
 
-To create a copy of snapshot in a remote region, use the `ibm_is_snapshot` resource. The following example creates a copy in the target region by using the ID of the source snapshot. The copy is going to be encrypted by the encryption key that is specified by its CRN.
+To create a copy of the snapshot in a remote region, use the `ibm_is_snapshot` resource. The following example creates a copy in the target region by using the ID of the source snapshot. The copy is going to be encrypted by the encryption key that is specified by its CRN.
 
 ```terraform
 resource "ibm_is_snapshot" "snapshot" {
@@ -664,16 +664,16 @@ You can delete all snapshots for a volume. Deleting all snapshots requires furth
 
 You can delete a snapshot from the list of all snapshots by using the following steps.
 
-1. Go to the list of all snapshots. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu** ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Snapshots**.
+1. Go to the list of all snapshots. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu** ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Snapshots**.
 2. Click the Actions menu (ellipsis) in the row of the snapshot that you want to delete.
 3. Select **Delete**.
 4. Confirm the deletion and click **Delete**.
 
 You can also delete a snapshot from the details page of a {{site.data.keyword.block_storage_is_short}} volume.
 
-1. Go to the list of all {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
+1. Go to the list of all {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
 2. Select a volume from the list, and click the volume name to go to the volume details page.
-3. Click **Snapshots**. A list of snapshots that are taken of this volume are displayed, and you can take the following actions:
+3. Click **Snapshots**. A list of snapshots that are taken of this volume is displayed, and you can take the following actions:
     * Click **Delete all** to delete all snapshots for this volume.
     * Click the Actions menu (ellipsis) to delete a specific snapshot.
 4. Select **Delete**. If the snapshot is actively restoring a volume, the delete operation does not work.
@@ -684,7 +684,7 @@ You can also delete a snapshot from the details page of a {{site.data.keyword.bl
 
 To delete all snapshots for a volume in the UI, follow these steps.
 
-1. Go to the list of all snapshots. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu** ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Snapshots**.
+1. Go to the list of all snapshots. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu** ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Snapshots**.
 2. Click the row to select the snapshot that you want to delete.
 3. From the Actions menu (ellipsis), select **Delete all for volume**.
 4. Confirm the deletion by typing _delete_ and then click **Delete**.
@@ -694,7 +694,7 @@ To delete all snapshots for a volume in the UI, follow these steps.
 
 You can delete the most recently created snapshot from the list of snapshots from the {{site.data.keyword.block_storage_is_short}} volume details page. Optionally, you can delete all snapshots from this view.
 
-1. Go to the list of all {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu** ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
+1. Go to the list of all {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu** ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
 2. Select a volume from the list and click the volume name to go to the volume details page.
 3. Click **Snapshots** to see a list of snapshots taken of this volume.
 4. Click **Delete all** to delete all snapshots for this volume.
@@ -715,7 +715,7 @@ You can delete any snapshot for a volume or all snapshots for a volume. To be ab
 ### Deleting a single snapshot from the CLI
 {: #snapshots-vpc-delete-single-snapshot-cli}
 
-Use the followings steps to delete a single snapshot by using the CLI.
+Use the following steps to delete a single snapshot by using the CLI.
 
 1. List the snapshots that are available for a volume to confirm the ID of the snapshot that you want to delete.
 
@@ -757,7 +757,7 @@ For more information about available command options, [`ibmcloud is snaphot-dele
 ### Deleting all snapshots from the CLI
 {: #snapshots-vpc-delete-all-snapshot-cli}
 
-Use the following steps to delete all snapshot by using the CLI.
+Use the following steps to delete all snapshots by using the CLI.
 
 1. List all snapshots.
 
@@ -867,7 +867,7 @@ When you initiate activity on a snapshot, specific Activity Tracker events are g
 ### Activity Tracker JSON examples for snapshot events
 {: #snapshots-vpc-at-event-examples}
 
-The following example shows JSON output of an Activity Tracker event that was generated after you successfully created a snapshot. The name that you gave the snapshot appears in the response message and reason code `Created`.
+The following example shows the JSON output of an Activity Tracker event that was generated after you successfully created a snapshot. The name that you gave the snapshot appears in the response message and reason code `Created`.
 
 ```json
 {
@@ -966,12 +966,12 @@ Snapshots require {{site.data.keyword.iamlong}} (IAM) permissions for role-based
 |-----------------|----------|
 | Create snapshots | Administrator, editor |
 | Delete snapshots | Administrator, editor |
-| Create volume from a snapshot[^createvol] | Administrator, editor, operator |
+| Create a volume from a snapshot[^createvol] | Administrator, editor, operator |
 | List snapshots | Administrator, editor, operator, viewer |
 | View snapshot details | Administrator, editor, operator, viewer |
 {: caption="Table 1. {{site.data.keyword.iamlong}} roles for snapshots." caption-side="bottom"}
 
-[^createvol]: Need to have administrator and editor privileges on the volume.
+[^createvol]: Administrator and editor privileges are needed on the volume.
 
 ## Snapshot lifecycle states
 {: #snapshots-vpc-status}

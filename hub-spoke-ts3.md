@@ -15,7 +15,7 @@ content-type: troubleshoot
 {{site.data.keyword.attribute-definition-list}}
 
 # When updating the manual server for one zone with zone affinity, why are the manual servers of three zones updated?
-{: #troubleshoot-hub-spoke-3}
+{: #troubleshoot-hub-3}
 {: troubleshoot}
 {: support}
 

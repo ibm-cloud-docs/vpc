@@ -65,6 +65,48 @@ Review the following considerations before creating a VNI:
    * A new network attachment on an instance (if infrastructure NAT is set to `true`)
    * A new network attachment on a bare metal server (when bare metal is supported)
 
+## Getting started with virtual network interfaces
+{: #vni-getting-started}
+
+You can use a VNI to manage the IP addresses and security groups in a separate resource with a lifecycle that is independent of your target resource.
+
+1. Ensure that you have a VPC and subnet attached. For more information, see creating VPC resources [using the IBM Cloud console](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console) or [creating with CLI and API](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api).
+1. Review [planning considerations](/docs/vpc?topic=vpc-vni-about#vni-planning) and any [known issues and limitations](/docs/vpc?topic=vpc-vni-known-issues).
+1. Ensure that you have the correct [IAM permissions](/docs/account?topic=account-iam-service-roles-actions#is.virtual-network-interface-roles) to create a VNI.
+1. [Create a virtual network interface](/docs/vpc?topic=vpc-vni-create&interface=ui) with a private IP address, a public IP address, and security groups.
+1. Attach your VNI to a supported target resource when provisioning the target. Currently, there are three supported target types:
+
+   * Virtual server instance
+      * When provisioning an instance, attach the VNI to the primary network attachment child resource. See [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers).
+      * If you have an existing virtual server instance with a primary network attachment, you can provision an additional network attachment on the virtual server instance, attaching the VNI to the new network attachment. See [Creating network attachments](/docs/vpc?topic=vpc-using-instance-vnics&interface=ui#add-virtual-network-interface).
+   * Bare metal server
+      * When provisioning a bare metal server, attach the VNI to the primary network attachment child resource. See [Creating Bare Metal Servers on VPC](/docs/vpc?topic=vpc-creating-bare-metal-servers).
+      * If you have an existing bare metal server with a primary network attachment, you can provision an additional network attachment on the bare metal server, attaching the VNI to the new network attachment. See [Creating network attachments](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers&interface=ui#bare-metal-vni).
+   * File share mount
+      * When provisioning a new file share mount, attach the VNI to the file share mount target. See [Creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create&interface=ui) and [Mount targets for file shares](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-share-mount-targets).
+
+It's also possible to create a VNI in the context of provisioning each of these targets. In other words, you don't need to create a VNI ahead of time. Later, you can delete the instance and preserve the VNI by ensuring that `--auto-delete` is `false` (**Auto release** switch). Then, you can create a new instance using the same VNI.
+
+## Use case 1: High availability with virtual network interfaces
+{: #vni-ha-use-case}
+
+Virtual network interfaces reduce the time required to switch to a failover instance. In a virtual server instance that doesn't use virtual network interfaces, a failover requires routing changes that can take several minutes to propagate. In the following example, you have a primary virtual server instance configured with a network interface, and a backup virtual server instance that has its own network interface. If the primary virtual server instance fails, you must bring the backup virtual server instance online, and reconfigure your routes to use the backup instance's network interface.
+
+![Traditional method of using network interfaces](/images/vni-use-case2.svg "Traditional network interface workflow"){: caption="Figure 1. Traditional network interface workflow" caption-side="bottom"}
+
+By using a virtual network interface, you can move it from one instance to another. The independent lifecycle of the virtual network interface means that it keeps its IP address and you don't have to reconfigure your routes, reducing failover time to seconds.
+
+![Virtual network interfaces method](/images/vni-use-case1.svg "Virtual network interface workflow"){: caption="Figure 2. Virtual network interface workflow" caption-side="bottom"}
+
+## Use case 2: Secondary IP addresses with virtual network interfaces
+{: #vni-secip-use-case}
+
+A virtual server instance that runs several instances of an application can be segmented such that each instance of the application has its own IP address.
+
+For this example, a single virtual server instance is running three instances of a SQL database application. Each SQL instance needs to have its own IP address. By using secondary IP addresses on a virtual network interface, you can assign different IP addresses to each application instance.
+
+![Secondary IP addresses in a virtual network interface](/images/vni-use-case3.svg "Virtual network interface using secondary IP addresses"){: caption="Figure 2. Secondary IP addresses in a virtual network interface" caption-side="bottom"}
+
 ## Support for old API clients
 {: #vni-old-api-clients}
 
@@ -113,48 +155,6 @@ The `status` value is determined according to the following table:
 | `vlan`                      | `network_attachment.vlan`                             |
 | `allow_interface_to_float`  | `network_attachment.allow_interface_to_float`         |
 {: caption="Table 3: Bare metal server network interface properties mapping" caption-side="bottom"}
-
-## Getting started with virtual network interfaces
-{: #vni-getting-started}
-
-You can use a VNI to manage the IP addresses and security groups in a separate resource with a lifecycle that is independent of your target resource.
-
-1. Ensure that you have a VPC and subnet attached. For more information, see creating VPC resources [using the IBM Cloud console](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console) or [creating with CLI and API](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api).
-1. Review [planning considerations](/docs/vpc?topic=vpc-vni-about#vni-planning) and any [known issues and limitations](/docs/vpc?topic=vpc-vni-known-issues).
-1. Ensure that you have the correct [IAM permissions](/docs/account?topic=account-iam-service-roles-actions#is.virtual-network-interface-roles) to create a VNI.
-1. [Create a virtual network interface](/docs/vpc?topic=vpc-vni-create&interface=ui) with a private IP address, a public IP address, and security groups.
-1. Attach your VNI to a supported target resource when provisioning the target. Currently, there are three supported target types:
-
-   * Virtual server instance
-      * When provisioning an instance, attach the VNI to the primary network attachment child resource. See [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers).
-      * If you have an existing virtual server instance with a primary network attachment, you can provision an additional network attachment on the virtual server instance, attaching the VNI to the new network attachment. See [Creating network attachments](/docs/vpc?topic=vpc-using-instance-vnics&interface=ui#add-virtual-network-interface).
-   * Bare metal server
-      * When provisioning a bare metal server, attach the VNI to the primary network attachment child resource. See [Creating Bare Metal Servers on VPC](/docs/vpc?topic=vpc-creating-bare-metal-servers).
-      * If you have an existing bare metal server with a primary network attachment, you can provision an additional network attachment on the bare metal server, attaching the VNI to the new network attachment. See [Creating network attachments](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers&interface=ui#bare-metal-vni).
-   * File share mount
-      * When provisioning a new file share mount, attach the VNI to the file share mount target. See [Creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create&interface=ui) and [Mount targets for file shares](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-share-mount-targets).
-
-It's also possible to create a VNI in the context of provisioning each of these targets. In other words, you don't need to create a VNI ahead of time. Later, you can delete the instance and preserve the VNI by ensuring that `--auto-delete` is `false` (**Auto release** switch). Then, you can create a new instance using the same VNI.
-
-## Use case 1: High availability with virtual network interfaces
-{: #vni-ha-use-case}
-
-Virtual network interfaces reduce the time required to switch to a failover instance. In a virtual server instance that doesn't use virtual network interfaces, a failover requires routing changes that can take several minutes to propagate. In the following example, you have a primary virtual server instance configured with a network interface, and a backup virtual server instance that has its own network interface. If the primary virtual server instance fails, you must bring the backup virtual server instance online, and reconfigure your routes to use the backup instance's network interface.
-
-![Traditional method of using network interfaces](/images/vni-use-case2.svg "Traditional network interface workflow"){: caption="Figure 1. Traditional network interface workflow" caption-side="bottom"}
-
-By using a virtual network interface, you can move it from one instance to another. The independent lifecycle of the virtual network interface means that it keeps its IP address and you don't have to reconfigure your routes, reducing failover time to seconds.
-
-![Virtual network interfaces method](/images/vni-use-case1.svg "Virtual network interface workflow"){: caption="Figure 2. Virtual network interface workflow" caption-side="bottom"}
-
-## Use case 2: Secondary IP addresses with virtual network interfaces
-{: #vni-secip-use-case}
-
-A virtual server instance that runs several instances of an application can be segmented such that each instance of the application has its own IP address.
-
-For this example, a single virtual server instance is running three instances of a SQL database application. Each SQL instance needs to have its own IP address. By using secondary IP addresses on a virtual network interface, you can assign different IP addresses to each application instance.
-
-![Secondary IP addresses in a virtual network interface](/images/vni-use-case3.svg "Virtual network interface using secondary IP addresses"){: caption="Figure 2. Secondary IP addresses in a virtual network interface" caption-side="bottom"}
 
 ## Related links
 {: #vni-related-links}
