@@ -53,7 +53,7 @@ Balanced profiles provide a mix of performance and scalability for more common w
 Storage Optimized profiles are available in the US South (Dallas), US East (Washington DC), United Kingdom (London), EU Germany (Frankfurt), EU Spain (Madrid), Japan (Tokyo), and Japan (Osaka) regions.
 {: preview}
 
-3rd generation profiles with the bx3d prefix are available in the Dallas, London, Frankfurt, Washington DC, Toronto, and Madrid regions to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). To access profiles for 3rd generation virtual server instances that include vCPU that is greater than 64 vCPU, contact IBM Support. For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
+3rd generation profiles with the bx3d prefix are available in the Dallas, London, Frankfurt, Washington DC, Toronto, and Madrid regions to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids).  For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
 {: preview}
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
@@ -133,7 +133,7 @@ Compute profiles are best for workloads with intensive CPU demands, such as high
 Compute profiles with the cx2d prefix are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Spain (Madrid), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions.
 {: preview}
 
-3rd generation profiles with the cx3d prefix are available in the Dallas, London, Frankfurt, Washington DC, Toronto, and Madrid regions to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). To access profiles for 3rd generation virtual server instances that include vCPU that is greater than 64 vCPU, contact IBM Support. For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
+3rd generation profiles with the cx3d prefix are available in the Dallas, London, Frankfurt, Washington DC, Toronto, and Madrid regions to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
 {: preview}
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
@@ -191,7 +191,7 @@ Memory profiles are best for memory intensive workloads, such as large caching w
 Memory profiles with the mx2d prefix are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Spain (Madrid), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions.
 {: preview}
 
-3rd generation profiles with the mx3d prefix are available in the Dallas, London, Frankfurt, Washington DC, Toronto, and Madrid regions to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). To access profiles for 3rd generation virtual server instances that include vCPU that is greater than 64 vCPU, contact IBM Support. For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
+3rd generation profiles with the mx3d prefix are available in the Dallas, London, Frankfurt, Washington DC, Toronto, and Madrid regions to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
 {: preview}
 
 
@@ -545,9 +545,6 @@ The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_i
 - Instances are started by default with Open Virtual Machine Format (OVMF), and run in Unified Extensible Firmware Interface (UEFI) mode for enhanced security.
 - Local instance storage is included with all profiles for easy access to temporary storage and swap space. For more information about the temporary nature of instance storage, see [Lifecycle of instance storage](/docs/vpc?topic=vpc-instance-storage#instance-storage-lifecycle).
 - A 3rd generation profile can be resized to a 2nd generation profile. A 2nd generation profile can be resized to a 3rd generation profile. For more information, see [Resizing between Gen 2 and Gen 3 profiles](/docs/vpc?topic=vpc-resizing-an-instance&interface=ui#resizing-instance-generations).
-
-To access profiles for 3rd generation virtual server instances that include vCPU that is greater than 64 vCPU, contact IBM Support.
-{: preview}
 
 ## Confidential computing profiles
 {: #confidential-computing-profiles}
