@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-05-03"
+lastupdated: "2024-05-02"
 
 keywords:
 
@@ -29,8 +29,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## May 2024
 {: #vpc-may24}
 
-### 03 May 2024
-{: #vpc-may0324}
+### 02 May 2024
+{: #vpc-may0224}
 {: release-note}
 
 GPU l4 and l40S profiles now available in Brazil region (GA)
