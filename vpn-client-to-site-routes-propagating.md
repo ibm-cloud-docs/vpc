@@ -29,7 +29,7 @@ When you [create a routing table](/docs/vpc?topic=vpc-create-vpc-routing-table&i
 For troubleshooting purposes, you can select or deselect the **VPN server** switch to check routes that were added by the VPN server.
 {: tip}
 
-## Client VPN for VPC migration to advertise route
+## Client VPN for VPC migration to advertise routes
 {: #advertise-routes-c2s}
 
 When you want to connect from your VPN client to multiple VPCs connected through Transit Gateway, you can set a VPN server route to the destination VPC. Then, you can use the `translate` action to translate the source IP address to the VPN server's private IP, making the VPN client IP address invisible. However, this action can introduce a security concern if you want to monitor or audit all client IP addresses that get connected.
