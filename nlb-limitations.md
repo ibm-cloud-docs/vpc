@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-04-08"
+lastupdated: "2024-05-02"
 
 keywords:
 
@@ -54,22 +54,15 @@ The following lists contain known limitations for {{site.data.keyword.cloud}} {{
 The beta release of IBM Cloud Private Path services is only available to allowlisted users. Contact your IBM Support representative if you are interested in getting early access to this beta offering.
 {: beta}
 
-* Providers may not update service endpoints once the Private Path service is created. If you want to change endpoints, you must create a new Private Path service.
-* Currently, a Virtual Private Endpoint gateway associated with a Private Path Network load balancer can specify only one regional endpoint. 
 * Access to a Virtual Private Endpoint gateway associated with Private Path Network load balancer from Direct Link or Transit Gateway is not supported.
-* Private Path network load balancer Load Balancer Members and/or Private Path network load balancer consumers on Bare Metal are not supported.
-* No support for accessing Private Path network load balancer from remote regions. The consumer Virtual Private Endpoint gateway and the Private Path network load balancer instance must reside in same region. 
-* Offloading client and server side Private Path network load balancer packet processing to NIC is not supported.
-* UDP is not supported in datapath.
-* Autoscaler integration is not supported.
-* Datapath Metadata service is not currently supported. This service will enable Private Path network load balancer members to access information about incoming connections like client VPC, client Virtual Server Instance IP, client Virtual Private Endpoint gateway IP, and more. 
-* QoS, Noisy neighbor or DDOS protection is not supported.
-* Live migration support on consumer (Virtual Private Endpoint gateway) side is not supported (Virtual Private Endpoint gateway does not support live migration today).
+* Private Path network load balancer Pool Members on Bare Metal are not supported.
+* Private Path network load balancer Pool Members must be running in a VPC Virtual Server Instance. On-prem members are not supported.
+* Access to Private Path network load balancer from remote regions is not supported. The consumer Virtual Private Endpoint gateway and the Private Path network load balancer instance must reside in same region. 
 * Access to Private Path network load balancers from CSE (classic) is not supported.
 * Access to a Virtual Private Endpoint gateway associated with Private Path network load balancer from on-prem via direct-link or a different VPC via transit gateway is not supported.
-* Target members not running in a GEN2 VPC Virtual Server Instance(e.g. on-prem) is not supported.
-* Security Groups and Network Access Control Lists on the load balancer itself are not supported.
-* When a member target instance is deleted, a Private Path network load balancer pool member is automatically deleted.
+* Security Groups and Network Access Control List (NACL) on the load balancer itself are not supported.
+* UDP is not supported in datapath.
+* Autoscaler integration is not supported.
 
 ### Related Links
 {: #nlb-limitations-related-links}
