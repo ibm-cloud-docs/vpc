@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-05-02"
+lastupdated: "2024-05-03"
 
 keywords:
 
@@ -28,6 +28,15 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## May 2024
 {: #vpc-may24}
+
+### 03 May 2024
+{: #vpc-may0324}
+{: release-note}
+
+VPN for VPC: Configurable IKE identity and peer FQDN
+:    When you configure a VPN gateway connection, you can now specify a peer FQDN as the peer gateway address. This allows you to use a dynamic public IP on the peer gateway. The VPN gateway connection also supports configuring the IKE identity with supported types: IPv4 address, FQDN, Hostname, and Key ID. The default local IKE identity value is the public IP address of the active member of the VPN gateway while the default peer IKE identity value is the peer gateway address or FQDN.
+
+   You can control which side initiates IKE protocol negotiations and rekeying processes on the VPN gateway connection. By default, the VPN gateway initiates IKE protocol negotiations and rekeying processes while also accepting IKE protocol negotiations or rekeying from the peer gateway. You can disable the VPN gateway from initiating IKE protocol negotiations and rekeying processes, and instead accept only the peer gateway to initiate IKE protocol negotiations and rekeying processes by setting Establish mode to `Peer only`. This enhancement enables you to connect the peer gateway behind a firewall and avoid conflicts in IKE negotiations. For more information, see [Creating a VPN gateway](/docs/vpc?topic=vpc-vpn-create-gateway&interface=ui).
 
 ### 02 May 2024
 {: #vpc-may0224}
