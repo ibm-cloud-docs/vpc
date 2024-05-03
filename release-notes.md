@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-05-02"
+lastupdated: "2024-05-03"
 
 keywords:
 
@@ -28,6 +28,14 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## May 2024
 {: #vpc-may24}
+
+
+### 03 May 2024
+{: #vpc-may0324}
+{: release-note}
+
+Ubuntu 24.04 now available to provision virtual servers
+:    Support for the Ubuntu 24.04 release, codenamed "Noble Numbat", is now available. You can use the *ibm-ubuntu-24-04-minimal-amd64-1* stock image to provision virtual server instances. After the virtual server is created, you can also use it as a starting point for a custom image by creating an image from the boot volume of the virtual server. 
 
 ### 02 May 2024
 {: #vpc-may0224}
