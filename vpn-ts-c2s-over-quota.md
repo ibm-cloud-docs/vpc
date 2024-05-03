@@ -1,0 +1,37 @@
+---
+
+copyright:
+  years: 2024
+lastupdated: "2024-05-03"
+
+keywords: virtual private network, VPN, VPN server, troubleshooting
+
+subcollection: vpc
+
+content-type: troubleshoot
+
+---
+
+{{site.data.keyword.attribute-definition-list}}
+
+# Why did the advertised route creation fail in my Client VPN for VPC?
+{: #troubleshoot-c2s-advertise-routes-over-quota}
+{: troubleshoot}
+{: support}
+
+You tried to create an advertised route in your Client VPN for VPC, and it didn't work.
+{: tsSymptoms}
+
+A VPC can have at most 15 advertised routes by default. If the number of advertised routes is already at 15, the VPN server fails while creating an advertised route.
+{: tsCauses}
+
+You can resolve the failure with the following steps.
+{: tsResolve}
+
+1. Decrease the number of advertised routes in the VPC.
+
+    * Switch **Advertise to** to **Off** in the routing table
+    * In the **Accepts routes from** option of the routing table, switch **VPN gateway** to **Off**
+
+1. [Open an IBM support case](/unifiedsupport/cases/form) to increase the quota {: external}.
+1. Continue to use the `translate` action in the VPN server route.
