@@ -1,9 +1,9 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-04-16"
+lastupdated: "2024-05-02"
 
-keywords:
+keywords: secure boot, secure boot for virtual servers
 
 subcollection: vpc
 
@@ -35,7 +35,7 @@ Keep the following information in mind when you use secure boot.
 All major OS distributions provide signed boot loaders, signed kernels and signed kernel modules which are required for secure boot to succeed when the above two requirements are fulfilled.
 {: note}
 
-When you use a custom kernel or custom kernel modules, you must sign it with your own certificate and make that certificate known to the firmware or Machine Owner Key (MOK). You ca use the mokutil utility to help manage Linux keys, but changes to the MOK keys must be confirmed directly from the console at boot time. Therefore, only a user that is present at the console can confirm user generated keys used for signing custom kernel and custom kernel modules.
+When you use a custom kernel or custom kernel modules, you must sign it with your own certificate and make that certificate known to the firmware or Machine Owner Key (MOK). You can use the mokutil utility to help manage Linux keys, but changes to the MOK keys must be confirmed directly from the console at boot time. Therefore, only a user that is present at the console can confirm user generated keys used for signing custom kernel and custom kernel modules.
 
 ## Limitations
 {: #confidential-computing-secure-boot-limitations-vpc}
@@ -46,9 +46,4 @@ Secure boot does not provide protection in the following circumstances.
 * Physical hardware attacks
 * Malicious system administrators
 
-A secure boot-enabled virtual server instance fails to boot if any software component that is in the boot path is not signed or if signed certificates are not loaded. Even if the deployment is successful, if it isn't signed, the instance can't boot. Or, you can't log in or receive a ping from the instance. Keep in mind that you aren't notified about boot failure. You need to use the console logs to verify boot success and to help identify the cause of any boot failures.
-
-<!--## Enabling secure boot
-{: #confidential-computing-enable-secure-boot-vpc}
-
-To enable secure boot-->
+A secure boot-enabled virtual server instance fails to boot if any software component that is in the boot path is not signed or if signed certificates are not loaded. Even if the deployment is successful, if it isn't signed, the instance can't boot. Or, you can't log in or receive a ping from the instance. Keep in mind that you aren't notified about boot failure. You need to use the console logs to verify boot success and to help identify the cause of any boot failures. 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-04-02"
+lastupdated: "2024-05-02"
 
 keywords: sgx, intel sgx, software guard extension, confidential computing, trusted execution environment, TEE, data protection
 
@@ -43,6 +43,10 @@ So, all Intel SGXs are TEEs, but not all TEEs are Intel SGXs.
 
 When you develop a confidential computing application, you must design it so you can segment the information that needs encryption. At run time, the segmented information is kept confidential through attestation. When a request for information from the segmented code or app data is received, the encrypted enclave verifies that the request comes from the part of the application that exists outside of the enclave within the same application before it shares any information. Through the attestation process, information is kept confidential and data leakage is prevented. For more information about attestation with Intel SGX, see [Attestation with Intel SGX and Data Center Attestation Primitives (DCAP)](/docs/vpc?topic=vpc-about-attestation-sgx-dcap-vpc).
 
+<!--Attestation in SGX is the process of demonstrating that an operation is instantiated. SGX attestation confirms that the intended software or code is running within an encrypted enclave. In other words, attestation provides evidence that you are running in an SGX platform that is inside a properly instantiated encrypted enclave, on a system that has a known security configuration.
+
+Attestation is signed and verified when you provision a server with ECDSA signed collateral that is then saved in the caching service. While SGX helps uphold the integrity and confidentiality of your data (thanks to the encrypted enclaves), SGX doesn't protect against all attack types - such as side-channel attacks.-->
+
 ### Confidential computing with SGX use cases
 {: #scenarios-sgx-vpc}
 
@@ -76,17 +80,13 @@ Keep the following limitations in mind if you want to use SGX.
 
 * Available on only third-generation Sapphire Rapids-based virtual servers.
 * SGX doesn't protect against side-channel attacks.
-* Hot plugging of components isn't supported. If you want to add more storage or network attachments, you need to restart your server after the hot-plug operation.
-* Virtual servers can't be resized to disable SGX or secure boot. You need to create a new virtual server to disable SGX or secure boot. However, you can resize a server to enable SGX or secure boot.
-* You can't resize an SGX-enabled virtual server from a profile less than bx3d-64x320 to a higher RAM or CPU profile.
-* Virtual servers that are provisioned with profiles that don't support secure boot can't be resized to a profile that supports secure boot.
 * Only the following images support SGX. Keep in mind that images with kernel versions 5.11 and prior don't support SGX.
    - Red Hat 8.6, 8.8, 9.0, 9.2
    - Ubuntu 20.04, 22.04
    - CentOS Stream 8, 9
    - Rocky Linux 8.8, 9.2
-   - Debian 11, 12
    - SLES 15 SP4, SP5
+ * The cx3dc-176x440 profile is not supported.
 
 If you resize a virtual server that is secure boot-enabled to a profile that is secure boot-disabled (and vice-versa), the topology of PCIe devices change. Depending on the operating system, this topology change can rename devices. The I/O performance can also change.
 {: note}
