@@ -25,7 +25,7 @@ You can perform the following actions by using the UI, CLI, and API.
 
 | Action | Description |
 |--------|-------------|
-| Stop| Stop the server using a soft stop or a hard stop.  \n - Soft stop can take a few seconds to several minutes to stop shut down the server, depending on the state of the operating system. If the operating system is not responding and the soft stop can not complete, a hard stop is required.  \n - Hard stop shuts down the bare metal server immediately. This prevents the operating system from shutting down gracefully. |
+| Stop| Stop the server using a soft stop or a hard stop.  \n - Soft stop can take a few seconds to several minutes to shut down the server, depending on the state of the operating system. If the operating system is not responding and the soft stop can not complete, a hard stop is required.  \n - Hard stop shuts down the bare metal server immediately. This prevents the operating system from shutting down gracefully. |
 | Start | Start a stopped server. This action is not available if the status is Running. |
 | Update firmware | If the server is stopped and a firmware update is available, this option is visible. \n \n If you select to update the firmware, a prompt is displayed giving you additional details about the firmware update. There is an option to start the server when the update completes. This option is selected by default. \n \n You can select to either proceed with the firmware update or to cancel. **Important** It is recommended to back up your server before any firmware update. |
 | Reboot | Immediately powers off a running server and then powers it back on. |
