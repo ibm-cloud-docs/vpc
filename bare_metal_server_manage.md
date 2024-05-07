@@ -46,7 +46,7 @@ To manage your servers, complete the following steps.
 ### Viewing your bare metal servers by using the UI
 {: #viewing-bare-metal-server-ui}
 
-You can view the summary of all bare metal server on the bare metal server page, or you can click an individual server name to view details and make changes. From the details page, you can also view the associated network interface, access its subnet, change the network bandwidth on Sapphire Rapids servers, and reserve or delete a floating IP address.
+You can view the summary of all bare metal server on the bare metal server page, or you can click an individual server name to view details and make changes. From the details page, you can also view the associated network interface, access its subnet, change the network bandwidth on Sapphire Rapids (x3 and x3d) servers, and reserve or delete a floating IP address.
 
 Adjustable network bandwidth for Sapphire Rapids bare metal servers is a beta feature that is available for evaluation and testing purposes.
 {: beta}
