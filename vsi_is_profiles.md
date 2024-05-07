@@ -2,7 +2,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-05-02"
+lastupdated: "2024-05-07"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, very high memory, gpu, sap, olap, oltp, nvidia, cascade lake
 
@@ -373,9 +373,6 @@ The Intel&reg; Xeon&reg; Platinum 8260 Cascade Lake is only available in the US 
 {: preview}
 
 The GPU `-a100` profile includes the following performance enhancements. These enhancements enable GPUDirect RDMA with higher throughput, lower latency, lower CPU utilization for Machine Learning (ML) and Artificial Intelligence (AI), and High-Performance Compute (HPC) applications.
-
-- RoCE (RDMA over converged Ethernet) V2
-- SR-IOV
 
 In addition, the `-a100` profiles have the following restrictions.
 
