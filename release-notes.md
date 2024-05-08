@@ -33,7 +33,7 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-may1624}
 {: release-note}
 
-Update firmware on Bare Metal Servers for VPC
+Update firmware on Bare Metal Servers for VPC (beta)
 :   With the new Update firmware action on Bare Metal Servers for VPC, you can see if a firmware update is available for your bare metal server and also initiate the update. You can use the UI, CLI, and API to update the firmware. In the UI, this action is only visible if the server is stopped and there is a firmware update available. It is recommended to back up your bare metal server before any firmware update. For more information, see [Managing Bare Metal Servers for VPC](/docs/vpc?topic=vpc-managing-bare-metal-servers&interface=ui).
 
 ## April 2024
