@@ -28,7 +28,7 @@ Allowing specific local IP addresses or address ranges with a security group rul
 
 You can apply an inbound security group rule that allows only specific local destination IP addresses. You can also apply an outbound security group rule that allows only specific local source IP addresses.
 
-You can apply security group rules (inbound and outbound) by using the UI, CLI, and API.
+You can apply security group rules (inbound and outbound) by using the UI, CLI, API, and Terraform.
 
 **Tips:**
 * All rules are evaluated, regardless of the order in which they're added.

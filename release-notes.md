@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-04-18"
+lastupdated: "2024-05-03"
 
 keywords:
 
@@ -26,6 +26,33 @@ For more information about changes to the {{site.data.keyword.vpc_short}} API, s
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
 
+## May 2024
+{: #vpc-may24}
+
+### 03 May 2024
+{: #vpc-may0324}
+{: release-note}
+
+Advertise routes to transit gateway and direct link for ingress routing integration
+:   VPN for VPC now allows route advertisement so that on-prem CIDR blocks can be advertised to other VPCs without creating address prefixes. For more information, see [Configuring route propagation for VPN gateways](/docs/vpc?topic=vpc-advertise-routes-s2s). For more information about migrating to advertised routes, see [VPN for VPC migration to advertise routes](/docs/vpc?topic=vpc-advertise-routes-s2s#migrate-to-advertise-routes-s2s).
+
+   Client VPN for VPC now allows route advertisement so that on-prem CIDR blocks can be advertised to other VPCs by creating a `deliver` action instead of a `translate` action. For more information, see [Configuring route propagation for VPN servers](/docs/vpc?topic=vpc-vpn-client-to-site-route-propagation). For more information about migrating to advertised routes, see [Client VPN for VPC migration to advertise routes](/docs/vpc?topic=vpc-vpn-client-to-site-route-propagation#advertise-routes-c2s).
+   
+VPN for VPC: Configurable IKE identity and peer FQDN
+:    When you configure a VPN gateway connection, you can now specify a peer FQDN as the peer gateway address. This allows you to use a dynamic public IP on the peer gateway. The VPN gateway connection also supports configuring the IKE identity with supported types: IPv4 address, FQDN, Hostname, and Key ID. The default local IKE identity value is the public IP address of the active member of the VPN gateway while the default peer IKE identity value is the peer gateway address or FQDN.
+
+   You can control which side initiates IKE protocol negotiations and rekeying processes on the VPN gateway connection. By default, the VPN gateway initiates IKE protocol negotiations and rekeying processes while also accepting IKE protocol negotiations or rekeying from the peer gateway. You can disable the VPN gateway from initiating IKE protocol negotiations and rekeying processes, and instead accept only the peer gateway to initiate IKE protocol negotiations and rekeying processes by setting Establish mode to `Peer only`. This enhancement enables you to connect the peer gateway behind a firewall and avoid conflicts in IKE negotiations. For more information, see [Creating a VPN gateway](/docs/vpc?topic=vpc-vpn-create-gateway&interface=ui).
+
+Ubuntu 24.04 now available to provision virtual servers
+:    Support for the Ubuntu 24.04 release, codenamed "Noble Numbat", is now available. You can use the *ibm-ubuntu-24-04-minimal-amd64-1* stock image to provision virtual server instances. After the virtual server is created, you can also use it as a starting point for a custom image by creating an image from the boot volume of the virtual server. 
+
+### 02 May 2024
+{: #vpc-may0224}
+{: release-note}
+
+GPU l4 and l40S profiles now available in Brazil region (GA)
+:   The `l4` and `l40S` GPU profiles are now available in the Brazil (São Paulo) region. With this additional region, these profiles are now available in all regions. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+
 ## April 2024
 {: #vpc-apr24}
 
@@ -38,7 +65,6 @@ Third-party image billing and metering (beta)
 
    * Free trial
    * Usage-based billing
-   * Subscription-based (monthly or yearly) billing
    * BYOL
 
 ### 09 April 2024
@@ -73,7 +99,7 @@ Next generation instance profiles available in Toronto region (select availabili
 {: release-note}
 
 Sharing DNS resolution for endpoint gateways across VPCs
-:   When multiple VPCs are connected together using Transit Gateway, Direct Link, or other connectivity options, a VPC in the connected topology can now be enabled as a DNS hub to centralize the DNS resolution for Virtual Private Endpoint (VPE) gateways. For more information, see [About DNS sharing for VPE gateways](/docs/vpc?topic=vpc-hub-spoke-model).
+:   When multiple VPCs are connected together using Transit Gateway, Direct Link, or other connectivity options, a VPC in the connected topology can now be enabled as a DNS hub to centralize the DNS resolution for Virtual Private Endpoint (VPE) gateways. For more information, see [About DNS sharing for VPE gateways](/docs/vpc?topic=vpc-vpe-dns-sharing).
 
 ### 28 March 2024
 {: #vpc-mar2824}

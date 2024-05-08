@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-14"
+lastupdated: "2024-04-30"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
 
@@ -95,7 +95,7 @@ You can attach up to 50 virtual server instances to a back-end pool. Traffic is 
 
 Figure 1 shows the VPC representation of a typical network load balancer setup. The NLB is provisioned on a VPC subnet. To configure the network data path on the NLB, a listener, a pool, and at least one member must be created. A _listener_ is the front-end port that the NLB is listening on for customer requests. These requests are forwarded to the targets in the pool that is associated with the listener. A _pool_ is a group of targets that are used to distribute the network requests coming into the NLB for a specific listener. A _member_ is a back-end server with a specified port that is configured to listen for requests.
 
-![Network load balancer work flow](images/nlb-workflow-customer-view.png "Network load balancer work flow"){: caption="Figure 1. Network load balancer work flow" caption-side="bottom"}
+![Network load balancer work flow](images/nlb-workflow-customer-view.svg "Network load balancer work flow"){: caption="Figure 1. Network load balancer work flow" caption-side="bottom"}
 
 ## Layer 4 load balancing
 {: #nlb-layer4}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-04-18"
+lastupdated: "2024-04-29"
 
 keywords:
 
@@ -38,7 +38,6 @@ Catalog images are billed in one of the following ways:
 
 * Free trial
 * Usage-based
-* Subscription-based (monthly or yearly)
 * BYOL
 
 Images that are shared through a private catalog are still offered without billing.

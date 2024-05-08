@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-03-25"
+lastupdated: "2024-05-02"
 
 subcollection: vpc
 
@@ -15,13 +15,6 @@ subcollection: vpc
 
 You can provision a reservation through the UI, CLI, or API.
 {: shortdesc}
-
-Reservations are available in only the Sydney region with the following virtual server profiles:
-
-* bx2-2x8
-* bx2d-2x8
-* bx2-4x16
-* bx2d-4x16.
 
 ## Before you begin
 {: #before-you-begin-provisioning-reserved-vpc}
@@ -50,7 +43,7 @@ In the {{site.data.keyword.cloud_notm}}, complete the following steps to provisi
    | Reservation type        | Only available with Virtual Servers for VPC. |
    | Server quantity         | Enter the number of instances that you want to assign to this reservation (limit of 200 vCPUs). |
    | Term length             | Choose either a 1 or 3-year term length. |
-   | Server profile          | Select a profile for your reservation. Keep the following rules in mind when you reserve capacity.  \n You can't change profiles after your reservation is created.  \n You can't combine different profile sizes.  \n Your reserved virtual servers must all have the same size (all resources must be identical). |
+   | Server profile          | Select a [profile](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc#reserved-virtual-servers-vpc-supported-profiles) for your reservation. Keep the following rules in mind when you reserve capacity.  \n You can't change profiles after your reservation is created.  \n You can't combine different profile sizes.  \n Your reserved virtual servers must all have the same size (all resources must be identical). |
    | Advanced options | Toggle **Auto renew** to **On** if you want to continue your reservation after your selected term length completes.|
    {: caption="Table 1. Reservation UI provisioning selections" caption-side="top"}
 
@@ -207,3 +200,54 @@ curl -X POST "$vpc_api_endpoint/v1/reservations?version=2024-01-27&generation=2"
 {: #next-step-provisioning-reserved}
 
 After your reservation is provisioned and active, you can Attach an existing virtual server to your reservation. Or, you can Create virtual servers in your reservation by using the IBM Cloud console, the CLI, or the API. For more information about creating a virtual server, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers).
+
+## Creating a reservation with Terraform
+{: #create-reservation-terraform-vpc}
+{: terraform}
+
+You can create a reservation by using Terraform.
+
+### Before you begin
+{: #byb-create-reservation-terraform}
+{: terraform}
+
+Make sure that you set up [Terraform for VPC](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest){: external}
+
+### Creating a reservation by using Terraform
+{: #creating-reservation-by-using-terraform}
+
+Create a reservation by using one of the following examples. For more information, see the Terraform documentation on [ibm_is_reservation](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_reservation).
+
+Run the following Terraform commands to create a reservation.
+
+Reservations are regional-specific that are based on the endpoint. By default, the target region is _us-south_. If your VPC is in another region other than _us-south_, make sure that you target the correct region in the provider `provider.tf`.
+{: note}
+
+   * Set the target region.
+
+   ```terraform
+   provider "ibm" {
+     region = "us-south"
+   }
+   ```
+   {: codeblock}
+
+   * Create a reservation.
+
+   ```terraform
+   resource "ibm_is_reservation" "example" {
+  capacity {
+    total = 5
+  }
+  committed_use {
+    term = "one_year"
+  }
+  profile {
+    name          = "ba2-2x8"
+    resource_type = "instance_profile"
+  }
+  zone = "us-east-3"
+  name = "reservation-terraform-1"
+}
+   ```
+{: codeblock}

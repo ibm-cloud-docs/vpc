@@ -144,6 +144,7 @@ toc:
         - topicgroup:
             label: Updating to the latest API code
             topics:
+            - vpn_advanced_configuration_api_migration.md
             - backup_service_API_migration_instance_backups.md
             - vpn-api-migration.md
             - file_storage_API_replication_fallback_policy.md
@@ -431,7 +432,7 @@ toc:
                 - vpn-add-connection.md
                 - vpn-create-ike-policy.md
                 - vpn-create-ipsec-policy.md
-                - vpn-site-to-site-routes.md
+                - vpn-site-to-site-routes-propagating.md
                 - vpn-onprem.md
                 - vpn-onprem-aws.md
                 - vpn-onprem-check-point.md
@@ -447,7 +448,6 @@ toc:
                 - vpn-configure-acls-security-groups.md
                 - vpn-gateway-status.md
                 - vpn-health.md
-                - vpn-site-to-site-routes-propagating.md
                 - vpn-view-logs.md
                 - vpn-monitoring-metrics.md
                 - vpn-limitations.md
@@ -462,9 +462,9 @@ toc:
                 - vpn-client-to-site-access-groups.md
                 - vpn-client-to-site-auth.md
                 - vpn-client-to-site-configure-security-groups.md
-                - vpn-client-to-site-routes-propagating.md
                 - vpn-create-server.md
                 - vpn-client-to-site-routes.md
+                - vpn-client-to-site-routes-propagating.md
                 - vpn-client-to-site-setup.md
                 - vpn-client-to-site-connections.md
                 - vpn-client-to-site-change-server-types.md
@@ -853,6 +853,8 @@ toc:
                 - vpn-ts-unstable-connection.md
                 - vpn-ts-routing-issues.md
                 - vpn-ts-vpn-gateway-fix-bad-service-routes.md
+                - vpn-ts-advertise-route-not-work.md
+                - vpn-ts-s2s-over-quota.md
             - topicgroup:
                 label: Troubleshooting client-to-site VPN servers
                 topics:
@@ -865,8 +867,11 @@ toc:
                 - vpn-ts-dns-configuration-not-working.md
                 - vpn-ts-vpn-client-hangs.md
                 - vpn-ts-vpn-server-fix-bad-service-routes.md
+                - vpn-client-to-site-ts-advertise-route-not-work.md
+                - vpn-ts-c2s-over-quota.md
             - resource-suspension.md
             - instance-status-messages.md
+            - instance-lifecycle-status-messages.md
             - quota-dashboard-troubleshooting.md
             - ts-asymmetric-routing.md
         - limitations.md
