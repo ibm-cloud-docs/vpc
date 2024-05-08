@@ -102,6 +102,7 @@ The following links take you directly to the specific infrastructure service on 
 
 - [Block Storage for VPC](/docs/account?topic=account-iam-service-roles-actions#is.volume-roles)
 - [Block Storage Snapshots for VPC](/docs/account?topic=account-iam-service-roles-actions#is.snapshot-roles)
+- [Block Storage Multi Volume Snapshots for VPC](/docs/account?topic=account-iam-service-roles-actions#is.snapshot-consistency-group-roles)
 - [Backup as a Service for VPC](/docs/account?topic=account-iam-service-roles-actions#is.backup-policy-roles)
 - [File Storage for VPC](/docs/account?topic=account-iam-service-roles-actions#is.share-roles)
 

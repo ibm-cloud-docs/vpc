@@ -2,7 +2,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-04-11"
+lastupdated: "2024-05-07"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, very high memory, gpu, sap, olap, oltp, nvidia, cascade lake
 
@@ -36,6 +36,7 @@ The following profile families are available:
 | [Ultra High Memory](#uhmemory) | Ultra High Memory profiles offer the most memory per core with 1 vCPU to 28 GiB of RAM. These profiles are optimized to run large in-memory databases and OLTP workloads, such as SAP S/4 HANA.|
 | [GPU](#gpu) | GPU enabled profiles provide on-demand access to NVIDIA V100 and A100 GPUs to accelerate AI, high-performance computing, data science, and graphics workloads.|
 | [Storage Optimized](#storageopt) | Storage Optimized profiles offer temporary SSD instance storagedisks at a ratio of 1 vCPU to 300 GB instance storage with a lower price point per GB. These profiles are designed for storage-dense workloads and offer `virtio` interface type for attached disks. |
+| [Confidential Compute](#confidential-computing-profiles) | Confidential Compute-supported profiles use processor reserved memory called EPC (Enclave Page Cache) to encrypt application data. Processor reserved memory EPC maintains confidentiality and integrity. |
 {: caption="Table 2. Virtual server family selections" caption-side="bottom"}
 
 2nd generation profiles with instance storage and 2nd generation profiles with 64 or more vCPUs are deployed exclusively on the Intel&reg;'s second-generation quad processor Xeon&reg; Platinum 8260 Cascade Lake with 96 cores that are running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz or Intel&reg;'s quad processor Xeon&reg; Gold 6248 Cascade Lake with 80 cores that are running at a base speed of 2.5 GHz and an all-core turbo frequency of 3.1 GHz.
@@ -52,7 +53,7 @@ Balanced profiles provide a mix of performance and scalability for more common w
 Storage Optimized profiles are available in the US South (Dallas), US East (Washington DC), United Kingdom (London), EU Germany (Frankfurt), EU Spain (Madrid), Japan (Tokyo), and Japan (Osaka) regions.
 {: preview}
 
-3rd generation profiles with the bx3d prefix are available in the Dallas, London, Frankfurt, Washington DC, Toronto, and Madrid regions to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). To access profiles for 3rd generation virtual server instances that include vCPU that is greater than 64 vCPU, contact IBM Support. For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
+3rd generation profiles with the bx3d prefix are available in the Dallas, London, Frankfurt, Washington DC, Toronto, and Madrid regions to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids).  For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
 {: preview}
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
@@ -132,7 +133,7 @@ Compute profiles are best for workloads with intensive CPU demands, such as high
 Compute profiles with the cx2d prefix are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Spain (Madrid), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions.
 {: preview}
 
-3rd generation profiles with the cx3d prefix are available in the Dallas, London, Frankfurt, Washington DC, Toronto, and Madrid regions to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). To access profiles for 3rd generation virtual server instances that include vCPU that is greater than 64 vCPU, contact IBM Support. For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
+3rd generation profiles with the cx3d prefix are available in the Dallas, London, Frankfurt, Washington DC, Toronto, and Madrid regions to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
 {: preview}
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
@@ -190,7 +191,7 @@ Memory profiles are best for memory intensive workloads, such as large caching w
 Memory profiles with the mx2d prefix are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Spain (Madrid), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions.
 {: preview}
 
-3rd generation profiles with the mx3d prefix are available in the Dallas, London, Frankfurt, Washington DC, Toronto, and Madrid regions to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). To access profiles for 3rd generation virtual server instances that include vCPU that is greater than 64 vCPU, contact IBM Support. For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
+3rd generation profiles with the mx3d prefix are available in the Dallas, London, Frankfurt, Washington DC, Toronto, and Madrid regions to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
 {: preview}
 
 
@@ -301,13 +302,8 @@ The GPU profile family includes both `-v100`, `-a100`, `l4`, and `l40S` profiles
 
 See [Download drivers](https://www.nvidia.com/Download/index.aspx?lang=en-us) to review the most current versions that are supported. NVIDIA GPU drivers must be installed separately.
 
-### Select availability for the a100, l4, and l40S GPU profiles
-{: #gpu-select-availabilty}
-[Select availability]{: tag-green}
-
-- The `gx2-80x1280x8a100` GPU profile is available for select customers. Contact IBM Sales or open a [support case](https://cloud.ibm.com/unifiedsupport/supportcenter) if you are interested in this offering.
-- The `l4` GPU profiles are only available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Spain (Madrid),  Australia (Sydney), and Japan (Tokyo) regions.
-- The `l40S` GPU profiles are only available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Spain (Madrid), Australia (Sydney), and Japan (Tokyo) regions.
+The `gx2-80x1280x8a100` GPU profile is available for select customers. Contact IBM Sales or open a [support case](https://cloud.ibm.com/unifiedsupport/supportcenter) if you are interested in this offering.
+{: preview}
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Number of GPUs | Instance storage (GB) |
 |---------|---------|---------|---------|---------|---------|---------|
@@ -377,9 +373,6 @@ The Intel&reg; Xeon&reg; Platinum 8260 Cascade Lake is only available in the US 
 {: preview}
 
 The GPU `-a100` profile includes the following performance enhancements. These enhancements enable GPUDirect RDMA with higher throughput, lower latency, lower CPU utilization for Machine Learning (ML) and Artificial Intelligence (AI), and High-Performance Compute (HPC) applications.
-
-- RoCE (RDMA over converged Ethernet) V2
-- SR-IOV
 
 In addition, the `-a100` profiles have the following restrictions.
 
@@ -545,8 +538,52 @@ The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_i
 - Local instance storage is included with all profiles for easy access to temporary storage and swap space. For more information about the temporary nature of instance storage, see [Lifecycle of instance storage](/docs/vpc?topic=vpc-instance-storage#instance-storage-lifecycle).
 - A 3rd generation profile can be resized to a 2nd generation profile. A 2nd generation profile can be resized to a 3rd generation profile. For more information, see [Resizing between Gen 2 and Gen 3 profiles](/docs/vpc?topic=vpc-resizing-an-instance&interface=ui#resizing-instance-generations).
 
-To access profiles for 3rd generation virtual server instances that include vCPU that is greater than 64 vCPU, contact IBM Support.
-{: preview}
+## Confidential computing profiles
+{: #confidential-computing-profiles}
+
+[Select availability]{: tag-green}
+
+The following profiles support secure boot, SGX and TDX.
+
+For more information about confidential computing, see [Confidential computing with Intel Software Guard Extensions (SGX) for Virtual Servers for VPC](/docs/vpc?topic=vpc-about-sgx-vpc).
+
+| Instance profile | vCPU | GiB RAM | EPC (SGX) capacity (GiB)  |
+| ---------------- | ---- | ------- | ------------------------- |
+| bx3dc-2x10 | 2 | 10 | 4 |
+| bx3dc-4x20 | 4 | 20 | 8 |
+| bx3dc-8x40 | 8 | 40 | 16 |
+| bx3dc-16x80 | 16 | 80 | 32 |
+| bx3dc-24x120 | 24 | 120 | 48 |
+| bx3dc-32x160 | 32 | 160 | 64 |
+| bx3dc-48x240 | 48 | 240 | 96 |
+| bx3dc-64x320 | 24 | 320 | 128 |
+| bx3dc-96x480 | 32 | 480 | 192 |
+{: caption="Table 9. Balanced profile options for confidential computing compatible virtual server instances" caption-side="bottom"}
+{: #balanced-cc-x86-64}
+{: tab-title="bx3"}
+{: tab-group="Confidential compute"}
+{: class="simple-tab-table"}
+{: summary="Balanced bx3 profiles for confidential compute compatible virtual server instances."}
+
+| Instance profile | vCPU | GiB RAM | EPC (SGX) capacity (GiB)  |
+| ---------------- | ---- | ------- | ------------------------- |
+| cx3dc-2x5 | 2 | 5 | 2 |
+| cx3dc-4x10 | 4 | 10 | 4 |
+| cx3dc-8x20 | 8 | 20 | 8 |
+| cx3dc-16x40 | 16 | 40 | 16 |
+| cx3dc-24x60 | 24 | 60 | 24 |
+| cx3dc-32x80 | 32 | 80 | 32 |
+| cx3dc-48x120 | 48 | 120 | 48 |
+| cx3dc-64x160 | 64 | 160 | 64 |
+| cx3dc-96x240 | 96 | 240 | 96 |
+| cx3dc-128x320 | 128 | 320| 128 |
+| cx3dc-176x440 | 176 | 440 | 176 |
+{: caption="Table 9. Compute profile options for confidential computing compatible virtual server instances" caption-side="bottom"}
+{: #compute-cc-x86-64}
+{: tab-title="cx3"}
+{: tab-group="Confidential compute"}
+{: class="simple-tab-table"}
+{: summary="Compute cx3 profile options for confidential compute compatible virtual server instances."}
 
 ## Intel Hyper-Threading Technology
 {: #vpc-intel-hyper-threading}

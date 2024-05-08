@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-02-01"
+lastupdated: "2024-04-30"
 
 keywords:
 
@@ -12,11 +12,14 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# VPN gateway limitations
+# VPN gateway limitations and known issues
 {: #vpn-limitations}
 
-Lists known limitations for IBM Cloud VPN for VPC.
+Lists known limitations and issues for IBM Cloud VPN for VPC.
 {: shortdesc}
+
+## Limitations
+{: #limitations-vpn-gateway}
 
 * A VPN gateway for VPC accepts VPN packets with [UDP Encapsulation of IPsec ESP Packets](https://datatracker.ietf.org/doc/html/rfc3948){: external} only. The [Encapsulating Security Payload (ESP)](https://datatracker.ietf.org/doc/html/rfc4303){: external} is not accepted. Make sure that the NAT-T feature is enabled on your on-premises VPN device. Also, make sure that UDP ports 500 and 4500 are allowed for both IBM VPC NACL and peer networks.
 * When multiple networks, subnets, or both are associated with either an {{site.data.keyword.cloud_notm}} VPN gateway or an on-premises device, avoid mixing policy-based and route-based VPNs. Policy-based VPNs create a tunnel for each target network range. However, route-based VPNs route everything to a peer device through a single tunnel. Therefore, when multiple network ranges are configured, only a single tunnel that is associated with a single-network range can be established. Combining contiguous subnets into a single superset CIDR is a valid workaround to this limitation.
@@ -35,3 +38,8 @@ Lists known limitations for IBM Cloud VPN for VPC.
 
    Creating a route in an ingress routing table with a next hop being a VPN gateway connection is not supported.
    {: note}
+
+## Known issue
+{: #known-issues-vpn-gateway}
+
+* Updating the `peer.address` or `peer.fqdn` of a VPN gateway connection - If the `local.ike_identities` and `peer.ike_identity` properties are not set explicitly when you created the VPN gateway connection, when you [update a VPN gateway connection](/apidocs/vpc/latest#update-vpn-gateway-connection) and specify either `peer.address` or `peer.fqdn` the property value will be changed to match the updated value, instead of being left unchanged. Conversely, if the `local.ike_identities` and `peer.ike_identity` properties are set explicitly when you created the VPN gateway connection, the values cannot be changed without deleting the VPN gateway connection.
