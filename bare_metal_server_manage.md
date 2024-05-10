@@ -21,6 +21,9 @@ subcollection: vpc
 You can manage your {{site.data.keyword.cloud}} Bare Metal Servers for VPC by performing tasks such as start, stop, update firmware, restart, and delete bare metal server.
 {: shortdesc}
 
+Updating the firmware for a bare metal server is a beta feature that is available for evaluation and testing purposes.
+{: beta}
+
 You can perform the following actions by using the UI, CLI, and API.
 
 | Action | Description |
