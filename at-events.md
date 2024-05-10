@@ -34,11 +34,11 @@ The following tables list the actions that are related to network resources and 
 | network-acl  | is.network-acl.network-acl.create   | Network ACL was created  |
 | network-acl  | is.network-acl.network-acl.update   | Network ACL was updated  |
 | network-acl  | is.network-acl.network-acl.delete   | Network ACL was deleted  |
-| network-acl  | is.network-acl.network-acl.read | One or more network ACLs were retrieved |
-| network-acl  | is.network-acl.rule.create  | Rule was added to the Network ACL  |
-| network-acl  | is.network-acl.rule.update  | Network ACL rule was updated   |
+| network-acl  | is.network-acl.network-acl.read | One or more network ACL was retrieved |
+| network-acl  | is.network-acl.rule.create  | Rule was added to Network ACL  |
+| network-acl  | is.network-acl.rule.update  | Network ACL Rule was updated   |
 | network-acl  | is.network-acl.rule.delete  | Rule was removed from Network ACL  |
-| network-acl  | is.network-acl.rule.read | One or more network ACL rules were retrieved |
+| network-acl  | is.network-acl.rule.read | One or more network ACL rules was retrieved |
 {: caption="Table 1. Actions that generate events for Network ACL" caption-side="bottom"}
 
 ### Custom route events
@@ -56,7 +56,7 @@ The following table lists the actions that are related to VPC routing tables and
 | route | is.vpc.routing-table_route.update | Routing table route was updated |
 | route | is.vpc.routing-table_route.delete | Routing table route was deleted |
 | route | is.vpc.routing-table_route.read | Routing table route was retrieved (get and list) |
-| subnet | is.subnet.routing-table.read | Subnets that are attached to a routing table were retrieved |
+| subnet | is.subnet.routing-table.read | Subnets attached to a routing table were retrieved |
 | subnet | is.subnet.routing-table.attach | Routing table was attached to a subnet |
 {: caption="Table 2. Actions that generate events for VPC routing tables and routes" caption-side="bottom"}
 
@@ -99,7 +99,7 @@ Existing events include a new attribute:
 | floating-ip  | is.floating-ip.floating-ip.create   | Floating IP was created  |
 | floating-ip  | is.floating-ip.floating-ip.update   | Floating IP was updated  |
 | floating-ip  | is.floating-ip.floating-ip.delete   | Floating IP was deleted  |
-| floating-ip  | is.floating-ip.floating-ip.read | One or more floating IPs were retrieved |
+| floating-ip  | is.floating-ip.floating-ip.read | One or more floating IP was retrieved |
 {: caption="Table 4. Actions that generate events for Floating IP" caption-side="bottom"}
 
 ### Flow log events
@@ -151,12 +151,12 @@ The following table lists the actions that are related to load balancers and the
 ### Private Path service events
 {: #events-private-path-service-events}
 
-The beta release of IBM Cloud Private Path service is available only to allowlisted users. Contact your IBM Support representative if you want early access to this beta offering.
+The beta release of IBM Cloud Private Path services is only available to allowlisted users. Contact your IBM Support representative if you are interested in getting early access to this beta offering.
 {: beta}
 
 | Resource  | Action  | Description  |
 |:----------------|:-----------------------|:-----------------------|
-| private-path-service-gateway | is.private-path-service-gateway.private-path-service-gateway.read | One or more Private Path service gateways were retrieved |
+| private-path-service-gateway | is.private-path-service-gateway.private-path-service-gateway.read | One or more Private Path service gateway was retrieved |
 | private-path-service-gateway | is.private-path-service-gateway.private-path-service-gateway.list | Private Path service gateway was listed |
 | private-path-service-gateway | is.private-path-service-gateway.private-path-service-gateway.update | Private Path service gateway was updated |
 | private-path-service-gateway | is.private-path-service-gateway.private-path-service-gateway.create  /n is.private-path-service-gateway.load-balancer.attach  /n is.load-balancer.private-path-service-gateway.attach | Private Path service gateway was created |
@@ -169,14 +169,14 @@ The beta release of IBM Cloud Private Path service is available only to allowlis
 | private-path-service-gateway | is.private-path-service-gateway.endpoint-gateway-binding.list | Private Path service gateway consumer connection requests were listed |
 | private-path-service-gateway | is.private-path-service-gateway.endpoint-gateway-binding.permit | Private Path service gateway consumer connection request was permitted |
 | private-path-service-gateway | is.private-path-service-gateway.endpoint-gateway-binding.deny | Private Path service gateway consumer connection request was denied |
-| private-path-service-gateway | is.private-path-service-gateway.endpoint-gateway-binding.create | Private Path service gateway consumer connection was created |
-| private-path-service-gateway | is.private-path-service-gateway.endpoint-gateway-binding.read | Private Path service gateway consumer connection request wasn retrieved |
-| private-path-service-gateway | is.private-path-service-gateway.endpoint-gateway-binding.delete | Private Path service gateway consumer connection was deleted |
-| private-path-service-gateway | is.private-path-service-gateway.account-policy.read | Private Path service gateway account policy was retrieved |
-| private-path-service-gateway | is.private-path-service-gateway.account-policy.list | Private Path service gateway account policy was listed |
-| private-path-service-gateway | is.private-path-service-gateway.account-policy.create | Private Path service gateway account policy was created |
-| private-path-service-gateway | is.private-path-service-gateway.account-policy.delete | Private Path service gateway account policy was deleted |
-| private-path-service-gateway | is.private-path-service-gateway.account-policy.update | Private Path service gateway account policy was updated |
+| private-path-service-gateway | is.private-path-service-gateway.endpoint-gateway-binding.create | Private Path service gateway consumer connection has been created |
+| private-path-service-gateway | is.private-path-service-gateway.endpoint-gateway-binding.read | Private Path service gateway consumer connection request has been retrieved |
+| private-path-service-gateway | is.private-path-service-gateway.endpoint-gateway-binding.delete | Private Path service gateway consumer connection has been deleted |
+| private-path-service-gateway | is.private-path-service-gateway.account-policy.read | Private Path service gateway account policy has been retrieved |
+| private-path-service-gateway | is.private-path-service-gateway.account-policy.list | Private Path service gateway account policy has been listed |
+| private-path-service-gateway | is.private-path-service-gateway.account-policy.create | Private Path service gateway account policy has been created |
+| private-path-service-gateway | is.private-path-service-gateway.account-policy.delete | Private Path service gateway account policy has been deleted |
+| private-path-service-gateway | is.private-path-service-gateway.account-policy.update | Private Path service gateway account policy has been updated |
 {: caption="Table 7. Actions that generate events for Private Path services" caption-side="bottom"}
 
 ### Public gateway events
@@ -204,7 +204,7 @@ The beta release of IBM Cloud Private Path service is available only to allowlis
 | instance | is.instance.instance.delete is.subnet.reserved-ip.detach is.subnet.reserved-ip.delete is.instance.network-interface.detach | Instance was deleted |
 | instance | is.instance.network-interface.create is.subnet.reserved-ip.create is.instance.network-interface.attach is.subnet.reserved-ip.attach | Network interface was created on an instance |
 | instance | is.instance.network-interface.delete is.subnet.reserved-ip.detach is.subnet.reserved-ip.delete is.instance.network-interface.detach | Network interface was deleted |
-| instance | is.subnet.reserved-ip.read | Reserved IPs that are bound to a network interface were listed |
+| instance | is.subnet.reserved-ip.read | Reserved IPs bound to a network interface were listed |
 | instance | is.subnet.reserved-ip.read | Bound reserved IP was retrieved |
 | subnet | is.subnet.reserved-ip.read | Reserved IPs in a subnet were listed |
 | subnet | is.subnet.reserved-ip.create is.subnet.subnet.update is.endpoint-gateway.endpoint-gateway.attach is.subnet.reserved-ip.attach | IP in a subnet was reserved |
@@ -225,10 +225,10 @@ The beta release of IBM Cloud Private Path service is available only to allowlis
 | security-group | is.security-group.security-group-rule.create  | Rule was added to Security Group  |
 | security-group | is.security-group.security-group-rule.delete  | Rule was removed from Security Group  |
 | security-group | is.security-group.security-group-rule.update  | Security Group Rule was updated  |
-| security-group | is.security-group.security-group-rule.read | One or more security group rules were retrieved |
+| security-group | is.security-group.security-group-rule.read | One or more security group rules was retrieved |
 | security-group | is.security-group.security-group-interface.attach | Interface was attached to Security Group   |
 | security-group | is.security-group.security-group-interface.detach | Interface was removed from Security Group   |
-| security-group | is.security-group.security-group-interface.read | One or more security group interfaces were retrieved |
+| security-group | is.security-group.security-group-interface.read | One or more security group interfaces was retrieved |
 {: caption="Table 10. Actions that generate events for Security Group" caption-side="bottom"}
 
 ### Subnet events
@@ -241,10 +241,10 @@ The beta release of IBM Cloud Private Path service is available only to allowlis
 | subnet   | is.subnet.subnet.delete   | Subnet was deleted   |
 | subnet   | is.subnet.subnet.read | One or more subnets was retrieved |
 | subnet   | is.subnet.network-acl.update  | Subnet's Network ACL was replaced   |
-| subnet   | is.subnet.public-gateway.attach  | Public Gateway was attached to the subnet  |
-| subnet   | is.subnet.public-gateway.detach  | Public Gateway was detached from the subnet  |
+| subnet   | is.subnet.public-gateway.attach  | Public Gateway was attached to Subnet  |
+| subnet   | is.subnet.public-gateway.detach  | Public Gateway was detached from Subnet  |
 | subnet   | is.subnet.public-gateway.read | A subnet public-gateway attachment was retrieved |
-{: caption="Table 11. Actions that generate events for the subnet" caption-side="bottom"}
+{: caption="Table 11. Actions that generate events for Subnet" caption-side="bottom"}
 
 ### Virtual network interface events
 {: #events-vni}
@@ -295,7 +295,7 @@ The following table lists the actions that are related to virtual private endpoi
 | vpc  | is.vpc.vpc.create   | VPC was created  |
 | vpc  | is.vpc.vpc.update   | VPC was updated  |
 | vpc  | is.vpc.vpc.delete   | VPC was deleted  |
-| vpc  | is.vpc.vpc.read  | One or more VPCs were retrieved |
+| vpc  | is.vpc.vpc.read  | One or more VPC was retrieved |
 | vpc  | is.vpc.address-prefix.create  | Address Prefix was added to VPC  |
 | vpc  | is.vpc.address-prefix.update  | VPC Address Prefix was updated   |
 | vpc  | is.vpc.address-prefix.delete  | Address Prefix was removed from VPC  |
@@ -317,19 +317,19 @@ The following table lists the actions that are related to site-to-site VPN gatew
 | vpn  | is.vpn.vpn-gateway.update   | VPN gateway was updated |
 | vpn  | is.vpn.vpn-gateway.read   | VPN gateway was retrieved |
 | vpn  | is.vpn.vpn-gateway.list   | VPN gateways were listed |
-| vpn  | is.vpn.vpn-connection.create   | VPN connection was created on the VPN gateway |
-| vpn  | is.vpn.vpn-connection.delete   | VPN connection was deleted from the VPN gateway |
-| vpn  | is.vpn.vpn-connection.update   | VPN connection was updated on the VPN gateway |
-| vpn  | is.vpn.vpn-connection.read   | VPN connection was retrieved from the VPN gateway |
+| vpn  | is.vpn.vpn-connection.create   | VPN connection was created on VPN gateway |
+| vpn  | is.vpn.vpn-connection.delete   | VPN connection was deleted from VPN gateway |
+| vpn  | is.vpn.vpn-connection.update   | VPN connection was updated on VPN gateway |
+| vpn  | is.vpn.vpn-connection.read   | VPN connection was retrieved from VPN gateway |
 | vpn  | is.vpn.vpn-connection.list   | VPN gateway connections were listed |
-| vpn  | is.vpn.vpn-connection_local-cidr.create | Local subnet was created on the VPN gateway connection |
-| vpn  | is.vpn.vpn-connection_local-cidr.delete | Local subnet was deleted from the VPN gateway connection |
-| vpn  | is.vpn.vpn-connection_local-cidr.read   | Local subnet was retrieved from the VPN gateway connection |
-| vpn  | is.vpn.vpn-connection_local-cidr.list   | Local subnets were listed from the VPN gateway connection |
-| vpn  | is.vpn.vpn-connection_peer-cidr.create  | Peer subnet was created on the VPN gateway connection |
-| vpn  | is.vpn.vpn-connection_peer-cidr.delete  | Peer subnet was deleted from the VPN gateway connection |
-| vpn  | is.vpn.vpn-connection_peer-cidr.read  | Peer subnet was retrieved from the VPN gateway connection |
-| vpn  | is.vpn.vpn-connection_peer-cidr.list  | Peer subnets were listed from the VPN gateway connection |
+| vpn  | is.vpn.vpn-connection_local-cidr.create | Local subnet was created on VPN gateway connection |
+| vpn  | is.vpn.vpn-connection_local-cidr.delete | Local subnet was deleted from VPN gateway connection |
+| vpn  | is.vpn.vpn-connection_local-cidr.read   | Local subnet was retrieved from VPN gateway connection |
+| vpn  | is.vpn.vpn-connection_local-cidr.list   | Local subnets were listed from VPN gateway connection |
+| vpn  | is.vpn.vpn-connection_peer-cidr.create  | Peer subnet was created on VPN gateway connection |
+| vpn  | is.vpn.vpn-connection_peer-cidr.delete  | Peer subnet was deleted from VPN gateway connection |
+| vpn  | is.vpn.vpn-connection_peer-cidr.read  | Peer subnet was retrieved from VPN gateway connection |
+| vpn  | is.vpn.vpn-connection_peer-cidr.list  | Peer subnets were listed from VPN gateway connection |
 | vpn  | is.vpn.ike-policy.create   | IKE policy was created |
 | vpn  | is.vpn.ike-policy.delete   | IKE policy was deleted |
 | vpn  | is.vpn.ike-policy.update   | IKE policy was updated |
@@ -359,7 +359,7 @@ The following table lists the actions that are related to client-to-site VPN ser
 | vpn  | is.vpn-server.vpn-server-client.delete | VPN client was disconnected and deleted from a VPN server |
 | vpn  | is.vpn-server.vpn-server-client.read   | VPN client was retrieved from a VPN server |
 | vpn  | is.vpn-server.vpn-server-client.list   | VPN server clients were listed |
-| vpn  | is.vpn-server.vpn-server-client.disconnect | VPN client was disconnected from a VPN server and deleted according to the VPN server's auto-deletion policy |
+| vpn  | is.vpn-server.vpn-server-client.disconnect | VPN client was disconnected from a VPN server, and deleted according to the VPN server's auto-deletion policy |
 | vpn  | is.vpn-server.vpn-server-route.create  | VPN server route was created |
 | vpn  | is.vpn-server.vpn-server-route.delete   | VPN server route was deleted |
 | vpn  | is.vpn-server.vpn-server-route.update  | VPN server route was updated |
@@ -367,7 +367,7 @@ The following table lists the actions that are related to client-to-site VPN ser
 | vpn  | is.vpn-server.vpn-server-route.list  | VPN server routes were listed |
 {: caption="Table 17. Actions that generate events for client-to-site VPN servers" caption-side="bottom"}
 
-In client certificate authentication mode or client certificate and User ID/passcode authentication mode, authentication failure due to an invalid client certificate can't generate an activity track event.
+In client certificate authentication mode or client certificate and User ID/passcode authentication mode, authentication failure due to an invalid client certificate will not generate an activity track event.
 {: note}
 
 ## Compute resources
@@ -380,10 +380,10 @@ The following tables list the actions that are related to compute resources and 
 
 | Resource  | Action  | Description  |
 |:----------------|:-----------------------|:-----------------------|
-| instance   | is.instance.instance.create   | - Instance was created \n - Including the state of the `allow_ip_spoofing` parameter, which disables source/destination checks for network interfaces that are created on the virtual server. When set to `false`, IP spoofing is not allowed on the interface.  |
+| instance   | is.instance.instance.create   | - Instance was created \n - Includes the state of the `allow_ip_spoofing` parameter, which disables source/destination checks for network interfaces that are created on the virtual server. When set to `false`, IP spoofing is not allowed on the interface.  |
 | instance   | is.instance.instance.delete   | Instance was deleted   |
 | instance   | is.instance.instance.update   | Instance was updated   |
-| instance   | is.instance.instance.read | One or more instances were retrieved |
+| instance   | is.instance.instance.read | One or more instances was retrieved |
 | instance   | is.instance.action.create   | Instance action was created  |
 | instance   | is.instance.action.delete   | Pending instance action was deleted  |
 | instance   | is.instance.instance.start  | Instance was started     |
@@ -395,26 +395,26 @@ The following tables list the actions that are related to compute resources and 
 | instance   | is.instance.instance-template.delete   | Instance template was deleted  |
 | instance   | is.instance.instance-template.update   | Instance template was updated     |
 | instance   | is.instance.instance-template.read     | Instance template was retrieved     |
-| instance   | is.instance.interface.attach  | Floating IP was associated to the instance network interface  |
+| instance   | is.instance.interface.attach  | Floating IP was associated to instance network interface  |
 | instance   | is.instance.interface.detach  | Floating IP was disassociated from instance network interface |
 | instance   | is.instance.volume-attachment.create   | Instance volume attachment was created  |
 | instance   | is.instance.volume-attachment.delete   | Instance volume attachment was deleted  |
 | instance   | is.instance.volume-attachment.update   | Instance volume attachment was updated  |
-| instance   | is.instance.volume-attachment.read | One or more instance volume attachments were retrieved |
-| instance   | is.instance.network-interface.create   | - Instance network interface was created (Instance was attached to a subnet) \n - Including the state of the `allow_ip_spoofing` parameter, which disables source/destination checks for network interfaces that are created on the virtual server. When set to `false`, IP spoofing is not allowed on the interface.  |
-| instance   | is.instance.network-interface.update   | - Instance network interface was updated (Instance was attached to a subnet) \n - Including the state of the `allow_ip_spoofing` parameter, which disables source/destination checks for network interfaces that are created on the virtual server. When set to `false`, IP spoofing is not allowed on the interface. |
+| instance   | is.instance.volume-attachment.read | One or more instance volume attachments was retrieved |
+| instance   | is.instance.network-interface.create   | - Instance network interface was created (Instance was attached to a subnet) \n - Includes the state of the `allow_ip_spoofing` parameter, which disables source/destination checks for network interfaces that are created on the virtual server. When set to `false`, IP spoofing is not allowed on the interface.  |
+| instance   | is.instance.network-interface.update   | - Instance network interface was updated (Instance was attached to a subnet) \n - Includes the state of the `allow_ip_spoofing` parameter, which disables source/destination checks for network interfaces that are created on the virtual server. When set to `false`, IP spoofing is not allowed on the interface. |
 | instance   | is.instance.network-interface.delete   | Instance network interface was deleted (Instance was detached from a subnet)  |
 | instance | is.instance.network-interface.read | One or more instance network interfaces was retrieved |
-| instance | is.instance.disk.read | One or more instance storage disks were retrieved |
+| instance | is.instance.disk.read | One or more instance storage disks was retrieved |
 | instance | is.instance.disk.update | Instance storage disk name was updated |
 | instance | is.instance.disk.wipe | Instance storage disk was wiped clean |
-| instance | is.instance.gpu.wipe | Memory was wiped on the GPU for the instance |
+| instance | is.instance.gpu.wipe | Memory was wiped on the GPU for the Instance |
 {: caption="Table 18. Actions that generate events for Instance" caption-side="bottom"}
 
 ### Instance Metadata service events
 {: #events-metadata}
 
-The instance metadata service events are changing and can't be used for automation. However, they are useful for audit purposes.
+The instance metadata service events are undergoing changes and should not be used for automation. They are useful, however, for audit purposes.
 {: note}
 
 | Resource  | Action  | Description  |
@@ -436,12 +436,12 @@ The instance metadata service events are changing and can't be used for automati
 ### Bare metal server events
 {: #events-compute-bm}
 
-Some fields for Bare Metal Servers for VPC AT events are changing between the Beta and Limited Available (LA) releases. For more information, see [Analyzing events](/docs/vpc?topic=vpc-at-events#at_events_iam_analyze).
+Some fields for Bare Metal Servers for VPC AT events will be changing between the Beta and Limited Available (LA) releases. For more information, see [Analyzing events](/docs/vpc?topic=vpc-at-events#at_events_iam_analyze).
 {: note}
 
 | Resource  | Action  | Description  |
 |:----------------|:-----------------------|:-----------------------|
-| Bare Metal Server | is.bare-metal-server.bare-metal-server.read | One or more bare metal servers were retrieved |
+| Bare Metal Server | is.bare-metal-server.bare-metal-server.read | One or more bare metal servers was retrieved |
 | Bare Metal Server | is.bare-metal-server.bare-metal-server.create | Bare metal server was created |
 | Bare Metal Server | is.bare-metal-server.bare-metal-server.update | Bare metal server was updated |
 | Bare Metal Server | is.bare-metal-server.bare-metal-server.delete | Bare metal server was deleted |
@@ -450,19 +450,19 @@ Some fields for Bare Metal Servers for VPC AT events are changing between the Be
 | Bare Metal Server | is.bare-metal-server.bare-metal-server.stop | Bare metal server was stopped |
 | Bare Metal Server | is.bare-metal-server.console.read | Bare metal server console connection was retrieved |
 | Bare Metal Server | is.bare-metal-server.console-access-token.create | Bare metal server console access token was created |
-| Bare Metal Server | is.bare-metal-server.disk.read | One or more disks on a bare metal server were retrieved |
+| Bare Metal Server | is.bare-metal-server.disk.read | One or more disks on a bare metal server was retrieved |
 | Bare Metal Server | is.bare-metal-server.disk.update | Disk on a bare metal server was updated |
-| Bare Metal Server | is.bare-metal-server.initialization.read | Bare metal server initialization data was retrieved |
-| Bare Metal Server | is.bare-metal-server.network-interface.read | One or more network interfaces on a bare metal server were retrieved |
+| Bare Metal Server | is.bare-metal-server.initialization.read | Bare metal server's initialization data was retrieved |
+| Bare Metal Server | is.bare-metal-server.network-interface.read | One or more network interfaces on a bare metal server was retrieved |
 | Bare Metal Server | is.bare-metal-server.network-interface.create | Network interface was created on a bare metal server |
 | Bare Metal Server | is.bare-metal-server.network-interface.update | Network interface on a bare metal server was updated |
 | Bare Metal Server | is.bare-metal-server.network-interface.delete | Network interface on a bare metal server was deleted |
-| Bare Metal Server | is.bare-metal-server.network-interface-floating-ip.read | One or more floating IPs associated with a network interface were retrieved |
+| Bare Metal Server | is.bare-metal-server.network-interface-floating-ip.read | One or more floating IPs associated with a network interface was retrieved |
 | Bare Metal Server | is.bare-metal-server.network-interface-floating-ip.attach | Floating IP was associated with a network interface |
 | Bare Metal Server | is.bare-metal-server.network-interface-floating-ip.detach | Floating IP was disassociated from a network interface |
-| Bare Metal Server | is.bare-metal-server.bare-metal-server-profile.read | One or more bare metal server profiles were retrieved |
+| Bare Metal Server | is.bare-metal-server.bare-metal-server-profile.read | One or more bare metal server profiles was retrieved |
 | Bare Metal Server | is.bare-metal-server.bare-metal-server-firmware.update | Bare metal server firmware update was completed. |
-{: caption="Table 20. Actions that generate events for a Bare Metal Server" caption-side="bottom"}
+{: caption="Table 20. Actions that generate events for Bare Metal Server" caption-side="bottom"}
 
 ### Key events
 {: #events-compute-key}
@@ -472,8 +472,8 @@ Some fields for Bare Metal Servers for VPC AT events are changing between the Be
 | key  | is.key.key.create   | Key was created  |
 | key  | is.key.key.delete   | Key was deleted  |
 | key  | is.key.key.update   | Key was updated  |
-| key | is.key.key.read | One or more keys were retrieved |
-{: caption="Table 21. Actions that generate events for a key" caption-side="bottom"}
+| key | is.key.key.read | One or more keys was retrieved |
+{: caption="Table 21. Actions that generate events for Key" caption-side="bottom"}
 
 ### Dedicated host events
 {: #events-compute-dedicated-host}
@@ -484,7 +484,7 @@ Some fields for Bare Metal Servers for VPC AT events are changing between the Be
 | dedicated-host | is.dedicated-host.dedicated-host.update | Dedicated host or host disk was updated |
 | dedicated-host | is.dedicated-host.dedicated-host.delete  |Dedicated host was deleted |
 | dedicated-host | is.dedicated-host.dedicated-host.read | One or more dedicated hosts or host disks were retrieved |
-{: caption="Table 22. Actions that generate events for a dedicated host" caption-side="bottom"}
+{: caption="Table 22. Actions that generate events for Dedicated Host" caption-side="bottom"}
 
 ### Dedicated host group events
 {: #events-compute-dedicated-host-group}
@@ -494,8 +494,8 @@ Some fields for Bare Metal Servers for VPC AT events are changing between the Be
 | dedicated-host-group  | is.dedicated-host.dedicated-host-group.create | Dedicated host group was created |
 | dedicated-host-group  | is.dedicated-host.dedicated-host-group.update | Dedicated host group was updated |
 | dedicated-host-group  | is.dedicated-host.dedicated-host-group.delete | Dedicated host group was deleted |
-| dedicated-host-group  | is.dedicated-host.dedicated-host-group.read | One or more dedicated host groups were retrieved |
-{: caption="Table 23. Actions that generate events for a dedicated host group" caption-side="bottom"}
+| dedicated-host-group  | is.dedicated-host.dedicated-host-group.read | One or more dedicated host groups was retrieved |
+{: caption="Table 23. Actions that generate events for Dedicated Host Group" caption-side="bottom"}
 
 ### Instance group events
 {: #events-compute-instance-group}
@@ -524,7 +524,7 @@ Some fields for Bare Metal Servers for VPC AT events are changing between the Be
 | instance-group  | is.instance-group.membership.update   | Instance group membership was updated  |
 | instance-group  | is.instance-group.membership.read     | Instance group membership was retrieved |
 | instance-group  | is.instance-group.instance.create     | Instance group instance was created |
-{: caption="Table 24. Actions that generate events for an instance group" caption-side="bottom"}
+{: caption="Table 24. Actions that generate events for Instance Group" caption-side="bottom"}
 
 ### Image resources
 {: #events-images}
@@ -579,7 +579,7 @@ The following table lists the actions that are related to volume resources and t
 | volume | is.volume.volume.operate | Volume ID was specified |
 {: caption="Table 27. Actions that generate events for Block Storage resources" caption-side="bottom"}
 
-An event does not contain a volume name if information is not available at the time of the event. For example, if you make a request to create a volume but do not provide a volume name, the information is not available and does not appear in the event.
+An event does not contain a volume name if no information is available at the time of the event. For example, when you make a request to create a volume but do not provide a volume name, the information is not available and does not appear in the event.
 {: note}
 
 ### Snapshots events
@@ -652,8 +652,8 @@ The following table lists the actions that are related to the VPC Backup service
 | backup-policy  | is.backup-policy.backup-plan.delete       | Backup plan was deleted  |
 | backup-policy  | is.backup-policy.backup-plan.read         | One or more backup plans were retrieved  |
 | backup-policy  | is.backup-policy.backup-job.read          | One or more backup jobs were retrieved  |
-| backup-policy  | is.backup-policy.backup-policy-job.create | This event is triggered if an enterprise-level backup policy fails to create backups in one or more child accounts due to missing service-to-service authorizations.  |
-{: caption="Table 31. Actions that generate events for VPC backup service resources" caption-side="bottom"}
+| backup-policy  | is.backup-policy.backup-policy-job.create | This event is triggered if an Enterprise-level backup policy fails to create backups in one or more child accounts due to missing service-to-service authorizations.  |
+{: caption="Table 31. Actions that generate events for VPC Backup service resources" caption-side="bottom"}
 
 ## Supported locations
 {: #at-supported-locations}
@@ -692,14 +692,14 @@ Refer to the following information when you are analyzing events:
 
    1) The `severity` field in Beta events is not consistent with general practice within VPC and is corrected in the LA release.
 
-   2) The `target resourceGroupID` field in Beta events does not include the CRN prefix is corrected in the LA release.
+   2) The `target resourceGroupID` field in Beta events does not include the CRN prefix. This is corrected in the LA release.
 
    3) Some Beta events include array data. If the array is too large, the event isn't recorded. For LA, these events display an array element count rather than the actual data.
 
-- Each time that you open a console for a virtual server instance or bare metal server, two API calls are issued: the first one generates a console access token, the second one uses the generated token to open the console websocket.
+- Each time you open a console for a virtual server instance or bare metal server, two API calls are issued: the first one generates a console access token, the second one uses the generated token to open the console websocket.
 
    This API call generates two Activity Tracker events: `is.instance.console-access-token.create` and `is.instance.console.read`, or `is.bare-metal-server.console-access-token.create` and `is.bare-metal-server.console.read`.
 
    You cannot use `request id` to correlate console Activity Tracker events as each call generates a unique `request id`. Instead, you can use `initiator id` to correlate console events that are generated from API calls issued by the same user.
 
-- You can find the detailed information and fields that are included in the requestData and responseData for the Bare Metal Servers for VPC AT events in the [API documentation](/apidocs/vpc/latest).
+- You can find the detailed information and fields included in the requestData and responseData for the Bare Metal Servers for VPC AT events in the [API documentation](/apidocs/vpc/latest).
