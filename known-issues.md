@@ -87,8 +87,22 @@ Currently, the `port_min` and `port_max` properties are supported only when rout
 
 **Issue:** If you have imported one or more images into a virtual server image for VPC catalog product offering version and you edit that version, an additional version ending in "draft" is created. You can't provision an instance from this draft version. Draft versions might appear on the Virtual server instance creation page in the UI or in the output of the CLI command `ibmcloud is catalog-image-offering`.
 
-## Bare metal servers limitations
-{: #bare-metal-servers-limitations}
+## Bare metal servers known issues and limitations
+{: #bare-metal-servers-known-issues-limitations}
+
+### iPXE network boot known timing issue
+{: #ipxe-network-boot-known-issue}
+
+**Issue:** When you use the iPXE network boot on a Bare Metal Server on VPC, the network configuration might still be processing when the iPXE script starts running. When this occurs, the DHCP command might fail or you might seem a timeout error.
+
+**Workaround:** From the VNC console, manually run the iPXE commands. Or, add the following to your iPXE script instead of the DHCP command.
+
+```sh
+  :retry_dhcp
+  dhcp || goto retry_dhcp
+  sleep 2
+```
+{: codeblock}
 
 **Issue:** Flow log collectors are not integrated with bare metal servers. As a result, if you create a flow log collector for a VPC, traffic that flows to and from bare metal servers in that VPC aren't logged.
 
