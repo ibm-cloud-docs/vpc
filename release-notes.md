@@ -310,6 +310,9 @@ Reservations for VPC (select availability)
 UI enhancement to VPC download button
 :   Previously, when you downloaded a list of resources from a table, you could download only the current page if the resource list length was more than 200 records. With this UI enhancement, you can now download all the pages regardless of length of the resource list.
 
+## December 2023
+{: #vpc-dec23} 
+
 ### 19 December 2023
 {: #vpc-dec1923}
 {: release-note}
