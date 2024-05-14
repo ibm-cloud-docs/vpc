@@ -460,6 +460,7 @@ Some fields for Bare Metal Servers for VPC AT events will be changing between th
 | Bare Metal Server | is.bare-metal-server.network-interface-floating-ip.read | One or more floating IPs associated with a network interface was retrieved |
 | Bare Metal Server | is.bare-metal-server.network-interface-floating-ip.attach | Floating IP was associated with a network interface |
 | Bare Metal Server | is.bare-metal-server.network-interface-floating-ip.detach | Floating IP was disassociated from a network interface |
+| Bare Metal Server | is.bare-metal-server.bare-metal-server-firmware.update | Bare metal server firmware update was completed. |
 {: caption="Table 20. Actions that generate events for Bare Metal Server" caption-side="bottom"}
 
 ### Key events
