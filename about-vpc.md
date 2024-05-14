@@ -1,9 +1,9 @@
 ---
 copyright:
-  years: 2017, 2023, 2024
-lastupdated: "2024-02-16"
+  years: 2017, 2024
+lastupdated: "2024-05-13"
 
-keywords: vpc, virtual private cloud, private cloud network, quick provisioning, logical isolation, security, cloud-native, workloads, BYOIP, high availability, ACL, Access control list, Block Storage volumes
+keywords: vpc, virtual private cloud, private cloud network, quick provisioning, logical isolation, security, cloud-native, workloads, BYOIP, high availability, ACL, Access control list, Block Storage volumes, File shares, snapshots
 
 subcollection: vpc
 
@@ -37,20 +37,22 @@ You can choose to create *virtual server instances* with different operating sys
 ## Storage capabilities
 {: #about-vpc-storage-capabilities}
 
-When you create an instance, a 100 GB Block Storage volume is automatically attached as a primary boot volume. To add secondary data volumes to your instance, create *Block Storage* volumes.
+When you create an instance, a 100 GB Block Storage volume is automatically attached as a primary boot volume. You can increase the capacity of the boot volume to 250 MB. To add secondary data volumes to your instance, create {{site.data.keyword.block_storage_is_short}} volumes or {{site.data.keyword.filestorage_vpc_short}} shares. 
+
+You can use {{site.data.keyword.block_storage_is_short}} snapshots to create point-in-time copies of your boot or data volumes, create copies of the snapshots in other regions, and create volumes from the snapshots. You can automate the creation of the snapshots with the {{site.data.keyword.cloud}} Backup for VPC service.
 
 ## External connectivity
 {: #about-vpc-external-connectivity}
 
 Several options are available for enabling your instances to communicate with the public internet:
 * To enable all instances in a subnet to send outgoing traffic, attach a *public gateway* to the subnet.
-* To enable communication to and from a particular instance, independent of whether the subnet is attached to a public gateway, associate the instance with a *floating IP*.
+* To enable communication to and from a specific instance, independent of whether the subnet is attached to a public gateway, associate the instance with a *floating IP*.
 * To enable secure connectivity, use the Virtual Private Network (VPN) service.
 
 ## Security
 {: #about-vpc-security}
 
-For instance-level protection, use *security groups* that act as virtual firewalls to restrict traffic for one or more instances. For subnet-level protection, use *access control lists* (ACLs)  to limit a subnet's inbound and outbound traffic.
+For instance-level protection, use *security groups* that act as virtual firewalls to restrict traffic for one or more instances. For subnet-level protection, use *access control lists* (ACLs) to limit a subnet's inbound and outbound traffic.
 
 ## High availability
 {: #about-vpc-high-availability}
@@ -75,7 +77,7 @@ You can set up access from a VPC to your {{site.data.keyword.cloud_notm}} classi
 ## Next steps
 {: #about-vpc-next-steps}
 
-To get started using the API and CLI, [set up your environment](/docs/vpc?topic=vpc-set-up-environment).
+To get started with the API and CLI, [set up your environment](/docs/vpc?topic=vpc-set-up-environment).
 To learn how to create VPC resources, see these tutorials:
 
 * [Using the {{site.data.keyword.cloud_notm}} console to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console)

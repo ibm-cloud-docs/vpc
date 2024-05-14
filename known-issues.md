@@ -24,14 +24,6 @@ Known issues might change over time, so check back occasionally.
 
 **Issue:** When you create a listener for a network load balancer, you can specify a `protocol` of `tcp` or `udp`. However, each listener in the network load balancer must have a unique `port`. For network load balancer limitations, see [IBM Cloud Network Load Balancer for VPC limitations](/docs/vpc?topic=vpc-nlb-limitations).
 
-## Site-to-site VPN gateway known issues
-{: #vpc-vpn-gateway-known-issues}
-
-### Updating the `peer.address` or `peer.fqdn` of a VPN gateway connection issue
-{: #vpc-vpn-gateway-connection-update-peer-known-issue}
-
-**Issue:** If the `local.ike_identities` and `peer.ike_identity` properties are not set explicitly when you created the VPN gateway connection, when you [update a VPN gateway connection](/apidocs/vpc/latest#update-vpn-gateway-connection) and specify either `peer.address` or `peer.fqdn` the property value will be changed to match the updated value, instead of being left unchanged. Conversely, if the `local.ike_identities` and `peer.ike_identity` properties are set explicitly when you created the VPN gateway connection, the values cannot be changed without deleting the VPN gateway connection.
-
 ## `resource_type` known issues
 {: #resource-type-known-issues}
 
