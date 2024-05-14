@@ -93,7 +93,7 @@ Currently, the `port_min` and `port_max` properties are supported only when rout
 ### iPXE network boot known timing issue
 {: #ipxe-network-boot-known-issue}
 
-**Issue:** When you use the iPXE network boot on a Bare Metal Server on VPC, the network configuration might still be processing when the iPXE script starts running. When this occurs, the DHCP command might fail or you might seem a timeout error. A fix for this issue is planned.
+**Issue:** When you use the iPXE network boot on a Bare Metal Server on VPC, the network configuration might still be processing when the iPXE script starts running. When this occurs, the DHCP command might fail or you might see a timeout error. A fix for this issue is planned.
 
 **Workaround:** From the VNC console, manually run the iPXE commands. Or, add the following to your iPXE script instead of the DHCP command.
 
