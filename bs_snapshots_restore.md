@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-04-19"
+lastupdated: "2024-05-14"
 
 keywords:
 
@@ -122,7 +122,7 @@ Follow these steps to create a volume from the snapshot details page in the UI.
 1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes and select a volume. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
 2. On the {{site.data.keyword.block_storage_is_short}} volume details page, select the **Snapshots and Backups** tab. A list of snapshots that were created manually or by backup policies is shown.
 3. From the list, click the snapshot name to go to its details page.
-4. From the **Actions** menu, click **Create volume**.
+4. From the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions"), select **Create volume**.
 5. Define the new volume in the side panel. The information that you need to provide is the same as when you create a volume from the [list of snapshots](#snapshots-vpc-restore-snaphot-list-ui). See Table 1 for the details.
 6. When you're finished, click **Save**. The new volume is created.
 

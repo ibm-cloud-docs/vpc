@@ -35,7 +35,7 @@ If you want to create a replica in another region, you need to establish service
 {: #fs-create-replica-ui}
 {: ui}
 
-You can create a replica of your file share from the list of all file shares or the file share details page. If you don't already have a source file share, provision one as described in [Create a file share and mount target in the UI](/docs/vpc?topic=vpc-file-storage-create&interface=ui#fs-create-share-target-ui). When the file share appears as "stable" on the File shares for VPC page, click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions") and click **Create replica**.
+You can create a replica of your file share from the list of all file shares or the file share details page. If you don't already have a source file share, provision one as described in [Create a file share and mount target in the UI](/docs/vpc?topic=vpc-file-storage-create&interface=ui#fs-create-share-target-ui). When the file share appears as "stable" on the File shares for VPC page, click the **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions") and click **Create replica**.
 
 On the File share replica create page, review the source file share details, and complete the replica details.
 

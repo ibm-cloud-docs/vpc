@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-01-04"
+lastupdated: "2024-05-14"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -122,7 +122,7 @@ The file share must be in a `stable` state or `failed` state.
 
 1. Select a file share from the [list of file shares](/docs/vpc?topic=vpc-file-storage-view).
 
-2. Click the overflow menu at the end of the row and select **Delete**.
+2. click the **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions") at the end of the row and select **Delete**.
 
 ## Managing file shares and mount targets from the CLI
 {: #file-storage-manage-cli}

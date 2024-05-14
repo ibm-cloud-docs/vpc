@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-04-19"
+lastupdated: "2024-05-14"
 
 keywords: snapshots, Block Storage snapshots, manage snapshots, fast restore clone, backup snapshot, remote copy, cross-regional copy
 
@@ -263,7 +263,7 @@ When the user tags are matched with a backup policy, a backup is triggered based
 Use the following steps to edit the zones where fast restore clones are stored by using the UI. You can add or remove zones as needed.
 
 1. Select a snapshot from the [list of snapshots](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=ui#snapshots-vpc-view-list-ui).
-2. From the overflow menu, click **Edit fast restore**.
+2. From the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions"), select **Edit fast restore**.
 3. From the side panel, select or deselect the zones for fast restore in your region. Review the billing update based on your selection.
 4. Click **Save**. You're returned to the [snapshots details page](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=ui#snapshots-vpc-view-snapshot-ui). The Fast restore section shows the new zone initially with a _pending_ status.
 
@@ -700,7 +700,7 @@ You can delete the most recently created snapshot from the list of snapshots fro
 4. Click **Delete all** to delete all snapshots for this volume.
 5. Alternatively, select a single snapshot in the list for deletion and then:
    1. Click the Actions menu (ellipsis).
-   2. Select **Delete** from the overflow menu.
+   2. Select **Delete** from the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions").
    3. Confirm the deletion.
 
 ## Deleting snapshots from the CLI
