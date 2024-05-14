@@ -37,7 +37,7 @@ Follow these steps to expand volume capacity:
 
 4. On the volume details page, locate **Size**. The current IOPS profile and volume size are displayed.
 
-5. Click the pencil icon. Alternatively, click the **Actions** menu and select **Expand Block Storage volume**.
+5. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit"). Alternatively, click the **Actions** menu and select **Expand Block Storage volume**.
 
 6. In the panel, increase the volume size in GB up to 16,000 GB.
 

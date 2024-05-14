@@ -63,14 +63,14 @@ You can view details of a backup policy by using the UI.
 
    | Field | Value |
    |-------|-------|
-   | Name | Name of the backup policy. Click the pencil icon to edit. |
+   | Name | Name of the backup policy. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to edit. |
    | Policy ID | Backup policy ID. |
    | Resource group | [Resource group](/docs/vpc?topic=vpc-iam-getting-started&interface=ui#iam-resource-groups) for the {{site.data.keyword.block_storage_is_short}} volume. |
    | Location | Policies for the selected region. |
    | Created date | The date the policy was created. |
    | CRN | Cloud resource name of the policy. |
    | Applied resources | The number of volumes that are covered by the policy. This list includes volumes that were created by users for the account. If the policy is an enterprise-wide policy, the list shows volumes of the enterprise account, and not the volumes of its child accounts. |
-   | Tags for target resources | This field shows the user tags that can trigger the creation of a backup when they are applied to a resource. \n - You can click the pencil icon to add more tags. For more information, see [Edit tags for target resources](/docs/vpc?topic=vpc-backup-service-manage&interface=ui#backup-edit-tags). \n - See also [Applying backup policies to resources by using tags](/docs/vpc?topic=vpc-backup-use-policies). |
+   | Tags for target resources | This field shows the user tags that can trigger the creation of a backup when they are applied to a resource. \n - You can click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to add more tags. For more information, see [Edit tags for target resources](/docs/vpc?topic=vpc-backup-service-manage&interface=ui#backup-edit-tags). \n - See also [Applying backup policies to resources by using tags](/docs/vpc?topic=vpc-backup-use-policies). |
    | Target resource type  | The backup policy can apply to individual block **volumes** or a consistency group of block volumes of **instances**. |
    | Last backup job | It shows the date and time when the last backup job ran. Backup jobs create or delete backup snapshots based on the plan frequency and retention settings. To see which type of job ran last, click **view**. |
    | Enterprise account CRN | This value is only shown when the backup policy is an enterprise-wide policy. It is the Cloud Resource Name of the Enterprise that created the policy.|
@@ -105,7 +105,7 @@ You can use this list of {{site.data.keyword.block_storage_is_short}} volumes or
 
      | Field | Description |
      |-------|-------------|
-     | Name | Name of the volume. Click the pencil icon to edit. |
+     | Name | Name of the volume. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to edit. |
      | Status | Status of the volume. |
      | Size | Size of the volume in GBs.|
      | Encryption | [IBM-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-provider-managed-encryption) or [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption). |
@@ -117,7 +117,7 @@ You can use this list of {{site.data.keyword.block_storage_is_short}} volumes or
    
       | Field  | Description |
       |--------|-------------|
-      | Name   | Name of the volume. Click the pencil icon to edit. |
+      | Name   | Name of the volume. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to edit. |
       | Status | Status of the volume. |
       | Virtual private cloud | The name of the VPC that the virtual server instance is in. Click it to go to the details page of the VPC. |
       | Profile| The Compute profile of the virtual server instance. |

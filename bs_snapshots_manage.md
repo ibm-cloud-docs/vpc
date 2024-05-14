@@ -35,7 +35,7 @@ Use the following steps to rename a snapshot by using the UI.
 
 1. Go to the list of snapshots. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu** ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Snapshots**.
 2. Click the name of a snapshot from the list.
-3. Click the pencil icon.
+3. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit").
 4. Provide a [new name](#snapshots-vpc-naming) for the snapshot, save, and confirm your changes.
 
 ## Renaming a snapshot from the CLI
