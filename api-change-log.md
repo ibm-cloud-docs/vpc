@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-04-30"
+lastupdated: "2024-05-14"
 
 keywords: vpc, api, change log, new features, restrictions, migration
 
@@ -53,6 +53,14 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 14 May 2024
+{: #14-may-2024}
+
+### For all version dates
+{: #14-may-2024-all-version-dates}
+
+**Local IP address support for security group rules.** You can now specify local IP addresses or address ranges in security group rules. When [creating](/apidocs/vpc/latest#create-security-group-rule) or [updating](/apidocs/vpc/lates#update-security-group-rule) a security group rule, specify the optional `local` property. The value can be an IP address or a range of IP addresses in CIDR format. If not specified, the default value is `cidr_block: 0.0.0.0/0`, which means the rule allows traffic to all local IP addresses (or from all local IP addresses, for outbound rules). This default value will be applied to all existing security group rules. For more information, see [Applying security group rules to source and destination IP addresses](/docs/vpc?topic=vpc-security-groups-rules&interface=api).
 
 ## 30 April 2024
 {: #30-april-2024}
