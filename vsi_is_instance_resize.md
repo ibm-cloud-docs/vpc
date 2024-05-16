@@ -3,7 +3,7 @@
 copyright:
   years: 2021, 2024
   
-lastupdated: "2024-05-14"
+lastupdated: "2024-05-15"
 
 subcollection: vpc
 
@@ -168,4 +168,5 @@ Keep the following information in mind when you resize a virtual server that's i
 If the instance that you want to resize is attached to a reservation, the instance profile can't update if the profile doesn't match the profile of its associated reservation.
 
 If the instance that you want to resize is a new profile, you need to first detach the instance from the reservation. The instance profile can then be updated and then a new reservation attached to the instance with a matching profile.
+
 
