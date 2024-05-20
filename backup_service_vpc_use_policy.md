@@ -56,7 +56,7 @@ Apply tags to new or existing {{site.data.keyword.block_storage_is_short}} volum
 
 1. Go to the [list of {{site.data.keyword.block_storage_is_short}} volumes](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#viewvols-ui).
 2. Click the name of a volume in the list.
-3. On the volume details page, click the pencil icon next to the {{site.data.keyword.block_storage_is_short}} volume name.
+3. On the volume details page, click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") next to the {{site.data.keyword.block_storage_is_short}} volume name.
 4. In the new window, type a tag in the User tags text box.
 5. Click **Save**.
 

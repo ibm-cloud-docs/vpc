@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2023-12-18"
+lastupdated: "2024-05-14"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance
 
@@ -69,7 +69,7 @@ When you select the **Virtual server instance boot volume** as the source of you
    To create an image of the boot volume associated with an instance, the virtual server instance must be stopped.
    {: note}
 
-1. Optionally, stop a running instance by clicking the overflow menu (ellipsis) and click **Stop**.
+1. Optionally, stop a running instance by clicking the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions") (ellipsis) and click **Stop**.
 
 1. Select an instance from the list. You're selecting the boot volume of the instance.
 
@@ -93,7 +93,7 @@ To create an image from the volume:
    * The volume must be attached to a virtual server instance
    * The instance must be stopped
 
-1. Optionally, stop a running instance by clicking the overflow menu (ellipsis) and click **Stop attached instance**. Click refresh and select the volume.
+1. Optionally, stop a running instance by clicking the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions") and selecting **Stop attached instance**. Click refresh and select the volume.
 
 1. Select the volume from the list.
 

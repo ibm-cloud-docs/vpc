@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-04-02"
+lastupdated: "2024-05-09"
 
 keywords: sgx, intel sgx, software guard extension, confidential computing, trusted execution environment, TEE, data protection
 
@@ -54,7 +54,7 @@ The following are some of the use cases for confidential computing with SGX.
 
 * **Secure Multi-party Compute** enables distributed SMPC, where participants are ensured that their data and insights are protected even when calculated outside their direct control.
 
-* **Digital Assets** is the trusted platform for digital custody solutions, for storing and transferring high value digital assets in highly secure wallets, reliable at scale.
+* **Digital Assets** is the trusted platform for digital custody solutions, for storing and transferring high-value digital assets in highly secure wallets, reliable at scale.
 
 ## SGX-compatible profiles
 {: #compatible-profiles-confidential-computing-vpc-sgx}
@@ -64,8 +64,10 @@ The following profiles support SGX.
 * All Balanced _bx3dc_ profiles
 * All Compute _cx3dc_ profiles
 
-   For Gen3 profiles, you can enable and disable secure boot. But when you toggle between enable and disable the machine type changes. So, make sure that you create a snapshot before change this setting. 
-   {: important}
+For Gen3 profiles, you can enable and disable secure boot. But when you toggle between enable and disable the machine type changes. So, make sure that you create a snapshot before you change this setting.
+
+SGX profiles might experience slightly longer start times, approximately in the range of 180-240 seconds, depending on profile EPC size.
+{: note}
 
 For more information about profiles, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles).
 
@@ -76,17 +78,12 @@ Keep the following limitations in mind if you want to use SGX.
 
 * Available on only third-generation Sapphire Rapids-based virtual servers.
 * SGX doesn't protect against side-channel attacks.
-* Hot plugging of components isn't supported. If you want to add more storage or network attachments, you need to restart your server after the hot-plug operation.
-* Virtual servers can't be resized to disable SGX or secure boot. You need to create a new virtual server to disable SGX or secure boot. However, you can resize a server to enable SGX or secure boot.
-* You can't resize an SGX-enabled virtual server from a profile less than bx3d-64x320 to a higher RAM or CPU profile.
-* Virtual servers that are provisioned with profiles that don't support secure boot can't be resized to a profile that supports secure boot.
 * Only the following images support SGX. Keep in mind that images with kernel versions 5.11 and prior don't support SGX.
    - Red Hat 8.6, 8.8, 9.0, 9.2
    - Ubuntu 20.04, 22.04
    - CentOS Stream 8, 9
    - Rocky Linux 8.8, 9.2
-   - Debian 11, 12
    - SLES 15 SP4, SP5
+ * The cx3dc-176x440 profile is not supported.
 
 If you resize a virtual server that is secure boot-enabled to a profile that is secure boot-disabled (and vice-versa), the topology of PCIe devices change. Depending on the operating system, this topology change can rename devices. The I/O performance can also change.
-{: note}

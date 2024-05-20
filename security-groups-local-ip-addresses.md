@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-04-03"
+lastupdated: "2024-05-14"
 
 keywords:
 
@@ -14,10 +14,7 @@ subcollection: vpc
 
 # Applying security group rules to source and destination IP addresses
 {: #security-groups-rules}
-
-This VPC feature is available only to accounts with special approval to preview this feature.
-{: preview}
-
+ 
 Security group rules now support local IP addresses. This means that rules can allow specific local IP addresses instead of allowing all local IP addresses. Security group rules support local IP addresses for both ingress and egress rules.
 {: shortdesc}
 
@@ -28,7 +25,7 @@ Allowing specific local IP addresses or address ranges with a security group rul
 
 You can apply an inbound security group rule that allows only specific local destination IP addresses. You can also apply an outbound security group rule that allows only specific local source IP addresses.
 
-You can apply security group rules (inbound and outbound) by using the UI, CLI, and API.
+You can apply security group rules (inbound and outbound) by using the UI, CLI, API, and Terraform.
 
 **Tips:**
 * All rules are evaluated, regardless of the order in which they're added.
@@ -38,7 +35,7 @@ You can apply security group rules (inbound and outbound) by using the UI, CLI, 
 ## Use cases
 {: #security-groups-secondary-ip-use-cases}
 
-When you create a security group rule, you have the choice to allow a specific local IP address or CIDR. Similar to the remote attribute, there is a local attribute that can be one of the following:
+When you create a security group rule, you have the choice to allow a specific local IP address or CIDR. Similar to the remote property, there is a local property that can be one of the following:
 
 * An IP address - The rule applies to a specific destination IP address (for an inbound rule) or source IP address (for an outbound rule)
 * A CIDR - The rule applies to a specific destination CIDR (for an inbound rule) or source CIDR (for an outbound rule)
@@ -149,7 +146,7 @@ Where:
 {: #security-groups-secondary-ip-api}
 {: api}
 
-The security group rule POST request accepts an optional property named `local`, which has two attributes:
+The security group rule POST request accepts an optional property named `local`, which has two properties:
 
 `address`
 :   The IP address to which this rule allows inbound traffic (or from which, for outbound rules).

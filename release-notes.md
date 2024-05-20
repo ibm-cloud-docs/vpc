@@ -36,6 +36,37 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 Update firmware on Bare Metal Servers for VPC (beta)
 :   With the new Update firmware action on Bare Metal Servers for VPC, you can see if a firmware update is available for your bare metal server and also initiate the update. You can use the UI, CLI, and API to update the firmware. In the UI, this action is only visible if the server is stopped and there is a firmware update available. It is recommended to back up your bare metal server before any firmware update. For more information, see [Managing Bare Metal Servers for VPC](/docs/vpc?topic=vpc-managing-bare-metal-servers&interface=ui).
 
+### 14 May 2024
+{: #vpc-may1424}
+{: release-note}
+
+Next generation instance profiles available in Sydney region (select availability)
+:   The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are now available as a select availability offering in the Australia (Sydney) region, in addition to the US South (Dallas), United Kingdom (London), EU Germany (Frankfurt), US East (Washington DC), Canada (Toronto), and Spain (Madrid) regions. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel&reg; Xeon&reg; Scalable processors to provide the most powerful and performant general-purpose profiles available. For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles). In the [Balanced](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) family, see the *bx3d* profiles tab. In the [Compute](/docs/vpc?topic=vpc-profiles&interface=ui#compute) family, see the *cx3d* profiles tab. In the [Memory](/docs/vpc?topic=vpc-profiles&interface=ui#memory) family, see the *mx3d* profiles tab. 3rd generation dedicated host profiles are also available. For more information, see *bx3d*, *cx3d*, and *mx3d* profiles in [x86-64 dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+
+### 03 May 2024
+{: #vpc-may0324}
+{: release-note}
+
+Advertise routes to transit gateway and direct link for ingress routing integration
+:   VPN for VPC now allows route advertisement so that on-prem CIDR blocks can be advertised to other VPCs without creating address prefixes. For more information, see [Configuring route propagation for VPN gateways](/docs/vpc?topic=vpc-advertise-routes-s2s). For more information about migrating to advertised routes, see [VPN for VPC migration to advertise routes](/docs/vpc?topic=vpc-advertise-routes-s2s#migrate-to-advertise-routes-s2s).
+
+   Client VPN for VPC now allows route advertisement so that on-prem CIDR blocks can be advertised to other VPCs by creating a `deliver` action instead of a `translate` action. For more information, see [Configuring route propagation for VPN servers](/docs/vpc?topic=vpc-vpn-client-to-site-route-propagation). For more information about migrating to advertised routes, see [Client VPN for VPC migration to advertise routes](/docs/vpc?topic=vpc-vpn-client-to-site-route-propagation#advertise-routes-c2s).
+   
+VPN for VPC: Configurable IKE identity and peer FQDN
+:    When you configure a VPN gateway connection, you can now specify a peer FQDN as the peer gateway address. This allows you to use a dynamic public IP on the peer gateway. The VPN gateway connection also supports configuring the IKE identity with supported types: IPv4 address, FQDN, Hostname, and Key ID. The default local IKE identity value is the public IP address of the active member of the VPN gateway while the default peer IKE identity value is the peer gateway address or FQDN.
+
+   You can control which side initiates IKE protocol negotiations and rekeying processes on the VPN gateway connection. By default, the VPN gateway initiates IKE protocol negotiations and rekeying processes while also accepting IKE protocol negotiations or rekeying from the peer gateway. You can disable the VPN gateway from initiating IKE protocol negotiations and rekeying processes, and instead accept only the peer gateway to initiate IKE protocol negotiations and rekeying processes by setting Establish mode to `Peer only`. This enhancement enables you to connect the peer gateway behind a firewall and avoid conflicts in IKE negotiations. For more information, see [Creating a VPN gateway](/docs/vpc?topic=vpc-vpn-create-gateway&interface=ui).
+
+Ubuntu 24.04 now available to provision virtual servers
+:    Support for the Ubuntu 24.04 release, codenamed "Noble Numbat", is now available. You can use the *ibm-ubuntu-24-04-minimal-amd64-1* stock image to provision virtual server instances. After the virtual server is created, you can also use it as a starting point for a custom image by creating an image from the boot volume of the virtual server. 
+
+### 02 May 2024
+{: #vpc-may0224}
+{: release-note}
+
+GPU l4 and l40S profiles now available in Brazil region (GA)
+:   The `l4` and `l40S` GPU profiles are now available in the Brazil (São Paulo) region. With this additional region, these profiles are now available in all regions. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+
 ## April 2024
 {: #vpc-apr24}
 
@@ -82,7 +113,7 @@ Next generation instance profiles available in Toronto region (select availabili
 {: release-note}
 
 Sharing DNS resolution for endpoint gateways across VPCs
-:   When multiple VPCs are connected together using Transit Gateway, Direct Link, or other connectivity options, a VPC in the connected topology can now be enabled as a DNS hub to centralize the DNS resolution for Virtual Private Endpoint (VPE) gateways. For more information, see [About DNS sharing for VPE gateways](/docs/vpc?topic=vpc-hub-spoke-model).
+:   When multiple VPCs are connected together using Transit Gateway, Direct Link, or other connectivity options, a VPC in the connected topology can now be enabled as a DNS hub to centralize the DNS resolution for Virtual Private Endpoint (VPE) gateways. For more information, see [About DNS sharing for VPE gateways](/docs/vpc?topic=vpc-vpe-dns-sharing).
 
 ### 28 March 2024
 {: #vpc-mar2824}
@@ -292,6 +323,9 @@ Reservations for VPC (select availability)
 
 UI enhancement to VPC download button
 :   Previously, when you downloaded a list of resources from a table, you could download only the current page if the resource list length was more than 200 records. With this UI enhancement, you can now download all the pages regardless of length of the resource list.
+
+## December 2023
+{: #vpc-dec23} 
 
 ### 19 December 2023
 {: #vpc-dec1923}

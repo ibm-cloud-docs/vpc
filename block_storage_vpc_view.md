@@ -75,7 +75,7 @@ The {{site.data.keyword.block_storage_is_short}} volumes details page shows volu
 | Field | Description |
 |-------|-------------|
 | **Volume details** | |
-| Name  | Name of the volume you specified when you created the volume. Click the pencil icon to edit the volume name. The volume name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. Volume names must be unique for the account and for the region. |
+| Name  | Name of the volume you specified when you created the volume. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to edit the volume name. The volume name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. Volume names must be unique for the account and for the region. |
 | Volume ID | System-generated volume ID. |
 | Health |  Health monitors the overall health of the volume, such as I/O performance and data consistency. Volume health statuses are `OK` or `degraded`. Volumes in a degraded state have less than OK performance, capacity, or experience connection problems. Volumes that are being restored from a snapshot also show a degraded state. The service displays a possible reason for the degraded state so you can resolve it. For more information, see [{{site.data.keyword.block_storage_is_short}} volume health states](/docs/vpc?topic=vpc-block-storage-vpc-monitoring#block-storage-vpc-health-states). |
 | Resource group | Resource group defined when you set up your VPC. Resource groups manage access to resources but do not affect billing or monitoring.|

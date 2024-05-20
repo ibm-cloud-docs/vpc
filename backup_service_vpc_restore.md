@@ -74,7 +74,7 @@ From the list of {{site.data.keyword.block_storage_is_short}} snapshots, you can
 
 2. Select a backup snapshot from the list. The **Created by** column shows which snapshots were created by a backup policy. Snapshots must be in a `stable` state for restoration.
 
-3. From the overflow menu, select **Create volume**.
+3. From the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions"), select **Create volume**.
 
 4. In the side panel, choose whether you want to attach a data volume to an existing instance, a boot volume to a new instance, or leave either volume unattached.
 
@@ -123,7 +123,7 @@ Use the following steps to create a volume from the snapshot details page.
 
 3. From the list, click the backup snapshot name to go to its details page.
 
-4. From the **Actions** menu, click **Create volume**.
+4. From the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions"), select **Create volume**.
 
 5. Define the new volume in the side panel. The information is the same as when you create a volume from the [list of snapshots](#baas-vpc-restore-snaphot-list-ui). Table 1 describes the options on the side panel.
 

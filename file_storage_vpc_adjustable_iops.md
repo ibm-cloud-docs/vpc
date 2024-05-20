@@ -71,7 +71,7 @@ Follow these steps to adjust IOPS by selecting a new IOPS tier or custom IOPS ba
 
 2. In the **File shares for VPC** list page, click the name of a file share to see its details.
 
-3. On the file share details page, locate **Profile** and click the pencil icon or use the **Actions** menu and select **Edit IOPS profile**. Volumes must be attached to a virtual server instance for these actions.
+3. On the file share details page, locate **Profile** and click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") or use the **Actions** menu and select **Edit IOPS profile**. Volumes must be attached to a virtual server instance for these actions.
 
 4. In the side panel, adjust IOPS as follows:
 

@@ -69,10 +69,10 @@ Currently, the `port_min` and `port_max` properties are supported only when rout
 
 [Beta]{: tag-blue}
 
-Generic operating system custom image is a beta feature that is available to select customers for evaluation and testing purposes. To request to be included in the evaluation of this beta feature, contact IBM Support. 
+Generic operating system custom image is a beta feature that is available to select customers for evaluation and testing purposes. To request to be included in the evaluation of this beta feature, contact IBM Support.
 {: beta}
 
-**Issue:** Currently, for the beta release, the metadata for Block Storage Snapshots and boot volumes do not include the new `operating_system.user_data_format` or `operating_system.allow_user_image_creation` API properties. 
+**Issue:** Currently, for the beta release, the metadata for Block Storage Snapshots and boot volumes do not include the new `operating_system.user_data_format` or `operating_system.allow_user_image_creation` API properties.
 
 ### Checksum not available for some public images
 {: #RIOS-1410}

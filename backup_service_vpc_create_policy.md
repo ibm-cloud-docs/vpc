@@ -115,7 +115,7 @@ You can schedule backups in your plan on a daily, weekly, or monthly basis by us
    Tags are automatically copied over from the parent backup.
    {: note}
 
-1. Click **Apply changes** to save the new plan. The list of plans is updated in the policy details page. If you want to make any changes, click the pencil icon for that plan. If you want to delete the plan, click the delete icon.
+1. Click **Apply changes** to save the new plan. The list of plans is updated in the policy details page. If you want to make any changes, click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") for that plan. If you want to delete the plan, click the delete icon.
 
 ### Estimating your expected usage and costs
 {: #backup-cost-estimator-ui}
