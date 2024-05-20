@@ -36,7 +36,7 @@ This procedure explains how to specify customer-managed encryption when you crea
 3. Enter the information in Table 1 to define your new Block Storage volume.
    | Field | Value |
    |-------|-------|
-   | **Location** | The geography, region, and zone are inherited from the VPC (for example, North America, Dallas, Dallas-1). You can select a different zone in your location from the menu by clicking the pencil icon. |
+   | **Location** | The geography, region, and zone are inherited from the VPC (for example, North America, Dallas, Dallas-1). You can select a different zone in your location from the menu by clicking the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit"). |
    | **Details** | In the Details section, you must specify the name of the volume and the resource group that the volume is to be added to. Optionally, you can add user and access management tags. |
    | Name | Specify a meaningful name for your volume. For example, provide a name that describes your compute or workload function. The volume name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. Volume names must be unique across the entire VPC infrastructure. You can later edit the name. |
    | Resource Group | Specify a [Resource group](/docs/vpc?topic=vpc-iam-getting-started&interface=ui#iam-resource-groups). |
@@ -226,7 +226,7 @@ Follow these steps to create an instance with a new Block Storage volume.
 
 1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 1. Click **New instance** and complete the required fields. For more information about these required fields, see _Table 1 - Instance provisioning selections_ in [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers).
-1. In the **Boot volume** section, the default mode of encryption is _Provider managed_ encryption. To specify customer-managed encryption, click the pencil icon in the boot volume row. On the **Edit boot volume** page, update the fields in the **Encryption** section.
+1. In the **Boot volume** section, the default mode of encryption is _Provider managed_ encryption. To specify customer-managed encryption, click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") in the boot volume row. On the **Edit boot volume** page, update the fields in the **Encryption** section.
    | Field | Value |
    | ----- | ----- |
    | Encryption | _Provider managed_ is the default encryption mode. To use customer-managed encryption, select a key management service. |

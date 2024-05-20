@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-12-18"
+  years: 2022, 2024
+lastupdated: "2024-05-15"
 
 keywords:
 
@@ -210,14 +210,15 @@ You can use a Secrets Manager private certificate in your VPN server. Review the
 * All CAs in a CA chain must be contained in a Secrets Manager instance. Also, you must create the root CA inside the Secrets Manager. When you select an intermediate CA, the following options are _required_ to make sure that every CA can be found while the CA chain of a private certificate in your VPN server is verified:
 
    * In the Type section, you must select **Internal signing**.
-   * In the Type section, you must enable the **Encode URL** toggle button when you create a CA to encode the issuing certificate URL in end-entity certificates.
+   * In the Type section, you must enable the **Encode URL** switch when you create a CA to encode the issuing certificate URL in end-entity certificates. It doesn't work if you enable the **Encode URL** switch after creating the CA.
 * The maximum number of CAs in a private certificate CA chain is 11 (a root CA and 10 intermediate CAs at most).
-* In the Certificate revocation list section, enable both **CRL building** and **CRL distribution points** toggle buttons if you want to use the CA CRL of a private certificate. A revoked certificate is no longer trusted by the applications after one hour.
+* In the Certificate revocation list section, enable both **CRL building** and **CRL distribution points** switches if you want to use the CA CRL of a private certificate. A revoked certificate is no longer trusted by the applications after one hour.
 * The CA CRL works only if you don't upload a certificate revocation list when you create a VPN server. You don't need to enable a CA CRL if the VPN server's CRL is already uploaded.
 * While creating a template for an intermediate CA, in the Certificate roles section:
    * Select the **Use certificates for server** checkbox if that created CA will sign the server certificate for the VPN server.
    * Select the **Use certificates for client** checkbox if that created CA will sign the client certificate for the VPN server.
    * Select both **Use certificates for server** and **Use certificates for client** checkboxes if that created CA will sign both server and client certificates for the VPN server.
+* Make sure that every CA has an unique **Common name** in the CA chain while creating it in the Secrets Manager instance.
 
 For more information, see [Creating private certificates](/docs/secrets-manager?topic=secrets-manager-certificates&interface=ui) in the Secrets Manager documentation.
 {: note}

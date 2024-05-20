@@ -65,7 +65,7 @@ To create and configure {{site.data.keyword.nlb_full}} in the {{site.data.keywor
    * Select the method, which is the load-balancing algorithm, from the following options.
       * **Round robin** - Forward requests to each instance in turn. All instances receive approximately an equal number of client connections.
       * **Weighted round robin** - Forward requests to each instance in proportion to its assigned weight. For example, if you have instances A, B, and C, and their weights are set to 60, 60 and 30, then instances A and B receive an equal number of connections, and instance C receives half as many connections.
-   * Choose session stickiness and select **None** or **Source IP**.
+   * Choose session stickiness and select **None**.
    * Enter the following health check options:
      * **Health check path** - Health check path is applicable only if you select HTTP as the health check protocol. The health check path specifies the URL used by the load balancer to send the HTTP health check requests to the instances in the pool. By default, health checks are sent to the root path (`/`).
      * **Health protocol** - The protocol used by the load balancer to send health check messages to the instances in the pool.

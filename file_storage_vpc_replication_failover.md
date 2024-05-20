@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-03-05"
+lastupdated: "2024-05-14"
 
 keywords: file storage, file share, replication, replica, source share, failover, 
 
@@ -72,7 +72,7 @@ These restrictions apply when you perform a failover.
 
 2. Click the name of a replica file share to open its details page.
 
-3. From the **Actions** menu, select **Perform failover**. In the side panel, you can preview the changes. Before the failover, a final sync of the files is performed to ensure that the failover share has the latest content. When the failover completes, the replica file share becomes the new source file share. The former source share becomes the new read-only replica share.
+3. From the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions"), select **Perform failover**. In the side panel, you can preview the changes. Before the failover, a final sync of the files is performed to ensure that the failover share has the latest content. When the failover completes, the replica file share becomes the new source file share. The former source share becomes the new read-only replica share.
 
 4. To set a timeout value, check the box under **Timeout (optional)** and specify a time value. This value specifies an absolute time limit for the failover to complete. Set a timeout based on how long you can have your file share offline.
 
