@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-05-14"
+lastupdated: "2024-05-21"
 
 keywords: vpc, api, change log, new features, restrictions, migration
 
@@ -53,6 +53,22 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 21 May 2024
+{: #21-may-2024}
+
+### For version `2022-02-28` or later
+{: #version-2022-02-28}
+
+**Snapshots `DELETE` response code change.** When [deleting a snapshot](/apidocs/vpc/latest#delete-snapshot) or [deleting a filtered collection of snapshots](/apidocs/vpc/latest#delete-snapshots) using a `version` query parameter of `2022-02-28` or later, the response will now return an HTTP response code of `202` upon success, instead of `204`. The underlying deletion operations were already asynchronous, and remain unchanged.
+
+To avoid regressions in client functionality, before issuing requests using a `version` query parameter of `2022-02-28` or later, ensure that any clients deleting snapshot resources will also regard a response code of `202` as success.
+{: important}
+
+A response code of `204` will continue to be returned for API requests using a `version` query parameter of `2022-02-27` and earlier.
+
+This feature was originally released on 28 February 2022, but an announcement was not included at the time.
+{: note}
 
 ## 14 May 2024
 {: #14-may-2024}
