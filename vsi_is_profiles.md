@@ -2,12 +2,11 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-05-14"
+lastupdated: "2024-05-22"
 
-keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, very high memory, gpu, sap, olap, oltp, nvidia, cascade lake
+keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
 subcollection: vpc
-
 
 ---
 
@@ -21,11 +20,20 @@ When you provision {{site.data.keyword.vsi_is_full}}, you can select from seven 
 A profile is a combination of instance attributes, such as the number of vCPUs, amount of RAM, network bandwidth, and default bandwidth allocation. The attributes define the size and capabilities of the virtual server instance that is provisioned. In the {{site.data.keyword.Bluemix_notm}} console, you can select the most recently used profile or click **View All Profiles** to choose the profile that best fits your needs.
 {: shortdesc}
 
-For more information about profiles for IBM Z (s390x processor architecture), see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles).
+{{site.data.keyword.vpc_full}} offers different processor architectures to choose from. See the following table for a brief overview of each available architecture.
+
+| Architecture | Description |
+|-----|-----|
+| x86 | x86 is the general term that is used to refer to 32-bit processors that are compatible with the x86 instruction set of architectures (ISA). |
+| x64 | x64 is the general term that is used to refer to the x86 processor extension that allows 64-bit operations (sometimes referred to as x86-64). x64 is compatible with the x64 instruction set of architectures (ISA). |
+| s390x (LinuxONE) | IBM LinuxONE s390x is a uniquely secure and scalable architecture that provides dedicated CPU core, memory, and I/O channel to better manage your high-performance workloads. |
+{: caption="Table 1. Processor architectures" caption-side="bottom"}
+
+For more information about profiles for IBM Z or LinuxONE (s390x processor architecture), see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles).
 
 For more information about SAP profiles, see [Intel Virtual Server certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc) and [Intel Virtual Server certified profiles on VPC infrastructure for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc).
 
-The following profile families are available:
+The following profile families are available when you provision a virtual server instance.
 
 | Family | Description |
 | -------- | ----------- |
@@ -35,14 +43,16 @@ The following profile families are available:
 | [Very High Memory](#vhmemory) | Very High Memory profiles offer a core to RAM ratio of 1 vCPU to 14 GiB of RAM. This family is optimized for running small to medium in-memory databases and OLAP workloads, such as SAP BW/4 HANA. |
 | [Ultra High Memory](#uhmemory) | Ultra High Memory profiles offer the most memory per core with 1 vCPU to 28 GiB of RAM. These profiles are optimized to run large in-memory databases and OLTP workloads, such as SAP S/4 HANA.|
 | [GPU](#gpu) | GPU enabled profiles provide on-demand access to NVIDIA V100 and A100 GPUs to accelerate AI, high-performance computing, data science, and graphics workloads.|
-| [Storage Optimized](#storageopt) | Storage Optimized profiles offer temporary SSD instance storagedisks at a ratio of 1 vCPU to 300 GB instance storage with a lower price point per GB. These profiles are designed for storage-dense workloads and offer `virtio` interface type for attached disks. |
+| [Storage Optimized](#storageopt) | Storage Optimized profiles offer temporary SSD instance storage disks at a ratio of 1 vCPU to 300 GB instance storage with a smaller price point per GB. These profiles are designed for storage-dense workloads and offer `virtio` interface type for attached disks. |
 | [Confidential Compute](#confidential-computing-profiles) | Confidential Compute-supported profiles use processor reserved memory called EPC (Enclave Page Cache) to encrypt application data. Processor reserved memory EPC maintains confidentiality and integrity. |
 {: caption="Table 2. Virtual server family selections" caption-side="bottom"}
 
 2nd generation profiles with instance storage and 2nd generation profiles with 64 or more vCPUs are deployed exclusively on the Intel&reg;'s second-generation quad processor Xeon&reg; Platinum 8260 Cascade Lake with 96 cores that are running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz or Intel&reg;'s quad processor Xeon&reg; Gold 6248 Cascade Lake with 80 cores that are running at a base speed of 2.5 GHz and an all-core turbo frequency of 3.1 GHz.
 {: note}
 
-Profiles with AMD manufactured processors are available in only the Toronto region.
+For more information about LinuxONE (s390x processor architecture) profiles, see [s390x instance profiles](/docs/vpc?topic=vs-profiles).
+
+Profiles with AMD manufactured processors are available in the Toronto region.
 {: preview}
 
 ## Balanced
@@ -50,13 +60,15 @@ Profiles with AMD manufactured processors are available in only the Toronto regi
 
 Balanced profiles provide a mix of performance and scalability for more common workloads. The Balanced profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Balanced profiles that are available for Intel&reg; x86-64, and AMD x86-64 processors.
 
-Storage Optimized profiles are available in the US South (Dallas), US East (Washington DC), United Kingdom (London), EU Germany (Frankfurt), EU Spain (Madrid), Japan (Tokyo), and Japan (Osaka) regions.
+Balanced profiles with the bx2d prefix are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Spain (Madrid), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions.
 {: preview}
 
-3rd generation profiles with the bx3d prefix are available in the Dallas, London, Frankfurt, Washington DC, Toronto, Madrid, and Sydney regions to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids).  For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
+3rd generation profiles with the bx3d prefix are available in the Dallas, London, Frankfurt, Washington DC, Toronto, Madrid, Sydney, Tokyo, and Osaka regions to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids).  For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
 {: preview}
 
-| Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
+The following table shows all balance profiles that are available for x86-64.
+
+| Instance profile | vCPU | Cores | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) |
 |---------|---------|---------|---------|---------|---------|
 | bx2-2x8 | 2 | 1 | 8 | 4 | - |
 | bx2d-2x8 | 2 | 1 | 8 | 4 | 1x75 |
@@ -83,17 +95,17 @@ Storage Optimized profiles are available in the US South (Dallas), US East (Wash
 {: class="simple-tab-table"}
 {: summary="Balanced bx2 profile options for Intel x86-64 virtual server instances."}
 
-| Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
+| Instance profile | vCPU | Cores | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) |
 |---------|---------|---------|---------|---------| ---------|
 | bx2a-2x8 | 2 | 1 | 8 | 2 | - |
 | bx2a-4x16 | 4 | 2 |  16 | 4 | - |
 | bx2a-8x32 | 8 | 4 | 32 | 8 | - |
 | bx2a-16x64 | 16 | 8 | 64 | 16 | - |
-| bx2a-32x128	| 32 | 16 | 128 | 32 | - |
-| bx2a-48x192	| 48 | 24 | 192 | 48 | - |
-| bx2a-64x256	| 64 | 32 | 256 | 64 | - |
-| bx2a-96x384	| 96 | 48 | 384 | 80 | - |
-| bx2a-128x512	| 128 | 64 | 512 | 80 | - |
+| bx2a-32x128 | 32 | 16 | 128 | 32 | - |
+| bx2a-48x192 | 48 | 24 | 192 | 48 | - |
+| bx2a-64x256 | 64 | 32 | 256 | 64 | - |
+| bx2a-96x384 | 96 | 48 | 384 | 80 | - |
+| bx2a-128x512 | 128 | 64 | 512 | 80 | - |
 | bx2a-228x912 | 228 | 114 | 912 | 80 | - |
 {: caption="Table 3. Balanced profile options for AMD x86-64 instances" caption-side="bottom"}
 {: #balanced-amd-x86-64}
@@ -128,15 +140,17 @@ AMD based virtual machines use AMD EPYC Milan processors. Compute capabilities a
 ## Compute
 {: #compute}
 
-Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers. The Compute profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Compute profiles that are available for Intel&reg; x86-64 processors.
+Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers. The Compute profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Compute profiles that are available for &reg; x86-64.
 
 Compute profiles with the cx2d prefix are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Spain (Madrid), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions.
 {: preview}
 
-3rd generation profiles with the cx3d prefix are available in the Dallas, London, Frankfurt, Washington DC, Toronto, Madrid, and Sydney regions to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
+3rd generation profiles with the cx3d prefix are available in the Dallas, London, Frankfurt, Washington DC, Toronto, Madrid, Sydney, Tokyo, and Osaka regions to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
 {: preview}
 
-| Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
+The following table shows all compute profiles that are available for x86-64.
+
+| Instance profile | vCPU | Cores | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) |
 |---------|---------|---------|---------|---------|---------|
 | cx2-2x4 | 2 | 1 | 4 | 4 | - |
 | cx2d-2x4 | 2 | 1 | 4 | 4 | 1x75 |
@@ -157,11 +171,11 @@ Compute profiles with the cx2d prefix are available in the US South (Dallas), US
 | cx2-128x256 | 128 | 64 | 256 | 80 | - |
 | cx2d-128x256 | 128 | 64 | 256 | 80 | 2x2400 |
 {: caption="Table 4. Compute profile options for x86-64 instances" caption-side="bottom"}
-{: #compute-intel-x86-64-cx2d}
+{: #compute-intel-x86-64}
 {: tab-title="cx2"}
 {: tab-group="Compute"}
 {: class="simple-tab-table"}
-{: summary="Compute profiles options for Intel x86-64 virtual server instances."}
+{: summary="Compute profile options for Intel x86-64 virtual server instances."}
 
 | Instance profile | vCPU / Cores | NUMA count | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) |
 |---------|---------|---------|---------|---------|---------|
@@ -177,7 +191,7 @@ Compute profiles with the cx2d prefix are available in the US South (Dallas), US
 | cx3d-128x320 | 128 / 64  | 2 | 320 | 200 | 2x2080 |
 | cx3d-176x440 | 176 / 88 | 2 | 440 | 200 | 2x2860 |
 {: caption="Table 4. Compute profile options for x86-64 instances" caption-side="bottom"}
-{: #compute-intel-x86-64-cx3d}
+{: #compute-intel-x86-64}
 {: tab-title="cx3d"}
 {: tab-group="Compute"}
 {: class="simple-tab-table"}
@@ -191,11 +205,10 @@ Memory profiles are best for memory intensive workloads, such as large caching w
 Memory profiles with the mx2d prefix are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Spain (Madrid), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions.
 {: preview}
 
-3rd generation profiles with the mx3d prefix are available in the Dallas, London, Frankfurt, Washington DC, Toronto, Madrid, and Sydney regions to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
+3rd generation profiles with the mx3d prefix are available in the Dallas, London, Frankfurt, Washington DC, Toronto, Madrid, Sydney, Tokyo, and Osaka regions to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids).  For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
 {: preview}
 
-
-| Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
+| Instance profile | vCPU | Cores | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) |
 |---------|---------|---------|---------|---------|---------|
 | mx2-2x16 | 2 | 1 | 16 | 4 | - |
 | mx2d-2x16 | 2 | 1 | 16 | 4 | 1x75 |
@@ -216,7 +229,7 @@ Memory profiles with the mx2d prefix are available in the US South (Dallas), US 
 | mx2-128x1024| 128 | 64 | 1024 | 80 | - |
 | mx2d-128x1024| 128 | 64 | 1024 | 80 | 2x2400 |
 {: caption="Table 5. Memory mx2 profile options for x86-64 instances " caption-side="bottom"}
-{: #memory-intel-x86-64-mx2d}
+{: #memory-intel-x86-64}
 {: tab-title="mx2"}
 {: tab-group="Memory"}
 {: class="simple-tab-table"}
@@ -236,7 +249,7 @@ Memory profiles with the mx2d prefix are available in the US South (Dallas), US 
 | mx3d-128x1280 | 128 / 64 | 2 | 1280 | 200 | 2x2080 |
 | mx3d-176x1760 | 176 / 88 | 2 | 1760 | 200 | 2x2860 |
 {: caption="Table 5. Memory mx3d Beta profile options for x86-64 instances " caption-side="bottom"}
-{: #memory-intel-x86-64-mx3d}
+{: #memory-intel-x86-64}
 {: tab-title="mx3d"}
 {: tab-group="Memory"}
 {: class="simple-tab-table"}
@@ -245,9 +258,9 @@ Memory profiles with the mx2d prefix are available in the US South (Dallas), US 
 ## Very High Memory
 {: #vhmemory}
 
-Very High Memory profiles offer 1 vCPU to 14 GiB of RAM to host small to medium sized in-memory databases, OLAP services such as SAP NetWeaver, and other memory intensive applications. All Very High Memory profiles are provisioned with temporary SSD-backed [instance storage](/docs/vpc?topic=vpc-instance-storage) at no additional charge. The following Very High Memory profiles are available on Intel&reg; x86 processors.
+Very High Memory profiles offer 1 vCPU to 14 GiB of RAM to host small to medium-sized in-memory databases, OLAP services such as SAP NetWeaver, and other memory intensive applications. All Very High Memory profiles are provisioned with temporary SSD-backed [instance storage](/docs/vpc?topic=vpc-instance-storage) at no additional charge. The following Very High Memory profiles are available on Intel&reg; x86 processors.
 
-| Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance storage (GB) |
+| Instance profile | vCPU | Cores | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) |
 |---------|---------|---------|---------|---------|---------|
 | vx2d-2x28 | 2 | 1 | 28 | 4 | 1x60 |
 | vx2d-4x56 | 4 |  2 | 56 | 8 | 1x120 |
@@ -271,7 +284,7 @@ Ultra High Memory profiles are hosted exclusively on the latest generation Intel
 
 The following Ultra High Memory profiles are available for x86-64 processors:
 
-| Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
+| Instance profile | vCPU | Cores | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) |
 |---------|---------|---------|---------|---------|---------|
 | ux2d-2x56 | 2 | 1 | 56 | 4 | 1x60 |
 | ux2d-4x112 | 4 | 2 | 112 | 8 | 1x120 |
@@ -293,17 +306,22 @@ The following Ultra High Memory profiles are available for x86-64 processors:
 ## GPU
 {: #gpu}
 
-The GPU profile family includes both `-v100`, `-a100`, `l4`, and `l40S` profiles. The GPU profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage).
+The GPU profile family includes `-v100`, `-a100`, `-l4`, and `-l40S` profiles. The GPU profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage).
 
-* GPU `-v100` profiles include 1 or 2 NVIDIA V100 PCIe 16 GB GPUs. All OS images are supported on these GPU profiles.
-* GPU `-a100` profile includes 8 NVIDIA A100 NVlink 80 GB GPUs. This GPU profile supports only Linux OS images Ubuntu or RHEL.
-* GPU `-l4` profiles include NVIDIA L4 24GB GPUs.
-* GPU `-l40S` profiles include NVIDIA L40S 48GB GPUs.
+- GPU `-v100` profiles include 1 or 2 NVIDIA V100 PCIe 16 GB GPUs. All OS images are supported on these GPU profiles.
+- GPU `-a100` profiles includes 8 NVIDIA A100 NVlink 80 GB GPUs. This GPU profile supports only Linux OS images Ubuntu or RHEL.
+- GPU `-l4` profiles include NVIDIA L4 24GB GPUs.
+- GPU `-l40S` profiles include NVIDIA L40S 48GB GPUs.
 
 See [Download drivers](https://www.nvidia.com/Download/index.aspx?lang=en-us) to review the most current versions that are supported. NVIDIA GPU drivers must be installed separately.
 
-The `gx2-80x1280x8a100` GPU profile is available for select customers. Contact IBM Sales or open a [support case](https://cloud.ibm.com/unifiedsupport/supportcenter) if you are interested in this offering.
-{: preview}
+### Select availability for the a100
+{: #gpu-select-availabilty}
+
+[Select availability]{: tag-green}
+
+- The `gx2-80x1280x8a100` GPU profile is available for select customers. Contact IBM Sales or open a [support case](https://cloud.ibm.com/unifiedsupport/supportcenter) if you are interested in this offering.
+- The `a100` PCIe GPU profiles are only available in the US East (Washington DC), United Kingdom (London), and Japan (Tokyo) regions.
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Number of GPUs | Instance storage (GB) |
 |---------|---------|---------|---------|---------|---------|---------|
@@ -312,7 +330,7 @@ The `gx2-80x1280x8a100` GPU profile is available for select customers. Contact I
 | gx2-16x128x2v100 | 16 | 8 | 128 | 32 | 2 | - |
 | gx2-32x256x2v100 | 32 | 16 | 256 | 64 | 2 | - |
 {: caption="Table 8. GPU gx2 v100 16 GB profile options for Intel x86-64 instances" caption-side="bottom"}
-{: #gpu-intel-x86-64-gx2-v100}
+{: #gpu-intel-x86-64}
 {: tab-title="gx2 v100"}
 {: tab-group="GPU"}
 {: class="simple-tab-table"}
@@ -322,11 +340,23 @@ The `gx2-80x1280x8a100` GPU profile is available for select customers. Contact I
 |---------|---------|---------|---------|---------|---------|---------|
 | gx2-80x1280x8a100 | 80 | 40 | 1280 | 200 | 8 | 4x3200 |
 {: caption="Table 8. GPU gx2 a100 80 GB profile options for Intel x86-64 instances" caption-side="bottom"}
-{: #gpu-intel-x86-64-gx2-a100}
+{: #gpu-intel-x86-64}
 {: tab-title="gx2 a100"}
 {: tab-group="GPU"}
 {: class="simple-tab-table"}
 {: summary="GPU gx2 a100 80 GB profile options for Intel x86-64 virtual server instances."}
+
+<!--- The GPU gx3 a100 PCIe profiles are INTERNAL ONLY - DO NOT PUBLISH--->
+| Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Number of GPUs | Instance storage (GB) |
+|---------|---------|---------|---------|---------|---------|---------|
+| gx3d-48x240x2a100p | 48 | 24 | 240 | 96 | 2 | 2x780 |
+| gx3d-24x120x1a100p | 24 | 12 | 120 | 48 | 1 | 1x780 |
+{: caption="Table 8. GPU gx3 a100 80 GB PCIe profile options for Intel x86-64 instances" caption-side="bottom"}
+{: #gpu-intel-x86-64}
+{: tab-title="gx3 a100"}
+{: tab-group="GPU"}
+{: class="simple-tab-table"}
+{: summary="GPU gx3 a100 80 GB PCIe profile options for Intel x86-64 virtual server instances."}
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Number of GPUs | Instance storage (GB) |
 |---------|---------|---------|---------|---------|---------|---------|
@@ -334,7 +364,7 @@ The `gx2-80x1280x8a100` GPU profile is available for select customers. Contact I
 | gx3-32x160x2l4 | 32 | 16 | 160 | 64 | 2 | - |
 | gx3-64x320x4l4 | 64 | 32 | 320 | 128 | 4 | - |
 {: caption="Table 8. GPU gx3 l4 24 GB profile options for Intel x86-64 instances" caption-side="bottom"}
-{: #gpu-intel-x86-64-gx3-l4}
+{: #gpu-intel-x86-64}
 {: tab-title="gx3 l4"}
 {: tab-group="GPU"}
 {: class="simple-tab-table"}
@@ -344,17 +374,17 @@ The `gx2-80x1280x8a100` GPU profile is available for select customers. Contact I
 |---------|---------|---------|---------|---------|---------|---------|
 | gx3-24x120x1l40s | 24 | 12 | 120 | 50 | 1 | - |
 | gx3-48x240x-2l40s | 48 | 24 | 240 | 100 | 2 | - |
-{: caption="Table 8. GPU gx3 l40S 24 GB profile options for Intel x86-64 instances" caption-side="bottom"}
-{: #gpu-intel-x86-64-gx3-l40S}
-{: tab-title="gx3 l40S"}
+{: caption="Table 8. GPU gx3 L40S 24 GB profile options for Intel x86-64 instances" caption-side="bottom"}
+{: #gpu-intel-x86-64}
+{: tab-title="gx3 L40S"}
 {: tab-group="GPU"}
 {: class="simple-tab-table"}
-{: summary="GPU gx3 l40S 24 GB profile options for Intel x86-64 virtual server instances."}
+{: summary="GPU gx3 L40S 24 GB profile options for Intel x86-64 virtual server instances."}
 
-### Considerations for v100, a100, l4, and l40S GPU profiles
+### Considerations for V100, A100, L4, and L40S GPU profiles
 {: #considerations-gpu-profiles}
 
-When you create a `-v100`, `-a100`, `l4`, `l40S` GPU profile, keep the following recommendations in mind.
+When you create a `-v100`, `-a100`, `l4`, or `l40S` GPU profile, keep the following recommendations in mind.
 
 - During {{site.data.keyword.Bluemix_notm}} periodic maintenance, GPU workloads aren't secure live migrated. Instead, the virtual server instance is restarted. You are notified 30 days in advance of any maintenance where the virtual server instance restarts. For more information, see [Understanding cloud maintenance operations](/docs/vpc?topic=vpc-about-cloud-maintenance).
 - If you are using GPU profiles, you need to install the NVIDA driver onto your virtual server instance. For more information, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
@@ -374,6 +404,10 @@ The Intel&reg; Xeon&reg; Platinum 8260 Cascade Lake is only available in the US 
 
 The GPU `-a100` profile includes the following performance enhancements. These enhancements enable GPUDirect RDMA with higher throughput, lower latency, lower CPU utilization for Machine Learning (ML) and Artificial Intelligence (AI), and High-Performance Compute (HPC) applications.
 
+<!-- The below RoCE and SR-IOV should not be published - this only applies to internal research customers with a special profile -->
+- RoCE (RDMA over converged Ethernet) V2
+- SR-IOV
+
 In addition, the `-a100` profiles have the following restrictions.
 
 - Only Red Hat and Ubuntu are supported.
@@ -384,14 +418,16 @@ In addition, the `-a100` profiles have the following restrictions.
 ## Storage Optimized
 {: #storageopt}
 
-Storage Optimized profiles are hosted exclusively on Intel® Xeon® Platinum Cascade Lake servers. This profile family offers our highest vCPU to [instance storage](/docs/vpc?topic=vpc-instance-storage) ratio with 300 GB of storage for every 1 vCPU and is optimized for running data lake and other workloads requiring more intensive data capabilities. All storage optimized profiles are provisioned with temporary SSD-backed instance storage at no additional charge. For more information, see [Lifecycle of instance storage](/docs/vpc?topic=vpc-instance-storage#instance-storage-lifecycle).
+Storage Optimized profiles are hosted exclusively on Intel® Xeon® Platinum Cascade Lake servers. This profile family offers our highest vCPU to [instance storage](/docs/vpc?topic=vpc-instance-storage) ratio with 300 GB of storage for every 1 vCPU and is optimized for running data lake and other workloads that require more intensive data capabilities. All storage optimized profiles are provisioned with temporary SSD-backed instance storage at no additional charge. For more information, see [Lifecycle of instance storage](/docs/vpc?topic=vpc-instance-storage#instance-storage-lifecycle).
 
-Storage Optimized profiles are available in the US South (Dallas), US East (Washington DC), United Kingdom (London), EU Germany (Frankfurt), Japan (Tokyo), and Japan (Osaka) regions.
+Storage Optimized profiles use the `Storage optimized (ox2) instance storage` quota for instance storage quota tracking. Unlike other profiles, which use the `Instance storage` quota. For more information, see [Quotas](/docs/vpc?topic=vpc-quotas#vpcquotas).
+
+Storage Optimized profiles are available in the US South (Dallas), US East (Washington DC), United Kingdom (London), EU Germany (Frankfurt), EU Spain (Madrid), Japan (Tokyo), and Japan (Osaka) regions.
 {: preview}
 
 The following Storage Optimized profiles are available for x86-64 processors:
 
-| Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) | Interface Type |
+| Instance profile | vCPU | Cores | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) | Interface type |
 |---------|---------|---------|---------|---------|---------|--------|
 | ox2-2x16     | 2    | 1  | 16    | 4     | 1x600   | virtio_blk   |
 | ox2-4x32     | 4    | 2  | 32    | 8     | 1x1200  | virtio_blk   |
@@ -411,38 +447,40 @@ The following Storage Optimized profiles are available for x86-64 processors:
 ## Bandwidth allocation
 {: #bandwidth-allocation}
 
+Instance bandwidth is allocated between volume bandwidth and networking bandwidth. The bandwidth capacity (Bandwidth Cap) is determined by the virtual server profile that you select during instance provisioning. For example, a bx2-2x8 balanced server profile allows a bandwidth cap of 4 Gbps.
+
 ### Bandwidth allocation between storage and networking
 {: #bandwidth-storage-network}
 
-Instance bandwidth is allocated between volume bandwidth and networking bandwidth. The bandwidth capacity (Bandwidth Cap) is determined by the virtual server profile that you select during instance provisioning. For example, a bx2-2x8 balanced server profile allows a bandwidth cap of 4 Gbps. The initial volume and network bandwidth allocation depends on the bandwidth set by the instance profile you selected. You can also see the bandwidth allocations in the profile information during instance creation in the UI. The bandwidth allocation can be changed on the instance details page after provisioning an instance.
+The initial volume and network bandwidth allocation depends on the bandwidth that is set by the instance profile that you selected. You can also see the bandwidth allocations in the profile information during instance creation in the UI. The bandwidth allocation can be changed on the instance details page after you provision an instance.
 
-For example, for the bx2-2x8 profile you might have:
+For example, for the bx2-2x8 profile, you might have the following storage and network options:
 
-* Storage: 1 Gbps
-* Network: 3 Gbps
+- Storage: 1 Gbps
+- Network: 3 Gbps
 
-For a cx2-8x16 profile:
+For a cx2-8x16 profile, you might have the following storage and network options:
 
-* Storage: 4 Gbps
-* Network: 12 Gbps
+- Storage: 4 Gbps
+- Network: 12 Gbps
 
-The amount of overall bandwidth provided to volume bandwidth can be adjusted within the overall instance limits. A default amount of volume bandwidth is set on each instance profile.
+You can adjust amount of overall bandwidth that is provided to volume bandwidth within the overall instance limits. A default amount of volume bandwidth is set on each instance profile.
 
-For more information, see [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles) and [Adjusting bandwidth allocation using the UI](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#adjusting-bandwidth-allocation-ui).
+For more information, see [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles) and [Adjusting bandwidth allocation by using the UI](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#adjusting-bandwidth-allocation-ui).
 {: ui}
 
-For more information, see [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles) and [Adjusting bandwidth allocation using the CLI](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=cli#adjusting-bandwidth-allocation-cli).
+For more information, see [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles) and [Adjusting bandwidth allocation by using the CLI](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=cli#adjusting-bandwidth-allocation-cli).
 {: cli}
 
 For more information, see [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles) and [Adjusting total storage bandwidth allocation from the API](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=api#adjusting-bandwidth-allocation-api).
 {: api}
 
-
 ### Bandwidth allocation with multiple network interfaces
 {: #bandwidth-multi-vnic}
 
 You can add up to 15 network interfaces for your virtual server instance, depending on the vCPU count that is included in the instance profile.
-* 2-16 vCPUs: Up to 5 network interfaces
+
+* 2-16 vCPUs: Up to five network interfaces
 * 17-48 vCPUs: Up to 10 network interfaces
 * 49 or more vCPUs: Up to 15 network interfaces
 
@@ -455,9 +493,9 @@ For more information, see [Managing network interfaces](/docs/vpc?topic=vpc-usin
 
 When you create secondary data volumes, you select a volume profile that best meets your requirements. Volume profiles are available as three predefined [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) or as a [custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#custom). These volume profiles relate to virtual server instance profiles:
 
-* A [3 IOPS general-purpose tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers) provides IOPS/GB performance suitable for a virtual server instance Balanced profile.
-* A [5-IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) profile provides IOPS/GB performance suitable for a virtual server instance Compute profile.
-* A [10-IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) profile provides IOPS/GB performance suitable for a virtual server instance Memory profile.
+- A [3 IOPS general-purpose tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers) provides IOPS/GB performance that is suitable for a virtual server instance Balanced profile.
+- A [5-IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) profile provides IOPS/GB performance that is suitable for a virtual server instance Compute profile.
+- A [10-IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) profile provides IOPS/GB performance that is suitable for a virtual server instance Memory profile.
 
 ## Viewing profile configurations
 {: #popular-profiles}
@@ -467,9 +505,10 @@ You can view available profile configurations by using the {{site.data.keyword.c
 ### Understanding the naming rule of the profiles
 {: #profiles-naming-rule}
 
-The following information describes the naming rule of the profiles.
+The following information describes the profile naming rule.
 
 The first character represents the profile families. Different profile families have different ratios of vCPU to memory and other characteristics that are designed for different workloads.
+
 - "b": balanced family of profiles
 - "c": compute family of profiles (higher on the CPUs)
 - "m": memory family of profiles (higher on the memory)
@@ -479,6 +518,7 @@ The first character represents the profile families. Different profile families 
 - "o": storage optimized family of profiles, 1 vCPU to 8 GiB memory ratio and 1 vCPU to 300 GB instance storage ratio
 
 The second character represents the CPU architecture.
+
 - "x": x86_64
 - "z": s390x
 
@@ -494,7 +534,7 @@ Using “bx2-4x16” as an example, you can know from the name that it is a bala
 {: #profiles-using-console}
 {: ui}
 
-1. In the {{site.data.keyword.cloud_notm}} console, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
+1. In the {{site.data.keyword.cloud_notm}} console, go to **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 2. From the Virtual server instances page, click **New instance**.
 3. You can either select a profile configuration from **Popular profiles** or click **All profiles** to view more configurations.
 
@@ -513,9 +553,9 @@ ibmcloud is instance-profiles
 {: #profiles-using-api}
 {: api}
 
-To view the list of available instance profiles by using the API, you can call the [List all instance profiles API](/apidocs/vpc/latest#list-instance-profiles).
+To view the list of available instance profiles by using the API, you can call the [List all instance profiles API](/apidocs/vpc#list-instance-profiles).
 
-The following request example lists the available instance profiles. When you call the API, replace the API endpoint and IAM token with the values from your enterprise. For more information about the `$vpc_api_endpoint` and `$iam_token` variables, see the Authentication and Endpoint URLs sections in [Virtual Private Cloud API Introduction](/apidocs/vpc/latest#about-vpc-api).
+The following request example lists the available instance profiles. When you call the API, replace the API endpoint and IAM token with the values from your enterprise. For more information about the `$vpc_api_endpoint` and `$iam_token` variables, see the Authentication and Endpoint URLs sections in [Virtual Private Cloud API Introduction](/apidocs/vpc#about-vpc-api).
 
 ```sh
 curl -X GET \
@@ -529,14 +569,15 @@ curl -X GET \
 
 [Select availability]{: tag-green}
 
-The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are available to provision in the Dallas, London, Frankfurt, Washington DC, Toronto, Madrid, and Sydney regions. This new generation features virtual server profile families that are hosted exclusively on Intel 4th Generation Xeon Scalable processors to provide the most powerful and performant general-purpose profiles available. These 3rd generation profiles provide the following enhancements:
+The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are available to provision in the Dallas, London, Frankfurt, Washington DC, Toronto, Madrid, Sydney, Tokyo, and Osaka regions. This new generation features virtual server profile families that are hosted exclusively on Intel 4th Generation Xeon Scalable processors to provide the most powerful and performant general-purpose profiles available. These 3rd generation profiles provide the following enhancements:
 
 - Improved performance with DDR 5 memory DIMMs, PCI Gen 5 interconnects, and more memory per vCPU than prior generation profiles.
 - A wide variety of profiles sizes with core to memory ratios optimized to maximize performance and economics for intensive workloads.
 - Enhanced integrated accelerators that feature AMX-512, AVX, and enhanced crypto acceleration.
 - Instances are started by default with Open Virtual Machine Format (OVMF), and run in Unified Extensible Firmware Interface (UEFI) mode for enhanced security.
-- Local instance storage is included with all profiles for easy access to temporary storage and swap space. For more information about the temporary nature of instance storage, see [Lifecycle of instance storage](/docs/vpc?topic=vpc-instance-storage#instance-storage-lifecycle).
+- Local instance storage is included with a/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=apiswap space. For more information about the temporary nature of instance storage, see [Lifecycle of instance storage](/docs/vpc?topic=vpc-instance-storage#instance-storage-lifecycle).
 - A 3rd generation profile can be resized to a 2nd generation profile. A 2nd generation profile can be resized to a 3rd generation profile. For more information, see [Resizing between Gen 2 and Gen 3 profiles](/docs/vpc?topic=vpc-resizing-an-instance&interface=ui#resizing-instance-generations).
+
 
 ## Confidential computing profiles
 {: #confidential-computing-profiles}
@@ -577,7 +618,6 @@ For more information about confidential computing, see [Confidential computing w
 | cx3dc-64x160 | 64 | 160 | 64 |
 | cx3dc-96x240 | 96 | 240 | 96 |
 | cx3dc-128x320 | 128 | 320| 128 |
-| cx3dc-176x440 | 176 | 440 | 176 |
 {: caption="Table 9. Compute profile options for confidential computing compatible virtual server instances" caption-side="bottom"}
 {: #compute-cc-x86-64}
 {: tab-title="cx3"}
@@ -586,19 +626,19 @@ For more information about confidential computing, see [Confidential computing w
 {: summary="Compute cx3 profile options for confidential compute compatible virtual server instances."}
 
 ## Intel Hyper-Threading Technology
-{: #vpc-intel-hyper-threading}
+{: #vpc-intel-hyper-threading-technology}
 
-All Intel&reg; x86-64 servers have Hyper-Threading enabled by default. Intel&reg; Hyper-Threading Technology is a term that describes simultaneous multithreading (SMT). Hyper-Threading Technology splits each physical core into two virtual processors. Hyper-Threading Technology is like taking a wide road with a single lane and making it into two relatively narrower lanes. The two-lane highway provides better service over the single lane road if there is slow and fast moving traffic. Hyper-Threading Technology provides better application performance when there is File I/O, Network I/O and other slower operations mixed with CPU intensive operations. The performance advantage of Hyper-Threading Technology typically ranges in the range 0 - 30% over a single-thread mode. Some applications might also see a drop in performance.
+All Intel&reg; x86-64 servers have Hyper-Threading enabled by default. Intel&reg; Hyper-Threading Technology is a term that describes simultaneous multithreading (SMT). Hyper-Threading Technology splits each physical core into two virtual processors. Hyper-Threading Technology is like taking a wide road with a single lane and making it into two relatively narrower lanes. The two-lane highway provides better service over the single lane road if traffic is moving slow and fast. Hyper-Threading Technology provides better application performance for File I/O, Network I/O, and other slower operations mixed with CPU intensive operations. The performance advantage of Hyper-Threading Technology typically ranges in the range 0 - 30% over a single-thread mode. Some applications might also see a drop in performance.
 
 If you want to disable Intel&reg; Hyper-Threading, see [Disabling Intel Hyper-Threading Technology](/docs/vpc?topic=vpc-disabling-hyper-threading).
 
 ## Next steps
 {: #nextsteps-profiles}
 
-After you choose a profile, it's time to create an instance.
+After you choose a profile, you're ready to create an instance.
 
-* [Creating an instance by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui)
-* [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli)
-* [Creating an instance by using the API](/docs/vpc?topic=vpc-creating-virtual-servers&interface=api)
-* [Creating an instance by using Terraform](/docs/vpc?topic=vpc-creating-virtual-servers&interface=terraform)
-* [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus)
+- [Creating an instance by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#creating-virtual-servers-ui)
+- [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli#creating-virtual-servers-cli)
+- [Creating an instance by using the API](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis#select-profile-and-image)
+- [Creating an instance by using Terraform](/docs/vpc?topic=vpc-creating-virtual-servers&interface=terraform#create-instance-terraform)
+- [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus)
