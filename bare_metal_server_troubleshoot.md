@@ -3,7 +3,7 @@
 copyright:
   years: 2020, 2024
 
-lastupdated: "2024-02-21"
+lastupdated: "2024-05-23"
 
 keywords: troubleshooting bare metal servers, hardware issues, firmware
 
@@ -40,13 +40,6 @@ You can delete the bare metal server that is in the **Maintenance** state.
 {: note}
 
 When the issues are fixed, the server is handed back to you and the state returns to **Stopped**.
-
-## How do I manage firmware updates?
-{: #bare-metal-troubleshoot-firmware-update}
-{: troubleshoot}
-{: support}
-
-Firmware for bare metal servers is managed by IBM. Manual firmware changes aren’t supported on the disk controller or disk drives without direction from IBM.
 
 ## Why did my custom image fail to boot?
 {: #bare-metal-troubleshoot-custom-image-fail-boot}
