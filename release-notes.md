@@ -26,11 +26,11 @@ For more information about changes to the {{site.data.keyword.vpc_short}} API, s
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
 
-## May 2024
-{: #vpc-may24}
+## June 2024
+{: #vpc-jun24}
 
-### 23 May 2024
-{: #vpc-may2324}
+### 06 June 2024
+{: #vpc-jun0624}
 {: release-note}
 
 Generic operating system custom images with Virtual Server Instances and Bare Metal Servers for VPC (GA)
@@ -38,6 +38,9 @@ Generic operating system custom images with Virtual Server Instances and Bare Me
 
 Network boot of operating systems with Bare Metal Servers for VPC (GA)
 :   Network boot of operating systems is now generally available. When you create a bare metal server on IBM Cloud® Virtual Private Cloud (VPC), you can select to network boot an operating system over the network. The operating system image can be hosted on your own server or on a public server. You can install the booted operating system to a disk or you can run the operating system without a disk. For more information, see [Network booting your own operating system with Bare Metal Servers on VPC](/docs/vpc?topic=vpc-network-boot-bare-metal-servers&interface=ui).
+
+## May 2024
+{: #vpc-may24}
 
 ### 14 May 2024
 {: #vpc-may1424}
