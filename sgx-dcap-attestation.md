@@ -67,4 +67,4 @@ For more information about SGX, see the following links.
 
 * For DCAP installation, see [Intel® Software Guard Extensions Data Center Attestation Primitives (Intel® SGX DCAP) - A Quick Install Guide](https://www.intel.com/content/www/us/en/developer/articles/guide/intel-software-guard-extensions-data-center-attestation-primitives-quick-install-guide.html){: external}.
 
-* For the Attestation verification service, see [Intel® Trust Authorit]y(https://docs.trustauthority.intel.com/){: external}.
+* For the Attestation verification service, see [Intel® Trust Authority](https://docs.trustauthority.intel.com/){: external}.
