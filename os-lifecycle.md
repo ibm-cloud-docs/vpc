@@ -4,8 +4,7 @@ copyright:
 
   years: 2022, 2024
 
-lastupdated: "2024-04-09"
-
+lastupdated: "2024-05-22"
 
 keywords: operating system end of support (eos)
 
@@ -18,7 +17,7 @@ subcollection: vpc
 # Lifecycle for guest operating systems
 {: #guest-os-lifecycle}
 
-In the lifecycle of an operating system, end of support (EOS) is the last date that {{site.data.keyword.cloud}} delivers standard support for a version or release of a product. The end of support date is aligned to the vendor and community support dates. A notification is sent out 90 days before support for an operating system is withdrawn.
+In the lifecycle of an operating system, end of support (EOS) is the last date that {{site.data.keyword.cloud}} delivers standard support for a version or release of a product. The end of support date is aligned to the vendor and community support dates. A notification is sent out 90 days before support for an operating system is withdrawn. 
 {: shortdesc}
 
 If you are using a generic operating system custom image, refer to your vendor documentation for EOS dates. For more information, see [Generic operating system custom images](/docs/vpc?topic=vpc-planning-custom-images#generic-os-custom-images).
@@ -26,7 +25,7 @@ If you are using a generic operating system custom image, refer to your vendor d
 | Image status | Description |
 | -------------- | -------------- |
 | `available` | The most current version of the stock operating system image is `available`. When a new version of an operating system is made `available`, the older version image of that guest operating system changes to `deprecated`. No stock operating system that reaches EOS has an `available` image. |
-| `deprecated` | Older versions of stock operating systems are `deprecated`. Also, any stock operating system that reached EOS is also `deprecated`. The UI doesn't display any `deprecated` images when creating an instance. These images are still visible in the CLI and API. |
+| `deprecated` | Older versions of stock operating systems are `deprecated`. Also, any stock operating system that reached EOS is also `deprecated`. The UI doesn't display any `deprecated` images when you create an instance. These images are still visible in the CLI and API. |
 {: caption="Table 1. Image lifecycle status" caption-side="bottom"}
 
 If you choose to continue to use a `deprecated` stock operating system image after EOS, review the [End of support operating system considerations](/docs/vpc?topic=vpc-eos-os-considerations-intro).
@@ -36,7 +35,7 @@ If you choose to continue to use a `deprecated` stock operating system image aft
 
 The following table describes the end of support date and license model for CentOS operating systems. This guest OS is a free operating system. For more information, see [CentOS Linux](https://www.centos.org/about/){: external}.
 
-| Operating sytem | End of support | License model |
+| Operating system | End of support | License model |
 |-----------------|----------------|---------------|
 | CentOS 8 minimal | 31 December 2021 | Free |
 | CentOS 7.9 minimal | 30 June 2024  | Free |
@@ -48,19 +47,20 @@ The following table describes the end of support date and license model for Cent
 
 The following table describes the end of support date and license model for Debian operating systems. This guest OS is a free operating system. For more information, see [Debian community](https://www.debian.org/){: external}.
 
-| Operating sytem | End of support | License model |
+| Operating system | End of support | License model |
 |-----------------|----------------|---------------|
-| Debian 11 minimal | 01 June 2026 | Free |
-| Debian 10 minimal | 01 June 2024 | Free |
+| Debian 12 minimal | 10 June 2028 | Free |
+| Debian 11 minimal | 30 June 2026 | Free |
+| Debian 10 minimal | 30 June 2024 | Free |
 | Debian 9 minimal | 30 June 2022 | Free |
 {: caption="Table 2. Lifecycle for Debian operating systems" caption-side="bottom"}
 
 ## Fedora CoreOS
 {: #fedora-coreos}
 
-The version of Fedora&reg; CoreOS is updated regularly, with the previous release deprecating when a new version is released. This guest OS is a free operating system. For more information, see [Fedora](https://fedoraproject.org/){: external}.
+The version of Fedora&reg; CoreOS is updated regularly, with the previous release deprecating when a new version is released. This guest OS is a free operating system. For more information, see [Fedora](https://getfedora.org/){: external}.
 
-| Operating sytem | End of support | License model |
+| Operating system | End of support | License model |
 |-----------------|----------------|---------------|
 | Fedora CoreOS latest | N/A | Free |
 {: caption="Table 3. Lifecycle for Fedora CoreOS operating systems" caption-side="bottom"}
@@ -70,7 +70,7 @@ The version of Fedora&reg; CoreOS is updated regularly, with the previous releas
 
 The following table describes the end of support date and license model for Red Hat&reg; Enterprise Linux&reg; operating systems. This guest OS is a paid operating system. For more information, see [Red Hat Enterprise Linux](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux){: external}.
 
-| Operating sytem | End of support | License model |
+| Operating system | End of support | License model |
 |-----------------|----------------|---------------|
 | RHEL 9.2 minimal | 31 May 2025    | Pay-as-you-Go / BYOL  |
 | RHEL 9.0 minimal | 31 May 2024    | Pay-as-you-Go / BYOL  |
@@ -98,7 +98,7 @@ The following table describes the end of support date and license model for Red 
 
 The version of Rocky Linux is updated regularly, with the previous release deprecating when a new version is released. This guest OS is a free operating system. For more information, see [Rocky Linux](https://rockylinux.org/){: external}.
 
-| Operating sytem | End of support | License model |
+| Operating system | End of support | License model |
 |-----------------|----------------|---------------|
 | Rocky Linux 8.x | 31 May 2029 | Free |
 | Rocky Linux 9.x | 31 May 2032 | Free |
@@ -109,7 +109,7 @@ The version of Rocky Linux is updated regularly, with the previous release depre
 
 The following table describes the end of support date and license model for SUSE Linux Enterprise Server (SLES) operating systems. This guest OS is a paid operating system. For more information, see [SUSE Linux Enterprise Server](https://www.suse.com/products/server/){: external}.
 
-| Operating sytem | End of support | License model |
+| Operating system | End of support | License model |
 |-----------------|----------------|---------------|
 | SLES 15 SP4 | 31 December 2023 | Pay-as-you-Go |
 | SLES 15 SP3 | 31 December 2022 | Pay-as-you-Go |
@@ -126,7 +126,7 @@ The following table describes the end of support date and license model for SUSE
 
 The following table describes the end of support date and license model for Ubuntu operating systems. This guest OS is a free operating system. For more information, see [Ubuntu](https://ubuntu.com/){: external}.
 
-| Operating sytem | End of support | License model |
+| Operating system | End of support | License model |
 |-----------------|----------------|---------------|
 | Ubuntu 22.04 minimal | 30 April 2027 | Free |
 | Ubuntu 20.04 minimal | 30 April 2025 | Free |
@@ -141,7 +141,7 @@ The following table describes the end of support date and license model for Ubun
 
 The following table describes the end of support date and license model for Windows Server operating systems. This guest OS is a paid operating system. For more information, see [Microsoft Windows Server](https://www.microsoft.com/en-us/windows-server){: external}.
 
-| Operating sytem | End of support | License model |
+| Operating system | End of support | License model |
 |-----------------|----------------|---------------|
 | Windows Server 2022 full standard | 14 October 2031 | Pay-as-you-Go / BYOL|
 | Windows Server 2019 core | 09 January 2029 | Pay-as-you-Go / BYOL|
