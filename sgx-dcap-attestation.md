@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-05-22"
+lastupdated: "2024-05-23"
 
 keywords: sgx, intel sgx, software guard extension, confidential computing, attestation, DCAP, data center attestation primitives
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Attestation with Intel SGX and Data Center Attestation Primitives (DCAP) for Virtual Servers for VPC
 {: #about-attestation-sgx-dcap-vpc}
 
-[Beta]{: tag-blue}
+[Select availability]{: tag-green}
 
 Attestation is a process that validates that a runtime environment is instantiated in an encrypted SGX enclave on a system with a known security configuration. Intel SGX DCAP facilitates Attestation.
 {: shortdesc}
