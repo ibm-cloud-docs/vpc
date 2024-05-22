@@ -179,7 +179,7 @@ After issuing the above command, you receive a message to verify whether or not 
 
 > This option upgrades BIOS and BMC firmware on your server. Backup your server before proceeding. The server will be unavailable during the process. Proceed (y/n)?
 
-For a full list of command options, see [ibmcloud is bare-metal-server-firmware-update](/docs/vpc?topic=vpc-vpc-reference#bare-metal-server-update).
+For a full list of command options, see [ibmcloud is bare-metal-server-firmware-update](/docs/vpc?topic=vpc-vpc-reference#bare-metal-server-firmware-update).
 
 ### Deleting a bare metal server by using the CLI
 {: #delete-bare-metal-servers-cli}
