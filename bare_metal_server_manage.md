@@ -275,7 +275,7 @@ For more information about the API request, see [Start a bare metal server](/api
 ### Updating the firmware for a bare metal server by using the API
 {: #update-firmware-bare-metal-servers-API}
 
-You can update the firmware for your {{site.data.keyword.cloud}} Bare Metal Servers for VPC by using the API. You can only update the firmware on a bare metal server that is stopped and has firmware updates available. It is recommended to back up your server before any firmware update. To update the firmware using API, use [Update firmware for a bare metal server](/apidocs/vpc-scoped#update-firmware-for-bare-metal-server)
+You can update the firmware for your {{site.data.keyword.cloud}} Bare Metal Servers for VPC by using the API. You can only update the firmware on a bare metal server that is stopped and has firmware updates available. It is recommended to back up your server before any firmware update. To update the firmware using API, use [Update firmware for a bare metal server](/apidocs/vpc-beta/initial#update-firmware-for-bare-metal-server)
 
 Specify a `POST /bare_metal_servers/{id}/firmware/update` request to update the firmware for a specific bare metal server where `id` is the identifer of the bare metal server that you are updating.
 
