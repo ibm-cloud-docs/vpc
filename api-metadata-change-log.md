@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-01-30"
+lastupdated: "2024-05-28"
 
 keywords: api, change log, metadata, new features, restrictions, migration, versioned change
 
@@ -27,6 +27,18 @@ Some changes, such as new response properties or new optional request parameters
 - Follow HTTP redirect rules for any `3xx` HTTP status code
 - Consume only the resources and properties your application needs to function
 - Avoid depending on behavior that is not explicitly documented
+
+## 28 May 2024
+{: #28-may-2024-metadata}
+
+### For all version dates
+{: #28-may-2024-all-version-dates-metadata}
+
+This release introduces the following updates for accounts that have been granted special approval to preview these features:
+
+**Confidential computing capabilities.** If [Intel&reg; Software Guard Extensions](/docs/vpc?topic=vpc-about-sgx-vpc) are enabled on an instance or instance template, you can view the new `confidential_compute_mode` property, which indicates that confidential compute mode is enabled for this virtual server instance. For more information, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#28-may-2024).
+
+**Secure boot capabilities.** If [secure boot](/docs/vpc?topic=vpc-confidential-computing-with-secure-boot-vpc) is enabled on an instance or instance template, you can view the new `enable_secure_boot` property when [retrieving an instance](/apidocs/vpc-metadata#get-instance). This property indicates if secure boot is enabled for this virtual server instance. For more information, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#28-may-2024).
 
 ## 26 March 2024
 {: #26-march-2024-metadata}
