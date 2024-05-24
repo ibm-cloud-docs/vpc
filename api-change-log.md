@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-05-21"
+lastupdated: "2024-05-28"
 
 keywords: vpc, api, change log, new features, restrictions, migration
 
@@ -53,6 +53,20 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 28 May 2024
+{: #28-may-2024}
+
+### For all version dates
+{: #28-may-2024-all-version-dates}
+
+This release introduces the following updates for accounts that have been granted special approval to preview these features:
+
+**Confidential computing capabilities.** On select instance profiles, you can now enable [Intel&reg; Software Guard Extensions](/docs/vpc?topic=vpc-about-sgx-vpc). When [creating](/apidocs/vpc/latest#create-instance) or [updating](/apidocs/vpc/latest#update-instance) an instance, or when [creating](/apidocs/vpc/latest#create-instance-template) or [updating](/apidocs/vpc/latest#update-instance-template) an instance template, you can specify the new `confidential_compute_modes` property (`disabled` or `sgx`) to use for a virtual server instance. The new `confidential_compute_modes` instance profile property indicates which profiles will support which modes. If you do not specify the `confidential_compute_modes` property when creating an instance or instance template, the default confidential compute mode from the profile will be used. For more information, see [Confidential computing with Intel Software Guard Extensions (SGX) for Virtual Servers for VPC](/docs/vpc?topic=vpc-about-sgx-vpc)
+
+**Secure boot capabilities.** When [creating](/apidocs/vpc/latest#create-instance) or [updating](/apidocs/vpc/latest#update-instance) an instance, or when [creating](/apidocs/vpc/latest#create-instance-template) or [updating](/apidocs/vpc/latest#update-instance-template) an instance template, you can set the new `enable_secure_boot` property to `true` to enable secure boot on the virtual server instance. The new `secure_boot_modes` instance profile property indicates the secure boot modes supported by the profile. If you do not specify the `enable_secure_boot` property when creating an instance or instance template, the default secure boot mode from the profile will be used. To use secure boot, the image must support secure boot or the instance will fail to boot. For more information, see [Secure boot for Virtual Servers for VPC](/docs/vpc?topic=vpc-confidential-computing-with-secure-boot-vpc)
+
+To update the `enable_secure_boot` and `confidential_compute_mode` properties, the virtual server instance `status` must be `stopping` or `stopped`.
 
 ## 21 May 2024
 {: #21-may-2024}
