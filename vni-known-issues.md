@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-03-12"
+lastupdated: "2024-05-28"
 
 keywords:
 
@@ -20,6 +20,7 @@ The following known limitations apply to this virtual network interface release:
 
 * With infrastructure NAT enabled for a virtual network interface, no more than one floating IP can target the virtual network interface.
 * When a floating IP is attached to a virtual network interface, network address translation (NAT) is performed between the floating IP’s public address and the virtual network interface’s primary IP address.
+* The `protocol_state_filtering_mode` property cannot be `disabled` when the target is a file share mount target.
 * Creating an instance group from an instance template that has a virtual network interface with `allow_ip_spoofing` set to `true` is not yet supported.
 * Not all virtual network interface targets support all virtual network interface policies. The following list shows the current incompatibilities.
     * Virtual server instances do not support disabling infrastructure NAT.
