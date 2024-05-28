@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-03-12"
+lastupdated: "2024-05-28"
 
 keywords:
 
@@ -25,10 +25,11 @@ A VNI has the following properties that define networking policies:
 * Security groups
 * IP spoofing
 * Infrastructure NAT
+* Protocol state filtering
 
 These policies are preserved when the VNI is detached from a target and attached to a different target. Permissions to change the properties are set on the VNI, and not on the VNI's target.
 
-Floating IPs and flow log collectors are resources you can attach to a VNI. These attached resources remain attached to the VNI when the VNI switches attachment from one target to another. In addition:
+Floating IPs and flow log collectors are resources that you can attach to a VNI. These attached resources remain attached to the VNI when the VNI switches attachment from one target to another. In addition:
 
 * References to the floating IPs attached to a VNI are retrievable as a child collection of the VNI.
 * A flow log collector attached to a VNI can be retrieved by listing your flow log collectors, filtering by `target.id`, then specifying the `id` of the VNI.
@@ -53,17 +54,27 @@ Virtual network interface highlights include:
 Review the following considerations before creating a VNI:
 
 * Creating resources with child network interfaces will continue to be supported, but new networking features, like secondary IP addresses, are supported only on virtual network interfaces.
+* All IP addresses on a virtual network interface must be in the same subnet.
 * Although an instance or bare metal server does not allow a mix of interface types, a subnet allows a mix of instances and bare metal servers -- some with child network interfaces and some with virtual network interfaces.
 * You must configure the primary IP address when creating a virtual network interface. You can configure additional (secondary) reserved IP addresses when creating the virtual network interface, or you can later add secondary IP addresses individually. All secondary IP addresses must be in the same subnet as the primary IP address.
-* You can configure one floating IP address on a virtual network interface that has infrastructure NAT enabled. A virtual network interface configured this way can be used by an instance or a bare metal server.
+* Infrastructure NAT translates the destination address from the public IP address assigned through the floating IP to the virtual server instance's private IP address. You can configure one floating IP address on a virtual network interface that has infrastructure NAT enabled. A virtual network interface configured this way can be used by an instance or a bare metal server.
 * For a virtual network interface that allows IP spoofing and has infrastructure NAT disabled, you can configure multiple floating IP addresses. A virtual network interface configured this way can only be used by a bare metal server.
-* All IP addresses on a virtual network interface must be in the same subnet.
 * If a virtual network interface's `auto-delete` property is set to `false`, if you then delete the virtual server instance, the virtual network interface will remain. The virtual network interface can then be attached to a different target resource.
 * After a VNI detaches from a target, you can reattach it to one of the following:
 
-   * A new share mount target (if ip-spoofing is disabled, there no secondary IPs, and infrastructure NAT is set to `true`)
+   * A new share mount target (if ip-spoofing is disabled, there are no secondary IPs, infrastructure NAT is set to `true`, and protocol state filtering is not disabled)
    * A new network attachment on an instance (if infrastructure NAT is set to `true`)
    * A new network attachment on a bare metal server (when bare metal is supported)
+
+### Protocol state filtering mode
+{: #protocol-state-filtering}
+
+Protocol state filtering monitors each network connection flowing over a virtual network interface (VNI), and drops any packets that are invalid based on the current connection state and protocol. If you use two-way ECMP routes, such as routes configured for active/active HA configurations on dual Virtual Network Functions (VNFs), you can disable filtering to avoid packet loss. Disabling filtering permits packages that are allowed by security group rules and network ACLs, but does not force each of the TCP connections to align with the [RFC 793](https://www.ietf.org/rfc/rfc793.txt){: external} TCP protocol.
+
+You can choose a protocol state filtering mode (`auto`, `enable`, `disable`) when [creating](/docs/vpc?topic=vpc-vni-create&interface=ui) or [updating](/docs/vpc?topic=vpc-vni-updating&interface=ui) a VNI. The default (`auto`) enables or disables filtering based on your VNI's target resource type. If the target type is a bare metal server or an Elba virtual server instance, filtering is disabled; for other virtual server instances or a file share mount, filtering is enabled.
+
+Protocol state filtering mode is available only on a VNI. On older-style network interfaces, the mode is invisible and the behavior is always set to `auto`.
+{: note}
 
 ## Getting started with virtual network interfaces
 {: #vni-getting-started}
@@ -105,7 +116,7 @@ A virtual server instance that runs several instances of an application can be s
 
 For this example, a single virtual server instance is running three instances of a SQL database application. Each SQL instance needs to have its own IP address. By using secondary IP addresses on a virtual network interface, you can assign different IP addresses to each application instance.
 
-![Secondary IP addresses in a virtual network interface](/images/vni-use-case3.svg "Virtual network interface using secondary IP addresses"){: caption="Figure 2. Secondary IP addresses in a virtual network interface" caption-side="bottom"}
+![Secondary IP addresses in a virtual network interface](/images/vni-use-case3.svg "Virtual network interface using secondary IP addresses"){: caption="Figure 3. Secondary IP addresses in a virtual network interface" caption-side="bottom"}
 
 ## Support for old API clients
 {: #vni-old-api-clients}
