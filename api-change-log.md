@@ -60,11 +60,11 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 ### For all version dates
 {: #28-may-2024-all-version-dates}
 
-This release introduces the following updates for accounts that have been granted special approval to preview these features:
-
 **Virtual network interface protocol state filtering mode.** [Protocol state filtering](/docs/vpc?topic=vpc-vni-about#protocol-state-filtering) monitors each network connection flowing over a virtual network interface (VNI), and drops any packets that are invalid based on the current connection state and protocol. Certain use cases, such as having a virtual server instance function as a network gateway, require selective disabling of this filtering. To accommodate these use cases, if you have the `is.virtual-network-interface.virtual-network-interface.manage-protocol-state-filtering-mode` IAM action, you can now set non-default values for the `protocol_state_filtering_mode` property when you are [creating](/apidocs/vpc/latest#create-virtual-network-interface) or [updating](/apidocs/vpc/latest#update-virtual-network-interface) a VNI.
 
 The new `protocol_state_filtering_mode` property is supported for VNI methods and all methods in which a VNI can be created.
+
+This release introduces the following updates for accounts that have been granted special approval to preview these features:
 
 **Confidential computing capabilities.** On select instance profiles, you can now enable [Intel&reg; Software Guard Extensions](/docs/vpc?topic=vpc-about-sgx-vpc). When [creating](/apidocs/vpc/latest#create-instance) or [updating](/apidocs/vpc/latest#update-instance) an instance, or when [creating](/apidocs/vpc/latest#create-instance-template) or [updating](/apidocs/vpc/latest#update-instance-template) an instance template, you can specify the new `confidential_compute_modes` property (`disabled` or `sgx`) to use for a virtual server instance. The new `confidential_compute_modes` instance profile property indicates which profiles will support which modes. If you do not specify the `confidential_compute_modes` property when creating an instance or instance template, the default confidential compute mode from the profile will be used. For more information, see [Confidential computing with Intel Software Guard Extensions (SGX) for Virtual Servers for VPC](/docs/vpc?topic=vpc-about-sgx-vpc)
 
