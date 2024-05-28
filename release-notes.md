@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-05-23"
+lastupdated: "2024-05-30"
 
 keywords:
 
@@ -29,8 +29,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## May 2024
 {: #vpc-may24}
 
-### 23 May 2024
-{: #vpc-may2324}
+### 30 May 2024
+{: #vpc-may3024}
 {: release-note}
 
 Update firmware on Bare Metal Servers for VPC (beta)
