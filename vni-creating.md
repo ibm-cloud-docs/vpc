@@ -69,11 +69,11 @@ To create a virtual network interface in the UI, follow these steps:
 
          When disabled, the virtual server instance receives the traffic as it was sent by the peer, without NAT. The destination IP address is the floating IP address, and the bare metal server is responsible for performing the NAT.
 
-   * **[Protocol state filtering mode](/docs/vpc?topic=vpc-vni-about&interface=ui#protocol-state-filtering)**: Select a radio button to set the mode.
+   * **[Protocol state filtering mode](/docs/vpc?topic=vpc-vni-about&interface=ui#protocol-state-filtering)**: Select a radio button to set the mode:
 
-       * **Auto** (default): Filtering is enabled or disabled based on the virtual network interface's target resource:
+       * **Auto** (default): Filtering is enabled or disabled based on the virtual network interface's target resource.
 
-          * Bare metal server or an Elba virtual server instance (Disabled)
+          * Bare metal server (Disabled)
           * Virtual server instance (Enabled)
           * File share mount (Enabled)
        * **Enabled**: Forces the TCP connections to align with the [RFC793](https://www.ietf.org/rfc/rfc793.txt){: external} standard and any packets allowed by corresponding security group rules and network ACLs.
@@ -127,8 +127,8 @@ Where:
 :   If `true`, the VPC infrastructure performs any needed NAT operations. If `false`, packets are passed unchanged to/from the network interface, allowing the workload to perform any needed NAT operations. One of: `false`, `true`.
 
 `--protocol-state-filtering-mode`
-:   The protocol state filtering mode. One of `auto`, `enabled`, `disabled`.
-   * Auto (default): protocol state packet filtering is enabled or disabled based on the virtual network interface's `target` resource type:
+:   The status of the protocol state filtering mode. One of `auto`, `enabled`, `disabled`.
+   * Auto (default): protocol state packet filtering is enabled or disabled based on the virtual network interface's `target` resource type.
        * `bare_metal_server_network_attachment`: disabled
        * `instance_network_attachment`: enabled
        * `share_mount_target`: enabled

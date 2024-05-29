@@ -27,7 +27,7 @@ To update an existing virtual network interface, follow these steps.
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 1. Select the **Navigation Menu** icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Virtual network interfaces**.
 1. Click the name of the virtual network interface in the Virtual network interfaces for VPC table.
-1. In the Overview view of the Details page, you can click the Edit icon ![Edit icon](images/edit.png) to edit the name of the virtual network interface.
+1. In the Overview view of the Details page, you can click the pencil icon ![Pencil icon](images/edit.png) to edit the name of the virtual network interface.
 1. Select the switch for Infrastructure NAT to the wanted state.
     * **Enabled** includes one floating IP address, and supports virtual servers, bare metal servers, and file shares.
     * **Disabled** supports multiple floating IP addresses only on bare metal servers. Virtual servers and file shares as virtual network interface targets are not supported.
@@ -38,9 +38,10 @@ To update an existing virtual network interface, follow these steps.
     {: note}
 
 1. Click the Edit icon ![Edit icon](images/edit.png) to edit the [protocol state filtering mode](/docs/vpc?topic=vpc-vni-about&interface=ui#protocol-state-filtering), then select a radio button to change the mode.
+
        * **Auto** (default): Filtering is enabled or disabled based on the virtual network interface's target resource:
 
-          * Bare metal server or an Elba virtual server instance (Disabled)
+          * Bare metal server (Disabled)
           * Virtual server instance (Enabled)
           * File share mount (Enabled)
        * **Enabled**: Forces TCP connections to align with the [RFC793](https://www.ietf.org/rfc/rfc793.txt){: external} standard and any packets allowed by corresponding security group rules and network ACLs.
