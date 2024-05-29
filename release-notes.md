@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-05-14"
+lastupdated: "2024-05-29"
 
 keywords:
 
@@ -28,6 +28,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## May 2024
 {: #vpc-may24}
+
+### 29 May 2024
+{: #vpc-may2924}
+{: release-note}
+
+Confidential computing with Intel Software Guard Extensions (SGX) for Virtual Servers for VPC (select availabilty)
+:   Confidential computing with Intel&reg; Software Guard Extensions (SGX) protects your data through hardware-based server security by using isolated memory regions that are known as encrypted enclaves. This hardware-based computation helps protect your data from disclosure or modification. Which means that your sensitive data is encrypted while it is in virtual server instance memory by allowing applications to run in private memory space. To use SGX, you must install the SGX drivers and platform software on SGX-capable worker nodes. Then, design your app to run in an SGX environment. For more information, see [Confidential computing with Intel Software Guard Extensions (SGX) for Virtual Servers for VPC](/docs/vpc?topic=vpc-about-sgx-vpc)
 
 ### 14 May 2024
 {: #vpc-may1424}

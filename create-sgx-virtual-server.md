@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-05-02"
+lastupdated: "2024-05-29"
 
 keywords: sgx, intel sgx, software guard extension, confidential computing, trusted execution environment, TEE, data protection
 
@@ -16,7 +16,7 @@ subcollection: vpc
 # Creating a virtual server with SGX
 {: #creating-virtual-servers-with-sgx-vpc}
 
-[Beta]{: tag-blue}
+[Select availability]{: tag-green}
 
 You can create one or more virtual server instances with SGX in your {{site.data.keyword.cloud}} VPC.
 {: shortdesc}
