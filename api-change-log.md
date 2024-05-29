@@ -103,7 +103,7 @@ The `2024-04-30` release includes incompatible changes. To avoid regressions in 
 {: important}
 
 ### For version `2024-04-30` or later
-{: #version-2024-04-30}See also the [known issue](/docs/vpc?topic=vpc-vpn-limitations#known-issues-vpn-gateway) about updating the `peer.address` or `peer.fqdn` of a VPN connection tunnel.
+{: #version-2024-04-30}
 
 **Advanced VPN gateway configuration.** Using a `version` query parameter of `2024-04-30` or later, you can specify `peer.fqdn` instead of `peer.address` when [creating](/apidocs/vpc/latest#create-vpn-gateway-connection) or [updating](/apidocs/vpc/latest#update-vpn-gateway-connection) a VPN gateway connection. You can also now fully control the local and peer IKE identities assigned to a VPN gateway connection by using properties `local.ike_identities` and `peer.ike_identity`. If unspecified, the local IKE identities will default to the public IP addresses of the VPN gateway and member's VPN connection tunnel. The peer identity will default to either the peer's address or FQDN, depending on what was specified.
 
