@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-05-23"
+lastupdated: "2024-05-29"
 
 keywords: secure boot, secure boot for virtual servers
 
