@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-05-21"
+lastupdated: "2024-05-30"
 
 keywords:
 
@@ -29,8 +29,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## May 2024
 {: #vpc-may24}
 
-### 21 May 2024
-{: #vpc-may2124}
+### 30 May 2024
+{: #vpc-may3024}
 {: release-note}
 
 Next generation instance profiles available in Tokyo and Osaka regions (select availability)
