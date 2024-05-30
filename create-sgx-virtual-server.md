@@ -21,7 +21,7 @@ subcollection: vpc
 You can create one or more virtual server instances with SGX in your {{site.data.keyword.cloud}} VPC.
 {: shortdesc}
 
-Confidential computing with Intel SGX for VPC is available only to select users in the US-South/Dallas region.
+Confidential computing with Intel SGX for VPC is available only in US-South (Dallas) region.
 {: note}
 
 ## Creating a virtual server with SGX
