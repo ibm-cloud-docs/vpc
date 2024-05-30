@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-04-22"
+lastupdated: "2024-05-23"
 
 keywords:
 
@@ -123,7 +123,9 @@ CentOS 7 EOS date is 30 June 2024. Support for this software discontinues on 30 
 
 CentOS Stream 8 EOS date is 31 May 2024. Support for this software discontinues on 31 May 2024. After deprecation, clients can't download the software.
 
-You can use the following conversion tools to change your operating system to Rocky Linux 8/9 or RHEL 8/9. Alternatively, you can can perform OS reload, side-by-side upgrade, or migrate to a new server with a CentOS Stream 9. You can use the following conversion tools to change your OS:
+To migrate workloads from CentOS, you can switch to a compatible OS distribution, or choose to a different operating system. Compatible distributions include CentOS Stream 9, Rocky Linux 8/9, and RHEL 8/9. You can also migrate to a different OS such as Debian or Ubuntu LTS. You can use conversion tools to change your operating system to Rocky Linux 8/9 or RHEL 8/9. Alternatively, you can can perform OS reload, side-by-side upgrade, or migrate to a new server with a CentOS Stream 9.
+
+**You can use the following conversion tools to change your OS:**
 
 - The migration tool available from the OS distribution you are migrating to. {{site.data.keyword.cloud_notm}} does not provide or support for these OS conversion tools.
 - The [migrate2rocky](https://github.com/rocky-linux/rocky-tools/tree/main/migrate2rocky){: external} tool available from Rocky Linux. For more information, see the [Rocky Linux documentation](https://docs.rockylinux.org/){: external}.

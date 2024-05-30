@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-03-12"
+lastupdated: "2024-05-28"
 
 keywords:
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Creating a virtual network interface
 {: #vni-create}
 
-A virtual network interface can be created without attaching to a target. Therefore, a virtual network interface can exist even when its target is removed. 
+A virtual network interface can be created without attaching to a target. Therefore, a virtual network interface can exist even when its target is removed.
 {: shortdesc}
 
 For example, within a VPC, your instance has a public IP address by which the instance can be reached from the internet, and a private IP address by which it can be reached from other instances in your VPC. You configured the instance with custom security group rules. If you delete the instance, the public IP address and security groups are detached. The private IP address is released and can be reserved again by another resource. If you want to create a new instance with the same public IP address, private IP address, and security groups as the deleted instance, you must reserve the private IP address again, and individually attach the previous public IP address and security groups.
@@ -30,6 +30,9 @@ To create a virtual network interface, you must have the following prerequisites
 * A VPC instance
 * A subnet in which to create a virtual network interface
 * Make sure that you have the appropriate [IAM permissions](/docs/account?topic=account-iam-service-roles-actions#is.virtual-network-interface-roles). You must have IAM Administrator role permission to configure IP spoofing and infrastructure NAT.
+
+Review [planning considerations](/docs/vpc?topic=vpc-vni-about#vni-planning) and [known limitations](/docs/vpc?topic=vpc-vni-known-issues) for virtual network interfaces.
+{: important}
 
 You can create a virtual network interface with the UI, CLI, API, or Terraform.
 
@@ -50,12 +53,31 @@ To create a virtual network interface in the UI, follow these steps:
    * **Resource group**: Select a resource group for the virtual network interface.
    * **Tags**: (optional) Add tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
    * **Access management tags**: (optional) Add access management tags to resources to help organize access control relationships. The only supported format for access management tags is `key:value`. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
-1. In the Network configuration section, select the VPC in which you want to create your virtual network interface. If you need to create a VPC, click **Create VPC** to get started configuring a VPC.
-1. In the Subnet section, select a subnet in which to create the virtual network interface. If you need to create a subnet, click **Create**.
-1. Click the switch to enable or disable Allow IP spoofing. IP spoofing supports only virtual server instances and bare metal servers. File shares are not supported.
-1. Click the switch for Infrastructure NAT to the wanted state.
-    * **Enabled** includes one floating IP address, and supports virtual servers, bare metal servers, and file shares.
-    * **Disabled** supports multiple floating IP addresses only on bare metal servers. Virtual servers and file shares as virtual network interface targets are not supported.
+1. In the Network configuration section, complete the following information:
+   * **Virtual private cloud**: Select the VPC in which you want to create your virtual network interface. If you need to create a VPC, click **Create VPC**.
+   * **Subnet**: Select a subnet in which to create the virtual network interface. If you need to create a subnet, click **Create**.
+   * **Allow IP spoofing**: Select the switch to enable or disable IP spoofing.
+     * Disabling IP spoofing allows traffic to pass through the network interface, instead of ending at the network interface.
+     * IP spoofing supports only virtual server instances and bare metal servers. File shares are not supported.
+   * **Infrastructure NAT**: Select the switch to enable or disable infrastructure NAT.
+
+     Infrastructure NAT is enabled when IP spoofing is enabled.
+     {: note}
+
+     * **Enabled** includes one floating IP address, and supports virtual servers, bare metal servers, and file shares.
+     * **Disabled** supports multiple floating IP addresses only on bare metal servers. Virtual servers and file shares as virtual network interface targets are not supported.
+
+         When disabled, the virtual server instance receives the traffic as it was sent by the peer, without NAT. The destination IP address is the floating IP address, and the bare metal server is responsible for performing the NAT.
+
+   * **[Protocol state filtering mode](/docs/vpc?topic=vpc-vni-about&interface=ui#protocol-state-filtering)**: Select a radio button to set the mode:
+
+       * **Auto** (default): Filtering is enabled or disabled based on the virtual network interface's target resource.
+
+          * Bare metal server (Disabled)
+          * Virtual server instance (Enabled)
+          * File share mount (Enabled)
+       * **Enabled**: Forces the TCP connections to align with the [RFC793](https://www.ietf.org/rfc/rfc793.txt){: external} standard and any packets allowed by corresponding security group rules and network ACLs.
+       * **Disabled**: Permits packets allowed only by corresponding security group rules and network ACLs.
 1. In the Primary IP section, make the following selections.
     * **Reserving method**: Select whether you want a primary IP address created for you, or if you want to specify one manually. If you specify your own, type an existing reserved IP address for your virtual network interface, or select one from the existing reserved IP list menu.
     * **Auto release**: Click the switch to enable or disable auto release for this virtual network interface.
@@ -79,14 +101,14 @@ To create a virtual network interface in the UI, follow these steps:
 Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 ```sh
-export IBMCLOUD_IS_FEATURE_VNI_PHASE_II=true
+export IBMCLOUD_IS_FEATURE_VNI_ENABLE_PROTOCOL_STATE_FILTERING=true
 ```
 {: pre}
 
 To create a virtual network interface from the CLI, enter the following command:
 
 ```sh
-ibmcloud is virtual-network-interface-create [--name NAME] [--allow-ip-spoofing false | true] [--auto-delete false | true] [--enable-infrastructure-nat false | true] [[--rip RIP | [--rip-address RIP_ADDRESS --rip-auto-delete RIP_AUTO_DELETE --rip-name RIP_NAME]]] [--subnet SUBNET] [--ips RESERVED_IPS_JSON | @RESERVED_IPS_JSON_FILE] [--sgs SGS] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--vpc VPC] [--output JSON] [-q, --quiet]
+ibmcloud is virtual-network-interface-create [--name NAME] [--allow-ip-spoofing false | true] [--auto-delete false | true] [--enable-infrastructure-nat false | true] [--protocol-state-filtering-mode auto | disabled | enabled] [[--rip RIP | [--rip-address RIP_ADDRESS --rip-auto-delete RIP_AUTO_DELETE --rip-name RIP_NAME]]] [--subnet SUBNET] [--ips RESERVED_IPS_JSON | @RESERVED_IPS_JSON_FILE] [--sgs SGS] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--vpc VPC] [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
@@ -103,6 +125,15 @@ Where:
 
 `--enable-infrastructure-nat`
 :   If `true`, the VPC infrastructure performs any needed NAT operations. If `false`, packets are passed unchanged to/from the network interface, allowing the workload to perform any needed NAT operations. One of: `false`, `true`.
+
+`--protocol-state-filtering-mode`
+:   The status of the protocol state filtering mode. One of `auto`, `enabled`, `disabled`.
+   * Auto (default): protocol state packet filtering is enabled or disabled based on the virtual network interface's `target` resource type.
+       * `bare_metal_server_network_attachment`: disabled
+       * `instance_network_attachment`: enabled
+       * `share_mount_target`: enabled
+   * Enabled: permit only the TCP SYN packet that is allowed by security group rules for TCP flow if there is no connection track.
+   * Disabled: permit any packet that is allowed by security group rules, even if there is no connection track.
 
 `--rip`
 :   ID or name of the Reserved IP to bind to the virtual network interface.
@@ -144,10 +175,10 @@ Where:
 {: #cli-command-examples-virtual-network-interface-create}
 
 - `ibmcloud is virtual-network-interface-create --subnet 7208-d42716a5-6df2-416c-979d-f26330b9eod1`
-- `ibmcloud is virtual-network-interface-create --name cli-vni-1 --allow-ip-spoofing true --auto-delete true --enable-infrastructure-nat true --rip 7208-d4c0abbe-3fc2-4696-9fe1-4eb3dc9af976 --ips '[{"id":"7208-d83b7e58-3c3d-47d0-89c5-02d9a20c72fd"},{"address":"10.240.64.13", "auto_delete": false, "name": "srip2"}]' --sgs r006-aa7c7658-e503-4456-b342-8d6a89e05115,r006-4fb388f1-2b6e-4013-b279-7a8748f4d6ca --resource-group-id 11caaa983d9c4beb82690daab08717e9`
-- `ibmcloud is virtual-network-interface-create --name cli-vni-2 --allow-ip-spoofing true --auto-delete true --enable-infrastructure-nat true --rip cli-rip-1 --subnet my-subnet --vpc vpc-cli-1 --ips '[{"id":"7208-d83b7e58-3c3d-47d0-89c5-02d9a20c72fd"},{"address":"10.240.64.14", "auto_delete": false, "name": "srip3"}]' --sgs cli-sg,sanctity-contest-only-filing --resource-group-name Default`
-- `ibmcloud is virtual-network-interface-create --name cli-vni-4 --allow-ip-spoofing false --auto-delete false --enable-infrastructure-nat false --subnet 7208-bfe017e7-6e71-415a-8615-0ee787fbeef9 --rip-address 10.240.64.15 --rip-auto-delete false --rip-name primar-ip-1 --ips '[{"id":"7208-2772a45f-c062-4e22-bafb-32ea792da56b"},{"address":"10.240.64.17", "auto_delete": false, "name": "sec-ip-2"}]' --sgs r006-aa7c7658-e503-4456-b342-8d6a89e05115,r006-4fb388f1-2b6e-4013-b279-7a8748f4d6ca --resource-group-id 11caaa983d9c4beb82690daab08717e9`
-- `ibmcloud is virtual-network-interface-create --name cli-vni-3 --allow-ip-spoofing true --auto-delete false --enable-infrastructure-nat true --subnet my-subnet --vpc vpc-cli-1 --rip-address 10.240.64.18 --rip-auto-delete true --rip-name primar-ip-2 --ips '[{"id":"7208-d42716a5-6df2-416c-979d-f26330b9d0b1"},{"address":"10.240.64.19", "auto_delete": true, "name": "sec-ip-3"}]' --sgs cli-sg,sanctity-contest-only-filing --resource-group-name Default`
+- `ibmcloud is virtual-network-interface-create --name cli-vni-1 --allow-ip-spoofing true --auto-delete true --enable-infrastructure-nat true --protocol-state-filtering-mode auto --rip 7208-d4c0abbe-3fc2-4696-9fe1-4eb3dc9af976 --ips '[{"id":"7208-d83b7e58-3c3d-47d0-89c5-02d9a20c72fd"},{"address":"10.240.64.13", "auto_delete": false, "name": "srip2"}]' --sgs r006-aa7c7658-e503-4456-b342-8d6a89e05115,r006-4fb388f1-2b6e-4013-b279-7a8748f4d6ca --resource-group-id 11caaa983d9c4beb82690daab08717e9`
+- `ibmcloud is virtual-network-interface-create --name cli-vni-2 --allow-ip-spoofing true --auto-delete true --enable-infrastructure-nat true --protocol-state-filtering-mode enabled --rip cli-rip-1 --subnet my-subnet --vpc vpc-cli-1 --ips '[{"id":"7208-d83b7e58-3c3d-47d0-89c5-02d9a20c72fd"},{"address":"10.240.64.14", "auto_delete": false, "name": "srip3"}]' --sgs cli-sg,sanctity-contest-only-filing --resource-group-name Default`
+- `ibmcloud is virtual-network-interface-create --name cli-vni-4 --allow-ip-spoofing false --auto-delete false --enable-infrastructure-nat false --protocol-state-filtering-mode disabled --subnet 7208-bfe017e7-6e71-415a-8615-0ee787fbeef9 --rip-address 10.240.64.15 --rip-auto-delete false --rip-name primar-ip-1 --ips '[{"id":"7208-2772a45f-c062-4e22-bafb-32ea792da56b"},{"address":"10.240.64.17", "auto_delete": false, "name": "sec-ip-2"}]' --sgs r006-aa7c7658-e503-4456-b342-8d6a89e05115,r006-4fb388f1-2b6e-4013-b279-7a8748f4d6ca --resource-group-id 11caaa983d9c4beb82690daab08717e9`
+- `ibmcloud is virtual-network-interface-create --name cli-vni-3 --allow-ip-spoofing true --auto-delete false --enable-infrastructure-nat true --protocol-state-filtering-mode auto --subnet my-subnet --vpc vpc-cli-1 --rip-address 10.240.64.18 --rip-auto-delete true --rip-name primar-ip-2 --ips '[{"id":"7208-d42716a5-6df2-416c-979d-f26330b9d0b1"},{"address":"10.240.64.19", "auto_delete": true, "name": "sec-ip-3"}]' --sgs cli-sg,sanctity-contest-only-filing --resource-group-name Default`
 
 ## Creating a virtual network interface with the API
 {: #vni-api-create}
@@ -164,25 +195,26 @@ To create a virtual network interface with the API, follow these steps:
 
     ```sh
     curl -X POST \
-    "$vpc_api_endpoint/v1/virtual_network_interfaces?version=$version&generation=2" \
-    -H "Authorization: Bearer $iam_token"
-    -d '{
-          "name": "my-virtual-network-interface",
-          "primary_ip": {
-            "address": "10.0.0.5"
-          },
-          "security_groups": [
-            {
-              "id": "be5df5ca-12a0-494b-907e-aa6ec2bfa271"
-            },
-            {
-              "id": "032e1387-71ba-4e83-b268-a53edf94af19"
-            }
-          ],
-          "subnet": {
-            "id": "032e1387-71ba-4e83-b268-a53edf94af19"
-          }
-    }'
+        "$vpc_api_endpoint/v1/virtual_network_interfaces?version=$version&generation=2" \
+        -H "Authorization: Bearer $iam_token" \
+        -d '{
+              "name": "my-virtual-network-interface",
+              "primary_ip": {
+                "address": "10.0.0.5"
+              },
+              "protocol_state_filtering_mode": "disabled",
+              "security_groups": [
+                {
+                  "id": "be5df5ca-12a0-494b-907e-aa6ec2bfa271"
+                },
+                {
+                  "id": "032e1387-71ba-4e83-b268-a53edf94af19"
+                }
+              ],
+              "subnet": {
+                "id": "032e1387-71ba-4e83-b268-a53edf94af19"
+              }
+      }'
     ```
     {: codeblock}
 
@@ -193,14 +225,15 @@ To create a virtual network interface with the API, follow these steps:
 The following example creates a virtual network interface by using Terraform:
 
 ```terraform
-resource "ibm_is_virtual_network_interface" "my_virtual_network_interface_instance" {
+resource "ibm_is_virtual_network_interface" "is_virtual_network_interface_instance" {
   allow_ip_spoofing = true
   auto_delete = false
   enable_infrastructure_nat = true
   name = "my-virtual-network-interface"
-  subnet = ibm_is_subnet.my_subnet.id
+  subnet = "<SubnetId>"
+  protocol_state_filtering_mode = "auto"
 }
 ```
 {: codeblock}
 
-For more information, see the [Terraform registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_virtual_network_interface){: external}
+For more information, see the [Terraform registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_virtual_network_interface){: external}.
