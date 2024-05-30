@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-03-12"
+lastupdated: "2024-05-28"
 
 keywords:
 
@@ -25,24 +25,33 @@ If you need to make changes to a virtual network interface, you can update it by
 To update an existing virtual network interface, follow these steps.
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Virtual network interfaces**.
+1. Select the **Navigation Menu** icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Virtual network interfaces**.
 1. Click the name of the virtual network interface in the Virtual network interfaces for VPC table.
-1. In the Overview view of the Details page, you can click the pencil icon ![Pencil icon](/images/edit.png) to edit the change of the virtual network interface.
-1. Click the switch for Infrastructure NAT to the wanted state.
+1. In the Overview view of the Details page, you can click the pencil icon ![Pencil icon](images/edit.png) to edit the name of the virtual network interface.
+1. Select the switch for Infrastructure NAT to the wanted state.
     * **Enabled** includes one floating IP address, and supports virtual servers, bare metal servers, and file shares.
     * **Disabled** supports multiple floating IP addresses only on bare metal servers. Virtual servers and file shares as virtual network interface targets are not supported.
-1. Click the switch for Allow IP spoofing to the wanted state. IP spoofing supports only virtual server instances and bare metal servers. File shares are not supported.
-1. Click the switch to enable or disable auto release for this virtual network interface.
+1. Select the switch for Allow IP spoofing to the wanted state. IP spoofing supports only virtual server instances and bare metal servers. File shares are not supported.
+1. Select the switch to enable or disable auto release for this virtual network interface.
 
     Auto release cannot be enabled without a target device.
     {: note}
 
+1. Click the Edit icon ![Edit icon](images/edit.png) to edit the [protocol state filtering mode](/docs/vpc?topic=vpc-vni-about&interface=ui#protocol-state-filtering), then select a radio button to change the mode.
+
+       * **Auto** (default): Filtering is enabled or disabled based on the virtual network interface's target resource:
+
+          * Bare metal server (Disabled)
+          * Virtual server instance (Enabled)
+          * File share mount (Enabled)
+       * **Enabled**: Forces TCP connections to align with the [RFC793](https://www.ietf.org/rfc/rfc793.txt){: external} standard and any packets allowed by corresponding security group rules and network ACLs.
+       * **Disabled**: Permits packets allowed only by corresponding security group rules and network ACLs.
 1. In the Attached resources section, use the Display resource list menu to view the security groups or secondary IPs attached to the virtual network interface.
     * Clicking **Manage attached resources** in the Attached resources section takes you to the Attached resources tab.
 1. To create devices or attach existing devices, follow the links in the Target device details section.
 1. In the Floating IPs section, click **Attach** to reserve a new floating IP or attach an existing floating IP.
 
-    If a floating IP is attached, the virtual network interface is be accepted as a file share mount target. If infrastructure NAT is enabled, at most one floating IP can be attached.
+    If a floating IP is attached, the virtual network interface is accepted as a file share mount target. If infrastructure NAT is enabled, at most one floating IP can be attached.
     {: note}
 
 1. In the Attached resources tab, view secondary IPs and security groups that are already attached, or create secondary IPs or security groups to attach to your virtual network interface.
@@ -54,14 +63,14 @@ To update an existing virtual network interface, follow these steps.
 Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 ```sh
-export IBMCLOUD_IS_FEATURE_VNI_PHASE_II=true
+export IBMCLOUD_IS_FEATURE_VNI_ENABLE_PROTOCOL_STATE_FILTERING=true
 ```
 {: pre}
 
 To update a virtual network interface from the CLI, enter the following command:
 
 ```sh
-ibmcloud is virtual-network-interface-update VIRTUAL_NETWORK_INTERFACE --name NEW_NAME [--allow-ip-spoofing false | true] [--auto-delete false | true] [--enable-infrastructure-nat false | true] [--output JSON] [-q, --quiet]
+ibmcloud is virtual-network-interface-update VIRTUAL_NETWORK_INTERFACE --name NEW_NAME [--allow-ip-spoofing false | true] [--auto-delete false | true] [--enable-infrastructure-nat false | true] [--protocol-state-filtering-mode auto | disabled | enabled] [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
@@ -82,6 +91,15 @@ Where:
 `--enable-infrastructure-nat`
 :   If `true`, the VPC infrastructure performs any needed NAT operations. If `false`, packets are passed unchanged to/from the network interface, allowing the workload to perform any needed NAT operations. One of: `false`, `true`.
 
+`--protocol-state-filtering-mode`
+:   The status of the protocol state filtering mode. One of `auto`, `enabled`, `disabled`.
+   * Auto (default): protocol state packet filtering is enabled or disabled based on the virtual network interface's `target` resource type.
+       * `bare_metal_server_network_attachment`: disabled
+       * `instance_network_attachment`: enabled
+       * `share_mount_target`: enabled
+   * Enabled: permit only the TCP SYN packet that is allowed by security group rules for TCP flow if there is no connection track.
+   * Disabled: permit any packet that is allowed by security group rules, even if there is no connection track.
+
 `--output`
 :   Specify output format, only JSON is supported. One of: `JSON`.
 
@@ -93,8 +111,8 @@ Where:
 
 - `ibmcloud is virtual-network-interface-update 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 --name new-vni`
 - `ibmcloud is virtual-network-interface-update new-vni --name new-share`
-- `ibmcloud is virtual-network-interface-update 7208-8918786e-5958-42fc-9e4b-410c5a58b164 --name cli-vni-1 --allow-ip-spoofing false --auto-delete false --enable-infrastructure-nat false`
-- `ibmcloud is virtual-network-interface-update cli-vni-1 --name cli-vni-2 --allow-ip-spoofing false --auto-delete true --enable-infrastructure-nat false`
+- `ibmcloud is virtual-network-interface-update 7208-8918786e-5958-42fc-9e4b-410c5a58b164 --name cli-vni-1 --allow-ip-spoofing false --auto-delete false --enable-infrastructure-nat false --protocol-state-filtering-mode auto`
+- `ibmcloud is virtual-network-interface-update cli-vni-1 --name cli-vni-2 --allow-ip-spoofing false --auto-delete true --enable-infrastructure-nat false --protocol-state-filtering-mode disabled`
 
 ## Updating a virtual network interface with the API
 {: #vni-api-update}
@@ -112,11 +130,26 @@ To update a virtual network interface with the API, follow these steps:
 
     ```sh
     curl -X PATCH \
-    "$vpc_api_endpoint/v1/virtual_network_interfaces/$virtual_network_interface_id?version=$version&generation=2" \
-    -H "Authorization: Bearer $iam_token" \
-    -d '{
-          "name": "my-virtual-network-interface-updated"
-    }'
+        "$vpc_api_endpoint/v1/virtual_network_interfaces/$virtual_network_interface_id?version=$version&generation=2" \
+        -H "Authorization: Bearer $iam_token" \
+        -d '{
+              "name": "my-virtual-network-interface",
+              "primary_ip": {
+                "address": "10.0.0.5"
+              },
+              "protocol_state_filtering_mode": "disabled",
+              "security_groups": [
+                {
+                  "id": "be5df5ca-12a0-494b-907e-aa6ec2bfa271"
+                },
+                {
+                  "id": "032e1387-71ba-4e83-b268-a53edf94af19"
+                }
+              ],
+              "subnet": {
+                "id": "032e1387-71ba-4e83-b268-a53edf94af19"
+              }
+        }'
     ```
     {: codeblock}
 
@@ -133,6 +166,7 @@ resource "ibm_is_virtual_network_interface" "my_virtual_network_interface_instan
   enable_infrastructure_nat = true
   name = "my-virtual-network-interface-2"
   subnet = ibm_is_subnet.my_subnet.id
+  protocol_state_filtering_mode = "auto"
 }
 ```
 {: codeblock}

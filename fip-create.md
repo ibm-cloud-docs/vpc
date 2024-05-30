@@ -30,7 +30,7 @@ To add a floating IP to a network interface to allow internet traffic to access 
     By default, the first interface is named `eth0`. Initially associating the floating IP address with the primary network interface helps
 establish the data path. Later, you can associate the floating IP to a different network interface if you desire.
 
-1. Click the pencil icon to edit the primary network interface.
+1. Click the Edit icon to edit the primary network interface.
 1. On the **Edit network interface** page, locate the **Floating IP address** field.
 1. You can select an existing floating IP address to add to the network interface, or you can reserve a new floating IP and add it to the network interface. To do so:
    1. Select **Reserve a new floating IP**.
