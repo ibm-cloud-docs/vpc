@@ -2,7 +2,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-05-22"
+lastupdated: "2024-05-30"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
