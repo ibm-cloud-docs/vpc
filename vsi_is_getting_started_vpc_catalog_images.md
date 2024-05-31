@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-04-29"
+lastupdated: "2024-05-31"
 
 keywords:
 
@@ -31,8 +31,6 @@ There are 3 different types of images for VPC.
 If you plan to share or publish a custom image to other accounts within your enterprise, you need to create a private catalog. A private catalog provides a way for you to manage access to products for multiple accounts while those accounts are within the same enterprise. You can share any existing x86 virtual server custom image with a private catalog, except for an encrypted image. For more information about these limitations, see [VPC considerations when using custom images in a private catalog](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=api).
 
 When you select a catalog image, you need to make sure that you are aware of any associated billing plans.
-
-[Beta]{: tag-blue}
 
 Catalog images are billed in one of the following ways:
 
