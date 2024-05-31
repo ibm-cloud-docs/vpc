@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-05-29"
+lastupdated: "2024-05-31"
 
 keywords: sgx, intel sgx, software guard extension, confidential computing, trusted execution environment, TEE, data protection
 
@@ -21,7 +21,7 @@ subcollection: vpc
 Confidential computing with Intel&reg; Software Guard Extensions (SGX) protects your data through hardware-based server security by using isolated memory regions that are known as encrypted enclaves. This hardware-based computation helps protect your data from disclosure or modification. Which means that your sensitive data is encrypted while it is in virtual server instance memory by allowing applications to run in private memory space. To use SGX, you must install the SGX drivers and platform software on SGX-capable worker nodes. Then, design your app to run in an SGX environment. For more information about SGX, see [Intel Software Guard Extensions](https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/overview.html).
 {: shortdesc}
 
-Confidential computing with Intel SGX for VPC is available only in US-South (Dallas) region.
+Confidential computing with Intel SGX for VPC is available only in the US-South (Dallas) region.
 {: note}
 
 ## Confidential computing
@@ -43,10 +43,6 @@ So, all Intel SGXs are TEEs, but not all TEEs are Intel SGXs.
 
 When you develop a confidential computing application, you must design it so you can segment the information that needs encryption. At run time, the segmented information is kept confidential through attestation. When a request for information from the segmented code or app data is received, the encrypted enclave verifies that the request comes from the part of the application that exists outside of the enclave within the same application before it shares any information. Through the attestation process, information is kept confidential and data leakage is prevented. For more information about attestation with Intel SGX, see [Attestation with Intel SGX and Data Center Attestation Primitives (DCAP)](/docs/vpc?topic=vpc-about-attestation-sgx-dcap-vpc).
 
-<!--Attestation in SGX is the process of demonstrating that an operation is instantiated. SGX attestation confirms that the intended software or code is running within an encrypted enclave. In other words, attestation provides evidence that you are running in an SGX platform that is inside a properly instantiated encrypted enclave, on a system that has a known security configuration.
-
-Attestation is signed and verified when you provision a server with ECDSA signed collateral that is then saved in the caching service. While SGX helps uphold the integrity and confidentiality of your data (thanks to the encrypted enclaves), SGX doesn't protect against all attack types - such as side-channel attacks.-->
-
 ### Confidential computing with SGX use cases
 {: #scenarios-sgx-vpc}
 
@@ -56,7 +52,7 @@ The following are some of the use cases for confidential computing with SGX.
 
 * **Confidential AI and Analytics** enable data and business analytics applications, machine learning models, and applications within secure enclaves. Includes SMPC applications that also help gain data insights.
 
-* **Secure Multi-party Compute** enables distributed SMPC, where participants are ensured that their data and insights are protected even when calculated outside their direct control.
+* **Secure Multi-party Compute** enables distributed SMPC that helps make sure that participant data and insights are protected even when calculated outside their direct control.
 
 * **Digital Assets** is the trusted platform for digital custody solutions, for storing and transferring high-value digital assets in highly secure wallets, reliable at scale.
 
