@@ -32,7 +32,7 @@ If you plan to share or publish a custom image to other accounts within your ent
 
 When you select a catalog image, you need to make sure that you are aware of any associated billing plans.
 
-Catalog images are billed in one of the following ways:
+Catalog images are billed in one of the following ways.
 
 * Free trial
 * Usage-based
