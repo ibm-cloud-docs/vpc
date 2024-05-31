@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-02-21"
+lastupdated: "2024-05-23"
 
 keywords: ssh public keys, OpenSSH, add ssh key, ssh key, manage ssh key, generate ssh key, locate ssh key
 
@@ -195,8 +195,6 @@ Use the following steps to create an SSH key. You can create only an RSA SSH key
    {: caption="Table 1. Creating an SSH key for VPC selections" caption-side="bottom"}
 
 1. Select **Generate a key pair for me**.
-1. Click **Save private key**.
-1. Click **Save public key**.
 1. Optionally, click **Get sample API call** to get an API code with all your SSH key information that you can copy.
 1. Click **Create**.
 
@@ -221,32 +219,15 @@ Use the following steps to import an SSH key from a local file.
    | Access management tags | Access management tags help you apply flexible access policies on specific resources. For more information, see the [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial) UI tutorial. |
    {: caption="Table 1. Creating an SSH key for VPC selections" caption-side="bottom"}
 
-1. Select **Upload a public key**.
-1. Click **Upload a public key file**.
+1. Select **Provide existing public key**.
+1. Click **Upload public key**.
 1. Select the public key file and click **Open**. The file extension, `.pub`, typically indicates which file contains the public key.
 1. Optionally, click **Get sample API call** to get an API code with all your SSH key information that you can copy.
 1. Click **Create**.
 
 Use the following steps to import an SSH key by pasting in the public key material into the UI.
 
-1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > SSH keys**.
-1. Click **Create** and enter the information that is in Table 1.
-   | Field | Value |
-   | --- | --- |
-   | Location | Locations are composed of regions (specific geographic areas) and zones (fault-tolerant data centers within a region). Select the location where you want to create your SSH key. |
-   | Name  | A name is required for your SSH key. |
-   | Resource group | Select a resource group for the SSH key. |
-   | Tags | You can assign a user tag to the SSH key so that you can easily filter a list of SSH keys. For more information, see [Working with tags](/docs/account?topic=account-tag&interface=ui).|
-   | Access management tags | Access management tags help you apply flexible access policies on specific resources. For more information, see the [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial) UI tutorial. |
-   | SSH key type | Select a key type for the SSH key. SSH key type `ed25519` can't be used for Windows&reg; instances. |
-   {: caption="Table 1. Creating an SSH key for VPC selections" caption-side="bottom"}
-
-1. Select **Paste public key material**.
-1. Paste in the public key information.
-1. Optionally, click **Get sample API call** to get an API code with all your SSH key information that you can copy.
-1. Click **Create**.
-
-When you copy an SSH key from a terminal to add the key to your VPC, sometimes extra line breaks are introduced which cause a parsing error. To avoid this issue, first paste your SSH key into a text editor and remove any extra line breaks. Then, copy the SSH key from text editor and paste it into the VPC UI, CLI, or API.
+If you copy an SSH key from a terminal to add the key to your VPC, sometimes extra line breaks are introduced which cause a parsing error. To avoid this issue, first paste your SSH key into a text editor and remove any extra line breaks. Then, copy the SSH key from text editor and paste it into the VPC UI, CLI, or API.
 {: tip}
 
 Your imported SSH key is now displayed in the list of SSH keys on the UI.

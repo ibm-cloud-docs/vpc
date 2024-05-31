@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-05-09"
+lastupdated: "2024-05-31"
 
 keywords: sgx, intel sgx, software guard extension, confidential computing, trusted execution environment, TEE, data protection
 
@@ -16,12 +16,12 @@ subcollection: vpc
 # Confidential computing with Intel Software Guard Extensions (SGX) for Virtual Servers for VPC
 {: #about-sgx-vpc}
 
-[Beta]{: tag-blue}
+[Select availability]{: tag-green}
 
 Confidential computing with Intel&reg; Software Guard Extensions (SGX) protects your data through hardware-based server security by using isolated memory regions that are known as encrypted enclaves. This hardware-based computation helps protect your data from disclosure or modification. Which means that your sensitive data is encrypted while it is in virtual server instance memory by allowing applications to run in private memory space. To use SGX, you must install the SGX drivers and platform software on SGX-capable worker nodes. Then, design your app to run in an SGX environment. For more information about SGX, see [Intel Software Guard Extensions](https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/overview.html).
 {: shortdesc}
 
-Confidential computing with Intel SGX for VPC is available only to select users in US-South zone 3 (DAL 13).
+Confidential computing with Intel SGX for VPC is available only in the US-South (Dallas) region.
 {: note}
 
 ## Confidential computing
@@ -52,7 +52,7 @@ The following are some of the use cases for confidential computing with SGX.
 
 * **Confidential AI and Analytics** enable data and business analytics applications, machine learning models, and applications within secure enclaves. Includes SMPC applications that also help gain data insights.
 
-* **Secure Multi-party Compute** enables distributed SMPC, where participants are ensured that their data and insights are protected even when calculated outside their direct control.
+* **Secure Multi-party Compute** enables distributed SMPC that helps make sure that participant data and insights are protected even when calculated outside their direct control.
 
 * **Digital Assets** is the trusted platform for digital custody solutions, for storing and transferring high-value digital assets in highly secure wallets, reliable at scale.
 
@@ -84,6 +84,5 @@ Keep the following limitations in mind if you want to use SGX.
    - CentOS Stream 8, 9
    - Rocky Linux 8.8, 9.2
    - SLES 15 SP4, SP5
- * The cx3dc-176x440 profile is not supported.
 
 If you resize a virtual server that is secure boot-enabled to a profile that is secure boot-disabled (and vice-versa), the topology of PCIe devices change. Depending on the operating system, this topology change can rename devices. The I/O performance can also change.

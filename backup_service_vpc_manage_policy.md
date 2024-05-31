@@ -31,7 +31,7 @@ You can rename a policy from the list of backup policies or from the backup poli
 
 * From the list of backup policies, click the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Actions") and select **Rename**.
 
-* From the policy details page, click the pencil icon next to the policy name.
+* From the policy details page, click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") next to the policy name.
 
 ### Editing tags for target resources in the UI
 {: #backup-edit-tags}
@@ -40,7 +40,7 @@ From the Backup policy details page, you can edit the tags for your {{site.data.
 
 1. Go to the [details page for a backup policy](/docs/vpc?topic=vpc-backup-view-policies&interface=ui#backup-view-policy).
 
-2. For **Tags for target resources**, click the pencil icon.
+2. For **Tags for target resources**, click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit").
 
 3. In the new window, enter a user tag name. For existing {{site.data.keyword.block_storage_is_short}} volumes with user tags, enter the tag name exactly as it appears in the volume. You can also add a user tag here and then go back and add it to a volume. You need only one tag for a volume to create a backup.
 
@@ -55,7 +55,7 @@ From the Backup policy details page, you can include or exclude {{site.data.keyw
 
 1. Go to the [details page for a backup policy](/docs/vpc?topic=vpc-backup-view-policies&interface=ui#backup-view-policy).
 
-2. On the Overview tab, look for **Boot volume** in the Policy details, and click the pencil icon to change the value.
+2. On the Overview tab, look for **Boot volume** in the Policy details, and click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change the value.
 
 ### Editing a backup plan in the UI
 {: #backup-edit-delete-plan-ui}

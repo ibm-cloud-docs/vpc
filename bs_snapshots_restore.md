@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-04-19"
+lastupdated: "2024-05-14"
 
 keywords:
 
@@ -122,7 +122,7 @@ Follow these steps to create a volume from the snapshot details page in the UI.
 1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes and select a volume. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**.
 2. On the {{site.data.keyword.block_storage_is_short}} volume details page, select the **Snapshots and Backups** tab. A list of snapshots that were created manually or by backup policies is shown.
 3. From the list, click the snapshot name to go to its details page.
-4. From the **Actions** menu, click **Create volume**.
+4. From the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions"), select **Create volume**.
 5. Define the new volume in the side panel. The information that you need to provide is the same as when you create a volume from the [list of snapshots](#snapshots-vpc-restore-snaphot-list-ui). See Table 1 for the details.
 6. When you're finished, click **Save**. The new volume is created.
 
@@ -152,7 +152,7 @@ Follow these steps to create a boot and a data volume from snapshots when you pr
 2. Click **Create** and provision your new instance. For more information about the required fields, see the table in [Creating virtual server instances in the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
 3. For the operating system, click **Change image**, then click the tab for **Snapshots**. The most recent bootable snapshot is listed.
    * If you want to use a different snapshot, click **Edit**. From the list of snapshots, select a bootable snapshot for your instance's operating system. Click **Save**. This action populates the snapshot data in the boot volume field on the provisioning page.
-   * If you want to change the properties of the boot volume, such as the name, auto-delete feature, encryption, or tags, click the pencil icon. Change the property that you want and click **Save**. The boot volume information is updated on the provisioning page.
+   * If you want to change the properties of the boot volume, such as the name, auto-delete feature, encryption, or tags, click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit"). Change the property that you want and click **Save**. The boot volume information is updated on the provisioning page.
 4. To create a data volume, under Data Volumes, click **Create**. A side panel is displayed.
    1. Select **Import from snapshot**. Expand the list to select a data snapshot. The most recent data snapshot is selected by default. However, you can select any snapshot from the list.
    1. The snapshot contains the properties of the original source volume, including the auto-delete status, tags, size, profile, and encryption. You can change all these properties. Keep in mind that you can change the volume name, profile, size, and IOPS later, but you cannot change the encryption type or CRK after the volume is created.

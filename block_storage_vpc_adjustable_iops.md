@@ -83,7 +83,7 @@ Follow these steps to adjust IOPS by selecting a new IOPS tier or custom IOPS ba
    {: note}
 
 3. Alternatively, go to a virtual server instance with an attached volume that you want to adjust IOPS and select it from the list of attached volumes.
-4. On the volume details page, locate **Profile** and click the pencil icon or use the **Actions** menu and select **Edit IOPS profile**. Volumes must be attached to a virtual server instance for these actions.
+4. On the volume details page, locate **Profile** and click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") or use the **Actions** menu and select **Edit IOPS profile**. Volumes must be attached to a virtual server instance for these actions.
 5. In the side panel, adjust IOPS as follows:
    * For an IOPS tier, select a different tier from the menu. For example, you might have a 3 IOPS/GB general-purpose profile you're increasing to a 5 IOPS/GB profile.
    * For a Custom IOPS, the current IOPS value is shown and volume size. Enter a new IOPS value in the range specified for that custom band.
