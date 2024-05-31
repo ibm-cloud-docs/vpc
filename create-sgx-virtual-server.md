@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-05-29"
+lastupdated: "2024-05-31"
 
 keywords: sgx, intel sgx, software guard extension, confidential computing, trusted execution environment, TEE, data protection
 
@@ -16,12 +16,10 @@ subcollection: vpc
 # Creating a virtual server with SGX
 {: #creating-virtual-servers-with-sgx-vpc}
 
-[Select availability]{: tag-green}
-
 You can create one or more virtual server instances with SGX in your {{site.data.keyword.cloud}} VPC.
 {: shortdesc}
 
-Confidential computing with Intel SGX for VPC is available only in US-South (Dallas) region.
+Confidential computing with Intel SGX for VPC is available only in the US-South (Dallas) region.
 {: note}
 
 ## Creating a virtual server with SGX
@@ -44,5 +42,5 @@ Make sure that you created a VPC.
 1. Go to **Networking**, and choose a **VPC** for this virtual server instance.
 1. Click **Create a virtual server instance** when you are ready to provision. After your new virtual server with SGX is provisioned, it's ready to use.
 
-For Gen3 profiles, you can enable and disable secure boot. But when you toggle between enable and disable the machine type changes. So, make sure that you create a snapshot before change this setting.
+For Gen3 profiles, you can enable and disable secure boot. But when you toggle between enable and disable the machine type changes. So, make sure that you create a snapshot before you change this setting.
 {: important}
