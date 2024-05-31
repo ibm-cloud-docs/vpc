@@ -266,7 +266,7 @@ To customize your dashboard, use the following steps:
 
 1. Click **Save**.
 
-   By default, the dashboard is named "blank dashboard". You can change the name by selecting **Dashboards** from the sidebar and clicking the pencil icon next to the name.
+   By default, the dashboard is named "blank dashboard". You can change the name by selecting **Dashboards** from the sidebar and clicking the Edit icon next to the name.
    {: tip}
 
 To return to the default {{site.data.keyword.mon_full_notm}} dashboard at any time, select **Dashboards > Default Dashboards > IBM > VPC VPN SERVER**.
