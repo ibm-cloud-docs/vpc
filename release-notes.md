@@ -37,7 +37,7 @@ Protocol state filtering on virtual network interfaces can be updated
 :   Protocol state filtering works well if the packet forwarding path and the return path are the same, and if the packet forwarding path is never changed. However, the VPC routing table supports two-way ECMP routes. When a two-way ECMP route is configured, the forward path might differ from the return path and protocol state filtering can cause legitimate packets to drop. You can now disable protocol state filtering when intermittent routing issues occur. For more information, see [Protocol state filtering mode](/docs/vpc?topic=vpc-vni-about#protocol-state-filtering).
 
 Third-party image billing and metering (GA)
-:   When you select a catalog image, you now have associated billing plans to choose from. Catalog images are billed in one of the following ways:
+:   When you select a catalog image, you now have associated billing plans to choose from. Catalog images are billed in one of the following ways.
 
    * Free trial
    * Useage-based billing
