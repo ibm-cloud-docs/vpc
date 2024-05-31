@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-05-30"
+lastupdated: "2024-05-31"
 
 keywords:
 
@@ -29,7 +29,7 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## May 2024
 {: #vpc-may24}
 
-### 30 May 2024
+### 31 May 2024
 {: #vpc-may3024}
 {: release-note}
 
