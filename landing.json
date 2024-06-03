@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2024-05-31",
+    "lastupdated": "2024-06-03",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
@@ -36,14 +36,14 @@
           "description": "Protocol state filtering works well if the packet forwarding path and the return path are the same, and if the packet forwarding path is never changed. However, the VPC routing table supports two-way ECMP routes. When a two-way ECMP route is configured, the forward path might differ from the return path and protocol state filtering can cause legitimate packets to drop. You can now disable protocol state filtering when intermittent routing issues occur."
         },
         {
-          "date": "30 May 2024 ",
-          "title": "Next generation instance profiles available in Tokyo and Osaka regions (select availability)",
-          "description": "The 3rd generation of IBM Cloud Virtual Servers for VPC are now available as a select availability offering in the Japan (Tokyo) and Japan (Osaka) regions, in addition to the US South (Dallas), United Kingdom (London), EU Germany (Frankfurt), US East (Washington DC), Canada (Toronto), Spain (Madrid), and Australia (Sydney) regions. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel® Xeon® Scalable processors to provide the most powerful and performant general-purpose profiles available."
+          "date": "31 May 2024 ",
+          "title": "Update firmware on Bare Metal Servers for VPC (beta)",
+          "description": "With the new Update firmware action on Bare Metal Servers for VPC, you can see if a firmware update is available for your bare metal server and also initiate the update. You can use the UI, CLI, and API to update the firmware. In the UI, this action is only visible if the server is stopped and there is a firmware update available. It is recommended to back up your bare metal server before any firmware update."
         },
         {
-          "date": "30 May 2024",
-          "title": "Security group support for secondary IP addresses (GA)",
-          "description": "You can now attach both primary and secondary IP addresses to a security group to refine the binding of security groups rules to a particular port IP instead of all IPs belonging to the port. Also, security group rules now support both source and destination on ingress and egress rules. This allows customers with multiple, secondary private IP addresses associated with a single vNIC to have the ability to apply security group rules to source and destination IP addresses, thus enabling finer granularity in security rules. This enhancement provides the capability to secure the primary IP different from the secondary IPs, and also applies to VIP prefixes (custom routes) used with a vNIC with IP spoofing disabled."
+          "date": "31 May 2024",
+          "title": "Third-party image billing and metering (GA)",
+          "description": "When you select a catalog image, you now have associated billing plans to choose from. Catalog images are billed in one of the following ways: Free trial, Useage-based billing, and BYOL."
         }
       ]
     }
