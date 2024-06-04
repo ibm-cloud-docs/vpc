@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-05-28"
+lastupdated: "2024-06-04"
 
 keywords: vpc, api, change log, new features, restrictions, migration
 
