@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-04-09"
+lastupdated: "2024-06-04"
 
 
 keywords: known issues, bugs, defects
@@ -144,3 +144,8 @@ Because all bare metal profiles are VMware&reg; certified, the `supported_image_
 **Issue:** When you restore a volume from a snapshot by using the fast restore feature and the encryption key of the snapshot and volume are different, and then you delete the snapshot encryption key from the key management service, the volume might become inaccessible when it's attached or reattached to the virtual server instance.
 
 **Workaround:** To recover the snapshot encryption key, use [the key recovery procedure](/docs/key-protect?topic=key-protect-restore-keys). When the key is recovered, the volume becomes accessible.
+
+### Volumes and snapshots omit the catalog offering information for unbilled catalog offering versions
+{: #volumes-catalog-managed-known-issue}
+
+**Issue:** When you retrieve a volume or snapshot that was originally provisioned as a boot volume in an instance with a [billed catalog offering](/docs/vpc?topic=vpc-getting-started-images-on-vpc-catalog&interface=ui#images-on-vpc-catalog-images) and without a billing plan, the response does not include the `catalog_offering` property.
