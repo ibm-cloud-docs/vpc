@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-05-28"
+lastupdated: "2024-06-04"
 
 keywords: api, change log, metadata, new features, restrictions, migration, versioned change
 
@@ -27,6 +27,14 @@ Some changes, such as new response properties or new optional request parameters
 - Follow HTTP redirect rules for any `3xx` HTTP status code
 - Consume only the resources and properties your application needs to function
 - Avoid depending on behavior that is not explicitly documented
+
+## 4 June 2024
+{: #4-june-2024}
+
+### For all version dates
+{: #4-june-2024-all-version-dates}
+
+**IBM Cloud catalog image billing support.** When [retrieving an instance](/apidocs/vpc-metadata#get-instance) that was provisioned with a [billed catalog offering](/docs/vpc?topic=vpc-getting-started-images-on-vpc-catalog&interface=ui#images-on-vpc-catalog-images), the new `catalog_offering.plan.crn` property provides the associated billing plan. For more information, see [Provisioning instances with IBM Cloud billable catalog offering](/docs/vpc?topic=vpc-api-change-log#4-june-2024) in the VPC API change log.
 
 ## 28 May 2024
 {: #28-may-2024-metadata}
