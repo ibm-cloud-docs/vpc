@@ -54,6 +54,18 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
 
+## 4 June 2024
+{: #4-june-2024}
+
+### For all version dates
+{: #4-june-2024-all-version-dates}
+
+**Provisioning instances with IBM Cloud billed catalog offering plans.** You can now provision a virtual server instance with a [billed catalog offering](/docs/vpc?topic=vpc-getting-started-images-on-vpc-catalog&interface=ui#images-on-vpc-catalog-images) from the IBM Catalog. When [creating an instance](/apidocs/vpc/latest#create-instance) specify the `catalog_offering.version.crn` or  `catalog_offering.offering.crn` property as before, and additionally specify the billing plan using the new `catalog_offering.plan.crn` property. You can still provision an instance without a plan, but if it's a billed plan, you must specify `catalog_offering.plan.crn`. The same requirements apply when provisioning an [instance template](/apidocs/vpc/latest#create-instance-template) for a billed offering. For more information, see [Provision an instance from a private catalog image by using the API](/docs/vpc?topic=vpc-creating-virtual-servers&interface=api#create-instance-private-catalog-image-api).
+
+When [retrieving an instance](/apidocs/vpc/latest#get-instance) that was provisioned with a billed catalog offering, the new `catalog_offering.plan.crn` property provides the associated billing plan.
+
+**Enhancements to volumes and shapshots in support of catalog offering plans.** When [retrieving a volume](/apidocs/vpc/latest#get-volume) that was originally provisioned as a boot volume from an instance with a [billed catalog offering](/docs/vpc?topic=vpc-getting-started-images-on-vpc-catalog&interface=ui#images-on-vpc-catalog-images), the response now includes both `catalog_offering.version.crn` and `catalog_offering.plan.crn` properties. The response includes the same properties when [retrieving a snapshot](/apidocs/vpc/latest#get-snapshot) with a `source_volume` that had those properties.
+
 ## 28 May 2024
 {: #28-may-2024}
 
