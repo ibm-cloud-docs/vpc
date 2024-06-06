@@ -855,6 +855,7 @@ toc:
                 - vpn-ts-vpn-gateway-fix-bad-service-routes.md
                 - vpn-ts-advertise-route-not-work.md
                 - vpn-ts-s2s-over-quota.md
+                - vpn-ts-s2s-cannot-access-classic-vsi.md
             - topicgroup:
                 label: Troubleshooting client-to-site VPN servers
                 topics:
@@ -869,6 +870,7 @@ toc:
                 - vpn-ts-vpn-server-fix-bad-service-routes.md
                 - vpn-client-to-site-ts-advertise-route-not-work.md
                 - vpn-ts-c2s-over-quota.md
+                - vpn-ts-c2s-cannot-access-classic-vsi.md
             - resource-suspension.md
             - instance-status-messages.md
             - instance-lifecycle-status-messages.md

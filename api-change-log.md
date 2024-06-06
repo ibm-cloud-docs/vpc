@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-05-14"
+lastupdated: "2024-06-04"
 
 keywords: vpc, api, change log, new features, restrictions, migration
 
@@ -54,6 +54,52 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
 
+## 4 June 2024
+{: #4-june-2024}
+
+### For all version dates
+{: #4-june-2024-all-version-dates}
+
+**Provisioning instances with IBM Cloud billed catalog offering plans.** You can now provision a virtual server instance with a [billed catalog offering](/docs/vpc?topic=vpc-getting-started-images-on-vpc-catalog&interface=ui#images-on-vpc-catalog-images) from the IBM Catalog. When [creating an instance](/apidocs/vpc/latest#create-instance) specify the `catalog_offering.version.crn` or  `catalog_offering.offering.crn` property as before, and additionally specify the billing plan using the new `catalog_offering.plan.crn` property. You can still provision an instance without a plan, but if it's a billed plan, you must specify `catalog_offering.plan.crn`. The same requirements apply when provisioning an [instance template](/apidocs/vpc/latest#create-instance-template) for a billed offering. For more information, see [Provision an instance from a private catalog image by using the API](/docs/vpc?topic=vpc-creating-virtual-servers&interface=api#create-instance-private-catalog-image-api).
+
+When [retrieving an instance](/apidocs/vpc/latest#get-instance) that was provisioned with a billed catalog offering, the new `catalog_offering.plan.crn` property provides the associated billing plan.
+
+**Enhancements to volumes and shapshots in support of catalog offering plans.** When [retrieving a volume](/apidocs/vpc/latest#get-volume) that was originally provisioned as a boot volume from an instance with a [billed catalog offering](/docs/vpc?topic=vpc-getting-started-images-on-vpc-catalog&interface=ui#images-on-vpc-catalog-images), the response now includes both `catalog_offering.version.crn` and `catalog_offering.plan.crn` properties. The response includes the same properties when [retrieving a snapshot](/apidocs/vpc/latest#get-snapshot) with a `source_volume` that had those properties.
+
+## 28 May 2024
+{: #28-may-2024}
+
+### For all version dates
+{: #28-may-2024-all-version-dates}
+
+**Virtual network interface protocol state filtering mode.** [Protocol state filtering](/docs/vpc?topic=vpc-vni-about#protocol-state-filtering) monitors each network connection flowing over a virtual network interface (VNI), and drops any packets that are invalid based on the current connection state and protocol. Certain use cases, such as having a virtual server instance function as a network gateway, require selective disabling of this filtering. To accommodate these use cases, if you have the `is.virtual-network-interface.virtual-network-interface.manage-protocol-state-filtering-mode` IAM action, you can now set non-default values for the `protocol_state_filtering_mode` property when you are [creating](/apidocs/vpc/latest#create-virtual-network-interface) or [updating](/apidocs/vpc/latest#update-virtual-network-interface) a VNI.
+
+The new `protocol_state_filtering_mode` property is supported for VNI methods and all methods in which a VNI can be created.
+
+This release introduces the following updates for accounts that have been granted special approval to preview these features:
+
+**Confidential computing capabilities.** On select instance profiles, you can now enable [Intel&reg; Software Guard Extensions](/docs/vpc?topic=vpc-about-sgx-vpc). When [creating](/apidocs/vpc/latest#create-instance) or [updating](/apidocs/vpc/latest#update-instance) an instance, or when [creating](/apidocs/vpc/latest#create-instance-template) or [updating](/apidocs/vpc/latest#update-instance-template) an instance template, you can specify the new `confidential_compute_mode` property (`disabled` or `sgx`) to use for a virtual server instance. The new `confidential_compute_modes` instance profile property indicates which profiles will support which modes. If you do not specify the `confidential_compute_mode` property when creating an instance or instance template, the default confidential compute mode from the profile will be used. For more information, see [Confidential computing with Intel Software Guard Extensions (SGX) for Virtual Servers for VPC](/docs/vpc?topic=vpc-about-sgx-vpc).
+
+**Secure boot capabilities.** When [creating](/apidocs/vpc/latest#create-instance) or [updating](/apidocs/vpc/latest#update-instance) an instance, or when [creating](/apidocs/vpc/latest#create-instance-template) or [updating](/apidocs/vpc/latest#update-instance-template) an instance template, you can set the new `enable_secure_boot` property to `true` to enable secure boot on the virtual server instance. The new `secure_boot_modes` instance profile property indicates the secure boot modes supported by the profile. If you do not specify the `enable_secure_boot` property when creating an instance or instance template, the default secure boot mode from the profile will be used. To use secure boot, the image must support secure boot or the instance will fail to boot. For more information, see [Secure boot for Virtual Servers for VPC](/docs/vpc?topic=vpc-confidential-computing-with-secure-boot-vpc).
+
+To update the `enable_secure_boot` and `confidential_compute_mode` properties, the virtual server instance `status` must be `stopping` or `stopped`.
+
+## 21 May 2024
+{: #21-may-2024}
+
+### For version `2022-02-28` or later
+{: #version-2022-02-28}
+
+**Snapshots `DELETE` response code change.** When [deleting a snapshot](/apidocs/vpc/latest#delete-snapshot) or [deleting a filtered collection of snapshots](/apidocs/vpc/latest#delete-snapshots) using a `version` query parameter of `2022-02-28` or later, the response will now return an HTTP response code of `202` upon success, instead of `204`. The underlying deletion operations were already asynchronous, and remain unchanged.
+
+To avoid regressions in client functionality, before issuing requests using a `version` query parameter of `2022-02-28` or later, ensure that any clients deleting snapshot resources will also regard a response code of `202` as success.
+{: important}
+
+A response code of `204` will continue to be returned for API requests using a `version` query parameter of `2022-02-27` and earlier.
+
+This feature was originally released on 28 February 2022, but an announcement was not included at the time.
+{: note}
+
 ## 14 May 2024
 {: #14-may-2024}
 
@@ -73,7 +119,7 @@ The `2024-04-30` release includes incompatible changes. To avoid regressions in 
 
 **Advanced VPN gateway configuration.** Using a `version` query parameter of `2024-04-30` or later, you can specify `peer.fqdn` instead of `peer.address` when [creating](/apidocs/vpc/latest#create-vpn-gateway-connection) or [updating](/apidocs/vpc/latest#update-vpn-gateway-connection) a VPN gateway connection. You can also now fully control the local and peer IKE identities assigned to a VPN gateway connection by using properties `local.ike_identities` and `peer.ike_identity`. If unspecified, the local IKE identities will default to the public IP addresses of the VPN gateway and member's VPN connection tunnel. The peer identity will default to either the peer's address or FQDN, depending on what was specified.
 
-For migration guidance, see [Updating to the `2024-04-30` version (VPN gateway connection)](/docs/vpc?topic=vpc-2024-04-30-migration-vpn-advanced-configuration). See also the [known issue](/docs/vpc?topic=vpc-known-issues#vpc-vpn-gateway-known-issues) about updating the `peer.address` or `peer.fqdn` of a VPN connection tunnel.
+For migration guidance, see [Updating to the `2024-04-30` version (VPN gateway connection)](/docs/vpc?topic=vpc-2024-04-30-migration-vpn-advanced-configuration). See also the [known issue](/docs/vpc?topic=vpc-vpn-limitations#known-issues-vpn-gateway) about updating the `peer.address` or `peer.fqdn` of a VPN connection tunnel.
 
 **Migration of VPN gateway connection CIDR paths.** Using a `version` query parameter of `2024-04-30` or later, API paths for [listing](/apidocs/vpc/latest#list-vpn-gateway-connection-local-cidrs), [removing](/apidocs/vpc/latest#remove-vpn-gateway-connection-local-cidr), [checking](/apidocs/vpc/latest#check-vpn-gateway-connection-local-cidr), or [setting](/apidocs/vpc/latest#add-vpn-gateway-connection-local-cidr) a local CIDR, and [listing](/apidocs/vpc/latest#list-vpn-gateway-connection-peer-cidrs), [removing](/apidocs/vpc/latest#remove-vpn-gateway-connection-peer-cidr), [checking](/apidocs/vpc/latest#check-vpn-gateway-connection-peer-cidr), or [setting](/apidocs/vpc/latest#add-vpn-gateway-connection-peer-cidr) a peer CIDR are changed. See [Updating to the `2024-04-30` version (VPN gateway connection)](/docs/vpc?topic=vpc-2024-04-30-migration-vpn-advanced-configuration) for guidance on migration.
 

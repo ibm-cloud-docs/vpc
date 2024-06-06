@@ -2,8 +2,8 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-04-09"
 
+lastupdated: "2024-06-06"
 
 keywords: known issues, bugs, defects
 
@@ -64,16 +64,6 @@ Currently, the `port_min` and `port_max` properties are supported only when rout
 ## Image known issues
 {: #image-vpc-known-issues}
 
-### Generic OS limitation for Block Storage Snapshots and boot volume
-{: #generic-os-snapshot-and-boot-volume}
-
-[Beta]{: tag-blue}
-
-Generic operating system custom image is a beta feature that is available to select customers for evaluation and testing purposes. To request to be included in the evaluation of this beta feature, contact IBM Support.
-{: beta}
-
-**Issue:** Currently, for the beta release, the metadata for Block Storage Snapshots and boot volumes do not include the new `operating_system.user_data_format` or `operating_system.allow_user_image_creation` API properties.
-
 ### Checksum not available for some public images
 {: #RIOS-1410}
 
@@ -89,8 +79,22 @@ Generic operating system custom image is a beta feature that is available to sel
 
 **Issue:** If you have imported one or more images into a virtual server image for VPC catalog product offering version and you edit that version, an additional version ending in "draft" is created. You can't provision an instance from this draft version. Draft versions might appear on the Virtual server instance creation page in the UI or in the output of the CLI command `ibmcloud is catalog-image-offering`.
 
-## Bare metal servers limitations
-{: #bare-metal-servers-limitations}
+## Bare metal servers known issues and limitations
+{: #bare-metal-servers-known-issues-limitations}
+
+### iPXE network boot known timing issue
+{: #ipxe-network-boot-known-issue}
+
+**Issue:** When you use the iPXE network boot on a Bare Metal Server on VPC, the network configuration might still be processing when the iPXE script starts running. When this occurs, the DHCP command might fail or you might see a timeout error. A fix for this issue is planned.
+
+**Workaround:** From the VNC console, manually run the iPXE commands. Or, add the following to your iPXE script instead of the DHCP command.
+
+```sh
+  :retry_dhcp
+  dhcp || goto retry_dhcp
+  sleep 2
+```
+{: codeblock}
 
 **Issue:** Flow log collectors are not integrated with bare metal servers. As a result, if you create a flow log collector for a VPC, traffic that flows to and from bare metal servers in that VPC aren't logged.
 
@@ -144,3 +148,8 @@ Because all bare metal profiles are VMware&reg; certified, the `supported_image_
 **Issue:** When you restore a volume from a snapshot by using the fast restore feature and the encryption key of the snapshot and volume are different, and then you delete the snapshot encryption key from the key management service, the volume might become inaccessible when it's attached or reattached to the virtual server instance.
 
 **Workaround:** To recover the snapshot encryption key, use [the key recovery procedure](/docs/key-protect?topic=key-protect-restore-keys). When the key is recovered, the volume becomes accessible.
+
+### Volumes and snapshots omit the catalog offering information for unbilled catalog offering versions
+{: #volumes-catalog-managed-known-issue}
+
+**Issue:** When you retrieve a volume or snapshot that was originally provisioned as a boot volume in an instance with a [billed catalog offering](/docs/vpc?topic=vpc-getting-started-images-on-vpc-catalog&interface=ui#images-on-vpc-catalog-images) and without a billing plan, the response does not include the `catalog_offering` property.

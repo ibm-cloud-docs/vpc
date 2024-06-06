@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-04-10"
+lastupdated: "2024-06-03"
 
 keywords:
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# About Reservations for VPC
+# About Reservations for Virtual Servers for VPC
 {: #about-reserved-virtual-servers-vpc}
 
 {{site.data.keyword.cloud}} Reservations are a great option when you want significant cost savings and guaranteed resources for future deployments. You can choose a 1 or 3-year term, server quantity, specific profile, and provision those servers when needed.
@@ -45,7 +45,7 @@ The following x86 profiles for virtual servers are available when you provision 
 The following profiles are available in specific MZRs.
 
 * bx2a profiles are available in Toronto only.
-* bx3d, cx3d, and mx3d profiles are available in Dallas, Frankfurt, London, Madrid, Toronto, and Washington DC.
+* bx3d, cx3d, and mx3d profiles are available in Dallas, Frankfurt, London, Madrid, Osaka, Sydney, Toronto, and Washington DC.
 * gx2 profiles are available in all regions except Madrid.
 * ox2 profiles are available in Dallas, Frankfurt, London, Osaka, Tokyo, and Washington DC.
 
@@ -73,4 +73,4 @@ If **Auto-renew** is selected when you provision a reservation, your reservation
 ## Next steps
 {: #next-steps-reserved-virtual-servers-vpc}
 
-After you review and decided on your options, you're ready to provision your reservation. For more information, [Provisioning a reservation for VPC](/docs/vpc?topic=vpc-provisioning-reserved-capacity-vpc).
+After you review and decided on your options, you're ready to provision a reservation. For more information, [Provisioning a reservation for VPC](/docs/vpc?topic=vpc-provisioning-reserved-capacity-vpc).

@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2024-05-16",
+    "lastupdated": "2024-06-03",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
@@ -31,19 +31,19 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
-          "date": "14 May 2024",
-          "title": "Next generation instance profiles available in Sydney region (select availability)",
-          "description": "The 3rd generation of IBM Cloud Virtual Servers for VPC are now available as a select availability offering in the Australia (Sydney) region, in addition to the US South (Dallas), United Kingdom (London), EU Germany (Frankfurt), US East (Washington DC), Canada (Toronto), and Spain (Madrid) regions. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel® Xeon® Scalable processors to provide the most powerful and performant general-purpose profiles available."
+          "date": "31 May 2024",
+          "title": "Protocol state filtering on virtual network interfaces can be updated",
+          "description": "Protocol state filtering works well if the packet forwarding path and the return path are the same, and if the packet forwarding path is never changed. However, the VPC routing table supports two-way ECMP routes. When a two-way ECMP route is configured, the forward path might differ from the return path and protocol state filtering can cause legitimate packets to drop. You can now disable protocol state filtering when intermittent routing issues occur."
         },
         {
-          "date": "03 May 2024 ",
-          "title": "Advertise routes to transit gateway and direct link for ingress routing integration",
-          "description": "VPN for VPC now allows route advertisement so that on-prem CIDR blocks can be advertised to other VPCs without creating address prefixes. Client VPN for VPC now allows route advertisement so that on-prem CIDR blocks can be advertised to other VPCs by creating a deliver action instead of a translate action."
+          "date": "31 May 2024 ",
+          "title": "Update firmware on Bare Metal Servers for VPC (beta)",
+          "description": "With the new Update firmware action on Bare Metal Servers for VPC, you can see if a firmware update is available for your bare metal server and also initiate the update. You can use the UI, CLI, and API to update the firmware. In the UI, this action is only visible if the server is stopped and there is a firmware update available. It is recommended to back up your bare metal server before any firmware update."
         },
         {
-          "date": "03 May 2024",
-          "title": "VPN for VPC: Configurable IKE identity and peer FQDN",
-          "description": "When you configure a VPN gateway connection, you can now specify a peer FQDN as the peer gateway address. This allows you to use a dynamic public IP on the peer gateway. The VPN gateway connection also supports configuring the IKE identity with supported types: IPv4 address, FQDN, Hostname, and Key ID. The default local IKE identity value is the public IP address of the active member of the VPN gateway while the default peer IKE identity value is the peer gateway address or FQDN. You can control which side initiates IKE protocol negotiations and rekeying processes on the VPN gateway connection. By default, the VPN gateway initiates IKE protocol negotiations and rekeying processes while also accepting IKE protocol negotiations or rekeying from the peer gateway. You can disable the VPN gateway from initiating IKE protocol negotiations and rekeying processes, and instead accept only the peer gateway to initiate IKE protocol negotiations and rekeying processes by setting Establish mode to Peer only. This enhancement enables you to connect the peer gateway behind a firewall and avoid conflicts in IKE negotiations."
+          "date": "31 May 2024",
+          "title": "Third-party image billing and metering (GA)",
+          "description": "When you select a catalog image, you now have associated billing plans to choose from. Catalog images are billed in one of the following ways: Free trial, Useage-based billing, and BYOL."
         }
       ]
     }

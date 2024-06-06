@@ -5,6 +5,7 @@ copyright:
 
 lastupdated: "2024-06-06"
 
+
 keywords:
 
 subcollection: vpc
@@ -42,6 +43,40 @@ Network boot of operating systems with Bare Metal Servers for VPC (GA)
 ## May 2024
 {: #vpc-may24}
 
+### 31 May 2024
+{: #vpc-may3124}
+{: release-note}
+
+Update firmware on Bare Metal Servers for VPC (beta)
+:   With the new Update firmware action on Bare Metal Servers for VPC, you can see if a firmware update is available for your bare metal server and also initiate the update. You can use the UI, CLI, and API to update the firmware. In the UI, this action is only visible if the server is stopped and there is a firmware update available. It is recommended to back up your bare metal server before any firmware update. For more information, see [Managing Bare Metal Servers for VPC](/docs/vpc?topic=vpc-managing-bare-metal-servers&interface=ui).
+
+Protocol state filtering on virtual network interfaces can be updated
+:   Protocol state filtering works well if the packet forwarding path and the return path are the same, and if the packet forwarding path is never changed. However, the VPC routing table supports two-way ECMP routes. When a two-way ECMP route is configured, the forward path might differ from the return path and protocol state filtering can cause legitimate packets to drop. You can now disable protocol state filtering when intermittent routing issues occur. For more information, see [Protocol state filtering mode](/docs/vpc?topic=vpc-vni-about#protocol-state-filtering).
+
+Third-party image billing and metering (GA)
+:   When you select a catalog image, you now have associated billing plans to choose from. Catalog images are billed in one of the following ways.
+
+   * Free trial
+   * Useage-based billing
+   * BYOL
+
+### 30 May 2024
+{: #vpc-may3024}
+{: release-note}
+
+Next generation instance profiles available in Tokyo and Osaka regions (select availability)
+:   The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are now available as a select availability offering in the Japan (Tokyo) and Japan (Osaka) regions, in addition to the US South (Dallas), United Kingdom (London), EU Germany (Frankfurt), US East (Washington DC), Canada (Toronto), Spain (Madrid), and Australia (Sydney) regions. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel&reg; Xeon&reg; Scalable processors to provide the most powerful and performant general-purpose profiles available. For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles). In the [Balanced](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) family, see the *bx3d* profiles tab. In the [Compute](/docs/vpc?topic=vpc-profiles&interface=ui#compute) family, see the *cx3d* profiles tab. In the [Memory](/docs/vpc?topic=vpc-profiles&interface=ui#memory) family, see the *mx3d* profiles tab. 3rd generation dedicated host profiles are also available. For more information, see *bx3d*, *cx3d*, and *mx3d* profiles in [x86-64 dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+
+Security group support for secondary IP addresses (GA)
+:   You can now attach both primary and secondary IP addresses to a security group to refine the binding of security groups rules to a particular port IP instead of all IPs belonging to the port. Also, security group rules now support both source and destination on ingress and egress rules. This allows customers with multiple, secondary private IP addresses associated with a single vNIC to have the ability to apply security group rules to source and destination IP addresses, thus enabling finer granularity in security rules. This enhancement provides the capability to secure the primary IP different from the secondary IPs, and also applies to VIP prefixes (custom routes) used with a vNIC with IP spoofing disabled. For more information, see [Applying security group rules to source and destination IP addresses](/docs/vpc?topic=vpc-security-groups-rules&interface=ui).
+
+### 29 May 2024
+{: #vpc-may2924}
+{: release-note}
+
+Confidential computing with Intel Software Guard Extensions (SGX) for Virtual Servers for VPC (select availability)
+:   Confidential computing with Intel&reg; Software Guard Extensions (SGX) protects your data through hardware-based server security by using isolated memory regions that are known as encrypted enclaves. This hardware-based computation helps protect your data from disclosure or modification. Which means that your sensitive data is encrypted while it is in virtual server instance memory by allowing applications to run in private memory space. To use SGX, you must install the SGX drivers and platform software on SGX-capable worker nodes. Then, design your app to run in an SGX environment. Confidential computing with Intel SGX for VPC is available only in US-South (Dallas) region. For more information, see [Confidential computing with Intel Software Guard Extensions (SGX) for Virtual Servers for VPC](/docs/vpc?topic=vpc-about-sgx-vpc).
+
 ### 14 May 2024
 {: #vpc-may1424}
 {: release-note}
@@ -57,14 +92,14 @@ Advertise routes to transit gateway and direct link for ingress routing integrat
 :   VPN for VPC now allows route advertisement so that on-prem CIDR blocks can be advertised to other VPCs without creating address prefixes. For more information, see [Configuring route propagation for VPN gateways](/docs/vpc?topic=vpc-advertise-routes-s2s). For more information about migrating to advertised routes, see [VPN for VPC migration to advertise routes](/docs/vpc?topic=vpc-advertise-routes-s2s#migrate-to-advertise-routes-s2s).
 
    Client VPN for VPC now allows route advertisement so that on-prem CIDR blocks can be advertised to other VPCs by creating a `deliver` action instead of a `translate` action. For more information, see [Configuring route propagation for VPN servers](/docs/vpc?topic=vpc-vpn-client-to-site-route-propagation). For more information about migrating to advertised routes, see [Client VPN for VPC migration to advertise routes](/docs/vpc?topic=vpc-vpn-client-to-site-route-propagation#advertise-routes-c2s).
-   
+
 VPN for VPC: Configurable IKE identity and peer FQDN
 :    When you configure a VPN gateway connection, you can now specify a peer FQDN as the peer gateway address. This allows you to use a dynamic public IP on the peer gateway. The VPN gateway connection also supports configuring the IKE identity with supported types: IPv4 address, FQDN, Hostname, and Key ID. The default local IKE identity value is the public IP address of the active member of the VPN gateway while the default peer IKE identity value is the peer gateway address or FQDN.
 
    You can control which side initiates IKE protocol negotiations and rekeying processes on the VPN gateway connection. By default, the VPN gateway initiates IKE protocol negotiations and rekeying processes while also accepting IKE protocol negotiations or rekeying from the peer gateway. You can disable the VPN gateway from initiating IKE protocol negotiations and rekeying processes, and instead accept only the peer gateway to initiate IKE protocol negotiations and rekeying processes by setting Establish mode to `Peer only`. This enhancement enables you to connect the peer gateway behind a firewall and avoid conflicts in IKE negotiations. For more information, see [Creating a VPN gateway](/docs/vpc?topic=vpc-vpn-create-gateway&interface=ui).
 
 Ubuntu 24.04 now available to provision virtual servers
-:    Support for the Ubuntu 24.04 release, codenamed "Noble Numbat", is now available. You can use the *ibm-ubuntu-24-04-minimal-amd64-1* stock image to provision virtual server instances. After the virtual server is created, you can also use it as a starting point for a custom image by creating an image from the boot volume of the virtual server. 
+:    Support for the Ubuntu 24.04 release, codenamed "Noble Numbat", is now available. You can use the *ibm-ubuntu-24-04-minimal-amd64-1* stock image to provision virtual server instances. After the virtual server is created, you can also use it as a starting point for a custom image by creating an image from the boot volume of the virtual server.
 
 ### 02 May 2024
 {: #vpc-may0224}
@@ -135,7 +170,7 @@ Next generation instance profiles available in Washington DC region (select avai
 {: #vpc-mar2624}
 {: release-note}
 
-Security group support for secondary IP addresses
+Security group support for secondary IP addresses (select availability)
 :   Accounts that are granted special approval to preview this feature can now attach both primary and secondary IP addresses to a security group to refine the binding of security groups rules to a particular port IP instead of all IPs belonging to the port. Also, security group rules now support both source and destination on ingress and egress rules. This allows customers with multiple, secondary private IP addresses associated with a single vNIC to have the ability to apply security group rules to source and destination IP addresses, thus enabling finer granularity in security rules. This enhancement provides the capability to secure the primary IP different from the secondary IPs, and also applies to VIP prefixes (custom routes) used with a vNIC with IP spoofing disabled. For more information, see [Applying security group rules to source and destination IP addresses](/docs/vpc?topic=vpc-security-groups-rules&interface=ui).
 
 ### 25 March 2024
@@ -331,7 +366,7 @@ UI enhancement to VPC download button
 :   Previously, when you downloaded a list of resources from a table, you could download only the current page if the resource list length was more than 200 records. With this UI enhancement, you can now download all the pages regardless of length of the resource list.
 
 ## December 2023
-{: #vpc-dec23} 
+{: #vpc-dec23}
 
 ### 19 December 2023
 {: #vpc-dec1923}
