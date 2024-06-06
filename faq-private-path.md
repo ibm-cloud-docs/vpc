@@ -30,4 +30,3 @@ For example, from the [{{site.data.keyword.cloud_notm}} console](/login){: exter
 {: #faq-related-links-private-path}
 
 * [Why can't consumers connect to my Private Path service](/docs/vpc?topic=vpc-troubleshoot-pps-1)
-
