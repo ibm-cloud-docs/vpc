@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-01-04"
+lastupdated: "2024-05-14"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -66,7 +66,7 @@ In the console, you can:
 ### Renaming a file share in the UI
 {: #rename-file-share-ui}
 
-1. On the [file shares details](/docs/vpc?topic=vpc-file-storage-view#fs-view-single-share-ui) page, click the pencil icon next to the file share name.
+1. On the [file shares details](/docs/vpc?topic=vpc-file-storage-view#fs-view-single-share-ui) page, click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") next to the file share name.
 
 2. Provide a new name for the file share.
 
@@ -95,7 +95,7 @@ You can change the profile for a file share from the current profile to another 
 
 1. Go to the [file shares details](/docs/vpc?topic=vpc-file-storage-view&interface=ui#fs-view-single-share-ui) page.
 
-2. Click the pencil icon next to the current profile or use the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions") and select **Edit IOPS profile**. A side panel shows the current profile, file share size, and maximum IOPS.
+2. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") next to the current profile or use the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions") and select **Edit IOPS profile**. A side panel shows the current profile, file share size, and maximum IOPS.
 
 3. For a **New profile**, click the down arrow. You can select a new IOPS tier, a custom profile, or dp2. For **Custom IOPS** or **dp2**, specify a new max IOPS based on the file share size. The file share price is automatically calculated based on your selection.
 
@@ -122,7 +122,7 @@ The file share must be in a `stable` state or `failed` state.
 
 1. Select a file share from the [list of file shares](/docs/vpc?topic=vpc-file-storage-view).
 
-2. Click the overflow menu at the end of the row and select **Delete**.
+2. click the **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions") at the end of the row and select **Delete**.
 
 ## Managing file shares and mount targets from the CLI
 {: #file-storage-manage-cli}
@@ -697,7 +697,7 @@ You can add user tags to a file share in the UI.
 
 2. Select a file share to view its details.
 
-3. On the file share details page, user tags appear next to the file share name. Click the pencil icon to edit tags.
+3. On the file share details page, user tags appear next to the file share name. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to edit tags.
 
 4. In the **Edit tags** window, type a tag in the User tags text box.
 

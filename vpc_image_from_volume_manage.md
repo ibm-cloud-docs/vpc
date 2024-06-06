@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-01-30"
+lastupdated: "2024-05-14"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance
 
@@ -136,7 +136,7 @@ You can cancel the image creation by deleting the image if the underlying job di
 Delete an image from a volume from the list of custom images. You can delete images in that are [while they are being created](#ifv-delete-queued) (_pending_ state) and available images.
 
 1. Go to the list of custom images. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images**.
-2. On the **Custom images** tab, locate the image that you want to delete. From the overflow menu (ellipsis), select **Delete**.
+2. On the **Custom images** tab, locate the image that you want to delete. From the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions"), select **Delete**.
 
 ## Deleting an image from volume by using the CLI
 {: #ifv-delete-cli}

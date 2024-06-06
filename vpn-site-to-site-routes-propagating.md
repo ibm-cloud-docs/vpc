@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-05-03"
+lastupdated: "2024-06-05"
 
 keywords:  network, VPN, VPN gateways, encryption
 
@@ -54,6 +54,7 @@ With Transit Gateway route advertisement support beginning 3 May 2024, existing 
 ## Related links
 {: #propagating-routes-s2s-related}
 
-* [Use case 4: Integrating with a site-to-site VPN gateway](/docs/vpc?topic=vpc-vpn-client-to-site-overview#vpn-client-to-site-use-cases)
+* [Use case 4: Integrating with a site-to-site VPN gateway](/docs/vpc?topic=vpc-vpn-client-to-site-overview#integrating-with-site-to-site-vpn-gateway)
 * [Why did the advertised route creation fail in my VPN gateway?](/docs/vpc?topic=vpc-troubleshoot-s2s-advertise-routes-over-quota)
 * [Why isn't route advertisement to ingress sources working?](/docs/vpc?topic=vpc-troubleshoot-advertise-route-does-not-work-s2s)
+* [Why can't I privately access my classic virtual server instance?](/docs/vpc?topic=vpc-troubleshoot-s2s-cannot-access-classic-vsi)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-04-12"
+lastupdated: "2024-06-04"
 
 keywords: api, change log, beta
 
@@ -25,6 +25,16 @@ There are no backward-compatibility guarantees as a feature progresses through i
 {: important}
 
 To review the change log of generally available API features, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log).
+
+## 4 June 2024
+{: #4-june-2024-beta}
+
+### For all version dates
+{: #4-june-2024-all-version-dates-beta}
+
+**Firmware update for bare metal servers.** You can now [update firmware](/apidocs/vpc-beta/initial#update-firmware-for-bare-metal-server) for a stopped bare metal server. This request updates server firmware if newer firmware is available and automatically starts the bare metal server after the firmware update is successfully completed. If you don't want the bare metal server to start after the firmware is updated, set the `auto_start` property value to `false` in the request. 
+
+When [listing](/apidocs/vpc-beta/initial#list-bare-metal-servers) and [retrieving](/apidocs/vpc-beta/initial#get-bare-metal-server) a bare metal server, the response includes the new `firmware` property, which in turn has an `update` property that indicates the type of update available (`none`, `optional`, or `required`). For more information, see [Managing Bare Metal Servers for VPC](/docs/vpc?topic=vpc-managing-bare-metal-servers&interface=api#update-firmware-bare-metal-servers-API).
 
 ## 9 April 2024
 {: #9-april-2024-beta}

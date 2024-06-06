@@ -5,6 +5,7 @@ copyright:
 
 lastupdated: "2024-06-06"
 
+
 keywords:
 
 subcollection: vpc
@@ -144,6 +145,8 @@ For more information about bare metal server images, see [Bare metal server imag
 
 ## Secure boot-supported custom images
 {: #bare-metal-server-custom-images-secure-boot-considerations}
+
+[Select availability]{: tag-green}
 
 Secure boot helps make sure that the system runs only authentic software by verifying the digital signature of all boot components. Secure boot halts the boot process if the signature verification fails. Secure boot prevents the loading of unsigned or malicious code during boot.
 

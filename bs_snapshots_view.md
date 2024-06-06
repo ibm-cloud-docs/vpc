@@ -81,7 +81,7 @@ The snapshot details panel shows the information that is described in the follow
 
 | Field | Description |
 |-------|-------------|
-| Name  | The name of the snapshot, which you can change by clicking the pencil icon. For more information, see [Naming snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-naming). |
+| Name  | The name of the snapshot, which you can change by clicking the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit"). For more information, see [Naming snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-naming). |
 | Snapshot ID | Copiable GUID of the snapshot. |
 | Bootable | Yes or No. |
 | CRN | Copiable CRN of the snapshot. |
@@ -147,7 +147,7 @@ The overview section provides details about the consistency group and the virtua
 
 | Field | Description |
 |-------|-------------|
-| Name  | The unique name of the consistency group. If you want to update it, click the pencil icon. |
+| Name  | The unique name of the consistency group. If you want to update it, click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit"). |
 | Consistency group ID | This field shows the ID string of the consistency group.   |
 | CRN  | Cloud Resource Name of the consistency group.  |
 | Created by  | The field shows either `user` for a manually created snapshot, or a [backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-concepts) for automated snapshots. |
