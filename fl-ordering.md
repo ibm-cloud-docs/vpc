@@ -33,7 +33,7 @@ Before you create a flow log collector, make sure that you meet the following pr
    The {{site.data.keyword.cos_short}} bucket must be a single-region bucket in the same region as the target resource. Additionally, it is recommended that you secure the bucket through IAM access groups and audit logging.
    {: important}
 
-1. Authorize resources of type **Flow Logs for VPC** to use the {{site.data.keyword.cos_short}} instance created in Step 2.
+1. Authorize resources of type **Flow Logs for VPC** to use the {{site.data.keyword.cos_short}} instance created in Step 2. {: #iam-authorization}
 
    To do so, use the following steps:
 
@@ -51,11 +51,14 @@ Before you create a flow log collector, make sure that you meet the following pr
       * Select **Resources based on selected attributes**.
       * For Service instance, select **string equals > All instances**.
 
+      For finer granularity, you can specify whether you want the target to include **Specific resources**. If you chose specific resources as the target, you can add attributes to further scope the access. The type of attributes depends on the target service that you selected. For example, you can [assign access to a specific bucket](/docs/cloud-object-storage?topic=cloud-object-storage-iam-bucket-permissions&interface=ui) rather than a single instance.
+      {: note}
+
       For Service access, select the **Writer** role to assign access to the source service that accesses the target service.
 
    * Click **Authorize**.
 
-   For more information, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth&interface=ui#create-auth).
+   For more information, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth&interface=ui).
    {: note}
 
 ## Prerequisites from the CLI
@@ -134,7 +137,7 @@ To create a flow log collector by using the IBM Cloud console, follow these step
 
 1. Go to the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 
-1. Select the **Navigation Menu** icon![menu icon](/images/menu_icon.png), then click **VPC Infrastructure** > **Flow Logs**. The Flow logs for VPC dashboard appears.
+1. Select the **Navigation Menu** icon ![menu icon](/images/menu_icon.png), then click **VPC Infrastructure** > **Flow Logs**. The Flow logs for VPC dashboard appears.
 
    ![Flow log collector dashboard](/images/list-view-01.png "Flow Log Collector dashboard"){: caption="Figure 1. Flow log collector dashboard" caption-side="bottom}
 
