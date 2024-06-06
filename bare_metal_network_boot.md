@@ -18,7 +18,8 @@ subcollection: vpc
 When you create a bare metal server on {{site.data.keyword.vpc_full}} (VPC), you can select to network boot an operating system over the network. The operating system image can be hosted on your own server or on a public server. You can install the booted operating system to a disk or you can run the operating system without a disk.
 
 Before you use the network boot option, you must make sure that your server's security groups allow the server to access any remote iPXE script and either your target operating system's remote image or installation files.
-There is currently a known timing issue when you use iPXE to network boot a bare metal server. For more information, see [iPXE network boot known timing issue](/docs/vpc?topic=vpc-known-issues#ipxe-network-boot-known-issue).
+
+Currently, a known timing issue exists when you use iPXE to network boot a bare metal server. For more information, see [iPXE network boot known timing issue](/docs/vpc?topic=vpc-known-issues#ipxe-network-boot-known-issue).
 {: important}
 
 When you create a bare metal server on {{site.data.keyword.vpc_short}}, the user data that you provide determines what operating system boots. The user data must contain either a single URL that points to a remotely hosted iPXE script or the text of an iPXE script (including a first line of `#!ipxe`.) For more information about creating iPXE scripts, see [iPXE - open source boot firmware](https://ipxe.org/scripting).
@@ -64,13 +65,11 @@ For the image, you must specify the ID of a stock image that has the `user_data_
 
 This example is just one example of how to network boot an operating system. In this example, a bare metal server is created which boots to the Fedora installer. You provide the script as the user data when you create the server.
 
-```sh
+```screen
 #!ipxe
 
-:retry_dhcp
-dhcp || goto retry_dhcp
-sleep 2
-ntp time.adn.networklayer.com
+dhcp
+ntp pool.ntp.org
 
 # Set source URI
 set mirror http://download.fedoraproject.org/pub/fedora/linux/releases/38
@@ -82,5 +81,6 @@ set repo ${mirror}/Everything/${arch}/os
 # Start installer
 kernel ${repo}/images/pxeboot/vmlinuz initrd=initrd.img inst.repo=${repo}
 initrd ${repo}/images/pxeboot/initrd.img
+boot
 ```
 {: codeblock}
