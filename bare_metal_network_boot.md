@@ -72,7 +72,7 @@ dhcp
 ntp pool.ntp.org
 
 # Set source URI
-set mirror http://download.fedoraproject.org/pub/fedora/linux/releases/38
+set mirror http://download.fedoraproject.org/pub/fedora/linux/releases/40
 
 # Detect CPU architecture and calculate repository URI
 cpuid --ext 29 && set arch x86_64 || set arch i386
