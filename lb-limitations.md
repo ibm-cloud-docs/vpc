@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2024
-lastupdated: "2023-04-08"
+  years: 2018, 2023
+lastupdated: "2024-04-08"
 
 keywords: application load balancer, limitations, issues, unique combinations, mapping, listener, pool, port
 
