@@ -12,10 +12,10 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Accessing virtual private endpoints from an on-premises network using Direct Link or from another VPC using Transit Gateway
+# Accessing VPEs from an on-prem network using Direct Link or from another VPC using Transit Gateway
 {: #end-to-end-private-connectivity-vpe}
 
-For Virtual Private Endpoint enabled services, you can access IBM Cloud resources over a private network from your on-premises location through IBM Cloud Direct Link, or from another VPC using IBM Cloud Transit Gateway. By using an endpoint gateway, traffic between your VPC and IBM Cloud services does not leave the private network.
+For Virtual Private Endpoint (VPE) enabled services, you can access IBM Cloud resources over a private network from your on-premises location through IBM Cloud Direct Link, or from another VPC using IBM Cloud Transit Gateway. By using an endpoint gateway, traffic between your VPC and IBM Cloud services does not leave the private network.
 
 IBM Cloud Virtual Private Endpoint (VPE) for VPC enables you to access supported IBM Cloud services remotely by using the IP addresses of your choice, which are allocated from a subnet within your VPC.
 

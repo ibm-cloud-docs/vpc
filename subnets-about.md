@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# About subnets in VPC
+# About subnets
 {: #about-subnets-vpc}
 
 {{site.data.keyword.cloud}} has specific terminology for the types, and uses, of subnets. Knowing their intended use helps you understand how best to use them in your cloud infrastructure.
