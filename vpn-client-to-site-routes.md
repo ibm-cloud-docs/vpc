@@ -40,7 +40,7 @@ Add `0.0.0.0/0` as a route to enable clients access to the internet.
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 1. Select the **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg), then click > **VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) > **VPNs** in the Network section.
 1. Select the **Client-to-site servers** tab.
-1. Select the VPN server where you want to add a route. Then, in the **VPN server details** page, select the **VPN server routes** tab.
+1. Select the VPN server where you want to add a route. Then, select the **VPN server routes** tab.
 1. Select **Create +**.
 1. Give the route a name.
 1. Specify a destination CIDR range for the destination network. For example:
@@ -51,7 +51,7 @@ Add `0.0.0.0/0` as a route to enable clients access to the internet.
    * **Deliver** - Use when the route destination is in the VPC, or an on-premises private subnet connected using VPN gateway. When VPN routes use the Deliver action, the client IP is preserved. 
    * **Drop** - Use when you want to block traffic from the client, to forward unwanted or undesirable network traffic to a null or "black hole" route.
    * **Translate** - Use to translate the source IP to the VPN server private IP before it is sent out from the VPN server, making your VPN client IP invisible to the destination devices.
-1. Click **Save**.
+1. Click **Create**.
 
 You can select **Edit** from the Actions menu of the VPN server route to change the name of your route.
 {: note}
@@ -83,12 +83,12 @@ ibmcloud is vpn-server-route-create VPN_SERVER_ID --destination DESTINATION_CIDR
 
 Where:
 
-- **VPN_SERVER_ID**: is the ID of the VPN server.
-- **--action**: is the action to perform with a packet that matches the route. One of: **translate**, **deliver**, **drop**. (default: **deliver**).
-- **--destination**: is the destination to use for this VPN route in the VPN server. Must be unique within the VPN server. If an incoming packet does not match any destination, it will be dropped.
-- **--name**: is the name of the VPN route.
-- **--output**: specifies output format, only JSON is supported. One of: **JSON**.
-- **-q, --quiet**: suppresses verbose output.
+- **VPN_SERVER_ID**: The ID of the VPN server.
+- **--action**: The action to perform with a packet that matches the route. One of: **translate**, **deliver**, **drop**. (default: **deliver**).
+- **--destination**: is the destination to use for this VPN route in the VPN server. Must be unique within the VPN server. If an incoming packet does not match any destination, it is dropped.
+- **--name**: The name of the VPN route.
+- **--output**:  Specifies the output format, only JSON is supported. One of: **JSON**.
+- **-q, --quiet**: Suppresses verbose output.
 
 For example:
 
@@ -111,11 +111,11 @@ ibmcloud is vpn-server-route-update VPN_SERVER_ID ROUTE_ID [--name NAME] [--outp
 
 Where:
 
-- **VPN_SERVER_ID**: is the ID of the VPN server.
-- **ROUTE_ID**: is the ID of the VPN route.
-- **--name**: is the new name of the VPN route.
-- **--output**: specifies output format, only JSON is supported. One of: **JSON**.
-- **-q, --quiet**: suppresses verbose output.
+- **VPN_SERVER_ID**: The ID of the VPN server.
+- **ROUTE_ID**: The ID of the VPN route.
+- **--name**: The new name of the VPN route.
+- **--output**: Specifies the output format, only JSON is supported. One of: **JSON**.
+- **-q, --quiet**: Suppresses verbose output.
 
 For example:
 
@@ -135,10 +135,10 @@ ibmcloud is vpn-server-route VPN_SERVER_ID ROUTE_ID [--output JSON] [-q, --quiet
 
 Where:
 
-- **VPN_SERVER_ID**: is the ID of the VPN server.
-- **ROUTE_ID**: is the ID of the VPN route.
-- **--output**: specifies output format, only JSON is supported. One of: **JSON**.
-- **-q, --quiet**: suppresses verbose output.
+- **VPN_SERVER_ID**: The ID of the VPN server.
+- **ROUTE_ID**: The ID of the VPN route.
+- **--output**: Specifies the output format, only JSON is supported. One of: **JSON**.
+- **-q, --quiet**: Suppresses verbose output.
 
 ## Viewing all routes by using the CLI
 {: #view-routes-cli}
@@ -155,12 +155,12 @@ ibmcloud is vpn-server-routes VPN_SERVER_ID [--resource-group-id RESOURCE_GROUP_
 
 Where:
 
-- **VPN_SERVER_ID**: is the ID of the VPN server.
-- **--resource-group-id**: is the ID of the resource group. This option is mutually exclusive with **--resource-group-name**.
-- **--resource-group-name**: is the name of the resource group. This option is mutually exclusive with **--resource-group-id**.
-- **--all-resource-groups**: queries all resource groups.
-- **--output**: specifies output format, only JSON is supported. One of: **JSON**.
-- **-q, --quiet**: suppresses verbose output.
+- **VPN_SERVER_ID**: The ID of the VPN server.
+- **--resource-group-id**: The ID of the resource group. This option is mutually exclusive with **--resource-group-name**.
+- **--resource-group-name**: The name of the resource group. This option is mutually exclusive with **--resource-group-id**.
+- **--all-resource-groups**: Queries all resource groups.
+- **--output**: Specifies the output format, only JSON is supported. One of: **JSON**.
+- **-q, --quiet**: Suppresses verbose output.
 
 ## Deleting a route by using the CLI
 {: #delete-route-cli-c2s}
@@ -175,12 +175,12 @@ ibmcloud is vpn-server-route-delete VPN_SERVER_ID (ROUTE_ID1 ROUTE_ID2 ...) [--o
 
 Where:
 
-- **VPN_SERVER_ID**: is the ID of the VPN server.
-- **ROUTE_ID1**: is the ID of the VPN route.
-- **ROUTE_ID2**: is the ID of the VPN route.
-- **--output**: specifies output format, only JSON is supported. One of: **JSON**.
-- **--force, -f**: forces the operation without confirmation.
-- **-q, --quiet**: suppresses verbose output.
+- **VPN_SERVER_ID**: The ID of the VPN server.
+- **ROUTE_ID1**: The ID of the VPN route.
+- **ROUTE_ID2**: The ID of the VPN route.
+- **--output**: Specifies the output format, only JSON is supported. One of: **JSON**.
+- **--force, -f**: Forces the operation without confirmation.
+- **-q, --quiet**: Suppresses verbose output.
 
 ## Creating a route by using the API
 {: #create-route-api-c2s}
