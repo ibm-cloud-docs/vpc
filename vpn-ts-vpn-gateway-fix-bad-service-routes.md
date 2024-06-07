@@ -22,7 +22,7 @@ content-type: troubleshoot
 For a policy-based VPN gateway, service routes are propagated to routing tables that have `VPN gateway` selected for the `Accepts routes from` attribute. These routes have names that are prefixed with `ibm-vpn-gateway-`.
 {: shortdesc}
 
-In this rare instance, you might find that these service routes are not correct. For example, the `Next hop` is not the same as the private IP of your active gateway member. In this case, traffic is broken even if the VPN connection is `Active`.
+You might find that these service routes are not correct. For example, the `Next hop` is not the same as the private IP of your active gateway member. In this case, traffic is broken even if the VPN connection is `Active`.
 {: tsSymptoms}
 
 The VPN gateway service keeps monitoring the health of each VPN gateway. When a fault is detected, the service tries to recover the VPN gateway automatically. The recovery process might fail and cause inaccurate routes to remain.
