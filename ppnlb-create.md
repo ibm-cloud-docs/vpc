@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-4-22"
+lastupdated: "2024-05-09"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
 
@@ -20,11 +20,13 @@ The beta release of IBM Cloud Private Path services is only available to allowli
 
 You can use a Private Path network load balancer (NLB) only with a Private Path service. Create the Private Path NLB from the [Load Balancers for VPC page](/vpc-ext/provision/loadBalancer){: external} or as a part of the Private Path service provisioning process.
 
-A Private Path service allows service providers to enable and manage private connectivity for consumers of their hosted service. This Private Path service requires a Private Path NLB to establish a secure connection with each consumer's Virtual Private Endpoint (VPE) gateway. For more information, see [About Private Path services](/docs/vpc?topic=vpc-private-path-service-intro).
+A Private Path service allows service providers to enable and manage private connectivity for consumers of their hosted service. This Private Path service requires a Private Path NLB to establish a secure connection with each consumer's Virtual Private Endpoint (VPE) gateway. For more information, see [About Private Path services](/docs/vpc?topic=vpc-private-path-service-intro){: external}.
 {: important}
 
 Private Path network load balancers support the port range feature. Currently, all VPEs connected to a Private Path network load balancer can connect to any port in the range.
 {: note}
+
+To learn more, see [Setting public network load balancer port ranges](/docs/vpc?topic=vpc-nlb-port-ranges&locale=en&interface=ui).
 
 ## Before you begin
 {: #ppnlb-prerequisites}
@@ -99,9 +101,12 @@ To create and configure {{site.data.keyword.nlb_full}} in the {{site.data.keywor
 {: #ppnlb-cli-creating-network-load-balancer}
 {: cli}
 
+Beta participants must export a feature flag to use the CLI. Contact your IBM Support representative to obtain.
+{: attention}
+
 The following example illustrates creating a Private Path NLB with the CLI. In this example, the Private Path NLB is in front of one VPC virtual server instance (ID `0716_6acdd058-4607-4463-af08-d4999d983945`) running a TCP server that listens on port `9090`. The load balancer has a front-end listener, which allows secure access to the TCP server.
 
-You must first export the feature flag to use the CLI for Private Path beta release offerings.
+You must export the feature flag for Private Path service and Private Path network load balancer related commands to run successfully.
 {: important}
 
 To export the feature flag, enter the following commands:
@@ -549,3 +554,10 @@ To create a Private Path network load balancer with the API, follow these steps:
             "udp_supported": false
         }
    ```
+   {: codeblock}
+
+## Creating a Private Path network load balancer with Terraform
+{: #creating-private-path-network-load-balancer-terraform}
+{: terraform}
+
+[CONTENT FORTHCOMING]{: tag-red}

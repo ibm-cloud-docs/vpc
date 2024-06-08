@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-12-18"
+  years: 2022
+lastupdated: "2022-11-11"
 
 keywords:
 
@@ -41,7 +41,7 @@ To create a public gateway using the {{site.data.keyword.cloud_notm}} console, f
 
 1. Go to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} and log in to your account.
 
-1. Select the **Navigation Menu** icon![menu icon](./images/menu_icon.png), then click **VPC Infrastructure** > **Public gateways**. The Public gateways for VPC page shows.
+1. Select the Menu icon ![Menu icon](./images/menu_icon.png), then click **VPC Infrastructure** > **Public gateways**. The Public gateways for VPC page shows.
 1. Click **Create** to go to the **Create public gateway** page.
 1. Select the **Edit location** icon ![Edit location icon](../icons/edit-tagging.svg "Edit location") and enter values for the following fields:
 
@@ -52,7 +52,7 @@ To create a public gateway using the {{site.data.keyword.cloud_notm}} console, f
 1. Enter values for the following fields under details:
 
    * **Public gateway name** - Type a unique name for your public gateway.
-   * **Resource group** - Select a resource group for your public gateway collector. You can use the default group for this public gateway, or select from the list (if defined). For more information, see [Best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup).
+   * **Resource group** - Select a resource group for your public gateway collector. You can use the default group for this public gateway, or select from the list (if defined). For more information, see [Best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup). 
       After provisioning is complete, you cannot change the resource group.
       {: important}
 

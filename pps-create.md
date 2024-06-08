@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-02-02"
+  years: 2023, 2024
+lastupdated: "2024-06-07"
 
 keywords:
 
@@ -36,7 +36,8 @@ Before you create a Private Path service, review the following prerequisites:
 You must use the same VPC region for both your load balancer and Private Path service.
 {: important}
 
-You can create an {{site.data.keyword.cloud}} Private Path service using the UI, CLI, or API.
+You can create an {{site.data.keyword.cloud}} Private Path service using the UI, CLI or API.
+
 
 ## Creating a Private Path service in the UI
 {: #pps-ui-creating-private-path-service}
@@ -113,11 +114,14 @@ To create a Private Path service with the {{site.data.keyword.cloud_notm}} conso
 {: #pps-cli-creating-private-path-service}
 {: cli}
 
+Beta participants must export a feature flag to use the CLI. Contact your IBM Support representative to obtain.
+{: attention}
+
 The following example shows how to use the CLI to create a Private Path service.
 
 Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli){: external}.
 
-You must first export the feature flag to use the CLI for Private Path beta release offerings.
+You must export the feature flag for Private Path service and Private Path network load balancer related commands to run successfully.
 {: important}
 
 To export the feature flag, enter the following commands:
@@ -149,7 +153,7 @@ Where:
 :   Indicates ID or name of load balancer for this Private Path service.
 
 `--service-endpoints`
-:   Indicates the fully qualified domain names for this Private Path service. Any uppercase letters will be converted to lowercase.
+:   Indicates the fully qualified domain names for this Private Path service gateway. Any uppercase letters will be converted to lowercase.
 
 `--default-access-policy`
 :   Indicates the policy to use for bindings from accounts without an explicit account policy. One of: `deny`, `permit`, `review`. (default: `deny`).
@@ -196,7 +200,7 @@ To create a Private Path service with the API, follow these steps:
 
 1. When all variables are initiated, do one of the following:
 
-   * To create a Private Path service:
+   * To create a private path service:
 
       ```sh
       curl -X POST -sH "Authorization:${iam_token}" \
@@ -216,7 +220,7 @@ To create a Private Path service with the API, follow these steps:
 ## Next steps
 {: #pps-next-steps}
 
-1. [Verify connectivity to your Private Path service](/docs/vpc?topic=vpc-pps-verify&interface=ui)
-1. [Publish your Private Path service](/docs/vpc?topic=vpc-pps-activating&interface=ui)
-1. [Communicate connection information to consumers](/docs/vpc?topic=vpc-pps-ui-communicate&interface=ui)
-1. [Review connection requests](/docs/vpc?topic=vpc-pps-ui-reviewing&interface=ui) and [Create account policies](/docs/vpc?topic=vpc-pps-create-account-policy&interface=ui)
+1. [Verify connectivity to your Private Path service](/docs/vpc?topic=vpc-pps-verify&interface=ui){: external}
+1. [Publish your Private Path service](/docs/vpc?topic=vpc-pps-activating&interface=ui){: external}
+1. [Communicate connection information to consumers](/docs/vpc?topic=vpc-pps-ui-communicate&interface=ui){: external}
+1. [Review connection requests](/docs/vpc?topic=vpc-pps-ui-reviewing&interface=ui) and [Create account policies](/docs/vpc?topic=vpc-pps-create-account-policy&interface=ui){: external}
