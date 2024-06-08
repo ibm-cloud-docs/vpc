@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-03-12"
+lastupdated: "2024-04-12"
 
 keywords:
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Viewing details of a virtual network interface
 {: #vni-viewing}
 
-With virtual network interfaces, where you view resources has changed. In older network interfaces, you can view the details of the resources by going to the resource directly. In a virtual network interface, you can view the resource's details from within the virtual network interface.
+With virtual network interfaces, where you view resources is different. In older network interfaces, you can view the details of the resources by going to the resource directly. In a virtual network interface, you can view the resource's details from within the virtual network interface.
 {: shortdesc}
 
 You can view the details of a VNI with the UI, CLI, API, or Terraform.
@@ -27,7 +27,7 @@ You can view the details of a VNI with the UI, CLI, API, or Terraform.
 To view details of a virtual network interface from the UI, take the following steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>Virtual network interfaces**.
+1. Select the **Navigation Menu** icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Virtual network interfaces**.
 1. Click the name of the virtual network interface that you want to view in the Virtual network interfaces for VPC table.
 1. In the Overview tab, you can view the following items:
 
@@ -43,10 +43,6 @@ To view details of a virtual network interface from the UI, take the following s
 
 Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
-```sh
-export IBMCLOUD_IS_FEATURE_VNI_PHASE_II=true
-```
-{: pre}
 
 To view details of a virtual network interface from the CLI, enter the following command:
 

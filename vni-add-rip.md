@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-03-12"
+lastupdated: "2024-04-12"
 
 keywords:
 
@@ -38,11 +38,6 @@ For more information about adding a primary (reserved) IP to your virtual networ
 {: cli}
 
 Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
-
-```sh
-export IBMCLOUD_IS_FEATURE_VNI_PHASE_II=true
-```
-{: pre}
 
 To add a reserved IP to a virtual network interface from the CLI, enter the following command:
 
