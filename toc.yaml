@@ -808,6 +808,13 @@ toc:
                 - ingressroutes-ts-traffic.md
                 - ingressroutes-ts-configuration.md
                 - ingressroutes-ts-response.md
+            - topicgroup:
+                label: Troubleshooting routing tables
+                topics:
+                - ts-rt-different-mask.md
+                - ts-rt-ecmp.md
+                - ts-rt-spoke-tgw.md
+                - ts-rt-valid-ip.md
             - vsi_is_troubleshooting.md
             - topicgroup:
                 label: Troubleshooting VPE gateways
