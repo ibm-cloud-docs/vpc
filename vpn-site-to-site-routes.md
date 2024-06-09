@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-12-18"
+  years: 2022, 2024
+lastupdated: "2024-04-30"
 
 keywords:
 
@@ -42,19 +42,25 @@ In another scenario, you might want to send all traffic from the VPC side to the
 To create a route to specify how destination network traffic is directed, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>VPNs** in the Network section.
+1. Select the **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>VPNs** in the Network section.
 1. Select **Site-to-site gateways** > **VPN gateways**, then select the VPN gateway where you want to add a route.
-1. On the VPN gateway's detailspage, select the **Routes** tab.
-1. Select **Create +**.
+1. On the VPN gateway's details page, select the **Routes** tab.
+1. In the Routes section, select **Create**.
 1. Give the route a name.
 1. Specify a destination CIDR range for the destination network. For example:
    * For internet access, enter `0.0.0.0/0`.
    * For an on-premises network, enter the IPv4 CIDR range of the site-to-site gateway connection.
    * For the VPC subnet, enter the VPC subnet CIDR.
+1. Select a priority for the route.
+
+   When there are multiple routes for the same destination, you can set a higher priority for specific routes. Lower values have higher priority. Routes without a value are set to the default priority (`2`).
+
 1. Choose an action:
    * **Deliver** - Use when the route destination is in the VPC, or an on-premises private subnet connected using VPN gateway.
    * **Drop** - Use when you want to block traffic from the client, to forward unwanted or undesirable network traffic to a null or "black hole" route.
    * **Translate** - Use to translate the source IP to the VPN gateway's private IP before it is sent out from the VPN gateway.
+1. For Next hop type, select **VPN Connection**.
+1. Decide whether or not to **Advertise** the route to ingress sources that are outside the address prefix range of the VPC.
 1. Click **Save**.
 
 You can select **Edit** from the Actions menu of the VPN gateway route to change the name of your route.
@@ -67,7 +73,7 @@ You can select **Edit** from the Actions menu of the VPN gateway route to change
 To delete a route by using the UI, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>VPNs** in the Network section.
+1. Select the **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg), then click **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **>VPNs** in the Network section.
 1. Select the **Site-to-site gateways** tab.
 1. Select the site-to-site gateway where you want to delete a route, then select **Delete** from the Actions menu.
 1. Select **Delete** again to confirm deletion.
