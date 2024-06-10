@@ -839,6 +839,7 @@ toc:
             - topicgroup:
                 label: Troubleshooting load balancers
                 topics:
+                - lb-ts-before-you-begin.md
                 - lb-ts-401.md
                 - lb-ts-auth-errors.md
                 - lb-ts-maintenance-pending.md
