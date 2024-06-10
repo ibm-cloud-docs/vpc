@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2024-06-03",
+    "lastupdated": "2024-06-10",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
@@ -31,14 +31,14 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
-          "date": "31 May 2024",
-          "title": "Protocol state filtering on virtual network interfaces can be updated",
-          "description": "Protocol state filtering works well if the packet forwarding path and the return path are the same, and if the packet forwarding path is never changed. However, the VPC routing table supports two-way ECMP routes. When a two-way ECMP route is configured, the forward path might differ from the return path and protocol state filtering can cause legitimate packets to drop. You can now disable protocol state filtering when intermittent routing issues occur."
+          "date": "06 June 2024",
+          "title": "Generic operating system custom images with Virtual Server Instances and Bare Metal Servers for VPC (GA)",
+          "description": "Generic operating system custom images is now generally available. When you create a server on IBM Cloud® Virtual Private Cloud (VPC) using an x86 profile, you can use an operating system that is not listed in IBM Cloud by specifying a generic operating system custom image. You can create this custom image by specifying one of the new operating systems with properties that indicate it is generic. When you provision a server by using a generic operating system custom image, most operating system-specific provisioning steps aren't performed, such as console setup and automatic registration. You must provide the appropriate user data if you want your generic operating system custom image to perform these steps."
         },
         {
-          "date": "31 May 2024 ",
-          "title": "Update firmware on Bare Metal Servers for VPC (beta)",
-          "description": "With the new Update firmware action on Bare Metal Servers for VPC, you can see if a firmware update is available for your bare metal server and also initiate the update. You can use the UI, CLI, and API to update the firmware. In the UI, this action is only visible if the server is stopped and there is a firmware update available. It is recommended to back up your bare metal server before any firmware update."
+          "date": "06 June 2024 ",
+          "title": "Network boot of operating systems with Bare Metal Servers for VPC (GA)",
+          "description": "Network boot of operating systems is now generally available. When you create a bare metal server on IBM Cloud® Virtual Private Cloud (VPC), you can select to network boot an operating system over the network. The operating system image can be hosted on your own server or on a public server. You can install the booted operating system to a disk or you can run the operating system without a disk."
         },
         {
           "date": "31 May 2024",
