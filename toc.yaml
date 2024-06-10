@@ -842,7 +842,7 @@ toc:
                 - lb-ts-401.md
                 - lb-ts-auth-errors.md
                 - lb-ts-maintenance-pending.md
-                - lb-ts-unknown
+                - lb-ts-unknown.md
                 - lb-ts-faulted.md
                 - lb-ts-409.md
                 - lb-ts-backend-members.md
