@@ -174,22 +174,6 @@ curl -H "Authorization: $iam_token" -X POST
                             "type": "path"
                           }
                     ]
-                },
-                {
-                    "name": "uri_redirect",
-                    "action": "redirect",
-                    "priority": 10,
-                    "target": {
-                        "url": "https://{host}:8080/{path}?{query}",
-                        "http_status_code": 301
-                    },
-                    "rules": [
-                        {
-                            "condition": "contains",
-                            "type": "hostname",
-                            "value": "pqr"
-                        }
-                    ]
                 }
             ]
         }'
