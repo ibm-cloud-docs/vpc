@@ -61,7 +61,7 @@ The following limitations apply to this release.
 {: #exp-vol-IOPS-limitations}
 
 * For a volume that was created by using an [IOPS tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers), select a different profile for the volume size to increase or decrease IOPS. If the volume size exceeds that of the new IOPS tier profile, you can't change the profile.
-* A [custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#custom) can expand to the highest value that is allowed by the custom band. You can't switch custom bands unless you increase volume size and move to a higher band.
+* A [custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#custom) can expand to the highest value that is allowed by the custom band. You can't switch custom bands unless you increase the volume size and move to a higher band.
 * Custom IOPS can be adjusted multiple times until the maximum or minimum limit is reached.
 * Maximum IOPS for a volume for all profiles is [48,000 IOPs](/docs/vpc?topic=vpc-block-storage-profiles#tiers).
 
@@ -82,13 +82,15 @@ Follow these steps to adjust IOPS by selecting a new IOPS tier or custom IOPS ba
    The volume that you select must be attached to a virtual server instance. In the list of volumes, its attachment type is _data_.
    {: note}
 
-3. Alternatively, go to a virtual server instance with an attached volume that you want to adjust IOPS and select it from the list of attached volumes.
-4. On the volume details page, locate **Profile** and click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") or use the **Actions** menu and select **Edit IOPS profile**. Volumes must be attached to a virtual server instance for these actions.
-5. In the side panel, adjust IOPS as follows:
+   Alternatively, go to a virtual server instance with an attached volume that you want to adjust IOPS and select it from the list of attached volumes.
+   {: tip}
+
+3. On the volume details page, locate **Profile** and click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") or use the **Actions** menu and select **Edit IOPS profile**. Volumes must be attached to a virtual server instance for these actions.
+4. In the side panel, adjust IOPS as follows:
    * For an IOPS tier, select a different tier from the menu. For example, you might have a 3 IOPS/GB general-purpose profile you're increasing to a 5 IOPS/GB profile.
    * For a Custom IOPS, the current IOPS value is shown and volume size. Enter a new IOPS value in the range specified for that custom band.
-6. Review the estimated monthly order summary for your geography and new pricing.
-7. If you're satisfied, click **Save and continue**.
+5. Review the estimated monthly order summary for your geography and new pricing.
+6. If you're satisfied, click **Save and continue**.
 
 Your new IOPS allocation is realized when you restart the instance.
 
@@ -155,7 +157,7 @@ Volume Attachment Instance Reference    Vdisk Name    Vdisk ID                  
 
 From the CLI, use the `volume-update` command with the `--profile` parameter and indicate the name or href of the IOPS tier profile.
 
-This example changes a 3 IOPS/GB profile to 5 IOPS/GB profile. In this case, the volume can't exceed 9,600 GB to move to the higher profile.
+This example changes a 3 IOPS/GB profile to a 5 IOPS/GB profile. In this case, the volume can't exceed 9,600 GB to move to the higher profile.
 
 ```sh
 ibmcloud is volume-update {volume-id} --profile 5iops-tier
@@ -287,7 +289,7 @@ When the IOPS expansion completes, restart the instance. The new value displays,
 
 Make a `PATCH /volumes` request and specify the `profile` parameter and indicate the name or href of the IOPS tier profile.
 
-This example changes a 3 IOPS/GB profile to 5 IOPS/GB profile. In this case, the volume can't exceed 9,600 GB to move to the higher profile.
+This example changes a 3 IOPS/GB profile to a 5 IOPS/GB profile. In this case, the volume can't exceed 9,600 GB to move to the higher profile.
 
 ```sh
 curl -X PATCH \
