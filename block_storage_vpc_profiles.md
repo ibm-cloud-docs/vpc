@@ -37,7 +37,7 @@ When you create a Block Storage volume, you can select between custom and tiered
 
 The application I/O size directly impacts storage performance. If the application I/O size is smaller than the throughput multiplier that is used by the profile to calculate the volume’s bandwidth limit, the IOPS limit is reached before the throughput limit. Conversely, if the application I/O size is larger, the throughput limit is reached before the IOPS limit.
 
-For more information, see [How block size affects performance](/docs/vpc?topic=vpc-capacity-performance#how-block-size-affects-performance).
+For more information, see [How I/O size affects performance](/docs/vpc?topic=vpc-capacity-performance#how-block-size-affects-performance).
 
 In this documentation, we refer to storage capacity by using the unit GB (Gigabytes) to align with the industry standard terminology. However, the actual provisioning and billing of storage are based on GiB (Gibibytes).
 
@@ -46,9 +46,6 @@ The difference between GB and GiB lies in their numerical representation:
 - GiB (Gibibyte), is a binary unit, where 1 GiB equals 1,073,741,824 bytes
 
 To ensure transparency, please note that your provisioned storage and associated charges are calculated based on GiB. Rest assured that you receive the exact amount of storage you expect and are billed accurately for the GiB you use. For more information, see the [FAQs](/docs/vpc?topic=vpc-block-storage-vpc-faq#faq-storage-units).
-
-Moving volumes across volume-profiles that belong to different families is not allowed.
-{: restriction}
 
 ### IOPS tiers
 {: #tiers}
@@ -84,6 +81,9 @@ The following table shows the available IOPS ranges based on volume capacity for
 | 8,000 - 9,999    | 500 - 48,000  |
 | 10,000 - 16,000  | 1,000- 48,000 |
 {: caption="Table 3. Available IOPS based on volume size" caption-side="bottom"}
+
+Moving volumes across volume-profiles that belong to different families is not allowed.
+{: restriction}
 
 ## Profiles and boot volumes
 {: #vsi-profiles-boot}
