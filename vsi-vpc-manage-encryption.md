@@ -49,7 +49,7 @@ For more information, see the following topics.
 
 When you create volume, snapshot, file share, or custom image with customer-managed encryption, your root key is automatically registered in the KMS instance. You can view the registration to verify whether the key was rotated. The following procedure shows how to verify key rotation for a {{site.data.keyword.block_storage_is_short}} volume, but the steps are similar for other resources.
 
-1. From the [{{site.data.keyword.cloud_notm}} console)](/login){: external}, click the **Navigation menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Storage > Block Storage volumes**. The list shows all volumes and the Encryption column displays either "Provider Managed" or the name of the KMS that is used for custoner-managed encryption.
+1. From the [{{site.data.keyword.cloud_notm}} console)](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage volumes**. The list shows all volumes and the Encryption column displays either "Provider Managed" or the name of the KMS that is used for custoner-managed encryption.
 1. Click the name of a volume to see its details.
 1. In the Encryption Instance field, click the link of the KMS instance. The KMS instance overview page is displayed.
 
@@ -204,7 +204,7 @@ To see a list of deleted root keys for a KMS instance, you can filter by key sta
 1. Go to the [{{site.data.keyword.cloud_notm}} console](/vpc){: external} > **Resource List** > **Security**, 
 1. Locate, and click the KMS instance.
 1. On the **Keys** page, the list of root keys that are stored in this instance is displayed.
-1. Click the **Filter icon![Filter icon](../../icons/filter.svg)** to see more information.
+1. Click the **Filter icon![Filter icon](../icons/filter.svg)** to see more information.
 1. Under **States**, click the down arrow to display all key states.
 1. Select **Deleted**.
 
