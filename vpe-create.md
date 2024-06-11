@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-03-29"
+lastupdated: "2024-06-11"
 
 keywords: virtual private endpoints, VPE, endpoint gateway
 
@@ -46,7 +46,7 @@ To create an endpoint gateway in the {{site.data.keyword.cloud_notm}} console, f
    * **Resource group** - Select a resource group for the endpoint gateway. You can use the default group for this endpoint gateway, or choose from the list. For more information, see [Best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup).
    * **Tags** - Optionally, add tags to organize, track usage costs, or manage access to your resources.
    * **Access management tags** - You can also optionally add access management tags to resources to help organize access control relationships. The only supported format for access management tags is `key:value`. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
-   * **Virtual private cloud** - Select a VPC from the available list where you need the VPE IP address. The systems provides you with a list of IBM services that you can access within the region of the VPC network to associate with the endpoint gateway. If the target service is outside the VPC's region, you can change it for an updated list of services.
+   * **Virtual private cloud** - Select a VPC from the available list where you need the VPE IP address. Based on the region of the VPC you selected, the system provides you with a list of IBM services that you can access to associate with the endpoint gateway. If the target service is not offered in the region of the VPC you selected, you can change the region to select the service in another region.
 
     If the intended service or service instance does not appear, revalidate your IAM permissions. You can also choose to allocate a reserved IP address to bind to the gateway, or specify a VPC subnet to allocate a reserved IP address for binding to the gateway.
     {: tip}
