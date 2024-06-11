@@ -29,7 +29,7 @@ Follow this procedure to use your Block Storage volume on a Windows&reg; system.
    In Windows Server 2008, choose Start > Administrative Tools > Computer Management > Disk Management.
    {: note}
 
-1. The Disk Management window shows the attached storage volume as an unknown, offline disk. Bring the volume online. Right-click the {{site.data.keyword.block_storage_is_short}} volume. Choose **Online**.
+1. The Disk Management window shows the attached storage volume as an unknown, offline disk. Bring the volume online by right-clicking the {{site.data.keyword.block_storage_is_short}} volume. Choose **Online**.
 1. If the disk is not initialized, you must initialize it before you can use it. If the disk is already initialized, skip to the next step.
 
    If you're mounting a volume that already has data on it, do not reformat the volume as that deletes the existing data. For example, if you restored the volume from a snapshot, the volume contains the data from the snapshot. Do not initialize the volume or you lose the data that you restored.
