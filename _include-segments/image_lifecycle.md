@@ -13,9 +13,3 @@ You can use the UI, CLI, API, and Terraform to manage the lifecycle of your cust
 
 Any image that is in `deprecated` or `obsolete` status is still billed. If you don't want to be billed for the image, you must delete it.
 {: note}
-
-
-
-
-
-
