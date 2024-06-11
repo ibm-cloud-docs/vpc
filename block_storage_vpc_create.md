@@ -45,7 +45,7 @@ Use the {{site.data.keyword.cloud_notm}} console to create a {{site.data.keyword
    | Tags | Specify user tags to associate with this volume. For more information about organizing resources with user tags, see [Working with tags](/docs/account?topic=account-tag&interface=ui). |
    | Auto Delete | Enable this feature to automatically delete this volume when the attached virtual server instance is deleted. You can change this setting later on the virtual server details page. |
    | Size | Enter a volume size in GBs. Volume sizes can be 10 - 16,000 GB. |
-   | Profile | Select [Tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) and select the IOPS tier list. If your performance requirements don't fall within a predefined IOPS tier, select [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) and select an IOPS value within the range for that volume size. |
+   | Profile | Select [IOPS Tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) when you want to pick a predefined profile with flexible IOPS performance that falls within a general range in three performance tiers. If your performance requirements don't fall within any of the predefined IOPS tier, select [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) and select an IOPS value within the range for that volume size. |
    | Encryption | Provider-managed encryption is enabled by default on all volumes. \n You can also choose to create an envelop encryption with your own root keys. Encryption keys are created and maintained in Key Management Services ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}). For more information, see [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-encryption-prereqs). |
    {: caption="Table 1. {{site.data.keyword.block_storage_is_short}} volume values to be specified during instance provisioning." caption-side="bottom"}
 
@@ -698,7 +698,7 @@ resource "ibm_is_volume" "example" {
   zone           = "us-south-1"
   iops           = 1000
   capacity       = 200
-  encryption_key = "crn:v1:bluemix:public:kms:us-south:a/dffc98a0f1f0f95f6613b3b752286b87:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd6179"
+  encryption_key = "crn:v1:bluemix:public:kms:us-south:a/a1234567:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd6179"
 }
 ```
 {: codeblock}
