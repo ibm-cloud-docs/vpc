@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-06-04"
+lastupdated: "2024-06-11"
 
 keywords: vpc, api, change log, new features, restrictions, migration
 
@@ -53,6 +53,21 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 11 June 2024
+{: #11-june-2024}
+
+### For all version dates
+{: #11-june-2024-all-version-dates}
+
+**Generic operating system images.** You can now create a [generic operating system image](/docs/vpc?topic=vpc-create-generic-os-custom-image), which is an image containing a specific operating system that is not in the response from [listing operating systems](/apidocs/vpc/latest#list-operating-systems). To facilitate creating these images and provisioning servers from them, two new immutable operating system properties, `user_data_format` and `allow_user_image_creation`, and one new immutable image property, `user_data_format`, are provided. The operating system property, `user_data_format` (possible values `cloud_init`, `esxi_kickstart`, `ipxe`), populates the image property, [`user_data_format`](/docs/vpc?topic=vpc-planning-custom-images#custom-image-user-data-format), which specifies how `user_data` is interpreted and used when [creating a virtual server instance](/apidocs/vpc/latest#create-instance) or [creating a bare metal server](apidocs/vpc/latest#create-bare-metal-server). The operating system property, `allow_user_image_creation`, indicates whether that operating system may be used to create a generic operating system image.
+
+For more information, see [Importing and validating custom images into VPC](/docs/vpc?topic=vpc-importing-custom-images-vpc&interface=api).
+
+Images that are used to create virtual server instances or to [create instance templates](/apidocs/vpc/latest#create-instance-template) must have a `user_data_format` value of `cloud_init`.
+{: important}
+
+**Network bootable bare metal servers.** You can now use a specific [stock image](/docs/vpc?topic=vpc-getting-started-images-on-vpc-stock) to [create a bare metal server](/apidocs/vpc/latest#create-bare-metal-server) that will [network boot an image](/docs/vpc?topic=vpc-network-boot-bare-metal-servers&interface=api#network-boot-bare-metal-servers-api) using iPXE. This stock image must have `user_data_format` value of `ipxe`.
 
 ## 4 June 2024
 {: #4-june-2024}
