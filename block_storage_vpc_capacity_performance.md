@@ -49,7 +49,7 @@ For more information, see [Bandwidth allocation for instance profiles](/docs/vpc
 ## How IO size affects performance
 {: #how-block-size-affects-performance}
 
-IOPS value is based on a 16 KB block size (for all the tiers) with a 50-50 read/write random workload. Each 16 KB of data read/written counts as one read/write operation; a single write of less than 16 KB counts as a single write operation.
+The IOPS value is based on a 16 KB block size (for all the tiers) with a 50-50 read/write random workload. Each 16 KB of data read/written counts as one read/write operation; a single write of less than 16 KB counts as a single write operation.
 
 Baseline throughput is determined by the number of IOPS multiplied by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB or custom IOPS tiers. The higher the IOPS that you specify, the higher the throughput. Maximum throughput is 1024 MBps.
 
