@@ -59,7 +59,7 @@ This procedure explains how to specify customer-managed encryption when you crea
 4. When your changes are complete, click **Create Volume**.
 5. Optionally, attach the volume to an instance.
 
-When you refresh the list of Block Storage volumes in the UI, the new volume appears at the beginning of the list of volumes with "customer managed" as the encryption type. When the volume is created, it shows a status of Available. For stand-alone volumes, the Attachment Type column is blank (-). The Action menu (...) at the end of a table row provides a link for [attaching a Block Storage volume to an instance](/docs/vpc?topic=vpc-attaching-block-storage).
+When you refresh the list of Block Storage volumes in the UI, the new volume appears at the beginning of the list of volumes with "customer managed" as the encryption type. When the volume is created, it shows a status of Available. For stand-alone volumes, the Attachment Type column is blank (-). The **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions") at the end of a table row provides a link for [attaching a Block Storage volume to an instance](/docs/vpc?topic=vpc-attaching-block-storage).
 
 ## Creating data volumes with customer-managed encryption from the CLI
 {: #data-vol-encryption-cli}
