@@ -50,25 +50,6 @@ You can attach a virtual server to a reservation.
 1. From the virtual servers list, click **Actions** > **Attach**.
 1. Select the server you want to attach to the reservation and click **Attach**.
 
-<!--
-
-### Attach a virtual server instance to your reservation with the CLI
-{: #attach-vsi-reservation-cli-vpc}
-{: cli}
-
-### Detatch a virtual server instance to your reservation with the UI
-{: #attach-vsi-reservation-ui-vpc}
-{: ui}
-
-### Detatch a virtual server instance to your reservation with the CLI
-{: #attach-vsi-reservation-cli-vpc}
-{: cli}
-
-### Detatch a virtual server instance to your reservation with the API
-{: #attach-vsi-reservation-api-vpc}
-{: api}
--->
-
 ### Detaching a server from reservation with the UI
 {: #removing-adding-server-reservation-ui-vpc}
 {: ui}
