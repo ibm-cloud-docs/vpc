@@ -4,7 +4,7 @@ copyright:
   years: 2022, 2024
 lastupdated: "2024-06-11"
 
-keywords: Backup, backup snapshot, create backups, backup service, backup plan, backup policy, restore, restore volume, restore data
+keywords: Backup, backup snapshot, create backups, backup service, backup plan, backup policy, restore, restore volume, restore data, restore share
 
 subcollection: vpc
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Creating backup policies and plans
 {: #create-backup-policy-and-plan}
 
-You can create backup policies for your {{site.data.keyword.block_storage_is_short}} volumes in the UI, from the CLI, with the API, or Terraform. You can create up to four backup plans to schedule backup creation and retention. Specify user tags in the policy to make sure that your data is backed up regularly. Create backups on schedule when the tags that are applied to a resource match the tags in a backup policy.
+You can create backup policies for your {{site.data.keyword.block_storage_is_short}} volumes in the console, from the CLI, with the API, or Terraform. You can create up to four backup plans to schedule backup creation and retention. Specify user tags in the policy to make sure that your data is backed up regularly. Create backups on schedule when the tags that are applied to a resource match the tags in a backup policy.
 {: shortdesc}
 
 ## Before you begin
@@ -23,7 +23,7 @@ You can create backup policies for your {{site.data.keyword.block_storage_is_sho
 
 1. Establish IAM user roles to grant [service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth#backup-s2s-auth-overview) so the backup service can detect tags on resources and create backups.
 
-2. Create user tags for new or existing resources (storage volumes or virtual server instances) that you can associate with a backup policy. For more information about adding tags, see [Apply tags to resources for backup policies](/docs/vpc?topic=vpc-backup-use-policies). For more information about creating tags, see [Working with tags](/docs/account?topic=account-tag).
+2. Create user tags for new or existing resources (storage volumes, or virtual server instances) that you can associate with a backup policy. For more information about adding tags, see [Apply tags to resources for backup policies](/docs/vpc?topic=vpc-backup-use-policies). For more information about creating tags, see [Working with tags](/docs/account?topic=account-tag).
 
 You're not required to create a backup plan when you create a backup policy, but it's good practice to create at least one backup plan with your policy.
 {: tip}
@@ -57,8 +57,8 @@ Use the following steps to create a backup policy by using the UI.
    | - Name       | Provide a unique name for your backup policy that easily identifies the policy. Standard naming conventions apply to policies, plans, and backups. For example, see the [naming conventions for Snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-naming). |
    | - Resource group | Optionally, specify a resource group for your policy. It can't be changed after you enter it. \n For more information, see [best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup). |
    | - Resource tags  | Optional tags to help you group and manage your backup policy. Consider writing tags as key:value pairs. For more information, see [Working with tags](/docs/account?topic=account-tag&interface=ui).|
-   | **Target resource type**  | Choose between individual storage volumes or multiple volumes that are attached to the same virtual server instance. \n When you choose to create a policy to back up volumes that are attached to the same virtual server instance you can choose to include the boot volume, too. |
-   | **Tags for target resources** | Specify the user tags to apply to your target resources ({{site.data.keyword.block_storage_is_short}} volumes or virtual server instances) in your selected region. If multiple resources use the same tag, backups are created for all tagged resources. If a resource has multiple tags, it needs to match only one tag that is associated with the backup policy. After the backup policy is created, existing resources with any of the tags for target resources are automatically associated. |
+   | **Target resource type**  | Choose between individual storage volumes, or multiple volumes that are attached to the same virtual server instance. \n When you choose to create a policy to back up volumes that are attached to the same virtual server instance you can choose to include the boot volume, too. |
+   | **Tags for target resources** | Specify the user tags to apply to your target resources (volumes, virtual server instances) in your selected region. If multiple resources use the same tag, backups are created for all tagged resources. If a resource has multiple tags, it needs to match only one tag that is associated with the backup policy. After the backup policy is created, existing resources with any of the tags for target resources are automatically associated. |
    | **Scope**    | This option is applicable only to Enterprise accounts. As an Enterprise account administrator, you can specify whether the backup policy applies to the Enterprise account alone or the Enterprise account and all of its subaccounts. Check the box to enable the policy for all accounts of the Enterprise. |
    | **Plan**     | Click **Create** to create backup plan for this policy. In the side panel, specify the plan details. When finished, click **Create**. The page refreshes with a summary of the plan details. You can create up to four backup plans. All apply to the volumes with tags that match the backup policy. \n For more information about options, see the next section. |
    {: caption="Table 1. Backup policy provisioning selections" caption-side="bottom"}
@@ -87,7 +87,7 @@ You can schedule backups in your plan on a daily, weekly, or monthly basis by us
    * Specify by using cron expression
       * Under **Cron expression (UTC)**, enter the backup creation frequency in `cron-spec` format: minute, hour, day, month, and weekday. For example, to create a backup every day at 5:30 PM, you need to enter `30 17 * * *`.
 
-   The **Backup destination** shows the {{site.data.keyword.block_storage_is_short}} volume's region. The **Backup resource group** is the resource group that is associated with the volume.
+   The **Backup destination** shows the target resource's region. The **Backup resource group** is the resource group that is associated with the target resource.
    {: note}
 
 1. Specify a **Retention type** for the backups. You can specify how long to keep them by the number of days and the total number to retain.
@@ -126,7 +126,7 @@ Use the cost estimator to see what your backups might cost based on the rate of 
 
 2. On the Estimate side panel, enter your expected usage to the initial costs. The backup policy is without charge. You pay for the amount of backup storage that is used. Provide the following estimates:
 
-   * Number of volumes you want to associate with the backup policy.
+   * Number of volumes that you want to associate with the backup policy.
    * Average amount of data per volume (in GBs). For example, you might associate two volumes with a policy. The first volume has 4 GB of data and the second 20 GB. An average of the two would be 12 GB.
    * Number of backups per volume per month. You can take a maximum of 750 backup snapshots per volume.
    * Percent of incremental change after the initial backup. For example, a 15 percent increase in size for each subsequent backup.
@@ -501,6 +501,9 @@ For more information about available command options, see [`ibmcloud is backup-p
 The fast restore feature is billed at an extra rate per hour for each zone in which it is enabled. Maintaining fast restore clones is considerably more costly than keeping regular backup snapshots.
 {: note}
 
+The fast restore feature is not applicable for multi-volume backups.
+{: important}
+
 ### Creating a backup plan with cross-regional copy option from the CLI
 {: #backup-create-plan-with-crc-cli}
 
@@ -539,6 +542,9 @@ Resource type            backup_policy_plan
 {: screen}
 
 For more information about available command options, see [`ibmcloud is backup-policy-plan-create`](/docs/cli?topic=cli-vpc-reference#backup-policy-plan-create).
+
+The cross-regional copy feature is not applicable for multi-volume backups.
+{: important}
 
 ## Creating backup policies and plans with the API
 {: #backup-policy-create-policy-plan-api}
@@ -961,6 +967,9 @@ You can also set up the fast restore option when you create a backup policy and 
 The fast restore feature is billed at an extra rate per hour for each zone in which it is enabled. Maintaining fast restore clones is considerably more costly than keeping regular backup snapshots.
 {: note}
 
+The fast restore feature is not applicable for multi-volume backups.
+{: important}
+
 ### Creating a backup plan with cross-regional copy option with the API
 {: #backup-create-plan-with-crc-api}
 
@@ -1021,6 +1030,9 @@ A successful response shows that the clone policy is created.
 ```
 {: codeblock}
 
+The cross-regional copy feature is not applicable for multi-volume backups.
+{: important}
+
 ## Creating backup policies and plans with Terraform
 {: #backup-policy-create-policy-plan-terraform}
 {: terraform}
@@ -1041,21 +1053,38 @@ provider "ibm" {
 ```
 {: screen}
 
-### Creating a backup policy for an account with Terraform
+### Creating a backup policy for individual volumes for an account with Terraform
 {: #backup-policy-create-terraform}
 
 To create a backup policy, use the `ibm_is_backup_policy` resource. The following example defines a backup policy with the name `my-backup-policy-v1`. And the new policy applies to resources that have the `dev:test` tag.
 
 ```terraform
 resource "ibm_is_backup_policy" "example" {
-  match_user_tags = ["dev:test"]
-  name            = "my-backup-policy-v1"
+  match_resource_type  = ["volume"]
+  match_user_tags      = ["dev:test"]
+  name                 = "my-backup-policy-v1"
 }
 ```
 {: codeblock}
 
 For more information about the arguments and attributes, see [ibm_is_backup_policy](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_backup_policy){: external}.
 
+### Creating a backup policy for a consistency group of volumes with Terraform
+{: #backup-policy-create-cg-terraform}
+
+To create a backup policy, use the `ibm_is_backup_policy` resource. The following example defines a backup policy with the name `my-backup-policy-v2`. And the new policy applies to the block storage volumes that are attached to instances, which are tagged with the `dev:test` tag.
+
+```terraform
+resource "ibm_is_backup_policy" "example" {
+  match_resource_type  = ["instance"]
+  included_content     = ["boot_volume", "data_volumes"]
+  match_user_tags      = ["dev:test"]
+  name                 = "my-backup-policy-v2"
+}
+```
+{: codeblock}
+
+For more information about the arguments and attributes, see [ibm_is_backup_policy](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_backup_policy){: external}.
 
 ### Creating a backup policy for an Enterprise with Terraform
 {: #backup-policy-create-enterprise-terraform}
@@ -1064,8 +1093,9 @@ To create a backup policy, use the `ibm_is_backup_policy` resource. The followin
 
 ```terraform
 resource "ibm_is_backup_policy" "ent-baas-example" {
-  match_user_tags = ["dev:test"]
-  name            = "my-backup-policy-v2"
+  match_resource_type  = ["volume"]
+  match_user_tags      = ["dev:test"]
+  name                 = "my-backup-policy-v2"
   scope {
     crn = "crn:v1:bluemix:public:is:us-south:a/123456::reservation:7187-ba49df72-37b8-43ac-98da-f8e029de0e63"
   }
@@ -1113,6 +1143,9 @@ resource "ibm_is_backup_policy_plan" "example" {
 
 For more information about the arguments and attributes, see [ibm_is_backup_policy_plan](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_backup_policy_plan){: external}.
 
+The fast restore feature is not applicable for multi-volume backups.
+{: important}
+
 ### Creating a backup plan with cross-regional copy option with Terraform
 {: #backup-create-plan-with-crc-terraform}
 
@@ -1137,6 +1170,9 @@ resource "ibm_is_backup_policy_plan" "example" {
 {: codeblock}
 
 For more information about the arguments and attributes, see [ibm_is_backup_policy_plan](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_backup_policy_plan){: external}.
+
+The cross-regional copy feature is not applicable for multi-volume backups.
+{: important}
 
 ## Next steps
 {: #backup-create-next-steps}
