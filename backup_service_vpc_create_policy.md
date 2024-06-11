@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-01-05"
+lastupdated: "2024-06-11"
 
 keywords: Backup, backup snapshot, create backups, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -108,7 +108,7 @@ You can schedule backups in your plan on a daily, weekly, or monthly basis by us
 1. If you're creating a backup plan for multi-volume backups, you can click Apply changes and move to the next step. If you're creating a backup plan for individual volumes, you can click **Next** to proceed to configure remote copies, which are an optional part of the plan.
    1. To create cross-regional copies of your backup, select the geography and regions where you want to have a copy. Remember, you can have only one copy per region.
    1. Click the toggle to enable remote copy in the selected region.
-   1. If the source snapshot is encrypted by using a customer-managed key, you must select the encryption service instance and provide the key name. If you prefer, you can create a new service instance or encryption key by following the links.
+   1. If the source snapshot is encrypted by using a customer-managed key, you must select the encryption service instance and provide the key name. If you prefer, you can create a service instance or encryption key by following the links.
       * {{site.data.keyword.keymanagementserviceshort}} - it can be used when the original back is encrypted by using the {{site.data.keyword.keymanagementserviceshort}} service.
       * {{site.data.keyword.hscrypto}} - it can be used when the original back is encrypted by using the {{site.data.keyword.hscrypto}} service.
 
@@ -580,7 +580,7 @@ In the response, look for the "parent" CRN. This CRN contains the enterprise ID 
 ### Creating a backup policy and plan for individual volumes with the API for an account
 {: #backup-policy-create-api}
 
-Make a `POST /backup_policies` request to create a new backup policy. The value of `match_resource_type` is `volume`. The `match_user_tags` property identifies the backup tags on the {{site.data.keyword.block_storage_is_short}} volume resource and associates it with this plan. In this example, the frequency of the backup plan is defined with a `cron_spec`.
+Make a `POST /backup_policies` request to create a backup policy. The value of `match_resource_type` is `volume`. The `match_user_tags` property identifies the backup tags on the {{site.data.keyword.block_storage_is_short}} volume resource and associates it with this plan. In this example, the frequency of the backup plan is defined with a `cron_spec`.
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/backup_policies?version=2022-04-19&generation=2"\
@@ -642,7 +642,7 @@ A successful response looks like the following example.
 ### Creating a backup policy and plan for individual volumes with the API for an enterprise
 {: #backup-policy-create-api-enterprise}
 
-Make a `POST /backup_policies` request to create a new backup policy.  The value of `match_resource_type` is `volume`. The `match_user_tags` property identifies the backup tags on the {{site.data.keyword.block_storage_is_short}} volume resource and associates it with this plan. In this example, the frequency of the backup plan is defined with a `cron_spec`. In the `scope`, specify the enterprise account CRN.
+Make a `POST /backup_policies` request to create a backup policy.  The value of `match_resource_type` is `volume`. The `match_user_tags` property identifies the backup tags on the {{site.data.keyword.block_storage_is_short}} volume resource and associates it with this plan. In this example, the frequency of the backup plan is defined with a `cron_spec`. In the `scope`, specify the enterprise account CRN.
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/backup_policies?version=2023-08-12&generation=2"
@@ -722,7 +722,7 @@ A successful response looks like the following example.
 ### Creating a backup policy and plan for a consistency group of Block Storage volumes
 {: #backup-policy-create-api-instance}
 
-Make a `POST /backup_policies` request to create a new backup policy. The value of `match_resource_type` is `instance`. To create backups of only the data volumes, specify the `included_content` option as `data volumes`. If you want to include the boot volume in the backup operation, specify `boot-volume` as part of the `included_content` option as well. The `match_user_tags` property identifies the backup tags on the virtual server instance resources and associates the attached {{site.data.keyword.block_storage_is_short}} volumes with this policy and plan. In this example, the frequency of the backup plan is defined with a `cron_spec`, and only the data volumes are included in the backup.
+Make a `POST /backup_policies` request to create a backup policy. The value of `match_resource_type` is `instance`. To create backups of only the data volumes, specify the `included_content` option as `data volumes`. If you want to include the boot volume in the backup operation, specify `boot-volume` as part of the `included_content` option as well. The `match_user_tags` property identifies the backup tags on the virtual server instance resources and associates the attached {{site.data.keyword.block_storage_is_short}} volumes with this policy and plan. In this example, the frequency of the backup plan is defined with a `cron_spec`, and only the data volumes are included in the backup.
 
 ```sh
 curl -X POST "$vpc_api_endpoint/v1/backup_policies?version=2023-12-05&generation=2"\
@@ -956,7 +956,7 @@ A successful response shows that the clone policy is created.
 ```
 {: codeblock}
 
-You can also set up the fast restore option when you create a new backup policy and plan. Specify `clone_policy` as a subproperty of the `plans` property. For more information, see the [Create a backup policy](/apidocs/vpc/latest#create-backup-policy) in the API reference.
+You can also set up the fast restore option when you create a backup policy and plan. Specify `clone_policy` as a subproperty of the `plans` property. For more information, see the [Create a backup policy](/apidocs/vpc/latest#create-backup-policy) in the API reference.
 
 The fast restore feature is billed at an extra rate per hour for each zone in which it is enabled. Maintaining fast restore clones is considerably more costly than keeping regular backup snapshots.
 {: note}

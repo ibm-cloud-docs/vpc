@@ -80,7 +80,7 @@ You can also specify the number of backups to retain, up to 750 per volume, afte
 
 Yes. You can create 10 backup policies per account and up to 750 backups of a volume. For other limitations of this release, see [Limitations in this release](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-limitations).
 
-## How do I create a new volume from a backup?
+## How do I create a volume from a backup?
 {: faq}
 {: #faq-baas-restore}
 
@@ -116,7 +116,7 @@ You can copy a backup snapshot from one region to another region, and later use 
 
 A consistency group is a collection of backup snapshots that are created together at the same time. It is used to create backup snapshots of multiple volumes that are attached to the same virtual server instance simultaneously to preserve data consistency. 
 
-The created snapshots are loosely coupled. The snapshots can be used to create new volumes. They can be copied to another region individually, and can be preserved after the consistency group is deleted. However, you can't copy a consistency group to another region or use the ID of the consistency group to create a new virtual server instance.
+The created snapshots are loosely coupled. The snapshots can be used to create new volumes. They can be copied to another region individually, and can be preserved after the consistency group is deleted. However, you can't copy a consistency group to another region or use the ID of the consistency group to create a virtual server instance.
 
 ## Why was no backup job created when my consistency group was deleted?
 {: faq}

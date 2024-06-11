@@ -21,7 +21,7 @@ completion-time: 15m
 {: toc-content-type="tutorial"}
 {: toc-completion-time="15m"}
 
-This tutorial demonstrates how to create a custom image from the boot volume of a virtual server instance, and then use that image to create a new instance.
+This tutorial demonstrates how to create a custom image from the boot volume of a virtual server instance, and then use that image to create an instance.
 {: shortdesc}
 
 ## Before you begin
@@ -39,7 +39,7 @@ This tutorial requires the following prerequisites.
 
 - Create a resource group, *Image resources*.
 - Create a custom image from an instances' boot volume.
-- Create a new virtual server instance by using the custom image.
+- create a virtual server instance by using the custom image.
 
 ## Creating a resource group
 {: #creating-a-resource-group}
@@ -107,7 +107,7 @@ You can create virtual server instances in your {{site.data.keyword.vpc_short}} 
    | Type of virtual server | Public |
    | Operating system | Select **Custom image** > (custom image). |
    | SSH key | An existing SSH key \n For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
-   | Data volumes | You can add one or more secondary data volumes to be included when you provision the instance. To add volumes, click **Create** in the Data volumes section of the page. \n For more information about provisioning the volume, see [Create and attach a Block Storage volume when you create a new instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi). |
+   | Data volumes | You can add one or more secondary data volumes to be included when you provision the instance. To add volumes, click **Create** in the Data volumes section of the page. \n For more information about provisioning the volume, see [Create and attach a Block Storage volume when you create an instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi). |
    | Networking | Select your pre-existing VPC |
    {: caption="Table 2. Instance provisioning selections" caption-side="bottom"}
 

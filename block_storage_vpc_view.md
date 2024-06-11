@@ -129,7 +129,7 @@ If you created snapshots of a {{site.data.keyword.block_storage_is_short}} boot 
 
 3. On the volume details page, click the **Snapshots and Backups** tab. A list of snapshots is displayed with the name, status, size, encryption type, and when it was created. It also shows whether the snapshot was created by the user or a [backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=ui#baas-comparison). The snapshots display in descending order, with the most recently created snapshot in first place.
 
-You can see details for a snapshot, create a new snapshot, and manage snapshots from the Volume details page. For example, from the Actions menu ![Actions icon](../icons/action-menu-icon.svg "Actions"), you can delete the most recent snapshot. For more information, see one of the following topics.
+You can see details for a snapshot, create a snapshot, and manage snapshots from the Volume details page. For example, from the Actions menu ![Actions icon](../icons/action-menu-icon.svg "Actions"), you can delete the most recent snapshot. For more information, see one of the following topics.
 
 * [View details of a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view-snapshot-ui).
 * [Create a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view-snapshot-ui).

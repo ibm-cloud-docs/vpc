@@ -458,7 +458,7 @@ To enable Auto Delete for an existing {{site.data.keyword.block_storage_is_short
 
 Alternatively, select a data volume from the list of {{site.data.keyword.block_storage_is_short}}(**Storage > Block Storage volumes**). On the volume details page, under **Attached instances**, click the **Auto delete** toggle to enable or disable automatic deletion.
 
-You can also enable Auto Delete on a new data volume when you create an instance. For more information, see [Create and attach a {{site.data.keyword.block_storage_is_short}} volume when you create a new instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi).
+You can also enable Auto Delete on a new data volume when you create an instance. For more information, see [Create and attach a {{site.data.keyword.block_storage_is_short}} volume when you create an instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi).
 
 ### Deleting a {{site.data.keyword.block_storage_is_short}} volume from the CLI
 {: #delete-vol-cli}
