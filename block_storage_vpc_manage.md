@@ -40,7 +40,7 @@ You can detach a {{site.data.keyword.block_storage_is_short}} volume that is att
 To detach a volume, complete the following steps.
 
 1. Go to the list of all {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage volumes**.
-1. Locate the volume and then, click the overflow icon (...) to open a list of options.
+1. Locate the volume and then, click the **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions") to open a list of options.
 1. From the options menu, click **Detach from instance**.
 1. Confirm by clicking **Detach instance** in the open window.
 
@@ -66,7 +66,7 @@ To transfer a {{site.data.keyword.block_storage_is_short}} volume to another vir
 A {{site.data.keyword.block_storage_is_short}} data volume is attached by default when you provision the volume during virtual server instance creation. When you detach a volume from an instance, it exists as an unattached volume and is displayed in the list of [all {{site.data.keyword.block_storage_is_short}} volumes](/docs/vpc?topic=vpc-viewing-block-storage#viewvols). You can attach it to another instance from the list of {{site.data.keyword.block_storage_is_short}} volumes.
 
 1. Go to the list of all {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage volumes**.
-1. Locate the volume and then click overflow icon (...) to open a list of options.
+1. Locate the volume and then click the **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions") to open a list of options.
 1. From the options menu, click **Attach to instance**.
 1. Select an available virtual server instance.
 1. Confirm your selection.
@@ -88,9 +88,9 @@ You can change the name of an existing volume to make it more meaningful.
 ### Adding user tags to a {{site.data.keyword.block_storage_is_short}} volume
 {: #add-user-tags-volumes-ui}
 
-Add user tags to {{site.data.keyword.block_storage_is_short}}from the list of volumes or the volumes details page.
+Add user tags to {{site.data.keyword.block_storage_is_short}} from the list of volumes or the volumes details page.
 
-1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In [{{site.data.keyword.cloud_notm}} console)](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage volumes**.
+1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage volumes**.
 2. Locate the volume from the list that you want to add user tags.
 3. In the **tags** column, click **Add tags**.
 4. In the Add tags menu, enter the user tags that you want to apply to this volume. Tags display as you type.
@@ -113,7 +113,7 @@ You can add user tags that are associated with a backup policy to a {{site.data.
 
 From the [volume details](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#view-vol-details-ui) page, you can view the backup policies that are applied to the volume and add user tags that are associated with a backup policy.
 
-1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In [{{site.data.keyword.cloud_notm}} console)](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage volumes**.
+1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage volumes**.
 2. Locate the volume that you want and click the name link.
 3. From the {{site.data.keyword.block_storage_is_short}}details page, click the **Backup policies** tab.
 4. Click **Attach**.
@@ -128,7 +128,7 @@ For more information about creating backups, see [Creating a backup policy](/doc
 {: #managing-block-storage-cli}
 {: cli}
 
-Manage your {{site.data.keyword.block_storage_is_short}}from the command-line interface (CLI). You can update a volume name, update a volume attachment, detach a volume, and delete a volume.
+Manage your {{site.data.keyword.block_storage_is_short}} from the command-line interface (CLI). You can update a volume name, update a volume attachment, detach a volume, and delete a volume.
 
 Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 {: requirement}
@@ -395,7 +395,7 @@ With the [Global Search and Tagging API](/docs/account?topic=account-tag&interfa
 
 Add an access management tag to an existing volume or when you [create a volume](/docs/vpc?topic=vpc-creating-block-storage). To add access management tags to an existing volume, complete the following steps.
 
-1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage volumes**.
+1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage volumes**.
 2. Locate the volume from the list.
 3. In the **tags** column, click **Add tags**.
 4. In the Add tags menu, enter the access management tags in the access management tag field. Tags that you created display as you type.

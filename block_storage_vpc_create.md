@@ -113,7 +113,7 @@ When you [create a {{site.data.keyword.block_storage_is_short}} volume](#create-
 
 You can restore a boot volume from a "bootable" snapshot. The boot volume is restored when you create a virtual server instance.
 
-1. In the [{{site.data.keyword.cloud_notm}} console)](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage volumes**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage volumes**.
 2. Select **Create**.
 3. Specify the volume name, optional resource group and tags, and specify the location. You're going to use the data from a snapshot to provision the volume.
 4. Under **Snapshot (optional)**, click **Select snapshot**. From the list, select a snapshot. All snapshots that are presented are in a _stable_ state.

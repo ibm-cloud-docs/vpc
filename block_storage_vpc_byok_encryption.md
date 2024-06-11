@@ -224,7 +224,7 @@ When you provision a virtual server instance, you can specify customer-managed e
 
 Follow these steps to create an instance with a new Block Storage volume.
 
-1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Compute > Virtual server instances**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Compute > Virtual server instances**.
 1. Click **New instance** and complete the required fields. For more information about these required fields, see _Table 1 - Instance provisioning selections_ in [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers).
 1. In the **Boot volume** section, the default mode of encryption is _Provider managed_ encryption. To specify customer-managed encryption, click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") in the boot volume row. On the **Edit boot volume** page, update the fields in the **Encryption** section.
    | Field | Value |
