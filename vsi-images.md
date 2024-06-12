@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-05-02"
+  years: 2019, [{CURRENT_YEAR}]
+lastupdated: "[{LAST_UPDATED_DATE}]"
 
 subcollection: vpc
 
@@ -11,7 +11,7 @@ subcollection: vpc
 
 
 # x86 virtual server images
-{: #about-images} 
+{: #about-images}
 
 When you provision {{site.data.keyword.vsi_is_full}} on x86 architecture, you can select from the supported virtual server operating system stock images, the virtual server operating system bundle stock image, or a custom image that you import from {{site.data.keyword.cos_full_notm}}. The image that you select determines the operating system that is provisioned for your instance. If the image you select is a virtual server operating system bundle stock image, the software that is part of that bundle is also included in your instance.
 {: shortdesc}
