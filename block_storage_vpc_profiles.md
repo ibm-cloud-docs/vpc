@@ -54,9 +54,9 @@ When you create your storage volume, you can select from three predefined IOPS t
 
 |  Name	| Purpose | IOPS rate	| Capacity range (GB)	| Min IOPS	Max IOPS	| I/O size |
 |--------|---------|------------:|----------------------:|-------------------:|----------:|
-| 	`general-purpose`	| Workloads that host small databases for web applications or store virtual machine disk images for a hypervisor. | 3 IOPS/GB  | 10 -	16,000 | 3,000	- 48,000 | 16 KB |
-| 	`5iops-tier`	| High I/O intensity workloads - Workloads characterized by a large percentage of active data, such as transactional and other performance-sensitive databases.| 5 IOPS/GB | 10 - 9,600 | 3,000 - 48,000 | 16 KB |
-| 	`10iops-tier`	| Demanding storage workloads - Data intensive workloads created by NoSQL databases, data processing for video, machine learning, and analytics. Bandwidth limits are calculated by using a 256 KB block size.| 10 IOPS/GB | 10 - 4,800 | 3,000 - 48,000 | 256 KB | 
+| `general-purpose`	| Workloads that host small databases for web applications or store virtual machine disk images for a hypervisor. | 3 IOPS/GB  | 10 -	16,000 | 3,000	- 48,000 | 16 KB |
+| `5iops-tier`	| High I/O intensity workloads - Workloads characterized by a large percentage of active data, such as transactional and other performance-sensitive databases.| 5 IOPS/GB | 10 - 9,600 | 3,000 - 48,000 | 16 KB |
+| `10iops-tier`	| Demanding storage workloads - Data intensive workloads created by NoSQL databases, data processing for video, machine learning, and analytics. Bandwidth limits are calculated by using a 256 KB block size.| 10 IOPS/GB | 10 - 4,800 | 3,000 - 48,000 | 256 KB | 
 {: caption="Table 2. IOPS tier profiles and performance levels for each tier" caption-side="bottom"}
 
 Max IOPS for all tiered profiles starts at 3,000 IOPS. Max IOPS then increases, based on the storage tier and volume size, up to the Max IOPS in Table 2.
