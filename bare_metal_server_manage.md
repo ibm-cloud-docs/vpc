@@ -1,9 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-
-lastupdated: "2024-05-31"
+  years: 2021, [{CURRENT_YEAR}]
+lastupdated: lastupdated: "[{LAST_UPDATED_DATE}]"
 
 keywords: bare metal servers, managing, operation, manage bare metal server, manage bare metal, manage server, restart bare metal, stop bare metal, delete bare metal, reboot bare metal, restart server, stop server, delete server
 
@@ -37,7 +36,7 @@ You can perform the following actions by using the UI, CLI, and API.
 {: #managing-bare-metal-servers-ui}
 {: ui}
 
-You can view and manage your bare metal server from the *Bare metal servers* page in the {{site.data.keyword.cloud_notm}} dashboard.
+You can view and manage your bare metal server from the *Bare metal servers* page in the {{site.data.keyword.cloud_notm}} console.
 
 To manage your servers, complete the following steps.
 
@@ -55,6 +54,9 @@ You can view the summary of all bare metal server on the bare metal server page,
 
 ### Updating the firmware for a bare metal server by using the UI
 {: #update-firmware-bare-metal-servers-ui}
+
+Updating firmware on bare metal servers is a beta feature that is available for evaluation and testing purposes.
+{: beta}
 
 This action is only displayed if the server is stopped and a firmware update is available. It is recommended to back up your server before any firmware update.
 
@@ -76,19 +78,15 @@ This action is only displayed if the server is stopped and a firmware update is 
 The reboot action immediately powers off and powers on the bare metal server.
 
 1. In the [{{site.data.keyword.cloud_notm}} dashboard ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}), go to **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**
-
-2. Click the name of the bare metal server that you want to reboot.
-
-3. Click **Actions...**, then click **Reboot**.
+1. Click the name of the bare metal server that you want to reboot.
+1. Click **Actions...**, then click **Reboot**.
 
 ### Stopping and starting a bare metal server by using the UI
 {: #stop-start-bare-metal-servers-ui}
 
 1. In the [{{site.data.keyword.cloud_notm}} dashboard ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}), go to **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**
-
-2. Click the name of the bare metal server that you want to start or stop.
-
-3. Click **Actions...**, then click **Stop** or **Start**. When selecting **Stop**, select hard stop or soft stop. The instance will soft stop by default.
+1. Click the name of the bare metal server that you want to start or stop.
+1. Click **Actions...**, then click **Stop** or **Start**. When selecting **Stop**, select hard stop or soft stop. The instance will soft stop by default.
 
 Billing continues after the bare metal server is stopped.
 {: note}
@@ -98,10 +96,8 @@ Billing continues after the bare metal server is stopped.
 {: ui}
 
 1. In the [{{site.data.keyword.cloud_notm}} dashboard ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}), go to **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**
-
-2. Click the name of the bare metal server that you want to delete.
-
-3. Click **Actions...**, then click **Delete**.
+1. Click the name of the bare metal server that you want to delete.
+1. Click **Actions...**, then click **Delete**.
 
 The delete action permanently removes a server and its connected vNIC, boot volume, and data from your account.
 {: important}
@@ -113,28 +109,28 @@ The delete action permanently removes a server and its connected vNIC, boot volu
 ### Viewing your bare metal servers by using the CLI
 {: #viewing-bare-metal-servers-cli}
 
-Use the following command to list all bare metal servers:
+You can list all your {{site.data.keyword.cloud}} Bare Metal Servers for VPC by using the command-line interface (CLI).
+
+To list all the bare metal servers by using the CLI, use the `ibmcloud is bare-metal-servers` command. To retrieve a specific bare metal server, specify the ID or name of the bare metal server with the `SERVER` variable.
 
    ```sh
-   ibmcloud is bare-metal-servers [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME | --all-resource-groups]
+   ibmcloud is bare-metal-server SERVER
    ```
    {: pre}
 
-Use the following command to retrieve a bare metal server:
-
-   ```sh
-   ibmcloud is bare-metal-server $bare_metal_server_id
-   ```
-   {: pre}
+For a full list of command options, see [ibmcloud is bare-metal-server](/docs/vpc?topic=vpc-vpc-reference#bare-metal-server-view).
 
 ### Rebooting a bare metal server by using the CLI
 {: #reboot-bare-metal-servers-cli}
 
-Use the following CLI command to reboot your bare metal server.
+You can reboot {{site.data.keyword.cloud}} Bare Metal Servers for VPC by using the command-line interface (CLI).
+
+To reboot your bare metal server, use the `ibmcloud is bare-metal-server-restart` command. Specify the ID or name of the bare metal server with the `SERVER` variable.
 
 ```sh
-ibmcloud is bare-metal-server-restart $bare_metal_server_id [-f, --force] [-q, --quiet]
+ibmcloud is bare-metal-server-restart SERVER
 ```
+{: pre}
 
 The `[-f, --force]` flag forces the operation without confirmation.
 {: tip}
@@ -142,27 +138,37 @@ The `[-f, --force]` flag forces the operation without confirmation.
 ### Stopping and starting a bare metal server by using the CLI
 {: #stop-start-bare-metal-servers-cli}
 
-Use the following CLI command to stop and start your bare metal server.
+You can stop and start your {{site.data.keyword.cloud}} Bare Metal Servers for VPC by using the command-line interface (CLI)
+
+To stop and start your bare metal server, use the `ibmcloud is bare-metal-server-stop` or `ibmcloud is bare-metal-server-start` command. Specify the ID or name of the bare metal server with the `SERVER` variable.
+
+You must specify the `type` for the stop action in the data payload. `soft` tells the running operating system to stop and shut down cleanly. `hard` immediately stops the bare metal server.
+{: important}
 
 To stop the bare metal server:
 
 ```sh
-ibmcloud is bare-metal-server-stop $bare_metal_server_id [--type soft | hard] [-f, --force] [-q, --quiet]
+ibmcloud is bare-metal-server-stop SERVER --type soft
 ```
 {: pre}
 
 To start the bare metal server:
 
 ```sh
-ibmcloud is bare-metal-server-start $bare_metal_server_id [-q, --quiet]
+ibmcloud is bare-metal-server-start SERVER
 ```
 {: pre}
 
 Billing continues after the bare metal server is stopped.
 {: note}
 
+For a full list of command options, see [ibmcloud is bare-metal-server-restart](/docs/vpc?topic=vpc-vpc-reference#bare-metal-server-restart).
+
 ### Updating the firmware for a bare metal server by using the CLI
 {: #update-firmware-bare-metal-servers-cli}
+
+Updating firmware on bare metal servers is a beta feature that is available for evaluation and testing purposes.
+{: beta}
 
 You can update the firmware for your {{site.data.keyword.cloud}} Bare Metal Servers for VPC by using the command-line interface (CLI). You can only update the firmware on a bare metal server that is stopped and has firmware updates available. It is recommended to back up your server before any firmware update.
 
@@ -185,14 +191,19 @@ For a full list of command options, see [ibmcloud is bare-metal-server-firmware-
 {: #delete-bare-metal-servers-cli}
 {: cli}
 
-Use the following CLI command to delete your bare metal server.
+You can delete your {{site.data.keyword.cloud}} Bare Metal Servers for VPC by using the command-line interface (CLI).
+
+To delete your bare metal server, use the `ibmcloud is bare-metal-server-delete` command. Specify the ID or name of the baremetal server with the`SERVER` variable.
 
 ```sh
-ibmcloud is bare-metal-server-delete $bare_metal_server_id
+ibmcloud is bare-metal-server-delete SERVER
 ```
+{: pre}
 
 The delete action permanently removes a server and its connected vNIC, boot volume, and data from your account.
 {: important}
+
+For a full list of command options, see [ibmcloud is bare-metal-server-delete](/docs/vpc?topic=vpc-vpc-reference#bare-metal-server-delete).
 
 ## Managing your bare metal server by using the API
 {: #managing-bare-metal-servers-api}
@@ -274,6 +285,9 @@ For more information about the API request, see [Start a bare metal server](/api
 
 ### Updating the firmware for a bare metal server by using the API
 {: #update-firmware-bare-metal-servers-API}
+
+Updating firmware on bare metal servers is a beta feature that is available for evaluation and testing purposes.
+{: beta}
 
 You can update the firmware for your {{site.data.keyword.cloud}} Bare Metal Servers for VPC by using the API. You can only update the firmware on a bare metal server that is stopped and has firmware updates available. It is recommended to back up your server before any firmware update. To update the firmware using API, use [Update firmware for a bare metal server](/apidocs/vpc-beta/initial#update-firmware-for-bare-metal-server).
 
