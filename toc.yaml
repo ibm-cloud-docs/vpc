@@ -92,7 +92,7 @@ toc:
        - topicgroup:
            label: Storage
            topics:
-           - vpc_storage_overview.md
+           - storage_overview.md
            - topicgroup:
                label: Storage overview for bare metal servers
                topics:
