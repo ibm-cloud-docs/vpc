@@ -1,10 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-
-lastupdated: "2024-06-06"
-
+  years: 2022, [{CURRENT_YEAR}] 
+lastupdated: "[{LAST_UPDATED_DATE}]"
 
 keywords:
 
