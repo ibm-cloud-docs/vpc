@@ -84,7 +84,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    ```
    {: pre}
 
-### Apply tags to volumes from the CLI
+### Applying tags to volumes from the CLI
 {: #backup-apply-tags-cli}
 
 Issue the `ibmcloud is volume-update VOLUME` command with the `--tags` option to update the user tags of a volume. The volume argument can be defined by either the volume ID or the volume name.
