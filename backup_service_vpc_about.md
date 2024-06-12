@@ -24,7 +24,7 @@ Backups and snapshot services are different than a [disaster recovery (DR)](#x21
 ## Backup service concepts
 {: #backup-service-concepts}
 
-You can create up to 10 [backup policies](#backup-service-policies) for your {{site.data.keyword.block_storage_is_short}} volumes in one region with the {{site.data.keyword.cloud_notm}} Backup for VPC service. You can create up to four plans per policy, and edit and delete them as needed. If you're undecided on the backup schedule or retention requirements, you can create a backup policy without a plan and add one later. 
+You can create up to 10 [backup policies](#backup-service-policies) in one region with the {{site.data.keyword.cloud_notm}} Backup for VPC service.You can create up to four plans per policy, and edit and delete them as needed. If you're undecided on the backup schedule or retention requirements, you can create a backup policy without a plan and add one later. 
 
 You can choose to back up individual {{site.data.keyword.block_storage_is_short}} volumes that are identified by tags. Or you can choose to create backups of all the {{site.data.keyword.block_storage_is_short}} volumes that are attached to a specific virtual server instance as members of a **consistency group**. When you configure backups for a [consistency group](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#multi-volume-snapshots), you can choose to include the boot volume or leave it out. When you create multi-volume backups, you add the tag to the virtual server instance.
 
@@ -37,7 +37,7 @@ When you choose to back up all the Block Storage volumes that are attached to a 
 Backups require that the volume that you're backing up is attached to a running virtual server instance. Put another way, you can't back up an unattached volume.
 {: restriction}
 
-If a volume has multiple tags, only one tag needs to match for a backup to trigger. You can add user tags to boot and data volumes at any time, when you [create a virtual server instance](/docs/vpc?topic=vpc-creating-block-storage&interface=ui#create-from-vsi) or in an instance template.
+If a volume has multiple tags, only one tag needs to match for a backup to trigger. You can add user tags to boot and data volumes at any time, when you [create a virtual server instance](/docs/vpc?topic=vpc-creating-block-storage&interface=ui#create-from-vsi) or when you update the volume.
 
 As an enterprise account administrator, you can view and manage the backup policies and plans for the subaccounts for compliance reporting and billing from one place. For more information, see the [Scope of backup policy](#backup-service-about-scope) section.
 
@@ -47,7 +47,7 @@ When the backup is triggered at the scheduled interval, a backup copy is created
 
 Backups, like snapshots, have a lifecycle that is independent from the source {{site.data.keyword.block_storage_is_short}} volume.
 
-You can copy a backup snapshot from one region to another region, and later use that snapshot to restore a volume in the new region. The [cross-regional copy](#backup-service-crc) can be used in disaster recovery scenarios when you need to turn on your virtual server instance and data volumes in a different region. The remote copy can be created automatically as part of a backup plan, or manually later.
+You can copy a Block storage backup snapshot from one region to another region, and later use that snapshot to restore a volume in the new region. The [cross-regional copy](#backup-service-crc) can be used in disaster recovery scenarios when you need to turn on your virtual server instance and data volumes in a different region. The remote copy can be created automatically as part of a backup plan, or manually later.
 
 You can [restore](#backup-service-restore-concepts) data from a backup snapshot to a new, fully provisioned volume. If the backup is of a boot volume, you can use it to provision a new instance. However, when you provision an instance by restoring a boot volume from a bootable backup snapshot, you can expect degraded performance in the beginning. During the restoration process, the data is copied from {{site.data.keyword.cos_full}} to {{site.data.keyword.block_storage_is_short}}, and thus the provisioned IOPS cannot be fully realized until that process finishes.
 
@@ -107,7 +107,7 @@ In a backup plan, you schedule the frequency of your backups. When you create a 
 In a backup plan, you schedule the frequency of your backups. When you create a plan with [Terraform](/docs/vpc?topic=vpc-create-backup-policy-and-plan&interface=terraform), you can use a `cron` expression to specify the frequency.
 {: terraform}
 
-You can specify the retention period or the total number of backups before the oldest are deleted. The interval for creating a backup and its retention period can be the same or they can be different. The default retention period is 30 days. You can also set the total number of backups to retain up to 750 per volume. When that number is exceeded, the oldest backups are deleted. 
+You can specify the retention period or the total number of backups before the oldest is deleted. The interval for creating a backup and its retention period can be the same or they can be different. The default retention period is 30 days. You can also set the total number of backups to retain up to 750 per volume. When that number is exceeded, the oldest backups are deleted.  
 
 If you specify both the age and the number of backups, age takes priority in determining when to delete a snapshot. The count applies only if the oldest snapshot is within the age range.
 
@@ -141,7 +141,7 @@ Backup policies contain user tags for target resources that associate the policy
 In addition to user tags, tags can be access management tags and service tags. Only user tags are applied to backup policies. [Access management tags](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#storage-add-access-mgt-tags) are used to manage access to resources; only the account administrator can create access management tags. Service tags are a privileged construct that only authorized services can manage. Users are not authorized to attach and detach service tags on a resource, even if they have access to manage tags on the resource. Service tags are helpful to distinguish which snapshots were created manually or automatically by a backup policy.
 {: note}
 
-If a volume or virtual server instance has multiple tags, only one tag needs to match a backup policy tag. Based on the schedule in the backup plan, a matching tag triggers a backup. If multiple volume tags match backup policy tags, only one backup is created at the scheduled interval. If you have multiple volumes with the same tag, backups are created for all the volumes.
+If a volume or virtual server instance has multiple tags, only one tag needs to match a backup policy tag. Based on the schedule in the backup plan, a matching tag triggers a backup. If multiple tags match backup policy tags, only one backup is created at the scheduled interval. If you have multiple resources with the same tag, backups are created for all the matching resources.
 
 You can add up to 1,000 user tags for your resources. However, only 100 tags can be attached or detached in the same operation. Keeping the number of tags low can make it easier to track the number of backups that you're creating. For more information, see [Applying backup policies to resources with tags](/docs/vpc?topic=vpc-backup-use-policies).
 
