@@ -1,9 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-
-lastupdated: "2023-06-16"
+  years: 20222, [{CURRENT_YEAR}]
+lastupdated: "[{LAST_UPDATED_DATE}]"
 
 keywords: configure, zos, s390x, virtual server instance
 
