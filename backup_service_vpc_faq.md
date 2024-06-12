@@ -22,7 +22,7 @@ The following questions pertain to the VPC Backup service. If you have other que
 {: faq}
 {: #faq-baas-concepts}
 
-With the VPC backup service, you can create backup policies for your {{site.data.keyword.block_storage_is_short}} volumes. A backup policy contains a backup plan, where you set a scheduled backup of your volumes. You can create up to four backup plans per policy. When a backup is triggered, it creates a snapshot of the volume contents. You can also set a retention period for your backups so that the oldest ones are deleted either by date or total count. For more information, see [Backup service concepts](/docs/vpc?topic=vpc-backup-service-about#backup-service-concepts).
+With the VPC backup service, you can create backup policies for your {{site.data.keyword.block_storage_is_short}} volumes.  backup policy contains a backup plan, where you set a scheduled backup of your data. You can create up to four backup plans per policy. When a backup is triggered, it creates a snapshot of the volume contents. You can also set a retention period for your backups so that the oldest ones are deleted either by date or total count. For more information, see [Backup service concepts](/docs/vpc?topic=vpc-backup-service-about#backup-service-concepts).
 
 ## How do I set up the backup service?
 {: faq}
