@@ -285,7 +285,7 @@ The following example shows how to create a new file share with 500 GB capacity 
 
 ```sh
 $ ibmcloud is share-create --name my-new-file-share --zone us-south-2 --profile dp2 --size 500 --iops 2000  --user-tags env:dev --mount-targets '
->[{"name":"my-new-mount-target","virtual_network_interface": {"name":"my-vni","subnet": {"id":"0717-298acd6c-e71e-4204-a04f-fe4a4dd89805"}}}]'
+>[{"name":"my-new-mount-target","virtual_network_interface": {"name":"my-vni","subnet": {"id":"r006-298acd6c-e71e-4204-a04f-fe4a4dd89805"}}}]'
 Creating file share my-new-file-share under account Test Account as user test.user@ibm.com...
                                 
 ID                           r006-925214bc-ded5-4626-9d8e-bc4e2e579232   

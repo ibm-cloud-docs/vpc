@@ -105,7 +105,7 @@ When you use the `ibmcloud is share-create` command to create your share, you ca
 In the following example, a share `my-source-file-share` is created in `us-south-2` with a replica file share `my-replica-file-share` in `us-south-1`. In this example, only one mount target is created for the source file share, but you can also create the mount target for the replica share by using the same JSON syntax with the `--replica-share-mount-targets` option.
 
 ```sh
-$ ibmcloud is share-create --name my-source-file-share --zone us-south-2 --profile dp2 --size 1500 --iops 2000  --user-tags env:dev --mount-targets '[{"name":"my-source-mount-target","virtual_network_interface": {"name":"my-source-vni","subnet": {"id":"0717-298acd6c-e71e-4204-a04f-fe4a4dd89805"}}}]' --replica-share-name my-replica-file-share --replica-share-profile dp2 --replica-share-cron-spec '55 09 * * *' --replica-share-zone us-south-1
+$ ibmcloud is share-create --name my-source-file-share --zone us-south-2 --profile dp2 --size 1500 --iops 2000  --user-tags env:dev --mount-targets '[{"name":"my-source-mount-target","virtual_network_interface": {"name":"my-source-vni","subnet": {"id":"r006-298acd6c-e71e-4204-a04f-fe4a4dd89805"}}}]' --replica-share-name my-replica-file-share --replica-share-profile dp2 --replica-share-cron-spec '55 09 * * *' --replica-share-zone us-south-1
 Creating file share my-source-file-share under account Test Account as user test.user@ibm.com...
                                 
 ID                           r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a   

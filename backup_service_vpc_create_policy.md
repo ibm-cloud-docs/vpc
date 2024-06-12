@@ -183,7 +183,7 @@ Creating backup policy my-backup-policy-v1 under account Test Account as user te
 
 ID                     r006-d6052504-516f-4923-938b-9e9def977428
 Name                   my-backup-policy-v1
-CRN                    crn:v1:bluemix:public:is:us-south:a/a1234567::backup-policy:0717-d123456
+CRN                    crn:v1:bluemix:public:is:us-south:a/a1234567::backup-policy:r006-d123456
 Status                 pending
 Plans                  ID   Name   Resource type
 

@@ -241,7 +241,7 @@ A successful response looks like the following example.
 ```zsh
 Creating instance my-instance-restore1 in resource group under account VP01 as user rtuser1@mycompany.com...
 
-ID               0717-eded6dcd-4f3c-4e79-a0cb-00f7c72f38cd
+ID               r006-eded6dcd-4f3c-4e79-a0cb-00f7c72f38cd
 Name             my-instance-restore1
 CRN              crn:v1:bluemix:public:is:us-south-1/a1234567::instance:7101_eded6dcd-4f3c-4e79-a0cb-00f7c72f38cd
 Status           pending
@@ -260,7 +260,7 @@ Resource group   ID                                         Name
 
 Created          2022-06-14T17:03:30+08:00
 Boot volume      ID                                   Name                  Attachment ID                            Attachment name
-                 0651dacb-4589-4147-86b3-a77544598f93 boot-from-snapshot1                  0717-abf9dd2b-9d5d-41f1-849d-55a8ab580ddb                            boot-from-snapshot1
+                 0651dacb-4589-4147-86b3-a77544598f93 boot-from-snapshot1                  r006-abf9dd2b-9d5d-41f1-849d-55a8ab580ddb                            boot-from-snapshot1
 
 ```
 {: screen}
