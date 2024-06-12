@@ -497,7 +497,7 @@ You can create several mount targets for an existing file share if the share is 
 
 The following example request creates a file share that has the VPC-wide access mode and a mount target that can be used by every virtual server instance in the specified VPC. It also adds [user tags](/docs/vpc?topic=vpc-file-storage-managing&interface=api#fs-add-user-tags) to the share. 
 
-Access to the mount target is VPC wide; all instances in the VPC have access to this file share. You can also restrict access to a specific virtual server instance in the VPC by specifying a virtual network interface in the mount target definition.
+Access to the mount target is VPC wide; all instances in the VPC have access to this file share. Cross-zone mounting and data encryption in transit is not supported.
 
 ```sh
 curl -X POST \
