@@ -87,7 +87,7 @@ If you're not ready to order yet or just looking for pricing information, you ca
 ### Creating a mount target in the UI
 {: #fs-create-mount-target-ui}
 
-You can create several mount targets for an existing file share if the share is to be used by resources in multiple VPCs. You can create one mount target per VPC for the file share. When you create multiple mount targets for the same file share, their encryption in transit value must match.
+You can create several mount targets for an existing file share if the share is to be used by resources in multiple VPCs. You can create one mount target per VPC for the file share.
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > File shares**.
 
@@ -260,7 +260,7 @@ Created               2023-10-18T23:09:43+00:00
 
 For more information about the command options, see [`ibmcloud is share-mount-target-create`](/docs/vpc?topic=vpc-vpc-reference#share-mount-target-create).
 
-You can create several mount targets for an existing file share if the share is to be used by resources in multiple VPCs. You can create one mount target per VPC for the file share. When you create multiple mount targets for the same file share, their encryption in transit value must match.
+You can create several mount targets for an existing file share if the share is to be used by resources in multiple VPCs. You can create one mount target per VPC for the file share.
 
 ### Creating a file share with a mount target from the CLI
 {: #fs-create-share-target-cli}
@@ -490,7 +490,7 @@ This example adds a mount target to an existing file share, which is identified 
 ```
 {: codeblock}
 
-You can create several mount targets for an existing file share if the share is to be used by resources in multiple VPCs. You can create one mount target per VPC for the file share. When you create multiple mount targets for the same file share, their encryption in transit value must match.
+You can create several mount targets for an existing file share if the share is to be used by resources in multiple VPCs. You can create one mount target per VPC for the file share.
 
 ### Creating a file share and mount target together with the API
 {: #fs-create-share-target-api}
@@ -868,7 +868,7 @@ resource "ibm_is_share_mount_target" "target-with-vni" {
 ```
 {: codeblock}
 
-You can create several mount targets for an existing file share if the share is to be used by resources in multiple VPCs. You can create one mount target per VPC for the file share. When you create multiple mount targets for the same file share, their encryption in transit value must match.
+You can create several mount targets for an existing file share if the share is to be used by resources in multiple VPCs. You can create one mount target per VPC for the file share.
 
 You can also create a mount target for a file share with the VPC access mode by using the `is_share_mount_target` resource. The following example creates a mount target with the name `my-share-target` for the file share that is specified by its ID. When the mount target is created, all virtual server instances in the VPC can mount the share by using it.
 
@@ -915,7 +915,7 @@ resource "ibm_is_share" "share4" {
 For more information about the arguments and attributes, see [ibm_is_share](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share){: external}.
 
 
-You can create several mount targets for an existing file share if the share is to be used by resources in multiple VPCs. You can create one mount target per VPC for the file share. When you create multiple mount targets for the same file share, their encryption in transit value must match.
+You can create several mount targets for an existing file share if the share is to be used by resources in multiple VPCs. You can create one mount target per VPC for the file share.
 
 ### Creating a file share with a mount target with VPC-wide access mode
 {: #file-share-create-with-target-vpc-terraform}
