@@ -441,7 +441,7 @@ Snapshot copies in a remote region are independent from the parent snapshot and 
 Use the following steps to delete a remote region copy by using the UI.
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu** ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Snapshots**.
-2. Click the Actions menu (ellipsis) in the row of the snapshot that you want to delete.
+2. Click the **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions") in the row of the snapshot that you want to delete.
 3. Select **Delete**.
 4. Confirm the deletion and click **Delete**.
 
@@ -665,7 +665,7 @@ You can delete all snapshots for a volume. Deleting all snapshots requires furth
 You can delete a snapshot from the list of all snapshots by using the following steps.
 
 1. Go to the list of all snapshots. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu** ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Snapshots**.
-2. Click the Actions menu (ellipsis) in the row of the snapshot that you want to delete.
+2. Click the **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions") in the row of the snapshot that you want to delete.
 3. Select **Delete**.
 4. Confirm the deletion and click **Delete**.
 
@@ -675,7 +675,7 @@ You can also delete a snapshot from the details page of a {{site.data.keyword.bl
 2. Select a volume from the list, and click the volume name to go to the volume details page.
 3. Click **Snapshots**. A list of snapshots that are taken of this volume is displayed, and you can take the following actions:
     * Click **Delete all** to delete all snapshots for this volume.
-    * Click the Actions menu (ellipsis) to delete a specific snapshot.
+    * Click the **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions") to delete a specific snapshot.
 4. Select **Delete**. If the snapshot is actively restoring a volume, the delete operation does not work.
 5. Confirm the deletion.
 
@@ -686,7 +686,7 @@ To delete all snapshots for a volume in the UI, follow these steps.
 
 1. Go to the list of all snapshots. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu** ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Snapshots**.
 2. Click the row to select the snapshot that you want to delete.
-3. From the Actions menu (ellipsis), select **Delete all for volume**.
+3. From the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions"), select **Delete all for volume**.
 4. Confirm the deletion by typing _delete_ and then click **Delete**.
 
 ### Deleting snapshots from the {{site.data.keyword.block_storage_is_short}} details page in the UI
@@ -699,7 +699,7 @@ You can delete the most recently created snapshot from the list of snapshots fro
 3. Click **Snapshots** to see a list of snapshots taken of this volume.
 4. Click **Delete all** to delete all snapshots for this volume.
 5. Alternatively, select a single snapshot in the list for deletion and then:
-   1. Click the Actions menu (ellipsis).
+   1. Click the **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions").
    2. Select **Delete** from the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions").
    3. Confirm the deletion.
 
