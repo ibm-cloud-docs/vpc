@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-03-29"
+lastupdated: "2024-05-28"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -18,7 +18,7 @@ subcollection: vpc
 Create file shares and mount targets in the UI, CLI, API, or Terraform.
 {: shortdesc}
 
-Before you get started, to create mount targets for file shares, make sure that you created a [VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
+Before you get started, and try to to create mount targets for file shares, make sure that you created a [VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
 {: important}
 
 You can create file shares and mount targets either of the following ways:
@@ -26,11 +26,13 @@ You can create file shares and mount targets either of the following ways:
 * Create a file share and mount target together,
 * Create a file share and add mount target later.
 
+When you create a mount target, its transit encryption type must reflect the share's allowed transit encryption modes. You can create multiple mount targets for the share if it's to be used by hosts in different VPCs.
+
 ## Creating a file share in the UI
 {: #file-storage-create-ui}
 {: ui}
 
-In the {{site.data.keyword.cloud_notm}} console, you can create a file share with or without a mount target. However, you need to create a mount target when you want to mount the share on a virtual server instance. You can create multiple mount targets for the share if it's to be used by hosts in different VPCs.
+In the {{site.data.keyword.cloud_notm}} console, you can create a file share with or without a mount target. However, you need to create a mount target when you want to mount the share on a virtual server instance.
 
 ### Creating a file share in the UI
 {: #fs-create-share-target-ui}
@@ -58,20 +60,13 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
 1. The creation of mount targets is optional. You can skip this step if you do not want to create a mount target now. Otherwise, click **Create**. You can create one mount target per VPC for the file share. 
 
    - If you selected security group as the access mode, enter the information as described in the Table 2. This action creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target that identifies the file share with a reserved IP address and applies the rules of the selected Security group. This mount target supports encryption-in-transit and cross-zone mounting.
-
-     | Field | Value |
-     |-------|-------|
-     | **Details** | |
-     | Mount target name | Specify a mount target name. The name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. You can later edit the name if you want. |
-     | Zone | Zone is inherited from the file share (for example, Dallas 2). |
-     | VPC | Select an available VPC. The list includes only those VPCs with a subnet in the selected zone. |
-     | Subnet | Select a subnet from the list. |
-     | **Reserved IP address** | Required for the mount target. The IP address cannot be changed afterward. However, you can delete the mount target and create another one with a different IP address. |
-     | Reserving method | You can have the file service select an IP address for you. The reserved IP becomes visible after the mount target is created. Or, specify your own IP. |
-     | Auto-release | Releases the IP address when you delete the mount target. Enabled by default. |
-     | **Security groups** | The [default security group](/docs/vpc?topic=vpc-updating-the-default-security-group) for the VPC is selected. You can use it or select another security group from the list. |
-     | **Encryption in transit** | Disabled by default, click the toggle to enable. For more information about this feature, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit). |
-     {: caption="Table 2. Values for creating a mount target." caption-side="top"}
+      1. Provide a mount target name. The name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. You can later edit the name if you want.
+      2. Select an available VPC. The list includes only those VPCs with a subnet in the selected zone. The zone selection is inherited from the file share (for example, Dallas 2).
+      3. A default virtual network interface is generated, by clicking the Edit icon ![Edit icon](/images/edit.png) you can customize it. You can change the name or subnet if you have multiple subnets in the zone.
+      4. Click **Next**.
+      5. **Encryption in transit** is disabled by default, click the toggle to enable. For more information about this feature, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit). 
+      6. Then, click **Next**. 
+      7. Review your selection, and either click **Back** to return and update your choices or click **Create**.
 
    - If you selected VPC as the access mode, provide a name for the mount target and select a VPC from the list. This mount target can be used to mount the file share on any virtual server instance of the selected VPC in the same zone as the file share. Cross-zone mounting is not supported.
 
@@ -83,7 +78,7 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
    | Encryption service instance | If you provisioned multiple KMS instances in your account, select the one that includes the root key that you want to use for customer-managed encryption. |
    | Key name | Select the root key within the KMS instance that you want to use for encrypting the share. |
    | Key ID | The field shows the key ID that is associated with the data encryption key that you selected. |
-   {: caption="Table 3. Values for customer-managed encryption for file shares." caption-side="bottom"}
+   {: caption="Table 2. Values for customer-managed encryption for file shares." caption-side="bottom"}
 
 1. When all the required information is entered, click **Create file share**. You return to the {{site.data.keyword.filestorage_vpc_short}} page, where a message indicates that the file share is provisioning. When the transaction completes, the share status changes to **Active**.
    
@@ -108,19 +103,12 @@ You can create several mount targets for an existing file share if the share is 
 
    - If the share has security group access mode, enter the following information. This action creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target that identifies the file share with a reserved IP address and applies the rules of the selected [security group](/docs/vpc?topic=vpc-using-security-groups#sg-getting-started). This mount target supports encryption-in-transit and cross-zone mounting.
 
-     | Field | Value |
-     |-------|-------|
-     | **Details** | |
-     | Mount target name | Specify a mount target name. The name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. You can later edit the name if you want. |
-     | Zone | Zone is inherited from the file share (for example, Dallas 2). |
-     | VPC | Select an available VPC. The list includes only those VPCs with a subnet in the selected zone. |
-     | Subnet | Select a subnet from the list. |
-     | **Reserved IP address** | Required for the mount target. The IP address cannot be changed afterward. However, you can delete the mount target and create another one with a different IP address. |
-     | Reserving method | You can have the file service select an IP address for you. The reserved IP becomes visible after the mount target is created. Or, specify your own IP. |
-     | Auto-release | Releases the IP address when you delete the mount target. Enabled by default. |
-     | **Security groups** | The [security group](/docs/vpc?topic=vpc-using-security-groups#sg-getting-started) for the VPC is selected by default, or select from the list. |
-     | **Encryption in transit** | Disabled by default, click the toggle to enable. For more information about this feature, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit). |
-     {: caption="Table 4. Values for creating a mount target." caption-side="top"}
+     1. Provide a mount target name. The name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. You can later edit the name if you want.
+     2. Select an available VPC. The list includes only those VPCs with a subnet in the selected zone. The zone selection is inherited from the file share (for example, Dallas 2).
+     3. A default virtual network interface is generated, by clicking the Edit icon ![Edit icon](/images/edit.png) you can customize it. You can change the name or subnet if you have multiple subnets in the zone.
+     4. Click **Next**.
+     5. **Encryption in transit** is disabled by default, click the toggle to enable. For more information about this feature, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit). 
+     6. Then, click **Next**. 
 
    - If the share has VPC as the access mode, provide a name for the mount target and select a VPC from the list. This mount target can be used to mount the file share on any virtual server instance of the selected VPC in the same zone as the file share. Cross-zone mounting is not supported.
 
