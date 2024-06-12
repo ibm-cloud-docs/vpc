@@ -662,7 +662,7 @@ toc:
             topics:
             - architecture-workload-isolation.md
             - cbr.md
-            - storagedurability.md
+            - storage_durability.md
             - data-security.md
             - topicgroup:
                 label: Data encryption
