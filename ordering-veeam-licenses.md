@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-12-18"
+  years: 2020, [{CURRENT_YEAR}]
+lastupdated: "[{LAST_UPDATED_DATE}]"
 
 keywords: Veeam license, order license, virtual private cloud, instance backup
 
@@ -22,9 +22,9 @@ You can order a Veeam license for the use of Veeam Agent and Veeam Backup and Re
 {: #ordering-veeam-license-procedure}
 
 1. In the [{{site.data.keyword.cloud}} console](https://console.cloud.ibm.com){: external}, navigate to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VMware > Licenses**.
-2. On the **Licenses** page, scroll to the **Veeam licenses** section, and click **Create new**.
-3. Enter the required information for the fields.
-4. Click the link or links of the terms that apply to your order. Ensure that you agree with the terms before you order the license.
-5. Click **Add to estimate** or **Create**.
+1. On the **Licenses** page, scroll to the **Veeam licenses** section, and click **Create new**.
+1. Enter the required information for the fields.
+1. Click the link or links of the terms that apply to your order. Ensure that you agree with the terms before you order the license.
+1. Click **Add to estimate** or **Create**.
 
 After you create the license, the ordering process automatically starts. An email is sent confirming the order, and a license key is generated and emailed to whomever placed the order. Should the order be incorrect, it can be deleted. For more information, see [Managing Veeam licenses](/docs/vmwaresolutions?topic=vmwaresolutions-veeam_managing_licenses).
