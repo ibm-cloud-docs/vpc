@@ -114,7 +114,7 @@ Table 4 shows Actions menu options from the volume details page.
 
 You can view information about an attached {{site.data.keyword.block_storage_is_short}} volume from the **Virtual server instance details** page:
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Compute > Virtual server instances** and select an instance.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Compute > Virtual server instances** and select an instance.
 
 2. Under **Attached Block Storage volumes**, click the name of a volume to go to the volume details page.
 

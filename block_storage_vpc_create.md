@@ -63,7 +63,7 @@ A {{site.data.keyword.block_storage_is_short}} volume can be attached to only on
 
 You can create a {{site.data.keyword.block_storage_is_short}} volume from an existing instance.
 
-1. Go to the list of virtual server instances. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Compute > Virtual server instances**.
+1. Go to the list of virtual server instances. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Compute > Virtual server instances**.
 2. Select an instance from the list.
 3. On the instance details page, scroll to **Storage volumes** and click **Attach**.
 4. In the side panel, click the down arrow under **Block volumes** and select **Create a data volume**. The side panel expands with fields to define the volume. For more information about these fields, see table 1.
