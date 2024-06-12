@@ -882,6 +882,7 @@ toc:
                 - vpn-ts-c2s-cannot-access-classic-vsi.md
             - resource-suspension.md
             - instance-status-messages.md
+            - reservation-health-status-messages.md
             - instance-lifecycle-status-messages.md
             - quota-dashboard-troubleshooting.md
             - ts-asymmetric-routing.md
