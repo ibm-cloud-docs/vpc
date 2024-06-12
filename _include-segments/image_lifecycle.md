@@ -1,5 +1,3 @@
-
-
 {{site.data.keyword.attribute-definition-list}}
 
 You can use the UI, CLI, API, and Terraform to manage the lifecycle of your custom images with three statuses. You can move the image back and forth through all the statuses and set dates to automatically change an image status. All status changes are tracked as an Activity Tracker event. You can filter your list of images based on status to aid in clean-up or tracking of your images. For more information about making status changes, see [Managing custom images](/docs/vpc?topic=vpc-managing-custom-images&interface=ui).
