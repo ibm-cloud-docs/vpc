@@ -73,4 +73,3 @@ To create a change log pull request and understand the requirements to promote y
 - [API feature and change log requirements](https://github.ibm.com/cloud-api-docs/vpc/wiki/API-feature-and-change-log-requirements) (target audience software and content developers)
 - [Change log entry workflow](https://github.ibm.com/cloud-api-docs/vpc/wiki/Change-log-entry-workflow) (target audience software and content developers)
 </staging>
-
