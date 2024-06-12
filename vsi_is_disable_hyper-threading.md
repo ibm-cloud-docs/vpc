@@ -12,7 +12,6 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-
 # Disabling Intel Hyper-Threading Technology
 {: #disabling-hyper-threading}
 
