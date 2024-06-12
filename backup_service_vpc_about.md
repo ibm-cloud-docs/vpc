@@ -15,7 +15,7 @@ subcollection: vpc
 # About Backup for VPC
 {: #backup-service-about}
 
-Use {{site.data.keyword.cloud}} Backup for VPC to automatically create backups and manually restore {{site.data.keyword.block_storage_is_short}} volumes from backup snapshots. By using this service, you can prevent data loss, manage risk, and improve data compliance. You can ensure that your data is backed up regularly, and you can retain the backups while you need them. You can create and manage backup policies and plans for your {{site.data.keyword.block_storage_is_short}} volumes by using the UI, the CLI, the API, or Terraform.
+Use {{site.data.keyword.cloud}} Backup for VPC to automatically create backups and manually restore {{site.data.keyword.block_storage_is_short}} volumes from backup snapshots. By using this service, you can prevent data loss, manage risk, and improve data compliance. You can ensure that your data is backed up regularly, and you can retain the backups while you need them. You can create and manage backup policies and plans in the console, from the CLI, with the API, or Terraform.
 {: shortdesc}
 
 Backups and snapshot services are different than a [disaster recovery (DR)](#x2113280){: term} solution, where your data is continually backed up with automatic failover. Restoring a volume from a backup or a snapshot is a manual operation that takes time. If you require a higher level of service for disaster recovery, see IBM's [Cloud disaster recovery solutions](https://www.ibm.com/cloud/disaster-recovery).
