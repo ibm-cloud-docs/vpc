@@ -364,7 +364,7 @@ Verify that the volume is detached from the instance by making a `GET /instances
 
 To add user tags to a volume, you first make a `GET /volumes/{volume_id}` call and copy the hash string from `Etag` property in the response header. You then use the hash string when you specify `If-Match` in a `PATCH /volumes/{volume_id}` request to create new user tags.
 
-For more information, see [Apply tags to {{site.data.keyword.block_storage_is_short}} volumes](/docs/vpc?topic=vpc-backup-use-policies&interface=api#backup-apply-tags-volumes-api) in the VPC backup service documentation.
+For more information, see [Applying tags to volumes](/docs/vpc?topic=vpc-backup-use-policies&interface=api#backup-apply-tags-volumes-api) in the VPC backup service documentation.
 
 ## Applying access management tags to a {{site.data.keyword.block_storage_is_short}} volume
 {: #storage-add-access-mgt-tags}

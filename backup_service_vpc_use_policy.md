@@ -31,7 +31,7 @@ Up to 100 tags can be attached or detached in the same operation. Keeping the nu
 1. Apply backup policy tags to your target volumes, or virtual server instances.{: terraform} 
 1. Verify that your selected resource is associated with a backup policy. For more information, see [View a list of resources that have a backup policy](/docs/vpc?topic=vpc-backup-view-policies&interface=ui#backup-view-vol-backup-policies).
 
-## Applying tags to {{site.data.keyword.block_storage_is_short}} volumes in the UI
+## Applying tags to volumes in the UI
 {: #backup-apply-tags-ui}
 {: ui}
 
@@ -60,7 +60,7 @@ Apply tags to new or existing {{site.data.keyword.block_storage_is_short}} volum
 4. In the new window, type a tag in the User tags text box.
 5. Click **Save**.
 
-## Applying tags to {{site.data.keyword.block_storage_is_short}} volumes from the CLI
+## Applying tags to volumes from the CLI
 {: #backup-apply-tags-volumes-cli}
 {: cli}
 
@@ -126,7 +126,7 @@ Tags                                   env:test,bkp:test,bcp:test
 ```
 {: screen}
 
-## Apply tags to {{site.data.keyword.block_storage_is_short}} volumes with the API
+## Applying tags to volumes with the API
 {: #backup-apply-tags-volumes-api}
 {: api}
 
@@ -224,7 +224,7 @@ To apply tags to a {{site.data.keyword.block_storage_is_short}} volume, follow t
    {: codeblock}
 
 
-## Applying tags to {{site.data.keyword.block_storage_is_short}} volumes with Terraform
+## Applying tags to volumes with Terraform
 {: #backup-apply-tags-volumes-terraform}
 {: terraform}
 
