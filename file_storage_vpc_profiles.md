@@ -36,7 +36,7 @@ Table 1 shows the dp2 profile performance levels compared to the earlier profile
 | `custom` | `custom`        | 1-100 IOPS/GB |   3,000-48,000 |           1024 MB/s | 10-16,000 GB | 
 {: caption="Table 1. Comparison of file share profiles and performance levels." caption-side="top"}
 
-^1^ IOPS values are based on 16k IO size.
+^1^ IOPS values are based on 16k I/O size.
 
 ^2^ Baseline throughput is determined by the number of IOPS multiplied by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB or custom IOPS tiers. The higher the IOPS that you specify, the higher the throughput. Maximum throughput is 1024 MBps.
 
@@ -45,7 +45,7 @@ The application I/O size directly impacts storage performance. If the applicatio
 ## Defined performance profile
 {: #dp2-profile}
 
-With the `dp2` profile, you can specify the total IOPS for the file share within the range for a specific file share size, 10 GB (default minimum) to 32,000 GB. You can provision shares with IOPS performance from 100 IOPS (the default minimum) to 96,000 IOPS, based on share size. The `dp2` profile is based on a IO size of 256 KB. Maximum throughput is 1024 MB/s.
+With the `dp2` profile, you can specify the total IOPS for the file share within the range for a specific file share size, 10 GB (default minimum) to 32,000 GB. You can provision shares with IOPS performance from 100 IOPS (the default minimum) to 96,000 IOPS, based on share size. The `dp2` profile is based on a I/O size of 256 KB. Maximum throughput is 1024 MB/s.
 
 Table 2 shows the available IOPS ranges, based on share size.
 
@@ -204,7 +204,7 @@ The response returns the following profiles and related information:
 
    For more information, see [ibm_is_share_profiles](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_share_profiles){: external}.
    
-## How IO size affects file share performance
+## How I/O size affects file share performance
 {: #fs-profiles-block-size}
 
 IOPS values are based on a 16 KB block size for all profiles, with a 50-50 read/write random workload. Each 16 KB of data that is read or written counts as one read/write operation. A single write of less than 16 KB counts as a single write operation.
