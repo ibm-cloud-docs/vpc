@@ -568,12 +568,13 @@ toc:
                 - file_storage_vpc_manage.md
                 - file_storage_vpc_expandable_shares.md
                 - file_storage_vpc_adjustable_iops.md
+                - file_storage_vpc_monitoring.md
             - topicgroup:
                 label: Replication
                 topics:
                 - file_storage_vpc_replication.md
-                - file_storage_vpc_create_replication.md
-                - file_storage_vpc_manage_replication.md
+                - file_storage_vpc_replication_create.md
+                - file_storage_vpc_replication_manage.md
                 - file_storage_vpc_replication_failover.md
         - topicgroup:
             label: Block Storage
