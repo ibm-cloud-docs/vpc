@@ -65,7 +65,7 @@ toc:
            - vsi_is_provisioning_scripts.md
            - instance-profiles-vpc-bandwidth.md
            - topicgroup:
-               label: Confidential computing with SGX for Virtual Servers for VPC
+               label: Confidential computing with SGX for VPC
                topics:
                - about-sgx-confidential-computing.md
                - confidential-computing-secure-boot.md
