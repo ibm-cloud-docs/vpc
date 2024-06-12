@@ -21,8 +21,7 @@ subcollection: vpc
 ## About cross-account key access and use
 {: #byok-cross-acct-about}
 
-Customer root keys in one account can be made available to users of another account to use when they create an encrypted file share.
-For more information, see [Encryption key management](/docs/solution-tutorials?topic=solution-tutorials-resource-sharing#resource-sharing-security-kms).
+Customer root keys in one account can be made available to users of another account to use when they create an encrypted file share. For more information, see [Encryption key management](/docs/solution-tutorials?topic=solution-tutorials-resource-sharing#resource-sharing-security-kms).
 
 A privileged user from the account that owns the root key must [invite the user](/docs/account?topic=account-iamuserinv) of the second account, and set the IAM delegated policy to the root key. For more information, see [Granting access to keys with {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-grant-access-keys) and [Granting access to keys with {{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-grant-access-keys).
 
