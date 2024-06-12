@@ -80,7 +80,7 @@ The following table shows the same number of bytes expressed in decimal and bina
 |                 2 TB |              1.81 TiB |
 {: caption="Table 1. Decimal vs Binary units" caption-side="bottom"}
 
-The storage system uses base-2 units for volume allocation. So if your volume is provisioned as 4,000 GB, that's really 4,000 GiB or 4,294,967,296,000 bytes of storage space. The provisioned volume size is actually larger than 4 TB. However, your operating system might display the storage size as 3.9 T because it uses base-2 conversion and the T stands for TiB, not TB.
+The storage system uses base-2 units for volume allocation. So if your volume is provisioned as 4,000 GB, that's really 4,000 GiB or 4,294,967,296,000 bytes of storage space. The provisioned volume size is larger than 4 TB. However, your operating system might display the storage size as 3.9 T because it uses base-2 conversion and the T stands for TiB, not TB.
 
 ### Why does the available capacity that I see in my OS not match the capacity that I provisioned?
 {: faq}
@@ -282,7 +282,7 @@ Yes, you can add user tags and access management tags to your volumes. User tags
 ## Performance questions
 {: #block-storage-vpc-performance-questions}
 
-### What is IOPS and how do it relate to my {{site.data.keyword.block_storage_is_short}} volume performance?
+### What is IOPS and how does it relate to my {{site.data.keyword.block_storage_is_short}} volume performance?
 {: faq}
 {: #faq-block-storage-4a}
 
@@ -403,7 +403,7 @@ Both key management systems provide you with complete control over your data, ma
 
 No, after you provision a volume and specify the encryption type, you can't change it.
 
-## Is there a way to copy the Block Storage volume to a different zone?
+## Can a Block Storage volume be copied to a different zone?
 {: faq}
 {: #faq-block-storage-30}
 
