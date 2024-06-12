@@ -64,7 +64,7 @@ To create a service-to-service authorization policy, follow this procedure:
 1. Click **Authorize**.
 1. When you are returned to the **Manage authorizations** page, click **Create** again and follow the same steps to set up authorizations for the remaining services.
 
-### CCreating cross-account authorization for volume backups for the Enterprise
+### Creating cross-account authorization for volume backups for the Enterprise
 {: #backup-s2s-auth-procedure-ui-enterprise}
 
 To allow an Enterprise administrator to manage backups centrally, the subaccounts must provide authorization for the Backup service of the Enterprise account to interact with the resources of the child accounts. 
@@ -317,7 +317,7 @@ To use Backup for VPC in your account to create policies, plans and run backup j
 
 For more information about all of the parameters that are available for this command, see [ibmcloud iam authorization-policy-create](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_authorization_policy_create).
 
-### CCreating cross-account authorization for volume backups for the Enterprise
+### Creating cross-account authorization for volume backups for the Enterprise
 {: #backup-s2s-auth-procedure-cli-enterprise}
 
 To allow an Enterprise administrator to manage backups centrally, the subaccounts must provide authorization for the Backup service of the Enterprise account to interact with the resources of the child accounts. 
@@ -487,7 +487,7 @@ curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H
 
 For more information, see the api spec for [IAM Policy Management](/apidocs/iam-policy-management#create-policy).
 
-### CCreating cross-account authorization for volume backups for the Enterprise
+### Creating cross-account authorization for volume backups for the Enterprise
 {: #backup-s2s-auth-procedure-api-enterprise}
 
 To allow an Enterprise administrator to manage backups centrally, the subaccounts must provide authorization for the Backup service of the Enterprise account to interact with the resources of the child accounts.
