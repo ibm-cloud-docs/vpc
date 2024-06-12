@@ -19,7 +19,7 @@ subcollection: vpc
 View all file shares and mount targets in the UI, CLI, API, or Terraform. View details of a single file share or mount target.
 {: shortdesc}
 
-## View file shares and mount targets in the UI
+## Viewing file shares and mount targets in the UI
 {: #file-storage-view-shares-targets-ui}
 {: ui}
 
@@ -266,7 +266,7 @@ Created                     2023-10-19T15:42:54+00:00
 
 For more information about the command options, see [`ibmcloud is share-mount-target`](/docs/vpc?topic=vpc-vpc-reference#share-mount-target-view).
 
-## View file shares and mount targets with the API
+## Viewing file shares and mount targets with the API
 {: #file-storage-view-shares-targets-api}
 {: api}
 
@@ -632,7 +632,7 @@ A successful response provides details of the source file share. Notice that the
 ```
 {: codeblock}
 
-## View file shares and mount targets with Terraform
+## Viewing file shares and mount targets with Terraform
 {: #file-storage-view-shares-targets-terraform}
 {: terraform}
 
@@ -667,7 +667,7 @@ The attributes that are exported include the total count of shares and the list 
 
 For more information, see [ibm_is_shares](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_shares){: external}.
 
-### View file share information with Terraform
+### Viewing file share information with Terraform
 {: #fs-view-share-terraform}
 
 Import the details of a file share as a read-only data source. You must identify the share by ID or name.
