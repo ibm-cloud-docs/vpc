@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-02-26"
+lastupdated: "2024-06-06"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, view backup lists,
 
@@ -42,7 +42,7 @@ From the backup policy details page, you can list all backup jobs for that polic
    | Job started   | Date and time of when the job began. |
    | Job completed | Date and time of when the job was finished. |
    | Snapshot      | The snapshot (backup) that was created when the backup job finishes. Click the name to see the details in the side panel. |
-   | Source        | The source can either be the Source volume from which the first snapshot was taken, or the source instance of the snapshot consistency group that the backup is a member of. |
+   | Source        | The source can be the source volume from which the first snapshot was taken, or the source instance of the snapshot consistency group that the backup is a member of. |
    {: caption="Table 1. Information provided by the list of backup jobs for the backup policy" caption-side="bottom"}
 
 ### View snapshots that were created by a backup job in the UI
@@ -55,7 +55,7 @@ From the list of backup jobs, click the Actions icon ![Actions icon](../icons/ac
 | Name     | The name of the backup policy that created the snapshot. You can change the backup policy settings by clicking the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit"). For more information, see [Managing backup policies](/docs/vpc?topic=vpc-backup-service-manage). |
 | Status   | The status of the snapshot, such as _Stable_. For a list of snapshot statuses, see [Snapshot statuses](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-status). |
 | Size     | Size in GBs of the snapshot, it is inherited from the source volume. |
-| Source   | This field shows the Source volume from which the snapshot was taken. If the source was deleted, the name appears without a link. |
+| Source   | This field shows the source volume from which the snapshot was taken. If the source volume was deleted, the name appears without a link. |
 | Bootable | It indicates whether the snapshot was created from a boot volume. |
 {: caption="Table 2. Snapshot details side panel" caption-side="bottom"}
 
@@ -372,16 +372,6 @@ A successful response looks like the following example.
 ```
 {: codeblock}
 
-### Backup job statuses and reason codes
-{: #backup-jobs-status}
-
-When you view details of a backup job by making a `GET /backup_policies/{backup_policy_id}/jobs/{backup_job_id}` request, the `status` property indicates whether the job `failed`, is `running`, or `succeeded`. The API also provides status reasons with the following codes:
-
-* `internal_error` - the code indicates an internal error. Contact IBM support if you see this code.
-* `snapshot_pending` - the code indicates that a backup snapshot in the `pending` [snapshot lifecycle state](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-status) cannot be deleted.
-* `snapshot_volume_limit` - the code indicates that the [snapshot limit](/docs/vpc?topic=vpc-snapshots-vpc-faqs&interface=ui#faq-snapshot-3) for the source volume is reached.
-* `source_volume_busy` - the code indicates that the source volume is busy after multiple retries.
-
 ## View backup jobs with Terraform
 {: #backup-view-jobs-terraform}
 {: terraform}
@@ -428,6 +418,15 @@ data "ibm_is_backup_policy_job" "example" {
 {: codeblock}
 
 For more information about the arguments and attributes, see [ibm_is_backup_policy_job](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/ibm_is_backup_policy_job){: external}.
+
+## Backup job statuses and reason codes
+{: #backup-jobs-status}
+
+When you view details of a backup job from the CLI or by making a `GET /backup_policies/{backup_policy_id}/jobs/{backup_job_id}` request to the API, the `status` property indicates whether the job `failed`, is `running`, or `succeeded`. The CLI and API responses also provide status reasons with the following codes:
+
+* `internal_error` - The code indicates an internal error. Contact IBM support if you see this code.
+* `snapshot_pending` - The code indicates that a backup snapshot in the `pending` [snapshot lifecycle state](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-status) cannot be deleted.
+* `snapshot_volume_limit` - The code indicates that the [snapshot limit](/docs/vpc?topic=vpc-snapshots-vpc-faqs&interface=ui#faq-snapshot-3) for the source volume is reached.
 
 ## Next steps
 {: #backup-jobs-next-steps}
