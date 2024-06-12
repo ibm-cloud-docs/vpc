@@ -886,7 +886,7 @@ For more information about the arguments and attributes, see [ibm_is_share_mount
 ### Creating a file share with a mount target with security group access mode
 {: #file-share-create-with-target-sg-terraform}
 
-You don't have to create the file share and the mount target separately. To create a file share with a mount target that allows for security group-based authentication within a VPC, use the `ibm_is_share` resource. Specify the access control mode as `security_group`, and define the mount target by providing a name for it, details of the virtual network interface such as name, subnet, or IP address. Also, specify the security groups that you want to use to control access to the file share. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all virtual server instances on which you want to mount the file share.
+You don't need to create the file share and the mount target separately. To create a file share with a mount target that allows for security group-based authentication within a VPC, use the `ibm_is_share` resource. Specify the access control mode as `security_group`, and define the mount target by providing a name for it, details of the virtual network interface such as name, subnet, or IP address. Also, specify the security groups that you want to use to control access to the file share. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all virtual server instances on which you want to mount the file share.
 
 ```terraform
 resource "ibm_is_share" "share4" {
