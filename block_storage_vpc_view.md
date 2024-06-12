@@ -33,7 +33,7 @@ By default, {{site.data.keyword.block_storage_is_short}} volumes display for all
 
 | Field | Description |
 |-------|-------------|
-| Region | The region where these volumes are located, for example, US South. Click the down arrow to see volumes in a different region in which you have an account.)
+| Region | The region where these volumes are located, for example, US South. Click the down arrow to see volumes in a different region in which you have an account. |
 | Name | Click the name of the volume to see individual volume details. |
 | Status | Status of the volume, which functions as the default filter for all rows. |
 | Location | Availability zone in your region, inherited from the VPC (for example, US South 1).|
