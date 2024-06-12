@@ -91,7 +91,7 @@ You can view details of a backup policy by using the UI.
 ### Viewing the list of resources that are associated to a backup policy
 {: #backup-view-vol-backup-policies}
 
-View the list of {{site.data.keyword.block_storage_is_short}} volumes or virtual server instances that are backed up by the policy. For a resource to be backed up by a policy, the resource must be tagged with at least one of the policy’s tags for the target resources.
+View the list of resources that are backed up by the policy. For a resource to be backed up by a policy, the resource must be tagged with at least one of the policy’s tags for the target resources.
 
 You can use this list of {{site.data.keyword.block_storage_is_short}} volumes or virtual server instances to verify that the backup policies are correctly applied.
 
