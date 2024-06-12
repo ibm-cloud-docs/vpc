@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-03-27"
+lastupdated: "2024-06-12"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -326,6 +326,9 @@ Resource type        backup_policy_plan
 
 For more information about available command options, see [`ibmcloud is backup-policy-plan-update`](/docs/cli?topic=cli-vpc-reference#backup-policy-plan-update){: external}.
 
+Fast restore and cross-region copy features are not supported for multi-volume backups.
+{: note}
+
 ## Managing backup policies and plans with the API
 {: #backup-manage-policy-api}
 {: api}
@@ -517,6 +520,9 @@ A successful response shows that the remote region policy is created.
 ```
 {: codeblock}
 
+Fast restore and cross-region copy features are not supported for multi-volume backups.
+{: note}
+
 ## Managing backup policies and plans with Terraform
 {: #backup-manage-policy-terraform}
 {: terraform}
@@ -582,6 +588,9 @@ resource "ibm_is_backup_policy_plan" "example" {
 {: codeblock}
 
 For more information about the arguments and attributes, see [ibm_is_backup_policy_plan](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_backup_policy_plan){: external}.
+
+Fast restore and cross-region copy features are not supported for multi-volume backups.
+{: note}
 
 ## Backup policy deletion overview
 {: #backup-delete}
