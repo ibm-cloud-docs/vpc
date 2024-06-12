@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years:  2017, 2024
-lastupdated: "2024-01-30"
+  years: 2017, [{CURRENT_YEAR}]
+lastupdated: "[{LAST_UPDATED_DATE}]"
 
 keywords: IAM access for vpc infrastructure services, permissions for vpc infrastructure services, identity and access management for vpc infrastructure services, roles for vpc infrastructure services, actions for vpc infrastructure services, assigning access for vpc infrastructure services
 
