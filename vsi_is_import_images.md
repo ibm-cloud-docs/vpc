@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-04-09"
+lastupdated: "2024-06-12"
 
 keywords:
 
@@ -59,7 +59,7 @@ When you have an image available in {{site.data.keyword.cos_full_notm}}, you can
 | Bucket | Select the {{site.data.keyword.cos_full_notm}} bucket where your image is stored.|
 | Name | Select the image file in the {{site.data.keyword.cos_full_notm}} service instance that you want to import. If you are importing an encrypted image, the image must be encrypted with LUKS encryption by using QEMU and your own passphrase. For more information, see [Encrypting the image](/docs/vpc?topic=vpc-create-encrypted-custom-image#manually-encrypt-image). |
 | Operating System | Select the operating system that is included in your image. \n \n For custom images with Red Hat Enterprise Linux or Windows operating systems, you can bring your own license (BYOL) or license through {{site.data.keyword.cloud_notm}}. \n \n For Red Hat Enterprise Linux or Windows [BYOL custom images](/docs/vpc?topic=vpc-byol-vpc-about), you must select the OS with `-byol` appended to the name. For example, if you have a Windows 2019 BYOL custom image, select *windows-2019-amd64-byol* for the operating system. Failure to select the `-byol` version of the operating system when you import a BYOL custom image might result in a virtual server that is unable to start. \n \n If you configured your Red Hat Enterprise Linux or Windows custom image to license through {{site.data.keyword.cloud_notm}}, you must select the non-BYOL operating system. For example, if you have a Windows 2019 custom image that you plan to license through {{site.data.keyword.cloud_notm}}, select *windows-2019-amd64* as the operating system when you import the custom image. \n \n For a custom image that uses a generic OS, select `Generic` and then select the appropriate version. \n \n **Notes:** \n \n * For a custom image using an operating system not listed in {{site.data.keyword.vpc_short}}, you must create a custom image that uses a generic OS. For more information, see [Creating a generic operating system custom image](/docs/vpc?topic=vpc-create-generic-os-custom-image&interface=ui). \n \n * Select the ESXi kickstart version if your image requires that technology to boot and initialize. However, this option is only available for bare metal servers. |
-| Encryption | The default selection is **Provider managed**. If you have not encrypted your image by using QEMU, use the default value, **Provider managed**. If you are importing an image that you have encrypted by using QEMU and your own passphrase, select the key management service where your customer root key (CRK) that protects your passphrase is stored. Select either **Key Protect** or **Hyper Protect Crypto Services**. VHD format images are not supported for encryption. |
+| Encryption | The default selection is **Provider-managed**. If you have not encrypted your image by using QEMU, use the default value, **Provider-managed**. If you are importing an image that you have encrypted by using QEMU and your own passphrase, select the key management service where your customer root key (CRK) that protects your passphrase is stored. Select either **Key Protect** or **Hyper Protect Crypto Services**. VHD format images are not supported for encryption. |
 | Encryption service instance | For an encrypted image, select the specific instance of the key management service where your CRK that wraps your encryption passphrase is stored. For more information, see [Setting up your key management service and keys](/docs/vpc?topic=vpc-create-encrypted-custom-image#kms-prereqs). |
 | Key name | Select the customer root key (CRK) that you used to wrap your encryption passphrase. For more information, see [Setting up your key management service and keys](/docs/vpc?topic=vpc-create-encrypted-custom-image#kms-prereqs). |
 | Wrapped data encryption key | For an encrypted image, specify the ciphertext that is associated with the wrapped data encryption key (WDEK). The WDEK is produced by wrapping the passphrase that you used to encrypt your image with your customer root key. For more information, see [Setting up your key management service and keys](/docs/vpc?topic=vpc-create-encrypted-custom-image#kms-prereqs).|
@@ -99,17 +99,17 @@ Specify the name of the custom image to be created by using the `IMAGE_NAME` var
 
 To schedule the `deprecate-at` or `obsolete-at` properties, specify a date in the ISO 8601 (`YYYY-MM-DDThh:mm:ss+hh:mm`) date and time format.
 
-* `YYYY` is the four digit year
-* `MM` is the two digit month
-* `DD` is the two digit day
+* `YYYY` is the four-digit year
+* `MM` is the two-digit month
+* `DD` is the two-digit day
 * `T` separates the date and time information
-* `hh` is the two digit hours
-* `mm` is the two digit minutes
-* `+hh:mm` or `-hh:mm` is the UTC time zone
+* `hh` is the two-digit hours
+* `mm` is the two-digit minutes
+* `+hh:mm` or `-hh:mm` is the Coordinated Universal Time time zone
 
-Thus, the date of 30 September 2023 at 8:00 PM in the North American Central Standard Time Zone (CST) would be `2023-09-30T20:00:00-06:00`
+Thus, the date of 30 September 2023 at 8:00 PM in the North American Central Standard time zone (CST) would be `2023-09-30T20:00:00-06:00`
 
-When scheduling the date and time, you can't use your current date and time or a future date and time. For example, if it is 8 AM on 12 June, then the scheduled date and time must be after 8 AM on 12 June. If you define both the `deprecate-at` and `obsolete-at` dates and times, the `deprecate-at` date must be after the `obsolete-at` date and time.
+When you schedule the date and time, you can't use your current date and time or a future date and time. For example, if it is 8 AM on 12 June, then the scheduled date and time must be after 8 AM on 12 June. If you define both the `deprecate-at` and `obsolete-at` dates and times, the `deprecate-at` date must be after the `obsolete-at` date and time.
 
 ```sh
 ibmcloud is image-create IMAGE_NAME [--file IMAGE_FILE_LOCATION] [--os-name OPERATING_SYSTEM_NAME] [--deprecate-at YYYY-MM-DDThh:mm:ss+hh:mm] [--obsolete-at YYYY-MM-DDThh:mm:ss+hh:mm]
@@ -164,17 +164,17 @@ The `name` can't be used by another image in the region and names that start wit
 
 To schedule the `deprecation_at` or `obsolescence_at` properties, specify a date in the ISO 8601 (`YYYY-MM-DDThh:mm:ss+hh:mm`) date and time format.
 
-* `YYYY` is the four digit year
-* `MM` is the two digit month
-* `DD` is the two digit day
+* `YYYY` is the four-digit year
+* `MM` is the two-digit month
+* `DD` is the two-digit day
 * `T` separates the date and time information
-* `hh` is the two digit hours
-* `mm` is the two digit minutes
-* `+hh:mm` or `-hh:mm` is the UTC time zone
+* `hh` is the two-digit hours
+* `mm` is the two-digit minutes
+* `+hh:mm` or `-hh:mm` is the Coordinated Universal Time time zone
 
-Thus, the date of 30 September 2023 at 8:00 PM in the North American Central Standard Time Zone (CST) would be `2023-09-30T20:00:00-06:00`
+Thus, the date of 30 September 2023 at 8:00 PM in the North American Central Standard time zone (CST) would be `2023-09-30T20:00:00-06:00`
 
-When scheduling the date and time, you can't use your current date and time. For example, if it is 8 AM on 12 June, then the scheduled date and time must be after 8 AM on 12 June. If you define both the `deprecation_at` and `obsolescence_at` dates and times, the `obsolescence_at` date must be after the `deprecation_at` date and time.
+When you schedule the date and time, you can't use your current date and time. For example, if it is 8 AM on 12 June, then the scheduled date and time must be after 8 AM on 12 June. If you define both the `deprecation_at` and `obsolescence_at` dates and times, the `obsolescence_at` date must be after the `deprecation_at` date and time.
 
 The following example imports a custom image with the name of `my-image`, source location of `cos://us-south/my-bucket/my-image.qcow2`, and the operating system for the image is `debian-9-amd64`. The image is scheduled to be deprecated on `2023-03-01T06:11:28+05:30`. The image is scheduled to be obsolete on `2023-12-31T06:11:28+05:30`.
 
@@ -203,17 +203,17 @@ The `name` attribute can't be used by another image in the region and names that
 
 To schedule the `deprecation_at` or `obsolescence_at` attributes, specify a date in the ISO 8601 (`YYYY-MM-DDThh:mm:ss+hh:mm`) date and time format.
 
-* `YYYY` is the four digit year
-* `MM` is the two digit month
-* `DD` is the two digit day
+* `YYYY` is the four-digit year
+* `MM` is the two-digit month
+* `DD` is the two-digit day
 * `T` separates the date and time information
-* `hh` is the two digit hours
-* `mm` is the two digit minutes
-* `+hh:mm` or `-hh:mm` is the UTC time zone
+* `hh` is the two-digit hours
+* `mm` is the two-digit minutes
+* `+hh:mm` or `-hh:mm` is the Coordinated Universal Time time zone
 
-Thus, the date of 30 September 2023 at 8:00 PM in the North American Central Standard Time Zone (CST) would be `2023-09-30T20:00:00-06:00`
+Thus, the date of 30 September 2023 at 8:00 PM in the North American Central Standard time zone (CST) would be `2023-09-30T20:00:00-06:00`
 
-When scheduling the date and time, you can't use your current date and time. For example, if it is 8:00 AM on June 12, then the scheduled date and time must be after 8:00 AM on June 12. If you define both the `deprecation_at` and `obsolescence_at` dates and times, the `obsolescence_at` date must be after the `deprecation_at` date and time.
+When you schedule the date and time, you can't use your current date and time. For example, if it is 8:00 AM on 12 June, then the scheduled date and time must be after 8:00 AM on 12 June. If you define both the `deprecation_at` and `obsolescence_at` dates and times, the `obsolescence_at` date must be after the `deprecation_at` date and time.
 
 The following example imports a custom image with the name of `example-image`, source location of `cos://us-south/buckettesttest/livecd.ubuntu-cpc.azure.vhd`, and the operating system for the image is `ubuntu-16-04-amd64`. The image is scheduled to be deprecated on `2023-11-28T15:10:00.000Z`. The image is scheduled to be obsolete on `2023-11-28T15:10:00.000Z`.
 
@@ -262,7 +262,7 @@ If you generate a checksum locally for your image before you import it, you can 
    * Example Mac command: `shasum -a 256 ubuntu_image.qcow2`
    * You receive output similar to: `6809606da67eb83670e6249e54e94043eb43c0471669fb96ea4050c4c07e2df7`
 
-5. [Create a virtual server instance](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui) by using this image.
+5. Create a virtual server instance or a bare metal server by using this image. For more information, see [Create a virtual server instance](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui) or [Creating Bare Metal Servers on VPC](/docs/vpc?topic=vpc-creating-bare-metal-servers&interface=ui).
 
 ## Validating an imported custom image by using the CLI
 {: #validate-custom-images-cloud-object-storage-cli}
@@ -281,9 +281,9 @@ ibmcloud is image IMAGE
 ```
 {: pre}
 
-For more information, see [ibmcloud is image](/docs/vpc?topic=vpc-vpc-reference&interface=ui#image-view)in the VPC CLI reference page.
+For more information, see [ibmcloud is image](/docs/vpc?topic=vpc-vpc-reference#image-view)in the VPC CLI reference page.
 
-The following example views the details of a custom image with the id of `r134-1d1e92e9-6550-4d06-8483-d674310045fd`.
+The following example views the details of a custom image with the ID of `r134-1d1e92e9-6550-4d06-8483-d674310045fd`.
 
 ```sh
 ibmcloud is image r134-1d1e92e9-6550-4d06-8483-d674310045fd
@@ -334,7 +334,7 @@ After you import a custom image, you can view the checksum that was generated fo
 
 If you generate a checksum locally for your image before you import it, you can compare the two checksums to make sure that they are identical. Matching checksums indicate that the image is unaltered.
 
-To validate as custom image by using the API, use the [List all images](/apidocs/vpc/latest#list-images).
+To validate as custom image by using the API, use [List all images](/apidocs/vpc/latest#list-images).
 
 For the `$image_id`, specify the ID of the custom image you want to validate.
 
@@ -354,4 +354,6 @@ After you validate the Checksum (SHA256), use the image to create a virtual serv
 ## Next steps
 {: #next-validate-custom-image}
 
-After you validate the custom images, you can deploy and manage your custom images. For more information, see [Managing custom images](/docs/vpc?topic=vpc-managing-custom-images&interface=ui). If you plan to manage your custom images with a private catalog, see [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui).
+After you validate the custom images, you can deploy and manage your custom images. For more information, see [Managing custom images](/docs/vpc?topic=vpc-managing-custom-images&interface=ui). 
+
+If you plan to manage your custom images with a private catalog, see [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui). If you plan to publish your images through the Global Catalog and bill users by using a software plan, see [Onboarding a virtual server for VPC with a plan](/docs/account?topic=account-working-catalog-vsivpc-tutorial&interface=ui).
