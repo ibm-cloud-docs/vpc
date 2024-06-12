@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2023-12-18"
+lastupdated: "2024-05-28"
 
 keywords: Block Storage for VPC, boot volume, data volume, volume, data storage, virtual server instance, instance, adjustable volume, iops
 
@@ -63,7 +63,7 @@ The following limitations apply to this release.
 * For a volume that was created by using an [IOPS tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers), select a different profile for the volume size to increase or decrease IOPS. If the volume size exceeds that of the new IOPS tier profile, you can't change the profile.
 * A [custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#custom) can expand to the highest value that is allowed by the custom band. You can't switch custom bands unless you increase the volume size and move to a higher band.
 * Custom IOPS can be adjusted multiple times until the maximum or minimum limit is reached.
-* Maximum IOPS for a volume for all profiles is [48,000 IOPs](/docs/vpc?topic=vpc-block-storage-profiles#tiers).
+* The maximum IOPS for a volume with the `tier` and `custom` profiles is [48,000 IOPS](/docs/vpc?topic=vpc-block-storage-profiles#tiers).
 
 ### Other limitations
 {: #exp-vols-additional-limitations}
@@ -78,19 +78,19 @@ The following limitations apply to this release.
 Follow these steps to adjust IOPS by selecting a new IOPS tier or custom IOPS band:
 
 1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage volumes**. By default, {{site.data.keyword.block_storage_is_short}} volumes display for all resource groups in your region.
-2. In the list of all **{{site.data.keyword.block_storage_is_short}} volumes**, click the name of the volume to see the volume details.
+1. In the list of all **{{site.data.keyword.block_storage_is_short}} volumes**, click the name of the volume to see the volume details.
    The volume that you select must be attached to a virtual server instance. In the list of volumes, its attachment type is _data_.
    {: note}
 
    Alternatively, go to a virtual server instance with an attached volume that you want to adjust IOPS and select it from the list of attached volumes.
    {: tip}
 
-3. On the volume details page, locate **Profile** and click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") or use the **Actions** menu and select **Edit IOPS profile**. Volumes must be attached to a virtual server instance for these actions.
-4. In the side panel, adjust IOPS as follows:
+1. On the volume details page, locate **Profile** and click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") or use the **Actions** menu and select **Edit IOPS profile**. Volumes must be attached to a virtual server instance for these actions.
+1. In the side panel, adjust IOPS as follows:
    * For an IOPS tier, select a different tier from the menu. For example, you might have a 3 IOPS/GB general-purpose profile you're increasing to a 5 IOPS/GB profile.
    * For a Custom IOPS, the current IOPS value is shown and volume size. Enter a new IOPS value in the range specified for that custom band.
-5. Review the estimated monthly order summary for your geography and new pricing.
-6. If you're satisfied, click **Save and continue**.
+1. Review the estimated monthly order summary for your geography and new pricing.
+1. If you're satisfied, click **Save and continue**.
 
 Your new IOPS allocation is realized when you restart the instance.
 
