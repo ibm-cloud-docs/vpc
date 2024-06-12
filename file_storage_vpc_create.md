@@ -58,7 +58,6 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
    {: caption="Table 1. Values for creating a file share" caption-side="top"}
 
 1. The creation of mount targets is optional. You can skip this step if you do not want to create a mount target now. Otherwise, click **Create**. You can create one mount target per VPC for the file share. 
-
    - If you selected security group as the access mode, enter the information as described in the Table 2. This action creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target that identifies the file share with a reserved IP address and applies the rules of the selected Security group. This mount target supports encryption-in-transit and cross-zone mounting.
       1. Provide a mount target name. The name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. You can later edit the name if you want.
       2. Select an available VPC. The list includes only those VPCs with a subnet in the selected zone. The zone selection is inherited from the file share (for example, Dallas 2).
@@ -102,7 +101,6 @@ You can create several mount targets for an existing file share if the share is 
 4. Depending on the [mount target access mode](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-mount-access-mode) of the share, the **Create mount target** form looks different.
 
    - If the share has security group access mode, enter the following information. This action creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target that identifies the file share with a reserved IP address and applies the rules of the selected [security group](/docs/vpc?topic=vpc-using-security-groups#sg-getting-started). This mount target supports encryption-in-transit and cross-zone mounting.
-
      1. Provide a mount target name. The name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. You can later edit the name if you want.
      2. Select an available VPC. The list includes only those VPCs with a subnet in the selected zone. The zone selection is inherited from the file share (for example, Dallas 2).
      3. A default virtual network interface is generated, by clicking the Edit icon ![Edit icon](/images/edit.png) you can customize it. You can change the name or subnet if you have multiple subnets in the zone.
