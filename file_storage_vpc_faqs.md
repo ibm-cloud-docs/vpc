@@ -110,7 +110,7 @@ File shares are not elastic. Currently, you can provision a minimum of 10 GiB to
 
 You can increase the size of a file share from its original capacity in GiB increments up to 32,000 GiB capacity, depending on your [file share profile](/docs/vpc?topic=vpc-file-storage-profiles). For more information, see [expanding file share capacity](/docs/vpc?topic=vpc-file-storage-expand-capacity).
 
-### Is there a way to replicate my file shares to protect my data from disastrous events?
+### Can my file shares be replicated to protect my data from disastrous events?
 {: faq}
 {: #faq-fs-mgt-9}
 
