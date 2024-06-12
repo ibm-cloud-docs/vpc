@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-05-14"
+lastupdated: "2024-06-11"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -23,7 +23,7 @@ View all file shares and mount targets in the UI, CLI, API, or Terraform. View d
 {: #file-storage-view-shares-targets-ui}
 {: ui}
 
-### View all file shares in the UI
+### Viewing all file shares in the UI
 {: #fs-view-all-shares-ui}
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > File Shares**.
@@ -43,7 +43,7 @@ View all file shares and mount targets in the UI, CLI, API, or Terraform. View d
 | Actions menu| Options for managing the file share, depending on its state. For a file share in a _stable_ state, you can rename the share, create a replica, or delete a file share. **Delete** and **Create replica** are disabled if you set up replication to a replica file share already. For more information, see [Creating replica file shares](/docs/vpc?topic=vpc-file-storage-create-replication&interface=ui). |
 {: caption="Table 1. File shares list page." caption-side="bottom"}
 
-### View details of a file share in the UI
+### Viewing details of a file share in the UI
 {: #fs-view-single-share-ui}
 
 1. Go to the list of all file shares. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > File Shares**.
@@ -94,7 +94,7 @@ The following table describes the information on the file share details page.
 | Status   | It displays the lifecycle status of the file share. The status `Stable` is expected.|
 {: caption="Table 2. File shares details page" caption-side="bottom"}
 
-### View all file shares for a VPC in the UI
+### Viewing all file shares for a VPC in the UI
 {: #fs-view-shares-vpc}
 
 You can see all file shares that have a mount target to a VPC by viewing the VPC details page.
@@ -106,7 +106,7 @@ You can see all file shares that have a mount target to a VPC by viewing the VPC
 
 2. On the VPC details page, scroll to **File shares in this VPC**.
 
-### View mount target details in the UI
+### Viewing mount target details in the UI
 {: #fs-get-mountpath-ui-vpc}
 
 1. Go to the list of all file shares. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > File Shares**.
@@ -223,7 +223,7 @@ Replication status reasons   Status code   Status message
 
 For more information about the command options, see [`ibmcloud is share`](/docs/vpc?topic=vpc-vpc-reference#share-view).
 
-### View mount targets for a file share from the CLI
+### Viewing mount targets for a file share from the CLI
 {: #fs-view-mount-shares-cli}
 
 To see all the mount targets that are created for a file share, run the `ibmcloud is share-mount-targets` command and specify the file share ID.
@@ -238,7 +238,7 @@ r006-fdbffc45-618c-49f1-bb08-ec530d7be378   my-source-mount-target   my-vpc   st
 
 For more information about the command options, see [`ibmcloud is share-mount-targets`](/docs/vpc?topic=vpc-vpc-reference#share-mount-targets-list).
 
-### View mount target details from the CLI
+### Viewing mount target details from the CLI
 {: #fs-get-mountpath-cli}
 
 To view more detailed information about a mount target, run the `ibmcloud is share-mount-target` command and specify the share ID or name with the mount target name or ID. See the following example.
@@ -283,7 +283,7 @@ You must provide the `generation` parameter and specify `generation=2`. For more
 - `replication_status`
    - This property provides the current replication status of the file through the [Retrieve a file share](/apidocs/vpc/latest#get-share) request. The values that `replication_status` returns are specific for file shares. For more information, see the [Virtual Private Cloud API](/apidocs/vpc/latest) content.
 
-### View all file shares with the API
+### Viewing all file shares with the API
 {: #fs-view-all-shares-api}
 
 Make a `GET /shares` request to list all file shares for a region.
@@ -351,7 +351,7 @@ A successful response looks like the following example. In the example, the `lim
 ```
 {: codeblock}
 
-### View a single file share with the API
+### Viewing a single file share with the API
 {: #fs-single-file-shares-api}
 
 Make a `GET /shares/{share_id}` request to get details about a single file share.
@@ -496,7 +496,7 @@ A successful response looks like the following example:
 ```
 {: codeblock}
 
-### View a single mount target with the API
+### Viewing a single mount target with the API
 {: #fs-get-target-api}
 
 Make a `GET /shares/{share_id}/mount_targets/{mount_target_id}` request to information of a single mount target of a file share. This call includes mount path information. Use the mount path to attach a file share to an instance.
@@ -565,7 +565,7 @@ A successful response looks like the following example. In this example, [data e
 ```
 {: codeblock}
 
-### View a source file share for a replica file share with the API
+### Viewing a source file share for a replica file share with the API
 {: #fs-get-source-api}
 
 Make a `GET /shares/{replica_id}/source` request and specify the replica share ID to retrieve the source file share details.
@@ -652,7 +652,7 @@ provider "ibm" {
 ```
 {: screen}
 
-### View all file shares with Terraform
+### Viewing all file shares with Terraform
 {: #fs-view-all-share-terraform}
 
 Import the list of file shares that belong to an account as a read-only data source. You can filter by share name or resource group ID.
@@ -690,7 +690,7 @@ The attributes that are exported include ID, name, creation date, size, IOPS, CR
 
 For more information, see [ibm_is_share](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_share){: external}.
 
-### View mount targets that are associated to a file share with Terraform
+### Viewing mount targets that are associated to a file share with Terraform
 {: #fs-view-mount-targets-terraform}
 
 Import the list of mount targets that are associated with a file share as a read-only data source. Identify the file share by its ID.
@@ -706,7 +706,7 @@ The attributes that are exported include the list of mount targets and their IDs
 
 For more information, see [ibm_is_share_targets](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_share_targets){: external}.
 
-### View mount target information with Terraform
+### Viewing mount target information with Terraform
 {: #fs-view-mount-target-terraform}
 
 Import the details of a mount target as a read-only data source. Identify the mount target by specifying the share ID and the mount target ID. Both arguments are required.
