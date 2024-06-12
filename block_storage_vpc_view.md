@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-03-27"
+lastupdated: "2024-05-14"
 
 keywords:
 
@@ -42,7 +42,7 @@ By default, {{site.data.keyword.block_storage_is_short}} volumes display for all
 | Health | Health monitors the overall health of the volume, such as I/O performance and data consistency. Volume health statuses are `OK` or `degraded`. Volumes in a degraded state have degraded performance, capacity, or experience connection problems. Volumes being restored from a snapshot also show a degraded state. The service displays a possible reason for the degraded state so that you can resolve any issues. For more information, see [{{site.data.keyword.block_storage_is_short}} volume health states](/docs/vpc?topic=vpc-block-storage-vpc-monitoring#block-storage-vpc-health-states). |
 | Encryption | Encryption with IBM-managed keys is enabled by default on all volumes. You can also use your own root keys in a {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} instance to protect your data. For more information, see [Creating {{site.data.keyword.block_storage_is_short}} volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption). |
 | Tags | Number of user tags that are applied to the volume. Click the number in this column to view or edit the tags in the new window. If no tags were applied to the volume, click **Add tags** and add them in the new window. User tags can associate the volume with a [backup policy](/docs/vpc?topic=vpc-backup-service-about) for creating backups of the volume. For more information, see [Adding user tags that are associated with a backup policy to a volume in the UI](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#add-user-tags-volumes-ui).
-| Actions (...) | Click the icon (...) to display a menu of context-specific actions you can take. For example, an available, unattached volume would have menu options for attaching to an instance, renaming, and deleting the volume. An attached volume would allow for unattaching the volume from an instance and creating an [image from the volume](/docs/vpc?topic=vpc-image-from-volume-vpc).|
+| Actions | Click the  **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions") to display a menu of context-specific actions you can take. For example, an available, unattached volume would have menu options for attaching to an instance, renaming, and deleting the volume. An attached volume would allow for unattaching the volume from an instance and creating an [image from the volume](/docs/vpc?topic=vpc-image-from-volume-vpc).|
 {: caption="Table 1. Details about all volumes" caption-side="bottom"}
 
 By default, 10 volumes are shown in the list of all {{site.data.keyword.block_storage_is_short}} volumes. Change this default by clicking the Page Control down arrow and increase the list to 20 or 50 volumes. Use the Page Control arrows after the list to go to the following page or return to the current page.
