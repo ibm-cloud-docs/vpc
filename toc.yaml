@@ -286,9 +286,9 @@ toc:
             - topicgroup:
                 label: Image from volume
                 topics:
-                - vpc_image_from_volume.md
-                - vpc_image_from_volume_create.md
-                - vpc_image_from_volume_manage.md
+                - vsi_is_image_from_volume.md
+                - vsi_is_create_image_from_volume.md
+                - vsi_is_manage_image_from_volume.md
         - topicgroup:
             label: Images - Catalog
             topics:
