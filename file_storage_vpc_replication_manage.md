@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-01-10"
+lastupdated: "2024-06-11"
 
 keywords: VPC File Storage, file for VPC, NSF, replica, file share, replication, schedule
 
@@ -177,41 +177,6 @@ The process for deleting a replica file share is similar to deleting a source fi
 * Delete the replica file share directly after you deleted the mount targets. A `split` process is automatically initiated in the background. After the split operation is finished, the replica file share is deleted.
 
 You can use the [UI](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#delete-file-share-ui){: ui}[CLI](/docs/vpc?topic=vpc-file-storage-managing&interface=cli#delete-file-share-cli){: cli}[API](/docs/vpc?topic=vpc-file-storage-managing&interface=api#delete-file-share-api){: api}[Terraform](/docs/vpc?topic=vpc-file-storage-managing&interface=terraform#delete-file-share-terraform){: terraform} to delete a file share.
-
-## Activity tracker events for replication
-{: #fs-at-replication}
-
-Activity tracker events are triggered when you establish and use file share replication. Table 1 describes the actions that generate events for replication. For more information about all file storage events, see [File Storage events](/docs/vpc?topic=vpc-at-events#events-file-storage).
-
-| Action | Description |
-|--------|-------------|
-| `is.share.share.create` | Create a replica file share. |
-| `is.share.share.failover` | Status of the failover operation.|
-| `is.share.share.init` | Status of the initialization. |
-| `is.share.share.read` | View file share replication relationships. |
-| `is.share.share.split`| status of the replication split operation. |
-{: caption="Table 1. Actions that generate events for file share replication." caption-side="bottom"}
-
-## Replication statuses
-{: #fs-repl-status}
-
-Replication status shows when a replica file share is being created, when failover is underway, and when a split operation is creating independent file shares. For more information, see [File share lifecycle states](/docs/vpc?topic=vpc-file-storage-managing#file-storage-vpc-status).
-
-| Activity                                     | Description |
-|----------------------------------------------|-------------|
-| Replication initialization initiated         | All replicas start with this activity, a replica can't be mounted read-only until this process finishes. |
-| Replication initialization success           | This status shows that the replica is mountable read-only, and that it is initially healthy. |
-| Replication initialization failure | This status shows when the initialization fails. This particular event leads to the replica share's `failed` lifecycle state. |
-| Replication sync initiated                   | This status is only shown when a synchronization event is called with the API, not through automated scheduling. |
-| Replication sync | This status is shown when the system successfully completed a sync within the RPO (schedule).|
-| Replication sync is degraded | It is a standard sync event, but signifies an `unhealthy` state when the RPO is not met.|
-| Replication failover initiated               | This status is shown when the customer initiates a failover.|
-| Replication failover failed                  | The result of a failover requested without the `split` failsafe that also wasn't able to complete within the specified time, or communication was not possible on the backend storage devices |
-| Replication failover success                 | This status is shown when the failover process succeeded completely, and the new relationship is healthy|
-| Replication split (Delete) initiated         | This status is shown when the customer stops replication.|
-| Replication split (Delete) failure           | This status is shown when the Split process fails. The relationship status remains as it was before the split was attempted.|
-| Replication split (Delete) success           | This status is shown when the split process completes successfully. As a result of this operation, the replication relationship status is deleted. \n Or it can be the result of a Failover process where the customer specifies that they want to `split` the relationship if the failover does not complete within a specific time.|
-{: caption="Table 2. Replication statuses." caption-side="bottom"}
 
 ## Replication sync information
 {: #fs-repl-syncinfo}

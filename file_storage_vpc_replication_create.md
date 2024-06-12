@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2023-12-12"
+lastupdated: "2024-06-11"
 
 keywords: file share, file storage, source volume, replica share, 
 
@@ -59,7 +59,6 @@ On the File share replica create page, review the source file share details, and
      | Reserving method | You can have the file service select an IP address for you. The reserved IP becomes visible after the mount target is created. Or, specify your own IP. |
      | Auto-release | Releases the IP address when you delete the mount target. Enabled by default. |
      | **Security groups** | The [default security group](/docs/vpc?topic=vpc-updating-the-default-security-group) for the VPC is selected. You can use it or select another security group from the list. |
-     | **Encryption in transit** | Disabled by default, click the toggle to enable. For more information about this feature, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit). |
      {: caption="Table 2. Values for creating a mount target." caption-side="top"}
 
    - If you selected VPC as the access mode, provide a name for the mount target and select a VPC from the list. This mount target can be used to mount the file share on any virtual server instance of the selected VPC in the same zone as the file share. Cross-zone mounting is not supported.
@@ -71,7 +70,8 @@ On the File share replica create page, review the source file share details, and
    * For monthly replication, choose a Day 1 - 28. For the start time, enter a value between 00:00 and 23:59.
    * If you specify a `cron-spec` expression, replications must be scheduled not less than 1 hour. Enter the replication frequency in `cron-spec` format: minute, hour, day, month, and weekday. For example, to replicate every day at 5:30 PM you need to enter `30 17 * * *`.
 
-1. Replication 
+1. Encryption
+   * **Encryption in transit** is disabled by default, you can click the toggle to enable. For more information about this feature, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit). |
    * When you replicate to another zone of the same region, the encryption is inherited from the primary share. If you specified customer-managed encryption, the key management system is shown along with the root key. You can't encrypt a replica share with a different key.
    * When you replicate to another region, the encryption type (provider-managed vs customer-managed) of the replica must match the source share. However, it is not inherited from the source, and you must select a Customer Root Key for your replica if the source share is protected by customer-managed encryption.
   
@@ -191,34 +191,34 @@ Replication status reasons   Status code   Status message
    ibmcloud is share-replica-create --name my-replica-share --zone us-south-3 --profile dp2 --replication-cron-spec '10 05 * * *' --source-share my-file-share
    Creating replica file share my-replica-share under account Test Account as user test.user@ibm.com...
                                 
-   ID                           r006-6d1719da-f790-45cc-9f68-896fd5673a1a   
-   Name                         my-replica-share   
-   CRN                          crn:v1:bluemix:public:is:us-south-3:a/a1234567::share:r006-6d1719da-f790-45cc-9f68-896fd5673a1a   
-   Lifecycle state              pending   
-   Access control mode          security_group   
-   Zone                         us-south-3   
-   Profile                      dp2   
-   Size(GB)                     1000   
-   IOPS                         100   
-   Encryption                   provider_managed   
-   Mount Targets                ID                          Name      
-                                No mounted targets found.      
+   ID                               r006-6d1719da-f790-45cc-9f68-896fd5673a1a   
+   Name                             my-replica-share   
+   CRN                              crn:v1:bluemix:public:is:us-south-3:a/a1234567::share:r006-6d1719da-f790-45cc-9f68-896fd5673a1a   
+   Lifecycle state                  pending   
+   Access control mode              security_group 
+   Zone                             us-south-3   
+   Profile                          dp2   
+   Size(GB)                         1000   
+   IOPS                             100   
+   Encryption                       provider_managed   
+   Mount Targets                    ID                          Name      
+                                    No mounted targets found.      
                                 
-   Resource group               ID                                 Name      
-                                db8e8d865a83e0aae03f25a492c5b39e   Default      
+   Resource group                  ID                                 Name      
+                                   db8e8d865a83e0aae03f25a492c5b39e   Default      
                                 
-   Created                      2023-10-19T15:13:18+00:00   
-   Latest job                   Job status   Job status reasons      
-                                running      -      
+   Created                         2023-06-25T15:13:18+00:00   
+   Latest job                      Job status   Job status reasons      
+                                   running      -      
                                 
-   Replication cron spec        10 05 * * *   
-   Replication role             replica   
-   Replication status           initializing   
-   Replication status reasons   Status code   Status message      
-                                -             -      
+   Replication cron spec           10 05 * * *   
+   Replication role                replica   
+   Replication status              initializing   
+   Replication status reasons      Status code   Status message      
+                                   -             -      
                                 
-   Source share                 ID                                          Name            Resource type      
-                                r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   my-file-share   share 
+   Source share                    ID                                          Name            Resource type      
+                                   r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   my-file-share   share 
    ```
    {: screen}
 
@@ -228,35 +228,35 @@ When you create a replica of a file share in another region, you must use the CR
    ibmcloud is share-cross-regional-replica-create --name my-replica-share --zone us-east-1 --profile dp2 --replication-cron-spec '5 * * * *' --source-share crn:v1:bluemix:public:is:us-south-1:a/a1234567::share:r006-d8c8821c-a227-451d-a9ed-0c0cd2358829 --encryption-key crn:v1:bluemix:public:kms:us-south:a/a1234567:1be45161-6dae-44ca-b248-837f98004057:key:3dd21cc5-cc20-4f7c-bc62-8ec9a8a3d1bd
    Creating replica file share my-cross-regional-replica-share under account Test Account as user test.user@ibm.com...
                                 
-   ID                           r006-6d1719da-g687-45ac-9f68-896fd76843a1b    
-   Name                         my-cross-regional-replica-share   
-   CRN                          crn:v1:bluemix:public:is:us-east-1:a/a1234567::share:r006-6d1719da-g687-45ac-9f68-896fd76843a1b   
-   Lifecycle state              pending   
-   Access control mode          security_group   
-   Zone                         us-east-1   
-   Profile                      dp2   
-   Size(GB)                     1000   
-   IOPS                         100   
-   Encryption                   user_managed   
-   Mount Targets                ID                          Name      
-                                No mounted targets found.      
+   ID                               r006-6d1719da-g687-45ac-9f68-896fd76843a1b    
+   Name                             my-cross-regional-replica-share   
+   CRN                              crn:v1:bluemix:public:is:us-east-1:a/a1234567::share:r006-6d1719da-g687-45ac-9f68-896fd76843a1b   
+   Lifecycle state                  pending   
+   Access control mode              security_group
+   Zone                             us-east-1   
+   Profile                          dp2   
+   Size(GB)                         1000   
+   IOPS                             100   
+   Encryption                       user_managed   
+   Mount Targets                    ID                          Name      
+                                    No mounted targets found.      
                                 
-   Resource group               ID                                 Name      
-                                db8e8d865a83e0aae03f25a492c5b39e   Default      
+   Resource group                   ID                                 Name      
+                                    db8e8d865a83e0aae03f25a492c5b39e   Default      
                                 
-   Created                      2023-11-16T15:13:18+00:00   
-   Encryption key               crn:v1:bluemix:public:kms:us-south:a/a1234567:1be45161-6dae-44ca-b248-837f98004057:key:3dd21cc5-cc20-4f7c-bc62-8ec9a8a3d1bd
-   Latest job                   Job status   Job status reasons      
-                                running      -      
+   Created                          2023-06-25T15:13:18+00:00   
+   Encryption key                   crn:v1:bluemix:public:kms:us-south:a/a1234567:1be45161-6dae-44ca-b248-837f98004057:key:3dd21cc5-cc20-4f7c-bc62-8ec9a8a3d1bd
+   Latest job                       Job status   Job status reasons      
+                                    running      -      
                                 
-   Replication cron spec        5 * * * *   
-   Replication role             replica   
-   Replication status           initializing   
-   Replication status reasons   Status code   Status message      
-                                -             -      
+   Replication cron spec            5 * * * *   
+   Replication role                 replica   
+   Replication status               initializing   
+   Replication status reasons       Status code   Status message      
+                                    -             -      
                                 
-   Source share                 ID                                          Name       Resource type  Remote
-                                r006-d8c8821c-a227-451d-a9ed-0c0cd2358829   my-share   share          us-south
+   Source share                     ID                                          Name       Resource type  Remote
+                                    r006-d8c8821c-a227-451d-a9ed-0c0cd2358829   my-share   share          us-south
    ```
    {: screen}
 
@@ -291,10 +291,16 @@ curl -X POST\
     "replica_share":{
   	   "name": "test-replica-001",
       "profile":{"name":"dp2"},
-      "replication_cron_spec":"*/1 * * * *",
+      "replication_cron_spec":"0 */5 * * *",
       "zone":{"name":"us-south-3"},
-      "mount-targets":[{"vpc":{"id":"9380990e-4b3b-4d79-80fe-ee052fb9772a"}}]
+      "mount_targets": [
+        {"virtual_network_interface": {"subnet": {"id": "2302-ea5fe79f-52c3-4f05-86ae-9540a10489f5"}}},
+        {"vpc": {"id": "7ec86020-1c6e-4889-b3f0-a15f2e50f87e"}}],
+      "resource_group": {},
+      "user_tags": ["string"]}}]
       }
+    "resource_group": {},
+    "user_tags": ["string"]
    }'
 ```
 {: pre}
@@ -386,5 +392,4 @@ For more information about the arguments and attributes, see [ibm_is_share](http
 {: #fs-repl-next-steps}
 
 * [Manage replication](/docs/vpc?topic=vpc-file-storage-manage-replication).
-
 * [Fail over to the replica site](/docs/vpc?topic=vpc-file-storage-failover).
