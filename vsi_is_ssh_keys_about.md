@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-05-23"
+  years: 2018, [{CURRENT_YEAR}]
+lastupdated: "[{LAST_UPDATED_DATE}]"
 
 keywords: ssh public keys, OpenSSH, add ssh key, ssh key, manage ssh key, generate ssh key, locate ssh key
 
