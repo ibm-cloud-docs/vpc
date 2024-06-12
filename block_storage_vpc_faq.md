@@ -395,7 +395,7 @@ You are not charged extra for creating volumes with customer-managed encryption.
 {: faq}
 {: #faq-block-storage-28}
 
-Both key management systems provide you with complete control over your data, managed by your root keys. {{site.data.keyword.keymanagementserviceshort}} is a multi-tenant KMS where you can import or create your root keys and securely manage them. {{site.data.keyword.hscrypto}} is a single-tenant KMS and hardware security module (HSM) that is controlled by you, which offers the highest level of security. For more information about these key management services, see [Supported key management services for customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#kms-for-byok).
+Both key management systems provide you with complete control over your data, managed by your root keys. {{site.data.keyword.keymanagementserviceshort}} is a multi-tenant KMS where you can import or create your root keys and securely manage them. {{site.data.keyword.hscrypto}} is a single-tenant KMS and [hardware security module (HSM)](#x6704988){: term} that is controlled by you, which offers the highest level of security. For more information about these key management services, see [Supported key management services for customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#kms-for-byok).
 
 ### Can I convert my volume from provider-managed encryption to customer-managed encryption?
 {: faq}
