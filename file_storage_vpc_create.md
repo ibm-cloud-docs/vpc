@@ -18,7 +18,7 @@ subcollection: vpc
 Create file shares and mount targets in the UI, CLI, API, or Terraform.
 {: shortdesc}
 
-Before you get started, and try to to create mount targets for file shares, make sure that you created a [VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
+Before you get started, and try to create mount targets for file shares, make sure that you created a [VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
 {: important}
 
 You can create file shares and mount targets either of the following ways:
