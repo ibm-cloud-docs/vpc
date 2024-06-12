@@ -233,9 +233,9 @@ Table 5 provides some examples of how block size and IOPS affect the throughput,
 
 Maximum IOPS can still be obtained when you use smaller block sizes, but throughput is less. The following example shows how throughput decreases for smaller block sizes, when max IOPS is maintained.
 
-* 16 KB * 6,000 IOPS == ~94 MBps
-* 8 KB * 6,000 IOPS == ~47 MBps
-* 4 KB * 6,000 IOPS == ~23 MBps
+* 16 KB * 6000 IOPS == ~94 MBps
+* 8 KB * 6000 IOPS == ~47 MBps
+* 4 KB * 6000 IOPS == ~23 MBps
 
 ## Next steps
 {: #fs-next-steps}

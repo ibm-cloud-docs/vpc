@@ -71,6 +71,6 @@ The following table provides some examples of how application I/O size and provi
 
 Maximum IOPS can still be obtained when you use smaller I/O sizes, but throughput is less. The following example shows how throughput decreases for smaller average I/O sizes, when max IOPS is maintained.
 
-* 16 KB * 6,000 IOPS == ~94 MBps
-* 8 KB * 6,000 IOPS == ~47 MBps
-* 4 KB * 6,000 IOPS == ~23 MBps
+* 16 KB * 6000 IOPS == ~94 MBps
+* 8 KB * 6000 IOPS == ~47 MBps
+* 4 KB * 6000 IOPS == ~23 MBps
