@@ -32,11 +32,11 @@ In the console, you can create a snapshot of a {{site.data.keyword.block_storage
 1. You can access the Block Storage snapshot for VPC provisioning screen in the [{{site.data.keyword.cloud}} console](/login){: external} in multiple ways.
 
    - From the **[Block Storage snapshots for VPC](/vpc-ext/storage/snapshots)** list,
-      1. click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage snapshots**.
+      1. Click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage snapshots**.
       2. From the list of snapshots that is initially empty, click **Create**.
 
    - From the **[Block Storage volumes for VPC](/vpc-ext/storage/storageVolumes)** list,
-      1. click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage volumes**.
+      1. Click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage volumes**.
       2. From the list of volumes, locate a boot or data volume that is attached to an instance.
       3. Click the Actions menu (![Actions menu](images/overflow.png)) and select **Create snapshot**.
 
