@@ -34,7 +34,7 @@ View all file shares and mount targets in the UI, CLI, API, or Terraform. View d
 |-------|-------|
 | Region | Account region for the file share. Select a different region to see file shares for zones in that region. |
 | Name  | The file share name. It can be the original file share or a replica file share. Click the name to see details about that file share. |
-| Status | For a list of statuses for file shares, see [File share lifecycle states](/docs/vpc?topic=vpc-file-storage-managing#file-storage-vpc-status). |
+| Status | For a list of statuses for file shares, see [File share lifecycle states](/docs/vpc?topic=vpc-fs-vpc-monitoring). |
 | Mount targets | Number of mount targets that are associated with the file share. You can have one mount target per VPC per file share. |
 | Size | Size of the file share, in GBs. |
 | IOPS profile| It shows the performance profile that is associated with the file share.|
