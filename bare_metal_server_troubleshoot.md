@@ -1,9 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-
-lastupdated: "2024-05-31"
+  years: 2020, [{CURRENT_YEAR}]
+lastupdated: "[{LAST_UPDATED_DATE}]"
 
 keywords: troubleshooting bare metal servers, hardware issues, firmware
 
