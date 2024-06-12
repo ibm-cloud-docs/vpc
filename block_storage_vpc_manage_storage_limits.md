@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2023-12-18"
+lastupdated: "2024-06-12"
 
 keywords: volume, capacity, Block Storage
 
@@ -52,7 +52,7 @@ Review the following checklist items and record your answers. Provide this infor
     >*"I expect 25% of the volumes to be used in 30 days, 50 percent to be used in 60 days and 75% to be used in 90 days".*
     >"*For secondary volumes, I expect to create 50% of the secondary volumes at less than 250 GB within 30 days and secondary volumes greater than 250 (if possible, estimate volume size) within 60 days."*
 
-Respond promptly to all questions and statements in your request. They're necessary for processing and approval. If some things are unclear, there's opportunity to clarify your answers. 
+Respond promptly to all questions and statements in your request. They're necessary for processing and approval. If some things are unclear, the support team contacts you to clarify your answers. 
 {: important}
 
 You're notified about the update to your limits throughout the case process.
