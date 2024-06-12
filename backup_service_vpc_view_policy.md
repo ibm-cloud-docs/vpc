@@ -18,7 +18,7 @@ subcollection: vpc
 You can list and view all backup policies that you created for your storage resources in the console, from the CLI, with the API, or Terraform. You can review the details of individual policies, and view the number of resources that have tags that match a backup policy.
 {: shortdesc}
 
-For the backup operation to be successful, the tagged resources must be attached to running virtual server instances. Unattached volumes are not backed up even if they have the right tags. 
+For the backup operation to be successful, the tagged volumes must be attached to running virtual server instances. Unattached volumes are not backed up even if they have the right tags. 
 {: note}
 
 ## Viewing backup policies in the UI
