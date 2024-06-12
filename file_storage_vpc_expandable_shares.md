@@ -68,7 +68,7 @@ Follow these steps for expanding file share capacity in the UI:
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > File Shares**.
 
-2. The File Shares for VPC list page shows all file shares that were created in that zone. Click the name of the file share to get to the details page.
+2. The File Shares for VPC list page shows all the file shares that are created in that zone.
 
 3. On the file shares details page, expand the **Actions** menu.
 
