@@ -30,7 +30,7 @@ You can choose to back up individual {{site.data.keyword.block_storage_is_short}
 
 When you request a backup snapshot of a consistency group, the system ensures that all write operations are complete before it takes the snapshots. Then, the system generates snapshots of all the selected Block Storage volumes that are attached to the virtual server instance at the same time. Depending on the number and size of the attached volumes, plus the amount of data that is to be captured, you might observe a slight IO pause. This IO pause can range from a few milliseconds up to 4 seconds. It is recommended to run your automated backup-policy during off-peak hours to minimize any impact on performance.
 
-An individual volume is backed up when a user-provided [tag](#backup-service-about-tags) that is associated with a {{site.data.keyword.block_storage_is_short}} volume match the tags for target resources in a backup policy. The volume must have at least one of the backup policy’s tags for the target resources. When the scheduled backup is triggered by a backup plan, all volumes with matching tags are backed up. You can [view the status of the backup jobs](/docs/vpc?topic=vpc-backup-view-policy-jobs) in the UI, from the CLI, or the API.
+An individual volume is backed up when a user-provided [tag](#backup-service-about-tags) that is associated with a volume matches the tags for target resources in a backup policy. When the scheduled backup is triggered by a backup plan, all resources with matching tags are backed up. You can [view the status of the backup jobs](/docs/vpc?topic=vpc-backup-view-policy-jobs) in the console, from the CLI, or the API.
 
 When you choose to back up all the Block Storage volumes that are attached to a virtual server instance, the user-provided tag is associated with the virtual server instance. 
 
@@ -43,7 +43,7 @@ As an enterprise account administrator, you can view and manage the backup polic
 
 You must set a retention period for your backups. It can be based on the number of days that you want to keep the backups. Or it can be based on the total number of backups that you want to retain before the oldest ones are deleted. Or you can set it up by specifying both the time limit and the maximum number of backups that you want to keep. Planning for the retention and deletion of your backups can keep the costs down.
 
-When the backup is triggered at the scheduled interval, a backup copy is created of your volume by the [Snapshot for VPC](/docs/vpc?topic=vpc-snapshots-vpc-about) service. When the first backup snapshot is taken, the entire contents of the volume are copied and retained in {{site.data.keyword.cos_full}}. Subsequent backups of the same volume capture the changes that occurred since the previous backup. You can take up to 750 backups of a volume
+When the backup is triggered at the scheduled interval, a backup copy is created of your volume by the [Snapshot for VPC](/docs/vpc?topic=vpc-snapshots-vpc-about) service. When the first backup snapshot is taken, the entire contents of the volume are copied and retained in {{site.data.keyword.cos_full}}. Subsequent backups of the same volume capture the changes that occurred since the previous backup. You can take up to 750 backups of a volume.
 
 Block storage backups, like block storage snapshots, have a lifecycle that is independent from the source {{site.data.keyword.block_storage_is_short}} volume.
 
@@ -107,7 +107,7 @@ In a backup plan, you schedule the frequency of your backups. When you create a 
 In a backup plan, you schedule the frequency of your backups. When you create a plan with [Terraform](/docs/vpc?topic=vpc-create-backup-policy-and-plan&interface=terraform), you can use a `cron` expression to specify the frequency.
 {: terraform}
 
-You can specify the retention period or the total number of backups before the oldest is deleted. The interval for creating a backup and its retention period can be the same or they can be different. The default retention period is 30 days. You can also set the total number of backups to retain up to 750 per volume. When that number is exceeded, the oldest backups are deleted.  
+You can specify the retention period or the total number of backups before the oldest is deleted. The interval for creating a backup and its retention period can be the same or they can be different. The default retention period is 30 days. You can also set the total number of backups to retain up to 750 per volume. When that number is exceeded, the oldest backups are deleted.
 
 If you specify both the age and the number of backups, age takes priority in determining when to delete a snapshot. The count applies only if the oldest snapshot is within the age range.
 
