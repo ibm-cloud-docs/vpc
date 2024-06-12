@@ -169,7 +169,7 @@ For more information about available command options, see [`ibmcloud is volume-p
 {: #using-api-iops-profiles}
 {: api}
 
-To see the available profiles, make a `GET /volume/profiles` call.
+To see the available profiles, make a `GET /volume/profiles` request.
 
 ```sh
 curl -X GET \
