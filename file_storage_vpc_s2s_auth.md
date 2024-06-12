@@ -38,7 +38,7 @@ You can access the **Manage authorizations** by clicking **Manage** > **Access (
 1. On the **Manage authorizations** page, click **Create**. 
 1. On the **Grant a service authorization** page, select the source account.
 1. For the source service, select **VPC Infrastructure Services** from the list.
-1. Select the scope. Choose **Resources based on selected attributes**.
+1. Select the scope. Choose **Specific resources**.
 1. Click **Resource type**. From the list, select **File Storage for VPC**.
 1. For the target service, select **Hyper Protect Crypto Services** or **KeyProtect** from the list. 
 1. Check the box to enable authorization to be delegated by source and dependent services.
@@ -52,10 +52,10 @@ You can access the **Manage authorizations** by clicking **Manage** > **Access (
 1. On the **Manage authorizations** page, click **Create**. 
 1. On the **Grant a service authorization** page, select the source account.
 1. For the source service, select **VPC Infrastructure Services** from the list.
-1. Select the scope. Choose **Resources based on selected attributes**.
+1. Select the scope. Choose **Specific resources**.
 1. Click **Resource type**. From the list, select **File Storage for VPC**.
 1. For the target service, select **VPC Infrastructure Services** from the list. 
-1. Select the scope. Choose **Resources based on selected attributes**.
+1. Select the scope. Choose **Specific resources**.
 1. Click **Resource type**. From the list, select **File Storage for VPC**.
 1. Then, under Platform access, select the role `Editor`.
 1. Click **Authorize**.
