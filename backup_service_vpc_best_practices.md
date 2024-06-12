@@ -25,7 +25,7 @@ To ensure that you're using the VPC Backup Service most effectively and economic
 
 * Keep costs down by retaining backups for only while you need them to prevent data loss. Plan timely backups to restore data that might be deleted or corrupted. Think about the type of events that might happen. Ask how much data you can afford to lose. The answers can help you decide on a backup interval and retention policy.
 
-* Ask how quickly you need to recover the data. Run a volume restore and a test failover to get an idea of the time it can take.
+* Ask how quickly you need to recover the data. Create a volume from a backup and test the failover to get an idea of the time it can take.
 
 * For best performance, stagger your backup jobs by creating backup plans with different intervals. You can have up to four different backup plans per backup policy.
 
@@ -33,7 +33,7 @@ To ensure that you're using the VPC Backup Service most effectively and economic
 
 * If you have volumes in different regions, create separate backup policies for each region. You're limited to 10 backup policies per account in a region.
 
-* Ensure that the resources that you tagged for backups are attached to a virtual server instance. You can't back up detached volumes.
+* Ensure that the block storage resources that you tagged for backups are attached to a running virtual server instance. You can't back up detached volumes.
 
 * Provide a unique name for your backup policy. If you have a convention for naming volumes, you might name a backup policy by using a similar convention. Backups that are created by a policy can also follow the convention. As the number of backups grow, a good naming convention can make them more identifiable.
 
