@@ -15,7 +15,7 @@ subcollection: vpc
 # Establishing service-to-service authorizations for the Backup service
 {: #backup-s2s-auth}
 
-Before you can create backup policies, you need to establish service-to-service authorizations and specify user roles. This authorization enables the Backup for VPC service to detect volume tags, create backup snapshots and store them in {{site.data.keyword.cos_short}}.
+Before you can create backup policies, you need to establish service-to-service authorizations and specify user roles. This authorization enables the Backup for VPC service to detect the tags, create backup snapshots and store them in {{site.data.keyword.cos_short}}.
 {: shortdesc}
 
 ## Overview
@@ -36,7 +36,7 @@ If you set up service authorizations incorrectly, the backup service cannot crea
 {: #backup-s2s-auth-procedure-ui}
 {: ui}
 
-### Enabling service-to-service authorization at the account level
+### Enabling service-to-service authorization for volume backups for volume backups at the account level
 {: #backup-s2s-auth-procedure-ui-account}
 
 To create a service-to-service authorization policy, follow this procedure:
@@ -64,7 +64,7 @@ To create a service-to-service authorization policy, follow this procedure:
 1. Click **Authorize**.
 1. When you are returned to the **Manage authorizations** page, click **Create** again and follow the same steps to set up authorizations for the remaining services.
 
-### Creating cross-account authorization for the Enterprise
+### CCreating cross-account authorization for volume backups for the Enterprise
 {: #backup-s2s-auth-procedure-ui-enterprise}
 
 To allow an Enterprise administrator to manage backups centrally, the subaccounts must provide authorization for the Backup service of the Enterprise account to interact with the resources of the child accounts. 
@@ -94,10 +94,10 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
 {: #backup-s2s-auth-procedure-cli}
 {: cli}
 
-### Enabling service-to-service authorization at the account level
+### Enabling service-to-service authorization for volume backups for volume backups at the account level
 {: #backup-s2s-auth-procedure-cli-account}
 
-To use Backup for VPC in your account to create policies, plans and run backup jobs, create the following service-to-service authorizations:
+To use Backup for VPC in your account to create policies, plans and run backup jobs for block storage volumes, create the following service-to-service authorizations:
 
 * `backup-policy` (source) to `instance` (target) with _Operator_ role
 * `backup-policy` (source) to `volume` (target) with _Operator_ role
@@ -317,7 +317,7 @@ To use Backup for VPC in your account to create policies, plans and run backup j
 
 For more information about all of the parameters that are available for this command, see [ibmcloud iam authorization-policy-create](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_authorization_policy_create).
 
-### Creating cross-account authorization for the Enterprise
+### CCreating cross-account authorization for volume backups for the Enterprise
 {: #backup-s2s-auth-procedure-cli-enterprise}
 
 To allow an Enterprise administrator to manage backups centrally, the subaccounts must provide authorization for the Backup service of the Enterprise account to interact with the resources of the child accounts. 
@@ -362,10 +362,10 @@ For more information about all of the parameters that are available for this com
 {: #backup-s2s-auth-procedure-api}
 {: api}
 
-### Enabling service-to-service authorization at the account level
+### Enabling service-to-service authorization for volume backups for volume backups at the account level
 {: #backup-s2s-auth-procedure-api-account}
 
-To use Backup for VPC in your account to create policies, plans and run backup jobs, create the following service-to-service authorizations:
+To use Backup for VPC in your account to create policies, plans and run backup jobs for block storage volumes, create the following service-to-service authorizations:
 
 * `is.backup-policy` (source) to `is.instance` (target) with _operator_ role.
 * `is.backup-policy` (source) to `is.volume` (target) with _operator_ role.
@@ -487,7 +487,7 @@ curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H
 
 For more information, see the api spec for [IAM Policy Management](/apidocs/iam-policy-management#create-policy).
 
-### Creating cross-account authorization for the Enterprise
+### CCreating cross-account authorization for volume backups for the Enterprise
 {: #backup-s2s-auth-procedure-api-enterprise}
 
 To allow an Enterprise administrator to manage backups centrally, the subaccounts must provide authorization for the Backup service of the Enterprise account to interact with the resources of the child accounts.
