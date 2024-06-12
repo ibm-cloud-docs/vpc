@@ -435,8 +435,8 @@ You cannot delete an active {{site.data.keyword.block_storage_is_short}} volume.
 
 To delete a volume, complete the following steps.
 
-1. Go to the list of all {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage volumes**.
-1. Locate the volume that you want to delete and then click the overflow icon (...) to open a list of options.
+1. Go to the list of all {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage volumes**.
+1. Locate the volume that you want to delete and then click the **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions") to open a list of options.
 1. From the options menu, click **Delete**.
 1. Confirm the deletion.
 
@@ -451,7 +451,7 @@ You don't need to set automatic deletion for boot volumes. Boot volumes are crea
 
 To enable Auto Delete for an existing {{site.data.keyword.block_storage_is_short}} data volume that is attached to an instance, follow these steps:
 
-1. Locate the virtual server instance to which the data volume is attached. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Compute > Virtual server instances**.
+11. Locate the virtual server instance to which the data volume is attached. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Compute > Virtual server instances**.
 1. Under **Attached {{site.data.keyword.block_storage_is_short}} volumes**, select a volume.
 1. On the next page, click **Auto Delete** to enable.
 1. Confirm your selection.
