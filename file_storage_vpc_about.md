@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-03-29"
+lastupdated: "2024-05-28"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -48,6 +48,16 @@ All profiles are backed by solid-state drives (SSDs).
 
 For more information, see [{{site.data.keyword.filestorage_vpc_short}} profiles](/docs/vpc?topic=vpc-file-storage-profiles).
 
+## Encryption at rest
+{: #FS-encryption}
+
+By default, file shares are encrypted at rest with IBM-managed encryption. 
+
+You can bring your own customer root key (CRK) to the cloud for customer-managed encryption or you can have a key management service (KMS) generate a key for you. You can select the root key when you [create an encrypted file share](/docs/vpc?topic=vpc-file-storage-vpc-encryption). For more information, see [Customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption).
+
+After you specified an encryption type for a file share, you can't change it.
+{: restriction}
+
 ### NFS version
 {: #fs-nfs-version}
 
@@ -60,7 +70,7 @@ Mounting is a process by which a server's operating system makes files and direc
 
 A mount target for a file share is a network endpoint. When you create a mount target, an NFS mount path is created for the file share. You use the mount path to attach the file share to virtual server instances or Kubernetes clusters in the same region. Depending on the [access mode](#fs-mount-access-mode) you choose, you can restrict access to a share to a specific instance in the VPC or allow all the virtual server instances to mount the share.
 
-If you want to connect a file share to instances that are running in different VPCs in a zone, you can create multiple mount targets. You can create one mount target for each VPC. The transit encryption values of the mount targets must match. They all must either support encryption-in-transit, or provide no support for it.
+If you want to connect a file share to instances that are running in different VPCs in a zone, you can create multiple mount targets, one mount target for each VPC.  
 
 After the mount target is created, you can SSH into the virtual server instance and attach the file share.
 
@@ -89,7 +99,7 @@ To enable traffic between a virtual server instance and a mount target, you must
 
 You can configure your security group in a more dynamic way by allowing all traffic between members of the security group. Then, attach this security group to the network interface of the virtual server instance and the virtual network interface of the mount target. For more information, see [Allow traffic between members of a security group](/docs/vpc?topic=vpc-using-security-groups#sg-use-case-3).
 
-It's also recommended that UDP ports 500 and 4500 are allowed. UDP port 500 is intended for Internet Key Exchange (IKE) to manage encryption keys, and UDP port 4500 is for IPsec NAT-Traversal (NAT-T). A VPN gateway for VPC accepts VPN packets with [UDP Encapsulation of IPsec ESP Packets](https://datatracker.ietf.org/doc/html/rfc3948){: external} only.
+It is also recommended that UDP ports 500 and 4500 are allowed. UDP port 500 is intended for Internet Key Exchange (IKE) to manage encryption keys, and UDP port 4500 is for IPsec NAT-Traversal (NAT-T). A VPN gateway for VPC accepts VPN packets with [UDP Encapsulation of IPsec ESP Packets](https://datatracker.ietf.org/doc/html/rfc3948){: external} only.
 
 When you create the mount target, you can specify a subnet and reserved IP address for the virtual network interface, or have the service pick an IP address for you in the specified subnet. The mount target must have a VPC private IP address, and the IP address must be in a subnet that is in the same zone as the share. The IP address that is assigned to the mount target cannot be changed later.
 
@@ -101,6 +111,8 @@ When you create the mount target with a virtual network interface, its IP addres
 
 When the mount target is attached and the share is mounted, the virtual network interface performs security group policy check to ensure that only authorized virtual server instances can communicate with the share.
 
+![File share mount target](images/vni-fs-arch.svg "File share with a mount target"){: caption="Figure 1. Diagram of a file share mount target connected to a virtual network interface" caption-side="bottom"}
+
 For greater security, [enable encryption in transit](/docs/vpc?topic=vpc-file-storage-vpc-eit) for your file share mount targets.
 
 ### Cross-zone mount targets
@@ -108,29 +120,19 @@ For greater security, [enable encryption in transit](/docs/vpc?topic=vpc-file-st
 
 When you create a mount target for a share with security access group mode, you can attach a virtual network interface with a specific reserved IP in the zone of your file share. By using such a mount target, you can mount a file share from zone A to a virtual server instance in zone B. When the virtual server instance and the file share are in different zones, the performance can be impacted.
 
-Cross-zone mounting is not supported for file shares with VPC-wide access mode. 
-
-## Encryption at rest
-{: #FS-encryption}
-
-By default, file shares are encrypted at rest with IBM-managed encryption. 
-
-You can bring your own customer root key (CRK) to the cloud for customer-managed encryption or you can have a key management service (KMS) generate a key for you. You can select the root key when you [create an encrypted file share](/docs/vpc?topic=vpc-file-storage-vpc-encryption). For more information, see [Customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption).
-
-After you specified an encryption type for a file share, you can't change it.
-{: restriction}
+Cross-zone mounting in not supported for file shares with VPC-wide access mode.
 
 ## Encryption in transit
 {: #fs-eit}
 
 You can [establish an encrypted mount connection](/docs/vpc?topic=vpc-file-storage-vpc-eit) between the authorized virtual server instance and the storage system by using IPsec. For file shares based on the `dp2` profile, mount targets that are created with a virtual network interface can support the encryption in transit. The mount targets can be for a source or replica share.
 
-If you want to connect a file share to instances that are running in different VPCs in a zone, you can create multiple mount targets. You can create one mount target for each VPC. The transit encryption values of the mount targets must match. They all must either support encryption-in-transit, or provide no support for it.
+If you want to connect a file share to instances that are running in different VPCs in a zone, you can create multiple mount targets. You can create one mount target for each VPC.
 {: important}
 
 If you choose to use Encryption-in-transit, you need to balance your requirements between performance and enhanced security. Encrypting data in transit can have some performance impact due to the processing that is needed to encrypt and decrypt the data at the endpoints. The impact depends on the workload characteristics. Workloads that perform synchronous writes or bypass VSI caching, such as databases, might have a substantial performance impact when EIT is enabled. To determine EIT’s performance impact, benchmark your workload with and without EIT.
 
-Even without EIT, the data moves through a secure data center network. For more information about network security, see [Security in your VPC](/docs/vpc?topic=vpc-security-in-your-vpc) and [Protecting Virtual Private Cloud (VPC) Infrastructure Services with context-based restrictions](/docs/vpc?topic=vpc-cbr).
+Even without EIT, the data is moving through a secure data center network. For more information about network security, see [Security in your VPC](/docs/vpc?topic=vpc-security-in-your-vpc) and [Protecting Virtual Private Cloud (VPC) Infrastructure Services with context-based restrictions](/docs/vpc?topic=vpc-cbr).
 
 Encryption in transit is not supported for {{site.data.keyword.bm_is_short}}.
 {: restriction}
@@ -210,6 +212,7 @@ The following limitations apply to this release of {{site.data.keyword.filestora
 {: #file-storage-vpc-next-steps}
 
 * [Plan your file shares and mount targets](/docs/vpc?topic=vpc-file-storage-planning).
+* [IAM Roles and Actions](/docs/account?topic=account-iam-service-roles-actions#is.share-roles). [New]{: tag-new}
 * [Create a file share and mount targets](/docs/vpc?topic=vpc-file-storage-create).
 * Mount your file share. Mounting is a process by which a server's operating system makes files and directories on the storage device available for users to access through the server's file system. For more information, see the following topics:
    * [IBM Cloud File Share Mount Helper utility](/docs/vpc?topic=vpc-fs-mount-helper-utility)
@@ -219,5 +222,5 @@ The following limitations apply to this release of {{site.data.keyword.filestora
    * [Mounting file shares on z/OS](/docs/vpc?topic=vpc-file-storage-vpc-mount-zos)
 * Manage your file shares and data.
    * [Viewing file shares and mount targets](/docs/vpc?topic=vpc-file-storage-view). You can retrieve information about your files shares and mount targets in the console, from the CLI, with the API, or Terraform.
-   * [Manage your file shares](/docs/vpc?topic=vpc-file-storage-managing). You can rename a file share. You can increase its capacity and modify its IOPS. You can add mount targets to a file share. You can rename or delete a mount target. You can delete a file share when you no longer need it. 
+   * [Manage your file shares](/docs/vpc?topic=vpc-file-storage-managing). You can rename a file share. You can increase its capacity and modify its IOPS. You can add mount targets to a file share. You can rename or delete a mount target. You can delete a file share when you no longer need it.
    * [Create a file share with replication](/docs/vpc?topic=vpc-file-storage-create-replication). With the replication feature, you can keep a read-only copy of your file share in another zone. The replica share is updated from the source share on a schedule that you specify. Replication provides a way to recover from an incident at the primary site, when data becomes inaccessible or an application fails. Replication can also be used for geographical expansion.
