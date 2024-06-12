@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-01-05"
+lastupdated: "2024-04-18"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -24,7 +24,7 @@ Backups and snapshot services are different than a [disaster recovery (DR)](#x21
 ## Backup service concepts
 {: #backup-service-concepts}
 
-You can create up to 10 [backup policies](#backup-service-policies) in one region with the {{site.data.keyword.cloud_notm}} Backup for VPC service.You can create up to four plans per policy, and edit and delete them as needed. If you're undecided on the backup schedule or retention requirements, you can create a backup policy without a plan and add one later. 
+You can create up to 10 [backup policies](#backup-service-policies) in one region with the {{site.data.keyword.cloud_notm}} Backup for VPC service. You can create up to four plans per policy, and edit and delete them as needed. If you're undecided on the backup schedule or retention requirements, you can create a backup policy without a plan and add one later. 
 
 You can choose to back up individual {{site.data.keyword.block_storage_is_short}} volumes that are identified by tags. Or you can choose to create backups of all the {{site.data.keyword.block_storage_is_short}} volumes that are attached to a specific virtual server instance as members of a **consistency group**. When you configure backups for a [consistency group](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#multi-volume-snapshots), you can choose to include the boot volume or leave it out. When you create multi-volume backups, you add the tag to the virtual server instance.
 
