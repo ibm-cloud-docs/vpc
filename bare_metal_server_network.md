@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-02-22"
+  years: 2021, [{CURRENT_YEAR}]
+lastupdated: "[{LAST_UPDATED_DATE}]"
 
 keywords: bare metal server network, bare metal network, nics, pci, vlan, network overview
 
@@ -100,7 +100,8 @@ The PCI interface of the bare metal server maps to the Uplink in vSphere. When y
 
 After you add a standard vSwitch or distributed vSwitch, you must select one of the available PCI interfaces as the Uplink on the new vSwitch. Therefore, before you add a vSwitch, you need to make sure that at least one PCI interface is used as the Uplink.
 
-If the VMkernel adapter uses the same IP address as the PCI interface, the Mac address of the VMkernel adapter must use the same Mac address as the PCI interface.{: note}
+If the VMkernel adapter uses the same IP address as the PCI interface, the Mac address of the VMkernel adapter must use the same Mac address as the PCI interface.
+{: note}
 
 The PCI interfaces that are created on a bare metal server are displayed in VMware vSphere as `vmnic0`, `vmnic1`, `vmnic2`, and so on. You can identify the target PCI interface in vSphere through its MAC address.
 
@@ -174,8 +175,6 @@ DHCP doesn't work with a custom MAC address because a {{site.data.keyword.cloud}
 {: #bare-metal-servers-infrastructure-nat-ip-spoofing}
 
 Turning on infrastructure NAT allows the VPC infrastructure to perform any needed NAT operations. If infrastructure NAT is off, the packet passes unmodified to and from the network interface, allowing the workload to perform NAT operations. The default is on. You must have the Advanced Network Operator IAM role to modify this configuration. Allow IP spoofing must be turned off if `Enable infrastructure NAT` is turned off.
-
-
 
 ### Multiple floating IPs
 {: #bare-metal-servers-multiple-floating-ips}
