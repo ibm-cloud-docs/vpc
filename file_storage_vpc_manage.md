@@ -473,7 +473,7 @@ These instructions are for the previous generation of file share profiles (gener
 Make a `PATCH /shares/{share_ID}` call and specify the profile name in the `profile` property. The following example changes the profile to a `dp2` profile.
 
 ```sh
-curl -X PATCH "$rias_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?version=2023-08-08&generation=2"\
+curl -X PATCH "$vpc_api_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?version=2023-08-08&generation=2"\
 -H "Authorization: $iam_token"\
 -d '{"profile": {"name": "dp2"}}'
 ```
@@ -804,7 +804,7 @@ Make a `POST /shares` request and specify the `user_tags` property. This example
 
 ```sh
 curl -X POST \
-"$rias_endpoint/v1/shares?version=2023-08-08&generation=2"\
+"$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2"\
     -H "Authorization: Bearer $iam_token"\
     -H 'Content-Type: application/json'\
     -d '{
@@ -831,7 +831,7 @@ The following example modifies a file share that is identified by ID by renaming
 
 ```sh
 curl -X PATCH\
-"$rias_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?version=2023-08-08&generation=2"\
+"$vpc_api_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?version=2023-08-08&generation=2"\
 -H "Authorization: $iam_token" \
 -d '{
     "name": "myshare-patch-1",

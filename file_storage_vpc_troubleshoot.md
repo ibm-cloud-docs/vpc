@@ -93,7 +93,7 @@ Create a script file to list your file shares, parse the list, and then individu
 2. Parse each file in the list and update each file share by making separate `PATCH/ shares/{share_id}` requests.
 
    ```sh
-   curl -X PATCH "$rias_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?version=2023-07-17&generation=2" -H "Authorization: $iam_token"
+   curl -X PATCH "$vpc_api_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?version=2023-07-17&generation=2" -H "Authorization: $iam_token"
    -d '{
         "profile": {
            "name": "dp2"
