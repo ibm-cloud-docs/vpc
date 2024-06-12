@@ -36,13 +36,13 @@ You can rename a policy from the list of backup policies or from the backup poli
 ### Editing tags for target resources in the UI
 {: #backup-edit-tags}
 
-From the Backup policy details page, you can edit the tags for your {{site.data.keyword.block_storage_is_short}} volumes target resources.
+From the Backup policy details page, you can edit the tags for your target resources.
 
 1. Go to the [details page for a backup policy](/docs/vpc?topic=vpc-backup-view-policies&interface=ui#backup-view-policy).
 
 2. For **Tags for target resources**, click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit").
 
-3. In the new window, enter a user tag name. For existing {{site.data.keyword.block_storage_is_short}} volumes with user tags, enter the tag name exactly as it appears in the volume. You can also add a user tag here and then go back and add it to a volume. You need only one tag for a volume to create a backup.
+3. In the new window, enter a user tag name. For existing {{site.data.keyword.block_storage_is_short}} volumes with user tags, enter the tag name exactly as it appears in the volume. You can also add a user tag here and then go back and add it to a volume. You need only one tag to create a backup.
 
 4. Click **Next**.
 
@@ -378,7 +378,7 @@ Make a `PATCH /backup_policies/{backup_policy_id}/plans/{plan_id}` request to up
 
 * `attach_user_tags` specifies the user tags from the backup policy that are to be attached to backups created by the plan. Updating this value doesn't change the user tags for backups that were already created by this plan.
 
-* `copy_user_tags` specifies whether source volume tags are to be copied to the backup snapshot. The value is a Boolean, it's either `true` or `false`.
+* `copy_user_tags` specifies whether source tags are to be copied to the backup snapshot. The value is a Boolean, it's either `true` or `false`.
 
 * `deletion_trigger` has two properties. The `delete_after` property sets the number of days to keep a backup. The `delete_over_count` property sets the maximum number of recent backups to keep. When the maximum number is reached, the oldest backup is deleted to make space for a new one. Specify `null` to remove the existing maximum.
 
@@ -608,7 +608,7 @@ When you delete a backup policy, it no longer creates new backups. However, the 
 
 3. From the Actions menu, select **Delete**.
 
-   Confirm that the volumes that are associated with the backup policy are no longer to be backed up, and that backups that were created by the policy continue to exist. You must go to the [list of snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-delete-snapshot-ui) and delete each one manually.
+   Confirm that the resources that are associated with the backup policy are no longer to be backed up, and that backups that were created by the policy continue to exist. You must go to the [list of snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-delete-snapshot-ui) and delete each one manually.
 
 4. Enter _delete_ to confirm, the click **Delete policy**.
 
