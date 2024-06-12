@@ -36,7 +36,7 @@ If you set up service authorizations incorrectly, the backup service cannot crea
 {: #backup-s2s-auth-procedure-ui}
 {: ui}
 
-### Enabling service-to-service authorization for volume backups for volume backups at the account level
+### Enabling service-to-service authorization for volume backups at the account level
 {: #backup-s2s-auth-procedure-ui-account}
 
 To create a service-to-service authorization policy, follow this procedure:
@@ -94,7 +94,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
 {: #backup-s2s-auth-procedure-cli}
 {: cli}
 
-### Enabling service-to-service authorization for volume backups for volume backups at the account level
+### Enabling service-to-service authorization for volume backups at the account level
 {: #backup-s2s-auth-procedure-cli-account}
 
 To use Backup for VPC in your account to create policies, plans and run backup jobs for block storage volumes, create the following service-to-service authorizations:
@@ -362,7 +362,7 @@ For more information about all of the parameters that are available for this com
 {: #backup-s2s-auth-procedure-api}
 {: api}
 
-### Enabling service-to-service authorization for volume backups for volume backups at the account level
+### Enabling service-to-service authorization for volume backups at the account level
 {: #backup-s2s-auth-procedure-api-account}
 
 To use Backup for VPC in your account to create policies, plans and run backup jobs for block storage volumes, create the following service-to-service authorizations:
