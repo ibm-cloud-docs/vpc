@@ -1,43 +1,33 @@
 ---
 
 copyright:
-  years: 2018, 2022
-lastupdated: "2022-11-08"
+  years: 2018, [{CURRENT_YEAR}]
+lastupdated: "[{LAST_UPDATED_DATE}]"
 
 keywords: Getting started with Virtual Private Cloud (VPC), VPC, vpc, virtual private cloud, IBM Cloud, Virtual Private Cloud, getting started, permissions, infrastructure, iaas, IaaS, Infrastructure as a Service, SSH key, CLI, API, console, public gateway, floating IP, IP ranges, BYoIP, generation 2, gen 2, gen2, virtual servers, virtual server instances, instances. vsi, virtual machines, server, get started
 
 subcollection: vpc
 
-
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:external: target="_blank" .external}
-{:download: .download}
+{{site.data.keyword.attribute-definition-list}}
 
 # Getting started with Virtual Private Cloud (VPC)
 {: #getting-started}
 
-With {{site.data.keyword.vpc_full}} (VPC), you can use the UI, CLI, and API to quickly provision virtual server instances for VPC with high network performance. VPC infrastructure contains a number of Infrastructure-as-a-Service (IaaS) offerings, including Virtual Servers for VPC. Use the following information to understand a simple use case for planning, creating, and configuring resources for your VPC, and learn about additional VPC overviews and VPC tutorials.  
+With {{site.data.keyword.vpc_full}} (VPC), you can use the UI, CLI, and API to quickly provision virtual server instances for VPC with high network performance. VPC infrastructure contains a number of Infrastructure-as-a-Service (IaaS) offerings, including Virtual Servers for VPC. Use the following information to understand a simple use case for planning, creating, and configuring resources for your VPC, and learn about additional VPC overviews and VPC tutorials.
 {: shortdesc}
 
 ## Before you begin
 {: #prereqs}
 
-1. Set up your account to access VPC. Make sure that your account is [upgraded to a paid account](/docs/account?topic=account-accountfaqs#changeacct){: external}. 
+1. Set up your account to access VPC. Make sure that your account is [upgraded to a paid account](/docs/account?topic=account-accountfaqs#changeacct){: external}.
 
 2. Make sure that you have a public SSH key, which is used to connect to the virtual server instance. For example, generate an SSH key on your Linux server by running the following command:
 
     ```sh
     ssh-keygen -t rsa
-    ``` 
+    ```
     {: pre}
 
    This command generates two files, `id_rsa` and `id_rsa.pub`. The generated public key is in the `id_rsa.pub` file under an ``.ssh`` directory in your home directory, for example, ``.../.ssh/id_rsa.pub``.
