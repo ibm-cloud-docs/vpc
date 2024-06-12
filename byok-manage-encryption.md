@@ -24,7 +24,7 @@ In {{site.data.keyword.cloud}}, you can secure your resources with your own root
 Manage your root keys by taking the following actions:
 
    * View the association of root keys to the resources that they protect by [viewing root key registrations](#byok-root-key-registration).
-   * View key rotation information by looking at the  [root key registration](/docs/vpc?topic=vpc-vpc-encryption-managing&interface=ui#byok-root-key-verify-rotation) in the KMS instance.
+   * View key rotation information by looking at the [root key registration](/docs/vpc?topic=vpc-vpc-encryption-managing&interface=ui#byok-root-key-verify-rotation) in the KMS instance.
    * [Rotate your root keys](/docs/vpc?topic=vpc-vpc-key-rotation) at regular intervals or manually rotate imported root keys. Shortening the crypto period of a key reduces the possibility of a security breach.
    * Decide whether importing your own HSM root key or generating a root key by the KMS is preferable. If you want to set up a rotation policy for automatic key rotation, you must use KMS-generated root keys.
    * See what happens to your [root key state](#byok-root-key-states) when you take certain actions, such as disabling the key.
