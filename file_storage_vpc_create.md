@@ -340,7 +340,7 @@ By default, {{site.data.keyword.filestorage_vpc_short}} shares are encrypted wit
 
 For more information about how to create a file share with customer-managed encryption, see [Creating file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption&interface=cli#fs-byok-cli).
 
-### Creating a file share with a replica in another zone with the CLI
+### Creating a file share with a replica in another zone from the CLI
 {: #fs-create-share-with-replica-cli}
 
 For more information about how to create a file share with a replica simultaneously, see [Create a file share with replication from the CLI](/docs/vpc?topic=vpc-file-storage-create-replication&interface=cli#fs-create-new-share-replica-cli).
