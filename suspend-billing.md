@@ -1,9 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-
-lastupdated: "2022-07-20"
+  years: 2020, [{CURRENT_YEAR}]
+lastupdated: "[{LAST_UPDATED_DATE}]"
 
 keywords: pricing, billing, data, instance, VSI, suspend 
 
@@ -12,16 +11,8 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:download: .download}
 
+{{site.data.keyword.attribute-definition-list}}
 
 # Suspend billing for VPC
 {: #suspend-billing}
