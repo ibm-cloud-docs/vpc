@@ -4,22 +4,14 @@ copyright:
   years: 2018, 2021
 lastupdated: "2019-11-10"
 
-keywords: security, groups, encryption, traffic, rules, subnet, instance, VSI, firewall, encryption
+keywords: security, groups, encryption, traffic, rules, subnet, instance, firewall, encryption
 
 subcollection: vpc
 
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:note: .note}
-{:screen: .screen}
-{:tip: .tip}
-{:important: .important}
-{:download: .download}
+{{site.data.keyword.attribute-definition-list}}
 
 # Security in your VPC
 {: #security-in-your-vpc}
@@ -37,7 +29,10 @@ Security groups and access control lists (ACLs) provide ways to control the traf
 * Allow you to set up a public gateway for subnet access to the internet, guarded by ACLs.
 * Allow you to implement a floating IP for virtual server instance access to the internet, guarded by SGs.
 
-![Figure showing how a VPC can be subdivided with subnets](images/vpc-connectivity-and-security.svg "Figure showing how a VPC can be subdivided with subnets"){: caption="Figure 1. IBM VPC connectivity and security" caption-side="top"}
+If you are configuring a VPC with [{{site.data.keyword.cis_full_notm}}({{site.data.keyword.cis_short_notm}})](/docs/cis?topic=cis-iam-and-cis), you can prevent DDoS attacks by allowing traffic only through {{site.data.keyword.cis_short_notm}} (allowlist) in your VPC. Set your Network ACL and security groups to allowlist {{site.data.keyword.cis_short_notm}} traffic.
+{: tip}
+
+![Figure showing how a VPC can be subdivided with subnets](images/vpc-connectivity-and-security.svg "Figure showing how a VPC can be subdivided with subnets"){: caption="Figure 1. IBM VPC connectivity and security" caption-side="bottom"}
 
 ## Definitions
 {: #definitions}
@@ -68,7 +63,7 @@ Table 1 summarizes some key differences between security groups and ACLs.
 | Supported rules | Uses allow rules only | Uses allow and deny rules|
 | How rules are applied | All rules are considered | Rules are processed in sequence |
 | Relationship to the associated resource | An instance can be associated with multiple security groups| Multiple subnets can be associated with the same ACL|
-{: caption="Table 1. Differences between security groups and ACLs" caption-side="top"}
+{: caption="Table 1. Differences between security groups and ACLs" caption-side="bottom"}
 
 ### End-to-end encryption
 {: #end-to-end-encryption}
