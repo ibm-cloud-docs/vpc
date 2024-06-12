@@ -44,7 +44,7 @@ To ensure that you're using the VPC Backup Service most effectively and economic
 
 * Organize tags that you apply to resources and specify in backup policies. Ensure that multiple policies aren't using the same tags for target resources because that might trigger duplicate backups. You need only one tag to match to trigger a backup.
 
-* Determine what tags are already assigned to a resource (volumes, or virtual server instances). If a volume has multiple tags, make sure that the tags are not triggering duplicate backups for multiple policies.
+* Determine what tags are already assigned to a resource (volumes, or virtual server instances). If a resource has multiple tags, make sure that the tags are not triggering duplicate backups for multiple policies.
 
 * Decide how you prefer to add tags. You can create tags for target resources in your backup policy first and then apply them to volumes. Or, you can specify tags that are applied to the resource already in the backup policy. If you choose to use existing tags, be aware that the same tags might be attached to other resources that you might not want to back up from this policy.
 
