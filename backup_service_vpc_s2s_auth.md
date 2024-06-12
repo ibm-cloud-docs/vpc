@@ -56,7 +56,7 @@ To create a service-to-service authorization policy, follow this procedure:
    |--------------------------------|---------------------------------|-----------|
    | IBM Cloud Backup for VPC       | Block Storage for VPC           | Operator |
    | IBM Cloud Backup for VPC       | Block Storage Snapshots for VPC | Editor   |
-   | IBM Cloud Backup for VPC       | Multi-Volume Snapshots for VPC  | Editor   |
+   | IBM Cloud Backup for VPC       | Multi Volume Snapshots for VPC  | Editor   |
    | IBM Cloud Backup for VPC       | Virtual Server for VPC          | Operator | 
    {: caption="Table 1. Service-to-service authorizations" caption-side="bottom"}
 
@@ -73,7 +73,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
    |--------------------------------|---------------------------------|-----------|
    | IBM Cloud Backup for VPC       | Block Storage for VPC           | Operator  |
    | IBM Cloud Backup for VPC       | Block Storage Snapshots for VPC | Editor    |
-   | IBM Cloud Backup for VPC       | Multi-Volume Snapshots for VPC  | Editor    |
+   | IBM Cloud Backup for VPC       | Multi Volume Snapshots for VPC  | Editor    |
    | IBM Cloud Backup for VPC       | Virtual Server for VPC          | Operator  | 
    | IBM Cloud Backup for VPC       | IBM Cloud Backup for VPC        | Editor    |
    {: caption="Table 2. Service-to-service authorizations for the Enterprise" caption-side="bottom"}
