@@ -107,7 +107,7 @@ This process rotates your root key to a new key version that you can use to reen
 
 [After you create a root key](/docs/key-protect?topic=key-protect-create-root-keys), follow this procedure:
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/vpc){: external}, go to the **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) > Resource List** to view a list of your resources.
+1. In the [{{site.data.keyword.cloud_notm}} console](/vpc){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) > Resource List** to view a list of your resources.
 2. In th IBM Cloud resource list, click **Security**, and select your {{site.data.keyword.keymanagementserviceshort}} instance.
 3. In the **Keys** page, locate the key that you want to rotate.
 4. Click the Actions icon (ellipsis) and select **Rotate**.
