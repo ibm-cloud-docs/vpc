@@ -79,7 +79,7 @@ The following table shows the available IOPS ranges based on volume capacity for
 | 2,000 - 3,999    | 200 - 40,000  |
 | 4,000 - 7,999    | 300 - 40,000  |
 | 8,000 - 9,999    | 500 - 48,000  |
-| 10,000 - 16,000  | 1,000- 48,000 |
+| 10,000 - 16,000  | 1,000 - 48,000 |
 {: caption="Table 3. Available IOPS based on volume size" caption-side="bottom"}
 
 Moving volumes across volume-profiles that belong to different families is not allowed.
