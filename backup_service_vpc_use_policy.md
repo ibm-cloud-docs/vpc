@@ -24,7 +24,7 @@ Up to 100 tags can be attached or detached in the same operation. Keeping the nu
 {: #backup-gen-proc-tags}
 
 1. [Create a backup policy and plan](/docs/vpc?topic=vpc-create-backup-policy-and-plan).
-1. Find and identify the resources that you want to back up.
+1. Find the resources that you want to back up.
 1. Apply backup policy tags to your target volumes, or virtual server instances.{: ui}
 1. Apply backup policy tags to your target volumes, or virtual server instances.{: cli}
 1. Apply backup policy tags to your target volumes, or virtual server instances.{: api}
