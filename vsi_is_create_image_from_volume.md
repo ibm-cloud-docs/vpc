@@ -305,7 +305,7 @@ Before you begin, make sure that you [set up your API environment](/docs/vpc?top
 
 1. As described in the previous section, locate the instance, and boot volume information. Stop the instance.
 1. Get your key management service instance ID and root key CRN.
-   - [({{site.data.keyword.keymanagementserviceshort}} - Retrieving your instance ID and cloud resource name (CRN)](/docs/key-protect?topic=key-protect-retrieve-instance-ID&interface=api).
+   - [{{site.data.keyword.keymanagementserviceshort}} - Retrieving your instance ID and cloud resource name (CRN)](/docs/key-protect?topic=key-protect-retrieve-instance-ID&interface=api).
    - [{{site.data.keyword.hscrypto}} - Retrieving your instance ID](/docs/hs-crypto?topic=hs-crypto-retrieve-instance-ID&interface=api).
 
 1. Make an API request to [create an image](/apidocs/vpc/latest#create-image). Specify the volume ID the CRN of the root key as shown in the following example.
