@@ -42,7 +42,7 @@ To ensure that you're using the VPC Backup Service most effectively and economic
 ## Best practices for user actions
 {: #baas-user-actions-bp}
 
-* Organize tags that you apply to volumes and specify in backup policies. Ensure that multiple policies aren't using the same tags for target resources because that might trigger duplicate volume backups. You need only one tag to match to trigger a backup.
+* Organize tags that you apply to resources and specify in backup policies. Ensure that multiple policies aren't using the same tags for target resources because that might trigger duplicate backups. You need only one tag to match to trigger a backup.
 
 * Determine what tags are already assigned to a volume from the list of {{site.data.keyword.block_storage_is_short}} volumes. If a volume has multiple tags, make sure that the tags are not triggering duplicate backups for multiple policies.
 

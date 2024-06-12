@@ -141,7 +141,7 @@ For more information about creating and managing consistency groups, see the fol
 ## Restore a volume from a snapshot
 {: #bs-snapshots-restore-overview}
 
-You can create a volume from a snapshot at any time. This process is called restoring a volume. Volume data restoration begins immediately as the volume is hydrated, but performance is degraded until the volume is fully restored. The volume does not need to be attached to an instance. For more information, see [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore).
+You can create a volume from a snapshot at any time. This process is called restoring. Volume data restoration begins immediately as the volume is hydrated, but performance is degraded until the volume is fully restored. The volume does not need to be attached to an instance. For more information, see [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore).
 
 ## Tags for {{site.data.keyword.block_storage_is_short}} snapshots
 {: #snapshots-about-tags}

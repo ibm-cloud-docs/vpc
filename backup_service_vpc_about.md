@@ -150,7 +150,7 @@ When you decide on the tags to use for your target resources, make sure that oth
 ### Restore a volume from a backup
 {: #backup-service-restore-concepts}
 
-You can create a separate volume from a backup snapshot. This process is called restoring a volume. It works the same way as restoring data from manually created snapshots. Restoring a volume from a backup snapshot creates a fully provisioned {{site.data.keyword.block_storage_is_short}} boot or data volume.
+You can create a separate volume from a backup snapshot. This process is called restoring. It works the same way as restoring data from manually created snapshots. Restoring a volume from a backup snapshot creates a fully provisioned {{site.data.keyword.block_storage_is_short}} boot or data volume.
 
 A volume can be restored when you create an instance, modify an instance, or when you create a stand-alone volume. Volume data restoration begins immediately as the volume is hydrated, but [performance is degraded](/docs/vpc?topic=vpc-baas-vpc-restore&interface=ui#baas-performance-considerations) until the volume is fully restored. Restoring from a bootable snapshot is slower than using a regular boot volume.
 
