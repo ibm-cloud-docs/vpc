@@ -73,7 +73,7 @@ OK
 ```
 {: screen}
 
-To list the service authorizations that are already in place for the account, run the `ibmcloud iam authorization-policies` command. The following example shows that the file service could be encrypted with a CRK that is stored in {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}.
+To list the service authorizations that are already in place for the account, run the `ibmcloud iam authorization-policies` command. The following example shows that the file shares can be encrypted with a CRK that is stored in {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}.
 
 ```sh
 $ ibmcloud iam authorization-policies
