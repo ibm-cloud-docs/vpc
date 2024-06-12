@@ -28,7 +28,7 @@ View all file shares and mount targets in the UI, CLI, API, or Terraform. View d
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > File Shares**.
 
-2. The File Shares for VPC list page shows all file shares that are created in that zone. **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions") options are used to manage the file shares. The following table describes the information and actions on the list page.
+2. The File Shares for VPC list page shows all the file shares that are created in that zone. **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions") options are used to manage the file shares. The following table describes the information and actions on the list page.
 
 | Field | Value |
 |-------|-------|
