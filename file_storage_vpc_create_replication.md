@@ -279,7 +279,7 @@ The following example creates the replica `test-replica-001` for the source shar
 
 ```sh
 curl -X POST\
-"$rias_endpoint/v1/shares?version=2023-08-08&generation=2"\
+"$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2"\
 -H "Authorization: $iam_token"\
 -d '{
     "name": "source-share-001",
@@ -308,7 +308,7 @@ The following example shows an API request that creates a replica share in the `
 
 ```sh
 curl -X POST \
-"$rias_endpoint/v1/shares?version=2023-08-28&generation=2"\
+"$vpc_api_endpoint/v1/shares?version=2023-08-28&generation=2"\
   -H "Authorization: Bearer $iam_token" \
   -d '{
   "source_share": {"id": "4aafd9c9-5555-4bdb-902d-d63d4dcf5adc"},
