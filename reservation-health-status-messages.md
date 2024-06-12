@@ -47,7 +47,7 @@ For more information about managing reserved capacity, see [Managing reserved ca
 ## Message: `reservation_deleted`
 {: #reservation-deleted}
 
-**Message:** _The reservation affinity pool has a deleted reservation.
+**Message:** _The reservation affinity pool has a deleted reservation._
 
 A reservation that is in your reservation affinity pool was deleted. To resolve this issue, try the following possible resolutions:
 
@@ -61,7 +61,7 @@ For more information about managing reserved capacity, see [Managing reserved ca
 ## Message: `reservation_expired`
 {: #reservation-expired}
 
-**Message:** : The reservation affinity pool has an expired reservation.
+**Message:** : _The reservation affinity pool has an expired reservation._
 
 Your reservation affinity pool has an expired reservation and can't be used. To resolve this issue, try the following possible resolutions:
 
@@ -75,7 +75,7 @@ For more information about managing reserved capacity, see [Managing reserved ca
 ## Message: `reservation_failed`
 {: #reservation-failed}
 
-**Message**: The reservation affinity pool has a failed reservation.
+**Message**: _The reservation affinity pool has a failed reservation._
 
 You have a failed reservation in your reservation affinity pool. To resolve this issue, try the following possible resolutions:
 
