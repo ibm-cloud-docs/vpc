@@ -43,9 +43,9 @@ As an enterprise account administrator, you can view and manage the backup polic
 
 You must set a retention period for your backups. It can be based on the number of days that you want to keep the backups. Or it can be based on the total number of backups that you want to retain before the oldest ones are deleted. Or you can set it up by specifying both the time limit and the maximum number of backups that you want to keep. Planning for the retention and deletion of your backups can keep the costs down.
 
-When the backup is triggered at the scheduled interval, a backup copy is created of your volume contents. The [Snapshot for VPC](/docs/vpc?topic=vpc-snapshots-vpc-about) service is used to create a point-in-time copy of your data. When the first backup snapshot is taken, the entire contents of the volume are copied and retained in {{site.data.keyword.cos_full}}. Subsequent backups of the same volume capture the changes that occurred since the previous backup. You can take up to 750 backups of a volume.
+When the backup is triggered at the scheduled interval, a backup copy is created of your volume by the [Snapshot for VPC](/docs/vpc?topic=vpc-snapshots-vpc-about) service. When the first backup snapshot is taken, the entire contents of the volume are copied and retained in {{site.data.keyword.cos_full}}. Subsequent backups of the same volume capture the changes that occurred since the previous backup. You can take up to 750 backups of a volume
 
-Backups, like snapshots, have a lifecycle that is independent from the source {{site.data.keyword.block_storage_is_short}} volume.
+Block storage backups, like block storage snapshots, have a lifecycle that is independent from the source {{site.data.keyword.block_storage_is_short}} volume.
 
 You can copy a Block storage backup snapshot from one region to another region, and later use that snapshot to restore a volume in the new region. The [cross-regional copy](#backup-service-crc) can be used in disaster recovery scenarios when you need to turn on your virtual server instance and data volumes in a different region. The remote copy can be created automatically as part of a backup plan, or manually later.
 
@@ -82,7 +82,7 @@ The {{site.data.keyword.cloud_notm}} Backup for VPC offers you the following ben
 
 * Prevent data loss - Protect your critical data by scheduling regular backups. Establish a data restoration plan to quickly restore your compromised volumes. Reduce technical and financial impacts from unplanned outages.
 
-* Protect against small-scale failures - Restore from a bootable snapshot if a host failure or malicious attack occurs.
+* Protect against small-scale failures - Restore boot volume from a bootable snapshot if a host failure or malicious attack occurs.
 
 * Improve compliance - You can prevent issues that are related to compliance and regulatory requirements by ensuring that backups are in place and data can be restored easily.
 
@@ -161,7 +161,7 @@ Restoring a virtual server instance directly from snapshot consistency group ide
 ### Restore a volume by using fast restore
 {: #backup-service-fastrestore}
 
-When you restore a volume by using fast restore, a fully hydrated volume is created.
+When you restore a block storage volume by using fast restore, a fully hydrated volume is created.
 
 You can create a [backup policy plan](/docs/vpc?topic=vpc-create-backup-policy-and-plan&interface=ui#backup-plan-ui) with fast restore zones, and add or remove zones later as needed. The fast restore feature caches one or more copies of a backup snapshot to the zones that you selected. Later, you can use these backup clones to create volumes in any zone within the same region.
 
@@ -170,7 +170,7 @@ For more information, see [Restoring a volume from a backup snapshot](/docs/vpc?
 ### Cross-regional backup copies
 {: #backup-service-crc}
 
-You can copy a backup snapshot from one region to another region, and later use that snapshot to restore a volume in the new region. You can use and manage the cross-regional snapshot in the target region independently from the parent volume or the original snapshot.
+You can copy a Block storage backup from one region to another region, and later use that snapshot to restore a volume in the new region. You can use and manage the cross-regional snapshot in the target region independently from the parent volume or the original snapshot.
 
 If the source snapshot is not encrypted with a customer key, the encryption of the copy remains provider-managed. If the source snapshot is protected by a customer-managed key, you must specify the customer-managed key that you want to use to encrypt the new copy.
 
