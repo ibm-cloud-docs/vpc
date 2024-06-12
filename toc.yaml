@@ -666,10 +666,10 @@ toc:
             - topicgroup:
                 label: Data encryption
                 topics:
-                - vsi-vpc-about-data-encryption.md
-                - vsi-vpc-planning-encryption.md
-                - vsi-vpc-key-rotation.md
-                - vsi-vpc-manage-encryption.md
+                - byok-about-data-encryption.md
+                - byok-planning-encryption.md
+                - byok-key-rotation.md
+                - byok-manage-encryption.md
             - file_storage_vpc_eit.md
         - topicgroup:
             label: Logging and monitoring
