@@ -366,8 +366,6 @@ To add user tags to a volume, you first make a `GET /volumes/{volume_id}` call a
 
 For more information, see [Applying tags to volumes](/docs/vpc?topic=vpc-backup-use-policies&interface=api#backup-apply-tags-volumes-api) in the VPC backup service documentation.
 
-Each resource can have up to 1000 user tags, and no more than 250 access tags. However, only 100 tags can be attached or detached in the same operation.
-
 ## Applying access management tags to a {{site.data.keyword.block_storage_is_short}} volume
 {: #storage-add-access-mgt-tags}
 
@@ -375,6 +373,8 @@ Access management tags are metadata that you can add to your {{site.data.keyword
 
 Access management tags are not used by [backup policies](/docs/vpc?topic=vpc-backup-use-policies) to create backup snapshots. Backup snapshots are created when user tags match backup policy tags for target resources to volume user tags.
 {: note}
+
+Each resource can have up to 1000 user tags, and no more than 250 access tags. However, only 100 tags can be attached or detached in the same operation.
 
 ### Step 1 - Creating an IAM access management tag in the UI
 {: #storage-create-access-mgt-tag-ui}
