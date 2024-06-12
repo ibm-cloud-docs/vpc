@@ -700,7 +700,7 @@ You can delete the most recently created snapshot from the list of snapshots fro
 4. Click **Delete all** to delete all snapshots for this volume.
 5. Alternatively, select a single snapshot in the list for deletion and then:
    1. Click the **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions").
-   2. Select **Delete** from the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions").
+   2. Select **Delete**.
    3. Confirm the deletion.
 
 ## Deleting snapshots from the CLI
