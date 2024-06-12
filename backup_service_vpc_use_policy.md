@@ -35,7 +35,7 @@ Up to 100 tags can be attached or detached in the same operation. Keeping the nu
 {: #backup-apply-tags-ui}
 {: ui}
 
-Apply tags to new or existing {{site.data.keyword.block_storage_is_short}} volumes in any of these ways:
+Apply tags to new or existing volumes in any of these ways:
 
 * Add tags to volumes directly from the block volumes list view by using the tags column.
 * Add tags from the volume details page.
@@ -45,7 +45,7 @@ Apply tags to new or existing {{site.data.keyword.block_storage_is_short}} volum
 ### Add tags from the {{site.data.keyword.block_storage_is_short}} volume list view
 {: #backup-tags-volumes-list-ui}
 
-1. Go to the [list of {{site.data.keyword.block_storage_is_short}} volumes](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#viewvols-ui).
+1. Go to the [list of volumes](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#viewvols-ui).
 2. Locate an _available_ volume. In the **Tags** column, volumes with tags show a number that indicates the tags that are already applied. You can view the tags by clicking the number link. Volumes without tags have an **Add tags** link.
 3. Click **Add tags**.
 4. In the new window, type a tag in the User tags text box.
@@ -54,7 +54,7 @@ Apply tags to new or existing {{site.data.keyword.block_storage_is_short}} volum
 ### Add tags from the volume details page
 {: #backup-tags-vol-details}
 
-1. Go to the [list of {{site.data.keyword.block_storage_is_short}} volumes](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#viewvols-ui).
+1. Go to the [list of volumes](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#viewvols-ui).
 2. Click the name of a volume in the list.
 3. On the volume details page, click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") next to the {{site.data.keyword.block_storage_is_short}} volume name.
 4. In the new window, type a tag in the User tags text box.
