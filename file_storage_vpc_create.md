@@ -709,7 +709,7 @@ The following response shows that access control mode is `security_group`, which
     ],
     "user_tags": [],
     "zone": {
-        "href": "https:///us-south.cloud.ibm.com/v1/regions/us-south/zones/us-south-1",
+        "href": "https://us-south.cloud.ibm.com/v1/regions/us-south/zones/us-south-1",
         "name": "us-south-1"
     }
 }
