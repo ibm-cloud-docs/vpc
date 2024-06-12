@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-03-27"
+lastupdated: "2024-05-28"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -41,7 +41,7 @@ Table 1 describes the information on the Backup policy list page. The default re
 | Name | Click the name of a policy to see its details. |
 | Status | The status of the policy, such as _Stable_. For more information about policy statuses, see [Backup policy statuses](/docs/vpc?topic=vpc-backup-vpc-monitoring). |
 | Applied resources | Number of resources ({{site.data.keyword.block_storage_is_short}} volumes or virtual server instances) that are tagged to be backed up by the policy [^Note1]. The number is a link that takes you to a list of resources that apply for the policy. |
-| Tags for target resources | Tags for target {{site.data.keyword.block_storage_is_short}} volumes that you are backing up. |
+| Tags for target resources | Tags for target volumes that you are backing up. |
 | Last run time (local) | The most recent time a job ran for the backup policy. If the field is blank, the volumes don't have matching tags for a job to run. |
 | Created date (local) | Date and time of when the backup was created. |
 {: caption="Table 1. Backup policy list view" caption-side="bottom"}
