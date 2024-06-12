@@ -91,7 +91,7 @@ The total maximum IOPS is rounded up to the next multiple of 10 when the IOPS ca
 ### Custom IOPS profile
 {: #fs-custom}
 
-Custom IOPS profile specify the total IOPS for the file share within the range for its size. File shares that use a custom IOPS profile can have an IOPS performance level in the range of 100-48000 IOPS.
+Custom IOPS profile specifies the total IOPS for the file share within the range for its size. File shares that use a custom IOPS profile can have an IOPS performance level in the range of 100-48000 IOPS.
 
 Table 4 shows the available IOPS ranges based on file share size.
 
