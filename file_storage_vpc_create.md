@@ -26,7 +26,7 @@ You can create file shares and mount targets either of the following ways:
 * Create a file share and mount target together,
 * Create a file share and add mount target later.
 
-When you create a mount target, its transit encryption type must reflect the share's allowed transit encryption modes. You can create multiple mount targets for the share if it's to be used by hosts in different VPCs. You can create one mount target per VPC for the file share.
+When you create a mount target, its transit encryption type must reflect the share's allowed transit encryption modes. You can create multiple mount targets for the share if it's to be used by resources in different VPCs. You can create one mount target per VPC for the file share.
 
 ## Creating a file share in the UI
 {: #file-storage-create-ui}
