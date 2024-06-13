@@ -46,7 +46,7 @@ To ensure that you're using the VPC Backup Service most effectively and economic
 
 * Determine what tags are already assigned to a resource (volumes, or virtual server instances). If a resource has multiple tags, make sure that the tags are not triggering duplicate backups for multiple policies.
 
-* Decide how you prefer to add tags. You can create tags for target resources in your backup policy first and then apply them to volumes. Or, you can specify tags that are applied to the resource already in the backup policy. If you choose to use existing tags, be aware that the same tags might be attached to other resources that you might not want to back up from this policy.
+* Decide how you prefer to add tags. You can create tags for target resources in your backup policy first and then apply them to  the volumes. Or, you can specify tags that are applied to the resource already in the backup policy. If you choose to use existing tags, be aware that the same tags might be attached to other resources that you might not want to back up from this policy.
 
 * Decide whether creating one or multiple backup plans suits your needs. For example, multiple plans can trigger backups at different intervals. You might want to back up some volumes monthly, others more frequently in a daily or weekly plan.
 
