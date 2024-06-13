@@ -4,7 +4,6 @@ copyright:
   years: 2019, [{CURRENT_YEAR}]
 lastupdated: "[{LAST_UPDATED_DATE}]"
 
-
 keywords:
 
 subcollection: vpc
