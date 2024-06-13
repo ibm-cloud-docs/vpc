@@ -37,9 +37,9 @@ Follow these steps to expand volume capacity:
 
 4. On the volume details page, locate **Size**. The current IOPS profile and volume size are displayed.
 
-5. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit"). Alternatively, click the **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions"), select **Expand Block Storage volume**.
+5. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit"). Alternatively, click the **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions"), and select **Expand Block Storage volume**.
 
-6. In the panel, increase the volume size in GB up to 16,000 GB.
+6. In the panel, increase the volume size in GB up to 16,000 GB. The maximum size that you can expand to is based on the selected IOPS profile or custom volume settings. The UI indicates the maximum capacity for the selected profile. For a custom profile, you can expand the volume based on [sizing limits](/docs/vpc?topic=vpc-about-increasing-volume-capacity#expandable-volume-limitations). When you increase the size of the volume, max IOPS and throughput are calculated for the expanded volume.
 
    The maximum size that you can expand to is based on the selected IOPS profile or custom volume settings. The UI indicates the maximum capacity for the selected profile. For a custom profile, you can expand the volume based on [sizing limits](/docs/vpc?topic=vpc-about-increasing-volume-capacity#expandable-volume-limitations). When you increase the size of the volume, max IOPS and throughput are calculated for the expanded volume.
 
