@@ -4,6 +4,8 @@ copyright:
   years: 2021, [{CURRENT_YEAR}]
 lastupdated: "[{LAST_UPDATED_DATE}]"
 
+keywords: 
+
 subcollection: vpc
 
 ---
