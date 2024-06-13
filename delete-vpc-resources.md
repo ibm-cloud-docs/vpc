@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-02-23"
+  years: 2019, [{CURRENT_YEAR}]
+lastupdated: "[{LAST_UPDATED_DATE}]"
 
 keywords: delete, resources, ui, console, cli, infrastructure, command line interface
 
@@ -50,7 +50,7 @@ The following key facts are important to remember about deletion:
 * Most delete requests are _asynchronous_, which means that the resource might show a **deleting** status in list queries when it was not yet deleted completely.
 * You must poll to make sure that the child resource is no longer in the list view before you try to delete the parent resource.
 
-If the status of the resource changes from `deleting` to `failed`, you can try to delete the resource again. If you cannot delete a resource in `failed` status, [Contact support](/docs/virtual-servers?topic=virtual-servers-gettinghelp).
+If the status of the resource changes from `deleting` to `failed`, you can try to delete the resource again. If you cannot delete a resource in `failed` status, [Contact support](/docs/vpc?topic=vpc-getting-help-and-support-for-vpc).
 {: tip}
 
 ### Step 1: Find all subnets within the VPC that you want to delete
@@ -112,7 +112,7 @@ The status of the VPN gateway changes to `deleting` immediately, but it still ap
 #### Delete all load balancers in the subnet, if any
 {: #deleting-lbs-cli}
 
-To list alll Load balancers in your account, run the following command:
+To list all Load balancers in your account, run the following command:
 
 ```sh
 ibmcloud is load-balancers
@@ -212,6 +212,9 @@ The status of the VPC changes to `deleting` immediately, but it might take a few
 ## Deleting a VPC by using the REST APIs
 {: #deleting-using-api}
 {: api}
+
+Deleting an {{site.data.keyword.vpc_full}} by using the REST APIs follows the same general steps in the
+[deleting](/docs/vpc-on-classic?topic=vpc-on-classic-deleting) process as deletion by using the [CLI](/docs/vpc-on-classic?topic=vpc-on-classic-deleting-using-cli).
 
 The following steps are the main parts in the process:
 
