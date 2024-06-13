@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-02-21"
+lastupdated: "2024-06-13"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance, instances, virtual servers, creating virtual servers, virtual server instances, virtual machines, Virtual Servers for VPC, compute, vsi, vpc, creating, UI, console
 
@@ -118,6 +118,6 @@ You can create virtual server instances in your {{site.data.keyword.vpc_short}} 
 
 * [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc)
 * [Creating an image from a volume](/docs/vpc?topic=vpc-create-ifv)
-* [View and use your image from a volume](/docs/vpc?topic=vpc-create-ifv#ifv-image-creation-completed)
+* [Viewing and using your image](/docs/vpc?topic=vpc-create-ifv#ifv-image-creation-completed)
 * [resource group](/docs/account?topic=account-account_setup)
 * [Best practices for organizing resources and assigning access](/docs/account?topic=account-account_setup)

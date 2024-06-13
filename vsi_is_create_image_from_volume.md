@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-06-12"
+lastupdated: "2024-06-13"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance
 
@@ -83,7 +83,7 @@ To create an image of the boot volume, the associated virtual server instance mu
 
 6. On the right-side panel, click **Create custom image**.
 
-## View and use your image from volume
+## Viewing and using your custom image
 {: #ifv-image-creation-completed}
 {: ui}
 
