@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-12-18"
+  years: 2020, [{CURRENT_YEAR}]
+lastupdated: "[{LAST_UPDATED_DATE}]"
 
 keywords: dedicated host instance, instance on vpc dedicated host, create instance on dedicated host
 
@@ -45,7 +45,7 @@ After you created a dedicated host, you can start provisioning virtual server in
 
 1. Make sure that you downloaded, installed, and initialized the following CLI plug-ins. For more information, see [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 * IBM Cloud CLI
-* The infrastructure-service plug-in 
+* The infrastructure-service plug-in
 
 2. Have an [{{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli).
 
@@ -64,8 +64,8 @@ Gather the following information:
 | VPC                   | `ibmcloud is vpcs`              |
 | Subnet                | `ibmcloud is subnets`           |
 | Zone                  | `ibmcloud is zones`             |
-| Dedicated host        | `ibmcloud is dedicated-hosts`   |  
-| Dedicated group       | `ibmcloud is dedicated-host-groups`|  
+| Dedicated host        | `ibmcloud is dedicated-hosts`   |
+| Dedicated group       | `ibmcloud is dedicated-host-groups`|
 {: caption="Table 1. Required instance details" caption-side="bottom"}
 
 The profile family and class must match for the dedicated host and instances that are provisioned on the host. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles).
