@@ -109,3 +109,5 @@ After you choose a profile, it's time to plan for and create an instance.
 * [Planning for instances](/docs/vpc?topic=vpc-vsi_best_practices)
 * [Creating an instance by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers)
 * [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli)
+
+

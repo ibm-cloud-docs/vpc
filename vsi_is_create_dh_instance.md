@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, [{CURRENT_YEAR}]
-lastupdated: "[{LAST_UPDATED_DATE}]"
+  years: 2020, 2024
+lastupdated: "2024-06-14"
 
 keywords: dedicated host instance, instance on vpc dedicated host, create instance on dedicated host
 
@@ -143,3 +143,5 @@ curl -X POST \
 For more information, see [Create an instance](/apidocs/vpc/latest#create-instance).
 
 For more information about the `$vpc_api_endpoint` and `$iam_token` variables, see the Authentication and Endpoint URLs sections in [Virtual Private Cloud API Introduction](/apidocs/vpc/latest#about-vpc-api).
+
+
