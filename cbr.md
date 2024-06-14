@@ -469,4 +469,4 @@ After the VPN client connects to the VPN server, the requests to the VPE endpoin
    - [Global Search APIs](/apidocs/search)
    - Global Tagging [Attach](/apidocs/tagging#attach-tag) and [Detach](/apidocs/tagging#detach-tag) APIs
 - When you create a rule, it might take up to 10 minutes to become enforced.
-- Due to a limitation that is currently being addressed, context-based restrictions must not be in place for [Secrets Manager APIs](/apidocs/secrets-manager) if you are using the [Load balancer for VPC service](/docs/vpc?topic=vpc-nlb-vs-elb), as it results in failing to attach the certificates to the listener associated with the load balancer
+- Due to a limitation that is currently being addressed, context-based restrictions must not be in place for [Secrets Manager APIs](/apidocs/secrets-manager) if you are using the [Load balancer for VPC service](/docs/vpc?topic=vpc-nlb-vs-elb), as it results in failing to attach the certificates to the listener associated with the load balancer.

@@ -2,12 +2,11 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-06-11"
+lastupdated: "2024-06-13"
 
 keywords:
 
 subcollection: vpc
-
 
 ---
 
@@ -34,14 +33,16 @@ To increase a quota for a particular resource, [contact support](/unifiedsupport
 | ------- | ------ |
 | vCPU | 200 per region  |
 | RAM | 5600 GB per region |
-| Bare metal servers | 25 per account |
+| Bare metal servers | 25 per account  |
 | Instance storage | 18 TB per region |
-| Floating IP addresses | 40 per zone |
-| SSH keys | 200 per account |
-| GPU | 16 per account |
+| SSH keys | 200 per region |
+| GPU | 16 per region |
 | Dedicated host groups | 100 per region |
 | Storage optimized (ox2) instance storage | 96 TB per region |
 {: caption="Table 1. Quotas for virtual server instances" caption-side="bottom"}
+
+
+
 
 When you provision virtual server instances dedicated hosts, the vCPU, RAM, and solid-state drives, which are associated with the instances count toward the vCPU, RAM, and instance storage quotas per region. Instances that are provisioned on dedicated hosts do not count against the vCPU quota. For more information, see [About instance storage](/docs/vpc?topic=vpc-instance-storage).
 
@@ -87,7 +88,7 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 | VPN gateways| 9 per region, 3 per zone |
 | VPN connections | 10 per VPN gateway |
 | IKE policies | 20 per region |
-| IPSec policies | 20 per region |
+| IPsec policies | 20 per region |
 | Peer subnets | 50 across all connections of a VPN gateway, 15 per individual VPN connection |
 | Local subnets | 50 across all connections of a VPN gateway, 15 per individual VPN connection |
 | Route-based VPN gateway | 1 per zone per VPC |
@@ -101,7 +102,7 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 | Active connections per VPN server | 2000 |
 | Active VPN servers | 10 per region |
 | Active routes per VPN server | 50 |
-| Number of certificate revocations lists | 20,000 |
+| Number of certificate revocations lists | 20000 |
 | Number of VPN servers in a security group | 10 |
 | Number of auth clients per second per VPN server | 10 |
 {: caption="Table 6. Quotas for the client-to-site VPN server service" caption-side="bottom"}
@@ -137,6 +138,8 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 ### Private Path network load balancers
 {: #ppnlb-quotas}
 
+
+
 The beta release of IBM Cloud Private Path is available only to allowlisted users. Contact your IBM Support representative if you are interested in getting early access to this beta offering.
 {: beta}
 
@@ -146,7 +149,7 @@ The beta release of IBM Cloud Private Path is available only to allowlisted user
 | Listeners | 10 per load balancer |
 | Pools | 10 per load balancer |
 | Members | 150 per pool |
-{: caption="Table 9. Quotas for Private Path load balancers" caption-side="bottom"}
+{: caption="Table 8. Quotas for Private Path load balancers" caption-side="bottom"}
 
 ### Routing tables and routes
 {: #routing-tables-routes-quotas}
@@ -156,7 +159,7 @@ The beta release of IBM Cloud Private Path is available only to allowlisted user
 | Routing tables per VPC | 50 |
 | Routes per routing table | 200 |
 | Advertise routes per VPC | 15 |
-{: caption="Table 10. Quotas for routing tables and routes" caption-side="bottom"}
+{: caption="Table 9. Quotas for routing tables and routes" caption-side="bottom"}
 
 Each route has a destination property, which includes a prefix length (`/24` in `10.2.0.0/24`). The number of unique prefix lengths that are supported per custom routing table is 14. Multiple routes with the same prefix count as only one unique prefix.
 {: note}
@@ -167,7 +170,7 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 | Resource | Quota |
 |--------|-----|
 | Reserved IP addresses | 20,000 per region |
-{: caption="Table 11. Quotas for reserved IP addresses" caption-side="bottom"}
+{: caption="Table 10. Quotas for reserved IP addresses" caption-side="bottom"}
 
 ### Virtual network interfaces
 {: #virtual-network-interfaces-quotas}
@@ -175,24 +178,30 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 | Resource | Quota |
 |--------|-----|
 | IP addresses | 8 per virtual network interface |
-{: caption="Table 12. Quotas for virtual network interfaces" caption-side="bottom"}
+{: caption="Table 11. Quotas for virtual network interfaces" caption-side="bottom"}
 
 ### Block Storage volumes and snapshots
 {: #block-storage-quotas}
 
 | Resource | Quota |
 |--------|-----|
-| Boot and secondary volumes | 300 total VPC volumes per region |
-| Snapshots and backup snapshots | Up to 750 per volume in a region |
-{: caption="Table 13. Quotas for Block Storage volumes and snapshots" caption-side="bottom"}
+| Boot and secondary volumes | 300 total VPC volumes per region. |
+| Snapshots and backup snapshots | Up to 750 per volume in a region. |
+{: caption="Table 12. Quotas for Block Storage volumes and snapshots" caption-side="bottom"}
 
-### File shares
+### File shares and snapshots
 {: #file-storage-quotas}
 
 | Resource | Quota |
 |--------|-----|
-| File shares | 300 total file shares per region |
-{: caption="Table 14. Quotas for file shares" caption-side="bottom"}
+| File shares | 300 file shares per account, across all VPCs |
+| Mount targets | 256 per file share per account per zone |
+{: caption="Table 13. Quotas for file shares" caption-side="bottom"}
+
+#### Share mount targets
+{: #smt}
+
+10 per file share
 
 ### Placement groups
 {: #placement-group-quotas}
@@ -200,11 +209,11 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 | Resource | Quota |
 |--------|-----|
 | Placement groups | 100 placement groups per region |
-| Instances | 12 instances per placement group per region with host_spread placement group strategy. |
-| Instances | 4 instances per placement group per region with power_spread placement group strategy. |
-{: caption="Table 15. Quotas for placement groups" caption-side="bottom"}
+| Instances (*host_spread*) | 12 instances per placement group per region with `host_spread` placement group strategy. |
+| Instances (*power_spread*) | 4 instances per placement group per region with `power_spread` placement group strategy. |
+{: caption="Table 14. Quotas for placement groups" caption-side="bottom"}
 
-The quotas for placement groups are set and can't be adjusted.
+The quotas for placement groups are preset and can't be adjusted.
 {: note}
 
 ## Service limits
@@ -215,13 +224,13 @@ The following table displays current VPC service limits. Unlike quotas, these li
 | Resource | Limit |
 |--------|-----|
 | VPCs with classic access | 1 per region|
-| Network interfaces | 5 per instance |
+| Network interfaces | 5, 10, or 15 (depending on the size of the instance) per instance | 
 | PCI network interfaces for bare metal servers | 8 per bare metal server |
 | Public gateways | 1 per zone per VPC |
 | Security groups | 5 per [target](/docs/vpc?topic=vpc-using-security-groups#about-security-group-targets) |
 | Remote rules for security groups | 15 per security group|
 | Secondary volumes per instance | Up to 12 secondary volumes |
 | Image export jobs | 5 active jobs per image, 10 total per image, 20 active jobs per account, per region|
-| Instance groups for auto scale and more | 200 per account|
+| Instance groups for auto scale and more | 200 per account |
 | Instance group memberships  | 1000 per instance group|
-{: caption="Table 16. Limits for VPC resources" caption-side="bottom"}
+{: caption="Table 15. Limits for VPC resources" caption-side="bottom"}

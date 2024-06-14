@@ -56,11 +56,7 @@ To create an unassociated reserved IP, follow these steps:
 
 To delete (release) a reserved IP using the UI, navigate to  **Subnets > Reserved IPs** and click the actions menu ![actions menu](images/overflow.png) next to the reserved IP that you want to delete. Select **Release**.
 
-<!--### Unbinding a reserved IP
-{: #unbinding-reserved-ip}
 
-<!--If a reserved IP has the auto-delete option enabled, unbinding the reserved IP deletes the reserved IP with no further action needed.
-When the auto-delete option is disabled, unbinding causes the reserved IP to become unbound, but it remains associated with the subnet. You might need to refresh the UI to view the changes.-->
 
 ## Working with reserved IPs from the CLI
 {: #cli-reserved-ip}

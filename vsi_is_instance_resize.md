@@ -2,8 +2,7 @@
 
 copyright:
   years: 2021, 2024
-  
-lastupdated: "2024-05-30"
+lastupdated: "2024-05-20"
 
 subcollection: vpc
 
@@ -14,26 +13,23 @@ subcollection: vpc
 # Resizing a virtual server instance
 {: #resizing-an-instance}
 
-You can resize your virtual server instance and vertically scale to any supported profile size in minutes. You can increase or decrease the amount of vCPU and RAM available for greater flexibility in workload management to address resource requirement changes, optimize cost or workload performance.
+You can resize your virtual server instance and vertically scale to any supported profile size in minutes. You can increase or decrease the amount of available vCPU and RAM for greater flexibility in workload management to address resource requirement changes and optimize cost or workload performance.
 {: shortdesc}
 
 Virtual servers are configured by using profiles, or a combination of instance attributes, such as the number of vCPUs, amount of RAM, network bandwidth, and more that define the size and capabilities of the virtual server instance.
 When you upgrade or downgrade an existing server, you choose another profile that has the pre-defined specifications that you need. You cannot customize the configuration of a virtual server. The virtual server profile that you select determines the valid cores, RAM, bandwidth, and disk sizes on the resized instance. For more information about profiles, see [Instance Profiles](/docs/vpc?topic=vpc-profiles).
 
 When you resize an instance, keep the following information in mind:
-* You need to stop, update, and start the instance that you want to resize
-* Data isn't deleted from the primary volume or the data volume
-* RAM is wiped from the resized instance
-* All network configurations are maintained, such as private IPs, floating IPs, vNICs, and security groups
-* The instance name doesn't change
-* The location doesn't change. The location includes the location geography, region, and zone that were used when creating the virtual server instance.
-* You must select a secure execution enabled profile when you want to resize an {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} instance. Selecting a profile that is not secure execution enabled will cause the provisioning to fail.
 
-After the instance is resized, you are billed the hourly rate of the new instance profile.
-{: note}
-
-You can track the instance resize in Activity Tracker and {{site.data.keyword.la_full}} for troubleshooting and audit purposes.
-{: note}
+* You need to stop, update, and start the instance that you want to resize.
+* Data isn't deleted from the primary volume or the data volume.
+* RAM is wiped from the resized instance.
+* All network configurations are maintained, such as private IPs, floating IPs, vNICs, and security groups.
+* The instance name doesn't change.
+* The location doesn't change. The location includes the location geography, region, and zone that were used when you create the virtual server instance.
+* You must select a secure execution-enabled profile when you want to resize an {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} instance. Selecting a profile that is not secure execution-enabled causes the provisioning to fail.
+* After the instance is resized, you are billed the hourly rate of the new instance profile.
+* You can track the instance resize in Activity Tracker and {{site.data.keyword.la_full}} for troubleshooting and audit purposes.
 
 ## Resizing virtual servers on dedicated hosts
 {: #resizing-dedicated-virtual-servers}
@@ -53,21 +49,20 @@ When you stop a virtual server instance with an instance storage profile, that s
 
 Attached data volumes remain intact and are attached in the resized instance.
 
-When resizing an instance to a smaller profile (one with fewer vCPUs), it might be necessary to adjust the instance’s storage bandwidth allocation. To successfully resize, the instance’s storage bandwidth must be at least 500 Mb/s less than the preallocated bandwidth in the target profile.
+When you resize an instance to a smaller profile (one with fewer vCPUs), it might be necessary to adjust the instance’s storage bandwidth allocation. To successfully resize, the instance’s storage bandwidth must be at least 500 Mb/s less than the preallocated bandwidth in the target profile.
 
-For example:
+For example,
 
-*	Current profile: mx2-8x64 (total bandwidth: 16000 Mb/s, 12000 Mb/s network, 4000 Mb/s storage)
+   * Current profile: mx2-8x64 (total bandwidth: 16000 Mb/s, 12000 Mb/s network, 4000 Mb/s storage)
     (Assume that the instance is using default network and storage bandwidth allocation.)
+   * Target profile: bx2-2x8 (total bandwidth: 4000 Mb/s, 3000 Mb/s network, 1000 Mb/s storage)
 
-*	Target profile: bx2-2x8 (total bandwidth: 4000 Mb/s, 3000 Mb/s network, 1000 Mb/s storage)
+   The resize operation fails because the current amount of storage bandwidth (4000 Mb/s) is not at least 500 Mb/s less than the target profile’s total bandwidth (4000 Mb/s). To successfully resize, you must adjust the instance’s storage bandwidth amount to 3500 Mb/s or less before you attempt the resize operation.
 
-    The resize operation will fail because the current amount of storage bandwidth (4000 Mb/s) is not at least 500 Mb/s less than the target profile’s total bandwidth (4000 Mb/s). To successfully resize, you must adjust the instance’s storage bandwidth amount to 3500 Mb/s or less prior to attempting the resize operation.
-
-## Resizing instances associated with instance templates and instance groups
+## Resizing instances that are associated with instance templates and instance groups
 {: #resizing-instance-templates-groups}
 
-When you resize an instance that's provisioned from an instance template or that's provisioned as part of an instance group, the following rules apply.
+When you resize an instance that was provisioned from an instance template or that was provisioned as part of an instance group, the following rules apply.
 
 * An instance that is provisioned from an instance template can be resized with a new instance profile.
 * Instance templates are not editable, except for the name. You cannot update an instance profile within an instance template. To choose a different profile for an instance template, you must create a new template.
@@ -79,13 +74,13 @@ When you resize an instance that's provisioned from an instance template or that
 3rd generation profiles are available in the Dallas, London, Frankfurt, Washington DC, Toronto, Madrid, Sydney, Tokyo, and Osaka regions to provision virtual server instances on 4th Generation Intel® Xeon® Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). For more information about the capabilities of the new profiles, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles).
 {: preview}
 
-You can resize a 2nd generation profile to a 3rd generation profile. A 3rd generation profile can be resized to a 2nd generation profile. Before resizing between profile generations, review the following information.
+You can resize a 2nd generation profile to a 3rd generation profile. A 3rd generation profile can be resized to a 2nd generation profile. Before you resize between profile generations, review the following information.
 
-* Prior to resizing an instance with a 2nd generation profile to a 3rd generation profile, take a [snapshot](/docs/vpc?topic=vpc-snapshots-vpc-create) of the boot volume that is attached to your virtual server instance. You can refer back to the snapshot if needed.
-* When you resize an instance to a 3rd generation profile, the virtual firmware defaults to Open Virtual Machine Firmware (OVMF) if your image supports UEFI. If the instance previously booted with SeaBIOS, the system attempts to preserve the firmware setting even when moving to the latest generation. If the virtual firmware changes from SeaBIOS to OVMF during the migration to the new profile, the device names might appear differently in the guest.
-* If you resize from a 3rd generation profile to a 2nd generation profile, any changes made to your virtual server instance while running with the 3rd generation profile are preserved. If you have the snapshot available that you took prior to migrating to the new profile, you can restore from that snapshot if something goes wrong.
+* Before you resize an instance with a 2nd generation profile to a 3rd generation profile, take a [snapshot](/docs/vpc?topic=vpc-snapshots-vpc-create) of the boot volume that is attached to your virtual server instance. You can refer to the snapshot if needed.
+* When you resize an instance to a 3rd generation profile, the virtual firmware defaults to Open Virtual Machine Firmware (OVMF) if your image supports UEFI. If the instance that was previously booted with SeaBIOS, the system attempts to preserve the firmware setting, even when if you move to the latest generation. If the virtual firmware changes from SeaBIOS to OVMF during the migration to the new profile, the device names might appear differently in the guest.
+* If you resize from a 3rd generation profile to a 2nd generation profile, any changes that are made to your virtual server instance while it runs with the 3rd generation profile are preserved. If you have the snapshot available that you took before you migrated to the new profile, you can restore from that snapshot if something goes wrong.
 
-When you deploy a new Windows virtual server instance with a 3rd generation profile, avoid resizing to a 2nd generation profile. The new Windows instance uses OVMF virtual firmware and cannot be resized to a 2nd generation profile as the instance will not boot. If the Windows virtual server instance was originally provisioned with a 2nd generation profile, then resized to a 3rd generation profile, it can be resized back to a 2nd generation profile successfully.
+When you deploy a new Windows virtual server instance with a 3rd generation profile, avoid resizing to a 2nd generation profile. The new Windows instance uses OVMF virtual firmware and cannot be resized to a 2nd generation profile because the instance can't boot. If the Windows virtual server instance was originally provisioned with a 2nd generation profile, then resized to a 3rd generation profile, it can be resized back to a 2nd generation profile successfully.
 {: note}
 
 ## Resizing a virtual server instance by using the UI
@@ -99,7 +94,7 @@ Complete the following steps to resize an existing virtual server instance.
 3. Select the vertical ellipsis, and select **Resize**.
 4. From the list of available profiles, select the profile that you want to use.
     * If you are resizing a virtual server that is running on a dedicated host, you see only profiles that the dedicated host supports.
-    * If you are resizing a {{site.data.keyword.hpvs}} for VPC instance, ensure that you select a secure execution enabled profile. Similarly, don't select a secure execution enabled profile for an instance that doesn't support secure execution.
+    * If you are resizing a {{site.data.keyword.hpvs}} for VPC instance, make sure that you select a secure execution-enabled profile. Similarly, don't select a secure execution-enabled profile for an instance that doesn't support secure execution.
 5. Review and check the Terms and Conditions.
 6. Select **Resize virtual server instance**.
 7. Start the virtual server instance.
@@ -168,5 +163,3 @@ Keep the following information in mind when you resize a virtual server that's i
 If the instance that you want to resize is attached to a reservation, the instance profile can't update if the profile doesn't match the profile of its associated reservation.
 
 If the instance that you want to resize is a new profile, you need to first detach the instance from the reservation. The instance profile can then be updated and then a new reservation attached to the instance with a matching profile.
-
-

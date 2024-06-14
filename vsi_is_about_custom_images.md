@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, [{CURRENT_YEAR}] 
-lastupdated: "[{LAST_UPDATED_DATE}]"
+  years: 2022, 2024 
+lastupdated: "2024-06-14"
 
 keywords:
 
@@ -64,7 +64,7 @@ Before you create a custom image, you must verify that your custom image meets t
 ### Custom image considerations
 {: #custom-image-considerations}
 
-<!-- Reused information list of custom image requirements shared with vsi_is_creating_generic_os_custom_image.md- see conref.md file-->
+
 {{site.data.content.custom-image-requirements-list}}
 
 ### Operating system considerations
@@ -82,7 +82,7 @@ If you plan to import an image from a file, you must provision an instance of {{
 ## Custom image lifecycle
 {: #custom-image-lifecycle}
 
-<!-- Image life cycle content shared with custom images & image from volume -->
+
 {{_include-segments/image_lifecycle.md}}
 
 {{site.data.keyword.vpc_short}} managed images can be managed only this way. Custom images that are published to a private catalog must be in `available` status and their statuses are maintained in the private catalog. If you try to change or schedule a change to their status in {{site.data.keyword.vpc_short}}, the attempt fails. If a custom image is removed from a private catalog, that image retains its original private catalog status until the status is changed in {{site.data.keyword.vpc_short}}.

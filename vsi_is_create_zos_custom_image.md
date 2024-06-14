@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-11-10"
+lastupdated: "2023-10-31"
 
 keywords: z/OS custom image, wazi image builder
 
@@ -17,16 +17,16 @@ subcollection: vpc
 
 You can use IBM Wazi Image Builder to create your own z/OS-based {{site.data.keyword.waziaas_full_notm}} (Wazi aaS) custom image and import the custom image into {{site.data.keyword.vpc_full}}. You can then use the custom image to create a virtual server instance in the {{site.data.keyword.vpc_short}} infrastructure.
 {: shortdesc}
- 
-{{site.data.keyword.waziaas_full_notm}} (Wazi aaS) is available in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), United Kingdom (London), US East (Washington DC), US South (Dallas), and Spain (Madrid) regions.
-{: note}
 
-IBM Wazi Image Builder is a separately orderable product from [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/){: external}. Extra requirements are needed to use Wazi Image Builder. The image cost is the premium that is applied to cover the cost of technologies that allows for z/OS dev and test images to run on IBM Z hardware in IBM’s cloud infrastructure as a service layer. 
+{{site.data.keyword.waziaas_full_notm}} (Wazi aaS) is available in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), United Kingdom (London), Spain (Madrid), US East (Washington DC), and US South (Dallas) regions.
+{: note}
+ 
+IBM Wazi Image Builder is a separately orderable product from [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/){: external}. Extra requirements are needed to use Wazi Image Builder. The image cost is the premium that is applied to cover the cost of technologies that allows for z/OS dev and test images to run on IBM Z hardware on IBM’s cloud infrastructure as a service layer. 
 
 The z/OS Wazi aaS custom image must meet the following requirements: 
 * qcow2 format
 * z/OS 2.4 or z/OS 2.5 operating system
-* See [Prerequisites](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=builder-prerequisites){: external} for required PTF fixes on z/OS and other IBM software products to allow them to run as a guest of IBM Z Hypervisor as a Service (zHYPaaS).
+* See [Prerequisites](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=builder-prerequisites){: external} for required PTF fixes on z/OS and other IBM software products to allow them to run as a guest of alternate IBM hypervisor, IBM Z Hypervisor as a Service (zHYPaaS).
 
 IBM Wazi Image Builder is licensed only for development, testing, employee education, or demonstration of your applications that run on z/OS. This product must not be used for production workloads of any kind, nor robust development workloads, production module builds, preproduction testing, stress testing, or performance testing.
 {: important}

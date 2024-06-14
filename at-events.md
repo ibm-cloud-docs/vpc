@@ -2,10 +2,8 @@
 
 copyright:
   years: 2019, 2024
-  
-lastupdated: "2024-06-12"
 
-
+lastupdated: "2024-06-13"
 
 keywords:
 
@@ -102,6 +100,8 @@ Existing events include a new attribute:
 | floating-ip  | is.floating-ip.floating-ip.update   | Floating IP was updated  |
 | floating-ip  | is.floating-ip.floating-ip.delete   | Floating IP was deleted  |
 | floating-ip  | is.floating-ip.floating-ip.read | One or more floating IP was retrieved |
+| floating-ip  | is.floating-ip.floating-ip.attach   | Floating IP was attached to a resource  |
+| floating-ip  | is.floating-ip.floating-ip.detach   | Floating IP was detached from a resource  |
 {: caption="Table 4. Actions that generate events for Floating IP" caption-side="bottom"}
 
 ### Flow log events
@@ -192,7 +192,6 @@ The beta release of IBM Cloud Private Path services is only available to allowli
 | public-gateway | is.public-gateway.public-gateway.read | One or more public gateways were retrieved  |
 {: caption="Table 8. Actions that generate events for Public Gateway" caption-side="bottom"}
 
-
 ### Reservations
 {: #events-reserved-capacity}
 
@@ -217,6 +216,18 @@ Summary of is.reservation AT events:
 |  | is.reservation.reservation.detach | Reserved Instance for VPC: reservation `<res-name>` detached |
 {: caption="Table 9. Actions that generate events Reservations" caption-side="bottom"}
 
+
+Summary of new is.instance AT events:
+
+| Resource | Action  | Description  |
+|:-------------|:-----------------------------------|:-------------|
+|  | is.instance.instance.attach | Virtual Server for VPC: attach instance `<ins-name>` |
+|  | is.instance.instance.attach | Virtual Server for VPC: attach instance `<ins-name>` |
+|  | is.instance.instance.attach | Virtual Server for VPC: instance `<ins-name>` attached |
+|  | is.instance.instance.detach | Virtual Server for VPC: detach instance `<ins-name>` |
+|  | is.instance.instance.detach | Virtual Server for VPC: instance `<ins-name>` detached |
+{: caption="Table 10. Actions that generate events Reservations" caption-side="bottom"}
+
 ### Reserved IPs
 {: #events-reserved-ips}
 
@@ -238,7 +249,7 @@ Summary of is.reservation AT events:
 | subnet | is.subnet.subnet.update is.subnet.reserved-ip.delete | Reserved IP was released |
 | subnet | is.subnet.reserved-ip.read  | Reserved IP was retrieved |
 | subnet | is.subnet.reserved-ip.update | Reserved IP was updated |
-{: caption="Table 10. Actions that generate events for Reserved IP addresses" caption-side="bottom"}
+{: caption="Table 11. Actions that generate events Reserved IP addresses" caption-side="bottom"}
 
 ### Security group events
 {: #events-network-security-group}
@@ -256,7 +267,7 @@ Summary of is.reservation AT events:
 | security-group | is.security-group.security-group-interface.attach | Interface was attached to Security Group   |
 | security-group | is.security-group.security-group-interface.detach | Interface was removed from Security Group   |
 | security-group | is.security-group.security-group-interface.read | One or more security group interfaces was retrieved |
-{: caption="Table 11. Actions that generate events for Security Group" caption-side="bottom"}
+{: caption="Table 12. Actions that generate events for Security Group" caption-side="bottom"}
 
 ### Subnet events
 {: #events-network-subnet}
@@ -271,21 +282,23 @@ Summary of is.reservation AT events:
 | subnet   | is.subnet.public-gateway.attach  | Public Gateway was attached to Subnet  |
 | subnet   | is.subnet.public-gateway.detach  | Public Gateway was detached from Subnet  |
 | subnet   | is.subnet.public-gateway.read | A subnet public-gateway attachment was retrieved |
-{: caption="Table 12. Actions that generate events for Subnet" caption-side="bottom"}
+{: caption="Table 13. Actions that generate events for Subnet" caption-side="bottom"}
 
 ### Virtual network interface events
 {: #events-vni}
 
 The following table lists the actions that are related to virtual network interfaces and the generation of events.
-
 | Resource | Action | Description |
 |---|---|---|
+| virtual-network-interface | is.virtual-network-interface.virtual-network-interface.list   | Virtual network interface was listed  |
+| virtual-network-interface | is.virtual-network-interface.virtual-network-interface.read   | One Virtual Network Interface was retrieved |
 | virtual-network-interface | is.virtual-network-interface.virtual-network-interface.create | Virtual network interface was created. To determine if the VNI was created with protocol state filtering enabled, see [Analyzing events](/docs/vpc?topic=vpc-at-events#at-protocol-state-filtering). |
 | virtual-network-interface | is.virtual-network-interface.virtual-network-interface.attach | Virtual network interface was attached |
 | virtual-network-interface | is.virtual-network-interface.virtual-network-interface.detach | Virtual network interface was detached |
 | virtual-network-interface | is.virtual-network-interface.virtual-network-interface.update | Virtual network interface was updated. You can use to change the protocol state filtering mode. For mode values, see [Analyzing events](/docs/vpc?topic=vpc-at-events#at-protocol-state-filtering).  |
 | virtual-network-interface | is.virtual-network-interface.virtual-network-interface.delete | Virtual network interface was deleted |
-{: caption="Table 13. Actions that generate events for virtual network interfaces" caption-side="bottom"}
+{: caption="Table 14. Actions that generate events for virtual network interfaces" caption-side="bottom"}
+
 
 ### Virtual network interface target resource events
 {: #events-vni-target-resource-events}
@@ -300,7 +313,7 @@ The following table lists the actions that are related to the target resources o
 | virtual-network-interface | is.share.mount-target.detach | Virtual network interface was detached from a file share mount target|
 | virtual-network-interface | is.instance.network-attachment.attach | Virtual network interface was attached to a virtual server instance|
 | virtual-network-interface | is.instance.network-attachment.detach | Virtual network interface was detached from a virtual server instance |
-{: caption="Table 14. Actions that generate events for targets of virtual network interfaces" caption-side="bottom"}
+{: caption="Table 15. Actions that generate events for targets of virtual network interfaces" caption-side="bottom"}
 
 ### Virtual private endpoint events
 {: #events-vpe}
@@ -312,7 +325,7 @@ The following table lists the actions that are related to virtual private endpoi
 | endpoint-gateway | is.endpoint-gateway.endpoint-gateway.create | Endpoint gateway was created |
 | endpoint-gateway | is.endpoint-gateway.endpoint-gateway.delete | Endpoint gateway was deleted |
 | endpoint-gateway | is.endpoint-gateway.endpoint-gateway.update | Endpoint gateway was updated |
-{: caption="Table 15. Actions that generate events for virtual private endpoints" caption-side="bottom"}
+{: caption="Table 16. Actions that generate events for virtual private endpoints" caption-side="bottom"}
 
 ### VPC events
 {: #events-network-vpc}
@@ -330,7 +343,7 @@ The following table lists the actions that are related to virtual private endpoi
 | vpc  | is.vpc.vpc-route.create   | Route was added to VPC   |
 | vpc  | is.vpc.vpc-route.update   | VPC Route was updated  |
 | vpc  | is.vpc.vpc-route.delete   | Route was removed from VPC   |
-{: caption="Table 16. Actions that generate events for VPC" caption-side="bottom"}
+{: caption="Table 17. Actions that generate events for VPC" caption-side="bottom"}
 
 ### VPN gateway events
 {: #events-vpns}
@@ -367,7 +380,7 @@ The following table lists the actions that are related to site-to-site VPN gatew
 | vpn  | is.vpn.ipsec-policy.update   | IPsec policy was updated |
 | vpn  | is.vpn.ipsec-policy.read   | IPsec policy was retrieved |
 | vpn  | is.vpn.ipsec-policy.list   | IPsec policies were listed |
-{: caption="Table 17. Actions that generate events for site-to-site VPN gateways" caption-side="bottom"}
+{: caption="Table 18. Actions that generate events for site-to-site VPN gateways" caption-side="bottom"}
 
 ### VPN server events
 {: #events-vpn-server}
@@ -392,7 +405,7 @@ The following table lists the actions that are related to client-to-site VPN ser
 | vpn  | is.vpn-server.vpn-server-route.update  | VPN server route was updated |
 | vpn  | is.vpn-server.vpn-server-route.read  | VPN server route was retrieved |
 | vpn  | is.vpn-server.vpn-server-route.list  | VPN server routes were listed |
-{: caption="Table 18. Actions that generate events for client-to-site VPN servers" caption-side="bottom"}
+{: caption="Table 19. Actions that generate events for client-to-site VPN servers" caption-side="bottom"}
 
 In client certificate authentication mode or client certificate and User ID/passcode authentication mode, authentication failure due to an invalid client certificate will not generate an activity track event.
 {: note}
@@ -422,8 +435,8 @@ The following tables list the actions that are related to compute resources and 
 | instance   | is.instance.instance-template.delete   | Instance template was deleted  |
 | instance   | is.instance.instance-template.update   | Instance template was updated     |
 | instance   | is.instance.instance-template.read     | Instance template was retrieved     |
-| instance   | is.instance.interface.attach  | Floating IP was associated to instance network interface  |
-| instance   | is.instance.interface.detach  | Floating IP was disassociated from instance network interface |
+| instance   | is.instance.network-interface.attach  | Floating IP was associated to instance network interface  |
+| instance   | is.instance.network-interface.detach  | Floating IP was disassociated from instance network interface |
 | instance   | is.instance.volume-attachment.create   | Instance volume attachment was created  |
 | instance   | is.instance.volume-attachment.delete   | Instance volume attachment was deleted  |
 | instance   | is.instance.volume-attachment.update   | Instance volume attachment was updated  |
@@ -432,11 +445,18 @@ The following tables list the actions that are related to compute resources and 
 | instance   | is.instance.network-interface.update   | - Instance network interface was updated (Instance was attached to a subnet) \n - Includes the state of the `allow_ip_spoofing` parameter, which disables source/destination checks for network interfaces that are created on the virtual server. When set to `false`, IP spoofing is not allowed on the interface. |
 | instance   | is.instance.network-interface.delete   | Instance network interface was deleted (Instance was detached from a subnet)  |
 | instance | is.instance.network-interface.read | One or more instance network interfaces was retrieved |
+| instance | is.instance.network-attachment.create | Instance network attachment was created |
+| instance | is.instance.network-attachment.delete | Instance network attachment was deleted |
+| instance | is.instance.network-attachment.attach | Instance network attachment was attached to a resource |
+| instance | is.instance.network-attachment.detach | Instance network attachment was detached from a resource |
+| instance | is.instance.network-attachment.read | One or more network attachments was retrieved |
+| instance | is.instance.network-attachment.update | Instance network attachment was updated |
 | instance | is.instance.disk.read | One or more instance storage disks was retrieved |
 | instance | is.instance.disk.update | Instance storage disk name was updated |
 | instance | is.instance.disk.wipe | Instance storage disk was wiped clean |
 | instance | is.instance.gpu.wipe | Memory was wiped on the GPU for the Instance |
-{: caption="Table 19. Actions that generate events for Instance" caption-side="bottom"}
+{: caption="Table 20. Actions that generate events for Instance" caption-side="bottom"}
+
 
 ### Instance Metadata service events
 {: #events-metadata}
@@ -458,7 +478,7 @@ The instance metadata service events are undergoing changes and should not be us
 | Instance Metadata | is.metadata.instance-placement-group.list | Placement group information was listed for the calling instance |
 | Instance Metadata | is.metadata.instance-volume-attachment.get | A volume attachment was retrieved for the calling instance |
 | Instance Metadata | is.metadata.instance-volume-attachment.list | Volume attachments were listed for the calling instance  |
-{: caption="Table 20. Actions that generate events for the Instance Metadata service" caption-side="bottom"}
+{: caption="Table 21. Actions that generate events for the Instance Metadata service" caption-side="bottom"}
 
 ### Bare metal server events
 {: #events-compute-bm}
@@ -487,8 +507,16 @@ Some fields for Bare Metal Servers for VPC AT events will be changing between th
 | Bare Metal Server | is.bare-metal-server.network-interface-floating-ip.read | One or more floating IPs associated with a network interface was retrieved |
 | Bare Metal Server | is.bare-metal-server.network-interface-floating-ip.attach | Floating IP was associated with a network interface |
 | Bare Metal Server | is.bare-metal-server.network-interface-floating-ip.detach | Floating IP was disassociated from a network interface |
+| Bare Metal Server | is.bare-metal-server.network-attachment.read | One or more network attachments on a bare metal server was retrieved |
+| Bare Metal Server | is.bare-metal-server.network-attachment.create | Network attachment was created on a bare metal server |
+| Bare Metal Server | is.bare-metal-server.network-attachment.update | Network attachment on a bare metal server was updated |
+| Bare Metal Server | is.bare-metal-server.network-attachment.delete | Network attachment on a bare metal server was deleted |
+| Bare Metal Server | is.bare-metal-server.network-attachment.attach | Network attachment on a bare metal server was attached to a resource |
+| Bare Metal Server | is.bare-metal-server.network-attachment.detach | Network attachment on a bare metal server was detached from a resource |
+| Bare Metal Server | is.bare-metal-server.bare-metal-server-profile.read | One or more bare metal server profiles was retrieved |
 | Bare Metal Server | is.bare-metal-server.bare-metal-server-firmware.update | Bare metal server firmware update was completed. |
-{: caption="Table 21. Actions that generate events for Bare Metal Server" caption-side="bottom"}
+
+{: caption="Table 22. Actions that generate events for Bare Metal Server" caption-side="bottom"}
 
 ### Key events
 {: #events-compute-key}
@@ -499,7 +527,7 @@ Some fields for Bare Metal Servers for VPC AT events will be changing between th
 | key  | is.key.key.delete   | Key was deleted  |
 | key  | is.key.key.update   | Key was updated  |
 | key | is.key.key.read | One or more keys was retrieved |
-{: caption="Table 22. Actions that generate events for Key" caption-side="bottom"}
+{: caption="Table 23. Actions that generate events for Key" caption-side="bottom"}
 
 ### Dedicated host events
 {: #events-compute-dedicated-host}
@@ -510,7 +538,7 @@ Some fields for Bare Metal Servers for VPC AT events will be changing between th
 | dedicated-host | is.dedicated-host.dedicated-host.update | Dedicated host or host disk was updated |
 | dedicated-host | is.dedicated-host.dedicated-host.delete  |Dedicated host was deleted |
 | dedicated-host | is.dedicated-host.dedicated-host.read | One or more dedicated hosts or host disks were retrieved |
-{: caption="Table 23. Actions that generate events for Dedicated Host" caption-side="bottom"}
+{: caption="Table 24. Actions that generate events for Dedicated Host" caption-side="bottom"}
 
 ### Dedicated host group events
 {: #events-compute-dedicated-host-group}
@@ -521,7 +549,7 @@ Some fields for Bare Metal Servers for VPC AT events will be changing between th
 | dedicated-host-group  | is.dedicated-host.dedicated-host-group.update | Dedicated host group was updated |
 | dedicated-host-group  | is.dedicated-host.dedicated-host-group.delete | Dedicated host group was deleted |
 | dedicated-host-group  | is.dedicated-host.dedicated-host-group.read | One or more dedicated host groups was retrieved |
-{: caption="Table 24. Actions that generate events for Dedicated Host Group" caption-side="bottom"}
+{: caption="Table 25. Actions that generate events for Dedicated Host Group" caption-side="bottom"}
 
 ### Instance group events
 {: #events-compute-instance-group}
@@ -550,7 +578,7 @@ Some fields for Bare Metal Servers for VPC AT events will be changing between th
 | instance-group  | is.instance-group.membership.update   | Instance group membership was updated  |
 | instance-group  | is.instance-group.membership.read     | Instance group membership was retrieved |
 | instance-group  | is.instance-group.instance.create     | Instance group instance was created |
-{: caption="Table 25. Actions that generate events for Instance Group" caption-side="bottom"}
+{: caption="Table 26. Actions that generate events for Instance Group" caption-side="bottom"}
 
 ### Image resources
 {: #events-images}
@@ -569,7 +597,7 @@ The following table lists the actions that are related to image resources and th
 | image  | is.image.image-export-job.update   | Image export job was updated |
 | image  | is.image.image-export-job.read     | Image export job was retrieved |
 | image  | is.image.image-export-job.list     | Image export jobs were listed |
-{: caption="Table 26. Actions that generate events for image resources" caption-side="bottom"}
+{: caption="Table 27. Actions that generate events for image resources" caption-side="bottom"}
 
 For the image update event, if you are rotating the root key for an image, the CRN for the old key and new key remains the same. The ID for the new key that is rotated in is indicated in the `kmsKeyRefID` field of the image.
 {: note}
@@ -586,7 +614,7 @@ The following table lists the actions that are related to placement group resour
 | placement_group | is.placement-group.placement-group.update | Placement group was updated |
 | instance | is.instance.instance.create | Instance was created and includes a placement group reference |
 | instance | is.instance.instance.update | Instance was updated and includes updates to the placement group reference |
-{: caption="Table 27. Actions that generate events for placement group resources" caption-side="bottom"}
+{: caption="Table 28. Actions that generate events for placement group resources" caption-side="bottom"}
 
 ## Storage resources
 {: #events-storage}
@@ -603,12 +631,12 @@ The following table lists the actions that are related to volume resources and t
 | volume  | is.volume.volume.delete  | Volume was deleted  |
 | volume  | is.volume.volume.read    | One or more volumes were retrieved  |
 | volume | is.volume.volume.operate | Volume ID was specified |
-{: caption="Table 28. Actions that generate events for Block Storage resources" caption-side="bottom"}
+{: caption="Table 29. Actions that generate events for Block Storage resources" caption-side="bottom"}
 
 An event does not contain a volume name if no information is available at the time of the event. For example, when you make a request to create a volume but do not provide a volume name, the information is not available and does not appear in the event.
 {: note}
 
-### Snapshots events
+### Block storage snapshots events
 {: #events-snapshots}
 
 The following table lists the actions that are related to snapshots resources and the generation of events.
@@ -622,7 +650,7 @@ The following table lists the actions that are related to snapshots resources an
 | snapshot  | is.snapshot.snapshot.read    | One or more snapshots were retrieved  |
 | snapshot  | is.snapshot.snapshot.restore | Volume was restored from a snapshot |
 | snapshot  | is.snapshot.snapshot.operate | Source snapshot ID was specified |
-{: caption="Table 29. Actions that generate events for snapshot resources" caption-side="bottom"}
+{: caption="Table 30. Actions that generate events for snapshot resources" caption-side="bottom"}
 
 ### Consistency group events
 {: #events-consistency-group}
@@ -635,10 +663,12 @@ The following table lists the actions that are related to snapshot consistency g
 | snapshot-consistency-group | is.snapshot-consistency-group.snapshot-consistency-group.update   | snapshot-consistency-group was updated  |
 | snapshot-consistency-group | is.snapshot-consistency-group.snapshot-consistency-group.delete   | snapshot-consistency-group was deleted  |
 | snapshot-consistency-group | is.snapshot-consistency-group.snapshot-consistency-group.read     | One or more snapshot-consistency-group were retrieved |
-{: caption="Table 30. Actions that generate events for snapshot consistency group resources" caption-side="bottom"}
+{: caption="Table 31. Actions that generate events for snapshot consistency group resources" caption-side="bottom"}
 
 ### File Storage events
 {: #events-file-storage}
+
+
 
 The following table lists the actions that are related to file share resources and the generation of events.
 
@@ -660,7 +690,9 @@ The following table lists the actions that are related to file share resources a
 | share mount targets | is.share.mount-target.list  | List of all mount targets for a file share was retrieved  |
 | share mount targets | is.share.mount-target.update| Mount target for a file share was modified  |
 | share mount targets | is.share.mount-target.delete| Mount target for a file share was deleted  |
-{: caption="Table 31. Actions that generate events for file storage resources" caption-side="bottom"}
+{: caption="Table 32. Actions that generate events for file storage resources" caption-side="bottom"}
+
+
 
 ### Backup service events
 {: #events-backup-service}
@@ -679,7 +711,7 @@ The following table lists the actions that are related to the VPC Backup service
 | backup-policy  | is.backup-policy.backup-plan.read         | One or more backup plans were retrieved  |
 | backup-policy  | is.backup-policy.backup-job.read          | One or more backup jobs were retrieved  |
 | backup-policy  | is.backup-policy.backup-policy-job.create | This event is triggered if an Enterprise-level backup policy fails to create backups in one or more child accounts due to missing service-to-service authorizations.  |
-{: caption="Table 32. Actions that generate events for VPC Backup service resources" caption-side="bottom"}
+{: caption="Table 33. Actions that generate events for VPC Backup service resources" caption-side="bottom"}
 
 ## Supported locations
 {: #at-supported-locations}

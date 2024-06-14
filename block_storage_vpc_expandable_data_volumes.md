@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-05-14"
+lastupdated: "2024-06-14"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -19,6 +19,8 @@ After you provisioned a {{site.data.keyword.block_storage_is_short}} data volume
 {: shortdesc}
 
 You can't change the volume to a smaller size after you expand its capacity. However, if your requirements change, you can expand the same volume again up to the maximum capacity that's available for its profile.
+
+
 
 ## Expand Block Storage volumes in the UI
 {: #expand-vpc-volumes-ui}
@@ -41,7 +43,7 @@ Follow these steps to expand volume capacity:
 
 6. In the panel, increase the volume size in GB up to 16,000 GB. The maximum size that you can expand to is based on the selected IOPS profile or custom volume settings. The UI indicates the maximum capacity for the selected profile. For a custom profile, you can expand the volume based on [sizing limits](/docs/vpc?topic=vpc-about-increasing-volume-capacity#expandable-volume-limitations). When you increase the size of the volume, max IOPS and throughput are calculated for the expanded volume.
 
-   The maximum size that you can expand to is based on the selected IOPS profile or custom volume settings. The UI indicates the maximum capacity for the selected profile. For a custom profile, you can expand the volume based on [sizing limits](/docs/vpc?topic=vpc-about-increasing-volume-capacity#expandable-volume-limitations). When you increase the size of the volume, max IOPS and throughput are calculated for the expanded volume.
+   
 
 7. Review the estimated monthly order summary for your geography and new pricing.
 
@@ -227,6 +229,8 @@ When the volume expansion completes, the new value displays, and the volume stat
 }
 ```
 {: screen}
+
+
 
 ## Expand Block Storage volumes with Terraform
 {: #expand-vpc-volumes-terraform}

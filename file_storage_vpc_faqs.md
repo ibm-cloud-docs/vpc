@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-04-12"
+lastupdated: "2024-06-14"
 
 keywords: file share, file storage, replication, replica, size increase, capacity, encryption, BYOK, security group
 
@@ -38,7 +38,6 @@ Yes.
 {: #faq-fs-os}
 
 No, file shares can be mounted only on Linux operating systems or a z/OS-based {{site.data.keyword.cloud}} Compute Instance that support NFS file shares. For more information, see the topics about mounting file shares on [Red Hat](/docs/vpc?topic=vpc-file-storage-vpc-mount-RHEL), [CentOS](/docs/vpc?topic=vpc-file-storage-mount-centos), and [Ubuntu](/docs/vpc?topic=vpc-file-storage-vpc-mount-ubuntu) Linux distributions, or [z/OS](/docs/vpc?topic=vpc-file-storage-vpc-mount-zos) systems. Mounting file shares on Windows servers is not supported.
-
 
 ### What is the minimum NFS version supported?
 {: faq}
@@ -156,7 +155,9 @@ You can migrate file shares that were created by using either the IOPS tier prof
 {: faq}
 {: #faq-fs-access-mode}
 
-Yes. When you create a file share, you must specify the access control mode. It can either be based on Security Groups, which restrict the access to the file share to specific resources in the VPC. Or the access mode can allow for VPC-wide file share mounting. For more information, see [Mount target access modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-mount-access-mode).
+Yes. When you create a file share, you must specify the access control mode. It can be based on Security Groups, which restrict the access to the file share to specific resources in the VPC. Or the access mode can allow for VPC-wide file share mounting. For more information, see [Mount target access modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-mount-access-mode).
+
+
 
 ## Performance questions
 {: #file-storage-vpc-performance-questions}

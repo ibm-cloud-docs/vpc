@@ -8,6 +8,7 @@ keywords: dedicated host, dedicated host group
 
 subcollection: vpc
 
+
 ---
 
 {{site.data.keyword.attribute-definition-list}}
@@ -18,7 +19,7 @@ subcollection: vpc
 You can create one or more dedicated hosts with associated dedicated host groups in your {{site.data.keyword.cloud}} VPC by using the {{site.data.keyword.cloud_notm}} console, the CLI, or the API. Dedicated Host for VPC is fully integrated into {{site.data.keyword.cloud_notm}}.
 {: shortdesc}
 
-For IBM Z or LinuxONE (s390x processor architecture), dedicated hosts are only supported in the Spain (Madrid) and US South (Dallas) region for {{site.data.keyword.waziaas_full_notm}}.  
+For IBM Z or LinuxONE (s390x processor architecture), dedicated hosts are only supported in the Spain (Madrid) and US South (Dallas) region for {{site.data.keyword.waziaas_full_notm}}.
 {: note}
 
 ## Dedicated hosts
@@ -26,7 +27,7 @@ For IBM Z or LinuxONE (s390x processor architecture), dedicated hosts are only s
 
 You can create a *dedicated host* to carve out a single-tenant compute node, free from users outside of your organization. Within that dedicated space, you can create virtual server instances according to your needs. Additionally, you can create dedicated host groups that contain dedicated hosts for a specific purpose. Because a dedicated host is a single-tenant space, only users within your account that have the required permissions can create instances on the host.
 
-When you create a dedicated host, you are billed by the usage of the host on an hourly basis. You are not billed for the vCPU and RAM associated with instances that are running on the host.  
+When you create a dedicated host, you are billed by the usage of the host on an hourly basis. You are not billed for the vCPU and RAM associated with instances that are running on the host.
 
 When you provision a dedicated host, the host is owned and managed by {{site.data.keyword.IBM_notm}}. For more information about your responsibilities for managing virtual server instances provisioned on the host, see [Understanding your responsibilities when using Virtual Private Cloud](/docs/vpc?topic=vpc-responsibilities-vpc).
 
@@ -37,9 +38,7 @@ You can also view usage information for your dedicated hosts including estimated
 ## Dedicated host groups
 {: #dedicated-groups}
 
-A *dedicated host group* is a collection of dedicated hosts in a single region and zone. When you create a dedicated host, you must assign it to a dedicated host group. A dedicated host can be a member of only one group. <!--You assign a resource
-group to the dedicated group that contains the resources and users that you want to access the dedicated group. A dedicated group can provide redundancy. If a host within the group happens to fail,
-instances running on that host can be migrated to another host in the same group.-->
+A *dedicated host group* is a collection of dedicated hosts in a single region and zone. When you create a dedicated host, you must assign it to a dedicated host group. A dedicated host can be a member of only one group. 
 
 You can create dedicated host groups that contain dedicated hosts for a distinct function. For example, if you have multiple business units within your organization, you might want to separate the physical compute infrastructure that is used by each business. If you want to assign compute resources to be used by only one business group within your organization, you can create a group with dedicated hosts for that unique goal.
 
@@ -57,7 +56,7 @@ Before you can create a dedicated host, you need to [create an {{site.data.keywo
 If you do not already have a dedicated group, you must create it as part of this task. The profile family and class of the dedicated host and dedicated group must be the same. The profile that you select for the dedicated host when you create it determines the profiles that can be used for the dedicated group and for provisioning instances to hosts in the group. For example, if you select a memory profile for the dedicated host, the associated dedicated group and instances provisioned on hosts in the group must also be provisioned with memory profiles.
 
 To create a dedicated host:
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Dedicated hosts**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Dedicated hosts**.
 2. Click **Create** and enter the information in Table 1 on the New dedicated host for VPC page.
 3. Click **Create dedicated host** when you are ready to provision.
 
@@ -115,7 +114,7 @@ Gather the following required information:
 | **Family**                | The profile family that you want to assign to the group, such as Memory, Balanced, or Compute. |
 | **Class**                 | The profile class that you want to assign to the group, such as mx2. |
 | **Name**                  | Unique name for your new group. |
-{: caption="Table 1. Required host group details" caption-side="bottom"}  
+{: caption="Table 1. Required host group details" caption-side="bottom"}
 
 Use the following commands to determine the required information for creating a new group.
 
@@ -131,17 +130,17 @@ Use the following commands to determine the required information for creating a 
    ```sh
    $ ibmcloud is regions
    Listing regions under account Test Account as user test.user@ibm.com...
-   Name       Endpoint                              Status   
-   au-syd     https://au-syd.iaas.cloud.ibm.com     available   
-   br-sao     https://br-sao.iaas.cloud.ibm.com     available   
-   ca-tor     https://ca-tor.iaas.cloud.ibm.com     available   
-   eu-de      https://eu-de.iaas.cloud.ibm.com      available   
-   eu-es      https://eu-es.iaas.cloud.ibm.com      available   
-   eu-gb      https://eu-gb.iaas.cloud.ibm.com      available    
-   jp-osa     https://jp-osa.iaas.cloud.ibm.com     available   
-   jp-tok     https://jp-tok.iaas.cloud.ibm.com     available   
-   us-east    https://us-east.iaas.cloud.ibm.com    available   
-   us-south   https://us-south.iaas.cloud.ibm.com   available   
+   Name       Endpoint                              Status
+   au-syd     https://au-syd.iaas.cloud.ibm.com     available
+   br-sao     https://br-sao.iaas.cloud.ibm.com     available
+   ca-tor     https://ca-tor.iaas.cloud.ibm.com     available
+   eu-de      https://eu-de.iaas.cloud.ibm.com      available
+   eu-es      https://eu-es.iaas.cloud.ibm.com      available
+   eu-gb      https://eu-gb.iaas.cloud.ibm.com      available
+   jp-osa     https://jp-osa.iaas.cloud.ibm.com     available
+   jp-tok     https://jp-tok.iaas.cloud.ibm.com     available
+   us-east    https://us-east.iaas.cloud.ibm.com    available
+   us-south   https://us-south.iaas.cloud.ibm.com   available
    ```
    {: screen}
 
@@ -164,10 +163,10 @@ Use the following commands to determine the required information for creating a 
    ```sh
    $ ibmcloud is zones
    Listing zones in target region us-south under account Test Account as user test.user@ibm.com...
-   Name         Region     Status   
-   us-south-1   us-south   available   
-   us-south-2   us-south   available   
-   us-south-3   us-south   available   
+   Name         Region     Status
+   us-south-1   us-south   available
+   us-south-2   us-south   available
+   us-south-3   us-south   available
    ```
    {: screen}
 
@@ -181,10 +180,10 @@ Use the following commands to determine the required information for creating a 
    For this example, you'd see a response similar to the following output. Check the Family and Class columns that are associated with the dedicated host profile that you want to provision in the dedicated host group. If you want to provision a memory profile for your host, note the associated family, `memory`, and associated class, `mx2`.
 
    ```sh
-   Name                 Architecture   CPU Socket Count   vCPUs   Memory   Family          Class   
-   cx2-host-152x304     amd64          4                  152     304      compute         cx2   
-   bx2-host-152x608     amd64          4                  152     608      balanced        bx2     
-   mx2-host-152x1216    amd64          4                  152     1216     memory          mx2   
+   Name                 Architecture   CPU Socket Count   vCPUs   Memory   Family          Class
+   cx2-host-152x304     amd64          4                  152     304      compute         cx2
+   bx2-host-152x608     amd64          4                  152     608      balanced        bx2
+   mx2-host-152x1216    amd64          4                  152     1216     memory          mx2
    ```
    {: screen}
 
@@ -221,10 +220,10 @@ ibmcloud is dedicated-host-profiles
 For this example, you'd see a response similar to the following output. The profile that you select must be from the same family and class as your dedicated host group where you plan to provision the host.
 
 ```sh
-Name                 Architecture   CPU Socket Count   vCPUs   Memory   Family          Class   
-cx2-host-152x304     amd64          4                  152     304      compute         cx2   
-bx2-host-152x608     amd64          4                  152     608      balanced        bx2     
-mx2-host-152x1216    amd64          4                  152     1216     memory          mx2   
+Name                 Architecture   CPU Socket Count   vCPUs   Memory   Family          Class
+cx2-host-152x304     amd64          4                  152     304      compute         cx2
+bx2-host-152x608     amd64          4                  152     608      balanced        bx2
+mx2-host-152x1216    amd64          4                  152     1216     memory          mx2
 ```
 {: screen}
 

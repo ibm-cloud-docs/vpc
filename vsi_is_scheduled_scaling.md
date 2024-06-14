@@ -44,7 +44,7 @@ For more information about auto scale, see [Auto scale for VPC](/docs/vpc?topic=
 
 To create a one-time scheduled action, use the following steps.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Instance groups**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Instance groups**.
 2. Select the instance group that you want to create a scheduled action for by clicking its name.
 3. Click **Scheduled actions**.
 4. In the new screen, click **Create**
@@ -58,7 +58,7 @@ To create a one-time scheduled action, use the following steps.
 
 To create a recurring scheduled action, use the following steps.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Auto scale > Instance groups**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Instance groups**.
 2. Select the instance group that you want to create a scheduled action for by clicking its name.
 3. Click **Scheduled actions**.
 4. In the new screen, click **Create**
@@ -110,12 +110,9 @@ Where:
 - `--output`: Specify output format, only JSON is supported. One of: **JSON**.
 - `-q, --quiet`: Suppress verbose output.
 
-<!--For this example, output similar to the following displays:-->
 
-<!--```text
-    expected output
-   ```
-   {:screen}-->
+
+
 
 ### Update a scheduled action
 {: #update-scheduled-action-cli}
@@ -141,12 +138,9 @@ Where:
 - `--output` specifies output format, only JSON is supported. One of: JSON.
 - `-q, --quiet`suppresses verbose output.
 
-<!--For this example, output similar to the following displays:-->
 
-<!--```text
-    expected output
-    ```
-   {: screen}-->
+
+
 
 ### Delete a scheduled action
 {: #delete-scheduled-action-cli}
@@ -167,12 +161,9 @@ Where:
 - `--force, -f` forces the operation without confirmation.
 - `-q, --quiet`suppresses verbose output.
 
-<!--For this example, output similar to the following displays:-->
 
-<!--```text
-    expected output
-    ```
-    {:screen}-->
+
+
 
 ## Creating scheduled actions with the API
 {: #creating-scheduled-action-api}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2023-08-29"
+lastupdated: "2024-06-14"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -82,7 +82,7 @@ For more information about viewing your backup policies, see [Viewing backup pol
 ## Backup policy plan is not found
 {: #baas-backup_policy_plan_not_found}
 
-You receive a `backup_policy_plan_not_found` error with the following message: _Backup policy plan with ID <policy_plan_uuid> is not found_.
+You receive a `backup_policy_plan_not_found` error with the following message: `Backup policy plan with ID <policy_plan_uuid> is not found`.
 {: tsSymptoms}
 
 The backup policy plan that you are trying to find is either deleted or never existed.
@@ -96,7 +96,7 @@ For more information about viewing your backup policies and plans, see [Viewing 
 ## Backup job is not found
 {: #baas-backup_jobs_not_found}
 
-You receive a `backup_jobs_not_found` error with the following message: _Job with ID <backup_job_uuid> is not found_.
+You receive a `backup_jobs_not_found` error with the following message: `Job with ID <backup_job_uuid> is not found`.
 {: tsSymptoms}
 
 The job that you are trying to find is either deleted or never existed.

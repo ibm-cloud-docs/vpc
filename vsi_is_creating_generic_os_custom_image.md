@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, [{CURRENT_YEAR}]
-lastupdated: "[{LAST_UPDATED_DATE}]"
+  years: 2022, 2024
+lastupdated: "2024-06-14"
 
 keywords:
 
@@ -17,7 +17,7 @@ subcollection: vpc
 
 You can specify a generic operating system during image import to create an image that contains any operating system that you want. When you provision a server from a generic operating system custom image, the operating system-specific initialization actions aren't performed automatically. You must specify each specific action by using user data.
 
-<!-- Reused information list of custom image requirements shared with vsi_is_about_custom_images.md- see conref.md file-->
+
 {{site.data.content.custom-image-requirements-list}}
 
 For more information about generic operating system custom images, see [Generic operating system custom images](/docs/vpc?topic=vpc-planning-custom-images#generic-os-custom-images) and [User data format considerations](/docs/vpc?topic=vpc-planning-custom-images#generic-os-custom-images).

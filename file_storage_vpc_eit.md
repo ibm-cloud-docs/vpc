@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-03-29"
+lastupdated: "2024-06-14"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -21,6 +21,8 @@ You can establish an encrypted mount connection between the virtual server insta
 If you choose to use Encryption-in-transit, you need to balance your requirements between performance and enhanced security. Encrypting data in transit can have some performance impact due to the processing that is needed to encrypt and decrypt the data at the endpoints. The impact depends on the workload characteristics. Workloads that perform synchronous writes or bypass VSI caching, such as databases, might have a substantial performance impact when EIT is enabled. To determine EIT’s performance impact, benchmark your workload with and without EIT. 
 
 Even without EIT, the data moves through a secure data center network. For more information about network security, see [Security in your VPC](/docs/vpc?topic=vpc-security-in-your-vpc) and [Protecting Virtual Private Cloud (VPC) Infrastructure Services with context-based restrictions](/docs/vpc?topic=vpc-cbr).
+
+
 
 ## Overview
 {: #file-storage-eit-overview}
@@ -45,7 +47,7 @@ To use the feature, the following requirements need to be met:
 - Data encryption in transit must be enabled. In the UI, you can toggle encryption in transit on when you create the mount target. The API `transit_encryption` property accepts the `user_managed` value to enable the feature.
 - [Instance metadata service](/docs/vpc?topic=vpc-imd-about) must be enabled for the virtual server instance.
 
-If you want to connect a file share to instances that are running in different VPCs in a zone, you can create multiple mount targets. You can create one mount target for each VPC. The transit encryption values of the mount targets must match. They all must either support encryption-in-transit, or provide no support for it.
+If you want to connect a file share to instances that are running in different VPCs in a zone, you can create multiple mount targets. You can create one mount target for each VPC.
 {: important}
 
 ### Configure the host and obtain a certificate

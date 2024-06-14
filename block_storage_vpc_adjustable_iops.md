@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-05-28"
+lastupdated: "2024-06-14"
 
 keywords: Block Storage for VPC, boot volume, data volume, volume, data storage, virtual server instance, instance, adjustable volume, iops
 
@@ -41,6 +41,8 @@ If you use a [Custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#cu
 
 To adjust a volume's IOPS, the volume must be in an _available_ state and the instance must be running. Your user authorization is verified before IOPS is adjusted.
 
+
+
 You can use the UI, the CLI, the API, or Terraform to adjust IOPS. You can adjust the volume's IOPS multiple times up to its maximum limit or reduce IOPS to its minimum limit.
 
 You can monitor the progress of your volume's IOPS change from the UI or CLI. You can also use the [Activity Tracker](/docs/vpc?topic=vpc-at-events) to verify that the IOPS were adjusted.
@@ -63,7 +65,7 @@ The following limitations apply to this release.
 * For a volume that was created by using an [IOPS tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers), select a different profile for the volume size to increase or decrease IOPS. If the volume size exceeds that of the new IOPS tier profile, you can't change the profile.
 * A [custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#custom) can expand to the highest value that is allowed by the custom band. You can't switch custom bands unless you increase the volume size and move to a higher band.
 * Custom IOPS can be adjusted multiple times until the maximum or minimum limit is reached.
-* The maximum IOPS for a volume with the `tier` and `custom` profiles is [48,000 IOPS](/docs/vpc?topic=vpc-block-storage-profiles#tiers).
+* The maximum IOPS for a volume with the `tier` and `custom` profiles is [48,000 IOPS](/docs/vpc?topic=vpc-block-storage-profiles#tiers). 
 
 ### Other limitations
 {: #exp-vols-additional-limitations}
@@ -88,7 +90,8 @@ Follow these steps to adjust IOPS by selecting a new IOPS tier or custom IOPS ba
 1. On the volume details page, locate **Profile** and click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") or use the **Actions** menu and select **Edit IOPS profile**. Volumes must be attached to a virtual server instance for these actions.
 1. In the side panel, adjust IOPS as follows:
    * For an IOPS tier, select a different tier from the menu. For example, you might have a 3 IOPS/GB general-purpose profile you're increasing to a 5 IOPS/GB profile.
-   * For a Custom IOPS, the current IOPS value is shown and volume size. Enter a new IOPS value in the range specified for that custom band.
+   * For a Custom IOPS, the current IOPS value is shown and volume size. Enter a new IOPS value in the range specified for that custom band. 
+
 1. Review the estimated monthly order summary for your geography and new pricing.
 1. If you're satisfied, click **Save and continue**.
 
@@ -97,6 +100,8 @@ Your new IOPS allocation is realized when you restart the instance.
 ## Adjust IOPS from the CLI
 {: #adjust-vpc-iops-cli-block}
 {: cli}
+
+
 
 ### Before you begin
 {: #adjust-vpc-iops-cli-block-prereq}
@@ -117,6 +122,8 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    ibmcloud is target --gen 2
    ```
    {: pre}
+
+
 
 ### Adjust IOPS for a custom profile
 {: #adjust-iops-cli-block}
@@ -152,6 +159,8 @@ Volume Attachment Instance Reference    Vdisk Name    Vdisk ID                  
 ```
 {: codeblock}
 
+
+
 ### Adjust IOPS by specifying a different IOPS tier profile
 {: #adjust-profile-cli}
 
@@ -170,7 +179,7 @@ Updating volume demo-volume-update under account Test Account as user test.user@
                                           
 ID                                     r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   
 Name                                   demo-volume-update   
-CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a1234567::volume:r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   
+CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a1234567::volume:r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac    
 Status                                 available   
 Attachment state                       attached   
 Capacity                               100   
@@ -283,6 +292,8 @@ When the IOPS expansion completes, restart the instance. The new value displays,
 }
 ```
 {: screen}
+
+
 
 ### Adjust IOPS by specifying a different IOPS tier profile
 {: #adjust-profile-api-block}

@@ -12,6 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
+
 # Understanding your responsibilities when using Virtual Private Cloud
 {: #responsibilities-vpc}
 {: help}
@@ -53,8 +54,8 @@ Incident and operations management includes tasks such as monitoring, event mana
 
 | Task | {{site.data.keyword.IBM_notm}} Responsibilities |  Your Responsibilities |
 |----------|-----------------------|-----------------------|
-| Infrastructure | {{site.data.keyword.IBM_notm}} deploys a fully managed, highly available, secured, IBM-owned infrastructure. | The Customer uses the provided API, CLI, or UI console to provision compute and storage, and to adjust networking configurations to meet the needs of their workload. To automate the provisioning and management of VPC service instances, you can use automation tools, such as IBM Cloud Schematics or Terraform. |
-| Availability | {{site.data.keyword.IBM_notm}} fulfills requests for VPC infrastructure, such as VPCs, subnets, virtual server instances, Block Storage volumes, security groups, access control lists, floating IP addresses, public gateways, and SSH keys across multiple availability zones (AZs) and multi-zone regions (MZRs). | The Customer designs and deploys their workload in a way that achieves high availability by using our provided tools, such as multiple availability zones. At a high level, you are responsible for deploying workloads in different zones of the region, by using at least two load balancers that are located in different zones, and either by using DNS records to point to the load balancers or ensuring that your application can handle the list of IP addresses that it can connect to. For more information, see [Deploy isolated workloads across multiple locations and zones](/docs/solution-tutorials?topic=solution-tutorials-vpc-multi-region). |
+| Infrastructure | {{site.data.keyword.IBM_notm}} deploys a fully managed, highly available, secured, IBM-owned infrastructure. | The Customer uses the provided API, CLI, or UI console to provision compute and storage, and to adjust networking configurations to meet the needs of their workload. To automate the provisioning and management of VPC service instances, you can use automation tools, such as IBM Cloud Schematics or Terraform. |  
+| Availability | {{site.data.keyword.IBM_notm}} fulfills requests for VPC infrastructure, such as VPCs, subnets, virtual server instances, Block Storage volumes, File Storage shares, security groups, access control lists, floating IP addresses, public gateways, and SSH keys across multiple availability zones (AZs) and multi-zone regions (MZRs). | The Customer designs and deploys their workload in a way that achieves high availability by using our provided tools, such as multiple availability zones. At a high level, you are responsible for deploying workloads in different zones of the region, by using at least two load balancers that are located in different zones, and either by using DNS records to point to the load balancers or ensuring that your application can handle the list of IP addresses that it can connect to. For more information, see [Deploy isolated workloads across multiple locations and zones](/docs/solution-tutorials?topic=solution-tutorials-vpc-multi-region). |
 | Bring your own CIDR | {{site.data.keyword.IBM_notm}} provides the ability to bring your own CIDR block to a subnet. | The Customer ensures the CIDR blocks that they specify for their VPC do not conflict with CIDR blocks that are used by any other network that they plan to connect to their VPC. |
 | Monitoring | {{site.data.keyword.IBM_notm}} provides built-in virtual server instance monitoring and IBM Cloud Monitoring. | The Customer monitors the health of their workload by using either the built-in virtual server instance monitoring or IBM Cloud Monitoring. |
 | Logs | {{site.data.keyword.IBM_notm}} provides access to logs for debugging purposes. | The Customer uses {{site.data.keyword.la_full_notm}} to check logs, as needed. |
@@ -97,7 +98,7 @@ Security and regulation compliance includes tasks such as security control imple
 | Public Network Access | {{site.data.keyword.IBM_notm}} provides options to use a public gateway or floating IP addresses. | The Customer chooses how to connect their workload to the public internet, if applicable, either through a public gateway or floating IP. |
 | Access restriction | {{site.data.keyword.IBM_notm}} provides security measures for customers to restrict access to resources and resource groups. | The Customer restricts user access to the appropriate resources and resource groups.
 | Activity tracker | {{site.data.keyword.IBM_notm}} provides logging and monitoring tools. | The Customer integrates {{site.data.keyword.at_full_notm}} and {{site.data.keyword.monitoringlong_notm}} data into their auditing and monitoring processes. |
-| Encryption |  IBM Cloud {{site.data.keyword.vpn_vpc_short}} supports encrypted traffic by using IKE/IPsec policies. | The Customer ensures that their connection is encrypted end-to-end, if required.
+| Encryption |  IBM Cloud {{site.data.keyword.vpn_vpc_short}} supports encrypted traffic by using IKE/IPsec policies. | The Customer ensures that their connection is encrypted end-to-end, if required. | 
 {: caption="Table 5. Responsibilities for security and regulation compliance" caption-side="bottom"}
 
 ### Disaster recovery

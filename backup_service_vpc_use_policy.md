@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-04-19"
+lastupdated: "2024-06-14"
 
 keywords: backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Applying backup policies to resources with tags
 {: #backup-use-policies}
 
-Apply backup policies by adding user tags to new or existing volumes, or virtual server instances. When these tags match a backup policy tag, a backup is created.
+Apply backup policies by adding user tags to new or existing volumes<staging, virtual server instances, or shares</staging>. When these tags match a backup policy tag, a backup is created.
 {: shortdesc}
 
 Up to 100 tags can be attached or detached in the same operation. Keeping the number of tags low can make it easier to track their usage and your backups.
@@ -25,21 +25,20 @@ Up to 100 tags can be attached or detached in the same operation. Keeping the nu
 
 1. [Create a backup policy and plan](/docs/vpc?topic=vpc-create-backup-policy-and-plan).
 1. Find the resources that you want to back up.
-1. Apply backup policy tags to your target volumes, or virtual server instances.{: ui}
-1. Apply backup policy tags to your target volumes, or virtual server instances.{: cli}
-1. Apply backup policy tags to your target volumes, or virtual server instances.{: api}
-1. Apply backup policy tags to your target volumes, or virtual server instances.{: terraform} 
+1. Apply backup policy tags to your target volumes, or virtual server instances in the console.{: ui}
+1. Apply backup policy tags to your target volumes, or virtual server instances  from the CLI.{: cli}
+1. Apply backup policy tags to your target volumes, or virtual server instances  with the API.{: api}
+1. Apply backup policy tags to your target volumes, or virtual server instances  with Terraform.{: terraform} 
 1. Verify that your selected resource is associated with a backup policy. For more information, see [View a list of resources that have a backup policy](/docs/vpc?topic=vpc-backup-view-policies&interface=ui#backup-view-vol-backup-policies).
 
-## Applying tags to volumes in the UI
+## Applying tags to volumes, or virtual server instances  in the UI
 {: #backup-apply-tags-ui}
 {: ui}
 
-Apply tags to new or existing volumes in any of these ways:
+Apply tags to new or existing volumes, virtual server instances in any of these ways:
 
-* Add tags to volumes directly from the block volumes list view by using the tags column.
-* Add tags from the volume details page.
-* Click **Apply** on the volume details page to associate backup policies with tags.
+* Add tags to volumes directly from the volumes  list views by using the tags column.
+* Add tags from the volume  details pages.
 * Add user tags to volumes during instance provisioning.
 
 ### Add tags from the {{site.data.keyword.block_storage_is_short}} volume list view
@@ -60,7 +59,7 @@ Apply tags to new or existing volumes in any of these ways:
 4. In the new window, type a tag in the User tags text box.
 5. Click **Save**.
 
-## Applying tags to volumes from the CLI
+## Applying tags to volumes<staging, virtual server instances, or shares</staging> from the CLI
 {: #backup-apply-tags-volumes-cli}
 {: cli}
 
@@ -126,7 +125,7 @@ Tags                                   env:test,bkp:test,bcp:test
 ```
 {: screen}
 
-## Applying tags to volumes with the API
+## Applying tags to volumes<staging, virtual server instances, or shares</staging> with the API
 {: #backup-apply-tags-volumes-api}
 {: api}
 
@@ -224,7 +223,7 @@ To apply tags to a {{site.data.keyword.block_storage_is_short}} volume, follow t
    {: codeblock}
 
 
-## Applying tags to volumes with Terraform
+## Applying tags to volumes<staging, virtual server instances, or shares</staging> with Terraform
 {: #backup-apply-tags-volumes-terraform}
 {: terraform}
 

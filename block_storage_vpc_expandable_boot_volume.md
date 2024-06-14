@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2023-12-18"
+lastupdated: "2024-06-14"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -17,6 +17,8 @@ subcollection: vpc
 
 For boot volumes that are attached to an instance, you can increase the capacity from the default 100 MB up to 250 MB during or after instance provisioning in the console, from the CLI, with the API, or Terraform.
 {: shortdesc}
+
+
 
 ## Increase boot volume capacity in the UI
 {: #resize-vpc-boot-volumes-ui}
@@ -42,8 +44,9 @@ For an existing instance, you can increase its boot volume capacity by selecting
 
 3. In the boot volume details, click the **Size** pencil icon. Alternatively, select **Expand volume** from the Actions menu ![Actions icon](../icons/action-menu-icon.svg "Actions").
 
-4. In the side panel, increase the boot volume size in the **Create size** field. The size must be more than the current size up to 250 GB.
-
+4. In the side panel, increase the boot volume size in the **Create size** field. The size must be more than the current size up to 250 GB. 
+   
+   
 5. Click **Expand boot volume size**.
 
 ## Increase boot volume capacity from the CLI
@@ -161,6 +164,8 @@ Tags                                   -
 ```
 {: screen}
 
+
+
 ## Increase boot volume capacity with the API
 {: #increase-vpc-volumes-api}
 {: api}
@@ -215,6 +220,8 @@ curl -X PATCH "$vpc_api_endpoint/v1/volumes/$volume_id/?version=2022-02-12&gener
    }'
 ```
 {: codeblock}
+
+
 
 ## Increasing the capacity of an existing boot volume with Terraform
 {: #expand-existing-boot-vol-terraform}

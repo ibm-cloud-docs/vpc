@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-12-18"
+  years: 2021, 2024
+lastupdated: "2024-06-11"
 
 keywords: dedicated host, dedicated hosts, dedicated host group, access, user access,
 
@@ -31,7 +31,7 @@ The fictional user profile *Employee Example* is used to show how to give a user
 
 - Create two separate resource groups, *Admin resources* and *Users resources*.
 - Create a dedicated host in the *Admin resources* resource group.
-- Create the dedicated host's associated dedicated host group in the *Users resources* resource group.
+- Create the dedicated host that is associated dedicated host group in the *Users resources* resource group.
 - Create an access group to assign the Operator role to the resource group, *Users resources*.
 - Invite your user, *Employee Example*, to the access group so that they can provision instances to the dedicated host group.
 - Restrict *Employee Example* from interacting directly with the dedicated hosts by excluding *Employee Example* from access to the *Admin resources* resource group.
@@ -40,6 +40,7 @@ The fictional user profile *Employee Example* is used to show how to give a user
 {: #dedicated-before-you-begin}
 
 This tutorial requires the following prerequisites.
+
 - An IBM Cloud billable account.
 - Active IBM Cloud accounts for users who are to receive access.
 - An existing SSH Key
@@ -58,9 +59,9 @@ Complete the following steps to create a resource group for the dedicated host.
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
 2. Click **Manage** > **Account**.
    ![Manage list](/images/click_manage.png){: caption="Figure 1. Manage menu" caption-side="bottom"}
-4. From the *Account* page, click **Resource groups** > **Create**.
-5. Give the resource group a unique name such as *Admin resources*.
-6. Click **Add**.
+3. From the *Account* page, click **Resource groups** > **Create**.
+4. Give the resource group a unique name such as *Admin resources*.
+5. Click **Add**.
 
 ### Creating a dedicated host group resource group
 {: #creating-a-dedicated-host-group-resource-group}
@@ -77,13 +78,14 @@ Complete the following steps to create a resource group for the dedicated host g
 {: step}
 
 When you create a dedicated host, you assign it to a resource group. As part of the dedicated host creation process, you define a dedicated host group for the dedicated host. You can assign the dedicated host group to a separate resource group, so you can apply permissions separately for the dedicated host and the dedicated host group.
-Complete the following steps to create a dedicated host and dedicated host group in their respective resource groups, *Admin resources* and *Users resources*.
+
+Complete the following steps to create a dedicated host and dedicated host group in their respective resource groups: *Admin resources* and *Users resources*.
 
 1. Click the **menu icon** ![menu icon](../icons/icon_hamburger.svg) > **VPC Infrastructure**.
 1. From the *VPC Infrastructure* page, click **Dedicated hosts** > **Create**.
 1. Give the dedicated host a unique name such as *Example Dedicated Host*.
 1. Change the selected resource group from *Default* to *Admin resources*.
-1. Click **New dedicated group** to begin creation of a dedicated host group. 
+1. Click **New dedicated group** to begin creation of a dedicated host group.
    ![Add a dedicated group](/images/new_dedicated_group.png){: caption="Figure 2. New dedicated group" caption-side="bottom"}
 1. On the new window, give the dedicated host group a unique name such as *Example Dedicated Host Group*.
 1. Change the resource group from *Default* to *Users resources*.
@@ -93,7 +95,7 @@ Complete the following steps to create a dedicated host and dedicated host group
 {: #creating-a-vpc}
 
 1. Open [{{site.data.keyword.cloud_notm}} console](/login){: external}.
-2. Click **menu icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Network > VPCs** and click **Create**.
+2. Click **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Network > VPCs** and click **Create**.
 3. Enter a name for the VPC, such as `my-vpc`.
 4. Select *Users resources* as the resource group for the VPC.
 5. Create the default access control list for new subnets in this VPC.
@@ -102,15 +104,16 @@ Complete the following steps to create a dedicated host and dedicated host group
 8. Enter a name for the new subnet in your VPC, such as `my-subnet`.
 9. Select *User resources* as the resource group for the subnet.
 10. Select *Dallas 2* as the location for the subnet.
+
    The region that you select is used as the region of the VPC. All additional resources that you create in this VPC are created in the selected region.
    {: tip}
 
 11. Enter an IP range for the subnet in CIDR notation, for example: `10.240.0.0/24`. In most cases, you can use the default IP range. If you want to specify a custom IP range, you can use the IP range calculator to select a different address prefix or change the number of addresses.
+
    A subnet cannot be resized after it is created.
    {: important}
 
 12. Click **Create virtual private cloud**.
-
 
 ## Creating a virtual server instance and Block Storage volume
 {: #creating-block-storage-dh}
@@ -118,7 +121,7 @@ Complete the following steps to create a dedicated host and dedicated host group
 Be sure to select VPC infrastructure from the menu icon.
 {: tip}
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 2. Click **Create** and enter the information in Table 1.
 3. Click **Create virtual server instance** when you are ready to provision.
 
@@ -141,8 +144,8 @@ Be sure to select VPC infrastructure from the menu icon.
 |-------|-------|
 | Name  | Specify a unique, meaningful name for your volume, for example, 'my-data-volume' You can later edit the name if you want. Volume names must be unique the entire VPC infrastructure. |
 | Size | Enter a volume size in GBs. Volume sizes can be between 10 GB and 2 TBs. |
-| Encryption | Encryption with IBM-managed keys is enabled by default on all volumes. You can also choose **Customer Managed** and use your own encryption key. For more information about one-time set up procedure, see [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-encryption-prereqs). |
-{: caption="Table 2. Block Storage volume values specified when provisioning an instance" caption-side="bottom"}
+| Encryption | Encryption with IBM-managed keys is enabled by default on all volumes. You can also choose **Customer Managed** and use your own encryption key. For more information about one-time setup procedure, see [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-encryption-prereqs). |
+{: caption="Table 2. Block storage volume values specified when provisioning an instance" caption-side="bottom"}
 
 A Block Storage volume is created and attached to the virtual server instance. On the instance details page, the **Attached Block Storage volumes** list is updated to show the new volume.
 
@@ -163,10 +166,10 @@ Use the following steps to create an access group with an access policy that ass
 7. In *Which service do you want to assign access to?*, click **VPC Infrastructure Services**.
 8. In *How do you want to scope the access?*, select **Resources based on selected attributes**.
 9. Click the **Resource group** box.
-10. Select the *User resources* resource group.
+10. Select the *User resources* as the resource group.
 11. Click the *Resource type* box and select **Virtual Server for VPC** option.
-12.	In *Platform access* select the **Viewer**, **Operator**, and **Editor** options.
-13.	Click **Assign** > **Yes**.
+12. In *Platform access* select the **Viewer**, **Operator**, and **Editor** options.
+13. Click **Assign** > **Yes**.
 
 Clicking the numbers on the permission options shows the list of actions that these permissions allow. For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?topic=vpc-iam-getting-started).
 {: note}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-02-22"
+  years: 2021, 2023
+lastupdated: "2023-12-18"
 
 keywords: host failure recovery, recovery
 
@@ -48,9 +48,9 @@ When the host failure policy is set to stop when the host fails, the instance 
 
 -  To set the failure recovery policy using the UI when provisioning an instance, find Advanced options on the provisioning page.
    1. In Advanced options, find 'Host failure auto restart'. This can be toggled on or off.
-
+  
 - To set the failure recovery policy for an existing instance, complete the following steps.
-   1. In [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com){: external}, navigate to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
+   1. In [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com){: external}, navigate to **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
    2. On the **Virtual server instances** page, click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for the instance that you want to manage.
    3. From the instance details page, locate 'Host failure auto restart'. Click the pencil icon and choose Enabled or Disabled to toggle the status of the host recovery policy on or off.
 
@@ -75,82 +75,80 @@ For more information, see [Creating virtual server instances by using the CLI](/
 
 You can create an instance in your IBM Cloud VPC and change the availability policy on host failure by using the command-line interface (CLI). Run the ibmcloud is instance-create command and set the `--host-failure-policy` property to `restart` or `stop`. The host failure policy service is set to `restart` by default.
 
-
-```bash
+```sh
 ibmcloud is inc test r006-a0162c41-6a75-4a04-aabb-da1c78539531 us-south-2  bx2-2x8  7284-47efd8c6-0efc-462e-89c0-e0457119f90b --image r006-63363662-a4ee-4ba4-a6c4-92e6c78c6b58 --host-failure-policy stop
 Creating instance test under account VPC1 as user myuser@mycompany.com...
-
-ID                                    7284_683902df-85ce-4546-808c-3675247074d8
-Name                                  test
-CRN                                   crn:v1:bluemix:public:is:us-south-2:a/efe5afc483594adaa8325e2b4d1290df::instance:7284_683902df-85ce-4546-808c-3675247074d8
-Status                                pending
-Availability policy on host failure   stop
-Startable                             true
-Profile                               bx2-2x8
-Architecture                          amd64
-vCPU Manufacturer                     Intel
-vCPUs                                 2
-Memory(GiB)                           8
-Bandwidth(Mbps)                       4000
-Image                                 ID                                          Name
-                                      r006-63363662-a4ee-4ba4-a6c4-92e6c78c6b58   ibm-centos-7-9-minimal-amd64-3
-
-VPC                                   ID                                          Name
-                                      r006-a0162c41-6a75-4a04-aabb-da1c78539531   cli-vpc-1
-
-Zone                                  us-south-2
-Resource group                        ID                                 Name
-                                      11caaa983d9c4beb82690daab08717e9   Default
-
-Created                               2021-10-25T16:39:30+05:30
-Boot volume                           ID   Name           Attachment ID                               Attachment name
+                                         
+ID                                    7284_683902df-85ce-4546-808c-3675247074d8   
+Name                                  test   
+CRN                                   crn:v1:bluemix:public:is:us-south-2:a/a1234567::instance:7284_683902df-85ce-4546-808c-3675247074d8   
+Status                                pending   
+Availability policy on host failure   stop   
+Startable                             true   
+Profile                               bx2-2x8   
+Architecture                          amd64   
+vCPU Manufacturer                     Intel   
+vCPUs                                 2   
+Memory(GiB)                           8   
+Bandwidth(Mbps)                       4000   
+Image                                 ID                                          Name      
+                                      r006-63363662-a4ee-4ba4-a6c4-92e6c78c6b58   ibm-centos-7-9-minimal-amd64-3      
+                                         
+VPC                                   ID                                          Name      
+                                      r006-a0162c41-6a75-4a04-aabb-da1c78539531   cli-vpc-1      
+                                         
+Zone                                  us-south-2   
+Resource group                        ID                                 Name      
+                                      11caaa983d9c4beb82690daab08717e9   Default      
+                                         
+Created                               2021-10-25T16:39:30+05:30   
+Boot volume                           ID   Name           Attachment ID                               Attachment name      
                                       -    PROVISIONING   7284-69923add-65e2-4b93-bee4-a4bca3836696   collector-reverb-exiting-swinging
 ```
-{: codeblock}
-
+{: screen}
 
 ### Update an instance with host failure policy
 {: #update-instance-policy}
 
 You can update an instance in your IBM Cloud VPC with and change the availability policy on host failure by using the command-line interface (CLI). Run the ibmcloud is instance-update command and set the `--host-failure-policy` property to `start` or `stop`. The host failure policy service is set to `restart` by default.
 
-```bash
+```sh
 ibmcloud is inu 7284_683902df-85ce-4546-808c-3675247074d8 --host-failure-policy restart
 Updating instance 7284_683902df-85ce-4546-808c-3675247074d8 under account VPC1 as user myuser@mycompany.com...
-
-ID                                    7284_683902df-85ce-4546-808c-3675247074d8
-Name                                  test
-CRN                                   crn:v1:bluemix:public:is:us-south-2:a/efe5afc483594adaa8325e2b4d1290df::instance:7284_683902df-85ce-4546-808c-3675247074d8
-Status                                running
-Availability policy on host failure   restart
-Startable                             true
-Profile                               bx2-2x8
-Architecture                          amd64
-vCPU Manufacturer                     Intel
-vCPUs                                 2
-Memory(GiB)                           8
-Bandwidth(Mbps)                       4000
-Image                                 ID                                          Name
-                                      r006-63363662-a4ee-4ba4-a6c4-92e6c78c6b58   ibm-centos-7-9-minimal-amd64-3
-
-VPC                                   ID                                          Name
-                                      r006-a0162c41-6a75-4a04-aabb-da1c78539531   cli-vpc-1
-
-Zone                                  us-south-2
-Resource group                        ID                                 Name
-                                      11caaa983d9c4beb82690daab08717e9   Default
-
-Created                               2021-10-25T16:39:30+05:30
-Boot volume                           ID                                          Name                            Attachment ID                               Attachment name
+                                         
+ID                                    7284_683902df-85ce-4546-808c-3675247074d8   
+Name                                  test   
+CRN                                   crn:v1:bluemix:public:is:us-south-2:a/a1234567::instance:7284_683902df-85ce-4546-808c-3675247074d8   
+Status                                running   
+Availability policy on host failure   restart   
+Startable                             true   
+Profile                               bx2-2x8   
+Architecture                          amd64   
+vCPU Manufacturer                     Intel   
+vCPUs                                 2   
+Memory(GiB)                           8   
+Bandwidth(Mbps)                       4000   
+Image                                 ID                                          Name      
+                                      r006-63363662-a4ee-4ba4-a6c4-92e6c78c6b58   ibm-centos-7-9-minimal-amd64-3      
+                                         
+VPC                                   ID                                          Name      
+                                      r006-a0162c41-6a75-4a04-aabb-da1c78539531   cli-vpc-1      
+                                         
+Zone                                  us-south-2   
+Resource group                        ID                                 Name      
+                                      11caaa983d9c4beb82690daab08717e9   Default      
+                                         
+Created                               2021-10-25T16:39:30+05:30   
+Boot volume                           ID                                          Name                            Attachment ID                               Attachment name      
                                       r006-780e6d41-b8c0-4023-b81f-2dcabf0b834f   aardvark-matrix-tidy-fragment   7284-69923add-65e2-4b93-bee4-a4bca3836696   collector-reverb-exiting-swinging
 ```
-{: codeblock}
+{: screen}
 
 ## Setting the recovery policy by using the API
 {: #set-recovery-policy-api}
 {: api}
 
-During instance [create](/apidocs/vpc/latest#create-instance) or [update](/apidocs/vpc/latest#update-instance), the `host_failure` sub-property can be used to set the host failure `availability_policy` of the virtual server instance. If the compute host experiences a failure, specify `restart` or `stop` to set the policy.
+During instance [create](/apidocs/vpc/latest#create-instance) or [update](/apidocs/vpc/latest#update-instance) operations, the `host_failure` sub-property can be used to set the host failure `availability_policy` of the virtual server instance. If the compute host experiences a failure, specify `restart` or `stop` to set the policy.
 
 | Host failure policy | Attribute  |
 |---------|---------|
@@ -164,3 +162,12 @@ For more information, see [Create an instance](/apidocs/vpc/latest#create-instan
 {: #host-fail-next-steps}
 
 For more information about planned and unplanned host outages, see the FAQ [In what cases is my virtual server migrated to a different host?](/docs/vpc?topic=vpc-faqs-for-vsis#faq-vsi-13).
+
+
+
+
+
+
+
+
+

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2023-12-05"
+lastupdated: "2024-04-18"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, faqs
 
@@ -22,7 +22,7 @@ The following questions pertain to the VPC Backup service. If you have other que
 {: faq}
 {: #faq-baas-concepts}
 
-With the VPC backup service, you can create backup policies for your {{site.data.keyword.block_storage_is_short}} volumes.  backup policy contains a backup plan, where you set a scheduled backup of your data. You can create up to four backup plans per policy. When a backup is triggered, it creates a snapshot of the volume contents. You can also set a retention period for your backups so that the oldest ones are deleted either by date or total count. For more information, see [Backup service concepts](/docs/vpc?topic=vpc-backup-service-about#backup-service-concepts).
+With the VPC backup service, you can create backup policies for your {{site.data.keyword.block_storage_is_short}} volumes. A backup policy contains a backup plan, where you set a scheduled backup of your data. You can create up to four backup plans per policy. When a backup is triggered, it creates a snapshot of the volume contents. You can also set a retention period for your backups so that the oldest ones are deleted either by date or total count. For more information, see [Backup service concepts](/docs/vpc?topic=vpc-backup-service-about#backup-service-concepts).
 
 ## How do I set up the backup service?
 {: faq}
@@ -34,7 +34,7 @@ Before you can create backup policies, you need to grant [service-to-service aut
 {: faq}
 {: #faq-baas-function}
 
-You can add [user tags](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-about-tags) to your volumes or virtual server instances, and specify the same tags in a backup policy. When the tags match, a backup is triggered based on the backup plan schedule. You can [view backup jobs](/docs/vpc?topic=vpc-backup-view-policy-jobs) to see the progress of the operation. The Snapshot for VPC service is used to create the backup. The entire contents of the volume are copied and retained for the number of days or total number of backups that are specified in the backup plan. When the retention period is reached, the older backups are deleted. 
+You can add [user tags](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-about-tags) to your volumes, or virtual server instances, and specify the same tags in a backup policy. When the tags match, a backup is triggered based on the backup plan schedule. You can [view backup jobs](/docs/vpc?topic=vpc-backup-view-policy-jobs) to see the progress of the operation. The Snapshot for VPC service is used to create the backup. The entire contents of the volume are copied and retained for the number of days or total number of backups that are specified in the backup plan. When the retention period is reached, the older backups are deleted. 
 
 ## What resources are backed up?
 {: faq}
@@ -46,13 +46,13 @@ You can add [user tags](/docs/vpc?topic=vpc-backup-service-about&interface=ui#ba
 {: faq}
 {: #faq-baas-enable}
 
-Enabling your backups is a two-part process. First, you [specify user tags](/docs/vpc?topic=vpc-backup-use-policies) on the resources (Block Storage volumes or virtual server instances) that you want to back up. You then [create a backup policy](/docs/vpc?topic=vpc-create-backup-policy-and-plan) and specify these tags, which identify the resources that you're backing up. Within a policy, you create a [backup plan](/docs/vpc?topic=vpc-create-backup-policy-and-plan&interface=ui#backup-plan-ui) to schedule backups of these resources. You can schedule backups to be taken every daily, weekly, or monthly.
+Enabling your backups is a two-part process. First, you [specify user tags](/docs/vpc?topic=vpc-backup-use-policies) on the resources (Block Storage volumes, or virtual server instances) that you want to back up. You then [create a backup policy](/docs/vpc?topic=vpc-create-backup-policy-and-plan) and specify these tags, which identify the resources that you're backing up. Within a policy, you create a [backup plan](/docs/vpc?topic=vpc-create-backup-policy-and-plan&interface=ui#backup-plan-ui) to schedule backups of these resources. You can schedule backups to be taken every daily, weekly, or monthly.
 
 ## How many backups can I create?
 {: faq}
 {: #faq-baas-total}
 
-You can create up to 750 backups per volume per account. Consider how your billing changes when you increase the number of snapshots that you take and retain.
+You can create up to 750 backups per volume. Consider how your billing changes when you increase the number of snapshots that you take and retain.
 
 ## What are backup policy jobs?
 {: faq}
@@ -84,7 +84,9 @@ Yes. You can create 10 backup policies per account and up to 750 backups of a vo
 {: faq}
 {: #faq-baas-restore}
 
-Restoring from a backup snapshot creates a volume with data from the snapshot. You can restore data from a backup by using the UI, the CLI, or the API. You can restore boot and data volumes during instance creation, when you modify an existing instance, or when you provision a stand-alone volume. When you restore data from a backup snapshot, the data is pulled from an {{site.data.keyword.cos_short}} bucket. For best performance, you can enable backup snapshots for fast restore. By using the fast restore feature, you can restore a volume that is fully provisioned when the volume is created. When you use fast restore, the data is pulled from a cached backup snapshot in another zone of your VPC. For more information, see [About restoring from a backup snapshot](/docs/vpc?topic=vpc-baas-vpc-restore).
+Restoring data from a backup snapshot creates a volume with data from the snapshot. You can restore data from a backup by using the UI, the CLI, or the API. You can restore boot and data volumes during instance creation, when you modify an existing instance, or when you provision a stand-alone volume. When you restore data from a backup snapshot, the data is pulled from an {{site.data.keyword.cos_short}} bucket. For best performance, you can enable backup snapshots for fast restore. By using the fast restore feature, you can restore a volume that is fully provisioned when the volume is created. When you use fast restore, the data is pulled from a cached backup snapshot in another zone of your VPC. For more information, see [About restoring from a backup snapshot](/docs/vpc?topic=vpc-baas-vpc-restore).
+
+
 
 ## Am I charged for usage?
 {: faq}
@@ -102,13 +104,17 @@ You can use the Cost estimator ![Cost estimator icon](../icons/calculator.svg "C
 {: faq}
 {: #faq-baas-dr}
 
-Using the [backup service](/docs/vpc?topic=vpc-backup-service-about), you can regularly back up your volume data based on a schedule that you set up. You can create backup snapshots as frequently as 1 hour. You can also create copies of your backup snapshot in other regions. However, the backup service does not provide continual backup with automatic failover. Restoring a volume from a backup or snapshot is a manual operation that takes time. If you require a higher level of service for automatic disaster recovery, see IBM's [Cloud disaster recovery solutions](https://www.ibm.com/cloud/disaster-recovery).
+Using the [backup service](/docs/vpc?topic=vpc-backup-service-about), you can regularly back up your data based on a schedule that you set up. You can create backup snapshots as frequently as 1 hour. You can also create copies of your volume backup snapshot in other regions. However, the backup service does not provide continual backup with automatic failover. Restoring a volume from a backup or snapshot is a manual operation that takes time. If you require a higher level of service for automatic disaster recovery, see IBM's [Cloud disaster recovery solutions](https://www.ibm.com/cloud/disaster-recovery).
+
+
 
 ## How many copies of my backup can I create in other regions?
 {: faq}
 {: #faq-baas-cross-regional-limits}
 
-You can copy a backup snapshot from one region to another region, and later use that snapshot to restore a volume in the new region. Only one copy of the backup snapshot can exist in each region. You can't create a copy of the backup snapshot in the source (local) region.
+You can copy a backup snapshot of a Block storage volume from one region to another region, and later use that snapshot to restore a volume in the new region. Only one copy of the backup snapshot can exist in each region. You can't create a copy of the backup snapshot in the source (local) region.
+
+
 
 ## What is a consistency group for backups?
 {: faq}

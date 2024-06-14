@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-06-11"
+lastupdated: "2024-06-14"
 
 keywords: Backup, backup snapshot, create backups, backup service, backup plan, backup policy, restore, restore volume, restore data, restore share
 
@@ -97,7 +97,7 @@ You can schedule backups in your plan on a daily, weekly, or monthly basis by us
 
    To keep costs down, set a retention period or snapshots count adequate to your needs. For example, setting "7" for **Age** retains a week's worth of backups.
 
-1. Under **Optional**, you can configure two options for individual volume backups. When you're creating a plan for a policy that is for multi-volume backups, fast snapshot restore is not available.
+1. Under **Optional**, you can configure two options for individual volume backups. When you're creating a plan for a policy that is for multi-volume backups , fast snapshot restore is not available.
 
    * **Fast snapshot restore** - When you enable this feature, you must specify the zone or zones where you want [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_fast_restore) enabled. You can also specify the maximum number of fast restore snapshots that you want to retain. The fast restore feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots
 

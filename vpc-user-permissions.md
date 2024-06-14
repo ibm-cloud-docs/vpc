@@ -19,7 +19,7 @@ subcollection: vpc
 {{site.data.keyword.vpc_full}} uses role-based access control that enables account administrators to control their users' access to VPC resources. Access can be assigned to individual users or to groups of users by using {{site.data.keyword.Bluemix_notm}} Identity and Access Management (IAM).
 {: shortdesc}
 
-For more information about IAM access policies and IAM roles and actions, see [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started). 
+For more information about IAM access policies and IAM roles and actions, see [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started).
 {: note}
 
 This document shows examples of how the account administrator can use the {{site.data.keyword.cloud_notm}} console to grant the correct permissions for managing VPC infrastructure resources. It covers the following scenarios:

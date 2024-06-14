@@ -53,10 +53,10 @@ Where:
 :   ID or name of the security group.
 
 `TARGET`
-:   ID or name of the bound target resource for security group. The following types are supported target resource types: `network_interface`, `load_balancer`, `endpoint_gateway`, `vpn_server`, `virtual_network_interface`
+:   ID or name of the bound target resource for security group. The following types are supported target resource types: `network_interface`, `load_balancer`, `endpoint_gateway`, `vpn_server`, `virtual_network_interface`.
 
 `--trt value`
-:   The bound target resource type, this option is only required if you use the target name instead of ID. One of: `load_balancer`, `endpoint_gateway`, `vpn_server`, `virtual_network_interface`.`
+:   The bound target resource type, this option is only required if you use the target name instead of ID. One of: `load_balancer`, `endpoint_gateway`, `vpn_server`, `virtual_network_interface`.
 
 ### Command example
 {: #vni-add-sg-cli-command-examples}

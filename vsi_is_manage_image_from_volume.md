@@ -25,7 +25,7 @@ Custom images that are created from a volume are independent from the original v
 You can schedule either a single image lifecycle status change or schedule the status changes for the entire lifecycle of the image.
 
 Use the following steps to schedule a single status change:
-<!-- see the -include-segments folder to update this information which is shared with vsi_is_manage_images.md -->
+
 {{_include-segments/image_single_status_lifecycle_schedule.md}}
 
 Use the following steps to schedule the entire lifecycle of the image:
@@ -37,14 +37,14 @@ Use the following steps to schedule the entire lifecycle of the image:
 
 You can change the lifecycle status of an {{site.data.keyword.vpc_short}} image that was created from a volume from the command-line interface (CLI). You can make an immediate status change by using the `ibmcloud is image-deprecate` or `ibmcloud is image-obsolete` commands. You can also schedule these status changes for a future date and time by using the `ibmcloud is image-update` command. Specify the name or ID of the custom image with the `IMAGE` variable.
 
-<!-- see the -include-segments folder to update this information which is shared with vsi_is_manage_images.md -->
+
 {{_include-segments/ilm-change-image-lifecycle-status-cli.md}}
 
 ## Removing previously scheduled lifecycle status change from the CLI
 {: #ifv-reset-ilm-status-change-cli}
 {: cli}
 
-<!-- see the -include-segments folder to update this information which is shared with vsi_is_manage_images.md -->
+
 {{_include-segments/ilm-reset-image-lifecycle-status-cli.md}}
 
 ## Changing the lifecycle status of a custom image with the API
@@ -53,14 +53,14 @@ You can change the lifecycle status of an {{site.data.keyword.vpc_short}} image 
 
 You can change the lifecycle status of an {{site.data.keyword.vpc_short}} image that was created from volume with the application programming interface (API). You can make an immediate status change or schedule a status change to happen later.
 
-<!-- see the -include-segments folder to update this information which is shared with vsi_is_manage_images.md -->
+
 {{_include-segments/ilm-change-image-lifecycle-status-api.md}}
 
 ## Removing previously scheduled lifecycle status change with the API
 {: #ifv-reset-ilm-status-change-api}
 {: api}
 
-<!-- see the -include-segments folder to update this information which is shared with vsi_is_manage_images.md -->
+
 {{_include-segments/ilm-reset-image-lifecycle-status-api.md}}
 
 ## Performance considerations

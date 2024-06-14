@@ -15,7 +15,7 @@ subcollection: vpc
 # User data
 {: #user-data}
 
-<!-- comment: linked help topic -->
+
 
 When you create an {{site.data.keyword.vsi_is_full}} instance, you can specify optional user data that automatically performs common configuration tasks or runs scripts. For more information about user data and usernames, see [IAM access](/docs/account?topic=account-userroles).
 {: shortdesc}
@@ -37,7 +37,7 @@ The size limit of the **User Data** field (or file) is 64 K bytes.
 
 The following cloud-init example shows how a Linux user can add a user and provide the user with an authorized SSH key. The **Name** field has the public key that is added to `~/.ssh/authorized_keys`.
 
-<!--ed25519 note is shared with several other files building-custom-os.md, vsi_is_create_linux_custom_image.md -->
+
 {{_include-segments/linux-ed25519-ssh-key-type-note.md}}
 
 ```yaml

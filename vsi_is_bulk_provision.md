@@ -23,7 +23,7 @@ You can provision a large number of virtual server instances at the same time by
 {: #before-bp-cli-tutorial}
 
 1. Make sure that you completed set up for your [{{site.data.keyword.cloud}} CLI environment](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup) and your [{{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli).
-2. Make sure that you have the required IBM {{site.data.keyword.iamshort}} (IAM) permissions to create instance group resources. For more information, see [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls). 
+2. Make sure that you have the required IBM {{site.data.keyword.iamshort}} (IAM) permissions to create instance group resources. For more information, see [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls).
 3. Make sure that you have created an [instance template](/docs/vpc?topic=vpc-create-instance-template) with the instance details that are used to provision like instances in your group.
 
 ## Creating an instance group
@@ -63,7 +63,7 @@ Where:
    - `INSTANCE_GROUP_NAME` is _my-instance-group_
    - `--instance-template` is _0738-c3809e5b-8d48-4629-b258-33d5b14fa84f_
    - `--subnet IDs` are _0076-2249dabc-8c71-4a54-bxy7-953701ca3999_ and _0767-173bn4aa-060b-47e7-am45-b3395a593897_
-   - `--membership-count is 100
+   - `--membership-count` is 100
 
 For this example, you'd see a response similar to the following output:
 

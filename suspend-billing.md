@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, [{CURRENT_YEAR}]
-lastupdated: "[{LAST_UPDATED_DATE}]"
+  years: 2020, 2024
+lastupdated: "2024-06-14"
 
 keywords: pricing, billing, data, instance, VSI, suspend 
 
@@ -10,7 +10,6 @@ subcollection: vpc
 
 
 ---
-
 
 {{site.data.keyword.attribute-definition-list}}
 

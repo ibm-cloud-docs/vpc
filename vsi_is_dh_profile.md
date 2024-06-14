@@ -1,6 +1,7 @@
 ---
 copyright:
   years: 2020, 2024
+
 lastupdated: "2024-05-30"
 
 keywords: dedicated host profiles, balanced, compute, memory, ultra high memory, generation 2, gen 2
@@ -21,7 +22,7 @@ Dedicated hosts are available in various profile sizes to best suit the size and
 
 For more information about dedicated host profiles for IBM Z (s390x processor architecture), see [s390x dedicated host profiles](/docs/vpc?topic=vpc-s390x-dh-profiles).
 
-<!-- The s390x note stays on staging until 7/31 when LinuxONE VSI is available in production -->
+
 
 For x86-64 dedicated host profiles, the Madrid region only supports dedicated host profiles with instance storage.
 {: important}
@@ -187,21 +188,26 @@ instances.
 
 The Very High Memory with instance storage profile with a high memory ratio of 14 GiB of memory to 1 vCPU of compute is best for OLAP workloads and SAP-related services such as SAP NetWeaver. The Very High Memory profile includes temporary SSD-backed [Instance Storage](/docs/vpc?topic=vpc-instance-storage) at no additional charge.
 
-Hosted exclusively on the Intel® Xeon® Platinum 8260 Cascade Lake with 96 cores of compute that are running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz, a dedicated host that is provisioned with a Very High Memory profile delivers maximum speed and performance.
+- The vx2d profile hosted exclusively on the Intel® Xeon® Platinum 8260 Cascade Lake with 96 cores of compute that are running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz, a dedicated host that is provisioned with a Very High Memory profile delivers maximum speed and performance.
+
 
 If you provision a dedicated host with a Very High Memory profile, any virtual server instances that are provisioned on the dedicated host must also be provisioned with a Very High Memory profile. All Very High Memory profiles include instance storage that is designated by the *d* in the profile name, for example *vx2d*.
+
+
 
 The following Very High Memory profile is available for dedicated hosts.
 
 | Dedicated host profile | vCPU | Cores | GiB RAM | Instance storage |
 |---------|---------|---------|---------|---------|
 | vx2d-host-176x2464 | 176 | 88 | 2464 | 5280 GB |
-{: caption="Table 10. Intel x86-64 very high memory profiles for dedicated hosts" caption-side="bottom"}
+{: caption="Table 5. Intel x86-64 very high memory profiles for dedicated hosts" caption-side="bottom"}
 {: #dh-vhmemory-intel-x86-64-vx2d}
-{: tab-title="Intel x86-64"}
+{: tab-title="vx2d"}
 {: tab-group="DH Very High Memory"}
 {: class="simple-tab-table"}
-{: summary="Dedicated Host Very High Memory profile option for Intel x86-64 virtual server instances."}
+{: summary="Dedicated Host Very High Memory profile option for Intel&reg; x86-64 virtual server instances."}
+
+
 
 For more information about instance profiles that include instance storage in the Very High Memory family, see [very high memory profiles](/docs/vpc?topic=vpc-profiles#vhmemory).
 
@@ -223,12 +229,12 @@ The following Ultra High Memory profile is available for dedicated hosts.
 | Dedicated host profile | vCPU | Cores | GiB RAM | Instance storage |
 |---------|---------|---------|---------|---------|
 | ux2d-host-200x5600 | 200 | 100 | 5600 | 6000 GB |
-{: caption="Table 11. Intel x86-64 ultra high memory profile for dedicated hosts" caption-side="bottom"}
+{: caption="Table 6. Intel x86-64 ultra high memory profile for dedicated hosts" caption-side="bottom"}
 {: #dh-uhmemory-intel-x86-64-ux2d}
 {: tab-title="Intel x86-64"}
 {: tab-group="DH Ultra High Memory"}
 {: class="simple-tab-table"}
-{: summary="Dedicated Host Ultra High Memory profile option for Intel x86-64 virtual server instances."}
+{: summary="Dedicated Host Ultra High Memory profile option for Intel&reg; x86-64 virtual server instances."}
 
 For more information about instance profiles that include instance storage in the ultra high memory family, see [ultra high memory profiles](/docs/vpc?topic=vpc-profiles#uhmemory).
 
@@ -249,7 +255,7 @@ The following example describes the individual parts that make up a dedicated ho
 | Family | Architecture | Generation | Specialty | Offering | vCPU | RAM |
 | ------ | ------------ | ---------- | ----------| -------- | ---- | --- |
 | b      | x            | 2         | d-        | host-    | 152x | 608  |
-{: caption="Table 5. Individual parts that comprise the dedicated host profile" caption-side="bottom"}
+{: caption="Table 7. Individual parts that comprise the dedicated host profile" caption-side="bottom"}
 
 
 The first character represents the profile family. Different profile families have different ratios of CPU to memory, which is designed for different workloads.
@@ -268,6 +274,7 @@ The third character represents the generation of VPC the profile is for.
 
 The fourth character in the profile prefix, if it exists, represents a profile specialty.
 -	"d": indicates that this profile creates a dedicated host with the capability to host virtual server instances that include instance storage.
+- "a": AMD manufactured
 
 The field after the first hyphen "-" represents the offering, in this example, the dedicated host offering.
 
@@ -279,7 +286,7 @@ For the “bx2d-host-152x608” profile, you can know from the name that it is a
 {: #dh-profiles-using-console}
 {: ui}
 
-1. In the {{site.data.keyword.cloud_notm}} console, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Dedicated hosts**.
+1. In the {{site.data.keyword.cloud_notm}} console, go to **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Dedicated hosts**.
 2. From the Dedicated host page, click **Create**.
 3. You can select from available profile configurations.
 
@@ -294,9 +301,14 @@ ibmcloud is dedicated-host-profiles
 {: codeblock}
 
 ## Intel Hyper-Threading Technology
-{: #intel-hyper-threading}
+{: #profiles-hyper-threading}
 
-All Intel&reg;-based servers operate with the Intel&reg; Hyper-Threading Technology enabled. Hyper-Threading Technology provies 2 vCPUs for every physical core in the box. Hyper-Threading Technology can also be disabled if needed. For more information, see [Disabling Intel Hyper-Threading Technology](/docs/vpc?topic=vpc-disabling-hyper-threading).
+All Intel&reg;-based servers operate with the Intel&reg; Hyper-Threading Technology enabled. Hyper-Threading Technology provies 2 vCPUs for every physical core in the box.  Hyper-Threading Technology can also be disabled if needed. For more information, see [Disabling Intel Hyper-Threading Technology](/docs/vpc?topic=vpc-disabling-hyper-threading).
+
+## Querying dedicated host capacity
+{: #profiles-query-dedicated-host-capacity}
+
+For licensing purposes, you can retrieve the total physical capacity of the dedicated host that includes the compute that is held back for overhead. To see the total physical dedicated host compute, use the `GET` API command to query the dedicated host. The `GET` command returns both `available_memory` and `available_vcpu`. A vCPU is 1/2 of a physical core. For more information, see [Retrieve a dedicated host](/apidocs/vpc#get-dedicated-host).
 
 ## Next steps
 {: #dh-nextsteps-profiles}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-02-08"
+lastupdated: "2024-06-14"
 
 keywords:
 
@@ -65,7 +65,7 @@ curl -X "POST" "https://iam.cloud.ibm.com/v1/policies" \
 ## Create a cross-account encrypted volume with the API
 {: #byok-cross-key-acct-create-vol-API}
 
-With the VPC API, create an [encrypted {{site.data.keyword.block_storage_is_short} volume](/docs/vpc?topic=vpc-block-storage-vpc-encryption&interface=api#data-vol-encryption-api) in one account and specify the root key CRN from another account that owns the key. The API calls for creating a cross-account encrypted volume are the same as the calls that you use when you create an encrypted volume with a root key from the same account. Make a `POST /volumes` call and specify the CRN of the root key from the other account in the `encryption_key` property.
+With the VPC API, create an [encrypted {{site.data.keyword.block_storage_is_short}} volume](/docs/vpc?topic=vpc-block-storage-vpc-encryption&interface=api#data-vol-encryption-api) in one account and specify the root key CRN from another account that owns the key. The API calls for creating a cross-account encrypted volume are the same as the calls that you use when you create an encrypted volume with a root key from the same account. Make a `POST /volumes` call and specify the CRN of the root key from the other account in the `encryption_key` property.
 
 This example specifies the CRN of a customer-managed key from a different account:
 

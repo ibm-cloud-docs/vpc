@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, [{CURRENT_YEAR}]
-lastupdated: lastupdated: "[{LAST_UPDATED_DATE}]"
+  years: 2021, 2024
+lastupdated: "2024-06-14"
 
 keywords: bare metal servers, managing, operation, manage bare metal server, manage bare metal, manage server, restart bare metal, stop bare metal, delete bare metal, reboot bare metal, restart server, stop server, delete server
 
@@ -15,10 +15,10 @@ subcollection: vpc
 # Managing Bare Metal Servers for VPC
 {: #managing-bare-metal-servers}
 
-You can manage your {{site.data.keyword.cloud}} Bare Metal Servers for VPC by performing tasks such as start, stop, restart, and delete bare metal server.
+You can manage your {{site.data.keyword.cloud}} Bare Metal Servers for VPC by performing tasks such as start, stop, update firmware, reboot, and delete bare metal server.
 {: shortdesc}
 
-Updating the firmware for a bare metal server is a beta feature that is available for evaluation and testing purposes.
+Update firmware is a beta feature that is available for evaluation and testing purposes.
 {: beta}
 
 You can perform the following actions by using the UI, CLI, and API.
@@ -29,6 +29,7 @@ You can perform the following actions by using the UI, CLI, and API.
 | Start | Start a stopped server. This action is not available if the status is Running. |
 | Update firmware | If the server is stopped and a firmware update is available, this option is visible. \n \n If you select to update the firmware, a prompt is displayed giving you additional details about the firmware update. There is an option to start the server when the update completes. This option is selected by default. \n \n You can select to either proceed with the firmware update or to cancel.  \n **Important** It is recommended to back up your server before any firmware update. |
 | Reboot | Immediately powers off a running server and then powers it back on. |
+
 | Delete | To delete a server, the server must be powered off. If the server has a floating IP address, the floating IP address must be unassociated or released before the server is deleted. The delete action permanently removes a server and its connected vNIC, boot volume, and data from your account. |
 {: caption="Table 1. Actions available for bare metal servers" caption-side="bottom"}
 
@@ -48,9 +49,10 @@ To manage your servers, complete the following steps.
 
 You can view the summary of all bare metal server on the bare metal server page, or you can click an individual server name to view details and make changes. From the details page, you can also view the associated network interface, access its subnet, and reserve or delete a floating IP address.
 
-1. In the [{{site.data.keyword.cloud_notm}} dashboard ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}), go to **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**
 
-2. Click the name of the bare metal server that you want to view.
+
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**
+1. Click the name of the bare metal server that you want to view.
 
 ### Updating the firmware for a bare metal server by using the UI
 {: #update-firmware-bare-metal-servers-ui}
@@ -84,25 +86,26 @@ The reboot action immediately powers off and powers on the bare metal server.
 ### Stopping and starting a bare metal server by using the UI
 {: #stop-start-bare-metal-servers-ui}
 
-1. In the [{{site.data.keyword.cloud_notm}} dashboard ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}), go to **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**
 1. Click the name of the bare metal server that you want to start or stop.
 1. Click **Actions...**, then click **Stop** or **Start**. When selecting **Stop**, select hard stop or soft stop. The instance will soft stop by default.
 
 Billing continues after the bare metal server is stopped.
 {: note}
 
+
+
 ### Deleting a bare metal server by using the UI
 {: #delete-bare-metal-servers-ui}
-{: ui}
 
-1. In the [{{site.data.keyword.cloud_notm}} dashboard ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}), go to **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**
 1. Click the name of the bare metal server that you want to delete.
 1. Click **Actions...**, then click **Delete**.
 
 The delete action permanently removes a server and its connected vNIC, boot volume, and data from your account.
 {: important}
 
-## Managing your bare metal server by using the CLI
+## Managing your bare metal server by by using the CLI
 {: #managing-bare-metal-servers-cli}
 {: cli}
 
@@ -163,6 +166,8 @@ Billing continues after the bare metal server is stopped.
 {: note}
 
 For a full list of command options, see [ibmcloud is bare-metal-server-restart](/docs/vpc?topic=vpc-vpc-reference#bare-metal-server-restart).
+
+
 
 ### Updating the firmware for a bare metal server by using the CLI
 {: #update-firmware-bare-metal-servers-cli}
@@ -303,6 +308,8 @@ curl -X POST "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/star
 {: pre}
 
 For more information about the API request, see [Start a bare metal server](/apidocs/vpc/latest#start-bare-metal-server).
+
+
 
 ### Updating the firmware for a bare metal server by using the API
 {: #update-firmware-bare-metal-servers-API}

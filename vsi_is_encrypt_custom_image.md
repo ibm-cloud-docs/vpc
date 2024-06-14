@@ -23,6 +23,8 @@ A quick way to create an encrypted custom image is by using image from volume. Y
 You can't use an encrypted custom image in a private catalog or on a bare metal server.
 {: note}
 
+For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys).
+
 ## How encrypted custom images work
 {: #encrypted-images-work}
 
@@ -30,7 +32,7 @@ After you encrypt a custom image with your own passphrase, you upload it to {{si
 
 When you import the image, you must specify the cloud resource name (CRN) for your customer root key (CRK) that is stored in your KMS. You must also specify the ciphertext for your wrapped data encryption key (WDEK). The passphrase is stored encrypted in the WDEK always. It is only unwrapped when a virtual server that uses the encrypted image is started. 
 
-When you're ready to provision a new virtual server with the encrypted image, the encryption information isn't needed. The WDEK and the CRN of the CRK are stored as metadata with the image. For more information, see [About encrypted custom images](/docs/vpc?topic=vpc-vpc-encryption-about#byok-about-encrypted-images).  
+When you're ready to provision a virtual server with the encrypted image, the encryption information isn't needed. The WDEK and the CRN of the CRK are stored as metadata with the image. For more information, see [About encrypted custom images](/docs/vpc?topic=vpc-vpc-encryption-about#byok-about-encrypted-images).  
 
 ## Overview of encrypted image process
 {: #overview-encrypted-image-process}
@@ -179,7 +181,7 @@ The following example steps are specific to {{site.data.keyword.keymanagementser
 
 3. Use your customer root key (CRK) to wrap, or protect, the unique passphrase that you used to encrypt your image with LUKS encryption. In the image encryption example, we used the passphrase `abc123`. 
  
-   1. Make sure that the Key Protect CLI plug-in is installed so that you can generate a WDEK. For more information, see [Installing the Key Protect CLI plug-in](/docs/key-protect?topic=key-protect-set-up-cli#install-cli).  
+   1. Make sure that the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in is installed so that you can generate a WDEK. For more information, see [Installing the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in](/docs/key-protect?topic=key-protect-set-up-cli#install-cli).  
    
    2. Encode your passphrase with Base64 encoding to prepare it for wrapping with your CRK. Run the following command, substituting your passphrase for `abc123`. The *-n* parameter is required so that you don't encode a new line character, which causes the wrapped passphrase to not work.   
 
@@ -195,14 +197,14 @@ The following example steps are specific to {{site.data.keyword.keymanagementser
       ```
       {: screen}
 
-   3. Wrap your encoded passphrase with your CRK by running the `ibmcloud kp key wrap` command. While the passphrase that is used to generate the encrypted image is not technically a data encryption key, it is the terminology that Key Protect uses for data in wraps and unwraps. The data that is returned from Key Protect is referred to as the WDEK. For more information, see [kp key wrap](//docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-wrap). 
+   3. Wrap your encoded passphrase with your CRK by running the `ibmcloud kp key wrap` command. While the passphrase that is used to generate the encrypted image is not technically a data encryption key, it is the terminology that {{site.data.keyword.keymanagementserviceshort}} uses for data in wraps and unwraps. The data that is returned from {{site.data.keyword.keymanagementserviceshort}} is referred to as the WDEK. For more information, see [kp key wrap](/docs/key-protect?topic=key-protect-key-protect-cli-reference#kp-key-wrap). 
 
       ```sh
       ibmcloud kp key wrap KEY_ID -i INSTANCE_ID -p PLAINTEXT
       ```
       {: pre}
 
-      Where *KEY_ID* is the ID of the root key that you want to use for wrapping, *INSTANCE_ID* is the instance ID that identifies your Key Protect service instance, and *PLAINTEXT* is your encoded passphrase. For example, *YWJjMTIz*. 
+      Where *KEY_ID* is the ID of the root key that you want to use for wrapping, *INSTANCE_ID* is the instance ID that identifies your {{site.data.keyword.keymanagementserviceshort}} service instance, and *PLAINTEXT* is your encoded passphrase. For example, *YWJjMTIz*. 
 
       For this example, you'd see a response similar to the following output:
 

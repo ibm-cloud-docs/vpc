@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-01-04"
+lastupdated: "2024-06-14"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -52,6 +52,8 @@ You can resize a data volume that is attached to an {{site.data.keyword.cloud_no
 _z/OS - Experimental_ When you expand Block Storage volume capacity on an existing z/OS virtual server instance, a new device address is broadcasted to the users with the additional storage size.
 {: note}
 
+
+
 ### Boot volumes
 {: #expand-boot-vols}
 
@@ -61,6 +63,8 @@ Regardless of the image type, you can increase boot volume capacity from its min
 
 The boot volume expansion takes effect without a reboot. However, to use the increased boot volume space, you must expand your operating system so the increased boot volume capacity is recognized.
 {: note}
+
+
 
 ## Requirements
 {: #exp-vol-requirements}
@@ -95,7 +99,6 @@ Limitations for resizing boot and data volumes apply in this release.
 {: #expand-vol-limitations}
 
 * You cannot expand a volume that is at its maximum capacity for its [IOPS tier profile](/docs/vpc?topic=vpc-block-storage-profiles) or [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) volume range.
-
 * Data volumes can expand to 16,000 GB, with the following limitations:
     * If the volume was created by using an [IOPS tier profile](/docs/vpc?topic=vpc-block-storage-profiles) that limits capacity to less than 16,000 GB, it can expand only to the allowed capacity for that tier.
     * If the volume was provisioned with a [custom profile](/docs/vpc?topic=vpc-block-storage-profiles#custom) that is created in a range that doesn't allow expanding to 16,000 GB, it can expand only to its maximum capacity for that custom range.

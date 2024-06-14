@@ -112,6 +112,7 @@ Select a region (or press enter to skip):
 2. in-che
 3. jp-osa
 4. jp-tok
+5. kr-seo
 6. eu-de
 7. eu-es
 8. eu-gb
@@ -192,20 +193,20 @@ To get the list of zones available for each region, run the command `ibmcloud is
 ```sh
 ibmcloud target -r us-east; ibmcloud is zones
 Switched to region us-east
-                   
+
 API endpoint:      https://cloud.ibm.com
 Region:            us-east
-User:              first.last@email.com
-Account:           TeamAccount (a1234567) <-> 7654321
+User:              test.user@ibm.com
+Account:           Test Account (a1234567) <-> 1414935
 Resource group:    No resource group targeted, use 'ibmcloud target -g RESOURCE_GROUP'
-CF API endpoint:   
-Org:               
-Space:             
-Listing zones in target region us-east under account TeamAccount as user first.last@email.com...
-Name        Region    Status   
-us-east-1   us-east   available   
-us-east-2   us-east   available   
-us-east-3   us-east   available   
+CF API endpoint:
+Org:
+Space:
+Listing zones in target region us-east under account Test Account as user test.user@ibm.com...
+Name        Region    Status
+us-east-1   us-east   available
+us-east-2   us-east   available
+us-east-3   us-east   available
 ```
 {: pre}
 

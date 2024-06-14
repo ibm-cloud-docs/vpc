@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-05-14"
+lastupdated: "2024-06-14"
 
 keywords:
 
@@ -201,12 +201,11 @@ Use the `--name` option and specify a new name for the volume attachment. Specif
 ```sh
 $ ibmcloud is instance-volume-attachment-update kj-test-ro otp1 --name one-true-pairing --auto-delete false
 Updating volume attachment otp1 of instance kj-test-ro under account Test Account as user test.user@ibm.com...
-
 ID                0757-6757e676-0bf5-4b79-9a5b-29c24e17420c
 Name              one-true-pairing
 Volume            ID                                          Name
                   r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   demo-volume-update
-
+ 
 Status            attached
 Bandwidth(Mbps)   393
 Type              data

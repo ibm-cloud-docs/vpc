@@ -3,9 +3,11 @@ copyright:
   years: 2022, 2024
 lastupdated: "2024-02-20"
 
+
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, storage optimized
 
 subcollection: vpc
+
 
 ---
 
@@ -38,6 +40,7 @@ s390x processor architecture profiles can be used to provision {{site.data.keywo
 For the LinuxONE and z/OS virtual server instances, the profiles are available in the US South (Dallas), Japan (Tokyo), Brazil (São Paulo), Spain (Madrid), Canada (Toronto), United Kingdom (London), and US East (Washington DC) regions.
 {: preview}
 
+
 ## Balanced
 {: #vs-balanced}
 
@@ -53,12 +56,12 @@ Ensure that you select a secure execution enabled profile (for example, cz2e-2x4
 | bz2-4x16 | 4 | 2 | 16 | 8 |
 | bz2-8x32 | 8 | 4 | 32 | 16 |
 | bz2-16x64 | 16 | 8 | 64 | 32 |
-{: caption="Table 2. Balanced profiles options for s390x instances" caption-side="bottom"}
+{: caption="Table 2. Balanced profiles options for IBM Z or LinuxONE s390x instances" caption-side="bottom"}
 {: #balanced-s390x}
 {: tab-title="s390x"}
 {: tab-group="Balanced"}
 {: class="simple-tab-table"}
-{: summary="Balanced profiles options for IBM Z or LinuxONE s390x virtual server instances."}
+{: summary="Balanced profiles options for s390x virtual server instances."}
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) |
 |---------|---------|---------|---------|---------|
@@ -67,12 +70,13 @@ Ensure that you select a secure execution enabled profile (for example, cz2e-2x4
 | bz2e-4x16 | 4 | 2 | 16 | 8  |
 | bz2e-8x32 | 8 | 4 | 32 | 16 |
 | bz2e-16x64 | 16 | 8 | 64 | 32 |
-{: caption="Table 2. Balanced secure execution profiles options for s390x instances" caption-side="bottom"}
+{: caption="Table 2. Balanced secure execution profiles options for IBM Z or LinuxONE s390x instances" caption-side="bottom"}
 {: #balanced-se-s390x}
 {: tab-title="s390x with secure execution "}
 {: tab-group="Balanced"}
 {: class="simple-tab-table"}
-{: summary="Balanced secure execution profiles options for IBM Z or LinuxONE s390x virtual server instances."}
+{: summary="Balanced secure execution profiles options for s390x virtual server instances."}
+
 
 ## Compute
 {: #vs-compute}
@@ -80,6 +84,7 @@ Ensure that you select a secure execution enabled profile (for example, cz2e-2x4
 Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers that can benefit from 2 GiB of memory for every 1 vCPU of compute. The following table shows all Compute profiles available for the IBM Z or LinuxONE (s390x architecture) processors.
 
 Ensure that you select a secure execution enabled profile (for example, cz2e-2x4) when you enable the **Run your workload with an OS and a profile protected by Secure Execution** toggle (to activate support for secure execution images). Selecting any profile that is not secure execution enabled will cause the deployment of the virtual instance to fail.
+
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) |
 |---------|---------|---------|---------|---------|
@@ -100,12 +105,12 @@ Ensure that you select a secure execution enabled profile (for example, cz2e-2x4
 | cz2e-4x8 | 4 | 2 | 8 | 8 |
 | cz2e-8x16 | 8 | 4 | 16 | 16 |
 | cz2e-16x32 | 16 | 8 | 32 | 32 |
-{: caption="Table 3. Compute secure execution profiles options for s390x instances" caption-side="bottom"}
+{: caption="Table 3. Compute secure execution profiles options for IBM Z or LinuxONE s390x instances" caption-side="bottom"}
 {: #compute-se-s390x}
 {: tab-title="s390x with secure execution"}
 {: tab-group="Compute"}
 {: class="simple-tab-table"}
-{: summary="Compute secure execution profiles options for IBM Z or LinuxONE s390x virtual server instances."}
+{: summary="Compute secure execution profiles options for s390x virtual server instances."}
 
 
 ## Memory
@@ -113,7 +118,7 @@ Ensure that you select a secure execution enabled profile (for example, cz2e-2x4
 
 Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads with 8 GiB of memory for every 1 vCPU of compute. The following table shows all Memory profiles available for the IBM Z or LinuxONE (s390x architecture) processors.
 
-Ensure that you select a secure execution enabled profile (for example, mz2e-2x16) when you enable the **Run your workload with an OS and a profile protected by Secure Execution** toggle (to activate support for secure execution image). Selecting any profile that is not secure execution enabled will cause the deployment of the virtual instance to fail.
+Ensure that you select a secure execution enabled profile (for example, mz2e-2x16) when you enable the **Run your workload with an OS and a profile protected by Secure Execution** toggle (to activate support for secure execution images). Selecting any profile that is not secure execution enabled will cause the deployment of the virtual instance to fail.
 
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | I
@@ -122,12 +127,12 @@ Ensure that you select a secure execution enabled profile (for example, mz2e-2x1
 | mz2-4x32 | 4 | 2 | 32 | 8 |
 | mz2-8x64 | 8 | 4 | 64 | 16 |
 | mz2-16x128 | 16 | 8 | 128 | 32 |
-{: caption="Table 4. Memory profiles options for s390x instances" caption-side="bottom"}
+{: caption="Table 4. Memory profiles options for IBM Z or LinuxONE s390x instances" caption-side="bottom"}
 {: #memory-s390x}
 {: tab-title="s390x"}
 {: tab-group="Memory"}
 {: class="simple-tab-table"}
-{: summary="Memory profiles options for IBM Z or LinuxONE s390x virtual server instances."}
+{: summary="Memory profiles options for s390x virtual server instances."}
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | I
 |---------|---------|---------|---------|---------|---------|
@@ -135,12 +140,13 @@ Ensure that you select a secure execution enabled profile (for example, mz2e-2x1
 | mz2e-4x32 | 4 | 2 | 32 | 8 |
 | mz2e-8x64 | 8 | 4 | 64 | 16 |
 | mz2e-16x128 | 16 | 8 | 128 | 32 |
-{: caption="Table 4. Memory secure execution profiles options for s390x instances" caption-side="bottom"}
+{: caption="Table 4. Memory secure execution profiles options for IBM Z or LinuxONE s390x instances" caption-side="bottom"}
 {: #memory-se-s390x}
 {: tab-title="s390x with secure execution"}
 {: tab-group="Memory"}
 {: class="simple-tab-table"}
-{: summary="Memory secure execution profiles options for IBM Z or LinuxONE s390x virtual server instances."}
+{: summary="Memory secure execution profiles options for s390x virtual server instances."}
+
 
 ## How the bandwidth is allocated using the UI
 {: #vs-bandwidth-allocation-ui}
@@ -180,7 +186,7 @@ For a cz2-8x16 profile:
 
 The amount of overall bandwidth provided to volume bandwidth can be adjusted within the overall instance limits. A default amount of volume bandwidth is set on each instance profile.
 
-For more information, see [Creating VPC resources with CLI and API](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=api) and [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles).
+For more information, see [Creating VPC resources with CLI and API](/docs/vpc?topic=vpc-creating-vpc-resources&interface=api) and [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles).
 
 ## Viewing profile configurations
 {: #vs-popular-profiles}
@@ -216,7 +222,7 @@ Using “bz2-4x16” as an example, you can know from the name that it is a bala
 {: #vs-profiles-using-console}
 {: ui}
 
-1. In the {{site.data.keyword.cloud_notm}} console, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
+1. In the {{site.data.keyword.cloud_notm}} console, go to **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 2. From the Virtual server instances page, click **New instance**.
 3. You can either select a profile configuration from **Popular profiles** or click **All profiles** to view more configurations.
 
@@ -228,7 +234,7 @@ To view the list of available instance profiles by using the CLI, run the follow
 ```sh
 ibmcloud is instance-profiles
 ```
-{: codeblock}
+{: pre}
 
 ### Viewing instance profiles with the API
 {: #vs-profiles-using-api}
@@ -238,7 +244,7 @@ To view the list of available instance profiles by using the API, you can call t
 
 The following request example lists the available instance profiles. When you call the API, replace the API endpoint and IAM token with the values from your enterprise. For more information about the `$vpc_api_endpoint` and `$iam_token` variables, see the Authentication and Endpoint URLs sections in [Virtual Private Cloud API Introduction](/apidocs/vpc/latest#about-vpc-api).
 
-```sh
+```curl
 curl -X GET \
 "$vpc_api_endpoint/v1/instance/profiles?version=2021-02-23&generation=2" \
 -H "Authorization: $iam_token"

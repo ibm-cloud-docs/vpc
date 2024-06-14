@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2017, [{CURRENT_YEAR}]
-lastupdated: "[{LAST_UPDATED_DATE}]"
+  years: 2017, 2024
+lastupdated: "2024-06-14"
 
 keywords: vpc, virtual private cloud, private cloud network, quick provisioning, logical isolation, security, cloud-native, workloads, BYOIP, high availability, ACL, Access control list, Block Storage volumes, File shares, snapshots
 
@@ -28,6 +28,7 @@ VPC gives your applications logical isolation from other networks, while providi
 You can quickly provision scalable compute resources in your VPC by creating *virtual server instances* with the core and RAM configuration that's best for your workload. You can select from the supported stock images or custom images that were imported from {{site.data.keyword.cos_full_notm}}. All images are cloud-init enabled. You can connect to your instance without using a password by adding *SSH keys*.
 
 You can create instances with up to 80 Gbps network bandwidth per instance. Each instance can be multi-homed, that is, you can create multiple network interfaces per instance.
+
 
 ##  Multi-architecture images
 {: #about-vpc-multi-architecture-images}

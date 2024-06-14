@@ -2,7 +2,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-05-30"
+lastupdated: "2024-05-28"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -260,6 +260,11 @@ Memory profiles with the mx2d prefix are available in the US South (Dallas), US 
 
 Very High Memory profiles offer 1 vCPU to 14 GiB of RAM to host small to medium-sized in-memory databases, OLAP services such as SAP NetWeaver, and other memory intensive applications. All Very High Memory profiles are provisioned with temporary SSD-backed [instance storage](/docs/vpc?topic=vpc-instance-storage) at no additional charge. The following Very High Memory profiles are available on Intel&reg; x86 processors.
 
+>
+
+- The vx2d profiles are on the Cascade Lake processors.
+
+
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) |
 |---------|---------|---------|---------|---------|---------|
 | vx2d-2x28 | 2 | 1 | 28 | 4 | 1x60 |
@@ -346,8 +351,7 @@ See [Download drivers](https://www.nvidia.com/Download/index.aspx?lang=en-us) to
 {: class="simple-tab-table"}
 {: summary="GPU gx2 a100 80 GB profile options for Intel x86-64 virtual server instances."}
 
-<!--- The GPU gx3 a100 PCIe profiles are INTERNAL ONLY - DO NOT PUBLISH--->
-| Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Number of GPUs | Instance storage (GB) |
+<staging>| Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Number of GPUs | Instance storage (GB) |
 |---------|---------|---------|---------|---------|---------|---------|
 | gx3d-48x240x2a100p | 48 | 24 | 240 | 96 | 2 | 2x780 |
 | gx3d-24x120x1a100p | 24 | 12 | 120 | 48 | 1 | 1x780 |
@@ -356,7 +360,7 @@ See [Download drivers](https://www.nvidia.com/Download/index.aspx?lang=en-us) to
 {: tab-title="gx3 a100"}
 {: tab-group="GPU"}
 {: class="simple-tab-table"}
-{: summary="GPU gx3 a100 80 GB PCIe profile options for Intel x86-64 virtual server instances."}
+{: summary="GPU gx3 a100 80 GB PCIe profile options for Intel x86-64 virtual server instances."}</staging>
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Number of GPUs | Instance storage (GB) |
 |---------|---------|---------|---------|---------|---------|---------|
@@ -404,9 +408,8 @@ The Intel&reg; Xeon&reg; Platinum 8260 Cascade Lake is only available in the US 
 
 The GPU `-a100` profile includes the following performance enhancements. These enhancements enable GPUDirect RDMA with higher throughput, lower latency, lower CPU utilization for Machine Learning (ML) and Artificial Intelligence (AI), and High-Performance Compute (HPC) applications.
 
-<!-- The below RoCE and SR-IOV should not be published - this only applies to internal research customers with a special profile -->
-- RoCE (RDMA over converged Ethernet) V2
-- SR-IOV
+<staging>- RoCE (RDMA over converged Ethernet) V2
+- SR-IOV</staging>
 
 In addition, the `-a100` profiles have the following restrictions.
 
@@ -555,7 +558,7 @@ ibmcloud is instance-profiles
 
 To view the list of available instance profiles by using the API, you can call the [List all instance profiles API](/apidocs/vpc#list-instance-profiles).
 
-The following request example lists the available instance profiles. When you call the API, replace the API endpoint and IAM token with the values from your enterprise. For more information about the `$vpc_api_endpoint` and `$iam_token` variables, see the Authentication and Endpoint URLs sections in [Virtual Private Cloud API Introduction](/apidocs/vpc#about-vpc-api).
+The following request example lists the available instance profiles. When you call the API, replace the API endpoint and IAM token with the values from your enterprise. For more information about the `$vpc_api_endpoint` and `$iam_token` variables, see the Authentication and Endpoint URLs sections in [Virtual Private Cloud API Introduction](/apidocs/vpc/latest#about-vpc-api).
 
 ```sh
 curl -X GET \

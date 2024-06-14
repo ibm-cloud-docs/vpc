@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, [{CURRENT_YEAR}]
-lastupdated: "[{LAST_UPDATED_DATE}]"
+  years: 2019, 2024
+lastupdated: "2024-06-14"
 
 keywords: creating a linux custom image, cloud-init, qcow2
 
@@ -25,7 +25,7 @@ You can begin with an image template from the {{site.data.keyword.cloud_notm}} C
 
 To create secure execution-based custom images by using the {{site.data.keyword.cos_full_notm}} option, see [Preparing the workload](https://www.ibm.com/docs/en/linux-on-systems?topic=tasks-prepare-workload). For more information about creating secure execution-based images, [IBM Secure Execution for Linux](https://www.ibm.com/docs/en/linux-on-systems?topic=virtualization-introducing-secure-execution-linux).
 
-<!--ed25519 note is shared with several other files building-custom-os.md, vsi_is_create_linux_custom_image.md -->
+
 {{_include-segments/linux-ed25519-ssh-key-type-note.md}}
 
 Complete the following steps to make sure that you can successfully deploy your own Linux custom image in the {{site.data.keyword.vpc_short}} infrastructure environment. Keep in mind that you can't create an image from an encrypted boot volume (image from a volume) that is not 100 GB. The operation is blocked.
@@ -105,7 +105,7 @@ Make sure that your image is cloud-init enabled. Cloud-init version 0.7.9 or gre
    * vendor-data
       A MIME formatted file containing the cloud config SSH authorization derived from the SSH keys that were provided when the instance is created and additional initialization information.
 
-4. In the */etc/cloud/cloud.cfg* file, verify that the `cloud_final_modules` section includes the `scripts-vendor` module and that it is enabled. By default, Red Hat Enterprise Linux and CentOS do not include the `scripts-vendor` module that is required to provision instances in the {{site.data.keyword.vpc_short}} infrastructure. You must enable the `scripts-vendor` module to provision a {{site.data.keyword.vpc_short}} virtual server instance with the Linux custom image.
+4. In the */etc/cloud/cloud.cfg* file, verify that the `cloud_final_modules` section includes the `scripts-vendor` module and that it is enabled. By default, Red Hat Enterprise Linux and CentOS do not include the `scripts-vendor` module that is required to provision instances in the {{site.data.keyword.vpc_short}} infrastructure. You must enable the `scripts-vendor` module to provision an {{site.data.keyword.vpc_short}} virtual server instance with the Linux custom image.
 
     For Red Hat Enterprise Linux images, the following packages are included as part of the base image by default and are required for cloud-init to run successfully: `subscription-manager`, `ethtool`, and `rpm`. In addition, make sure that these services are enabled: `cloud-init-local.service`, `cloud-init.service`, `cloud-config.service`, and `cloud-final.service`.
     {: note}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-05-23"
+lastupdated: "2024-03-27"
 
 keywords:
 
@@ -115,6 +115,8 @@ If you decide to upgrade with the in-place method on Windows OS, open a ticket w
 - Update the OS version that is recorded on {{site.data.keyword.Bluemix}}. You must inform {{site.data.keyword.IBM_notm}} support when your upgrade is completed for uninterrupted support for your upgraded instances.
 
 No additional licensing costs are incurred to move to a newer software version when you use {{site.data.keyword.IBM_notm}}’s License Included options. {{site.data.keyword.Bluemix}} is governed by the Service Provider License Agreement (SPLA) with Microsoft. For more information, see [License Mobility Deployment Process](/docs/microsoft?topic=microsoft-microsoft-license-mobility-process).
+
+
 
 ## CentOS 7 and CentOS Stream 8
 {: #upgrading-centos-7}

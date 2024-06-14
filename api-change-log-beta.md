@@ -70,7 +70,7 @@ The `value` for load balancer profiles properties `route_mode_supported`, `secur
 
 - [Endpoint gateway bindings](/apidocs/vpc-beta/initial#list-private-path-service-gateway-endpoint-gateway) represent each request to access to the private path service gateway. The associated account policy is applied to all `pending` endpoint gateway bindings. If an associated account policy doesn't exist, the private path service gateway's `default_access_policy` is used.  If the resulting policy is `review`, you will be able to explicitly approve or deny the request, and optionally set a new policy for future requests from the account.
 
-Learn about [creating private path service gateways](/docs/vpc?topic=vpc-private-path-service-about).
+Learn about [creating private path service gateways](/docs/vpc?topic=vpc-private-path-service-about), and explore the new [API methods](/apidocs/vpc-beta#list-private-path-service-gateways).
 
 ## 19 December 2023
 {: #19-december-2023-beta}
@@ -107,7 +107,7 @@ This release introduces the following behavior changes for users with accounts t
 
 **Retrieve source share information for a replica share.** When making API requests using a `version` query parameter of `2023-08-08` or later, requests to [retrieve the source file share for a replica file share](/apidocs/vpc-beta/initial#get-share-source) now return a more concise source share reference, instead of a share.
 
-For more information, see [About file share replication](/docs/vpc?topic=vpc-file-storage-replication) and [2023-08-08` API migration (file shares)](/docs/vpc?topic=vpc-2023-08-08-migration-file-shares).
+For more information, see [About file share replication](/docs/vpc?topic=vpc-file-storage-replication) and [`2023-08-08` API migration (file shares)](/docs/vpc?topic=vpc-2023-08-08-migration-file-shares).
 
 ## 11 July 2023
 {: #11-july-2023-beta}
@@ -257,7 +257,7 @@ The following updates have been made since the [24 August 2021 beta release](#24
 
 **File storage adjustable IOPS.** Accounts that have been granted special approval to preview this feature can now [update the IOPS of an existing file share](/apidocs/vpc-beta/initial#update-share). For a file share using a `custom` profile, specify the `iops` property. For a file share using a profile in the `tiered` profile family, specify another tier within the `tiered` family, which will set the `iops` based on the share's size.
 
-You can also change a share between the `tiered` and `custom` profile families so long as the requested `iops` and `size` are supported by the requested profile. For more information about file share profiles, see [File Storage for VPC profiles](/docs/vpc?topic=vpc-file-storage-profiles). For information about adjusting IOPS with a profile, or changing between `tiered` and `custom` profiles, see [Adjusting file share IOPS](/docs/vpc?topic=vpc-adjusting-share-iops&interface=api).
+You can also change a share between the `tiered` and `custom` profile families so long as the requested `iops` and `size` are supported by the requested profile. For more information about file share profiles, see [File Storage for VPC profiles](/docs/vpc?topic=vpc-file-storage-profiles). For more information about adjusting IOPS with a profile, or changing between `tiered` and `custom` profiles, see [Adjusting file share IOPS](/docs/vpc?topic=vpc-adjusting-share-iops&interface=api).
 
 This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#8-august-2023).
 

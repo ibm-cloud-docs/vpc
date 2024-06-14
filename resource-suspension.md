@@ -25,4 +25,4 @@ While a resource is suspended, it cannot be used, modified, or deleted. For exam
 
 To restore access to the affected resource, ask your account owner to review the support cases in the account.
 
-<!--For more information, see [How do you obtain access to your account when it is suspended or cancelled?](https://www.ibm.com/support/pages/how-do-you-obtain-access-your-account-when-it-suspended-or-cancelled){: external}.-->
+

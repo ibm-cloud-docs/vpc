@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-02-27"
+  years: 2022
+lastupdated: "2023-12-20"
 
 keywords:
 
@@ -40,7 +40,7 @@ The instance inherits the access rights that are defined in the default trusted 
 
 4. Configure a floating IP so that you can ping the virtual servers over the floating IP address and SSH into them.
 
-5. Create a trusted profile. For more information, see [Creating trusted profiles](/docs/account?topic=account-create-trusted-profile&interface=ui).
+5. Create a trusted profile. For more information, see [Establishing trust with compute resources](/docs/account?topic=account-create-trusted-profile&interface=ui#create-profile-compute-ui).
 
 ## IAM authorizations for linking trusted profiles
 {: #imd-iam-auth}
@@ -75,9 +75,9 @@ The IAM token is obtained by exchanging the instance identity access token that 
 |------|---------|----------------|-------------|
 | 1    | IBM Cloud | IAM | [Create an IAM trusted profile](/docs/account?topic=account-trustedprofile-compute-tutorial). |
 | 2    | IBM Cloud | IAM | Assign access rights to the IAM trusted profile. |
-| 3    | IBM Cloud | VPC API or UI| With the API, make a call to create a new instance, configured with the [metadata service](/docs/vpc?topic=vpc-imd-configure-service) enabled. Specify any user data and the default trusted profile. Specify to link the trusted profile in the same call. \n In the UI, [create an instance](/docs/vpc?topic=vpc-creating-virtual-servers) and select a trusted profile and link it to the instance. You can also [enable an existing instance to use the metadata service](/docs/vpc?topic=vpc-imd-configure-service#imd-metadata-service-enable). |
-| 4    | VPC instance | VPC API | Make a call to the metadata token service and get an [instance identity access token](/docs/vpc?topic=vpc-imd-configure-service#imd-get-token). |
-| 5    | VPC instance | Metadata service API |  Make a call to [generate an IAM token from the instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-token-exchange). The IAM token allows access to all IAM-enabled services. |
+| 3    | IBM Cloud | VPC API or UI| With the API, make a request to create a new instance, configured with the [metadata service](/docs/vpc?topic=vpc-imd-configure-service) enabled. Specify any user data and the default trusted profile. Specify to link the trusted profile in the same call. \n In the UI, [create an instance](/docs/vpc?topic=vpc-creating-virtual-servers) and select a trusted profile and link it to the instance. You can also [enable an existing instance to use the metadata service](/docs/vpc?topic=vpc-imd-configure-service#imd-metadata-service-enable). |
+| 4    | VPC instance | VPC API | Make an API request to the metadata token service and get an [instance identity access token](/docs/vpc?topic=vpc-imd-configure-service#imd-get-token). |
+| 5    | VPC instance | Metadata service API |  Make an API request to [generate an IAM token from the instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-token-exchange). The IAM token allows access to all IAM-enabled services. |
 | 6    | VPC instance | IAM-enabled service | Pass the IAM token to call an IAM-enabled service API. The required access rights to the service exist in the trusted profile. |
 {: caption="Table 1. Procedure for using a trusted profile" caption-side="bottom"}
 
@@ -125,7 +125,7 @@ Default trusted profiles cannot be changed on existing instances. A default trus
 
    4. SSH to get a connection into the virtual server to issue the APIs for the metadata service.
    5. Log in to the virtual server. You can be running a stock image or custom image. The metadata service is supported on all stock and custom images, and CPU profiles At this point, the floating IP is assigned, the security groups are in place, and you're now working within the virtual server.
-   6. Make a call to the metadata token service to retrieve an instance identity access token. Specify how long the token is valid, for example 3600 seconds (1 hour). In this example, the command is run through the `jq` parser to format the JSON response. You can choose the parser that you prefer.
+   6. Make an API request to the metadata token service to retrieve an instance identity access token. Specify how long the token is valid, for example 3600 seconds (1 hour). In this example, the command is run through the `jq` parser to format the JSON response. You can choose the parser that you prefer.
 
       ```json
       instance_identity_token=`curl -X PUT "http://169.254.169.254/instance_identity/v1/token?version=2021-12-12"\
@@ -139,7 +139,7 @@ Default trusted profiles cannot be changed on existing instances. A default trus
 
       The response is the access token payload.
 
-   7. You can now make a call to the metadata service. The first call is to get the initialization information:
+   7. You can now make a request to the metadata service. The first call is to get the initialization information:
 
        ```curl
        curl -X GET "http://169.254.169.254/metadata/v1/instance/initialization?version=2021-12-12"\

@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 202, 2024
+  years: 2021, 2024
 lastupdated: "2024-02-21"
 
 keywords: windows serial console, connect to windows console, connect to windows serial console, serial console, connect to serial console

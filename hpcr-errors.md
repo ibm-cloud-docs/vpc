@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-03-14"
+lastupdated: "2024-03-13"
 
 keywords: hyper protect container runtime, error messages, troubleshooting
 
@@ -553,23 +553,23 @@ The following list shows the error messages from Hyper Protect Container Runtime
    - System Action: Contract Signature Validation failed.
    - User Action: Retry operation by providing valid contract.
 - **HPL12005E**
-  - Name: CONTRACT_VALID
-  - Message: The contract is valid.
-  - Explanation: The signing certificate is valid.
-  - System Action: No action.
-  - User Action: No action.
+   - Name: CONTRACT_VALID
+   - Message: The contract is valid.
+   - Explanation: The signing certificate is valid.
+   - System Action: No action.
+   - User Action: No action.
 - **HPL12006E**
-  - Name: CONTRACT_WILL_EXPIRE
-  - Message: The contract is going to expire.
-  - Explanation: The signing certificate is going to expire.
-  - System Action: No action.
-  - User Action: Renew Signing certificate present in the contract before expiry.
+   - Name: CONTRACT_WILL_EXPIRE
+   - Message: The contract is going to expire.
+   - Explanation: The signing certificate is going to expire.
+   - System Action: No action.
+   - User Action: Renew Signing certificate present in the contract before expiry.
 - **HPL12007E**
-  - Name: CONTRACT_EXPIRED
-  - Message: The contract has expired.
-  - Explanation: The signing certificate parsed in contract has expired.
-  - System Action: The Contract has expired.
-  - User Action: Renew signing certificate present in the contract.
+   - Name: CONTRACT_EXPIRED
+   - Message: The contract has expired.
+   - Explanation: The signing certificate parsed in contract has expired.
+   - System Action: The Contract has expired.
+   - User Action: Renew signing certificate present in the contract.
 - **HPL07000E**:
    - Name: PARSE_CONTRACT
    - Message: Unable to parse the contract.

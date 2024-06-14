@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-02-21"
+lastupdated: "2024-06-14"
 
 subcollection: vpc
 
@@ -16,6 +16,8 @@ subcollection: vpc
 After you create a bare metal server, you can add new network interfaces or edit existing network interfaces. When you edit a network interface, you can change its name, associate or disassociate a floating IP address, or access the security group that is associated with an interface. For more information about the networking features of Bare Metal Server for VPC, see [Networking overview for bare metal servers on VPC](/docs/vpc?topic=vpc-bare-metal-servers-network).
 {: shortdesc}
 
+
+
 ## Overview of bare metal server network interfaces
 {: #overview-bare-metal-network-interfaces}
 
@@ -26,7 +28,11 @@ For x86 bare metal servers, you can create two types of network interfaces, PCI 
 
    - When you create a bare metal server, a primary PCI interface is created for you. Optionally, you can add one or more secondary PCI or VLAN interfaces. You can also add, update, or delete the network interfaces.
 
-   - You can associate one or more floating IPs with a network interface. The multiple floating IPs feature enables the VMware&reg; NSX-T Data Center to assign floating IPs. For more information about associating floating IP, see [Associate floating IPs with a network interface](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers#bare-metal-add-fips-to-nic).
+   - You can associate one or more floating IPs with a network interface. The multiple floating IPs feature enables the VMware&reg; NSX-T Data Center to assign floating IPs. For more information about associating floating IP, see [Associate floating IPs with a network interface](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers#add-fips-to-nic).
+
+
+
+For more information about associating floating IP, see [Associate floating IPs with a network interface](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers#add-fips-to-nic).
 
 If you want to control the flow of network traffic in your VPC, you can configure routes. VPC routes specify the next hop for packets, based on their destination addresses. For more information, see [Creating a route](/docs/vpc?topic=vpc-create-vpc-route).
 
@@ -48,7 +54,8 @@ You can specify the following configurations for PCI and VLAN interfaces. For VL
 | VLAN ID (VLAN interface only) | You must specify the VLAN ID tag to use for all traffic on this VLAN interface. The VLAN ID range is between 1 and 4094. |
 | Associated PCI interface (VLAN interface only) | If more than one PCI interfaces are created on the bare metal server, you must select a PCI interface to associate to this VLAN interface. Make sure that you associate the VLAN interfaces with the same VLAN ID that is on a bare metal server with one subnet. You can't create two VLAN interfaces with the same ID in two subnets. However, you can associate VLAN interfaces with different VLAN ID with one subnet. |
 | Allowed VLANs (PCI interface only) | Specify the VLAN IDs of the VLAN interfaces that can use the PCI interface. The VLAN ID range is between 1 and 4094. |
-{: caption="Table 1. Network interface configurations" caption-side="bottom"}
+{: caption="Table 1. Bare metal server network interface configurations" caption-side="bottom"}
+
 
 ## Creating a network interface
 {: #bare-metal-create-nic}
@@ -87,7 +94,9 @@ You can create a virtual network interface without attaching it to a target. The
 Virtual network interfaces can be attached to new bare metal server instances, and cannot be added to existing bare metal server instances with child network interfaces.
 {: note}
 
-1. In the {{site.data.keyword.cloud_notm}} console, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**.
+![Bare metal server network attachment](images/vni-bm-arch.svg "Bare metal server with a network attachment"){: caption="Figure 1. Diagram of a bare metal server with a network attachment connected to a virtual network interface" caption-side="bottom"}
+
+1. In the {{site.data.keyword.cloud_notm}} console, go to **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**.
 1. Click **Create** to begin creating a bare metal server capable of using a virtual network interface.
 1. In the **Networking** section, select whether to create one of the following:
    * **Network attachment with a virtual network interface**: a network interface with additional features, such as secondary IP addresses and a lifecycle separate from the bare metal server you are creating.
@@ -109,7 +118,7 @@ Use the following steps to associate a floating IP with the network interface:
 
 3. On the **Edit network interface** page, locate the **Floating IP address** field and select the floating IPs that you want to associate with the network interface.
 
-    Keep in mind that you can associate a floating IP to the secondary network interface only when you configure a default gateway to the secondary network interface within the operating system.
+   Keep in mind that you can associate a floating IP to the secondary network interface only when you configure a default gateway to the secondary network interface within the operating system.
 
 4. Click **Save** when you finish adding floating IPs.
 

@@ -41,7 +41,7 @@ Property  | Description
 Name | The name of the policy. The name must be unique within the listener.
 Action | The action to take when all policy rules match. The acceptable values are `reject`, `redirect`, `forward`, and `https_redirect`.
 Priority | Policies are evaluated based on ascending order of priority.
-URL | The URL to which the request is redirected, if the action is set to `redirect`.
+URL | The URL to which the request is redirected, if the action is set to `redirect`. 
 HTTP status code | Status code of the response returned by the application load balancer when the action is set to `redirect` or `https_redirect`. The acceptable values are: `301`, `302`, `303`, `307`, or `308`.
 Target | The back-end pool of virtual server instances to which the request is forwarded, if the action is set to `forward`.
 Listener | The HTTPS listener to which the request is redirected, if the action is set to `https_redirect`.
@@ -97,6 +97,8 @@ The following layer 7 examples show how policies and rules are created and assoc
 
 ### Example 1: Create an HTTPS listener with redirect policies
 {: #create-https-listener-redirect}
+
+
 
 ```bash
 curl -H "Authorization: $iam_token" -X POST

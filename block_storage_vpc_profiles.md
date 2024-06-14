@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-06-13"
+lastupdated: "2024-06-14"
 
 keywords: Block Storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
@@ -18,17 +18,19 @@ subcollection: vpc
 When you provision {{site.data.keyword.block_storage_is_short}} volumes by using the {{site.data.keyword.cloud_notm}} console, CLI, API, or Terraform you specify an IOPS profile that best meets your storage requirements. Profiles are generally available as three predefined IOPS levels or with custom IOPS. IOPS tiers provide reliable IOPS/GB performance for volumes up to 16,000 GB capacity. You can also specify a custom IOPS profile and define volume capacity and IOPS within a range.
 {: shortdesc}
 
-## Block Storage profiles overview
+
+
+## Block Storage profile overview
 {: #block-storage-profile-overview}
 
 When you create a Block Storage volume, you can select between custom and tiered-IOPS profiles. All these profiles are backed by solid-state drives (SSDs). The following table shows the available storage profiles.
 
-| Profile family | Profile name      | IOPS^1^      | IOPS per volume| Max throughput^2^| Volume size  |   
-|----------------|-------------------|----------------:|---------------:|---------------:|-----------------:|
-| `tiered`       | `general-purpose` | 3 IOPS/GB       | 3,000 - 48,000 | 670 MB/s       | 10 GB - 16,000 GB| 
-| `tiered`       | `5iops-tier`      | 5 IOPS/GB       | 3,000 - 48,000 | 768 MB/s       | 10 GB - 9,600 GB | 
-| `tiered`       | `10iops-tier`     | 10 IOPS/GB      | 3,000 - 48,000 | 1024 MB/s      | 10 GB - 4,800 GB |
-| `custom`       | `custom`          | 1 - 100 IOPS/GB |   100 - 48,000 | 1024 MB/s      | 10 GB - 16,000 GB|
+| Profile family | Profile name      | IOPS^1^      | IOPS per volume| Max throughput^2^| Volume size (GB)|   
+|----------------|-------------------|----------------:|---------------:|---------------:|---------------:|
+| `tiered`       | `general-purpose` | 3 IOPS/GB       | 3,000 - 48,000 | 670 MBps       | 10 GB - 16,000 | 
+| `tiered`       | `5iops-tier`      | 5 IOPS/GB       | 3,000 - 48,000 | 768 MBps       | 10 GB - 9,600  | 
+| `tiered`       | `10iops-tier`     | 10 IOPS/GB      | 3,000 - 48,000 | 1024 MBps      | 10 GB - 4,800  |
+| `custom`       | `custom`          | 1 - 100 IOPS/GB |   100 - 48,000 | 1024 MBps      | 10 GB - 16,000 |
 {: caption="Table 1. Block Storage profiles and performance levels." caption-side="bottom"}
 
 ^1^ IOPS values are based on 16k I/O size.
@@ -84,13 +86,14 @@ The following table shows the available IOPS ranges based on volume capacity for
 | 10,000 - 16,000  | 1,000 - 48,000 |
 {: caption="Table 3. Available IOPS based on volume size" caption-side="bottom"}
 
-Moving volumes across volume-profiles that belong to different families is not allowed.
-{: restriction}
+
 
 ## Profiles and boot volumes
 {: #vsi-profiles-boot}
 
 By default, boot volumes are created based on the `general-purpose` IOPS profile with 100 GB capacity during instance provisioning. [Boot volume capacity](/docs/vpc?topic=vpc-resize-boot-volumes) can be increased by modifying the boot volume, up to 250 GB. 
+
+
 
 ## How virtual server profiles relate to storage profiles
 {: #vsi-profiles-relate-to-storage}
@@ -119,6 +122,8 @@ When you [create a Block Storage volume from the {{site.data.keyword.cloud_notm}
 
 Alternately, select **Custom** and then select an IOPS value within the range for that volume size. Click the storage size link to see a table of size and IOPS ranges.
 
+
+
 ### From the CLI
 {: #using-cli-iops-profiles}
 {: cli}
@@ -129,6 +134,8 @@ ibmcloud is volume-profiles
 ```
 {: pre}
 
+
+
 ```sh
 $ ibmcloud is volume-profiles
 Listing volume profiles in region us-east under account TEST as user test.user@ibm.com...
@@ -136,7 +143,8 @@ Name              Family
 general-purpose   tiered   
 5iops-tier        tiered   
 10iops-tier       tiered   
-custom            custom 
+custom            custom  
+
 ```
 {: codeblock}
 
@@ -159,13 +167,12 @@ Capacity                               Max    Min   Default   Step
                                           
 IOPS                                   Max    Min   Default   Step      
                                        48000  10    10        1      
-                                          
-Unattached capacity update supported   false   
-Unattached iops update supported       false  
 ```
 {: screen}
 
-For more information about available command options, see [`ibmcloud is volume-profile`](/docs/vpc?topic=vpc-vpc-reference#volume-profile-view).
+
+
+For more information about available command options, see [`ibmcloud is volume-profile`](/docs/vpc?topic=vpc-vpc-reference&interface=ui#volume-profile-view).
 
 ### With the API
 {: #using-api-iops-profiles}
@@ -180,13 +187,9 @@ $vpc_api_endpoint/v1/volume/profiles?$api_version&generation=2 \
 ```
 {: pre}
 
-To see details of a specific profile, make a `GET /volume/profile` request and specify the name of the profile.
 
-```sh
-curl -X GET "https://us-south.iaas.cloud.ibm.com/v1/volume/profiles/custom?version=2023-07-24&generation=2"\
- -H "Authorization: $iam_token"
-```
-{: pre}
+
+For more information about this method, see the API reference for [listing all volume profiles](/apidocs/vpc-aspirational#list-volume-profiles) and [retrieving a volume profile](/apidocs/vpc-aspirational#get-volume-profile).
 
 ### With Terraform
 {: #using-terraform-iops-profiles}

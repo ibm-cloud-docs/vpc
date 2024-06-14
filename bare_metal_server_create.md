@@ -2,10 +2,9 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-04-09"
+lastupdated: "2024-06-14"
 
 keywords: creating bare metal servers
-
 subcollection: vpc
 
 ---
@@ -43,10 +42,13 @@ Use the following steps to create a bare metal server by using the {{site.data.k
 | Access management tags | Access management tags help you apply flexible access policies on specific resources. |
 | Image | Click **Change image** to select an image. On the Select an image page, you can select from all available stock images and custom images. After you select your image, click **Save**. For more information, see [x86-64 bare metal server images](/docs/vpc?topic=vpc-bare-metal-image). |
 | Profile | Click **Change profile** to select from all available vCPU and RAM combinations. The profile families are Balanced, Compute, and Memory. For more information, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile). |
-| SSH key | Select an existing public SSH key or click **Create an SSH key** to create a new one. For more information about creating an SSH key, see [Creating your SSH key by using the UI](/docs/vpc?topic=vpc-ssh-keys&interface=ui#generate-ssh-keys-ui). You must specify at least one SSH key.  \n - For x86 architecture, the SSH key is used to automatically generate a password that is required for accessing VMware&reg; ESXi Direct Console User Interface (DCUI) and the ESXi web client.  \n  \n **Note:**  SSH keys can either be RSA or Ed25519. You can generate new RSA key pairs using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images.  \n - For s390x architecture, SSH keys are used to securely connect to the server after it's running. For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
+| SSH key | Select an existing public SSH key or click **Create an SSH key** to create a new one. For more information about creating an SSH key, see [Creating your SSH key by using the UI](/docs/vpc?topic=vpc-ssh-keys&interface=ui#generate-ssh-keys-ui). You must specify at least one SSH key.  \n - For x86 architecture, the SSH key is used to automatically generate a password that is required for accessing VMware&reg; ESXi Direct Console User Interface (DCUI) and the ESXi web client.  \n  \n **Note:**  SSH keys can either be RSA or Ed25519. You can generate new RSA key pairs using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images. |
 | Virtual private cloud | Specify the VPC where you want to create your server. You can use the default VPC, another existing VPC, or you can create a new VPC. |
-| Network interfaces | By default the bare metal server is created with a single primary network interface. You can click the pencil icon to edit the details of the network interface. For example, the subnet or security group that's associated with the interface. To include extra secondary network interfaces, click **New interface**.  \n - For x86 architecture, you can create and assign up to eight PCI network interfaces and up to 20 PCI + VLAN network interfaces for each server. For more information about advanced networking configurations, see [Managing network interfaces for a bare metal server](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers).  \n - For s390x architecture, you can attach up to two network interfaces based on the profile that you choose. For more information, see [Managing network interfaces for a bare metal server](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers).  \n  \n With the virtual network interface feature, you can select the type of network interface that you want to use. You can select the new option **Network attachment with a virtual network interface** or the older option **Instance network interface**. Whichever type of network interface option that you select when you provision, the bare metal server persists through the lifecycle of the bare metal server. You can click **Attach** to create a network attachment with an existing virtual network interface. For more information, see [About virtual network interfaces](/docs/vpc?topic=vpc-vni-about).|
+
+| Network interfaces | By default the bare metal server is created with a single primary network interface. You can click the pencil icon to edit the details of the network interface. For example, the subnet or security group that's associated with the interface. To include extra secondary network interfaces, click **New interface**.  \n - For x86 architecture, you can create and assign up to eight PCI network interfaces and up to 20 PCI + VLAN network interfaces for each server. For more information about advanced networking configurations, see [Managing network interfaces for a bare metal server](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers).  \n  \n With the virtual network interface feature, you can select the type of network interface that you want to use. You can select the new option **Network attachment with a virtual network interface** or the older option **Instance network interface**. Whichever type of network interface option that you select when you provision, the bare metal server persists through the lifecycle of the bare metal server. You can click **Attach** to create a network attachment with an existing virtual network interface. For more information, see [About virtual network interfaces](/docs/vpc?topic=vpc-vni-about).|
 {: caption="Table 1. Bare metal server provisioning selections" caption-side="bottom"}
+
+
 
 | Advanced option | Value |
 |---|---|
@@ -54,6 +56,8 @@ Use the following steps to create a bare metal server by using the {{site.data.k
 | Trusted Platform Module (TPM) | Click the toggle to enable Trusted Platform Module capabilities. Then, select the mode that you want to use. For more information, see [Secure boot with Trusted Platform Module (TPM)](/docs/vpc?topic=vpc-secure-boot-tpm&interface=ui). |
 | Secure boot | Click the toggle to enable secure boot. For more information, see [Secure boot with Trusted Platform Module (TPM)](/docs/vpc?topic=vpc-secure-boot-tpm&interface=ui). |
 {: caption="Table 2. Bare metal server advanced options" caption-side="bottom"}
+
+
 
 For x86 architecture-based bare metal servers, the DHCP response for all interfaces (PCI or VLAN) includes a gateway. So, if you create multiple interfaces on different subnets, consider a static IP configuration or use separate network namespaces to handle the different gateways.
 {: note}
@@ -294,6 +298,8 @@ After you have all the information, use the [Create bare metal server](/apidocs/
     ```
     {: pre}
 
+
+
 The status displays "Pending" until the server is created.
 {: tip}
 
@@ -365,6 +371,8 @@ For example, you can create a bare metal server with the following configuration
    ```
    {: pre}
 
+
+
 ### Viewing your server
 {: #viewing-bms-cli}
 
@@ -375,9 +383,12 @@ ibmcloud is bare-metal-server $bare_metal_server_id --output JSON
 ```
 {: pre}
 
+
+
 ## Next steps
 {: #next-steps-after-creating-bare-metal-server}
 
 When the bare metal server status changes to **Running**, you can connect to it.
 
 * For x86 architecture, you can connect to VMware ESXi Direct Console User Interface (DCUI) and ESXi's web client. For more information, see [Connecting to ESXi bare metal servers](/docs/vpc?topic=vpc-connect-to-ESXi-bare-metal-servers).
+

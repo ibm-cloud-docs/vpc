@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, [{CURRENT_YEAR}]
-lastupdated: "[{LAST_UPDATED_DATE}]"
+  years: 2017, 2024
+lastupdated: "2024-06-14"
 
 keywords: IAM access for vpc infrastructure services, permissions for vpc infrastructure services, identity and access management for vpc infrastructure services, roles for vpc infrastructure services, actions for vpc infrastructure services, assigning access for vpc infrastructure services
 
@@ -367,14 +367,14 @@ fmt.Println(string(b))
 {: #vpc-infrastructure-services-assign-access-terraform}
 {: terraform}
 
-<!-- Tailor this example to your service -->
+
 
 The following example is for assigning the `Viewer` role for `VPC Infrastructure Services`:
 
 Use `is` for the service name.
 {: tip}
 
-<!--The `<programmatic_service_name` in the note above is important to include because the service name in the UI often doesn't match the service name that should be used when assigning access using Terraform.-->
+
 
 ```terraform
 resource "ibm_iam_user_policy" "policy" {

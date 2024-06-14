@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, [{CURRENT_YEAR}]
-lastupdated: "[{LAST_UPDATED_DATE}]"
+  years: 2018, 2024
+lastupdated: "2024-06-14"
 
 keywords:
 
@@ -41,7 +41,7 @@ To create and configure your virtual private cloud (VPC) and other attached reso
 {: #before-cli-tutorial}
 
 Make sure that you set up your CLI [environment](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
-<!--Good place to mention the IBM Cloud SHell? -->
+
 
 ### Log in to IBM Cloud
 {: #log-in-to-ibm-cloud}

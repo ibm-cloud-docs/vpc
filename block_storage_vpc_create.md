@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-03-07"
+lastupdated: "2024-06-14"
 
 keywords: vpc Block Storage, provision Block Storage for vpc, bootable snapshots, create volume from snapshot, fast restore
 
@@ -26,6 +26,8 @@ Before you get started, make sure that you [created a VPC](/docs/vpc?topic=vpc-c
 {: ui}
 
 Use the {{site.data.keyword.cloud_notm}} console to create a {{site.data.keyword.block_storage_is_short}} volume when you create a virtual server instance or as a stand-alone volume.
+
+
 
 ### Creating and attaching a {{site.data.keyword.block_storage_is_short}} volume when you create an instance
 {: #create-from-vsi}
@@ -301,6 +303,8 @@ Created           2023-05-05T07:42:33+05:30
 
 For more information, see [ibmcloud is instance-volume-attachment-add](/docs/vpc?topic=vpc-vpc-reference&interface=cli#instance-volume-attachment-add) in the CLI reference.
 
+
+
 ### Creating an instance and adding user tags to volumes from the CLI
 {: #create-instance-vol-cli}
 {: cli}
@@ -353,7 +357,6 @@ Data volumes                          ID   Name   Attachment ID                 
                                       -    -      r006-c034f0f9-2269-44e4-a76a-4f4ad8c47b65   my-vol-att1
 ```
 {: screen}
-
 
 ### Creating an instance template and adding user tags to volumes from the CLI
 {: #create-instance-template-vol-cli}
@@ -587,6 +590,8 @@ A successful response looks like this:
 ```
 {: screen}
 
+
+
 ### Creating a stand-alone {{site.data.keyword.block_storage_is_short}} volume with the API
 {: #block-storage-create-vol-api}
 
@@ -645,6 +650,10 @@ A successful response looks like the following example.
 }
 ```
 {: screen}
+
+
+
+For more information about volume creation with the API, see [Creating Block Storage volumes](/docs/vpc?topic=vpc-creating-block-storage&interface=api#creating-block-storage-api) and the API reference for [creating a volume](/apidocs/vpc-aspirational#create-volume).
 
 ### Creating a data volume from a snapshot of an unattached volume with the API
 {: #block-storage-create-vol-snapshot-api}

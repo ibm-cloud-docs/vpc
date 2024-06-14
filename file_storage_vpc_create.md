@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-05-28"
+lastupdated: "2024-06-14"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -53,11 +53,14 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
    | Access Management Tags | Enter access management tags that you created in IAM to apply them to this file share. For more information about access management tags, see [Access management tags for file shares](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-about-mgt-tags). |
    | Profile | All file shares are created with the dp2 profile. For more information, see [file Storage profiles](/docs/vpc?topic=vpc-file-storage-profiles). \n Select the size and IOPS for your file share. You can increase the capacity later, and you can also adjust the IOPS as needed. |
    | Mount target access mode  | Select how you want to manage access to this file share: |
-   |  | Security group: Access to the file share is based on [security group](/docs/vpc?topic=vpc-using-security-groups#sg-getting-started) rules. This option can be used to restrict access to specific virtual server instances. You can also use this option if you want to mount the file share to a virtual server instance in another zone. This option is recommended as you have more control over who can access the data that is stored on the file share. |
-   |  | Virtual private cloud: Access to the file share is granted to any virtual server instance in the same region. Cross-zone mounting is not supported. |
+   |  | Security group: Access to the file share is based on [security group](/docs/vpc?topic=vpc-using-security-groups#sg-getting-started) rules. This option can be used to restrict access to specific virtual server instances. You can also use this option if you want to mount the file share to a virtual server instance in another zone. This option is recommended as you have more control over who can access the data that is stored on the file share.  |
+   |  | Virtual private cloud: Access to the file share is granted to any virtual server instance in the same region. Cross-zone mounting and encryption in transit are not supported. |
    {: caption="Table 1. Values for creating a file share" caption-side="top"}
 
-1. The creation of mount targets is optional. You can skip this step if you do not want to create a mount target now. Otherwise, click **Create**. You can create one mount target per VPC for the file share. 
+   
+
+1. The creation of mount targets is optional. You can skip this step if you do not want to create a mount target now. Otherwise, click **Create**. You can create one mount target per VPC per file share. 
+
    - If you selected security group as the access mode, enter the information as described in the Table 2. This action creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target that identifies the file share with a reserved IP address and applies the rules of the selected Security group. This mount target supports encryption-in-transit and cross-zone mounting.
       1. Provide a mount target name. The name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. You can later edit the name if you want.
       2. Select an available VPC. The list includes only those VPCs with a subnet in the selected zone. The zone selection is inherited from the file share (for example, Dallas 2).
@@ -86,8 +89,6 @@ If you're not ready to order yet or just looking for pricing information, you ca
 
 ### Creating a mount target in the UI
 {: #fs-create-mount-target-ui}
-
-You can create several mount targets for an existing file share if the share is to be used by resources in multiple VPCs. You can create one mount target per VPC for the file share.
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > File shares**.
 
@@ -139,7 +140,7 @@ Before you run the `ibmcloud is share-create` command, you can gather informatio
 | Mount targets       | `ibmcloud is share-mount-targets SHARE_ID` | List all mount targets for a file share. |
 | Subnets             | `ibmcloud is subnets`                      | List all subnets.                        |
 | Reserved IP addresses | `ibmcloud is subnet-reserved-ips`   | List all reserved IP addresses in the subnet. |
-| Security Groups     | `ibmcloud is security-groups`              | List all security groups.                |     
+| Security Groups     | `ibmcloud is security-groups`              | List all security groups.                |    
 {: caption="Table 1. Details for creating file shares." caption-side="top"}
 
 ### Creating a file share without a mount target from the CLI
@@ -260,8 +261,6 @@ Created               2023-10-18T23:09:43+00:00
 
 For more information about the command options, see [`ibmcloud is share-mount-target-create`](/docs/vpc?topic=vpc-vpc-reference#share-mount-target-create).
 
-You can create several mount targets for an existing file share if the share is to be used by resources in multiple VPCs. You can create one mount target per VPC for the file share.
-
 ### Creating a file share with a mount target from the CLI
 {: #fs-create-share-target-cli}
 
@@ -270,32 +269,32 @@ You can create a file share with one or more mount targets in one step by using 
 The following example shows how to create a file share with 500 GB capacity and 2000 IOPS in the `us-south-2` zone. The file share is tagged with `env:dev` and has security group access control mode. The file share can be mounted on authorized virtual servers by using the mount target `my-new-mount-target`.
 
 ```sh
-$ ibmcloud is share-create --name my-new-file-share --zone us-south-2 --profile dp2 --size 500 --iops 2000  --user-tags env:dev --mount-targets '
+$ ibmcloud is share-create --name my-new-file-share --zone us-south-2 --profile dp2 --size 500 --iops 2000 --user-tags env:dev  --mount-targets '
 >[{"name":"my-new-mount-target","virtual_network_interface": {"name":"my-vni","subnet": {"id":"r006-298acd6c-e71e-4204-a04f-fe4a4dd89805"}}}]'
 Creating file share my-new-file-share under account Test Account as user test.user@ibm.com...
                                 
-ID                           r006-925214bc-ded5-4626-9d8e-bc4e2e579232   
-Name                         my-new-file-share   
-CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-925214bc-ded5-4626-9d8e-bc4e2e579232   
-Lifecycle state              pending   
-Access control mode          security_group   
-Zone                         us-south-2   
-Profile                      dp2   
-Size(GB)                     500   
-IOPS                         2000   
-User Tags                    env:dev   
-Encryption                   provider_managed   
-Mount Targets                ID                                          Name      
-                             r006-ad313f6b-ccb5-4941-a5f7-0c953f1043df   my-new-mount-target      
+ID                               r006-925214bc-ded5-4626-9d8e-bc4e2e579232   
+Name                             my-new-file-share   
+CRN                              crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-925214bc-ded5-4626-9d8e-bc4e2e579232   
+Lifecycle state                  pending   
+Access control mode              security_group
+Zone                             us-south-2   
+Profile                          dp2   
+Size(GB)                         500   
+IOPS                             2000   
+User Tags                        env:dev   
+Encryption                       provider_managed   
+Mount Targets                    ID                                          Name      
+                                 r006-ad313f6b-ccb5-4941-a5f7-0c953f1043df   my-new-mount-target      
                                 
-Resource group               ID                                 Name      
-                             db8e8d865a83e0aae03f25a492c5b39e   Default      
+Resource group                   ID                                 Name      
+                                 db8e8d865a83e0aae03f25a492c5b39e   Default      
                                 
-Created                      2023-10-19T00:30:11+00:00   
-Replication role             none   
-Replication status           none   
-Replication status reasons   Status code   Status message      
-                             -             -      
+Created                          2023-10-19T00:30:11+00:00   
+Replication role                 none   
+Replication status               none   
+Replication status reasons       Status code   Status message      
+                                 -             -      
 ```
 {: screen}
 
@@ -342,6 +341,8 @@ For more information about how to create a file share with customer-managed encr
 {: #fs-create-share-with-replica-cli}
 
 For more information about how to create a file share with a replica simultaneously, see [Create a file share with replication from the CLI](/docs/vpc?topic=vpc-file-storage-create-replication&interface=cli#fs-create-new-share-replica-cli).
+
+
 
 ## Creating a file share with the API
 {: #file-storage-create-api}
@@ -424,13 +425,30 @@ A successful response looks like the following example.
 ```
 {: codeblock}
 
+If you want to be able to create a file share with a more granular access authorization, you can specify `security_group` as the access mode when you create your API request. Make sure that when you create the mount target, you also specify a virtual network interface that is a member of the security group that your virtual server instances.
+
+```sh
+curl -X POST \
+"$vpc_api_endpoint/v1/shares?version=2024-05-06&generation=2"\
+-H "Authorization: $iam_token" \
+-d '{
+    "access_control_mode": "security-group",
+    "allowed_transit_encryption_modes": ["none", "user-managed"],
+    "size": 4800,
+    "iops": 3000,
+    "name": "myshare-1",
+    "profile": {"name": "dp2"},
+    "zone": {"name": "us-south-1"}
+}
+```
+{: codeblock}
+
 ### Creating a mount target for a file share with the API
 {: #fs-create-mount-target-api}
 
 This request creates or adds a mount target to an existing file share. In this example, the `vpc` property is specified because the file share's access control mode is `vpc`. Data encryption in transit is not enabled.
 
-Access control modes must match when a mount target is created for an existing share. Both must be either `vpc` or `security_group`.
-{: important}
+
 
 ```sh
 curl -X POST \
@@ -438,6 +456,7 @@ curl -X POST \
 -H "Authorization: Bearer $iam_token"\
 -H 'Content-Type: application/json'\
 -d '{
+    "access_control_mode": "vpc"
     "name": "mount-target-name1",
     "vpc": {"id": "6e01bc24-4a6e-4a0c-a1bd-4caa0c8159e7"},
     "transit_encryption": "none"
@@ -469,8 +488,6 @@ A successful response looks like the following example.
 ```
 {: codeblock}
 
-When you create a file share with the API, you specify `security_group` as the access mode. When you create the mount target, you specify a virtual network interface.
-
 ### Adding a mount target to an existing file share by specifying a subnet and security group
 {: #fs-create-file-share-subnet-sg-api}
 
@@ -490,8 +507,6 @@ This example adds a mount target to an existing file share, which is identified 
 ```
 {: codeblock}
 
-You can create several mount targets for an existing file share if the share is to be used by resources in multiple VPCs. You can create one mount target per VPC for the file share.
-
 ### Creating a file share and mount target together with the API
 {: #fs-create-share-target-api}
 
@@ -499,12 +514,15 @@ The following example request creates a file share that has the VPC-wide access 
 
 Access to the mount target is VPC wide; all instances in the VPC have access to this file share. Cross-zone mounting and data encryption in transit is not supported.
 
+
+
 ```sh
 curl -X POST \
 "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2\
 -H "Authorization: Bearer $iam_token"\
 -H 'Content-Type: application/json'\
 -d '{
+    "access_control_mode": "vpc",
     "size": 4800,
     "iops": 48000,
     "mount_targets": [
@@ -519,10 +537,14 @@ curl -X POST \
       "env:test",
       "env:prod"
     ],
+    "resource_group": {},
     "zone": {"name": "us-south-1"}
+    
   }'
 ```
 {: pre}
+
+
 
 A successful response looks like the following example.
 
@@ -580,14 +602,19 @@ A successful response looks like the following example.
 ### Creating a file share and mount target by specifying a subnet
 {: #fs-create-file-share-subnet-vni-api}
 
-The following example creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target with a reserved IP address and applies the rules of the selected security group. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all virtual server instances on which you want to mount the file share. To create the mount target with the network interface, make a `POST /shares` request and specify a subnet. Specifying the `subnet` property is required when you're not specifying a [virtual network interface](#fs-create-file-share-vni-api).
+To create the mount target with the network interface at the same time that the file share is created, make a `POST /shares` request and specify a subnet. Specifying the `subnet` property is required when you're not specifying a [virtual network interface](#fs-create-file-share-vni-api).
 
-In this example, the mount target specifies a subnet ID. When the `transit_encryption` property is set to `user_managed`, encryption in transit with an instance identity certificate is enabled. The default is none, which disables encryption in transit. The default access control mode is `security_group`, which is shown in the response.
+The default access control mode for file shares is `security_group`. The following example creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target with a reserved IP address and applies the rules of the selected security group. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all virtual server instances on which you want to mount the file share. 
+
+In this example, the mount target section specifies a subnet ID. The system picks a reserved IP from that subnet for the [virtual network interface](/docs/vpc?topic=vpc-vni-about) when the mount target is created. 
+
+When the `transit_encryption` property is set to `user_managed`, encryption in transit with an instance identity certificate is enabled. The default is none, which disables encryption in transit. However, if the `allowed_transit_encryption_modes` is specified as `user-managed`, then the mount target must have `user_managed` as the value of `transit_encryption`.
 
 ```json
 curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2"\
 -H "Authorization: $iam_token"\
 -d '{
+    "allowed_transit_encryption_modes": ["user-managed"],
     "size": 10,
     "name": "myshare-1",
     "profile": {"name": "dp2"},
@@ -605,6 +632,7 @@ A successful response looks like the following example.
 ```json
  {
     "access_control_mode": "security_group",
+    "allowed_transit_encryption_modes": ["user-managed"],
     "created_at": "2023-08-08T12:15:12Z",
     "href": "$vpc_api_endpoint/v1/shares/90c4bb62-1724-47bd-8c45-f7d37d7c3508/mount_targets/7e5bdb52-676d-43b2-991f-2053cf6855eb",
     "id": "7e5bdb52-676d-43b2-991f-2053cf6855eb",
@@ -620,7 +648,7 @@ A successful response looks like the following example.
         "name": "subnet-2",
         "resource_type": "subnet"
     },
-    "transit_encryption": "none",
+    "transit_encryption": "user-managed",
     "virtual_network_interface": {
         "crn": "crn:[...]",
         "href": "$vpc_api_endpoint/v1/virtual_network_interface/710y-b8aa945c-7eac-4c15-bad6-a56db9d1e9bd",
@@ -654,8 +682,9 @@ curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2"\
     "iops": 100,
     "name": "myshare-3",
     "profile": {"name": "dp2"},
-     "zone": {"name": "us-south-1"},
-     "mount_targets": [
+    "zone": {"name": "us-south-1"},
+    "allowed_transit_encryption_modes": ["user-managed"],
+    "mount_targets": [
         "virtual_network_interface": {
             "subnet": {"id": "4e95744c-7e64-48c9-b5d2-3b6481b1dfde"},
             "security_groups": [{"id": "34c09abb-37bf-4ef6-88bb-f63a0ef28915"}]
@@ -671,6 +700,7 @@ The following response shows that access control mode is `security_group`, which
 ```json
 {
     "access_control_mode": "security_group",
+    "allowed_transit_encryption_modes": ["user-managed"],
     "created_at": "2023-08-08T12:55:40Z",
     "crn": "crn:[...]",
     "encryption": "provider_managed",
@@ -704,7 +734,8 @@ The following response shows that access control mode is `security_group`, which
             "href": "$vpc_api_endpoint/v1/shares/r006-56f91d4a-2801-470a-b368-176bde64e954/mount_targets/r006-b8573e2c-60ee-4ecc-9eae-c52f890a8195",
             "id": "r006-b8573e2c-60ee-4ecc-9eae-c52f890a8195",
             "name": "sticky-idealist-spoiled-sloppily",
-            "resource_type": "share_target"
+            "resource_type": "share_target",
+            "transit_encryption": {"user_managed"}
         }
     ],
     "user_tags": [],
@@ -731,16 +762,20 @@ curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2" \
     "name": "share-sc-2",
     "profile": {"name": "dp2"},
     "zone": {"name": "us-south-3"},
-    "mount_targets": [
+    "allowed_transit_encryption_modes": ["none"],
+    "mount_targets": [{
         "name": "mount-target-1",
-        "transit_encryption": {"user_managed"},
-        "virtual_network_interface": {
-            "id": "0767-fa41aecb-4f21-423d-8082-630bfba1e1d9"
-          }
-       ]
+        "transit_encryption": {"none"},
+        "virtual_network_interface": {"id": "0767-fa41aecb-4f21-423d-8082-630bfba1e1d9"}
+      }]
     }'
  ```
  {: codeblock}
+
+### Creating a file share from a snapshot with the API
+{: #fs-create-share-from-snapshot-api}
+
+For more information about how to create a file share from a snapshot, see [Restoring data from a file share snapshot](/docs/vpc?topic=vpc-fs-snapshots-restore&interface=api#fs-snapshots-restore-API).
 
 ### Adding supplemental IDs when you create a file share with the API
 {: #fs-add-supplemental-id-api}
@@ -773,15 +808,10 @@ curl -X POST \
 "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2"\
 -H "Authorization: $iam_token" \
 -d '{
-    "initial_owner": {
-       "gid": 101,
-       "uid": 10001
-    },
+    "initial_owner": {"gid": 101,"uid": 10001},
     "size": 4800,
     "name": "share-name",
-    "profile": {
-    "name": "dp2"
-     },
+    "profile": {"name": "dp2"},
     "zone": {"name": "us-south-1"}
      .
      .
@@ -815,11 +845,12 @@ To create a file share, use the `ibm_is_share` resource. The following example c
 
 ```terraform
 resource "ibm_is_share" "example" {
-  name    = "my-new-share"
-  size    = "200"
-  iops    = "500"
-  profile = "dp2"
-  zone    = "us-south-2"
+  allowed_transit_encryption_modes = "none"
+  name                             = "my-new-share"
+  size                             = "200"
+  iops                             = "500"
+  profile                          = "dp2"
+  zone                             = "us-south-2"
 }
 ```
 {: codeblock}
@@ -831,57 +862,22 @@ To create a file share, use the `ibm_is_share` resource. To add a replica, defin
 
 ```terraform
 resource "ibm_is_share" "example-2" {
-  zone    = "us-south-1"
-  size    = "220"
-  name    = "my-share"
-  profile = "dp2"
+  allowed_transit_encryption_modes = "none"
+  zone                             = "us-south-1"
+  size                             = "220"
+  name                             = "my-share"
+  profile                          = "dp2"
   replica_share {
-    name                  = "my-replica"
-    replication_cron_spec = "0 */5 * * *"
-    profile               = "dp2"
-    zone                  = "us-south-3"
+    name                           = "my-replica"
+    replication_cron_spec          = "0 */5 * * *"
+    profile                        = "dp2"
+    zone                           = "us-south-3"
   }
 }
 ```
 {: codeblock}
 
-### Creating a mount target with Terraform
-{: #file-share-mount-create-terraform}
 
-To create a mount target for a file share that provides granular authentication with the use of Security groups, use the `is_share_mount_target` resource. The following example creates a mount target with `security_group` access control mode. First, specify the share for which the mount target is created for. Then, you specify the name of the mount target and define the new virtual network interface by providing an IP address and a name. You must also specify the security group that you want to use to manage access to the file share that the mount target is associated to. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all virtual server instances on which you want to mount the file share. The attribute `auto_delete = true` means that the virtual network interface is to be deleted if the mount target is deleted.
-
-```terraform
-resource "ibm_is_share_mount_target" "target-with-vni" {
-     share=ibm_is_share.is_share.ID
-     name = <share_target_name>
-     virtual_network_interface {
-     name = <virtual_network_interface_name>
-     primary_ip {
-         address = “10.240.64.5”
-         auto_delete = true
-         name = <reserved_ip_name>
-     }
-     resource_group = <resource_group_id>
-     security_groups = [<security_group_ids>]
-   }
-}
-```
-{: codeblock}
-
-You can create several mount targets for an existing file share if the share is to be used by resources in multiple VPCs. You can create one mount target per VPC for the file share.
-
-You can also create a mount target for a file share with the VPC access mode by using the `is_share_mount_target` resource. The following example creates a mount target with the name `my-share-target` for the file share that is specified by its ID. When the mount target is created, all virtual server instances in the VPC can mount the share by using it.
-
-```terraform
-resource "ibm_is_share_mount_target" "target-without-vni" {
-     share=ibm_is_share.is_share.ID
-     name = <share_target_name>
-     vpc = <vpc_id>
-}
-```
-{: codeblock}
-
-For more information about the arguments and attributes, see [ibm_is_share_mount_target](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share_mount_target){: external}.
 
 ### Creating a file share with a mount target with security group access mode
 {: #file-share-create-with-target-sg-terraform}
@@ -894,6 +890,7 @@ resource "ibm_is_share" "share4" {
    size    = "800"
    name    = "my-share4"
    profile = "dp2"
+   allowed_transit_encryption_modes = "user_managed"
    access_control_mode = "security_group"
    mount_target {
        name = "target"
@@ -901,11 +898,11 @@ resource "ibm_is_share" "share4" {
        primary_ip {
                address = 10.240.64.5
                auto_delete = true
-               name = "<reserved_ip_name>
+               name = <reserved_ip_name>
        }
       resource_group = <resource_group_id>
       security_groups = [<security_group_ids>]
-      transit_encryption = "user_managed"
+      transit_encryption = user_managed
       }
    }
 }
@@ -913,9 +910,6 @@ resource "ibm_is_share" "share4" {
 {: codeblock}
 
 For more information about the arguments and attributes, see [ibm_is_share](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share){: external}.
-
-
-You can create several mount targets for an existing file share if the share is to be used by resources in multiple VPCs. You can create one mount target per VPC for the file share.
 
 ### Creating a file share with a mount target with VPC-wide access mode
 {: #file-share-create-with-target-vpc-terraform}
@@ -937,6 +931,8 @@ resource "ibm_is_share" "share3" {
 ```
 {: codeblock}
 
+Cross-zone mounting and encryption in transit are not supported for this type of file share.
+
 ## Next steps
 {: #fs-create-next-steps}
 
@@ -951,4 +947,3 @@ Manage your file shares and data. For more information, see the following topics
 * [Viewing file shares and mount targets](/docs/vpc?topic=vpc-file-storage-view).
 * [Manage your file shares](/docs/vpc?topic=vpc-file-storage-managing).
 * [Create a file share with replication](/docs/vpc?topic=vpc-file-storage-create-replication).
- 

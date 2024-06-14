@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-06-11"
+lastupdated: "2024-06-14"
 
 keywords: file share, file storage, source volume, replica share, 
 
@@ -195,7 +195,7 @@ Replication status reasons   Status code   Status message
    Name                             my-replica-share   
    CRN                              crn:v1:bluemix:public:is:us-south-3:a/a1234567::share:r006-6d1719da-f790-45cc-9f68-896fd5673a1a   
    Lifecycle state                  pending   
-   Access control mode              security_group 
+   Access control mode              security_group   
    Zone                             us-south-3   
    Profile                          dp2   
    Size(GB)                         1000   
@@ -207,7 +207,7 @@ Replication status reasons   Status code   Status message
    Resource group                  ID                                 Name      
                                    db8e8d865a83e0aae03f25a492c5b39e   Default      
                                 
-   Created                         2023-06-25T15:13:18+00:00   
+   Created                         2024-06-25T15:13:18+00:00   
    Latest job                      Job status   Job status reasons      
                                    running      -      
                                 
@@ -232,7 +232,7 @@ When you create a replica of a file share in another region, you must use the CR
    Name                             my-cross-regional-replica-share   
    CRN                              crn:v1:bluemix:public:is:us-east-1:a/a1234567::share:r006-6d1719da-g687-45ac-9f68-896fd76843a1b   
    Lifecycle state                  pending   
-   Access control mode              security_group
+   Access control mode              security_group   
    Zone                             us-east-1   
    Profile                          dp2   
    Size(GB)                         1000   
@@ -244,7 +244,7 @@ When you create a replica of a file share in another region, you must use the CR
    Resource group                   ID                                 Name      
                                     db8e8d865a83e0aae03f25a492c5b39e   Default      
                                 
-   Created                          2023-06-25T15:13:18+00:00   
+   Created                          2024-06-25T15:13:18+00:00   
    Encryption key                   crn:v1:bluemix:public:kms:us-south:a/a1234567:1be45161-6dae-44ca-b248-837f98004057:key:3dd21cc5-cc20-4f7c-bc62-8ec9a8a3d1bd
    Latest job                       Job status   Job status reasons      
                                     running      -      
@@ -297,9 +297,11 @@ curl -X POST\
         {"virtual_network_interface": {"subnet": {"id": "2302-ea5fe79f-52c3-4f05-86ae-9540a10489f5"}}},
         {"vpc": {"id": "7ec86020-1c6e-4889-b3f0-a15f2e50f87e"}}],
       "resource_group": {},
+      "allowed_transit_encryption_modes": "user_managed",
       "user_tags": ["string"]}}]
       }
     "resource_group": {},
+    "allowed_transit_encryption_modes": "user_managed",
     "user_tags": ["string"]
    }'
 ```

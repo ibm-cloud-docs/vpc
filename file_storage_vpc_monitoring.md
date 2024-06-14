@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-06-11"
+lastupdated: "2024-06-14"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -36,7 +36,7 @@ Table 1 shows the lifecycle statuses that the file share can have.
 |-------------|-------------|
 | `stable`    | The file share or mount target is stable and available for use. |
 | `pending`   | The file share or mount target is being created. |
-| `failed`    | The file share or mount target failed to be created. You can delete the failed share and try creating another one.<staging> \n This status is also shown when the access to the origin share is revoked from the accessor share. [New]{: tag-new}</staging> |
+| `failed`    | The file share or mount target failed to be created. You can delete the failed share and try creating another one. |
 | `deleting`  | The file share or mount target is being deleted. |
 | `suspended` | The file share violates {{site.data.keyword.cloud}}’s [Acceptable Use Policy](https://www.ibm.com/services/us/imc/html/aup1.html). A suspended file share cannot be updated or deleted.|
 | `updating`  | The file share capacity or IOPS is being updated.|

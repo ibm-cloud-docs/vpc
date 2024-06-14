@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2024
 lastupdated: "2024-06-11"
 
-keywords: vpc, api, change log, new features, restrictions, migration
+keywords: api, change log, new features, restrictions, migration
 
 subcollection: vpc
 
@@ -28,7 +28,7 @@ Some changes, such as new response properties or new optional request parameters
 - Consume only the resources and properties your application needs to function
 - Avoid depending on behavior that is not explicitly documented
 
-SDK changes are based on API changes. For information about the latest changes to the VPC SDKs, see the change logs in the SDK repositories:
+SDK changes are based on API changes. For more information about the latest changes to the VPC SDKs, see the change logs in the SDK repositories:
 
 - [Java SDK change log](https://github.com/IBM/vpc-java-sdk/blob/master/CHANGELOG.md)
 - [Node SDK change log](https://github.com/IBM/vpc-node-sdk/blob/master/CHANGELOG.md)
@@ -162,12 +162,12 @@ For more information, see [Provisioning reserved capacity for VPC](/docs/vpc?top
 **Local IP addresses in security group rules.** Accounts that have been granted special approval to preview this feature can now specify local IP addresses or address ranges in security group rules. When [creating](/apidocs/vpc#create-security-group-rule) or [updating](/apidocs/vpc#update-security-group-rule) a security group rule, specify the optional `local` property. The value can be an IP address or a range of IP addresses in CIDR format, where `0.0.0.0/0` means the rule allows traffic to all local IP addresses (or from all local IP addresses, for an outbound rule). The default value is `cidr_block: 0.0.0.0/0`, which is also used for all existing rules.
 
 ## 19 March 2024
-{: 19-march-2024}
+{: #19-march-2024}
 
 ### For all version dates
 {: #19-march-2024-all-version-dates}
 
-**Sharing DNS resolution for endpoint gateways across VPCs.** When multiple VPCs are connected together using Transit Gateway, Direct Link, or other connectivity options, a VPC in the connected topology can now be enabled as a DNS hub to centralize the DNS resolution for endpoint gateways. When [creating](/apidocs/vpc/latest#create-vpc) or [updating](/apidocs/vpc/latest#update-vpc) a VPC, the `dns` property includes new configuration options for DNS. Specify the `dns.enable_hub` property as `true` to enable the VPC as a DNS hub (default is `false`). Specify a DNS hub VPC when [creating a DNS resolution binding](/apidocs/vpc/latest#create-vpc-dns-resolution-binding) on another VPC to share its DNS resolution with that DNS hub VPC. The `dns.resolution_binding_count` response property specifies how many other VPCs a VPC is bound to for DNS resolution sharing. For more information, see [About DNS sharing for VPE gateways](/docs/vpc?topic=vpc-hub-spoke-model).
+**Sharing DNS resolution for endpoint gateways across VPCs.** When multiple VPCs are connected together using Transit Gateway, Direct Link, or other connectivity options, a VPC in the connected topology can now be enabled as a DNS hub to centralize the DNS resolution for endpoint gateways. When [creating](/apidocs/vpc/latest#create-vpc) or [updating](/apidocs/vpc/latest#update-vpc) a VPC, the `dns` property includes new configuration options for DNS. Specify the `dns.enable_hub` property as `true` to enable the VPC as a DNS hub (default is `false`). Specify a DNS hub VPC when [creating a DNS resolution binding](/apidocs/vpc/latest#create-vpc-dns-resolution-binding) on another VPC to share its DNS resolution with that DNS hub VPC. The `dns.resolution_binding_count` response property specifies how many other VPCs a VPC is bound to for DNS resolution sharing. For more information, see [About DNS sharing for VPE gateways](/docs/vpc?topic=vpc-vpe-dns-sharing).
 
 **Configuring DNS resolvers for a VPC.** You can now use the `dns.resolver` property to configure the DNS resolvers for a VPC. Use a `dns.resolver.type` of `manual` to specify the DNS resolvers by IP address. Use a `dns.resolver.type` of `delegated` to specify another VPC (typically a DNS hub VPC) whose DNS resolvers will be used. Use a `dns.resolver.type` of `system` to restore the system default DNS resolvers. When `dns.resolver.type` is `manual`, [updating](/apidocs/vpc/latest#update-vpc) specifying the VPC's `dns.resolver.manual_servers` requires the [`If-Match` header](/apidocs/vpc/latest#concurrent-update-protection) also be provided with the VPC's current `ETag` value.
 
@@ -302,7 +302,7 @@ For more information, see [Next generation instance profiles](/docs/vpc?topic=vp
 
 This release introduces the following updates for accounts that have been granted special approval to preview these features:
 
-- **Sharing DNS resolution for endpoint gateways across VPCs.** When multiple VPCs are connected together using Transit Gateway, Direct Link, or other connectivity options, a VPC in the connected topology can now be enabled as a DNS hub to centralize the DNS resolution for endpoint gateways. When [creating](/apidocs/vpc/latest#create-vpc) or [updating](/apidocs/vpc/latest#update-vpc) a VPC, a new `dns` property includes configuration options for DNS. Specify the `dns.enable_hub` property as `true` to enable the VPC as a DNS hub (default is `false`).  Specify a DNS hub VPC when [creating a DNS resolution binding](/apidocs/vpc/latest#create-vpc-dns-resolution-binding) on another VPC to share its DNS resolution with that DNS hub VPC. The new `dns.resolution_binding_count` response property specifies how many other VPCs a VPC is bound to for DNS resolution sharing. For more information, see [About DNS sharing for VPE gateways](/docs/vpc?topic=vpc-hub-spoke-model).
+- **Sharing DNS resolution for endpoint gateways across VPCs.** When multiple VPCs are connected together using Transit Gateway, Direct Link, or other connectivity options, a VPC in the connected topology can now be enabled as a DNS hub to centralize the DNS resolution for endpoint gateways. When [creating](/apidocs/vpc/latest#create-vpc) or [updating](/apidocs/vpc/latest#update-vpc) a VPC, a new `dns` property includes configuration options for DNS. Specify the `dns.enable_hub` property as `true` to enable the VPC as a DNS hub (default is `false`).  Specify a DNS hub VPC when [creating a DNS resolution binding](/apidocs/vpc/latest#create-vpc-dns-resolution-binding) on another VPC to share its DNS resolution with that DNS hub VPC. The new `dns.resolution_binding_count` response property specifies how many other VPCs a VPC is bound to for DNS resolution sharing. For more information, see [About DNS sharing for VPE gateways](/docs/vpc?topic=vpc-vpe-dns-sharing).
 
 - **Configuring DNS resolvers for a VPC.** You can use the new `dns.resolver` property to configure the DNS resolvers for a VPC. Use a `dns.resolver.type` of `manual` to specify the DNS resolvers by IP address. Use a `dns.resolver.type` of `delegated` to specify another VPC (typically a DNS hub VPC) whose DNS resolvers will be used. Use a `dns.resolver.type` of `system` to restore the system default DNS resolvers. When `dns.resolver.type` is `manual`, [updating](/apidocs/vpc/latest#update-vpc) specifying the VPC's `dns.resolver.manual_servers` requires the [`If-Match` header](/apidocs/vpc/latest#concurrent-update-protection) also be provided with the VPC's current `ETag` value.
 
@@ -405,7 +405,7 @@ In the future, load balancer profiles may be introduced that do not support inst
 - Encryption algorithm `triple_des`
 - Diffie–Hellman groups `2` and `5`
 
-As a result, you will no longer be able to create an IKE/IPsec policy or VPN connection that includes a weak cipher.
+As a result, you will no longer be able to create an IKE/IPsec policy or VPN connection that includes a weak cipher on an existing policy or connection.
 
 ## 2 May 2023
 {: #2-may-2023}
@@ -441,7 +441,7 @@ As a result, you will no longer be able to create an IKE/IPsec policy or VPN con
 
 **VCPU manufacturer support for instances and dedicated hosts.** When [provisioning](/apidocs/vpc/latest#create-instance) an instance or dedicated host, you can now use the new `vcpu_manufacturer` property in the [instance](/apidocs/vpc/latest#list-instance-profiles) or [dedicated host](/apidocs/vpc/latest#list-dedicated-host-profiles) profile to choose between profiles from different processor manufacturers. You can also view the virtual server instance VCPU configuration through the `vcpu` sub-property `manufacturer`. For more information and limitations, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) and [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui#balanced-dh-pr).
 
-**Network interface configuration for instance profiles.** When you [retrieve an instance profile](/apidocs/vpc/latest#get-instance-profile) or [list all instance profiles](/apidocs/vpc/latest#list-instance-profiles), the response now provides a `network_interface_count` property. When the `type` is `range`, the new property provides  `max` and `min` sub-properties that denote the maximum and minimum number of network interfaces that are supported for a virtual server instance with the specified profile. The values for `max` and `min` include both the primary network interface and secondary network interfaces. When the `type` is `dependent`, the network interface count depends on another value that is specified when the instance is created. For more information about instance profiles and network interface count, see [Bandwidth allocation with multiple network interfaces](/docs/vpc?topic=vpc-profiles&interface=api#bandwidth-multi-vnic).
+**Network interface configuration for instance profiles.** When you [retrieve an instance profile](/apidocs/vpc/latest#get-instance-profile) or [list all instance profiles](/apidocs/vpc/latest#list-instance-profiles), the response now provides a `network_interface_count` property. When the `type` is `range`, the new property provides `max` and `min` sub-properties that denote the maximum and minimum number of network interfaces that are supported for a virtual server instance with the specified profile. The values for `max` and `min` include both the primary network interface and secondary network interfaces. When the `type` is `dependent`, the network interface count depends on another value that is specified when the instance is created. For more information about instance profiles and network interface count, see [Bandwidth allocation with multiple network interfaces](/docs/vpc?topic=vpc-profiles&interface=api#bandwidth-multi-vnic).
 
 **Private DNS integration for load balancers.** When you [create](/apidocs/vpc/latest#create-load-balancer) or [update](/apidocs/vpc/latest#update-load-balancer) a load balancer, you can now bind the IP addresses of your VPC load balancers to your private DNS zone by specifying the new `dns.instance` and `dns.zone` properties. When you specify these properties, load balancer IPs will no longer be registered to the publicly resolvable `lb.appdomain.cloud` domain name. For more information, see [IBM Cloud Network Load Balancer for VPC](/docs/vpc?topic=vpc-nlb-dns&interface=api) and [IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-lb-dns&interface=api).
 
@@ -830,7 +830,7 @@ If `captured_at` is absent from the response, the snapshot's data has not yet be
 ### For all version dates
 {: #19-october-2021-all-version-dates}
 
-**GPU instances.** Updated instance and instance profile methods now include details about GPUs attached to the instance. New profiles provide support for GPUs. These GPUs provide accelerated computing to help you run workloads with more powerful compute capabilities.
+**GPU instances.** Updated instance and instance profile methods now include details about GPUs attached to the instance. New profiles provide support for GPUs. These GPUs provide accelerated computing to help you run workloads with more powerful compute capabilities.
 
 The [list all instances](/apidocs/vpc/latest#list-instances) method returns a new `gpu` property with additional sub-properties: `count`, `manufacturer`, `model`, and `memory`. The [retrieve an instance profile](/apidocs/vpc/latest#get-instance-profile) method returns new properties: `gpu_count`, `gpu_manufacturer`, `gpu_model`, and `gpu_memory`. For more information, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
 
@@ -1086,7 +1086,7 @@ The `delegate_vpc` property is not required if a VPC uses only RFC-1918 addresse
 
 The following API methods have been updated:
 
-- View the `delegate_vpc` property in the requests and responses for `/vpcs/{vpc_id}/routing_tables/{routing_table_id}/routes`.
+- View the `delegate_vpc` property in the requests and responses for `/vpcs/{vpc_id}/routing_tables/{routing_table_id}/routes`.
 - View reserved IP ranges in `POST /vpcs/{vpc_id}/address_prefixes`, which creates an address pool prefix.
 
 ## 27 January 2021
@@ -1127,7 +1127,7 @@ The `unusable` status appears in the following API methods:
 - [List all images](/apidocs/vpc/latest#list-volumes) (`GET /images`)
 - [Retrieve the specified image](/apidocs/vpc/latest#get-image) (`GET /images/{id}`)
 
-For more information on key states and resource statuses, see [User actions that impact root key states and resource status](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-root-key-states).
+For more information about key states and resource statuses, see [User actions that impact root key states and resource status](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-root-key-states).
 
 **Dedicated hosts** are now supported in the VPC API. Learn more about using [dedicated hosts](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances&interface=api) and explore the new [API methods](/apidocs/vpc/latest#list-dedicated-host-groups).
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-06-06"
+lastupdated: "2024-06-14"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, view backup lists,
 
@@ -55,7 +55,7 @@ From the list of backup jobs, click the Actions icon ![Actions icon](../icons/ac
 | Name     | The name of the backup policy that created the snapshot. You can change the backup policy settings by clicking the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit"). For more information, see [Managing backup policies](/docs/vpc?topic=vpc-backup-service-manage). |
 | Status   | The status of the snapshot, such as _Stable_. For a list of snapshot statuses, see [Snapshot statuses](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-status). |
 | Size     | Size in GBs of the snapshot, it is inherited from the source volume. |
-| Source   | This field shows the source volume from which the snapshot was taken. If the source volume was deleted, the name appears without a link. |
+| Source   | This field shows the source volume   from which the snapshot was taken. If the source volume was deleted, the name appears without a link. |
 | Bootable | It indicates whether the snapshot was created from a boot volume. |
 {: caption="Table 2. Snapshot details side panel" caption-side="bottom"}
 

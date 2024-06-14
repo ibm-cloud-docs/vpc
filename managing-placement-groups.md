@@ -28,7 +28,7 @@ Placement groups can be managed with the UI, CLI, API, or Terraform. You can cre
 You can manage a placement group in your {{site.data.keyword.vpc_short}} by using the {{site.data.keyword.cloud_notm}} console.
 
 To complete management tasks on your placement groups, complete the following steps.
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Placement Groups**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu icon ![Navigation Menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Placement Groups**.
 2. On the Placement groups for VPC page, click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for the placement that you want to manage. You can select from the following actions:
 
 | Action | Description |
@@ -48,7 +48,7 @@ The VPC must exist before you create a placement group. If the VPC is not create
 You can create a placement group in your {{site.data.keyword.vpc_short}} by using the {{site.data.keyword.cloud_notm}} console. A placement group must be created first before an instance can use it. After a placement group is created, an instance can be attached to it during provisioning.
 
 Use the following steps to create a placement group:
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Placement Groups**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu icon ![Navigation Menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Placement Groups**.
 2. Click **Create** and enter the information in Table 1 on the New placement for VPC page.
 
 | Field | Value |
@@ -73,7 +73,7 @@ A placement group must be created first before an instance can use it. After a p
 1. Make sure that you download, install, and initialize the following CLI plug-ins. For more information, see [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
     * IBM Cloud CLI
     * The vpc-infrastructure plug-in
-2. Have an [{{site.data.keyword.vpc_short}} created](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli).
+2. Create an [{{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli).
 
 ### Gathering information to create a placement group in the CLI
 {: #gather-info-placement-group-cli}
@@ -141,7 +141,7 @@ A placement group must be created first before an instance can use it. After a p
 
 Make sure that you set up [Terraform for VPC](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest).
 
-The following example creates a placement group with a host spread strategy, named `my-placement-group`, and a resource group name of `data.ibm_resource_group.default.id`.
+The following example creates a placement group with a host spread strategy that is named `my-placement-group`, and a resource group that is named `data.ibm_resource_group.default.id`.
 
 ```json
 resource "ibm_is_placement_group" "is_placement_group" {
@@ -162,7 +162,7 @@ For more information about the `host_spread` and `power_spread` strategy variabl
 You can update the name of a placement group in your {{site.data.keyword.vpc_short}} by using the {{site.data.keyword.cloud_notm}} console.
 
 To rename a placement group:
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Placement Groups**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu icon ![Navigation Menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Placement Groups**.
 2. Select the placement group and click **Rename**.
 3. Change the placement group name.
 
@@ -218,7 +218,7 @@ resource "ibm_is_placement_group" "is_placement_group" {
 You can delete a placement group in your {{site.data.keyword.vpc_short}} by using the {{site.data.keyword.cloud_notm}} console. A placement group can't be deleted if instances are attached to it. All instances must be removed first. For more information about deleting a virtual private cloud instance and its associated resources, see [Deleting a VPC](/docs/vpc?topic=vpc-deleting).
 
 Use the following steps to delete a placement group:
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Placement Groups**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu icon ![Navigation Menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Placement Groups**.
 2. Select the placement group and click **Delete**.
 3. A confirmation message is displayed. Click **Delete**.
 
@@ -270,14 +270,14 @@ terraform destroy -target=ibm_is_placement_group.is_placement_group
 You can generate a list of placement groups for a region.
 
 To display a list of all existing placement groups:
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Placement Groups**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu icon ![Navigation Menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Placement Groups**.
 1. All existing placement groups are displayed.
 
 ## Listing all placement groups with the CLI
 {: #listing-placement-group-cli}
 {: cli}
 
-You can generate a list of placement groups for a region. You can list all the existing placement group in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI).
+You can generate a list of placement groups for a region. You can list all the existing placement groups in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI).
 
 To list all the existing placement groups by using the CLI, use the **ibmcloud is placement-groups** command. Specify the name and ID of the resource group that you are listing placement groups.
 
@@ -317,20 +317,20 @@ data "ibm_is_placement_groups" "is_placement_groups" {
 {: #view-placement-group-details-UI}
 {: ui}
 
-You can view details about a placement group, such as the placement group name, assigned resource group, placement group ID, location, date placement group was created, and the specified placement group strategy.
+You can view details about a placement group, such as the placement group name, assigned resource group, placement group ID, location, date that the placement group was created, and the specified placement group strategy.
 
 To view details about a placement group, complete the following steps.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Placement Groups**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu icon ![Navigation Menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Placement Groups**.
 1. Click the name of the placement group about which you want to view details.
 
 ## Viewing placement group details with the CLI
 {: #view-placement-group-details-cli}
 {: cli}
 
-You can view details about a placement group, such as the placement group name, assigned resource group, placement group ID, location, date placement group was created, and the specified placement group strategy.
+You can view details about a placement group, such as the placement group name, assigned resource group, placement group ID, location, date that the placement group was created, and the specified placement group strategy.
 
-You can retrieve the details a placement group in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI).
+You can retrieve the details of a placement group in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI).
 
 To retrieve the details of a placement group by using the CLI, use the **ibmcloud is placement-group** command. Specify the placement group ID.
 
@@ -345,7 +345,7 @@ ibmcloud is placement-group PLACEMENT_GROUP --output JSON
 {: #view-placement-group-details-API}
 {: api}
 
-You can view details about a placement group, such as the placement group name, assigned resource group, placement group ID, location, date placement group was created, and the specified placement group strategy.
+You can view details about a placement group, such as the placement group name, assigned resource group, placement group ID, location, date that the placement group was created, and the specified placement group strategy.
 
 
 The following example retrieves a single placement group that is specified by the identifier in the URL.
@@ -359,9 +359,9 @@ curl -X GET "$vpc_api_endpoint/v1/placement_groups/$id?version=2021-04-20&genera
 {: #view-placement-group-details-terraform}
 {: terraform}
 
-You can view details about a placement group, such as the placement group name, assigned resource group, placement group ID, location, date placement group was created, and the specified placement group strategy.
+You can view details about a placement group, such as the placement group name, assigned resource group, placement group ID, location, date that the placement group was created, and the specified placement group strategy.
 
-You can retrieve the details a placement group in your {{site.data.keyword.vpc_short}} by using Terraform.
+You can retrieve the details of a placement group in your {{site.data.keyword.vpc_short}} by using Terraform.
 
 The following example retrieves details for a single placement group with an ID of `ibm_is_placement_group.is_placement_group.name`.
 

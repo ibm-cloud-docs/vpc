@@ -14,7 +14,7 @@ subcollection: vpc
 # Setting up access to classic infrastructure
 {: #setting-up-access-to-classic-infrastructure}
 
-<!-- comment: linked help topic -->
+ 
 
 You can set up access from a VPC to your {{site.data.keyword.cloud}} classic infrastructure, including {{site.data.keyword.cloud_notm}} Direct Link connectivity. Only one VPC per region can communicate with classic resources.
 {: shortdesc}
@@ -30,7 +30,7 @@ For virtual server instances and bare metal instances on the classic infrastruct
 ## Prerequisites
 {: #vpc-prerequisites}
 
- Your classic account must be enabled for Virtual Router Forwarding (VRF). If your account is not VRF-enabled, open a ticket to request "VRF Migration" for your account. See [Converting to VRF](#vrf-conversion) to learn more about the conversion process.
+Your classic account must be enabled for Virtual Router Forwarding (VRF). If your account is not VRF-enabled, open a ticket to request "VRF Migration" for your account. See [Converting to VRF](#vrf-conversion) to learn more about the conversion process.
 
 All subnets in a classic access VPC are shared into the classic infrastructure VRF, which uses IP addresses in the `10.0.0.0/8` space. To avoid IP address conflicts, don't use IP addresses in the `10.0.0.0/14`, `10.200.0.0/14`, `10.198.0.0/15`, and `10.254.0.0/16` blocks in your classic access VPC. Also, don't use addresses from your classic infrastructure subnets. To view the list of your classic infrastructure subnets, see [View all Subnets](/docs/subnets?topic=subnets-view-all-subnets).
 {: important}
@@ -118,7 +118,7 @@ Zone         | Address Prefix
 `br-sao-1`     | `172.26.0.0/18`
 `br-sao-2`     | `172.26.64.0/18`
 `br-sao-3`     | `172.26.128.0/18`
-{: caption="Table 1. Classic access VPC address prefixes by zone" caption-side="top"}
+{: caption="Table 1. Classic access VPC address prefixes by zone" caption-side="bottom"}
 
 For x86-64 dedicated host profiles, the Madrid region only supports dedicated host profiles with instance storage. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui).
 {: important}
@@ -142,21 +142,18 @@ During migration, the VLANs are disconnected from the backbone and reconnected t
 
 To request conversion of your account to VRF, follow these steps:
 
-1. [Open a support case](https://cloud.ibm.com/unifiedsupport/cases/add){: external} through the {{site.data.keyword.cloud_notm}} console.
-1. Select **All products**, then start typing **Virtual Private Cloud** and select it.
-1. Click **Next** in the lower right of the page to show the form.
-
-   * For the Subject, enter "Network Engineering: Convert account to VRF for VPC Classic Access".
-   * For the Description, enter the following text:
-
-      "I am requesting that account _your account number_ is moved to its own VRF. I understand the risks and approve the change. Please reply with the scheduled window(s) of time where this change will be made so we can prepare for the migration."
+1. [Open a support case](/unifiedsupport/cases/add){: external} through the {{site.data.keyword.cloud_notm}} console.
+1. Select the **Virtual Private Cloud** tile. 
+1. Enter "Convert account to VRF for VPC Classic Access" as the subject.
+1. For the description, enter the following text:
+   "We are requesting that account _your account number_ is moved to its own VRF. We understand the risks and approve the change. Please reply with the scheduled window(s) of time where this change will be made so we can prepare for the migration."
 
 Migration is completed by the {{site.data.keyword.cloud_notm}} Network Engineering team. No other information is required from you, except an agreed-to schedule. Typically, packet loss might last 15 - 30 minutes, depending on the complexity of your account. It might be longer if your account has legacy Direct Link connections.
 
 ## Limitations
 {: #vpc-limitations}
 
-* Only private networks (also known as backend networks) in classic infrastructure can be connected to your VPC.
+* Only private networks (also known as back-end networks) in classic infrastructure can be connected to your VPC.
 * Only subnets allocated to your classic infrastructure with {{site.data.keyword.cloud_notm}} provisioning systems can be connected to your VPC.
 * Only one VPC per region can be enabled for classic access.
 * All classic access VPCs must have globally unique address prefixes that do not overlap.

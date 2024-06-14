@@ -91,18 +91,17 @@ Keep the following lifecycle operations differences in mind:
 
 * For bare metal servers, you can restart, or power the server off and on. When you power off a server, the server is powered off physically, but the data on it is preserved, and you continue to be billed.
 
-* For virtual server instances, you can restart, stop, and start the instance. Bhese functions don't impact the physical server status. Except for instances on dedicated hosts, billing is suspended when the instance is powered off. Any persistent storage continues to be billed. For more information about suspend billing, see [Suspend billing for VPC](/docs/vpc?topic=vpc-suspend-billing).
+* For virtual server instances, you can restart, stop, and start the instance. These functions don't impact the physical server status. Except for instances on dedicated hosts, billing is suspended when the instance is powered off. Any persistent storage continues to be billed. For more information about suspend billing, see [Suspend billing for VPC](/docs/vpc?topic=vpc-suspend-billing).
 
-<!--## High-level architecture of Bare Metal Servers for VPC
-{: #architecture-diagram}-->
 
-<!--Figure 1 shows an example of how bare metal servers can use the VPC networking functionality. For more information about VPC networking, see [About networking](/docs/vpc?topic=vpc-about-networking-for-vpc).-->
 
-<!--![Figure showing connectivity and security of Bare Metal Servers for VPC](images/bare_metal_server_network_diagram.png "Figure showing connectivity and security of Bare Metal Servers for VPC"){: caption="Figure 1. Bare Metal Servers for VPC connectivity and security" caption-side="bottom"}-->
 
-<!--See Figure 2 for the isolation architecture of Bare Metal Servers for VPC. For more information about VPC workload isolation architecture, see [VPC workload isolation architecture](/docs/vpc?topic=vpc-vpc-isolation#vpc_architecture).-->
 
-<!--![Figure showing isolation architecture of Bare Metal Servers for VPC](images/bare_metal_server_archi_diagram.png "Figure showing isolation architecture of Bare Metal Servers for VPC"){: caption="Figure 2. Isolation architecture of Bare Metal Servers for VPC" caption-side="bottom"}-->
+
+
+
+
+
 
 ## Next steps
 {: #next-step}

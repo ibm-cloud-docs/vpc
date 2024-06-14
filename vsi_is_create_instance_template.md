@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, [{CURRENT_YEAR}]
-lastupdated: "[{LAST_UPDATED_DATE}]"
+  years: 2020, 2024
+lastupdated: "2024-06-14"
 
 keywords:
 
@@ -32,7 +32,7 @@ To create an instance template, complete the following steps.
 When you create an instance template, validation steps are performed to make sure that you can use your template to provision a virtual server instance.
 {: tip}
 
-<!-- this is the conref file in the vpc repo - this content is shared with vsi_is_creating_auto_scale_group.md and vsi_is_create_instance_template.md -->
+
 {{site.data.content.create-instance-template-table}}
 
 ## Creating an instance template with the CLI
@@ -340,7 +340,7 @@ Use the following commands to determine the required information for creating a 
    ```
    {: pre}
 
-   If you don't have one available, you can create a {{site.data.keyword.vpc_short}} by using the `POST /vpcs` method. For more information about creating a {{site.data.keyword.vpc_short}}, see [IBM Cloud API Docs - Create a VPC](/apidocs/vpc/latest#create-vpc).
+   If you don't have one available, you can create an {{site.data.keyword.vpc_short}} by using the `POST /vpcs` method. For more information about creating an {{site.data.keyword.vpc_short}}, see [IBM Cloud API Docs - Create a VPC](/apidocs/vpc/latest#create-vpc).
 
 1. List the regions associated with your account.
 

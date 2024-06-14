@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-04-15"
+lastupdated: "2024-06-14"
 
 keywords:
 
@@ -25,12 +25,16 @@ Choosing the optimal Block Storage volume size and performance level for your wo
 
 Based on the [storage profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers) that you chose for your data volume, you can specify 10-16,000 GB of capacity per Block Storage data volume in 1 GB increments.
 
-Boot volumes are 100 GB by default. If you provision an instance from a custom image, you can specify boot volume capacity up to 250 GB.
+Boot volumes are 100 GB by default. If you provision an instance from a custom image, you can specify a boot volume capacity up to 250 GB.
+
+
 
 ## Block Storage IOPS profiles
 {: #iops-profiles}
 
 When you provision {{site.data.keyword.block_storage_is_short}} volumes, you specify an [IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles) that best meets your storage requirements. Three predefined tiered profiles are available, or you can choose a custom profile. [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) provide guaranteed IOPS/GB performance for volumes up to 16,000 GB capacity. A [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) profile defines ranges of volume capacity and IOPS that you can select. These profiles are backed by solid-state drives (SSDs).
+
+
 
 ## How volume bandwidth is allocated
 {: #cp-storage-bandwidth-allocate}

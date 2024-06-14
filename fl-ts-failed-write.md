@@ -19,7 +19,7 @@ content-type: troubleshoot
 {: troubleshoot}
 {: support}
 
-A flow log collector publishes data to a {{site.data.keyword.cos_full_notm}} bucket. If you see an entry in the error log with message ID `is.flow-log-collector.00001E`, the flow log collector failed to publish data due to either a Cloud Object Storage bucket that does not exist, or a bucket that was not accessible. An error message was sent each hour for the past 24 hours to take necessary action. Unfortunately, the data is lost.
+A flow log collector publishes data to an {{site.data.keyword.cos_full_notm}} bucket. If you see an entry in the error log with message ID `is.flow-log-collector.00001E`, the flow log collector failed to publish data due to either a Cloud Object Storage bucket that does not exist, or a bucket that was not accessible. An error message was sent each hour for the past 24 hours to take necessary action. Unfortunately, the data is lost.
 {: shortdesc}
 
 Take immediate action to prevent further loss of data.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-05-28"
+lastupdated: "2024-06-14"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -40,8 +40,8 @@ Table 1 describes the information on the Backup policy list page. The default re
 |-------|-------|
 | Name | Click the name of a policy to see its details. |
 | Status | The status of the policy, such as _Stable_. For more information about policy statuses, see [Backup policy statuses](/docs/vpc?topic=vpc-backup-vpc-monitoring). |
-| Applied resources | Number of resources ({{site.data.keyword.block_storage_is_short}} volumes or virtual server instances) that are tagged to be backed up by the policy [^Note1]. The number is a link that takes you to a list of resources that apply for the policy. |
-| Tags for target resources | Tags for target volumes that you are backing up. |
+| Applied resources | Number of resources: ({{site.data.keyword.block_storage_is_short}} volumes, or virtual server instances) that are tagged to be backed up by the policy [^Note1]. The number is a link that takes you to a list of resources that apply for the policy. |
+| Tags for target resources | Tags for target volumes  that you are backing up. |
 | Last run time (local) | The most recent time a job ran for the backup policy. If the field is blank, the volumes don't have matching tags for a job to run. |
 | Created date (local) | Date and time of when the backup was created. |
 {: caption="Table 1. Backup policy list view" caption-side="bottom"}
@@ -59,7 +59,7 @@ You can view details of a backup policy by using the UI.
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Backup policies**.
 
-2. Click a policy name. Tables 2 and 3 describe the information about the selected backup policy and its associated plans. You can add activity tracking or delete the policy from the Actions menu ![Actions icon](../icons/action-menu-icon.svg "Actions").
+2. Click a policy name. Tables 2 and 3 describe the information about the selected backup policy and its associated plans. You can add activity tracking,  or delete the policy from the Actions menu ![Actions icon](../icons/action-menu-icon.svg "Actions").
 
    | Field | Value |
    |-------|-------|
@@ -93,7 +93,7 @@ You can view details of a backup policy by using the UI.
 
 View the list of resources that are backed up by the policy. For a resource to be backed up by a policy, the resource must be tagged with at least one of the policy’s tags for the target resources.
 
-You can use this list of {{site.data.keyword.block_storage_is_short}} volumes or virtual server instances to verify that the backup policies are correctly applied.
+You can use this list of {{site.data.keyword.block_storage_is_short}} volumes, or virtual server instances to verify that the backup policies are correctly applied.
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Backup policies**.
 
@@ -124,6 +124,8 @@ You can use this list of {{site.data.keyword.block_storage_is_short}} volumes or
       {: caption="Table 5. List of virtual server instances." caption-side="top"}
 
        Click **Add virtual server instance** to add the attached volumes of a virtual server instance to this policy. The informational side panel provides a list of tags for target resources that you can apply to the virtual server instance. It also contains a link to the list of virtual server instances of your account. You must apply at least one of the policy's tags for target resources to the volume.
+
+   
 
 ## Viewing backup policies from the CLI
 {: #backup-view-cli}

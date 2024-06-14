@@ -1,22 +1,14 @@
 ---
 
 copyright:
-  years: 2018, 2022
-lastupdated: "2022-11-04"
+  years: 2018, 2024
+lastupdated: "2024-06-05"
 
 subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:note: .note}
-{:tip: .tip}
-{:download: .download}
-{:external: target="_blank" .external}
+{{site.data.keyword.attribute-definition-list}}
 
 # Troubleshooting virtual server instances for VPC
 {: #troubleshooting-your-virtual-servers-for-vpc}
@@ -87,9 +79,7 @@ Your REHL virtual server instance was unregistered from the capsule server. To r
 #
 # Description: Reregister an RHEL virtual server instance to its respective capsule server
 #
-
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-
 argumentsFound=false
 FILE_DIR=/var/lib/cloud/instance/scripts/vendor
 file=$(grep -src -r -w 'REDHAT_CAPSULE_SERVER\|OS_INSTALL_CODE' $FILE_DIR | awk -F: '$2 == 6 {print $1}')
@@ -103,13 +93,11 @@ if [ -f  "$file" ]; then
         argumentsFound=true
     fi
 fi
-
 if [ "$argumentsFound" = false ]; then
     if [ -z "$4" ]; then
         echo Please provide capsule hostname, organization, activation key and profile name
         exit
     fi
-
     capsule="$(echo $1 | cut -d. -f1).adn.networklayer.com"
     organization=$2
     activationKey=$3
@@ -117,25 +105,19 @@ if [ "$argumentsFound" = false ]; then
 fi
 echo "Cleaning metadata..."
 yum clean all
-
 echo "Unregistering system..."
 subscription-manager unregister
 subscription-manager clean
-
 echo "Removing any existing katello-ca RPMs..."
 rpm -qa | grep katello-ca | xargs rpm -e
-
 echo "Installing consumer RPM..."
 rpm -Uvh http://${capsule}/pub/katello-ca-consumer-latest.noarch.rpm
-
 subscription-manager config --server.hostname=${capsule}
 subscription-manager config --rhsm.baseurl=https://${capsule}/pulp/repos
-
 if [ -f /etc/rhsm/facts/katello.facts ]; then
     mv /etc/rhsm/facts/katello.facts /etc/rhsm/facts/katello.facts.bak.$(date +%s)
 fi
 echo '{"network.hostname-override":"'${profileName}'"}' > /etc/rhsm/facts/katello.facts
-
 echo "Registering system..."
 subscription-manager register --org="${organization}" --activationkey="${activationKey}" --force
 ```
@@ -151,6 +133,10 @@ If the script fails, provide the following parameters:
 *	organization
 *	activation key
 *	profile name
+
+
+
+
 
 ## Can I configure nested virtualization on a virtual server instance?
 {: #troubleshoot-enable-nested-virtualization}
@@ -168,11 +154,14 @@ When you copy an SSH key from a terminal to add the key to your VPC, sometimes e
 
 When you receive an SSH key permission denied error, your host might not be recognized as an authorized host. To add your host as a known host, run the following command in your terminal. Make sure that you replace `[sFTP]` with your host.
 
-`ssh-keyscan -t rsa [sFTP] >> ~/.ssh/known_hosts`
+```sh
+ssh-keyscan -t rsa [sFTP] >> ~/.ssh/known_hosts
+```
+{: pre}
 
 If you need more help, you can open a [support case](/docs/get-support?topic=get-support-using-avatar).
 
-For troubleshooting information about z/OS virtual server instances, see [{{site.data.keyword.waziaas_full_notm}} documentation](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=vpc-troubleshooting-zos-virtual-server-instances){: external}.
+For troubleshooting information about z/OS virtual server instances, see [{{site.data.keyword.waziaas_full_notm}} documentation](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=known-limitations){: external}.
 
 ## Why am I getting an error when I attempt to add more than 5 network interfaces for an existing virtual server instance?
 {: #error-above-5-network-interfaces}

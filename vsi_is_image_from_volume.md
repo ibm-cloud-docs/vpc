@@ -78,7 +78,7 @@ When you create an image from a volume, you have the following encryption choice
 ## Custom image lifecycle
 {: #ifv-image-lifecycle}
 
-<!-- Image life cycle content shared with custom images & image from volume -->
+
 {{_include-segments/image_lifecycle.md}}
 
 ## Next steps

@@ -556,8 +556,3 @@ To create a Private Path network load balancer with the API, follow these steps:
    ```
    {: codeblock}
 
-## Creating a Private Path network load balancer with Terraform
-{: #creating-private-path-network-load-balancer-terraform}
-{: terraform}
-
-[CONTENT FORTHCOMING]{: tag-red}

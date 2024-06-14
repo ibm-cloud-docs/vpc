@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-01-05"
+lastupdated: "2024-06-14"
 
 keywords: backup planning, restore volume, restore data
 

@@ -21,7 +21,7 @@ All profiles of {{site.data.keyword.bm_is_short}} provide one 0.96 TB SATA M.2 m
 Storage for {{site.data.keyword.bm_is_short}} is unmanaged. You are responsible for encryption and backing up your data.
 {: important}
 
-<!--The total size of the NVMe SSD set varies depending on the profile you select. The NVMe drives are empty by default.-->
+
 
 {{site.data.keyword.filestorage_vpc_short}} is a compatible network-attached storage solution for {{site.data.keyword.bm_is_short}} that are provisioned after 31 August 2023. Currently, encryption in transit is not supported between {{site.data.keyword.filestorage_vpc_short}} and {{site.data.keyword.bm_is_short}}. For more information, see [About {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-file-storage-vpc-about).
 

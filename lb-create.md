@@ -141,7 +141,7 @@ To create an ALB:
         * **Name**: Enter a name for the policy, such as `my-policy`. The name must be unique within the listener.
         * **Action**: The action to take when all the rules for the policy match. You can reject a request with a 403 response, redirect the request to a configured URL and response code, redirect the traffic from an HTTP listener to an HTTPS listener, or forward the request to a specific back-end pool. If an incoming request does not match the rules for any policies, the request is forwarded to the default back-end pool of the listener.
         * **Priority**: Within each action type, policies are evaluated in ascending order of priority. Policies to reject traffic are always evaluated first, regardless of their priority. Policies to redirect traffic are evaluated next, followed by policies to forward traffic.
-        * **Redirect**: The URL to which the request is redirected, if the action is set to **Redirect**.
+        * **Redirect**: The URL to which the request is redirected, if the action is set to **Redirect**. 
         * **Status Code**: The status code of the response returned by the load balancer, if the action is set to **Redirect**.
         * **Forward**: The back-end pool of virtual server instances to which the request is forwarded, if the action is set to **Forward to pool**.
     * On the Policies page, you can also create an HTTPS redirect policy with the following configuration:
@@ -283,6 +283,8 @@ To create an application load balancer from the CLI, follow these steps:
     Created                 2020-08-27T15:16:08.643-05:00
     ```
     {: screen}
+
+
 
 1. Get details about your load balancer:
 

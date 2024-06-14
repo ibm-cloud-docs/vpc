@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-05-28"
+lastupdated: "2024-06-14"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -134,8 +134,12 @@ If you choose to use Encryption-in-transit, you need to balance your requirement
 
 Even without EIT, the data is moving through a secure data center network. For more information about network security, see [Security in your VPC](/docs/vpc?topic=vpc-security-in-your-vpc) and [Protecting Virtual Private Cloud (VPC) Infrastructure Services with context-based restrictions](/docs/vpc?topic=vpc-cbr).
 
+
+
 Encryption in transit is not supported for {{site.data.keyword.bm_is_short}}.
 {: restriction}
+
+
 
 ## File share replication and failover
 {: #fs-repl-failover-overview}

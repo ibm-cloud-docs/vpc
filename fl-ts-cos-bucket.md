@@ -19,7 +19,7 @@ content-type: troubleshoot
 {: troubleshoot}
 {: support}
 
-A flow log collector requires a {{site.data.keyword.cos_full_notm}} bucket to be created and accessible. If you see the error log with message ID `is.flow-log-collector.00003E`, the bucket does not exist, or is no longer accessible. The flow log collector cannot publish data to the {{site.data.keyword.cos_full_notm}} bucket.
+A flow log collector requires an {{site.data.keyword.cos_full_notm}} bucket to be created and accessible. If you see the error log with message ID `is.flow-log-collector.00003E`, the bucket does not exist, or is no longer accessible. The flow log collector cannot publish data to the {{site.data.keyword.cos_full_notm}} bucket.
 {: shortdesc}
 
 To avoid lost data, create an {{site.data.keyword.cos_full_notm}} bucket within the next 24 hours to correct this problem.
@@ -35,7 +35,7 @@ A bucket that is associated with a flow log collector was deleted, or is not acc
 Follow these steps to resolve this issue:
 {: tsResolve}
 
-1. Create an {{site.data.keyword.cos_full_notm}} bucket with the same `<BucketName>` specified in the error message. To create a {{site.data.keyword.cos_full_notm}} bucket, see the [{{site.data.keyword.cos_full_notm}}](/objectstorage/create){: external} ordering page.
+1. Create an {{site.data.keyword.cos_full_notm}} bucket with the same `<BucketName>` specified in the error message. To create an {{site.data.keyword.cos_full_notm}} bucket, see the [{{site.data.keyword.cos_full_notm}}](/objectstorage/create){: external} ordering page.
 
    The {{site.data.keyword.cos_full_notm}} bucket must be a single-region bucket in the same region as the target resource. Additionally, it is recommended that you secure the bucket through IAM access groups and audit logging.
    {: note}

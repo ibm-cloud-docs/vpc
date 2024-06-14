@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, [{CURRENT_YEAR}]
-lastupdated: "[{LAST_UPDATED_DATE}]"
+  years: 2018, 2024
+lastupdated: "2024-06-14"
 
 keywords: connecting, windows
 
@@ -27,7 +27,7 @@ Windows instances are not supported for LinuxONE (s390x processor architecture).
 Complete the following prerequisites:
 
 1.  Make sure that you have the private key that is associated with the public SSH key that was used to create the Windows server. If multiple SSH keys were added when the server was created, you must use the first SSH key that was added.
-     <!--ed25519 note is shared with several other files bare_metal_server_connect_windows.md, vsi)is_connecting_windows.md, bare_metal_server_connect.md, vsi_is_ssh_keys_about.md -->
+     
      {{_include-segments/ed25519-ssh-key-type-note.md}}
 1. Ensure that you downloaded, installed, and initialized the following CLI plug-ins:
     * {{site.data.keyword.cloud_notm}} CLI
@@ -102,13 +102,4 @@ After you create your Windows instance and complete the prerequisites, complete 
 After you connect to your instance, you can [manage your instances](/docs/vpc?topic=vpc-managing-virtual-server-instances).
 
 
-<!-- OLD METHOD 8/24/20 1. Retrieve the encrypted password of the instance:
-    1. In the navigation pane of the {{site.data.keyword.cloud_notm}} console, click **Compute > Virtual server instances** and click your instance to view its details.
-    1. Scroll down to the **Encrypted password** field. Copy the value and paste it into a text file, for example, encrypted_pwd.txt.
 
-    You can also use the API to get the encrypted password, or the CLI, which returns the decoded and decrypted password. For more information, see [Retrieve initialization configuration for an instance](/apidocs/vpc/latest#get-instance-initialization) and [ibmcloud is instance-initialization-values](/docs/vpc?topic=vpc-vpc-reference#instance-initialization-values).
-    {: tip}
-
-1. Decode the encrypted password and store it in a new file (for example, decoded_pwd.txt) by running the following command: `cat encrypted_pwd.txt | base64 -d > decoded_pwd.txt`
-1. Decrypt the decoded password by using the following openssl command: `/<location_of_openssl_executable> pkeyutl -in decoded_pwd.txt -decrypt -inkey ~/.ssh/id_rsa`
-1. Use the returned value as the Administrator password in Remote Desktop. Enter the public IP address of the Windows instance into the Remote Desktop client. -->

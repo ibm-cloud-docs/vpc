@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-03-15"
+lastupdated: "2024-03-13"
 
 keywords: confidential computing, secure execution, logging for hyper protect virtual server for vpc
 
@@ -69,7 +69,7 @@ Logging to Log Analysis is dependent on the state and health of the Log Analysis
 
    When the {{site.data.keyword.hpvs}} for VPC instance boots, it extracts the Log Analysis information from the contract and configures accordingly so that all the logs are routed to the endpoint specified. Then, you can open the Log Analysis dashboard and view the logs from the virtual server instance.
 7. If the LogDNA is used for collecting logs from multiple systems, you can utilise custom tags to isolate logs optionally. 
-Following is an example of a custom tag:
+   Following is an example of a custom tag:
   
    ```yaml
    env:

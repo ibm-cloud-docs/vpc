@@ -2,7 +2,8 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2023-10-10"
+lastupdated: "2024-06-14"
+
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
 subcollection: vpc
@@ -402,9 +403,3 @@ Both key management systems provide you with complete control over your data, ma
 {: #faq-block-storage-29}
 
 No, after you provision a volume and specify the encryption type, you can't change it.
-
-## Can a Block Storage volume be copied to a different zone?
-{: faq}
-{: #faq-block-storage-30}
-
-No. You can't copy the storage volume to a different zone. However, you can create a copy of a snapshot of a volume in a different zone, and restore a volume from that snapshot.

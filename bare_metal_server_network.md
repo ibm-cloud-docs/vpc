@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, [{CURRENT_YEAR}]
-lastupdated: "[{LAST_UPDATED_DATE}]"
+  years: 2021, 2024
+lastupdated: "2024-06-14"
 
 keywords: bare metal server network, bare metal network, nics, pci, vlan, network overview
 
@@ -175,6 +175,8 @@ DHCP doesn't work with a custom MAC address because a {{site.data.keyword.cloud}
 {: #bare-metal-servers-infrastructure-nat-ip-spoofing}
 
 Turning on infrastructure NAT allows the VPC infrastructure to perform any needed NAT operations. If infrastructure NAT is off, the packet passes unmodified to and from the network interface, allowing the workload to perform NAT operations. The default is on. You must have the Advanced Network Operator IAM role to modify this configuration. Allow IP spoofing must be turned off if `Enable infrastructure NAT` is turned off.
+
+   
 
 ### Multiple floating IPs
 {: #bare-metal-servers-multiple-floating-ips}

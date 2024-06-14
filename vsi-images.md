@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, [{CURRENT_YEAR}]
-lastupdated: "[{LAST_UPDATED_DATE}]"
+  years: 2019, 2024
+lastupdated: "2024-06-14"
 
 subcollection: vpc
 
@@ -100,10 +100,7 @@ Custom images must meet the following requirements:
 
 For more information about custom images, see [Planning for custom images](/docs/vpc?topic=vpc-planning-custom-images).
 
-<!--### Storage costs
-{: #custom-image-storage}
 
-Storage costs are incurred for storing custom images. This charge is separate from charges for storing images in {{site.data.keyword.cos_full_notm}}.-->
 
 ## Next steps
 {: #next-steps-images}

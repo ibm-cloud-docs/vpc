@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-01-23"
+lastupdated: "2023-05-09"
 
 keywords:
 
@@ -57,10 +57,10 @@ Use the information in the Table 1 to understand the type of metadata returned f
 | `/instance` | `boot_volume_attachment` | Instance's boot volume attachment. |
 | `/instance`	| `vpc` |	The VPC in which the virtual server instance resides. |
 | `/instance`	| `zone` | The globally unique name for the zone. |
-| `/instance_initialization` | `default_trusted_profile` | The default trusted profile configuration that was specified at virtual server instance creation. |
-| `/instance_initialization` | `keys` |	A list of references to public SSH keys that were used at instance initialization. |
-| `/instance_initialization` | `password` |The administrator password at initialization, encrypted using `encryption_key`, and returned base64-encoded. |
-| `/instance_initialization` | `user_data` | User data that is made available when you set up a new virtual server instance. |
+| `/instance/initialization` | `default_trusted_profile` | The default trusted profile configuration that was specified at virtual server instance creation. |
+| `/instance/initialization` | `keys` |	A list of references to public SSH keys that were used at instance initialization. |
+| `/instance/initialization` | `password` |The administrator password at initialization, encrypted using `encryption_key`, and returned base64-encoded. |
+| `/instance/initialization` | `user_data` | User data that is made available when you set up a new virtual server instance. |
 | `/instance/network_interfaces` | `network_interfaces`	| A list of network interfaces. See /instance/network_interfaces/{id} for details. |
 | `/instance/network_interfaces/{id}`	| `allow_ip_spoofing` | Indicates whether source IP spoofing is allowed on this interface. If false, source IP spoofing is prevented on this interface. If true, source IP spoofing is allowed on this interface. |
 | `/instance/network_interfaces/{id}`	| `created_at` | The date and time that the network interface was created. |

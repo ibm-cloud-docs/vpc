@@ -19,8 +19,7 @@ subcollection: vpc
 After you create your Windows bare metal server, you can connect to it by using the following steps.
 {: shortdesc}
 
-Windows servers don't support the LinuxONE s390x processor architecture.
-{: note}
+
 
 ## Before you begin
 {: #bare_metal_connecting_windows_before_you_begin}
@@ -28,7 +27,7 @@ Windows servers don't support the LinuxONE s390x processor architecture.
 Complete the following prerequisites:
 
 1.  Make sure that you have the private key that is associated with the public SSH key that was used to create the Windows server. If multiple SSH keys were added when the server was created, you must use the first SSH key that was added.
-     <!--ed25519 note is shared with several other files bare_metal_server_connect_windows.md, vsi)is_connecting_windows.md, bare_metal_server_connect.md, vsi_is_ssh_keys_about.md -->
+     
      {{_include-segments/ed25519-ssh-key-type-note.md}}
 1. Make sure that you download, install, and initialize the following CLI plug-ins:
     * {{site.data.keyword.cloud_notm}} CLI

@@ -460,7 +460,7 @@ You can only share a custom image to a private catalog from {{site.data.keyword.
 You can schedule either a single image lifecycle status change or schedule the status changes for the entire lifecycle of the image. You can make an immediate status change only if you didn't schedule a future status change.
 
 Follow these steps to schedule a single status change:
-<!-- see the -include-segments folder to update this information which is shared with vpc_image_from_volume_manage.md -->
+
 {{_include-segments/image_single_status_lifecycle_schedule.md}}
 
 Follow these steps to schedule the entire lifecycle of the image:
@@ -472,14 +472,14 @@ Follow these steps to schedule the entire lifecycle of the image:
 
 You can change the lifecycle status of an {{site.data.keyword.vpc_short}} custom image by using the command-line interface (CLI). You can make an immediate status change by using the **ibmcloud is image-deprecate** or **ibmcloud is image-obsolete** commands. You can also schedule these status changes for a future date and time by using the **ibmcloud is image-update** command. Specify the name or ID of the custom image with the `IMAGE` variable.
 
-<!-- see the -include-segments folder to update this information which is shared with vpc_image_from_volume_manage.md -->
+
 {{_include-segments/ilm-change-image-lifecycle-status-cli.md}}
 
 ## Remove a previously scheduled custom image lifecycle status change by using the CLI
 {: #schedule-reset-ilm-status-change-cli}
 {: cli}
 
-<!-- see the -include-segments folder to update this information which is shared with vpc_image_from_volume_manage.md -->
+
 {{_include-segments/ilm-reset-image-lifecycle-status-cli.md}}
 
 ## Change the custom image lifecycle status by using the API
@@ -488,14 +488,14 @@ You can change the lifecycle status of an {{site.data.keyword.vpc_short}} custom
 
 You can change the lifecycle status of an {{site.data.keyword.vpc_short}} custom image by using the application programming interface (API). You can make an immediate status change or schedule a status change to happen later.
 
-<!-- see the -include-segments folder to update this information which is shared with vpc_image_from_volume_manage.md -->
+
 {{_include-segments/ilm-change-image-lifecycle-status-api.md}}
 
 ## Remove previously scheduled custom image lifecycle status by using the API
 {: #schedule-ilm-reset-status-change-API}
 {: api}
 
-<!-- see the -include-segments folder to update this information which is shared with vpc_image_from_volume_manage.md -->
+
 {{_include-segments/ilm-reset-image-lifecycle-status-api.md}}
 
 ## Change the custom image lifecycle status using Terraform

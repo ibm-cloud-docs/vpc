@@ -27,7 +27,7 @@ You need to enter the account name and password to access both ESXi DCUI and the
 
 The password is automatically generated and encrypted by using the first SSH key that was provided when the bare metal server was created. You need to decrypt the password by using this SSH key.
 
-<!--ed25519 note is shared with several other files bare_metal_server_connect_windows.md, vsi)is_connecting_windows.md, bare_metal_server_connect.md, vsi_is_ssh_keys_about.md -->
+
 {{_include-segments/ed25519-ssh-key-type-note.md}}
 
 1. Use the following command to retrieve the account name and identify the SSH key that you use to decrypt the password.

@@ -63,7 +63,7 @@ The console can be opened by using any of the [supported browsers](/docs/overvie
     * For Windows images, obtain the password following [Connecting to Windows instances](/docs/vpc?topic=vpc-vsi_is_connecting_windows).
 
     * For z/OS images, obtain the password following [Connecting to z/OS instances](/docs/vpc?topic=vpc-vsi_is_connecting_zos).
-
+    
 For the serial console, you can configure `getty` to log in automatically without a password by using the `-a root` flag.
 {: tip}
 

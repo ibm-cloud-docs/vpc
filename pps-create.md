@@ -36,7 +36,8 @@ Before you create a Private Path service, review the following prerequisites:
 You must use the same VPC region for both your load balancer and Private Path service.
 {: important}
 
-You can create an {{site.data.keyword.cloud}} Private Path service using the UI, CLI or API.
+You can create an {{site.data.keyword.cloud}} Private Path service using the UI, CLI, API, or Terraform.
+
 
 
 ## Creating a Private Path service in the UI
@@ -153,7 +154,7 @@ Where:
 :   Indicates ID or name of load balancer for this Private Path service.
 
 `--service-endpoints`
-:   Indicates the fully qualified domain names for this Private Path service gateway. Any uppercase letters will be converted to lowercase.
+:   Indicates the fully qualified domain names for this Private Path service. Any uppercase letters will be converted to lowercase.
 
 `--default-access-policy`
 :   Indicates the policy to use for bindings from accounts without an explicit account policy. One of: `deny`, `permit`, `review`. (default: `deny`).
@@ -216,6 +217,8 @@ To create a Private Path service with the API, follow these steps:
       }'
       ```
       {: codeblock}
+
+
 
 ## Next steps
 {: #pps-next-steps}

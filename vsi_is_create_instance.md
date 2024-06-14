@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, [{CURRENT_YEAR}]
-lastupdated: "[{LAST_UPDATED_DATE}]"
+  years: 2018, 2024
+lastupdated: "2024-06-14"
 
 keywords:
 
@@ -98,7 +98,7 @@ Use the following steps to create a virtual server instance.
 {: #next-steps-after-creating-virtual-servers-ui}
 {: ui}
 
-<!---A series of emails is sent to your administrator: Acknowledgment of the virtual server instance order, order approval and processing, and a message that the instance is created.--->
+
 
 After the instance is created, you need to [associate a floating IP address to the instance](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#reserving-a-floating-ip-address). Then, you can connect to your instance. For more information, see [Connecting to your Linux instance](/docs/vpc?topic=vpc-vsi_is_connecting_linux), [Connecting to your Windows instance](/docs/vpc?topic=vpc-vsi_is_connecting_windows), or [Connecting to your z/OS instance](/docs/vpc?topic=vpc-vsi_is_connecting_zos).
 

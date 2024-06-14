@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-02-21"
+lastupdated: "2024-05-09"
 
 keywords:
 
@@ -74,6 +74,8 @@ Consider the following options for controlling network traffic to your virtual s
 
 * Restrict access to your instances by using [security groups](/docs/vpc?topic=vpc-configuring-the-security-group).
 
+* Ensure your instance response hop limit is configured properly. An improper configuration can result in timeout errors while trying to reach the service. For more information, see [Set the metadata hop limit by using the UI](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#set-hop-limit-ui).
+
 * Set up [access control lists](/docs/vpc?topic=vpc-using-acls)(ACL) to control all incoming and outgoing traffic in {{site.data.keyword.vpc_full}}. An ACL is a built-in, virtual firewall, similar to a security group. In contrast to security groups, ACL rules control traffic to and from the subnets, rather than to and from the instances.
 
 * Use a {{site.data.keyword.vpn_vpc_full}} to establish private connections from your remote networks to your VPCs.
@@ -81,6 +83,8 @@ Consider the following options for controlling network traffic to your virtual s
 * Use {{site.data.keyword.cloud}} [Virtual Private Endpoints](/docs/vpc?topic=vpc-about-vpe) (VPE) for VPC to connect to supported {{site.data.keyword.cloud_notm}} services from your VPC network by using the IP addresses of your choosing, which are allocated from a subnet within your VPC. VPEs are virtual IP interfaces that are bound to an endpoint gateway created on a per service or service instance basis.
 
 * Use IBM Cloud [flow Logs](/docs/vpc?topic=vpc-flow-logs) on the VPC to monitor the traffic that reaches your instances.
+
+* [Enable secure access](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#secure-access-ui) to the instance metadata service. When secure access is enabled, the metadata service is accessible only to the virtual server instance by encrypted HTTP secure protocol (HTTPS).
 
 ## Manage security and compliance with VPC Infrastructure Services
 {: #imd-compliance}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-01-04"
+lastupdated: "2024-06-14"
 
 keywords: file storage, file share, performance, IOPS, block size, capacity, range
 

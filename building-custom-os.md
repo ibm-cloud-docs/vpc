@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-12-15"
+  years: 2021, 2023
+lastupdated: "2023-05-09"
 
 keywords: custom os, creating a custom os, custom operating system, creating a custom operating system, kernel, custom kernel
 
@@ -28,47 +28,48 @@ Hardware that is supported by every virtual machine in IBM's VPC is detailed in 
 {: shortdesc}
 
 - **Host bridge**:
-   - Intel Corporation 440FX - 82441FX PMC [Natoma] - (rev 02)
+    - Intel Corporation 440FX - 82441FX PMC [Natoma] - (rev 02)
 - **ISA bridge**:
    - Intel Corporation 82371SB PIIX3 ISA [Natoma/Triton II]
 - **IDE interface**:
    - Intel Corporation 82371SB PIIX3 IDE [Natoma/Triton II]
-      - Subsystem: XenSource, Inc. Device 0001
-      - Kernel driver in use: ata_piix
-      - Kernel modules: ata_piix, pata_acpi, ata_generic
+        - Subsystem: XenSource, Inc. Device 0001
+        - Kernel driver in use: ata_piix
+        - Kernel modules: ata_piix, pata_acpi, ata_generic
 - **USB controller**:
    - USB controller: Intel Corporation 82371SB PIIX3 USB [Natoma/Triton II] - (rev 01)
-      - **Subsystem**: XenSource, Inc. Device 0001
-      - **Kernel driver in use**: uhci_hcd
+        - **Subsystem**: XenSource, Inc. Device 0001
+        - **Kernel driver in use**: uhci_hcd
 - **Bridge**:
    - Intel Corporation 82371AB/EB/MB PIIX4 ACPI (rev 01)
-      - **Subsystem**: Red Hat, Inc. Qemu virtual machine
-      - **Kernel modules**: i2c_piix4
+        - **Subsystem**: Red Hat, Inc. Qemu virtual machine
+        - **Kernel modules**: i2c_piix4
 - **VGA compatible controller**:
    - Cirrus Logic GD 5446 (prog-if 00 [VGA controller])
-      - **Subsystem**: XenSource, Inc. Device 0001
-      - **Expansion ROM**: [disabled]
-      - **Kernel driver in use**: cirrus
-      - **Kernel modules**: cirrus
+        - **Subsystem**: XenSource, Inc. Device 0001
+        - **Expansion ROM**: [disabled]
+        - **Kernel driver in use**: cirrus
+        - **Kernel modules**: cirrus
 - **SCSI storage controller**:
    - XenSource, Inc. Xen Platform Device (rev 01)
-      - **Subsystem**: XenSource, Inc. Xen Platform Device
-      - **Kernel driver in use**: xen-platform-pci
+        - **Subsystem**: XenSource, Inc. Xen Platform Device
+        - **Kernel driver in use**: xen-platform-pci
 - **System peripheral**:
    - XenSource, Inc. Citrix XenServer PCI Device for Windows Update (rev 01)
-      - **Subsystem**: XenSource, Inc. Citrix XenServer PCI Device for Windows Update
+        - **Subsystem**: XenSource, Inc. Citrix XenServer PCI Device for Windows Update
 - **Ethernet controller**:
-   - TSO is supported
-   - GRO is supported
-   - GSO is supported
-   - Checksum offload
-      - Rx-checksum is supported
-      - Tx-checksum is supported
+    - TSO is supported
+    - GRO is supported
+    - GSO is supported
+    - Checksum offload
+       - Rx-checksum is supported
+       - Tx-checksum is supported
+
 
 ## Custom Linux kernel build options
 {: #custom-linux-kernel-build-options}
 
-The following kernel options are required when you build a Linux operating system for IBM Cloud.
+The following kernel options are required when you build a Linux operating system for {{site.data.keyword.vpc_full}}.
 
 - CONFIG_ETHERNET = y
    - Ethernet driver support
@@ -92,7 +93,7 @@ The following kernel options are required when you build a Linux operating syste
    - The virtual network driver for virtio
 
 
-## Hardware requirements for LinuxONE (s390x processor architecture)   
+## Hardware requirements for LinuxONE (s390x processor architecture)
 {: #hardware-requirements-linuxone}
 
 The following hardware is provided for LinuxONE (s390x processor architecture).
@@ -103,10 +104,11 @@ The following hardware is provided for LinuxONE (s390x processor architecture).
 - Virtual ASCII console
 - Virtual channel subsystem
 
-## Custom Linux kernel build options (s390x processor architecture)   
+
+## Custom Linux kernel build options for LinuxONE (s390x processor architecture)
 {: #custom-linux-kernel-linuxone-options}
 
-The following kernel options are required for LinuxONE (s390x processor architecture).
+The following kernel options are required:
 
 - CONFIG_VIRTIO_BLK=Y
    - Block device support
@@ -125,9 +127,8 @@ The following kernel options are required for LinuxONE (s390x processor architec
 The custom image you create for bare metal servers must support the following:
 * UEFI boot
    *  Legacy BIOS boot is not supported. As such you need a dedicated EFI partition that contains the EFI firmware.
-* Intel chipset device drivers. 
+* Intel chipset device drivers.
 * Bare Metal servers require the pensando ionic device driver for networking. This is normally an in-box driver for 5.x linux kernels. If the ionic driver is not part of your kernel, you can include it as a kernel module and use DKMS to manage kernel upgrades.
 
-
-To create secure execution based custom images by using the Cloud Object Storage option, see [Preparing the workload](https://www.ibm.com/docs/en/linux-on-systems?topic=tasks-prepare-workload). For more information about creating secure execution based images, [IBM Secure Execution for Linux](https://www.ibm.com/docs/en/linux-on-systems?topic=overview-introducing-secure-execution-linux).
+To create secure execution based custom images by using the {{site.data.keyword.cos_full_notm}} option, see [Preparing the workload](https://www.ibm.com/docs/en/linux-on-systems?topic=tasks-prepare-workload). For more information about creating secure execution based images, [IBM Secure Execution for Linux](https://www.ibm.com/docs/en/linux-on-systems?topic=overview-introducing-secure-execution-linux).
 {: note}

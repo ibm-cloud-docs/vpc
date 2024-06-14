@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-02-23"
+lastupdated: "2024-05-08"
 
 keywords:
 
@@ -18,10 +18,12 @@ subcollection: vpc
 When you create a bare metal server, you can select from a profile family that best fits your needs. A profile provides a different combination of hardware configurations that include the number of vCPUs, amount of RAM, and local storage size. The attributes define the size and capabilities of the bare metal server that you provision.
 {: shortdesc}
 
+
+
 ## About profile families
 {: #profile-familiy}
 
-Profiles are grouped by the *vCPUs:Memory* ratio across all the VPC compute offerings. You can choose from the following profile families:
+Profiles are grouped by the _vCPUs:Memory_ ratio across all the VPC compute offerings. You can choose from the following profile families:
 
 | Family | vCPU:Memory ratio | Description |
 |-----|-----|-----|
@@ -37,7 +39,7 @@ Very High Memory profiles are available for customers with special approval. Con
 ## Profile configurations
 {: #bare-metal-servers-profile-list}
 
-See the following table to see the available profile configurations.
+Profiles contained either the Cascade Lake current generation of Cascade Lake processors (x2 and x2d). See the following tables to see the available profile configurations.
 
 | Name | vCPU | Memory (GiB) | Local storage | Total network bandwidth (Gbps) |
 |---------|---------|---------|---------|---------|
@@ -45,10 +47,10 @@ See the following table to see the available profile configurations.
 | bx2d-metal-96x384  | 96 | 384  | 960 GB  \n 25.6 TB secondary storage (allocation of 8 x 3200) | 100 |
 | bx2-metal-192x768 | 192 | 768 | 960 GB | 100 |
 | bx2d-metal-192x768 | 192 | 768 | 960 GB  \n 51.2 TB secondary storage (allocation of 16 x 3200) | 100 |
-{: caption="Table 2. Profile families" caption-side='top"}
-{: #bare-metal-balanced-profiles}
-{: tab-title="Balanced profile"}
-{: tab-group="profile-configurations"}
+{: caption="Table 2. Profile families for x2 and x2d" caption-side='top"}
+{: #bare-metal-balanced-profiles-x2}
+{: tab-title="Balanced profiles for x2 and x2d"}
+{: tab-group="profile-configurations-x2"}
 {: class="simple-tab-table"}
 {: summary="Use the buttons before the table to change the context of the table. The column headers identify the hardware class."}
 
@@ -56,10 +58,10 @@ See the following table to see the available profile configurations.
 |---------|---------|---------|---------|---------|
 | cx2-metal-96x192 | 96 | 192 | 960 GB | 100 |
 | cx2d-metal-96x192 | 96 | 192 | 960 GB  \n 25.6 TB secondary storage (allocation of 8 x 3200) | 100 |
-{: caption="Table 2. Profile families" caption-side='top"}
-{: #bare-metal-compute-profiles}
-{: tab-title="Compute profile"}
-{: tab-group="profile-configurations"}
+{: caption="Table 2. Profile families for x2 and x2d" caption-side='top"}
+{: #bare-metal-compute-profiles-x2}
+{: tab-title="Compute profiles for x2 and x2d"}
+{: tab-group="profile-configurations-x2"}
 {: class="simple-tab-table"}
 {: summary="Use the buttons before the table to change the context of the table. The column headers identify the hardware class."}
 
@@ -67,52 +69,58 @@ See the following table to see the available profile configurations.
 |---------|---------|---------|---------|---------|
 | mx2-metal-96x768 | 96 | 768 | 960 GB | 100 |
 | mx2d-metal-96x768 | 96 | 768 | 960 GB  \n 25.6 TB secondary storage (allocation of 8 x 3200) | 100 |
-{: caption="Table 2. Profile families" caption-side='top"}
+{: caption="Table 2. Profile families for x2 and x2d" caption-side='top"}
 {: #bare-metal-memory-profiles-mx2d}
-{: tab-title="Memory profile"}
-{: tab-group="profile-configurations"}
+{: tab-title="Memory profiles for x2 and x2d"}
+{: tab-group="profile-configurations-x2"}
 {: class="simple-tab-table"}
 {: summary="Use the buttons before the table to change the context of the table. The column headers identify the hardware class."}
 
 | Name | vCPU | Memory (GiB) | Local storage | Total network bandwidth (Gbps) |
 |---------|---------|---------|---------|---------|
 | vx2d-metal-96x1536 | 96 | 1536 | 960 GB   \n 25.6 TB secondary storage (allocation of 8 x 3200) | 100 |
-{: caption="Table 2. Profile families" caption-side='top"}
+{: caption="Table 2. Profile families for x2 and x2d" caption-side='top"}
 {: #bare-metal-memory-profiles-vx2d}
-{: tab-title="Very High Memory profile"}
-{: tab-group="profile-configurations"}
+{: tab-title="Very High Memory profile for x2d"}
+{: tab-group="profile-configurations-x2"}
 {: class="simple-tab-table"}
 {: summary="Use the buttons before the table to change the context of the table. The column headers identify the hardware class."}
+
+The 960 GB of available local storage is composed of 2 960 GB SSDs in RAID1 for redundancy.
+{: note}
+
+
 
 ### Understanding the naming rule of the profiles
 {: #profile-naming-rule-bm-x86-64}
 
 The following information describes the naming rule of the profiles.
 
-* *b* represents *Balanced* family profile - *c* represents the *Compute* family profile - *m* represents the *Memory* family profile - *v* represents the *Very High Memory* family profile.
-* *x* represents the *x86_64* CPU architecture.
-* *2* represents the current generation of processors (Cascade Lake).
-* *d* represents support for *NVMe U.2* SSDs.
+* _b_ represents _Balanced_ family profile - _c_ represents the _Compute_ family profile - _m_ represents the _Memory_ family profile - _v_ represents the _Very High Memory_ family profile.
+* _x_ represents the _x86_64_ CPU architecture.
+* _2_ represents the current generation of processors (Cascade Lake).
+* _3_ represents Sapphire Rapids processors.
+* _d_ represents support for _NVMe U.2_ SSDs.
 * "metal" denotes that the profile is a bare metal server.
-* The last position that contains numbers shows amount of vCPUs and the amount of memory (GB). For example, *192x768* means that this profile has 192 vCPUs and 768 GiB of memory.
+* The last position that contains numbers shows the amount of vCPUs and the amount of memory (GB). For example, _96x384_ means that this profile has 96 vCPUs and 384 GiB of memory.
 
-Using “bx2d-metal-192x768” as an example, it's a *Balanced* bare metal profile with *192 vCPUs and 768 GiB memory*, has Cascade Lake processors, and NVMe U.2 SSDs.
+Using “bx2d-metal-96x384” as an example, it's a _Balanced_ bare metal profile with _96 vCPUs and 384 GiB memory_, has Cascade Lake processors, and NVMe U.2 SSDs.
 
-Bare metal profiles are dedicated servers that provide physical cores. vCPU measurements are used in profile naming only. vCPU to physical cores are a 2:1 ratio (e.g 192 vCPU = 96 physical cores).
+Bare metal profiles are dedicated servers that provide physical cores. vCPU measurements are used in profile naming only. vCPU to physical cores are a 2:1 ratio (e.g 96 vCPU = 48 physical cores).
 
-## Profile availability by region
+## Generation 2 (x2 and x2d) bare metal profiles availability by region
 {: #bare-metal-profile-availability-by-region}
 
-See the following table to see what bare metal profiles are available by region.
+See the following table to see what Generation 2 (x2 and x2d) bare metal profiles are available by region.
 
 | Profile |  us-south-1 | us-south-2 | us-south-3 | us-east-1 | us-east-2 | ca-tor-2 | ca-tor-3 |
 | ------- | ----------- | ---------- | ---------- | --------- | -------- | -------- | -------- |
 | cx2-metal-96x192   | ![Checkmark icon](../icons/checkmark-icon.svg) | |
-| cx2d-metal-96x192  | ![Checkmark icon](../icons/checkmark-icon.svg) | | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |  | 
-| bx2-metal-96x384   | ![Checkmark icon](../icons/checkmark-icon.svg) |  ![Checkmark icon](../icons/checkmark-icon.svg) |  ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |  |  | 
-| bx2d-metal-96x384  | ![Checkmark icon](../icons/checkmark-icon.svg) |  ![Checkmark icon](../icons/checkmark-icon.svg) |  ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |  | 
+| cx2d-metal-96x192  | ![Checkmark icon](../icons/checkmark-icon.svg) | | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |  |
+| bx2-metal-96x384   | ![Checkmark icon](../icons/checkmark-icon.svg) |  ![Checkmark icon](../icons/checkmark-icon.svg) |  ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |  |  |
+| bx2d-metal-96x384  | ![Checkmark icon](../icons/checkmark-icon.svg) |  ![Checkmark icon](../icons/checkmark-icon.svg) |  ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |  |
 | mx2-metal-96x768   | ![Checkmark icon](../icons/checkmark-icon.svg) |  | ![Checkmark icon](../icons/checkmark-icon.svg) |  ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
-| mx2d-metal-96x768  | ![Checkmark icon](../icons/checkmark-icon.svg) |  | ![Checkmark icon](../icons/checkmark-icon.svg) |  ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |  | 
+| mx2d-metal-96x768  | ![Checkmark icon](../icons/checkmark-icon.svg) |  | ![Checkmark icon](../icons/checkmark-icon.svg) |  ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |  |
 | vx2d-metal-96x1536 | | ![Checkmark icon](../icons/checkmark-icon.svg) | |
 {: caption="Table 3. Bare metal profiles availability by region" caption-side='top"}
 {: #bare-metal-profiles-americas}
@@ -155,7 +163,7 @@ See the following table to see what bare metal profiles are available by region.
 ## Viewing profile configurations
 {: #view-bare-metal-servers-profile}
 
-You can view available profile configurations by using the UI, [CLI](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=cli#view-bare-metal-servers-profile-cli), or the [API](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=api#view-bare-metal-servers-profile-api).
+You can view available profile configurations by using the UI, [CLI](#view-bare-metal-servers-profile-cli), or the [API](#view-bare-metal-servers-profile-api).
 
 ## Using the UI to view profiles
 {: #view-bare-metal-servers-profile-ui}
@@ -163,7 +171,7 @@ You can view available profile configurations by using the UI, [CLI](/docs/vpc?t
 
 Use the following steps to view available bare metal profiles by using the UI.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**.
 2. From the **Bare metal servers for VPC** page, click **Create**.
 3. On the **New bare metal server for VPC** page, you can view and select profiles under **Profile**.
 

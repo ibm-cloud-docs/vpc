@@ -68,7 +68,7 @@ The following table illustrates this allocation for three different profile exam
 
 The network bandwidth cap applies separately to egress (transmitted) and ingress (received) traffic. That is, even if an instance that is capped at 4 Gbps reaches its transmit cap of 4 Gbps it can still receive up to its ingress cap of 4 Gbps.
 
-<!--Customers have the ability to modify the amount provided to volume bandwidth within the overall instance limits. A default amount of volume bandwidth is set on each instance profile. 1Gbps-2Gbps per-vCPU with a limit of 80Gbps-->
+
 
 ## Next steps
 {: #bandwidth-next-steps}

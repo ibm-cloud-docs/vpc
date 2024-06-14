@@ -27,7 +27,7 @@ All Block Storage volumes are encrypted by default with IBM-managed encryption. 
 
 For more security and control, you can protect your data with your own root keys (also called a customer root key or CRK). This feature is commonly called Bring Your Own Key, or BYOK. Root keys encrypt the keys that safeguard your data. You can import your root keys to {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}, or have either key management service create one for you.
 
-The KMS stores your key and makes it available during volume and custom image encryption.  {{site.data.keyword.keymanagementserviceshort}}  provides FIPS 140-2 Level 3 compliance. Hyper Protect Crypto Services offers the highest level of security with FIPS 140-2 Level 4 compliance. Your key material is protected in transit (when it's transported) and at rest (when it is stored).
+The KMS stores your key and makes it available during volume and custom image encryption. {{site.data.keyword.keymanagementserviceshort}} provides FIPS 140-2 Level 3 compliance. Hyper Protect Crypto Services offers the highest level of security with FIPS 140-2 Level 4 compliance. Your key material is protected in transit (when it's transported) and at rest (when it is stored).
 
 Customer-managed encryption is available for custom images, boot volumes, and data volumes. When an instance is provisioned from an encrypted custom image, its boot volume is encrypted by using the image’s root key. You can also choose a different root key. Data volumes are encrypted by using root keys when you provision a virtual server instance or when you create a stand-alone volume.
 
@@ -66,7 +66,7 @@ For Block Storage volumes and encrypted images, you can rotate the root keys for
 
 Consider regional and cross-regional implications when you choose to use customer-managed encryption. For more information, see [Regional and cross regional considerations](/docs/vpc?topic=vpc-vpc-encryption-about#byok-cross-region-keys).
 
-With  {{site.data.keyword.keymanagementserviceshort}}  or {{site.data.keyword.hscrypto}} you can create, import, and manage your root keys. You can assign access policies to the keys, assign users or service IDs to the keys, or give the key access only to a specific service. The first 20 keys are without cost.
+With {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} you can create, import, and manage your root keys. You can assign access policies to the keys, assign users or service IDs to the keys, or give the key access only to a specific service. The first 20 keys are without cost.
 
 ### About customer-managed encrypted volumes and images
 {: #about-encryption_volumes-images}

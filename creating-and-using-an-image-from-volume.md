@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-06-13"
+lastupdated: "2024-06-14"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance, instances, virtual servers, creating virtual servers, virtual server instances, virtual machines, Virtual Servers for VPC, compute, vsi, vpc, creating, UI, console
 
@@ -39,13 +39,13 @@ This tutorial requires the following prerequisites.
 
 - Create a resource group, *Image resources*.
 - Create a custom image from an instances' boot volume.
-- create a virtual server instance by using the custom image.
+- Create a new virtual server instance by using the custom image.
 
 ## Creating a resource group
 {: #creating-a-resource-group}
 {: step}
 
-You can use [resource groups](/docs/vpc?topic=vpc-iam-getting-started&interface=ui#iam-resource-groups) to organize images.
+You can use [resource groups](/docs/vpc?topic=vpc-iam-getting-started&interface=ui#resources-and-resource-groups) to organize images.
 
 1. Log in to the [{{site.data.keyword.Bluemix_notm}} console](/login){: external}.
 2. Click **Manage** > **Account**.
@@ -64,7 +64,7 @@ You can use the UI to create an image from a volume that is attached to an avail
 
 Complete the following actions to import your custom image in the UI.
 
-1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images**.
+1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images**.
 2. On the **Custom images** tab, click **Create**. The Custom image provision page is displayed.
 3. Complete the following required fields on the Custom image provision page.
 
@@ -74,7 +74,7 @@ Complete the following actions to import your custom image in the UI.
 | Resource group | Image resources |
 | Tags | Custom image |
 | Region | Dallas 2 |
-| Source | [Virtual server instance boot volume](#import-custom-boot-image-vsi) (default) |
+| Source | Virtual server instance boot volume (default) |
 {: caption="Table 1. Custom image provision user interface fields" caption-side="bottom"}
 
 ### Create an image from a virtual server instance boot volume
@@ -84,7 +84,7 @@ When you select **Virtual server instance boot volume** as the source of your cu
 
 1. On the **Custom image provision** page, select **Virtual server instance boot volume** (default).
 2. Select an instance from the list. You're selecting the boot volume of the instance.
-3. Make sure that the instance is not running. You can stop a running instance by clicking the overflow menu (ellipsis) and click **Stop**.
+3. Make sure that the instance is not running. You can stop a running instance by clicking the **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions") and selecting **Stop**.
 4. Select IBM-managed encryption as the encryption type.
 5. On the side panel, click **Create custom image**.
 
@@ -94,7 +94,7 @@ When you select **Virtual server instance boot volume** as the source of your cu
 
 You can create virtual server instances in your {{site.data.keyword.vpc_short}} in the {{site.data.keyword.cloud_notm}} console. Complete the following actions to create a virtual server instance.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 
 2. Click **Create** and enter the required information.
 
@@ -118,6 +118,6 @@ You can create virtual server instances in your {{site.data.keyword.vpc_short}} 
 
 * [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc)
 * [Creating an image from a volume](/docs/vpc?topic=vpc-create-ifv)
-* [Viewing and using your image](/docs/vpc?topic=vpc-create-ifv#ifv-image-creation-completed)
+* [Viewing and using your custom image](/docs/vpc?topic=vpc-create-ifv#ifv-image-creation-completed)
 * [resource group](/docs/account?topic=account-account_setup)
 * [Best practices for organizing resources and assigning access](/docs/account?topic=account-account_setup)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2023-12-12"
+lastupdated: "2024-06-14"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -42,7 +42,7 @@ You can access the **Manage authorizations** by clicking **Manage** > **Access (
 1. Click **Resource type**. From the list, select **File Storage for VPC**.
 1. For the target service, select **Hyper Protect Crypto Services** or **KeyProtect** from the list. 
 1. Check the box to enable authorization to be delegated by source and dependent services.
-1. Then, under Service access, select the role `Reader`.
+1. Then, under **Roles > Service access**, select the role `Reader`.
 1. Click **Authorize**.
 
 ## Creating service-to-service authorization for cross-region replication in the UI
@@ -57,8 +57,10 @@ You can access the **Manage authorizations** by clicking **Manage** > **Access (
 1. For the target service, select **VPC Infrastructure Services** from the list. 
 1. Select the scope. Choose **Specific resources**.
 1. Click **Resource type**. From the list, select **File Storage for VPC**.
-1. Then, under Platform access, select the role `Editor`.
+1. Then, under **Roles > Platform access**, select the role `Editor`.
 1. Click **Authorize**.
+
+
 
 ## Creating service-to-service authorization for customer-managed encryption from the CLI
 {: #file-s2s-auth-encryption-cli}
@@ -132,6 +134,8 @@ Roles:                     Editor
 
 For more information about all of the parameters that are available for this command, see [ibmcloud iam authorization-policy-create](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_authorization_policy_create).
 
+
+
 ## Creating service-to-service authorization for customer-managed encryption with the API
 {: #file-s2s-auth-encryption-api}
 {: api}
@@ -179,6 +183,8 @@ Make a request to the [IAM Policy Management API](/apidocs/iam-policy-management
      {: pre}
 
 For more information, see the api spec for [IAM Policy Management](/apidocs/iam-policy-management#create-policy).
+
+
 
 ## Creating service-to-service authorization for customer-managed encryption with Terraform
 {: #file-s2s-auth-encryption-terraform}

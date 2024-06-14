@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2023-10-30"
+lastupdated: "2024-06-14"
 
 keywords: Block Storage for VPC, iscsi for VPC, SAN for VPC
 
@@ -11,6 +11,7 @@ subcollection: vpc
 ---
 
 {{site.data.keyword.attribute-definition-list}}
+
 
 # Setting up your {{site.data.keyword.block_storage_is_short}} data volume for use (Linux)
 {: #start-using-your-block-storage-data-volume-lin}

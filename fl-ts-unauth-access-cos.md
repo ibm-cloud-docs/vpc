@@ -19,10 +19,10 @@ content-type: troubleshoot
 {: troubleshoot}
 {: support}
 
-A flow log collector requires a {{site.data.keyword.cos_full_notm}} bucket to be defined and accessible. If you see the error log with message ID `is.flow-log-collector.00002E`, the {{site.data.keyword.cos_full_notm}} bucket is not accessible. The flow log collector cannot publish data to the bucket.
+A flow log collector requires an {{site.data.keyword.cos_full_notm}} bucket to be defined and accessible. If you see the error log with message ID `is.flow-log-collector.00002E`, the {{site.data.keyword.cos_full_notm}} bucket is not accessible. The flow log collector cannot publish data to the bucket.
 {: shortdesc}
 
-To avoid lost data, create a {{site.data.keyword.cos_full_notm}} bucket within the next 24 hours to correct this problem.
+To avoid lost data, create an {{site.data.keyword.cos_full_notm}} bucket within the next 24 hours to correct this problem.
 {: important}
 
 The flow log collector is not authorized to publish data to the {{site.data.keyword.cos_full_notm}} bucket:

@@ -2,10 +2,9 @@
 
 copyright:
   years: 2018, 2024
+lastupdated: "2024-06-14"
 
-lastupdated: "2024-06-06"
-
-keywords: known issues, bugs, defects
+keywords:
 
 subcollection: vpc
 
@@ -18,7 +17,7 @@ subcollection: vpc
 
 Known issues might change over time, so check back occasionally.
 {: shortdesc}
-
+Network load balancer known issues
 ## Network load balancer known issues
 {: #network-load-balancer-known-issues}
 
@@ -27,9 +26,9 @@ Known issues might change over time, so check back occasionally.
 ## `resource_type` known issues
 {: #resource-type-known-issues}
 
-**Issue**: Currently, not all operations that return responses with embedded `VPCReference` and `SubnetReference` schemas include the documented `resource_type` sub-property.
+**Issue**: Currently, not all operations that return responses with embedded `VPCReference` and `SubnetReference` schemas include the documented `resource_type` subproperty.
 
-**Workaround**: Before developing a client that makes use of the `resource_type` property of the `VPCReference` or `SubnetReference` schemas, check that the property is included in the responses returned for the operations used by your client.
+**Workaround**: Before developing a client that uses the `resource_type` property of the `VPCReference` or `SubnetReference` schemas, check that the property is included in the responses that are returned for the operations that are used by your client.
 
 ## Reserved IP known issues
 {: #ip-known-issues}
@@ -46,13 +45,13 @@ In the console, reserved IP addresses that are labeled "unbound" might be bound 
 
 **Workaround:** Continue to use the `primary_ipv4_address` property to retrieve the IP address for each network interface on an instance. See the [VPC Metadata API](/apidocs/vpc-metadata).
 
-**Issue:** When you use the VPC API to [list floating IP addresses on a bare metal server network interface](/apidocs/vpc/latest#list-bare-metal-server-network-interface-floating-), you might get an incomplete list of the floating IP addresses associated with the bare metal server network interface.
+**Issue:** When you use the VPC API to [list floating IP addresses on a bare metal server network interface](/apidocs/vpc#list-bare-metal-server-network-interface-floating-), you might get an incomplete list of the floating IP addresses associated with the bare metal server network interface.
 
 The floating IP associated with a bare metal network interface is not available before the network interface `status` is `available`.
 
 **Workarounds:**
 - Wait for the bare metal server network interfaces to be `available` before listing the floating IP addresses on the interfaces.
-- [List all floating IPs](/apidocs/vpc/latest#list-floating-ips) to view those associated with bare metal server interfaces that are not yet `available`.
+- [List all floating IPs](/apidocs/vpc#list-floating-ips) to view those associated with bare metal server interfaces that are not yet `available`.
 
 ## Network load balancers fail if port settings fall outside the supported range
 {: #nlb-port-range}
@@ -85,7 +84,7 @@ Currently, the `port_min` and `port_max` properties are supported only when rout
 ### iPXE network boot known timing issue
 {: #ipxe-network-boot-known-issue}
 
-**Issue:** When you use the iPXE network boot on a Bare Metal Server on VPC, the network configuration might still be processing when the iPXE script starts running. When this occurs, the DHCP command might fail or you might see a timeout error. A fix for this issue is planned.
+**Issue:** When you use the iPXE network boot on a Bare Metal Server on VPC, the network configuration might still be processing when the iPXE script starts running. When this occurs, the DHCP command might fail or you might seem a timeout error. A fix for this issue is planned.
 
 **Workaround:** From the VNC console, manually run the iPXE commands. Or, add the following to your iPXE script instead of the DHCP command.
 
@@ -104,16 +103,6 @@ Currently, the `port_min` and `port_max` properties are supported only when rout
 
 Because all bare metal profiles are VMware&reg; certified, the `supported_image_flags` image property and `required_image_flags` profile property that expressed this ability during the beta period are discontinued. These properties might still be visible to API and CLI consumers, but they aren't supported and must not be used. These properties will be removed entirely in a future release.
 {: note}
-
-## VSI monitoring known issues
-{: #vsi-monitoring-known-issues}
-
-**Issue:** Volumes that are created from snapshots and volumes that are resized do not display metrics on the VSI monitoring console page or in the IBM Cloud Monitoring dashboard for "VPC VSI Gen 2 Overview". No known workaround.
-
-## Virtual server instance Activity Tracker events known issues
-{: #at-virtual-server-instances-known-issues}
-
-**Issue:** AT event log entries are missing `target.resourceGroupId` for some actions related to virtual server instances, such as updating or creating a virtual server instance. Instead, the resource group ID might appear in either the `requestData` or `responseData` sections of the event.
 
 ## Additional authorizations beyond those defined in the API specification
 {: #api-spec-auth-known-issue}
@@ -145,7 +134,7 @@ Because all bare metal profiles are VMware&reg; certified, the `supported_image_
 ### Fast restore snapshots with customer-managed encryption issue
 {: #snapshots-fast-restore-known-issue}
 
-**Issue:** When you restore a volume from a snapshot by using the fast restore feature and the encryption key of the snapshot and volume are different, and then you delete the snapshot encryption key from the key management service, the volume might become inaccessible when it's attached or reattached to the virtual server instance.
+**Issue:** When you restore a volume from a snapshot by using the fast restore feature, you can use a different encryption key for the snapshot and the volume. If you delete the snapshot encryption key from the key management service, the volume might still become inaccessible when it is attached or reattached to the virtual server instance.
 
 **Workaround:** To recover the snapshot encryption key, use [the key recovery procedure](/docs/key-protect?topic=key-protect-restore-keys). When the key is recovered, the volume becomes accessible.
 

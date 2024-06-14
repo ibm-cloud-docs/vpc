@@ -101,7 +101,7 @@ Gather the following information by using the associated commands.
 {: #provision-reserved-capacity-cli-vpc}
 {: cli}
 
-You can create a {{site.data.keyword.vpc_short}} Reservation in your region by using the command-line interface (CLI). To create a reserved reservation by using the CLI, use the `ibmcloud is reservation-create` command`.
+You can create an {{site.data.keyword.vpc_short}} Reservation in your region by using the command-line interface (CLI). To create a reserved reservation by using the CLI, use the `ibmcloud is reservation-create` command.
 
 1. Provision a reservation by using the following command with the associated details.
 
@@ -171,7 +171,7 @@ ibmcloud is instance-update <instance-name> -reservation-affinity-policy manual 
 {: #create-reservation-api-vpc}
 {: api}
 
-You can create a {{site.data.keyword.vpc_short}} reservation in your region by using the application programming interface (API). To create a reservation by using the API, use [Create a reservation](/apidocs/vpc/latest#create-reservation).
+You can create an {{site.data.keyword.vpc_short}} reservation in your region by using the application programming interface (API). To create a reservation by using the API, use [Create a reservation](/apidocs/vpc/latest#create-reservation).
 
 Specify a `Post /reservations` request create a new reservation. See the following example.
 
