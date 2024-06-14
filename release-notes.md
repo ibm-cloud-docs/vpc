@@ -27,6 +27,9 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## June 2024
 {: #vpc-jun24} 
 
+
+
+
 ### 06 June 2024
 {: #vpc-jun0624}
 {: release-note}

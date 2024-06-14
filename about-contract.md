@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-03-13"
+lastupdated: "2024-06-14"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -684,6 +684,7 @@ The encryption and attestation certificates are signed by the IBM intermediate c
    | -------- | ----------- | ----------- | ----------- | ----------- |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-15` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-15-encrypt.crt){: external} | 08 March 2025 |   |   |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-14` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-14-encrypt.crt){: external} | 05 October 2024 | 15 April 2024 |   |
+   | `ibm-hyper-protect-container-runtime-1-0-s390x-13` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-13-attestation.crt){: external} | 02 November 2024 | 15 April 2024 |   |
    {: caption="Table 1. Encryption certificate expiry dates and image deprecation/ obsolete dates" caption-side="bottom"}
 
    **Note:** 
@@ -962,6 +963,7 @@ Timelines for the notification are as follows:
 - Everyday for 30 days before the expiry
 - Once in every 4 hours if the contract is about to expire in 7 days
 - Each and every hour if the contract has already expired or is about to expire in a day
+
 
 
 ## Preparing the signature

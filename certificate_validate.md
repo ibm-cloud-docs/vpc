@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, [{CURRENT_YEAR}]
-lastupdated: "[{LAST_UPDATED_DATE}]"
+  years: 2022, 2024
+lastupdated: "2024-06-14"
 
 keywords: confidential computing, secure execution, hpcr, contract, customization, env, workload, encryption, attestation, validating
 
@@ -29,6 +29,7 @@ Download the following certificates:
     | -------- | ----------- | ----------- |
     | `ibm-hyper-protect-container-runtime-1-0-s390x-15` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-15-intermediate.crt){: external} | 02 October 2025 |
     | `ibm-hyper-protect-container-runtime-1-0-s390x-14` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-14-intermediate.crt){: external} | 02 October 2025 |
+    | `ibm-hyper-protect-container-runtime-1-0-s390x-13` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-13-attestation.crt){: external} | 02 November 2024 |
     {: caption="Table 1. Intermediate certificate expiry dates" caption-side="bottom"}
 
 
@@ -84,7 +85,7 @@ Complete the following steps on an Ubuntu system to validate the encryption cert
 4. Verify the host key document issuer. Compare the output of the following two commands. The output should match.
    ```sh
    openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-15-encrypt.crt  -issuer -noout
-   openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-15-intermediate.crt -subject -noout
+   openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-1155-intermediate.crt -subject -noout
    ```
    {: pre}
 

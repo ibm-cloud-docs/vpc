@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-03-15"
+lastupdated: "2024-06-14"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -47,6 +47,7 @@ Use the following procedure to validate the attestation record and hashes:
     | -------- | ----------- | ----------- |
     | `ibm-hyper-protect-container-runtime-1-0-s390x-15` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-15-attestation.crt){: external} | 8 March 2025 |
     | `ibm-hyper-protect-container-runtime-1-0-s390x-14` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-14-attestation.crt){: external} | 29 November 2024 |
+    | `ibm-hyper-protect-container-runtime-1-0-s390x-13` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-13-attestation.crt){: external} | 02 November 2024 |
     {: caption="Table 1. Attestation certificate expiry dates" caption-side="bottom"}
 
 * Validate the attestation certificate by following the instructions [here](/docs/vpc?topic=vpc-cert_validate#validate_attest_cert).
@@ -182,6 +183,8 @@ d388326d90583b2140831e821311aedaee1ad4b4e721b458f8769d3f9267b0dc attestationPubl
 
 The `baseimage` is the IBM internal QEMU Copy On Write Version 2 (QCOW2) file, which is used as the source for most of the operating system files of the Hyper Protect Container Runtime image. It is used only at image build time by the enabler process. The enabler uses this source together with other Debian packages to create the `root.tar.gz` and the encrypted secure execution kernel or 'initrd' image.
 
+
+
 The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-15 `baseimage`:
 ```sh
 4330056bbbf5d53d48fa167f0f46bf4501b8ee42bd926e1a8b6c25d210cd1baf baseimage
@@ -200,6 +203,8 @@ The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x
 {: #root_tarfile}
 
 The `root.tar.gz` is part of the final secure execution enabled IBM Hyper Protect Container Runtime image and contains all operating system files. It is stored on the image's first partition (boot partition) as `/boot/root.tar.gz`.
+
+
 
 The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-15 `root.tar.gz`.
 ```sh
@@ -229,6 +234,7 @@ All the files in `cidata` copied are from the `/dev/disk/by-label/cidata` block 
 6dc2640b909f4077b17059f3edc1d0f3c1d286f4afc9f3d28f9ee9e72509ca51 cidata/meta-data
 272aa3529571b4fc592bf89e9242d3f57ae8ff29fb514c4ee6d7ce1eeb2ac1ee cidata/user-data
 baef972e58d4362d97f822d8ff4c5339c5898a0dc184d88d29e5b010b9835ed6 cidata/vendor-data
+
 ```
 {: codeblock}
 
@@ -238,6 +244,7 @@ baef972e58d4362d97f822d8ff4c5339c5898a0dc184d88d29e5b010b9835ed6 cidata/vendor-d
 The `attestationPublicKey` is the public key that you provide which is used to encrypt the attestation document. The `attestationPublicKey` is part of the user-data file. Encrypting the attestation document is optional.
 ```sh
 d388326d90583b2140831e821311aedaee1ad4b4e721b458f8769d3f9267b0dc attestationPublicKey
+
 ```
 {: pre}
 
