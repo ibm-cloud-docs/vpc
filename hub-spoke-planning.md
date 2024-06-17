@@ -48,7 +48,7 @@ Review the following planning considerations for the DNS-shared VPCs:
 * A DNS-shared VPC authorized user is able to change its DNS resolver to the custom resolver on the hub VPC. This is essential when the DNS-shared VPC attempts to connect to endpoint gateways on the hub VPC or any other DNS-shared VPCs sharing their DNS network to the same hub.
 * A DNS-shared VPC authorized user can create or delete a DNS resolution binding. The DNS-shared authorized user must have the appropriate permission level on both VPCs:
 
-  Regardless of whether the DNS hub VPC and DNS-shared VPC are in different accounts, a delegation process is required to create a service-to-service policy, allowing the DNSBinding service role from the DNS-Shared to the DNS-Hub VPC.
+   Regardless of whether the DNS hub VPC and DNS-shared VPC are in different accounts, a delegation process is required to create a service-to-service policy, allowing the DNSBinding service role from the DNS-Shared to the DNS-Hub VPC.
    * The user must have binding-create permissions on the dns-shared vpc
    * The user must have binding-connect and read permissions on the dns-hub vpc
 

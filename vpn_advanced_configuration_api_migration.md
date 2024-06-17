@@ -31,12 +31,14 @@ When [creating a connection for a VPN gateway](/apidocs/vpc/latest#create-vpn-ga
 | `peer_address`  | `peer.address` |
 | `peer_cidrs`    | `peer.cidrs`   |
 | `local_cidrs`   | `local.cidrs`  |
+{: caption="Table 1. Old and new properties when creating a VPN connection." caption-side="bottom"}
 
 When [updating a VPN gateway connection](/apidocs/vpc/latest#update-vpn-gateway-connection) (`PATCH /vpn_gateways/{vpn_gateway_id}/connections/{id}`):
 
 | Old property    | New property   |
 |-----------------|----------------|
 | `peer_address`  | `peer.address` |
+{: caption="Table 2. Old and new property when updating a VPN connection." caption-side="bottom"}
 
 When making the following requests for policy-based VPN gateways, the properties have changed in the response:
 
@@ -52,6 +54,7 @@ When making the following requests for policy-based VPN gateways, the properties
 | `local_cidrs`   | `local.cidrs`                                   |
 | `peer_cidrs`    | `peer.cidrs`                                    |
 | `peer_address`  | `peer.address` or `peer.fqdn` (described below) |
+{: caption="Table 3. Old and new properties for policy-based VPN gateways." caption-side="bottom"}
 
 Property `peer_address` is replaced by `peer.address` or `peer.fqdn`, depending on whether an IPv4 address or a FQDN was used to specify the peer when the connection was created. Update your code to check `peer.type` in the response. If `peer.type` is `address`, then the response has `peer.address`. If `peer.type` is `fqdn`, then the response has `peer.fqdn`.
 
@@ -75,6 +78,7 @@ The following table lists the methods and their changed paths for API requests t
 | `DELETE` | `/vpn_gateways/{vpn_gateway_id}/connections/{id}/peer_cidrs/{cidr_prefix}/{prefix_length}`  | `/vpn_gateways/{vpn_gateway_id}/connections/{id}/peer/cidrs/{cidr}` |
 | `GET`    | `/vpn_gateways/{vpn_gateway_id}/connections/{id}/peer_cidrs/{cidr_prefix}/{prefix_length}`  | `/vpn_gateways/{vpn_gateway_id}/connections/{id}/peer/cidrs/{cidr}` |
 | `PUT`    | `/vpn_gateways/{vpn_gateway_id}/connections/{id}/peer_cidrs/{cidr_prefix}/{prefix_length}`  | `/vpn_gateways/{vpn_gateway_id}/connections/{id}/peer/cidrs/{cidr}` |
+{: caption="Table 4. Methods and their changed paths for API requests that use a version query parameter of 2024-04-30 or later." caption-side="bottom"}
 
 ## Changed HTTP response codes when setting VPN gateway connection CIDRs
 {: #changed-http-response-vpn-advanced-configuration}
@@ -571,7 +575,7 @@ The success response code is `204`.
 The following example uses API version `2024-04-30` or later to set a local CIDR.
 
 ```sh
-curl -X PUT "$vpc_api_endpoint/v1/vpn_gateways/$vpn_gateway_id/connections/$id/local/cidrs/$cidr?version=2024-04-30&generation=2"    
+curl -X PUT "$vpc_api_endpoint/v1/vpn_gateways/$vpn_gateway_id/connections/$id/local/cidrs/$cidr?version=2024-04-30&generation=2"
 -H "Authorization: $iam_token"
 ```
 {: pre}
