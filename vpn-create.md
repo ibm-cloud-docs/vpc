@@ -43,7 +43,7 @@ To create a VPN gateway by using the UI:
    * **Virtual Private Cloud** - Select the VPC for the VPN gateway.
    * **Subnet** - Select the subnet in which to create the VPN gateway. See [Planning considerations](/docs/vpc?topic=vpc-planning-considerations-vpn) for important subnet information.
    * **Mode** - Select either a policy-based or route-based VPN. For more information about VPN types, see [VPN features](/docs/vpc?topic=vpc-using-vpn#vpn-features).
-1. In the **VPN connection for VPC** section, toggle the switch on to establish connectivity between this gateway and the network outside your VPN. You can also create a VPN connection after you provision the gateway.
+1. In the **VPN connection for VPC** section, toggle the switch on to establish connectivity between this gateway and the network outside your VPN. You can also add a VPN connection after you provision the gateway.
 
     * **VPN connection name** - Enter a name for the connection, such as `my-connection`.
     * **Peer gateway address** - Specify the peer device through a public IP address or FQDN of the VPN gateway for the network outside your VPC.
