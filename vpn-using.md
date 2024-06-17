@@ -150,6 +150,8 @@ The following use case illustrates a customer that has one VPC in IBM Cloud and 
 
 ![VPN advanced configuration with FQDN](images/vpn-advanced-configuration.png){: caption="VPN advanced configuration with FQDN" caption-side="bottom"}
 
+
+
 ## Related links
 {: #vpn-related-links}
 
