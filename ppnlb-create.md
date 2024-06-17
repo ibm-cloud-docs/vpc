@@ -26,7 +26,7 @@ A Private Path service allows service providers to enable and manage private con
 Private Path network load balancers support the port range feature. Currently, all VPEs connected to a Private Path network load balancer can connect to any port in the range.
 {: note}
 
-To learn more, see [Setting public network load balancer port ranges](/docs/vpc?topic=vpc-nlb-port-ranges&locale=en&interface=ui).
+To learn more, see [Setting public network load balancer port ranges](/docs/vpc?topic=vpc-nlb-port-ranges&interface=ui).
 
 ## Before you begin
 {: #ppnlb-prerequisites}
@@ -555,4 +555,5 @@ To create a Private Path network load balancer with the API, follow these steps:
         }
    ```
    {: codeblock}
+
 
