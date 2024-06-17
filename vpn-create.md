@@ -60,6 +60,7 @@ To create a VPN gateway by using the UI:
         * The length of the string must be 6 - 128 characters.
         * Cannot start with `0x` or `0s`.
 
+    
     * **Local subnets (Policy-based VPN only)** - Specify one or more subnets in the VPC that you want to connect through the VPN tunnel.
     * **Peer subnets (Policy-based VPN only)** - Specify one or more subnets in the other network that you want to connect through the VPN tunnel.
 
