@@ -14,7 +14,7 @@ subcollection: vpc
 # Planning considerations for VPN gateways
 {: #planning-considerations-vpn}
 
-[API HAS LINK TO RESTRICTIONS -- WHAT CONSIDERATIONS/RESTRICTIONS DO WE HAVE FOR DISTRIBUTE TRAFFIC?  AlSO, WHAT DO WE NEED TO STATE ABOUT ON-PREM DEVICES SUPPORTING ASYMMETRIC ROUTING? IS THIS REQUIRED?]{: tag-red}
+
 
 Review the following considerations before creating a VPN gateway:
 
