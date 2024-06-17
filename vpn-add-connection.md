@@ -90,12 +90,14 @@ To create a VPN connection from the CLI, enter the following command:
 ```sh
 ibmcloud is vpn-gateway-connection-create CONNECTION_NAME VPN_GATEWAY PEER PRESHARED_KEY
 [--vpc VPC] [--admin-state-up true | false] [--dead-peer-detection-action restart | clear | hold | none]
+
 [--dead-peer-detection-interval INTERVAL] [--dead-peer-detection-timeout TIMEOUT] [--ike-policy IKE_POLICY_ID]
 [--ipsec-policy IPSEC_POLICY_ID] [--peer-cidr CIDR1 --peer-cidr CIDR2 ... --local-cidr CIDR1 --local-cidr CIDR2 ...]
 [[--local-ike-identity-type fqdn | hostname | ipv4_address | key_id --local-ike-identity-value VALUE] |
 [--local-ike-identities LISTENER_POLICIES_JSON | @LISTENER_POLICIES_JSON_FILE]]
 [--peer-ike-identity-type fqdn | hostname | ipv4_address | key_id --peer-ike-identity-value VALUE]
 [--establish-mode bidirectional | peer_only] [--output JSON] [-q, --quiet]
+ibmcloud is vpn-gateway-connection-create CONNECTION_NAME VPN_GATEWAY PEER PRESHARED_KEY
 ```
 {: codeblock}
 
@@ -127,6 +129,7 @@ Where:
 
 `--dead-peer-detection-timeout`
     :  The dead peer detection timeout in seconds (default: `10`).
+
 
 `--ike-policy`
     : The ID of the IKE policy.
@@ -173,6 +176,8 @@ Where:
 
 - Create a VPN connection for a specific gateway ID with its required configuration values:
    `ibmcloud is vpn-gateway-connection-create my-connection fee82deba12e4c0fb69c3b09d1f12345 169.21.50.5 lkj14b1oi0alcniejkso --local-cidr 10.240.0.0/24 --peer-cidr 192.168.1.0/24`
+
+
 
 - Create a VPN connection with the same core parameters and specified DPD configurations:
    `ibmcloud is vpn-gateway-connection-create my-connection fee82deba12e4c0fb69c3b09d1f12345 169.21.50.5 lkj14b1oi0alcniejkso --local-cidr 10.240.0.0/24 --peer-cidr 192.168.1.0/24 --dead-peer-detection-action clear --dead-peer-detection-interval 33 --dead-peer-detection-timeout 100`
@@ -514,8 +519,9 @@ resource "ibm_is_vpn_gateway_connection" "is_vpn_gateway_connection" {
 ```
 {: codeblock}
 
-The following Terraform example creates a VPN connection using advanced configuration options:
 
+
+The following Terraform example creates a VPN connection using advanced configuration options:
 
 ```terraform
 resource "ibm_is_vpn_gateway_connection" "is_vpn_gateway_connection" {
@@ -539,7 +545,7 @@ resource "ibm_is_vpn_gateway_connection" "is_vpn_gateway_connection" {
 {: codeblock}
 
 
-For more information, see the [Terraform registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_vpn_gateway_connection).{: external}.
+For more information, see the [Terraform registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_vpn_gateway_connection){: external}.
 
 ## Next steps
 {: #vpn-add-connection-next-steps}
