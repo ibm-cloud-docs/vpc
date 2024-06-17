@@ -17,7 +17,6 @@ subcollection: vpc
 
 Known issues might change over time, so check back occasionally.
 {: shortdesc}
-Network load balancer known issues
 
 ## Network load balancer known issues
 {: #network-load-balancer-known-issues}

@@ -1,8 +1,8 @@
 ---
+
 copyright:
   years: 2019, 2024
-
-lastupdated: "2024-05-28"
+lastupdated: "2024-06-17"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -258,7 +258,7 @@ Memory profiles with the mx2d prefix are available in the US South (Dallas), US 
 ## Very High Memory
 {: #vhmemory}
 
-Very High Memory profiles offer 1 vCPU to 14 GiB of RAM to host small to medium-sized in-memory databases, OLAP services such as SAP NetWeaver, and other memory intensive applications. All Very High Memory profiles are provisioned with temporary SSD-backed [instance storage](/docs/vpc?topic=vpc-instance-storage) at no additional charge. The following Very High Memory profiles are available on Intel&reg; x86 processors.>
+Very High Memory profiles offer 1 vCPU to 14 GiB of RAM to host small to medium-sized in-memory databases, OLAP services such as SAP NetWeaver, and other memory intensive applications. All Very High Memory profiles are provisioned with temporary SSD-backed [instance storage](/docs/vpc?topic=vpc-instance-storage) at no additional charge. The following Very High Memory profiles are available on Intel&reg; x86 processors.
 
 - The vx2d profiles are on the Cascade Lake processors.
 
