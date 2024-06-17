@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-06-14"
+lastupdated: "2024-06-17"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -772,10 +772,7 @@ curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2" \
  ```
  {: codeblock}
 
-### Creating a file share from a snapshot with the API
-{: #fs-create-share-from-snapshot-api}
-
-For more information about how to create a file share from a snapshot, see [Restoring data from a file share snapshot](/docs/vpc?topic=vpc-fs-snapshots-restore&interface=api#fs-snapshots-restore-API).
+ 
 
 ### Adding supplemental IDs when you create a file share with the API
 {: #fs-add-supplemental-id-api}
@@ -878,6 +875,43 @@ resource "ibm_is_share" "example-2" {
 {: codeblock}
 
 
+
+### Creating a mount target with Terraform
+{: #file-share-mount-create-terraform}
+
+To create a mount target for a file share that provides granular authentication with the use of Security groups, use the `is_share_mount_target` resource. The following example creates a mount target with `security_group` access control mode. First, specify the share for which the mount target is created for. Then, you specify the name of the mount target and define the new virtual network interface by providing an IP address and a name. You must also specify the security group that you want to use to manage access to the file share that the mount target is associated to. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all virtual server instances on which you want to mount the file share. The attribute `auto_delete = true` means that the virtual network interface is to be deleted if the mount target is deleted.
+
+```terraform
+resource "ibm_is_share_mount_target" "target-with-vni" {
+     share    = ibm_is_share.is_share.ID
+     name     = <share_target_name>
+     virtual_network_interface {
+             name = <virtual_network_interface_name>
+             primary_ip {
+             address = “10.240.64.5”
+             auto_delete = true
+             name = <reserved_ip_name>
+     }
+     resource_group = <resource_group_id>
+     security_groups = [<security_group_ids>]
+     transit_encryption = none
+   }
+}
+```
+{: codeblock}
+
+You can also create a mount target for a file share with the VPC access mode by using the `is_share_mount_target` resource. The following example creates a mount target with the name `my-share-target` for the file share that is specified by its ID. When the mount target is created, all virtual server instances in the VPC can mount the share by using it.
+
+```terraform
+resource "ibm_is_share_mount_target" "target-without-vni" {
+     share=ibm_is_share.is_share.ID
+     name = <share_target_name>
+     vpc = <vpc_id>
+}
+```
+{: codeblock}
+
+For more information about the arguments and attributes, see [ibm_is_share_mount_target](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share_mount_target){: external}.
 
 ### Creating a file share with a mount target with security group access mode
 {: #file-share-create-with-target-sg-terraform}
