@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-06-14"
+lastupdated: "2024-06-17"
 
 keywords:
 
@@ -18,6 +18,7 @@ subcollection: vpc
 Known issues might change over time, so check back occasionally.
 {: shortdesc}
 Network load balancer known issues
+
 ## Network load balancer known issues
 {: #network-load-balancer-known-issues}
 
