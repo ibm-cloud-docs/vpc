@@ -15,7 +15,7 @@ subcollection: vpc
 # FAQs for network load balancers
 {: #nlb-faqs}
 
-This section contains answers to some frequently asked questions about {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB). 
+This section contains answers to some frequently asked questions about {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB).
 {: shortdesc}
 
 For FAQs on Private Path NLBs, see [FAQs for Private Path network load balancers](/docs/vpc?topic=vpc-nlb-faqs#ppnlb-faqs).
@@ -24,7 +24,7 @@ For FAQs on Private Path NLBs, see [FAQs for Private Path network load balancers
 ## FAQs for private and public network load balancers
 {: #public-private-nlb-faqs}
 
-You might encounter the following FAQs when you use IBM Cloud private and public NLBs. 
+You might encounter the following FAQs when you use IBM Cloud private and public NLBs.
 
 ### Can I use a different DNS name for my load balancer?
 {: #can-i-use-a-different-dns-name-for-my-load-balancer}
@@ -86,7 +86,7 @@ The health check response timeout value must be less than the health check inter
 
 The IP address is fixed for both public and private NLBs. However, route-mode NLBs toggle between primary and standby appliance IPs throughput their lifetime.
 
-### Does IBM complete quarterly ASV scans of data-plane LBaaS appliances?  
+### Does IBM complete quarterly ASV scans of data-plane LBaaS appliances?
 {: #lbaas-asv}
 {: faq}
 
@@ -104,7 +104,7 @@ Make sure that the security group rules that are attached to your load balancer 
 The beta release of IBM Cloud Private Path services is only available to allowlisted users. Contact your IBM Support representative if you are interested in getting early access to this beta offering.
 {: beta}
 
-You might encounter the following FAQs when you use IBM Cloud Private Path NLBs. 
+You might encounter the following FAQs when you use IBM Cloud Private Path NLBs.
 
 ### My Private Path NLB has an IP address from only one zone. Is a Private Path NLB regional?
  {: #ppnlb-regional}
@@ -118,9 +118,12 @@ Yes, a Private Path NLB is regional. A Private Path NLB can withstand zonal fail
 {: faq}
 {: support}
 
-A Private Path NLB is a regional offering. Connections to the associated Virtual Private Endpoints (VPEs) are load balanced across all healthy zones. If any zone fails, new connections are directed to the remaining healthy zones and existing connections are directed to unimpacted healthy zones. This is true even if the failed zone is the zone hosting the subnet from which the Private Path NLB private IPs are allocated. Think of the allocated IPs as logical IPs instead of an indication of where the Private Path NLB is running. 
+A Private Path NLB is a regional offering. Connections to the associated Virtual Private Endpoints (VPEs) are load balanced across all healthy zones. If any zone fails, new connections are directed to the remaining healthy zones and existing connections are directed to unimpacted healthy zones. This is true even if the failed zone is the zone hosting the subnet from which the Private Path NLB private IPs are allocated. Think of the allocated IPs as logical IPs instead of an indication of where the Private Path NLB is running.
 
 ### For a given consumer VPC, only a single VPE gateway and its IP can be associated with a Private Path NLB (or Private Path service). Does this mean that if the zone containing the VPE gateway IP fails, that the VPE endpoint is down and I can't reach the Private Path NLB from other zones in my VPC?
+{: #ppnlb-single-vpe-gateway-ip}
+{: faq}
+{: support}
 
 No, if the zone holding a VPE associated with a Private Path service or Private Path NLB fails, other zones in your VPC can still use the VPE gateway and reach the Private Path NLB. VPE gateways that are associated with Private Path NLBs have IP addresses that do not indicate which zone they run in. These VPE gateways run in all zones, so even if the zones that contain their IPs are down, the VPE gateways remain functional.
 
@@ -136,7 +139,7 @@ No, similar to any NLB, a Private Path NLB does not support layer-7 switching.
 {: faq}
 {: support}
 
-Yes, a Private Path NLB can be scaled up and use multiple systems to serve the workload. IBM performs this work; no consumer input is required. 
+Yes, a Private Path NLB can be scaled up and use multiple systems to serve the workload. IBM performs this work; no consumer input is required.
 
 ### Does a Private Path NLB support security groups or Network ACLs (NACLs)?
 {: #ppnlb-sg-acls}
