@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-06-04"
+lastupdated: "2024-06-18"
 
 keywords: api, change log, beta
 
@@ -25,6 +25,16 @@ There are no backward-compatibility guarantees as a feature progresses through i
 {: important}
 
 To review the change log of generally available API features, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log).
+
+## 18 June 2024
+{: #18-june-2024-beta}
+
+### For all version dates
+{: #18-june-2024-all-version-dates-beta}
+
+**Bare metal server reinitialization.** You can now [reinitialize](/apidocs/vpc-beta/initial#replace-bare-metal-server-initialization) a bare metal server. To reinitialize a bare metal server, specify the `image` to provision, one or more SSH public `keys`, and optionally specify `user_data`. Upon successful reinitialization, the bare metal server starts automatically and retains the same physical node, interfaces, IP addresses, and resource IDs it had before reinitialization.
+
+To reinitialize a bare metal server, the server `status` must be `stopped`, or have `failed` a previous reinitialization. For more information, see [Managing Bare Metal Servers for VPC](/docs/vpc?topic=vpc-managing-bare-metal-servers&interface=api#reinitialize-bare-metal-servers-api).
 
 ## 4 June 2024
 {: #4-june-2024-beta}
