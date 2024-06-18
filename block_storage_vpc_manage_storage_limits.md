@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-06-14"
+lastupdated: "2024-06-18"
 
 keywords: volume, capacity, Block Storage
 
@@ -21,7 +21,7 @@ subcollection: vpc
 ## Overview
 {: #manage-storage-limit-overview}
 
-With {{site.data.keyword.block_storage_is_short}}, you can create up to 750 boot and data Block Storage volumes per account in a region. You can request an increase of this quota by contacting [IBM Support](/unifiedsupport/cases/add){: external} and submitting a support case.
+With {{site.data.keyword.block_storage_is_short}}, you can create up to 300 boot and data Block Storage volumes per account in a region. You can request an increase of this quota by contacting [IBM Support](/unifiedsupport/cases/add){: external} and submitting a support case.
 
 Capacity for secondary volumes ranges 10 - 16,000 GB. You can also expand volume capacity within its IOPS tier profile or custom band. For more information, see [expanding Block Storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 

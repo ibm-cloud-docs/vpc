@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-06-14"
+lastupdated: "2024-06-18"
 
 keywords: confidential computing, secure execution, hpcr, contract, customization, env, workload, encryption, attestation, validating
 
@@ -85,7 +85,7 @@ Complete the following steps on an Ubuntu system to validate the encryption cert
 4. Verify the host key document issuer. Compare the output of the following two commands. The output should match.
    ```sh
    openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-15-encrypt.crt  -issuer -noout
-   openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-1155-intermediate.crt -subject -noout
+   openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-15-intermediate.crt -subject -noout
    ```
    {: pre}
 
@@ -165,7 +165,7 @@ The certificates contain **Certificate Revocation List (CRL) Distribution Points
 1. Extract and download the CRL URL from the attestation or encryption certificate:
    ```Sh
    openssl x509 -in "ibm-hyper-protect-container-runtime-1-0-s390x-15-encrypt.crt" -noout -ext crlDistributionPoints
-   crl_url=https://ibm.biz/hyper-protect-container-runtime-023BC9-crl-1  # (example)
+   crl_url=https://ibm.biz/hyper-protect-container-runtime-023BC9-crl-1 # (example)
    curl --location --silent "$crl_url" --output "ibm-hyper-protect-container-runtime.crl"
    ```
    {: pre}
@@ -191,7 +191,7 @@ The certificates contain **Certificate Revocation List (CRL) Distribution Points
    1. Extract the serial from the encryption certificate:
       ```sh
       openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-15-encrypt.crt -noout -serial
-      serial=16B7C7F9B61548506F4E63BA6FD40045  # (example)
+      serial=16B7C7F9B61548506F4E63BA6FD40045 # (example)
       ```
       {: pre}
 

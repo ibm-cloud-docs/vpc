@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-06-14"
+lastupdated: "2024-06-18"
 
 keywords:
 
@@ -25,8 +25,7 @@ For more information about changes to the {{site.data.keyword.vpc_short}} API, s
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
 
 ## June 2024
-{: #vpc-jun24} 
-
+{: #vpc-jun24}
 
 
 
