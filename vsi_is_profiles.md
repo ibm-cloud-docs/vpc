@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-06-17"
+lastupdated: "2024-06-19"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -351,18 +351,6 @@ See [Download drivers](https://www.nvidia.com/Download/index.aspx?lang=en-us) to
 {: tab-group="GPU"}
 {: class="simple-tab-table"}
 {: summary="GPU gx2 a100 80 GB profile options for Intel x86-64 virtual server instances."}
-
-
-| Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Number of GPUs | Instance storage (GB) |
-|---------|---------|---------|---------|---------|---------|---------|
-| gx3d-48x240x2a100p | 48 | 24 | 240 | 96 | 2 | 2x780 |
-| gx3d-24x120x1a100p | 24 | 12 | 120 | 48 | 1 | 1x780 |
-{: caption="Table 8. GPU gx3 a100 80 GB PCIe profile options for Intel x86-64 instances" caption-side="bottom"}
-{: #gpu-intel-x86-64}
-{: tab-title="gx3 a100"}
-{: tab-group="GPU"}
-{: class="simple-tab-table"}
-{: summary="GPU gx3 a100 80 GB PCIe profile options for Intel x86-64 virtual server instances."}
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Number of GPUs | Instance storage (GB) |
 |---------|---------|---------|---------|---------|---------|---------|
