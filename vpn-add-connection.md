@@ -342,41 +342,41 @@ To create a VPN connection with the API, follow these steps:
 1. (Optional) To create a connection using advanced configuration options:
 
    ```sh
-      curl -X POST "$vpc_api_endpoint/v1/vpn_gateways/$vpnGatewayId/connections?version=$api_version&generation=2" \
-        -H "Authorization: $iam_token" \
-        -d '{
-            "name": "my-advanced-vpn-connection",
-            "establish_mode": "peer_only",
-            "psk": "'$psk'",
-            "dead_peer_detection": {
-                "action": "restart",
-                "interval": 2,
-                "timeout": 10
-            },
-            "local": {
-                "cidrs": "'$localCidrs'",
-                "ike_identities": [
-                    {
-                        "type": "key_id",
-                        "value": "dGVzdGtleQ=="
-                    }
-                ]
-            },
-            "peer": {
-                "cidrs": "'$remoteCidrs'",
-                "ike_identity": {
-                    "type": "hostname",
-                    "value": "cisco-asa"
-                },
-                "fqdn": "on-prem.test.com"
-            }
-            "ike_policy": {
-                "id": "'$ikePolicyId'"
-            },
-            "ipsec_policy": {
-                "id": "'$ipsecPolicyId'"
-            }
-        }'
+   curl -X POST "$vpc_api_endpoint/v1/vpn_gateways/$vpnGatewayId/connections?version=$api_version&generation=2"  \     
+         -H "Authorization: $iam_token"      -d '{  \
+         "name": "my-advanced-vpn-connection",
+         "establish_mode": "peer_only",
+         "psk": "'$psk'",
+         "dead_peer_detection": {
+             "action": "restart",
+             "interval": 2,
+             "timeout": 10
+         },
+         "local": {
+             "cidrs": "'$localCidrs'",
+             "ike_identities": [
+                 {
+                     "type": "key_id",
+                     "value": "dGVzdGtleQ=="
+                 }
+             ]
+         },
+         "peer": {
+             "cidrs": "'$remoteCidrs'",
+             "ike_identity": {
+                 "type": "hostname",
+                 "value": "cisco-asa"
+             },
+             "fqdn": "on-prem.test.com"
+         }
+         "ike_policy": {
+             "id": "'$ikePolicyId'"
+         },
+         "ipsec_policy": {
+             "id": "'$ipsecPolicyId'"
+         },
+         "distribute_traffic":true
+     }'
    ```
    {: codeblock}
 
