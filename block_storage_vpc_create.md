@@ -49,7 +49,7 @@ Use the {{site.data.keyword.cloud_notm}} console to create a {{site.data.keyword
    | Encryption | Provider-managed encryption is enabled by default on all volumes. \n You can also choose to create an envelop encryption with your own root keys. Encryption keys are created and maintained in Key Management Services ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}). For more information, see [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-encryption-prereqs). |
    {: caption="Table 1. {{site.data.keyword.block_storage_is_short}} volume values to be specified during instance provisioning." caption-side="bottom"}
 
-   If you created volume snapshots previously, the option to import one becomes available. Click the **Snapshots** toggle, and select a snapshot from the list. Then, complete the required fields and click **Create** to provision the volume. A {{site.data.keyword.block_storage_is_short}} volume is created and attached to the virtual server instance. On the instance details page, the Data volumes list is updated to show the new volume.
+   You have the option to import a snaphot by clicking the **Import from snapshot** toggle. Select a snapshot from the list. Then, complete the required fields and click **Create** to provision the volume. A {{site.data.keyword.block_storage_is_short}} volume is created and attached to the virtual server instance. On the instance details page, the Data volumes list is updated to show the new volume.
    
    For more information, see [Restoring a volume by using fast restore](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-use-fast-restore).
    {: tip}
@@ -715,7 +715,7 @@ For more information about the arguments and attributes, see [ibm_is_volume](htt
 ### Creating a stand-alone {{site.data.keyword.block_storage_is_short}} volume from a snapshot with Terraform
 {: #create-vol-from-snapshot-terraform}
 
-To create a {{site.data.keyword.block_storage_is_short}} volume from a snapshot, use the `ibm_is_volume` resource. The following example creates a volume based on a snapshot that is identified by its ID.
+To create a {{site.data.keyword.block_storage_is_short}} volume from a snapshot, use the `ibm_is_volume` resource. The following example creates a volume based on a snapshot that is identified by its ID. 
 
 ```terraform
 resource "ibm_is_volume" "storage" {
@@ -728,7 +728,6 @@ resource "ibm_is_volume" "storage" {
 {: codeblock}
 
 For more information about the arguments and attributes, see [ibm_is_volume](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_volume){: external}.
-
 
 ### Creating a boot volume from a snapshot as part of instance provisioning with Terraform
 {: #block-storage-create-instance-terraform}
