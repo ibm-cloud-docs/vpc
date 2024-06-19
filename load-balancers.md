@@ -75,7 +75,6 @@ Health checks of members
 
 For more information, see the [Private Path solution guide](/docs/private-path).
 
-
 ## Load balancer comparison chart
 {: #lb-comparison-chart}
 
