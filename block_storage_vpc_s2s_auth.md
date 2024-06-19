@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-02-08"
+lastupdated: "2024-06-19"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -36,8 +36,12 @@ For more information about authorizations, see [Using authorizations to grant ac
 You can access the **Manage authorizations** by clicking **Manage** > **Access (IAM)** > **Authorizations**.
 
 1. On the **Manage authorizations** page, click **Create**. 
-1. On the **Grant a service authorization** page, select the source account.
-1. For the source service, select **Cloud Block Storage** from the list.
+1. On the **Grant a service authorization** page, select the source account. 
+   - If you want to use the CRK from another account, select **Another account**, and provide the account ID.
+1. For the source service, select **VPC Infrastructure Services** from the list.
+   1. Select **Specific resources**.
+   1. Click **Resource type**.
+   1. Select **Block Storage for VPC**.
 1. For the target service, select **Hyper Protect Crypto Services** or **KeyProtect** from the list. 
 1. Check the box to enable authorization to be delegated by source and dependent services.
 1. Then, under Service access, select the role `Reader`.

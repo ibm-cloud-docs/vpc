@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-05-14"
+lastupdated: "2024-06-19"
 
 keywords:
 
@@ -238,7 +238,7 @@ bmcloud is instance-create my-instance-restore1 ea002578-ff10-41fe-9652-e63f7e0e
 
 A successful response looks like the following example.
 
-```zsh
+```sh
 Creating instance my-instance-restore1 in resource group under account VP01 as user rtuser1@mycompany.com...
 
 ID               r006-eded6dcd-4f3c-4e79-a0cb-00f7c72f38cd
@@ -274,7 +274,7 @@ When you create an instance by using the `ibmcloud is instance-create` command, 
 
 See the following example.
 
-```zsh
+```sh
 ibmcloud is instance-create my-instance-restore1 ea002578-ff10-41fe-9652-e63f7e0e3cba us-south-1 bx2-2x8 ba11a6f2-6c17-4fee-a4b5-5c016fe64376 --volume-attach
 '{
    "name":"datavol-from-snapshot",
@@ -300,7 +300,7 @@ For an existing instance, specify the `ibmcloud is instance-volume-attachment-ad
 
 See the following example.
 
-```zsh
+```sh
 ibmcloud is instance-volume-attachment-add data-vol-1 a67f49de-fccc-4e5c-824e-dcbd06d009af --profile general-purpose --source-snapshot 52de6e85-7068-4247-90fd-d2fa91fd9864
 ```
 {: codeblock}
@@ -315,6 +315,7 @@ You can create a stand-alone {{site.data.keyword.block_storage_is_short}} data v
 Use this option when you're not sure which virtual server instance you want to attach the volume to. Or, if you want to restore data from an unattached volume that was detached from an instance.
 
 Run the `ibmcloud is volume-create` command and specify the `snapshot` parameter and name or ID of the snapshot. For more information, see [Create a stand-alone {{site.data.keyword.block_storage_is_short}} volume from a snapshot](/docs/vpc?topic=vpc-creating-block-storage&interface=cli#create-vol-from-snapshot-cli).
+
 
 For more information about available command options, see [`ibmcloud is volume-create`](/docs/vpc?topic=vpc-vpc-reference#volume-create).
 

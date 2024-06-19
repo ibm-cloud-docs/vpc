@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-06-14"
+lastupdated: "2024-06-19"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup, 
 
@@ -65,8 +65,8 @@ By using this service, you can:
 * Start with a smaller file share and expand the capacity later when you need more storage.
 * Mount file shares on Red Hat, CentOS, or Ubuntu Linux distributions. Windows OS is not supported.
 
-For more information, see [About {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-file-storage-vpc-about).
 
+For more information, see [About {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-file-storage-vpc-about).
 
 ## Backup for VPC
 {: #vpc-backup-serv-overview}
