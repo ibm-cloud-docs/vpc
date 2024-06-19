@@ -51,6 +51,7 @@ To add a VPN connection to an existing VPN gateway, follow these steps:
       * Can be a combination of digits, lower or uppercase characters, or the following special characters: `- + & ! @ # $ % ^ * ( ) . , :`
       * The length of the string must be 6 - 128 characters.
       * Cannot start with `0x` or `0s`.
+   
    * **Local IBM CIDRs (Policy-based VPN only)** - Specify one or more CIDRs in the VPC that you want to connect through the VPN tunnel.
    * **Peer CIDRs (Policy-based VPN only)** - Specify one or more CIDRs in the other network that you want to connect through the VPN tunnel. Subnet range overlap between local and peer subnets is not allowed.
 
@@ -374,8 +375,6 @@ To create a VPN connection with the API, follow these steps:
          },
          "ipsec_policy": {
              "id": "'$ipsecPolicyId'"
-         },
-         "distribute_traffic":true
      }'
    ```
    {: codeblock}
