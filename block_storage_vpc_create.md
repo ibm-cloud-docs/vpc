@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-06-14"
+lastupdated: "2024-06-19"
 
 keywords: vpc Block Storage, provision Block Storage for vpc, bootable snapshots, create volume from snapshot, fast restore
 
@@ -26,8 +26,6 @@ Before you get started, make sure that you [created a VPC](/docs/vpc?topic=vpc-c
 {: ui}
 
 Use the {{site.data.keyword.cloud_notm}} console to create a {{site.data.keyword.block_storage_is_short}} volume when you create a virtual server instance or as a stand-alone volume.
-
-
 
 ### Creating and attaching a {{site.data.keyword.block_storage_is_short}} volume when you create an instance
 {: #create-from-vsi}
@@ -91,7 +89,7 @@ You can create a {{site.data.keyword.block_storage_is_short}} volume independent
    | Resource Group | Specify a [Resource group](/docs/vpc?topic=vpc-iam-getting-started&interface=ui#iam-resource-groups). |
    | Tags | Specify [user tags](/docs/vpc?topic=vpc-block-storage-about&interface=ui#storage-about-user-tags) to organize your resources and for use by [backup policies](/docs/vpc?topic=vpc-backup-service-about). |
    | Access management tags | Specify [access management tags](/docs/vpc?topic=vpc-block-storage-about&interface=ui#storage-about-mgt-tags) that were created in IAM to help you manage access to your volumes. |
-   | **Optional configurations** | In the Optional configuration section, you can specify whether you want to create the volume with data from a snapshot. Also, you can choose to apply a backup policy. |
+   | **Optional configurations** | In the Optional configuration section, you can specify whether you want to create the volume with data from a snapshot. Also, you can choose to apply a backup policy to the new volume when it's created. |
    | Import from snapshot | Click **Select snapshot** to create the volume with data from the selected snapshot. You can create data volumes with Nonbootable snapshots, and boot volumes with Bootable snapshots. For more information, see [Create a stand-alone {{site.data.keyword.block_storage_is_short}} volume from a snapshot](#create-vol-from-snapshot-ui). |
    | Apply backup policy | Click **Apply** to open the side panel. Select a policy from the drop-down list. After the selection is made, the details of the backup policy is displayed. Then, select at least one of the policy's tags to apply to the target volume. |
    | **Profile** | In the Profile section, you can specify the performance profile of your volume, its IOPS, and capacity. |
