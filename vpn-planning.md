@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-06-17"
+lastupdated: "2024-06-19"
 
 keywords:
 subcollection: vpc
@@ -13,8 +13,6 @@ subcollection: vpc
 
 # Planning considerations for VPN gateways
 {: #planning-considerations-vpn}
-
-
 
 Review the following considerations before creating a VPN gateway:
 
