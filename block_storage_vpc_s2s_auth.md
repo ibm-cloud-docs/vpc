@@ -37,7 +37,7 @@ You can access the **Manage authorizations** by clicking **Manage** > **Access (
 
 1. On the **Manage authorizations** page, click **Create**. 
 1. On the **Grant a service authorization** page, select the source account. 
-   - If you want to use the CRK from another account, select **Another account**, and provide the account ID.
+   - If the goal is to allow the use of a CRK from another account, select **Another account**, and provide the account ID.
 1. For the source service, select **VPC Infrastructure Services** from the list.
    1. Select **Specific resources**.
    1. Click **Resource type**.
