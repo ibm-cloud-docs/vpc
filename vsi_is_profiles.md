@@ -398,10 +398,6 @@ The Intel&reg; Xeon&reg; Platinum 8260 Cascade Lake is only available in the US 
 
 The GPU `-a100` profile includes the following performance enhancements. These enhancements enable GPUDirect RDMA with higher throughput, lower latency, lower CPU utilization for Machine Learning (ML) and Artificial Intelligence (AI), and High-Performance Compute (HPC) applications.
 
-
-- RoCE (RDMA over converged Ethernet) V2
-- SR-IOV
-
 In addition, the `-a100` profiles have the following restrictions.
 
 - Only Red Hat and Ubuntu are supported.
