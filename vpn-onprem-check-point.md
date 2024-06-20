@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-08-25"
+  years: 2019, 2024
+lastupdated: "2024-06-20"
 
 keywords: check point peer
 
@@ -42,11 +42,11 @@ Here's an example of how to connect an IBM policy-vased VPN to a Check Point Sec
    * Go to Object Explorer and click **New > More > Network Object > More > Interoperable Device** to open the new interoperable device page.
    * Go to the **General Properties** page and enter the IBM VPN gateway name and public IP address.
    * Go to the **Topology** page and add the IBM VPN gateway public IP address and IBM VPC subnets. Add the IBM VPN public IP address as an external network with netmask `255.255.255.255`. Add the IBM VPC subnets as an internal network.
-1. To add the VPN Community, follow these steps. 
+1. To add the VPN Community, follow these steps.
 
    These instructions are based on the `Star Community` type, but the `Meshed Community` type is also an option.
-   {: note}   
-   
+   {: note}
+
    * Go to **SmartConsole > Security Policies > Access Tools > VPN Communities**, click `Star Community` to open the new VPN community page.
    * Enter the new community name.
    * Go to the **Gateways > Center Gateways** page, click the `+` icon, and add the Check Point Security Gateway.
@@ -81,14 +81,14 @@ To connect an IBM route-based VPN to a Check Point Security Gateway peer, follow
    * Click **OK** (leave the Group object empty).
 
    ![CheckPoint Connection Enable IPsec](images/vpn-checkpoint-using-empty-vpn-domain.png){: caption="Figure 2: CheckPoint connection enable IPsec" caption-side="bottom"}
-   
+
 1. To add the IBM VPN gateway as the interoperable device, go to Object Explorer. Then, click **New > More > Network Object > More > Interoperable Device** to open the new interoperable device page. Enter the small public IP address of the IBM route-based VPN gateway in the IPv4 address field.
 
    For more information about the small public IP, see this [important notice](/docs/vpc?topic=vpc-using-vpn#important-notice).
    {: note}
 
    ![CheckPoint Connection Add Interoperable Device](images/vpn-checkpoint-add-Interoperable-device-for-ibm-gateway.png){: caption="Figure 3: CheckPoint connection add interoperable device" caption-side="bottom"}
-   
+
 1. To create the VPN community, select **SmartConsole > Security Policies > Access Tools > VPN Communities**. Then, click **Star Community** to open the new VPN community page. Add the CheckPoint gateway and IBM route-based VPN gateway.
 
    ![CheckPoint Connection Create the VPN community](images/vpn-checkpoint-configure-vpn-community.png){: caption="Figure 4: CheckPoint connection create the VPN community" caption-side="bottom"}
@@ -96,19 +96,19 @@ To connect an IBM route-based VPN to a Check Point Security Gateway peer, follow
 1. To configure encrypted traffic, click **Encrypted Traffic** on the VPN community, then select **Accept all encrypted traffic**.
 
    ![CheckPoint Connection Configure the Encrypted Traffic](images/vpn-checkpoint-all-encrypted-traffic.png){: caption="Figure 5: CheckPoint connection configure the encrypted traffic" caption-side="bottom"}
-   
+
 1. To configure IKE and IPsec proposals, click **Encryption** on the VPN community. Then, select an encryption method, suits, and perfect forward secrecy. These values must match the IBM route-based VPN configuration.
 
    ![CheckPoint Connection Configure the IKE and IPsec Proposals](images/vpn-checkpoint-configure-ike-ipsec-proposal.png){: caption="Figure 6: CheckPoint connection configure the IKE and IPsec proposals" caption-side="bottom"}
-  
+
 1. To configure tunnel management, click **Tunnel Management** on the VPN community. Then, select **On all tunnels in the community** and **One VPN tunnel per Gateway Pair**.
 
    ![CheckPoint Connection Configure Tunnel Management](images/vpn-checkpoint-configure-tunnel-manangement.png){: caption="Figure 7: CheckPoint connection configure tunnel management" caption-side="bottom"}
-   
+
 1. To configure the pre-shared key, click **Shared Secret** on the VPN community. Set the same pre-shared key as the IBM VPN route-based gateway.
 
    ![CheckPoint Connection Configure Pre-shared Key](images/vpn-checkpoint-configure-pre-shared-key.png){: caption="Figure 8: CheckPoint connection configure pre-shared key" caption-side="bottom"}
-   
+
 1. To enable directional match, select **Menu > Global properties > VPN > Advanced**, then click **Enable VPN Directional Match in VPN Column**.
 
    ![CheckPoint Connection Enable Directional Match](images/vpn-checkpoint-enable-directional-match.png){: caption="Figure 9: CheckPoint connection enable directional match" caption-side="bottom"}
@@ -120,7 +120,7 @@ To connect an IBM route-based VPN to a Check Point Security Gateway peer, follow
    * Internal_Clear > Your VPN community
 
    ![CheckPoint Connection Add Directional Matching VPN Rules](images/vpn-checkpoint-add-directional-vpn-policy.png){: caption="Figure 10: CheckPoint connection add directional matching VPN rules" caption-side="bottom"}
-   
+
 1. To install the policy, select **SmartConsole > Security Policies**, then click **Install Policy**.
 
    ![CheckPoint Connection Install Policy](images/vpn-checkpoint-install-policy.png){: caption="Figure 11: CheckPoint connection install policy" caption-side="bottom"}

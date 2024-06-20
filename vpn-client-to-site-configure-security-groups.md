@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-07-07"
+  years: 2021, 2024
+lastupdated: "2024-06-20"
 
 keywords:  network, encryption, client VPN, server VPN
 
@@ -13,14 +13,14 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # Configuring security groups and ACLs for use with a VPN server
-{: #vpn-client-to-site-security-groups}  
+{: #vpn-client-to-site-security-groups}
 
 Security groups and access control lists (ACLs) can be configured on the VPN server's subnet where the VPN server is deployed, as well as on other VPC subnets that communicate over the VPN tunnel.
 {: shortdesc}
 
 If you configure security groups and ACLs on the VPN server's subnet, make sure that the following rules are in place to allow VPN tunnel traffic. For more information, see [About security groups](/docs/vpc?topic=vpc-using-security-groups) and [Setting up network ACLs](/docs/vpc?topic=vpc-using-acls).
 
-If you don't specify a security group when you provision the VPN server, the default security group of the VPC is attached to the VPN server. You can attach other security groups to the VPN server after provisioning your server. 
+If you don't specify a security group when you provision the VPN server, the default security group of the VPC is attached to the VPN server. You can attach other security groups to the VPN server after provisioning your server.
 {: note}
 
 ## Rules for VPN protocol traffic

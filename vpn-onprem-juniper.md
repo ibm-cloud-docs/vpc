@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-12-07"
+  years: 2020, 2024
+lastupdated: "2024-06-20"
 
 keywords: juniper, juniper peer, vSRX peer
 
@@ -224,7 +224,7 @@ Here's an example to set the vSRX configuration.
 
    You do not need to configure `169.254.0.1` on the IBM VPN gateway. It is referenced only when you configure the routes on the vSRX.
    {: note}
-   
+
    ```sh
    set interfaces st0 unit 2 multipoint
    set interfaces st0 unit 2 family inet next-hop-tunnel 169.254.0.1 ipsec-vpn ibm-vpc-gateway-primary-vpn

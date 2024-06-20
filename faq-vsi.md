@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-01-22"
+lastupdated: "2024-06-20"
 
 subcollection: vpc
 
@@ -42,7 +42,7 @@ No, a virtual server instance can be provisioned in only one VPC.
 {: #faq-vsi-4}
 {: faq}
 
-Yes. Initially, assigning the floating IP to the primary network interface of a server helps establish the data path. Later, you can associate the floating IP to a different network interface if you want. Alternatively, you can manually configure routing for the interface in the guest operating system. For more information, see [Adding or editing network interfaces](/docs/vpc?topic=vpc-using-instance-vnics#editing-network-interfaces). 
+Yes. Initially, assigning the floating IP to the primary network interface of a server helps establish the data path. Later, you can associate the floating IP to a different network interface if you want. Alternatively, you can manually configure routing for the interface in the guest operating system. For more information, see [Adding or editing network interfaces](/docs/vpc?topic=vpc-using-instance-vnics#editing-network-interfaces).
 
 ## Imagine that instance1 in a VPC has only vNIC1 and it is attached to Subnet1. Subnet1 is attached to a Public Gateway (PGW). Can a customer still assign a floating IP to instance1?
 {: #faq-vsi-6}
@@ -93,10 +93,10 @@ In limited cases a virtual server might need to be migrated to a different host.
 
 * Infrastructure [maintenance](/docs/vpc?topic=vpc-about-cloud-maintenance). You might receive an email that's indicating that [maintenance](/docs/vpc?topic=vpc-about-cloud-maintenance) is required on a system that is hosting your virtual server. Your virtual server might need to be migrated as part of the infrastructure [maintenance](/docs/vpc?topic=vpc-about-cloud-maintenance).
 * An unplanned host outage. The following actions apply if an unexpected host failure occurs:
-    * The virtual servers that were running on the host are stopped when the outage is detected. 
-    * The virtual servers are automatically reassigned and restarted on a different compute host in the same multi-region zone. 
-    * The virtual servers that are restarted use the same boot volume, and the same data volumes as the original virtual server.  
-    * The virtual server that was restarted is assigned the same floating IP, static IP, and dynamic IP addresses on the new node.  
+    * The virtual servers that were running on the host are stopped when the outage is detected.
+    * The virtual servers are automatically reassigned and restarted on a different compute host in the same multi-region zone.
+    * The virtual servers that are restarted use the same boot volume, and the same data volumes as the original virtual server.
+    * The virtual server that was restarted is assigned the same floating IP, static IP, and dynamic IP addresses on the new node.
     * If the virtual server cannot be scheduled to run on another compute node, it is placed in a `FAILED` state.
 
 ## Can I use an encrypted image?
@@ -127,7 +127,7 @@ For more information, see [Understanding Cloud Maintenance Operations](/docs/vpc
 {: #faq-vsi-18}
 {: faq}
 
-When you provision a Windows virtual server instance with a stock image, disk manager might show unexpected disks. After a new Windows instance is provisioned from a stock image, a cloud-init disk and a swap disk are present. The cloud-init disk might display a size of 378 KB. The swap disk might display a size of 44 KB; the swap disk is turned off eventually. These small disks are working as designed. You are not to attempt to delete or format either of these disks that are associated with your new Windows virtual server instance. 
+When you provision a Windows virtual server instance with a stock image, disk manager might show unexpected disks. After a new Windows instance is provisioned from a stock image, a cloud-init disk and a swap disk are present. The cloud-init disk might display a size of 378 KB. The swap disk might display a size of 44 KB; the swap disk is turned off eventually. These small disks are working as designed. You are not to attempt to delete or format either of these disks that are associated with your new Windows virtual server instance.
 
 ## What is _image from volume_ and how does it relate to virtual server instances?
 {: #faq-vsi-19}
@@ -139,7 +139,7 @@ You can create a custom image from a boot volume that is attached to a virtual s
 {: #faq-vsi-20}
 {: faq}
 
-The virtual server instance is automatically assigned an instance identifier (ID), which includes the SMBIOS system-uuid as a portion of the ID, when the instance is created. IDs are immutable, globally unique, and never reused, so the ID uniquely identifies a particular instantiation of a virtual server instance across all of IBM Cloud. The ID, including the SMBIOS system-uuid portion, is static and persists for the lifecycle of the virtual server instance until that virtual server instance is deleted. 
+The virtual server instance is automatically assigned an instance identifier (ID), which includes the SMBIOS system-uuid as a portion of the ID, when the instance is created. IDs are immutable, globally unique, and never reused, so the ID uniquely identifies a particular instantiation of a virtual server instance across all of IBM Cloud. The ID, including the SMBIOS system-uuid portion, is static and persists for the lifecycle of the virtual server instance until that virtual server instance is deleted.
 
 For more information, including how to retrieve this information from within your virtual server, see [Retrieving the virtual server instance identifier](/docs/vpc?topic=vpc-managing-virtual-server-instances#retrieve-VSI-instance-identifer) section in Managing virtual server instances.
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-01-25"
+  years: 2020, 2024
+lastupdated: "2024-06-20"
 
 keywords: vpe, acls, virtual private endpoints, endpoint gateways
 
@@ -47,12 +47,12 @@ Note the following:
 * When you create an endpoint gateway without specifying a security group, the VPC default security group is attached to the endpoint gateway.
 * You can specify a maximum of five security groups when creating an endpoint gateway.
 * To attach an existing security group to an endpoint gateway, add the endpoint gateway to the security group's array of targets.
-* To detach a security group from an endpoint gateway, delete the endpoint gateway from the security group's array of targets. 
+* To detach a security group from an endpoint gateway, delete the endpoint gateway from the security group's array of targets.
 
 If you plan to use default security groups for new endpoint gateways, review your default security group rules. If necessary, edit the rules to accommodate your endpoint gateway traffic.
-{: tip}   
+{: tip}
 
-### Security group example 
+### Security group example
 {: #vpe-security-group-example}
 
 For example, configure the following inbound rule, which allows all traffic on port 80 for an HTTP listener (TCP port 80).

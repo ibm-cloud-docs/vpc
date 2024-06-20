@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-06-17"
+lastupdated: "2024-06-20"
 
 keywords: bare metal servers, managing, operation, manage bare metal server, manage bare metal, manage server, restart bare metal, stop bare metal, delete bare metal, reboot bare metal, restart server, stop server, delete server
 
@@ -18,8 +18,7 @@ subcollection: vpc
 You can manage your {{site.data.keyword.cloud}} Bare Metal Servers for VPC by performing tasks such as start, stop, update firmware, reboot, and delete bare metal server.
 {: shortdesc}
 
-Update firmware is a beta feature that is available for evaluation and testing purposes.
-{: beta}
+ 
 
 You can perform the following actions by using the UI, CLI, and API.
 
@@ -56,9 +55,6 @@ You can view the summary of all bare metal server on the bare metal server page,
 ### Updating the firmware for a bare metal server by using the UI
 {: #update-firmware-bare-metal-servers-ui}
 
-Updating firmware on bare metal servers is a beta feature that is available for evaluation and testing purposes.
-{: beta}
-
 This action is only displayed if the server is stopped and a firmware update is available. It is recommended to back up your server before any firmware update.
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**
@@ -91,8 +87,6 @@ The reboot action immediately powers off and powers on the bare metal server.
 
 Billing continues after the bare metal server is stopped.
 {: note}
-
-
 
 ### Deleting a bare metal server by using the UI
 {: #delete-bare-metal-servers-ui}
@@ -170,9 +164,6 @@ For a full list of command options, see [ibmcloud is bare-metal-server-restart](
 
 ### Updating the firmware for a bare metal server by using the CLI
 {: #update-firmware-bare-metal-servers-cli}
-
-Updating firmware on bare metal servers is a beta feature that is available for evaluation and testing purposes.
-{: beta}
 
 You can update the firmware for your {{site.data.keyword.cloud}} Bare Metal Servers for VPC by using the command-line interface (CLI). You can only update the firmware on a bare metal server that is stopped and has firmware updates available. It is recommended to back up your server before any firmware update.
 
@@ -312,9 +303,6 @@ For more information about the API request, see [Start a bare metal server](/api
 
 ### Updating the firmware for a bare metal server by using the API
 {: #update-firmware-bare-metal-servers-API}
-
-Updating firmware on bare metal servers is a beta feature that is available for evaluation and testing purposes.
-{: beta}
 
 You can update the firmware for your {{site.data.keyword.cloud}} Bare Metal Servers for VPC by using the API. You can only update the firmware on a bare metal server that is stopped and has firmware updates available. It is recommended to back up your server before any firmware update. To update the firmware using API, use [Update firmware for a bare metal server](/apidocs/vpc-beta/initial#update-firmware-for-bare-metal-server).
 

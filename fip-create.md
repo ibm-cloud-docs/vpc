@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-02-02"
+lastupdated: "2024-06-20"
 
 keywords: floating ip, reserving, bare metal, vnic, public gateways
 
@@ -158,7 +158,7 @@ To add a floating IP address to a virtual server instance with the API, follow t
    curl -H "Authorization: Bearer $TOKEN" -X POST "https://us-south.iaas.cloud.ibm.com/v1/instances/$INSTANCE/network_interfaces?generation=2&version=2019-10-01"
    ```
    {: pre}
-   
+
 1. Then create the floating IP with the following command:
 
    ```sh
@@ -178,7 +178,7 @@ To add a floating IP address to a virtual server instance with the API, follow t
    curl -H "Authorization: Bearer $TOKEN" -X POST "https://us-south.iaas.cloud.ibm.com/v1//bare_metal_servers/$SERVER_ID/network_interfaces?generation=2&version=2019-10-01"
    ```
    {: pre}
-   
+
 1. Then create the floating IP with the following command:
 
    ```sh

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-08-17"
+  years: 2020, 2024
+lastupdated: "2024-06-20"
 
 keywords: flow logs, delete
 
@@ -58,7 +58,7 @@ To delete a flow log collector by using the API, follow these steps:
    export FlowLogID01="<your_flow_log_id>"
    ```
    {: pre}
-   
+
 1. To delete a flow log collector:
 
    ```sh

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-04-24"
+lastupdated: "2024-06-20"
 
 keywords:
 
@@ -240,13 +240,13 @@ See the following example of targeting a region other than the default `us-south
 resource "ibm_iam_authorization_policy" "policy" {
 
   #"DNSBindingConnector",
-  
+
   roles = [
-  
+
     "DNS Binding Connector",
-    
+
   ]
- 
+
     subject_attributes {
 
         name  = "accountId"

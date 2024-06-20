@@ -31,7 +31,7 @@ To update a Private Path provider service the {{site.data.keyword.cloud_notm}} c
 1. Select the Menu icon ![navigation menu](../icons/icon_hamburger.svg), then click **VPC Infrastructure**.
 1. Click **Private Path services** in the Network section.
 1. In the Private Path services for VPC table, locate and click the name of the Private Path service that you want to update.
-1. On the Private Path details page, click the Edit icon ![Edit icon](/images/edit.png) beside the details that you want to update.
+1. On the Private Path details page, click the Edit icon ![Edit icon](images/edit.png) beside the details that you want to update.
 
 ### Update the target service of a Private Path service in the UI
 {: #pps-ui-update-target-private-path-service}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2023
-lastupdated: "2023-01-27"
+  years: 2017, 2024
+lastupdated: "2024-06-20"
 
 keywords: vpc network, VRF, router, hypervisor, address prefixes, classic access, implicit router, packet flows, NAT, data flows, Cloud Service Endpoint source addresses, source addresses
 
@@ -37,7 +37,7 @@ VPC network isolation takes place at three levels:
 
 Address prefixes are the summary information that is used by a VPC's implicit routing function to locate a _destination virtual server instance_, regardless of the availability zone in which the destination virtual server instance is located. The primary function of address prefixes is to optimize routing over the MPLS VPN, while pathological routing cases are avoided. All subnets within a VPC must be contained in an address prefix so that all virtual server instances that are in the VPC are reachable from all other virtual server instances in the VPC.
 
-## Cloud service endpoint source addresses 
+## Cloud service endpoint source addresses
 {: #cse-source-addresses}
 
 Cloud service endpoint source addresses are the IP addresses that identify a VPC and zone combination outside of the VPC. For example, a source address is used when a service outside of the VPC is called through a cloud service endpoint. The IP address of the virtual server instance is replaced with an IPv4 address, the source address, which identifies the VPC to the cloud service endpoint. See the following diagram for details:

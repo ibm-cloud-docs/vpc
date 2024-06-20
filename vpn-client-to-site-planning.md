@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-02-01"
+lastupdated: "2024-06-20"
 
 keywords:
 
@@ -156,12 +156,12 @@ VPN client users can choose other OpenVPN-2.4-compatible client software. Howeve
 {: #vpn-automate-deployment-powervs-workspace}
 
 A client-to-site VPN automation project is available that provides a Terraform module to create a client-to-site VPN server, allowing users to safely connect from an onsite or remote device to a Power Virtual Server workspace. The Github repository for this automation project is located in the [IBM /
-power-vpn-server Github repository](https://github.com/IBM/power-vpn-server){: external}.  This project [Readme file](https://github.com/IBM/power-vpn-server/blob/master/README.md){: external} creates a VPN server and attaches it to a new or existing Power Virtual Server workspace, providing secure access to the IBM Cloud Power infrastructure. 
+power-vpn-server Github repository](https://github.com/IBM/power-vpn-server){: external}.  This project [Readme file](https://github.com/IBM/power-vpn-server/blob/master/README.md){: external} creates a VPN server and attaches it to a new or existing Power Virtual Server workspace, providing secure access to the IBM Cloud Power infrastructure.
 
 ## Setting up a VPN server using Terraform
 {: #vpn-server-setup}
 
-You can download a Terraform configuration example for your VPN server setup from the [IBM / terraform-ibm-cloud-vpn-server-example Github repository](https://github.com/IBM/terraform-ibm-cloud-vpn-server-example){: external}. This project [Readme file](https://github.com/IBM/terraform-ibm-cloud-vpn-server-example/blob/main/README.md){: external}) shows you how to complete the following steps: 
+You can download a Terraform configuration example for your VPN server setup from the [IBM / terraform-ibm-cloud-vpn-server-example Github repository](https://github.com/IBM/terraform-ibm-cloud-vpn-server-example){: external}. This project [Readme file](https://github.com/IBM/terraform-ibm-cloud-vpn-server-example/blob/main/README.md){: external}) shows you how to complete the following steps:
 
 1. Create an IBM Cloud Secrets Manager instance with a trial plan.
 1. Generate the server certificate/key and client certificate/key locally, or generate the certificate/keys using the private certificate capability in the IBM Secrets Manager service.

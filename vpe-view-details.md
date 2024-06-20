@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2023-12-18"
+  years: 2020, 2024
+lastupdated: "2024-06-20"
 
 keywords: virtual private endpoints, view details, VPE, endpoint gateway
 subcollection: vpc
@@ -26,7 +26,7 @@ Only services that support Virtual Private Endpoints for VPC show up in the list
 
 To view details of an endpoint gateway by using the {{site.data.keyword.cloud}} console, follow these steps:
 
-1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation Menu** icon ![menu icon](/images/menu_icon.png), then click > **VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Virtual private endpoint gateways** in the Network section.
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation Menu** icon ![menu icon](images/menu_icon.png), then click > **VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Virtual private endpoint gateways** in the Network section.
 
    The Virtual private endpoint gateways for VPC page shows all endpoint gateways for all VPCs in the region.
 
@@ -38,7 +38,7 @@ Descriptions of the fields for the virtual endpoint gateway details page are:
 
 | Field | Description |
 |-------|-------------|
-| Name | The name of the endpoint gateway. Click the Edit icon ![Edit icon](/images/edit.png) to update the name.|
+| Name | The name of the endpoint gateway. Click the Edit icon ![Edit icon](images/edit.png) to update the name.|
 | Resource group | The resource group of the endpoint gateway. |
 | Virtual private cloud | The VPC where the endpoint gateway is located. Click to see the VPC's details.|
 | Subnets | The bound reserved IP addresses' subnets to this endpoint gateway. Click to see the subnet's details. |

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-01-30"
+lastupdated: "2024-06-20"
 
 keywords: custom routes
 
@@ -24,7 +24,7 @@ You can view details of a routing table by using the UI, CLI, API, or Terraform.
 
 To view the details of a routing table in the UI, follow these steps:
 
-1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, Select the Menu icon ![Navigation Menu](/images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appears.
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, Select the Menu icon ![Navigation Menu](images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appears.
 
 1. Click the name of the routing table that you want details for. The Routing table details page appears.
 
@@ -32,7 +32,7 @@ Field descriptions are as follows.
 
 | Field | Description |
 |-------|-------------|
-| Name | Click the Edit icon ![Edit icon](/images/edit.png) to update the name. |
+| Name | Click the Edit icon ![Edit icon](images/edit.png) to update the name. |
 | Routing table ID | The ID of this routing table. |
 | Virtual private cloud | The VPC for this routing table. |
 | Created date | The origination date of the routing table.|

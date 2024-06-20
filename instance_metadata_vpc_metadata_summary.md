@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-05-09"
+lastupdated: "2024-06-20"
 
 keywords:
 
@@ -88,7 +88,7 @@ Use the information in the Table 1 to understand the type of metadata returned f
 ## Summary of metadata for SSH keys
 {: #imd-sshkeys-summary}
 
-Use the information in the Table 2 to understand the type of metadata returned for SSH keys. 
+Use the information in the Table 2 to understand the type of metadata returned for SSH keys.
 
 | SSH Key URI path | Metadata key | Description of the metadata |
 |------------------|--------------|-----------------------------|
@@ -107,7 +107,7 @@ Use the information in the Table 2 to understand the type of metadata returned f
 ## Summary of metadata for placement groups
 {: #imd-placement-group-summary}
 
-Use the information in the Table 3 to understand the type of metadata returned for placement groups. 
+Use the information in the Table 3 to understand the type of metadata returned for placement groups.
 
 | Placement group URI path | Metadata key | Description of the metadata |
 |--------------------------|--------------|-----------------------------|

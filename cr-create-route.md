@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-11-09"
+  years: 2020, 2024
+lastupdated: "2024-06-20"
 
 keywords: custom routes
 
@@ -55,7 +55,7 @@ You can create a route for an IBM Cloud service by using the UI, CLI, API, or Te
 To create a route in the UI, follow these steps:
 
 1. Make sure to review [Limitations and guidelines](/docs/vpc?topic=vpc-about-custom-routes&interface=ui#limitations-custom-routes).
-1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, Select the Menu icon ![Navigation Menu](/images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appear.
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, Select the Menu icon ![Navigation Menu](images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appear.
 1. Select the VPC associated with the routing table you want to view. Then, click the name of the routing table to show its details.
 1. Scroll to the Routes section and click **Create**.
 1. In the Create route side panel, enter the following information:

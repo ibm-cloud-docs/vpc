@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-12-20"
+lastupdated: "2024-06-20"
 
 keywords:
 
@@ -25,7 +25,7 @@ Follow the guidance from your hardware vendor on when to upgrade. {{site.data.ke
 
 When you plan for hardware EOS, keep the following information in mind:
 
-* You can use the assistance of an IBM partner. 
+* You can use the assistance of an IBM partner.
 * You can upgrade your instances on your own.
 * Continue with your EOS hardware (at your own risk).
 
@@ -36,7 +36,7 @@ When you plan for hardware EOS, keep the following information in mind:
 
 ### Upgrade your hardware on your own
 {: #upgrading-your-hardware}
-   
+
    Make sure that you follow your hardware vendor's guidance when you upgrade your hardware.
    {: important}
 
@@ -53,7 +53,7 @@ When you plan for hardware EOS, keep the following information in mind:
 If you choose to continue with an EOS hardware, consider the following information:
 
 - The EOS hardware can't receive security updates.
-- After the EOS date, you can no longer deploy new instances on that hardware. 
+- After the EOS date, you can no longer deploy new instances on that hardware.
 - The hardware isn't tested for hardware, drivers, or firmware.
 - Support isn't available for performance or operational issues on the server with an EOS hardware.
    - Vendor support is unavailable for an EOS hardware.

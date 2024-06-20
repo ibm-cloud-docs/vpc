@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2022, 2023
-lastupdated: "2023-01-27"
+lastupdated: "2024-06-20"
 
 keywords: benchmark, benchmark scores
 
@@ -11,10 +11,10 @@ subcollection: vpc
 ---
 {{site.data.keyword.attribute-definition-list}}
 
-# Linux and Windows benchmark scores 
+# Linux and Windows benchmark scores
 {: #profiles_benchmark}
 
-Linux&reg; and Windows&reg; benchmark scores are measured on high-performance virtual servers for {{site.data.keyword.vpc_full}} (VPC) by using [CoreMark](https://www.eembc.org/coremark/faq.php). CoreMark is an industry standard benchmark that measures the performance of CPUs on physical machines and virtual servers that are offered by Infrastructure-as-a-Service (IaaS) providers like {{site.data.keyword.vpc_short}}. 
+Linux&reg; and Windows&reg; benchmark scores are measured on high-performance virtual servers for {{site.data.keyword.vpc_full}} (VPC) by using [CoreMark](https://www.eembc.org/coremark/faq.php). CoreMark is an industry standard benchmark that measures the performance of CPUs on physical machines and virtual servers that are offered by Infrastructure-as-a-Service (IaaS) providers like {{site.data.keyword.vpc_short}}.
 {: shortdesc}
 
 While the current benchmark results are for Compute instance profiles, we expect the CoreMark scores to be similar for Balanced and Memory instance profiles with the same CPU count.
@@ -22,9 +22,9 @@ While the current benchmark results are for Compute instance profiles, we expect
 ## Compute virtual server profiles
 {: #compute_virutal_server_profiles_benchmark}
 
-Compute profiles offer a core to RAM ratio of 1 vCPU to 2 GiB of RAM ratio and are best for moderate to high web traffic workloads. Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers. 
+Compute profiles offer a core to RAM ratio of 1 vCPU to 2 GiB of RAM ratio and are best for moderate to high web traffic workloads. Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers.
 
-You can provision virtual servers on Compute hosts with Broadwell, Skylake, or Cascade Lake processor types. The benchmark tests are run on all CPU types. The following tables show the benchmark scores for Linux and Windows virtual server Compute instance profiles. 
+You can provision virtual servers on Compute hosts with Broadwell, Skylake, or Cascade Lake processor types. The benchmark tests are run on all CPU types. The following tables show the benchmark scores for Linux and Windows virtual server Compute instance profiles.
 
 | Profile | CPU | CPU MHz | vCPUs | Score | Standard Deviation (%) | Sample Count |
 |-------------|-------------|-------------|-------------|-------------|-------------|-------------|
@@ -81,6 +81,6 @@ You can provision virtual servers on Compute hosts with Broadwell, Skylake, or C
 ## How IBM Cloud measures performance
 {: #how_ibm_cloud_measures_performance}
 
-The CoreMark benchmark is created in [PerforKitBenchmarker](https://github.com/GoogleCloudPlatform/PerfKitBenchmarker), an open source cloud benchmarking framework with [ibmcloud provider](https://github.com/GoogleCloudPlatform/PerfKitBenchmarker/tree/master/perfkitbenchmarker/providers/ibmcloud), which is contributed by {{site.data.keyword.cloud}} engineers. 
+The CoreMark benchmark is created in [PerforKitBenchmarker](https://github.com/GoogleCloudPlatform/PerfKitBenchmarker), an open source cloud benchmarking framework with [ibmcloud provider](https://github.com/GoogleCloudPlatform/PerfKitBenchmarker/tree/master/perfkitbenchmarker/providers/ibmcloud), which is contributed by {{site.data.keyword.cloud}} engineers.
 
 For Linux measurements, virtual servers are created with the Red Hat version 8.4 image in the {{site.data.keyword.cloud}} public catalog. For Windows measurements, servers are created with the Windows Server 2019 image.

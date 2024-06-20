@@ -1,10 +1,8 @@
 ---
 
-
-
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-11-13"
+  years: 2019, 2024
+lastupdated: "2024-06-20"
 
 keywords: VPN, network, encryption, authentication, algorithm, IKE, IPsec, policies
 

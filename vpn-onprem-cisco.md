@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-04-20"
+  years: 2022, 2024
+lastupdated: "2024-06-20"
 
 keywords: cisco peer, ASAv
 
@@ -84,7 +84,7 @@ crypto ikev2 enable outside
 Create an IPsec policy for the connection. The IKEv2 supports multiple encryptions and authentication types, and multiple integrity algorithms for a single policy. The ASAv orders the settings from the "most secure" to the "least secure" and negotiates with the peer using that order.
 
 ```sh
-# Create IPsec policy, IKEv2 support multiple proposals 
+# Create IPsec policy, IKEv2 support multiple proposals
 crypto ipsec ikev2 ipsec-proposal ibm-vpc-proposal
  protocol esp encryption aes-256
  protocol esp integrity sha-256

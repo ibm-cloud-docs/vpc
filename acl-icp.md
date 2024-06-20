@@ -1,11 +1,10 @@
 ---
 
 copyright:
-  years: 2019, 2023
+  years: 2019, 2024
+lastupdated: "2024-06-20"
 
-lastupdated: "2023-01-26"
-
-keywords:  
+keywords:
 
 subcollection: vpc
 

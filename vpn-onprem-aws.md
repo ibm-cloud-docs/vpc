@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-06-01"
+  years: 2020, 2024
+lastupdated: "2024-06-20"
 
 keywords: aws peer, vpn aws
 
@@ -23,7 +23,7 @@ Because AWS requires PFS to be enabled in Phase 2, you must create a custom IPse
 
 When the AWS VPN receives a connection request from VPN for VPC, AWS VPN uses IPsec Phase 1 parameters to establish a secure connection and authenticate the {{site.data.keyword.vpn_vpc_short}} gateway. Then, if the security policy permits the connection, the AWS VPN establishes the tunnel by using IPsec Phase 2 parameters and applies the IPsec security policy. Key management, authentication, and security services are negotiated dynamically through the IKE protocol.
 
-Review the [VPN gateway limitations](/docs/vpc?topic=vpc-vpn-limitations) before you connect to your on-prem peer. 
+Review the [VPN gateway limitations](/docs/vpc?topic=vpc-vpn-limitations) before you connect to your on-prem peer.
 {: note}
 
 To support these functions, you must perform the following general configuration steps on the AWS VPN:
@@ -57,7 +57,7 @@ To configure an AWS peer, follow these steps:
 
      To reach multiple contiguous subnets in IBM VPC, use a larger CIDR range that covers all the required subnets.
      {: tip}
-     
+
    * Enter a pre-shared key for both **tunnel1** and **tunnel2**.
    * For both AWS tunnels, choose **Edit tunnel x options** and select the wanted security parameters. You can choose multiple values for each parameter if they are also supported by the IBM VPN.
 
@@ -67,7 +67,7 @@ To configure an AWS peer, follow these steps:
 
    The following image shows that networks `10.240.128.0/27` and `10.240.128.32/27` on the IBM VPC side are routed with the new destination `10.240.128.0/26`.
 
-   ![AWS connection static routes](images/vpn-aws-connection-static-routes.png){: caption="Figure 3: AWS connection static routes" caption-side="bottom"}   
+   ![AWS connection static routes](images/vpn-aws-connection-static-routes.png){: caption="Figure 3: AWS connection static routes" caption-side="bottom"}
 
 1. Go to AWS **Route tables** in the **Virtual private cloud** section and find the route table that is associated with the VPC where the VPN was attached. Click **Edit routes** and add the same route to the route table.
 
@@ -82,7 +82,7 @@ To configure an AWS peer, follow these steps:
 To configure an IBM policy-based VPN for an AWS peer, follow these steps:
 
 1. Create a new connection for one of the AWS tunnel IPs. Use a single CIDR for both **Local Subnets** and **Peer Subnets**.
- 
+
    Because AWS requires PFS to be _enabled_ in Phase 2, you must create a custom IPsec policy to replace the default policy for the VPN in your VPC. For more information, see [Creating a custom IPsec policy in {{site.data.keyword.vpn_vpc_short}}](/docs/vpc?topic=vpc-creating-ipsec-policy).
    {: important}
 
@@ -122,9 +122,9 @@ To configure an AWS peer, follow these steps:
 
 1. After the AWS site-to-site connections are in **Available** state, go to the **Static Routes** tab of each site-to-site connection to verify that the correct routes were added automatically. Make manual adjustments if necessary. The following images show that the network `10.248.0.0/24` is routed on both connections.
 
-   ![AWS connection static routes](images/vpn-aws-connection-static-routes-route-based-one.png){: caption="Figure 7: AWS connection static routes" caption-side="bottom"} 
+   ![AWS connection static routes](images/vpn-aws-connection-static-routes-route-based-one.png){: caption="Figure 7: AWS connection static routes" caption-side="bottom"}
 
-   ![AWS connection static routes](images/vpn-aws-connection-static-routes-route-based-two.png){: caption="Figure 8: AWS connection static routes" caption-side="bottom"} 
+   ![AWS connection static routes](images/vpn-aws-connection-static-routes-route-based-two.png){: caption="Figure 8: AWS connection static routes" caption-side="bottom"}
 
 1. Go to AWS **Route Tables** under **VIRTUAL PRIVATE CLOUD** and find the route table that is associated with the VPC where the VPN is attached. Click **Edit Routes** and add the same route to the route table.
 
@@ -138,18 +138,18 @@ To configure an AWS peer, follow these steps:
 
 To configure an IBM route-based VPN for an AWS peer, follow these steps:
 
-1. Create four new connections, one for each AWS tunnel IP. 
+1. Create four new connections, one for each AWS tunnel IP.
 
    Because AWS requires PFS to be enabled in Phase 2, you must create a custom IPsec policy to replace the default policy for the VPN in your VPC. For more information, see [Creating a custom IPsec policy in {{site.data.keyword.vpn_vpc_short}}](/docs/vpc?topic=vpc-creating-ipsec-policy).
    {: important}
-   
-1. Create four routes for each peer subnet with the **Next hop** option pointing to each connection you created in Step 1. Then set each route to a different **Priority** value. 
 
-   The route with the lowest **Priority** value is the priority route. 
+1. Create four routes for each peer subnet with the **Next hop** option pointing to each connection you created in Step 1. Then set each route to a different **Priority** value.
+
+   The route with the lowest **Priority** value is the priority route.
    {: note}
-   
+
    ![IBM routing table](images/vpn-aws-route-table-route-based-ibm.png){: caption="Figure 5: IBM routing table" caption-side="bottom"}
-   
+
 1. After the status for both connections shows **Active**, verify the traffic between your subnets.
 
    Verify that the preferred connection on AWS is the same as on IBM to avoid asymmetric routing.

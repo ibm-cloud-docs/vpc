@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-04-06"
+  years: 2020, 2024
+lastupdated: "2024-06-20"
 
 keywords: fortigate, fortigate peer
 
@@ -55,7 +55,7 @@ Here's an example of how to connect an IBM static, route-based VPN to a FortiGat
 1. To configure a primary tunnel, select **VPN > IPsec Tunnels** and create a new custom template type tunnel, or edit an existing tunnel.
 
    ![FortiGate connection primary tunnel creation](images/vpn-fortigate-create-primary.png){: caption="Figure 1: FortiGate connection primary tunnel creation" caption-side="bottom"}
-   
+
 1. To configure a peer IP of a primary tunnel, use the small public IP address of the IBM route-based VPN gateway as the remote gateway IP address.
 
    For more information about the small public IP, see this [important notice](/docs/vpc?topic=vpc-using-vpn#important-notice).

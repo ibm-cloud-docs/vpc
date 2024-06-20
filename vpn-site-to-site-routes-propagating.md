@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-06-05"
+lastupdated: "2024-06-20"
 
 keywords:  network, VPN, VPN gateways, encryption
 
@@ -27,7 +27,7 @@ Select **VPN gateway** in the following cases:
 ## Setting up a transit gateway with VPN for VPC
 {: #setup-tg-with-vpn-vpc}
 
-When you [create a transit gateway](/docs/transit-gateway?topic=transit-gateway-ordering-transit-gateway&interface=ui) to connect VPCs you must [create an ingress routing table](/docs/vpc?topic=vpc-create-vpc-routing-table&interface=ui) in the VPC where the VPN gateway exists. You must also make sure to select **VPN gateway** if you want VPN gateway routes propagated to it. In addition, you must turn the **Advertise to** switch to **On** when selecting **Transit gateway**. 
+When you [create a transit gateway](/docs/transit-gateway?topic=transit-gateway-ordering-transit-gateway&interface=ui) to connect VPCs you must [create an ingress routing table](/docs/vpc?topic=vpc-create-vpc-routing-table&interface=ui) in the VPC where the VPN gateway exists. You must also make sure to select **VPN gateway** if you want VPN gateway routes propagated to it. In addition, you must turn the **Advertise to** switch to **On** when selecting **Transit gateway**.
 
 After the connection is established, the route displays **On** in the Advertise column of the routing table. The on-prem routes are automatically advertised through the transit gateway after the ingress routing table accepts routes from the VPN gateway.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-01-27"
+lastupdated: "2024-06-20"
 
 subcollection: vpc
 
@@ -13,7 +13,7 @@ subcollection: vpc
 # FAQs for VPC
 {: #faqs-for-VPC}
 
-## Can I connect my VPC to my other IBM Cloud workloads?  
+## Can I connect my VPC to my other IBM Cloud workloads?
 {: #faq-vpc-0}
 {: faq}
 {: support}

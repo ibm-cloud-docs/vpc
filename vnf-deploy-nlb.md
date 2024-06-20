@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-01-27"
+  years: 2021, 2024
+lastupdated: "2024-06-20"
 
 keywords: load balancers, routing, VNF
 
@@ -26,19 +26,19 @@ To create an NLB and a service-to-service authentication policy for your NLB, fo
    * Click **Authorizations**, then click **Create**.
    * For the source service, select **VPC Infrastructure Services**. For scope access, select **Resources based on selected attributes > Resource Type > Load Balancer for VPC**.
    * For the target service, select **VPC Infrastructure Services**. For scope access, select **Resources based on selected attributes > Resource Type > Virtual Private Cloud**.
-   
+
    This IAM authorization is required only one time per account.
    {: note}
 
 1. To create an NLB with routing mode enabled, follow instructions in [Creating a network load balancer for VPC](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer).
 
-   To enable routing mode, select the **Private** type, then click the toggle button to enable routing mode. 
-   
-   You cannot modify this configuration after your NLB finishes provisioning. 
-   
+   To enable routing mode, select the **Private** type, then click the toggle button to enable routing mode.
+
+   You cannot modify this configuration after your NLB finishes provisioning.
+
    Currently, the NLB routing mode feature is available only with a private IP and supports only TCP and UDP data traffic.
    {: note}
-  
+
 ## Next step
 {: #next-step-nlb}
 

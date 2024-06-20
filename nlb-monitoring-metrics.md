@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-08-13"
+  years: 2020, 2024
+lastupdated: "2024-06-20"
 
 keywords: l7, layer 7, monitor, metrics, connection
 
@@ -147,7 +147,7 @@ To do so, follow these steps:
 
 7. Click **Create**. You are taken back to the monitoring metrics home page.
 
-Within a few minutes, your new monitoring instance is displayed with several configurations. You might have to refresh your browser to see it.  
+Within a few minutes, your new monitoring instance is displayed with several configurations. You might have to refresh your browser to see it.
 
 ## Working with the {{site.data.keyword.mon_full_notm}} dashboard
 {: #metrics-monitoring-nlb}
