@@ -31,6 +31,19 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-jun2024}
 {: release-note}
 
+UI Enhancements to Images for VPC
+:   The Images for VPC UI includes multiple enhancements. When you click any image name, a side panel is displayed for that specific image. From this Details page, you can review both the Details and IDs for the selected image. You can also click **Continue to provisioning** which takes you to **Virtual server for VPC**, where you can create a virtual server instance with the selected image.
+
+    Images for VPC also now includes the ability to filter the list of images with the following options:
+
+       - Region
+       - Operating system
+       - Architecture
+       - Deployment target
+       - Status
+
+When you select a catalog image on **Virtual server for VPC** to create a virtual server instance, you are now prompted to **Select version and pricing plan**. From here, you can select the version and pricing plan for the catalog image, which must be completed first. You can then select to **Save** the catalog image.
+
 IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-16` updates
 :   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-16`, new certificates are available.
    - [Attestation certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-16-attestation.crt){: external}
