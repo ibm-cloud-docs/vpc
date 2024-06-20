@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-06-14"
+lastupdated: "2024-06-20"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -45,6 +45,7 @@ Use the following procedure to validate the attestation record and hashes:
 
     | Image version| Certificate link | Expiry date |
     | -------- | ----------- | ----------- |
+    | `ibm-hyper-protect-container-runtime-1-0-s390x-16` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-16-attestation.crt){: external} | 11 June 2025 |
     | `ibm-hyper-protect-container-runtime-1-0-s390x-15` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-15-attestation.crt){: external} | 8 March 2025 |
     | `ibm-hyper-protect-container-runtime-1-0-s390x-14` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-14-attestation.crt){: external} | 29 November 2024 |
     | `ibm-hyper-protect-container-runtime-1-0-s390x-13` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-13-attestation.crt){: external} | 02 November 2024 |
@@ -54,7 +55,7 @@ Use the following procedure to validate the attestation record and hashes:
 * Extract the encryption public key from the encryption certificate by using the following command:
 
    ```sh
-   openssl x509 -pubkey -noout -in ibm-hyper-protect-container-runtime-1-0-s390x-15-attestation.crt > contract-public-key.pub
+   openssl x509 -pubkey -noout -in ibm-hyper-protect-container-runtime-1-0-s390x-16-attestation.crt > contract-public-key.pub
    ```
    {: pre}
 
@@ -158,18 +159,17 @@ sha256sum <file>
 
 The following snippet is an example of an attestation document:
 ```text
-24.3.3
-Machine Type/Plant/Serial: 8562/02/4C598
-0bf377eea1136f03cbd5fbb1f2d12bb9a40a3e9f97a8438196b549fdafd0786e root.tar.gz
-4330056bbbf5d53d48fa167f0f46bf4501b8ee42bd926e1a8b6c25d210cd1baf baseimage
-10e105cc6b96ceb40b84bebf9a9717f4b8ec2d5af64c95ebf5177ef77acbdd59 /dev/disk/by-label/cidata
-d983daaf51a2d42b9f102afdf8751863d9668db8abf5148a59520169e171205c cidata/meta-data
-595865b1fe21548e95abf65ecb5c4d54fe507ff2ef64d02ed1b1109848a7ed38 cidata/user-data
-3bee754bb0c58bb691242b0d1787bc5b1f71d22885d9444b581e4b51adecac0d cidata/vendor-data
-d5f677c156ef070df2685575c1a3ef4ebec5dfad02fa19239846adb1764918b7 env
-2001d3ea193abbe23a4217effceec1ba4824a6e3c1a33396371244dbf8abaae9 workload
-d388326d90583b2140831e821311aedaee1ad4b4e721b458f8769d3f9267b0dc attestationPublicKey
-
+24.6.9
+Machine Type/Plant/Serial: 8561/02/5C5E8
+6e5e23133ef161e13cbdad20a4192451a1d0fbd194d233616d7411fe1cb15738 root.tar.gz
+f9940321d043d133ddf2f22cd4794bc56be9d54b2e9c7893a6d6a4813635024c baseimage
+0853912bb4fd90df0ffbd74a8884e167a636863bb9b0cd3bfb87601cfcd6056b /dev/disk/by-label/cidata
+7c3af37930f738eb4f79b88952333c949ac294dafd07fbc982d29e2be63e337b cidata/meta-data
+700f449ffef6a4550a40131f7a34d513ba1bb6b88b2caf7b30eb08b068492bc8 cidata/user-data
+5a2b8897d00e4f03436494a36304776a637bf3f134ae10107f2a47e9859ed0fb cidata/vendor-data
+bb66b161d095e4cf336ebef4f7bd000ff9631ca2d1f427dd1f88e8ba6cfa0baf contract: attestationPublicKey
+29e960acaa5d974b9e5aafac6d60b8a0a761a599bafc83943817524b67cc4add contract: env
+aaa783bd64a5822966be37847f6de3ad1f513044c8a894223c731d525a570b62 contract: workload
 ```
 {: codeblock}
 
@@ -183,7 +183,11 @@ d388326d90583b2140831e821311aedaee1ad4b4e721b458f8769d3f9267b0dc attestationPubl
 
 The `baseimage` is the IBM internal QEMU Copy On Write Version 2 (QCOW2) file, which is used as the source for most of the operating system files of the Hyper Protect Container Runtime image. It is used only at image build time by the enabler process. The enabler uses this source together with other Debian packages to create the `root.tar.gz` and the encrypted secure execution kernel or 'initrd' image.
 
-
+The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-16 `baseimage`:
+```sh
+f9940321d043d133ddf2f22cd4794bc56be9d54b2e9c7893a6d6a4813635024c baseimage
+```
+{: pre}
 
 The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-15 `baseimage`:
 ```sh
@@ -204,7 +208,11 @@ The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x
 
 The `root.tar.gz` is part of the final secure execution enabled IBM Hyper Protect Container Runtime image and contains all operating system files. It is stored on the image's first partition (boot partition) as `/boot/root.tar.gz`.
 
-
+The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-16 `root.tar.gz`.
+```sh
+6e5e23133ef161e13cbdad20a4192451a1d0fbd194d233616d7411fe1cb15738 root.tar.gz
+```
+{: pre}
 
 The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-15 `root.tar.gz`.
 ```sh
@@ -231,10 +239,9 @@ The `/dev/disk/by-label/cidata` is a block device that is attached to the runnin
 
 All the files in `cidata` copied are from the `/dev/disk/by-label/cidata` block device that is provided by VPC.
 ```sh
-6dc2640b909f4077b17059f3edc1d0f3c1d286f4afc9f3d28f9ee9e72509ca51 cidata/meta-data
-272aa3529571b4fc592bf89e9242d3f57ae8ff29fb514c4ee6d7ce1eeb2ac1ee cidata/user-data
-baef972e58d4362d97f822d8ff4c5339c5898a0dc184d88d29e5b010b9835ed6 cidata/vendor-data
-
+7c3af37930f738eb4f79b88952333c949ac294dafd07fbc982d29e2be63e337b cidata/meta-data
+700f449ffef6a4550a40131f7a34d513ba1bb6b88b2caf7b30eb08b068492bc8 cidata/user-data
+5a2b8897d00e4f03436494a36304776a637bf3f134ae10107f2a47e9859ed0fb cidata/vendor-data
 ```
 {: codeblock}
 
@@ -243,8 +250,7 @@ baef972e58d4362d97f822d8ff4c5339c5898a0dc184d88d29e5b010b9835ed6 cidata/vendor-d
 
 The `attestationPublicKey` is the public key that you provide which is used to encrypt the attestation document. The `attestationPublicKey` is part of the user-data file. Encrypting the attestation document is optional.
 ```sh
-d388326d90583b2140831e821311aedaee1ad4b4e721b458f8769d3f9267b0dc attestationPublicKey
-
+bb66b161d095e4cf336ebef4f7bd000ff9631ca2d1f427dd1f88e8ba6cfa0baf contract: attestationPublicKey
 ```
 {: pre}
 
