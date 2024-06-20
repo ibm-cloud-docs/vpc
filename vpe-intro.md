@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-05-09"
+  years: 2020, 2024
+lastupdated: "2024-06-20"
 
 keywords: virtual private endpoints, endpoint gateway, VPE
 subcollection: vpc
@@ -54,12 +54,12 @@ As more {{site.data.keyword.cloud_notm}} services are enabled for VPE for VPC, e
 ### Single-zone topology
 {: #single-zone-topology}
 
-![VPE single-zone topology](/images/vpe-single-zone.png){: caption="Figure 1. VPE single-zone topology" caption-side="bottom}
+![VPE single-zone topology](images/vpe-single-zone.png){: caption="Figure 1. VPE single-zone topology" caption-side="bottom}
 
 ### Multi-zone topology
 {: #multi-zone-topology}
 
-![VPE multi-zone topology](/images/vpe-multi-zone.png){: caption="Figure 2. VPE multi-zone topology" caption-side="bottom}
+![VPE multi-zone topology](images/vpe-multi-zone.png){: caption="Figure 2. VPE multi-zone topology" caption-side="bottom}
 
 ## Getting started
 {: #vpe-getting-started}

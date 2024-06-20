@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-14"
+lastupdated: "2024-06-20"
 
 keywords: custom routes
 
@@ -25,11 +25,11 @@ You can update a routing table using the UI, CLI, API, or Terraform.
 To update a routing table in the UI, follow these steps:
 
 1. Make sure to review [Limitations and guidelines](/docs/vpc?topic=vpc-about-custom-routes&interface=ui#limitations-custom-routes).
-1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, Select the Menu icon ![Navigation Menu](/images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appears.
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, Select the Menu icon ![Navigation Menu](images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appears.
 1. Locate the routing table in the table. You can:
 
    * Use the Actions menu ![Actions menu](images/overflow.png) to rename or delete the routing table.
-   * Click the routing table's name to view its details page. From here, you can click the Edit icon ![Edit icon](/images/edit.png) to rename the routing table, click the Actions menu to delete the routing table, or click the Edit icon ![Edit icon](/images/edit.png) in the Traffic section to edit the traffic configuration and manage routes.
+   * Click the routing table's name to view its details page. From here, you can click the Edit icon ![Edit icon](images/edit.png) to rename the routing table, click the Actions menu to delete the routing table, or click the Edit icon ![Edit icon](images/edit.png) in the Traffic section to edit the traffic configuration and manage routes.
 
 ## Updating a routing table from the CLI
 {: #cr-update-the-cli-ct}

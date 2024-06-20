@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-02-14"
+lastupdated: "2024-06-20"
 
 keywords:
 
@@ -61,7 +61,7 @@ To configure your security group by using the UI, follow these steps:
 
 In this example, you create a virtual server instance with a security group that is enabled by using the command-line interface (CLI). Figure 1 shows what this scenario looks like.
 
-![Figure showing a virtual server instance with a security group enabled](/images/security-groups-schematic.svg){: caption="Figure 1. Instance with security group enabled" caption-side="bottom"}
+![Figure showing a virtual server instance with a security group enabled](images/security-groups-schematic.svg){: caption="Figure 1. Instance with security group enabled" caption-side="bottom"}
 
 Notice in Figure 1 that the instance named **SG4** has the floating IP `169.60.208.144` assigned to it, in addition to its internal VPC address `10.10.10.5`; therefore, **SG4** can talk to the public internet. The security group assigned to instance **SG4** is named `demosg`.
 

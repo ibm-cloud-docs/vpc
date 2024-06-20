@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-05-28"
+lastupdated: "2024-06-20"
 
 keywords:
 
@@ -103,11 +103,11 @@ It's also possible to create a VNI in the context of provisioning each of these 
 
 Virtual network interfaces reduce the time required to switch to a failover instance. In a virtual server instance that doesn't use virtual network interfaces, a failover requires routing changes that can take several minutes to propagate. In the following example, you have a primary virtual server instance configured with a network interface, and a backup virtual server instance that has its own network interface. If the primary virtual server instance fails, you must bring the backup virtual server instance online, and reconfigure your routes to use the backup instance's network interface.
 
-![Traditional method of using network interfaces](/images/vni-use-case2.svg "Traditional network interface workflow"){: caption="Figure 1. Traditional network interface workflow" caption-side="bottom"}
+![Traditional method of using network interfaces](images/vni-use-case2.svg "Traditional network interface workflow"){: caption="Figure 1. Traditional network interface workflow" caption-side="bottom"}
 
 By using a virtual network interface, you can move it from one instance to another. The independent lifecycle of the virtual network interface means that it keeps its IP address and you don't have to reconfigure your routes, reducing failover time to seconds.
 
-![Virtual network interfaces method](/images/vni-use-case1.svg "Virtual network interface workflow"){: caption="Figure 2. Virtual network interface workflow" caption-side="bottom"}
+![Virtual network interfaces method](images/vni-use-case1.svg "Virtual network interface workflow"){: caption="Figure 2. Virtual network interface workflow" caption-side="bottom"}
 
 ## Use case 2: Secondary IP addresses with virtual network interfaces
 {: #vni-secip-use-case}
@@ -116,7 +116,7 @@ A virtual server instance that runs several instances of an application can be s
 
 For this example, a single virtual server instance is running three instances of a SQL database application. Each SQL instance needs to have its own IP address. By using secondary IP addresses on a virtual network interface, you can assign different IP addresses to each application instance.
 
-![Secondary IP addresses in a virtual network interface](/images/vni-use-case3.svg "Virtual network interface using secondary IP addresses"){: caption="Figure 3. Secondary IP addresses in a virtual network interface" caption-side="bottom"}
+![Secondary IP addresses in a virtual network interface](images/vni-use-case3.svg "Virtual network interface using secondary IP addresses"){: caption="Figure 3. Secondary IP addresses in a virtual network interface" caption-side="bottom"}
 
 ## Support for old API clients
 {: #vni-old-api-clients}

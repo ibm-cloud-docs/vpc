@@ -53,7 +53,7 @@ Datapath to members
 
 Use Figure 1 to help you (the User) choose the right load balancer for your requirements.
 
-![Load balancer decision tree](/images/loadbalancer_decision_tree.svg "Choosing a load balancer"){: caption="Figure 1: Choosing a network load balancer" caption-side="bottom"}
+![Load balancer decision tree](images/loadbalancer_decision_tree.svg "Choosing a load balancer"){: caption="Figure 1: Choosing a network load balancer" caption-side="bottom"}
 
 ### Private Path network load balancers
 {: #load-balancer-pplb}
