@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2024-02-16"
+  years: 2020, 2024
+lastupdated: "2024-06-20"
 
 keywords:
 
@@ -106,12 +106,12 @@ To receive monitoring metrics, use the following steps:
 
 7. Click **Create**. You are taken back to the monitoring metrics home page.
 
-Within a few minutes, your new monitoring instance is displayed with several configurations. You might have to refresh your browser to see it.  
+Within a few minutes, your new monitoring instance is displayed with several configurations. You might have to refresh your browser to see it.
 
 ## Accessing and viewing metrics
 {: #viewing-metrics-fl}
 
 To view metrics for a specific flow log, follow these steps:
 
-1. From the Flow logs for VPC page, click the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg) associated with the flow log. Then, select **Monitoring** from the menu.  
-1. Launch the Monitoring dashboard. 
+1. From the Flow logs for VPC page, click the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg) associated with the flow log. Then, select **Monitoring** from the menu.
+1. Launch the Monitoring dashboard.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-03-12"
+lastupdated: "2024-06-20"
 
 keywords:
 
@@ -27,4 +27,3 @@ You are responsible for configuring the same secondary IP addresses on the inter
 {: #configuring-secondary-ips-for-vni}
 
 You must configure the primary IP address when creating a virtual network interface. You can configure additional (secondary) reserved IP addresses when creating the virtual network interface, or you can later add secondary IP addresses individually. All secondary IP addresses must be in the same subnet as the primary IP address. The total number of IP addresses on a virtual network interface is limited by [quota](/docs/vpc?topic=vpc-quotas#virtual-network-interfaces-quotas).
-

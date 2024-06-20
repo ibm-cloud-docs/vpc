@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-07-07"
+  years: 2022, 2024
+lastupdated: "2024-06-20"
 
 keywords:
 
@@ -37,7 +37,7 @@ You can use both authentication methods together to authenticate client access. 
 
 To authenticate with a username or passcode, be aware of the following:
 
-* This option requires VPN client users to authenticate with your wanted MFA method before a valid passcode can be acquired and used for a VPN connection. It can be configured from the IAM Authentication section (**Manage > Access (IAM) > Settings > Authentication**). For more information, see [Enabling multifactor authentication](/docs/account?topic=account-enablemfa). 
+* This option requires VPN client users to authenticate with your wanted MFA method before a valid passcode can be acquired and used for a VPN connection. It can be configured from the IAM Authentication section (**Manage > Access (IAM) > Settings > Authentication**). For more information, see [Enabling multifactor authentication](/docs/account?topic=account-enablemfa).
 * Username/passcode authentication requires a user to have the IAM VPN server user role. For more information, see [Creating an IAM access group and granting the role to connect to the VPN server](/docs/vpc?topic=vpc-create-iam-access-group). You must configure IAM access groups or access policies to enable this role only for users that require VPN access.
 
 ### Authenticating with client certificates
@@ -52,11 +52,11 @@ To authenticate with client certificates, be aware of the following:
 ## Additional VPN server configurations
 {: #vpn-server-additional-configurations}
 
-Client-to-site VPN servers support a number of additional options that you can configure for improved security and to meet compliance requirements. For more information, see [Creating a VPN server](/docs/vpc?topic=vpc-vpn-create-server) and [Planning considerations for VPN servers](/docs/vpc?topic=vpc-client-to-site-vpn-planning). 
+Client-to-site VPN servers support a number of additional options that you can configure for improved security and to meet compliance requirements. For more information, see [Creating a VPN server](/docs/vpc?topic=vpc-vpn-create-server) and [Planning considerations for VPN servers](/docs/vpc?topic=vpc-client-to-site-vpn-planning).
 
 You should be aware of the following issues with VPN server configurations:
 
-* VPN servers support client idle timeout. By default, a VPN client connection disconnects after 10 minutes without active traffic. You can edit the timeout to add your required value. 
-* Enable full-tunnel mode on VPN servers. Full-tunnel mode is more secure and preferred, especially if connecting from an untrusted network. In full-tunnel mode, all traffic from a VPN client is routed to the VPN server. 
+* VPN servers support client idle timeout. By default, a VPN client connection disconnects after 10 minutes without active traffic. You can edit the timeout to add your required value.
+* Enable full-tunnel mode on VPN servers. Full-tunnel mode is more secure and preferred, especially if connecting from an untrusted network. In full-tunnel mode, all traffic from a VPN client is routed to the VPN server.
 * Configure the transport protocol and VPN ports. In some cases, you might not want to leave well-known ports, such as TCP/443, open. Edit this option to use a non-default transport protocol and VPN ports.
 * Configure IBM Log Analysis and Activity Tracker to receive and analyze VPN server logs. For more information, see [Using IBM Log Analysis to view VPN server logs](/docs/vpc?topic=vpc-client-vpn-log-analysis-c2s) and [Activity Tracker events](/docs/vpc?topic=vpc-at-events&interface=ui#events-vpn-server).

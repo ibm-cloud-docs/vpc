@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-07-07"
+  years: 2021, 2024
+lastupdated: "2024-06-20"
 
 keywords:
 
@@ -12,11 +12,11 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# VPNs for VPC overview 
+# VPNs for VPC overview
 {: #vpn-overview}
 
-IBM Cloud has two VPN services. _VPN for VPC_ offers site-to-site gateways, which connect your on-premises network to the IBM Cloud VPC network. _Client VPN for VPC_ offers client-to-site servers, which allow clients on the internet to connect to VPN servers, while still maintaining secure connectivity. 
-{: shortdesc} 
+IBM Cloud has two VPN services. _VPN for VPC_ offers site-to-site gateways, which connect your on-premises network to the IBM Cloud VPC network. _Client VPN for VPC_ offers client-to-site servers, which allow clients on the internet to connect to VPN servers, while still maintaining secure connectivity.
+{: shortdesc}
 
 ## Site-to-site gateways
 {: #site-to-site-vpn-gateway}

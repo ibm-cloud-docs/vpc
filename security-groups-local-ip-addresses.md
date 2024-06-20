@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-05-14"
+lastupdated: "2024-06-20"
 
 keywords:
 
@@ -14,7 +14,7 @@ subcollection: vpc
 
 # Applying security group rules to source and destination IP addresses
 {: #security-groups-rules}
- 
+
 Security group rules now support local IP addresses. This means that rules can allow specific local IP addresses instead of allowing all local IP addresses. Security group rules support local IP addresses for both ingress and egress rules.
 {: shortdesc}
 

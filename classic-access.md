@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2018, 2024
-lastupdated: "2024-02-16"
+lastupdated: "2024-06-20"
 
 keywords: classic, access, classic access, VRF, peering
 
@@ -143,7 +143,7 @@ During migration, the VLANs are disconnected from the backbone and reconnected t
 To request conversion of your account to VRF, follow these steps:
 
 1. [Open a support case](/unifiedsupport/cases/add){: external} through the {{site.data.keyword.cloud_notm}} console.
-1. Select the **Virtual Private Cloud** tile. 
+1. Select the **Virtual Private Cloud** tile.
 1. Enter "Convert account to VRF for VPC Classic Access" as the subject.
 1. For the description, enter the following text:
    "We are requesting that account _your account number_ is moved to its own VRF. We understand the risks and approve the change. Please reply with the scheduled window(s) of time where this change will be made so we can prepare for the migration."

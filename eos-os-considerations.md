@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-03-27"
+lastupdated: "2024-06-20"
 
 keywords:
 
@@ -25,7 +25,7 @@ Follow the guidance from your OS vendor on when to upgrade. {{site.data.keyword.
 
 When you plan for an OS EOS, keep the following information in mind:
 
-* You can use the assistance of an IBM partner. 
+* You can use the assistance of an IBM partner.
 * You can upgrade your instances on your own.
 * Continue with your EOS OS (at your own risk).
 
@@ -41,10 +41,10 @@ If you decide to upgrade your OS yourself, you can use one of two options:
 
 - Side-by-side upgrade (migration).
 - In-place upgrade.
-   
+
    Make sure that you follow your OS vendor's guidance when you upgrade your OS.
    {: important}
-   
+
 #### Side-by-side upgrades
 {: #side-by-side-upgrade}
 

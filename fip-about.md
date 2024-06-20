@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-08-19"
+  years: 2022, 2024
+lastupdated: "2024-06-20"
 
 keywords: floating ip, about, public gateway
 
@@ -41,15 +41,15 @@ Table 1 summarizes the differences between the options:
 For secure external connectivity, use the VPN service to connect your VPC to another network. For more information about VPNs, see [Using VPN with your VPC](/docs/vpc?topic=vpc-using-vpn).
 {: tip}
 
-## Floating IPs use cases 
+## Floating IPs use cases
 {: #fip-use-cases}
 
-Creating a floating IP is a standard way for you to acquire external connectivity for your services. 
+Creating a floating IP is a standard way for you to acquire external connectivity for your services.
 
 ### Use case 1: External connectivity
 {: #fip-use-case-external-connectivity}
 
-You can create and assign a floating IP to a virtual server instance to provide your service with outbound connectivity to a third-party vendor service or external service. One floating IP can be assigned to multiple virtual server instances and subnets. 
+You can create and assign a floating IP to a virtual server instance to provide your service with outbound connectivity to a third-party vendor service or external service. One floating IP can be assigned to multiple virtual server instances and subnets.
 
 The following diagram demonstrates the difference in applying external connectivity to a service through a public gateway and a floating IP address. In this scenario, three virtual server instances are connecting to services and customers through a public gateway and floating IP address.
 

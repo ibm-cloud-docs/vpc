@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-01-27"
+lastupdated: "2024-06-20"
 
 keywords: virtual private cloud, private cloud network, placement group, placement group strategy, host spread, power spread, faq, faqs
 
@@ -15,12 +15,12 @@ subcollection: vpc
 # FAQs for Placement groups
 {: #faqs-for-placement-groups}
 
-## Can I assign my instance to more than one placement group?  
+## Can I assign my instance to more than one placement group?
 {: #faq-placement-groups-0}
 {: faq}
 {: support}
 
-No, an instance can be assigned to only one placement group. 
+No, an instance can be assigned to only one placement group.
 
 ## What is the maximum number of instances that I can have per placement group?
 {: #faq-placement-groups-1}

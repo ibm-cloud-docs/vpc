@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-04-10"
+lastupdated: "2024-06-20"
 
 keywords:
 
@@ -44,7 +44,7 @@ Network load balancers are only accessed by using a Virtual Private Endpoint (VP
 The following describes network ACL and security group behavior on the member side:
 
 Health checks of members
-:    Health check traffic is always allowed. The source IP of NLB health check traffic is the IP address of the default gateway of the subnet that the member resides in. 
+:    Health check traffic is always allowed. The source IP of NLB health check traffic is the IP address of the default gateway of the subnet that the member resides in.
 
 Datapath to members
 :    The traffic is subject to the security group or network ACL on the member network interface. The source IP of the traffic is the service gateway of the client, or of the CSE instance. Typically, a provider explicitly allows this traffic in the security group (`10/8` and relevant `161,166` CIDRs). Because the source IP is the service gateway of the client, it is (in theory) possible to allow or deny specific customer' VPCs in the security group or network ACL.
@@ -61,7 +61,7 @@ Use Figure 1 to help you (the User) choose the right load balancer for your requ
 The beta release of IBM Cloud Private Path services is only available to allowlisted users. Contact your IBM Support representative if you are interested in getting early access to this beta offering.
 {: beta}
 
-Private Path NLBs are required when you use [Private Path services](/docs/vpc?topic=vpc-private-path-service-intro) to keep network traffic on a private path that never intersects with the public internet. 
+Private Path NLBs are required when you use [Private Path services](/docs/vpc?topic=vpc-private-path-service-intro) to keep network traffic on a private path that never intersects with the public internet.
 
 Private Path services only work with Private Path NLBs.
 {: important}

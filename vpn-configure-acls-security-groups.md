@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-01-30"
+  years: 2020, 2024
+lastupdated: "2024-06-20"
 
 keywords:  VPN, network, encryption, authentication, algorithm, IKE, IPsec, policies, gateway
 
@@ -17,7 +17,7 @@ subcollection: vpc
 
 Access control lists (ACLs) and security groups can be configured on the VPN gateway's subnet where the VPN gateway is deployed, and other VPC subnets that communicate over the VPN tunnel.
 
-The following diagram illustrates packet flow through VPC network ACLs. 
+The following diagram illustrates packet flow through VPC network ACLs.
 
    ![Packet flow through VPC ACLs](images/vpc-traffic-flow.png){: caption="Figure 1. Packet flow through VPC ACLs" caption-side="bottom"}
 
@@ -85,4 +85,4 @@ Allow ICMP to the VPN gateway for troubleshooting. (Optional)
 ### NACL attached to create the virtual server instance
 {: #nacl-vsi}
 
-Same as [table 4](#rules-2). 
+Same as [table 4](#rules-2).

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-11-03"
+  years: 2023, 2024
+lastupdated: "2024-06-20"
 
 keywords:
 
@@ -29,7 +29,7 @@ A newer, updated version of your target service is available.
 {: tsSymptoms}
 
 A possible cause is that the provider needs to update their target service without deleting or disrupting the service they provide to their current consumers.
-{: tsCauses} 
+{: tsCauses}
 
 Follow these steps to troubleshoot this Private Path issue:
 {: tsResolve}

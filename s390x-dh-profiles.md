@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023
-lastupdated: "2023-12-18"
+lastupdated: "2024-06-20"
 
 keywords: dedicated host profiles, s390x
 
@@ -38,7 +38,7 @@ The Memory profile is best for memory intensive workloads, such as large caching
 
 The following Memory profile is available for dedicated hosts.
 
-| Dedicated host profile | vCPU | GiB RAM | Instance storage | 
+| Dedicated host profile | vCPU | GiB RAM | Instance storage |
 |---------|---------|---------| ---------|
 | mz2-host-40x320 | 40 | 320 | - |
 {: caption="Table 2. s390x memory profile options for dedicated hosts" caption-side="bottom"}
@@ -65,7 +65,7 @@ The first character represents the profile family. Different profile families ha
 - "b": balanced family, 1:4 ratio
 - "c": compute family (higher on the CPUs), 1:2 ratio
 - "m": memory family (higher on the memory), 1:16 ratio
-- "v": very high memory family (higher memory with instance storage), 1:14 ratio 
+- "v": very high memory family (higher memory with instance storage), 1:14 ratio
 - "u": ultra high memory family (higher memory with instance storage), 1:28 ratio
 
 The second character represents the CPU architecture.
@@ -77,7 +77,7 @@ The third character represents the generation of VPC the profile is for.
 
 The fourth character in the profile prefix, if it exists, represents a profile specialty.
 - "d": indicates that this profile creates a dedicated host with the capability to host virtual server instances that include instance storage.
-- "a": AMD manufactured 
+- "a": AMD manufactured
 
 The field after the first hyphen "-" represents the offering, in this example, the dedicated host offering.
 
@@ -110,4 +110,3 @@ ibmcloud is dedicated-host-profiles
 After you choose a profile, it's time to create a dedicated host.
 
 - [Creating a dedicated host](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances)
-

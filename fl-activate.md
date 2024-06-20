@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2021
-lastupdated: "2021-08-17"
+  years: 2019, 2024
+lastupdated: "2024-06-20"
 
 keywords: flow logs, activate, deactivate, suspend, resume
 
@@ -23,11 +23,11 @@ After you create a flow log collector, its default state is `Active`.
 {: #fl-managing-ui}
 {: ui}
 
-To suspend an `Active` flow log collector, click the Actions menu ![Actions menu](images/overflow.png) and select **Suspend**. 
+To suspend an `Active` flow log collector, click the Actions menu ![Actions menu](images/overflow.png) and select **Suspend**.
 
-Suspending the flow log stops the flow log from writing to the {{site.data.keyword.cos_full}} bucket.   
+Suspending the flow log stops the flow log from writing to the {{site.data.keyword.cos_full}} bucket.
 
-To resume a suspended flow log, select **Resume** from the Actions menu ![Actions menu](images/overflow.png). 
+To resume a suspended flow log, select **Resume** from the Actions menu ![Actions menu](images/overflow.png).
 
 ## Suspending and resuming a flow log collector from the CLI
 {: #fl-managing-cli}
@@ -61,11 +61,11 @@ To suspend and resume flow log collectors by using the API, follow these steps:
    export FlowLogID01="<your_flow_log_id>"
    ```
    {: pre}
-    
+
 1. Choose either to suspend or resume a flow log:
 
    * To suspend a flow logs collector:
-   
+
       ```sh
       curl -s -X PATCH \
       "$vpc_api_endpoint/v1/flow_log_collectors/$FlowLogID01?version=$api_version&generation=2" \
@@ -75,7 +75,7 @@ To suspend and resume flow log collectors by using the API, follow these steps:
       {: pre}
 
    * To resume a flow log collector's operation:
-   
+
       ```sh
       curl -s -X PATCH \
       "$vpc_api_endpoint/v1/flow_log_collectors/$FlowLogID01?version=$api_version&generation=2" \

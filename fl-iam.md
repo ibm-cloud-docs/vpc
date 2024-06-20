@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-01-30"
+  years: 2020, 2024
+lastupdated: "2024-06-20"
 
 keywords: flow logs, IAM
 
@@ -19,7 +19,7 @@ Access to {{site.data.keyword.cloud}} Flow Logs service instances for users in y
 Policies enable access to be granted at different levels. The following are some of the included options:
 
 * Access across all instances of the service in your account
-* Access to an individual service instance in your account   
+* Access to an individual service instance in your account
 
 After you define the scope of the access policy, you assign a role, which determines the user's level of access. Review the following tables that outline the actions that each role allows within the Flow Logs service.
 
@@ -43,7 +43,7 @@ Only one operator role is needed, as determined by the scope of your flow log co
 In addition, you also require the following actions and operations that are not specific to {{site.data.keyword.cloud_notm}} Flow Logs.
 
 | Role                | Description of actions    |
-| ---------------------------- | --------------------------- |  
+| ---------------------------- | --------------------------- |
 | Writer on {{site.data.keyword.cos_short}} bucket | Create flow log collector |
 | Operator on Subnet     | Create flow log collector with Subnet scope    |
 | Operator on VPC    | Create flow log collector with VPC scope    |
@@ -53,11 +53,11 @@ In addition, you also require the following actions and operations that are not 
 Operator roles in the following table are required only if the target scope is being changed.
 {: important}
 
-| Role                   | When needed                 |  
-| ---------------------------- | --------------------------- |  
-| Writer on {{site.data.keyword.cos_short}} bucket | (Change {{site.data.keyword.cos_short}} bucket) |  
-| Operator on Subnet     | (To Subnet scope)           |  
-| Operator on VPC        | (To VPC scope)              |  
+| Role                   | When needed                 |
+| ---------------------------- | --------------------------- |
+| Writer on {{site.data.keyword.cos_short}} bucket | (Change {{site.data.keyword.cos_short}} bucket) |
+| Operator on Subnet     | (To Subnet scope)           |
+| Operator on VPC        | (To VPC scope)              |
 | Operator on virtual server instance | (To Instance or Interface scope) |
 {: caption="Table 3. IAM roles only if the target scope is being changed" caption-side="bottom"}
 

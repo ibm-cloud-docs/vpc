@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-03-13"
+lastupdated: "2024-06-20"
 
 keywords: hyper protect container runtime, error messages, troubleshooting
 
@@ -16,7 +16,7 @@ subcollection: vpc
 # Error messages
 {: #hpcr-msgs}
 
-The following list shows the error messages from Hyper Protect Container Runtime. 
+The following list shows the error messages from Hyper Protect Container Runtime.
 
 - **HPL02002E**:
    - Name: LUKS_FORMAT_FAILED
@@ -188,14 +188,14 @@ The following list shows the error messages from Hyper Protect Container Runtime
    - User Action: Consult console logs for root cause.
 - **HPL18002W**:
    - Name: KEY_NOT_VALID_WARNING
-   - Message: {datavolume} : Key is in invalid state - {keystate} 
+   - Message: {datavolume} : Key is in invalid state - {keystate}
    - Explanation: HPCS key poll detected key in invalid state
    - System Action: waits for timeout before recheck and reboots on failure
    - User Action: check logs for more information
 - **HPL18003W**:
    - Name: REBOOT_WARNING
-   - Message: {datavolume} : Triggering VSI Reboot 
-   - Explanation: Reboot triggered by Keydaemon Failure 
+   - Message: {datavolume} : Triggering VSI Reboot
+   - Explanation: Reboot triggered by Keydaemon Failure
    - System Action: Reboots VSi in few seconds
    - User Action: check logs for more information
 - **HPL10000E**:

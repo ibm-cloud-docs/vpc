@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-03-18"
+lastupdated: "2024-06-20"
 
 keywords:
 
@@ -48,7 +48,7 @@ Add `0.0.0.0/0` as a route to enable clients access to the internet.
    * For an on-premises network, enter the IPv4 CIDR range of the site-to-site gateway connection.
    * For the VPC subnet, enter the VPC subnet CIDR.
 1. Choose an action:
-   * **Deliver** - Use when the route destination is in the VPC, or an on-premises private subnet connected using VPN gateway. When VPN routes use the Deliver action, the client IP is preserved. 
+   * **Deliver** - Use when the route destination is in the VPC, or an on-premises private subnet connected using VPN gateway. When VPN routes use the Deliver action, the client IP is preserved.
    * **Drop** - Use when you want to block traffic from the client, to forward unwanted or undesirable network traffic to a null or "black hole" route.
    * **Translate** - Use to translate the source IP to the VPN server private IP before it is sent out from the VPN server, making your VPN client IP invisible to the destination devices.
 1. Click **Create**.

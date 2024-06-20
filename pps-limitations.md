@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-05-03"
+lastupdated: "2024-06-20"
 
 keywords:
 
@@ -27,6 +27,3 @@ The beta release of IBM Cloud Private Path services is only available to allowli
 {: #ppsg-limitations-related-links}
 
 * [Network load balancer limitations](/docs/vpc?topic=vpc-nlb-limitations)
-
-
-

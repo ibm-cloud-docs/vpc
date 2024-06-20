@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021, 2023
-lastupdated: "2023-01-27"
+lastupdated: "2024-06-20"
 
 keywords: virtual private cloud, private cloud network, cloud-native, workloads, high availability, generation 2, placement group, host spread, power spread
 
@@ -11,13 +11,13 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# About placement groups 
+# About placement groups
 {: #about-placement-groups-for-vpc}
 
 ## Overview
 {: #overview-placement-groups-for-vpc}
 
-Placement groups for {{site.data.keyword.vpc_full}} are used to create placement strategies for managing high availability workloads. A placement group contains virtual server instances that share a common placement strategy. Placement strategies influence the physical placement of select VPC resources to meet certain workload demands. 
+Placement groups for {{site.data.keyword.vpc_full}} are used to create placement strategies for managing high availability workloads. A placement group contains virtual server instances that share a common placement strategy. Placement strategies influence the physical placement of select VPC resources to meet certain workload demands.
 {: shortdesc}
 
 Placement groups and their assigned resources can be managed by using the UI, CLI, API, and Terraform. A placement group can have 1 of two placement strategies: [host spread](#host-spread-placement-groups-for-vpc) or [power spread](#power-spread-placement-groups-for-vpc). With a VPC resource called `placement-groups`, you can create a policy for placing groups of instances together. The `placement-groups` resource is then added to the service `is.placement-groups`. For more information about actions that are related to placement group resources, see the placement group events section in [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-placement-group).
@@ -27,11 +27,11 @@ After the placement group is created, a selected virtual server instance or a gr
 ### Benefits
 {: #placement-groups-benefits}
 
-Placement groups give you a measure of control over the host on which a new public virtual server is placed in relation to other virtual servers in the same placement group. 
+Placement groups give you a measure of control over the host on which a new public virtual server is placed in relation to other virtual servers in the same placement group.
 
-They support high availability workloads by making sure that virtual server instances in the group do not share a physical host or power supply. This technology is an added layer of assuredness for the resiliency of your virtual server instances if an unexpected power disruption or host failure occurs.  
+They support high availability workloads by making sure that virtual server instances in the group do not share a physical host or power supply. This technology is an added layer of assuredness for the resiliency of your virtual server instances if an unexpected power disruption or host failure occurs.
 
-You can build a workload high availability application within a data center knowing that your virtual servers are isolated from each other. You can be assured that your applications are provisioned on the cloud data center infrastructure to maximize availability with unique host server hardware. 
+You can build a workload high availability application within a data center knowing that your virtual servers are isolated from each other. You can be assured that your applications are provisioned on the cloud data center infrastructure to maximize availability with unique host server hardware.
 
 ## Understanding placement strategies
 {: #understand-placement-strategies}
@@ -76,7 +76,7 @@ When an instance is resized, the instance is stopped, the profile is updated, an
 * Workload needs to optimize topology-aware applications.
    * Issue: Modern database uses triple replication for redundancy therefore must make sure that performance for database components while also optimizing high availability for replicate parts of the database.
    * Solution: Use power spread placement group policy to group database components on different power supplies.
-   
+
 ## Limitations
 {: #limitations-placement-groups-for-vpc}
 
@@ -88,14 +88,14 @@ When an instance is resized, the instance is stopped, the profile is updated, an
 
 The following are the restrictions for placement groups:
 
-- The placement group placement strategy can't be modified after the placement group is created. 
+- The placement group placement strategy can't be modified after the placement group is created.
 - The placement group must be deleted and created with a new placement strategy.
-- A placement group can't be deleted if it is attached to one or more instances. 
+- A placement group can't be deleted if it is attached to one or more instances.
 
 The following are the restrictions for instances that are attached to a placement group:
 
 - An instance can be in only one placement group.
-- Instances that are provisioned with placement group strategies do not work with dedicated hosts. 
+- Instances that are provisioned with placement group strategies do not work with dedicated hosts.
 - After an instance is placed, the assigned placement of that instance does not change based on placement of other instances.
 - After an instance is started, the associated placement group strategy can't be changed.
 - Instances can't be removed from a placement group or assigned to a different placement group. Instances must be deleted to remove the instance from the placement group.
@@ -103,4 +103,3 @@ The following are the restrictions for instances that are attached to a placemen
 - If an instance fails to provision due to lack of capacity, the instance placement is not automatically retried. You can stop and then start the instance to retry provisioning.
 
 For more information about deleting a virtual private cloud instance and its associated resources, see [Deleting a VPC](/docs/vpc?topic=vpc-deleting).
-

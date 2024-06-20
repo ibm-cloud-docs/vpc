@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2022
-lastupdated: "2022-01-06"
+  years: 2018, 2024
+lastupdated: "2024-06-20"
 
 keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, layer 7, compression
 subcollection: vpc
@@ -117,9 +117,9 @@ The HTTP/2 protocol is not yet supported for back-end pools. However, HTTP and H
 ## Compression (HTTP/HTTPS only)
 {: #compression}
 
-HTTP/HTTPS compression allows you to compress the data being transmitted to your users using gzip.  
+HTTP/HTTPS compression allows you to compress the data being transmitted to your users using gzip.
 
-To compress transmitted data with an ALB, the request header must contain `Accept-Encoding: gzip` and its MIME type must be either `text/html`, `text/plain` or `text/xml`.  
+To compress transmitted data with an ALB, the request header must contain `Accept-Encoding: gzip` and its MIME type must be either `text/html`, `text/plain` or `text/xml`.
 
 ## Enabling proxy protocol
 {: #proxy-protocol-enablement}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2021
-lastupdated: "2021-08-16"
+  years: 2019, 2024
+lastupdated: "2024-06-20"
 
 keywords:
 
@@ -48,7 +48,7 @@ To send IBM Cloud VPN for VPC logs in to an instance of {{site.data.keyword.la_f
 
 To view the {{site.data.keyword.cloud_notm}} {{site.data.keyword.vpn_vpc_short}} logs in the {{site.data.keyword.la_full_notm}} instance:
 
-1. Open the {{site.data.keyword.la_full_notm}} instance dashboard. 
+1. Open the {{site.data.keyword.la_full_notm}} instance dashboard.
 1. Apply the source filter for **is.vpn** to filter logs from {{site.data.keyword.vpn_vpc_short}}.
 1. Click the **Sources** filter menu.
 1. Click **Apply**.

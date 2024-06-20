@@ -2,7 +2,7 @@
 
 copyright:
   years:  2024
-lastupdated: "2024-01-25"
+lastupdated: "2024-06-20"
 
 keywords: status, health status
 
@@ -22,7 +22,7 @@ When viewing the list of VPCs in IBM Cloud VPC, there are columns for the VPC st
 {: #monitor-vpc-status}
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Network > VPCs**.
-2. For each Virtual Private Cloud in the table, refer to columns for **Status** and **Health status**. See the following sections for available statuses and definitions. 
+2. For each Virtual Private Cloud in the table, refer to columns for **Status** and **Health status**. See the following sections for available statuses and definitions.
 
 ## VPC resource status
 {: #vpc-resource-status}
@@ -53,5 +53,3 @@ The following table shows the possible VPC health statuses and a description of 
 | Healthy         | No abnormal behavior detected.|
 | Inapplicable    | The health state doesn't apply because of the current lifecycle status of the resource. For example, a lifecycle status of `deleting` will have a health state of `inapplicable`.|
 {: caption="Table 2: Health status descriptions" caption-side="bottom"}
-
-

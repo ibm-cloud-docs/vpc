@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-01-27"
+  years: 2022, 2024
+lastupdated: "2024-06-20"
 
 keywords:
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # About HA VNF deployments
 {: #about-vnf-ha}
 
-Support for a highly available, highly resilient VNF can be achieved by using the routing mode feature of the IBM Cloud Network Load Balancer (NLB) for VPC. The following use cases illustrate the use of this feature and also include other resources, such as a transit gateway or direct link (depending on the topology of your environment). 
+Support for a highly available, highly resilient VNF can be achieved by using the routing mode feature of the IBM Cloud Network Load Balancer (NLB) for VPC. The following use cases illustrate the use of this feature and also include other resources, such as a transit gateway or direct link (depending on the topology of your environment).
 {: shortdesc}
 
 The following use cases are not a comprehensive list of supported topologies.
@@ -32,7 +32,7 @@ The following resources are configured:
 * **VPC-spoke#1** contains a private IBM Cloud Application Load Balancer (ALB) for VPC with a pool that contains the workload subnets for **zone1** (`10.174.0.0/24`) and **zone2** (`10.174.4.0/24`).
 * **VPC-spoke#2** contains a private ALB with a pool that contains the workload subnet for **zone1** (`10.174.2.0/24`).
 * A transit gateway manages the interconnections between the hub and spokes.
-* IP spoofing on the VNF interface is the next hop in the hub. 
+* IP spoofing on the VNF interface is the next hop in the hub.
 
 A workload in **VPC-spoke#1 zone1** that needs to communicate with a workload in **VPC-spoke#2 zone1** must traverse the VNF in the **VPC-hub**. An egress route from the **VPC-spoke#1** subnet (`10.174.0.0/24`) destined for **VPC-spoke#2** (`10.174.2.0/24`) that hops through the **VPC-hub** NLB (`10.175.0.4`), allows the outbound traffic to reach its destination. A similar egress route is created on **VPC-spoke#2**, which allows the response to also traverse **VPC-hub**. For workloads in **VPC-spoke#1 zone2**, a similar egress route is also created for outbound traffic.
 
@@ -50,7 +50,7 @@ Because this VNF is transparent, the client (source) makes a TCP request to the 
 
 An egress custom route was created to ensure client (`10.241.0.6`) data packets destined for the target (`10.241.66.5`) will hop through the NLB. Because the NLB is configured with routing mode enabled, TCP requests on all ports are forwarded automatically to their destination. Because the VNFs are in the NLB pool, they are the next hop after the NLB. In this Active/Active single region example, an egress route is also required to ensure that the return packet from the target will hop through the NLB on the return trip, then through the same VNF it was sent through, and finally back to the client. In this use case, the client is in a different zone than the target, but the target is in the same zone as the NLB and VNF.
 
-![Active/Active HA transparent VNF topology](/images/vnf-single-multi-zone.png){: caption="Figure 2: Active/Active HA transparent VNF topology" caption-side="bottom"}  
+![Active/Active HA transparent VNF topology](/images/vnf-single-multi-zone.png){: caption="Figure 2: Active/Active HA transparent VNF topology" caption-side="bottom"}
 
 ## Before you begin
 {: #vnf-before-you-begin}
