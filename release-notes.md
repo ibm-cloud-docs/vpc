@@ -40,6 +40,13 @@ IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1
 Base64 format of the attestationPublicKey
 :  Besides the plain text format of the attestation public key, you can also use its base64 format to encrypt the attestation document during the contract preparation. For more information, see [Preparing the attestation](/docs/vpc?topic=vpc-about-contract_se#hpcr_attestation_prepare) .
 
+### 20 June 2024
+{: #vpc-jun2024}
+{: release-note}
+
+Update firmware on Bare Metal Servers for VPC (GA)
+:  The new Update firmware action on Bare Metal Servers for VPC is now generally available. You can see if a firmware update is available for your bare metal server and also initiate the update. You can use the UI, CLI, and API to update the firmware. In the UI, this action is only visible if the server is stopped and there is a firmware update available. It is recommended to back up your bare metal server before any firmware update. For more information, see [Managing Bare Metal Servers for VPC](/docs/vpc?topic=vpc-managing-bare-metal-servers&interface=ui).
+
 ### 06 June 2024
 {: #vpc-jun0624}
 {: release-note}
