@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2024-06-10",
+    "lastupdated": "2024-06-21",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
@@ -31,19 +31,19 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
-          "date": "06 June 2024",
-          "title": "Generic operating system custom images with Virtual Server Instances and Bare Metal Servers for VPC (GA)",
-          "description": "Generic operating system custom images is now generally available. When you create a server on IBM Cloud® Virtual Private Cloud (VPC) using an x86 profile, you can use an operating system that is not listed in IBM Cloud by specifying a generic operating system custom image. You can create this custom image by specifying one of the new operating systems with properties that indicate it is generic. When you provision a server by using a generic operating system custom image, most operating system-specific provisioning steps aren't performed, such as console setup and automatic registration. You must provide the appropriate user data if you want your generic operating system custom image to perform these steps."
+          "date": "20 June 2024",
+          "title": "UI Enhancements to Images for VPC",
+          "description": "The Images for VPC UI includes multiple enhancements. When you click any image name, a side panel is displayed for that specific image. From this Details page, you can review both the Details and IDs for the selected image. You can also click Continue to provisioning which takes you to Virtual server for VPC, where you can create a virtual server instance with the selected image. Images for VPC also now includes the ability to filter the list of images. When you select a catalog image on Virtual server for VPC to create a virtual server instance, you are now prompted to Select version and pricing plan. From here, you can select the version and pricing plan for the catalog image, which must be completed first. You can then select to Save the catalog image."
         },
         {
-          "date": "06 June 2024 ",
-          "title": "Network boot of operating systems with Bare Metal Servers for VPC (GA)",
-          "description": "Network boot of operating systems is now generally available. When you create a bare metal server on IBM Cloud® Virtual Private Cloud (VPC), you can select to network boot an operating system over the network. The operating system image can be hosted on your own server or on a public server. You can install the booted operating system to a disk or you can run the operating system without a disk."
+          "date": "20 June 2024",
+          "title": "IBM Hyper Protect Container Runtime image ibm-hyper-protect-container-runtime-1-0-s390x-16 updates",
+          "description": "For the IBM Hyper Protect Container Runtime image version ibm-hyper-protect-container-runtime-1-0-s390x-16, new certificates are available."
         },
         {
-          "date": "31 May 2024",
-          "title": "Third-party image billing and metering (GA)",
-          "description": "When you select a catalog image, you now have associated billing plans to choose from. Catalog images are billed in one of the following ways: Free trial, Useage-based billing, and BYOL."
+          "date": "20 June 2024",
+          "title": "Update firmware on Bare Metal Servers for VPC (GA)",
+          "description": "The new Update firmware action on Bare Metal Servers for VPC is now generally available. You can see if a firmware update is available for your bare metal server and also initiate the update. You can use the UI, CLI, and API to update the firmware. In the UI, this action is only visible if the server is stopped and there is a firmware update available. It is recommended to back up your bare metal server before any firmware update."
         }
       ]
     }
