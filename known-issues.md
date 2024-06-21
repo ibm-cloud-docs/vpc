@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-06-17"
+lastupdated: "2024-06-21"
 
 keywords:
 
@@ -29,29 +29,6 @@ Known issues might change over time, so check back occasionally.
 **Issue**: Currently, not all operations that return responses with embedded `VPCReference` and `SubnetReference` schemas include the documented `resource_type` subproperty.
 
 **Workaround**: Before developing a client that uses the `resource_type` property of the `VPCReference` or `SubnetReference` schemas, check that the property is included in the responses that are returned for the operations that are used by your client.
-
-## Reserved IP known issues
-{: #ip-known-issues}
-
-The following issues apply to reserved IPs. These issues will be resolved in a future release.
-
-**Issue:** Reserved IP addresses that are bound to VPN gateways, IKS worker nodes, or DNS service instances will appear as having no target (the `target` property is not included when retrieving the reserved IP resource).
-
-As a result, such reserved IP addresses may appear to be unbound. Despite appearing to be unbound, these reserved IP addresses cannot be deleted until their target resource is deleted.
-
-In the console, reserved IP addresses that are labeled "unbound" might be bound to a resource that can't be displayed.
-
-**Issue:** The instance metadata API does not currently support reserved IPs.
-
-**Workaround:** Continue to use the `primary_ipv4_address` property to retrieve the IP address for each network interface on an instance. See the [VPC Metadata API](/apidocs/vpc-metadata).
-
-**Issue:** When you use the VPC API to [list floating IP addresses on a bare metal server network interface](/apidocs/vpc#list-bare-metal-server-network-interface-floating-), you might get an incomplete list of the floating IP addresses associated with the bare metal server network interface.
-
-The floating IP associated with a bare metal network interface is not available before the network interface `status` is `available`.
-
-**Workarounds:**
-- Wait for the bare metal server network interfaces to be `available` before listing the floating IP addresses on the interfaces.
-- [List all floating IPs](/apidocs/vpc#list-floating-ips) to view those associated with bare metal server interfaces that are not yet `available`.
 
 ## Network load balancers fail if port settings fall outside the supported range
 {: #nlb-port-range}
