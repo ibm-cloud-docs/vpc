@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-05-28"
+lastupdated: "2024-06-22"
 
 keywords:
 
@@ -128,12 +128,12 @@ Where:
 
 `--protocol-state-filtering-mode`
 :   The status of the protocol state filtering mode. One of `auto`, `enabled`, `disabled`.
-   * Auto (default): protocol state packet filtering is enabled or disabled based on the virtual network interface's `target` resource type.
-       * `bare_metal_server_network_attachment`: disabled
-       * `instance_network_attachment`: enabled
-       * `share_mount_target`: enabled
-   * Enabled: permit only the TCP SYN packet that is allowed by security group rules for TCP flow if there is no connection track.
-   * Disabled: permit any packet that is allowed by security group rules, even if there is no connection track.
+       * **Auto** (default): Filtering is enabled or disabled based on the virtual network interface's target resource.
+          * Bare metal server (Disabled)
+          * Virtual server instance (Enabled)
+          * File share mount (Enabled)
+       * **Enabled**: Forces the TCP connections to align with the [RFC793](https://www.ietf.org/rfc/rfc793.txt){: external} standard and any packets allowed by corresponding security group rules and network ACLs.
+       * **Disabled**: Permits packets allowed only by corresponding security group rules and network ACLs.
 
 `--rip`
 :   ID or name of the Reserved IP to bind to the virtual network interface.
