@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-06-20"
+lastupdated: "2024-06-24"
 
 keywords: bare metal servers, managing, operation, manage bare metal server, manage bare metal, manage server, restart bare metal, stop bare metal, delete bare metal, reboot bare metal, restart server, stop server, delete server
 
@@ -30,7 +30,7 @@ You can perform the following actions by using the UI, CLI, and API.
 | Reboot | Immediately powers off a running server and then powers it back on. |
 | Delete | To delete a server, the server must be powered off. If the server has a floating IP address, the floating IP address must be unassociated or released before the server is deleted. The delete action permanently removes a server and its connected vNIC, boot volume, and data from your account. |
 {: caption="Table 1. Actions available for bare metal servers" caption-side="bottom"}
-
+   
 ## Managing bare metal servers by using the UI
 {: #managing-bare-metal-servers-ui}
 {: ui}
