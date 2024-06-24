@@ -18,7 +18,7 @@ subcollection: vpc
 You can manage your {{site.data.keyword.cloud}} Bare Metal Servers for VPC by performing tasks such as start, stop, update firmware, reboot, and delete bare metal server.
 {: shortdesc}
 
- 
+
 
 You can perform the following actions by using the UI, CLI, and API.
 
@@ -30,7 +30,7 @@ You can perform the following actions by using the UI, CLI, and API.
 | Reboot | Immediately powers off a running server and then powers it back on. |
 | Delete | To delete a server, the server must be powered off. If the server has a floating IP address, the floating IP address must be unassociated or released before the server is deleted. The delete action permanently removes a server and its connected vNIC, boot volume, and data from your account. |
 {: caption="Table 1. Actions available for bare metal servers" caption-side="bottom"}
-   
+
 ## Managing bare metal servers by using the UI
 {: #managing-bare-metal-servers-ui}
 {: ui}
