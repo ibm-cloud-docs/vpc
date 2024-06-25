@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-06-14"
+lastupdated: "2024-06-25"
 
 keywords: bare metal server network, bare metal network, nics, pci, vlan, network overview
 
@@ -165,7 +165,7 @@ You can set up network topologies that are more complicated than the example, wh
 
 In the SDN, a network interface has two properties - an IP address and a MAC address. Normally, you need to use that MAC address, or the packet drops. But with bare metal servers, you can use a different MAC address, and {{site.data.keyword.cloud}} 'learns' the MAC address that you're using and allows traffic to flow.
 
-DHCP doesn't work with a custom MAC address because a {{site.data.keyword.cloud}}-provided MAC address is needed to respond to a DHCP request. You need to use a static IP configuration to use custom MAC addresses.
+DHCP doesn't work with a custom MAC address because an {{site.data.keyword.cloud}}-provided MAC address is needed to respond to a DHCP request. You need to use a static IP configuration to use custom MAC addresses.
 {: important}
 
 ## Advanced networking
