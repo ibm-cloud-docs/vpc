@@ -27,6 +27,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## June 2024
 {: #vpc-jun24}
 
+### 25 June 2024
+{: #vpc-june2524}
+{: release-note}
+
+Sharing file share data between accounts and services
+:   With this new feature, administrators with the correct [authorizations](/docs/vpc?topic=vpc-file-s2s-auth) can share an NFS file system across multiple accounts. It's useful for customers who manage multiple accounts and need to share data across different VPCs. Customer can also share their {{site.data.keyword.filestorage_vpc_short}} shares with the [IBM watsonX](https://dataplatform.cloud.ibm.com/docs/content/wsj/getting-started/welcome-main.html?context=wx){: external} service. For more information, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-cross-account-mount).
+
 ### 24 June 2024
 {: #vpc-jun2424}
 {: release-note}
@@ -58,7 +65,7 @@ IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1
    - [Intermediate certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-16-intermediate.crt){: external}
 
 Base64 format of the attestationPublicKey
-:  Besides the plain text format of the attestation public key, you can also use its base64 format to encrypt the attestation document during the contract preparation. For more information, see [Preparing the attestation](/docs/vpc?topic=vpc-about-contract_se#hpcr_attestation_prepare) .
+:  Besides the plain text format of the attestation public key, you can also use its base64 format to encrypt the attestation document during the contract preparation. For more information, see [Preparing the attestation](/docs/vpc?topic=vpc-about-contract_se#hpcr_attestation_prepare).
 
 ### 06 June 2024
 {: #vpc-jun0624}
