@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-06-19"
+lastupdated: "2024-06-25"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup, 
 
@@ -61,10 +61,11 @@ By using this service, you can:
 * Create file shares and mount targets with maximum storage capacity of 32 TB and performance level of 96,000 IOPS.
 * Create a file share that best meets your storage requirements by using the `dp2` profile and specifying the capacity and IOPS that you need.
 * Use the UI, CLI, API, or Terraform to create file shares and mount targets, rename or delete file shares and mount targets, add mount targets to a file share. You can mount and unmount a file share from virtual server instances, and add supplemental IDs to a file share.
-* You can adjust IOPS up or down, for greater performance or when you want to reduce costs.
+* Adjust IOPS up or down, for greater performance or when you want to reduce costs.
 * Start with a smaller file share and expand the capacity later when you need more storage.
 * Mount file shares on Red Hat, CentOS, or Ubuntu Linux distributions. Windows OS is not supported.
-
+* Share file shares with other accounts or services.
+* Create read-only replicas of your file shares in another zone within your VPC, or another zone in a different region if you have multiple VPCs in the same geography. The replica is updated regularly based on the replication schedule that you specify. You can fail over to the replica and make it active if an outage occurs at the primary site.
 
 For more information, see [About {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-file-storage-vpc-about).
 

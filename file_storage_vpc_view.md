@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-06-14"
+lastupdated: "2024-06-25"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -13,13 +13,13 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Viewing file shares and mount targets
+# Viewing file shares, share bindings, and mount targets
 {: #file-storage-view}
 
-You can view all file shares and mount targets in the UI, retrieve their information from the CLI, with the API, or Terraform. You can retrieve information for all shares and mount targets, or just the information of a specific resource.
+You can view all file shares, their bindings and mount targets in the UI, retrieve their information from the CLI, with the API, or Terraform. You can retrieve information for all shares, bindings, and mount targets, or just the information of a specific resource.
 {: shortdesc}
 
-## Viewing file shares and mount targets in the UI
+## Viewing file shares, share bindings and mount targets in the UI
 {: #file-storage-view-shares-targets-ui}
 {: ui}
 
@@ -39,6 +39,7 @@ You can view all file shares and mount targets in the UI, retrieve their informa
 | Size | Size of the file share, in GBs. |
 | IOPS profile| It shows the performance profile that is associated with the file share.|
 | Replication role | Relationship to the source file share. "Replica of" indicates that the file share a replica of the source share, which is linked. "Source of" indicates that the share the source of the replica, which is linked. "None" indicates that the file share does not replicate with another share. |
+| Cross account role | The values in this column can be None, Origin share, or Accessor share. If the value is None, the share is not shared with another account or external service. If the value is Origin share, the share is shared with another account or external service and is bound to an accessor share in the other account. If the value is Accessor share, then this share is bound to an origin share with the purpose of accessing the origin share's data.|
 | Encryption type | It shows the encryption type of the file share, either provider-managed or customer-managed. [Customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption) uses your own root keys to protect your data. The UI also identifies the key management service (KMS), either {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. |
 {: caption="Table 1. File shares list page." caption-side="bottom"}
 
@@ -69,7 +70,9 @@ The following table describes the information on the file share details page.
 | ID | For customer-managed encryption, the UUID generated when you created the file share. |
 | Size | File share size in GB. |
 | Created | Date the file share was created. |
-| Mount target access mode   | Access to the file share is granted by either a security group within a subnet or to any virtual server instance in the VPC. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to switch access modes. Security group access is available only to file shares created with the [`dp2` profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile). For more information, see the [Mount target access modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-mount-access-mode). |  
+| Mount target access mode   | Access to the file share is granted by either a security group within a subnet or to any virtual server instance in the VPC. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to switch access modes. Security group access is available only to file shares created with the [`dp2` profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile). For more information, see the [Mount target access modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-mount-access-mode). |
+| CRN [New]{: tag-new} | Copiable cloud resource name. |
+| Allowed encryption in transit modes [New]{: tag-new} | This value shows whether encryption in transit is required when clients access the file share. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change the allowed values.|   
 | **Profile, size, and IOPS**| |
 | Size | File share size in GB. |
 | IOPS tier | IOPS [profile](/docs/vpc?topic=vpc-file-storage-profiles) that defines the file share performance. In most cases, the dp2 profile is shown. |
@@ -81,7 +84,13 @@ The following table describes the information on the file share details page.
 | Subnet | This field is shown if the file share has Security group access mode. Click the name of the subnet to see its details.|
 | Security group | This field is shown if the file share has Security group access mode. It's the number of security groups that the share is a member of. |
 | Reserved IP | This field is shown if the file share has Security group access mode. The IP address of the virtual network interface that is attached to the mount target |
-| Encryption in Transit |This field is shown if the file share has Security group access mode. Its value can be enabled or disabled. |  
+| Encryption in Transit |This field is shown if the file share has Security group access mode. Its value can be enabled or disabled. |
+| **Accessor share bindings** [New]{: tag-new} | This section is shown if the share has accessor shares in other VPCs. |
+| Binding ID | This field shows the ID of the binding that connects the origin share to the accessor share. |
+| Account ID | The ID of the account that has access to your share's data through the accessor share. |
+| Accessor ID | This field shows the account ID that created the accessor share in another VPC. |
+| Status  | It displays the lifecycle status of the accessor file share. The [status](/docs/vpc?topic=vpc-fs-vpc-monitoring&interface=ui#file-share-statuses) `Stable` is expected  |
+| Created date | The date and time when the accessor share was created. |  
 | **File share replication relationship** | Shows the name, location, and status of the source and the replica file shares \n * If no replica file shares were created, click **Create replica** to [create one](/docs/vpc?topic=vpc-file-storage-create-replication). \n * To break the replication relationship, click **Remove replication relationship**. Then, the replica file share becomes an independent read/write file share.|
 | Replication frequency | Hover over the information icon to see an explanation of the cron replication schedule. |
 | Status | Replication status; for example, _suspended_ or _available_. |
@@ -116,7 +125,7 @@ You can see all file shares that have a mount target to a VPC by viewing the VPC
 4. Click the **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions") to reveal the Actions menu. The Actions menu has 3 options: Rename, View path, and Delete. 
 5. Click **View path** to see the mount path information that you can copy and paste in your mounting commands.
 
-## Viewing file shares and mount targets from the CLI
+## Viewing file shares, share bindings, and mount targets from the CLI
 {: #file-storage-view-shares-targets-cli}
 {: cli}
 
@@ -128,24 +137,18 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 
 You can list all your file shares in a region with the `ibmcloud is shares` command.
 
-
-
 ```sh
-$ ibmcloud is shares
-Listing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
-ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group   Replication role   
-r006-dc6a644d-c7da-4c91-acf0-d66b47fc8516   my-replica-file-share   stable            us-south-1   dp2       1500       Default          replica   
-r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a   my-source-file-share    stable            us-south-2   dp2       1500       Default          source   
-r006-6d1719da-f790-45cc-9f68-896fd5673a1a   my-replica-share        stable            us-south-3   dp2       1000       Default          replica   
-r006-925214bc-ded5-4626-9d8e-bc4e2e579232   my-new-file-share       stable            us-south-2   dp2       500        Default          none   
-r006-b1707390-3825-41eb-a5bb-1161f77f8a58   my-vpc-file-share       stable            us-south-2   dp2       1000       Default          none   
-r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   my-file-share           stable            us-south-2   dp2       1000       Default          source   
+ibmcloud is shares
+Listing shares in all resource groups and region au-syd under account Test Account as user test.user@ibm.com...
+ID                                          Name                 Lifecycle state   Zone       Profile   Size(GB)   Resource group   Replication role   Accessor binding role   
+r026-02aea1c7-adb6-4072-9799-6ca495561661   my-file-share-2      stable            au-syd-1   dp2       20         Default          none               origin   
+r026-d503c5ed-9343-4177-ad1b-a5941e522203   access-share         stable            au-syd-2   dp2       10         Default          none               accessor   
+r026-184d7d4e-cfe3-4d8f-b5cc-0a00996fed5e   my-file-share-1      stable            au-syd-1   dp2       40         Default          none               none   
+r026-734c173e-044f-4d09-a729-950364ea9900   my-file-share        stable            au-syd-1   dp2       40         Default          none               none   
+r026-6fafe634-310d-4a99-b12c-f581587c2ad7   cli-accessor-share   failed            au-syd-2   dp2       10         Default          none               accessor   
+r026-3d507136-5fb1-466b-8a1f-a379a755383f   cli-temp             stable            au-syd-2   dp2       10         Default          none               origin 
 ```
 {: screen}
-
-
-
-
 
 For more information about the command options, see [`ibmcloud is shares`](/docs/vpc?topic=vpc-vpc-reference#shares-list). For more information about `lifecycle state`, see [File share statuses](/docs/vpc?topic=vpc-fs-vpc-monitoring&interface=ui#file-share-statuses). `Stable` is expected.
 
@@ -156,49 +159,44 @@ To see the details of a file share, run the `ibmcloud is share` command and spec
 
 The following example identifies the file share by ID. This share is a replica that is based on the `dp2` profile, and access to the share is granted by using security groups. The output provides information about the source file share and the replication details, too.
 
-
-
 ```sh
 $ ibmcloud is share r006-dc6a644d-c7da-4c91-acf0-d66b47fc8516
 Getting file share r006-dc6a644d-c7da-4c91-acf0-d66b47fc8516 under account Test Account as user test.user@ibm.com...
                                 
-ID                           r006-dc6a644d-c7da-4c91-acf0-d66b47fc8516   
-Name                         my-replica-file-share   
-CRN                          crn:v1:bluemix:public:is:us-south-1:a/a1234567::share:r006-dc6a644d-c7da-4c91-acf0-d66b47fc8516   
-Lifecycle state              stable   
-Access control mode          security_group   
-Zone                         us-south-1   
-Profile                      dp2   
-Size(GB)                     1500   
-IOPS                         100   
-Encryption                   provider_managed   
-Mount Targets                ID                          Name      
-                             No mounted targets found.      
+ID                               r006-dc6a644d-c7da-4c91-acf0-d66b47fc8516   
+Name                             my-replica-file-share   
+CRN                              crn:v1:bluemix:public:is:us-south-1:a/a1234567::share:r006-dc6a644d-c7da-4c91-acf0-d66b47fc8516   
+Lifecycle state                  stable   
+Access control mode              security_group
+Accessor binding role            origin
+Allowed transit encryption modes user_managed,none  
+Zone                             us-south-1   
+Profile                          dp2   
+Size(GB)                         1500   
+IOPS                             100   
+Encryption                       provider_managed   
+Mount Targets                    ID                          Name      
+                                 No mounted targets found.      
                                 
-Resource group               ID                                 Name      
-                             db8e8d865a83e0aae03f25a492c5b39e   Default      
+Resource group                   ID                                 Name      
+                                 db8e8d865a83e0aae03f25a492c5b39e   Default      
                                 
-Created                      2023-10-19T15:42:56+00:00   
-Latest job                   Job status   Job status reasons      
-                             succeeded    -      
+Created                          2024-06-25T15:42:56+00:00   
+Latest job                       Job status   Job status reasons      
+                                 succeeded    -      
                                 
-Replication cron spec        55 09 * * *   
-Replication role             replica   
-Replication status           active   
-Replication status reasons   Status code   Status message      
-                             -             -      
+Replication cron spec            55 09 * * *   
+Replication role                 replica   
+Replication status               active   
+Replication status reasons       Status code   Status message      
+                                 -             -      
                                 
-Source share                 ID                                          Name                   Resource type      
-                             r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a   my-source-file-share   share           
+Source share                     ID                                          Name                   Resource type      
+                                 r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a   my-source-file-share   share           
 ```
 {: screen}
 
-
-
-
 You can use the name of the source share to retrieve its details. See the following example.
-
-
 
 ```sh
 $ ibmcloud is share my-source-file-share
@@ -209,6 +207,8 @@ Name                             my-source-file-share
 CRN                              crn:v1:bluemix:public:is:us-south-2:a/a1234567b::share:r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a   
 Lifecycle state                  stable   
 Access control mode              security_group
+Accessor binding role            origin
+Allowed transit encryption modes user_managed,none 
 Zone                             us-south-2   
 Profile                          dp2   
 Size(GB)                         1500   
@@ -221,7 +221,7 @@ Mount Targets                    ID                                          Nam
 Resource group                   ID                                 Name      
                                  db8e8d865a83e0aae03f25a492c5b39e   Default      
                                 
-Created                          2023-10-19T15:42:53+00:00   
+Created                          2024-06-25T15:42:53+00:00   
 Latest job                       Job status   Job status reasons      
                                  succeeded    -      
                                 
@@ -235,12 +235,41 @@ Replication status reasons       Status code   Status message
 ```
 {: screen}
 
-
-
-
 For more information about the command options, see [`ibmcloud is share`](/docs/vpc?topic=vpc-vpc-reference#share-view).
 
-  
+### Viewing share bindings of a file share from the CLI
+{: #fs-view-share-bindings-cli}
+
+[New]{: tag-new} To view the accessor share bindings that are linked to an origin share from the CLI, use the `ibmcloud is share-accesssor-bindings` command. See the following example.
+
+```sh
+$ ibmcloud is share-accessor-bindings my-origin-share
+Listing accessor bindings for the share ID my-origin-share under account Test Account as user test.user@ibm.com...
+                                
+ID                                           Lifecycle state  Created at                 Accessor CRN 
+r-006-c2e53b1b-3b15-4792-8d96-c9c035fd65c3   stable           2024-06-25T00:50:57+05:30  crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-925214bc-ded5-4626-9d8e-bc4e2e579232
+```
+{: screen}
+
+### Viewing a specific share binding of a file share from the CLI
+{: #fs-view-share-binding-cli}
+
+[New]{: tag-new} To view a specific accessor share binding that is linked to an origin share from the CLI, use the `ibmcloud is share-accesssor-binding` command. See the following example.
+
+```sh
+$ ibmcloud is share-accessor-binding my-origin-share r-006-c2e53b1b-3b15-4792-8d96-c9c035fd65c3
+Get accessor binding r-006-c2e53b1b-3b15-4792-8d96-c9c035fd65c3 for the share ID my-origin-share under account Test Account as user test.user@ibm.com...
+                                
+ID               r-006-c2e53b1b-3b15-4792-8d96-c9c035fd65c3
+Created          2024-06-25T00:50:57+05:30
+Href             https://us-south.iaas.cloud.ibm.com/v1/shares/r006-d73v40a6-e08f-4d07-99e1-d28cbf2188ed/bindings/r-006-c2e53b1b-3b15-4792-8d96-c9c035fd65c3
+Resource type    share_accessor_binding
+Lifecycle state  stable
+Accessor         Resource type  Name               CRN
+                 share          my-accessor-share  crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-925214bc-ded5-4626-9d8e-bc4e2e579232
+
+```
+{: screen}
 
 ### Viewing mount targets for a file share from the CLI
 {: #fs-view-mount-shares-cli}
@@ -285,7 +314,7 @@ Created                     2023-10-19T15:42:54+00:00
 
 For more information about the command options, see [`ibmcloud is share-mount-target`](/docs/vpc?topic=vpc-vpc-reference#share-mount-target-view).
 
-## Viewing file shares and mount targets with the API
+## Viewing file shares, share bindings, and mount targets with the API
 {: #file-storage-view-shares-targets-api}
 {: api}
 
@@ -437,7 +466,92 @@ A successful response looks like the following example. In this example, the sha
 ```
 {: codeblock}
 
+### List share bindings of a file share with the API
+{: #fs-view-share-bindings-api}
 
+[New]{: tag-new} 
+
+Make a `GET /shares/{id}/bindings` request to get the list of bindings of a single file share. The request lists all bindings for a share. Each binding is implicitly created when an accessor share is created.
+
+```sh
+curl -X GET "$vpc_api_endpoint/v1/shares/$share_id/bindings?version=2024-03-20&generation=2"\
+-H "Authorization: $iam_token"
+```
+{: pre}
+
+A successful response looks like the following example.
+
+```json
+{
+  "bindings": [
+    {
+      "accessor": {
+        "crn": "crn:[...]",
+        "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/r134-f64efe74-a5a2-45c7-b37d-5071d2dd6339",
+        "id": "r134-f64efe74-a5a2-45c7-b37d-5071d2dd6339",
+        "name": "my-accessor-share",
+        "resource_type": "share"
+      },
+      "account": {
+        "id": "a0000000000000000000000000000001",
+        "resource_type": "account"
+      },
+      "created_at": "2022-01-07T16:56:54Z",
+      "crn": "crn:[...]",
+      "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/r134-f64efe74-a5a2-45c7-b37d-5071d2dd6339/bindings/r134-df760133-3513-47e7-b980-26cca666561b",
+      "id": "r134-df760133-3513-47e7-b980-26cca666561b",
+      "lifecycle_state": "stable",
+      "name": "my-share-bind",
+      "resource_type": "share_binding"
+    }
+  ],
+  "first": {
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/r134-65f30e48-3074-4eb0-9ec4-51ce2ec968eb/bindings?limit=20"
+  },
+  "limit": 50,
+  "total_count": 1
+}
+```
+{: screen}
+
+### Viewing a specific binding of a file share with the API
+{: #fs-view-share-binding-api}
+
+[New]{: tag-new} 
+
+Make a `GET /shares/{share_id}/bindings/{binding_id}` request to get the information of a specific binding of a file share. This request retrieves a single binding that is specified by the identifier in the URL.
+
+```sh
+curl -X GET "$vpc_api_endpoint/v1/shares/$share_id/bindings/$binding_id?version=2024-03-20&generation=2"\
+-H "Authorization: $iam_token"
+```
+{: pre}
+
+A successful response looks like the following example.
+
+```json
+{
+  "accessor": {
+    "crn": "crn:[...]",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/r134-f64efe74-a5a2-45c7-b37d-5071d2dd6339",
+    "id": "r134-f64efe74-a5a2-45c7-b37d-5071d2dd6339",
+    "name": "my-accessor-share",
+    "resource_type": "share"
+  },
+  "account": {
+    "id": "a0000000000000000000000000000001",
+    "resource_type": "account"
+  },
+  "created_at": "2022-01-07T16:56:54Z",
+  "crn": "crn:[...]",
+  "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/r134-f64efe74-a5a2-45c7-b37d-5071d2dd6339/bindings/r134-df760133-3513-47e7-b980-26cca666561b",
+  "id": "r134-df760133-3513-47e7-b980-26cca666561b",
+  "lifecycle_state": "stable",
+  "name": "my-share-bind",
+  "resource_type": "share_binding"
+}
+```
+{: screen}
 
 ### List all mount targets of a file share with the API
 {: #fs-list-targets-api}

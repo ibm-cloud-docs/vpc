@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-06-13"
+lastupdated: "2024-06-25"
 
 keywords:
 
@@ -196,6 +196,7 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 |--------|-----|
 | File shares | 300 file shares per account, across all VPCs |
 | Mount targets | 256 per file share per account per zone |
+| Accessor share bindings | A file share can have maximum of 100 accessor bindings. [New]{: tag-new}|
 {: caption="Table 13. Quotas for file shares" caption-side="bottom"}
 
 #### Share mount targets

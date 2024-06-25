@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-06-14"
+lastupdated: "2024-06-25"
 
 keywords: file share, file storage, replication, replica, size increase, capacity, encryption, BYOK, security group
 
@@ -157,7 +157,39 @@ You can migrate file shares that were created by using either the IOPS tier prof
 
 Yes. When you create a file share, you must specify the access control mode. It can be based on Security Groups, which restrict the access to the file share to specific resources in the VPC. Or the access mode can allow for VPC-wide file share mounting. For more information, see [Mount target access modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-mount-access-mode).
 
+### Can I securely share my data with other accounts?
+{: faq}
+{: #faq-fs-sec-5}
 
+[New]{: tag-new}
+
+Yes. You can use IAM authorization policies to allow another account to mount your file share and access its contents. For more information, see [Sharing file share data between accounts and services](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=cli#fs-cross-account-mount).
+
+### What is an accessor share?
+{: faq}
+{: #faq-fs-accessor-share}
+
+[New]{: tag-new}
+
+Administrators with the right authorizations can configure access to a file share from virtual service instances of a VPC that belongs to another account. An accessor share is an object that is created in the accessor account that shares characteristics of the origin share such as size, profile and encryption types. It is the representation of the origin share in the accessor account. The accessor account creates a mount target to the accessor share which creates a network path that the virtual server can use to access the data on the origin share. The accessor share does not hold any data and cannot exist independently from the origin share.  For more information, see [Sharing file share data between accounts and services](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=cli#fs-cross-account-mount).
+
+### How many accessor shares can be set up to access my share?
+{: faq}
+{: #faq-fs-accessor-limit}
+
+[New]{: tag-new}
+
+A share can have maximum of 100 accessor bindings. This restriction is placed at origin share level. After the number of active accessor bindings reached 100, any attempt to create another accessor share fails.
+
+### How can I ensure other accounts use encryption in transit when they access my data?
+{: faq}
+{: #faq-fs-accessor-EIT}
+
+[New]{: tag-new}
+
+As the share owner, you have the right to enforce the use of encryption in transit when another account accesses the file share data. When you create a file share, you can set the allowed transit encryption modes to `user_managed_required`. This value is inherited by the accessor share of the accessor account, which ensures that only mount targets that support encryption in transit can be attached to the accessor share.
+
+If your file share was created before 18 June 2024, its allowed transit encryption modes is set to `user_managed,none`. This setting can be changed [in the console](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-update-transit-encryption-ui){: ui}[from the CLI](/docs/vpc?topic=vpc-file-storage-managing&interface=cli#fs-update-transit-encryption-cli){: cli}[with the API](/docs/vpc?topic=vpc-file-storage-managing&interface=api#fs-update-transit-encryption-api){: api}[with Terraform](/docs/vpc?topic=vpc-file-storage-managing&interface=terraform#file-storage-share-update-terraform){: terraform}. Existing mount targets must be deleted first. For more information, see [Deleting mount target of a file share in the UI](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#delete-mount-target-ui){: ui}[Deleting a mount target of a file share from the CLI](/docs/vpc?topic=vpc-file-storage-managing&interface=cli#delete-share-targets-cli){: cli}[Deleting mount target of a file share with the API](/docs/vpc?topic=vpc-file-storage-managing&interface=api#delete-mount-target-api){: api}[Deleting a mount target with Terraform](/docs/vpc?topic=vpc-file-storage-managing&interface=terraform#delete-file-share-terraform){: terraform}.
 
 ## Performance questions
 {: #file-storage-vpc-performance-questions}

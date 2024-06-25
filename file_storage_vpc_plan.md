@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-06-14"
+lastupdated: "2024-06-25"
 
 keywords: file share, file storage, requirements, planning, encryption, share size, capacity, performance profile, IOPS, 
 
@@ -25,7 +25,7 @@ Consider the following prerequisites before you set up {{site.data.keyword.files
 
 | Considerations|
 |-------------------|
-|__ Check your [IAM access permissions](/docs/account?topic=account-iam-service-roles-actions#is.share-roles) to ensure you can create file shares, and mount targets as needed.  |
+|__ Check your [IAM access permissions](/docs/account?topic=account-iam-service-roles-actions#is.share-roles) to ensure you can create file shares, accessor shares, bindings and mount targets as needed.  |
 |__ Think about the location and resources where you're going to use the file share. The file share needs to be mounted to a Compute resource within a VPC. Identify an existing VPC or create a [VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console). |
 |__ To mount a file share on a virtual server instance, you must create at least one mount target. You can create a mount target along with the file share and add more mount targets separately later.|
 |__ Decide whether you want to [restrict access](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-mount-access-mode) to the file share from specific virtual server instances or allow mounting on all virtual server instances within a VPC. Using [security groups](/docs/vpc?topic=vpc-using-security-groups) to control traffic between the file share and the Compute resources is recommended. For more information, see [Granular authorization](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-mount-granular-auth). |

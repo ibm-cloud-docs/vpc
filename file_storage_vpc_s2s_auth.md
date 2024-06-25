@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-06-14"
+lastupdated: "2024-06-25"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -60,7 +60,41 @@ You can access the **Manage authorizations** by clicking **Manage** > **Access (
 1. Then, under **Roles > Platform access**, select the role `Editor`.
 1. Click **Authorize**.
 
+## Creating service-to-service authorization for cross-account access in the UI
+{: #file-s2s-auth-xaccount-ui}
+{: ui}
 
+[New]{: tag-new}
+
+1. On the **Manage authorizations** page, click **Create**. 
+1. On the **Grant a service authorization** page, select the source account. If you want to allow another account to access data on your file share, select **Another account** and enter the 32-character-long account ID. If you want to create accessor shares in the same account, select **This account**.
+1. For the source service, select **VPC Infrastructure Services** from the list.
+1. Select the scope. Choose **Specific resources**.
+1. Click **Resource type**. From the list, select **File Storage for VPC**.
+1. For the target service, select **VPC Infrastructure Services** from the list. 
+1. Select the scope. Choose **Specific resources**.
+1. Click **Resource type**. From the list, select **File Storage for VPC**.
+1. Click **Share ID**. From the list, select the ID of the share that you want to allow access to.
+1. Then, under Roles > Service access, select the role `ShareBroker`.
+1. Click **Authorize**.
+
+## Creating service-to-service authorization for Watson Studio in the UI
+{: #file-s2s-auth-watsonstudio-ui}
+{: ui}
+
+[New]{: tag-new}
+
+1. On the **Manage authorizations** page, click **Create**. 
+1. On the **Grant a service authorization** page, select **This account**.
+1. For the source service, select **Watsonx Studio** from the list.
+1. Select the scope. Choose **Specific resources**.
+1. Click **Source service instance**. From the list, select **all instances**.
+1. For the target service, select **VPC Infrastructure Services** from the list. 
+1. Select the scope. Choose **Specific resources**.
+1. Click **Resource type**. From the list, select **File Storage for VPC**.
+1. Click **Share ID**. From the list, select the ID of the share that you want to allow access to.
+1. Then, under Roles > Service access, select the roles `ShareBroker` and `AuthorizationDelegator`.
+1. Click **Authorize**.
 
 ## Creating service-to-service authorization for customer-managed encryption from the CLI
 {: #file-s2s-auth-encryption-cli}
@@ -134,7 +168,39 @@ Roles:                     Editor
 
 For more information about all of the parameters that are available for this command, see [ibmcloud iam authorization-policy-create](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_authorization_policy_create).
 
+## Creating service-to-service authorization for cross-account access from the CLI
+{: #file-s2s-auth-xaccount-cli}
+{: cli}
 
+[New]{: tag-new} 
+
+As the share owner, create a JSON file and use it with the `ibmcloud iam authorization-policy-create` command to create the service-to-service authorization for the {{site.data.keyword.filestorage_vpc_short}} service of the share owner account (source) to access a share in accessor account (target).
+
+1. Create a JSON file with the following content. In this example, the file is created as the policy.json in the Documents folder.
+
+   ```json
+   {
+        "roles": [{"role_id": "crn:v1:bluemix:public:iam::::role:ShareBroker","display_name": "Share Broker",
+                 "description": "As a share broker, you can create and delete share bindings"}],
+        "resources": [{"attributes": [
+            {"name": "accountId","value": "<origin share owner Account ID>","operator": "stringEquals"},
+            {"name": "serviceName","value": "is","operator": "share"},
+            {"name": "shareId","value": "<OriginShareId>","operator": "stringEquals"}]}],
+        "type": "authorization",
+        "description": "ShareBroker role for File Storage for VPC cross-account share access",
+        "subjects": [{"attributes": [
+            {"name": "serviceName","value": "is"},
+            {"name": "resourceType","value": "share"},
+            {"name": "accountId","value": "<accessor share Account ID>"}]}]
+        }
+   ```
+   {: pre}
+
+1. Then, run the CLI command with the JSON file to create the authorization policy.
+   ```sh
+   ibmcloud iam authorization-policy-create --file ~/Documents/policy.json
+   ```
+   {: pre}
 
 ## Creating service-to-service authorization for customer-managed encryption with the API
 {: #file-s2s-auth-encryption-api}
@@ -184,7 +250,34 @@ Make a request to the [IAM Policy Management API](/apidocs/iam-policy-management
 
 For more information, see the api spec for [IAM Policy Management](/apidocs/iam-policy-management#create-policy).
 
+## Creating service-to-service authorization for cross-account access with the API
+{: #file-s2s-auth-xaccount-api}
+{: api}
 
+[New]{: tag-new}
+
+As the share owner, make a request to the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy) to create the service-to-service authorization for the {{site.data.keyword.filestorage_vpc_short}} service of the origin share account (source) to access a share in accessor account (target).
+
+```json
+curl -X "POST" "https://iam.cloud.ibm.com/v1/policies" \
+     -H "Authorization: <Auth Token>" \
+     -H 'Content-Type: application/json' \
+     -d '{
+        "roles": [{"role_id": "crn:v1:bluemix:public:iam::::role:ShareBroker","display_name": "Share Broker",
+                 "description": "As a share broker, you can create and delete share bindings"}],
+        "resources": [{"attributes": [
+            {"name": "accountId","value": "<origin share owner Account ID>","operator": "stringEquals"},
+            {"name": "serviceName","value": "is","operator": "share"},
+            {"name": "shareId","value": "<OriginShareId>","operator": "stringEquals"}]}],
+        "type": "authorization",
+        "description": "ShareBroker role for File Storage for VPC cross-account share access",
+        "subjects": [{"attributes": [
+            {"name": "serviceName","value": "is"},
+            {"name": "resourceType","value": "share"},
+            {"name": "accountId","value": "<accessor share Account ID>"}]}]
+        }'
+```
+{: screen}
 
 ## Creating service-to-service authorization for customer-managed encryption with Terraform
 {: #file-s2s-auth-encryption-terraform}
@@ -234,6 +327,97 @@ resource "ibm_iam_authorization_policy" "mypolicy" {
 {: codeblock}
 
 For more information about the arguments and attributes, see the [Terraform documentation for authorization resources](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/iam_authorization_policy){: external}.
+
+## Creating service-to-service authorization for cross-account access with Terraform
+{: #file-s2s-auth-xaccount-terraform}
+{: terraform}
+
+[New]{: tag-new}
+
+1. Terraform supports configuring two different accounts for IBM provider. The provider without an alias is considered the default provider. See the following example, where two IBM accounts are specified, and the second is given the alias `team_account`. That configuration must be referred to as `ibm.team_account` later. 
+
+   ```terraform 
+   terraform {
+     required_providers {
+       ibm = {
+         source = "IBM-Cloud/ibm"
+         version = ">= 1.12.0"
+       }
+     }
+   }
+
+   provider "ibm" {
+     ibmcloud_api_key = var.ibmcloud_api_key
+     region           = var.region
+     ibmcloud_timeout = var.ibmcloud_timeout
+   }
+
+   provider "ibm" {
+     alias = "team_account"
+     ibmcloud_api_key = var.ibmcloud_api_key_second_account
+     region           = var.region
+     ibmcloud_timeout = var.ibmcloud_timeout
+   } 
+   ```
+   {: screen}
+
+   For more information about the arguments and attributes, see [IBM Cloud provider](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs#example-usage-of-provider){: external}.
+
+1. To create the IAM authorization between the file share service from one account to the file share service in a different account, use the resource `ibm_iam_authorization_policy`. The following example creates an authorization between the file services of two accounts.
+
+   ```Terraform
+   resource "ibm_iam_authorization_policy" "policy" {
+       source_service_name = "is"
+       source_resource_type = "share"
+       source_service_account = "<ShareOwner-Account-id>"
+       target_service_name = "is"   
+       target_resource_type = "share"
+       target_service_account = "<Accessor-Account-id>"
+       roles               = ["ShareBroker"]
+       description         = "Authorization Policy" 
+   }
+   ```
+   {: codeblock}
+
+   Or
+
+   ```terraform
+   resource "ibm_iam_authorization_policy" "policy1" {
+    subject_attributes {
+      name  = "accountId"
+      value = data.ibm_iam_account_settings.iam.account_id
+    }
+    subject_attributes {
+      name  = "serviceName"
+      value = "is"
+    }
+    subject_attributes {
+      name  = "resourceType"
+      value = "share"
+    }
+    resource_attributes {
+      name  = "shareId"
+      operator = "stringEquals"
+      value = data.ibm_share_id
+    }
+    resource_attributes {
+      name  = "serviceName"
+      operator = "stringEquals"
+      value = "is"
+    }
+    resource_attributes {
+      name  = "volumeId"
+      operator = "stringExists"
+      value = "true"
+    }
+    roles   = ["ShareBroker"]
+    }
+   ```
+   {: codeblock}
+
+   This terraform resource must also include the provider alias (in our example, `ibm.team_account`) with the account `ibmcloud_api_key` where the origin share is.
+
+   For more information about the arguments and attributes, see [ibm_iam_authorization_policy](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/iam_authorization_policy#authorization-policy-between-two-specific-services){: external}.
 
 ## Next Steps
 {: #file-s2s-next-steps}

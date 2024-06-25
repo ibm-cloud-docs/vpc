@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-06-14"
+lastupdated: "2024-06-25"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -139,7 +139,18 @@ Even without EIT, the data is moving through a secure data center network. For m
 Encryption in transit is not supported for {{site.data.keyword.bm_is_short}}.
 {: restriction}
 
+## Sharing file share data between accounts and services
+{: #fs-cross-account-mount}
 
+[New]{: tag-new}
+
+Customers who manage multiple accounts sometimes find that some of their accounts need to access and work with the same data. Administrators with the correct authorizations can share an NFS file system across accounts, so the data that their applications depend on is available across the different systems within the company. Customer can also share their {{site.data.keyword.filestorage_vpc_short}} shares with the [IBM watsonX](https://dataplatform.cloud.ibm.com/docs/content/wsj/getting-started/welcome-main.html?context=wx){: external} service.
+
+Cross-account [service-to-service authorization](/docs/vpc?topic=vpc-file-s2s-auth) is used to establish trust between share owner and accessor accounts. After the authorization is set in place, the share owner account can see the IDs of the accounts that can mount the shared file share and the accessor account can see the shared NFS shares in their resources list along with the share's owner information. The accessor account can't edit the properties of the origin share. Nor can they delete the origin share, but they can mount them in their own VPCs.
+
+For more information about sharing and mounting a file share from another {{site.data.keyword.cloud}} account or VPC, see [Sharing and mounting a file share from another account](/docs/vpc?topic=vpc-file-storage-accessor-create&interface=ui).
+
+Sharing a file share with other accounts or services is not supported for file shares with VPC-wide access mode.
 
 ## File share replication and failover
 {: #fs-repl-failover-overview}
@@ -206,6 +217,7 @@ The following limitations apply to this release of {{site.data.keyword.filestora
 * No data retention policy exists for deleted file shares. You cannot undelete a file share after you delete it.
 * Up to 256 hosts per zone per VPC can be concurrently connected to a single file share.
 * You can create up to 300 file shares within your VPC.
+* Up to 100 accessor share bindings can be created when you share your file share with another account or external service. [New]{: tag-new}
 * A file share cannot be deleted by using a `DELETE /shares/<id>` API request, if an existing mount target is associated with that file share or if replica operations are in progress.
 * Only {{site.data.keyword.bm_is_short}} that are provisioned after 31 August 2023 support {{site.data.keyword.filestorage_vpc_short}}.
 * Encryption in transit is not supported between {{site.data.keyword.filestorage_vpc_short}} for VPC and {{site.data.keyword.bm_is_short}}.
@@ -228,3 +240,4 @@ The following limitations apply to this release of {{site.data.keyword.filestora
    * [Viewing file shares and mount targets](/docs/vpc?topic=vpc-file-storage-view). You can retrieve information about your files shares and mount targets in the console, from the CLI, with the API, or Terraform.
    * [Manage your file shares](/docs/vpc?topic=vpc-file-storage-managing). You can rename a file share. You can increase its capacity and modify its IOPS. You can add mount targets to a file share. You can rename or delete a mount target. You can delete a file share when you no longer need it.
    * [Create a file share with replication](/docs/vpc?topic=vpc-file-storage-create-replication). With the replication feature, you can keep a read-only copy of your file share in another zone. The replica share is updated from the source share on a schedule that you specify. Replication provides a way to recover from an incident at the primary site, when data becomes inaccessible or an application fails. Replication can also be used for geographical expansion.
+   * [Sharing and mounting a file share from another account](/docs/vpc?topic=vpc-file-storage-accessor-create&interface=ui).

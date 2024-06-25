@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-06-14"
+lastupdated: "2024-06-25"
 
 keywords: file share, file storage, source volume, replica share, 
 
@@ -195,7 +195,9 @@ Replication status reasons   Status code   Status message
    Name                             my-replica-share   
    CRN                              crn:v1:bluemix:public:is:us-south-3:a/a1234567::share:r006-6d1719da-f790-45cc-9f68-896fd5673a1a   
    Lifecycle state                  pending   
-   Access control mode              security_group   
+   Access control mode              security_group
+   Accessor binding role            origin
+   Allowed transit encryption modes user_managed,none   
    Zone                             us-south-3   
    Profile                          dp2   
    Size(GB)                         1000   
@@ -232,7 +234,9 @@ When you create a replica of a file share in another region, you must use the CR
    Name                             my-cross-regional-replica-share   
    CRN                              crn:v1:bluemix:public:is:us-east-1:a/a1234567::share:r006-6d1719da-g687-45ac-9f68-896fd76843a1b   
    Lifecycle state                  pending   
-   Access control mode              security_group   
+   Access control mode              security_group
+   Accessor binding role            origin
+   Allowed transit encryption modes user_managed,none   
    Zone                             us-east-1   
    Profile                          dp2   
    Size(GB)                         1000   
@@ -328,7 +332,8 @@ curl -X POST \
   "iops": 300,
   "replication_cron_spec": "00 05 * * 0",
   "resource_group": {"id": "6edefe513d934fdd872e78ee6a8e73ef"},
-  "access_control_mode": "security_group"
+  "access_control_mode": "security_group",
+  "allowed_transit_encryption_modes": "user_managed,none"
 }'
 ```
 {: pre}

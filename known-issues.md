@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-06-21"
+lastupdated: "2024-06-25"
 
 keywords:
 
@@ -119,3 +119,13 @@ Because all bare metal profiles are VMware&reg; certified, the `supported_image_
 {: #volumes-catalog-managed-known-issue}
 
 **Issue:** When you retrieve a volume or snapshot that was originally provisioned as a boot volume in an instance with a [billed catalog offering](/docs/vpc?topic=vpc-getting-started-images-on-vpc-catalog&interface=ui#images-on-vpc-catalog-images) and without a billing plan, the response does not include the `catalog_offering` property.
+
+### Accessor share binding href returned in incorrect format
+{: #fileshareaccessorhref}
+
+When retrieving an origin share, the value of the `href` sub-property of the `accessor_bindings` property may be incorrect. A fix for this is planned.
+
+### Missing `accessor_binding` and `lifecycle_reasons` in API response
+{: #filesharemissingbindinginfo}
+
+Currently, when creating, updating, or retrieving a share, the `accessor_bindings` and `lifecycle_reasons` properties are missing from the response in the `eu-es`, `eu-fr2`, `eu-de`, and `us-south` regions. You can observe this behavior when a file share is created without an accessor share. A fix for this issue is planned.

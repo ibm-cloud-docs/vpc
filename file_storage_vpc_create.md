@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-06-17"
+lastupdated: "2024-06-25"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -53,8 +53,9 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
    | Access Management Tags | Enter access management tags that you created in IAM to apply them to this file share. For more information about access management tags, see [Access management tags for file shares](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-about-mgt-tags). |
    | Profile | All file shares are created with the dp2 profile. For more information, see [file Storage profiles](/docs/vpc?topic=vpc-file-storage-profiles). \n Select the size and IOPS for your file share. You can increase the capacity later, and you can also adjust the IOPS as needed. |
    | Mount target access mode  | Select how you want to manage access to this file share: |
-   |  | Security group: Access to the file share is based on [security group](/docs/vpc?topic=vpc-using-security-groups#sg-getting-started) rules. This option can be used to restrict access to specific virtual server instances. You can also use this option if you want to mount the file share to a virtual server instance in another zone. This option is recommended as you have more control over who can access the data that is stored on the file share.  |
+   |  | Security group: Access to the file share is based on [security group](/docs/vpc?topic=vpc-using-security-groups#sg-getting-started) rules. This option can be used to restrict access to specific virtual server instances. You can also use this option if you want to mount the file share to a virtual server instance in another zone. This option is recommended as you have more control over who can access the data that is stored on the file share. [New]{: tag-new} When, you choose this type of access, you can also specify the allowed transit encryption modes. |
    |  | Virtual private cloud: Access to the file share is granted to any virtual server instance in the same region. Cross-zone mounting and encryption in transit are not supported. |
+   | Allowed transit encryption modes [New]{: tag-new}| As the share owner, you can specify how you want clients within your account and authorized accounts to connect to your file share. You can select *none* if you do not want them to use encryption in transit, and *user-managed* if you want them to use encryption in transit. If you select both, then the transit encryption type of the first mount target decides the transit encryption types of all future mount targets within the account. |
    {: caption="Table 1. Values for creating a file share" caption-side="top"}
 
    
@@ -278,6 +279,8 @@ Name                             my-new-file-share
 CRN                              crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-925214bc-ded5-4626-9d8e-bc4e2e579232   
 Lifecycle state                  pending   
 Access control mode              security_group
+Accessor binding role            origin
+Allowed transit encryption modes user_managed,none
 Zone                             us-south-2   
 Profile                          dp2   
 Size(GB)                         500   
@@ -448,7 +451,8 @@ curl -X POST \
 
 This request creates or adds a mount target to an existing file share. In this example, the `vpc` property is specified because the file share's access control mode is `vpc`. Data encryption in transit is not enabled.
 
-
+Access control modes of the mount target and the share must match. Both must be either `vpc` or `security_group`. When you create a mount target with `security_group` access mode, pay attention to the share's `allowed_transit_encryption_modes`. The `transit_encryption` value must reflect what is allowed for the share.
+{: important}
 
 ```sh
 curl -X POST \
@@ -514,8 +518,6 @@ The following example request creates a file share that has the VPC-wide access 
 
 Access to the mount target is VPC wide; all instances in the VPC have access to this file share. Cross-zone mounting and data encryption in transit is not supported.
 
-
-
 ```sh
 curl -X POST \
 "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2\
@@ -523,6 +525,7 @@ curl -X POST \
 -H 'Content-Type: application/json'\
 -d '{
     "access_control_mode": "vpc",
+    "allowed_transit_encryption_modes": "none",
     "size": 4800,
     "iops": 48000,
     "mount_targets": [
@@ -543,8 +546,6 @@ curl -X POST \
   }'
 ```
 {: pre}
-
-
 
 A successful response looks like the following example.
 
@@ -981,3 +982,4 @@ Manage your file shares and data. For more information, see the following topics
 * [Viewing file shares and mount targets](/docs/vpc?topic=vpc-file-storage-view).
 * [Manage your file shares](/docs/vpc?topic=vpc-file-storage-managing).
 * [Create a file share with replication](/docs/vpc?topic=vpc-file-storage-create-replication).
+* [Sharing and mounting a file share from another account](/docs/vpc?topic=vpc-file-storage-accessor-create&interface=ui). [New]{: tag-new}

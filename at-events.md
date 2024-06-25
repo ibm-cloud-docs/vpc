@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-06-13"
+lastupdated: "2024-06-25"
 
 keywords:
 
@@ -685,6 +685,10 @@ The following table lists the actions that are related to file share resources a
 | shares  | is.share.share.init    | Replication Initialization status |
 | shares  | is.share.share.failover| Replication Failover status |
 | shares  | is.share.share.split   | Replication Split status |
+| shares  | is.share.accessor-binding.create | File share binding with accessor share was created. [New]{: tag-new}|
+| shares  | is.share.accessor-binding.delete | File share binding  deletion. [New]{: tag-new} |
+| shares  | is.share.accessor-binding.list | List of all bindings for a file share was retrieved. [New]{: tag-new} |
+| shares  | is.share.accessor-binding.read | One share binding for a file share was retrieved. [New]{: tag-new} |
 | share mount targets | is.share.mount-target.create| Mount target for a file share was created  |
 | share mount targets | is.share.mount-target.read  | One mount target for a file share was retrieved  |
 | share mount targets | is.share.mount-target.list  | List of all mount targets for a file share was retrieved  |

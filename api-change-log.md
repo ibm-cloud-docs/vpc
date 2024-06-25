@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-06-11"
+lastupdated: "2024-06-25"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -53,6 +53,32 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 25 June 2024
+{: #25-june-2024}
+
+### For all version dates
+{: #25-june-2024-all-version-dates}
+
+**Accessor file shares.** You can now [create a share](/apidocs/vpc/latest#create-share) that accesses data from [another share](/docs/vpc?topic=vpc-file-storage-accessor-create&interface=api), which may be in another account. Specify the share to access data from, which may also be a replica share, with the new `origin_share` property.
+
+Before specifying an origin share in another account, ensure that [authorizations](/docs/vpc?topic=vpc-file-s2s-auth&interface=api#file-s2s-auth-xaccount-api) are established between the origin share account and accessor account. You must also have an appropriate ([IAM](/docs/account?topic=account-iamoverview)) role with the `is.share.share.allow-remote-account-access` action.
+{: requirement}
+
+When [creating](/apidocs/vpc/latest#create-share) or [updating](/apidocs/vpc/latest#update-share) a share, specify the new `allowed_transit_encryption_modes` property (possible values `none`, `user_managed`) to limit the transit encryption modes for the share and its associated [accessor shares](/docs/vpc?topic=vpc-file-storage-accessor-create&interface=api#fs-create-accessor-mount-target-api).
+
+When [retrieving](/apidocs/vpc/latest#get-share) and [listing](/apidocs/vpc/latest#list-shares) file shares, the `origin_share` property will be included in the response when the new `accessor_binding_role` is `accessor` (possible values `none`, `accessor`, `origin`).
+
+Each time an accessor share is created, an accessor binding is created on its origin share, allowing all access to the origin share to be tracked and managed. The following new accessor bindings methods are introduced in this release:
+
+- [List accessor bindings for an origin share](/apidocs/vpc/latest#list-share-accessor-bindings)
+- [Retrieve an origin share accessor binding](/apidocs/vpc/latest#get-share-accessor-binding)
+- [Delete an origin share accessor binding](/apidocs/vpc/latest#delete-share-accessor-binding)
+
+Revoking an account's access to an origin share requires both removing the accessor account's authorizations and [deleting](/apidocs/vpc/latest#delete-share-accessor-binding) its existing accessor bindings. For more information, see [Removing access to a file share from other accounts](/docs/vpc?topic=vpc-file-storage-accessor-delete&interface=api).
+
+Currently, when creating, updating or retrieving an accessor share, the `accessor_bindings` and `lifecycle_reasons` properties may be missing from the response. Additionally, when creating, updating, or retrieving an origin share, the value of the `href` sub-property of the `accessor_bindings` property may be incorrect.
+{: note}
 
 ## 11 June 2024
 {: #11-june-2024}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-05-28"
+lastupdated: "2024-06-25"
 
 keywords: flow logs, ordering, logging, log analysis
 
@@ -138,4 +138,17 @@ Table 6 outlines the message IDs that are generated for File Storage replication
 A log is generated when a replication event occurs.
 {: note}
 
+### File share cross-account access
+{: #logging-file-share-accessor}
 
+[New]{: tag-new}
+
+Table 7 outlines the message IDs that are generated for File Storage related events:
+
+| Message ID | Type | Description |
+|------------|------|-------------|
+| `is.share.00004I` | `info` | The lifecycle_state of accessor share `{{.shareID}}` is stable. |
+| `is.share.00005I` | `info` | The lifecycle_state of accessor share `{{.shareID}}` is failed and the reason for failure is `{{.shareLifecycleReason}}`. |
+| `is.share.00006I` | `info` | The lifecycle_state of share mount target `{{.targetID}}` for the `{{.shareID}}` at accessor account is stable. |
+| `is.share.00007I` | `info` | The lifecycle_state of share mount target `{{.targetID}}` for the `{{.shareID}}` at accessor account is failed. |
+{: caption="Table 7. Message IDs that are generated for accessor file share events" caption-side="bottom"}
