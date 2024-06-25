@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-06-20"
+lastupdated: "2024-06-25"
 
 keywords: custom routes
 
@@ -90,6 +90,8 @@ To view details of a route with the API, follow these steps:
    ```curl
    curl -X GET "$vpc_api_endpoint/v1/vpcs/$vpc_id/routing_tables?version=$api_version&generation=2" \
    -H "Authorization: Bearer $iam_token"
+   ```
+   {: codeblock}
 
 ## Listing routes of a routing table with Terraform
 {: #cr-list-route-terraform}

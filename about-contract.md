@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-06-20"
+lastupdated: "2024-06-25"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -136,7 +136,7 @@ There exist use cases in which the registry is **not known** when the workload s
 {: tip}
 
 Complete the following steps to get the base64 encoded archive file. The base64 output is available in the compose.b64 file.
-Go to the <COMPOSE_Folder> and run the following commands:
+Go to the `<COMPOSE_Folder>` and run the following commands:
 ```sh
 tar czvf compose.tgz docker-compose.yml
 ```

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-06-18"
+lastupdated: "2024-06-25"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -92,29 +92,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
 1. Click **Authorize**.
 1. When you are returned to the **Manage authorizations** page, click **Create** again and create authorizations for the remaining services.
 
-<buvpc-62-eventnotification>
 
-### Enabling service-to-service authorization for {{site.data.keyword.en_short}}
-{: #backup-s2s-auth-procedure-en-ui}
-{: ui}
-
-[New]{: tag-new}
-
-To create a service-to-service authorization policy for {{site.data.keyword.en_short}}, follow this procedure:
-
-1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage > Access (IAM)**. The **Manage access and users** page is displayed.
-1. From the side panel, select **Authorizations**.
-1. On the **Manage authorizations** page, click **Create**. 
-1. On the **Grant a service authorization** page, select the source account. As you're setting up authorization for the Backup service in your account, select **This account**.
-1. For the source service, select **VPC Infrastructure Services** from the list.
-1. Select the scope. Choose **Specific resources**.
-1. Click **Resource type**. From the list, select **IBM Cloud Backup for VPC**.
-1. Select **{{site.data.keyword.en_short}}** as the target service.
-1. Select the scope. Choose **Specific resources**.
-1. Click **Target service instance**.
-1. From the list of instances, select the {{site.data.keyword.en_short}} service instance that you want to authorize.
-1. Select the **Event Source Manager** role.
-1. Click **Authorize**.</buvpc-62-eventnotification>
 
 ## Creating authorization policies from the CLI
 {: #backup-s2s-auth-procedure-cli}

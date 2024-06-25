@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2021
-lastupdated: "2023-02-23"
+  years: 2019, 2024
+lastupdated: "2024-06-25"
 
 keywords: load balancer, network, unknown
 
@@ -19,7 +19,7 @@ content-type: troubleshoot
 {: troubleshoot}
 {: support}
 
-Use the information in this topic to troubleshoot a back-end member for a load balancer that lists as `unknown'.
+Use the information in this topic to troubleshoot a back-end member for a load balancer that lists as `unknown`.
 {: shortdesc}
 
 A load balancer back-end member lists as unknown.

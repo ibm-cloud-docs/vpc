@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-06-14"
+lastupdated: "2024-06-25"
 
 keywords: connecting, windows
 
@@ -40,16 +40,16 @@ Complete the following prerequisites:
 
    | Protocol | Source Type | Source | Value |
    |-----------|------|------|------|
-   | TCP| Any | <cidr_range> | 3389 |
-   | UDP| Any | <cidr_range> | 3389 |
-   | ICMP | Any | <cidr_range> | Type: 8, Code: Any|
+   | TCP| Any | `<cidr_range>` | 3389 |
+   | UDP| Any | `<cidr_range> `| 3389 |
+   | ICMP | Any | `<cidr_range>` | Type: 8, Code: Any|
    {: caption="Table 1. Configuration information for inbound rules" caption-side="bottom"}
 
    Then, configure outbound rules that allow all TCP traffic:
 
    | Protocol | Destination Type | Source | Value |
    |-----------|------|------|------|
-   | TCP| Any | <cidr_range> | Any port|
+   | TCP| Any | `<cidr_range>` | Any port|
    {: caption="Table 2. Configuration information for outbound rules" caption-side="bottom"}
 
 1. Make sure that you reserve and associate a floating IP address to your Windows instance.

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2022, 2024
-lastupdated: "2024-06-20"
+lastupdated: "2024-06-25"
 
 keywords:
 
@@ -131,7 +131,7 @@ curl -X PUT "$vpc_api_endpoint/v1/subnets/$subnet/public_gateway?version=$api_ve
 ```
 {: pre}
 
-Only one public gateway per zone is allowed in a VPC, but that public gateway can be attached to multiple subnets in the zone. To find the public gateway for a zone, run the 'ibmcloud is public-gateways` command and look for the particular VPC and zone values.
+Only one public gateway per zone is allowed in a VPC, but that public gateway can be attached to multiple subnets in the zone. To find the public gateway for a zone, run the `ibmcloud is public-gateways` command and look for the particular VPC and zone values.
 {: tip}
 
 You can then retrieve and view the public gateway that is attached to the subnet by running the following command.
