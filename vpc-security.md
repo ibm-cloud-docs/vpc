@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2021
-lastupdated: "2019-11-10"
+  years: 2018, 2024
+lastupdated: "2024-06-24"
 
 keywords: security, groups, encryption, traffic, rules, subnet, instance, firewall, encryption
 
@@ -72,3 +72,4 @@ Although {{site.data.keyword.vpc_short}} doesn't provide end-to-end encryption, 
 
 If your application requires end-to-end encryption, then it is *your* responsibility to ensure that your connection is encrypted end-to-end.
 {: important}
+

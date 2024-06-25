@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-06-20"
+lastupdated: "2024-06-24"
 
 keywords: bare metal servers, managing, operation, manage bare metal server, manage bare metal, manage server, restart bare metal, stop bare metal, delete bare metal, reboot bare metal, restart server, stop server, delete server
 
@@ -18,7 +18,7 @@ subcollection: vpc
 You can manage your {{site.data.keyword.cloud}} Bare Metal Servers for VPC by performing tasks such as start, stop, update firmware, reboot, and delete bare metal server.
 {: shortdesc}
 
- 
+
 
 You can perform the following actions by using the UI, CLI, and API.
 
