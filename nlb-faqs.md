@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-04-26"
+lastupdated: "2024-06-25"
 
 keywords: load balancer, network, faqs
 
@@ -84,7 +84,7 @@ The health check response timeout value must be less than the health check inter
 {: #is-the-network-load-balancer-ip-address-fixed}
 {: faq}
 
-The IP address is fixed for both public and private NLBs. However, route-mode NLBs toggle between primary and standby appliance IPs throughput their lifetime.
+The IP address is fixed for both public and private NLBs. However, route-mode NLBs toggle between primary and standby appliance IPs throughout their lifetime.
 
 ### Does IBM complete quarterly ASV scans of data-plane LBaaS appliances?
 {: #lbaas-asv}
