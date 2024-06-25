@@ -1,0 +1,387 @@
+---
+
+copyright:
+  years: 2024
+lastupdated: "2024-06-25"
+
+keywords: file share, file storage, accessor share, cross-account share
+
+subcollection: vpc
+
+---
+
+{{site.data.keyword.attribute-definition-list}}
+
+
+# Sharing and mounting a file share from another account
+{: #file-storage-accessor-create}
+
+[New]{: tag-new}
+
+As a storage administrator that manages multiple accounts, you can share an NFS file system across accounts, so the data that your applications depend on is available across the different systems within the company. You can also share your {{site.data.keyword.filestorage_vpc_short}} with the [IBM watsonx](https://dataplatform.cloud.ibm.com/docs/content/wsj/getting-started/welcome-main.html?context=wx){: external} service.
+{: shortdesc}
+
+[Cross-account service-to-service authorization](/docs/vpc?topic=vpc-file-s2s-auth) is used to establish trust between share owner and accessor accounts. Also, the appropriate IAM platform and services roles must be assigned to the users so they can perform their tasks. To create an accessor share within the same account as the origin share, the user must have *Share Broker* and *Editor* roles. To create an accessor share within the a different account from the origin share, the user must have *Share Remote Account Accessor* and *Editor* roles. For more information, see [IAM Roles and actions](/docs/account?topic=account-iam-service-roles-actions#is.share-roles).
+{: requirement}
+
+After the authorization is set in place and roles are assigned, you can create an accessor share that is bound to the origin share. The accessor share inherits the profile, size, encryption type both at rest and in-transit from the origin share. The origin share's account can see the IDs of the accounts who can mount the shared NFS share.
+
+As the accessor, you can't edit the properties of the origin share, and you can't delete the origin share. The accessors can mount the share by creating an accessor share and a mount target to the accessor share. Then, you can access and use the data of the origin share in your own VPCs.
+
+## Transit Encryption Policy
+{: #file-storage-transit-encryption-policy}
+
+The share owner has the right to enforce the use of encryption in transit when the accessor accesses the file share data. The share owner can set the allowed transit encryption modes to allow either `user_managed` or `none`, or both. When the 'allowed transit encryption modes' of the origin share is set to `user_managed`, the share accessor accounts must create all their mount targets with `user_managed` transit encryption. If the accessor account has more than one mount targets, these mount targets must have the same type of encryption in transit.
+
+File shares that were created before the release of this feature (18 June 2024) have an allowed transit encryption type that is based on their existing mount targets. After this date, you must specify the allowed transit encryption type when you create file shares. All mount targets that are created for one file share must have the same transit encryption type.
+
+## Creating an accessor share in the UI
+{: #file-storage-create-accessor-ui}
+{: ui}
+
+In the {{site.data.keyword.cloud_notm}} console, you can create an accessor share with or without a mount target. However, you need to create a mount target when you want to mount the share on a virtual server instance.
+
+### Creating an accessor share in the UI
+{: #fs-create-accessor-target-ui}
+
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > File Shares**. A list of file shares displays.
+
+1. On the File shares for VPC page, click **Create** >  **Create accessor share**.
+
+1. Enter the following information. 
+
+   | Field | Value |
+   |-------|-------|
+   | Accessor share name  | Specify a meaningful name for your accessor share. The file share name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. You can later edit the name if you want.
+   | Remote share CRN | Enter the CRN of the origin file share.|
+   {: caption="Table 1. Values for creating a file share" caption-side="top"}
+
+1. You return to the {{site.data.keyword.filestorage_vpc_short}} page, where a message indicates that the file share is provisioning. When the transaction completes, the share status changes to **Active**.
+
+## Creating an accessor share from the CLI
+{: #file-storage-create-accessor-cli}
+{: cli}
+
+### Before you begin
+{: #before-creating-accessor-share-cli}
+
+Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup). After you install the VPC CLI plug-in, set the target to generation 2 by running the `ibmcloud is target --gen 2` command.
+{: requirement}
+
+After you install the VPC CLI plug-in, set the target to generation 2 by running the `ibmcloud is target --gen 2` command.
+
+### Creating an accessor share without a mount target from the CLI
+{: #fs-create-accessor-share-cli}
+
+You can use the `ibmcloud is share-create` command to provision a file share in your selected zone with the CRN of the origin share.
+
+```sh
+ibmcloud is share-create --name my-accessor-share --origin-share CRN                          
+```
+{: pre}
+
+```sh
+$ ibmcloud is share-create --name my-accessor-share --origin-share crn:v1:bluemix:public:is:us-south-2:a/7654321::share:r006-d73v40a6-e08f-4d07-99e1-d28cbf2188ed
+Creating file share my-file-share under account Test Account as user test.user@ibm.com...
+                                
+ID                               r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
+Name                             my-accessor-share   
+CRN                              crn:v1:bluemix:public:is:us-south-2:a/1234567::share:r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
+Lifecycle state                  stable   
+Access control mode              security_group
+Accessor binding role            accessor
+Allowed transit encryption modes user_managed,none 
+Origin share                     CRN                                                                                             Name            Remote account  Remote region
+                                 crn:v1:bluemix:public:is:us-south-2:a/7654321::share:r006-d73v40a6-e08f-4d07-99e1-d28cbf2188ed  my-origin-share a7654321        -
+Zone                             us-south-2   
+Profile                          dp2   
+Size(GB)                         1000   
+IOPS                             1000   
+Encryption                       provider_managed   
+Mount Targets                    ID                          Name      
+                                 No mounted targets found.      
+                                
+Resource group                   ID                                 Name      
+                                 db8e8d865a83e0aae03f25a492c5b39e   Default      
+                                
+Created                          2024-06-25T22:15:15+00:00   
+Replication role                 none   
+Replication status               none   
+Replication status reasons       Status code   Status message      
+                                 -             -                              
+```
+{: screen}
+
+The accessor share inherits the following characteristics from its origin share: profile, size, encryption type both at rest and in-transit. If you try to use this command with the property `--origin-share` with other properties such as `--iops`, `--profile`, and `--replica-share`, the request fails.
+{: note}
+
+For more information about the command options, see [`ibmcloud is share-create`](/docs/vpc?topic=vpc-vpc-reference#share-create).
+
+### Creating a mount target for an accessor share from the CLI
+{: #fs-create-accessor-mount-target-cli}
+
+To create a mount target for the file share, run the `share-mount-target-create` command. Before you begin, gather some necessary information.
+
+When you create a mount target, you must specify the file share that it is for. You can use the file share's name or ID. You must specify the VPC, too, either with its ID or name. The VPC must be unique to each mount target. You must also specify the security access group that's going to be used to manage access to the share. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all virtual server instances on which you want to mount the file share.
+
+Lastly, you must specify values for the options that are needed to create a [virtual network interface](/docs/vpc?topic=vpc-vni-about) for the mount target. Use the appropriate CLI commands to list the available [subnets](/docs/vpc?topic=vpc-vpc-reference#subnets-list), [reserved IP addresses in a subnet](/docs/vpc?topic=vpc-vpc-reference#subnet-reserved-ips-list), [security groups](/docs/vpc?topic=vpc-vpc-reference#security-groups-list) to get the information that you need.
+
+The following example creates a mount target with a virtual network interface for a file share that has security group access mode.
+
+```sh
+$ ibmcloud is share-mount-target-create my-accessor-share --subnet my-subnet --name my-cli-share-mount-target-1 --vni-name my-share-vni-1  --vni-sgs my-sg --resource-group-name Default --vpc my-vpc
+Mounting target for share r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6 under account Test Account as user test.user@ibm.com...
+                               
+ID                          r006-dd497561-c7c9-4dfb-af0a-c84eeee78b61   
+Name                        my-cli-share-mount-target-1   
+VPC                         ID                                          Name      
+                            r006-6e8fb140-5668-45b8-b98a-d5cb0e0bf39b   my-vpc      
+                               
+Access control mode         security_group
+Resource type               share_mount_target   
+Virtual network interface   ID                                          Name      
+                            r006-13c070d8-d038-49c6-95f5-e8503c5595e3   my-share-vni-1      
+                               
+Lifecycle state             pending   
+Mount path                  -   
+Transit Encryption          none   
+```
+{: screen}
+
+For more information about the command options, see [`ibmcloud is share-mount-target-create`](/docs/vpc?topic=vpc-vpc-reference#share-mount-target-create).
+
+### Creating an accessor share with a mount target from the CLI
+{: #fs-create-accessor-share-target-cli}
+
+You can create an accessor share with one or more mount targets in one step by using the `ibmcloud is share-create` command. You need to provide the zone name, and the CRN of the origin share. The accessor share inherits the profile, size, encryption type both at rest and in-transit from the origin share. You can also specify a name, user tags, and even the initial owner UID. To create the mount target, you need to provide the mount target information in JSON format.
+
+The following example shows how to create an accessor share with mount target.
+
+```sh
+TBD
+```
+{: screen}
+
+```sh
+$ ibmcloud is share-create --name my-new-accessor-share --origin-share crn:v1:bluemix:public:is:us-south-2:a/7654321::share:r006-d73v40a6-e08f-4d07-99e1-d28cbf2188ed --mount-targets '
+>[{"name":"my-new-mount-target","virtual_network_interface": {"name":"my-vni","subnet": {"id":"r006-298acd6c-e71e-4204-a04f-fe4a4dd89805"}}}]'
+Creating file share my-new-file-share under account Test Account as user test.user@ibm.com...
+                                
+ID                               r006-925214bc-ded5-4626-9d8e-bc4e2e579232   
+Name                             my-new-accessor-share   
+CRN                              crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-925214bc-ded5-4626-9d8e-bc4e2e579232   
+Lifecycle state                  pending   
+Access control mode              security_group
+Accessor binding role            accessor
+Allowed transit encryption modes user_managed,none 
+Origin share                     CRN                                                                                             Name            Remote account  Remote region
+                                 crn:v1:bluemix:public:is:us-south-2:a/7654321::share:r006-d73v40a6-e08f-4d07-99e1-d28cbf2188ed  my-origin-share a7654321        -
+
+Zone                             us-south-2   
+Profile                          dp2   
+Size(GB)                         500   
+IOPS                             2000   
+User Tags                        env:dev   
+Encryption                       provider_managed   
+Mount Targets                    ID                                          Name      
+                                 r006-ad313f6b-ccb5-4941-a5f7-0c953f1043df   my-new-mount-target      
+                                
+Resource group                   ID                                 Name      
+                                 db8e8d865a83e0aae03f25a492c5b39e   Default      
+                                
+Created                         2024-06-25T00:30:11+00:00   
+Replication role                none   
+Replication status              none   
+Replication status reasons      Status code   Status message      
+                                -             -      
+```
+{: screen}
+
+## Creating an accessor share with the API
+{: #file-storage-create-accessor-api}
+{: api}
+
+You can create file shares and mount targets by directly calling the REST APIs. 
+
+### Before you begin 
+{: #fs-accessor-api-prereqs}
+
+Set up your API environment. Define variables for the IAM token, API endpoint, and API version. For instructions, see [Setting up your API and CLI environment](/docs/vpc?topic=vpc-set-up-environment).
+
+### Creating an accessor share with the API
+{: #fs-create-accessor-file-share-api}
+
+Make a `POST /shares` request to create a file share.
+
+The following example shows a request to create an accessor share by using the CRN of the origin share. The accessor share inherits the following characteristics from its origin share: profile, zone, size, IOPS, encryption type both at rest and in-transit. The values for `initial_owner`,`access_control_mode`, and `encryption_key` are also inherited from origin_share.
+
+```sh
+curl -X POST \
+"$vpc_api_endpoint/v1/shares?version=2024-06-25&generation=2"\
+  -H "Authorization: Bearer $iam_token" \
+  -d '{
+  "name": "my-accessor-share",
+  "user_tags": ["string"],
+  "origin_share": {"crn": "crn:v1:bluemix:public:is:us-south-1:a/a1234567::share:0fe9e5d8-0a4d-4818-96ec-e99708644a58"}
+}
+```
+{: pre}
+
+A successful response looks like the following example.
+
+```json
+  {
+  "access_control_mode": "security-group",
+  "allowed_transit_encryption_modes": ["none", "user-managed"],
+  "created_at": "2024-05-06T23:31:59Z",
+  "crn": "crn:[...]",
+  "encryption": "provider_managed",
+  "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/ff859972-8c39-4528-91df-eb9160eae918",
+  "id": "ff859972-8c39-4528-91df-eb9160eae918",
+  "iops": 48000,
+  "lifecycle_state": "stable",
+  "name": "my-accessor-share",
+  "profile": {
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/share/profiles/dp2",
+    "name": "dp2",
+    "resource_type": "share_profile"
+    },
+  "replication_role": "none",
+  "replication_status": "none",
+  "replication_status_reasons": [],
+  "resource_group": {
+    "crn": "crn:[...]",
+    "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/6b45d0aa-e0a6-478b-a5d9-bb45b106676d",
+    "id": "6b45d0aa-e0a6-478b-a5d9-bb45b106676d",
+    "name": "Default"
+    },
+  "resource_type": "share",
+  "size": 4800,
+  "user_tags": ["string"],
+  "zone": {
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-1",
+    "name": "us-south-1"}
+```
+{: screen}
+
+
+### Creating a mount target for a file share with the API
+{: #fs-create-accessor-mount-target-api}
+
+If the share's access control mode is `security_group`, then the mount target must be created with a [virtual network interface](/docs/vpc?topic=vpc-vni-about). When the share's allowed transit encryption mode is `user-managed`, the mount target's `transit_encryption` value must be `user-managed`, too. 
+
+Make a `POST /shares/{share_id}/mount_targets` request and specify a subnet and security group for the mount target network interface. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all virtual server instances on which you want to mount the file share.
+
+This example adds a mount target to an existing accessor share, which is identified by ID, and provides a subnet and security group to create the network interface. 
+
+```json
+ curl -X POST "$vpc_api_endpoint/v1/shares/f1ab81ef-dd30-459a-85e0-9094164978b1/mount_targets/?version=2023-07=18&generation=2"\
+ -d '{
+     "virtual_network_interface": {
+        "subnet": {"id": "1a0b3d75-8a62-4c78-9263-f9bcd25a8759"},
+        "security_groups": [{"id": "b2599112-7027-480e-ad1b-fd917d2fcb84"}]
+     },
+     "transit_encryption": "user_managed"
+}'
+```
+{: codeblock}
+
+
+
+## Creating a file share and mount target with Terraform
+{: #file-storage-create-accessor-terraform}
+{: terraform}
+
+To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
+{: requirement}
+
+VPC infrastructure services use a specific regional endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the appropriate region in the provider block in the `provider.tf` file.
+
+See the following example of targeting a region other than the default `us-south`.
+
+```terraform
+provider "ibm" {
+   region = "eu-de"
+}
+```
+{: screen}
+
+### Creating an accessor share with Terraform
+{: #file-accessor-share-create-terraform}
+
+To create an accessor share, use the `ibm_is_share` resource. The accessor share inherits the following characteristics from its origin share: profile, size, encryption type both at rest and in-transit.
+
+```terraform
+resource "ibm_is_share" "accessor_share_example" {
+  name    = "my-new-share"
+  zone    = "us-south-2"
+  TBD
+}
+```
+{: codeblock}
+
+### Creating a mount target with Terraform
+{: #file-accessor-share-mount-create-terraform}
+
+To create a mount target for a file share, use the `is_share_mount_target` resource. The following example creates a mount target with `security_group` access control mode. First, specify the share for which the mount target is created for. Then, you specify the name of the mount target and define the new virtual network interface by providing an IP address and a name. You must also specify the security group that you want to use to manage access to the file share that the mount target is associated to. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all virtual server instances on which you want to mount the file share. The attribute `auto_delete = true` means that the virtual network interface is to be deleted if the mount target is deleted.
+
+```terraform
+resource "ibm_is_share_mount_target" "target-with-vni" {
+     share=ibm_is_share.is_share.ID
+     name = <share_target_name>
+     virtual_network_interface {
+     name = <virtual_network_interface_name>
+     primary_ip {
+         address = “10.240.64.5”
+         auto_delete = true
+         name = <reserved_ip_name>
+     }
+     resource_group = <resource_group_id>
+     security_groups = [<security_group_ids>]
+     transit_encryption = user_managed
+   }
+}
+```
+{: codeblock}
+
+For more information about the arguments and attributes, see [ibm_is_share_mount_target](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share_mount_target){: external}.
+
+### Creating an accessor share with a mount target with security group access mode
+{: #file-accessor-share-create-with-target-sg-terraform}
+
+You don't have to create the file share and the mount target separately. To create a file share with a mount target that allows for security group-based authentication within a VPC, use the `ibm_is_share` resource. The accessor share inherits the following characteristics from its origin share: profile, size, encryption type both at rest and in-transit. Specify the access control mode as `security_group`, and define the mount target by providing a name for it, details of the virtual network interface such as name, subnet, or IP address. Also, specify the security groups that you want to use to control access to the file share. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all virtual server instances on which you want to mount the file share. 
+
+```terraform
+resource "ibm_is_share" "share4" {
+   zone    = "us-south-2"
+   name    = "my-share4"
+   TBD
+   access_control_mode = "security_group"
+   mount_target {
+       name = "target"
+       virtual_network_interface {
+       primary_ip {
+               address = 10.240.64.5
+               auto_delete = true
+               name = "<reserved_ip_name>
+       }
+      resource_group = <resource_group_id>
+      security_groups = [<security_group_ids>]
+      transit_encryption = none
+      }
+   }
+}
+```
+{: codeblock}
+
+For more information about the arguments and attributes, see [ibm_is_share](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_share){: external}.
+
+## Next steps
+{: #fs-accessor-create-next-steps}
+
+Mount your file shares. Mounting is a process by which a server's operating system makes files and directories on the storage device available for users to access through the server's file system. For more information, see the following topics:
+* [IBM Cloud File Share Mount Helper utility](/docs/vpc?topic=vpc-fs-mount-helper-utility)
+* [Mounting file shares on Red Hat Linux](/docs/vpc?topic=vpc-file-storage-vpc-mount-RHEL).
+* [Mounting file shares in CentOS](/docs/vpc?topic=vpc-file-storage-mount-centos).
+* [Mounting file shares on Ubuntu](/docs/vpc?topic=vpc-file-storage-vpc-mount-ubuntu).
+* [Mounting file shares on z/OS](/docs/vpc?topic=vpc-file-storage-vpc-mount-zos)
