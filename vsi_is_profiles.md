@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-06-19"
+lastupdated: "2024-06-26"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -327,7 +327,6 @@ See [Download drivers](https://www.nvidia.com/Download/index.aspx?lang=en-us) to
 [Select availability]{: tag-green}
 
 - The `gx2-80x1280x8a100` GPU profile is available for select customers. Contact IBM Sales or open a [support case](https://cloud.ibm.com/unifiedsupport/supportcenter) if you are interested in this offering.
-- The `a100` PCIe GPU profiles are only available in the US East (Washington DC), United Kingdom (London), and Japan (Tokyo) regions.
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Number of GPUs | Instance storage (GB) |
 |---------|---------|---------|---------|---------|---------|---------|
