@@ -123,6 +123,8 @@ The following table shows all balance profiles that are available for x86-64.
 {: class="simple-tab-table"}
 {: summary="Balanced Beta profile options for Intel x86-64 virtual server instances."}
 
+
+
 AMD based virtual machines use AMD EPYC Milan processors. Compute capabilities are limited to AMD EPYC Rome capabilities.
 {: important}
 
