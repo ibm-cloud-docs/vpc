@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-06-26"
+lastupdated: "2024-06-27"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -307,7 +307,6 @@ The following Ultra High Memory profiles are available for x86-64 processors:
 {: tab-group="Ultra High Memory"}
 {: class="simple-tab-table"}
 {: summary="Ultra High Memory profiles options for Intel x86-64 virtual server instances."}
-{: beta}
 
 ## GPU
 {: #gpu}
