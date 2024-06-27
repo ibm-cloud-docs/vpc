@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-06-26"
+lastupdated: "2024-06-27"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -19,17 +19,6 @@ When you provision {{site.data.keyword.vsi_is_full}}, you can select from seven 
 
 A profile is a combination of instance attributes, such as the number of vCPUs, amount of RAM, network bandwidth, and default bandwidth allocation. The attributes define the size and capabilities of the virtual server instance that is provisioned. In the {{site.data.keyword.Bluemix_notm}} console, you can select the most recently used profile or click **View All Profiles** to choose the profile that best fits your needs.
 {: shortdesc}
-
-{{site.data.keyword.vpc_full}} offers different processor architectures to choose from. See the following table for a brief overview of each available architecture.
-
-| Architecture | Description |
-|-----|-----|
-| x86 | x86 is the general term that is used to refer to 32-bit processors that are compatible with the x86 instruction set of architectures (ISA). |
-| x64 | x64 is the general term that is used to refer to the x86 processor extension that allows 64-bit operations (sometimes referred to as x86-64). x64 is compatible with the x64 instruction set of architectures (ISA). |
-| s390x (LinuxONE) | IBM LinuxONE s390x is a uniquely secure and scalable architecture that provides dedicated CPU core, memory, and I/O channel to better manage your high-performance workloads. |
-{: caption="Table 1. Processor architectures" caption-side="bottom"}
-
-For more information about profiles for IBM Z or LinuxONE (s390x processor architecture), see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles).
 
 For more information about SAP profiles, see [Intel Virtual Server certified profiles on VPC infrastructure for SAP HANA](/docs/sap?topic=sap-hana-iaas-offerings-profiles-intel-vs-vpc) and [Intel Virtual Server certified profiles on VPC infrastructure for SAP NetWeaver](/docs/sap?topic=sap-nw-iaas-offerings-profiles-intel-vs-vpc).
 
@@ -307,7 +296,6 @@ The following Ultra High Memory profiles are available for x86-64 processors:
 {: tab-group="Ultra High Memory"}
 {: class="simple-tab-table"}
 {: summary="Ultra High Memory profiles options for Intel x86-64 virtual server instances."}
-{: beta}
 
 ## GPU
 {: #gpu}
