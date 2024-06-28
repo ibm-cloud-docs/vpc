@@ -724,11 +724,6 @@ The following table lists the actions that are related to the VPC Backup service
 | backup-policy  | is.backup-policy.backup-policy-job.create | This event is triggered if an Enterprise-level backup policy fails to create backups in one or more child accounts due to missing service-to-service authorizations.  |
 {: caption="Table 33. Actions that generate events for VPC Backup service resources" caption-side="bottom"}
 
-## Supported locations
-{: #at-supported-locations}
-
-{{site.data.keyword.at_full}} support is available for the Dallas location.
-
 ## Viewing events
 {: #at_ui}
 
