@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-06-27"
+lastupdated: "2024-06-28"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -57,52 +57,6 @@ Balanced profiles with the bx2d prefix are available in the US South (Dallas), U
 
 The following table shows all balance profiles that are available for x86-64.
 
-| Instance profile | vCPU | Cores | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) |
-|---------|---------|---------|---------|---------|---------|
-| bx2-2x8 | 2 | 1 | 8 | 4 | - |
-| bx2d-2x8 | 2 | 1 | 8 | 4 | 1x75 |
-| bx2-4x16 | 4 | 2 | 16 | 8 | - |
-| bx2d-4x16 | 4 | 2 | 16 | 8 | 1x150 |
-| bx2-8x32 | 8 | 4 | 32 | 16 | - |
-| bx2d-8x32 | 8 | 4 | 32 | 16 | 1x300 |
-| bx2-16x64 | 16 | 8 | 64 | 32 | - |
-| bx2d-16x64 | 16 | 8 | 64 | 32 | 1x600 |
-| bx2-32x128 | 32 | 16 | 128 | 64 | - |
-| bx2d-32x128 | 32 | 16 | 128 | 64 | 2x600 |
-| bx2-48x192 | 48 | 24 | 192 | 80 | - |
-| bx2d-48x192 | 48 | 24 | 192 | 80 | 1x900 |
-| bx2-64x256 | 64 | 32 | 256| 80 | - |
-| bx2d-64x256 | 64 | 32 | 256 | 80 | 2x1200 |
-| bx2-96x384 | 96 | 48 | 384 | 80 | - |
-| bx2d-96x384 | 96 | 48 | 384 | 80 | 2x1800 |
-| bx2-128x512 | 128 | 64 | 512 | 80 | - |
-| bx2d-128x512 | 128 | 64 | 512 | 80 | 2x2400 |
-{: caption="Table 3. Balance profiles options for Intel x86-64 instances" caption-side="bottom"}
-{: #balanced-intel-x86-64}
-{: tab-title="bx2"}
-{: tab-group="Balanced"}
-{: class="simple-tab-table"}
-{: summary="Balanced bx2 profile options for Intel x86-64 virtual server instances."}
-
-| Instance profile | vCPU | Cores | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) |
-|---------|---------|---------|---------|---------| ---------|
-| bx2a-2x8 | 2 | 1 | 8 | 2 | - |
-| bx2a-4x16 | 4 | 2 |  16 | 4 | - |
-| bx2a-8x32 | 8 | 4 | 32 | 8 | - |
-| bx2a-16x64 | 16 | 8 | 64 | 16 | - |
-| bx2a-32x128 | 32 | 16 | 128 | 32 | - |
-| bx2a-48x192 | 48 | 24 | 192 | 48 | - |
-| bx2a-64x256 | 64 | 32 | 256 | 64 | - |
-| bx2a-96x384 | 96 | 48 | 384 | 80 | - |
-| bx2a-128x512 | 128 | 64 | 512 | 80 | - |
-| bx2a-228x912 | 228 | 114 | 912 | 80 | - |
-{: caption="Table 3. Balanced profile options for AMD x86-64 instances" caption-side="bottom"}
-{: #balanced-amd-x86-64}
-{: tab-title="bx2a"}
-{: tab-group="Balanced"}
-{: class="simple-tab-table"}
-{: summary="Balanced bx2a profile options for AMD x86-64 virtual server instances."}
-
 | Instance profile | vCPU / Cores | NUMA count | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) |
 |---------|---------|-------|-------|---------|---------|
 | bx3d-2x10 | 2 / 1 | 1 | 10 | 4 | 1x65 |
@@ -123,6 +77,43 @@ The following table shows all balance profiles that are available for x86-64.
 {: class="simple-tab-table"}
 {: summary="Balanced Beta profile options for Intel x86-64 virtual server instances."}
 
+| Instance profile | vCPU / Cores | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) |
+|---------|---------|---------|---------|---------|
+| bx2-2x8 | 2 / 1 | 8 | 4 | - |
+| bx2d-2x8 | 2 / 1 | 8 | 4 | 1x75 |
+| bx2-4x16 | 4 / 2 | 16 | 8 | - |
+| bx2d-4x16 | 4 / 2 | 16 | 8 | 1x150 |
+| bx2-8x32 | 8 / 4 | 32 | 16 | - |
+| bx2d-8x32 | 8 / 4 | 32 | 16 | 1x300 |
+| bx2-16x64 | 16 / 8 | 64 | 32 | - |
+| bx2d-16x64 | 16 / 8 | 64 | 32 | 1x600 |
+| bx2-32x128 | 32 / 16 | 128 | 64 | - |
+| bx2d-32x128 | 32 / 16 | 128 | 64 | 2x600 |
+| bx2-48x192 | 48 / 24 | 192 | 80 | - |
+| bx2d-48x192 | 48 / 24 | 192 | 80 | 1x900 |
+| bx2-64x256 | 64 / 32 | 256| 80 | - |
+| bx2d-64x256 | 64 / 32 | 256 | 80 | 2x1200 |
+| bx2-96x384 | 96 / 48 | 384 | 80 | - |
+| bx2d-96x384 | 96 / 48 | 384 | 80 | 2x1800 |
+| bx2-128x512 | 128 / 64 | 512 | 80 | - |
+| bx2d-128x512 | 128 / 64 | 512 | 80 | 2x2400 |
+| bx2a-2x8 | 2 / 1 | 8 | 2 | - |
+| bx2a-4x16 | 4 / 2 |  16 | 4 | - |
+| bx2a-8x32 | 8 / 4 | 32 | 8 | - |
+| bx2a-16x64 | 16 / 8 | 64 | 16 | - |
+| bx2a-32x128 | 32 / 16 | 128 | 32 | - |
+| bx2a-48x192 | 48 / 24 | 192 | 48 | - |
+| bx2a-64x256 | 64 / 32 | 256 | 64 | - |
+| bx2a-96x384 | 96 / 48 | 384 | 80 | - |
+| bx2a-128x512 | 128 / 64 | 512 | 80 | - |
+| bx2a-228x912 | 228 / 114 | 912 | 80 | - |
+{: caption="Table 3. Balance profiles options for Intel x86-64 instances" caption-side="bottom"}
+{: #balanced-intel-x86-64}
+{: tab-title="bx2"}
+{: tab-group="Balanced"}
+{: class="simple-tab-table"}
+{: summary="Balanced bx2 profile options for Intel x86-64 virtual server instances."}
+
 AMD based virtual machines use AMD EPYC Milan processors. Compute capabilities are limited to AMD EPYC Rome capabilities.
 {: important}
 
@@ -138,33 +129,6 @@ Compute profiles with the cx2d prefix are available in the US South (Dallas), US
 {: preview}
 
 The following table shows all compute profiles that are available for x86-64.
-
-| Instance profile | vCPU | Cores | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) |
-|---------|---------|---------|---------|---------|---------|
-| cx2-2x4 | 2 | 1 | 4 | 4 | - |
-| cx2d-2x4 | 2 | 1 | 4 | 4 | 1x75 |
-| cx2-4x8 | 4 | 2 | 8 | 8 | - |
-| cx2d-4x8 | 4 | 2 | 8 | 8 | 1x150 |
-| cx2-8x16 | 8 | 4 | 16 | 16 | - |
-| cx2d-8x16 | 8 | 4 | 16 | 16 | 1x300 |
-| cx2-16x32 | 16 | 8 |  32 | 32 | - |
-| cx2d-16x32 | 16 | 8 | 32 | 32 | 1x600 |
-| cx2-32x64 | 32  | 16 | 64 | 64 | - |
-| cx2d-32x64 | 32  | 16 | 64 | 64 | 2x600 |
-| cx2-48x96 | 48 | 24 | 96 | 80 | - |
-| cx2d-48x96 | 48  | 24 | 96 | 80 | 1x900 |
-| cx2-64x128 | 64 | 32 | 128 | 80 | - |
-| cx2d-64x128 | 64 | 32 | 128 | 80 | 2x1200 |
-| cx2-96x192 | 96 | 48 | 192 | 80 | - |
-| cx2d-96x192 | 96 | 48 | 192 | 80 | 2x1800 |
-| cx2-128x256 | 128 | 64 | 256 | 80 | - |
-| cx2d-128x256 | 128 | 64 | 256 | 80 | 2x2400 |
-{: caption="Table 4. Compute profile options for x86-64 instances" caption-side="bottom"}
-{: #compute-intel-x86-64}
-{: tab-title="cx2"}
-{: tab-group="Compute"}
-{: class="simple-tab-table"}
-{: summary="Compute profile options for Intel x86-64 virtual server instances."}
 
 | Instance profile | vCPU / Cores | NUMA count | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) |
 |---------|---------|---------|---------|---------|---------|
@@ -186,6 +150,33 @@ The following table shows all compute profiles that are available for x86-64.
 {: class="simple-tab-table"}
 {: summary="3rd generation Compute profile options for Intel x86-64 virtual server instances."}
 
+| Instance profile | vCPU / Cores | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) |
+|---------|---------|---------|---------|---------|
+| cx2-2x4 | 2 / 1 | 4 | 4 | - |
+| cx2d-2x4 | 2 / 1 | 4 | 4 | 1x75 |
+| cx2-4x8 | 4 / 2 | 8 | 8 | - |
+| cx2d-4x8 | 4 / 2 | 8 | 8 | 1x150 |
+| cx2-8x16 | 8 / 4 | 16 | 16 | - |
+| cx2d-8x16 | 8 / 4 | 16 | 16 | 1x300 |
+| cx2-16x32 | 16 / 8 |  32 | 32 | - |
+| cx2d-16x32 | 16 / 8 | 32 | 32 | 1x600 |
+| cx2-32x64 | 32 / 16 | 64 | 64 | - |
+| cx2d-32x64 | 32 / 16 | 64 | 64 | 2x600 |
+| cx2-48x96 | 48 / 24 | 96 | 80 | - |
+| cx2d-48x96 | 48 / 24 | 96 | 80 | 1x900 |
+| cx2-64x128 | 64 / 32 | 128 | 80 | - |
+| cx2d-64x128 | 64 / 32 | 128 | 80 | 2x1200 |
+| cx2-96x192 | 96 / 48 | 192 | 80 | - |
+| cx2d-96x192 | 96 / 48 | 192 | 80 | 2x1800 |
+| cx2-128x256 | 128 / 64 | 256 | 80 | - |
+| cx2d-128x256 | 128 / 64 | 256 | 80 | 2x2400 |
+{: caption="Table 4. Compute profile options for x86-64 instances" caption-side="bottom"}
+{: #compute-intel-x86-64}
+{: tab-title="cx2"}
+{: tab-group="Compute"}
+{: class="simple-tab-table"}
+{: summary="Compute profile options for Intel x86-64 virtual server instances."}
+
 ## Memory
 {: #memory}
 
@@ -196,33 +187,6 @@ Memory profiles with the mx2d prefix are available in the US South (Dallas), US 
 
 3rd generation profiles with the mx3d prefix are available in the Dallas, London, Frankfurt, Washington DC, Toronto, Madrid, Sydney, Tokyo, and Osaka regions to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids).  For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
 {: preview}
-
-| Instance profile | vCPU | Cores | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) |
-|---------|---------|---------|---------|---------|---------|
-| mx2-2x16 | 2 | 1 | 16 | 4 | - |
-| mx2d-2x16 | 2 | 1 | 16 | 4 | 1x75 |
-| mx2-4x32 | 4 | 2 | 32 | 8 | - |
-| mx2d-4x32 | 4 | 2 | 32 | 8 | 1x150 |
-| mx2-8x64 | 8 | 4 | 64 | 16 | - |
-| mx2d-8x64 | 8 | 4 | 64 | 16 | 1x300 |
-| mx2-16x128 | 16 | 8 | 128 | 32 | - |
-| mx2d-16x128 | 16 | 8 | 128 | 32 | 1x600 |
-| mx2-32x256 | 32 | 16 | 256 | 64 | - |
-| mx2d-32x256 | 32 | 16 | 256 | 64 | 2x600 |
-| mx2-48x384 | 48 | 24 | 384 | 80 | - |
-| mx2d-48x384 | 48 | 24 | 384 | 80 | 2x900 |
-| mx2-64x512| 64 | 32 | 512 | 80 | - |
-| mx2d-64x512| 64 | 32 | 512 | 80 | 2x1200 |
-| mx2-96x768| 96 | 48 | 768 | 80 | - |
-| mx2d-96x768| 96 | 48 | 768 | 80 | 2x1800 |
-| mx2-128x1024| 128 | 64 | 1024 | 80 | - |
-| mx2d-128x1024| 128 | 64 | 1024 | 80 | 2x2400 |
-{: caption="Table 5. Memory mx2 profile options for x86-64 instances " caption-side="bottom"}
-{: #memory-intel-x86-64}
-{: tab-title="mx2"}
-{: tab-group="Memory"}
-{: class="simple-tab-table"}
-{: summary="Memory mx2 profile options for Intel x86-64 virtual server instances."}
 
 | Instance profile | vCPU / Cores | NUMA count | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) |
 |---------|-------|-------|---------|---------|---------|
@@ -244,12 +208,41 @@ Memory profiles with the mx2d prefix are available in the US South (Dallas), US 
 {: class="simple-tab-table"}
 {: summary="Memory mx3d profile options for Intel x86-64 virtual server instances."}
 
+| Instance profile | vCPU / Cores | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) |
+|---------|---------|---------|---------|---------|
+| mx2-2x16 | 2 / 1 | 16 | 4 | - |
+| mx2d-2x16 | 2 / 1 | 16 | 4 | 1x75 |
+| mx2-4x32 | 4 / 2 | 32 | 8 | - |
+| mx2d-4x32 | 4 / 2 | 32 | 8 | 1x150 |
+| mx2-8x64 | 8 / 4 | 64 | 16 | - |
+| mx2d-8x64 | 8 / 4 | 64 | 16 | 1x300 |
+| mx2-16x128 | 16 / 8 | 128 | 32 | - |
+| mx2d-16x128 | 16 / 8 | 128 | 32 | 1x600 |
+| mx2-32x256 | 32 / 16 | 256 | 64 | - |
+| mx2d-32x256 | 32 / 16 | 256 | 64 | 2x600 |
+| mx2-48x384 | 48 / 24 | 384 | 80 | - |
+| mx2d-48x384 | 48 / 24 | 384 | 80 | 2x900 |
+| mx2-64x512| 64 / 32 | 512 | 80 | - |
+| mx2d-64x512| 64 / 32 | 512 | 80 | 2x1200 |
+| mx2-96x768| 96 / 48 | 768 | 80 | - |
+| mx2d-96x768| 96 / 48 | 768 | 80 | 2x1800 |
+| mx2-128x1024| 128 / 64 | 1024 | 80 | - |
+| mx2d-128x1024| 128 / 64 | 1024 | 80 | 2x2400 |
+{: caption="Table 5. Memory mx2 profile options for x86-64 instances " caption-side="bottom"}
+{: #memory-intel-x86-64}
+{: tab-title="mx2"}
+{: tab-group="Memory"}
+{: class="simple-tab-table"}
+{: summary="Memory mx2 profile options for Intel x86-64 virtual server instances."}
+
 ## Very High Memory
 {: #vhmemory}
 
 Very High Memory profiles offer 1 vCPU to 14 GiB of RAM to host small to medium-sized in-memory databases, OLAP services such as SAP NetWeaver, and other memory intensive applications. All Very High Memory profiles are provisioned with temporary SSD-backed [instance storage](/docs/vpc?topic=vpc-instance-storage) at no additional charge. The following Very High Memory profiles are available on Intel&reg; x86 processors.
 
 - The vx2d profiles are on the Cascade Lake processors.
+
+
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) |
 |---------|---------|---------|---------|---------|---------|
@@ -268,10 +261,6 @@ Very High Memory profiles offer 1 vCPU to 14 GiB of RAM to host small to medium-
 {: class="simple-tab-table"}
 {: summary="Very High Memory profiles options for Intel x86-64 virtual server instances."}
 
-
-
-
-
 ## Ultra High Memory
 {: #uhmemory}
 
@@ -279,17 +268,17 @@ Ultra High Memory profiles are hosted exclusively on the latest generation Intel
 
 The following Ultra High Memory profiles are available for x86-64 processors:
 
-| Instance profile | vCPU | Cores | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) |
-|---------|---------|---------|---------|---------|---------|
-| ux2d-2x56 | 2 | 1 | 56 | 4 | 1x60 |
-| ux2d-4x112 | 4 | 2 | 112 | 8 | 1x120 |
-| ux2d-8x224 | 8 | 4 | 224 | 16 | 1x240 |
-| ux2d-16x448 | 16 | 8 | 448 | 32 | 1x480 |
-| ux2d-36x1008 | 36 | 18 | 1008 | 64 | 1x1080 |
-| ux2d-48x1344| 48 | 24 | 1344 | 80 | 2x720 |
-| ux2d-72x2016 | 72 | 36 |  2016 | 80 | 2x1080 |
-| ux2d-100x2800 | 100 | 50 | 2800 | 80 | 2x1500 |
-| ux2d-200x5600 | 200 | 100 | 5600 | 80 | 2x3000 |
+| Instance profile | vCPU / Cores | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) |
+|---------|---------|---------|---------|---------|
+| ux2d-2x56 | 2 / 1 | 56 | 4 | 1x60 |
+| ux2d-4x112 | 4 / 2 | 112 | 8 | 1x120 |
+| ux2d-8x224 | 8 / 4 | 224 | 16 | 1x240 |
+| ux2d-16x448 | 16 / 8 | 448 | 32 | 1x480 |
+| ux2d-36x1008 | 36 / 18 | 1008 | 64 | 1x1080 |
+| ux2d-48x1344| 48 / 24 | 1344 | 80 | 2x720 |
+| ux2d-72x2016 | 72 / 36 |  2016 | 80 | 2x1080 |
+| ux2d-100x2800 | 100 / 50 | 2800 | 80 | 2x1500 |
+| ux2d-200x5600 | 200 / 100 | 5600 | 80 | 2x3000 |
 {: caption="Table 7. Ultra High Memory profiles options for x86-64 instances" caption-side="bottom"}
 {: #uhmemory-intel-x86-64}
 {: tab-title="ux2d"}
@@ -314,53 +303,38 @@ See [Download drivers](https://www.nvidia.com/Download/index.aspx?lang=en-us) to
 
 [Select availability]{: tag-green}
 
+
+
 - The `gx2-80x1280x8a100` GPU profile is available for select customers. Contact IBM Sales or open a [support case](https://cloud.ibm.com/unifiedsupport/supportcenter) if you are interested in this offering.
 
-| Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Number of GPUs | Instance storage (GB) |
-|---------|---------|---------|---------|---------|---------|---------|
-| gx2-8x64x1v100 | 8 | 4 | 64 | 16 | 1 | - |
-| gx2-16x128x1v100 | 16 | 8 | 128 | 32 | 1 | - |
-| gx2-16x128x2v100 | 16 | 8 | 128 | 32 | 2 | - |
-| gx2-32x256x2v100 | 32 | 16 | 256 | 64 | 2 | - |
-{: caption="Table 8. GPU gx2 v100 16 GB profile options for Intel x86-64 instances" caption-side="bottom"}
-{: #gpu-intel-x86-64}
-{: tab-title="gx2 v100"}
-{: tab-group="GPU"}
-{: class="simple-tab-table"}
-{: summary="GPU gx2 v100 16 GB profile options for Intel x86-64 virtual server instances."}
+| Instance profile | vCPU / Cores | GiB RAM | Type / Number of GPUs | Bandwidth Cap (Gbps) | Instance storage (GB) |
+|---------|---------|---------|---------|---------|---------|
 
-| Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Number of GPUs | Instance storage (GB) |
-|---------|---------|---------|---------|---------|---------|---------|
-| gx2-80x1280x8a100 | 80 | 40 | 1280 | 200 | 8 | 4x3200 |
-{: caption="Table 8. GPU gx2 a100 80 GB profile options for Intel x86-64 instances" caption-side="bottom"}
+| gx3-16x80x1l4 | 16 / 8 | 80 | l4 / 1 | 32 | - |
+| gx3-32x160x2l4 | 32 / 16 | 160 | l4 / 2 | 64 | - |
+| gx3-64x320x4l4 | 64 / 32 | 320 | l4 / 4 | 128 | - |
+| gx3-24x120x1l40s | 24 / 12 | 120 | l40s / 1 | 50 | - |
+| gx3-48x240x-2l40s | 48 / 24 | 240 | l40s / 2  | 100 | - |
+{: caption="Table 8. GPU gx3 24 GB profile options for Intel x86-64 instances" caption-side="bottom"}
 {: #gpu-intel-x86-64}
-{: tab-title="gx2 a100"}
+{: tab-title="gx3"}
 {: tab-group="GPU"}
 {: class="simple-tab-table"}
-{: summary="GPU gx2 a100 80 GB profile options for Intel x86-64 virtual server instances."}
+{: summary="GPU gx3 24 GB profile options for Intel x86-64 virtual server instances."}
 
-| Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Number of GPUs | Instance storage (GB) |
-|---------|---------|---------|---------|---------|---------|---------|
-| gx3-16x80x1l4 | 16 | 8 | 80 | 32 | 1 | - |
-| gx3-32x160x2l4 | 32 | 16 | 160 | 64 | 2 | - |
-| gx3-64x320x4l4 | 64 | 32 | 320 | 128 | 4 | - |
-{: caption="Table 8. GPU gx3 l4 24 GB profile options for Intel x86-64 instances" caption-side="bottom"}
+| Instance profile | vCPU / Cores | GiB RAM | Type / Number of GPUs | Bandwidth Cap (Gbps) | Instance storage (GB) |
+|---------|---------|---------|---------|---------|---------|
+| gx2-8x64x1v100 | 8 / 4 | 64 | v100 / 1 | 16 | - |
+| gx2-16x128x1v100 | 16 / 8 | 128 | v100 / 1 | 32 | - |
+| gx2-16x128x2v100 | 16 / 8 | 128 | v100 / 2 | 32 | - |
+| gx2-32x256x2v100 | 32 / 16 | 256 | v100 / 2 | 64 | - |
+| gx2-80x1280x8a100 | 80 / 40 | 1280 | a100 / 8  | 200 | 4x3200 |
+{: caption="Table 8. GPU gx2 16 GB profile options for Intel x86-64 instances" caption-side="bottom"}
 {: #gpu-intel-x86-64}
-{: tab-title="gx3 l4"}
+{: tab-title="gx2"}
 {: tab-group="GPU"}
 {: class="simple-tab-table"}
-{: summary="GPU gx3 l4 24 GB profile options for Intel x86-64 virtual server instances."}
-
-| Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Number of GPUs | Instance storage (GB) |
-|---------|---------|---------|---------|---------|---------|---------|
-| gx3-24x120x1l40s | 24 | 12 | 120 | 50 | 1 | - |
-| gx3-48x240x-2l40s | 48 | 24 | 240 | 100 | 2 | - |
-{: caption="Table 8. GPU gx3 L40S 24 GB profile options for Intel x86-64 instances" caption-side="bottom"}
-{: #gpu-intel-x86-64}
-{: tab-title="gx3 L40S"}
-{: tab-group="GPU"}
-{: class="simple-tab-table"}
-{: summary="GPU gx3 L40S 24 GB profile options for Intel x86-64 virtual server instances."}
+{: summary="GPU gx2 16 GB profile options for Intel x86-64 virtual server instances."}
 
 ### Considerations for V100, A100, L4, and L40S GPU profiles
 {: #considerations-gpu-profiles}
