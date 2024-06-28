@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-06-25"
+lastupdated: "2024-06-28"
 
 keywords:
 
@@ -13,6 +13,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
+
 # Activity Tracker events
 {: #at-events}
 
@@ -20,6 +21,12 @@ As a security officer, auditor, or manager, you can use the {{site.data.keyword.
 {: shortdesc}
 
 {{site.data.keyword.at_full_notm}} records user-initiated activities that change the state of a service in {{site.data.keyword.cloud_notm}}. You can use this service to investigate abnormal activity and critical actions and to comply with regulatory audit requirements. In addition, you can be alerted about actions as they happen. The events that are collected comply with the Cloud Auditing Data Federation (CADF) standard. For more information, see the [getting started tutorial for {{site.data.keyword.at_full_notm}}](/docs/activity-tracker?topic=activity-tracker-getting-started).
+
+
+
+
+
+
 
 ## Network resources
 {: #events-network}
@@ -716,11 +723,6 @@ The following table lists the actions that are related to the VPC Backup service
 | backup-policy  | is.backup-policy.backup-job.read          | One or more backup jobs were retrieved  |
 | backup-policy  | is.backup-policy.backup-policy-job.create | This event is triggered if an Enterprise-level backup policy fails to create backups in one or more child accounts due to missing service-to-service authorizations.  |
 {: caption="Table 33. Actions that generate events for VPC Backup service resources" caption-side="bottom"}
-
-## Supported locations
-{: #at-supported-locations}
-
-{{site.data.keyword.at_full}} support is available for the Dallas location.
 
 ## Viewing events
 {: #at_ui}

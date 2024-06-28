@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-05-08"
+lastupdated: "2024-06-28"
 
 keywords:
 
@@ -18,7 +18,8 @@ subcollection: vpc
 When you create a bare metal server, you can select from a profile family that best fits your needs. A profile provides a different combination of hardware configurations that include the number of vCPUs, amount of RAM, and local storage size. The attributes define the size and capabilities of the bare metal server that you provision.
 {: shortdesc}
 
-
+Sapphire Rapids (x3 and x3d) profiles are only available in US South (Dallas).
+{: preview}
 
 ## About profile families
 {: #profile-familiy}
@@ -39,7 +40,7 @@ Very High Memory profiles are available for customers with special approval. Con
 ## Profile configurations
 {: #bare-metal-servers-profile-list}
 
-Profiles contained either the Cascade Lake current generation of Cascade Lake processors (x2 and x2d). See the following tables to see the available profile configurations.
+Profiles contain either the Cascade Lake current generation of Cascade Lake processors (x2 and x2d) or the Sapphire Rapids processors (x3 and x3d). See the following tables to see the available profile configurations.
 
 | Name | vCPU | Memory (GiB) | Local storage | Total network bandwidth (Gbps) |
 |---------|---------|---------|---------|---------|
@@ -89,7 +90,71 @@ Profiles contained either the Cascade Lake current generation of Cascade Lake pr
 The 960 GB of available local storage is composed of 2 960 GB SSDs in RAID1 for redundancy.
 {: note}
 
+| Name | vCPU | Memory (GiB) | Local storage | Total network bandwidth (Gbps) |
+|---------|---------|---------|---------|---------|
+| cx3-metal-48x128 | 48 | 128 | 480 | 100 |
+| cx3d-metal-48x128 | 48 | 128 | 4x7600 | 100 |
+| cx3-metal-64x128 | 64 | 128 | 480 | 100 |
+| cx3d-metal-64x128 | 64 | 128 | 4x7600 | 100 |
+{: caption="Table 3. Profile families for x3 and x3d" caption-side='top"}
+{: #bare-metal-compute-profiles-x3}
+{: tab-title="Compute profiles for x3 and x3d"}
+{: tab-group="profile-configurations-x3"}
+{: class="simple-tab-table"}
+{: summary="Use the buttons before the table to change the context of the table. The column headers identify the hardware class."}
 
+| Name | vCPU | Memory (GiB) | Local storage | Total network bandwidth (Gbps) |
+|---------|---------|---------|---------|---------|
+| mx3-metal-16x128 | 16 | 128 | 480 GB | 100 |
+| mx3d-metal-16x128 | 16 | 128 | 4x7600 GB | 100 |
+| mx3-metal-48x512 | 48 | 512 | 480 GB | 100 |
+| mx3d-metal-48x512 | 48 | 512 | 4x7600 GB | 100 |
+| mx3-metal-64x512 | 64 | 512 | 480 GB | 100 |
+| mx3d-metal-64x512 | 64 | 512 | 4x7600 GB | 100 |
+| mx3-metal-96x1024 | 96 | 1024 | 480 GB | 100 |
+| mx3d-metal-96x1024 | 96 | 1024 | 4x7600 GB | 100 |
+| mx3-metal-128x1024 | 128 | 1024 | 480 GB | 100 |
+| mx3d-metal-128x1024 | 128 | 1024 | 4x7600 GB | 100 |
+| mx3d-metal-192x2048 | 192 | 2048 | 4x7600 GB | 100 |
+{: caption="Table 3. Profile families for x3 and x3d" caption-side='top"}
+{: #bare-metal-memory-profiles-mx3d}
+{: tab-title="Memory profiles for x3 and x3d"}
+{: tab-group="profile-configurations-x3"}
+{: class="simple-tab-table"}
+{: summary="Use the buttons before the table to change the context of the table. The column headers identify the hardware class."}
+
+| Name | vCPU | Memory (GiB) | Local storage | Total network bandwidth (Gbps) |
+|---------|---------|---------|---------|---------|
+| vx3-metal-16x256 | 16 | 256 | 1x480	| 100 |
+| vx3d-metal-16x256 | 16 | 256 | 1x480, 4x7600 | 100 |
+| vx3d-metal-128x2048 | 128 | 2048 | 1x480, 4x7600 | 100 |
+| vx3d-metal-192x3072 | 128 | 2048 | 1x480, 4x7600 | 100 |
+{: caption="Table 3. Profile families for x3 and x3d" caption-side='top"}
+{: #bare-metal-memory-profiles-vx3d}
+{: tab-title="Very High Memory profiles for for x3 and x3d"}
+{: tab-group="profile-configurations-x3"}
+{: class="simple-tab-table"}
+{: summary="Use the buttons before the table to change the context of the table. The column headers identify the hardware class."}
+
+| Name | vCPU | Memory (GiB) | Local storage | Total network bandwidth (Gbps) |
+|---------|---------|---------|---------|---------|
+| ux3-metal-16x512 | 16 | 512 | 480 | 100 |
+| ux3d-16x512 | 16 | 512 | 1x480, 4x7600 | 100 |
+| ux3d-96x2048 | 96 | 2048 | 1x480, 4x7600 | 100 |
+| ux3d-96x3072 | 96 | 2048 | 1x480, 4x7600 | 100 |
+| ux3d-128x3072 | 128 | 3072 | 1x480, 4x7600 | 100 |
+| ux3d-96x4096 | 96 | 4096 | 1x480, 4x7600 | 100 |
+| ux3d-128x4096 | 128 | 4096 | 1x480, 4x7600 | 100 |
+| ux3d-192x4096 | 192 | 4096 | 1x480, 4x7600 | 100 |
+{: caption="Table 3. Profile families for x3 and x3d" caption-side="top"}
+{: #bare-metal-uhmemory-profiles-x3}
+{: tab-title="Ultra High Memory profiles for x3 and x3d"}
+{: tab-group="profile-configurations-x3"}
+{: class="simple-tab-table"}
+{: summary="Use the buttons before the table to change the context of the table. The column headers identify the hardware class."}
+
+The 480 GB of available local storage is composed of 2 480 GB SSDs in RAID1 for redundancy.
+{: note}
 
 ### Understanding the naming rule of the profiles
 {: #profile-naming-rule-bm-x86-64}
