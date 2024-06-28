@@ -40,7 +40,7 @@ Very High Memory profiles are available for customers with special approval. Con
 ## Profile configurations
 {: #bare-metal-servers-profile-list}
 
-Profiles contained either the Cascade Lake current generation of Cascade Lake processors (x2 and x2d) or the Sapphire Rapids processors (x3 and x3d). See the following tables to see the available profile configurations.
+Profiles contain either the Cascade Lake current generation of Cascade Lake processors (x2 and x2d) or the Sapphire Rapids processors (x3 and x3d). See the following tables to see the available profile configurations.
 
 | Name | vCPU | Memory (GiB) | Local storage | Total network bandwidth (Gbps) |
 |---------|---------|---------|---------|---------|
