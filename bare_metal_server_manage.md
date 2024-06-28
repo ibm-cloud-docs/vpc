@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-06-24"
+lastupdated: "2024-06-28"
 
 keywords: bare metal servers, managing, operation, manage bare metal server, manage bare metal, manage server, restart bare metal, stop bare metal, delete bare metal, reboot bare metal, restart server, stop server, delete server
 
@@ -45,9 +45,10 @@ To manage your servers, complete the following steps.
 ### Viewing your bare metal servers by using the UI
 {: #viewing-bare-metal-server-ui}
 
-You can view the summary of all bare metal server on the bare metal server page, or you can click an individual server name to view details and make changes. From the details page, you can also view the associated network interface, access its subnet, and reserve or delete a floating IP address.
+You can view the summary of all bare metal server on the bare metal server page, or you can click an individual server name to view details and make changes. From the details page, you can also view the associated network interface, access its subnet, change the network bandwidth on Sapphire Rapids servers, and reserve or delete a floating IP address.
 
-
+Adjustable network bandwidth for Sapphire Rapids bare metal servers is only available in US South (Dallas).
+{: preview}
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**
 1. Click the name of the bare metal server that you want to view.
