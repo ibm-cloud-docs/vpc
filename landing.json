@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2024-06-21",
+    "lastupdated": "2024-06-28",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
@@ -31,19 +31,19 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
-          "date": "20 June 2024",
-          "title": "UI Enhancements to Images for VPC",
-          "description": "The Images for VPC UI includes multiple enhancements. When you click any image name, a side panel is displayed for that specific image. From this Details page, you can review both the Details and IDs for the selected image. You can also click Continue to provisioning which takes you to Virtual server for VPC, where you can create a virtual server instance with the selected image. Images for VPC also now includes the ability to filter the list of images. When you select a catalog image on Virtual server for VPC to create a virtual server instance, you are now prompted to Select version and pricing plan. From here, you can select the version and pricing plan for the catalog image, which must be completed first. You can then select to Save the catalog image."
+          "date": "28 June 2024",
+          "title": "Hyper Protect Secure Build",
+          "description": "The workload section for Hyper Protect Secure Build is updated based on the IBM Hyper Protect Container Runtime image ibm-hyper-protect-container-runtime-1-0-s390x-16."
         },
         {
-          "date": "20 June 2024",
-          "title": "IBM Hyper Protect Container Runtime image ibm-hyper-protect-container-runtime-1-0-s390x-16 updates",
-          "description": "For the IBM Hyper Protect Container Runtime image version ibm-hyper-protect-container-runtime-1-0-s390x-16, new certificates are available."
+          "date": "27 June 2024",
+          "title": "Sapphire Rapids (x3 and x3d) x86-64 bare metal server profiles (Select availability)",
+          "description": "Sapphire Rapids (x3 and x3d) x86-64 bare metal server profiles are now available in the US South (Dallas) region."
         },
         {
-          "date": "20 June 2024",
-          "title": "Update firmware on Bare Metal Servers for VPC (GA)",
-          "description": "The new Update firmware action on Bare Metal Servers for VPC is now generally available. You can see if a firmware update is available for your bare metal server and also initiate the update. You can use the UI, CLI, and API to update the firmware. In the UI, this action is only visible if the server is stopped and there is a firmware update available. It is recommended to back up your bare metal server before any firmware update."
+          "date": "25 June 2024",
+          "title": "`Sharing file share data between accounts and services",
+          "description": "With this new feature, administrators with the correct authorizations can share an NFS file system across multiple accounts. It's useful for customers who manage multiple accounts and need to share data across different VPCs. Customer can also share their File Storage for VPC shares with the IBM watsonX service."
         }
       ]
     }
