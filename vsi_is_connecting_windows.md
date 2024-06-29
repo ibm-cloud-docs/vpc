@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-06-25"
+lastupdated: "2024-06-28"
 
 keywords: connecting, windows
 
@@ -41,7 +41,7 @@ Complete the following prerequisites:
    | Protocol | Source Type | Source | Value |
    |-----------|------|------|------|
    | TCP| Any | `<cidr_range>` | 3389 |
-   | UDP| Any | `<cidr_range> `| 3389 |
+   | UDP| Any | `<cidr_range>` | 3389 |
    | ICMP | Any | `<cidr_range>` | Type: 8, Code: Any|
    {: caption="Table 1. Configuration information for inbound rules" caption-side="bottom"}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-06-19"
+lastupdated: "2024-06-29"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -33,18 +33,22 @@ For more information about authorizations, see [Using authorizations to grant ac
 {: #block-s2s-auth-encryption-ui}
 {: ui}
 
-You can access the **Manage authorizations** by clicking **Manage** > **Access (IAM)** > **Authorizations**.
-
+1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage > Access (IAM)**. The **Manage access and users** page is displayed.
+1. From the side panel, select **Authorizations**.
 1. On the **Manage authorizations** page, click **Create**. 
-1. On the **Grant a service authorization** page, select the source account. 
-   - If the goal is to allow the use of a CRK from another account, select **Another account**, and provide the account ID.
-1. For the source service, select **VPC Infrastructure Services** from the list.
-   1. Select **Specific resources**.
-   1. Click **Resource type**.
-   1. Select **Block Storage for VPC**.
-1. For the target service, select **Hyper Protect Crypto Services** or **KeyProtect** from the list. 
+1. In the **Source** section, select the **Source account**. 
+   - If the goal is to allow the use of a CRK from another account, select **Specific account** and enter the 32-character-long account ID. Then, click **Next**.
+   - Otherwise, select **This account**. Then, click **Next**.
+1. For the source service, select **VPC Infrastructure Services** from the list. Click **Next**.
+   1. Select the scope by clicking **Specific resources**.
+   1. Click **Select an attribute**.
+   1. From the list, select **Resource type**. 
+   1. In the next field, select **Block Storage for VPC**.
+   1. Click **Next**.
+1. For the target service, select **Hyper Protect Crypto Services** or **KeyProtect** from the list.
+1. Select the role `Reader`.
 1. Check the box to enable authorization to be delegated by source and dependent services.
-1. Then, under Service access, select the role `Reader`.
+1. Click **Review** and inspect your choices.
 1. Click **Authorize**.
 
 ## Creating service-to-service authorization for customer-managed encryption from the CLI

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-06-20"
+lastupdated: "2024-06-29"
 
 keywords:
 
@@ -232,7 +232,7 @@ Where:
     : Suppresses verbose output.
 
 ### Command example
-{: #command-examples-vpn-gateway-connection-local-cidr-add}
+{: #command-examples-for-vpn-gateway-connection-local-cidr-add}
 
 Add a local CIDR for a specific connection name with required configuration values:
 `ibmcloud is vpn-gateway-connection-local-cidr-add my-vpn-gateway my-connection 3.3.3.0/24`
@@ -274,7 +274,7 @@ Where:
     : Suppress verbose output.
 
 ### Command example
-{: #command-examples-vpn-gateway-connection-peer-cidr-add}
+{: #command-examples-for-vpn-gateway-connection-peer-cidr-add}
 
 Add a peer CIDR for a specific connection name with its required configuration values:
 `ibmcloud is vpn-gateway-connection-peer-cidr-add my-vpn-gateway my-connection 4.4.4.0/24`

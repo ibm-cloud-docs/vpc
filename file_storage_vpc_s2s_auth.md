@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-06-25"
+lastupdated: "2024-06-29"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -33,31 +33,46 @@ For more information about authorizations, see [Using authorizations to grant ac
 {: #file-s2s-auth-encryption-ui}
 {: ui}
 
-You can access the **Manage authorizations** by clicking **Manage** > **Access (IAM)** > **Authorizations**.
-
+1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage > Access (IAM)**. The **Manage access and users** page is displayed.
+1. From the side panel, select **Authorizations**.
 1. On the **Manage authorizations** page, click **Create**. 
-1. On the **Grant a service authorization** page, select the source account.
-1. For the source service, select **VPC Infrastructure Services** from the list.
-1. Select the scope. Choose **Specific resources**.
-1. Click **Resource type**. From the list, select **File Storage for VPC**.
-1. For the target service, select **Hyper Protect Crypto Services** or **KeyProtect** from the list. 
+1. In the **Source** section, select the **Source account**. 
+   - If the goal is to allow the use of a CRK from another account, select **Specific account** and enter the 32-character-long account ID. Then, click **Next**.
+   - Otherwise, select **This account**. Then, click **Next**.
+1. For the source service, select **VPC Infrastructure Services** from the list. Click **Next**.
+   1. Select the scope by clicking **Specific resources**.
+   1. Click **Select an attribute**.
+   1. From the list, select **Resource type**. 
+   1. In the next field, select **File Storage for VPC**.
+   1. Click **Next**.
+1. For the target service, select **Hyper Protect Crypto Services** or **KeyProtect** from the list. Click **Next**.
+1. Select the role `Reader`.
 1. Check the box to enable authorization to be delegated by source and dependent services.
-1. Then, under **Roles > Service access**, select the role `Reader`.
+1. Click **Review** and inspect your choices.
 1. Click **Authorize**.
 
 ## Creating service-to-service authorization for cross-region replication in the UI
 {: #file-s2s-auth-replication-ui}
 {: ui}
 
+1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage > Access (IAM)**. The **Manage access and users** page is displayed.
+1. From the side panel, select **Authorizations**.
 1. On the **Manage authorizations** page, click **Create**. 
-1. On the **Grant a service authorization** page, select the source account.
-1. For the source service, select **VPC Infrastructure Services** from the list.
-1. Select the scope. Choose **Specific resources**.
-1. Click **Resource type**. From the list, select **File Storage for VPC**.
-1. For the target service, select **VPC Infrastructure Services** from the list. 
-1. Select the scope. Choose **Specific resources**.
-1. Click **Resource type**. From the list, select **File Storage for VPC**.
-1. Then, under **Roles > Platform access**, select the role `Editor`.
+1. In the **Source** section, select the **Source account**. Select **This account**, and click **Next**.
+1. For the source service, select **VPC Infrastructure Services** from the list. Click **Next**.
+   1. Select the scope by clicking **Specific resources**.
+   1. Click **Select an attribute**.
+   1. From the list, select **Resource type**. 
+   1. In the next field, select **File Storage for VPC**.
+   1. Click **Next**.
+1. For the target service, select **VPC Infrastructure Services** from the list. Click **Next**.
+   1. Select the scope by clicking **Specific resources**.
+   1. Click **Select an attribute**.
+   1. From the list, select **Resource type**. 
+   1. In the next field, select **File Storage for VPC**.
+   1. Click **Next**.
+1. Select the role `Editor`.
+1. Click **Review** and inspect your choices.
 1. Click **Authorize**.
 
 ## Creating service-to-service authorization for cross-account access in the UI
@@ -66,16 +81,29 @@ You can access the **Manage authorizations** by clicking **Manage** > **Access (
 
 [New]{: tag-new}
 
+1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage > Access (IAM)**. The **Manage access and users** page is displayed.
+1. From the side panel, select **Authorizations**.
 1. On the **Manage authorizations** page, click **Create**. 
-1. On the **Grant a service authorization** page, select the source account. If you want to allow another account to access data on your file share, select **Another account** and enter the 32-character-long account ID. If you want to create accessor shares in the same account, select **This account**.
-1. For the source service, select **VPC Infrastructure Services** from the list.
-1. Select the scope. Choose **Specific resources**.
-1. Click **Resource type**. From the list, select **File Storage for VPC**.
-1. For the target service, select **VPC Infrastructure Services** from the list. 
-1. Select the scope. Choose **Specific resources**.
-1. Click **Resource type**. From the list, select **File Storage for VPC**.
-1. Click **Share ID**. From the list, select the ID of the share that you want to allow access to.
-1. Then, under Roles > Service access, select the role `ShareBroker`.
+1. In the **Source** section, select the **Source account**. 
+   - If you want to allow another account to access data on your file share, select **Specific account** and enter the 32-character-long account ID. Then, click **Next**.
+   - If you want to create accessor shares in the same account, select **This account**. Then, click **Next**.
+1. For the source service, select **VPC Infrastructure Services** from the list. Click **Next**.
+   1. Select the scope by clicking **Specific resources**.
+   1. Click **Select an attribute**.
+   1. From the list, select **Resource type**. 
+   1. In the next field, select **File Storage for VPC**.
+   1. Click **Next**.
+1. For the target service, select **VPC Infrastructure Services** from the list. Click **Next**.
+   1. Select the scope by clicking **Specific resources**.
+   1. Click **Select an attribute**.
+   1. From the list, select **Resource type**. 
+   1. In the next field, select **File Storage for VPC**.
+   1. Click **Add a condition**. 
+   1. Click **Select an attribute** and select **Share ID**. 
+   1. Select the share from the list.
+   1. Click **Next**.
+1. Select the role `Share Broker`.
+1. Click **Review** and inspect your choices.
 1. Click **Authorize**.
 
 ## Creating service-to-service authorization for Watson Studio in the UI
@@ -84,16 +112,29 @@ You can access the **Manage authorizations** by clicking **Manage** > **Access (
 
 [New]{: tag-new}
 
+1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage > Access (IAM)**. The **Manage access and users** page is displayed.
+1. From the side panel, select **Authorizations**.
 1. On the **Manage authorizations** page, click **Create**. 
 1. On the **Grant a service authorization** page, select **This account**.
-1. For the source service, select **Watsonx Studio** from the list.
-1. Select the scope. Choose **Specific resources**.
-1. Click **Source service instance**. From the list, select **all instances**.
-1. For the target service, select **VPC Infrastructure Services** from the list. 
-1. Select the scope. Choose **Specific resources**.
-1. Click **Resource type**. From the list, select **File Storage for VPC**.
-1. Click **Share ID**. From the list, select the ID of the share that you want to allow access to.
-1. Then, under Roles > Service access, select the roles `ShareBroker` and `AuthorizationDelegator`.
+1. For the source service, select **Watson Studio** from the list.
+   1. Select the scope by clicking **Specific resources**.
+   1. Click **Select an attribute**.
+   1. From the list, select **Source service instance**. 
+   1. In the next field, select **all instances**.
+   1. Click **Next**.
+1. For the target service, select **VPC Infrastructure Services** from the list. Click **Next**.
+   1. Select the scope by clicking **Specific resources**.
+   1. Click **Select an attribute**.
+   1. From the list, select **Resource type**. 
+   1. In the next field, select **File Storage for VPC**.
+   1. Click **Add a condition**. 
+   1. Click **Select an attribute** and select **Share ID**. 
+   1. Leve the **string equals** field as it is.
+   1. In the next field, select the origin share from the list.
+   1. Click **Next**.
+1. Select the role `Share Broker`.
+1. Check the box to enable authorization to be delegated by source and dependent services.
+1. Click **Review** and inspect your choices.
 1. Click **Authorize**.
 
 ## Creating service-to-service authorization for customer-managed encryption from the CLI

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-06-25"
+lastupdated: "2024-06-28"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -990,7 +990,7 @@ Attestation is the optional feature that can be used with contract. The `attesta
 
 * If you encrypty the `attestationPublicKey` in the yaml file, you must follow the same steps as mentioned in the [Contract encryption](#hpcr_contract_encrypt).
 
-  To decrypt the attestation document, follow the instructions in the [Decrypting the attestation document](/docs/vpc?topic=vpc-about-attestation#decrypt_attest_record).
+   To decrypt the attestation document, follow the instructions in the [Decrypting the attestation document](/docs/vpc?topic=vpc-about-attestation#decrypt_attest_record).
 
 
 ## Preparing the signature
