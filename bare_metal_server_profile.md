@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-06-28"
+lastupdated: "2024-07-01"
 
 keywords:
 
@@ -40,7 +40,7 @@ Very High Memory profiles are available for customers with special approval. Con
 ## Profile configurations
 {: #bare-metal-servers-profile-list}
 
-Profiles contain either the Cascade Lake current generation of Cascade Lake processors (x2 and x2d) or the Sapphire Rapids processors (x3 and x3d). See the following tables to see the available profile configurations.
+Profiles contained either the Cascade Lake current generation of Cascade Lake processors (x2 and x2d) or the Sapphire Rapids processors (x3 and x3d). See the following tables to see the available profile configurations.
 
 | Name | vCPU | Memory (GiB) | Local storage | Total network bandwidth (Gbps) |
 |---------|---------|---------|---------|---------|
@@ -139,13 +139,13 @@ The 960 GB of available local storage is composed of 2 960 GB SSDs in RAID1 for 
 | Name | vCPU | Memory (GiB) | Local storage | Total network bandwidth (Gbps) |
 |---------|---------|---------|---------|---------|
 | ux3-metal-16x512 | 16 | 512 | 480 | 100 |
-| ux3d-16x512 | 16 | 512 | 1x480, 4x7600 | 100 |
-| ux3d-96x2048 | 96 | 2048 | 1x480, 4x7600 | 100 |
-| ux3d-96x3072 | 96 | 2048 | 1x480, 4x7600 | 100 |
-| ux3d-128x3072 | 128 | 3072 | 1x480, 4x7600 | 100 |
-| ux3d-96x4096 | 96 | 4096 | 1x480, 4x7600 | 100 |
-| ux3d-128x4096 | 128 | 4096 | 1x480, 4x7600 | 100 |
-| ux3d-192x4096 | 192 | 4096 | 1x480, 4x7600 | 100 |
+| ux3d-metal-16x512 | 16 | 512 | 1x480, 4x7600 | 100 |
+| ux3d-metal-96x2048 | 96 | 2048 | 1x480, 4x7600 | 100 |
+| ux3d-metal-96x3072 | 96 | 2048 | 1x480, 4x7600 | 100 |
+| ux3d-metal-128x3072 | 128 | 3072 | 1x480, 4x7600 | 100 |
+| ux3d-metal-96x4096 | 96 | 4096 | 1x480, 4x7600 | 100 |
+| ux3d-metal-128x4096 | 128 | 4096 | 1x480, 4x7600 | 100 |
+| ux3d-metal-192x4096 | 192 | 4096 | 1x480, 4x7600 | 100 |
 {: caption="Table 3. Profile families for x3 and x3d" caption-side="top"}
 {: #bare-metal-uhmemory-profiles-x3}
 {: tab-title="Ultra High Memory profiles for x3 and x3d"}
