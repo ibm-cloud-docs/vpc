@@ -54,6 +54,38 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
 
+## 1 July 2024
+
+{: #1-july-2024}
+
+### For all version dates
+
+{: #1-july-2024-all-version-dates}
+
+**Active Passive Pool.** You can now create a `failsafe_policy` property for any given pool, that includes a
+failsafe `target` pool associated with it. This ensures
+that traffic is routed to the failsafe pool if all members of the primary pool experience health
+failures, and will fallback to the original pool once health is restored.
+
+In order to form a failsafe `target` pool association with a primary pool, The pools must be created and
+have compatible protocols.
+{: requirement}
+
+A failsafe `target` pool can not have another failsafe pool configured with it and also If a pool
+already has a backup failsafe `target` pool configured then it can't be configured as backup failsafe
+target pool to any primary pool
+{: important}
+
+When [listing pools](apidocs/vpc/latest#list-load-balancer-pools) configuration, the response will include the `failsafe_policy` property, which
+contains the following parameters: `action`, `healthy_member_threshold_count` and `target`.
+
+When [updating a pool](apidocs/vpc/latest#update-load-balancer-pool) configuration, a failsafe policy to a given pool specify the `action` as `forward`/`failed` and a
+valid/compatible pool id for failsafe `target` pool.
+
+Currently, when creating, updating or retrieving a pool configuration, the `failsafe_policy`
+properties may be missing from the response.
+{: note}
+
 ## 25 June 2024
 {: #25-june-2024}
 
