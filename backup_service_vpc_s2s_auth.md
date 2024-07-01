@@ -379,8 +379,6 @@ ibmcloud iam authorization-policy-create is is Editor --source-resource-type bac
 
 For more information about all of the parameters that are available for this command, see [ibmcloud iam authorization-policy-create](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_authorization_policy_create).
 
-
-
 ## Creating authorization policies with the API
 {: #backup-s2s-auth-procedure-api}
 {: api}
@@ -649,7 +647,6 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
    {: pre}
       
 For more information, see the api spec for [IAM Policy Management](/apidocs/iam-policy-management#create-policy).
-
 
 
 ## Creating authorization policies with Terraform
