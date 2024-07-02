@@ -62,7 +62,7 @@ The beta release of IBM Cloud Private Path services is only available to allowli
 * Access to Private Path network load balancer from remote regions is not supported. The consumer Virtual Private Endpoint gateway and the Private Path network load balancer instance must reside in same region.
   *  A workaround is to access an ALB in the remote region which will have the VPE as member. Please contact support for assistance with the details.
 * Access to Private Path network load balancers from CSE (classic) is not supported.
-* Granular control of access to the load balancer is done via Private Path Service rather than by  Security Groups and Network Access Control List (NACL) which are not supported.
+* Granular control of access to the load balancer is done through a Private Path service rather than by security groups and Network Access Control Lists (NACLs), which are not supported.
 * UDP is not supported in datapath.
 * Autoscaler integration is not supported.
 * Maximal MTU for Private Paths NLB traffic is 8500

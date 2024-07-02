@@ -16,7 +16,7 @@ subcollection: vpc
 You can configure the User Datagram Protocol (UDP) for the {{site.data.keyword.nlb_full}} (NLB) listener and pool. UDP is a communications protocol that establishes low-latency and loss-tolerating connections between applications on the internet. It speeds up transmissions by enabling the transfer of data before an agreement is provided by the receiving party.
 {: shortdesc}
 
-The following information does not apply to Private Path Network Load Balancers.
+The following information does not apply to Private Path network load balancers.
 {: note}
 
 UDP is only supported on network load balancers. When configuring UDP and attaching a pool to your listener, you must configure the pool with the same protocol as the listener.
