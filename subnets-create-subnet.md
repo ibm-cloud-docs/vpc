@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-11-09"
+  years: 2022, 2024
+lastupdated: "2024-07-01"
 
 keywords:
 
@@ -194,7 +194,7 @@ The following response shows after you initiate the request:
 |**name**  \n Always included  \n string|The name for this subnet. The name is unique across all subnets in the VPC.  \n **Possible values:** 1 ≤ length ≤ 63, Value must match regular expression  `^-?([a-z]|[a-z][-a-z0-9]*[a-z0-9]|[0-9][-a-z0-9]*([a-z]|[-a-z][-a-z0-9]*[a-z0-9]))$`  \n **Example:** `my-subnet`|
 |**network_acl**|  \n Always included  \n NetworkACLReference|The network ACL for this subnet.|
 |**resource_group**  \n Always included  \n ResourceGroupReference|The resource group for this subnet.|
-|**resource_type**  \n Always included  \n string|The resource type.  \n **Possible values:** 1 ≤ length ≤ 128, Value must match regular expression `^[a-z][a-z0-9]*(_[a-z0-9]+)*$`  \n **Example:** `subnet`
+|**resource_type**  \n Always included  \n string|The resource type.  \n **Possible values:** 1 ≤ length ≤ 128, Value must match regular expression `^[a-z][a-z0-9]*(_[a-z0-9]+)*$`  \n **Example:** `subnet` |
 |**routing_table**  \n Always included  \n RoutingTableReference|The routing table for this subnet.|
 |**status**  \n Always included  \n string|The status of the subnet.  \n **Possible values:** `available`,`deleting`,`failed`, `pending`|
 |**total_ipv4_address_count**  \n Always included  \n int64|
@@ -298,7 +298,7 @@ The following response shows after you initiate the request:
 |**name**  \n Always included  \n string|The name for this subnet. The name is unique across all subnets in the VPC.  \n **Possible values:** 1 ≤ length ≤ 63, Value must match regular expression  `^-?([a-z]|[a-z][-a-z0-9]*[a-z0-9]|[0-9][-a-z0-9]*([a-z]|[-a-z][-a-z0-9]*[a-z0-9]))$`  \n **Example:** `my-subnet`|
 |**network_acl**|  \n Always included  \n NetworkACLReference|The network ACL for this subnet.|
 |**resource_group**  \n Always included  \n ResourceGroupReference|The resource group for this subnet.|
-|**resource_type**  \n Always included  \n string|The resource type.  \n **Possible values:** 1 ≤ length ≤ 128, Value must match regular expression `^[a-z][a-z0-9]*(_[a-z0-9]+)*$`  \n **Example:** `subnet`
+|**resource_type**  \n Always included  \n string|The resource type.  \n **Possible values:** 1 ≤ length ≤ 128, Value must match regular expression `^[a-z][a-z0-9]*(_[a-z0-9]+)*$`  \n **Example:** `subnet` |
 |**routing_table**  \n Always included  \n RoutingTableReference|The routing table for this subnet.|
 |**status**  \n Always included  \n string|The status of the subnet.  \n **Possible values:** `available`,`deleting`,`failed`, `pending`|
 |**total_ipv4_address_count**  \n Always included  \n int64|

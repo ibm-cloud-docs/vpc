@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-06-28"
+lastupdated: "2024-07-02"
 
 keywords: flow logs, ordering, logging, log analysis
 
@@ -15,26 +15,106 @@ subcollection: vpc
 # Logging for VPC
 {: #logging}
 
-After you provision {{site.data.keyword.la_full}} to add log management capabilities to your {{site.data.keyword.cloud}} architecture, you can enable platform logs to view and analyze VPC logs.
+{{site.data.keyword.cloud_notm}} services, such as {{site.data.keyword.vpc_short}}, generate platform logs that you can use to investigate abnormal activity and critical actions in your account, and troubleshoot problems.
 {: shortdesc}
 
-## Platform logs
-{: #logging_ov}
+You can use {{site.data.keyword.logs_routing_full_notm}}, a platform service, to route platform logs in your account to a destination of your choice by configuring a tenant that defines where platform logs are sent. For more information, see [About Logs Routing](/docs/logs-router?topic=logs-router-about).
 
-Platform logs are logs that are exposed by logging-enabled services and the platform in {{site.data.keyword.cloud_notm}}. You must configure a {{site.data.keyword.la_short}} instance in a region to monitor these logs.
+You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on platform logs that are generated in your account and routed by {{site.data.keyword.logs_routing_full_notm}} to an {{site.data.keyword.logs_full_notm}} instance.
 
-For more information, see [Configuring IBM Cloud platform logs](/docs/log-analysis?topic=log-analysis-config_svc_logs).
 
+
+As of 28 March 2024, the {{site.data.keyword.la_full_notm}} service is deprecated and will no longer be supported as of 30 March 2025. Customers will need to migrate to {{site.data.keyword.logs_full_notm}} before 30 March 2025. During the migration period, customers can use {{site.data.keyword.la_full_notm}} along with {{site.data.keyword.logs_full_notm}}. Logging is the same for both services. For information about migrating from {{site.data.keyword.la_full_notm}} to {{site.data.keyword.logs_full_notm}} and running the services in parallel, see [migration planning](/docs/cloud-logs?topic=cloud-logs-migration-intro).
+{: important}
+
+## Locations where platform logs are generated
+{: #log-locations}
+
+
+
+### Locations where logs are sent to {{site.data.keyword.la_full_notm}}
+{: #la-legacy-locations}
+
+
+
+{{site.data.keyword.vpc_short}} sends platform logs to {{site.data.keyword.la_full_notm}} in the regions indicated in the following table.
+
+| Dallas (`us-south`) | Washington (`us-east`)  | Toronto (`ca-tor`) | Sao Paulo (`br-sao`) |
+|---------------------|-------------------------|-------------------|----------------------|
+| [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
+{: caption="Regions where platform logs are sent in Americas locations" caption-side="top"}
+{: #la-table-1}
+{: tab-title="Americas"}
+{: tab-group="la"}
+{: class="simple-tab-table"}
+{: row-headers}
+
+| Tokyo (`jp-tok`)    | Sydney (`au-syd`) |  Osaka (`jp-osa`) | 
+|---------------------|------------------|------------------|
+| [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | 
+{: caption="Regions where platform logs are sent in Asia Pacific locations" caption-side="top"}
+{: #la-table-2}
+{: tab-title="Asia Pacific"}
+{: tab-group="la"}
+{: class="simple-tab-table"}
+{: row-headers}
+
+| Frankfurt (`eu-de`)  | London (`eu-gb`) | Madrid (`eu-es`) |
+|---------------------------------------------------------------|---------------------|------------------|
+| [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
+{: caption="Regions where platform logs are sent in Europe locations" caption-side="top"}
+{: #la-table-3}
+{: tab-title="Europe"}
+{: tab-group="la"}
+{: class="simple-tab-table"}
+{: row-headers}
+
+### Locations where logs are sent by {{site.data.keyword.logs_routing_full_notm}}
+{: #lr-locations}
+
+
+
+{{site.data.keyword.vpc_short}} sends logs by {{site.data.keyword.logs_routing_full_notm}} in the regions that are indicated in the following table.
+
+| Dallas (`us-south`) | Washington (`us-east`)  | Toronto (`ca-tor`) | Sao Paulo (`br-sao`) |
+|---------------------|-------------------------|-------------------|----------------------|
+| [No]{: tag-red} | [No]{: tag-red} | [No]{: tag-red} | [Yes]{: tag-green} |
+{: caption="Regions where platform logs are sent in Americas locations" caption-side="top"}
+{: #lr-table-1}
+{: tab-title="Americas"}
+{: tab-group="lr"}
+{: class="simple-tab-table"}
+{: row-headers}
+
+| Tokyo (`jp-tok`)    | Sydney (`au-syd`) |  Osaka (`jp-osa`) | 
+|---------------------|------------------|------------------|
+| [No]{: tag-red} | [Yes]{: tag-green} | [No]{: tag-red} | 
+{: caption="Regions where platform logs are sent in Asia Pacific locations" caption-side="top"}
+{: #lr-table-2}
+{: tab-title="Asia Pacific"}
+{: tab-group="lr"}
+{: class="simple-tab-table"}
+{: row-headers}
+
+| Frankfurt (`eu-de`)  | London (`eu-gb`) | Madrid (`eu-es`) |
+|---------------------------------------------------------------|---------------------|------------------|
+| [No]{: tag-red} | [No]{: tag-red} | [No]{: tag-red} |
+{: caption="Regions where platform logs are sent in Europe locations" caption-side="top"}
+{: #lr-table-3}
+{: tab-title="Europe"}
+{: tab-group="lr"}
+{: class="simple-tab-table"}
+{: row-headers}
+  
 ## Viewing logs
-{: #logging_view}
+{: #log-viewing}
 
-VPC services generate platform logs in the same region where they are available. You can view, monitor, and manage VPC logs through the {{site.data.keyword.la_full_notm}} instance that is marked as **platform logs** in the region.
+### Launching {{site.data.keyword.logs_full_notm}} from the Observability page
+{: #log-launch-standalone}
 
-To launch the {{site.data.keyword.la_short}} web UI to view these logs, see [Navigating to the web UI](/docs/log-analysis?topic=log-analysis-launch).
 
-For more information about the locations where VPC logs are available, see [VPC infrastructure services locations](/docs/log-analysis?topic=log-analysis-cloud_services_locations#cs_locations_networking).
 
- 
+For more information about launching the {{site.data.keyword.logs_full_notm}} UI, see [Launching the UI in the {{site.data.keyword.logs_full_notm}} documentation.](/docs/cloud-logs?topic=cloud-logs-instance-launch) 
 
 ## Fields per log type
 {: #logging_fields}
