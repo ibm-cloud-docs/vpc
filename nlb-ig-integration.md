@@ -18,7 +18,7 @@ subcollection: vpc
 {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) can attach [instance groups](/docs/vpc?topic=vpc-creating-auto-scale-instance-group) to a load balancer pool.
 {: shortdesc}
 
-The following information does not apply to Private Path Network Load Balancers.
+The following information does not apply to Private Path network load balancers.
 {: note}
 
 An instance group is a collection of virtual server instances. With them, there is no need to manually manage your pool members. Attaching an instance group to a load balancer allows your pool back-end members to automatically scale up or down depending upon your usage and requirements.
