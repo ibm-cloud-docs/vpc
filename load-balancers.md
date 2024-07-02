@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-06-20"
+lastupdated: "2024-07-02"
 
 keywords:
 
@@ -28,7 +28,7 @@ Several differences exist between the various types of load balancers.
 
 {{site.data.keyword.cloud_notm}} provides public- and private-facing ALBs that support Secure Sockets Layer (SSL) offloading. An ALB provides layer 7 and layer 4 load balancing on {{site.data.keyword.cloud_notm}}, but ALBs are primarily intended for layer 7, web-based workloads. ALBs support virtual server instances, bare metal server instances, and Power Systems Virtual Server instances connected over {{site.data.keyword.dl_full_notm}} as back-end pool members. For more information, see [About application load balancers](/docs/vpc?topic=vpc-load-balancers-about&interface=ui).
 
-### Network load balancers
+### Network load balancers (public and private)
 {: #load-balancer-nlb}
 
 In contrast to ALBs, an NLB provides only layer 4 load balancing on {{site.data.keyword.cloud_notm}}, and does not support SSL offloading. The client sends public network traffic to the NLB, which forwards it to target virtual servers. Then, these virtual servers respond directly to the client by using Direct Server Return (DSR). NLBs are primarily intended for workloads that require low latency and high data throughput.
@@ -37,17 +37,7 @@ This gives network load balancers an advantage over ALBs by enhancing performanc
 
 * The return traffic from the target server bypasses the NLB and responds directly to the client.
 * The NLB processes incoming traffic, which allows it to be a fast distributor of traffic/load.
-* The NLB has a single, highly available virtual IP (VIP) that can be used directly, instead of through an assigned fully qualified domain name (FQDN). This VIP helps clients that must use an IP to access the application or service that is served by the load balancer. It also allows for faster failure recovery compared to the DNS-based availability of application load balancers.
-
-Network load balancers are only accessed by using a Virtual Private Endpoint (VPE). VPE creation is gated by VPE service registration and is not subject to explicit provider approval. In the datapath of a network load balancer, there is no security group or network ACL applied to the traffic in or out of the load balancer itself. Traffic sent to the load balancer listener is load balanced and directed to members.
-
-The following describes network ACL and security group behavior on the member side:
-
-Health checks of members
-:    Health check traffic is always allowed. The source IP of NLB health check traffic is the IP address of the default gateway of the subnet that the member resides in.
-
-Datapath to members
-:    The traffic is subject to the security group or network ACL on the member network interface. The source IP of the traffic is the service gateway of the client, or of the CSE instance. Typically, a provider explicitly allows this traffic in the security group (`10/8` and relevant `161,166` CIDRs). Because the source IP is the service gateway of the client, it is (in theory) possible to allow or deny specific customer' VPCs in the security group or network ACL.
+* Public and Private NLBs have a single, highly available virtual IP (VIP) that can be used directly, instead of through an assigned fully qualified domain name (FQDN). This VIP helps clients that must use an IP to access the application or service that is served by the load balancer. It also allows for faster failure recovery compared to the DNS-based availability of application load balancers.
 
 {{site.data.keyword.nlb_full}} supports these load-balancer configurations: public, private, Private Path, and private-type with routing mode enabled. For more information, see [About network load balancers](/docs/vpc?topic=vpc-network-load-balancers&interface=ui).
 
@@ -61,17 +51,11 @@ Use Figure 1 to help you (the User) choose the right load balancer for your requ
 The beta release of IBM Cloud Private Path services is only available to allowlisted users. Contact your IBM Support representative if you are interested in getting early access to this beta offering.
 {: beta}
 
-Private Path NLBs are required when you use [Private Path services](/docs/vpc?topic=vpc-private-path-service-intro) to keep network traffic on a private path that never intersects with the public internet.
+Private Path NLBs are required when service consumer and service provider reside an different VPCs and there is a need to keep network traffic on a private path that never intersects with the public internet. These load balancers offer a high level of fault tolerance including resilience to a zone failure, and are highly scalable (millions of requests/second) and performant.
 
-Private Path services only work with Private Path NLBs.
 {: important}
 
-The VPE creation is gated by the provider's approval in a Private Path service. In the datapath of a Private Path network load balancer, there is no security group or network ACL applied to the traffic in or out of the load balancer itself. Traffic sent to the load balancer listener is load balanced and directed to members.
-
-The following describes network ACL and security group behavior on the member side:
-
-Health checks of members
-:    Health check traffic is always allowed.
+A consumer's ability to access a PPNLB requires creation of a VPE which is gated by the provider's approval in a [Private Path service](/docs/vpc?topic=vpc-private-path-service-intro). So provider has granular control over who may access their service. 
 
 For more information, see the [Private Path solution guide](/docs/private-path).
 
@@ -86,7 +70,7 @@ The following table provides a comparison of the types of load balancers.
 | Instance group support | Yes (see [Integrating an ALB for VPC with instance groups](/docs/vpc?topic=vpc-lbaas-integration-with-instance-groups)) | No | No |
 | Monitoring metrics | Yes | Yes | No |
 | [Multi-zone support](/docs/vpc?topic=vpc-nlb-vs-elb#nlb-mz-support) | Yes | Limited [^footnote1] (see [Multi-zone support](/docs/vpc?topic=vpc-nlb-vs-elb#nlb-mz-support)) | Yes |
-| Security group support | Yes (see [Integrating an ALB for VPC with security groups](/docs/vpc?topic=vpc-alb-integration-with-security-groups)) | Yes (see [Integrating a network load balancer with security groups](/docs/vpc?topic=vpc-nlb-integration-with-security-groups) | No |
+| Security group support | Yes (see [Integrating an ALB for VPC with security groups](/docs/vpc?topic=vpc-alb-integration-with-security-groups)) | Yes (see [Integrating a network load balancer with security groups](/docs/vpc?topic=vpc-nlb-integration-with-security-groups) | No. Access control is through a Private Path service |
 | Source IP address is preserved | Yes, with proxy protocol | Yes | No |
 | SSL offloading | Yes  | No | No |
 | Supported protocols | HTTPS, HTTP, TCP | TCP, UDP | TCP |
@@ -97,6 +81,8 @@ The following table provides a comparison of the types of load balancers.
 | Member type | Virtual server instances, Bare Metal, Power Systems Virtual Server | Virtual server instances | Virtual server instances |
 | Power Systems Virtual Server instances connected over Direct Link | Yes (No support for instance groups) | No | No |
 | Port range | No | Public only [^footnote2] | Yes |
+| Scalable to many machines | Yes | No | Yes |
+
 {: caption="Table 1. Comparison of private path network, network and application load balancers" caption-side="bottom"}
 
 [^footnote1]: NLBs can accept members across all three availability zones, but the NLB itself resides in one specific zone. NLB with routing mode does not support multi-zone support.

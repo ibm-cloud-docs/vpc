@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-05-02"
+lastupdated: "2024-07-02"
 
 keywords:
 
@@ -56,14 +56,21 @@ The beta release of IBM Cloud Private Path services is only available to allowli
 {: beta}
 
 * Access to a Virtual Private Endpoint gateway associated with Private Path Network load balancer from Direct Link or Transit Gateway is not supported.
-* Private Path network load balancer Pool Members on Bare Metal are not supported.
+  * A workaround is to access an ALB which will have the VPE as member. Please contact support for assistance with the details.
+* Private Path network load balancer Pool Members on Bare Metal are not supported (similar to Public and Private NLB)
 * Private Path network load balancer Pool Members must be running in a VPC Virtual Server Instance. On-prem members are not supported.
 * Access to Private Path network load balancer from remote regions is not supported. The consumer Virtual Private Endpoint gateway and the Private Path network load balancer instance must reside in same region.
+  *  A workaround is to access an ALB in the remote region which will have the VPE as member. Please contact support for assistance with the details.
 * Access to Private Path network load balancers from CSE (classic) is not supported.
-* Access to a Virtual Private Endpoint gateway associated with Private Path network load balancer from on-prem via direct-link or a different VPC via transit gateway is not supported.
-* Security Groups and Network Access Control List (NACL) on the load balancer itself are not supported.
+* Granular control of access to the load balancer is done via Private Path Service rather than by  Security Groups and Network Access Control List (NACL) which are not supported.
 * UDP is not supported in datapath.
 * Autoscaler integration is not supported.
+* Maximal MTU for Private Paths NLB traffic is 8500
+* Default Quotas and limits
+  * Number of load balancers in account per region: 50 (can be increased)
+  * Members in pool: 150 (can be increased)
+  * Pools in load balancer: 10 (can be increased)
+  * Listeners in load balancer: 10 (can be increased)
 
 ### Related Links
 {: #nlb-limitations-related-links}

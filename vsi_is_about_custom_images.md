@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024 
-lastupdated: "2024-06-14"
+  years: 2022, 2024
+lastupdated: "2024-07-02"
 
 keywords:
 
@@ -15,20 +15,20 @@ subcollection: vpc
 # Getting started with custom images
 {: #planning-custom-images}
 
-A custom image contains an operating system image with specific configurations that are customized by you. You can manage the lifecycle, share the custom image, and use it to create new virtual servers or bare metal servers with your own settings and configurations. You can create a Linux&reg; custom image, a Windows&reg; custom image, a z/OS Wazi aaS custom image, or a generic operating system custom image. 
+A custom image contains an operating system image with specific configurations that are customized by you. You can manage the lifecycle, share the custom image, and use it to create new virtual servers or bare metal servers with your own settings and configurations. You can create a Linux&reg; custom image, a Windows&reg; custom image, a z/OS Wazi aaS custom image, or a generic operating system custom image.
 {: shortdesc}
 
-You have a few options for creating a custom image. 
+You have a few options for creating a custom image.
 
 * You can import your custom image directly into {{site.data.keyword.vpc_full}} from {{site.data.keyword.cos_full}}. For more information, see [Importing your custom image into IBM Cloud VPC](/docs/vpc?topic=vpc-custom-image-using-COS&interface=ui).
-* You can create a custom image from an existing VPC virtual server boot volume. For more information, see [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc&interface=ui). 
+* You can create a custom image from an existing VPC virtual server boot volume. For more information, see [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc&interface=ui).
 * If you have virtual servers running on the Classic Infrastructure, you can create an image template to migrate to a VPC virtual server. For more information, see [Migrating a virtual server from the Classic infrastructure](/docs/vpc?topic=vpc-migrate-vsi-to-vpc).
 
 When your custom image is created, you can plan and manage the lifecycle of the image by using three statuses: available, deprecated, or obsolete. For more information on these status and how to manage them, see [Custom image lifecycle](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#custom-image-lifecycle).
 
-You can also share your custom images with other accounts by using a private catalog. For more information on using custom images in a private catalog, see [Getting started with Catalog Images on VPC](/docs/vpc?topic=vpc-getting-started-images-on-vpc-catalog&interface=ui). 
+You can also share your custom images with other accounts by using a private catalog. For more information on using custom images in a private catalog, see [Getting started with Catalog Images on VPC](/docs/vpc?topic=vpc-getting-started-images-on-vpc-catalog&interface=ui).
 
-On the console, you can find custom images by clicking **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Compute > Images > Custom images**. Images that are from a volume are part of the custom images tab. 
+On the console, you can find custom images by clicking **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure ![VPC icon](../../icons/vpc.svg) > Compute > Images > Custom images**. Images that are from a volume are part of the custom images tab.
 
 ## Creating a custom image
 {: #create-custom-image}

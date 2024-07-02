@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-02-14"
+lastupdated: "2024-07-02"
 
 keywords:
 
@@ -17,6 +17,9 @@ subcollection: vpc
 
 The {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) allows you to attach [security groups](/docs/vpc?topic=vpc-using-security-groups) to enhance your application's security.
 {: shortdesc}
+
+The following information does not apply to Private Path network load balancers.
+{: note}
 
 Security groups are a convenient way to secure your NLB instances. With a security group attached to your load balancer, you have full control over inbound and outbound traffic to and from the load balancer's listeners and its targets. Instead of identifying the load balancers using their IP addresses or CIDR range, targets can simply use the load balancer's security group as the source in their own security group definition. This ensures that traffic from all load balancer appliances is automatically allowed, irrespective of their IP addresses.
 
