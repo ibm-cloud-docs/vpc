@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-06-29"
+lastupdated: "2024-07-02"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -29,7 +29,7 @@ If you want to create backup snapshots of your {{site.data.keyword.block_storage
 
 For more information about authorizations, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth).
 
-## Creating service-to-service authorization for customer-managed encryption in the UI
+## Creating service-to-service authorization for customer-managed encryption in the console
 {: #block-s2s-auth-encryption-ui}
 {: ui}
 
