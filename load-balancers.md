@@ -55,7 +55,7 @@ Private Path NLBs are required when service consumer and service provider reside
 
 {: important}
 
-A consumer's ability to access a PPNLB requires creation of a VPE which is gated by the provider's approval in a [Private Path service](/docs/vpc?topic=vpc-private-path-service-intro). So provider has granular control over who may access their service. 
+A consumer's ability to access a PPNLB requires creation of a VPE which is gated by the provider's approval in a [Private Path service](/docs/vpc?topic=vpc-private-path-service-intro). So provider has granular control over who may access their service.
 
 For more information, see the [Private Path solution guide](/docs/private-path).
 
