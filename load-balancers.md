@@ -52,7 +52,6 @@ The beta release of IBM Cloud Private Path services is only available to allowli
 {: beta}
 
 Private Path NLBs are required when service consumer and service provider reside an different VPCs and there is a need to keep network traffic on a private path that never intersects with the public internet. These load balancers offer a high level of fault tolerance including resilience to a zone failure, and are highly scalable (millions of requests/second) and performant.
-
 {: important}
 
 A consumer's ability to access a PPNLB requires creation of a VPE which is gated by the provider's approval in a [Private Path service](/docs/vpc?topic=vpc-private-path-service-intro). So provider has granular control over who may access their service.
@@ -82,7 +81,6 @@ The following table provides a comparison of the types of load balancers.
 | Power Systems Virtual Server instances connected over Direct Link | Yes (No support for instance groups) | No | No |
 | Port range | No | Public only [^footnote2] | Yes |
 | Scalable to many machines | Yes | No | Yes |
-
 {: caption="Table 1. Comparison of private path network, network and application load balancers" caption-side="bottom"}
 
 [^footnote1]: NLBs can accept members across all three availability zones, but the NLB itself resides in one specific zone. NLB with routing mode does not support multi-zone support.

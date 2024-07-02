@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2023-04-19"
+lastupdated: "2024-07-02"
 
 keywords: Block Storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, Block Storage for vpc, customer-managed encryption,
 
@@ -25,41 +25,38 @@ To create Block Storage volumes with customer-managed encryption, you must first
 
 You must also [create a service-to-service authorization](/docs/vpc?topic=vpc-block-s2s-auth) between {{site.data.keyword.block_storage_is_short}} and the KMS instance that you created.
 
-## Creating data volumes with customer-managed encryption in the UI
+## Creating data volumes with customer-managed encryption in the console
 {: #data-vol-encryption-ui}
 {: ui}
 
 This procedure explains how to specify customer-managed encryption when you create a stand-alone Block Storage volume.
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage volumes** to view a list of your Block Storage volumes.
-2. Select **New volume**.
-3. Enter the information in Table 1 to define your new Block Storage volume.
-   | Field | Value |
-   |-------|-------|
-   | **Location** | The geography, region, and zone are inherited from the VPC (for example, North America, Dallas, Dallas-1). You can select a different zone in your location from the menu by clicking the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit"). |
-   | **Details** | In the Details section, you must specify the name of the volume and the resource group that the volume is to be added to. Optionally, you can add user and access management tags. |
-   | Name | Specify a meaningful name for your volume. For example, provide a name that describes your compute or workload function. The volume name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. Volume names must be unique across the entire VPC infrastructure. You can later edit the name. |
-   | Resource Group | Specify a [Resource group](/docs/vpc?topic=vpc-iam-getting-started&interface=ui#iam-resource-groups). |
-   | Tags | Specify [user tags](/docs/vpc?topic=vpc-block-storage-about&interface=ui#storage-about-user-tags) to organize your resources and for use by [backup policies](/docs/vpc?topic=vpc-backup-service-about). |
-   | Access management tags | Specify [access management tags](/docs/vpc?topic=vpc-block-storage-about&interface=ui#storage-about-mgt-tags) that were created in IAM to help you manage access to your volumes. |
-   | **Optional configurations** | In the Optional configuration section, you can specify whether you want to create the volume with data from a snapshot. Also, you can choose to apply a backup policy. |
-   | Import from snapshot | Click **Select snapshot** to create the volume with data from the selected snapshot. You can create data volumes with Nonbootable snapshots, and boot volumes with Bootable snapshots.|
-   | Apply backup policy | |
-   | **Profile** | In the Profile section, you can specify the performance profile of your volume, its IOPS, and capacity. |
-   | | For [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers), select the tile with the performance level that you require and specify the volume size in GBs. Volume sizes can be 10 - 16,000 GB. |
-   | | For [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) IOPS, specify the size of your volume and IOPS range based on the size of the volume. As you type the IOPS value, the UI shows the acceptable range. You can also click the **storage size** link to see a table of size and IOPS ranges. For more information, see [Custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#custom). |
-   | **Encryption at rest** | Encryption with IBM-managed keys is enabled by default on all volumes. You can also choose to use [your own encryption key](/docs/vpc?topic=vpc-block-storage-vpc-encryption) by selecting your key management service: ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}). |
-   | Encryption service instance | Select the data encryption instance from the list. If you don't have an instance yet, you can click the link to create one. |
-   | Key name | Select the data encryption key within the {{site.data.keyword.keymanagementserviceshort}} instance that you want to use for encrypting the volume. |
-   {: caption="Table 1. Values for provisioning Block Storage volumes with customer-managed encryption" caption-side="bottom"}
+1. Click **Create**.
+1. Review the **Location** information. The geography, region, and zone are inherited from the VPC (for example, North America, Dallas, Dallas-1). You can select a different zone in your location from the menu by clicking the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit"). 
+1. In the **Details**, you must specify the name of the volume and the resource group that the volume is to be added to. Optionally, you can add user and access management tags.
+    1. Specify a meaningful name for your volume. For example, provide a name that describes your compute or workload function.
 
-   If you created your {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} instance by using a private endpoint, the root keys that were created by using that instance are not shown in the UI. You must use the CLI or API to access and use these root keys.
-   {: important}
+       The volume name must begin with a lowercase letter. The volume name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-). Volume names must be unique across the entire VPC infrastructure. You can edit the name later.
+       {: important}
 
-4. When your changes are complete, click **Create Volume**.
-5. Optionally, attach the volume to an instance.
+    1. Specify a [Resource group](/docs/vpc?topic=vpc-iam-getting-started&interface=ui#iam-resource-groups).
+    1. Specify [user tags](/docs/vpc?topic=vpc-block-storage-about&interface=ui#storage-about-user-tags) to organize your resources and for use by [backup policies](/docs/vpc?topic=vpc-backup-service-about).
+    1. Specify [access management tags](/docs/vpc?topic=vpc-block-storage-about&interface=ui#storage-about-mgt-tags) that were created in IAM to help you manage access to your volumes.
+1. In the **Optional configurations** section, you can specify whether you want to create the volume with data from a snapshot. Also, you can choose to apply a backup policy.
+    - Import from snapshot: click **Select snapshot** to create the volume with data from the selected snapshot. You can create data volumes with Nonbootable snapshots, and boot volumes with Bootable snapshots.
+    - Apply backup policy: click **Apply** to see available policies and plans.
+1. In the **Profile** section, you can specify the performance profile of your volume, its IOPS, and capacity.
+    - For [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers), select the tile with the performance level that you require and specify the volume size in GBs. Volume sizes can be 10 - 16,000 GB. 
+    - For [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) IOPS, specify the size of your volume and IOPS range based on the size of the volume. As you type the IOPS value, the UI shows the acceptable range. You can also click the **storage size** link to see a table of size and IOPS ranges. For more information, see the [Custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#custom).
+1. In the **Encryption at rest** section, you can choose to keep the encryption with IBM-managed keys that is enabled by default on all volumes. Or you can choose to use [your own encryption key](/docs/vpc?topic=vpc-block-storage-vpc-encryption) by selecting your key management service: ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}). To locate your encryption key, select one of the following options:
+    - **Locate by Instance**:
+       1. Select the data encryption instance from the list. If you don't have an instance yet, you can click the link to create one.
+       1. Select the data encryption key that is stored within the {{site.data.keyword.keymanagementserviceshort}} instance to use for encrypting the volume.
+    - **Locate by CRN**: enter the CRN of the customer root key to be used for encrypting the volume.
+1. When your changes are complete, click **Create block storage volume**.
 
-When you refresh the list of Block Storage volumes in the UI, the new volume appears at the beginning of the list of volumes with "customer managed" as the encryption type. When the volume is created, it shows a status of Available. For stand-alone volumes, the Attachment Type column is blank (-). The **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions") at the end of a table row provides a link for [attaching a Block Storage volume to an instance](/docs/vpc?topic=vpc-attaching-block-storage).
+When you refresh the list of Block Storage volumes in the console, the new volume appears at the beginning of the list of volumes with "customer managed" as the encryption type. When the volume is created, it shows a status of Available. For stand-alone volumes, the Attachment Type column is blank (-). The **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions") at the end of a table row provides a link for [attaching a Block Storage volume to an instance](/docs/vpc?topic=vpc-attaching-block-storage).
 
 ## Creating data volumes with customer-managed encryption from the CLI
 {: #data-vol-encryption-cli}
@@ -124,7 +121,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 {: #encrypt-data-vol-cli}
 {: cli}
 
-To create a Block Storage volume with customer-managed encryption from the CLI, first gather the use the `ibmcloud is volume-create` command with the `--encryption-key` option. The `encryption_key` option specifies a valid CRN for the root key in the key management service.
+To create a Block Storage volume with customer-managed encryption from the CLI, first gather the CRN of the customer root key, then use the `ibmcloud is volume-create` command with the `--encryption-key` option. The `encryption_key` option must specify a valid CRN for the root key in the key management service.
 
 The following example shows a volume that is created with customer-managed encryption.
 
@@ -216,25 +213,22 @@ A successful response looks like the following example.
 ```
 {: screen}
 
-## Provisioning virtual server instances with storage volumes that are encrypted with customer-managed keys in the UI
+## Provisioning virtual server instances with storage volumes that are encrypted with customer-managed keys in the console
 {: #provision-byok-ui}
 {: ui}
 
-When you provision a virtual server instance, you can specify customer-managed encryption for your boot volume and any data volumes that you want to add at that time. If you want, you can use a combination of provider-managed encryption and customer-managed encryption for the volumes that are associated with your instance.
+When you provision a virtual server instance, you can specify customer-managed encryption for your boot volume and any data volumes that you want to add. If you want, you can use a combination of provider-managed encryption and customer-managed encryption for the volumes that are associated with your instance.
 
 Follow these steps to create an instance with a new Block Storage volume.
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Compute > Virtual server instances**.
 1. Click **New instance** and complete the required fields. For more information about these required fields, see _Table 1 - Instance provisioning selections_ in [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers).
-1. In the **Boot volume** section, the default mode of encryption is _Provider managed_ encryption. To specify customer-managed encryption, click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") in the boot volume row. On the **Edit boot volume** page, update the fields in the **Encryption** section.
-   | Field | Value |
-   | ----- | ----- |
-   | Encryption | _Provider managed_ is the default encryption mode. To use customer-managed encryption, select a key management service. |
-   | Encryption service instance | If you have multiple key management service instances that are provisioned in your account, select the one that contains the customer root key that you want to use. |
-   | Key name | Select the root key within the key management service instance that you want to use for encrypting the volume. | 
-   | Key ID | Displays the key ID that is associated with the root key that you selected. | 
-   {: caption="Table 2. Values for specifying customer-managed encryption of volumes" caption-side="bottom"}
-
+1. In the **Boot volume** section, the default mode of encryption is _Provider managed_ encryption. To specify customer-managed encryption, click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") in the boot volume row. 
+1. On the **Edit boot volume** page, update the fields in the **Encryption** section. Select your key management service: ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}). To locate your encryption key, select one of the following options:
+    - **Locate by Instance**:
+       1. Select the data encryption instance from the list. If you don't have an instance yet, you can click the link to create one.
+       1. Select the data encryption key that is stored within the {{site.data.keyword.keymanagementserviceshort}} instance to use for encrypting the volume.
+    - **Locate by CRN**: enter the CRN of the customer root key to be used for encrypting the volume.
 1. When your changes are complete, click **Apply**.
 1. In the **Attached Block Storage volume** section, you can click **New Block Storage volume** to add a data volume and specify customer-managed encryption. On the **New Block Storage volume** page, update the fields in the **Encryption** section. See Table 1 for more information. When your changes are complete, click **Attach**.
 
@@ -467,5 +461,5 @@ A successful response looks like this. Note that the boot volume appears under b
 - Prepare your data volumes for use by formatting and configuring them to meet your requirements.
    - [Setting up your Block Storage for VPC data volume for use (Linux)](https://cloud.ibm.com/docs/vpc?topic=vpc-start-using-your-block-storage-data-volume-lin)
    - [Setting up your Block Storage for VPC data volume for use (Windows)](https://cloud.ibm.com/docs/vpc?topic=vpc-start-using-your-block-storage-data-volume-win)
-- [Attach your stand alone volumes](/docs/vpc?topic=vpc-attaching-block-storage) to a virtual server instance.
+- [Attach your stand-alone volumes](/docs/vpc?topic=vpc-attaching-block-storage) to a virtual server instance.
 - Configure [Key rotation for VPC resources](/docs/vpc?topic=vpc-vpc-key-rotation).

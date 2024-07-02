@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-06-20"
+lastupdated: "2024-07-02"
 
 keywords:
 
@@ -23,7 +23,7 @@ The beta release of IBM Cloud Private Path services is only available to allowli
 * Providers may only register a single domain per Private Path service. Creating a domain will create a DNS zone which is entirely managed by IBM DNS. 
 * Private Path service supports TCP in datapath. Currently, Private Path service does not support UDP in datapath.
 
-## Related Links
+## Related links
 {: #ppsg-limitations-related-links}
 
 * [Network load balancer limitations](/docs/vpc?topic=vpc-nlb-limitations)

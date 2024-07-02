@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-02-27"
+lastupdated: "2024-07-02"
 
 keywords:
 
@@ -193,7 +193,7 @@ To create and attach a Block Storage volume, follow these steps:
    * **Size**: Specify the size of the volume between 10 GBs and 2000 GBs.
    * **IOPS**: Select one of the IOPS Tiers or click Custom to enter an IOPS value based on volume size.
    * **Encryption**: Accept the default _Provider managed_ encryption option.
-1. Click **Create volume**.
+1. Click **Create block storage volume**.
 1. In the list of Block Storage volumes, find the volume that you created. When the status is Available, click "..." and select **Attach to instance**.
 1. Select the instance to which you want to attach the volume and click **Attach**.
 1. _For z/OS virtual server instances only:_ To verify the newly attached Block Storage volume with its address assigned, you can find the information on your z/OS virtual server instance console through a broadcast message that is sent to you with the affected device address.

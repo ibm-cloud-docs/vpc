@@ -56,23 +56,23 @@ The beta release of IBM Cloud Private Path services is only available to allowli
 {: beta}
 
 * Access to a Virtual Private Endpoint gateway associated with Private Path Network load balancer from Direct Link or Transit Gateway is not supported.
-  * A workaround is to access an ALB which will have the VPE as member. Please contact support for assistance with the details.
-* Private Path network load balancer Pool Members on Bare Metal are not supported (similar to Public and Private NLB)
-* Private Path network load balancer Pool Members must be running in a VPC Virtual Server Instance. On-prem members are not supported.
+* A workaround is to access an ALB that has the VPE as a member. Contact IBM Support for assistance with the details.
+* Private Path network load balancer pool members on Bare Metal are not supported (similar to Public and Private NLB)
+* Private Path network load balancer pool members must be running in a VPC Virtual Server Instance. On-prem members are not supported.
 * Access to Private Path network load balancer from remote regions is not supported. The consumer Virtual Private Endpoint gateway and the Private Path network load balancer instance must reside in same region.
-  *  A workaround is to access an ALB in the remote region which will have the VPE as member. Please contact support for assistance with the details.
+* A workaround is to access an ALB in the remote region that has the VPE as member. Contact IBM Support for assistance with the details.
 * Access to Private Path network load balancers from CSE (classic) is not supported.
 * Granular control of access to the load balancer is done through a Private Path service rather than by security groups and Network Access Control Lists (NACLs), which are not supported.
 * UDP is not supported in datapath.
 * Autoscaler integration is not supported.
-* Maximal MTU for Private Paths NLB traffic is 8500
+* The maximal MTU for Private Path NLB traffic is `8500`.
 * Default Quotas and limits
-  * Number of load balancers in account per region: 50 (can be increased)
-  * Members in pool: 150 (can be increased)
-  * Pools in load balancer: 10 (can be increased)
-  * Listeners in load balancer: 10 (can be increased)
+   * Number of load balancers in account per region: `50` (can be increased)
+   * Members in pool: `150` (can be increased)
+   * Pools in load balancer: `10` (can be increased)
+   * Listeners in load balancer: `10` (can be increased)
 
-### Related Links
+### Related links
 {: #nlb-limitations-related-links}
 
-* [Private Path service limitations](/docs/vpc?topic=vpc-ppsg-limitations)
+[Private Path service limitations](/docs/vpc?topic=vpc-ppsg-limitations)

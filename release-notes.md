@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-06-28"
+lastupdated: "2024-07-02"
 
 keywords:
 
@@ -496,7 +496,7 @@ Reserved Capacity for VPC (Beta)
 {: release-note}
 
 Client VPN for VPC: Automate the client certificate authentication process for private certificates
-: As a VPN server administrator, you were required to download the client profile, manually insert the private certificate into the client profile, and, finally, distribute it to users. Now, when a private certificate is used for client authentication, you can download the client profile with the merged private certificate and key for _all_ or _selected_ private certificates. There is also no need for the VPN client user to modify their client profile manually. For more information, see [Setting up a client VPN environment and connecting to a VPN server](/docs/vpc?topic=vpc-vpn-client-environment-setup).
+: As a VPN server administrator, you were required to download the client profile, manually insert the private certificate into the client profile, and, finally, distribute it to users. Now, when a private certificate is used for client authentication, you can download the client profile with the merged private certificate and key for *all* or *selected* private certificates. There is also no need for the VPN client user to modify their client profile manually. For more information, see [Setting up a client VPN environment and connecting to a VPN server](/docs/vpc?topic=vpc-vpn-client-environment-setup).
 
 Encryption in transit is now available in Spain (Madrid) region
 :   Encryption in transit for {{site.data.keyword.filestorage_vpc_short}} is now available in the Spain (Madrid) region in {{site.data.keyword.cloud_notm}}. For more information, see [Encryption in transit](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-eit).
@@ -1226,7 +1226,7 @@ Additional VPN for VPC ciphers
 
    * IPsec policy now supports `sha384` and `disabled` values for authentication, `aes192`, `aes128gcm16`, `aes192gcm16`, and `aes256gcm16` values for encryption, and `group_15`, `group_16`, `group_17`, `group_18`, `group_20`, `group_21`, `group_22`, `group_23` , `group_24`, and `group_31` Diffie–Hellman groups.
 
-   Specifying IKE and IPsec policies when configuring a VPN connection is optional. If a policy is not selected, one is chosen through _auto-negotiation_. For more information, see [About policy negotiation](/docs/vpc?topic=vpc-using-vpn#policy-negotiation).
+   Specifying IKE and IPsec policies when configuring a VPN connection is optional. If a policy is not selected, one is chosen through *auto-negotiation*. For more information, see [About policy negotiation](/docs/vpc?topic=vpc-using-vpn#policy-negotiation).
    {: note}
 
 ### 20 September 2022
@@ -1860,7 +1860,7 @@ Application Load Balancer (ALB) support for cookie-based session persistence
 {: release-note}
 
 UI enhancement
-:   When you delete a virtual server, you must now confirm that you want to delete an instance by typing _delete_.
+:   When you delete a virtual server, you must now confirm that you want to delete an instance by typing *delete*.
 
 ## May 2021
 {: #vpc-may21}
@@ -2481,7 +2481,7 @@ New US East (Washington DC) region
 CLI plug-in release 0.5.10
 :   For more information, see [VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference&interface=cli).
     * You now have an Example section in command help for creating and updating commands. Example: `ibmcloud is help instance-create`, `ibmcloud is help instance-update`, or `ibmcloud is help volume-create`.
-    * Use the _resource group filter_ in list commands. Example: `ibmcloud is vpcs --resource-group-name Littleton`.
+    * Use the *resource group filter* in list commands. Example: `ibmcloud is vpcs --resource-group-name Littleton`.
     * JSON output format support for the `ibmcloud is target --json` command.
     * `ipv4` and `primary-network-interface` options for `instance-create`. Options help specify the primary private IP for the primary network interface when you create an instance.
 
