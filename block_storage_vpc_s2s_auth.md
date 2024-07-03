@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-02"
+lastupdated: "2024-07-03"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -37,7 +37,7 @@ For more information about authorizations, see [Using authorizations to grant ac
 1. From the side panel, select **Authorizations**.
 1. On the **Manage authorizations** page, click **Create**. 
 1. In the **Source** section, select the **Source account**. 
-   - If the goal is to allow the use of a CRK from another account, select **Specific account** and enter the 32-character-long account ID. Then, click **Next**.
+   - If the goal is to allow the use of a CRK by another account, select **Specific account** and enter the 32-character-long account ID. Then, click **Next**.
    - Otherwise, select **This account**. Then, click **Next**.
 1. For the source service, select **VPC Infrastructure Services** from the list. Click **Next**.
    1. Select the scope by clicking **Specific resources**.

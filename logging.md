@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-07-02"
+lastupdated: "2024-07-03"
 
 keywords: flow logs, ordering, logging, log analysis
 
@@ -78,7 +78,7 @@ As of 28 March 2024, the {{site.data.keyword.la_full_notm}} service is deprecate
 
 | Dallas (`us-south`) | Washington (`us-east`)  | Toronto (`ca-tor`) | Sao Paulo (`br-sao`) |
 |---------------------|-------------------------|-------------------|----------------------|
-| [No]{: tag-red} | [No]{: tag-red} | [No]{: tag-red} | [Yes]{: tag-green} |
+| [No]{: tag-red} | [No]{: tag-red} | [No]{: tag-red} | [No]{: tag-red} |
 {: caption="Regions where platform logs are sent in Americas locations" caption-side="top"}
 {: #lr-table-1}
 {: tab-title="Americas"}
