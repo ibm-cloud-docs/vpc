@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-06-28"
+lastupdated: "2024-07-03"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -314,7 +314,6 @@ See [Download drivers](https://www.nvidia.com/Download/index.aspx?lang=en-us) to
 | gx3-64x320x4l4 | 64 / 32 | 320 | l4 / 4 | 128 | - |
 | gx3-24x120x1l40s | 24 / 12 | 120 | l40s / 1 | 50 | - |
 | gx3-48x240x-2l40s | 48 / 24 | 240 | l40s / 2  | 100 | - |
-
 {: caption="Table 8. GPU gx3 24 GB profile options for Intel x86-64 instances" caption-side="bottom"}
 {: #gpu-intel-x86-64}
 {: tab-title="gx3"}
