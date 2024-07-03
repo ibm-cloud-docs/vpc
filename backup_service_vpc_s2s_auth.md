@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-01"
+lastupdated: "2024-07-03"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -129,48 +129,16 @@ To use Backup for VPC in your account to create policies, plans and run backup j
      {
        "type": "authorization",
        "subjects": [
-           {
-            "attributes": [
-                {
-                    "name": "accountId",
-                    "value": "ACCOUNT_ID"
-                },
-                {
-                    "name": "serviceName",
-                    "value": "is"
-                },
-                {
-                    "name": "resourceType",
-                    "value": "backup-policy"
-                }
-               ]
-           }
-       ],
-       "roles": [
-           {
-            "role_id": "crn:v1:bluemix:public:iam::::role:Operator"
-           }
-       ],
+           {"attributes": [
+                {"name": "accountId","value": "ACCOUNT_ID"},
+                {"name": "serviceName","value": "is"},
+                {"name": "resourceType","value": "backup-policy"}]}],
+       "roles": [{"role_id": "crn:v1:bluemix:public:iam::::role:Operator"}],
        "resources": [
-           {
-            "attributes": [
-                {
-                    "name": "accountId",
-                    "value": "ACCOUNT_ID"
-                },
-                {
-                    "name": "serviceName",
-                    "operator": "stringEquals",
-                    "value": "is"
-                },
-                {
-                    "name": "instanceId",
-                    "value": "*",
-                    "operator": "stringEquals"
-                }
-            ]
-          }
-       ]
+           {"attributes": [
+                {"name": "accountId","value": "ACCOUNT_ID"},
+                {"name": "serviceName","operator": "stringEquals","value": "is"},
+                {"name": "instanceId","operator": "stringEquals","value": "*"}]}]
      }
      ```
      {: codeblock}
@@ -180,48 +148,16 @@ To use Backup for VPC in your account to create policies, plans and run backup j
      {
        "type": "authorization",
        "subjects": [
-           {
-            "attributes": [
-                {
-                    "name": "accountId",
-                    "value": "ACCOUNT_ID"
-                },
-                {
-                    "name": "serviceName",
-                    "value": "is"
-                },
-                {
-                    "name": "resourceType",
-                    "value": "backup-policy"
-                }
-               ]
-           }
-       ],
-       "roles": [
-           {
-            "role_id": "crn:v1:bluemix:public:iam::::role:Operator"
-           }
-       ],
+           {"attributes": [
+                {"name": "accountId","value": "ACCOUNT_ID"},
+                {"name": "serviceName","value": "is"},
+                {"name": "resourceType","value": "backup-policy"}]}],
+       "roles": [{"role_id": "crn:v1:bluemix:public:iam::::role:Operator"}],
        "resources": [
-           {
-            "attributes": [
-                {
-                    "name": "accountId",
-                    "value": "ACCOUNT_ID"
-                },
-                {
-                    "name": "serviceName",
-                    "operator": "stringEquals",
-                    "value": "is"
-                },
-                {
-                    "name": "volumeId",
-                    "value": "*",
-                    "operator": "stringEquals"
-                }
-            ]
-           }
-       ]
+           {"attributes": [
+                {"name": "accountId","value": "ACCOUNT_ID"},
+                {"name": "serviceName","operator": "stringEquals","value": "is"},
+                {"name": "volumeId","operator": "stringEquals","value": "*"}]}]
      }
      ```
      {: codeblock}
@@ -231,48 +167,16 @@ To use Backup for VPC in your account to create policies, plans and run backup j
      {
        "type": "authorization",
        "subjects": [
-           {
-            "attributes": [
-                {
-                    "name": "accountId",
-                    "value": "ACCOUNT_ID"
-                },
-                {
-                    "name": "serviceName",
-                    "value": "is"
-                },
-                {
-                    "name": "resourceType",
-                    "value": "backup-policy"
-                }
-               ]
-           }
-       ],
-       "roles": [
-           {
-            "role_id": "crn:v1:bluemix:public:iam::::role:Editor"
-           }
-       ],
+           {"attributes": [
+                {"name": "accountId","value": "ACCOUNT_ID"},
+                {"name": "serviceName","value": "is"},
+                {"name": "resourceType","value": "backup-policy"}]}],
+       "roles": [{"role_id": "crn:v1:bluemix:public:iam::::role:Editor"}],
        "resources": [
-           {
-            "attributes": [
-                {
-                    "name": "accountId",
-                    "value": "ACCOUNT_ID"
-                },
-                {
-                    "name": "serviceName",
-                    "operator": "stringEquals",
-                    "value": "is"
-                },
-                {
-                    "name": "snapshotId",
-                    "value": "*",
-                    "operator": "stringEquals"
-                }
-            ]
-           }
-          ]
+           {"attributes": [
+                {"name": "accountId","value": "ACCOUNT_ID"},
+                {"name": "serviceName","operator": "stringEquals","value": "is"},
+                {"name": "snapshotId","operator": "stringEquals","value": "*"}]}]
      }
      ```
      {: codeblock}
@@ -282,48 +186,16 @@ To use Backup for VPC in your account to create policies, plans and run backup j
       {
        "type": "authorization",
        "subjects": [
-        {
-            "attributes": [
-                {
-                    "name": "accountId",
-                    "value": "ACCOUNT_ID"
-                },
-                {
-                    "name": "serviceName",
-                    "value": "is"
-                },
-                {
-                    "name": "resourceType",
-                    "value": "backup-policy"
-                }
-            ]
-        }
-       ],
-       "roles": [
-        {
-            "role_id": "crn:v1:bluemix:public:iam::::role:Editor"
-        }
-       ],
+           {"attributes": [
+                {"name": "accountId","value": "ACCOUNT_ID"},
+                {"name": "serviceName","value": "is"},
+                {"name": "resourceType","value": "backup-policy"}]}],
+       "roles": [{"role_id": "crn:v1:bluemix:public:iam::::role:Editor"}],
        "resources": [
-        {
-            "attributes": [
-                {
-                    "name": "accountId",
-                    "value": "ACCOUNT_ID"
-                },
-                {
-                    "name": "serviceName",
-                    "operator": "stringEquals",
-                    "value": "is"
-                },
-                {
-                    "name": "snapshotConsistencyGroupId",
-                    "value": "*",
-                    "operator": "stringEquals"
-                }
-            ]
-        }
-       ]
+            {"attributes": [
+                {"name": "accountId","value": "ACCOUNT_ID"},
+                {"name": "serviceName","operator": "stringEquals","value": "is"},
+                {"name": "snapshotConsistencyGroupId","operator": "stringEquals","value": "*"}]}]
       }
       ```
       {: codeblock}
