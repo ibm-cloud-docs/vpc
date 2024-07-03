@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-07-02"
+lastupdated: "2024-07-03"
 
 keywords:
 
@@ -621,7 +621,6 @@ Some fields for Bare Metal Servers for VPC AT events will be changing between th
 | Bare Metal Server | is.bare-metal-server.network-attachment.detach | Network attachment on a bare metal server was detached from a resource |
 | Bare Metal Server | is.bare-metal-server.bare-metal-server-profile.read | One or more bare metal server profiles was retrieved |
 | Bare Metal Server | is.bare-metal-server.bare-metal-server-firmware.update | Bare metal server firmware update was completed. |
-
 {: caption="Table 22. Actions that generate events for Bare Metal Server" caption-side="bottom"}
 
 ### Key events

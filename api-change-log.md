@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-06-25"
+lastupdated: "2024-07-02"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -53,6 +53,21 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 2 July 2024
+{: #2-july-2024}
+
+### For all version dates
+{: #2-july-2024-all-version-dates}
+
+**Dynamic network bandwidth control for bare metal servers.** When [provisioning a bare metal server](/apidocs/vpc/latest#create-bare-metal-server), you can now optionally specify the `bandwidth` property according to the needs of your workload. You can subsequently [update](/apidocs/vpc-scoped#update-bare-metal-server) the `bandwidth` property of an existing bare metal server to support dynamic workload requirements. Bandwidth changes do not require a restart and are effective immediately. For more information, see [Creating Bare Metal Servers on VPC](/docs/vpc?topic=vpc-creating-bare-metal-servers&interface=ui).
+
+When [retrieving](/apidocs/vpc/latest#get-bare-metal-server-profile) or [listing](/apidocs/vpc/latest#list-bare-metal-server-profiles) bare metal server profiles, the `bandwidth` property for new profiles can now return a `bandwidth.type` of `enum`, with `bandwidth.values` providing the supported bandwidth values, and `bandwidth.default` providing the profile's default bandwidth. 
+
+**Third generation of bare metal hardware profiles and Trusted Platform Module.** For accounts that have been granted special approval to preview this feature, when [creating a bare metal server](/apidocs/vpc/latest#create-bare-metal-server), the default TPM mode and the supported TPM modes will be determined by the profile. All third generation profiles will default to TPM 2.0 and will no longer support disabling TPM. For more information, see [Secure boot with Trusted Platform Module (TPM) for bare metal servers](/docs/vpc?topic=vpc-secure-boot-tpm&interface=ui) and [Creating Bare Metal Servers on VPC](/docs/vpc?topic=vpc-creating-bare-metal-servers&interface=ui).
+
+Provisioned bare metal servers are not affected. Existing bare metal server profiles are also not affected. Therefore, TPM remains disabled by default when provisioning servers using previous generations of bare metal server profiles.
+{: note}
 
 ## 25 June 2024
 {: #25-june-2024}

@@ -676,7 +676,7 @@ toc:
                 - byok-manage-encryption.md
             - file_storage_vpc_eit.md
         - topicgroup:
-            label: Logging and monitoring
+            label: Observability
             topics:
             - ibm-monitoring.md
             - logging.md

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-06-14"
+lastupdated: "2024-07-03"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -59,7 +59,7 @@ You can view details of a backup policy by using the UI.
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Backup policies**.
 
-2. Click a policy name. Tables 2 and 3 describe the information about the selected backup policy and its associated plans. You can add activity tracking,  or delete the policy from the Actions menu ![Actions icon](../icons/action-menu-icon.svg "Actions").
+2. Click a policy name. Tables 2 and 3 describe the information about the selected backup policy and its associated plans. You can add activity tracking, or delete the policy from the Actions menu ![Actions icon](../icons/action-menu-icon.svg "Actions").
 
    | Field | Value |
    |-------|-------|

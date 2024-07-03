@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-07-02"
+lastupdated: "2024-07-03"
 
 keywords: vpc Block Storage, provision Block Storage for vpc, bootable snapshots, create volume from snapshot, fast restore
 
@@ -64,7 +64,7 @@ You can create a {{site.data.keyword.block_storage_is_short}} volume from an exi
 2. Select an instance from the list.
 3. On the instance details page, scroll to **Storage volumes** and click **Attach**.
 4. In the side panel, click the down arrow under **Block volumes** and select **Create a data volume**. The side panel expands with fields to define the volume.
-   1. If you created volume snapshots previously, the option to import one becomes available. Click the **Snapshots** toggle, and select a snapshot from the list. You can filter the list for snapshots with fast restore. For more information, see [Create a data volume from a snapshot for an existing virtual server instance with the UI](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-create-from-vol-ui).
+   1. If you created volume snapshots previously, the option to import one becomes available. Click the toggle to **Import from snapshot**, and select a snapshot from the list.
    1. Specify a unique, meaningful name for your volume. For example, it can be a name that describes your compute or workload function. The volume name must begin with a lowercase letter. The name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-). Volume names must be unique the entire VPC infrastructure. You can edit the name later if you want. 
    1. Auto-delete feature is disabled by default. If you want the volume to be deleted when the attached virtual server instance is deleted, click the toggle to enable the feature.
    1. Resource group and location are inherited from the instance. These values can't be changed.
@@ -115,7 +115,7 @@ You can create a {{site.data.keyword.block_storage_is_short}} volume independent
 When you refresh the list of Block Storage volumes in the console, the new volume appears at the beginning of the list of volumes. For stand-alone volumes, the Attachment Type column is blank (-). The **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions") at the end of a table row provides a link for [attaching a Block Storage volume to an instance](/docs/vpc?topic=vpc-attaching-block-storage).
 
 ### Creating a stand-alone {{site.data.keyword.block_storage_is_short}} volume from a snapshot in the console
-{: #create-standalone-vol}
+{: #create-standalone-vol-from-snapshot}
 
 When you [create a {{site.data.keyword.block_storage_is_short}} volume](#create-standalone-vol), you can select a snapshot and use its data to create the new volume. The snapshots that are presented are in a stable state. The data volume that is created from the snapshot is not attached to an instance and appears in the [list of {{site.data.keyword.block_storage_is_short}} volumes](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#viewvols-ui). You can later attach the volume to an instance.
 
