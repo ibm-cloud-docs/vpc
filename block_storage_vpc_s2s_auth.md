@@ -104,12 +104,12 @@ Make a request to the [IAM Policy Management API](/apidocs/iam-policy-management
    '{
      "type": "access",
      "description": "Reader role for the Block service to interact with the KeyProtect service.",
-     "subjects": [{"attributes": [{"name": "serviceName","value": "server-protect"}]}],
+     "subjects": [{"attributes": [{"name": "Block Storage for VPC","value": "server-protect"}]}],
      "roles":[{"role_id": "crn:v1:bluemix:public:iam::::role:Reader"}],
-     "resources":[{"attributes": [{"name": "serviceName","value": "kms"}]}]
+     "resources":[{"attributes": [{"name": "KeyProtect","value": "kms"}]}]
      }'
-     ```
-     {: pre}
+   ```
+   {: pre}
 
 * To create an authorization policy for {{site.data.keyword.hscrypto}}, replace `kms` with `hs-crypto` in the previous example.
 
@@ -147,4 +147,3 @@ For more information about the arguments and attributes, see the [Terraform docu
 {: #block-s2s-next-steps}
 
 - [Creating Block Storage volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption).
-
