@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-06-03"
+lastupdated: "2024-07-03"
 
 keywords:
 
@@ -27,6 +27,9 @@ Reservations offer many advantages, including the following benefits:
 | Predictable management | Accurately plan for the future and define your budgeting roadmap with reserved capacity for 1-year or 3-year terms. Your reserved pricing is a fixed discount rate that is applied to the corresponding virtual server profile on-demand rates that are listed in the {{site.data.keyword.cloud}} portal. |
 | Flexibility in deployment | Convert any existing on-demand virtual server to {{site.data.keyword.cloud}} Reservation billing. Attach or detach any compatible virtual server to your reservation. |
 {: caption="Table 1. Benefits of IBM Cloud Reservations" caption-side="top"}
+
+A reservation cannot be used for a container service discount such as IBM Kubernetes Service or ROKS.
+{: note}
 
 ## Supported profiles
 {: #reserved-virtual-servers-vpc-supported-profiles}
@@ -59,6 +62,8 @@ Consider the following limitations before you provision a reservation and provis
 * You can't resize a virtual server that's in a reservation.
 * Reservations comply with the VPC quotas and service limits. For more information, see [Quotas and service limits](/docs/vpc?topic=vpc-quotas).
 * SGX isn't supported.
+* Reservations aren't compatible with container services. For more information, see [Using reservations to reduce classic worker node costs](/docs/containers?topic=containers-reservations).
+* A virtual server reservation can be used only for {{site.data.keyword.vsi_is_full}} resources.
 
 ## Notifications
 {: #notifications-reserved-virtual-servers-vpc}
