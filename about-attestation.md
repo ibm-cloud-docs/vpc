@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-06-20"
+lastupdated: "2024-07-08"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -45,6 +45,7 @@ Use the following procedure to validate the attestation record and hashes:
 
     | Image version| Certificate link | Expiry date |
     | -------- | ----------- | ----------- |
+    | `ibm-hyper-protect-container-runtime-1-0-s390x-17` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-17-attestation.crt){: external} | 04 July 2025 |
     | `ibm-hyper-protect-container-runtime-1-0-s390x-16` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-16-attestation.crt){: external} | 11 June 2025 |
     | `ibm-hyper-protect-container-runtime-1-0-s390x-15` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-15-attestation.crt){: external} | 8 March 2025 |
     | `ibm-hyper-protect-container-runtime-1-0-s390x-14` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-14-attestation.crt){: external} | 29 November 2024 |
@@ -55,7 +56,7 @@ Use the following procedure to validate the attestation record and hashes:
 * Extract the encryption public key from the encryption certificate by using the following command:
 
    ```sh
-   openssl x509 -pubkey -noout -in ibm-hyper-protect-container-runtime-1-0-s390x-16-attestation.crt > contract-public-key.pub
+   openssl x509 -pubkey -noout -in ibm-hyper-protect-container-runtime-1-0-s390x-17-attestation.crt > contract-public-key.pub
    ```
    {: pre}
 
@@ -133,21 +134,14 @@ The attestation document is available at `/var/hyperprotect/se-checksums.txt`, w
 
 The following information is available at the `/var/hyperprotect/` directory:
 ```sh
-/var/hyperprotect
+/var/hyperprotect/
 |-- cidata
 |   |-- meta-data
-|   |-- user-data
 |   |-- vendor-data
-|-- README
-|-- se-checksums.txt[.enc]
+|-- se-checksums.txt
 |-- se-signature.bin
 |-- se-version
 |-- user-data.decrypted
-|-- workload
-|-- env
-|-- envWorkloadSignature
-|-- attestationPublicKey
-
 ```
 {: codeblock}
 
@@ -159,17 +153,17 @@ sha256sum <file>
 
 The following snippet is an example of an attestation document:
 ```text
-24.6.9
-Machine Type/Plant/Serial: 8561/02/5C5E8
-6e5e23133ef161e13cbdad20a4192451a1d0fbd194d233616d7411fe1cb15738 root.tar.gz
+24.7.1
+Machine Type/Plant/Serial: 8562/02/4C578
+4802242b82dce78d11c4b02129a9b9c1e62598b1cb8073f8e7b097449644bbb4 root.tar.gz
 f9940321d043d133ddf2f22cd4794bc56be9d54b2e9c7893a6d6a4813635024c baseimage
-0853912bb4fd90df0ffbd74a8884e167a636863bb9b0cd3bfb87601cfcd6056b /dev/disk/by-label/cidata
-7c3af37930f738eb4f79b88952333c949ac294dafd07fbc982d29e2be63e337b cidata/meta-data
-700f449ffef6a4550a40131f7a34d513ba1bb6b88b2caf7b30eb08b068492bc8 cidata/user-data
-5a2b8897d00e4f03436494a36304776a637bf3f134ae10107f2a47e9859ed0fb cidata/vendor-data
-bb66b161d095e4cf336ebef4f7bd000ff9631ca2d1f427dd1f88e8ba6cfa0baf contract: attestationPublicKey
-29e960acaa5d974b9e5aafac6d60b8a0a761a599bafc83943817524b67cc4add contract: env
-aaa783bd64a5822966be37847f6de3ad1f513044c8a894223c731d525a570b62 contract: workload
+41e32bac07e1eac019b40707f1cedf8356830a690108dc35dc07aa160a61a09e /dev/disk/by-label/cidata
+6e78289af3fd2d265e0ee06289b46b9692046fa8af0f25711ee11cc6c5b0a45a cidata/meta-data
+194d230a7d0d0fa5657a963d21e3291064f988e9df719b4f2b4db4de2746eccd cidata/user-data
+ab65daacc8ca30ddbfe2fbdd5a93b8b6f9f92b7145fcae42fc61f4501f361658 cidata/vendor-data
+38e1f81c213d93d3ff39a94de47cfebb6f7309528da3249546439c1de7683874 contract:env 
+de4178e749c6ab0ee9af8610d0615cfd004d7d488dfdc0d5aa87e0b75fdff7fc contract:envWorkloadSignature 
+8bfaf247e3f3936c446de151da1613d2e7e5440ba0d95065e7048e14626f4e2f contract:workload
 ```
 {: codeblock}
 
@@ -183,7 +177,7 @@ aaa783bd64a5822966be37847f6de3ad1f513044c8a894223c731d525a570b62 contract: workl
 
 The `baseimage` is the IBM internal QEMU Copy On Write Version 2 (QCOW2) file, which is used as the source for most of the operating system files of the Hyper Protect Container Runtime image. It is used only at image build time by the enabler process. The enabler uses this source together with other Debian packages to create the `root.tar.gz` and the encrypted secure execution kernel or 'initrd' image.
 
-The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-16 `baseimage`:
+The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-17 and ibm-hyper-protect-container-runtime-1-0-s390x-16 `baseimage`:
 ```sh
 f9940321d043d133ddf2f22cd4794bc56be9d54b2e9c7893a6d6a4813635024c baseimage
 ```
@@ -202,15 +196,14 @@ The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x
 {: pre}
 
 
-
 ### `root.tar.gz`
 {: #root_tarfile}
 
 The `root.tar.gz` is part of the final secure execution enabled IBM Hyper Protect Container Runtime image and contains all operating system files. It is stored on the image's first partition (boot partition) as `/boot/root.tar.gz`.
 
-The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-16 `root.tar.gz`.
+The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-17 and ibm-hyper-protect-container-runtime-1-0-s390x-16 `root.tar.gz`.
 ```sh
-6e5e23133ef161e13cbdad20a4192451a1d0fbd194d233616d7411fe1cb15738 root.tar.gz
+4802242b82dce78d11c4b02129a9b9c1e62598b1cb8073f8e7b097449644bbb4 root.tar.gz
 ```
 {: pre}
 
@@ -227,8 +220,6 @@ b93352d005f0f0d6bcd396f8b74f43b654d7b9100b40f03b417c6952ba663307 root.tar.gz
 {: pre}
 
 
-
-
 ### `/dev/disk/by-label/cidata`
 {: #block_device_cidata}
 
@@ -239,9 +230,9 @@ The `/dev/disk/by-label/cidata` is a block device that is attached to the runnin
 
 All the files in `cidata` copied are from the `/dev/disk/by-label/cidata` block device that is provided by VPC.
 ```sh
-7c3af37930f738eb4f79b88952333c949ac294dafd07fbc982d29e2be63e337b cidata/meta-data
-700f449ffef6a4550a40131f7a34d513ba1bb6b88b2caf7b30eb08b068492bc8 cidata/user-data
-5a2b8897d00e4f03436494a36304776a637bf3f134ae10107f2a47e9859ed0fb cidata/vendor-data
+6e78289af3fd2d265e0ee06289b46b9692046fa8af0f25711ee11cc6c5b0a45a cidata/meta-data
+194d230a7d0d0fa5657a963d21e3291064f988e9df719b4f2b4db4de2746eccd cidata/user-data
+ab65daacc8ca30ddbfe2fbdd5a93b8b6f9f92b7145fcae42fc61f4501f361658 cidata/vendor-data
 ```
 {: codeblock}
 
