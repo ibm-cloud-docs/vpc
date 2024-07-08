@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-02"
+lastupdated: "2024-07-08"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -30,32 +30,28 @@ You can choose to back up individual {{site.data.keyword.block_storage_is_short}
 
 When you request a backup snapshot of a consistency group, the system ensures that all write operations are complete before it takes the snapshots. Then, the system generates snapshots of all the selected Block Storage volumes that are attached to the virtual server instance at the same time. Depending on the number and size of the attached volumes, plus the amount of data that is to be captured, you might observe a slight IO pause. This IO pause can range from a few milliseconds up to 4 seconds. It is recommended to run your automated backup-policy during off-peak hours to minimize any impact on performance.
 
-An individual volume  is backed up when a user-provided [tag](#backup-service-about-tags) that is associated with a volume  matches the tags for target resources in a backup policy. When the scheduled backup is triggered by a backup plan, all resources with matching tags are backed up. You can [view the status of the backup jobs](/docs/vpc?topic=vpc-backup-view-policy-jobs) in the console, from the CLI, or the API.
-
-When you choose to back up all the Block Storage volumes that are attached to a virtual server instance, the user-provided tag is associated with the virtual server instance. 
+An individual volume is backed up when a user-provided [tag](#backup-service-about-tags) that is associated with a volume matches the tags for target resources in a backup policy. When you choose to back up all the Block Storage volumes that are attached to a virtual server instance, the user-provided tag is associated with the virtual server instance. When the scheduled backup is triggered by a backup plan, all resources with matching tags are backed up.
 
 Backups require that the volume that you're backing up is attached to a running virtual server instance. Put another way, you can't back up an unattached volume.
 {: restriction}
 
-If a volume  has multiple tags, only one tag needs to match for a backup to trigger. You can add user tags to boot and data volumes at any time, when you [create a virtual server instance](/docs/vpc?topic=vpc-creating-block-storage&interface=ui#create-from-vsi) or when you update the volume.
-
-As an enterprise account administrator, you can view and manage the backup policies and plans for the subaccounts for compliance reporting and billing from one place. For more information, see the [Scope of backup policy](#backup-service-about-scope) section.
+If a volume has multiple tags, only one tag needs to match for a backup to trigger. You can add user tags to boot and data volumes at any time, when you [create a virtual server instance](/docs/vpc?topic=vpc-creating-block-storage&interface=ui#create-from-vsi) or when you update the volume.
 
 You must set a retention period for your backups. It can be based on the number of days that you want to keep the backups. Or it can be based on the total number of backups that you want to retain before the oldest ones are deleted. Or you can set it up by specifying both the time limit and the maximum number of backups that you want to keep. Planning for the retention and deletion of your backups can keep the costs down.
 
 When the backup is triggered at the scheduled interval, a backup copy is created of your volume by the [Snapshot for VPC](/docs/vpc?topic=vpc-snapshots-vpc-about) service. When the first backup snapshot is taken, the entire contents of the volume are copied and retained in {{site.data.keyword.cos_full}}. Subsequent backups of the same volume capture the changes that occurred since the previous backup. You can take up to 750 backups of a volume.
 
+Backup jobs that create or delete backup snapshots run according to the backup plan and the retention policy. You can [view the status of the backup jobs](/docs/vpc?topic=vpc-backup-view-policy-jobs) in the console, from the CLI, with the API, or Terraform. If a job fails, the health status code shows the reason for the failure.
+
 Block storage backups, like block storage snapshots, have a lifecycle that is independent from the source {{site.data.keyword.block_storage_is_short}} volume.   
 
-You can copy a Block storage backup snapshot from one region to another region, and later use that snapshot to restore a volume in the new region. The [cross-regional copy](#backup-service-crc) can be used in disaster recovery scenarios when you need to turn on your virtual server instance and data volumes in a different region. The remote copy can be created automatically as part of a backup plan, or manually later.
-
-  
+You can copy a Block storage backup snapshot from one region to another region, and later use that snapshot to restore a volume in the new region. The [cross-regional copy](#backup-service-crc) can be used in disaster recovery scenarios when you need to turn on your virtual server instance and data volumes in a different region. The remote copy can be created automatically as part of a backup plan, or manually later.  
 
 You can [restore](#backup-service-restore-concepts) data from a backup snapshot to a new, fully provisioned volume. If the backup is of a boot volume, you can use it to provision a new instance. However, when you provision an instance by restoring a boot volume from a bootable backup snapshot, you can expect degraded performance in the beginning. During the restoration process, the data is copied from {{site.data.keyword.cos_full}} to {{site.data.keyword.block_storage_is_short}}, and thus the provisioned IOPS cannot be fully realized until that process finishes.
 
 With the fast restore feature, you can cache snapshots in a specified zone of your choosing. This way, volumes can be restored from snapshots nearly immediately and the new volumes operate with full IOPS instantly. The fast restore feature can achieve a [recovery time objective](#x3167918){: term} (RTO) quicker than restoring from a regular backup snapshot. When you opt for fast restore, your existing regional plan is adjusted, including billing. The fast restore feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots. The fast restore feature is supported only for individual volume backups, not for consistency group backups.
 
-  
+As an enterprise account administrator, you can view and manage the backup policies and plans for the subaccounts for compliance reporting and billing from one place. For more information, see the [Scope of backup policy](#backup-service-about-scope) section.
 
 ### Comparison of backups and snapshots
 {: #baas-comparison}
@@ -63,7 +59,6 @@ With the fast restore feature, you can cache snapshots in a specified zone of yo
 Backups are in effect, backup snapshots. In the console, backups appear in the list of {{site.data.keyword.block_storage_is_short}} snapshots. Backups are identified by how they were created, in this case, by backup policy. These terms are used interchangeably in the documentation, depending on the context.
 
 The snapshots service is used to create backups, similarities and differences exist between backups and snapshots. Table 1 compares backups to snapshots.
-
 
 | Feature | Account-level backup | Enterprise-level backup | Snapshot |
 |---------|----------------------|-------------------------|----------| 
@@ -79,8 +74,6 @@ The snapshots service is used to create backups, similarities and differences ex
 | Multi-volume consistency groups | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Costs are based on GBs per month. | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 {: caption="Table 1. Comparison of backups and snapshots" caption-side="bottom"}
-
-
   
 
 ### Benefits of creating backups
@@ -88,7 +81,7 @@ The snapshots service is used to create backups, similarities and differences ex
 
 The {{site.data.keyword.cloud_notm}} Backup for VPC offers you the following benefits.
 
-* Prevent data loss - Protect your critical data by scheduling regular backups. Establish a data restoration plan to quickly restore your compromised volumes   . Reduce technical and financial impacts from unplanned outages.
+* Prevent data loss - Protect your critical data by scheduling regular backups. Establish a data restoration plan to quickly restore your compromised volumes. Reduce technical and financial impacts from unplanned outages.
 
 * Protect against small-scale failures - Restore boot volume from a bootable snapshot if a host failure or malicious attack occurs.
 
@@ -149,7 +142,7 @@ Backup policies contain user tags for target resources that associate the policy
 In addition to user tags, tags can be access management tags and service tags. Only user tags are applied to backup policies. [Access management tags](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#storage-add-access-mgt-tags) are used to manage access to resources; only the account administrator can create access management tags. Service tags are a privileged construct that only authorized services can manage. Users are not authorized to attach and detach service tags on a resource, even if they have access to manage tags on the resource. Service tags are helpful to distinguish which snapshots were created manually or automatically by a backup policy.
 {: note}
 
-If a volume,  , or virtual server instance has multiple tags, only one tag needs to match a backup policy tag. Based on the schedule in the backup plan, a matching tag triggers a backup. If multiple tags match backup policy tags, only one backup is created at the scheduled interval. If you have multiple resources with the same tag, backups are created for all the matching resources.
+If a volume, or virtual server instance has multiple tags, only one tag needs to match a backup policy tag. Based on the schedule in the backup plan, a matching tag triggers a backup. If multiple tags match backup policy tags, only one backup is created at the scheduled interval. If you have multiple resources with the same tag, backups are created for all the matching resources.
 
 You can add up to 1,000 user tags for your resources. However, only 100 tags can be attached or detached in the same operation. Keeping the number of tags low can make it easier to track the number of backups that you're creating. For more information, see [Applying backup policies to resources with tags](/docs/vpc?topic=vpc-backup-use-policies).
 
@@ -232,7 +225,7 @@ Backups require IAM permissions for role-based access control. Table 2 describes
 ## Service-to-service authorizations
 {: #baas-s2s-auth}
 
-Specific IAM user roles are required to grant service-to-service authorizations. Service-to-service authorizations between the Backup service and Cloud Block Storage, Snapshots for VPC, and Virtual server for VPC are needed so the backup service can detect volume tags and create snapshots.  For more information, see [Establishing service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth). 
+Specific IAM user roles are required to grant service-to-service authorizations. Service-to-service authorizations between the Backup service and Cloud Block Storage, Snapshots for VPC, and Virtual server for VPC are needed so the backup service can detect volume tags and create snapshots. For more information, see [Establishing service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth). 
 
 ## Limitations in this release
 {: #backup-service-limitations}
@@ -240,12 +233,12 @@ Specific IAM user roles are required to grant service-to-service authorizations.
 This release has the following limitations.
 
 * You can create up to 10 backup policies per account.
-* You can take a total of 750 backups per volume based on your backup policy, in your account and region. If you exceed this limit, no further backups are taken.   
+* You can take a total of 750 backups per volume based on your backup policy, in your account and region. If you exceed this limit, no further backups are taken.  
 * The first backup and the entire volume backup cannot exceed 10 TB.
 * You can't take a backup of a detached volume.
 * You can't create a copy of a backup snapshot in the source (local) region. 
-* You can create a copy of a block storage backup in another region. However, only one copy of the backup snapshot can exist in each region.   
-* The fast restore feature is not supported for multi-volume backups of consistency groups  .
+* You can create a copy of a block storage backup in another region. However, only one copy of the backup snapshot can exist in each region.  
+* The fast restore feature is not supported for multi-volume backups of consistency groups.
 * Consistency groups consist of the attached Block Storage volumes of virtual server instances, such as boot and data volumes. Instance storage volumes and virtual server instance configuration are not included.
 
 ## Next steps
