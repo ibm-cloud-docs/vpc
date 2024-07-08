@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-03"
+lastupdated: "2024-07-08"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -102,11 +102,11 @@ Make a request to the [IAM Policy Management API](/apidocs/iam-policy-management
    'Authorization: Bearer $TOKEN' -H 
    'Content-Type: application/json' -d 
    '{
-     "type": "access",
-     "description": "Reader role for the Block service to interact with the KeyProtect service.",
-     "subjects": [{"attributes": [{"name": "Block Storage for VPC","value": "server-protect"}]}],
-     "roles":[{"role_id": "crn:v1:bluemix:public:iam::::role:Reader"}],
-     "resources":[{"attributes": [{"name": "KeyProtect","value": "kms"}]}]
+     "type":"access",
+     "description":"Reader role for the Block service to interact with the KeyProtect service.",
+     "subjects": [{"attributes":[{"name":"Block Storage for VPC","value":"server-protect"}]}],
+     "roles":[{"role_id":"crn:v1:bluemix:public:iam::::role:Reader"}],
+     "resources":[{"attributes": [{"name":"KeyProtect","value":"kms"}]}]
      }'
    ```
    {: pre}
