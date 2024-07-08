@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-07-02"
+lastupdated: "2024-07-08"
 
 keywords:
 
@@ -54,7 +54,7 @@ The beta release of IBM Cloud Private Path services is only available to allowli
 Private Path NLBs are required when service consumer and service provider reside an different VPCs and there is a need to keep network traffic on a private path that never intersects with the public internet. These load balancers offer a high level of fault tolerance including resilience to a zone failure, and are highly scalable (millions of requests/second) and performant.
 {: important}
 
-A consumer's ability to access a PPNLB requires creation of a VPE which is gated by the provider's approval in a [Private Path service](/docs/vpc?topic=vpc-private-path-service-intro). So provider has granular control over who may access their service.
+A consumer's ability to access a Private Path NLB requires creation of a VPE which is gated by the provider's approval in a [Private Path service](/docs/vpc?topic=vpc-private-path-service-intro). So provider has granular control over who may access their service.
 
 For more information, see the [Private Path solution guide](/docs/private-path).
 
@@ -131,5 +131,5 @@ ALB's and NLB's determine their pricing based on the following metrics.
 * [About network load balancers](/docs/vpc?topic=vpc-network-load-balancers)
 * [Load balancer API reference](/apidocs/vpc#list-load-balancers)
 * [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls)
-* [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-load-balancers)
+* [Activity Tracker events](/docs/vpc?topic=vpc-at_events#events-load-balancers)
 * [Quotas and service limits](/docs/vpc?topic=vpc-quotas)

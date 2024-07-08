@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-03-27"
+lastupdated: "2024-07-08"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -70,4 +70,4 @@ Backup jobs create or delete backup snapshots based on the backup plan's frequen
 ## Activity Tracker events
 {: #backup-activity-tracker}
 
-When a backup is created, an event is triggered in the Activity Tracker for the [Backup service](/docs/vpc?topic=vpc-at-events&interface=ui#events-backup-service) and [Snapshots service](/docs/vpc?topic=vpc-at-events&interface=ui#events-snapshots). Similarly, when the service fails to create a backup due to missing authorization, an event is triggered to notify you. For more information, see [Activity Tracker events](/docs/vpc?topic=vpc-at-events).
+When a backup is created, an event is triggered in the Activity Tracker for the [Backup service](/docs/vpc?topic=vpc-at_events&interface=ui#events-backup-service) and [Snapshots service](/docs/vpc?topic=vpc-at_events&interface=ui#events-snapshots). Similarly, when the service fails to create a backup due to missing authorization, an event is triggered to notify you. For more information, see [Activity tracking events for IBM Cloud VPC](/docs/vpc?topic=vpc-at_events).

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-02-14"
+lastupdated: "2024-07-08"
 
 keywords:
 
@@ -141,7 +141,7 @@ To create an ALB:
         * **Name**: Enter a name for the policy, such as `my-policy`. The name must be unique within the listener.
         * **Action**: The action to take when all the rules for the policy match. You can reject a request with a 403 response, redirect the request to a configured URL and response code, redirect the traffic from an HTTP listener to an HTTPS listener, or forward the request to a specific back-end pool. If an incoming request does not match the rules for any policies, the request is forwarded to the default back-end pool of the listener.
         * **Priority**: Within each action type, policies are evaluated in ascending order of priority. Policies to reject traffic are always evaluated first, regardless of their priority. Policies to redirect traffic are evaluated next, followed by policies to forward traffic.
-        * **Redirect**: The URL to which the request is redirected, if the action is set to **Redirect**. 
+        * **Redirect**: The URL to which the request is redirected, if the action is set to **Redirect**. You must provide either a full URL or the parameters of a URI. When using a URL, all incoming traffic will redirect to this URL. When using URI parameters, values from the incoming traffic request can be retained by using the incoming values of the parameters. This includes the protocol, port, host, path, and query. The default values of URI parameters will be equal to their original incoming values. To retain the incoming values, provide them as `{protocol}`, `{port}`, `{host}`, `{path}`, and `{query}`. For example, if the host of the incoming request is `ibm.com`, then the default value will be `{host}` equal to the incoming `ibm.com` value.
         * **Status Code**: The status code of the response returned by the load balancer, if the action is set to **Redirect**.
         * **Forward**: The back-end pool of virtual server instances to which the request is forwarded, if the action is set to **Forward to pool**.
     * On the Policies page, you can also create an HTTPS redirect policy with the following configuration:
@@ -284,7 +284,27 @@ To create an application load balancer from the CLI, follow these steps:
     ```
     {: screen}
 
+1. Create a policy:
 
+    ```sh
+    ibmcloud is load-balancer-listener-policy-create 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3 --action redirect --priority 2 --target-http-status-code 301 --target-url "https://{host}:443/{path}"
+    ```
+    {: pre}
+
+    Sample output:
+
+    ```sh
+    Creating policy of load balancer listener 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3 under account IBM Cloud Network Services as user test@ibm.com...
+
+    ID                      r134-4847a949-f9b6-4fc1-71c6-d1c49dac3ebc
+    Action                  redirect
+    Priority                2
+    Http status code        301
+    Target Url              https://{host}:443/{path}
+    Provision status        create_pending
+    Created                 2024-04-23T15:16:08.643-05:00
+    ```
+    {: screen}
 
 1. Get details about your load balancer:
 

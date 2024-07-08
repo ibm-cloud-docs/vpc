@@ -604,4 +604,4 @@ You can define more than one target metric policy, but only one policy for each 
 ## Next steps
 {: #next-steps-instance-groups}
 
-You can use [{{site.data.keyword.at_full_notm}}](/docs/vpc?topic=vpc-at-events) to find specific details that are related to instance group events. For more information, see [Instance group events](/docs/vpc?topic=vpc-at-events#events-compute-instance-group).
+You can use [{{site.data.keyword.at_full_notm}}](/docs/vpc?topic=vpc-at_events) to find specific details that are related to instance group events. For more information, see [Instance group events](/docs/vpc?topic=vpc-at_events#events-compute-instance-group).

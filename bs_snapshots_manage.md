@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-05-14"
+lastupdated: "2024-07-08"
 
 keywords: snapshots, Block Storage snapshots, manage snapshots, fast restore clone, backup snapshot, remote copy, cross-regional copy
 
@@ -862,7 +862,7 @@ For more information about the arguments and attributes, see [ibm_is_volume](htt
 ## Activity Tracker events for snapshots
 {: #snapshots-vpc-at-events}
 
-When you initiate activity on a snapshot, specific Activity Tracker events are generated. These activities include creating, listing, modifying, and deleting snapshots. For more information about the Activity Tracker events, see [Snapshots events](/docs/vpc?topic=vpc-at-events#events-snapshots).
+When you initiate activity on a snapshot, specific Activity Tracker events are generated. These activities include creating, listing, modifying, and deleting snapshots. For more information about the Activity Tracker events, see [Snapshots events](/docs/vpc?topic=vpc-at_events#events-snapshots).
 
 ### Activity Tracker JSON examples for snapshot events
 {: #snapshots-vpc-at-event-examples}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, [{CURRENT_YEAR}]
-lastupdated: "[{LAST_UPDATED_DATE}]"
+  years: 2020, 2024
+lastupdated: "2024-07-08"
 
 subcollection: vpc
 
@@ -129,7 +129,7 @@ During an auto-scaling event, auto scale dynamically allocates instances accordi
 {: #faq-auto-scale-13}
 {: faq}
 
-Instance groups can fail to create instances for various reasons. You can use Activity Tracker to find specific details related to instance group events. For more information, see [Instance group events](/docs/vpc?topic=vpc-at-events#events-compute-instance-group).
+Instance groups can fail to create instances for various reasons. You can use Activity Tracker to find specific details related to instance group events. For more information, see [Instance group events](/docs/vpc?topic=vpc-at_events#events-compute-instance-group).
 
 ## How does the application port function if I set a port range for the network load balancer listener instead of a single port?
 {: #faq-auto-scale-14}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-03-12"
+lastupdated: "2024-07-08"
 
 keywords: virtual network interfaces, hazardous change remediation, mitigation
 
@@ -109,11 +109,11 @@ Behavior change
 {: #vni-api-at-event-changes}
 
 Behavior change
-:   Expanded support for virtual network interfaces adds many new [activity tracker events](/docs/vpc?topic=vpc-at-events#events-vni):
+:   Expanded support for virtual network interfaces adds many new [activity tracker events](/docs/vpc?topic=vpc-at_events#events-vni):
 
-    - [Bare metal events](/docs/vpc?topic=vpc-at-events#events-compute-bm)
-    - [Floating IP events](/docs/vpc?topic=vpc-at-events&interface=api#events-network-floatingIP)
-    - [Subnet events](/docs/vpc?topic=vpc-at-events&interface=api#events-network-subnet)
+    - [Bare metal events](/docs/vpc?topic=vpc-at_events#events-compute-bm)
+    - [Floating IP events](/docs/vpc?topic=vpc-at_events&interface=api#events-network-floatingIP)
+    - [Subnet events](/docs/vpc?topic=vpc-at_events&interface=api#events-network-subnet)
 
 :   _Possible failures_: Client tools and auditing processes that have not been updated for the new activity tracker events will report incomplete event sequences.
 

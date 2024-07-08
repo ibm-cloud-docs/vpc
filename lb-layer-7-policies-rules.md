@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2023
-lastupdated: "2023-01-30"
+  years: 2018, 2024
+lastupdated: "2024-07-08"
 
 keywords: application load balancer, alb, polices, rules
 
@@ -41,7 +41,7 @@ Property  | Description
 Name | The name of the policy. The name must be unique within the listener.
 Action | The action to take when all policy rules match. The acceptable values are `reject`, `redirect`, `forward`, and `https_redirect`.
 Priority | Policies are evaluated based on ascending order of priority.
-URL | The URL to which the request is redirected, if the action is set to `redirect`. 
+URL | The URL to which the request is redirected, if the action is set to `redirect`. You must provide either a full URL or the parameters of a URI. When using a URL, all incoming traffic redirects to this URL. When using URI parameters, values from incoming traffic requests can be retained by using the incoming values of the parameters. The default values of the URI parameters are equal to their original incoming values. To retain the incoming values, provide them as `{protocol}`, `{port}`, `{host}`, `{path}`, and `{query}`. For example, if the host of the incoming request is `ibm.com`, then the default value will be `{host}` equal to the incoming `ibm.com` value.
 HTTP status code | Status code of the response returned by the application load balancer when the action is set to `redirect` or `https_redirect`. The acceptable values are: `301`, `302`, `303`, `307`, or `308`.
 Target | The back-end pool of virtual server instances to which the request is forwarded, if the action is set to `forward`.
 Listener | The HTTPS listener to which the request is redirected, if the action is set to `https_redirect`.
@@ -97,8 +97,6 @@ The following layer 7 examples show how policies and rules are created and assoc
 
 ### Example 1: Create an HTTPS listener with redirect policies
 {: #create-https-listener-redirect}
-
-
 
 ```bash
 curl -H "Authorization: $iam_token" -X POST
@@ -175,6 +173,22 @@ curl -H "Authorization: $iam_token" -X POST
                             "value": "/test",
                             "type": "path"
                           }
+                    ]
+                },
+                {
+                    "name": "uri_redirect",
+                    "action": "redirect",
+                    "priority": 10,
+                    "target": {
+                        "url": "https://{host}:8080/{path}?{query}",
+                        "http_status_code": 301
+                    },
+                    "rules": [
+                        {
+                            "condition": "contains",
+                            "type": "hostname",
+                            "value": "pqr"
+                        }
                     ]
                 }
             ]

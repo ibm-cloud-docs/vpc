@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-01-04"
+lastupdated: "2024-07-08"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, faqs
 
@@ -36,7 +36,7 @@ If any of the required authorizations are missing, the backup job fails. When th
 Backup Policy Service for VPC: create backup-policy-job PlanID:r123-d4567 Enterprise sub-account missing S2S setup. AccountID a1234567 -failure
 ```
 
-For more information, see [Activity Tracker events](/docs/vpc?topic=vpc-at-events).
+For more information, see [Activity tracking events for IBM Cloud VPC](/docs/vpc?topic=vpc-at_events).
 
 ## How can I identify the number of resources a backup policy is applied to?
 {: faq}

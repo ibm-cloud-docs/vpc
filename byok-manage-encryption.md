@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-02-23"
+lastupdated: "2024-07-08"
 
 keywords:
 
@@ -300,7 +300,7 @@ When you initiate an activity in the KMS to rotate and manage your root keys, Ac
 * The `responseData.totalResources` field includes the total number of key versions that are associated with the key.
 * The `responseData.eventAckData.newKeyVersionId` field includes the unique identifier of the latest key version.
 
-For more information about key rotation events that indicate a successful rotation, see these [key rotation events](/docs/key-protect?topic=key-protect-at-events#rotate-key-registrations-success). For more information about all Activity Tracker events in {{site.data.keyword.keymanagementserviceshort}}, see [{{site.data.keyword.at_full_notm}} events](/docs/vpc?topic=vpc-at-events).
+For more information about key rotation events that indicate a successful rotation, see these [key rotation events](/docs/key-protect?topic=key-protect-at-events#rotate-key-registrations-success). For more information about all Activity Tracker events in {{site.data.keyword.keymanagementserviceshort}}, see [{{site.data.keyword.at_full_notm}} events](/docs/vpc?topic=vpc-at_events).
 
 ### Example key rotation event
 {: #byok-activity-tracker-key-rotation-example}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-06-20"
+lastupdated: "2024-07-08"
 
 keywords:
 
@@ -234,4 +234,4 @@ resource "ibm_is_security_group_rule" "example2" {
 
 * [About virtual network interfaces](/docs/vpc?topic=vpc-vni-about&interface=ui)
 * [About secondary IP addresses](/docs/vpc?topic=vpc-vni-about-secondary-ip&interface=ui)
-* [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-network-security-group)
+* [Activity Tracker events](/docs/vpc?topic=vpc-at_events#events-network-security-group)

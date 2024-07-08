@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-06-25"
+lastupdated: "2024-07-08"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -82,10 +82,10 @@ You can programmatically retrieve the last sync details by calling the `/shares`
 
 When the amount of data to be transferred exceeds the amount of data that can be transferred during the replication window with the normal transfer rate, the replication process can't complete and the replication status becomes `degraded`. If this situation occurs, try adjusting the rate of change on the file share and the replication frequency.
 
-## Activity Tracker events
+## Activity tracking events
 {: #fs-activity-tracker}
 
-Activity tracker events are triggered when you create, modify, or delete a file share. Activity tracker events are also triggered when you establish and use file share replication. For more information, see [Activity Tracker events](/docs/vpc?topic=vpc-at-events).
+You can use {{site.data.keyword.atracker_full}} to configure how to route auditing events. Auditing events are critical data for security operations and a key element for meeting compliance requirements. Such events are triggered when you create, modify, or delete a file share. Activity tracker events are also triggered when you establish and use file share replication. For more information, see [Activity tracking events for IBM Cloud VPC](/docs/vpc?topic=vpc-at_events).
 
 ## Logging for file share service
 {: #fs-event-la-logs}
