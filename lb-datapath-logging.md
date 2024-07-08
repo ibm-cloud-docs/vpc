@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-02-06"
+  years: 2020, 2024
+lastupdated: "2024-07-08"
 
 keywords: application load balancer, datapath logging
 
@@ -118,4 +118,4 @@ The format of the logs can be impacted by internal upgrades. It is recommended t
 
 * [{{site.data.keyword.la_full_notm}}](https://cloud.ibm.com/observe/logging){: external}
 * [Getting started with {{site.data.keyword.la_full_notm}}](/docs/log-analysis?topic=log-analysis-getting-started)
-* [Activity Tracker with {{site.data.keyword.la_short}} events](/docs/vpc?topic=vpc-at-events#events-load-balancers)
+* [Activity Tracker with {{site.data.keyword.la_short}} events](/docs/vpc?topic=vpc-at_events#events-load-balancers)

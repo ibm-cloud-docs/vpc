@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-06-20"
+lastupdated: "2024-07-08"
 
 keywords:
 
@@ -276,5 +276,5 @@ These links provide additional information about {{site.data.keyword.cloud_notm}
 * [Network ACL CLI reference](/docs/vpc?topic=vpc-vpc-reference#network-acls)
 * [Network ACL API reference](/apidocs/vpc/latest#list-network-acls)
 * [Network ACL required permissions](/docs/account?topic=account-iam-service-roles-actions#is.network-acl-roles)
-* [Network ACL Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-network-acl)
+* [Network ACL Activity Tracker events](/docs/vpc?topic=vpc-at_events#events-network-acl)
 * [Network ACL quotas](/docs/vpc?topic=vpc-quotas#acl-quotas)

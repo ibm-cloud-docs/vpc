@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-02-14"
+lastupdated: "2024-07-08"
 
 keywords: listener, pool, round-robin, weighted, layer 7, datapath logging, http2, websocket
 
@@ -230,6 +230,6 @@ In this diagram, "Client Resources" represents the resources (VPCs and subnets, 
 * [Load balancer API reference](/apidocs/vpc#list-load-balancer-profiles)
 * [ALB for VPC infrastructure resources for Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_lb){: external} (VPC infrastructure > Resources)
 * [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls)
-* [{{site.data.keyword.cloudaccesstraillong_notm}} events](/docs/vpc?topic=vpc-at-events#events-load-balancers)
+* [{{site.data.keyword.cloudaccesstraillong_notm}} events](/docs/vpc?topic=vpc-at_events#events-load-balancers)
 * [FAQs for application load balancers](/docs/vpc?topic=vpc-load-balancer-faqs)
 * [Quotas](/docs/vpc?topic=vpc-quotas&interface=ui#alb-quotas)

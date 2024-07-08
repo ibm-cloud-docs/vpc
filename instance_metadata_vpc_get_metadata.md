@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-06-14"
+lastupdated: "2024-07-08"
 
 keywords:
 
@@ -18,7 +18,7 @@ subcollection: vpc
 After you obtained an instance identity access token, you can access the metadata service and retrieve metadata about a virtual server instance. This topic describes how to make calls to the API to access instance metadata such as initialization data, network interfaces, volume attachments, public SSH keys, and placement groups.
 {: shortdesc}
 
-When you make API calls to the instance metadata service, events are triggered in the Activity Tracker. For more information, see [Instance Metadata service events](/docs/vpc?topic=vpc-at-events#events-metadata).
+When you make API calls to the instance metadata service, events are triggered in the Activity Tracker. For more information, see [Instance Metadata service events](/docs/vpc?topic=vpc-at_events#events-metadata).
 
 ## Before you begin
 {: #imd-md-prereqs}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-01-03"
+lastupdated: "2024-07-08"
 
 keywords: file share, file storage, IOPS, performance needs, adjust IOPS
 
@@ -46,7 +46,7 @@ To adjust a file share's IOPS, the file share must be in a _stable_ state. Your 
 
 You can use the UI, the CLI, the API, or Terraform to adjust IOPS. You can adjust the file share's IOPS multiple times up to its maximum limit or reduce IOPS to its minimum limit.
 
-You can monitor the progress of your file share's IOPS change from the UI or CLI. You can also use the [Activity Tracker](/docs/vpc?topic=vpc-at-events) to verify that the IOPS were adjusted.
+You can monitor the progress of your file share's IOPS change from the UI or CLI. You can also use the [Activity Tracker](/docs/vpc?topic=vpc-at_events) to verify that the IOPS were adjusted.
 
 ## Limitations
 {: #adjustable-iops-limitations-file}

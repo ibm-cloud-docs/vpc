@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-04-29"
+lastupdated: "2024-07-08"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
 
@@ -169,7 +169,7 @@ You can use this deployment scenario to obtain high availability and ensure work
 * [Load balancer resources for Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_lb){: external} (VPC infrastructure > Resources)
 * [Network load balancer in {{site.data.keyword.cloud}} Kubernetes Service](/docs/containers?topic=containers-vpc-lbaas#nlb_vpc)
 * [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls)
-* [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-load-balancers)
+* [Activity Tracker events](/docs/vpc?topic=vpc-at_events#events-load-balancers)
 * [FAQs for network load balancers](/docs/vpc?topic=vpc-nlb-faqs)
 * [Quotas and service limits](/docs/vpc?topic=vpc-quotas&interface=ui#nlb-quotas)
 * [Blog: On-Premises Private Access to Workloads Across Zones Using a DNS GLB and VPC NLB](https://www.ibm.com/blog/on-premises-private-access-to-workloads-across-zones-using-a-dns-glb-and-vpc-nlb/){: external}

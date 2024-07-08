@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-06-14"
+lastupdated: "2024-07-08"
 
 keywords:
 
@@ -643,7 +643,7 @@ To set the response hop limit on an existing instance, call the [PATCH /instance
 {: #imd-at-events}
 {: ui}
 
-Activity Tracker events are triggered when you get an [instance access identity token](#imd-json-token) and then [use the service](/docs/vpc?topic=vpc-imd-get-metadata). For more information about these events, see [Instance Metadata service events](/docs/vpc?topic=vpc-at-events#events-metadata).
+Activity Tracker events are triggered when you get an [instance access identity token](#imd-json-token) and then [use the service](/docs/vpc?topic=vpc-imd-get-metadata). For more information about these events, see [Instance Metadata service events](/docs/vpc?topic=vpc-at_events#events-metadata).
 
 ## Next steps
 {: #imd-token-next}

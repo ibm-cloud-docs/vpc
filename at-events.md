@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-07-03"
+lastupdated: "2024-07-08"
 
 keywords:
 
@@ -398,10 +398,10 @@ The following table lists the actions that are related to virtual network interf
 |---|---|---|
 | virtual-network-interface | is.virtual-network-interface.virtual-network-interface.list   | Virtual network interface was listed  |
 | virtual-network-interface | is.virtual-network-interface.virtual-network-interface.read   | One Virtual Network Interface was retrieved |
-| virtual-network-interface | is.virtual-network-interface.virtual-network-interface.create | Virtual network interface was created. To determine if the VNI was created with protocol state filtering enabled, see [Analyzing events](/docs/vpc?topic=vpc-at-events#at-protocol-state-filtering). |
+| virtual-network-interface | is.virtual-network-interface.virtual-network-interface.create | Virtual network interface was created. To determine if the VNI was created with protocol state filtering enabled, see [Analyzing events](/docs/vpc?topic=vpc-at_events#at-protocol-state-filtering). |
 | virtual-network-interface | is.virtual-network-interface.virtual-network-interface.attach | Virtual network interface was attached |
 | virtual-network-interface | is.virtual-network-interface.virtual-network-interface.detach | Virtual network interface was detached |
-| virtual-network-interface | is.virtual-network-interface.virtual-network-interface.update | Virtual network interface was updated. You can use to change the protocol state filtering mode. For mode values, see [Analyzing events](/docs/vpc?topic=vpc-at-events#at-protocol-state-filtering).  |
+| virtual-network-interface | is.virtual-network-interface.virtual-network-interface.update | Virtual network interface was updated. You can use to change the protocol state filtering mode. For mode values, see [Analyzing events](/docs/vpc?topic=vpc-at_events#at-protocol-state-filtering).  |
 | virtual-network-interface | is.virtual-network-interface.virtual-network-interface.delete | Virtual network interface was deleted |
 {: caption="Table 14. Actions that generate events for virtual network interfaces" caption-side="bottom"}
 
@@ -589,7 +589,7 @@ The instance metadata service events are undergoing changes and should not be us
 ### Bare metal server events
 {: #events-compute-bm}
 
-Some fields for Bare Metal Servers for VPC AT events will be changing between the Beta and Limited Available (LA) releases. For more information, see [Analyzing events](/docs/vpc?topic=vpc-at-events#at_events_iam_analyze).
+Some fields for Bare Metal Servers for VPC AT events will be changing between the Beta and Limited Available (LA) releases. For more information, see [Analyzing events](/docs/vpc?topic=vpc-at_events#at_events_iam_analyze).
 {: note}
 
 | Resource  | Action  | Description  |

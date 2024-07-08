@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-04-30"
+lastupdated: "2024-07-08"
 
 keywords:
 
@@ -88,7 +88,7 @@ Integrate with a site-to-site VPN gateway if you want to access your on-premises
 
 * [Quotas](/docs/vpc?topic=vpc-quotas#vpn-server-quotas)
 * [Required permissions](/docs/account?topic=account-iam-service-roles-actions#is.vpn-server-roles)
-* [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-vpn-server)
+* [Activity Tracker events](/docs/vpc?topic=vpc-at_events#events-vpn-server)
 * [VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference#vpn-server-clis)
 * [VPC API reference](/apidocs/vpc)
 * [FAQs for client-to-site VPN servers](/docs/vpc?topic=vpc-faqs-vpn-server)

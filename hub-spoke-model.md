@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-06-20"
+lastupdated: "2024-07-08"
 
 keywords:
 
@@ -90,6 +90,6 @@ For each DNS-shared VPC:
 ## Related links
 {: #vpe-dns-sharing-related-links}
 
-* [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-dns-resolution-bindings)
+* [Activity Tracker events](/docs/vpc?topic=vpc-at_events#events-dns-resolution-bindings)
 * [IAM permissions](/docs/account?topic=account-iam-service-roles-actions#is.vpc-roles)
 * [Troubleshooting issues](/docs/vpc?topic=vpc-troubleshoot-hub-1)
