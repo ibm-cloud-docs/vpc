@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-03"
+lastupdated: "2024-07-08"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -106,8 +106,6 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
 1. Click **Review** and inspect your choices.
 1. Click **Authorize**.
 1. When you are returned to the **Manage authorizations** page, click **Create** again and follow the same steps to set up authorizations for the remaining services.
-
-
 
 ## Creating authorization policies from the CLI
 {: #backup-s2s-auth-procedure-cli}
@@ -510,8 +508,8 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
      "resources":[
        {"attributes": [
           {"name": "accountId","value": "$SUB_ACCOUNT_ID"},
-          {"name": "serviceName","value": "is.volume","operator": "stringEquals"},
-          {"name": "instanceId","value": "*","operator": "stringEquals"}]
+          {"name": "serviceName","operator": "stringEquals","value": "is.volume"},
+          {"name": "instanceId","operator": "stringEquals", "value": "*"}]
        }
       ]
    }'
@@ -519,7 +517,6 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
    {: pre}
       
 For more information, see the api spec for [IAM Policy Management](/apidocs/iam-policy-management#create-policy).
-
 
 ## Creating authorization policies with Terraform
 {: #backup-s2s-auth-procedure-terraform}
