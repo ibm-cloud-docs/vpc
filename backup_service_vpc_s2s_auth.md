@@ -265,7 +265,7 @@ To use Backup for VPC in your account to create policies, plans and run backup j
 
 Make the request to the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy), similar to the following examples.
 
-```json
+```sh
 curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H 
 'Authorization: Bearer $TOKEN' -H 
 'Content-Type: application/json' -d 
@@ -292,7 +292,7 @@ curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H
 }'
 ```
 
-```json
+```sh
 curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H 
 'Authorization: Bearer $TOKEN' -H 
 'Content-Type: application/json' -d 
@@ -320,7 +320,7 @@ curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H
 ```
 {: pre}
 
-```json
+```sh
 curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H 
 'Authorization: Bearer $TOKEN' -H 
 'Content-Type: application/json' -d 
@@ -348,7 +348,7 @@ curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H
 ```
 {: pre}
 
-```json
+```sh
 curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H 
 'Authorization: Bearer $TOKEN' -H 
 'Content-Type: application/json' -d 
@@ -396,7 +396,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
 
    * Authorize `is.backup-policy` (source) to interact with `is.backup-policy` (target) with the _editor_ role.
 
-   ```json
+   ```sh
    curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H 
    'Authorization: Bearer $TOKEN' -H 
    'Content-Type: application/json' -d 
@@ -426,7 +426,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
 
    * Authorize `is.backup-policy` (source) to interact with `is.volume` (target) with the _operator_ role.
 
-   ```json
+   ```sh
    curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H 
    'Authorization: Bearer $TOKEN' -H 
    'Content-Type: application/json' -d 
@@ -457,7 +457,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
 
    * Authorize `is.backup-policy` (source) to interact with `is.snapshot` (target) with the _editor_ role.
 
-   ```json
+   ```sh
    curl -X POST 'https://iam.test.cloud.ibm.com/v1/policies' -H 
    'Authorization: Bearer $TOKEN' -H 
    'Content-Type: application/json' -d 
@@ -488,7 +488,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
 
    * Authorize `is.backup-policy` (source) to interact with `is.instance` (target) with the _operator_ role.
   
-   ```json
+   ```sh
    curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H 
    'Authorization: Bearer $TOKEN' -H 
    'Content-Type: application/json' -d 
