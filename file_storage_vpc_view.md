@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-06-25"
+lastupdated: "2024-07-08"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -28,7 +28,7 @@ You can view all file shares, their bindings and mount targets in the UI, retrie
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > File Shares**.
 
-2. The File Shares for VPC list page shows all the file shares that are created in that zone. **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions") options are used to manage the file shares. The following table describes the information and actions on the list page.
+2. The File Shares for VPC list page shows all the file shares that are created in that zone. **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions") options are used to manage the file shares. The following table describes the information on the list page.
 
 | Field | Value |
 |-------|-------|
@@ -43,7 +43,7 @@ You can view all file shares, their bindings and mount targets in the UI, retrie
 | Encryption type | It shows the encryption type of the file share, either provider-managed or customer-managed. [Customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption) uses your own root keys to protect your data. The UI also identifies the key management service (KMS), either {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. |
 {: caption="Table 1. File shares list page." caption-side="bottom"}
 
-You can access the Actions menu by clicking ![Actions icon](../icons/action-menu-icon.svg "Actions"). The Actions menu has options for managing the file share, depending on its state. For a file share in a _stable_ state, you can rename the share, edit IOPS, copy the share's CRN, create a replica, or delete a file share. **Delete** and **Create replica** are disabled if you set up replication to a replica file share already. For more information, see [Creating replica file shares](/docs/vpc?topic=vpc-file-storage-create-replication&interface=ui). |
+You can access the Actions menu by clicking ![Actions icon](../icons/action-menu-icon.svg "Actions"). The Actions menu has options for managing the file share, depending on its state. For a file share in a _stable_ state, you can rename the share, edit IOPS, copy the share's CRN, create a replica, or delete a file share. **Delete** and **Create replica** are disabled if you set up replication to a replica file share already. For more information, see [Creating replica file shares](/docs/vpc?topic=vpc-file-storage-create-replication&interface=ui).
 
 ### Viewing details of a file share in the UI
 {: #fs-view-single-share-ui}
