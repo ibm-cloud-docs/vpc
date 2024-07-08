@@ -34,7 +34,7 @@ For more information about authorizations, see [Using authorizations to grant ac
 If you set up service authorizations incorrectly, the backup service cannot create the backup policies. For more information, see the troubleshooting topic [Backup policy not created due to incorrect authorizations](/docs/vpc?topic=vpc-baas-troubleshoot&interface=ui#baas-ts-3).
 {: note}
 
-## Creating authorization policies in the UI
+## Creating authorization policies in the console
 {: #backup-s2s-auth-procedure-ui}
 {: ui}
 
