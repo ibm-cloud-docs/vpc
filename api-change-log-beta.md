@@ -46,6 +46,8 @@ To reinitialize a bare metal server, the server `status` must be `stopped`, or h
 
 When [listing](/apidocs/vpc-beta/initial#list-bare-metal-servers) and [retrieving](/apidocs/vpc-beta/initial#get-bare-metal-server) a bare metal server, the response includes the new `firmware` property, which in turn has an `update` property that indicates the type of update available (`none`, `optional`, or `required`). For more information, see [Managing Bare Metal Servers for VPC](/docs/vpc?topic=vpc-managing-bare-metal-servers&interface=api#update-firmware-bare-metal-servers-API).
 
+This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#9-july-2024).
+
 ## 9 April 2024
 {: #9-april-2024-beta}
 

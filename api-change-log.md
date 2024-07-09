@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-07-02"
+lastupdated: "2024-07-09"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -53,6 +53,16 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 9 July 2024
+{: #9-july-2024}
+
+### For all version dates
+{: #9-july-2024-all-version-dates}
+
+**Firmware update for bare metal servers.** You can now [update firmware](/apidocs/vpc/latest#update-firmware-for-bare-metal-server) for a stopped bare metal server. This request updates server firmware if newer firmware is available and automatically starts the bare metal server after the firmware update is successfully completed. If you don't want the bare metal server to start after the firmware is updated, set the `auto_start` property value to `false` in the request. 
+
+When [listing](/apidocs/vpc/latest#list-bare-metal-servers) and [retrieving](/apidocs/vpc/latest#get-bare-metal-server) a bare metal server, the response includes the new `firmware` property, which in turn has an `update` property that indicates the type of update available (`none`, `optional`, or `required`). For more information, see [Managing Bare Metal Servers for VPC](/docs/vpc?topic=vpc-managing-bare-metal-servers&interface=api#update-firmware-bare-metal-servers-API).
 
 ## 2 July 2024
 {: #2-july-2024}

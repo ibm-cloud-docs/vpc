@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-07-02"
+lastupdated: "2024-07-09"
 
 keywords: Block Storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, Block Storage for vpc, customer-managed encryption,
 
@@ -21,9 +21,12 @@ By default, {{site.data.keyword.block_storage_is_short}} boot and data volumes a
 ## Before you begin
 {: #custom-managed-vol-prereqs-block}
 
-To create Block Storage volumes with customer-managed encryption, you must first provision a key management service (KMS), and create or import your customer root key (CRK). You can choose between [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial) and [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started). 
+To create Block Storage volumes with customer-managed encryption, you must have your own customer root key. You can provision a key management service (KMS), and create or import your customer root key (CRK). You can choose between [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial) and [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started). Then, [create a service-to-service authorization](/docs/vpc?topic=vpc-block-s2s-auth) between {{site.data.keyword.block_storage_is_short}} and the KMS instance that you created.
 
-You must also [create a service-to-service authorization](/docs/vpc?topic=vpc-block-s2s-auth) between {{site.data.keyword.block_storage_is_short}} and the KMS instance that you created.
+It's also possible to use a customer root key from another account. In {{site.data.keyword.cloud_notm}}, the KMS can be either located in the same or in another account as the service that is using an encryption key. This deployment pattern allows to centrally manage encryption keys for all corporate accounts. For more information, see [Encryption key management](/docs/solution-tutorials?topic=solution-tutorials-resource-sharing#resource-sharing-security-kms).
+
+Configure all required [service-to-service authorizations](/docs/vpc?topic=vpc-block-s2s-auth) between Cloud Block Storage (source service) and {{site.data.keyword.keymanagementserviceshort}} (target service) instance that holds the customer root key. If you're provisioning an instance with a custom image, you also need to authorize between Image Service for VPC (source service) and {{site.data.keyword.cos_full}} (target service). If you're provisioning volumes with a CRK of another account, contact that account's administrator for the CRN of the root key that is being shared.
+{: requirement}
 
 ## Creating data volumes with customer-managed encryption in the console
 {: #data-vol-encryption-ui}
@@ -117,11 +120,17 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
        ```
        {: screen}
 
+    By following the previous steps, you can retrieve the CRN of the customer root key from your account. If the customer root key is owned by another account, ask their account administrator for the CRN.
+    {: note}
+
+    Valid volume names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. Volume names must begin with a lowercase letter. Volume names must be unique across the entire VPC infrastructure.
+    {: important}
+
 ### Create data volumes with customer-managed encryption from the CLI
 {: #encrypt-data-vol-cli}
 {: cli}
 
-To create a Block Storage volume with customer-managed encryption from the CLI, first gather the CRN of the customer root key, then use the `ibmcloud is volume-create` command with the `--encryption-key` option. The `encryption_key` option must specify a valid CRN for the root key in the key management service.
+To create a data volume with customer-managed encryption from the CLI, first gather the CRN of the customer root key, then use the `ibmcloud is volume-create` command with the `--encryption-key` option. The `encryption_key` option must specify a valid CRN for the root key in the key management service.
 
 The following example shows a volume that is created with customer-managed encryption.
 
@@ -160,6 +169,8 @@ You can also create volumes with customer-managed encryption during instance pro
 {: api}
 
 You can create data volumes with customer-managed encryption programmatically by calling the `/volumes` method in the [VPC API](/apidocs/vpc/latest#create-volume){: external} as shown in the following sample request. Use the `encryption_key` property to specify your customer root key (CRK), shown in the example as `crn:[...key:...]`.
+
+Valid volume names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. Volume names must begin with a lowercase letter. Volume names must be unique across the entire VPC infrastructure.
 
 The following example creates a general-purpose data volume with customer-managed encryption.
 
@@ -213,7 +224,7 @@ A successful response looks like the following example.
 ```
 {: screen}
 
-## Provisioning virtual server instances with storage volumes that are encrypted with customer-managed keys in the console
+## Provisioning an instance with a boot volume that is encrypted with a customer-managed key in the console
 {: #provision-byok-ui}
 {: ui}
 
@@ -232,7 +243,7 @@ Follow these steps to create an instance with a new Block Storage volume.
 1. When your changes are complete, click **Apply**.
 1. In the **Attached Block Storage volume** section, you can click **New Block Storage volume** to add a data volume and specify customer-managed encryption. On the **New Block Storage volume** page, update the fields in the **Encryption** section. See Table 1 for more information. When your changes are complete, click **Attach**.
 
-## Provisioning instances with customer-managed encrypted volumes from the CLI
+## Provisioning an instance with a boot volume that is encrypted with a customer-managed key from the CLI
 {: #provision-byok-cli}
 {: cli}
 
@@ -275,7 +286,7 @@ The `VOLUME_ATTACH_JSON_FILE` example defines a general-purpose data volume with
 ```
 {: screen}
 
-## Provisioning instances with customer-managed encryption volumes with the API
+## Provisioning an instance with a boot volume that is encrypted with a customer-managed key with the API
 {: #provision-byok-api}
 {: api}
 
@@ -315,7 +326,7 @@ curl -X POST \
 ```
 {: screen}
 
-A successful response looks like this. Note that the boot volume appears under both `boot_volume_attachment` and `volume_attachment`.
+A successful response looks like the following example. The boot volume appears under both `boot_volume_attachment` and `volume_attachment`.
 
 ```json
 {
@@ -453,6 +464,43 @@ A successful response looks like this. Note that the boot volume appears under b
 }
 ```
 {: screen}
+
+## Creating {{site.data.keyword.block_storage_is_short}} volumes with customer-managed encryption with Terraform
+{: #data-vol-encryption-terraform}
+{: terraform}
+
+To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
+{: requirement}
+
+VPC infrastructure services use a specific regional endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the appropriate region in the provider block in the `provider.tf` file. See the following example of targeting a region other than the default `us-south`.
+
+```terraform
+provider "ibm" {
+   region = "eu-de"
+}
+```
+{: screen}
+
+Valid volume names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. Volume names must begin with a lowercase letter. Volume names must be unique across the entire VPC infrastructure.
+
+### Creating stand-alone {{site.data.keyword.block_storage_is_short}} volumes with Terraform
+{: #encrypted-standalone-vol-terraform}
+
+To create a {{site.data.keyword.block_storage_is_short}} volume, use the `ibm_is_volume` resource. The following example creates a volume with a `custom` profile. The volume that is created has 200 MB capacity and can perform 1000 IOPS.
+
+```terraform
+resource "ibm_is_volume" "example" {
+  name           = "my-example-volume"
+  profile        = "custom"
+  zone           = "us-south-1"
+  iops           = 1000
+  capacity       = 200
+  encryption_key = "crn:v1:bluemix:public:kms:us-south:a/a1234567:e4a29d1a-2ef0-42a6-8fd2-350deb1c647e:key:5437653b-c4b1-447f-9646-b2a2a4cd6179"
+}
+```
+{: codeblock}
+
+For more information about the arguments and attributes, see [ibm_is_volume](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_volume){: external}.
 
 ## Next steps
 {: #next-steps-creating-byok-instances}

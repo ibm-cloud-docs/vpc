@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-08"
+lastupdated: "2024-07-09"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -89,6 +89,39 @@ Roles:                     Reader
 
 For more information about all of the parameters that are available for this command, see [ibmcloud iam authorization-policy-create](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_authorization_policy_create).
 
+## Creating service-to-service authorization for cross-account encryption from the CLI
+{: #block-s2s-xaccount-encryption-cli}
+{: cli}
+
+Run the `ibmcloud iam authorization-policy-create` command to create authorization policies for the Block service of one account to interact with one or both Key Management Services ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}) of another account. The source service is `server-protect` and the target service is either `kms` or `hs-crypto`. The role that you need to assign is `Reader`. The following example creates an authorization policy between the Block service and {{site.data.keyword.keymanagementserviceshort}}.
+
+1. Create a JSON filee with the following information for the authorization policies in your local Documents folder.
+   ```json
+   '{
+      "description":"Reader and Delegator role for HPCS service instance",
+      "resources": [
+         {"attributes":[
+            {"name":"Account-A-CRK","operator":"stringEquals","value":"<CRK-Account-A-ID>"},
+            {"name":"Hyper-Protect-Crypto-Services","operator":"stringEquals","value":"hs-crypto"}]}],
+      "roles": [
+         {"role_id":"crn:v1:bluemix:public:iam::::role:AuthorizationDelegator"},
+         {"role_id":"crn:v1:bluemix:public:iam::::serviceRole:Reader"}],
+      "subjects": [
+         {"attributes": [
+            {"name":"Block Storage for VPC","value":"is"},
+            {"name":"resourceType","value":"server-protect"},
+            {"name":"Account-B","value":"<Account-B-ID>"}]}],
+      "type":"authorization",
+   }'
+   ```
+   {: codeblock}
+
+1. Then, use the JSON files to run the following CLI command.
+   ```sh
+   ibmcloud iam authorization-policy-create --file ~/Documents/policy.json
+   ```
+   {: pre}
+
 ## Creating service-to-service authorization for customer-managed encryption with the API
 {: #block-s2s-auth-encryption-api}
 {: api}
@@ -112,6 +145,37 @@ Make a request to the [IAM Policy Management API](/apidocs/iam-policy-management
    {: pre}
 
 * To create an authorization policy for {{site.data.keyword.hscrypto}}, replace `kms` with `hs-crypto` in the previous example.
+
+## Creating service-to-service authorization for cross-account encryption with the API
+{: #block-s2s-xaccount-encryption-api}
+{: api}
+
+Make a request to the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy) to create the service-to-service authorization for the source account's Block Storage service to interact with a Key Management Service instance ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}) of the target account The request needs to be made from the account that owns the customer root key in their KMS.
+
+* The following example shows how you can authorize the Block service `is.server-protect` of one account (source) to interact with the {{site.data.keyword.hscrypto}} service `hs-crypto` of another account (target) with the _Reader_ and _Authorization Delegator_ roles.
+
+   ```sh
+   curl -X "POST" "https://iam.cloud.ibm.com/v1/policies" \
+     -H "Authorization: <Auth Token>" \
+     -H 'Content-Type: application/json' \
+     -d '{
+        "type":"authorization",
+        "description":"Reader and Delegator role for HPCS service instance",
+        "subjects": [
+          {"attributes": 
+            {"name":"Block Storage for VPC","value":"is"},
+            {"name":"resourceType","value":"server-protect"},
+            {"name":"Account-B","value":"<Account-B-ID>"}]}],
+        "roles": [{"role_id":"crn:v1:bluemix:public:iam::::role:AuthorizationDelegator"},{"role_id":"crn:v1:bluemix:public:iam::::serviceRole:Reader"}],
+        "resources": [
+          {"attributes":[
+            {"name":"Account-A-CRK","operator":"stringEquals","value":"<CRK-Account-A-ID>"},
+            {"name":"Hyper-Protect-Crypto-Services","operator":"stringEquals","value":"hs-crypto"}]}],
+        }'
+    ```
+    {: screen}
+
+* To create an authorization policy for {{site.data.keyword.keymanagementserviceshort}}, replace `hs-crypto` with `kms` in the previous example.
 
 ## Creating service-to-service authorization for customer-managed encryption with Terraform
 {: #block-s2s-auth-encryption-terraform}
@@ -142,6 +206,58 @@ resource "ibm_iam_authorization_policy" "mypolicy4HPCS" {
 {: codeblock}
 
 For more information about the arguments and attributes, see the [Terraform documentation for authorization resources](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/iam_authorization_policy){: external}.
+
+## Creating service-to-service authorization for cross-account encryption with Terraform
+{: #block-s2s-xaccount-encryption-terraform}
+{: terraform}
+
+1. Terraform supports configuring two different accounts for IBM provider. The provider without an alias is considered the default provider. See the following example, where two IBM accounts are specified, and the second is given the alias `team_account`. That configuration must be referred to as `ibm.team_account` later. 
+
+   ```terraform 
+   terraform {
+     required_providers {
+       ibm = {
+         source = "IBM-Cloud/ibm"
+         version = ">= 1.12.0"
+       }
+     }
+   }
+
+   provider "ibm" {
+     ibmcloud_api_key = var.ibmcloud_api_key
+     region           = var.region
+     ibmcloud_timeout = var.ibmcloud_timeout
+   }
+
+   provider "ibm" {
+     alias = "team_account"
+     ibmcloud_api_key = var.ibmcloud_api_key_second_account
+     region           = var.region
+     ibmcloud_timeout = var.ibmcloud_timeout
+   } 
+   ```
+   {: screen}
+
+   For more information about the arguments and attributes, see [IBM Cloud provider](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs#example-usage-of-provider){: external}.
+
+1. To create the IAM authorization between the key management service from one account to the Block storage service in a different account, use the resource `ibm_iam_authorization_policy`. The following example creates an authorization between {{site.data.keyword.keymanagementserviceshort}} service and the file service of two accounts. To create authorization to access {{site.data.keyword.hscrypto}}, specify `hs-crypto` as the value for `target_service_name`.
+
+   ```Terraform
+   resource "ibm_iam_authorization_policy" "policy" {
+       source_service_name = "is"
+       source_resource_type = "server-protect"
+       source_service_account = "<volume-account-id>"
+       target_service_name = "kms"   
+       target_resource_instance_id = ibm_kms_key.key.instance_id
+       roles               = ["Reader", "Authorization Delegator"]
+       description         = "Authorization Policy" 
+   }
+   ```
+   {: screen}
+
+   This terraform resource must also include the provider alias (in our example, `ibm.team_account`) with the account `ibmcloud_api_key` where the encryption key belongs.
+
+   For more information about the arguments and attributes, see [ibm_iam_authorization_policy](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/iam_authorization_policy#authorization-policy-between-two-specific-services){: external}.
 
 ## Next Steps
 {: #block-s2s-next-steps}
