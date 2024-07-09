@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-04-18"
+lastupdated: "2024-07-09"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, faqs
 
@@ -28,7 +28,7 @@ With the VPC backup service, you can create backup policies for your {{site.data
 {: faq}
 {: #faq-baas-setup}
 
-Before you can create backup policies, you need to grant [service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth&interface=api), and specify user roles to enable the backup service. Then, you add user tags for new or existing resources (individual Block Storage volumes, or virtual server instances) that you associate with a backup policy. Finally, you create backup policies and plans to schedule automatic backups. For more information, see [Creating a backup policy](/docs/vpc?topic=vpc-create-backup-policy-and-plan&interface=ui).
+Before you can create backup policies, you need to grant [service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth&interface=api), and specify user roles for the backup service. Then, you add user tags for new or existing resources (individual Block Storage volumes, or virtual server instances) that you associate with a backup policy. Finally, you create backup policies and plans to schedule automatic backups. For more information, see [Creating a backup policy](/docs/vpc?topic=vpc-create-backup-policy-and-plan&interface=ui).
 
 ## How does the backup service work?
 {: faq}
