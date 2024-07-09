@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-06-14"
+lastupdated: "2024-07-09"
 
 keywords: Backup, backup snapshot, create backups, backup service, backup plan, backup policy, restore, restore volume, restore data, restore share
 
@@ -28,13 +28,13 @@ You can create backup policies for your {{site.data.keyword.block_storage_is_sho
 You're not required to create a backup plan when you create a backup policy, but it's good practice to create at least one backup plan with your policy.
 {: tip}
 
-## Creating a backup policy and plan in the UI
+## Creating a backup policy and plan in the console
 {: #backup-policy-create-ui}
 {: ui}
 
 You can use the UI to create a backup policy and plan.
 
-### Creating a backup policy in the UI
+### Creating a backup policy in the console
 {: #backup-provisioning-page-ui}
 
 Use the following steps to create a backup policy by using the UI.
@@ -68,7 +68,7 @@ Use the following steps to create a backup policy by using the UI.
 If you're not ready to order yet or just looking for pricing information, you can add the information that you see in the side panel to an Estimate. For more information, see [Estimating your costs](/docs/billing-usage?topic=billing-usage-cost).
 {: tip}
 
-### Creating a backup plan in the UI
+### Creating a backup plan in the console
 {: #backup-plan-ui}
 
 You can schedule backups in your plan on a daily, weekly, or monthly basis by using predefined settings, or by way of a `cron-spec` expression. The following steps describe the Create backup plan side panel.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-06-14"
+lastupdated: "2024-07-09"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, view backup lists,
 
@@ -18,13 +18,13 @@ subcollection: vpc
 Backup jobs create or delete backup snapshots based on the backup plan's frequency and retention settings. You can use the UI, CLI, API, or Terraform to check on the status of the backup jobs.
 {: shortdesc}
 
-## View backup jobs in the UI
+## View backup jobs in the console
 {: #backup-view-jobs-ui}
 {: ui}
 
 List all backup jobs. Select a backup job and review its details.
 
-### View a list of backup jobs in the UI
+### View a list of backup jobs in the console
 {: #backup-view-jobs-list-ui}
 
 From the backup policy details page, you can list all backup jobs for that policy. The jobs are listed with the oldest one first. Backup jobs show all backups that were created by the backup policy for the selected region.
@@ -45,7 +45,7 @@ From the backup policy details page, you can list all backup jobs for that polic
    | Source        | The source can be the source volume from which the first snapshot was taken, or the source instance of the snapshot consistency group that the backup is a member of. |
    {: caption="Table 1. Information provided by the list of backup jobs for the backup policy" caption-side="bottom"}
 
-### View snapshots that were created by a backup job in the UI
+### View snapshots that were created by a backup job in the console
 {: #backup-view-snap-backup-ui}
 
 From the list of backup jobs, click the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Actions") and select **View created snapshots**. A side panel provides snapshot details (Table 2).

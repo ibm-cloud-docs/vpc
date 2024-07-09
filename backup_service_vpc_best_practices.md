@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-06-14"
+lastupdated: "2024-07-09"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -66,7 +66,7 @@ Create a backup policy with an hourly backup plan for the time-critical volumes:
 
 * When you create the policy, create a tag for the target volumes (for example, `hourly-finance`). Provide a policy name that reflects the interval and type of data. It can help organize policies in the list and the volumes that are associated with them.
 
-* Add the new tags to your volumes - Specify tags in **Apply tags to target resources** in the UI or specify them in the CLI or API. It ensures that all volumes that you want to back up hourly are included by the hourly backup policy.
+* Add the new tags to your volumes - Specify tags in **Apply tags to target resources** in the console or specify them in the CLI or API. It ensures that all volumes that you want to back up hourly are included by the hourly backup policy.
 
 * If your volume already contains tags: verify that another backup policy isn't already backing up the volume. If that's the case, remove the extra tag from the volume so that it is not backed up twice, and incurring extra costs.
 

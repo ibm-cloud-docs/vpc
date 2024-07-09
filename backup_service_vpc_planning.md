@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-08"
+lastupdated: "2024-07-09"
 
 keywords: backup planning, restore volume, restore data
 
@@ -37,7 +37,7 @@ Consider the following prerequisites before you set up the VPC Backup Service.
 | Volume restore | Evaluate when you might want to restore a volume from a backup. Keep in mind that restoring from a backup is a manual operation and not immediate such as a disaster recovery solution. |
 | Fast-restore | You can create and cache a copy of the backup snapshot in one or more zones of the region where your volume resides. Fast-restore can be used in disaster recovery scenarios when you need to restore volumes in a different zone of the same region. The fast restore feature can achieve a [recovery time objective](#x3167918){: term} (RTO) quicker than restoring from a regular snapshot. |
 | Cross-regional copy | You can create and store a copy of the backup snapshot in another region, and use it to create volumes in the target region. This feature can be used in disaster recovery scenarios when you need to start your virtual server instance and data volumes in a different region. Think about whether you need to restore data in other regions. |
-| Monitoring | Backup jobs that create or delete backup snapshots run according to the backup plan and the retention policy. You can check their status in the UI, from the CLI, with the API, or Terraform. If a job fails, the health status code shows the reason for the failure. For more information, see [Viewing backup jobs](/docs/vpc?topic=vpc-backup-view-policy-jobs).  |
+| Monitoring | Backup jobs that create or delete backup snapshots run according to the backup plan and the retention policy. You can check their status in the console, from the CLI, with the API, or Terraform. If a job fails, the health status code shows the reason for the failure. For more information, see [Viewing backup jobs](/docs/vpc?topic=vpc-backup-view-policy-jobs).  |
 |**Creating backups**: |
 | Prerequisites | Verify that the volume is attached to a virtual server instance and that the instance is in a running state. |
 | Backup frequency | Verify that the plan that you selected is creating backups at the interval that you want. Backups do not occur instaneously like manually created snapshots. Backups usually occur within an hour of being triggered by a backup plan schedule. |

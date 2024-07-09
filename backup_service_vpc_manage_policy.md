@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-06-12"
+lastupdated: "2024-07-09"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -18,13 +18,13 @@ subcollection: vpc
 You can manage backup policies and their associated plans that were created for your resources in the console, from the CLI, with the API, or Terraform. You can delete policies and plans that you no longer need. You can update the backup policy and plans when your needs change. You can add or remove tags. You can check the status of your backup policies. Audit your policies by integrating Activity Tracker events.
 {: shortdesc}
 
-## Managing backup policies in the UI
+## Managing backup policies in the console
 {: #backup-manage-policy-ui}
 {: ui}
 
 You can rename a backup policy, delete a plan within a backup policy, delete the policy, and edit user tags in the console.
 
-### Renaming a backup policy in the UI
+### Renaming a backup policy in the console
 {: #backup-rename-policy-ui}
 
 You can rename a policy from the list of backup policies or from the backup policies details page.
@@ -33,7 +33,7 @@ You can rename a policy from the list of backup policies or from the backup poli
 
 * From the policy details page, click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") next to the policy name.
 
-### Editing tags for target resources in the UI
+### Editing tags for target resources in the console
 {: #backup-edit-tags}
 
 From the Backup policy details page, you can edit the tags for your target resources.
@@ -48,7 +48,7 @@ From the Backup policy details page, you can edit the tags for your target resou
 
 5. Review the information on the next window. If you're satisfied, check the disclaimer and click **Save changes**.
 
-### Editing consistency group members in the UI
+### Editing consistency group members in the console
 {: #backup-consistency-group-update-ui}
 
 From the Backup policy details page, you can include or exclude {{site.data.keyword.block_storage_is_short}} boot volumes in the backup policy.
@@ -57,7 +57,7 @@ From the Backup policy details page, you can include or exclude {{site.data.keyw
 
 2. On the Overview tab, look for **Boot volume** in the Policy details, and click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change the value.
 
-### Editing a backup plan in the UI
+### Editing a backup plan in the console
 {: #backup-edit-delete-plan-ui}
 
 After you provisioned a backup policy and created a backup plan, you can edit the plan details or delete the plan. You must have at least one remaining plan for the policy to create backups.
@@ -599,7 +599,7 @@ You can delete a plan or multiple plans within a policy. When you delete a backu
 
 When you delete a backup policy, it no longer creates new backups. However, the existing backups that it created remain intact as their lifecycle is independent from the policy. Existing backups are retained until their expiration date.
 
-### Deleting a backup plan in the UI
+### Deleting a backup plan in the console
 {: #backup-delete-plan}
 {: ui}
 
@@ -607,7 +607,7 @@ When you delete a backup policy, it no longer creates new backups. However, the 
 
 2. On the backup policy details page, select the plan that you want to delete. Expand the Actions menu for the plan, and select **delete**. You can have up to four backup plans per policy.
 
-### Deleting a backup policy in the UI
+### Deleting a backup policy in the console
 {: #backup-delete-policy}
 {: ui}
 

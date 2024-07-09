@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-03"
+lastupdated: "2024-07-09"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -21,13 +21,13 @@ You can list and view all backup policies that you created for your storage reso
 For the backup operation to be successful, the tagged volumes must be attached to running virtual server instances. Unattached volumes are not backed up even if they have the right tags. 
 {: note}
 
-## Viewing backup policies in the UI
+## Viewing backup policies in the console
 {: #backup-view-ui}
 {: ui}
 
 You can list all backup policies and view details of a specific policy by using the UI.
 
-### Listing all backup policies in the UI
+### Listing all backup policies in the console
 {: #backup-list-all-policies}
 
 List all backup policies that you created for volumes in your account for the selected region by using the UI.
@@ -52,7 +52,7 @@ By clicking the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Acti
    - Restore
    - Delete
 
-### Viewing details of a backup policy with the UI
+### Viewing details of a backup policy in the console
 {: #backup-view-policy}
 
 You can view details of a backup policy by using the UI.
@@ -86,7 +86,7 @@ You can view details of a backup policy by using the UI.
    | Status | Plan status. Shows `enabled` for an active plan. |
    {: caption="Table 3. Backup policy details" caption-side="bottom"}
 
-   By clicking the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Actions"), you can display a menu of context-specific actions. You can change the name and other plan details such as retention, tags, fast restore, and remote copies. For more information, see [Edit or delete a backup plan in the UI](/docs/vpc?topic=vpc-backup-service-manage&interface=ui).
+   By clicking the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Actions"), you can display a menu of context-specific actions. You can change the name and other plan details such as retention, tags, fast restore, and remote copies. For more information, see [Edit or delete a backup plan in the console](/docs/vpc?topic=vpc-backup-service-manage&interface=ui).
 
 ### Viewing the list of resources that are associated to a backup policy
 {: #backup-view-vol-backup-policies}
