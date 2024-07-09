@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-06-17"
+lastupdated: "2024-07-09"
 
 keywords: backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -31,7 +31,7 @@ Up to 100 tags can be attached or detached in the same operation. Keeping the nu
 1. Apply backup policy tags to your target volumes, or virtual server instances  with Terraform.{: terraform} 
 1. Verify that your selected resource is associated with a backup policy. For more information, see [View a list of resources that have a backup policy](/docs/vpc?topic=vpc-backup-view-policies&interface=ui#backup-view-vol-backup-policies).
 
-## Applying tags to volumes, or virtual server instances  in the UI
+## Applying tags to volumes, or virtual server instances  in the console
 {: #backup-apply-tags-ui}
 {: ui}
 
