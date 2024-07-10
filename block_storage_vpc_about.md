@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-06-14"
+lastupdated: "2024-07-10"
 
 keywords:
 
@@ -84,7 +84,11 @@ For more information, see [{{site.data.keyword.block_storage_is_short}} profiles
 ## {{site.data.keyword.block_storage_is_short}} encryption
 {: #vpc-storage-encryption}
 
-{{site.data.keyword.cloud_notm}} takes the need for security seriously and understands the importance of being able to encrypt data to keep it safe. When you create a data volume, you can choose to protect your data by using your own root keys, or use the default IBM-managed encryption. Boot volumes that are created during instance provisioning are encrypted with IBM-managed encryption by default. You can edit the boot volume to use your root keys. After you set up encryption for a boot or data volume, you can't change it.
+{{site.data.keyword.cloud_notm}} takes the need for security seriously and understands the importance of being able to encrypt data to keep it safe. All block storage volumes are encrypted at rest with IBM-managed encryption by default.  
+
+You can also choose to protect your volumes by creating an envelop encryption with your own root keys that are stored in one of the approved Key Management Systems (KMS). In {{site.data.keyword.cloud_notm}}, the KMS can be either located in the same or in another account as the service that is using an encryption key. This deployment pattern allows to centrally manage encryption keys for all corporate accounts.
+
+Your data is protected while at rest, and also in transit from the storage to the hypervisor and host. After you set up the encryption type for a boot or data volume, you can't change it.
 
 For more information about data encryption, see [About data encryption for VPC](/docs/vpc?topic=vpc-vpc-encryption-about).
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-02-21"
+lastupdated: "2024-07-10"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance, gpu, graphics processing unit, set up gpu
 
@@ -28,7 +28,7 @@ The GPU-enabled family of profiles provides on demand, cost-effective access to 
 
 For detailed instructions to complete Steps 2 and 3, other GPU tools, and examples, see [How to Use V100-Based GPUs on IBM Cloud VPC](https://www.ibm.com/blog/how-to-use-v100-based-gpus-on-ibm-cloud-vpc/){: external}.
 
-For a Linux focused guide on installing the NVIDIA drivers, see the [NVIDIA Driver Installation Quickstart Guide](https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html){: external}.
+For a Linux focused guide on installing the NVIDIA drivers, see the [NVIDIA Driver Installation Quickstart Guide](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/){: external}.
 
 If you want to automate the installation of the drivers, you can use the [User data](/docs/vpc?topic=vpc-user-data) section of the VSI. By using the user data field, you can input a script that issues the commands to install the NVIDIA drivers.
 {: tip}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-07-09"
+lastupdated: "2024-07-10"
 
 keywords: Block Storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, Block Storage for vpc, customer-managed encryption,
 
@@ -25,7 +25,7 @@ To create Block Storage volumes with customer-managed encryption, you must have 
 
 It's also possible to use a customer root key from another account. In {{site.data.keyword.cloud_notm}}, the KMS can be either located in the same or in another account as the service that is using an encryption key. This deployment pattern allows to centrally manage encryption keys for all corporate accounts. For more information, see [Encryption key management](/docs/solution-tutorials?topic=solution-tutorials-resource-sharing#resource-sharing-security-kms).
 
-Configure all required [service-to-service authorizations](/docs/vpc?topic=vpc-block-s2s-auth) between Cloud Block Storage (source service) and {{site.data.keyword.keymanagementserviceshort}} (target service) instance that holds the customer root key. If you're provisioning an instance with a custom image, you also need to authorize between Image Service for VPC (source service) and {{site.data.keyword.cos_full}} (target service). If you're provisioning volumes with a CRK of another account, contact that account's administrator for the CRN of the root key that is being shared.
+Configure all required [service-to-service authorizations](/docs/vpc?topic=vpc-block-s2s-auth) between Cloud Block Storage (source service) and the KMS instance (target service) that holds the customer root key. If you're provisioning volumes with a CRK of another account, contact that account's administrator for the CRN of the root key that is being shared. If you're provisioning an instance with a custom image, you also need to authorize between Image Service for VPC (source service) and {{site.data.keyword.cos_full}} (target service). 
 {: requirement}
 
 ## Creating data volumes with customer-managed encryption in the console
@@ -59,7 +59,7 @@ This procedure explains how to specify customer-managed encryption when you crea
     - **Locate by CRN**: enter the CRN of the customer root key to be used for encrypting the volume.
 1. When your changes are complete, click **Create block storage volume**.
 
-When you refresh the list of Block Storage volumes in the console, the new volume appears at the beginning of the list of volumes with "customer managed" as the encryption type. When the volume is created, it shows a status of Available. For stand-alone volumes, the Attachment Type column is blank (-). The **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions") at the end of a table row provides a link for [attaching a Block Storage volume to an instance](/docs/vpc?topic=vpc-attaching-block-storage).
+When you refresh the list of Block Storage volumes in the console, the new volume appears at the beginning of the list of volumes with the _customer managed_ encryption type. When the volume is created, it shows a status of _Available_. For stand-alone volumes, the Attachment Type column is blank (-). The **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions") at the end of a table row provides a link for [attaching a Block Storage volume to an instance](/docs/vpc?topic=vpc-attaching-block-storage).
 
 ## Creating data volumes with customer-managed encryption from the CLI
 {: #data-vol-encryption-cli}
