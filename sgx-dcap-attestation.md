@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-05-31"
+lastupdated: "2024-07-10"
 
 keywords: sgx, intel sgx, software guard extension, confidential computing, attestation, DCAP, data center attestation primitives
 
@@ -64,4 +64,4 @@ For more information about SGX, see the following links.
 
 * For DCAP installation, see [Intel® Software Guard Extensions Data Center Attestation Primitives (Intel® SGX DCAP) - A Quick Install Guide](https://www.intel.com/content/www/us/en/developer/articles/guide/intel-software-guard-extensions-data-center-attestation-primitives-quick-install-guide.html){: external}.
 
-* For the Attestation verification service, see [Intel® Trust Authority](https://docs.trustauthority.intel.com/){: external}.
+* For the Attestation verification service, see [Intel® Trust Authority](https://docs.trustauthority.intel.com/main/articles/introduction.html){: external}.
