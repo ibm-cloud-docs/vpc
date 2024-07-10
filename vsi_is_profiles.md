@@ -402,19 +402,15 @@ Instance bandwidth is allocated between volume bandwidth and networking bandwidt
 ### Bandwidth allocation between storage and networking
 {: #bandwidth-storage-network}
 
-The initial volume and network bandwidth allocation depends on the bandwidth that is set by the instance profile that you selected. You can also see the bandwidth allocations in the profile information during instance creation in the UI. The bandwidth allocation can be changed on the instance details page after you provision an instance.
+The initial volume and network bandwidth allocation depends on the bandwidth that is set by the instance profile that you selected. You can also see the bandwidth allocations in the profile information during instance creation in the console. The bandwidth allocation between Storage and Network can be changed on the instance details page after you provision an instance.
 
-For example, for the bx2-2x8 profile, you might have the following storage and network options:
-
+For example, for the bx2-2x8 profile, you might have the following bandwidth configuration:
 - Storage: 1 Gbps
 - Network: 3 Gbps
 
-For a cx2-8x16 profile, you might have the following storage and network options:
-
-- Storage: 4 Gbps
-- Network: 12 Gbps
-
-You can adjust amount of overall bandwidth that is provided to volume bandwidth within the overall instance limits. A default amount of volume bandwidth is set on each instance profile.
+You can adjust amount of overall bandwidth that is provided to storage volumes within the overall instance limits. However, both volume and network bandwidth must be at least 500 MBps each. For example, to allow more bandwidth for volumes, you can apportion the bx2-2x8 example in equal allocations:
+   - Storage: 2 Gbps
+   - Network: 2 Gbps
 
 For more information, see [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles) and [Adjusting bandwidth allocation by using the UI](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#adjusting-bandwidth-allocation-ui).
 {: ui}
@@ -424,6 +420,11 @@ For more information, see [Bandwidth allocation for instance profiles](/docs/vpc
 
 For more information, see [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles) and [Adjusting total storage bandwidth allocation from the API](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=api#adjusting-bandwidth-allocation-api).
 {: api}
+
+### Bandwidth allocation with multiple data volumes
+{: #bandwidth-multi-volumes}
+
+The bandwidth for volumes is shared by all the attached volumes. To ensure reasonable boot times, a minimum of 393 MBps is allocated to the primary boot volume. The data volumes share the remaining bandwidth. You can attach up to 12 data volumes to your instance. The data volumes are assigned bandwidth that is proportional to their maximum bandwidth. For example, if you have an instance with four identical data volumes but you are using only one volume, then that volume can get only the bandwidth that is assigned to it, one fourth of the overall volumes bandwidth.
 
 ### Bandwidth allocation with multiple network interfaces
 {: #bandwidth-multi-vnic}

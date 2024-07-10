@@ -163,7 +163,7 @@ Make a request to the [IAM Policy Management API](/apidocs/iam-policy-management
      -H 'Content-Type: application/json' \
      -d '{
         "type":"authorization",
-        "description":"Reader and Delegator role for HPCS service instance",
+        "description":"Reader and Delegator access to HPCS service instance",
         "subjects": [
           {"attributes": 
             {"name":"Block Storage for VPC","value":"is"},
@@ -176,7 +176,7 @@ Make a request to the [IAM Policy Management API](/apidocs/iam-policy-management
             {"name":"Hyper-Protect-Crypto-Services","operator":"stringEquals","value":"hs-crypto"}]}],
         }'
     ```
-    {: screen}
+    {: codeblock}
 
 * To create an authorization policy for {{site.data.keyword.keymanagementserviceshort}}, replace `hs-crypto` with `kms` in the previous example.
 
