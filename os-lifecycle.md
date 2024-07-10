@@ -4,7 +4,7 @@ copyright:
 
   years: 2022, 2024
 
-lastupdated: "2024-06-20"
+lastupdated: "2024-07-10"
 
 keywords: operating system end of support (eos)
 
@@ -58,7 +58,7 @@ The following table describes the end of support date and license model for Debi
 ## Fedora CoreOS
 {: #fedora-coreos}
 
-The version of Fedora&reg; CoreOS is updated regularly, with the previous release deprecating when a new version is released. This guest OS is a free operating system. For more information, see [Fedora](https://getfedora.org/){: external}.
+The version of Fedora&reg; CoreOS is updated regularly, with the previous release deprecating when a new version is released. This guest OS is a free operating system. For more information, see [Fedora](https://fedoraproject.org/){: external}.
 
 | Operating system | End of support | License model |
 |-----------------|----------------|---------------|
