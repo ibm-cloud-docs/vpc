@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-07-02"
+lastupdated: "2024-07-10"
 
 keywords:
 
@@ -269,7 +269,7 @@ ping <public-ip-address>
 {: pre}
 
 ### Connecting to Linux images
-{: #connecting-to-linux images}
+{: #connecting-to-linux-images}
 
 Because you created your instance with a public SSH key, you can now connect to it directly by using your private key:
 

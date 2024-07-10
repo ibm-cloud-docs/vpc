@@ -37,7 +37,6 @@ toc:
            - interconnectivity.md
            - private-wan.md
            - private-connectivity-vpe.md
-           - vpc-ips.md
            - topicgroup:
                label: Networking overview for bare metal servers
                topics:
@@ -47,7 +46,6 @@ toc:
                topics:
                - ip-addresses-about.md
                - reserved-ip.md
-               - address-prefixes.md
                - ip-spoofing-about.md
        - topicgroup:
            label: Compute
@@ -160,7 +158,6 @@ toc:
             - file_storage_API_migration_access_modes.md
             - file_storage_API_migration_mount_targets.md
             - 2022-03-29-migration.md
-        - terraform.md
         - topicgroup:
             label: Managing access
             topics:
@@ -737,7 +734,6 @@ toc:
         - vsi_is_disable_hyper-threading.md
         - security-best-practices-zos.md
         - vpc-endpoints.md
-        - vpc-sdks.md
         - topicgroup:
             label: Terraform
             topics:
@@ -829,10 +825,6 @@ toc:
                 - fl-ts-cos-bucket.md
                 - fl-ts-unauth-access-cos.md
             - topicgroup:
-                label: Troubleshooting placement groups
-                topics:
-                - placement-group-failed.md
-            - topicgroup:
                 label: Troubleshooting public ingress routes
                 topics:
                 - ingressroutes-ts-traffic.md
@@ -909,7 +901,6 @@ toc:
                 - vpn-client-to-site-ts-advertise-route-not-work.md
                 - vpn-ts-c2s-over-quota.md
                 - vpn-ts-c2s-cannot-access-classic-vsi.md
-            - flc_troubleshooting.md
             - resource-suspension.md
             - instance-status-messages.md
             - instance-lifecycle-status-messages.md

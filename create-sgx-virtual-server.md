@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-05-31"
+lastupdated: "2024-07-10"
 
 keywords: sgx, intel sgx, software guard extension, confidential computing, trusted execution environment, TEE, data protection
 
@@ -25,7 +25,7 @@ Confidential computing with Intel SGX for VPC is available only in the US-South 
 {: note}
 
 ## Creating a virtual server with SGX
-{: #creating-a virtual-server-with-sgx-vpc}
+{: #creating-virtual-server-with-sgx-vpc}
 
 Use the following steps to create a virtual server with SGX.
 
