@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-01-27"
+lastupdated: "2024-07-10"
 
 keywords: anti-spoofing, source destination check, ip spoofing
 
@@ -39,7 +39,7 @@ After a virtual server instance is created, a network administrator with the **I
 The IAM IP Spoofing Operator is disabled by default for all users.
 {: note}
 
-For more information about IAM permissions, see [Required permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls).
+For more information about IAM permissions, see [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started&interface=ui).
 
 To enable IP spoofing in the UI, take the following steps:
 

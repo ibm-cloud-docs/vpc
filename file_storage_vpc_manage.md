@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-06-25"
+lastupdated: "2024-07-10"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -18,7 +18,7 @@ subcollection: vpc
 Manage the file shares that you created. You can rename a file share. You can increase its capacity and modify its IOPS. You can add mount targets to a file share, and use the mount path to mount a file share from virtual server instances. You can rename or delete a mount target. Or you can delete a file share if you no longer need it.
 {: shortdesc}
 
-{{site.data.keyword.filestorage_vpc_short}} service requires IAM permissions for role-based access control. For example, to create a file share, you need to have at least editor permissions. For more information, see the [required permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls) for file shares.
+{{site.data.keyword.filestorage_vpc_short}} service requires IAM permissions for role-based access control. For example, to create a file share, you need to have at least editor permissions. For more information, see [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started&interface=ui) for file shares.
 {: requirement}
 
 ## Differences in handling normal file shares and accessor shares
@@ -139,52 +139,52 @@ By using the CLI, you can:
    ```sh
    $ ibmcloud is shares
    Listing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
-   ID                                          Name                                 Lifecycle state   Zone         Profile       Size(GB)   Resource group   Replication role   
+   ID                                          Name                                 Lifecycle state   Zone         Profile       Size(GB)   Resource group   Replication role
    r006-600f9bff-3c2e-4542-9fc3-ef3be15da04a   my-file-share-2                      stable            us-south-2   dp2           100        defaults         replica
-   r006-52c68ba5-2754-4c9d-8345-1fe6aa930073   disposal-snare-revivable-chitchat    stable            us-south-3   dp2           10         defaults         replica   
-   r006-46541dc4-9e73-453a-9075-90ced0d612c3   trapdoor-urgency-attitude-imposing   stable            us-south-1   dp2           10         defaults         source   
-   r006-72604692-0dc5-49fb-8eca-08b16a6a4854   fiction-create-platter-decidable     stable            us-south-3   dp2           10         defaults         replica   
-   r006-c23ce229-fee9-4d40-a509-44886b21bb69   prismoid-evergreen-chains-granola    stable            us-south-1   dp2           10         defaults         source   
-   r006-89b34134-2be6-4281-ae8e-b1c625d533ae   my-test-share                        stable            us-south-1   dp2           10         defaults         none   
-   r006-cc7ab6a0-bb71-4e03-8ef7-dcffca43717f   my-old-file-share                    stable            us-south-1   tier-3iops    40         defaults         none   
+   r006-52c68ba5-2754-4c9d-8345-1fe6aa930073   disposal-snare-revivable-chitchat    stable            us-south-3   dp2           10         defaults         replica
+   r006-46541dc4-9e73-453a-9075-90ced0d612c3   trapdoor-urgency-attitude-imposing   stable            us-south-1   dp2           10         defaults         source
+   r006-72604692-0dc5-49fb-8eca-08b16a6a4854   fiction-create-platter-decidable     stable            us-south-3   dp2           10         defaults         replica
+   r006-c23ce229-fee9-4d40-a509-44886b21bb69   prismoid-evergreen-chains-granola    stable            us-south-1   dp2           10         defaults         source
+   r006-89b34134-2be6-4281-ae8e-b1c625d533ae   my-test-share                        stable            us-south-1   dp2           10         defaults         none
+   r006-cc7ab6a0-bb71-4e03-8ef7-dcffca43717f   my-old-file-share                    stable            us-south-1   tier-3iops    40         defaults         none
    ```
    {: screen}
 
 1. Run the `ibmcloud is share-update` command and specify a new file share name with the `--name` options.
-   
+
    ```sh
    ibmcloud is share-update r006-600f9bff-3c2e-4542-9fc3-ef3be15da04a --name my-renamed-share
    Updating file share r006-600f9bff-3c2e-4542-9fc3-ef3be15da04a under account Test Account as user test.user@ibm.com...
-                                
-   ID                           r006-600f9bff-3c2e-4542-9fc3-ef3be15da04a   
-   Name                         my-renamed-share   
-   CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-600f9bff-3c2e-4542-9fc3-ef3be15da04a   
-   Lifecycle state              stable   
-   Access control mode          vpc   
-   Zone                         us-south-2   
-   Profile                      dp2   
-   Size(GB)                     100   
-   IOPS                         100   
-   Encryption                   user_managed   
-   Mount Targets                ID                          Name      
-                                No mounted targets found.      
-                                
-   Resource group               ID                                 Name      
-                                6edefe513d934fdd872e78ee6a8e73ef   defaults      
-                                
-   Created                      2023-08-01T17:02:01+00:00   
-   Encryption key               crn:v1:bluemix:public:kms:eu-de:a/a1234567:key:f602ae93-b915-49bc-a0e1-af29c73e7788   
-   Latest job                   Job status   Job status reasons      
-                                -            -      
-                                
-   Replication cron spec        00 11 * * 0   
-   Replication role             replica   
-   Replication status           none   
-   Replication status reasons   Status code   Status message      
-                                -             -      
-                                
-   Source share                 ID                                          Name   Resource type      
-                                r006-9272410d-38b2-447e-b98f-abc944ea02cc   dal1   share  
+
+   ID                           r006-600f9bff-3c2e-4542-9fc3-ef3be15da04a
+   Name                         my-renamed-share
+   CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-600f9bff-3c2e-4542-9fc3-ef3be15da04a
+   Lifecycle state              stable
+   Access control mode          vpc
+   Zone                         us-south-2
+   Profile                      dp2
+   Size(GB)                     100
+   IOPS                         100
+   Encryption                   user_managed
+   Mount Targets                ID                          Name
+                                No mounted targets found.
+
+   Resource group               ID                                 Name
+                                6edefe513d934fdd872e78ee6a8e73ef   defaults
+
+   Created                      2023-08-01T17:02:01+00:00
+   Encryption key               crn:v1:bluemix:public:kms:eu-de:a/a1234567:key:f602ae93-b915-49bc-a0e1-af29c73e7788
+   Latest job                   Job status   Job status reasons
+                                -            -
+
+   Replication cron spec        00 11 * * 0
+   Replication role             replica
+   Replication status           none
+   Replication status reasons   Status code   Status message
+                                -             -
+
+   Source share                 ID                                          Name   Resource type
+                                r006-9272410d-38b2-447e-b98f-abc944ea02cc   dal1   share
    ```
    {: screen}
 
@@ -200,10 +200,10 @@ For more information about the command options, see [`ibmcloud is share-update`]
 
 1. Use the share's name or ID to find its mount targets with the `ibmcloud is share-mount-targets` command.
    ```sh
-   $ ibmcloud is share-mount-targets r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a 
+   $ ibmcloud is share-mount-targets r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a
    Listing share mount target of r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
-   ID                                          Name                     VPC      Lifecycle state   Transit Encryption   
-   r006-fdbffc45-618c-49f1-bb08-ec530d7be378   my-source-mount-target   my-vpc   stable            none   
+   ID                                          Name                     VPC      Lifecycle state   Transit Encryption
+   r006-fdbffc45-618c-49f1-bb08-ec530d7be378   my-source-mount-target   my-vpc   stable            none
    ```
    {: screen}
 
@@ -228,13 +228,13 @@ These instructions are for the previous generation of file share profiles (gener
    ```sh
    $ ibmcloud is shares
    Listing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
-   ID                                          Name                                 Lifecycle state   Zone         Profile       Size(GB)   Resource group   Replication role   
-   r006-52c68ba5-2754-4c9d-8345-1fe6aa930073   disposal-snare-revivable-chitchat    stable            us-south-3   dp2           10         defaults         replica   
-   r006-46541dc4-9e73-453a-9075-90ced0d612c3   trapdoor-urgency-attitude-imposing   stable            us-south-1   dp2           10         defaults         source   
-   r006-72604692-0dc5-49fb-8eca-08b16a6a4854   fiction-create-platter-decidable     stable            us-south-3   dp2           10         defaults         replica   
-   r006-c23ce229-fee9-4d40-a509-44886b21bb69   prismoid-evergreen-chains-granola    stable            us-south-1   dp2           10         defaults         source   
-   r006-89b34134-2be6-4281-ae8e-b1c625d533ae   test-share                           stable            us-south-1   dp2           10         defaults         none   
-   r006-cc7ab6a0-bb71-4e03-8ef7-dcffca43717f   my-old-file-share                    stable            us-south-1   tier-3iops    40         defaults         none   
+   ID                                          Name                                 Lifecycle state   Zone         Profile       Size(GB)   Resource group   Replication role
+   r006-52c68ba5-2754-4c9d-8345-1fe6aa930073   disposal-snare-revivable-chitchat    stable            us-south-3   dp2           10         defaults         replica
+   r006-46541dc4-9e73-453a-9075-90ced0d612c3   trapdoor-urgency-attitude-imposing   stable            us-south-1   dp2           10         defaults         source
+   r006-72604692-0dc5-49fb-8eca-08b16a6a4854   fiction-create-platter-decidable     stable            us-south-3   dp2           10         defaults         replica
+   r006-c23ce229-fee9-4d40-a509-44886b21bb69   prismoid-evergreen-chains-granola    stable            us-south-1   dp2           10         defaults         source
+   r006-89b34134-2be6-4281-ae8e-b1c625d533ae   test-share                           stable            us-south-1   dp2           10         defaults         none
+   r006-cc7ab6a0-bb71-4e03-8ef7-dcffca43717f   my-old-file-share                    stable            us-south-1   tier-3iops    40         defaults         none
    ```
    {: screen}
 
@@ -243,29 +243,29 @@ These instructions are for the previous generation of file share profiles (gener
    ```sh
    $ ibmcloud is share-update my-old-file-share --profile dp2 --size 1000 --iops 3000
    Updating file share my-file-share-8 under account Test Account as user test.user@ibm.com...
-                                
-   ID                           r006-cc7ab6a0-bb71-4e03-8ef7-dcffca43717f   
-   Name                         my-old-file-share   
-   CRN                          crn:v1:bluemix:public:is:us-south-1:a/a1234567::share:r006-cc7ab6a0-bb71-4e03-8ef7-dcffca43717f   
-   Lifecycle state              updating     
-   Access control mode          vpc   
-   Zone                         us-south-1   
-   Profile                      dp2   
-   Size(GB)                     1000   
-   IOPS                         3000   
-   User Tags                    env:dev,env:prod   
-   Encryption                   provider_managed   
-   Mount Targets                ID                                          Name      
-                                r006-c9d82a15-7ead-4388-abc8-88e81c12ed28   my-target121      
-                                
-   Resource group               ID                                 Name      
-                                6edefe513d934fdd872e78ee6a8e73ef   defaults      
-                                
-   Created                      2023-03-27T20:43:36+00:00   
-   Replication role             none   
-   Replication status           none   
-   Replication status reasons   Status code   Status message      
-                                -             - 
+
+   ID                           r006-cc7ab6a0-bb71-4e03-8ef7-dcffca43717f
+   Name                         my-old-file-share
+   CRN                          crn:v1:bluemix:public:is:us-south-1:a/a1234567::share:r006-cc7ab6a0-bb71-4e03-8ef7-dcffca43717f
+   Lifecycle state              updating
+   Access control mode          vpc
+   Zone                         us-south-1
+   Profile                      dp2
+   Size(GB)                     1000
+   IOPS                         3000
+   User Tags                    env:dev,env:prod
+   Encryption                   provider_managed
+   Mount Targets                ID                                          Name
+                                r006-c9d82a15-7ead-4388-abc8-88e81c12ed28   my-target121
+
+   Resource group               ID                                 Name
+                                6edefe513d934fdd872e78ee6a8e73ef   defaults
+
+   Created                      2023-03-27T20:43:36+00:00
+   Replication role             none
+   Replication status           none
+   Replication status reasons   Status code   Status message
+                                -             -
    ```
    {: screen}
 
@@ -280,14 +280,14 @@ Before you delete a file share, make sure that it is [unmounted](#fs-mount-unmou
 
    ```sh
    ibmcloud is sharesListing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
-   ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group   Replication role   
-   r006-dc6a644d-c7da-4c91-acf0-d66b47fc8516   my-replica-file-share   stable            us-south-1   dp2       1500       Default          replica   
-   r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a   my-source-file-share    stable            us-south-2   dp2       1500       Default          source   
-   r006-6d1719da-f790-45cc-9f68-896fd5673a1a   my-replica-share        stable            us-south-3   dp2       1000       Default          replica   
-   r006-925214bc-ded5-4626-9d8e-bc4e2e579232   my-new-file-share       stable            us-south-2   dp2       500        Default          none   
-   r006-97733317-35c3-4726-9c28-1159de30012e   my-file-share-8         stable            us-south-1   dp2       40         Default          none   
-   r006-b1707390-3825-41eb-a5bb-1161f77f8a58   my-vpc-file-share       stable            us-south-2   dp2       1000       Default          none   
-   r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   my-file-share           stable            us-south-2   dp2       1000       Default          source  
+   ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group   Replication role
+   r006-dc6a644d-c7da-4c91-acf0-d66b47fc8516   my-replica-file-share   stable            us-south-1   dp2       1500       Default          replica
+   r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a   my-source-file-share    stable            us-south-2   dp2       1500       Default          source
+   r006-6d1719da-f790-45cc-9f68-896fd5673a1a   my-replica-share        stable            us-south-3   dp2       1000       Default          replica
+   r006-925214bc-ded5-4626-9d8e-bc4e2e579232   my-new-file-share       stable            us-south-2   dp2       500        Default          none
+   r006-97733317-35c3-4726-9c28-1159de30012e   my-file-share-8         stable            us-south-1   dp2       40         Default          none
+   r006-b1707390-3825-41eb-a5bb-1161f77f8a58   my-vpc-file-share       stable            us-south-2   dp2       1000       Default          none
+   r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   my-file-share           stable            us-south-2   dp2       1000       Default          source
    ```
    {: screen}
 
@@ -296,33 +296,33 @@ Before you delete a file share, make sure that it is [unmounted](#fs-mount-unmou
    ```sh
    $ ibmcloud is share my-file-share-8
    Getting file share my-file-share-8 under account Test Account as user test.user@ibm.com...
-                                
-   ID                           r006-97733317-35c3-4726-9c28-1159de30012e   
-   Name                         my-file-share-8   
-   CRN                          crn:v1:bluemix:public:is:us-south-1:a/a1234567::share:r006-97733317-35c3-4726-9c28-1159de30012e   
-   Lifecycle state              stable   
-   Access control mode          vpc    
-   Zone                         us-south-1   
-   Profile                      dp2   
-   Size(GB)                     40   
-   IOPS                         2000   
-   User Tags                    env:dev,env:prod   
-   Encryption                   provider_managed   
-   Mount Targets                ID                                          Name      
-                                r006-36d67ada-ca83-44be-adad-dc58e7c38dc5   my-new-mount-target      
-                                
-   Resource group               ID                                 Name      
-                                db8e8d865a83e0aae03f25a492c5b39e   Default      
-                                
-   Created                      2023-10-18T23:52:45+00:00   
-   Replication role             none   
-   Replication status           none   
-   Replication status reasons   Status code   Status message      
+
+   ID                           r006-97733317-35c3-4726-9c28-1159de30012e
+   Name                         my-file-share-8
+   CRN                          crn:v1:bluemix:public:is:us-south-1:a/a1234567::share:r006-97733317-35c3-4726-9c28-1159de30012e
+   Lifecycle state              stable
+   Access control mode          vpc
+   Zone                         us-south-1
+   Profile                      dp2
+   Size(GB)                     40
+   IOPS                         2000
+   User Tags                    env:dev,env:prod
+   Encryption                   provider_managed
+   Mount Targets                ID                                          Name
+                                r006-36d67ada-ca83-44be-adad-dc58e7c38dc5   my-new-mount-target
+
+   Resource group               ID                                 Name
+                                db8e8d865a83e0aae03f25a492c5b39e   Default
+
+   Created                      2023-10-18T23:52:45+00:00
+   Replication role             none
+   Replication status           none
+   Replication status reasons   Status code   Status message
                                 -             -
    ```
    {: screen}
 
-   
+
 
 #### Deleting share bindings of a file share from the CLI
 {: #delete-bindings-cli}
@@ -336,7 +336,7 @@ $ ibmcloud is share-bindings-delete my-origin-share r-006-c2e53b1b-3b15-4792-8d9
 This will delete accessor binding r-006-c2e53b1b-3b15-4792-8d96-c9c035fd65c3 for share ID my-origin-share and cannot be undone. Continue [y/N] ?> y
 Deleting binding r-006-c2e53b1b-3b15-4792-8d96-c9c035fd65c3 for share ID my-origin-share under account Test Account as user test.user@ibm.com...
 OK
-Binding r-006-c2e53b1b-3b15-4792-8d96-c9c035fd65c3 is deleted. 
+Binding r-006-c2e53b1b-3b15-4792-8d96-c9c035fd65c3 is deleted.
 ```
 {: screen}
 
@@ -388,32 +388,32 @@ Example command to update the encryption policy TBD.
 ```sh
 $ ibmcloud is share-update my-origin-share --allowed-transit-encryption-modes user_managed
 Updating file share my-file-share under account Test Account as user test.user@ibm.com...
-                                
-ID                               r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
-Name                             my-origin-share   
-CRN                              crn:v1:bluemix:public:is:us-south-2:a/1234567::share:r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
-Lifecycle state                  stable   
+
+ID                               r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6
+Name                             my-origin-share
+CRN                              crn:v1:bluemix:public:is:us-south-2:a/1234567::share:r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6
+Lifecycle state                  stable
 Access control mode              security_group
 Accessor binding role            origin
 Allowed transit encryption modes user_managed
 Origin share                     CRN                                                                                             Name            Remote account  Remote region
                                  crn:v1:bluemix:public:is:us-south-2:a/7654321::share:r006-d73v40a6-e08f-4d07-99e1-d28cbf2188ed  my-origin-share a7654321        -
-Zone                             us-south-2   
-Profile                          dp2   
-Size(GB)                         1000   
-IOPS                             1000   
-Encryption                       provider_managed   
-Mount Targets                    ID                          Name      
-                                 No mounted targets found.      
-                                
-Resource group                   ID                                 Name      
-                                 db8e8d865a83e0aae03f25a492c5b39e   Default      
-                                
-Created                          2024-06-25T22:15:15+00:00   
-Replication role                 none   
-Replication status               none   
-Replication status reasons       Status code   Status message      
-                                 -             -   
+Zone                             us-south-2
+Profile                          dp2
+Size(GB)                         1000
+IOPS                             1000
+Encryption                       provider_managed
+Mount Targets                    ID                          Name
+                                 No mounted targets found.
+
+Resource group                   ID                                 Name
+                                 db8e8d865a83e0aae03f25a492c5b39e   Default
+
+Created                          2024-06-25T22:15:15+00:00
+Replication role                 none
+Replication status               none
+Replication status reasons       Status code   Status message
+                                 -             -
 TBD
 ```
 {: screen}
@@ -557,7 +557,7 @@ curl -X PATCH \
 ```
 {: codeblock}
 
- 
+
 ### Deleting file shares, accessor share bindings, and mount targets with the API
 {: #delete-share-targets-api}
 
@@ -810,81 +810,81 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 
 You can add tags when you provision a file share with the `ibmcloud is share-create` command. The `--user-tags` option specifies tags for the file share. For more information, see [Creating a file share with a mount target from the CLI](/docs/vpc?topic=vpc-file-storage-create&interface=cli#fs-create-share-target-cli).
 
-You can add and remove tags when you update a file share with the `ibmcloud is share-update` command. 
+You can add and remove tags when you update a file share with the `ibmcloud is share-update` command.
 
 1. Locate your share from the CLI by listing your file shares in the region with the `ibmcloud is shares` command.
 
    ```sh
    $ ibmcloud is shares
    Listing shares in all resource groups and region us-south under account Test Account as user test.user@ibm.com...
-   ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group   Replication role   
-   r006-dc6a644d-c7da-4c91-acf0-d66b47fc8516   my-replica-file-share   stable            us-south-1   dp2       1500       Default          replica   
-   r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a   my-source-file-share    stable            us-south-2   dp2       1500       Default          source   
-   r006-6d1719da-f790-45cc-9f68-896fd5673a1a   my-replica-share        stable            us-south-3   dp2       1500       Default          replica   
-   r006-925214bc-ded5-4626-9d8e-bc4e2e579232   my-new-file-share       stable            us-south-2   dp2       500        Default          none   
-   r006-b1707390-3825-41eb-a5bb-1161f77f8a58   my-vpc-file-share       stable            us-south-2   dp2       1000       Default          none   
-   r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   my-file-share           stable            us-south-2   dp2       1500       Default          source 
+   ID                                          Name                    Lifecycle state   Zone         Profile   Size(GB)   Resource group   Replication role
+   r006-dc6a644d-c7da-4c91-acf0-d66b47fc8516   my-replica-file-share   stable            us-south-1   dp2       1500       Default          replica
+   r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a   my-source-file-share    stable            us-south-2   dp2       1500       Default          source
+   r006-6d1719da-f790-45cc-9f68-896fd5673a1a   my-replica-share        stable            us-south-3   dp2       1500       Default          replica
+   r006-925214bc-ded5-4626-9d8e-bc4e2e579232   my-new-file-share       stable            us-south-2   dp2       500        Default          none
+   r006-b1707390-3825-41eb-a5bb-1161f77f8a58   my-vpc-file-share       stable            us-south-2   dp2       1000       Default          none
+   r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   my-file-share           stable            us-south-2   dp2       1500       Default          source
    ```
    {: screen}
 
 1. Retrieve the details of the file share with the `ibmcloud is share` command.
-   
+
    ```sh
    $ ibmcloud is share my-file-share
    Getting file share my-file-share under account Test Account as user test.user@ibm.com...
-                                
-   ID                           r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
-   Name                         my-file-share   
-   CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
-   Lifecycle state              stable   
-   Access control mode          security_group   
-   Zone                         us-south-2   
-   Profile                      dp2   
-   Size(GB)                     1000   
-   IOPS                         1000   
-   Encryption                   provider_managed   
-   Mount Targets                ID                                          Name      
-                                r006-dd497561-c7c9-4dfb-af0a-c84eeee78b61   my-cli-share-mount-target-1      
-                                
-   Resource group               ID                                 Name      
-                                db8e8d865a83e0aae03f25a492c5b39e   Default      
-                                
-   Created                      2023-10-18T22:15:15+00:00   
-   Replication role             none   
-   Replication status           none   
-   Replication status reasons   Status code   Status message      
-                                -             -      
+
+   ID                           r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6
+   Name                         my-file-share
+   CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6
+   Lifecycle state              stable
+   Access control mode          security_group
+   Zone                         us-south-2
+   Profile                      dp2
+   Size(GB)                     1000
+   IOPS                         1000
+   Encryption                   provider_managed
+   Mount Targets                ID                                          Name
+                                r006-dd497561-c7c9-4dfb-af0a-c84eeee78b61   my-cli-share-mount-target-1
+
+   Resource group               ID                                 Name
+                                db8e8d865a83e0aae03f25a492c5b39e   Default
+
+   Created                      2023-10-18T22:15:15+00:00
+   Replication role             none
+   Replication status           none
+   Replication status reasons   Status code   Status message
+                                -             -
    ```
    {: screen}
 
 1. Use the `ibmcloud is share-update` command with the `--user-tags` option to add a tag to the file share. If the file share had tags previously, they are overwritten by the tags that are specified in the command.
-   
+
    ```sh
    ibmcloud is share-update my-file-share --user-tags env:dev
    Updating file share my-file-share under account Test Account as user test.user@ibm.com...
-                                 
-   ID                           r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
-   Name                         my-file-share   
-   CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
-   Lifecycle state              stable   
-   Access control mode          security_group   
-   Zone                         us-south-2   
-   Profile                      dp2   
-   Size(GB)                     1500   
-   IOPS                         2000   
-   User Tags                    env:dev   
-   Encryption                   provider_managed   
-   Mount Targets                ID                                          Name      
-                                r006-dd497561-c7c9-4dfb-af0a-c84eeee78b61   my-cli-share-mount-target-1      
-                                
-   Resource group               ID                                 Name      
-                                db8e8d865a83e0aae03f25a492c5b39e   Default      
-                                
-   Created                      2023-10-18T22:15:15+00:00   
-   Replication role             none   
-   Replication status           none   
-   Replication status reasons   Status code   Status message      
-                                -             - 
+
+   ID                           r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6
+   Name                         my-file-share
+   CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6
+   Lifecycle state              stable
+   Access control mode          security_group
+   Zone                         us-south-2
+   Profile                      dp2
+   Size(GB)                     1500
+   IOPS                         2000
+   User Tags                    env:dev
+   Encryption                   provider_managed
+   Mount Targets                ID                                          Name
+                                r006-dd497561-c7c9-4dfb-af0a-c84eeee78b61   my-cli-share-mount-target-1
+
+   Resource group               ID                                 Name
+                                db8e8d865a83e0aae03f25a492c5b39e   Default
+
+   Created                      2023-10-18T22:15:15+00:00
+   Replication role             none
+   Replication status           none
+   Replication status reasons   Status code   Status message
+                                -             -
    ```
    {: screen}
 

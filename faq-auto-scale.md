@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-07-08"
+lastupdated: "2024-07-10"
 
 subcollection: vpc
 
@@ -51,7 +51,7 @@ For more information about how it works, see [Auto Scale for VPC](/docs/vpc?topi
 {: faq}
 
 You can check the required permissions for actions on instance templates, instance groups, instance group managers,
-memberships, and policies in the [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls).
+memberships, and policies in the [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started&interface=ui).
 For more information about using {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) to assign users access,
 see [Granting user permissions for VPC resources](/docs/vpc?topic=vpc-managing-user-permissions-for-vpc-resources).
 
@@ -141,4 +141,4 @@ If you set a port range for the network load balancer listener, then the instanc
 {: #faq-auto-scale-15}
 {: faq}
 
-Not all network load balancer offerings support integration with instance groups. Load balancers support auto scaling if the `instance_groups_supported` property of the [load balancer detail](/apidocs/vpc/latest#get-load-balancer) is `true`. 
+Not all network load balancer offerings support integration with instance groups. Load balancers support auto scaling if the `instance_groups_supported` property of the [load balancer detail](/apidocs/vpc/latest#get-load-balancer) is `true`.

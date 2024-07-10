@@ -110,7 +110,7 @@ For more information about health checks for load balancer pools, see the follow
 Not all network load balancer offerings support integration with instance groups. Before attaching an instange group to a network load balancer pool, ensure that the `instance_groups_supported` property of the [load balancer detail](/apidocs/vpc/latest#get-load-balancer) is `true`.
 {: important}
 
-1. Make sure that you have the required IBM {{site.data.keyword.iamshort}} (IAM) [permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls) to create an instance group.
+1. Make sure that you have the required IBM {{site.data.keyword.iamshort}} (IAM) permissions to create an instance group. For more information, see [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started&interface=ui).
 2. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Instance groups**.
 3. Click **New instance group** and enter the information in Table 2.
 4. If you want to create dynamic scaling policies as part of instance group creation, see [Creating scaling policies](#creating-scaling-policies). You can also [add policies later](/docs/vpc?topic=vpc-managing-instance-group#creating-target-policies) after you create your instance group.
@@ -158,7 +158,7 @@ Make sure that you set up your [{{site.data.keyword.cloud}} CLI environment](/do
 
 To create an auto scale instance group by using the CLI, you must complete the following tasks:
 
-1. Make sure that you have the required IBM {{site.data.keyword.iamshort}} (IAM) permissions to create instance group resources. For more information, see [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls).
+1. Make sure that you have the required IBM {{site.data.keyword.iamshort}} (IAM) permissions to create instance group resources. For more information, see * [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started&interface=ui).
 2. Create an instance template that is used to provision instances in your group.
 3. Create an instance group in a single region that is made up of like virtual server instances.
 4. Create an instance group manager so that you can apply your scaling policies.

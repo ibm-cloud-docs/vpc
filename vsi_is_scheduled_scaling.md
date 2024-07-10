@@ -85,7 +85,7 @@ Make sure that you set up your {{site.data.keyword.cloud}} CLI environment and y
 
 To create a scheduled action by using the CLI, you must complete the following steps:
 
-1. Make sure that you have the required IBM {{site.data.keyword.iamshort}} (IAM) permissions to create instance group resources. For more information, see [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls).
+1. Make sure that you have the required IBM {{site.data.keyword.iamshort}} (IAM) permissions to create instance group resources. For more information, see * [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started&interface=ui).
 2. Create scaling policies to dynamically add or remove instances from your group based on the target utilization metrics that you define.
 
 ### Create a scheduled action

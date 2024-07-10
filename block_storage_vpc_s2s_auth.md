@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-09"
+lastupdated: "2024-07-10"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -64,7 +64,7 @@ OK
 ```
 {: screen}
 
-To list the service authorizations that are already in place for the account, run the `ibmcloud iam authorization-policies` command. The following example shows that the Block service could be encrypted with a CRK that is stored in {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}.
+To list the service authorizations that are already in place for the account, run the `ibmcloud iam authorization-policies` command. The following example shows that the Block service can be encrypted with a CRK that is stored in {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}.
 
 ```sh
 $ ibmcloud iam authorization-policies
@@ -95,7 +95,7 @@ For more information about all of the parameters that are available for this com
 
 Run the `ibmcloud iam authorization-policy-create` command to create authorization policies for the Block service of one account to interact with one or both Key Management Services ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}) of another account. The source service is `server-protect` and the target service is either `kms` or `hs-crypto`. The role that you need to assign is `Reader`. The following example creates an authorization policy between the Block service and {{site.data.keyword.keymanagementserviceshort}}.
 
-1. Create a JSON filee with the following information for the authorization policies in your local Documents folder.
+1. Create a JSON file with the following information for the authorization policies in your local Documents folder.
    ```json
    '{
       "description":"Reader and Delegator role for HPCS service instance",
@@ -150,7 +150,7 @@ Make a request to the [IAM Policy Management API](/apidocs/iam-policy-management
 {: #block-s2s-xaccount-encryption-api}
 {: api}
 
-Make a request to the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy) to create the service-to-service authorization for the source account's Block Storage service to interact with a Key Management Service instance ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}) of the target account The request needs to be made from the account that owns the customer root key in their KMS.
+Make a request to the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy) to create the service-to-service authorization for the source account's Block Storage service to interact with a Key Management Service instance ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}) of the target account. The request needs to be made from the account that owns the customer root key in their KMS.
 
 * The following example shows how you can authorize the Block service `is.server-protect` of one account (source) to interact with the {{site.data.keyword.hscrypto}} service `hs-crypto` of another account (target) with the _Reader_ and _Authorization Delegator_ roles.
 
@@ -240,7 +240,7 @@ For more information about the arguments and attributes, see the [Terraform docu
 
    For more information about the arguments and attributes, see [IBM Cloud provider](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs#example-usage-of-provider){: external}.
 
-1. To create the IAM authorization between the key management service from one account to the Block storage service in a different account, use the resource `ibm_iam_authorization_policy`. The following example creates an authorization between {{site.data.keyword.keymanagementserviceshort}} service and the file service of two accounts. To create authorization to access {{site.data.keyword.hscrypto}}, specify `hs-crypto` as the value for `target_service_name`.
+1. To create the IAM authorization between the key management service from one account to the Block storage service in a different account, use the resource `ibm_iam_authorization_policy`. The following example creates an authorization between {{site.data.keyword.keymanagementserviceshort}} service and the file service of the two accounts. To create authorization to access {{site.data.keyword.hscrypto}}, specify `hs-crypto` as the value for `target_service_name`.
 
    ```Terraform
    resource "ibm_iam_authorization_policy" "policy" {

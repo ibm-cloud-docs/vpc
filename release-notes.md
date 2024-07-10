@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-07-08"
+lastupdated: "2024-07-10"
 
 keywords:
 
@@ -33,7 +33,7 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: release-notes}
 
 IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-17` updates
-:   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-17`, new certificates are available. 
+:   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-17`, new certificates are available.
    - [Attestation certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-17-attestation.crt){: external}
    - [Encryption certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-17-encrypt.crt){: external}
    - [Intermediate certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-17-intermediate.crt){: external}
@@ -53,7 +53,7 @@ Hyper Protect Secure Build
 {: release-note}
 
 Sapphire Rapids (x3 and x3d) x86-64 bare metal server profiles (Select availability)
-:   Sapphire Rapids (x3 and x3d) x86-64 bare metal server profiles are now available in the US South (Dallas) region. For more information, see [x86-64 bare metal server profiles](docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui).
+:   Sapphire Rapids (x3 and x3d) x86-64 bare metal server profiles are now available in the US South (Dallas) region. For more information, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui).
 
 ### 25 June 2024
 {: #vpc-june2524}
@@ -649,7 +649,7 @@ Ultra High Memory profiles are now available in the United Kingdom (London) regi
 {: release-note}
 
 Bare metal network hardware
-:   Bare metal servers now use upgraded network cards. For network workloads that leverage very high packets per second for smaller packets, you can update your drivers to the latest available Pensando device drivers. For more information, see [Special considerations for bare metal network performance upgrade](/docs/vpc?topic=vpc-bare-metal-image#bare-metal-pensando-considerations) and [AMD Pensando Support](https://www.amd.com/en/support/pensando){: external}.
+:   Bare metal servers now use upgraded network cards. For network workloads that leverage very high packets per second for smaller packets, you can update your drivers to the latest available Pensando device drivers. For more information, see [Special considerations for bare metal network performance upgrade](/docs/vpc?topic=vpc-bare-metal-image#bare-metal-pensando-considerations) and [AMD Pensando Support](https://www.amd.com/en/support/accelerators/pensando.html){: external}.
 
 File Storage for Bare metal servers for VPC
 :   File Storage for VPC is now supported by Bare Metal Servers for VPC. Users can leverage file storage as an addition or alternative to local NVMe drives. [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about).
@@ -770,7 +770,7 @@ Virtual network interface (beta)
 {: release-note}
 
 VPC routing table authorizations
-:   You can use the new VPC routing table authorizations to allow users to administer VPC routing tables but not allow them to administer the broader VPC. Routing table operations were updated to check for these new authorizations, instead of the broader VPC authorizations. The VPC Administrator, Editor, Operator, and Viewer IAM access roles were updated so that users with those roles function as before. However, custom roles that require access to routing tables must be updated. For more information, see [IAM actions for VPC routing tables](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls).
+:   You can use the new VPC routing table authorizations to allow users to administer VPC routing tables but not allow them to administer the broader VPC. Routing table operations were updated to check for these new authorizations, instead of the broader VPC authorizations. The VPC Administrator, Editor, Operator, and Viewer IAM access roles were updated so that users with those roles function as before. However, custom roles that require access to routing tables must be updated. For more information, see [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started&interface=ui).
 
 ### 15 June 2023
 {: #vpc-jun1523}
@@ -2343,7 +2343,7 @@ New SDK
 {: release-note}
 
 IBM Cloud Virtual Servers for VPC on POWER service is deprecated
-:   As of 02 June 2020, you cannot provision new instances. Any instance that is still provisioned as of 22 August 2020 will be deleted. For more information, see the [End of Service Announcement for Virtual Servers for VPC on POWER]( https://www.ibm.com/blog/announcement/end-of-service-announcement-for-virtual-servers-for-vpc-on-power/).
+:   As of 02 June 2020, you cannot provision new instances. Any instance that is still provisioned as of 22 August 2020 will be deleted. For more information, see the [End of Service Announcement for Virtual Servers for VPC on POWER](https://www.ibm.com/blog/announcement/end-of-service-announcement-for-virtual-servers-for-vpc-on-power/).
 
 ## May 2020
 {: #vpc-may20}
