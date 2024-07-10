@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-06-14"
+lastupdated: "2024-07-10"
 
 keywords:
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Cross-account encryption for Block Storage resources
 {: #vpc-block-storage-byok-cross-acct}
 
-{{site.data.keyword.block_storage_is_short}} supports cross-account customer-managed encryption for stand-alone data volumes that you can attach to an instance, and boot volumes that are created during instance provisioning. With this feature, users can access a customer root key (CRK) from another account and use that CRK to encrypt the volume.
+{{site.data.keyword.block_storage_is_short}} supports cross-account customer-managed encryption for stand-alone data volumes that you can attach to an instance, and boot volumes that are created during instance provisioning. With this feature, users can access a customer root key (CRK) from another account and use that CRK to encrypt the volume. This deployment pattern allows to centrally manage encryption keys for all corporate accounts.
 {: shortdesc}
 
 ## About cross-account key access and use

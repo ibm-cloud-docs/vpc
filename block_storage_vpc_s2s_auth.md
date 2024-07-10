@@ -121,6 +121,9 @@ Run the `ibmcloud iam authorization-policy-create` command to create authorizati
    ibmcloud iam authorization-policy-create --file ~/Documents/policy.json
    ```
    {: pre}
+   
+   The cross-account authorization is one-way and specific to key and service. When Account A authorizes their key to be used by Account B's file service, Account B can use Account A's CRK to encrypt Account B's shares. However, Account A cannot use Account B's root keys to encrypt Account A's shares.
+   {: note}
 
 ## Creating service-to-service authorization for customer-managed encryption with the API
 {: #block-s2s-auth-encryption-api}
@@ -176,6 +179,9 @@ Make a request to the [IAM Policy Management API](/apidocs/iam-policy-management
     {: screen}
 
 * To create an authorization policy for {{site.data.keyword.keymanagementserviceshort}}, replace `hs-crypto` with `kms` in the previous example.
+
+The cross-account authorization is one-way and specific to key and service. When Account A authorizes their key to be used by Account B's file service, Account B can use Account A's CRK to encrypt Account B's shares. However, Account A cannot use Account B's root keys to encrypt Account A's shares.
+{: note}
 
 ## Creating service-to-service authorization for customer-managed encryption with Terraform
 {: #block-s2s-auth-encryption-terraform}
