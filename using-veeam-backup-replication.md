@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, [{CURRENT_YEAR}]
-lastupdated: "[{LAST_UPDATED_DATE}]"
+  years: 2020, 2024
+lastupdated: "2024-07-10"
 
 keywords: instance backup, veeam, replication software
 
@@ -37,7 +37,7 @@ In general, similar instructions apply to the other Linux operating system types
 
 1. After you provision your Microsoft Windows instance for VPC, use the Microsoft Remote Desktop to connect to the instance. For more information, see [Connecting to Windows instances](/docs/vpc?topic=vpc-vsi_is_connecting_windows).
 2. Use the Server Manager Dashboard to bring the secondary volume online, create a volume, and assign the drive letter `E:\`.
-3. Use a browser to download the Veeam Backup and Replication software from the [Download Veeam Products](https://www.veeam.com/downloads.html){: external} page.
+3. Use a browser to download the Veeam Backup and Replication software from the [Download Veeam Products](https://www.veeam.com/products/downloads.html){: external} page.
 4. Install the Veeam Backup and Replication software by using the Veeam installation instructions.
 5. Transfer the Veeam license ID file to the Microsoft Windows instance. Start the Veeam Backup and Replication software and use the acquired license ID file to activate the software.
 6. From the **Backup Infrastructure** menu, select **Backup Repositories** and confirm that the _Default Backup Repository_ path is `E:\Backup`. If the path is not `E:\Backup`, then select **add backup repository**. Choose **Direct attached storage > Microsoft Windows**. Select your Microsoft Windows instance as the server and populate the server with the `E:\` drive. In this case, you end up with two repositories, and you need to select the one pointing to your `E:\` drive for backup operations.

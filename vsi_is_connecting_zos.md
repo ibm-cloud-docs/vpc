@@ -156,7 +156,7 @@ If you want to import the CA certificate by using IBM Host On-Demand, run the fo
 
 You can use the web browser to access the IBM z/OS Management Facility (z/OSMF). For example, access the url `https://<vsi ip address>:10443/zosmf/LogOnPanel.jsp`. 
 
-For more information about the z/OSMF, see [IBM z/OS Management Facility](https://www.ibm.com/products/zos-management-facility){: external}.
+For more information about the z/OSMF, see [IBM z/OS Management Facility](https://www.ibm.com/products/zos/management-facility){: external}.
 
 When you launch z/OSMF, browser security warnings are displayed because z/OS virtual server instances are created with TLS certificates that are signed by an internal self-signed root certificate.
     {: note}
