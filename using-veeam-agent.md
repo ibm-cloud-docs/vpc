@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, [{CURRENT_YEAR}]
-lastupdated: "[{LAST_UPDATED_DATE}]"
+  years: 2020, 2024
+lastupdated: "2024-07-10"
 
 keywords: instance backup, veeam, veeam license, order license, virtual private cloud
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Using the Veeam Agent
 {: #using-veeam-agent}
 
-The [Veeam Agent for Linux](https://www.veeam.com/linux-cloud-server-backup-agent.html){: external} is supported on the Linux&reg; operating systems. You can deploy the Veeam Agent on a virtual server instance for {{site.data.keyword.vpc_full}}, including CentOS, RHEL, Ubuntu, and Debian for instance backups and restoration. Similarly, the [Veeam Agent for Windows](https://www.veeam.com/windows-cloud-server-backup-agent.html){: external} is available for use on Windows instances for {{site.data.keyword.vpc_short}}.
+The [Veeam Agent for Linux](https://www.veeam.com/linux-cloud-server-backup-agent.html){: external} is supported on the Linux&reg; operating systems. You can deploy the Veeam Agent on a virtual server instance for {{site.data.keyword.vpc_full}}, including CentOS, RHEL, Ubuntu, and Debian for instance backups and restoration. Similarly, the [Veeam Agent for Windows](https://www.veeam.com/products/physical/windows-backup-recovery.html){: external} is available for use on Windows instances for {{site.data.keyword.vpc_short}}.
 {: shortdesc}
 
 The Veeam Agent is not supported for LinuxONE (s390x processor architecture).
