@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-06-14"
+lastupdated: "2024-07-11"
 
 keywords:
 
@@ -25,7 +25,7 @@ The instance template defines the details of the virtual server instances that a
 
 To create an instance template, complete the following steps.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Instance templates**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click **Navigation menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Instance templates**.
 2. Click **New instance template** and enter the information that is in Table 1.
 3. Click **Create instance template** when the information is complete.
 
@@ -52,7 +52,7 @@ and your [{{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-vpc-reso
 ### Gathering information to create an instance template
 {: #cli-options-instance-template-create}
 
-Ready to create an instance template? Before you can run the `ibmcloud is instance-template-create` command, you need to know the details that you want to include for your instance template and command options. Such as what profile and image that you want to use. Follow these steps to prepare for running the command.
+Ready to create an instance template? Before you can run the `ibmcloud is instance-template-create` command, you must gather the details that you need to include for your instance template and command options. For example, you need the ID or name of the VPC, and the name of the zone where the instance template is to be created. You also need the name of the instance profile that you want to use, the ID or name of the subnet where the template is to be created.
 
 Gather the following required instance template details.
 
@@ -146,7 +146,7 @@ Use the following commands to determine the required information for creating a 
    ```
    {: pre}
 
-   For this example, you see a response similar to the following output.
+   The command output is similar to the following example.
 
    ```sh
    Name               vCPU Manufacturer   Architecture   Family              vCPUs   Memory(GiB)   Bandwidth(Mbps)   Volume bandwidth(Mbps)   GPUs   Storage(GB)
@@ -168,7 +168,7 @@ Use the following commands to determine the required information for creating a 
    ```
    {: pre}
 
-   For this example, you see a response similar to the following output.
+   The command output is similar to the following example.
 
    ```sh
    ID                                          Name                       Status      Subnet CIDR       Addresses   ACL                                   Public Gateway   VPC                     Zone         Resource group
@@ -179,7 +179,7 @@ Use the following commands to determine the required information for creating a 
 
    For the best performance of an instance group, make sure that you use a subnet size of 32 or greater.
 
-   If you don't have a subnet available, you can create one by using the `ibmcloud is subnet-create` command. For more information about creating a subnet, see [IBM Cloud VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference#subnet-cli-ref).
+   If you don't have a subnet available, you can create one by using the `ibmcloud is subnet-create` command. For more information about creating a subnet, see the [IBM Cloud VPC CLI reference](/docs/vpc?topic=vpc-vpc-reference#subnet-cli-ref).
 
 1. List the available images for creating your instance template.
 
@@ -188,7 +188,7 @@ Use the following commands to determine the required information for creating a 
    ```
    {: pre}
 
-   For this example, you see a response similar to the following output.
+   The command output is similar to the following example.
 
    ```sh
    ID                                          Name                                                Status       Arch    OS name                              OS version                                               File size(GB)   Visibility   Owner type   Encryption   Resource group
@@ -204,7 +204,7 @@ Use the following commands to determine the required information for creating a 
    ```
    {: pre}
 
-   For this example, you see a response that is similar to the following output.
+   The command output is similar to the following example.
 
    ```text
    ID                                          Name     Type   Length   FingerPrint          Resource group
@@ -219,24 +219,24 @@ Use the following commands to determine the required information for creating a 
 
 1. List all the available placement groups that you can associate with your instance.
 
-    ```sh
-    ibmcloud is placement-groups
-    ```
-    {: pre}
+   ```sh
+   ibmcloud is placement-groups
+   ```
+   {: pre}
 
-    For this example, you see a response similar to the following output.
+   The command output is similar to the following example.
 
-    ```sh
-    Listing placement groups for generation 2 compute in all resource groups and region us-east under account vpcdemo as user    yaohaif@cn.ibm.com...
-    ID                                            Name                             State    Strategy       Resource Group
-    c5f1f366-b92a-4080-991a-aa5c2e33d96b          placement-group-region-us-east   stable   power_spread       5018a8564e8120570150b0764d39ebcc
-    placement-group-cccc-cccc-cccc-cccccccccccc   vsi-placementGroup1              stable   host_spread    5018a8564e8120570150b0764d39ebcc
-    placement-group-bbbb-bbbb-bbbb-bbbbbbbbbbbb   vsi-placementGroup2              stable   power_spread     5018a8564e8120570150b0764d39ebcc
-    placement-group-aaaa-aaaa-aaaa-aaaaaaaaaaaa   vsi-placementGroup3              stable   power_spread   1d18e482b282409e80eff354c919c6a2
-    ```
-    {: screen}
+   ```sh
+   Listing placement groups for generation 2 compute in all resource groups and region us-east under account vpcdemo as user    yaohaif@cn.ibm.com...
+   ID                                            Name                             State    Strategy       Resource Group
+   c5f1f366-b92a-4080-991a-aa5c2e33d96b          placement-group-region-us-east   stable   power_spread       5018a8564e8120570150b0764d39ebcc
+   placement-group-cccc-cccc-cccc-cccccccccccc   vsi-placementGroup1              stable   host_spread    5018a8564e8120570150b0764d39ebcc
+   placement-group-bbbb-bbbb-bbbb-bbbbbbbbbbbb   vsi-placementGroup2              stable   power_spread     5018a8564e8120570150b0764d39ebcc
+   placement-group-aaaa-aaaa-aaaa-aaaaaaaaaaaa   vsi-placementGroup3              stable   power_spread   1d18e482b282409e80eff354c919c6a2
+   ```
+   {: screen}
 
-### Example of creating an instance template with the CLI
+### Creating an instance template from the CLI
 {: #creating-instance-template-example-cli}
 
 After you know these values, use them to run the `instance-template-create` command. In addition to the information that you gathered, you must specify a name for the instance.
@@ -316,7 +316,7 @@ A good way to learn more about the API is to click **Get sample API call** on th
 ### Gathering information to create an instance template
 {: #api-options-instance-template-create}
 
-Ready to create an instance template? Before you can run the `POST /instance/templates` command, you need to know the details that you want to include for your instance template and command options. Such as what profile and image that you want to use. Follow these steps to prepare for running the command.
+Ready to create an instance template? Before you can run the `POST /instance/templates` command, you need to know the details that you want to include for your instance template and command options. Such as the profile and image that you want to use. Follow these steps to prepare for running the command.
 
 Gather the following required instance template details by making the following API calls:
 
