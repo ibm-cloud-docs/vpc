@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-07-10"
+lastupdated: "2024-07-11"
 
 keywords:
 
@@ -34,9 +34,9 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-17` updates
 :   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-17`, new certificates are available.
-   - [Attestation certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-17-attestation.crt){: external}
-   - [Encryption certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-17-encrypt.crt){: external}
-   - [Intermediate certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-17-intermediate.crt){: external}
+   - [Attestation certificate](/docs/vpc?topic=vpc-about-attestation)
+   - [Encryption certificate](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_encrypt)
+   - [Intermediate certificate](/docs/vpc?topic=vpc-cert_validate#download_cert)
 
 ## June 2024
 {: #vpc-jun24}
@@ -88,9 +88,9 @@ UI Enhancements to Images for VPC
 
 IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-16` updates
 :   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-16`, new certificates are available.
-   - [Attestation certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-16-attestation.crt){: external}
-   - [Encryption certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-16-encrypt.crt){: external}
-   - [Intermediate certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-16-intermediate.crt){: external}
+   - [Attestation certificate](/docs/vpc?topic=vpc-about-attestation)
+   - [Encryption certificate](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_encrypt)
+   - [Intermediate certificate](/docs/vpc?topic=vpc-cert_validate#download_cert)
 
 Base64 format of the attestationPublicKey
 :  Besides the plain text format of the attestation public key, you can also use its base64 format to encrypt the attestation document during the contract preparation. For more information, see [Preparing the attestation](/docs/vpc?topic=vpc-about-contract_se#hpcr_attestation_prepare).
@@ -269,9 +269,9 @@ UI Enhancement to SSH Keys
 
 IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-15` updates
 :   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-15`, new certificates are available.
-   - [Attestation certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-15-attestation.crt){: external}
-   - [Encryption certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-15-encrypt.crt){: external}
-   - [Intermediate certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-15-intermediate.crt){: external}
+   - [Attestation certificate](/docs/vpc?topic=vpc-about-attestation)
+   - [Encryption certificate](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_encrypt)
+   - [Intermediate certificate](/docs/vpc?topic=vpc-cert_validate#download_cert)
 
 :   You can also set the expiry of contract during signature. Contract signature is an optional feature that can be used with the contract. You can choose to sign a contract before it is passed as input. Contracts that are in plain text or encrypted can be signed. Certificate can also be parsed as base64 string. For more information, see [Contract Signature](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_sign)
 
@@ -491,9 +491,9 @@ Snapshot consistency groups and consistency group backups
 
 IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-14` updates
 :   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-14`, new certificates are available.
-   - [Attestation certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-14-attestation.crt){: external}
-   - [Encryption certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-14-encrypt.crt){: external}
-   - [Intermediate certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-14-intermediate.crt){: external}
+   - [Attestation certificate](/docs/vpc?topic=vpc-about-attestation)
+   - [Encryption certificate](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_encrypt)
+   - [Intermediate certificate](/docs/vpc?topic=vpc-cert_validate#download_cert)
 
 ### 01 December 2023
 {: #vpc-dec0123}
@@ -528,9 +528,9 @@ GPU A100 profile available on Intel Ice Lake hardware in US East (Washington DC)
 
 IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-13` updates
 :   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-13`, new certificates are available.
-   - [Attestation certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-13-attestation.crt){: external}
-   - [Encryption certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-13-encrypt.crt){: external}
-   - [Intermediate certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-13-intermediate.crt){: external}
+   - [Attestation certificate](/docs/vpc?topic=vpc-about-attestation)
+   - [Encryption certificate](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_encrypt)
+   - [Intermediate certificate](/docs/vpc?topic=vpc-cert_validate#download_cert)
 
 :   You can attach multiple volumes when you bring up the virtual server instance. For more information, see [The workload - volumes subsection](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_volumes), and [The env - volumes subsection](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_env_vol).
 
@@ -631,9 +631,9 @@ UI Enhancements for Backup plans
 
 IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-12` updates
 :   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-12`, new certificates are available.
-   - [Attestation certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-12-attestation.crt){: external}
-   - [Encryption certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-12-encrypt.crt){: external}
-   - [Intermediate certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-12-intermediate.crt){: external}
+   - Attestation certificate
+   - Encryption certificate
+   - Intermediate certificate
 
 :   You can now roll or rotate the seeds that are used in the contract to improve the security posture or if the seed is compromised. For more information, see [The workload - volumes subsection](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_volumes), and [The env - volumes subsection](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_env_vol).
 
@@ -740,9 +740,9 @@ Madrid multi zone region (MZR)
 
 IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-11` updates
 :  For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-11`, new certificates are available.
-   - [Attestation certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-11-attestation.crt){: external}
-   - [Encryption certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-11-encrypt.crt){: external}
-   - [Intermediate certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-11-intermediate.crt){: external}
+   - Attestation certificate
+   - Encryption certificate
+   - Intermediate certificate
 
    Support for customer-managed keys through integration with Hyper Protect Crypto Services
    - **Without** the feature, the data volume that you attach to your instance is encrypted automatically with a LUKS passphrase generated by using the **two** seeds from the `workload` - `volumes` and `env` - `volumes` sections of the contract. **Starting from the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-11`**, Hyper Protect Virtual Servers support integration with the key management service (KMS) Hyper Protect Crypto Services. You can enable the integration by providing KMS configurations in the contract. Your Hyper Protect Virtual Server instance calls Hyper Protect Crypto Services to generate a random value as the third seed and wrap it with your root key. The wrapped seed is stored in the metadata partition of your data volume. The LUKS passphrase is generated by using **three** seeds - the seed in the metadata partition (unwrapped first) and the two seeds from the contract. For more information about how the integration works and detailed instructions, see [Securing your data](/docs/vpc?topic=vpc-hyper-protect-virtual-server-mng-data).
@@ -824,9 +824,9 @@ Removal of weak VPN for VPC ciphers
 
 IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-10`
 :  For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-10`, new certificates are available.
-   - [Attestation certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-10-attestation.crt){: external}
-   - [Encryption certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-10-encrypt.crt){: external}
-   - [Intermediate certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-10-intermediate.crt){: external}
+   - Attestation certificate
+   - Encryption certificate
+   - Intermediate certificate
 
 ### 9 May 2023
 {: #vpc-may0923}
@@ -935,9 +935,9 @@ Modifying the next hop for VPC routes
 
 IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-9` updates
 :  For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-9`, new certificates are available.
-   - [Attestation certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-9-attestation.crt){: external}
-   - [Encryption certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-9-encrypt.crt){: external}
-   - [Intermediate certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-9-intermediate.crt){: external}
+   - Attestation certificate
+   - Encryption certificate
+   - Intermediate certificate
 
    Two partitions in new data volume
    - For new {{site.data.keyword.hpvs}} instances, the data volume is partitioned into two parts. The first partition (100Mib) is reserved for internal metadata; the second partition remains as the data volume for workload. Only new volumes are partitioned, and you can't use the partitioned volume with an older version of the HPCR image. Provisioning with an existing encrypted volume also works. The difference is that the existing volume does not get partitioned, and you can also go back to an older image with this volume.
@@ -1015,9 +1015,9 @@ Secure boot with Trusted Plaform Module (TPM) (select availability)
 
 IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-8` updates
 :  For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-8`, new certificates are available.
-   - [Attestation certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-8-attestation.crt){: external}
-   - [Encryption certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-8-encrypt.crt){: external}
-   - [Intermediate certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-8-intermediate.crt){: external}
+   - Attestation certificate
+   - Encryption certificate
+   - Intermediate certificate
 
    Using {{site.data.keyword.hpvs}} for VPC in a private network
    - You can use your {{site.data.keyword.hpvs}} for VPC instance in **private-only** network configurations, in which the VPC doesn't have a public gateway, and the virtual server instance doesn't have a floating IP. You can connect to private endpoints of other services, including container registry and [IBM Log Analysis](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc). The prerequisite is that you need a DNS server that is attached to your virtual server instance. You don't need to do any extra configurations.
@@ -1031,13 +1031,6 @@ IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1
 
 Context-based restrictions
 :   Context-based restrictions are now available for {{site.data.keyword.vpc_short}} resources. With context-based restrictions, account owners and administrators can define and enforce network access policies. For more information, see [Protecting Virtual Private Cloud (VPC) Infrastructure Services with context-based restrictions](/docs/vpc?topic=vpc-cbr).
-
-### 18 January 2023
-{: #vpc-jan1823}
-{: release-note}
-
-New region Japan (Tokyo) for LinuxONE Bare Metal Servers (s390x processor architecture) (select availability)
-:   LinuxONE Bare Metal Servers are now available in the Japan (Tokyo) region. For more information, see [About LinuxONE Bare Metal Servers](/docs/vpc?topic=vpc-about-linuxone-bare-metal-servers).
 
 ### 17 January 2023
 {: #vpc-jan1723}
@@ -1054,12 +1047,6 @@ End of support (EOS) for deprecated VPN for VPC IKE and IPsec ciphers
 
    Effective today, these ciphers are no longer supported in the UI and EOS for use with the CLI and API is forthcoming. If you didn't upgrade to more secure ciphers, do so now.
 
-### 05 January 2023
-{: #vpc-jan0523}
-{: release-note}
-
-New region United Kingdom (London) for LinuxONE Bare Metal Servers (s390x processor architecture) (select availability)
-:   LinuxONE Bare Metal Servers are now available in the United Kingdom (London) region. For more information, see [About LinuxONE Bare Metal Servers](/docs/vpc?topic=vpc-about-linuxone-bare-metal-servers).
 
 ## December 2022
 {: #vpc-dec22}
@@ -1082,9 +1069,9 @@ Backup for VPC
 
 IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-7` updates
 :  For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-7`, new certificates are available.
-   - [Attestation certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-7-attestation.crt){: external}
-   - [Encryption certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-7-encrypt.crt){: external}
-   - [Intermediate certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-7-intermediate.crt){: external}
+   - Attestation certificate
+   - Encryption certificate
+   - Intermediate certificate
 
    Certificate revocation list
    - Starting from `ibm-hyper-protect-container-runtime-1-0-s390x-7-encrypt.crt` and `ibm-hyper-protect-container-runtime-1-0-s390x-7-attestation.crt`, the certificates contain **Certificate Revocation List (CRL) Distribution Points**. You can use the CRL to verify that your certificates are valid (not revoked). For more information, see [Certificate revocation list](/docs/vpc?topic=vpc-cert_validate#certificate-revocation-list).
@@ -1099,9 +1086,6 @@ Bare metal servers now support custom images
 ### 13 December 2022
 {: #vpc-dec1322}
 {: release-note}
-
-New region Canada (Toronto) for LinuxONE Bare Metal Servers (s390x processor architecture) (select availability)
-:   LinuxONE Bare Metal Servers are now available in the Canada (Toronto) region. For more information, see [About LinuxONE Bare Metal Servers](/docs/vpc?topic=vpc-about-linuxone-bare-metal-servers).
 
 Volume creation from a Block Storage snapshot
 :   You can now use the UI and CLI, in addition to the VPC API, to create a stand-alone Block Storage volume from a snapshot. Stand-alone data volumes can be attached to a virtual server instance at any time. You can select a snapshot of a boot volume and use it to boot a new virtual server instance. For more information, see
@@ -1119,15 +1103,15 @@ Block Storage volume health states
 
 IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-6` updates
 :  For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-6`, new certificates are available.
-   - [Attestation certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-6-attestation.crt){: external}
-   - [Encryption certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-6-encrypt.crt){: external}
-   - [Intermediate certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-6-intermediate.crt){: external}
+   - Attestation certificate
+   - Encryption certificate
+   - Intermediate certificate
 
    Logging for {{site.data.keyword.hpvs}} for VPC
    - Apart from IBM Log Analysis, you can now configure logging with a generic syslog backend. For more information, see [Logging for {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc#syslog).
 
    Security claims on disks encryption
-   - Both the root disk and data disks in the {{site.data.keyword.hpvs}} for VPC instance are configured with Linux Unified Key Setup (LUKS) Encryption. You can verify the encryption status by checking related messages in the log. For more information, see [Verifying disk encryption status](/docs/vpc?hpvs-disks-encryption-validate).
+   - Both the root disk and data disks in the {{site.data.keyword.hpvs}} for VPC instance are configured with Linux Unified Key Setup (LUKS) Encryption. You can verify the encryption status by checking related messages in the log. For more information, see [Verifying disk encryption status](/docs/vpc?topic=vpc-hpvs-disks-encryption-validate).
 
 ### 11 November 2022
 {: #vpc-nov1122}
@@ -1170,12 +1154,6 @@ Context-based restrictions (limited availability)
 Windows BYOL for multi-tenant hosts
 :   You can now bring your own license for Windows operating systems with a custom image to provision virtual server instances on multi-tenant hosts. Previously Windows BYOL was limited to dedicated hosts. For more information, see [Bring your Own License](/docs/vpc?topic=vpc-byol-vpc-about) and [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images).
 
-### 12 October 2022
-{: #vpc-oct1222}
-{: release-note}
-
-New region US East (Washington DC) for LinuxONE Bare Metal Servers (s390x processor architecture) (select availability)
-:   LinuxONE Bare Metal Servers are now available in the US East (Washington DC) region. For more information, see [About LinuxONE Bare Metal Servers](/docs/vpc?topic=vpc-about-linuxone-bare-metal-servers).
 
 ## 3 October 2022
 {: #vpc-oct0322}
@@ -1197,14 +1175,6 @@ Flow Logs for VPC
 
 ## September 2022
 {: #vpc-september22}
-
-### 27 September 2022
-{: #vpc-september2722}
-{: release-note}
-
-IBM&reg; LinuxONE Bare Metal Servers (s390x processor architecture) (select availability)
-:   Accounts with access to the profiles for s390x bare metal servers can now create LinuxONE Bare Metal Server instances. These profiles have a `cpu_architecture` of `s390x` and must be used with Red Hat Enterprise Linux for s390x and SUSE Linux Enterprise Server (SLES) for s390x. Each LinuxONE Bare Metal Server is equivalent to a logical partition (LPAR) on the IBM LinuxONE or IBM Z with dedicated s390x CPU cores, memory, and I/O devices for your Linux workloads. For more information, see [About LinuxONE Bare Metal Servers](/docs/vpc?topic=vpc-about-linuxone-bare-metal-servers).
-
 
 ### 23 September 2022
 {: #vpc-september2322}

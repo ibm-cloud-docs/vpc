@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-05-22"
+  years: 2022, 2024
+lastupdated: "2024-07-11"
 
 keywords: confidential computing, secure execution, hyper protect virtual server for vpc, terraform, tutorial, financial transaction
 
@@ -22,7 +22,7 @@ This tutorial walks you through the steps to deploy a sample application on Hype
 
 Confidential Computing is the protection of data-in-use through a hardware-based technique. The sample application "PayNow" obtains and processes PII and credit card information for a financial transaction.
 
-You can provision {{site.data.keyword.hpvs}} with the advantage of [IBM Secure Execution for Linux](https://www.ibm.com/docs/en/linux-on-systems?topic=virtualization-introducing-secure-execution-linux){: external} on IBM Cloud Virtual Private Cloud (VPC) or On-Premises. In this tutorial, we use Hyper Protect Virtual Servers for VPC.
+You can provision {{site.data.keyword.hpvs}} with the advantage of [IBM Secure Execution for Linux](https://www.ibm.com/docs/en/linux-on-systems?topic=linux-introducing-secure-execution){: external} on IBM Cloud Virtual Private Cloud (VPC) or On-Premises. In this tutorial, we use Hyper Protect Virtual Servers for VPC.
 
 ![Data in financial transactions are protected by Confidential Computing on Hyper Protect Virtual Server for VPC.](images/paynow-code-pattern.svg "Data in financial transactions are protected by Confidential Computing on Hyper Protect Virtual Server for VPC."){: caption="Figure 1. Data in financial transactions are protected by Confidential Computing on Hyper Protect Virtual Server for VPC" caption-side="bottom"}
 
@@ -32,7 +32,7 @@ You can provision {{site.data.keyword.hpvs}} with the advantage of [IBM Secure E
 To complete this tutorial, you need to meet the following prerequisites: 
 1.	Create an IBM Cloud account.
 2.	[Create an API key](/docs/account?topic=account-userapikey) for your user identity.
-3.	[Install IBM Cloud CLI](/docs/cli?topic=cli-install-ibmcloud-cli) and the [container registry CLI plug-in](/docs/cli?topic=cli-install-devtools-manually#idt-install-container-registry-cli-plugin).
+3.	[Install IBM Cloud CLI](/docs/cli?topic=cli-install-ibmcloud-cli) and the [container registry CLI plug-in](/docs/cli?topic=cli-containerregcli).
 4.	Create a [VPC and a subnet](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vpc-and-subnet) with a [public gateway](/docs/vpc?topic=vpc-create-public-gateways) and a [security group](https://cloud.ibm.com/vpc-ext/network/securityGroups){: external} with rules that allow at least inbound IP connections on port 8443 and all outbound IP connections.
 5.	Create a [Log Analysis instance](https://cloud.ibm.com/catalog/services/logdna?callback=%2Fobserve%2Flogging%2Fcreate){: external} on IBM Cloud. Make a note of the ingestion host and the ingestion key.
 6.	Install [Git](https://github.com/git-guides/install-git){: external}.

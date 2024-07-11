@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2022, 2024
-lastupdated: "2024-02-20"
+lastupdated: "2024-07-11"
 
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, storage optimized
@@ -186,7 +186,7 @@ For a cz2-8x16 profile:
 
 The amount of overall bandwidth provided to volume bandwidth can be adjusted within the overall instance limits. A default amount of volume bandwidth is set on each instance profile.
 
-For more information, see [Creating VPC resources with CLI and API](/docs/vpc?topic=vpc-creating-vpc-resources&interface=api) and [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles).
+For more information, see [Creating VPC resources with CLI and API](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api) and [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles).
 
 ## Viewing profile configurations
 {: #vs-popular-profiles}

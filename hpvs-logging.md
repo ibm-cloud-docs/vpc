@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-03-13"
+lastupdated: "2024-07-11"
 
 keywords: confidential computing, secure execution, logging for hyper protect virtual server for vpc
 
@@ -225,7 +225,7 @@ You can follow the following procedure to create the required certificates and k
    CN = client.example.org
    ```
 
-   Make sure to update `dn` with your values. Whether the actual values play a role depends on the `StreamDriver.Authmode` setting (which appears in the following documentation). In this example, we use the setting `StreamDriver.Authmode="x509/certvalid"` and in this case, the value of `dn` does **not** play a role (since all valid client certificates are accepted). Adjust this according to your needs. For more information, see [StreamDriver.Authmode](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imtcp.html#streamdriver-authmode).
+   Make sure to update `dn` with your values. Whether the actual values play a role depends on the `StreamDriver.Authmode` setting (which appears in the following documentation). In this example, we use the setting `StreamDriver.Authmode="x509/certvalid"` and in this case, the value of `dn` does **not** play a role (since all valid client certificates are accepted). Adjust this according to your needs. For more information, see [StreamDriver.Authmode](https://www.rsyslog.com/doc/configuration/modules/imtcp.html#streamdriver-authmode){: external}.
    {: note}
 
    Create the key and certificate:
