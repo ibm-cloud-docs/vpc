@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-06-14"
+lastupdated: "2024-07-11"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -39,11 +39,11 @@ When you create a virtual server instance, you can [create a {{site.data.keyword
 
 A {{site.data.keyword.block_storage_is_short}} volume can be attached to only one instance at a time. Instances cannot share a volume.
 
-### How many {{site.data.keyword.block_storage_is_short}} secondary data volumes can be attached to an instance?
+### How many data volumes can be attached to an instance?
 {: faq}
 {: #faq-block-storage-3}
 
-You can create 12 {{site.data.keyword.block_storage_is_short}} data volumes per instance, plus the boot volume.
+You can attach 12 {{site.data.keyword.block_storage_is_short}} data volumes per instance, plus the boot volume.
 
 ### How am I charged for usage?
 {: faq}
@@ -159,7 +159,7 @@ tmpfs              800872       0     800872   0% /run/user/0
 
 You can create up to 300 total {{site.data.keyword.block_storage_is_short}} volumes (data and boot) per account in a region. To increase this [quota](/docs/vpc?topic=vpc-quotas#block-storage-quotas), open a [support case](/docs/vpc?topic=vpc-getting-help-and-support-for-vpc) and specify the zone where you need more volumes.
 
-### After a data volume is created with a specific capacity, can the capacity later be increased?
+### After a data volume is created with a specific capacity, can the capacity be increased later?
 {: faq}
 {: #faq-block-storage-8}
 {: support}
@@ -170,13 +170,13 @@ You can increase the capacity of data volumes that are attached to a virtual ser
 {: faq}
 {: #faq-block-storge-rbv}
 
-Boot volume capacity can be increased during instance provisioning or later, by directly modifying the boot volume. This feature applies to instances that are created from stock or custom images. You can also specify a larger boot volume capacity when you create an instance template. The boot volume can't be unattached from an instance (that is, stored as a stand-alone data volume). For more information, see [Increasing boot volume capacity](/docs/vpc?topic=vpc-resize-boot-volumes).
+Boot volume capacity can be increased during instance provisioning or later, by directly modifying the boot volume. This feature applies to instances that are created from stock or custom images. You can also specify a larger boot volume capacity when you create an instance template. For more information, see [Increasing boot volume capacity](/docs/vpc?topic=vpc-resize-boot-volumes).
 
 ### Can I change boot volume capacity for an existing instance?
 {: faq}
 {: #faq-block-storge-rbv-instance}
 
-Yes, boot volume capacity can be increased for an existing instance. However, you increase capacity on the storage side. That is, by modifying the boot volume details. For example, in the UI, you'd select a boot volume from the list of {{site.data.keyword.block_storage_is_short}} volumes and then resize the volume from the volume details page. For more information, see [Increase boot volume capacity from the list of {{site.data.keyword.block_storage_is_short}} volumes in the UI](/docs/vpc?topic=vpc-resize-boot-volumes&interface=ui#resize-boot-vol-list-ui). You can also use the [CLI](/docs/vpc?topic=vpc-resize-boot-volumes&interface=cli#expand-existing-boot-vol-cli) or the [API](/docs/vpc?topic=vpc-resize-boot-volumes&interface=api#expand-existing-boot-vol-api).
+Yes, boot volume capacity can be increased for an existing instance. For example, in the console, select a boot volume from the list of {{site.data.keyword.block_storage_is_short}} volumes and then resize the volume from the volume details page. For more information, see [Increase boot volume capacity from the list of {{site.data.keyword.block_storage_is_short}} volumes in the UI](/docs/vpc?topic=vpc-resize-boot-volumes&interface=ui#resize-boot-vol-list-ui). You can also use the [CLI](/docs/vpc?topic=vpc-resize-boot-volumes&interface=cli#expand-existing-boot-vol-cli) or the [API](/docs/vpc?topic=vpc-resize-boot-volumes&interface=api#expand-existing-boot-vol-api).
 
 ### How many volumes can I provision on my account?
 {: faq}
@@ -200,11 +200,11 @@ Instead, use an {{site.data.keyword.cloud}} classic service option outside a VPC
 
 No. The VPC provides access to new availability zones in multi-zone regions. Compute, network, and storage resources are designed to function in the VPC.
 
-### What is an _image from volume_ and how does it relate to {{site.data.keyword.block_storage_is_short}} volumes?
+### Can I create custom images from my existing boot volumes?
 {: faq}
 {: #faq-block-storage-ifv}
 
-With the image from volume feature, you can create a custom image directly from a {{site.data.keyword.block_storage_is_short}} boot volume. Then, you can use the custom image to provision other virtual server instances. For more information, see [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc).
+Yes, you can create a custom image directly from a {{site.data.keyword.block_storage_is_short}} boot volume. Then, you can use the custom image to provision other virtual server instances. For more information, see [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc).
 
 ## Volume management questions
 {: #block-storage-vpc-volume-questions}
@@ -213,7 +213,7 @@ With the image from volume feature, you can create a custom image directly from 
 {: faq}
 {: #faq-block-storage-14}
 
-The boot volume is created when you provision a virtual server instance. The boot disk of an instance is a cloned image of the virtual machine image. For stock images, the boot volume capacity is 100 GB. If you are importing a custom image, the boot volume capacity can be 10 GB to 250 GB, depending on what the image requires. Images smaller than 10 GB are rounded up to 10 GB. The boot volume is deleted when you delete the instance to which it is attached.
+The boot volume is created when you provision a virtual server instance. The boot disk of an instance is a cloned image of the virtual machine image. For stock images, the boot volume capacity is 100 GB. If you are importing a custom image, the boot volume capacity can be 10 GB to 250 GB, depending on what the image requires. Images smaller than 10 GB are rounded up to 10 GB.
 
 ### When can I delete a {{site.data.keyword.block_storage_is_short}} data volume?
 {: faq}
@@ -266,7 +266,7 @@ Backup snapshots, simply called "backups", are snapshots that are automatically 
 
 {{site.data.keyword.block_storage_is_short}} secures your data across redundant fault zones in your region. By using the [backup service](/docs/vpc?topic=vpc-backup-service-about), you can regularly back up your volume data based on a schedule that you set up. You can create backup snapshots as frequently as 1 hour. However, the backup service does not provide continual backup with automatic failover, and restoring a volume from a backup or snapshot is a manual operation that takes time. If you require a higher level of service for automatic disaster recovery, see IBM's [Cloud disaster recovery solutions](https://www.ibm.com/cloud/disaster-recovery).
 
-### What is restoring a volume from a snapshot?
+### Can I restore a volume from a snapshot?
 {: faq}
 {: #faq-block-storage-restore-vol}
 
@@ -336,7 +336,7 @@ You can also revoke access at any time, for example, if you suspect your keys mi
 {: faq}
 {: #faq-block-storage-21}
 
-Customer-managed encryption encrypts your {{site.data.keyword.block_storage_is_short}} volumes by using your own root keys. You have complete control over your data security and grant IBM access to use your root keys. For more information, see [Advantages of customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#byok-advantages).
+Customer-managed encryption creates an envelop encryption for your {{site.data.keyword.block_storage_is_short}} volumes with your own root keys. You have complete control over your data security, managing access to your keys, rotating and revoking keys as you want. For more information, see [Advantages of customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#byok-advantages).
 
 ### What encryption technology is used for customer-managed encryption?
 {: faq}
