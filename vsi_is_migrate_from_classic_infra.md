@@ -145,7 +145,7 @@ Complete the following customizations on your Windows virtual server to prepare 
    1. From the mounted ISO, run `virtio-win-guest-tools.exe` and complete the installation.
       1. Locate the downloaded ISO and double-click it to mount it.
       1. From the mounted ISO, run `virtio-win-guest-tools.exe` and complete the installation.
-1. Install and configure cloudbase-init from [Cloudbase-Init installation package](https://www.cloudbase.it/downloads/CloudbaseInitSetup_Stable_x64.msi){: external}.
+1. Install and configure cloudbase-init from [Cloudbase-Init installation package](https://www.cloudbase.it/downloads/CloudbaseInitSetup_1_1_5_x64.msi){: external}.
 1. Modify the `cloudbase-init.conf` file (`C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf\cloudbase-init.conf`) to match the following values. Don't remove any other content from the file.
 
    ```text
