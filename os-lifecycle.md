@@ -4,7 +4,7 @@ copyright:
 
   years: 2022, 2024
 
-lastupdated: "2024-07-10"
+lastupdated: "2024-07-11"
 
 keywords: operating system end of support (eos)
 
@@ -40,6 +40,7 @@ The following table describes the end of support date and license model for Cent
 | CentOS 8 minimal | 31 December 2021 | Free |
 | CentOS 7.9 minimal | 30 June 2024  | Free |
 | CentOS Stream 8 | 31 May 2024 | Free |
+| CentOS Stream 9 | 31 May 2027 | Free |
 {: caption="Table 1. Lifecycle for CentOS operating systems" caption-side="bottom"}
 
 ## Debian
@@ -72,6 +73,7 @@ The following table describes the end of support date and license model for Red 
 
 | Operating system | End of support | License model |
 |-----------------|----------------|---------------|
+| RHEL 9.4 minimal | 30 April 2026    | Pay-as-you-Go / BYOL  |
 | RHEL 9.2 minimal | 31 May 2025    | Pay-as-you-Go / BYOL  |
 | RHEL 9.0 minimal | 31 May 2024    | Pay-as-you-Go / BYOL  |
 | RHEL 9.0 (SAP HANA and SAP applications) | 31 May 2026    | Pay-as-you-Go |
@@ -128,6 +130,7 @@ The following table describes the end of support date and license model for Ubun
 
 | Operating system | End of support | License model |
 |-----------------|----------------|---------------|
+| Ubuntu 24.04 minimal | 25 April 2029 | Free |
 | Ubuntu 22.04 minimal | 30 April 2027 | Free |
 | Ubuntu 20.04 minimal | 30 April 2025 | Free |
 | Ubuntu 18.04 minimal [^tabletext]| 31 May 2023  | Free |
