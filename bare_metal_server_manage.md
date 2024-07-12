@@ -159,9 +159,7 @@ ibmcloud is bare-metal-server-start SERVER
 Billing continues after the bare metal server is stopped.
 {: note}
 
-For a full list of command options, see [ibmcloud is bare-metal-server-restart](/docs/vpc?topic=vpc-vpc-reference#bare-metal-server-restart).
-
-
+For a full list of command options, see [ibmcloud is bare-metal-server-restart](/docs/vpc?topic=vpc-vpc-reference#bare-metal-server-restart
 
 ### Updating the firmware for a bare metal server by using the CLI
 {: #update-firmware-bare-metal-servers-cli}
