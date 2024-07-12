@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-06-25"
+lastupdated: "2024-07-12"
 
 keywords: file share, file storage, virtual network interface, accessor share, de-auth
 
@@ -44,7 +44,7 @@ CLI is share-binding-delete TBD
 {: pre}
 {: cli}
 
-You can programmatically delete a share binding by calling the `/shares` method in the [VPC API](/apidocs/vpc/latest#){: external} as shown in the following sample request.
+You can programmatically delete a share binding by calling the `/shares` method in the [VPC API](/apidocs/vpc/latest){: external} as shown in the following sample request.
 {: api}
 
 ```sh

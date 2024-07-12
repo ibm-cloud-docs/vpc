@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-07-10"
+lastupdated: "2024-07-12"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -570,7 +570,7 @@ Before you delete a file share, make sure that it is [unmounted](#fs-mount-unmou
 
 [New]{: tag-new}
 
-You can programmatically delete a share binding by calling the `/shares` method in the [VPC API](/apidocs/vpc/latest#){: external} as shown in the following sample request.
+You can programmatically delete a share binding by calling the `/shares` method in the [VPC API](/apidocs/vpc/latest){: external} as shown in the following sample request.
 {: api}
 
 ```sh

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-04-30"
+lastupdated: "2024-07-12"
 
 keywords: VPN migration, api migration, versioned change
 
@@ -83,7 +83,7 @@ The following table lists the methods and their changed paths for API requests t
 ## Changed HTTP response codes when setting VPN gateway connection CIDRs
 {: #changed-http-response-vpn-advanced-configuration}
 
-When [setting a local CIDR](/apidocs/vpc/latest#add-vpn-gateway-connection-local-cidr) or [setting a peer CIDR](/apidocs/vpc/latest#add-vpn-gateway-connection-peer-cidr) on a VPN gateway connection, the response now includes a `201` HTTP success code if the CIDR was successfully set or a `204` HTTP success code if the CIDR is already set.
+When [setting a local CIDR](/apidocs/vpc/latest#add-vpn-gateway-connections-local-cidr) or [setting a peer CIDR](/apidocs/vpc/latest#add-vpn-gateway-connections-peer-cidr) on a VPN gateway connection, the response now includes a `201` HTTP success code if the CIDR was successfully set or a `204` HTTP success code if the CIDR is already set.
 
 ## Action needed
 {: #action-needed-vpn-advanced-configuration}
