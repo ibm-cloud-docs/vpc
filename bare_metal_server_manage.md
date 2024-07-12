@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-06-28"
+lastupdated: "2024-07-12"
 
 keywords: bare metal servers, managing, operation, manage bare metal server, manage bare metal, manage server, restart bare metal, stop bare metal, delete bare metal, reboot bare metal, restart server, stop server, delete server
 
@@ -299,8 +299,6 @@ curl -X POST "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/star
 {: pre}
 
 For more information about the API request, see [Start a bare metal server](/apidocs/vpc/latest#start-bare-metal-server).
-
-
 
 ### Updating the firmware for a bare metal server by using the API
 {: #update-firmware-bare-metal-servers-API}
