@@ -721,7 +721,7 @@ Use the following steps to create a virtual server instance from a bootable volu
    Need more help? You can always run `ibmcloud is instance-create --help` to display help for creating an instance.
    {: tip}
 
-### Create a boot volume from a snapshot and use it to provision a new instance with the CLI
+### Creating a boot volume from a snapshot and use it to provision a new instance from the CLI
 {: #create-instance-bootable-snapshot-cli}
 
 You can create a boot volume from a bootable [snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-restore-concepts) and use that for your image. When you run the `ibmcloud is instance-create` command, specify the `source_snapshot` subproperty in the boot volume JSON and the ID or name of a bootable snapshot. For an example, see [Create a boot volume from a snapshot for a new instance from the CLI](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=cli#snapshots-vpc-restore-boot-CLI).

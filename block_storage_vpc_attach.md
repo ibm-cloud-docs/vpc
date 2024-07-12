@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-06-14"
+lastupdated: "2024-07-12"
 
 keywords: vpc, Block Storage, Block Storage for vpc, mounting storing, attaching Block Storage, vpc instance, data volumes
 
@@ -117,14 +117,13 @@ To see a list of available virtual server instances, run the `ibmcloud is instan
 ```sh
 $ ibmcloud is instances
 Listing instances in all resource groups and region us-east under account Test Account as user test.user@ibm.com...
-ID                                          Name                             Status    Reserved IP   Floating IP      Profile    Image                                VPC                              Zone        Resource group   
-0757_506a787d-0672-4209-854b-3e280ec50b44   test-pbalak-rhel                 running   10.241.0.4    169.63.96.188    bx2-2x8    ibm-redhat-9-0-minimal-amd64-2       test-pbalak1                     us-east-1   defaults   
-0757_4fc00b09-c967-46bf-9203-d17a08078d1d   test-pbalak-rhel2                running   10.241.0.5    150.239.86.22    bx2-2x8    ibm-redhat-9-0-minimal-amd64-2       test-pbalak1                     us-east-1   defaults   
-0757_11f5db7f-35a1-4678-bcbd-c85204e09507   kj-test-ro                       running   10.241.0.5    -                bx2d-2x8   ibm-ubuntu-18-04-5-minimal-amd64-1   test-vpc-blu-wdc             us-east-1   defaults   
-0767_7ac6da13-c16a-4f58-9981-612d6e33ec53   cbake-test-dfm-vsi-0             running   10.241.64.4   -                bx2-2x8    ibm-centos-7-9-minimal-amd64-3       test-vpc-blu-wdc             us-east-2   defaults   
-0757_ff64452f-7e81-4a48-b938-7fc601597dcd   storage-csi-inst-pgb1-zwqz5elk   running   10.241.14.4   52.116.121.167   mx2-2x16   ibm-ubuntu-20-04-6-minimal-amd64-1   test-vpc-do-not-delete-default   us-east-1   Default   
-0757_337977c1-f1f0-42ad-9de4-16fe0cda2ba9   storage-csi-inst-qgbi-sj9a43as   running   10.241.4.4    52.116.124.193   mx2-2x16   ibm-ubuntu-20-04-6-minimal-amd64-1   test-vpc-do-not-delete-default   us-east-1   Default   
-0757_dee890d9-67da-46cb-a85b-2d064a49ca42   storage-csi-inst-txmz-zuwrddvm   running   10.241.3.4    52.116.122.116   mx2-2x16   ibm-ubuntu-20-04-6-minimal-amd64-1   test-vpc-do-not-delete-default   us-east-1   Default 
+ID                                          Name                 Status    Reserved IP   Floating IP      Profile    Image                                VPC                              Zone        Resource group   
+0757_506a787d-0672-4209-854b-3e280ec50b44    my-rhel-instance    running   10.241.0.4    169.63.96.188    bx2-2x8    ibm-redhat-9-0-minimal-amd64-2       test-pbalak1                     us-east-1   defaults   
+0757_4fc00b09-c967-46bf-9203-d17a08078d1d    my-rhel-instance2   running   10.241.0.5    150.239.86.22    bx2-2x8    ibm-redhat-9-0-minimal-amd64-2       test-pbalak1                     us-east-1   defaults   
+0757_11f5db7f-35a1-4678-bcbd-c85204e09507    my-test-ro          stopped   10.241.0.5    -                bx2d-2x8   ibm-ubuntu-18-04-5-minimal-amd64-1   test-vpc-blu-wdc                 us-east-1   defaults   
+0767_7ac6da13-c16a-4f58-9981-612d6e33ec53    my-ubuntu-vsi       running   10.241.64.4   -                bx2-2x8    ibm-centos-7-9-minimal-amd64-3       test-vpc-blu-wdc                 us-east-2   defaults   
+0757_ff64452f-7e81-4a48-b938-7fc601597dcd    my-new-ubuntu-vsi   running   10.241.14.4   52.116.121.167   mx2-2x16   ibm-ubuntu-20-04-6-minimal-amd64-1   test-vpc-do-not-delete-default   us-east-1   Default   
+0757_337977c1-f1f0-42ad-9de4-16fe0cda2ba9    my-virtual-server   running   10.241.4.4    52.116.124.193   mx2-2x16   ibm-ubuntu-20-04-6-minimal-amd64-1   test-vpc-do-not-delete-default   us-east-1   Default   
 ```
 {: screen}
 
@@ -132,7 +131,7 @@ Then, select the virtual server instance that is in the same zone as the volume 
 
 ```sh
 $ ibmcloud is instance-volume-attachment-add otp1 0757_11f5db7f-35a1-4678-bcbd-c85204e09507 demo-volume-update --auto-delete true
-Creating volume attachment otp1 for instance kj-test-ro under account Test Account as user test.user@ibm.com...
+Creating volume attachment otp1 for instance my-test-ro under account Test Account as user test.user@ibm.com...
                      
 ID                0757-6757e676-0bf5-4b79-9a5b-29c24e17420c   
 Name              otp1   
@@ -161,8 +160,8 @@ ibmcloud is instance-volume-attachment INSTANCE VOLUME_ATTACHMENT [--json]
 {: pre}
 
 ```sh
-$ ibmcloud is instance-volume-attachment kj-test-ro otp1
-Getting volume attachment otp1 of instance kj-test-ro under account Test Account as user test.user@ibm.com...
+$ ibmcloud is instance-volume-attachment my-test-ro otp1
+Getting volume attachment otp1 of instance my-test-ro under account Test Account as user test.user@ibm.com...
                      
 ID                0757-6757e676-0bf5-4b79-9a5b-29c24e17420c   
 Name              otp1   
@@ -193,11 +192,11 @@ ibmcloud is instance-volume-attachments INSTANCE [--json]
 See the following example.
 
 ```sh
-ibmcloud is instance-volume-attachments kj-test-ro
-Listing volume attachments of instance kj-test-ro under account Test Account as user test.user@ibm.com...
+ibmcloud is instance-volume-attachments my-test-ro
+Listing volume attachments of instance my-test-ro under account Test Account as user test.user@ibm.com...
 ID                                          Name                                 Volume                          Status     Type   Device                                            Auto delete   
 0757-6757e676-0bf5-4b79-9a5b-29c24e17420c   otp1                                 demo-volume-update              attached   data   0757-6757e676-0bf5-4b79-9a5b-29c24e17420c-bxsh7   true   
-0757-af470ade-9d5c-491e-97b2-f000ed4ee49b   scheming-tipper-shivering-decrease   kj-test-ro-boot-1629867631000   attached   boot   0757-af470ade-9d5c-491e-97b2-f000ed4ee49b-fc4tl   true 
+0757-af470ade-9d5c-491e-97b2-f000ed4ee49b   scheming-tipper-shivering-decrease   my-test-ro-boot-1629867631000   attached   boot   0757-af470ade-9d5c-491e-97b2-f000ed4ee49b-fc4tl   true 
 ```
 {: screen}  
 
