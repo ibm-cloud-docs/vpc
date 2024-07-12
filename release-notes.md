@@ -28,16 +28,19 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## July 2024
 {: #vpc-jul24}
 
-### 8 July 2024
+### 08 July 2024
 {: #vpc-jul0824}
-{: release-notes}
+{: release-note}
+
+Parameterized redirect for application load balancers
+:  You can now redirect traffic on Uniform Resource Identifier (URI), as well as other customizable parameters, when creating [load balancer listener policies](/apidocs/vpc/latest#create-load-balancer-listener-policy) using the updated `Redirect to URL` action. You can redirect traffic to a dynamic URL through the application load balancer. You can also enter a static URL or retain the values from the incoming traffic request by using the default values of the URL parameters. This includes the protocol, port, host, path, and query, which, as a combination, makes the URL dynamic. For more information, refer to [Layer 7 load balancing](/docs/vpc?topic=vpc-layer-7-load-balancing#layer-7-policy).
 
 IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-17` updates
 :   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-17`, new certificates are available.
    - [Attestation certificate](/docs/vpc?topic=vpc-about-attestation)
    - [Encryption certificate](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_encrypt)
    - [Intermediate certificate](/docs/vpc?topic=vpc-cert_validate#download_cert)
-
+   
 ## June 2024
 {: #vpc-jun24}
 
