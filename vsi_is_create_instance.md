@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-07-03"
+lastupdated: "2024-07-12"
 
 keywords:
 
@@ -18,7 +18,7 @@ subcollection: vpc
 You can create one or more virtual server instances in your {{site.data.keyword.vpc_short}} by using the {{site.data.keyword.cloud_notm}} console, CLI, API, or Terraform.
 {: shortdesc}
 
-When you create a virtual server, you specify information such as the location and name for your virtual server. You specify an operating system image, a profile that defines the combination of vCPU and RAM, and SSH keys to securely connect to your virtual server. You have the option to add data volumes in addition to the boot volume. You can also specify the type of network interface that is created for your virtual server. Finally, you can select from advanced options for your virtual server configuration.
+When you create a virtual server, you specify information such as the location and name for your virtual server. You specify an operating system image, a profile that defines the combination of vCPU and RAM, and SSH keys to securely connect to your virtual server. You can add data volumes in addition to the boot volume. You can also specify the type of network interface that is created for your virtual server. Finally, you can select from advanced options for your virtual server configuration.
 
 ## Creating a virtual server instance with the UI
 {: #creating-virtual-servers-ui}
@@ -43,8 +43,8 @@ Use the following steps to create a virtual server instance.
 
    | Field | Value |
    |-------|-------|
-   | Stock image | Select from available stock images and click **Save**. \n - For more information about available stock images, see [x86 virtual server images](/docs/vpc?topic=vpc-about-images) and [s390x virtual server images](/docs/vpc?topic=vpc-vsabout-images). All operating system images use cloud-init that you can use to enter user metadata that is associated with the instance for post-provisioning scripts. Metadata isn't supported for {{site.data.keyword.cloud}} Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instances and z/OS virtual server instances.  \n - If you plan to use Windows operating systems with SQL Server, see the [About Microsoft SQL on VPC](/docs/microsoft?topic=microsoft-mssql-about).  |
-   | Custom image  | Select from available custom images and click **Save**. If no custom images are available, click **Create**. \n - A custom image can be an image that you customize and upload to {{site.data.keyword.cos_full_notm}}, which you can then import into {{site.data.keyword.vpc_short}}. For more information about custom images, see [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images).  \n - You can also use a custom image that was created from a boot volume. For more information about creating an image from a volume, see [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc). \n - You can also select either an RHEL or Windows custom image and bring your own license (BYOL). For more information about creating BYOL custom images, see [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about). |
+   | Stock image | Select from available stock images and click **Save**. \n - For more information about available stock images, see [x86 virtual server images](/docs/vpc?topic=vpc-about-images) and [s390x virtual server images](/docs/vpc?topic=vpc-vsabout-images). All operating system images use cloud-init that you can use to enter user metadata that is associated with the instance for post-provisioning scripts. Metadata isn't supported for {{site.data.keyword.cloud}} Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instances and z/OS virtual server instances. \n - If you plan to use Windows operating systems with SQL Server, see the [About Microsoft SQL on VPC](/docs/microsoft?topic=microsoft-mssql-about).  |
+   | Custom image  | Select from available custom images and click **Save**. If no custom images are available, click **Create**. \n - A custom image can be an image that you customize and upload to {{site.data.keyword.cos_full_notm}}, which you can then import into {{site.data.keyword.vpc_short}}. For more information about custom images, see [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images). \n - You can also use a custom image that was created from a boot volume. For more information about creating an image from a volume, see [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc). \n - You can also select either an RHEL or Windows custom image and bring your own license (BYOL). For more information about creating BYOL custom images, see [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about). |
    | Catalog image | After you select an available catalog image, click **Select version and pricing plan**, choose the version and pricing plan, and then click **Save**. \n - A catalog image is a custom image that is imported into a private catalog. For more information about catalog images, see [VPC considerations for custom images in a private catalog](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=ui).  \n **Note:** If you select a catalog image that belongs to a different account, you have more considerations and limitations to review. See [Using cross-account image references in a private catalog in the UI](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=ui#private-catalog-image-reference-vpc-ui). \n - To create a private catalog, see the tutorial [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui).|
    | Snapshot | Select a snapshot of a boot volume that includes an operating system and click **Save**. If no snapshots are available, click **Create**. \n - Filter the list of snapshots for [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-use-fast-restore). With this option, you can create the boot volume quickly by using a snapshot that is cached in a different zone of your region. For more information about restoring a volume from a snapshot, see [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore). |
    | Existing volume | Select an existing boot volume that is not attached to an instance and click **Save**.  |
@@ -55,8 +55,8 @@ Use the following steps to create a virtual server instance.
    |-------|-------|
    | Profile |  The profile families are Balanced, Compute, Memory, Ultra High Memory, Very High Memory, GPU, and Confidential Compute. For more information, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles). When you create an {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} instance, make sure that you select secure execution-enabled profiles, otherwise provisioning fails. For more information, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles). \n \n Some profiles might not be available because the number of network interfaces in the virtual server exceed profile limits. You can remove network interfaces to select from more profiles. For more information, see [Resizing a virtual server](/docs/vpc?topic=vpc-resizing-an-instance). |
    | Advanced security selections |  |
-   | Secure boot | Toggle on to enable secure boot. Secure boot is vailable with only compatible profiles. For more information about secure boot, see [Secure boot for Virtual Servers for VPC](/docs/vpc?topic=vpc-confidential-computing-with-secure-boot-vpc).|
-   | Confidential computing - SGX [Select availability]{: tag-green} | Confidential computing with Intel® Software Guard Extensions (SGX) protects your data through hardware-based server security by using isolated memory regions that are known as encrypted enclaves.  SGX is vailable with only compatible profiles. For more information about confidential computing, see [Confidential computing with Intel Software Guard Extensions (SGX) for Virtual Servers for VPC](/docs/vpc?topic=vpc-about-sgx-vpc). |
+   | Secure boot | Toggle on to enable secure boot. Secure boot is available with only compatible profiles. For more information about secure boot, see [Secure boot for Virtual Servers for VPC](/docs/vpc?topic=vpc-confidential-computing-with-secure-boot-vpc).|
+   | Confidential computing - SGX [Select availability]{: tag-green} | Confidential computing with Intel® Software Guard Extensions (SGX) protects your data through hardware-based server security by using isolated memory regions that are known as encrypted enclaves. SGX is available with only compatible profiles. For more information about confidential computing, see [Confidential computing with Intel Software Guard Extensions (SGX) for Virtual Servers for VPC](/docs/vpc?topic=vpc-about-sgx-vpc). |
    {: caption="Table 3. Profile selections" caption-side="bottom"}
 
    Secure boot and confidential computing are available with balanced and compute profiles. For more information, see [https://test.cloud.ibm.com/docs/vpc?topic=vpc-about-sgx-vpc#compatible-profiles-confidential-computing-vpc-sgx](/docs/vpc?topic=vpc-about-sgx-vpc#compatible-profiles-confidential-computing-vpc-sgx).
@@ -67,7 +67,7 @@ Use the following steps to create a virtual server instance.
    | Field | Value |
    |-------|-------|
    | SSH keys | You must select an existing public SSH key or click **Create an SSH key** to create a new one. For more information about creating an SSH key, see [Creating your SSH key by using the UI](/docs/vpc?topic=vpc-ssh-keys&interface=ui#generate-ssh-keys-ui). SSH keys are used to securely connect to the instance after it's running. |
-   | | **Note:** Alpha-numeric combinations are limited to 100 characters. SSH keys can be either RSA or Ed25519. You can create only RSA SSH keys. For an Ed25519 SSH key, you must upload the key information. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images. |
+   | | **Note:** Alpha-numeric combinations are limited to 100 characters. SSH keys can be either RSA or ED25519. You can create only RSA SSH keys. For an ED25519 SSH key, you must upload the key information. ED25519 can be used only if the operating system supports this key type. ED25519 can't be used with Windows or VMware images. |
    | | For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
    | Boot volume | The default boot volume size for most profiles is 100 GB. The default boot volume size for a z/OS virtual server instance is 245 GB. If you're importing a custom image, the boot volume capacity can be 10 - 250 GB, depending on what the image requires. Images that are smaller than 10 GB are rounded up to 10 GB. click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to modify the boot volume's attributes in the side panel.
    | | You can change the name of the boot volume by specifying a unique, meaningful name. For example, it can be a name that describes your compute or workload function. The volume name must begin with a lowercase letter. The name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-). Volume names must be unique the entire VPC infrastructure. You can edit the name later if you want to.|
@@ -79,7 +79,7 @@ Use the following steps to create a virtual server instance.
    | | Specify a unique, meaningful name. The same specifications apply as for the boot volume.|
    | | You can toggle the auto-delete option on for the data volume. If it is enabled, then the volume is deleted when the instance is deleted. If it is disabled, then the volume persists after the instance is deleted. |
    | | You can specify optional user tags and access management tags to associate with this volume. For more information about organizing resources with user tags, see [Working with tags](/docs/account?topic=account-tag&interface=ui).|
-   | | You can select the encryption type. Provider-managed encryption is enabled by default on all volumes. You can also choose to create an envelop encryption with your own root keys, that are created and maintained in Key Management Services. |
+   | | You can select the encryption type. Provider-managed encryption is enabled by default on all volumes. You can also choose to create an envelop encryption with your own root keys that are created and maintained in Key Management Services. |
    | |You can select the [Storage profile](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui) that best suits your needs for capacity and IOPS. For more information, see [Create and attach a Block Storage volume when you create an instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi).|
    | Virtual private cloud | Specify the IBM Cloud VPC where you want to create your instance. You can use the default VPC, another existing VPC, or you can create a new VPC. To create a new VPC, click **New VPC**. |
    | Network interfaces | By default the virtual server instance is created with a single primary network interface. You can click the pencil icon to edit the details of the network interface, for example, the subnet or security group that's associated with the interface. To include extra secondary network interfaces, click **Create**. You can create and assign up to 15 network interfaces for your virtual server instance, depending on the vCPU count that is included in the instance profile. For more information, see [About network interfaces](/docs/vpc?topic=vpc-using-instance-vnics#about-network-interfaces).  \n With the virtual network interface feature, you can select the type of network interface that you want to use. You can select the new option **Network attachment with a virtual network interface** or the legacy option **Instance network interface**. Whichever type of network interface option that you select when you provision the virtual server persists through the lifecycle of the virtual server. You can click **Attach** to create a network attachment with an existing virtual network interface. For more information, see [About virtual network interfaces](/docs/vpc?topic=vpc-vni-about). |
@@ -144,7 +144,7 @@ Gather the following information by using the associated commands.
 | Image | `ibmcloud is image` | [List all images](/docs/vpc?topic=vpc-vpc-reference#images-list)|
 | Boot volume | `ibmcloud is volumes` | [List all volumes](/docs/vpc?topic=vpc-vpc-reference#volumes-list) |
 | Profile | `ibmcloud is instances` | [List all virtual server instances](/docs/vpc?topic=vpc-vpc-reference#instances-list) |
-| Keys | `ibmcloud is keys` | [List all keys](/docs/vpc?topic=vpc-vpc-reference#keys)  \n  \n If you don't have any available SSH keys, use [Create a key](/docs/vpc?topic=vpc-vpc-reference#key-create) to create one.  \n  \n **Note:** RSA and Ed25519 are the two types of SSH keys that you can use. However, you can't use the Ed25519 SSH key type with Windows or VMware images. You can use only RSA SSH keys for these images.  \n For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
+| Keys | `ibmcloud is keys` | [List all keys](/docs/vpc?topic=vpc-vpc-reference#keys)  \n  \n If you don't have any available SSH keys, use [Create a key](/docs/vpc?topic=vpc-vpc-reference#key-create) to create one.  \n  \n **Note:** RSA and ED25519 are the two types of SSH keys that you can use. However, you can't use the ED25519 SSH key type with Windows or VMware images. You can use only RSA SSH keys for these images.  \n For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
 | VPC | `ibmcloud is vpcs` | [List all VPCs](/docs/vpc?topic=vpc-vpc-reference#vpcs-list) |
 | Subnet | `ibmcloud is subnets` | [List all subnets](/docs/vpc?topic=vpc-vpc-reference#subnets-list) |
 | Zone | `ibmcloud is zones` | [List all regions](/docs/vpc?topic=vpc-vpc-reference#zones-list) |
@@ -889,7 +889,7 @@ curl -X GET "$vpc_api_endpoint/v1/volumes?version=2023-02-08&generation=2?attach
 -H "Authorization: Bearer $iam_token"
 ```
 
-By default, a boot volume that is created as part of provisioning a virtual server instance is deleted when the instance is deleted. You can control this behavior by setting the `delete_volume_on_instance_delete` property to `true` when you create the instance or update the boot volume attachment.
+By default, a boot volume that is created as part of provisioning a virtual server instance is deleted when the instance is deleted. You can change this behavior by setting the `delete_volume_on_instance_delete` property to `false` when you create the instance or update the boot volume attachment.
 
 Use the [`POST /instances`](/apidocs/vpc/latest#create-instance) method to create an instance with the information you gathered. The following call is an example of provisioning an instance by using an existing boot volume.
 
@@ -942,6 +942,7 @@ curl -X POST "$vpc_api_endpoint/v1/instances?version=2023-02-08&generation=2"
   }
 }'
 ```
+{: pre}
 
 For more information, see [Create an instance](/apidocs/vpc/latest#create-instance).
 
@@ -953,7 +954,7 @@ You can [restore](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=api#snapsh
 
 In the `POST /instances` request, specify the `boot_volume_attachment` property and the bootable snapshot ID in the `source_snapshot` subproperty. For example,
 
-```curl
+```sh
 curl -X POST \
 "$vpc_api_endpoint/v1/instances?version=2023-03-07&generation=2" \
 -H "Authorization: $iam_token" \
@@ -1071,7 +1072,7 @@ Gather the following information by using `DataSource` command.
    ```
    {: codeblock}
 
-   SSH keys can be either RSA or Ed25519. You can generate new RSA key pairs by using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images.
+   SSH keys can be either RSA or ED25519. You can generate new RSA key pairs by using the UI. Pre-existing RSA and ED25519 SSH keys can be uploaded. ED25519 can be used only if the operating system supports this key type. ED25519 can't be used with Windows or VMware images.
    {: note}
 
 1. Create a subnet_reserved_ip resource or use an existing subnet_reserved_ip by referring to the subnet_reserved_ip data source. For more information, see the Terraform documentation on [ibm_is_subnet_reserved_ip](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_subnet_reserved_ip)
