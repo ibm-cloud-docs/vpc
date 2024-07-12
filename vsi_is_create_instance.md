@@ -340,12 +340,10 @@ Use the following commands to determine the required information for creating a 
 
 7. List the available boot volumes for creating your instance.
    If you are creating an instance from an image, skip this step.
-   To create an instance from an existing volume, you must use a volume compatible with the instance options chosen previously. A compatible volume is in the same zone as the instance that is being provisioned, in an unattached state, and has an OS compatible with the profile that is selected in step 5.
-   Use the `volumes` subcommand to see the compatible volumes.
-   For example, to see unattached volumes with an x64 operating system architecture in `us-south-1`:
+   To create an instance from an existing volume, you must use a volume that is compatible with the instance options chosen previously. A compatible volume is in the same zone as the instance that is being provisioned, is unattached, and has an OS compatible with the profile that is selected in step 5. Use the `volumes` subcommand to see the compatible volumes. For example, to see unattached volumes with an x64 operating system architecture in `us-south-1`:
 
    ```sh
-   ibmcloud is volumes --attachment-state unattached  --operating-system-architecture amd64 --zone us-south-1
+   ibmcloud is volumes --attachment-state unattached --operating-system-architecture amd64 --zone us-south-1
    ```
    {: pre}
 
