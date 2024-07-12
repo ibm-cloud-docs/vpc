@@ -215,7 +215,7 @@ Use the following commands to determine the required information for creating an
 
    If you do not have an SSH key available, you can create an SSH key by using the [ibmcloud is key-create](/docs/vpc?topic=vpc-vpc-reference#key-create) command.
 
-   RSA and Ed25519 are the two types of SSH keys that you can use. However, you can't use the Ed25519 SSH key type with Windows or VMware images. You can use only RSA SSH keys for these images. For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys).
+   RSA and ED25519 are the two types of SSH keys that you can use. However, you can't use the ED25519 SSH key type with Windows or VMware images. You can use only RSA SSH keys for these images. For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys).
    {: note}
 
 1. List all the available placement groups that you can associate with your instance.
@@ -393,7 +393,7 @@ Use the following commands to determine the required information for creating a 
 
    If you don't have an SSH key available, you can create one by using the `POST /keys` method. For more information about creating an {{site.data.keyword.vpc_short}}, see [IBM Cloud API Docs - Create a key](/apidocs/vpc/latest#create-key).
 
-   RSA and Ed25519 are the two types of SSH keys that you can use. However, you can't use the Ed25519 SSH key type with Windows or VMware images. You can use only RSA SSH keys for these images. For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys).
+   RSA and ED25519 are the two types of SSH keys that you can use. However, you can't use the ED25519 SSH key type with Windows or VMware images. You can use only RSA SSH keys for these images. For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys).
    {: note}
 
 1. List all the available placement groups that you can associate with your instance.
@@ -475,7 +475,7 @@ Ready to create an instance template? Before you include the [`ibm_is_instance_t
 
 Gather the following required Terraform instance template details.
 
-|    Instance template details   |       Listing block           | VPC Terraform Data Source reference documentation |
+|    Instance template details   |       Listing block           | VPC Terraform data source reference documentation |
 | ----------------------------- | -------------------------------- |----------------------------------|
 | Instance profile | `ibm_is_instance_profiles` | [ibm_is_instance_profiles](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_instance_profiles){: external} |
 | Image | `ibm_is_images` | [ibm_is_images](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_images){: external}|
@@ -546,7 +546,7 @@ Gather the following information by using `DataSource` block.
 
 1. Use an existing ssh-key by referring to the ssh-key data source [ibm_is_ssh_key](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_ssh_key){: external}. If you don't have any available SSH keys, use the resource [ibm_is_ssh_key](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_ssh_key){: external} to create one.
 
-   RSA and Ed25519 are the two types of SSH keys that you can use. However, you can't use the Ed25519 SSH key type with Windows or VMware images. You can use only RSA SSH keys for these images. For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys).
+   RSA and ED25519 are the two types of SSH keys that you can use. However, you can't use the ED25519 SSH key type with Windows or VMware images. You can use only RSA SSH keys for these images. For more information, see [Getting started with SSH keys](/docs/vpc?topic=vpc-ssh-keys).
    {: note}
 
    ```terraform
