@@ -28,18 +28,28 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## July 2024
 {: #vpc-jul24}
 
-### 8 July 2024
+### 08 July 2024
 {: #vpc-jul0824}
-{: release-notes}
+{: release-note}
+
+Parameterized redirect for application load balancers
+:  You can now redirect traffic on Uniform Resource Identifier (URI), as well as other customizable parameters, when creating [load balancer listener policies](/apidocs/vpc/latest#create-load-balancer-listener-policy) using the updated `Redirect to URL` action. You can redirect traffic to a dynamic URL through the application load balancer. You can also enter a static URL or retain the values from the incoming traffic request by using the default values of the URL parameters. This includes the protocol, port, host, path, and query, which, as a combination, makes the URL dynamic. For more information, refer to [Layer 7 load balancing](/docs/vpc?topic=vpc-layer-7-load-balancing#layer-7-policy).
 
 IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-17` updates
 :   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-17`, new certificates are available.
    - [Attestation certificate](/docs/vpc?topic=vpc-about-attestation)
    - [Encryption certificate](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_encrypt)
    - [Intermediate certificate](/docs/vpc?topic=vpc-cert_validate#download_cert)
-
+   
 ## June 2024
 {: #vpc-jun24}
+
+### 28 June 2024
+{: #vpc-jun2824}
+{: release-note}
+
+Hyper Protect Secure Build
+:   The `workload` section for Hyper Protect Secure Build is updated based on the IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-17`. For more information, see [Configuring and using Hyper Protect Secure Build in {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-about-hpsb#hpvs_hpsb).
 
 ### 28 June 2024
 {: #vpc-jun2824}
@@ -67,7 +77,7 @@ Sharing file share data between accounts and services
 {: release-note}
 
 Update firmware on Bare Metal Servers for VPC (GA)
-:  The new Update firmware action on Bare Metal Servers for VPC is now generally available. You can see if a firmware update is available for your bare metal server and also initiate the update. You can use the UI, CLI, and API to update the firmware. In the UI, this action is only visible if the server is stopped and there is a firmware update available. It is recommended to back up your bare metal server before any firmware update. For more information, see [Managing Bare Metal Servers for VPC](/docs/vpc?topic=vpc-managing-bare-metal-servers&interface=ui).
+:  The new Update firmware action on Bare Metal Servers for VPC is now generally available. You can see if a firmware update is available for your bare metal server and also initiate the update. You can use the UI, CLI, and API to update the firmware. In the UI, this action is only visible if the server is stopped and there is a firmware update available. It is recommended to back up your bare metal server before any firmware update. For more information, see [Managing Bare Metal Servers for VPC](/docs/vpc?topic=vpc-managing-bare-metal-servers&interface=ui).so initiate the update. You can use the UI, CLI, and API to update the firmware. In the UI, this action is only visible if the server is stopped and there is a firmware update available. It is recommended to back up your bare metal server before any firmware update. For more information, see [Managing Bare Metal Servers for VPC](/docs/vpc?topic=vpc-managing-bare-metal-servers&interface=ui).
 
 ### 20 June 2024
 {: #vpc-jun2024}
