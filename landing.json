@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2024-07-10",
+    "lastupdated": "2024-07-12",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
@@ -31,19 +31,19 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
+          "date": "08 July 2024",
+          "title": "Parameterized redirect for application load balancers",
+          "description": "You can now redirect traffic on Uniform Resource Identifier (URI), as well as other customizable parameters, when creating load balancer listener policies using the updated Redirect to URL action. You can redirect traffic to a dynamic URL through the application load balancer. You can also enter a static URL or retain the values from the incoming traffic request by using the default values of the URL parameters. This includes the protocol, port, host, path, and query, which, as a combination, makes the URL dynamic."
+        },
+        {
+          "date": "08 July 2024",
+          "title": "IBM Hyper Protect Container Runtime image ibm-hyper-protect-container-runtime-1-0-s390x-17 updates",
+          "description": "For the IBM Hyper Protect Container Runtime image version ibm-hyper-protect-container-runtime-1-0-s390x-17, new certificates are available."
+        },
+        {
           "date": "28 June 2024",
           "title": "Hyper Protect Secure Build",
           "description": "The workload section for Hyper Protect Secure Build is updated based on the IBM Hyper Protect Container Runtime image ibm-hyper-protect-container-runtime-1-0-s390x-16."
-        },
-        {
-          "date": "27 June 2024",
-          "title": "Sapphire Rapids (x3 and x3d) x86-64 bare metal server profiles (Select availability)",
-          "description": "Sapphire Rapids (x3 and x3d) x86-64 bare metal server profiles are now available in the US South (Dallas) region."
-        },
-        {
-          "date": "25 June 2024",
-          "title": "`Sharing file share data between accounts and services",
-          "description": "With this new feature, administrators with the correct authorizations can share an NFS file system across multiple accounts. It's useful for customers who manage multiple accounts and need to share data across different VPCs. Customer can also share their File Storage for VPC shares with the IBM watsonX service."
         }
       ]
     }
