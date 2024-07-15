@@ -22,7 +22,7 @@ In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navig
 
 There are 3 different types of images for VPC.
 * [Custom images](/docs/vpc?topic=vpc-planning-custom-images) (includes [Image from volume](/docs/vpc?topic=vpc-image-from-volume-vpc))
-* [Stock images](/docs/vpc?topic=vpc-images-on-vpc-stock)
+* [Stock images](/docs/vpc?topic=vpc-getting-started-images-on-vpc-stock&interface=api)
 * Catalog images
 
 ## Images on VPC - Catalog images

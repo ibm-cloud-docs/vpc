@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-07-01"
+lastupdated: "2024-07-15"
 
 keywords:
 
@@ -228,7 +228,7 @@ See the following table to see what Generation 2 (x2 and x2d) bare metal profile
 ## Viewing profile configurations
 {: #view-bare-metal-servers-profile}
 
-You can view available profile configurations by using the UI, [CLI](#view-bare-metal-servers-profile-cli), or the [API](#view-bare-metal-servers-profile-api).
+You can view available profile configurations by using the [UI](#view-bare-metal-servers-profile-ui ), [CLI](#view-bare-metal-servers-profile-cli), or the [API](#view-bare-metal-servers-profile-api).
 
 ## Using the UI to view profiles
 {: #view-bare-metal-servers-profile-ui}

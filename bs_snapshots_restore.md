@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-06-19"
+lastupdated: "2024-07-15"
 
 keywords:
 
@@ -39,7 +39,9 @@ You can restore volumes at various stages of the VPC lifecycle.
 * When you want to add a new auxiliary storage to your existing instance, you can restore a data volume from a nonbootable snapshot.
 * When you create an unattached (stand-alone) {{site.data.keyword.block_storage_is_short}} volume from a snapshot, you can still attach the volume to an instance later.
 
-Restoring an instance directly from snapshot consistency group identifier is not supported. However, you can restore a virtual server instance by restoring all of its boot and data volumes from the snapshots that are part of a consistency group. 
+Restoring an instance directly from snapshot consistency group identifier is not supported. However, you can restore a virtual server instance by restoring all of its boot and data volumes from the snapshots that are part of a consistency group.
+
+
 
 ## Limitations
 {: #snapshots-vpc-restore-limitations}
@@ -536,6 +538,8 @@ resource "ibm_is_volume" "storage" {
 }
 ```
 {: codeblock}
+
+
 
 For more information about the arguments and attributes, see [ibm_is_volume](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_volume){: external}.
 
