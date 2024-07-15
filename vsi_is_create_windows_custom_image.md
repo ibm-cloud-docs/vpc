@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, [{CURRENT_YEAR}]
-lastupdated: "[{LAST_UPDATED_DATE}]"
+  years: 2019, 2024
+lastupdated: "2024-07-15"
 
 keywords: creating a Windows custom image, cloudbase-init, qcow2
 
@@ -200,7 +200,7 @@ Complete the following steps to customize the virtual server that you created by
    ```
    {: pre}
 
-1. After you run sysprep, your virtual server shuts down. Then, you can continue with [Step 4 - Creating an image template of your customized virtual server](/docs/vpc?topic=vpc-migrate-vsi-to-vpc#migrate-new-image template)
+1. After you run sysprep, your virtual server shuts down. Then, you can continue with [Step 4 - Creating an image template of your customized virtual server](/docs/vpc?topic=vpc-migrate-vsi-to-vpc&interface=api#migrate-new-image-template)
 
 ## Uploading a custom image
 {: #complete-custom-image-win}
