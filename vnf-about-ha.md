@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-06-20"
+lastupdated: "2024-07-16"
 
 keywords:
 
@@ -55,7 +55,7 @@ An egress custom route was created to ensure client (`10.241.0.6`) data packets 
 ## Before you begin
 {: #vnf-before-you-begin}
 
-Ensure that you have the required IAM permissions to configure custom routing and enable IP spoofing. For more information about IAM permissions, see [Required permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls).
+Ensure that you have the required IAM permissions to configure custom routing and enable IP spoofing. 
 
 ## Getting started
 {: #getting-started-vnf-ha}

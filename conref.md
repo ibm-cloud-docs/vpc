@@ -3,7 +3,7 @@
 copyright:
   years: 2015, 2024
 
-lastupdated: "2024-04-09"
+lastupdated: "2024-07-16"
 
 keywords:
 
@@ -26,7 +26,7 @@ You must also create a service authorization to allow your application load bala
 You can create an authorization through [IAM Authorizations](/iam/authorizations){: external}. Make sure to choose
 **VPC Infrastructure Services** as the Source service, select **Resources based on selected attributes**, and click the **Resource type** checkbox to expose
 the dropdown menu. Select **Load Balancer for VPC** as the resource type from the dropdown. For the Target service, select **Secrets Manager**. Set the Target
-service instance access to **All instances** or to your specific {{site.data.keyword.secrets-manager_full_notm}} instance. Assign the **Writer** service access role. For more information, see [Granting access between services](/docs/account?topic=account-serviceauth#create-auth).
+service instance access to **All instances** or to your specific {{site.data.keyword.secrets-manager_full_notm}} instance. Assign the **Writer** service access role. For more information, see [Granting access between services](/docs/account?topic=account-serviceauth&interface=ui#create-auth).
 {: #load-balancer-grant-service-auth}
 
 # Content referenced for  x86 instance profiles

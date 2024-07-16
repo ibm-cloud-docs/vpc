@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-14"
+lastupdated: "2024-07-16"
 
 keywords: flow logs, viewing objects, SQL, analyze
 
@@ -415,11 +415,6 @@ GROUP BY target_ip
 ORDER BY `bytes` DESC LIMIT 5
 ```
 {: codeblock}
-
-### Example solution: Analyzing flow logs
-{: #example-analyzing-flow-logs}
-
-You can download an example solution of how to use IBM Log Analysis to analyze flow logs from the [IBM-Cloud vpc-flowlogs Github repository](https://github.com/IBM-Cloud/vpc-flowlogs){: external}. This project ([Readme file](https://github.ibm.com/portfolio-solutions/vpc-flowlogs-logdna/blob/master/README.md){: external}) shows how to use a trigger function to read a flow log {{site.data.keyword.cos_short}} object and write it to IBM Log Analysis.
 
 ### Viewing generated flow log files from the {{site.data.keyword.cos_short}} bucket
 {: #alternative-method}

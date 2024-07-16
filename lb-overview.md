@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-07-08"
+lastupdated: "2024-07-16"
 
 keywords: listener, pool, round-robin, weighted, layer 7, datapath logging, http2, websocket
 
@@ -201,7 +201,7 @@ An application load balancer adjusts its capacity automatically according to the
 ## Datapath log forwarding
 {: #datapath-log-forwarding}
 
-With datapath logging enabled, load balancer logs are forwarded to the [{{site.data.keyword.la_full_notm}}](https://cloud.ibm.com/catalog/services/ibm-log-analysis){: external} service, where you can view your datapath logs.
+With datapath logging enabled, load balancer logs are forwarded to the [{{site.data.keyword.la_full_notm}}](https://cloud.ibm.com/catalog){: external} service, where you can view your datapath logs.
 
 ## HTTP2 support
 {: #http2-support}
@@ -229,7 +229,6 @@ In this diagram, "Client Resources" represents the resources (VPCs and subnets, 
 * [Load balancer CLI reference](/docs/vpc?topic=vpc-vpc-reference#lb-anchor)
 * [Load balancer API reference](/apidocs/vpc#list-load-balancer-profiles)
 * [ALB for VPC infrastructure resources for Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_lb){: external} (VPC infrastructure > Resources)
-* [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls)
 * [{{site.data.keyword.cloudaccesstraillong_notm}} events](/docs/vpc?topic=vpc-at_events#events-load-balancers)
 * [FAQs for application load balancers](/docs/vpc?topic=vpc-load-balancer-faqs)
 * [Quotas](/docs/vpc?topic=vpc-quotas&interface=ui#alb-quotas)

@@ -187,4 +187,4 @@ dmesg |grep offline
 ```
 {: screen}
 
-You can use a similar approach to inject this process into Terraform. For more information, see [IaC Configuration Management with User-Data](https://ibm.github.io/cloud-enterprise-examples/iac-conf-mgmt/user-data/){: external}
+You can use a similar approach to inject this process into Terraform.

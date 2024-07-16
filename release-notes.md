@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-07-15"
+lastupdated: "2024-07-16"
 
 keywords:
 
@@ -43,13 +43,6 @@ IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1
    
 ## June 2024
 {: #vpc-jun24}
-
-### 28 June 2024
-{: #vpc-jun2824}
-{: release-note}
-
-Hyper Protect Secure Build
-:   The `workload` section for Hyper Protect Secure Build is updated based on the IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-17`. For more information, see [Configuring and using Hyper Protect Secure Build in {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-about-hpsb#hpvs_hpsb).
 
 ### 28 June 2024
 {: #vpc-jun2824}
@@ -1400,7 +1393,7 @@ UI Updates
      - IP addresses are now modeled as objects (resources), rather than strings.
      - Security groups must now be associated with targets rather than network interfaces.
 
-:    Even if you are not planning to use reserved IPs, to avoid regressions in client functionality, be sure to reference [2022-03-29 API migration](/docs/vpc?topic=vpc-2022-03-29-migration) and follow the Action needed recommendations before you specify version `2022-03-29` or later. For more information, see the [API change log](/docs/vpc?topic=vpc-api-change-log#version-2022-03-29) and [Reserved IP known issues](/docs/vpc?topic=vpc-known-issues#ip-known-issues).
+:    Even if you are not planning to use reserved IPs, to avoid regressions in client functionality, be sure to reference [2022-03-29 API migration](/docs/vpc?topic=vpc-2022-03-29-migration) and follow the Action needed recommendations before you specify version `2022-03-29` or later. For more information, see the [API change log](/docs/vpc?topic=vpc-api-change-log#version-2022-03-29) and [Reserved IP known issues](/docs/vpc?topic=vpc-known-issues).
 
 ### 7 April 2022
 {: #vpc-apr0722}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-07-12"
+lastupdated: "2024-07-15"
 
 keywords:
 
@@ -347,9 +347,9 @@ Use the following commands to determine the required information for creating a 
    ```
    {: pre}
 
-   You can optionally [create a boot volume from a bootable snapshot](#create-instance-bootable-snapshot-cli) and use that for your image. To list all snapshots for a volume, see [View all snapshots that were created from the Block Storage for VPC volume](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#view-snapshots-for-volume).
+8. You can optionally [create a boot volume from a bootable snapshot](#create-instance-bootable-snapshot-cli) and use that for your image. To list all snapshots for a volume, see [View all snapshots that were created from the Block Storage for VPC volume](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#view-snapshots-for-volume).
 
-8. List the available SSH keys that you can associate with your instance.
+9. List the available SSH keys that you can associate with your instance.
 
    ```sh
    ibmcloud is keys
@@ -366,7 +366,7 @@ Use the following commands to determine the required information for creating a 
 
    If you do not have an SSH key available, you can create an SSH key by using the [ibmcloud is key-create](/docs/vpc?topic=vpc-vpc-reference#key-create) command. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys).
 
-9. List all the available placement groups that you can associate with your instance.
+10. List all the available placement groups that you can associate with your instance.
 
     ```sh
     ibmcloud is placement-groups
@@ -754,15 +754,15 @@ Make sure that you have the required access. To call these methods, you must be 
 
 Before you can create an instance, you need to know the details about the instance, such as the instance profile or the image that you want to use. Gather information by making the following API calls:
 
-|    Instance details   |  Listing options                | API spec documentation
-| --------------------- | ------------------------------- | ----------------------------------------------------------------------
-| Image                 | `GET /images`                   | [List all images](/apidocs/vpc/latest#list-images)
-| Profile               | `GET /instance/profiles`        | [List all instance profiles](/apidocs/vpc/latest#list-instance-profiles)
-| Key                   | `GET /keys`                     | [List all keys](/apidocs/vpc/latest#list-keys)
-| VPC                   | `GET /vpcs`                     | [List all VPCs](/apidocs/vpc/latest#list-vpcs)
-| Subnet                | `GET /subnets`                  | [List all subnets](/apidocs/vpc/latest#list-subnets)
-| Zone                  | `GET /regions/<region>/zones`   | [List all zones in a region](/apidocs/vpc/latest#list-region-zones)
-| Placement groups      | `GET /placement_groups`         | [List all placement groups](/apidocs/vpc/latest#list-placement-groups)
+|    Instance details   |  Listing options                | API spec documentation |
+|-----------------------|---------------------------------| --------------------------------------------|
+| Image                 | `GET /images`                   | [List all images](/apidocs/vpc/latest#list-images)|
+| Profile               | `GET /instance/profiles`        | [List all instance profiles](/apidocs/vpc/latest#list-instance-profiles)|
+| Key                   | `GET /keys`                     | [List all keys](/apidocs/vpc/latest#list-keys)|
+| VPC                   | `GET /vpcs`                     | [List all VPCs](/apidocs/vpc/latest#list-vpcs)|
+| Subnet                | `GET /subnets`                  | [List all subnets](/apidocs/vpc/latest#list-subnets) |
+| Zone                  | `GET /regions/<region>/zones`   | [List all zones in a region](/apidocs/vpc/latest#list-region-zones) |
+| Placement groups      | `GET /placement_groups`         | [List all placement groups](/apidocs/vpc/latest#list-placement-groups)|
 {: caption="Table 2. Required instance details api" caption-side="bottom"}
 
 ### Creating an instance by using the API

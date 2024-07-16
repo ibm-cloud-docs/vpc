@@ -207,7 +207,6 @@ toc:
             - vsi_is_connecting_console.md
             - vsi_is_manage_instances.md
             - vsi_is_instance_vnics.md
-            - vsi_is_configuring_network_performance.md
             - vsi_instance_storage_how_to.md
             - monitoring-vpc-metrics.md
             - vsi_is_instance_resize.md
