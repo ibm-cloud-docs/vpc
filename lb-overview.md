@@ -201,7 +201,7 @@ An application load balancer adjusts its capacity automatically according to the
 ## Datapath log forwarding
 {: #datapath-log-forwarding}
 
-With datapath logging enabled, load balancer logs are forwarded to the [{{site.data.keyword.la_full_notm}}](https://cloud.ibm.com/catalog){: external} service, where you can view your datapath logs.
+With datapath logging enabled, load balancer logs are forwarded to the [{{site.data.keyword.la_full_notm}}](/catalog){: external} service, where you can view your datapath logs.
 
 ## HTTP2 support
 {: #http2-support}
