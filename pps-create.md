@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-06-20"
+lastupdated: "2024-07-16"
 
 keywords:
 
@@ -30,8 +30,8 @@ Private Path services for VPC enable service providers to create and manage priv
 Before you create a Private Path service, review the following prerequisites:
 
 * Review [Private Path service limitations](/docs/vpc?topic=vpc-ppsg-limitations&interface=ui){: external} for known limitations.
-* Make sure that you have a VPC and at least one subnet in the selected VPC. [Learn more](https://cloud.ibm.com/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console){: external}.
-* Create a Private Path network load balancer.  You can create your load balancer while provisioning your Private Path service here, or you can use the [Load balancer for VPC](https://cloud.ibm.com/vpc-ext/provision/loadBalancer){: external} console.
+* Make sure that you have a VPC and at least one subnet in the selected VPC. [Learn more](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console){: external}.
+* Create a Private Path network load balancer. You can create your load balancer while provisioning your Private Path service here, or you can use the [Load balancer for VPC](/vpc-ext/provision/loadBalancer){: external} console.
 
 You must use the same VPC region for both your load balancer and Private Path service.
 {: important}
@@ -49,7 +49,7 @@ To create a Private Path service with the {{site.data.keyword.cloud_notm}} conso
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 1. Select the Menu icon ![Menu icon](../icons/icon_hamburger.svg), then click **VPC Infrastructure**.
 1. Click **Private Path services** in the Network section.
-1. Click **Create +** on the Private Path services for VPC table.
+1. Click **Create +**.
 1. Review the checklist for important information.
 1. In the Location section, ensure that the following fields are correct. If not, click the Edit icon ![Edit icon](images/edit.png) to update.
     * **Geography**: The general area where you want to create the Private Path service.
