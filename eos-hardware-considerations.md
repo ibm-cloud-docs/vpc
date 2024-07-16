@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2024-06-20"
+lastupdated: "2024-07-16"
 
 keywords:
 
@@ -18,7 +18,7 @@ subcollection: vpc
 If you use hardware that is at or past its end-of-support (EOS) date, security and stability risks are possible. The vendor no longer provides updates or security fixes for deprecated hardware. Hardware that reaches its end of life (EoL) date is discontinued.
 {: short-desc}
 
-Follow the guidance from your hardware vendor on when to upgrade. {{site.data.keyword.IBM}} doesn't require you to migrate your active instances to supported hardware, but you assume the risks that are associated with using outdated hardware. Unsupported hardware doesn't receive security updates or fixes and can't be used to deploy new instances. Plan to modernize the instances' hardware before the EOS date. For more information, see [hardwarelifecyclelink](/docs-link).
+Follow the guidance from your hardware vendor on when to upgrade. {{site.data.keyword.IBM}} doesn't require you to migrate your active instances to supported hardware, but you assume the risks that are associated with using outdated hardware. Unsupported hardware doesn't receive security updates or fixes and can't be used to deploy new instances. Plan to modernize the instances' hardware before the EOS date.
 
 ## Available options when you modernize your hardware
 {: #options-when-upgrading-hardware}
@@ -32,7 +32,7 @@ When you plan for hardware EOS, keep the following information in mind:
 ### Wanclouds partnership
 {: #partner-hardware}
 
-{{site.data.keyword.IBM_notm}} has a partnership with Wanclouds. Contact [Wanclouds](https://wanclouds.net/ibm-request){: external} for more information.
+{{site.data.keyword.IBM_notm}} has a partnership with Wanclouds. Contact [Wanclouds](https://wanclouds.net/){: external} for more information.
 
 ### Upgrade your hardware on your own
 {: #upgrading-your-hardware}
