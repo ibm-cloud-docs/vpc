@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-07-10"
+lastupdated: "2024-07-16"
 
 keywords:
 
@@ -129,7 +129,7 @@ To migrate workloads from CentOS, you can switch to a compatible OS distribution
 
 **You can use the following conversion tools to change your OS:**
 
-- The migration tool available from the OS distribution you are migrating to. {{site.data.keyword.cloud_notm}} does not provide or support for these OS conversion tools.
+- The migration tool available from the OS distribution you are migrating to, {{site.data.keyword.cloud_notm}} does not provide or support for these OS conversion tools.
 - The [migrate2rocky](https://github.com/rocky-linux/rocky-tools/tree/main/migrate2rocky){: external} tool available from Rocky Linux. For more information, see the [Rocky Linux documentation](https://docs.rockylinux.org/){: external}.
 - The [Convert2RHEL](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/migration-process/convert2rhel){: external} tool available from RHEL. For more information, see the [RHEL documentation](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/migration-process/convert2rhel){: external}.
 
