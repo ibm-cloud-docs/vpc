@@ -21,8 +21,8 @@ A z/OS virtual server instance is typically a private backend infrastructure com
 
 To learn how to use subnets to securely isolate and control traffic to backend infrastructure such as a z/OS virtual server instance, you can refer to the following tutorials:
 
-- [Public front end and private backend in a Virtual Private Cloud](/docs/vpc?topic=solution-tutorials-vpc-public-app-private-backend)
-- [Securely access remote instances with a bastion host](/docs/vpc?topic=solution-tutorials-vpc-secure-management-bastion-server)
+- [Public front end and private backend in a Virtual Private Cloud](/docs/solution-tutorials?topic=solution-tutorials-vpc-public-app-private-backend)
+- [Securely access remote instances with a bastion host](/docs/solution-tutorials?topic=solution-tutorials-vpc-secure-management-bastion-server)
 - [About client-to-site VPN servers](/docs/vpc?topic=vpc-vpn-client-to-site-overview)
 
 After you connected to the VPC network by using the client-to-site VPN server, you can access the z/OS virtual server instance by using the private IP address.
@@ -188,7 +188,7 @@ For more information, see [Accessing virtual server instances by using VNC or se
 
 You can use the SSH private key through a floating IP address to connect the z/OS UNIX shell environment. 
 
-However, you might want to unbind your floating IP from your z/OS virtual server instance for security considerations and use a [bastion host](/docs/vpc?topic=solution-tutorials-vpc-secure-management-bastion-server) or [client-to-site VPN server](/docs/vpc?topic=vpc-vpn-client-to-site-overview) for all connections. The default secured port is 22. For more information about the floating IP address, see [Reserving a floating IP address](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#reserving-a-floating-ip-address)
+However, you might want to unbind your floating IP from your z/OS virtual server instance for security considerations and use a [bastion host](/docs/solution-tutorials?topic=solution-tutorials-vpc-secure-management-bastion-server) or [client-to-site VPN server](/docs/vpc?topic=vpc-vpn-client-to-site-overview) for all connections. The default secured port is 22. For more information about the floating IP address, see [Reserving a floating IP address](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#reserving-a-floating-ip-address)
 
 If you want to access another z/OS virtual server instance that is created by using a different SSH key, you must ask the instance owner to add your SSH public key into the `authorized_keys` file on that z/OS virtual server instance. For more information about the `authorized_keys` file, see [Format of the authorized_keys file](https://www.ibm.com/docs/en/zos/2.5.0?topic=daemon-format-authorized-keys-file){: external} and [Configuring new users to access your z/OS virtual server instance](#new-sshkey-zos).
 

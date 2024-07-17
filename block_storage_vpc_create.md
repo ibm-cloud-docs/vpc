@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-07-15"
+lastupdated: "2024-07-17"
 
 keywords: vpc Block Storage, provision Block Storage for vpc, bootable snapshots, create volume from snapshot, fast restore
 
@@ -656,7 +656,7 @@ A successful response looks like the following example.
 
 
 
-For more information about volume creation with the API, see [Creating Block Storage volumes](/docs/vpc?topic=vpc-creating-block-storage&interface=api#creating-block-storage-api) and the API reference for [creating a volume](/apidocs/vpc-aspirational#create-volume).
+For more information about volume creation with the API, see [Creating Block Storage volumes](/docs/vpc?topic=vpc-creating-block-storage&interface=api#creating-block-storage-api) and the API reference for [creating a volume](/apidocs/vpc/latest#create-volume).
 
 ### Creating a data volume from a snapshot of an unattached volume with the API
 {: #block-storage-create-vol-snapshot-api}

@@ -28,11 +28,11 @@ For x86 bare metal servers, you can create two types of network interfaces, PCI 
 
    - When you create a bare metal server, a primary PCI interface is created for you. Optionally, you can add one or more secondary PCI or VLAN interfaces. You can also add, update, or delete the network interfaces.
 
-   - You can associate one or more floating IPs with a network interface. The multiple floating IPs feature enables the VMware&reg; NSX-T Data Center to assign floating IPs. For more information about associating floating IP, see [Associate floating IPs with a network interface](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers#add-fips-to-nic).
+   - You can associate one or more floating IPs with a network interface. The multiple floating IPs feature enables the VMware&reg; NSX-T Data Center to assign floating IPs. For more information about associating floating IP, see [Associate floating IPs with a network interface](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers#bare-metal-add-fips-to-nic).
 
 
 
-For more information about associating floating IP, see [Associate floating IPs with a network interface](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers#add-fips-to-nic).
+For more information about associating floating IP, see [Associate floating IPs with a network interface](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers#bare-metal-add-fips-to-nic).
 
 If you want to control the flow of network traffic in your VPC, you can configure routes. VPC routes specify the next hop for packets, based on their destination addresses. For more information, see [Creating a route](/docs/vpc?topic=vpc-create-vpc-route).
 

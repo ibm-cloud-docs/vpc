@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-11"
+lastupdated: "2024-07-17"
 
 keywords: confidential computing, secure execution, logging for hyper protect virtual server for vpc
 
@@ -344,7 +344,7 @@ There are many ways to set up a compatible server endpoint. The following exampl
    The `gnutls` package poses [requirements on the signatures](https://www.gnutls.org/manual/html_node/Digital-signatures.html) for the client certificate. Make sure to meet them.
    {: note}
 
-   In this configuration, we accept any client certificate that is signed by the certificate authority via the `x509/certvalid` mode. This may change depending on the `StreamDriver.Authmode` setting. See [StreamDriver.Authmode](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imtcp.html#streamdriver-authmode).
+   In this configuration, we accept any client certificate that is signed by the certificate authority via the `x509/certvalid` mode. This may change depending on the `StreamDriver.Authmode` setting. See [StreamDriver.Authmode](https://www.rsyslog.com/doc/configuration/modules/imtcp.html#streamdriver-authmode).
    {: note}
    
 4. Restart the syslog service.

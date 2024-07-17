@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2023-12-20"
+lastupdated: "2024-07-17"
 
 keywords:
 
@@ -40,7 +40,7 @@ The instance inherits the access rights that are defined in the default trusted 
 
 4. Configure a floating IP so that you can ping the virtual servers over the floating IP address and SSH into them.
 
-5. Create a trusted profile. For more information, see [Establishing trust with compute resources](/docs/account?topic=account-create-trusted-profile&interface=ui#create-profile-compute-ui).
+5. Create a trusted profile. For more information, see [Establishing trust with compute resources](/docs/account?topic=account-create-trusted-profile&interface=ui#create-profile-compute).
 
 ## IAM authorizations for linking trusted profiles
 {: #imd-iam-auth}
