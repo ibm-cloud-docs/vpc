@@ -399,5 +399,5 @@ curl -X POST "$vpc_api_endpoint/v1/images?version=2023-02-21&generation=2"\
 ## Next steps
 {: #ifv-next-steps-api}
 
-[Use your image from a volume](#ifv-image-creation-completed) when you create an instance.
-[Manage your image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc-manage).
+- [Manage your image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc-manage).
+- [Create a virtual server instance](/docs/vpc?topic=vpc-creating-virtual-servers) with your custom image.

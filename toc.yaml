@@ -386,7 +386,6 @@ toc:
             - vpe-view-details.md
             - vpe-list.md
             - vpe-delete.md
-            - vpe-attach-detach-sqs.md
             - vpe-iam.md
             - vpe-limitations.md
         - topicgroup:
