@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-07-08"
+lastupdated: "2024-07-16"
 
 keywords: snapshots, Block Storage snapshots, manage snapshots, fast restore clone, backup snapshot, remote copy, cross-regional copy
 
@@ -27,11 +27,11 @@ Snapshot names adhere to the same requirements as volume names. Valid names can 
 
 When you create a cross-regional copy of a snapshot, the new snapshot is named `[copy]-[source-snapshot-name]`. For example, a cross-regional copy of the snapshot-my-volume-snapshot1_ is automatically named _copy-my-volume-snapshot1_ when it is placed in the target region. Cross-regional copies of snapshots are independent from the source snapshot and the source volume, and the copies can be managed like any other normal snapshot.
 
-## Renaming a snapshot in the UI
+## Renaming a snapshot in the console
 {: #snapshots-vpc-rename-ui}
 {: ui}
 
-Use the following steps to rename a snapshot by using the UI.
+Use the following steps to rename a snapshot in the console.
 
 1. Go to the list of snapshots. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu** ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Snapshots**.
 2. Click the name of a snapshot from the list.
@@ -159,7 +159,7 @@ resource "ibm_is_snapshot" "example" {
 
 For more information about the arguments and attributes, see [ibm_is_snapshot](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_snapshot){: external}.
 
-## Adding tags to a snapshot in the UI
+## Adding tags to a snapshot in the console
 {: #snapshots-vpc-add-tags-ui}
 {: ui}
 
@@ -256,11 +256,11 @@ curl -X PATCH \
 
 When the user tags are matched with a backup policy, a backup is triggered based on the backup plan schedule. For more information, see [Creating a backup policy](/docs/vpc?topic=vpc-create-backup-policy-and-plan).
 
-## Editing fast restore zones in the UI
+## Editing fast restore zones in the console
 {: #snapshots-edit-fast-restore}
 {: ui}
 
-Use the following steps to edit the zones where fast restore clones are stored by using the UI. You can add or remove zones as needed.
+Use the following steps to edit the zones where fast restore clones are stored in the console. You can add or remove zones as needed.
 
 1. Select a snapshot from the [list of snapshots](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=ui#snapshots-vpc-view-list-ui).
 2. From the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions"), select **Edit fast restore**.
@@ -414,7 +414,7 @@ curl -X DELETE \
 ```
 {: codeblock}
 
-## Creating a remote copy in the UI
+## Creating a remote copy in the console
 {: #napshots-remote-copy-create-ui}
 {: ui}
 
@@ -432,13 +432,13 @@ Use the following steps to create cross-regional copies of snapshots from the Sn
 
 Alternatively, click the snapshot's name to view its details. You can either access the **Cop Snapshot** option from the **Actions** menu or you can scroll to the remote copies card and click **Create copy**. The same provisioning panel opens where you can make the region selection.
 
-## Deleting remote region copy in the UI
+## Deleting remote region copy in the console
 {: #napshots-remote-copy-delete-ui}
 {: ui}
 
 Snapshot copies in a remote region are independent from the parent snapshot and the parent volume. You can delete them anytime by using the Snapshots for VPC list.
 
-Use the following steps to delete a remote region copy by using the UI.
+Use the following steps to delete a remote region copy in the console.
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu** ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Snapshots**.
 2. Click the **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions") in the row of the snapshot that you want to delete.
@@ -647,7 +647,7 @@ terraform destroy --target ibm_is_snapshot.example.id
 
 For more information, see [terraform destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy){: external}.
 
-## Deleting snapshots in the UI
+## Deleting snapshots in the console
 {: #snapshots-vpc-delete-snapshot-ui}
 {: ui}
 
@@ -657,9 +657,9 @@ You can delete any snapshot for a volume or all snapshots for a volume. To be ab
 * Not be actively restoring a volume.
 
 An easy way to determine whether you can delete a snapshot is to look in the [console](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view-list-ui) for the list of snapshots and check its status.
-You can delete all snapshots for a volume. Deleting all snapshots requires further confirmation in the UI.
+You can delete all snapshots for a volume. Deleting all snapshots requires further confirmation in the console.
 
-### Deleting a single snapshot in the UI
+### Deleting a single snapshot in the console
 {: #snapshots-vpc-delete-single-snapshot-ui}
 
 You can delete a snapshot from the list of all snapshots by using the following steps.
@@ -679,17 +679,17 @@ You can also delete a snapshot from the details page of a {{site.data.keyword.bl
 4. Select **Delete**. If the snapshot is actively restoring a volume, the delete operation does not work.
 5. Confirm the deletion.
 
-### Deleting all snapshots for a volume in the UI
+### Deleting all snapshots for a volume in the console
 {: #snapshots-vpc-delete-all-ui}
 
-To delete all snapshots for a volume in the UI, follow these steps.
+To delete all snapshots for a volume in the console, follow these steps.
 
 1. Go to the list of all snapshots. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu** ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Snapshots**.
 2. Click the row to select the snapshot that you want to delete.
 3. From the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions"), select **Delete all for volume**.
 4. Confirm the deletion by typing _delete_ and then click **Delete**.
 
-### Deleting snapshots from the {{site.data.keyword.block_storage_is_short}} details page in the UI
+### Deleting snapshots from the {{site.data.keyword.block_storage_is_short}} details page in the console
 {: #snapshots-vpc-delete-from-volume}
 
 You can delete the most recently created snapshot from the list of snapshots from the {{site.data.keyword.block_storage_is_short}} volume details page. Optionally, you can delete all snapshots from this view.
