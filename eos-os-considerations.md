@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-07-16"
+lastupdated: "2024-07-17"
 
 keywords:
 
@@ -32,7 +32,7 @@ When you plan for an OS EOS, keep the following information in mind:
 ### Wanclouds partnership
 {: #partner}
 
-{{site.data.keyword.IBM_notm}} has a partnership with Wanclouds. Contact [Wanclouds](https://wanclouds.net/ibm-request){: external} for more information.
+{{site.data.keyword.IBM_notm}} has a partnership with Wanclouds. Contact [Wanclouds](https://wanclouds.net/ibm/request){: external} for more information.
 
 ### Upgrade your OS on your own
 {: #upgrading-your-os}

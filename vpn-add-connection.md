@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-06-29"
+lastupdated: "2024-07-17"
 
 keywords:
 
@@ -130,7 +130,6 @@ Where:
 
 `--dead-peer-detection-timeout`
     :  The dead peer detection timeout in seconds (default: `10`).
-
 
 `--ike-policy`
     : The ID of the IKE policy.
