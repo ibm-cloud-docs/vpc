@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-07-12"
+lastupdated: "2024-07-17"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -1081,8 +1081,6 @@ After you create an access management tag and apply it to a file share, complete
 
 When you look at the specific resources for the VPC infrastructure and specify {{site.data.keyword.filestorage_vpc_short}} as the resource type, you can see the access management tags for the file service.
 
-
-
 ## Removing access to a file share from other accounts
 {: #fs-xaccount-access-removal}
 
@@ -1095,8 +1093,6 @@ Revoking access to a file share is a 2-step process.
 
 1. Delete the share binding that connects the origin share with the accessor share. This action causes the mount target of the other account to enter a `failed` state.
    - [Deleting share bindings from the UI](/docs/vpc?topic=vpc-file-storage-accessor-delete&interface=ui){: ui}[Deleting share bindings from the CLI](/docs/vpc?topic=vpc-file-storage-accessor-delete&interface=cli){: cli}[Deleting share bindings with the API](/docs/vpc?topic=vpc-file-storage-accessor-delete&interface=api){: api}[Deleting share bindings with Terraform](/docs/vpc?topic=vpc-file-storage-accessor-delete&interface=terraform){: terraform}
-
-
 
 ## Mounting and unmounting file shares on a virtual server instance
 {: #fs-mount-unmount-vsi}
