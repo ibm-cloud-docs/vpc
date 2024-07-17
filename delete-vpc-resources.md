@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, [{CURRENT_YEAR}]
-lastupdated: "[{LAST_UPDATED_DATE}]"
+  years: 2018, 2024
+lastupdated: "2024-07-17"
 
 keywords: delete, resources, ui, console, cli, infrastructure, command line interface
 
@@ -212,9 +212,6 @@ The status of the VPC changes to `deleting` immediately, but it might take a few
 ## Deleting a VPC by using the REST APIs
 {: #deleting-using-api}
 {: api}
-
-Deleting an {{site.data.keyword.vpc_full}} by using the REST APIs follows the same general steps in the
-[deleting](/docs/vpc-on-classic?topic=vpc-on-classic-deleting) process as deletion by using the [CLI](/docs/vpc-on-classic?topic=vpc-on-classic-deleting-using-cli).
 
 The following steps are the main parts in the process:
 

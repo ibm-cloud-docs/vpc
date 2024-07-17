@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-02-23"
+lastupdated: "2024-07-17"
 
 keywords: context-based restrictions for VPC Infrastructure Services
 
@@ -46,7 +46,7 @@ tutorial for [Leveraging context-based restrictions to secure your resources](/d
 
 VPC Infrastructure Services is a composite service made up of a number of child services.
 Context-based restrictions can be created for {{site.data.keyword.vpc_short}} or any of its child services;
-for example, [subnets](/docs/vpc?topic=vpc-about-subnets-vpc), [virtual server instances](/docs/vpc?topic=vpc-vsi_best_practice), and [Block Storage volumes](/docs/vpc?topic=vpc-creating-block-storage&interface=cli).
+for example, [subnets](/docs/vpc?topic=vpc-about-subnets-vpc), [virtual server instances](/docs/vpc?topic=vpc-vsi_best_practices), and [Block Storage volumes](/docs/vpc?topic=vpc-creating-block-storage&interface=cli).
 
 See the [rule creation section](#cbr-rules) for details on how you can create rules with the
 required attributes for each service.

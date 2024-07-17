@@ -57,7 +57,7 @@ To create an image of the boot volume, the associated virtual server instance mu
    | Resource group | Select a resource group for the image. This selection can't be changed later. |
    | Tags |  You can assign a label to this resource so that you can easily filter resources in your resource list. |
    | Access management tags | As the name indicates, these tags can help organize access control without requiring updates to IAM policies. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial#tagging-create-access-group). |
-   | Source | Select the source for the custom image by choosing either [Virtual server instance boot volume](#import-custom-image-vsi) (default) or [Block Storage boot volume](#import-custom-image-vol). |
+   | Source | Select the source for the custom image by choosing either **Virtual server instance boot volume** (default) or **Block Storage boot volume**. |
    {: caption="Table 1. Import custom image user interface fields" caption-side="bottom"}
 
 4. Choose your image source: 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-07-16"
+lastupdated: "2024-07-17"
 
 keywords: snapshots, Block Storage snapshots, manage snapshots, fast restore clone, backup snapshot, remote copy, cross-regional copy
 
@@ -171,7 +171,7 @@ You can add [user tags](/docs/vpc?topic=vpc-block-storage-about#storage-about-us
 Use the following steps to add user tags from the snapshots list screen.
 
 1. Go to the [list of snapshots](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=ui#snapshots-vpc-view-list-ui).
-2. Locate an _available_ snapshot created by _user_. (Snapshots that were created by a backup policy are identified as created by _Backup policy_.)
+2. Locate an _available_ snapshot created by the _user_. (Snapshots that were created by a backup policy are identified as created by the _Backup policy_.)
 3. In the **Tags** column, snapshots with tags show a number that indicates the tags that are already applied. Snapshots without tags have an **Add tags** link. Click **Add tags**.
 4. In the new window, type a tag in the User tags text box.
 5. Click **Save**.
@@ -983,7 +983,7 @@ Table 2 describes the snapshot states in the snapshot lifecycle.
 | Stable | The snapshot is available for restoring a volume. |
 | Waiting | Snapshot information is being retrieved. |
 | Pending | While the snapshot is being created, the percentage completed displays. |
-| Failed | The snapshot failed to br created, the volume can't be restored from a snapshot. |
+| Failed | The snapshot failed to be created, the volume can't be restored from a snapshot. |
 | Suspended | Snapshot is temporarily unavailable. |
 | Updating | You changed something about the snapshot and it is being updated. |
 | Deleting | The snapshot is being deleted. |

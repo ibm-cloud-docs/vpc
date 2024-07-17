@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-07-03"
+lastupdated: "2024-07-17"
 
 keywords: flow logs, ordering, logging, log analysis
 
@@ -160,7 +160,7 @@ Table 3 outlines the message IDs that are generated for dedicated hosts:
 
 | Message ID             | Type   | Learn More  |
 |------------------------|--------|---------------------|
-| `dedicated-host.00001` | `err`  | [`Failed to create dedicated host <Dedicated Host ID> due to insufficient capacity in zone.`](/docs/vpc?topic=vpc-why-did-a-dedicated-host-fail-to-create-) |
+| `dedicated-host.00001` | `err`  | [`Failed to create dedicated host <Dedicated Host ID> due to insufficient capacity in zone.`](/docs/vpc?topic=vpc-why-did-a-dedicated-host-fail-to-create) |
 | `dedicated-host.00002` | `info` | `Provisioned a virtual server instance on dedicated host <Dedicated Host ID>.`              |
 | `dedicated-host.00003` | `info` | `Removed a virtual server instance on dedicated host <Dedicated Host ID>.`              |
 {: caption="Table 3. Message IDs that are generated for dedicated hosts" caption-side="bottom"}
@@ -173,12 +173,11 @@ A log is generated when each Dedicated Host event occurs.
 
 Table 4 outlines the message IDs that are generated for resource quota events:
 
-| Message ID             | Type   | Learn More  |
-|------------------------|--------|---------------------|
-| `quota-monitoring.00001` | `info`  | `Successfully provisioned resource <Resource ID>.`        |
-| `quota-monitoring.00002` | `err` | [`Failed to provision resource <Resource ID> due to resource quota limits.`](/docs/vpc?topic=vpc-rqe-ts-failed-publish)              |
-| `quota-monitoring.00003` | `info` | `Successfully updated resource <Resource ID>.`              |
-| `quota-monitoring.00004` | `err` | [`Failed to update resource <Resource ID> due to resource quota limits.`](/docs/vpc?topic=vpc-rqe-ts-failed-publish)             |
+| Message ID               | Type   | Learn More  |
+|--------------------------|--------|---------------------|
+| `quota-monitoring.00001` | `info` | `Successfully provisioned resource <Resource ID>.`|
+| `quota-monitoring.00002` | `err`  | `Failed to provision resource <Resource ID> due to resource quota limits.` |
+| `quota-monitoring.00004` | `err`  | `Failed to update resource <Resource ID> due to resource quota limits.` |
 {: caption="Table 4. Message IDs that are generated for resource quota events" caption-side="bottom"}
 
 A log is generated when a provision or update resource quota event succeeds or fails.
