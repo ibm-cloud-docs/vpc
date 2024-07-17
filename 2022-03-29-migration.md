@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-06-20"
+lastupdated: "2024-07-17"
 
 keywords:
 
@@ -15,14 +15,14 @@ subcollection: vpc
 # Updating to the `2022-03-29` version (network interfaces, security groups)
 {: #2022-03-29-migration}
 
-As described in [Versioning](/apidocs/vpc/latest#api-versioning){: external}, most changes to the VPC APIs are fully backward compatible and therefore are made available to all clients, regardless of the API version the client requests. However, the `2022-03-29` release of the VPC API necessitated incompatible changes in support of the reserved IP addresses feature:
+As described in [Versioning](/apidocs/vpc/latest#api-versioning){: external}, most changes to the VPC APIs are fully compatible with earlier versions and therefore are made available to all clients, regardless of the API version the client requests. However, the `2022-03-29` release of the VPC API necessitated incompatible changes in support of the reserved IP addresses feature:
 
 - IP addresses are now modeled as objects (resources), rather than strings.
 - Security groups must now be associated with targets rather than network interfaces.
 
 If your clients continue to specify version `2022-03-28` or earlier of the VPC API, no changes are required, but those clients remain unable to fully benefit from reserved IP addresses. For more information about reserved addresses, see [Managing IP addresses](/docs/vpc?topic=vpc-managing-ip-addresses).
 
-Even if you are not planning to use reserved IP addresses, to avoid regressions in client functionality, be sure to read and follow the [action needed](#action-needed) before your client specifies version `2022-03-29` or later.
+Even if you are not planning to use reserved IP addresses, to avoid regressions in client functionality, read, and follow the [action needed](#action-needed) section before your client specifies a version `2022-03-29` or later.
 {: important}
 
 The [VPC Instance Metadata API](/apidocs/vpc-metadata) does not yet support reserved IP addresses. Clients that use the metadata API do not require changes to use version `2022-03-29` or later.
@@ -31,14 +31,14 @@ The [VPC Instance Metadata API](/apidocs/vpc-metadata) does not yet support rese
 ## Action needed
 {: #action-needed}
 
-Before the client specifies version `2022-03-29` or later, follow these actions to avoid regressions in client functionality.
+Before the client specifies a version `2022-03-29` or later, follow these actions to avoid regressions in client functionality.
 
 ### Migrating use of IP addresses
 {: #migrate-ip-addresses}
 
-Before you migrate a client to API version `2022-03-29` or later, review your code for any use of the `primary_ipv4_address` property. As shown in the [examples](#examples), as of version `2022-03-29`, the `primary_ipv4_address` string property is replaced by the `primary_ip` object property, which includes an `address` sub-property. Therefore, you need to change all instances of `primary_ipv4_address` to `primary_ip.address` in the manner appropriate for your programming language.
+Before you migrate a client to an API version `2022-03-29` or later, review your code for any use of the `primary_ipv4_address` property. As shown in the [examples](#examples), as of version `2022-03-29`, the `primary_ipv4_address` string property is replaced by the `primary_ip` object property, which includes an `address` subproperty. Therefore, you need to change all instances of `primary_ipv4_address` to `primary_ip.address` in the manner appropriate for your programming language.
 
-While `primary_ipv4_address` appears only in the `NetworkInterface`, `NetworkInterfaceReference`, and `NetworkInterfacePrototype` schemas (and their closely related `BareMetalNetworkInterface` schemas), those schemas are used extensively in the VPC API. Therefore, even though the incompatible change is limited to the `primary_ipv4_address` property, many operations have been affected. See [Changed operations](#changed-operations) for a complete list.
+While `primary_ipv4_address` appears only in the `NetworkInterface`, `NetworkInterfaceReference`, and `NetworkInterfacePrototype` schemas (and their closely related `BareMetalNetworkInterface` schemas), those schemas are used extensively in the VPC API. Therefore, even though the incompatible change is limited to the `primary_ipv4_address` property, many operations were affected. See [Changed operations](#changed-operations) for a complete list.
 
 ### Migrating use of security group associations
 {: #migrate-security-group-assoc}
@@ -216,7 +216,7 @@ curl -X DELETE \
 ### IP addresses
 {: #ip-address-changes}
 
-The following table lists the operations where `primary_ipv4_address` changed to `primary_ip` in the request bodies, response bodies, or both. A period (`.`) indicates that `primary_ipv4_address` was changed to `primary_ip` in the top-level response schema.
+The following table lists the operations in which the `primary_ipv4_address` changed to `primary_ip` in the request bodies, response bodies, or both. A period (`.`) indicates that `primary_ipv4_address` was changed to `primary_ip` in the top-level response schema.
 
 
 | Method   | Path                                                                                        | Changed request properties                        | Changed response properties                                            |
