@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2023-12-05"
+lastupdated: "2024-07-17"
 
 keywords: file storage, file share, mount target, API change, access mode, vpc, security group
 
@@ -17,12 +17,12 @@ subcollection: vpc
 
 As described in the [Beta VPC API](/apidocs/vpc-beta) reference [versioning](/apidocs/vpc-beta#api-versioning-beta) policy, to more quickly respond to feedback as a feature progresses through its beta phase, support for older versions of the beta API is limited to 45 days. Therefore, beta API requests must specify a `version` query parameter date value within the last 45 days.
 
-Before you adopt beta release version `2023-07-11` or later, be aware of the following changes, which might require you to update your client:
+Before you adopt a beta release version `2023-07-11` or later, be aware of the following changes, which might require you to update your client:
 
-- In the [share](/apidocs/vpc-beta#create-share) methods, the `access_control_mode` property has been added. This property can have the values `vpc` or `security_group`. File shares that are based on the previous IOPS tiers or custom profiles and are created with version `2023-07-10` or earlier default to the `vpc` value for the `access_control_mode` property. File shares that are based on the `dp2` profile and are created with version `2023-07-11` or later, default to `security_group` value for the `access_control_mode` property unless specified otherwise.
-- When [creating](/apidocs/vpc-beta#create-share) a file share, you must specify the `access_control_mode` as either `vpc` or `security_group`.
-- In the [share mount targets](/apidocs/vpc-beta#list-share-mount-targets) methods, the `virtual_network_interface` property value has been added. Learn [about virtual network interfaces](/docs/vpc?topic=vpc-vni-about&interface=api).
-- When [creating a mount target](/apidocs/vpc-beta#create-share-mount-target) for a file share with `access_control_mode` set to `security group`, you must specify the `virtual_network_interface` property to create a virtual network interface.
+- In the [share](/apidocs/vpc-beta#create-share) methods, the `access_control_mode` property was added. This property can have the values `vpc` or `security_group`. File shares that are based on the previous IOPS tiers or custom profiles and are created with version `2023-07-10` or earlier default to the `vpc` value for the `access_control_mode` property. File shares that are based on the `dp2` profile and are created with version `2023-07-11` or later, default to `security_group` value for the `access_control_mode` property unless specified otherwise.
+- When you're [creating](/apidocs/vpc-beta#create-share) a file share, you must specify the `access_control_mode` as either `vpc` or `security_group`.
+- In the [share mount targets](/apidocs/vpc-beta#list-share-mount-targets) methods, the `virtual_network_interface` property value was added. Learn [about virtual network interfaces](/docs/vpc?topic=vpc-vni-about&interface=api).
+- When you're [creating a mount target](/apidocs/vpc-beta#create-share-mount-target) for a file share with `access_control_mode` set to `security group`, you must specify the `virtual_network_interface` property to create a virtual network interface.
 
 All requests that are using the following methods enforce the existing requirement that you provide the [`maturity=beta`](/apidocs/vpc-beta/initial#maturity-query-parameter-beta) query parameter:
 
@@ -41,12 +41,12 @@ All requests that are using the following methods enforce the existing requireme
 ## Action needed
 {: #action-needed-access-mode}
 
-Before specifying `version` query parameter of `2023-07-11` or later, follow these actions to avoid regressions in client functionality.
+Before you specify `version` query parameter of `2023-07-11` or later, follow these actions to avoid regressions in client functionality.
 
 ### Client migration
 {: #client-migration-access-mode}
 
-Before you migrate a client to API version `2023-07-11` or later, review your code for use of the `POST /share` and `POST /mount_targets` methods. Update your code to include the `access_control_mode` property for shares and the `virtual_network_interface` property for share mount targets in the manner appropriate for your programming language. For more information, see the [Beta API change log](/docs/vpc?topic=vpc-api-change-log-beta#version-2023-07-11-beta).
+Before you migrate a client to an API version `2023-07-11` or later, review your code for use of the `POST /share` and `POST /mount_targets` methods. Update your code to include the `access_control_mode` property for shares and the `virtual_network_interface` property for share mount targets in the manner appropriate for your programming language. For more information, see the [Beta API change log](/docs/vpc?topic=vpc-api-change-log-beta#version-2023-07-11-beta).
 
 ## Examples
 {: #examples-access-mode}
@@ -125,7 +125,7 @@ curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-07-11&generation=2&maturi
 
 The following examples compare how to create a mount target for an existing file share before and after the `2023-07-11` versioned change. The path of the API request is the same as before the change.
 
-The following request creates a target for an existing file share, it specifies API version `2023-07-10` or earlier. The request specifies only the VPC that contains the virtual server instances that can mount and access the file share.
+The following request creates a target for an existing file share, it specifies an API version `2023-07-10` or earlier. The request specifies only the VPC that contains the virtual server instances that can mount and access the file share.
 
 ```sh
 curl -X POST \

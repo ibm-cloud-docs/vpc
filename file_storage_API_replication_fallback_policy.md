@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2023-12-05"
+lastupdated: "2024-07-17"
 
 keywords: file storage, file share, API change, replication, fallback plan, fallback poicy, failover
 
@@ -17,10 +17,10 @@ subcollection: vpc
 
 As described in the [Beta VPC API](/apidocs/vpc-beta) reference [versioning](/apidocs/vpc-beta#api-versioning-beta) policy, to more quickly respond to feedback as a feature progresses through its beta phase, support for older versions of the beta API is limited to 45 days. Therefore, beta API requests must specify a `version` query parameter date value within the last 45 days.
 
-Before you adopt beta release version `2023-08-08` or later, be aware of the following changes, which might require you to update your client:
+Before you adopt a beta release version `2023-08-08` or later, be aware of the following changes, which might require you to update your client:
 
-- When initiating a request to [fail over to replica file share](/apidocs/vpc-beta#failover-share), you must provide a value for the `fallback_policy` property, either `split` or `fail`. If the value of the `fallback_policy` property is not specified, the system now defaults to `split` instead of `fail`.
-- When initiating a request to [retrieve the source file share for a replica file share](/apidocs/vpc-beta#get-share-source). The request now returns a more concise `source_share` reference.
+- When you're initiating a request to [fail over to replica file share](/apidocs/vpc-beta#failover-share), you must provide a value for the `fallback_policy` property, either `split` or `fail`. If the value of the `fallback_policy` property is not specified, the system now defaults to `split` instead of `fail`.
+- When you're initiating a request to [retrieve the source file share for a replica file share](/apidocs/vpc-beta#get-share-source). The request now returns a more concise `source_share` reference.
 
 All requests that are using the following methods enforce the existing requirement that you provide the [`maturity=beta`](/apidocs/vpc-beta/initial#maturity-query-parameter-beta) query parameter:
 
@@ -30,12 +30,12 @@ All requests that are using the following methods enforce the existing requireme
 ## Action needed
 {: #action-needed-share-replication}
 
-Before specifying `version` query parameter of `2023-08-08` or later, follow these actions to avoid regressions in client functionality.
+Before you specify a `version` query parameter of `2023-08-08` or later, follow these actions to avoid regressions in client functionality.
 
 ### Client migration
 {: #client-migration-share-replication}
 
-Before you migrate a client to API version `2023-08-08` or later, review your code for use of the `POST /shares/{share_id}/failover` and `GET /shares/$share_id/source` methods. Ensure that your code includes the `fallback_policy` property for failovers in the manner appropriate for your programming language. For more information, see the [Beta API change log](/docs/vpc?topic=vpc-api-change-log-beta#version-2023-08-08-beta).
+Before you migrate a client to an API version `2023-08-08` or later, review your code for use of the `POST /shares/{share_id}/failover` and `GET /shares/$share_id/source` methods. Ensure that your code includes the `fallback_policy` property for failovers in the manner appropriate for your programming language. For more information, see the [Beta API change log](/docs/vpc?topic=vpc-api-change-log-beta#version-2023-08-08-beta).
 
 ## Examples
 {: #examples-share-replication}

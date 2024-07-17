@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2023-12-05"
+lastupdated: "2024-07-17"
 
 keywords: file storage, file share, mount target, API change
 
@@ -21,8 +21,8 @@ Before you adopt the beta release version `2023-05-30` or later, be aware of the
 
 - In the [Shares](/apidocs/vpc-beta#list-share-profiles) methods, the `targets` property was changed to `mount_targets`.
 - In the [share mount targets](/apidocs/vpc-beta#list-share-mount-targets) methods, the `resource_type` property value was changed to `share_mount_target`.
-- When [creating](/apidocs/vpc-beta#create-share) a file share, you must specify the `mount_targets` property instead of the `targets` property
-- When making [share mount targets](/apidocs/vpc-beta#list-share-mount-targets) method requests, you must use the method URL `/shares/{id}/mount_targets` instead of `/shares/{id}/targets`.
+- When you're [creating](/apidocs/vpc-beta#create-share) a file share, you must specify the `mount_targets` property instead of the `targets` property
+- When you're making [share mount targets](/apidocs/vpc-beta#list-share-mount-targets) method requests, you must use the method URL `/shares/{id}/mount_targets` instead of `/shares/{id}/targets`.
 
 All requests that use the following methods enforce the existing requirement that you provide the [`maturity=beta`](/apidocs/vpc-beta/initial#maturity-query-parameter-beta) query parameter:
 
@@ -46,7 +46,7 @@ Before you specify `version` query parameter of `2023-05-30` or later, follow th
 ### Client migration
 {: #client-migration-mount-target}
 
-Before you migrate a client to API version `2023-05-30` or later, review your code for use of the `targets` property. Change all instances of `targets` to `mount_targets` in the manner appropriate for your programming language. Changes are required in all relevant request paths, and request and response JSON field name formats. For more information, see the [Beta API change log](/docs/vpc?topic=vpc-api-change-log-beta#version-2023-05-30-beta).
+Before you migrate a client to an API version `2023-05-30` or later, review your code for use of the `targets` property. Change all instances of `targets` to `mount_targets` in the manner appropriate for your programming language. Changes are required in all relevant request paths, and request and response JSON field name formats. For more information, see the [Beta API change log](/docs/vpc?topic=vpc-api-change-log-beta#version-2023-05-30-beta).
 
 ## Examples
 {: #examples-mount-target}
@@ -68,7 +68,7 @@ curl -X GET \
 ```
 {: pre}
 
-This request lists a file share and mount targets, specifying API version `2023-05-30` or later. The path of the API request includes `/mount_targets`.
+This request lists a file share and mount targets, specifying an API version `2023-05-30` or later. The path of the API request includes `/mount_targets`.
 
 ```sh
 curl -X GET \
@@ -164,7 +164,7 @@ curl -X POST \
 ```
 {: pre}
 
-This request creates a mount target for an existing file share, specifying API version `2023-05-30` or later. The path of the API includes `/mount_targets`.
+This request creates a mount target for an existing file share, specifying an API version `2023-05-30` or later. The path of the API includes `/mount_targets`.
 
 ```sh
 curl -X POST \
@@ -199,7 +199,7 @@ curl -X PATCH \
 ```
 {: pre}
 
-This request updates a file share mount target, specifying API version `2023-05-30` or later. The path of the API includes `/mount_targets`.
+This request updates a file share mount target, specifying an API version `2023-05-30` or later. The path of the API includes `/mount_targets`.
 
 ```sh
 curl -X PATCH \
