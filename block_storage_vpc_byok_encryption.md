@@ -52,10 +52,10 @@ This procedure explains how to specify customer-managed encryption when you crea
 1. In the **Profile** section, you can specify the performance profile of your volume, its IOPS, and capacity.
     - For [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers), select the tile with the performance level that you require and specify the volume size in GBs. Volume sizes can be 10 - 16,000 GB. 
     - For [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) IOPS, specify the size of your volume and IOPS range based on the size of the volume. As you type the IOPS value, the UI shows the acceptable range. You can also click the **storage size** link to see a table of size and IOPS ranges. For more information, see the [Custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#custom).
-1. In the **Encryption at rest** section, you can choose to keep the encryption with IBM-managed keys that is enabled by default on all volumes. Or you can choose to use [your own encryption key](/docs/vpc?topic=vpc-block-storage-vpc-encryption) by selecting your key management service: ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}). To locate your encryption key, select one of the following options:
+1. In the **Encryption at rest** section, you can choose to keep the encryption with IBM-managed keys that is enabled by default on all volumes. Or you can choose to use [your own encryption key](/docs/vpc?topic=vpc-block-storage-vpc-encryption) by selecting your key management service: {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. To locate your encryption key, select one of the following options:
     - **Locate by Instance**:
        1. Select the data encryption instance from the list. If you don't have an instance yet, you can click the link to create one.
-       1. Select the data encryption key that is stored within the {{site.data.keyword.keymanagementserviceshort}} instance to use for encrypting the volume.
+       1. Select the data encryption key that is stored within the KMS instance to use for encrypting the volume.
     - **Locate by CRN**: enter the CRN of the customer root key to be used for encrypting the volume. Choose this option if you're using the CRK of another account.
 1. When your changes are complete, click **Create block storage volume**.
 
