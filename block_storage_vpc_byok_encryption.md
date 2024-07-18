@@ -466,7 +466,7 @@ A successful response looks like the following example. The boot volume appears 
 ```
 {: screen}
 
-## Creating {{site.data.keyword.block_storage_is_short}} volumes with customer-managed encryption with Terraform
+## Creating data volumes with customer-managed encryption with Terraform
 {: #data-vol-encryption-terraform}
 {: terraform}
 
