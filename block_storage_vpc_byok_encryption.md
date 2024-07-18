@@ -52,10 +52,10 @@ This procedure explains how to specify customer-managed encryption when you crea
 1. In the **Profile** section, you can specify the performance profile of your volume, its IOPS, and capacity.
     - For [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers), select the tile with the performance level that you require and specify the volume size in GBs. Volume sizes can be 10 - 16,000 GB. 
     - For [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) IOPS, specify the size of your volume and IOPS range based on the size of the volume. As you type the IOPS value, the UI shows the acceptable range. You can also click the **storage size** link to see a table of size and IOPS ranges. For more information, see the [Custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#custom).
-1. In the **Encryption at rest** section, you can choose to keep the encryption with IBM-managed keys that is enabled by default on all volumes. Or you can choose to use [your own encryption key](/docs/vpc?topic=vpc-block-storage-vpc-encryption) by selecting your key management service: ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}). To locate your encryption key, select one of the following options:
+1. In the **Encryption at rest** section, you can choose to keep the encryption with IBM-managed keys that is enabled by default on all volumes. Or you can choose to use [your own encryption key](/docs/vpc?topic=vpc-block-storage-vpc-encryption) by selecting your key management service: {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. To locate your encryption key, select one of the following options:
     - **Locate by Instance**:
        1. Select the data encryption instance from the list. If you don't have an instance yet, you can click the link to create one.
-       1. Select the data encryption key that is stored within the {{site.data.keyword.keymanagementserviceshort}} instance to use for encrypting the volume.
+       1. Select the data encryption key that is stored within the KMS instance to use for encrypting the volume.
     - **Locate by CRN**: enter the CRN of the customer root key to be used for encrypting the volume. Choose this option if you're using the CRK of another account.
 1. When your changes are complete, click **Create block storage volume**.
 
@@ -470,22 +470,26 @@ A successful response looks like the following example. The boot volume appears 
 {: #data-vol-encryption-terraform}
 {: terraform}
 
+### Prerequisites
+{: #byok-terraform-setup-prereqs}
+
 To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
 {: requirement}
 
 VPC infrastructure services use a specific regional endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the appropriate region in the provider block in the `provider.tf` file. See the following example of targeting a region other than the default `us-south`.
-
+   
 ```terraform
 provider "ibm" {
-   region = "eu-de"
+  region = "eu-de"
 }
 ```
 {: screen}
 
-Valid volume names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. Volume names must begin with a lowercase letter. Volume names must be unique across the entire VPC infrastructure.
-{: important}
+Gather required information such as a unique volume name, select a [profile](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_volume_profile){: external}, decide on the capacity and IOPS requirements. 
 
-Retrieve the CRN of the customer root key by referring to the ibm_kms_key data source. For more information, see the Terraform documentation on [ibm_kms_key](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/kms_key){: external}. If the KMS is in another region or the customer root key is owned by another account, the instance cannot be retrieved by Terraform and the Terraform action fails. Contact the other account's administrator for the CRN.
+Valid volume names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. Volume names must begin with a lowercase letter. Volume names must be unique across the entire VPC infrastructure.
+
+Retrieve the CRN of the customer root key for encryption by referring to the ibm_kms_key data source. For more information, see the Terraform documentation on [ibm_kms_key](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/kms_key){: external}. If the KMS is in another region or the customer root key is owned by another account, the instance cannot be retrieved by Terraform and the Terraform action fails. Contact the other account's administrator for the CRN.
 
 ### Creating stand-alone {{site.data.keyword.block_storage_is_short}} volumes with Terraform
 {: #encrypted-standalone-vol-terraform}

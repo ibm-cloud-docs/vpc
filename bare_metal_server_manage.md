@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-07-12"
+lastupdated: "2024-07-18"
 
 keywords: bare metal servers, managing, operation, manage bare metal server, manage bare metal, manage server, restart bare metal, stop bare metal, delete bare metal, reboot bare metal, restart server, stop server, delete server
 
@@ -15,10 +15,11 @@ subcollection: vpc
 # Managing Bare Metal Servers for VPC
 {: #managing-bare-metal-servers}
 
-You can manage your {{site.data.keyword.cloud}} Bare Metal Servers for VPC by performing tasks such as start, stop, update firmware, reboot, and delete bare metal server.
+You can manage your {{site.data.keyword.cloud}} Bare Metal Servers for VPC by performing tasks such as start, stop, update firmware, reboot, reinitialize, and delete bare metal server.
 {: shortdesc}
 
-
+Reinitializing bare metal servers is a beta feature that is available for evaluation and testing purposes.
+{: beta}
 
 You can perform the following actions by using the UI, CLI, and API.
 
@@ -28,8 +29,21 @@ You can perform the following actions by using the UI, CLI, and API.
 | Start | Start a stopped server. This action is not available if the status is Running. |
 | Update firmware | If the server is stopped and a firmware update is available, this option is visible. \n \n If you select to update the firmware, a prompt is displayed giving you additional details about the firmware update. There is an option to start the server when the update completes. This option is selected by default. \n \n You can select to either proceed with the firmware update or to cancel.  \n **Important** It is recommended to back up your server before any firmware update. |
 | Reboot | Immediately powers off a running server and then powers it back on. |
+| Reinitialize | You can reinitialize the server only if the server is stopped. Or, you can reinitialize if the server status is `failed` and the lifecycle state has a status reason of `cannot_reinitialize`. When the bare metal server is reinitialized, the contents of the boot disk are wiped and the specified operating system is installed. The server retains the same physical node, interfaces, IP addresses, and resource IDs. Data on secondary drives is preserved. |
 | Delete | To delete a server, the server must be powered off. If the server has a floating IP address, the floating IP address must be unassociated or released before the server is deleted. The delete action permanently removes a server and its connected vNIC, boot volume, and data from your account. |
 {: caption="Table 1. Actions available for bare metal servers" caption-side="bottom"}
+
+To manage bare metal servers, you need an IAM role that includes the following actions. For more information, see [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started).
+
+   - is.bare-metal-server.bare-metal-server.list
+   - is.bare-metal-server.bare-metal-server.read
+   - is.bare-metal-server.bare-metal-server.delete
+   - is.bare-metal-server.bare-metal-server.update
+   - is.bare-metal-server.bare-metal-server.operate
+   - is.key.key.operate
+   - is.image.image.operate
+   - is.bare-metal-server.bare-metal-server-firmware.update (required to update firmware)
+   - is.bare-metal-server.initialization.update (required to reinitialize server)
 
 ## Managing bare metal servers by using the UI
 {: #managing-bare-metal-servers-ui}
@@ -88,6 +102,21 @@ The reboot action immediately powers off and powers on the bare metal server.
 
 Billing continues after the bare metal server is stopped.
 {: note}
+
+### Reinitialize a bare metal server by using the UI
+{: #reinitialize-bare-metal-servers-ui}
+{: ui}
+
+Reinitializing bare metal servers is a beta feature that is available for evaluation and testing purposes.
+{: beta}
+
+You can reinitialize the server only if the server is stopped and provisioned with local storage. Or, you can reinitialize if the server status is `failed` and the lifecycle state has a status reason of `cannot_reinitialize`. When the bare metal server is reinitialized, the contents of the boot disk are wiped and the specified operating system is installed. The server retains the same physical node, interfaces, IP addresses, and resource IDs. Data on secondary drives is preserved.
+
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**
+
+2. Click the name of the bare metal server that you want to reinitialize.
+
+3. Click **Actions...**, then click **Reinitialize**.
 
 ### Deleting a bare metal server by using the UI
 {: #delete-bare-metal-servers-ui}
@@ -161,6 +190,32 @@ Billing continues after the bare metal server is stopped.
 
 For a full list of command options, see [ibmcloud is bare-metal-server-restart](/docs/vpc?topic=vpc-vpc-reference#bare-metal-server-restart
 
+### Reinitialize a bare metal server by using the CLI
+{: #reinitialize-bare-metal-servers-cli}
+{: cli}
+
+Reinitializing bare metal servers is a beta feature that is available for evaluation and testing purposes.
+{: beta}
+
+You can reinitialize your bare metal server on {{site.data.keyword.cloud}} Bare Metal Servers for VPC by using the command-line interface (CLI).
+
+You can reinitialize the server only if the server is stopped and provisioned with local storage. Or, you can reinitialize if the server status is `failed` and the lifecycle state has a status reason of `cannot_reinitialize`. When the bare metal server is reinitialized, the contents of the boot disk are wiped and the specified operating system is installed. The server retains the same physical node, interfaces, IP addresses, and resource IDs. Data on secondary drives is preserved.
+
+To reinitialize a bare metal server by using the CLI, use the `ibmcloud is bare-metal-server-initialization-replace` command.
+
+```sh
+ibmcloud is bare-metal-server-initialization-replace SERVER --image IMAGE ---keys KEYS --user-data DATA
+```
+{: pre}
+
+Specify the following variables to be used when reinitializing the bare metal server.
+- `SERVER` specifies the name of the bare metal server
+- `IMAGE` specifies the operating system image
+- `KEYS` specifies the SSH keys
+- `DATA` specifies any optional user data
+
+For a full list of command options, see [ibmcloud is bare-metal-server-initialization-replace](/docs/vpc?topic=vpc-vpc-reference#bare-metal-server-initialization-replace).
+
 ### Updating the firmware for a bare metal server by using the CLI
 {: #update-firmware-bare-metal-servers-cli}
 
@@ -203,15 +258,7 @@ For a full list of command options, see [ibmcloud is bare-metal-server-delete](/
 {: #managing-bare-metal-servers-api}
 {: api}
 
-To manage bare metal servers using the application programming interface (API), you need an IAM role that includes the following actions. For more information, see [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started).
 
-   - is.bare-metal-server.bare-metal-server.list
-   - is.bare-metal-server.bare-metal-server.read
-   - is.bare-metal-server.bare-metal-server.delete
-   - is.bare-metal-server.bare-metal-server.update
-   - is.bare-metal-server.bare-metal-server.operate
-   - is.key.key.operate
-   - is.image.image.operate
 
 ### Viewing your bare metal servers by using the API
 {: #viewing-bare-metal-servers-api}
@@ -297,6 +344,31 @@ curl -X POST "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/star
 {: pre}
 
 For more information about the API request, see [Start a bare metal server](/apidocs/vpc/latest#start-bare-metal-server).
+
+### Reinitialize a bare metal server by using the API
+{: #reinitialize-bare-metal-servers-api}
+{: api}
+
+Update firmware and reinitializing bare metal servers is a beta feature that is available for evaluation and testing purposes.
+{: beta}
+
+You can reinitialize your bare metal server on {{site.data.keyword.cloud}} Bare Metal Servers for VPC by using the API. To reinitialize your bare metal server, use [Bare metal servers initialization](https://pages.github.ibm.com/vpc/vpc-spec-artifacts/branch/master/swagger-ui.html?maturity=aspirational&feature=is-aspirational&versioned=true#/Bare%20metal%20servers/replace_bare_metal_server_initialization).
+
+You can reinitialize the server only if the server is stopped and provisioned with local storage. Or, can you reinitialize if the server status is `failed` and the lifecycle state has a status reason of `cannot_reinitialize`. When the bare metal server is reinitialized, the contents of the boot disk are wiped and the specified operating system is installed. The server retains the same physical node, interfaces, IP addresses, and resource IDs. Data on secondary drives is preserved.
+
+Specify a `PUT /bare_metal_servers/{id}/initialization` request to reinitialize the bare metal server.
+
+```sh
+curl -X PUT "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/initialization?version=2021-03-09&generation=2" \
+-H "Authorization: $iam_token"
+```
+{: pre}
+
+Specify the following properties values to be used when reinitializing the bare metal server.
+- `name` specifies the name of the bare metal server
+- `image` specifies the operating system image
+- `keys` specifies the SSH keys
+- `user_data` specifies any optional user data
 
 ### Updating the firmware for a bare metal server by using the API
 {: #update-firmware-bare-metal-servers-API}
