@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-07-12"
+lastupdated: "2024-07-18"
 
 keywords: Block Storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
@@ -91,9 +91,7 @@ The following table shows the available IOPS ranges based on volume capacity for
 ## Profiles and boot volumes
 {: #vsi-profiles-boot}
 
-By default, boot volumes are created based on the `general-purpose` IOPS profile with 100 GB capacity during instance provisioning. [Boot volume capacity](/docs/vpc?topic=vpc-resize-boot-volumes) can be increased by modifying the boot volume, up to 250 GB. 
-
-
+By default, boot volumes are created based on the `general-purpose` IOPS profile with 100 GB capacity during instance provisioning. [Boot volume capacity](/docs/vpc?topic=vpc-resize-boot-volumes) can be increased by modifying the boot volume, up to 250 GB.
 
 ## How virtual server profiles relate to storage profiles
 {: #vsi-profiles-relate-to-storage}
@@ -122,8 +120,6 @@ When you [create a Block Storage volume from the {{site.data.keyword.cloud_notm}
 
 Alternately, select **Custom** and then select an IOPS value within the range for that volume size. Click the storage size link to see a table of size and IOPS ranges.
 
-
-
 ### From the CLI
 {: #using-cli-iops-profiles}
 {: cli}
@@ -133,8 +129,6 @@ To view the list of available profiles by using the CLI, run the following comma
 ibmcloud is volume-profiles
 ```
 {: pre}
-
-
 
 ```sh
 $ ibmcloud is volume-profiles
@@ -170,8 +164,6 @@ IOPS                                   Max    Min   Default   Step
 ```
 {: screen}
 
-
-
 For more information about available command options, see [`ibmcloud is volume-profile`](/docs/vpc?topic=vpc-vpc-reference&interface=ui#volume-profile-view).
 
 ### With the API
@@ -186,8 +178,6 @@ $vpc_api_endpoint/v1/volume/profiles?$api_version&generation=2 \
 -H "Authorization: $iam_token"
 ```
 {: pre}
-
-
 
 For more information about this method, see the API reference for [listing all volume profiles](/apidocs/vpc/latest#list-volume-profiles) and [retrieving a volume profile](/apidocs/vpc/latest#get-volume-profile).
 

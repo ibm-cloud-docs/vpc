@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-07-10"
+lastupdated: "2024-07-18"
 
 keywords:
 
@@ -86,7 +86,7 @@ For more information, see [{{site.data.keyword.block_storage_is_short}} profiles
 
 {{site.data.keyword.cloud_notm}} takes the need for security seriously and understands the importance of being able to encrypt data to keep it safe. All block storage volumes are encrypted at rest with IBM-managed encryption by default.  
 
-You can also choose to protect your volumes by creating an envelop encryption with your own root keys that are stored in one of the approved Key Management Systems (KMS). In {{site.data.keyword.cloud_notm}}, the KMS can be either located in the same or in another account as the service that is using an encryption key. This deployment pattern allows to centrally manage encryption keys for all corporate accounts.
+You can also choose to protect your volumes by creating an envelop encryption with your own root keys that are stored in one of the approved Key Management Systems (KMS). In {{site.data.keyword.cloud_notm}}, the KMS can be either located in the same or in another account as the service that is using an encryption key. This deployment pattern allows enterprises to centrally manage encryption keys for all corporate accounts.
 
 Your data is protected while at rest, and also in transit from the storage to the hypervisor and host. After you set up the encryption type for a boot or data volume, you can't change it.
 

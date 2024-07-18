@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-07-17"
+lastupdated: "2024-07-18"
 
 keywords: vpc Block Storage, provision Block Storage for vpc, bootable snapshots, create volume from snapshot, fast restore
 
@@ -46,7 +46,7 @@ Use the {{site.data.keyword.cloud_notm}} console to create a {{site.data.keyword
    1. Click **Next**.
    1. Select the storage profile. 
       - Select [IOPS Tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) when you want to pick a predefined profile with flexible IOPS performance that falls within a general range in three performance tiers. 
-      - Select [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) if your performance requirements don't fall within any of the predefined IOPS tier. 
+      - Select [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) if your performance requirements don't fall within any of the predefined IOPS tier.
    1. Enter the volume size in GBs. Volume sizes can be 10 - 16,000 GB.
    1. If you selected a profile with custom IOPS, specify an IOPS value within range based on the storage size. For more information, see [Custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#custom).
    1. Click **Save**.
@@ -73,7 +73,7 @@ You can create a {{site.data.keyword.block_storage_is_short}} volume from an exi
    1. Click **Next**.
    1. Select the storage profile. 
       - Select [IOPS Tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) when you want to pick a predefined profile with flexible IOPS performance that falls within a general range in three performance tiers. 
-      - Select [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) if your performance requirements don't fall within any of the predefined IOPS tier. 
+      - Select [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) if your performance requirements don't fall within any of the predefined IOPS tier.
    1. Enter the volume size in GBs. Volume sizes can be 10 - 16,000 GB.
    1. If you selected a profile with custom IOPS, specify an IOPS value within range based on the storage size. For more information, see [Custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#custom).
    1. Click **Save**.
@@ -102,7 +102,7 @@ You can create a {{site.data.keyword.block_storage_is_short}} volume independent
 1. In the **Profile** section, you can specify the performance profile of your volume, its IOPS, and capacity.
     - For [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers), select the tile with the performance level that you require and specify the volume size in GBs. Volume sizes can be 10 - 16,000 GB. 
     - For [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) IOPS, specify the size of your volume and IOPS range based on the size of the volume. As you type the IOPS value, the UI shows the acceptable range. You can also click the **storage size** link to see a table of size and IOPS ranges. For more information, see the [Custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#custom).
-1. In the **Encryption at rest** section, you can choose to keep the encryption with IBM-managed keys that is enabled by default on all volumes. Or you can choose to use [your own encryption key](/docs/vpc?topic=vpc-block-storage-vpc-encryption) by selecting your key management service: ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}). To locate your encryption key, select one of the following options:
+1. In the **Encryption at rest** section, you can choose to keep the encryption with IBM-managed keys that is enabled by default on all volumes. Or you can choose to use [your own encryption key](/docs/vpc?topic=vpc-block-storage-vpc-encryption) by selecting your key management service: {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. To locate your encryption key, select one of the following options:
     - **Locate by Instance**:
        1. Select the data encryption instance from the list. If you don't have an instance yet, you can click the link to create one.
        1. Select the data encryption key that is stored within the {{site.data.keyword.keymanagementserviceshort}} instance to use for encrypting the volume.
@@ -305,8 +305,6 @@ Created           2023-05-05T07:42:33+05:30
 {: codeblock}
 
 For more information, see [ibmcloud is instance-volume-attachment-add](/docs/vpc?topic=vpc-vpc-reference&interface=cli#instance-volume-attachment-add) in the CLI reference.
-
-
 
 ### Creating an instance and adding user tags to volumes from the CLI
 {: #create-instance-vol-cli}
@@ -593,8 +591,6 @@ A successful response looks like this:
 ```
 {: screen}
 
-
-
 ### Creating a stand-alone {{site.data.keyword.block_storage_is_short}} volume with the API
 {: #block-storage-create-vol-api}
 
@@ -653,8 +649,6 @@ A successful response looks like the following example.
 }
 ```
 {: screen}
-
-
 
 For more information about volume creation with the API, see [Creating Block Storage volumes](/docs/vpc?topic=vpc-creating-block-storage&interface=api#creating-block-storage-api) and the API reference for [creating a volume](/apidocs/vpc/latest#create-volume).
 
@@ -722,7 +716,7 @@ For more information about the arguments and attributes, see [ibm_is_volume](htt
 ### Creating a stand-alone {{site.data.keyword.block_storage_is_short}} volume from a snapshot with Terraform
 {: #create-vol-from-snapshot-terraform}
 
-To create a {{site.data.keyword.block_storage_is_short}} volume from a snapshot, use the `ibm_is_volume` resource. The following example creates a volume based on a snapshot that is identified by its ID. 
+To create a {{site.data.keyword.block_storage_is_short}} volume from a snapshot, use the `ibm_is_volume` resource. The following example creates a volume based on a snapshot that is identified by its ID.
 
 ```terraform
 resource "ibm_is_volume" "storage" {

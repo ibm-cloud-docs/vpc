@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-11"
+lastupdated: "2024-07-18"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -164,8 +164,6 @@ Tags                                   -
 ```
 {: screen}
 
-
-
 ## Increase boot volume capacity with the API
 {: #increase-vpc-volumes-api}
 {: api}
@@ -220,8 +218,6 @@ curl -X PATCH "$vpc_api_endpoint/v1/volumes/$volume_id/?version=2022-02-12&gener
    }'
 ```
 {: codeblock}
-
-
 
 ## Increasing the capacity of an existing boot volume with Terraform
 {: #expand-existing-boot-vol-terraform}

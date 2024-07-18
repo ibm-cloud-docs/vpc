@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-07-10"
+lastupdated: "2024-07-18"
 
 keywords: Block Storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, Block Storage for vpc, customer-managed encryption,
 
@@ -23,9 +23,9 @@ By default, {{site.data.keyword.block_storage_is_short}} boot and data volumes a
 
 To create Block Storage volumes with customer-managed encryption, you must have your own customer root key. You can provision a key management service (KMS), and create or import your customer root key (CRK). You can choose between [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial) and [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started). Then, [create a service-to-service authorization](/docs/vpc?topic=vpc-block-s2s-auth) between {{site.data.keyword.block_storage_is_short}} and the KMS instance that you created.
 
-It's also possible to use a customer root key from another account. In {{site.data.keyword.cloud_notm}}, the KMS can be either located in the same or in another account as the service that is using an encryption key. This deployment pattern allows to centrally manage encryption keys for all corporate accounts. For more information, see [Encryption key management](/docs/solution-tutorials?topic=solution-tutorials-resource-sharing#resource-sharing-security-kms).
+It's also possible to use a customer root key from another account. In {{site.data.keyword.cloud_notm}}, the KMS can be either located in the same or in another account as the service that is using an encryption key. This deployment pattern allows to manage encryption keys for all corporate accounts centrally. For more information, see [Encryption key management](/docs/solution-tutorials?topic=solution-tutorials-resource-sharing#resource-sharing-security-kms).
 
-Configure all required [service-to-service authorizations](/docs/vpc?topic=vpc-block-s2s-auth) between Cloud Block Storage (source service) and the KMS instance (target service) that holds the customer root key. If you're provisioning volumes with a CRK of another account, contact that account's administrator for the CRN of the root key that is being shared. If you're provisioning an instance with a custom image, you also need to authorize between Image Service for VPC (source service) and {{site.data.keyword.cos_full}} (target service). 
+Configure all required [service-to-service authorizations](/docs/vpc?topic=vpc-block-s2s-auth&interface=ui#block-s2s-auth-encryption-ui){: ui}[service-to-service authorizations](/docs/vpc?topic=vpc-block-s2s-auth&interface=cli#block-s2s-auth-encryption-cli){: cli}[service-to-service authorizations](/docs/vpc?topic=vpc-block-s2s-auth&interface=api#block-s2s-auth-encryption-api){: api}[service-to-service authorizations](/docs/vpc?topic=vpc-block-s2s-auth&interface=terraform#block-s2s-auth-encryption-terraform){: terraform} between Cloud Block Storage (source service) and the KMS instance (target service) that holds the customer root key. If you're provisioning volumes with a CRK of another account, contact that account's administrator to set up the authorization and for the CRN of the root key that is being shared. If you're provisioning an instance with a custom image, you also need to authorize between Image Service for VPC (source service) and {{site.data.keyword.cos_full}} (target service). 
 {: requirement}
 
 ## Creating data volumes with customer-managed encryption in the console
@@ -56,7 +56,7 @@ This procedure explains how to specify customer-managed encryption when you crea
     - **Locate by Instance**:
        1. Select the data encryption instance from the list. If you don't have an instance yet, you can click the link to create one.
        1. Select the data encryption key that is stored within the {{site.data.keyword.keymanagementserviceshort}} instance to use for encrypting the volume.
-    - **Locate by CRN**: enter the CRN of the customer root key to be used for encrypting the volume.
+    - **Locate by CRN**: enter the CRN of the customer root key to be used for encrypting the volume. Choose this option if you're using the CRK of another account.
 1. When your changes are complete, click **Create block storage volume**.
 
 When you refresh the list of Block Storage volumes in the console, the new volume appears at the beginning of the list of volumes with the _customer managed_ encryption type. When the volume is created, it shows a status of _Available_. For stand-alone volumes, the Attachment Type column is blank (-). The **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions") at the end of a table row provides a link for [attaching a Block Storage volume to an instance](/docs/vpc?topic=vpc-attaching-block-storage).
@@ -171,6 +171,7 @@ You can also create volumes with customer-managed encryption during instance pro
 You can create data volumes with customer-managed encryption programmatically by calling the `/volumes` method in the [VPC API](/apidocs/vpc/latest#create-volume){: external} as shown in the following sample request. Use the `encryption_key` property to specify your customer root key (CRK), shown in the example as `crn:[...key:...]`.
 
 Valid volume names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. Volume names must begin with a lowercase letter. Volume names must be unique across the entire VPC infrastructure.
+{: important}
 
 The following example creates a general-purpose data volume with customer-managed encryption.
 
@@ -239,7 +240,7 @@ Follow these steps to create an instance with a new Block Storage volume.
     - **Locate by Instance**:
        1. Select the data encryption instance from the list. If you don't have an instance yet, you can click the link to create one.
        1. Select the data encryption key that is stored within the {{site.data.keyword.keymanagementserviceshort}} instance to use for encrypting the volume.
-    - **Locate by CRN**: enter the CRN of the customer root key to be used for encrypting the volume.
+    - **Locate by CRN**: enter the CRN of the customer root key to be used for encrypting the volume. Choose this option if you're using a CRK from another account.
 1. When your changes are complete, click **Apply**.
 1. In the **Attached Block Storage volume** section, you can click **New Block Storage volume** to add a data volume and specify customer-managed encryption. On the **New Block Storage volume** page, update the fields in the **Encryption** section. See Table 1 for more information. When your changes are complete, click **Attach**.
 
@@ -247,7 +248,7 @@ Follow these steps to create an instance with a new Block Storage volume.
 {: #provision-byok-cli}
 {: cli}
 
-Use the [ibmcloud is instance-create](/docs/vpc?topic=vpc-vpc-reference#instance-create) command to create an instance with customer-managed encryption for your boot and data volumes. The following syntax shows that you can specify the `--boot-volume` and `--volume-attach` properties to include JSON files that define your volumes.
+Use the [ibmcloud is instance-create](/docs/vpc?topic=vpc-vpc-reference#instance-create) command to create an instance with customer-managed encryption for your boot and data volumes. The following syntax shows how you can specify the `--boot-volume` and `--volume-attach` properties to include JSON files that define your volumes.
 
 ```sh
 ibmcloud is instance-create INSTANCE_NAME VPC ZONE_NAME PROFILE_NAME SUBNET --image-id IMAGE_ID [--boot-volume @BOOT_VOLUME_JSON_FILE] [--volume-attach @VOLUME_ATTACH_JSON_FILE]...
@@ -482,6 +483,9 @@ provider "ibm" {
 {: screen}
 
 Valid volume names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. Volume names must begin with a lowercase letter. Volume names must be unique across the entire VPC infrastructure.
+{: important}
+
+Retrieve the CRN of the customer root key by referring to the ibm_kms_key data source. For more information, see the Terraform documentation on [ibm_kms_key](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/kms_key){: external}. If the KMS is in another region or the customer root key is owned by another account, the instance cannot be retrieved by Terraform and the Terraform action fails. Contact the other account's administrator for the CRN.
 
 ### Creating stand-alone {{site.data.keyword.block_storage_is_short}} volumes with Terraform
 {: #encrypted-standalone-vol-terraform}

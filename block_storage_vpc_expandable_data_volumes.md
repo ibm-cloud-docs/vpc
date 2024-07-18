@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-07-11"
+lastupdated: "2024-07-18"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -229,8 +229,6 @@ When the volume expansion completes, the new value displays, and the volume stat
 }
 ```
 {: screen}
-
-
 
 ## Expand Block Storage volumes with Terraform
 {: #expand-vpc-volumes-terraform}

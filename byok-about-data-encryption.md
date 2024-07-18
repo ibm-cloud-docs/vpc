@@ -43,7 +43,7 @@ Supported key management services are {{site.data.keyword.keymanagementservicesh
 
 When you use customer-managed encryption, you can use root keys to encrypt resources across regions. You can encrypt resources with a key that is stored in your regional KMS instance, and you can use root keys from another region. For best performance and security, colocate your KMS instance, root keys, and your encrypted resources in the same region. For more information, see [Root key regional and cross-regional considerations](#byok-cross-region-keys).
 
-You can share root keys across accounts by linking accounts. Root keys in a primary account can be accessed and used to encrypt new volumes and file shares that are created in a secondary account. For more information, see [Cross-account encryption for file storage resources](/docs/vpc?topic=vpc-vpc-byok-cross-acct-key-file).
+You can share root keys across accounts. Root keys in a primary account can be accessed and used to encrypt new volumes and file shares that are created in a secondary account. In {{site.data.keyword.cloud_notm}}, the KMS can be either located in the same or in another account as the service that is using an encryption key. This deployment pattern allows enterprises to centrally manage encryption keys for all corporate accounts. For more information, see [Encryption key management](/docs/solution-tutorials?topic=solution-tutorials-resource-sharing#resource-sharing-security-kms).
 
 Customer-managed encryption is available for custom images, boot volumes, data volumes, snapshots, and file shares. 
 - Data in the instance's boot volume is encrypted by using the [custom image encryption](#byok-about-encrypted-images). You can also encrypt the boot volume with a different root key.
