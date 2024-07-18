@@ -470,22 +470,26 @@ A successful response looks like the following example. The boot volume appears 
 {: #data-vol-encryption-terraform}
 {: terraform}
 
+### Prerequisites
+{: #byok-terraform-setup-prereqs}
+
 To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
 {: requirement}
 
 VPC infrastructure services use a specific regional endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the appropriate region in the provider block in the `provider.tf` file. See the following example of targeting a region other than the default `us-south`.
-
+   
 ```terraform
 provider "ibm" {
-   region = "eu-de"
+  region = "eu-de"
 }
 ```
 {: screen}
 
-Valid volume names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. Volume names must begin with a lowercase letter. Volume names must be unique across the entire VPC infrastructure.
-{: important}
+Gather required information such as a unique volume name, select a [profile](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_volume_profile){: external}, decide on the capacity and IOPS requirements. 
 
-Retrieve the CRN of the customer root key by referring to the ibm_kms_key data source. For more information, see the Terraform documentation on [ibm_kms_key](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/kms_key){: external}. If the KMS is in another region or the customer root key is owned by another account, the instance cannot be retrieved by Terraform and the Terraform action fails. Contact the other account's administrator for the CRN.
+Valid volume names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. Volume names must begin with a lowercase letter. Volume names must be unique across the entire VPC infrastructure.
+
+Retrieve the CRN of the customer root key for encryption by referring to the ibm_kms_key data source. For more information, see the Terraform documentation on [ibm_kms_key](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/kms_key){: external}. If the KMS is in another region or the customer root key is owned by another account, the instance cannot be retrieved by Terraform and the Terraform action fails. Contact the other account's administrator for the CRN.
 
 ### Creating stand-alone {{site.data.keyword.block_storage_is_short}} volumes with Terraform
 {: #encrypted-standalone-vol-terraform}
