@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-08"
+lastupdated: "2024-07-18"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -68,13 +68,13 @@ The following table describes the information on the file share details page.
 | Encryption instance | For customer-managed encryption, link to the {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} instance. |
 | Key ID |  Copiable customer root key ID. |
 | ID | For customer-managed encryption, the UUID generated when you created the file share. |
-| Size | File share size in GB. |
+| Size | File share capacity in GB. |
 | Created | Date the file share was created. |
 | Mount target access mode   | Access to the file share is granted by either a security group within a subnet or to any virtual server instance in the VPC. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to switch access modes. Security group access is available only to file shares created with the [`dp2` profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile). For more information, see the [Mount target access modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-mount-access-mode). |
 | CRN [New]{: tag-new} | Copiable cloud resource name. |
 | Allowed encryption in transit modes [New]{: tag-new} | This value shows whether encryption in transit is required when clients access the file share. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change the allowed values.|   
 | **Profile, size, and IOPS**| |
-| Size | File share size in GB. |
+| Size | File share capacity in GB. |
 | IOPS tier | IOPS [profile](/docs/vpc?topic=vpc-file-storage-profiles) that defines the file share performance. In most cases, the dp2 profile is shown. |
 | Max IOPS | Maximum IOPS for the specified profile. |
 | **Mount targets** | Number of mount targets associated with the file share. You can have one mount target per VPC per file share. You can create more mount targets for other VPCs. Click ![Actions icon](../icons/action-menu-icon.svg) to rename or delete the mount target, or to view the mount path. |

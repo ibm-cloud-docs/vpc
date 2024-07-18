@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-02-21"
+lastupdated: "2024-07-18"
 
 keywords: zos, security, virtual server instance
 
@@ -49,4 +49,4 @@ For this release, you need to follow the security best practices for your z/OS v
 
     * [PCI DSS v4.0](https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v4_0.pdf){: external}
 
-    * [CIS Benchmarks for IBM Z](https://workbench.cisecurity.org/files/3877){: external}
+    * [CIS Benchmarks for IBM Z](https://www.cisecurity.org/benchmark/ibm_z){: external}

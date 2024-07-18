@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2024-06-20"
+lastupdated: "2024-07-18"
 
 keywords: compute, virtual private cloud, virtual server instance, instance, bandwidth
 
@@ -44,7 +44,7 @@ For example, to allow more volume bandwidth, you might apportion the previous ex
 * Volumes: 2,000 Mb/s
 * Network: 2,000 Mb/s
 
-The volume bandwidth available to the instance is apportioned on a per-volume basis. The bandwidth is assigned per volume, not shared between volumes. For example, if four identical volumes are attached to an instance but are using only one volume, then that volume can get only the bandwidth assigned to it. The volume in use can't access extra bandwidth that is assigned to the unused volumes.
+The volume bandwidth available to the instance is apportioned on a per-volume basis. The bandwidth is assigned per volume, not shared between volumes. For example, if four identical volumes are attached to an instance but are using only one volume, then that volume can get only the bandwidth assigned to it. The volume in use can't access the bandwidth that is assigned to the unused volumes.
 {: note}
 
 ## Optimizing network bandwidth allocation for profiles
@@ -54,7 +54,7 @@ Profiles can have a total maximum bandwidth of up to 80 Gbps. That bandwidth is 
 
 For example, if you choose the bx2-32x128 profile, the total bandwidth that is assigned for the instance is 64 Gbps. The default network cap is 48 Gbps for network and 16 Gbps for storage, but this amount can be adjusted. If you use the default bandwidth allocation and a single network interface on the instance, that vNIC has a port speed of 25 Gbps. If two network interfaces are on the system, each network interface has a port speed of 24 Gbps, for a total aggregate network bandwidth for 48 Gbps. The remaining bandwidth (16 Gbps) is allocated to your storage volumes.
 
-The following table illustrates this allocation for three different profile examples. If you are using the same default values that were used for these calculations, you can match other instance profiles to the table below by matching the bandwidth cap value to the overall bandwidth in the table. For more information about instance profiles, including network performance information, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui).
+The following table illustrates this allocation for three different profile examples. If you are using the same default values that were used for these calculations, you can match other instance profiles to the following table by matching the bandwidth cap value to the overall bandwidth in the table. For more information about instance profiles, including network performance information, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui).
 
 | Profile names | bx2-16x64 | bx2-32x128 | bx2-48-192 |
 | --- | --- | --- | --- |

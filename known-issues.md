@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-06-25"
+lastupdated: "2024-07-18"
 
 keywords:
 
@@ -45,15 +45,15 @@ Currently, the `port_min` and `port_max` properties are supported only when rout
 
 **Issue:** When you use the API or CLI to list images, some public stock images might not include a checksum. The checksum is for informational purposes only for stock images. No fix is available.
 
-### Boot volume has larger minimum provisioned size when you create a custom image by using IFV
+### A custom image that is created from a boot volume that was provisioned from an unencrypted image is bigger than the original image
 {: #boot-volume-larger-minimum-provisioned-size}
 
-**Issue**: If your custom image is not encrypted and the image is under 100 GB virtual disk size, deploying that image to an instance and creating a custom image from that instance's boot volume (Image from a volume feature) results in a `minimum_provisioned_size` of 100 GB. No fix is available.
+**Issue**: If your custom image is not encrypted and the image is under 100 GB virtual disk size, deploying that image to an instance and creating a custom image from that instance's boot volume results in a `minimum_provisioned_size` of 100 GB. No fix is available.
 
 ### Custom images in a private catalog known issue
 {: #custom-images-private-catalog-known-issues}
 
-**Issue:** If you have imported one or more images into a virtual server image for VPC catalog product offering version and you edit that version, an additional version ending in "draft" is created. You can't provision an instance from this draft version. Draft versions might appear on the Virtual server instance creation page in the UI or in the output of the CLI command `ibmcloud is catalog-image-offering`.
+**Issue:** If you imported one or more images into a virtual server image for VPC catalog product offering version and you edit that version, an additional version ending in "draft" is created. You can't provision an instance from this draft version. Draft versions might appear on the Virtual server instance creation page in the UI or in the output of the CLI command `ibmcloud is catalog-image-offering`.
 
 ## Bare metal servers known issues and limitations
 {: #bare-metal-servers-known-issues-limitations}
@@ -61,7 +61,7 @@ Currently, the `port_min` and `port_max` properties are supported only when rout
 ### iPXE network boot known timing issue
 {: #ipxe-network-boot-known-issue}
 
-**Issue:** When you use the iPXE network boot on a Bare Metal Server on VPC, the network configuration might still be processing when the iPXE script starts running. When this occurs, the DHCP command might fail or you might seem a timeout error. A fix for this issue is planned.
+**Issue:** When you use the iPXE network boot on a Bare Metal Server on VPC, the network configuration might still be processing when the iPXE script starts running. When this issue occurs, the DHCP command might fail or you might seem a timeout error. A fix for this issue is planned.
 
 **Workaround:** From the VNC console, manually run the iPXE commands. Or, add the following to your iPXE script instead of the DHCP command.
 
@@ -84,20 +84,20 @@ Because all bare metal profiles are VMware&reg; certified, the `supported_image_
 ## Additional authorizations beyond those defined in the API specification
 {: #api-spec-auth-known-issue}
 
-**Issue:** Some API implementations have required authorizations that are different from the authorizations requirements that are defined in the [API specification](/apidocs/vpc/latest). The following table lists such APIs and the extra permissions that are required in addition to what is already defined in the specification. This table will be continually updated as these issues are resolved.
+**Issue:** Some API implementations required authorizations that are different from the authorizations requirements that are defined in the [API specification](/apidocs/vpc/latest). The following table lists such APIs and the extra permissions that are required in addition to what is already defined in the specification. This table is updated as these issues are resolved.
 
 | API | Additional access requirements | Action name|
 | ----------- | ---------------------------------- | -----------------------------------------|
-| PATCH /instances/{instance-id}  | Dedicated Host Operator, Dedicated Host Group Operator | is.dedicated-host.dedicated-host-group.operate (conditional)  \n is.dedicated-host.dedicated-host.operate (conditional) |
-| POST /instances | Subnet Editor| is.subnet.subnet.update (conditional) |
-| POST /instances/{instance-id}/actions | Instance Editor | is.instance.instance.update |
-| POST /instances/{instance-id}/volume\_attachments | Instance Editor | is.instance.instance.update |
-| DELETE /instances/{instance-id}/volume\_attachments/{vol-attach-id} | Instance Editor | is.instance.instance.update |
-| GET /network\_acls/{nacl-id} | VPC Viewer | is.vpc.vpc.read |
-| POST /network\_acls/{nacl-id}/rules | VPC Viewer | is.vpc.vpc.read |
-| GET /subnets/{subnet-id}/network\_acl | VPC Viewer | is.vpc.vpc.read |
-| PUT /subnets/{subnet-id}/network\_acl | VPC Viewer | is.vpc.vpc.read |
-| PATCH /floating\_ips/{fip-id} | Subnet Operator | is.subnet.subnet.operate |
+| `PATCH /instances/{instance-id}`  | Dedicated Host Operator, Dedicated Host Group Operator | is.dedicated-host.dedicated-host-group.operate (conditional) \n is.dedicated-host.dedicated-host.operate (conditional) |
+| `POST /instances` | Subnet Editor| is.subnet.subnet.update (conditional) |
+| `POST /instances/{instance-id}/actions` | Instance Editor | is.instance.instance.update |
+| `POST /instances/{instance-id}/volume/_attachments` | Instance Editor | is.instance.instance.update |
+| `DELETE /instances/{instance-id}/volume_attachments/{vol-attach-id}` | Instance Editor | is.instance.instance.update |
+| `GET /network_acls/{nacl-id}` | VPC Viewer | is.vpc.vpc.read |
+| `POST /network_acls/{nacl-id}/rules` | VPC Viewer | is.vpc.vpc.read |
+| `GET /subnets/{subnet-id}/network_acl` | VPC Viewer | is.vpc.vpc.read |
+| `PUT /subnets/{subnet-id}/network_acl` | VPC Viewer | is.vpc.vpc.read |
+| `PATCH /floating_ips/{id}` | Subnet Operator | is.subnet.subnet.operate |
 {: caption="Table 1. API additional authorization requirements" caption-side="bottom"}
 
 ## Storage known issues
@@ -123,9 +123,9 @@ Because all bare metal profiles are VMware&reg; certified, the `supported_image_
 ### Accessor share binding href returned in incorrect format
 {: #fileshareaccessorhref}
 
-When retrieving an origin share, the value of the `href` sub-property of the `accessor_bindings` property may be incorrect. A fix for this is planned.
+When a client is retrieving an origin share, the value of the `href` subproperty of the `accessor_bindings` property might be incorrect. A fix for this issue is planned.
 
 ### Missing `accessor_binding` and `lifecycle_reasons` in API response
 {: #filesharemissingbindinginfo}
 
-Currently, when creating, updating, or retrieving a share, the `accessor_bindings` and `lifecycle_reasons` properties are missing from the response in the `eu-es`, `eu-fr2`, `eu-de`, and `us-south` regions. You can observe this behavior when a file share is created without an accessor share. A fix for this issue is planned.
+Currently, when a client is creating, updating, or retrieving a share, the `accessor_bindings` and `lifecycle_reasons` properties are missing from the response in the `eu-es`, `eu-fr2`, `eu-de`, and `us-south` regions. You can observe this behavior when a file share is created without an accessor share. A fix for this issue is planned.

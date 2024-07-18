@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-06-25"
+lastupdated: "2024-07-18"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup, 
 
@@ -21,7 +21,7 @@ The {{site.data.keyword.vpc_full}} (VPC) provides block storage, file storage, a
 ## {{site.data.keyword.block_storage_is_short}}
 {: #vpc-block-storage-overview}
 
-{{site.data.keyword.block_storage_is_full}} provides hypervisor-mounted, high-performance data storage for your virtual server instances that you can provision within a VPC. The VPC infrastructure provides rapid scaling across zones and extra performance and security.
+{{site.data.keyword.block_storage_is_full}} provides hypervisor-mounted, high-performance data storage for your virtual server instances that you can provision within a VPC. The VPC infrastructure provides rapid scaling across zones and more performance and security.
 
 By using this service, you can:
 

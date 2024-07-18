@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-17"
+lastupdated: "2024-07-18"
 
 keywords: context-based restrictions for VPC Infrastructure Services
 
@@ -138,10 +138,10 @@ The `serviceRef` attribute for VPC Infrastructure Services is `is` and Cloud Blo
 
    To find a list of available service reference targets, run the `ibmcloud cbr service-ref-targets`
    [command](/docs/account?topic=account-cbr-plugin&interface=ui#cbr-cli-service-ref-targets-command). The
-   `service_name` for VPC Infrastructure Services is `is` and Cloud Block Storage is `server-protect`.
+   `service_name` for *VPC Infrastructure Services* is `is` and *Cloud Block Storage* is `server-protect`.
    {: tip}
 
-   The following example command adds the `is` service, referred to as "VPC Infrastructure Services" in
+   The following example command adds the `is` service, referred to as *VPC Infrastructure Services* in
    {{site.data.keyword.cloud}} console, to a network zone.
 
    ```sh
@@ -149,7 +149,7 @@ The `serviceRef` attribute for VPC Infrastructure Services is `is` and Cloud Blo
    ```
    {: pre}
 
-   The following example command adds the `server-protect` service, referred to as "Cloud Block Storage"
+   The following example command adds the `server-protect` service, referred to as *Cloud Block Storage*
    in {{site.data.keyword.cloud}} console, to a network zone.
 
    ```sh

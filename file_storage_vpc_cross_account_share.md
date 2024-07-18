@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-06-25"
+lastupdated: "2024-07-18"
 
 keywords: file share, file storage, accessor share, cross-account share
 
@@ -31,7 +31,7 @@ As the accessor, you can't edit the properties of the origin share, and you can'
 ## Transit Encryption Policy
 {: #file-storage-transit-encryption-policy}
 
-The share owner has the right to enforce the use of encryption in transit when the accessor accesses the file share data. The share owner can set the allowed transit encryption modes to allow either `user_managed` or `none`, or both. When the 'allowed transit encryption modes' of the origin share is set to `user_managed`, the share accessor accounts must create all their mount targets with `user_managed` transit encryption. If the accessor account has more than one mount targets, these mount targets must have the same type of encryption in transit.
+The share owner has the right to enforce the use of encryption in transit when the accessor accesses the file share data. The share owner can set the allowed transit encryption modes to allow either `user_managed` or `none`, or both. When the `allowed transit encryption modes` of the origin share is set to `user_managed`, the share accessor accounts must create all their mount targets with `user_managed` transit encryption. If the accessor account has more than one mount targets, these mount targets must have the same type of encryption in transit.
 
 File shares that were created before the release of this feature (18 June 2024) have an allowed transit encryption type that is based on their existing mount targets. After this date, you must specify the allowed transit encryption type when you create file shares. All mount targets that are created for one file share must have the same transit encryption type.
 
