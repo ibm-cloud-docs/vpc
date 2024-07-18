@@ -134,4 +134,3 @@ In the response, the CRN of the encryption key is from the account that owns the
 {: #next-steps-multiten-volumes}
 
 Learn more about [data encryption](/docs/vpc?topic=vpc-vpc-encryption-about) for VPC resources.
- 
