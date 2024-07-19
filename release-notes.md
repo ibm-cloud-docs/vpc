@@ -24,6 +24,15 @@ For more information about changes to the {{site.data.keyword.vpc_short}} API, s
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
 
+## July 2024
+{: #vpc-jun24}
+
+### 18 July 2024
+{: #vpc-jul1824}
+{: release-note}
+
+Reinitialization on Bare Metal Servers for VPC (GA)
+:   With the new Reinitialization action on Bare Metal Servers for VPC, you can reinitialize the bare metal server. This action is not available if the status is Running or if the bare metal server was provisioned with a boot volume. You can only reinitialize a bare metal server that is stopped or failed. When the bare metal server is reinitialized, the contents of the boot disk are wiped and the specified operating system is installed. The server retains the same physical node, interfaces, IP addresses, and resource IDs. Data on secondary drives is preserved. For more information, see [Managing Bare Metal Servers for VPC](/docs/vpc?topic=vpc-managing-bare-metal-servers&interface=ui).
 
 ## July 2024
 {: #vpc-jul24}
@@ -97,6 +106,7 @@ IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1
 
 Base64 format of the attestationPublicKey
 :  Besides the plain text format of the attestation public key, you can also use its base64 format to encrypt the attestation document during the contract preparation. For more information, see [Preparing the attestation](/docs/vpc?topic=vpc-about-contract_se#hpcr_attestation_prepare).
+
 
 ### 06 June 2024
 {: #vpc-jun0624}
