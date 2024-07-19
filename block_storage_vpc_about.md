@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-07-18"
+lastupdated: "2024-07-19"
 
 keywords:
 
@@ -28,7 +28,7 @@ subcollection: vpc
 
 {{site.data.keyword.block_storage_is_short}} provides primary boot volumes and secondary data volumes. Boot volumes are automatically created and attached during instance provisioning. Data volumes can be created and attached during instance provisioning as well, or as stand-alone volumes that you can later attach to an instance. To protect your data, you can use your own encryption keys or choose IBM-managed encryption.
 
-You pay for only the capacity that you need. {{site.data.keyword.block_storage_is_short}} capacity ranges from 10 GB up to 16,000 GB for all available [profiles](#block-storage-profiles-intro). For data volumes attached to a virtual server instance, you can [increase volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes) in GB increments up to 16,000 GB capacity, depending on your volume profile. You can also [increase or decrease IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops) for a volume that is attached to an instance.
+You pay for only the capacity that you need. {{site.data.keyword.block_storage_is_short}} capacity ranges from 10 GB up to 16,000 GB for all available [profiles](#block-storage-profiles-intro). For data volumes that are attached to a virtual server instance, you can [increase volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes) in GB increments up to 16,000 GB capacity, depending on your volume profile. You can also [increase or decrease IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops) for a volume that is attached to an instance.
 
 
 

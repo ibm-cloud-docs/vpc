@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-08"
+lastupdated: "2024-07-19"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -814,7 +814,7 @@ Complete the following steps on an Ubuntu system, to encrypt the `env` section u
 
 
 Contract signature is an optional feature that can be used with the contract. You can choose to sign a contract before it is passed as input. You can also set expiry of contract during signature. Contracts that are in plain text or encrypted can be signed. Validation of the contract signature is done by the {{site.data.keyword.hpvs}} for VPC image.
-The purpose of this signature feature is to ensure that the `workload` and `env` sections are always used together and are not tampered with by a third party. This feature also supports setting expiry for contract. That is, If the instance is booted after the signature has expired, the boot process will fail. The signature of the `workload` and the `env` sections are added as the value to the `envWorkloadSignature` section.
+The purpose of this signature feature is to ensure that the `workload` and `env` sections are always used together and are not tampered with by a third party. This feature also supports setting expiry for contract. That is, If the instance is booted after the signature expired, the boot process will fail. The signature of the `workload` and the `env` sections are added as the value to the `envWorkloadSignature` section.
 The following are two sections in a contract that are relevant while creating and adding a contract signature:
 * `envWorkloadSignature`: This is section where the signature of the other sections of the contract is added. This section is not required for a contract that is not signed.
 * `signingKey`: This is a subsection that must be added to the `env` section of the contract. This holds the value to the user-generated public key, whose corresponding private key was used to create the contract signature. Public key or certificate can also be parsed as base64 string.

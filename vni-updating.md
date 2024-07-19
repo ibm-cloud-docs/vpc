@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-06-22"
+lastupdated: "2024-07-19"
 
 keywords:
 
@@ -42,8 +42,8 @@ To update an existing virtual network interface, follow these steps.
    * **Auto** (default): Filtering is enabled or disabled based on the virtual network interface's target resource:
       * Bare metal server (Disabled)
       * Virtual server instance (Enabled)
-   * **Enabled**: Forces TCP connections to align with the [RFC793](https://www.ietf.org/rfc/rfc793.txt){: external} standard and any packets allowed by corresponding security group rules and network ACLs.
-   * **Disabled**: Permits packets allowed only by corresponding security group rules and network ACLs.
+   * **Enabled**: Forces TCP connections to align with the [RFC793](https://www.ietf.org/rfc/rfc793.txt){: external} standard and any packets to be allowed by corresponding security group rules and network ACLs.
+   * **Disabled**: Permits packets to be allowed only by corresponding security group rules and network ACLs.
 1. In the Attached resources section, use the Display resource list menu to view the security groups or secondary IPs attached to the virtual network interface.
     * Clicking **Manage attached resources** in the Attached resources section takes you to the Attached resources tab.
 1. To create devices or attach existing devices, follow the links in the Target device details section.
@@ -95,8 +95,8 @@ Where:
           * Bare metal server (Disabled)
           * Virtual server instance (Enabled)
           * File share mount (Enabled)
-       * **Enabled**: Forces the TCP connections to align with the [RFC793](https://www.ietf.org/rfc/rfc793.txt){: external} standard and any packets allowed by corresponding security group rules and network ACLs.
-       * **Disabled**: Permits packets allowed only by corresponding security group rules and network ACLs.
+       * **Enabled**: Forces the TCP connections to align with the [RFC793](https://www.ietf.org/rfc/rfc793.txt){: external} standard and any packets to be allowed by corresponding security group rules and network ACLs.
+       * **Disabled**: Permits packets to be allowed only by corresponding security group rules and network ACLs.
 
 `--output`
 :   Specify output format, only JSON is supported. One of: `JSON`.

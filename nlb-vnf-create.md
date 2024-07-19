@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-14"
+lastupdated: "2024-07-19"
 
 keywords: network load balancer, public, listener, pool, round-robin
 
@@ -183,7 +183,7 @@ To create a network load balancer with the CLI, follow these steps:
    ```
    {: screen}
 
-   Take note of the first IP address listed in Private IPs. You will need this when defining custom routes.
+   Take note of the first IP address listed in Private IPs. You need this when defining custom routes.
    {: tip}
 
 1. Add a pool.
@@ -391,7 +391,7 @@ To create a network load balancer with routing mode with the API, follow these s
    ```
    {: screen}
 
-   Note the first IP address listed in `Private IPs`. You will need this when defining custom routes. 
+   Note the first IP address listed in `Private IPs`. You need this when defining custom routes. 
    {: tip}
 
 1. Add a pool.

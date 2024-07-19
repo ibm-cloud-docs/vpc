@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, [{CURRENT_YEAR}]
-lastupdated: "[{LAST_UPDATED_DATE}]"
+  years: 2018, 2024
+lastupdated: "2024-07-19"
 
 keywords: vpc, troubleshoot, tips, error, bearer, API, CLI, problem, debug, token, trace
 
@@ -71,7 +71,7 @@ Your account might not be authorized for VPC. Make sure that you are using an ac
 ### IAM token expired
 {: #troubleshoot-token-expired}
 
-The service is no longer returning any JSON, instead of just giving an HTTP "401 Unauthorized" to all requests. This error occurs after about an hour if your IAM token has expired. Refresh your IAM token by rerunning `iam_token=$(ibmcloud iam oauth-tokens | awk '/IAM/{ print $4; }')`.
+The service is no longer returning any JSON, instead of just giving an HTTP "401 Unauthorized" to all requests. This error occurs after about an hour if your IAM token expired. Refresh your IAM token by rerunning `iam_token=$(ibmcloud iam oauth-tokens | awk '/IAM/{ print $4; }')`.
 
 ### Cannot create VPC or other resources
 {: #troubleshoot-cannot-create}
@@ -82,7 +82,7 @@ If you cannot create a VPC or other resources, make sure that the owner of the a
 {: #troubleshoot-no-response}
 {: api}
 
-If the API is no longer returning any JSON, it is likely your IAM token has expired and needs to be refreshed. Log in to IBM Cloud again or refresh your token by running `iam_token=$(ibmcloud iam oauth-tokens | awk '/IAM/{ print $4; }')`.
+If the API is no longer returning any JSON, it is likely your IAM token expired and needs to be refreshed. Log in to IBM Cloud again or refresh your token by running `iam_token=$(ibmcloud iam oauth-tokens | awk '/IAM/{ print $4; }')`.
 
 
 ## Cannot delete resources

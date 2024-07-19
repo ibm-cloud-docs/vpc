@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-02-14"
+lastupdated: "2024-07-19"
 
 keywords:
 
@@ -91,7 +91,7 @@ You can bind and unbind DNS zones to a network load balancer during provisioning
 ### Creating a load balancer bound to a private DNS zone from the CLI
 {: #create-lb-with-dns-zone-cli-nlb}
 
-You will need the CRN of the private DNS that you want to bind to your load balancer. To find it, click **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg) > **Resource List** from the {{site.data.keyword.cloud_notm}} console. Click the table row of the DNS whose CRN you want to find. The CRN is shown in the side panel that appears.
+You need the CRN of the private DNS that you want to bind to your load balancer. To find it, click **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg) > **Resource List** from the {{site.data.keyword.cloud_notm}} console. Click the table row of the DNS whose CRN you want to find. The CRN is shown in the side panel that appears.
 {: tip}
 
 To create a network load balancer with a private DNS zone, follow these steps:
@@ -150,7 +150,7 @@ UDP Supported                false
 ### Binding an existing load balancer to a private DNS zone from the CLI
 {: #binding-dns-zone-to-lb-cli-nlb}
 
-You will need the CRN of the private DNS that you want to bind to your load balancer. To find it, click **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg) > **Resource List** from the {{site.data.keyword.cloud_notm}} console. Click the table row of the DNS whose CRN you want to find. The CRN is shown in the side panel that appears.
+You need the CRN of the private DNS that you want to bind to your load balancer. To find it, click **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg) > **Resource List** from the {{site.data.keyword.cloud_notm}} console. Click the table row of the DNS whose CRN you want to find. The CRN is shown in the side panel that appears.
 {: tip}
 
 To use the CLI to update a network load balancer with a private DNS zone, follow these steps:
@@ -273,7 +273,7 @@ You can bind and unbind DNS zones to a network load balancer during provisioning
 ### Creating a load balancer bound to a private DNS zone with the API
 {: #create-lb-with-dns-zone-api-nlb}
 
-You will need the CRN of the private DNS that you want to bind to your load balancer. To find it, click **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg) > **Resource List** from the {{site.data.keyword.cloud_notm}} console. Click the table row of the DNS whose CRN you want to find. The CRN is shown in the side panel that appears.
+You need the CRN of the private DNS that you want to bind to your load balancer. To find it, click **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg) > **Resource List** from the {{site.data.keyword.cloud_notm}} console. Click the table row of the DNS whose CRN you want to find. The CRN is shown in the side panel that appears.
 {: tip}
 
 To specify a private DNS zone during creation:
@@ -369,7 +369,7 @@ Sample output:
 ### Binding an existing load balancer to a private DNS zone with the API
 {: #binding-dns-zone-to-lb-api-nlb}
 
-You will need the CRN of the private DNS that you want to bind to your load balancer. To find it, click **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg) > **Resource List** from the {{site.data.keyword.cloud_notm}} console. Click the table row of the DNS whose CRN you want to find. The CRN is shown in the side panel that appears.
+You need the CRN of the private DNS that you want to bind to your load balancer. To find it, click **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg) > **Resource List** from the {{site.data.keyword.cloud_notm}} console. Click the table row of the DNS whose CRN you want to find. The CRN is shown in the side panel that appears.
 {: tip}
 
 

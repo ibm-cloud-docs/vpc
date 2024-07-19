@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-06-20"
+lastupdated: "2024-07-19"
 
 keywords: hyper protect container runtime, error messages, troubleshooting
 
@@ -454,49 +454,49 @@ The following list shows the error messages from Hyper Protect Container Runtime
    - Name: NO_LOG_CONFIG
    - Message: No log config, logging will be sent to local journald only.
    - Explanation: The contract file does not contain remote logging config.
-   - System Action: Startup continues but logging has not been setup.
+   - System Action: Startup continues but logging is not setup.
    - User Action: Adjust the contract according to the schema.
 - **HPL01003E**:
    - Name: INVALID_INGESTION_HOSTNAME
    - Message: The ingestion hostname [{HOSTNAME}] is invalid.
    - Explanation: The ingestion hostname needs to be of the form ^(syslog[^.]*)\.(.+)$.
-   - System Action: Startup continues but logging has not been setup.
+   - System Action: Startup continues but logging is not setup.
    - User Action: Adjust the contract according to the schema.
 - **HPL01004E**:
    - Name: INVALID_LOGDNA_INGESTION_CONFIG
    - Message: Validation of the logDNA config for host [{HOSTNAME}] failed with message [{MESSAGE}].
    - Explanation: The logDNA configuration is invalid.
-   - System Action: Startup continues but logging has not been setup.
+   - System Action: Startup continues but logging is not setup.
    - User Action: Adjust the contract according to the schema.
 - **HPL01005E**:
    - Name: MISSING_PEM_BLOCK
    - Message: The provided PEM file does not contain a block.
    - Explanation: The PEM data is invalid.
-   - System Action: Startup continues but logging has not been setup.
+   - System Action: Startup continues but logging is not setup.
    - User Action: Provide valid PEM data.
 - **HPL01006E**:
    - Name: UNKNOWN_PRIVATE_KEY_TYPE
    - Message: Unknown type of private key.
    - Explanation: The expected type of the private key in a PEM block is unexpected.
-   - System Action: Startup continues but logging has not been setup.
+   - System Action: Startup continues but logging is not setup.
    - User Action: Provide valid PEM data.
 - **HPL01007E**:
    - Name: MISSING_SERVER_CERTIFICATE
    - Message: Server certificate is missing.
    - Explanation: The server certificate does not contain a valid x509 certificate.
-   - System Action: Startup continues but logging has not been setup.
+   - System Action: Startup continues but logging is not setup.
    - User Action: Provide a valid certificate.
 - **HPL01008E**:
    - Name: MISSING_CLIENT_CERTIFICATE
    - Message: Client certificate is missing.
    - Explanation: The client certificate does not contain a valid x509 certificate.
-   - System Action: Startup continues but logging has not been setup.
+   - System Action: Startup continues but logging is not setup.
    - User Action: Provide a valid certificate.
 - **HPL01009E**:
    - Name: MISSING_PRIVATE_KEY
    - Message: Private key is missing.
    - Explanation: The private key for client authentication valid private key.
-   - System Action: Startup continues but logging has not been setup.
+   - System Action: Startup continues but logging is not setup.
    - User Action: Provide a valid private key.
 - **HPL01010I**:
    - Name: LOGGING_SETUP_SUCCESSFUL
@@ -508,7 +508,7 @@ The following list shows the error messages from Hyper Protect Container Runtime
    - Name: INVALID_SYSLOG_INGESTION_CONFIG
    - Message: Validation of the sysLog config for host [{HOSTNAME}] failed.
    - Explanation: The sysLog configuration is invalid.
-   - System Action: Startup continues but logging has not been setup.
+   - System Action: Startup continues but logging is not setup.
    - User Action: Adjust the contract according to the schema.
 - **HPL09000E**:
    - Name: PARSE_CONTRACT
@@ -566,9 +566,9 @@ The following list shows the error messages from Hyper Protect Container Runtime
    - User Action: Renew Signing certificate present in the contract before expiry.
 - **HPL12007E**
    - Name: CONTRACT_EXPIRED
-   - Message: The contract has expired.
-   - Explanation: The signing certificate parsed in contract has expired.
-   - System Action: The Contract has expired.
+   - Message: The contract expired.
+   - Explanation: The signing certificate parsed in contract expired.
+   - System Action: The Contract expired.
    - User Action: Renew signing certificate present in the contract.
 - **HPL07000E**:
    - Name: PARSE_CONTRACT

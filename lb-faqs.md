@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2021
-lastupdated: "2021-05-25"
+  years: 2018, 2024
+lastupdated: "2024-07-19"
 
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network, layer 7, auto scale, managed pool, instance group
@@ -150,4 +150,4 @@ When a load balancer appliance undergoes a scale down due to horizontal scaling 
 {: #account-disablement-policy}
 {: faq}
 
-If you receive a notification that your load balancer service has been suspended, then any load balancers on your account will be deleted. If the suspension on your account is removed, your previous load balancers will be restored only if their pre-requisite resources are still active, such as VPCs, subnets, and security groups. If these resources are no longer available, then you will need to provision a new load balancer.
+If you receive a notification that your load balancer service has been suspended, then any load balancers on your account will be deleted. If the suspension on your account is removed, your previous load balancers will be restored only if their pre-requisite resources are still active, such as VPCs, subnets, and security groups. If these resources are no longer available, then you need to provision a new load balancer.

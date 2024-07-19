@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2021
-lastupdated: "2023-02-23"
+  years: 2019, 2024
+lastupdated: "2024-07-19"
 
 keywords: load balancer, network, 401
 
@@ -25,7 +25,7 @@ Use the information in this topic to troubleshoot 401 error codes.
 You receive a `401` error code for your load balancer.
 {: tsSymptoms}
 
-HTTP 401 codes indicate that a client request has not been completed because it lacks valid authentication credentials for the requested resource.
+HTTP 401 codes indicate that a client request was not completed because it lacked valid authentication credentials for the requested resource.
 {: tsCauses}
 
 Check the following access policies for your user:
