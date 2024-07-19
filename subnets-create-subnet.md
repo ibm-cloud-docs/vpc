@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-02"
+lastupdated: "2024-07-19"
 
 keywords:
 
@@ -47,15 +47,15 @@ To create a subnet in your VPC instance, take the following steps:
 1. Click **Subnets**.
 1. Click **Create +** on the Subnets for VPC list table.
 1. In the Location section, provide the following information:
-    * **Geography**: Indicate the general area where you want the subnet created.
-    * **Region**: Indicate the region where you want the subnet created.
-    * **Zone**: Indicate the zone where you want the subnet created.
+    * **Geography**: Indicate the general area where you want the subnet to be created.
+    * **Region**: Indicate the region where you want the subnet to be created.
+    * **Zone**: Indicate the zone where you want the subnet to be created.
 1. In the Details section, provide the following information:
     * **Name**: Enter a unique identifier for the subnet, such as `my-subnet`.
     * **Resource group**: Select a resource group for the subnet.
     * **Tags**: Optionally, add any relevant tags to help group your subnets.
     * **Access management tags**: Optionally, add access management tags to resources to help organize access control relationships. The only supported format for access management tags is `key:value`. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
-    * **Virtual private cloud**: Select the VPC in which you want the subnet created.
+    * **Virtual private cloud**: Select the VPC in which you want the subnet to be created.
     * **IP range selection**: The most efficient location for your IP range is calculated automatically. If you want to customize the IP range instead of accepting the default selection, select a different address prefix, change the number of addresses, or enter your IP range manually.
     * **Routing table**: Select which routing table you want the new subnet to use.
     * **Subnet access control list**: Select which access control list you want the new subnet to use.

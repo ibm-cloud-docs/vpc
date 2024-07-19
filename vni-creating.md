@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-06-22"
+lastupdated: "2024-07-19"
 
 keywords:
 
@@ -76,8 +76,8 @@ To create a virtual network interface in the UI, follow these steps:
           * Bare metal server (Disabled)
           * Virtual server instance (Enabled)
           * File share mount (Enabled)
-       * **Enabled**: Forces the TCP connections to align with the [RFC793](https://www.ietf.org/rfc/rfc793.txt){: external} standard and any packets allowed by corresponding security group rules and network ACLs.
-       * **Disabled**: Permits packets allowed only by corresponding security group rules and network ACLs.
+       * **Enabled**: Forces the TCP connections to align with the [RFC793](https://www.ietf.org/rfc/rfc793.txt){: external} standard and any packets to be allowed by corresponding security group rules and network ACLs.
+       * **Disabled**: Permits packets to be allowed only by corresponding security group rules and network ACLs.
 1. In the Primary IP section, make the following selections.
     * **Reserving method**: Select whether you want a primary IP address created for you, or if you want to specify one manually. If you specify your own, type an existing reserved IP address for your virtual network interface, or select one from the existing reserved IP list menu.
     * **Auto release**: Click the switch to enable or disable auto release for this virtual network interface.
@@ -132,8 +132,8 @@ Where:
           * Bare metal server (Disabled)
           * Virtual server instance (Enabled)
           * File share mount (Enabled)
-       * **Enabled**: Forces the TCP connections to align with the [RFC793](https://www.ietf.org/rfc/rfc793.txt){: external} standard and any packets allowed by corresponding security group rules and network ACLs.
-       * **Disabled**: Permits packets allowed only by corresponding security group rules and network ACLs.
+       * **Enabled**: Forces the TCP connections to align with the [RFC793](https://www.ietf.org/rfc/rfc793.txt){: external} standard and any packets to be allowed by corresponding security group rules and network ACLs.
+       * **Disabled**: Permits packets to be allowed only by corresponding security group rules and network ACLs.
 
 `--rip`
 :   ID or name of the Reserved IP to bind to the virtual network interface.

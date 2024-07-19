@@ -38,7 +38,7 @@ A contract file can have the following four valid high-level sections, of which 
 
 The two primary sections in a contract are the `workload` and `env` sections. These two sections are needed because the information that is added into the contract comes from two different personas, namely the "workload" and the "deployer" persona.
 
-The workload persona provides information about the container (or workload) that needs to be brought up on the {{site.data.keyword.hpvs}} for VPC instance. It includes information about the name of the container, the container registry where it resides, credentials of the container registry, the image digest, the notary server information (required for image validation), the environment variables that need to be passed to the container, and the docker compose file or Pod descriptors with the container information.
+The workload persona provides information about the container (or workload) that needs to be brought up on the {{site.data.keyword.hpvs}} for VPC instance. It includes information about the name of the container, the Container Registry where it resides, credentials of the Container Registry, the image digest, the notary server information (required for image validation), the environment variables that need to be passed to the container, and the docker compose file or Pod descriptors with the container information.
 
 If you use a docker compose file, only one container is supported. Pod descriptors support one or multiple containers.
 {: note}
@@ -90,7 +90,7 @@ workload: |
 ### The `auths` subsection
 {: #hpcr_contract_auths}
 
-The `auths` section consists of information about the container's registry. If a public image is used in the contract, you do not need the `auths` section because no credentials are required. The `auths` subsection is required only if the container images are private. This subsection does not have any image information, as shown in the following sample. This subsection needs to contain the name of the image registry and the credentials such as username-password for the same. The key must be the hostname of the container registry or the following string for the default docker registry:
+The `auths` section consists of information about the container's registry. If a public image is used in the contract, you do not need the `auths` section because no credentials are required. The `auths` subsection is required only if the container images are private. This subsection does not have any image information, as shown in the following sample. This subsection needs to contain the name of the image registry and the credentials such as username-password for the same. The key must be the hostname of the Container Registry or the following string for the default docker registry:
 
 ```text
 https://index.docker.io/v1/
@@ -110,7 +110,7 @@ auths:
 ### The `compose` subsection
 {: #hpcr_contract_compose}
 
-It consists of an archive subsection. The archive subsection contains the Base64 encoded TGZ file archive of the `docker-compose.yaml` file. As the Hyper Protect Container Runtime image uses Docker Engine and Docker Compose to start the container, the information about the container must first be created by using a standard docker-compose file. This file is then archived and base64 encoded and the output of this is provided as the value to the archive subsection, within the compose section. For more information, see [Overview of Docker Compose](https://docs.docker.com/compose/).
+It consists of an archive subsection. The archive subsection contains the Base64 encoded TGZ file archive of the `docker-compose.yaml` file. As the Hyper Protect Container Runtime image uses Docker Engine and Docker Compose to start the container, the information about the container must first be created by using a standard docker-compose file. This file is then archived and Base64 encoded and the output of this is provided as the value to the archive subsection, within the compose section. For more information, see [Overview of Docker Compose](https://docs.docker.com/compose/).
 
 The mount points specified under the volumes information of the docker-compose file might be aligned with the volume mount point that is specified in the workload section of the contract.
 
@@ -132,10 +132,10 @@ services:
 ```
 {: codeblock}
 
-There exist use cases in which the registry is **not known** when the workload section is pre-encrypted, for example, when the workload provider wants to allow the deployer to use a registry mirror or a private container registry. In such a case, it's possible to dynamically override the registry as well as the pull credentials. This is a coordinated effort between the workload provider and the deployer. For more information, see [Using a dynamic registry reference](/docs/vpc?topic=vpc-hyper-protect-virtual-server-use-dynamic-registry-reference).
+There exist use cases in which the registry is **not known** when the workload section is pre-encrypted, for example, when the workload provider wants to allow the deployer to use a registry mirror or a private Container Registry. In such a case, it's possible to dynamically override the registry as well as the pull credentials. This is a coordinated effort between the workload provider and the deployer. For more information, see [Using a dynamic registry reference](/docs/vpc?topic=vpc-hyper-protect-virtual-server-use-dynamic-registry-reference).
 {: tip}
 
-Complete the following steps to get the base64 encoded archive file. The base64 output is available in the compose.b64 file.
+Complete the following steps to get the Base64 encoded archive file. The Base64 output is available in the compose.b64 file.
 Go to the `<COMPOSE_Folder>` and run the following commands:
 ```sh
 tar czvf compose.tgz docker-compose.yml
@@ -147,7 +147,7 @@ base64 -w0 compose.tgz > compose.b64
 ```
 {: pre}
 
-Make sure that the compose tgz file only contains directories and regular files. Links or pipes are not supported.
+Make sure that the compose tgz file contains only directories and regular files. Links or pipes are not supported.
 {: note}
 
 Copy the content of compose.b64 as a value of compose -> archive.
@@ -166,7 +166,7 @@ compose:
 ### The `play` subsection
 {: #hpcr_contract_play}
 
-In the `play` subsection, you can define the workload via [Pod descriptors](https://kubernetes.io/docs/concepts/workloads/pods/){: external}. Each pod can contain one or more container definitions. Descriptors can be provided in one of the following ways:
+In the `play` subsection, you can define the workload through [Pod descriptors](https://kubernetes.io/docs/concepts/workloads/pods/){: external}. Each pod can contain one or more container definitions. Descriptors can be provided in one of the following ways:
 
 - In plain YAML format in the `resources` subsection of `play`. This section is an array of descriptors and supports two types of descriptors: [Pods](https://kubernetes.io/docs/concepts/workloads/pods/){: external} and [ConfigMaps](https://kubernetes.io/docs/concepts/configuration/configmap/){: external}.
 
@@ -195,7 +195,7 @@ In the `play` subsection, you can define the workload via [Pod descriptors](http
    ```
    {: codeblock}
 
-- In the `archive` subsection of `play`, the archive is a base64 encoded, gzipped tar file. The Pods or ConfigMaps are represented as YAML files, at the top level in this tar file. The file might also contain extra files and all the files are extracted to the host file system before starting the Pods. The *current working directory* is the directory in which the files were extracted, so it's possible to use a volume mount with a relative path to mount the files or directories from the YAML file.
+- In the `archive` subsection of `play`, the archive is a Base64 encoded, gzipped tar file. The Pods or ConfigMaps are represented as YAML files, at the top level in this tar file. The file might also contain extra files and all the files are extracted to the host file system before starting the Pods. The *current working directory* is the directory in which the files were extracted, so it's possible to use a volume mount with a relative path to mount the files or directories from the YAML file.
 
    Example:
 
@@ -259,7 +259,7 @@ In the `play` subsection, you can define the workload via [Pod descriptors](http
 
    The `{{ .Env REGISTRY }}` expression references the `REGISTRY` environment variable that in this example is defined in the `env` section of the contract.
 
-   The templates need to be valid [YAML](https://yaml.org/spec/1.2.2/){: external}, so a replacement expression must be escaped if it appears as the first part of a string. Otherwise it collides with the [block mapping](https://yaml.org/spec/1.2.2/#822-block-mappings){: external} syntax. This is different to [helm templates](https://helm.sh/docs/helm/helm_template/){: external} where expressions are applied to the textual representation of the document instead of the model representation.
+   The templates need to be valid [YAML](https://yaml.org/spec/1.2.2/){: external}, so a replacement expression must be escaped if it appears as the first part of a string. Otherwise, it collides with the [block mapping](https://yaml.org/spec/1.2.2/#822-block-mappings){: external} syntax. This is different to [helm templates](https://helm.sh/docs/helm/helm_template/){: external} where expressions are applied to the textual representation of the document instead of the model representation.
    {: note}
 
 #### Environment Variables
@@ -291,11 +291,11 @@ spec:
 
 - Container to container
 
-   Containers inside one Pod communicate to each other via `localhost`. Each container needs to listen on a different port, because - per design - they share the same IP address.
+   Containers inside one Pod communicate to each other through `localhost`. Each container needs to listen on a different port, because - per design - they share the IP address.
 
 - Pod to host
 
-   Usually a Pod needs to expose at least one of its containers to the host, so that container is accessible via the IP address on the host via a mapped port. For this use case, make use of the `hostPort` feature on a container. Note that this is **not** [best practice](https://kubernetes.io/docs/concepts/configuration/overview/#services){: external} in the Kubernetes world, in which a service would be used instead.
+   Usually a Pod needs to expose at least one of its containers to the host, so that container is accessible through the IP address on the host through a mapped port. For this use case, use the `hostPort` feature on a container. Note that this is **not** [best practice](https://kubernetes.io/docs/concepts/configuration/overview/#services){: external} in the Kubernetes world, in which a service would be used instead.
 
    Specify both `hostPort` and `containerPort` explicitly. If you specify only `containerPort`, ports are not bound.
    {: important}
@@ -348,7 +348,7 @@ spec:
 
    To reach from one Pod to another, expose a `hostPort` on the target Pod. The source Pod can then make a request to the host on the exposed port to get to the target Pod.
 
-   The source Pod can find the IP address of the host via the following command:
+   The source Pod can find the IP address of the host through the following command:
 
    ```bash
    ip route | awk '/default/ { print $3 }'
@@ -358,7 +358,7 @@ spec:
 #### Volumes
 {: #volumes}
 
-For Hyper Protect Container Runtime, volumes are managed by the [volumes](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_volumes) section in the contract. Based on this information, HPCR will encrypt and mount external block devices on the host. To mount these volumes into the pod, use the [hostPath](https://kubernetes.io/docs/concepts/storage/volumes/#hostpath){: external} mount option on the volume.
+For Hyper Protect Container Runtime, volumes are managed by the [volumes](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_volumes) section in the contract. Based on this information, HPCR encrypts and mounts external block devices on the host. To mount these volumes into the pod, use the [hostPath](https://kubernetes.io/docs/concepts/storage/volumes/#hostpath){: external} mount option on the volume.
 
 Example:
 
@@ -425,7 +425,7 @@ images:
 {: codeblock}
 
 For an image that is not signed, no entry is required in the images subsection. However, for unsigned images, a digest is required. Complete the following steps to get the digest:
-1. Log in to the container registry dashboard.
+1. Log in to the Container Registry dashboard.
 2. Open the image.
 3. Click **Tag**, and then click **Digest**.
 
@@ -444,14 +444,14 @@ Container images described by Pod descriptors can be validated by RedHat Simple 
 
 If the image is referenced by a digest, the service allows its usage without additional checks.
 
-Images without a digest need a GPG key to be validated. The key is transferred in base64 encoded binary format that can be created. For example:
+Images without a digest need a GPG key to be validated. The key is transferred in Base64 encoded binary format that can be created. For example:
 
 ```bash
 gpg -a --export ${KEY_ID}|base64 -w0
 ```
 {: codeblock}
 
-This key is conveyed via the `rhs` subsection of the `images` section. This section is a map with the image identifier as the key and the GPG key in the `publicKey` field:
+This key is conveyed through the `rhs` subsection of the `images` section. This section is a map with the image identifier as the key and the GPG key in the `publicKey` field:
 
 Example:
 
@@ -691,7 +691,7 @@ The encryption and attestation certificates are signed by the IBM intermediate c
 
    **Note:** 
    * Deprecated: You can use the image to create an instance using IBM Cloud CLI. Using the deprecated status can discourage the use of the image before changing the status to obsolete.
-   * Obsolete: You can not use the image to create an instance. If you try to use an obsolete image to create an instance, you will receive a message that states that you can not use the image to create an instance. 
+   * Obsolete: You can not use the image to create an instance. If you try to use an obsolete image to create an instance, you receive a message that states that you can not use the image to create an instance. 
    * Always download the encryption certs correponding to the image and encrypt the contracts.
 
 
@@ -729,7 +729,7 @@ Complete the following steps on an Ubuntu system, to encrypt the workload sectio
    ```
    {: pre}
 
-4. Use the following command to create a random password (the contract is encrypted via symmetric AES  with a random PASSWORD):
+4. Use the following command to create a random password (the contract is encrypted through symmetric AES  with a random PASSWORD):
    ```yaml
    PASSWORD="$(openssl rand 32 | base64 -w0)"
    ```
@@ -814,10 +814,10 @@ Complete the following steps on an Ubuntu system, to encrypt the `env` section u
 
 
 Contract signature is an optional feature that can be used with the contract. You can choose to sign a contract before it is passed as input. You can also set expiry of contract during signature. Contracts that are in plain text or encrypted can be signed. Validation of the contract signature is done by the {{site.data.keyword.hpvs}} for VPC image.
-The purpose of this signature feature is to ensure that the `workload` and `env` sections are always used together and are not tampered with by a third party. This feature also supports setting expiry for contract. That is, If the instance is booted after the signature expired, the boot process will fail. The signature of the `workload` and the `env` sections are added as the value to the `envWorkloadSignature` section.
+The purpose of this signature feature is to ensure that the `workload` and `env` sections are always used together and are not tampered with by a third party. This feature also supports setting expiry for contract. That is, If the instance is booted after the signature expired, the boot process fails. The signature of the `workload` and the `env` sections are added as the value to the `envWorkloadSignature` section.
 The following are two sections in a contract that are relevant while creating and adding a contract signature:
 * `envWorkloadSignature`: This is section where the signature of the other sections of the contract is added. This section is not required for a contract that is not signed.
-* `signingKey`: This is a subsection that must be added to the `env` section of the contract. This holds the value to the user-generated public key, whose corresponding private key was used to create the contract signature. Public key or certificate can also be parsed as base64 string.
+* `signingKey`: This is a subsection that must be added to the `env` section of the contract. This holds the value to the user-generated public key, whose corresponding private key was used to create the contract signature. Public key or certificate can also be parsed as Base64 string.
 
 Complete the following steps on an Ubuntu system, to create the contract signature:
 1. Use the following command to generate key pair to sign the contract (note that "test1234" is the passphrase to generate keys, you can use your own):
@@ -833,7 +833,7 @@ Complete the following steps on an Ubuntu system, to create the contract signatu
    echo ${key%\\n}
    ```
 
-3. Optionally, if you want to pass the signing key as base64:
+3. Optionally, if you want to pass the signing key as Base64:
     ```sh
     key=$(cat public.pem | base64 -w 0)
     echo $key
@@ -862,7 +862,7 @@ Complete the following steps on an Ubuntu system, to create the contract signatu
         certificate=$(awk -vRS="\n" -vORS="\\\n" '1' certificate.pem)
         echo ${certificate%\\n}
         ```
-   4. Optionally, use the following command as an example to get the certificate in base64 format:
+   4. Optionally, use the following command as an example to get the certificate in Base64 format:
       ```sh
       certificate=$(cat certificate.pem | base64 -w 0)
       echo $certificate
@@ -897,7 +897,7 @@ Complete the following steps on an Ubuntu system, to create the contract signatu
           seed: hogwarts
       signingKey: "-----BEGIN CERTIFICATE-----\nMIIFETCCAvkCFBAMxyO6Cl7BNKBGxtlAzHpI2oiNMA0GCSqGSIb3DQEBCwUAMEUx\nCzAJBgNVBAYTAkFVMRMwEQYDVQQIDApTb21lLVN0YXRlMSEwHwYDVQQKDBhJbnRl\ncm5ldCBXaWRnaXRzIFB0eSBMdGQwHhcNMjQwMTMwMDM1ODMzWhcNMjQwNTA5MDM1\nODMzWjBFMQswCQYDVQQGEwJBVTETMBEGA1UECAwKU29tZS1TdGF0ZTEhMB8GA1UE\nCgwYSW50ZXJuZXQgV2lkZ2l0cyBQdHkgTHRkMIICIjANBgkqhkiG9w0BAQEFAAOC\nAg8AMIICCgKCAgEAv5h6i7Fn1DMUM+3AnPPZUNMe1ss3KL/AmUmptwlAPErVoH1k\naiqTUsSNjXctj+nk95I+e2nugw/HlaVT1eRgEtvjssheXKboFn+zW/i31Nq9USgQ\nZA325VtchYlgJLXMPaH/ukBUr0UI4LnjC/dNdAQzKwWPNF2Jlv5wKX8OBVOQO9Df\nExVmcEkKDoh0nZk5eOA8vzJGhfr8TvQx9FQFsP4OXTwQgcdZV26mLm0bMkqEt3o5\n8OSpisqNGY1XnMHjOWNqSbErkpbIKEFAQSnWmzEvJdHsQX+7eTF7CisHJREseT4s\nUSuIFBZKXbS3qq6EL/EYviu0EGnY/rkJJcIRb8hycqHRgoITT2bWT7PSMUyXoX3G\nVKfp/xKFhkYzoRDSb5S0lh8sugmoRkioAkw6G56CP2hablPZRUMmUKceFfOG/k4L\nei8qJtbfQJ9BlCNRPpjqY3sGSdeXI4zefyQ8xxcus9Sl5wXZV86lz2lO/fz3Cvpd\n0eKvfv5uXyvF3O36lrlEERmSukaZYaEJECjxOUeafc7E1DVyIaMpc2SOum1crwMG\nRKhnU1JShDON0yClnKOlACfjFIpdpEMpE4lLps1x+PXV+x21zGBMUvXYa4xpbyWR\nK1gfMWmuvGOivl9y0mPSIeyJ9R/7bSRAbcYJR4N99TrtWxZU1yQi7HSRV5cCAwEA\nATANBgkqhkiG9w0BAQsFAAOCAgEAg006zJ4ZKwT8moOOl3PdThFUcf8rrIlec9Iy\nqPcWSqt5UTeYLIe58oGhhQmcaIRUOQaib5JqH2ukzqpo+gsJ3zZb3eIn4FB7cKef\nLqaiemOveEe1/qSwAGqMZyZELssiOflhnJdzuYSRWO8DO6Q6JMqQthDcw20budjO\nzP4nhXQqT+s8ljzqSJW77hDbrNAezTz/0SJFDtaMBs5UweX//7/4sXtJ8kBIBSxd\n7y4w8tuuxUaXOtYMjNrJAYLwFVeeO8CFURpbEuv7ABT0k8U4E8C6j4U4Jysx4XVP\nZj36rIAtvctchh0yAhHz8whXe1tvaFw9wzRDATnThFAuJG4Z07K2/rlDP9kO9wmn\ng8hHxKeqQMJDp29e0sGkz8oDi6Mz24k9CqFJJ0CUz1ntz7rrDkA3QwQbFRzk938y\n3rSfePO5qXlUQ9mm05hYr1EKKceTLEowc4XOouNLlUWGiRshRR1szMw5C29prFJ2\nyYuV9tBaFYkq7dnh8JnmrreEvAnsKyyECxMmtV/W701OSUYBcThwgAo+hkEeOJ+/\nwrOS7yoJqDF1y+5LLQJmUlrLCPXem3ZTa4UMe1p2g7ge7Dg6Zud9NDBcMigdHByt\nJP/i9PcJSEWrccWJ1ajToUCZ0wqfJ3Z4KqoEd0fadQhb32AuDUbu7E12EUFNPGIH\n8rQKbDU=\n-----END CERTIFICATE-----"
       ```
-   3. If `singingkey` is a base64 encoded signing key or certificate:
+   3. If `singingkey` is a Base64 encoded signing key or certificate:
       ```yaml
         env: |
         type: env
@@ -961,7 +961,7 @@ Complete the following steps on an Ubuntu system, to create the contract signatu
 Steps 4 - 8 are used to encrypt the `env` section. If you choose to not encrypt this section, skip these steps.
 {: note}
 
-A notification about the expiry of the contract will be sent to your logging service. 
+A notification about the expiry of the contract is sent to your logging service. 
 Timelines for the notification are as follows:
 - On the first of every month
 - Everyday for 30 days before the expiry
@@ -972,14 +972,14 @@ Timelines for the notification are as follows:
 ## Preparing the Attestation section
 {: #hpcr_attestation_prepare}
 
-Attestation is the optional feature that can be used with contract. The `attestationPublicKey` is the user provided public key used to encrypt the attestation document. This can be provided as a public RSA key or base64 encoded of the public RSA key as a part of the contract.
+Attestation is the optional feature that can be used with contract. The `attestationPublicKey` is the user provided public key used to encrypt the attestation document. This can be provided as a public RSA key or Base64 encoded of the public RSA key as a part of the contract.
 
 *  If you use the plain text public RSA key for the `attestationPublicKey` in the yaml file, use the following example:
    ```text
    attestationPublicKey: "-----BEGIN PUBLIC KEY-----\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAvLaeSA8Nc3p99HNUMwon\n5lMMALAsIxRRpWUaEZ5IcUky2sgCi/rSmxU2sm6FK/BmCftk33f5W2BsYHdY9R/0\nELZ9A4POQcJsPF3ronU2QHwnRjcqYuUFXmf1VqfPPLpELriFNoCb2FN2zCa+VUmu\n+fGhroZ3Fr9kBPwJhGr917E5jeCQ+MzsGkulcTvr0SfvThiZQQ/KlU0R35ThamF3\n8C0F5IQBpqDUwDFmWvD5lF2SmprpluDBFEj8LLfLxvW9M2Qwku6nGUnnFReg3vNH\n7IF0SRr1K1AdO5hEmevCdyG9hgTdUY6dXcjntiN/kbqXErILknvzDnb4jyPZZRdK\ndrOzVt8hjbdmkS396SrMFtA++QrV3GNZl5zCscpn6d8S7BEA8mDzroo2UAbrypVP\n9l9AmzUnmnPCpZQySUUHoY0xG2vgMSA50CWH7Uwjmpixr02Td4/LU8fE7NWCO6ci\nx4++ANSaxu+uuZ2Pe1OjjgV98r06ZUs38eaxptLZqLpn3N6w8WAJxGwSLapZwNtP\ng2spUXu2Eh/TN5t4/ly5iXOsyIy8IPtTrUPX7rpaaqFZ72P6BJLj3WLEvOG/eF/8\nBTjrsZAjb8YjkO1uGk10IPa63sniZWe5vlm9w9UKy2uGuy6RhWxwoVHRRbfhboQF\nsO20dsVwgTZn8c46HMD2PoMCAwEAAQ==\n-----END PUBLIC KEY----"
    ```
 
-*  If you use the base64 encoded signing key for the `attestationPublicKey` in the yaml file, use the following command and example.
+*  If you use the Base64 encoded signing key for the `attestationPublicKey` in the yaml file, use the following command and example.
     
    ```sh
    base64 -w0 <public RSA key file>

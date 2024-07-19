@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2024-06-20"
+lastupdated: "2024-07-19"
 
 keywords:
 
@@ -23,7 +23,7 @@ Subnets created within a VPC represent address prefixes, which these IP addresse
 ## Hierarchy of IP addresses
 {: #hierarchy-of-ip-addresses}
 
-VPC IPv4 addresses are created from address prefixes, and those address prefixes are created within VPCs. Subnets can then be created with a subset range or max range of addresses that fit within the address prefix range using CIDRs. For example, a subnet created with a CIDR of `172.16.0.0/12` has a range of IP addresses from `172.16.0.0` - `172.31.255.255` where there are 1048576 IP addresses that can be created. When you create a floating IP, it receives an IP address from within the subnet CIDR. You can now assign this floating IP to a public gateway or network interface of an instance to give an internet IP address that enables connectivity and communication across the internet.
+VPC IPv4 addresses are created from address prefixes, and those address prefixes are created within VPCs. Subnets can then be created with a subset range or max range of addresses that fit within the address prefix range using CIDRs. For example, a subnet that was created with a CIDR of `172.16.0.0/12` has a range of IP addresses from `172.16.0.0` - `172.31.255.255` where there are 1048576 IP addresses that can be created. When you create a floating IP, it receives an IP address from within the subnet CIDR. You can now assign this floating IP to a public gateway or network interface of an instance to give an internet IP address that enables connectivity and communication across the internet.
 
 ## Understanding the differences between public and private IP addresses
 {: #public-v-private}
