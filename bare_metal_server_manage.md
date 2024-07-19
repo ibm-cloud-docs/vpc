@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-07-18"
+lastupdated: "2024-07-19"
 
 keywords: bare metal servers, managing, operation, manage bare metal server, manage bare metal, manage server, restart bare metal, stop bare metal, delete bare metal, reboot bare metal, restart server, stop server, delete server
 
@@ -17,9 +17,6 @@ subcollection: vpc
 
 You can manage your {{site.data.keyword.cloud}} Bare Metal Servers for VPC by performing tasks such as start, stop, update firmware, reboot, reinitialize, and delete bare metal server.
 {: shortdesc}
-
-Reinitializing bare metal servers is a beta feature that is available for evaluation and testing purposes.
-{: beta}
 
 You can perform the following actions by using the UI, CLI, and API.
 
@@ -348,9 +345,6 @@ For more information about the API request, see [Start a bare metal server](/api
 ### Reinitialize a bare metal server by using the API
 {: #reinitialize-bare-metal-servers-api}
 {: api}
-
-Update firmware and reinitializing bare metal servers is a beta feature that is available for evaluation and testing purposes.
-{: beta}
 
 You can reinitialize your bare metal server on {{site.data.keyword.cloud}} Bare Metal Servers for VPC by using the API. To reinitialize your bare metal server, use [Bare metal servers initialization](https://pages.github.ibm.com/vpc/vpc-spec-artifacts/branch/master/swagger-ui.html?maturity=aspirational&feature=is-aspirational&versioned=true#/Bare%20metal%20servers/replace_bare_metal_server_initialization).
 
