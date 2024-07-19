@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-06-20"
+lastupdated: "2024-07-19"
 
 keywords: custom routes
 
@@ -25,7 +25,7 @@ You can update a route for an IBM Cloud service by using the UI, CLI, API, or Te
 To update a route in the UI, follow these steps:
 
 1. Make sure to review [Limitations and guidelines](/docs/vpc?topic=vpc-about-custom-routes&interface=ui#limitations-custom-routes).
-1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, Select the Menu icon ![Navigation Menu](images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appears.
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, Select the menu icon ![Navigation Menu](images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appears.
 1. Locate the routing table with the routes that you want to update, and click its name in the table.
 1. In the Routes section, locate the route that you want to update in the table. Then, click the Actions menu ![Actions menu](images/overflow.png) to edit or delete the route. You can change the name, priority, advertise, and route type information.
 1. Click **Save** to save your updates.
@@ -58,13 +58,13 @@ Where:
 :   Is the new name of the route.
 
 `--priority`
-:   Is the route's priority. Lower values have higher priority. If a custom routing table contains routes with the same destination, the route with the highest priority (smallest value) is selected.
+:   Is the route's priority. Lesser values have higher priority. If a custom routing table contains routes with the same destination, the route with the highest priority (smallest value) is selected.
 
 `--next-hop`
-:   If the action is **deliver**, this is the IP address or VPN connection ID or name of the next hop to which to route packets.
+:   If the action is `deliver`, this value is the IP address or VPN connection ID or name of the next hop to which to route packets.
 
 `--advertise`
-:   Advertise to a direct link, transit gateway, or both ingress sources. One of **true**, **false**.
+:   Advertise to a direct link, transit gateway, or both ingress sources. One of `true`, `false`.
 
 `--output`
 :   Formats the output in JSON.
@@ -80,7 +80,7 @@ Where:
 
 `ibmcloud is vpc-routing-table-route-update 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3 72b27b5c-f4b0-48bb-b954-5becc7c1d456 72b27b5c-f4b0-48bb-b954-5becc7c1d4ef --name my-vpc-route --next-hop 10.0.0.2`
 
-In order to see advertise custom routes options in CLI, we need to export a feature flag: `export IBMCLOUD_IS_FEATURE_ADVERTISE_CUSTOM_ROUTES=true`
+To see advertise custom routes options in CLI, we need to export a feature flag: `export IBMCLOUD_IS_FEATURE_ADVERTISE_CUSTOM_ROUTES=true`
 
 `ibmcloud is vpc-routing-table-update 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3 72b27b5c-f4b0-48bb-b954-5becc7d1d2d3 -—advertise_routes_to direct_link --direct-link-ingress true -—output JSON`
 

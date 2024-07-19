@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-06-20"
+lastupdated: "2024-07-19"
 
 keywords: custom routes
 
@@ -18,7 +18,7 @@ subcollection: vpc
 You can control the flow of network traffic in your VPC by configuring routes. Use VPC routes to specify the next hop for packets, based on their destination addresses.
 {: shortdesc}
 
-Multiple routing tables can exist for each zone in your VPC. For egress traffic, when a packet leaves a subnet, the system evaluates its destination against the routing table in the subnet's zone to determine where to send the packet next. Each VPC has a default routing table that will be attached to every subnet (unless it was explicitly attached to a different one by the user).
+Multiple routing tables can exist for each zone in your VPC. For egress traffic, when a packet leaves a subnet, the system evaluates its destination against the routing table in the subnet's zone to determine where to send the packet next. Each VPC has a default routing table that is attached to every subnet, unless the subnet was explicitly attached to a different one by the user.
 
 A VPC custom route has four main components:
 
@@ -35,7 +35,7 @@ Any traffic that originates in the specified zone of the VPC and has a destinati
 
 Each route has a destination property, which includes a prefix length (`/24` in `10.2.0.0/24`). The number of unique prefix lengths that are supported per custom routing table is 14. Multiple routes with the same prefix count as only one unique prefix.
 
-VPC address prefixes are no longer restricted to RFC-1918 addresses. You must now configure VPCs that use both non-RFC-1918 addresses and have public connectivity (floating IPs or public gateways) by using a custom route that contains the new `Delegate-VPC` action. You must specify this action for destination CIDRs that are non-RFC-1918 compliant and also outside of the VPC, such as for destinations that are reachable through Direct Link, Transit Gateway, or VPC classic access. For more information about when to use the `Delegate-VPC` action, see [Routing considerations for IANA-registered IP assignments](/docs/vpc?topic=vpc-interconnectivity#routing-considerations-iana).
+VPC address prefixes are no longer restricted to RFC-1918 addresses. You must now configure VPCs that use both non-RFC-1918 addresses and have public connectivity (floating IP addresses or public gateways) by using a custom route that contains the new `Delegate-VPC` action. You must specify this action for destination CIDRs that are non-RFC-1918 compliant and also outside of the VPC, such as for destinations that are reachable through Direct Link, Transit Gateway, or VPC classic access. For more information about when to use the `Delegate-VPC` action, see [Routing considerations for IANA-registered IP assignments](/docs/vpc?topic=vpc-interconnectivity#routing-considerations-iana).
 {: note}
 
 The `Delegate-VPC` action is required if both are true:
@@ -55,8 +55,8 @@ You can create a route for an IBM Cloud service by using the UI, CLI, API, or Te
 To create a route in the UI, follow these steps:
 
 1. Make sure to review [Limitations and guidelines](/docs/vpc?topic=vpc-about-custom-routes&interface=ui#limitations-custom-routes).
-1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, Select the Menu icon ![Navigation Menu](images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appear.
-1. Select the VPC associated with the routing table you want to view. Then, click the name of the routing table to show its details.
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, Select the menu icon ![Navigation menu](images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appear.
+1. Select the VPC associated with the routing table that you want to view. Then, click the name of the routing table to show its details.
 1. Scroll to the Routes section and click **Create**.
 1. In the Create route side panel, enter the following information:
 
@@ -110,13 +110,13 @@ Where:
 :   Is the name of the zone.
 
 `--destination`
-:   Is the destination CIDR of the route. At most, two routes per zone in a table can have the same destination, and only if both routes have an action of  **deliver**.
+:   Is the destination CIDR of the route. At most, two routes per zone in a table can have the same destination, and only if both routes have an action of **deliver**.
 
 `--action`
 :   Is the action to perform with a packet that matches the route. Actions are **delegate_vpc**, **delegate**, **deliver**, and **drop**.
 
 `--priority`
-:   Is the route's priority. Values are `0`, `1`, `2`, `3`, and `4`. The default value is `2`.  Lower values have higher priority. If a custom routing table contains routes with the same destination, the route with the highest priority (smallest value) is selected.
+:   Is the route's priority. Values are `0`, `1`, `2`, `3`, and `4`. The default value is `2`.  Lesser values have higher priority. If a custom routing table contains routes with the same destination, the route with the highest priority (smallest value) is selected.
 
 `--next-hop`
 :   If the action is **deliver**, enter the IP address or VPN connection ID of the next hop to which to route packets.

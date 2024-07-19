@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-06-20"
+lastupdated: "2024-07-19"
 
 keywords: custom routes
 
@@ -24,10 +24,10 @@ You can delete a routing table for an IBM Cloud service by using the UI, CLI, AP
 
 To delete a routing table in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
-1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the Menu icon ![Menu icon](images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The routing tables for VPC page appear.
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the menu icon ![Menu icon](images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The routing tables for VPC page appear.
 2. Click the Actions menu ![Actions menu](images/overflow.png) next to the routing table that you want to delete, then click **Delete**. Click **Delete** again to confirm the deletion. Alternatively, you can click **Actions > Delete** from the routing table details page.
 
-   You can delete only a routing table that does not have an attached subnet. If the routing table that you want to delete is attached to a subnet, you can detach it by either reassigning the routing table to another subnet (by using the Actions menu ![Actions menu](images/overflow.png)), or by deleting the subnet (click the subnet name, then click **Delete** from the Actions menu ![Actions menu](images/overflow.png).
+   You can delete a routing table only when it does not have any attached subnets and is not the default for its VPC. If the routing table that you want to delete is attached to a subnet, you can detach it by either reassigning the routing table to another subnet or by deleting the subnet. To reassign the subnet, go to the details page of the routing table, click the **Subnets** tab, and use the Actions menu ![Actions menu](images/overflow.png) to reassign the subnet to another routing table. To delete the subnet, go to the list of subnets, and click the Actions menu ![Actions menu](images/overflow.png), and select **Delete**.
    {: important}
 
 ## Deleting a routing table from the CLI

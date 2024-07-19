@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-06-20"
+lastupdated: "2024-07-19"
 
 keywords: custom routes
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Updating a routing table
 {: #update-vpc-routing-table}
 
-You can update a routing table using the UI, CLI, API, or Terraform.
+You can update a routing table by using the UI, CLI, API, or Terraform.
 {: shortdesc}
 
 ## Updating a routing table in the UI
@@ -25,7 +25,7 @@ You can update a routing table using the UI, CLI, API, or Terraform.
 To update a routing table in the UI, follow these steps:
 
 1. Make sure to review [Limitations and guidelines](/docs/vpc?topic=vpc-about-custom-routes&interface=ui#limitations-custom-routes).
-1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, Select the Menu icon ![Navigation Menu](images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appears.
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, Select the menu icon ![Navigation menu](images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appears.
 1. Locate the routing table in the table. You can:
 
    * Use the Actions menu ![Actions menu](images/overflow.png) to rename or delete the routing table.
@@ -166,6 +166,6 @@ To update a routing table with Terraform, follow these steps:
       }
       ```
 
-      If `route_internet_ingress` is set to `true`, this routing table is used to route traffic that originates from the internet. For this to succeed, the VPC must not already have a routing table with this property set to `true`.
+      If `route_internet_ingress` is set to `true`, this routing table is used to route traffic that originates from the internet. For the routing to succeed, the VPC must not already have a routing table with this property set to `true`.
 
 For documentation about the `ibm_is_vpc_routing_table` resource, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_vpc_routing_table).{: external}

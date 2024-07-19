@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-06-20"
+lastupdated: "2024-07-19"
 
 keywords: custom routes
 
@@ -15,8 +15,8 @@ subcollection: vpc
 # Attaching subnets to a routing table
 {: #attach-subnets-routing-table}
 
-When you view details of a routing table, you can also view details of attached subnets, or attach a subnet to apply routing table routes to a particular subnet. Note that a routing table can be associated with multiple subnets. However, each subnet can only have one routing table assigned to it.
-By default, any subnet not associated with a routing table is associated with the default routing table. You can also reassign the routing table of a subnet to another subnet.
+When you view details of a routing table, you can also view details of attached subnets, or attach a subnet to apply routing table routes to a particular subnet. Note that a routing table can be associated with multiple subnets. However, each subnet can be assigned only one routing table.
+By default, any subnet that is not associated with a routing table is associated with the default routing table. You can also reassign the routing table of a subnet to another subnet.
 {: shortdesc}
 
 You can attach a subnet to a routing table, or reassign a routing table to a particular subnet by using the UI, CLI, API, or Terraform.
@@ -27,9 +27,9 @@ You can attach a subnet to a routing table, or reassign a routing table to a par
 
 To attach a routing table to a subnet in the UI, follow these steps:
 
-1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, Select the Menu icon ![Navigation Menu](images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appear.
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the menu icon ![Navigation menu](images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appears.
 1. Click the name of the routing table in which you want to view subnet details. Alternatively, you can click the number of attached subnets.
-1. From the Subnets tab, click **Attach subnet**. The Attach subnets to routing table side panel shows.
+1. From the Subnets tab, click **Attach subnet**. The Attach subnets to routing table side panel appears.
 1. Select a subnet from the drop-down list. The current routing table, IP range, and location of the subnet shows.
 1. Click **Attach**.
 
@@ -106,7 +106,7 @@ To view details of all or a specific routing table with Terraform, follow these 
 
       For more information about the `ibm_is_subnet_routing_table_attachment` resource, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_subnet_routing_table_attachment).{: external}
 
-   * On an existing subnet resource, update the `routing_table` attribute specified by the identifier:
+   * On an existing subnet resource, update the `routing_table` attribute that is specified by the identifier:
 
       ```terraform
       resource "ibm_is_subnet" "example" {

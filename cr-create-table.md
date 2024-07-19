@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-06-20"
+lastupdated: "2024-07-19"
 
 keywords: custom routes
 
@@ -21,7 +21,7 @@ Create a routing table to define rules to forward network traffic along the best
 ## Before you begin
 {: #routing-planning-guidelines}
 
-Before creating a routing table, ensure that you have at least one VPC and review and adhere to routing table [limitations and guidelines](/docs/vpc?topic=vpc-about-custom-routes&interface=ui#limitations-custom-routes).
+Before you create a routing table, ensure that you have at least one VPC and review and adhere to routing table [limitations and guidelines](/docs/vpc?topic=vpc-about-custom-routes&interface=ui#limitations-custom-routes).
 
 You can create a routing table for an {{site.data.keyword.cloud_notm}} service by using the UI, CLI, API, or Terraform.
 
@@ -31,7 +31,7 @@ You can create a routing table for an {{site.data.keyword.cloud_notm}} service b
 
 To create a routing table in the UI, follow these steps:
 
-1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, Select the Menu icon ![Navigation Menu](images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appears.
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, Select the menu icon ![Navigation menu](images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appears.
 1. Click **Create** in the upper right of the page.
 1. In the Routing table for VPC provisioning page, complete the following information:
 
@@ -41,12 +41,12 @@ To create a routing table in the UI, follow these steps:
 
       * **Accepts routes from** (optional) -  Choose which resources can create routes in the routing table. You can select the switch for **VPN server**, **VPN gateway**, or both.
 
-      * **Traffic source** (optional) - Select the traffic source that will use this routing table to route its traffic to the VPC.
+      * **Traffic source** (optional) - Select the traffic source to use this routing table to route its traffic to the VPC.
 
          * **Direct Link** - Allows ingress traffic from an [IBM Cloud Direct Link](/docs/dl?topic=dl-get-started-with-ibm-cloud-dl) Dedicated or Connect connection to an on-premises location. Optionally, you can advertise routes to a direct link, which are not in the address prefix range of the VPC.
          * **Transit gateway** - Allows ingress traffic from an [IBM Cloud Transit Gateway](/docs/transit-gateway?topic=transit-gateway-getting-started) to another VPC or classic infrastructure. Optionally, you can advertise routes to a transit gateway, which are not in the address prefix range of the VPC.
          * **VPC zone** - Allows ingress traffic to another availability zone of the same VPC.
-         * **Public internet** - Allows public internet ingress traffic destined to a floating IP to be routed to a VPC next-hop IP.
+         * **Public internet** - Allows public internet ingress traffic that is destined to a floating IP to be routed to a VPC next-hop IP.
 
 1. Click **Create routing table**.
 
@@ -58,7 +58,7 @@ Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-envir
 
 To create a routing table from the CLI, run the following command:
 
-To see advertise custom routes options in the CLI, you must first export a feature flag:
+To see advertised custom routes options in the CLI, you must first export a feature flag:
 
 ```sh
 export IBMCLOUD_IS_FEATURE_ADVERTISE_CUSTOM_ROUTES=true
@@ -78,22 +78,22 @@ Where:
 :   Is the name of the VPC routing table.
 
 `--direct-link-ingress, --direct-link`
-:   Optional. If set to **true**, this routing table is used to route traffic that originates from {{site.data.keyword.cloud_notm}} Direct Link to this VPC. For the routing to succeed, the VPC must not already have a routing table with this property set to **true**. One of: **false**, **true**.
+:   Optional. If set to `true`, this routing table is used to route traffic that originates from {{site.data.keyword.cloud_notm}} Direct Link to this VPC. For the routing to succeed, the VPC must not already have a routing table with this property set to `true`. One of: `false`, `true`.
 
 `--internet-ingress, --internet`
-:   Indicates whether this routing table is used to route traffic that originates from the internet. Updating to **true** selects this routing table, provided no other routing table in the VPC already has this property set to **true**. Updating to **false** deselects this routing table.  One of: **false**, **true**.
+:   Indicates whether this routing table is used to route traffic that originates from the internet. Updating to `true` selects this routing table, provided no other routing table in the VPC already has this property set to `true`. Updating to `false` deselects this routing table. One of: `false`, `true`.
 
 `--transit-gateway-ingress, --transit-gateway`
-:   If set to **true**, this routing table is used to route traffic that originates from Transit Gateway to this VPC. For the routing to succeed, the VPC must not already have a routing table with this property set to **true**. One of: **false**, **true**.
+:   If set to `true`, this routing table is used to route traffic that originates from Transit Gateway to this VPC. For the routing to succeed, the VPC must not already have a routing table with this property set to `true`. One of: `false`, `true`.
 
 `--vpc-zone-ingress, --vpc-zone`
-:   Optional. If set to **true**, this routing table is used to route traffic that originates from the public internet. For the routing to succeed, the VPC must not have an existing routing table with this property set to **true**. One of: **false**, **true**.
+:   Optional. If set to `true`, this routing table is used to route traffic that originates from the public internet. For the routing to succeed, the VPC must not have an existing routing table with this property set to `true`. One of: `false`, `true`.
 
 `--accept-routes-from-resource-type-filters, --ar-rtf`
-:   Comma-separated resource type filters that can create routes in this routing table. One of: **vpn_server**, **vpn_gateway**.
+:   Comma-separated resource type filters that can create routes in this routing table. One of: `vpn_server`, `vpn_gatewa`.
 
 `--advertise_routes_to TARGETS`
-:   Optional. Is a comma-separated list of advertisement targets for routes in this routing table. Currently, **direct_link** and **transit_gateway** are the allowed values. **direct_link** requires **direct-link-ingress** to be set to **true**. **transit_gateway** requires **transit—gateway-ingress** to be set to **true**. All routes in the routing table with the **advertise** option set to **true** are advertised to the ingress sources specified by 'advertise_routes_to'.
+:   Optional. Is a comma-separated list of advertisement targets for routes in this routing table. Currently, `direct_link` and `transit_gateway` are the allowed values. `direct_link` requires `direct-link-ingress` to be set to `true`. `transit_gateway` requires `transit—gateway-ingress` to be set to `true`. All routes in the routing table with the `advertise` option set to `true` are advertised to the ingress sources specified by 'advertise_routes_to'.
 
 `--output`
 :   Is the output format. One of: **JSON**.
@@ -101,10 +101,10 @@ Where:
 `-q, --quiet`
 :   Suppresses verbose output.
 
-Routes with an action of **deliver** are treated as **drop** unless the next-hop is an IP address that is bound to a network interface on a subnet in the route’s zone. Hence, if an incoming packet matches a route with a next-hop of an internet-bound IP address or a VPN gateway connection, the packet is dropped.
+Routes with an action of *deliver* are treated as *drop* unless the next-hop is an IP address that is bound to a network interface on a subnet in the route’s zone. Hence, if an incoming packet matches a route with a next-hop of an internet-bound IP address or a VPN gateway connection, the packet is dropped.
 {: important}
 
-You can set an ingress option to **true** on only one routing table per VPC, and then only if that routing table is not attached to any subnets.
+You can set an ingress option to `true` on only one routing table per VPC, and then only if that routing table is not attached to any subnets.
 {: note}
 
 ### CLI examples
@@ -136,7 +136,7 @@ To create a routing table with the API, follow these steps:
 
     Egress routing table:
 
-    ```curl
+    ```sh
     curl -X POST \
     "$vpc_api_endpoint/v1/vpcs/$VpcId/routing_tables?version=$api_version&generation=2" \
     -H "Authorization: ${iam_token}" \
@@ -148,7 +148,7 @@ To create a routing table with the API, follow these steps:
 
     Ingress routing table:
 
-    ```curl
+    ```sh
        curl -X POST "$vpc_api_endpoint/v1/vpcs/$VpcId/routing_tables?version=$api_version&generation=2" \
        -H "Authorization: $iam_token" \
        -d '{
@@ -177,7 +177,7 @@ To create a routing table with Terraform, follow these steps:
       }
       ```
 
-   * To create a routing table that accepts routes created from a VPN server:
+   * To create a routing table that accepts routes that are created from a VPN server:
 
       ```terraform
       resource "ibm_is_vpc_routing_table" "example" {

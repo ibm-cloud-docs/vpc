@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-06-20"
+lastupdated: "2024-07-19"
 
 keywords: custom routes
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Viewing details of a routing table
 {: #view-details-routing-table}
 
-You can view details of a routing table by using the UI, CLI, API, or Terraform. From the Routing table details page, you can also view details of attached routes and subnets, as well as navigate to other pages to view VPC details, manage address prefixes, and more.
+You can view details of a routing table by using the UI, CLI, API, or Terraform. From the Routing table details page in the console, you can also view details of attached routes and subnets, as well as go to other pages to view VPC details, manage address prefixes, and more.
 {: shortdesc}
 
 ## Viewing details of a routing table in the UI
@@ -24,7 +24,7 @@ You can view details of a routing table by using the UI, CLI, API, or Terraform.
 
 To view the details of a routing table in the UI, follow these steps:
 
-1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, Select the Menu icon ![Navigation Menu](images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appears.
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, Select the menu icon ![Navigation menu](images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appears.
 
 1. Click the name of the routing table that you want details for. The Routing table details page appears.
 
@@ -37,7 +37,7 @@ Field descriptions are as follows.
 | Virtual private cloud | The VPC for this routing table. |
 | Created date | The origination date of the routing table.|
 | Routes | The number of destination routes. |
-| Default | Indicates whether this is the default routing table. |
+| Default | Indicates whether the routing table is the default routing table. |
 | Attached subnets | The number of attached subnets. Click the Subnets tab to see subnet details. |
 {: caption="Table 1. Routing table details" caption-side="bottom"}
 

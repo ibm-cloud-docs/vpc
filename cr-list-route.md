@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-06-25"
+lastupdated: "2024-07-19"
 
 keywords: custom routes
 
@@ -24,7 +24,7 @@ You can list the routes of a VPC routing table by using the UI, CLI, API, or Ter
 
 To list the routes of a VPC routing table in the UI, follow these steps:
 
-1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, Select the Menu icon ![Navigation Menu](images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appears.
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, Select the menu icon ![Navigation menu](images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appears.
 1. Click the routing table name or number of routes that are associated with the routing table. The Routing table details page appears, listing the routes associated with the routing table.
 
 Descriptions of these columns are as follows:
@@ -33,9 +33,9 @@ Descriptions of these columns are as follows:
 |-------|-------------|
 | Name  | Name of the route. |
 | Destination | Destination CIDR of the route. |
-| State | The lifecycle state. Custom route states are:  \n * **Pending** - In the process of being provisioned in the specified VPC and zone.  \n * **Stable** - Provisioning was successful.  \n * **Deleting** - A **Stable** or **Failed** route is in the process of being deleted.  \n * **Deleted** - Deletion was successful.  \n * **Failed** - The route is not functional. From this state, you can delete only the route.|
+| State | The lifecycle state. Custom route states are:  \n * **Pending** - In the process of being provisioned in the specified VPC and zone.  \n * **Stable** - Provisioning was successful.  \n * **Deleting** - A **Stable** or **Failed** route is in the process of being deleted.  \n * **Deleted** - Deletion was successful. \n * **Failed** - The route is not functional. From this state, you can delete only the route.|
 | Zone  |  Indicates the zone. |
-| Action | Values are:  \n * **Deliver** - Routes the packet to the next hop target. You can add multiple routes with the same address prefix. The virtual router performs equal-cost, multi-path routing (ECMP) by using the different next hop IP addresses.  \n * **Drop** - Drops the packet.  \n * **Delegate** - Routes the packet by using the system routing table.[^fn1] |
+| Action | Values are: \n * **Deliver** - Routes the packet to the next hop target. You can add multiple routes with the same address prefix. The virtual router performs equal-cost, multi-path routing (ECMP) by using the different next hop IP addresses. \n * **Drop** - Drops the packet. \n * **Delegate** - Routes the packet by using the system routing table.[^fn1] |
 | Next hop | The IP address of the next hop to which to route packets. |
 | Route origin | Origin of the route. |
 {: caption="Table 1. Destination routes details" caption-side="bottom"}
