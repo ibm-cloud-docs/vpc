@@ -104,9 +104,6 @@ Billing continues after the bare metal server is stopped.
 {: #reinitialize-bare-metal-servers-ui}
 {: ui}
 
-Reinitializing bare metal servers is a beta feature that is available for evaluation and testing purposes.
-{: beta}
-
 You can reinitialize the server only if the server is stopped and provisioned with local storage. Or, you can reinitialize if the server status is `failed` and the lifecycle state has a status reason of `cannot_reinitialize`. When the bare metal server is reinitialized, the contents of the boot disk are wiped and the specified operating system is installed. The server retains the same physical node, interfaces, IP addresses, and resource IDs. Data on secondary drives is preserved.
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**
@@ -190,10 +187,7 @@ For a full list of command options, see [ibmcloud is bare-metal-server-restart](
 ### Reinitialize a bare metal server by using the CLI
 {: #reinitialize-bare-metal-servers-cli}
 {: cli}
-
-Reinitializing bare metal servers is a beta feature that is available for evaluation and testing purposes.
-{: beta}
-
+  
 You can reinitialize your bare metal server on {{site.data.keyword.cloud}} Bare Metal Servers for VPC by using the command-line interface (CLI).
 
 You can reinitialize the server only if the server is stopped and provisioned with local storage. Or, you can reinitialize if the server status is `failed` and the lifecycle state has a status reason of `cannot_reinitialize`. When the bare metal server is reinitialized, the contents of the boot disk are wiped and the specified operating system is installed. The server retains the same physical node, interfaces, IP addresses, and resource IDs. Data on secondary drives is preserved.
@@ -254,8 +248,6 @@ For a full list of command options, see [ibmcloud is bare-metal-server-delete](/
 ## Managing your bare metal server by using the API
 {: #managing-bare-metal-servers-api}
 {: api}
-
-
 
 ### Viewing your bare metal servers by using the API
 {: #viewing-bare-metal-servers-api}
