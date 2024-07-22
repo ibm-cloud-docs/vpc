@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-07-08"
+lastupdated: "2024-07-22"
 
 keywords:
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Managing data encryption
 {: #vpc-encryption-managing}
 
-In {{site.data.keyword.cloud}}, you can secure your resources with your own root keys. You can rotate your root keys regularly or manually as needed. You can verify key rotation by viewing Activity Tracker events. You can disable or delete root keys that are compromised or that you no longer need. You can restore root keys that were deleted within 30 days of their deletion.
+In {{site.data.keyword.cloud}}, you can secure your resources with your own root keys. You can rotate your root keys regularly or manually as needed. You can verify key rotation by viewing Activity tracking events. You can disable or delete root keys that are compromised or that you no longer need. You can restore root keys that were deleted within 30 days of their deletion.
 {: shortdesc}
 
 ## Manage root keys
@@ -101,7 +101,7 @@ Root keys move to various states as a result of the actions that you take, and d
 | Resource type | Resource status | Result |
 |---------------|-----------------| -------|
 | Root key | _destroyed_ [^tabletext2] |  |
-| All | _unusable_ | The key can't be used for any encryption actions. You have 30 days to restore a deleted root key that you imported. After 30 days, the status changes to _failed_ and the resources are no longer recoverable. (KMS-generated root keys can't be restored.) Review the Activity Tracker events to see when you deleted the key. For more information, see [Deleting root keys](#byok-delete-root-keys). |
+| All | _unusable_ | The key can't be used for any encryption actions. You have 30 days to restore a deleted root key that you imported. After 30 days, the status changes to _failed_ and the resources are no longer recoverable. (KMS-generated root keys can't be restored.) Review the Activity tracking events to see when you deleted the key. For more information, see [Deleting root keys](#byok-delete-root-keys). |
 | Custom image | _unusable_ | Images can't be used for creating boot volumes to provision a new virtual server instance. |
 | Boot volume | _unusable_ | The associated virtual server instance is stopped. A stopped instance cannot be started while the instance boot volume is in an _unusable_ state. |
 | Data volume | _unusable_ | If the data volume is attached to a running instance, the instance is stopped. Stand-alone data volumes cannot be attached to instances. You can delete the volume. |
@@ -285,10 +285,10 @@ Use the Activity Tracker to verify user-initiated activities that change the sta
 
 Due to the sensitivity of the information, when an event is generated as a result of an API call to the KMS, the event doesn't include detailed information about the key. Instead, it includes a correlation ID that you can use to identify the key internally in your cloud environment. The correlation ID is a field that is returned as part of the `correlationId` field.
 
-### Activity Tracker events for key rotation
+### Activity tracking events for key rotation
 {: #byok-key-rotation-events}
 
-When you initiate an activity in the KMS to rotate and manage your root keys, Activity Tracker events are generated. These events are particular to {{site.data.keyword.keymanagementserviceshort}}, but similar events are generated for {{site.data.keyword.hscrypto}}, too.
+When you initiate an activity in the KMS to rotate and manage your root keys, Activity tracking events are generated. These events are particular to {{site.data.keyword.keymanagementserviceshort}}, but similar events are generated for {{site.data.keyword.hscrypto}}, too.
 
 * When you list keys, a `kms.secrets.list` event is generated.
 * When you rotate a root key, a `kms.secrets.rotate` event is generated.
@@ -300,7 +300,7 @@ When you initiate an activity in the KMS to rotate and manage your root keys, Ac
 * The `responseData.totalResources` field includes the total number of key versions that are associated with the key.
 * The `responseData.eventAckData.newKeyVersionId` field includes the unique identifier of the latest key version.
 
-For more information about key rotation events that indicate a successful rotation, see these [key rotation events](/docs/key-protect?topic=key-protect-at-events#rotate-key-registrations-success). For more information about all Activity Tracker events in {{site.data.keyword.keymanagementserviceshort}}, see [{{site.data.keyword.at_full_notm}} events](/docs/vpc?topic=vpc-at_events).
+For more information about key rotation events that indicate a successful rotation, see these [key rotation events](/docs/key-protect?topic=key-protect-at-events#rotate-key-registrations-success). For more information about all Activity tracking events in {{site.data.keyword.keymanagementserviceshort}}, see [{{site.data.keyword.at_full_notm}} events](/docs/vpc?topic=vpc-at_events).
 
 ### Example key rotation event
 {: #byok-activity-tracker-key-rotation-example}
@@ -402,10 +402,10 @@ This event shows the updated volume after a successful key rotation:
 ```
 {: screen}
 
-### Activity Tracker events for key suspension and deletion
+### Activity tracking events for key suspension and deletion
 {: #byok-key-delete-suspend-events}
 
-When you initiate activity in the KMS to disable or delete a root key, specific Activity Tracker events are generated. These events are particular to {{site.data.keyword.keymanagementserviceshort}}, but similar events are generated for {{site.data.keyword.hscrypto}}.
+When you initiate activity in the KMS to disable or delete a root key, specific Activity tracking events are generated. These events are particular to {{site.data.keyword.keymanagementserviceshort}}, but similar events are generated for {{site.data.keyword.hscrypto}}.
 
 * When you disable a key (key state changes from _active_ to _suspended_), a `kms.secrets.disable` event is generated.
 * When you enable a disabled key (key state changes from _suspended_ to _active_), a `kms.secrets.enable` event is generated.

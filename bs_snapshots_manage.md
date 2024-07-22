@@ -852,10 +852,10 @@ resource "ibm_is_volume" "storage" {
 
 For more information about the arguments and attributes, see [ibm_is_volume](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_volume#delete_all_snapshots){: external}.
 
-## Activity Tracker events for snapshots
+## Activity tracking events for snapshots
 {: #snapshots-vpc-at-events}
 
-When you initiate activity on a snapshot, specific Activity Tracker events are generated. These activities include creating, listing, modifying, and deleting snapshots. For more information about the Activity Tracker events, see [Snapshots events](/docs/vpc?topic=vpc-at_events#events-snapshots).
+When you initiate activity on a snapshot, specific Activity tracking events are generated. These activities include creating, listing, modifying, and deleting snapshots. For more information about the Activity tracking events, see [Snapshots events](/docs/vpc?topic=vpc-at_events#events-snapshots).
 
 ### Activity Tracker JSON examples for snapshot events
 {: #snapshots-vpc-at-event-examples}
@@ -950,26 +950,10 @@ The following example shows an event that was generated when you list snapshot d
 ```
 {: screen}
 
-## IAM roles for creating and managing snapshots
-{: #snapshots-vpc-iam}
-
-Snapshots require {{site.data.keyword.iamlong}} (IAM) permissions for role-based access control. Table 1 describes these roles as they pertain to snapshots actions.
-
-| Snapshot action | IAM role |
-|-----------------|----------|
-| Create snapshots | Administrator, editor |
-| Delete snapshots | Administrator, editor |
-| Create a volume from a snapshot[^createvol] | Administrator, editor, operator |
-| List snapshots | Administrator, editor, operator, viewer |
-| View snapshot details | Administrator, editor, operator, viewer |
-{: caption="Table 1. {{site.data.keyword.iamlong}} roles for snapshots." caption-side="bottom"}
-
-[^createvol]: Administrator and editor privileges are needed on the volume.
-
-## Snapshot lifecycle states
+## Monitoring snapshot lifecycle states
 {: #snapshots-vpc-status}
 
-Table 2 describes the snapshot states in the snapshot lifecycle.
+Table 2 describes the snapshot states in the snapshot lifecycle. You can see these states in the UI, the command outputs of the CLI, in the API responses, and in Terraform data sources.
 
 | Snapshot status | Explanation |
 |-----------------|-------------|

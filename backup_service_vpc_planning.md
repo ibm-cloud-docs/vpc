@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-09"
+lastupdated: "2024-07-22"
 
 keywords: backup planning, restore volume, restore data
 
@@ -25,7 +25,7 @@ Consider the following prerequisites before you set up the VPC Backup Service.
 
 | Item | Considerations |
 |------|----------------|
-| {{site.data.keyword.iamshort}} (IAM) | Verify that you have [IAM access permissions](/docs/vpc?topic=vpc-backup-service-about#baas-vpc-iam) to create and manage backups for the account. |
+| {{site.data.keyword.iamshort}} (IAM) | Verify that you have [IAM access permissions](/docs/account?topic=account-iam-service-roles-actions#is.backup-policy-roles) to create and manage backups for the account. |
 | Enterprise-level backups | Make sure that all [Service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth) are in place for the services in the child account and the enterprise account. If the authorization is missing in any one of the child accounts, the backup service generates an {{site.data.keyword.at_full}} event and marks the policy health degraded.|
 | Volumes | Evaluate which volumes are most important to back up. You can create backups of boot and data volumes. A volume with numerous changes and a lengthy retention period requires more attention than a volume with moderate changes. Also, the cumulative size of all backups for a volume can't exceed 10 TB. |
 | Multi-volume consistency groups | You can create backups of multiple Block Storage volumes that are attached to the same virtual server. When you create backups this way, you tag the virtual server instance. You can choose to include the boot volume in the backup or leave it out. |

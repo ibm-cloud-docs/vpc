@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-07-19"
+lastupdated: "2024-07-22"
 
 keywords:
 
@@ -35,6 +35,14 @@ You pay for only the capacity that you need. {{site.data.keyword.block_storage_i
 You can also apply user tags and access management tags to your boot and data volumes anytime. Add tags when you create a volume or update an existing volume with the UI, CLI, API, and Terraform. For more information, see [Tags for {{site.data.keyword.block_storage_is_short}} volumes](#storage-about-tags).
 
 When you create, view, or update a {{site.data.keyword.block_storage_is_short}} volume, or [restore a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore), the volume health state is reported in the UI, CLI, or API. For more information, see [{{site.data.keyword.block_storage_is_short}} volume health states](/docs/vpc?topic=vpc-block-storage-vpc-monitoring#block-storage-vpc-health-states).
+
+## IAM roles for creating and managing volumes
+{: #block-sorage-vpc-iam}
+
+{{site.data.keyword.block_storage_is_short}} require IAM permissions for role-based access control. Depending on your assigned role, you can create and manage volumes. For more information, see [IAM roles and actions for Block Storage for VPC](/docs/account?topic=account-iam-service-roles-actions#is.volume-roles).
+
+For more information, see the [best practices for assigning access](/docs/account?topic=account-account_setup#account_setup). For the complete IAM process, which includes inviting users to your account and assigning Cloud IAM access, see the [IAM getting started tutorial](/docs/account?topic=account-iamoverview).
+{: tip}
 
 ## {{site.data.keyword.block_storage_is_short}} volume types
 {: #block-storage-vpc-volumes}

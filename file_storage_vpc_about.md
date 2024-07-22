@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-07-10"
+lastupdated: "2024-07-22"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -138,6 +138,14 @@ Even without EIT, the data is moving through a secure data center network. For m
 
 Encryption in transit is not supported for {{site.data.keyword.bm_is_short}}.
 {: restriction}
+
+## IAM roles for creating and managing shares, accessor bindings, and mount targets
+{: #fs-vpc-iam}
+
+{{site.data.keyword.filestorage_vpc_short}} requires IAM permissions for role-based access control. Depending on your assigned role, you can create and manage file shares. For more information, see [IAM roles and actions for File Storage for VPC](/docs/account?topic=account-iam-service-roles-actions#is.share-roles).
+
+For more information, see the [best practices for assigning access](/docs/account?topic=account-account_setup#account_setup). For the complete IAM process, which includes inviting users to your account and assigning Cloud IAM access, see the [IAM getting started tutorial](/docs/account?topic=account-iamoverview).
+{: tip}
 
 ## Sharing file share data between accounts and services
 {: #fs-cross-account-mount}

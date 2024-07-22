@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-01-05"
+lastupdated: "2024-07-22"
 
 keywords: consistency group, snapshots, backups, instance snapshot, instance backup,
 
@@ -163,7 +163,6 @@ Changing the `resource_group` and `source_volume` values of the member snapshots
 
 For more information about the arguments and attributes, see [ibm_is_snapshot_consistency_group](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_snapshot_consistency_group){: external}.
 
-
 ## Deleting a consistency group with Terraform
 {: #delete-consistencygroup-terraform}
 {: terraform}
@@ -177,15 +176,7 @@ terraform destroy --target ibm_is_snapshot_consistency_group.my-snapshot-consist
 
 For more information, see [terraform destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy){: external}.
 
-## Activity Tracker events
+## Activity Tracking events
 {: #consistency-groups-at-events}
 
-All multi-volume snapshot operations generate events in {{site.data.keyword.at_full_notm}} regardless if the consistency group was created manually or by the Backup service. The following table lists the actions that relate to snapshot consistency group resources.
-
-| Resource                     |  Action                                                           | Description  |
-|------------------------------|-------------------------------------------------------------------|--------------|
-| `snapshot-consistency-group` | `is.snapshot-consistency-group.snapshot-consistency-group.create` | The snapshot consistency group was created. |
-| `snapshot-consistency-group` | `is.snapshot-consistency-group.snapshot-consistency-group.update` | The snapshot consistency group was updated. |
-| `snapshot-consistency-group` | `is.snapshot-consistency-group.snapshot-consistency-group.delete` | The snapshot consistency group was deleted. |
-| `snapshot-consistency-group` | `is.snapshot-consistency-group.snapshot-consistency-group.read`   | One or more snapshot consistency groups were retrieved.|
-{: caption="Table 1. IAM roles for snapshots" caption-side="bottom"}
+All multi-volume snapshot operations generate events in {{site.data.keyword.at_full_notm}} regardless if the consistency group was created manually or by the Backup service. For more information, see [Consistency group events](/docs/vpc?topic=vpc-at_events&interface=ui#events-consistency-group).

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-06-29"
+lastupdated: "2024-07-22"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -25,7 +25,7 @@ In an authorization, the source service is the service that is granted access to
 
 To be able to create an encrypted file share with customer-managed CRKs, you need to establish service-to-service authorization between the File service and the Key Management Service of your choice. The instructions to create the service-to-service authorization are provided in this topic. For more information about using another account's CRK, see [Cross-account encryption for File Storage resources](/docs/vpc?topic=vpc-vpc-byok-cross-acct-key-file).
 
-For cross-region replication, you need to establish service-to-service authorizations and specify user roles for the various File service instances in different VPCs. This authorization enables the File service in one VPC to interact with the File service of another VPC. Both VPCs must belong to the same account. Cross-account replication is not supported. For more information, see [Replication overview](/docs/vpc?topic=vpc-file-storage-replication).
+For cross-region replication, you need to establish service-to-service authorizations and specify [user roles](/docs/account?topic=account-iam-service-roles-actions#is.share-roles). for the various File service instances in different VPCs. This authorization enables the File service in one VPC to interact with the File service of another VPC. Both VPCs must belong to the same account. Cross-account replication is not supported. For more information, see [Replication overview](/docs/vpc?topic=vpc-file-storage-replication).
 
 For more information about authorizations, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth).
 

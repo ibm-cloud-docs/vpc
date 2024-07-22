@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-09"
+lastupdated: "2024-07-22"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -182,45 +182,13 @@ Only one copy of the backup snapshot can exist in each region. You can't create 
 
 Creating a cross-regional copy affects billing. You're charged for the data transfer and the storage consumption in the target region separately.
 
-## User roles for backup policies
-{: #backup-service-user-roles}
-
-Depending on your assigned role as a backup user, you can create and administer backup policies. Table 1 describes these capabilities.
-
-| Backup user role | What you can do: |
-|------|------------------|
-| **Viewer, Operator** | * List all backup policies. \n * View details of a backup policy. \n * View a backup plan. |
-| **Editor, Administrator** | * Organize and manage snapshots by using tags. \n * Associate backup policies to volumes by using user tags. \n * Create, update, and delete backup policies and plans. \n * Specify a CRON format to schedule snapshot creation. |
-{: caption="Table 1. Backup user roles for backup policies" caption-side="bottom"}
-
-| Volume user role | What you can do: |
-|------|------------------|
-| **Editor** | * Create data volumes with user tags. \n * View volume details with user tags. \n * List volumes filtered by tag. \n * Update user tags post volume creation. |
-{: caption="Table 2. Volume user roles for backup policies" caption-side="bottom"}
-
-| Snapshot user role | What you can do: |
-|------|------------------|
-| **Editor** | * Create snapshots with user tags. \n * View snapshot details with tags. \n * List snapshots filtered by tag. \n * Update user tags post snapshot creation.|
-{: caption="Table 3. Snapshot user roles for backup policies" caption-side="bottom"}
-
-## IAM roles for creating and managing backups
+## IAM roles for backup policies
 {: #baas-vpc-iam}
 
-Backups require IAM permissions for role-based access control. Table 2 describes these roles as they pertain to the backup actions.
+Backups require IAM permissions for role-based access control. Depending on your assigned role as a backup user, you can create and administer backup policies. For more information, see [IAM roles and actions for Regional Backup as a Service for VPC](/docs/account?topic=account-iam-service-roles-actions#is.backup-policy-roles).
 
-| Backup action               | IAM role |
-|-----------------------------|----------|
-| Create backup policies.     | Administrator, editor |
-| Add tags to a volume resource [^addtags]. | Administrator, editor |
-| Delete backup policies.     | Administrator, editor |
-| Restore a volume from a backup [^restore]. | Administrator, editor, operator |
-| List backups.               | Administrator, editor, operator, viewer |
-| View backup policy details. | Administrator, editor, operator, viewer |
-{: caption="Table 2. IAM roles for snapshots" caption-side="bottom"}
-
-[^addtags]: An administrator on the account must assign the appropriate permissions for tagging resources. For more information, see [Granting users access to tag resources](/docs/account?topic=account-access).
-
-[^restore]: You must have administrator and editor privileges on the volume to perform this action.
+For more information, see the [best practices for assigning access](/docs/account?topic=account-account_setup#account_setup). For the complete IAM process, which includes inviting users to your account and assigning Cloud IAM access, see the [IAM getting started tutorial](/docs/account?topic=account-iamoverview).
+{: tip}
 
 ## Service-to-service authorizations
 {: #baas-s2s-auth}

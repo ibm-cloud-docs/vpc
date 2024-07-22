@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-08"
+lastupdated: "2024-07-22"
 
 keywords: snapshots, Block Storage, volumes, cross-regional snapshot, restore volume, copy snapshot
 
@@ -41,7 +41,7 @@ Snapshots have a lifecycle that is independent from the source {{site.data.keywo
 
 The cost for snapshots is calculated based on GB capacity that is stored per month, unless the duration is less than one month. Because the snapshot is based on the capacity that was provisioned for the original volume, the snapshot capacity does not vary.
 
-With {{site.data.keyword.iamlong}}, you can set up resource groups in your account to provide user-access to your snapshots. Your IAM role determines whether you can create and manage snapshots. For more information, see [IAM roles for creating and managing snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-iam).
+With {{site.data.keyword.iamlong}}, you can set up resource groups in your account to provide user-access to your snapshots. Your IAM role determines whether you can create and manage snapshots. For more information, see [IAM roles for creating and managing snapshots](/docs/account?topic=account-iam-service-roles-actions#is.snapshot-roles).
 
 Before you take a snapshot, make sure that all cached data is present on disk, especially when you're taking snapshots of instances with Windows and Linux&reg; operating systems. For example, on Linux operating systems, run the `sync` command to force an immediate write of all cached data to disk.
 {: note}
@@ -105,6 +105,14 @@ You can [restore](/docs/vpc?topic=vpc-snapshots-vpc-restore) a boot or data volu
 Restoring from a snapshot of a boot volume creates a new boot volume that you can use to provision another instance. Restoring from a snapshot of a data volume creates a secondary volume that is attached to the instance. You can also restore a stand-alone (unattached) data volume from a snapshot.
 
 When you restore volumes from snapshots in a consistency group, you can select some or all of the snapshots.
+
+## IAM roles for creating and managing single and consistency group snapshots
+{: #snapshots-vpc-iam}
+
+Snapshots require IAM permissions for role-based access control. Depending on your assigned role, you can create and manage single and multi-volume snapshots. For more information, see [IAM roles and actions for Block Storage Snapshots for VPC](/docs/account?topic=account-iam-service-roles-actions#is.snapshot-roles) and [IAM roles and actions for Multi Volume Snapshots for VPC](/docs/account?topic=account-iam-service-roles-actions#is.snapshot-consistency-group-roles).
+
+For more information, see the [best practices for assigning access](/docs/account?topic=account-account_setup#account_setup). For the complete IAM process, which includes inviting users to your account and assigning Cloud IAM access, see the [IAM getting started tutorial](/docs/account?topic=account-iamoverview).
+{: tip}
 
 ## Limitations
 {: #snapshots-vpc-limitations}

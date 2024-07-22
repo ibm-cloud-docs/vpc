@@ -15,7 +15,7 @@ subcollection: vpc
 # Managing backup policies
 {: #backup-service-manage}
 
-You can manage backup policies and their associated plans that were created for your resources in the console, from the CLI, with the API, or Terraform. You can delete policies and plans that you no longer need. You can update the backup policy and plans when your needs change. You can add or remove tags. You can check the status of your backup policies. Audit your policies by integrating Activity Tracker events.
+You can manage backup policies and their associated plans that were created for your resources in the console, from the CLI, with the API, or Terraform. You can delete policies and plans that you no longer need. You can update the backup policy and plans when your needs change. You can add or remove tags. You can check the status of your backup policies. Audit your policies by integrating Activity tracking events.
 {: shortdesc}
 
 ## Managing backup policies in the console

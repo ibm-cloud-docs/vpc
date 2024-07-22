@@ -502,21 +502,6 @@ When you delete a {{site.data.keyword.block_storage_is_short}} volume, IBM guara
 
 Sanitizing and deleting the volume means your data can't be restored.
 
-## Managing access to a {{site.data.keyword.block_storage_is_short}} volume
-{: #assign-volume-access}
-
-With Administrator privileges, you can assign volume-level user access to the {{site.data.keyword.block_storage_is_short}} service. The following table shows the information that you must provide in the [Identity and Access Management (IAM) UI](/docs/account?topic=account-account_setup).
-
-| IAM field | Action |
-|--------|-------------|
-| Services | Select **Infrastructure Services**. |
-| Resource Type | Select **Block Storage for VPC**. |
-| Volume ID | Enter the [volume ID](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#view-vol-details-ui) to assign access to a specific volume. |
-| Select Roles | Assign platform access roles, typically, Operator. |
-{: caption="Table 1. Information for IAM" caption-side="bottom"}
-
-For more information, see the [best practices for assigning access](/docs/account?topic=account-account_setup#account_setup). For the complete IAM process, which includes inviting users to your account and assigning Cloud IAM access, see the [IAM getting started tutorial](/docs/account?topic=account-iamoverview).
-
 ## Next steps
 {: #next-step-managing-block-storage}
 

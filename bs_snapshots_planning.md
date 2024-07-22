@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-04-19"
+lastupdated: "2024-07-22"
 
 keywords:
 
@@ -25,7 +25,7 @@ Consider the following topics and prerequisites before you create snapshots.
 
 | Item | Considerations |
 |------|----------------|
-| {{site.data.keyword.iamshort}} permissions | Confirm that you have the necessary [IAM access permissions](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-iam) to create snapshots. |
+| {{site.data.keyword.iamshort}} permissions | Confirm that you have the necessary role to create snapshots. For more information, see [IAM roles and actions for Block Storage Snapshots for VPC](/docs/account?topic=account-iam-service-roles-actions#is.snapshot-roles) and [IAM roles and actions for Multi Volume Snapshots for VPC](/docs/account?topic=account-iam-service-roles-actions#is.snapshot-consistency-group-roles). |
 | Interface | Choose between the UI, CLI, API, or Terraform to create and manage your snapshots. |
 | Volumes | - Evaluate which volumes are most important to snapshot. You can create a snapshot of boot and data volumes. \n - Evaluate the amount of change that you expect for the volumes that you intend to snapshot. A volume with numerous changes and a lengthy retention period requires more attention than a volume with moderate changes. Also, the cumulative size of all snapshots for a volume can't exceed 10 TB. |
 | Consistency groups | You can [create a consistency group](/docs/vpc?topic=vpc-snapshots-vpc-create-consistency-groups) to take snapshots of multiple Block Storage volumes that are attached to a single virtual server instance at the same time. The snapshots in the consistency group can be used later to restore a virtual server instance's boot and data volumes. Restoring an instance directly from snapshot consistency group identifier is not supported. |
