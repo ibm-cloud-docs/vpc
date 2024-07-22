@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-06-25"
+lastupdated: "2024-07-22"
 
 keywords:
 
@@ -56,16 +56,6 @@ This command returns a URL and prompts for a passcode. Go to that URL in your br
 When you are prompted to select a region, select us-south.
 
 Respond to any remaining prompts to finish logging in.
-
-### Selecting the generation of VPC
-{: #select-the-generation}
-
-Use the following command to configure the CLI plug-in to target generation 2 virtual server instances for VPC.
-
-```sh
-ibmcloud is target --gen 2
-```
-{: pre}
 
 ### Creating a VPC
 {: #create-a-vpc-cli}

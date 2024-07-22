@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-09"
+lastupdated: "2024-07-22"
 
 keywords: Backup, backup snapshot, create backups, backup service, backup plan, backup policy, restore, restore volume, restore data, restore share
 
@@ -157,13 +157,6 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    {: pre}
 
    This command returns a URL and prompts for a passcode. Go to that URL in your browser and log in. If successful, you get a one-time passcode. Copy this passcode and paste it as a response on the prompt. After successful authentication, you are prompted to choose your account. If you have access to multiple accounts, select the account that you want to log in as. Respond to any remaining prompts to finish logging in.
-
-1. Select the current generation of VPC.
-
-   ```sh
-   ibmcloud is target --gen 2
-   ```
-   {: pre}
 
 1. If you are an Enterprise account administrator who wants to create a backup policy and plan for your enterprise account and subaccounts, you need to fetch your enterprise account CRN. Run the following command to see the enterprise account name, ID, and CRN.
 
