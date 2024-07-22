@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-01-23"
+lastupdated: "2024-07-22"
 
 keywords:
 
@@ -24,11 +24,9 @@ Most often, you want to access metadata from a running instance and use it to bo
 
 1. Install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 
-2. After the installation of the VPC CLI plug-in, set the target to generation 2 by running the `ibmcloud is target --gen 2` command.
+1. Make sure that you [created an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli#create-a-vpc-cli).
 
-3. Make sure that you [created an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli#create-a-vpc-cli).
-
-4. Configure a floating IP so that you can SSH into the virtual servers over the floating IP address.
+1. Configure a floating IP so that you can SSH into the virtual servers over the floating IP address.
 
 ## General procedure to access instance metadata
 {: #imd-gen-procedure}

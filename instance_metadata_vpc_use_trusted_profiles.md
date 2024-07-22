@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-17"
+lastupdated: "2024-07-22"
 
 keywords:
 
@@ -34,13 +34,11 @@ The instance inherits the access rights that are defined in the default trusted 
 
 1. Install the IBM Cloud CLI and the VPC CLI plug-in (see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup)).
 
-2. After the installation of the VPC CLI plug-in, set the target to generation 2 by running the `ibmcloud is target --gen 2` command.
+1. Make sure that you [created an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli#create-a-vpc-cli).
 
-3. Make sure that you [created an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli#create-a-vpc-cli).
+1. Configure a floating IP so that you can ping the virtual servers over the floating IP address and SSH into them.
 
-4. Configure a floating IP so that you can ping the virtual servers over the floating IP address and SSH into them.
-
-5. Create a trusted profile. For more information, see [Establishing trust with compute resources](/docs/secure-enterprise?topic=secure-enterprise-create-trusted-profile&interface=ui#create-profile-compute).
+1. Create a trusted profile. For more information, see [Establishing trust with compute resources](/docs/secure-enterprise?topic=secure-enterprise-create-trusted-profile&interface=ui#create-profile-compute).
 
 ## IAM authorizations for linking trusted profiles
 {: #imd-iam-auth}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-07-18"
+lastupdated: "2024-07-22"
 
 keywords: file share, file storage, accessor share, cross-account share
 
@@ -65,10 +65,8 @@ In the {{site.data.keyword.cloud_notm}} console, you can create an accessor shar
 ### Before you begin
 {: #before-creating-accessor-share-cli}
 
-Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup). After you install the VPC CLI plug-in, set the target to generation 2 by running the `ibmcloud is target --gen 2` command.
+Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 {: requirement}
-
-After you install the VPC CLI plug-in, set the target to generation 2 by running the `ibmcloud is target --gen 2` command.
 
 ### Creating an accessor share without a mount target from the CLI
 {: #fs-create-accessor-share-cli}

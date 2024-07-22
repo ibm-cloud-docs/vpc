@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-07-18"
+lastupdated: "2024-07-22"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -66,12 +66,6 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    {: pre}
 
    This command returns a URL and prompts for a passcode. Go to that URL in your browser and log in. If successful, you get a one-time passcode. Copy this passcode and paste it as a response on the prompt. After successful authentication, you are prompted to choose your account. If you have access to multiple accounts, select the account that you want to log in as. Respond to any remaining prompts to finish logging in.
-
-2. Select the current generation of VPC. 
-   ```sh
-   ibmcloud is target --gen 2
-   ```
-   {: pre}
 
 ### Expand volume capacity from the CLI
 {: #expand-vol-capacity-cli}
