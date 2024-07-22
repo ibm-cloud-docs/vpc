@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-07-19"
+lastupdated: "2024-07-22"
 
 keywords:
 
@@ -26,6 +26,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## July 2024
 {: #vpc-jul24}
+
+### 22 July 2024
+{: #vpc-jul2224}
+{: release-note}
+
+Hyper Protect Secure Build
+:   The `workload` section for Hyper Protect Secure Build is updated based on the IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-17`. For more information, see [Configuring and using Hyper Protect Secure Build in {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-about-hpsb#hpvs_hpsb).
 
 ### 18 July 2024
 {: #vpc-jul1824}
