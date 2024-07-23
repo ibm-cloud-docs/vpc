@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2023
-lastupdated: "2023-01-31"
+  years: 2018, 2024
+lastupdated: "2024-07-23"
 
 keywords: virtual private network, VPN, VPN gateway, troubleshooting
 
@@ -35,4 +35,4 @@ Follow these steps to resolve this issue:
 1. Make sure that ACLs are configured properly on both sides to allow application traffic.
 1. If you're using a policy-based mode VPN with a static, route-based VPN peer and multiple CIDR subnets on either side, create multiple connections with one CIDR subnet pair per connection.
 1. If you're using a Cisco Adaptive Security Appliance (ASA) as the peer of {{site.data.keyword.vpn_vpc_short}} with multiple CIDRs and subnets that are configured on the Cisco side, try moving different subnets to separate connections.
-1. If you're using a route-based VPN on either side, configure the routes on each side properly so that traffic is routed to the VPN gateway correctly. 
+1. If you're using a route-based VPN on either side, configure the routes on each side properly so that traffic is routed to the VPN gateway correctly.
