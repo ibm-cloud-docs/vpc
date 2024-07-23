@@ -114,13 +114,14 @@ To update the `enable_secure_boot` and `confidential_compute_mode` properties, t
 ### For version `2023-08-08` or later
 {: #version-2023-08-08-beta}
 
-This release introduces the following behavior changes for users with accounts that have access to file shares.
+Support for API beta version `2023-08-08` was removed on 22 September 2023. This feature is now generally available. See [About file share replication](/docs/vpc?topic=vpc-file-storage-replication).
+{: attention}
+
+This release introduced the following behavior changes for users with accounts that have access to file shares.
 
 **Fail over to replica share.** When making API requests using a `version` query parameter of `2023-08-08` or later, the default value for the  `fallback_policy` property has been changed to `fail`, and the replication relationship between the shares is broken.
 
 **Retrieve source share information for a replica share.** When making API requests using a `version` query parameter of `2023-08-08` or later, requests to [retrieve the source file share for a replica file share](/apidocs/vpc-beta/initial#get-share-source) now return a more concise source share reference, instead of a share.
-
-For more information, see [About file share replication](/docs/vpc?topic=vpc-file-storage-replication) and [`2023-08-08` API migration (file shares)](/docs/vpc?topic=vpc-2023-08-08-migration-file-shares).
 
 ## 11 July 2023
 {: #11-july-2023-beta}
@@ -128,17 +129,18 @@ For more information, see [About file share replication](/docs/vpc?topic=vpc-fil
 ### For version 2023-07-11 or later
 {: #version-2023-07-11-beta}
 
+Support for API beta version `2023-07-11` was removed on 25 August 2023. This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#8-august-2023).
+{: attention}
+
 **Data encryption in transit for file shares.** For users with accounts that have access to file shares, you can now enable secure end-to-end encryption of your data in transit between the file share and the authorized client.
 
 When [creating a mount target for a file share](/apidocs/vpc-beta/initial#create-share-mount-target) with a virtual network interface, you can now specify a `transit_encryption` property value of `none` (default) or `user_managed`, which encrypts the data in transit by using IPsec with an instance identity certificate. For more information, see [Encryption in transit](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-eit) and [Instance identity certificates](/docs/vpc?topic=vpc-metadata-beta-api-change-log#11-july-2023-metadata-beta) in the Beta VPC Instance Metadata API change log.
 
 **File share access control modes.** For users with accounts that have access to file shares, you can now control the way a share is accessed when [creating](/apidocs/vpc-beta/initial#create-share) and [updating](/apidocs/vpc-beta/initial#update-share) a file share. Specifying `access_control_mode` property value `security_group` now allows the use of security groups to manage which resources can access the file share. By using security groups, access can now be restricted to specific clients. When you specify `access_control_mode` property value `vpc`, all clients in each mount target's VPC will continue to have access to this share.
 
-The default value of `access_control_mode` depends on the `version` query parameter date and the profile selected. When making API requests with a `version` query parameter of `2023-07-11` or later, the default is `security_group`. For requests that are using a `version` query parameter of `2023-07-10` or earlier, the default is `vpc`. File shares must be based on the [`dp2` profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile) to use the `security_group` value. See [2023-07-11 API migration (file shares)](/docs/vpc?topic=vpc-2023-07-11-migration-file-shares) for guidance on migrating `access_control_mode` from `vpc` to `security_group`.
+The default value of `access_control_mode` depends on the `version` query parameter date and the profile selected. When making API requests with a `version` query parameter of `2023-07-11` or later, the default is `security_group`. For requests that are using a `version` query parameter of `2023-07-10` or earlier, the default is `vpc`. File shares must be based on the [`dp2` profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile) to use the `security_group` value.
 
 When [creating a mount target](/apidocs/vpc-beta/initial#create-share-mount-target) for a file share with `access_control_mode` set to `security_group`, you must also create a virtual network interface by using the `virtual_network_interface` property. For more information, see [About virtual network interfaces](/docs/vpc?topic=vpc-vni-about&interface=api) and [Mount target access modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-mount-access-mode). You must use an `access_control_mode` of `security_group` to enable [Data encryption in transit for file shares](/docs/vpc?topic=vpc-file-storage-vpc-eit).
-
-This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#8-august-2023).
 
 ## 13 June 2023
 {: #13-june-2023-beta}
@@ -153,23 +155,22 @@ This feature is now generally available. Support for property names `deprecated_
 ## 30 May 2023
 {: #23-may-2023-beta}
 
-### For version `2023-05-30` or later
-{: #version-2023-05-30-beta}
-
-This release introduces the following features for users with accounts that have access to file shares.
-
-**File shares property and request path name changes.** When making API requests using a `version` query parameter of `2023-05-30` or later, the shares `targets` property has been changed to `mount_targets`. This change applies when [creating](/apidocs/vpc-beta/initial#create-share), [updating](/apidocs/vpc-beta/initial#update-share), [listing](/apidocs/vpc-beta/initial#list-shares), and [retrieving](/apidocs/vpc-beta/initial#get-share) a file share, and when [listing all mount targets for a file share](/apidocs/vpc-beta/initial#list-share-mount-targets).
-
-The name change also applies to the method paths: Requests using a `version` query parameter of `2023-05-30` or later must use `/shares/{share_id}/mount_targets` (instead of `/shares/{share_id}/targets`) in the request URL. This change applies when [creating](/apidocs/vpc-beta/initial#create-share-mount-target), [updating](/apidocs/vpc-beta/initial#update-share-mount-target), [listing](/apidocs/vpc-beta/initial#list-share-mount-targets), [retrieving](/apidocs/vpc-beta/initial#get-share-mount-target), and [deleting](/apidocs/vpc-beta/initial#delete-share-mount-target) share mount targets.
-
-See [Updating to the `2023-05-30` version (file shares, mount targets)](/docs/vpc?topic=vpc-2023-05-30-migration-file-shares) for guidance on migrating from `targets` to  `mount_targets`.
-
-This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#8-august-2023). Support for the `targets` property has been removed.
-
 ### For all version dates
 {: #30-may-2023-all-version-dates-beta}
 
 **Enforcement of file shares beta API requests.** Starting with API version `2023-05-30`, all requests made for [shares methods](/apidocs/vpc-beta/initial#list-shares) must include the [`maturity=beta`](/apidocs/vpc-beta/initial#maturity-query-parameter-beta) query parameter. Requests that omit the `maturity=beta` query parameter will be regarded as requests against the [VPC GA API](/apidocs/vpc), which does not yet support shares. As a result, those requests will fail.
+
+### For version `2023-05-30` or later
+{: #version-2023-05-30-beta}
+
+Support for API beta version `2023-05-30` was removed on 14 July 2023, and the `targets` property was removed. This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#8-august-2023).
+{: attention}
+
+This release introduced the following features for users with accounts that have access to file shares.
+
+**File shares property and request path name changes.** When making API requests using a `version` query parameter of `2023-05-30` or later, the shares `targets` property has been changed to `mount_targets`. This change applies when [creating](/apidocs/vpc-beta/initial#create-share), [updating](/apidocs/vpc-beta/initial#update-share), [listing](/apidocs/vpc-beta/initial#list-shares), and [retrieving](/apidocs/vpc-beta/initial#get-share) a file share, and when [listing all mount targets for a file share](/apidocs/vpc-beta/initial#list-share-mount-targets).
+
+The name change also applies to the method paths: Requests using a `version` query parameter of `2023-05-30` or later must use `/shares/{share_id}/mount_targets` (instead of `/shares/{share_id}/targets`) in the request URL. This change applies when [creating](/apidocs/vpc-beta/initial#create-share-mount-target), [updating](/apidocs/vpc-beta/initial#update-share-mount-target), [listing](/apidocs/vpc-beta/initial#list-share-mount-targets), [retrieving](/apidocs/vpc-beta/initial#get-share-mount-target), and [deleting](/apidocs/vpc-beta/initial#delete-share-mount-target) share mount targets.
 
 ## 11 April 2023
 {: #11-april-2023-beta}
