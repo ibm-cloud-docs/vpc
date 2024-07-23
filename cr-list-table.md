@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-06-20"
+lastupdated: "2024-07-23"
 
 keywords: custom routes
 
@@ -30,8 +30,12 @@ To list the routing tables for a VPC in the UI, follow these steps:
    Column descriptions are as follows:
 
    * **Name** - Indicates the name of the routing table. Click this link to see the details of the routing table. You can also edit and change this name.
-   * **Default** - Specifies the default routing table of the specified VPC.
-   * **Traffic type** - Specifies the type of traffic. For example, **Egress**.
+
+      The `VPC default tag` specifies the default routing table of the specified VPC.
+      
+   * **Status** - Indicates the status of the routing table.
+   * **Accepts routes from** - Specifies whether traffic is accepted from a VPN server or VPN gateway.    
+   * **Traffic source** - Specifies the source of traffic (for example, a **Direct link** or **VPC zone**).
    * **Routes** - States the number of routes that are attached to the routing table.
    * **Attached subnets** - Indicates the number of subnets that are attached to the routing table.
 
