@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-07-10"
+lastupdated: "2024-07-23"
 
 keywords: Block Storage, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, bandwidth
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Bandwidth allocation for Block Storage volumes
 {: #block-storage-bandwidth}
 
-Instance bandwidth is distributed between networking and storage resources. The storage bandwidth is shared between the boot volume and the attached data volumes. You can adjust the storage-networking bandwidth ratio in the console, from the CLI or with the API. After that change, you can adjust the portion of available bandwidth that is allocated to the data volumes by detaching and reattaching them.
+Instance bandwidth is distributed between networking and storage resources. The storage bandwidth is divided between the boot volume and the attached data volumes. You can adjust the storage-networking bandwidth ratio in the console, from the CLI or with the API. After that change, you can adjust the portion of available bandwidth that is allocated to the data volumes by detaching and reattaching them.
 {: shortdesc} 
 
 ## Bandwidth allocation for volumes that are attached to an instance
@@ -50,7 +50,7 @@ For optimal bandwidth to be realized, detach and reattach the volume after volum
 * The boot volume minimum allocation is 393 MBps.
 * The remaining bandwidth for data volumes is 1,607 MBps.
 
-The volume bandwidth that is available to the instance is apportioned on a per volume basis. The bandwidth is assigned per volume, not shared between volumes. For example, if you have an instance with four identical attached volumes but you are using only one volume, then that volume can get only the bandwidth that is assigned to it. The volume in use can't access the extra bandwidth that is assigned to the unused volumes.
+The volume bandwidth that is available to the instance is apportioned on a per volume basis. The bandwidth is assigned per volume, not shared between volumes. For example, if you have an instance with four identical attached volumes but you are using only one volume, then that volume can get only the bandwidth that is assigned to it, which is 1/4th of the available bandwidth. The volume in use can't access the extra bandwidth that is assigned to the unused volumes.
 
 ### Unattached volume bandwidth versus attached volume bandwidth
 {: #block-vol-bandwidth}

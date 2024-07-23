@@ -73,7 +73,7 @@ Images that are used to create virtual server instances or to [create instance t
 
 **Load balancer and load balancer profile properties.** The private path load network balancer feature introduces a new load balancer profile `network-private-path`, along with the following new load balancer and load balancer profile properties:
 - `source_ip_session_persistence_supported` indicates whether a load balancer supports source IP session persistence. Source IP session persistence is not supported by private path network load balancer.
-- `availability` indicates the availability of a load balancer.  Load balancers with `subnet` availability remain available if at least one of its subnets is in a zone that's available. Load balancers with `region` availability remain available if at least one zone in the region is available. Private path network load balancers have `region` availability. Other load balancers have `subnet` availability.
+- `availability` indicates the availability of a load balancer. Load balancers with `subnet` availability remain available if at least one of its subnets is in a zone that's available. Load balancers with `region` availability remain available if at least one zone in the region is available. Private path network load balancers have `region` availability. Other load balancers have `subnet` availability.
 
 The `value` for load balancer profiles properties `route_mode_supported`, `security_groups_supported`, `udp_supported`, and `logging_supported` is set to `false` for private path load balancers. Additionally, private path load balancers do not support setting or updating the `dns` property, because a private path network load balancers are accessed using endpoint gateways where DNS is configured.
 
