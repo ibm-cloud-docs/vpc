@@ -36,6 +36,8 @@ To review the change log of generally available API features, see the [VPC API c
 
 To reinitialize a bare metal server, the server `status` must be `stopped`, or have `failed` a previous reinitialization. For more information, see [Managing Bare Metal Servers for VPC](/docs/vpc?topic=vpc-managing-bare-metal-servers&interface=api).
 
+This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#23-july-2024).
+
 ## 4 June 2024
 {: #4-june-2024-beta}
 
