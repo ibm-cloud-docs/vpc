@@ -54,6 +54,16 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
 
+## 23 July 2024
+{: #23-july-2024}
+
+### For all version dates
+{: #23-july-2024-all-version-dates}
+
+**Bare metal server reinitialization.** You can now [reinitialize](/apidocs/vpc/latest#replace-bare-metal-server-initialization) a bare metal server. To reinitialize a bare metal server, specify the `image` to provision, one or more SSH public `keys`, and optionally specify `user_data`. Upon successful reinitialization, the bare metal server starts automatically and retains the same physical node, interfaces, IP addresses, and resource IDs it had before reinitialization.
+
+To reinitialize a bare metal server, the server `status` must be `stopped`, or have `failed` a previous reinitialization. For more information, see [Managing Bare Metal Servers for VPC](/docs/vpc?topic=vpc-managing-bare-metal-servers&interface=api#reinitialize-bare-metal-servers-api).
+
 ## 9 July 2024
 {: #9-july-2024}
 
