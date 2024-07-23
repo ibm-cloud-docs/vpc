@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-19"
+lastupdated: "2024-07-23"
 
 keywords:
 
@@ -57,7 +57,7 @@ To create a subnet in your VPC instance, take the following steps:
     * **Access management tags**: Optionally, add access management tags to resources to help organize access control relationships. The only supported format for access management tags is `key:value`. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
     * **Virtual private cloud**: Select the VPC in which you want the subnet to be created.
     * **IP range selection**: The most efficient location for your IP range is calculated automatically. If you want to customize the IP range instead of accepting the default selection, select a different address prefix, change the number of addresses, or enter your IP range manually.
-    * **Routing table**: Select which routing table you want the new subnet to use.
+    * **Routing table**: Select which routing table that you want the new subnet to use.
     * **Subnet access control list**: Select which access control list you want the new subnet to use.
     * **Public gateway**: Indicate whether you want the subnet to communicate with the public internet by toggling the switch to **Attached**.
         Attaching a public gateway creates a [Floating IP](/docs/vpc?topic=vpc-fip-about) and incurs a cost.
@@ -123,7 +123,7 @@ Where:
 :    The ID or name of the public gateway.
 
 `--rt`
-:    The ID or name of the routing table.
+:    The ID or name of the routing table. 
 
 `--resource-group-id`
 :    The ID of the resource group. This ID is mutually exclusive with `--resource-group-name`.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-07-19"
+lastupdated: "2024-07-23"
 
 keywords: custom routes
 
@@ -37,6 +37,7 @@ To create a routing table in the UI, follow these steps:
 
    * Enter a unique name for your routing table.
    * Select the Virtual Private Cloud that you want to associate with the routing table.
+   * **Virtual private cloud** - Select your VPC.
    * In the Traffic section, you can select from these optional features:
 
       * **Accepts routes from** (optional) -  Choose which resources can create routes in the routing table. You can select the switch for **VPN server**, **VPN gateway**, or both.
@@ -200,5 +201,5 @@ To create a routing table with Terraform, follow these steps:
         advertise_routes_to           = ["direct_link", "transit_gateway"]
       }
       ```
-
+      
 For documentation about the `ibm_is_vpc_routing_table` resource, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_vpc_routing_table).{: external}

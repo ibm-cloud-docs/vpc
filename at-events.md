@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-07-18"
+lastupdated: "2024-07-23"
 
 keywords:
 
@@ -125,8 +125,6 @@ You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on event
 
 For information on launching the {{site.data.keyword.logs_full_notm}} UI, see [Launching the UI in the {{site.data.keyword.logs_full_notm}} documentation.](/docs/cloud-logs?topic=cloud-logs-instance-launch)
 
-
-
 ## Network resources
 {: #events-network}
 
@@ -147,25 +145,6 @@ The following tables list the actions that are related to network resources and 
 | network-acl  | is.network-acl.rule.read | One or more network ACL rules was retrieved |
 {: caption="Table 1. Actions that generate events for Network ACL" caption-side="bottom"}
 
-### Custom route events
-{: #events-custom-routes}
-
-The following table lists the actions that are related to VPC routing tables and routes.
-
-| Resource | Action | Description |
-|---|---|---|
-| routing table | is.vpc.routing-table.create  | Routing table was created |
-| routing table | is.vpc.routing-table.update  | Routing table was updated |
-| routing table | is.vpc.routing-table.delete | Routing table was deleted |
-| routing table | is.vpc.routing-table.read | Routing table was retrieved (get and list) |
-| route | is.vpc.routing-table_route.create | Routing table route was created |
-| route | is.vpc.routing-table_route.update | Routing table route was updated |
-| route | is.vpc.routing-table_route.delete | Routing table route was deleted |
-| route | is.vpc.routing-table_route.read | Routing table route was retrieved (get and list) |
-| subnet | is.subnet.routing-table.read | Subnets attached to a routing table were retrieved |
-| subnet | is.subnet.routing-table.attach | Routing table was attached to a subnet |
-{: caption="Table 2. Actions that generate events for VPC routing tables and routes" caption-side="bottom"}
-
 ### DNS resolution binding events
 {: #events-dns-resolution-bindings}
 
@@ -178,7 +157,7 @@ The following table lists the actions that are related to DNS resolution binding
 | DNS resolution binding | `is.vpc.dns-resolution-binding.delete` | Deletes a DNS resolution binding. Generate events for both hub VPC and DNS-shared VPCs. |
 | DNS resolution binding | `is.vpc.dns-resolution-binding.read` | Gets details of a DNS resolution binding. |
 | DNS resolution binding | `is.vpc.dns-resolution-binding.list` | Lists DNS resolution bindings. |
-{: caption="Table 3. Actions that generate events for DNS resolution bindings" caption-side="bottom"}
+{: caption="Table 2. Actions that generate events for DNS resolution bindings" caption-side="bottom"}
 
 Although the DNS resolution binding is created or deleted by the DNS-shared VPC authorized user, the system is actually creating or deleting the DNS resolution binding objects for both the hub VPC and DNS-shared VPCs. Therefore, the system also generates the Activity Tracker event for both hub and DNS-shared VPCs.
 {: note}
@@ -208,7 +187,7 @@ Existing events include a new attribute:
 | floating-ip  | is.floating-ip.floating-ip.read | One or more floating IP was retrieved |
 | floating-ip  | is.floating-ip.floating-ip.attach   | Floating IP was attached to a resource  |
 | floating-ip  | is.floating-ip.floating-ip.detach   | Floating IP was detached from a resource  |
-{: caption="Table 4. Actions that generate events for Floating IP" caption-side="bottom"}
+{: caption="Table 3. Actions that generate events for Floating IP" caption-side="bottom"}
 
 ### Flow log events
 {: #events-flow-logs}
@@ -221,7 +200,7 @@ The following table lists the actions that are related to flow logs and the gene
 | flow-log-collector | is.flow-log-collector.flow-log-collector.delete | Flow log collector was deleted |
 | flow-log-collector | is.flow-log-collector.flow-log-collector.read | Flow log collector was read |
 | flow-log-collector | is.flow-log-collector.flow-log-collector.update | Flow log collector was updated |
-{: caption="Table 5. Actions that generate events for flow log collectors" caption-side="bottom"}
+{: caption="Table 4. Actions that generate events for flow log collectors" caption-side="bottom"}
 
 ### Load balancer events
 {: #events-load-balancers}
@@ -254,7 +233,7 @@ The following table lists the actions that are related to load balancers and the
 | Rule |  is.load-balancer.load-balancer-listener-policy-rule.update | Rule was updated |
 | Rule |  is.load-balancer.load-balancer-listener-policy-rule.delete | Rule was deleted |
 | Rule |  is.load-balancer.load-balancer-listener-policy-rule.read | Rule was read |
-{: caption="Table 6. Actions that generate events for load balancers" caption-side="bottom"}
+{: caption="Table 5. Actions that generate events for load balancers" caption-side="bottom"}
 
 ### Private Path service events
 {: #events-private-path-service-events}
@@ -285,7 +264,7 @@ The beta release of IBM Cloud Private Path services is only available to allowli
 | private-path-service-gateway | is.private-path-service-gateway.account-policy.create | Private Path service gateway account policy has been created |
 | private-path-service-gateway | is.private-path-service-gateway.account-policy.delete | Private Path service gateway account policy has been deleted |
 | private-path-service-gateway | is.private-path-service-gateway.account-policy.update | Private Path service gateway account policy has been updated |
-{: caption="Table 7. Actions that generate events for Private Path services" caption-side="bottom"}
+{: caption="Table 6. Actions that generate events for Private Path services" caption-side="bottom"}
 
 ### Public gateway events
 {: #events-network-public-gateway}
@@ -296,7 +275,7 @@ The beta release of IBM Cloud Private Path services is only available to allowli
 | public-gateway | is.public-gateway.public-gateway.update   | Public Gateway was updated   |
 | public-gateway | is.public-gateway.public-gateway.delete   | Public Gateway was deleted   |
 | public-gateway | is.public-gateway.public-gateway.read | One or more public gateways were retrieved  |
-{: caption="Table 8. Actions that generate events for Public Gateway" caption-side="bottom"}
+{: caption="Table 7. Actions that generate events for Public Gateway" caption-side="bottom"}
 
 ### Reservations
 {: #events-reserved-capacity}
@@ -320,8 +299,7 @@ Summary of is.reservation AT events:
 |  | is.reservation.reservation.attach | Reserved Instance for VPC: reservation `<res-name>` attached |
 |  | is.reservation.reservation.detach | Reserved Instance for VPC: detach reservation `<res-name>` |
 |  | is.reservation.reservation.detach | Reserved Instance for VPC: reservation `<res-name>` detached |
-{: caption="Table 9. Actions that generate events Reservations" caption-side="bottom"}
-
+{: caption="Table 8. Actions that generate events Reservations" caption-side="bottom"}
 
 Summary of new is.instance AT events:
 
@@ -332,7 +310,7 @@ Summary of new is.instance AT events:
 |  | is.instance.instance.attach | Virtual Server for VPC: instance `<ins-name>` attached |
 |  | is.instance.instance.detach | Virtual Server for VPC: detach instance `<ins-name>` |
 |  | is.instance.instance.detach | Virtual Server for VPC: instance `<ins-name>` detached |
-{: caption="Table 10. Actions that generate events Reservations" caption-side="bottom"}
+{: caption="Table 9. Actions that generate events Reservations" caption-side="bottom"}
 
 ### Reserved IPs
 {: #events-reserved-ips}
@@ -355,7 +333,26 @@ Summary of new is.instance AT events:
 | subnet | is.subnet.subnet.update is.subnet.reserved-ip.delete | Reserved IP was released |
 | subnet | is.subnet.reserved-ip.read  | Reserved IP was retrieved |
 | subnet | is.subnet.reserved-ip.update | Reserved IP was updated |
-{: caption="Table 11. Actions that generate events Reserved IP addresses" caption-side="bottom"}
+{: caption="Table 10. Actions that generate events Reserved IP addresses" caption-side="bottom"}
+
+### Routing table events
+{: #events-custom-routes}
+
+The following table lists the actions that are related to VPC routing tables and routes.
+
+| Resource | Action | Description |
+|---|---|---|
+| routing table | is.vpc.routing-table.create  | Routing table was created |
+| routing table | is.vpc.routing-table.update  | Routing table was updated |
+| routing table | is.vpc.routing-table.delete | Routing table was deleted |
+| routing table | is.vpc.routing-table.read | Routing table was retrieved (get and list) |
+| route | is.vpc.routing-table_route.create | Routing table route was created |
+| route | is.vpc.routing-table_route.update | Routing table route was updated |
+| route | is.vpc.routing-table_route.delete | Routing table route was deleted |
+| route | is.vpc.routing-table_route.read | Routing table route was retrieved (get and list) |
+| subnet | is.subnet.routing-table.read | Subnets attached to a routing table were retrieved |
+| subnet | is.subnet.routing-table.attach | Routing table was attached to a subnet |
+{: caption="Table 11. Actions that generate events for VPC routing tables and routes" caption-side="bottom"}
 
 ### Security group events
 {: #events-network-security-group}

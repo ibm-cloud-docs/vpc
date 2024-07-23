@@ -1,9 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-
-lastupdated: "2024-02-21"
+  years: 2020, 2024
+lastupdated: "2024-07-23"
 
 keywords:
 
@@ -26,5 +25,5 @@ Use one of the following procedures to create a custom image.
 * [Migrating a virtual server from the classic infrastructure](/docs/vpc?topic=vpc-migrate-vsi-to-vpc)
 * [Creating a z/OS Wazi aaS custom image](/docs/vpc?topic=vpc-create-zos-custom-image)
 
-Did you know that you can use the {{site.data.keyword.cloud}} [Packer plug-in](https://github.com/IBM/packer-plugin-ibmcloud){: external} to create and manage custom images on {{site.data.keyword.cloud}}? For more information, see this [blog post](https://www.ibm.com/cloud/blog/build-hardened-and-pre-configured-vpc-custom-images-with-packer){: external} for an example of how to use the {{site.data.keyword.cloud}} plug-in for Packer.
+Did you know that you can use the {{site.data.keyword.cloud}} [Packer plug-in](https://github.com/IBM/packer-plugin-ibmcloud){: external} to create and manage custom images on {{site.data.keyword.cloud}}? For more information, see [Build Hardened and Pre-Configured VPC Custom Images with Packer](https://www.ibm.com/blog/build-hardened-and-pre-configured-vpc-custom-images-with-packer/){: external} for an example of how to use the {{site.data.keyword.cloud}} plug-in for Packer.
 {: tip}
