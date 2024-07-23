@@ -201,5 +201,5 @@ To create a routing table with Terraform, follow these steps:
         advertise_routes_to           = ["direct_link", "transit_gateway"]
       }
       ```
-
+      
 For documentation about the `ibm_is_vpc_routing_table` resource, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_vpc_routing_table).{: external}
