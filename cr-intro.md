@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-07-19"
+lastupdated: "2024-07-23"
 
 keywords: custom routes
 
@@ -260,7 +260,7 @@ These links provide additional information about {{site.data.keyword.cloud_notm}
 * [VPC API reference](/apidocs/vpc)
 * [Activity Tracker events](/docs/vpc?topic=vpc-at_events#events-custom-routes)
 * [Routing tables for VPC infrastructure resources for Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_vpc_routing_table){: external} (VPC infrastructure > Resources)
-* [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started&interface=ui)
+* [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started&interface=ui) (see Actions tab for [VPC roles and actions](/docs/account?topic=account-iam-service-roles-actions#is.vpc-roles))
 * [Quotas and service limits](/docs/vpc?topic=vpc-quotas#routing-tables-routes-quotas)
 * Ingress traffic sources: IBM Cloud [Direct Link](/docs/dl?topic=dl-get-started-with-ibm-cloud-dl) and [Transit Gateway](/docs/transit-gateway?topic=transit-gateway-getting-started)
 * Centralizing communication through a VPC transit hub and spoke architecture, [Part one](/docs/solution-tutorials?topic=solution-tutorials-vpc-transit1) and [Part two](/docs/solution-tutorials?topic=solution-tutorials-vpc-transit2).
