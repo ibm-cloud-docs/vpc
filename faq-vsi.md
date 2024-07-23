@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-06-20"
+lastupdated: "2024-07-23"
 
 subcollection: vpc
 
@@ -83,7 +83,7 @@ You can issue a command to force the instance to stop. Use the {{site.data.keywo
 {: faq}
 {: support}
 
-Edit the file "`/boot/grub/menu.lst`" by changing `# groot=LABEL...` into `# groot=(hd0)`. Then, run following command, `sudo update-grub-legacy-ec2`. For more information, see [Error: groot must be grub root device on Ubuntu](https://developer.ibm.com/answers/questions/462237/error-groot-must-be-grub-root-device-on-ubuntu/){: external}.
+Edit the file "`/boot/grub/menu.lst`" by changing `# groot=LABEL...` into `# groot=(hd0)`. Then, run following command, `sudo update-grub-legacy-ec2`.
 
 ## In what cases is my virtual server migrated to a different host?
 {: #faq-vsi-13}
