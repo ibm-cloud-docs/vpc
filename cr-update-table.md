@@ -29,9 +29,7 @@ To update a routing table in the UI, follow these steps:
 1. Locate the routing table in the table. You can:
 
    * Use the Actions menu ![Actions menu](images/overflow.png) to rename or delete the routing table.
-   * Click the routing table's name to view its details page. 
-
-      From the Overview tab, you can do the following:
+   * Click the routing table's name to view its details page. From the Overview tab, you can do the following:
       * Click the Edit icon ![Edit icon](images/edit.png) to rename the routing table.
       * Click the Actions menu ![Actions menu](images/overflow.png) to delete the routing table.
       * In the Traffic section, click the Edit icon ![Edit icon](images/edit.png) to edit the traffic configuration and manage routes.
