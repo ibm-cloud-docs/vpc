@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, [{CURRENT_YEAR}]
-lastupdated: "[{LAST_UPDATED_DATE}]"
+  years: 2023, 2024
+lastupdated: "2024-07-23"
 
 keywords: secure boot, tpm, Trusted Platform Module
 
@@ -34,7 +34,7 @@ The following images are available when you provision a server with secure boot.
 | SUSE Linux Enterprise server (SLES) 15 SP3 | x86-64 |
 | SUSE Linux Enterprise server (SLES) 15 SP4 | x86-64 |
 | Ubuntu 18.04, 20.04, 22.04 | x86-64 |
-| VMWare ESXi 7 | x86-64 | x86-64 |
+| VMWare ESXi 7 | x86-64 |
 | Windows 2016, 2019, 2022 | x86-64 |
 {: caption="Table 1. Supported operating systems for secure boot" caption-side='top"}
 
