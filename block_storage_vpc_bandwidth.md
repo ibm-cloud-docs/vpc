@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-07-23"
+lastupdated: "2024-07-24"
 
 keywords: Block Storage, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, bandwidth
 
@@ -116,13 +116,13 @@ The API response for a `GET /volume/{id}` call shows the bandwidth for an unatta
    {: screen}
    {: api}
 
-When you attach a secondary volume to a virtual server instance, the primary boot volume gets priority IOPS, and bandwidth allocation to ensure reasonable boot times. Boot volume IOPS and bandwidth are never reduced to be less than 3000 IOPS or 393 MBps.
+When you attach a secondary volume to a virtual server instance, the primary boot volume gets priority IOPS and bandwidth allocation to ensure reasonable boot times. Boot volume IOPS and bandwidth are never reduced to be less than 3000 IOPS or 393 MBps.
 
 All volumes are assigned instance bandwidth proportional to their maximum bandwidth, where the sum of all volume bandwidth equals the overall "volumes" bandwidth.
 
-In our example, the remaining bandwidth that is allocated on the instance for data volumes is 1,607 MBps (2000 MBps minus 393 MBps for the boot volume). After the data volume is attached to the instance, the volume optimally uses 640 MBps. If this volume is the only attached volume, it gets the full bandwidth allocation. If you add three more volumes of with the same capacity and IOPS profile, the bandwidth allocation becomes less because the 3 volumes share 1,607 MBps. Each of the 4 volumes gets about 400 MBps.
+In our example, the remaining bandwidth that is allocated on the instance for data volumes is 1,607 MBps (2000 MBps minus 393 MBps for the boot volume). After the data volume is attached to the instance, if this volume is the only attached volume, it gets the full bandwidth allocation and is only limited by its own IOPS and throughput values. As a single attachment, the volume can use up to 640 MBps, its provisioned throughput limit. If you add three more volumes of the same capacity and IOPS profile, the bandwidth allocation of each volume is updated because the bandwidth is divided among the volumes. Each of the 4 volumes is allocated about 400 MBps. Although they are provisioned to handle up to 640 MBps thoughput, they are maxed out at 400 MBps.
 
-Unattached volume bandwidth might not be the same as the actual bandwidth that you see after the volume is attached to an instance. The difference is due to the amount of bandwidth that is dedicated to the boot volume and all other attached data volumes.
+In summary, the unattached volume bandwidth might not be the same as the actual bandwidth that you see after the volume is attached to an instance. The difference is due to the amount of bandwidth that is dedicated to the boot volume and how the remaining volume bandwidth is divided between all attached data volumes.
 
 ## Estimating volume bandwidth
 {: #volume-estimate-bandwidth}
