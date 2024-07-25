@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-07-23"
+lastupdated: "2024-07-25"
 
 keywords: custom routes
 
@@ -33,7 +33,7 @@ To update a routing table in the UI, follow these steps:
       * Click the Edit icon ![Edit icon](images/edit.png) to rename the routing table.
       * Click the Actions menu ![Actions menu](images/overflow.png) to delete the routing table.
       * In the Traffic section, click the Edit icon ![Edit icon](images/edit.png) to edit the traffic configuration and manage routes.
-      * In the Routes section to **Create** and manage existing routes.
+      * In the Routes section, manage existing routes, or click **Create** to add a route.
 
 ## Updating a routing table from the CLI
 {: #cr-update-the-cli-ct}
