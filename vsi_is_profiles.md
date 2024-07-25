@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-07-23"
+lastupdated: "2024-07-25"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -289,23 +289,14 @@ The following Ultra High Memory profiles are available for x86-64 processors:
 ## GPU
 {: #gpu}
 
-The GPU profile family includes `-v100`, `-a100`, `-l4`, and `-l40S` profiles. The GPU profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage).
+The GPU profile family includes `-v100`, `-a100`, `-l4`, and `-l40S`  profiles. The GPU profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage).
 
 - GPU `-v100` profiles include 1 or 2 NVIDIA V100 PCIe 16 GB GPUs. All OS images are supported on these GPU profiles.
-- GPU `-a100` profiles includes 8 NVIDIA A100 NVlink 80 GB GPUs. This GPU profile supports only Linux OS images Ubuntu or RHEL.
+- [Select availability]{: tag-green} GPU `-a100` profiles includes 8 NVIDIA A100 NVlink 80 GB GPUs. The a100 offering is available to select customers. This GPU profile supports only Linux OS images Ubuntu or RHEL.
 - GPU `-l4` profiles include NVIDIA L4 24GB GPUs.
 - GPU `-l40S` profiles include NVIDIA L40S 48GB GPUs.
 
 See [Download drivers](https://www.nvidia.com/Download/index.aspx?lang=en-us) to review the most current versions that are supported. NVIDIA GPU drivers must be installed separately.
-
-### Select availability for the a100
-{: #gpu-select-availabilty}
-
-[Select availability]{: tag-green}
-
-
-
-- The `gx2-80x1280x8a100` GPU profile is available for select customers. Contact IBM Sales or open a [support case](https://cloud.ibm.com/unifiedsupport/supportcenter) if you are interested in this offering.
 
 | Instance profile | vCPU / Cores | GiB RAM | Type / Number of GPUs | Bandwidth Cap (Gbps) | Instance storage (GB) |
 |---------|---------|---------|---------|---------|---------|
@@ -313,7 +304,7 @@ See [Download drivers](https://www.nvidia.com/Download/index.aspx?lang=en-us) to
 | gx3-32x160x2l4 | 32 / 16 | 160 | l4 / 2 | 64 | - |
 | gx3-64x320x4l4 | 64 / 32 | 320 | l4 / 4 | 128 | - |
 | gx3-24x120x1l40s | 24 / 12 | 120 | l40s / 1 | 50 | - |
-| gx3-48x240x-2l40s | 48 / 24 | 240 | l40s / 2  | 100 | - |
+| gx3-48x240x2l40s | 48 / 24 | 240 | l40s / 2  | 100 | - |
 {: caption="Table 8. GPU gx3 24 GB profile options for Intel x86-64 instances" caption-side="bottom"}
 {: #gpu-intel-x86-64}
 {: tab-title="gx3"}
@@ -335,35 +326,15 @@ See [Download drivers](https://www.nvidia.com/Download/index.aspx?lang=en-us) to
 {: class="simple-tab-table"}
 {: summary="GPU gx2 16 GB profile options for Intel x86-64 virtual server instances."}
 
-### Considerations for V100, A100, L4, and L40S GPU profiles
+### Considerations for GPU profiles
 {: #considerations-gpu-profiles}
 
-When you create a `-v100`, `-a100`, `l4`, or `l40S` GPU profile, keep the following recommendations in mind.
+When you create a `-v100`, `-a100`,  `l4`, or `l40S` GPU profile, keep the following recommendations in mind.
 
 - During {{site.data.keyword.Bluemix_notm}} periodic maintenance, GPU workloads aren't secure live migrated. Instead, the virtual server instance is restarted. You are notified 30 days in advance of any maintenance where the virtual server instance restarts. For more information, see [Understanding cloud maintenance operations](/docs/vpc?topic=vpc-about-cloud-maintenance).
 - If you are using GPU profiles, you need to install the NVIDA driver onto your virtual server instance. For more information, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
 - If you are using GPU profiles, you might need to install the CUDA toolkit onto your virtual server instance. For more information, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
 - For more information about persistent storage options, see [Storage notes for profiles](#block-storage-notes-for-profiles).
-
-#### Special considerations for GPU `-a100` profile
-{: #considerations-gpu-a100-profiles}
-
-The GPU `-a100` profile can be deployed any of the following processors
-- Intel&reg;'s quad processor Xeon® Gold 6342 Ice Lake with 96 cores that are running at a base speed of 2.8 GHz and an all-core turbo frequency of 3.5 GHz
-- Intel&reg;'s second-generation quad processor Xeon&reg; Platinum 8260 Cascade Lake with 96 cores that are running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz
-- Intel&reg;'s quad processor Xeon&reg; Gold 6248 Cascade Lake with 80 cores that are running at a base speed of 2.5 GHz and an all-core turbo frequency of 3.1 GHz
-
-The Intel&reg; Xeon&reg; Platinum 8260 Cascade Lake is only available in the US East(Washington DC) region.
-{: preview}
-
-The GPU `-a100` profile includes the following performance enhancements. These enhancements enable GPUDirect RDMA with higher throughput, lower latency, lower CPU utilization for Machine Learning (ML) and Artificial Intelligence (AI), and High-Performance Compute (HPC) applications.
-
-In addition, the `-a100` profiles have the following restrictions.
-
-- Only Red Hat and Ubuntu are supported.
-- This profile is not certified for {{site.data.keyword.Bluemix_notm}} for Financial Service&reg;. While you can configure flow logs for the VPC, instance, interface, or subnets, data is not captured for the `-a100` profile.
-- You can't [resize a virtual server instance](/docs/vpc?topic=vpc-resizing-an-instance&interface=ui) that was created with this profile.
-- You can't attach new NICs or volumes to an existing, running virtual server instance. You must first stop the virtual server instance, make the changes, and then restart the virtual server instance.
 
 ## Storage Optimized
 {: #storageopt}
