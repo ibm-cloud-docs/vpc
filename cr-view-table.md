@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-07-19"
+lastupdated: "2024-07-25"
 
 keywords: custom routes
 
@@ -38,8 +38,8 @@ Field descriptions are as follows.
 | Created date | The origination date of the routing table.|
 | Routes | The number of destination routes. |
 | Default | Indicates whether the routing table is the default routing table. |
-| Attached subnets | The number of attached subnets. Click the Subnets tab to see subnet details. |
-{: caption="Table 1. Routing table details" caption-side="bottom"}
+| Attached subnets | In the Traffic section, view the number of attached subnets. Click the Subnets tab to see subnet details. |
+{: caption="Table 1. Routing table details and Traffic" caption-side="bottom"}
 
 For descriptions of the routing table columns, see [Listing routes of a routing table](/docs/vpc?topic=vpc-list-routes-routing-table).
 {: note}
