@@ -41,6 +41,8 @@ Field descriptions are as follows.
 | Attached subnets | In the Traffic section, view the number of attached subnets. Click the Subnets tab to see subnet details. |
 {: caption="Table 1. Routing table details and Traffic" caption-side="bottom"}
 
+In the Routes section, you can view the routes associated with this routing table.
+
 For descriptions of the routing table columns, see [Listing routes of a routing table](/docs/vpc?topic=vpc-list-routes-routing-table).
 {: note}
 
