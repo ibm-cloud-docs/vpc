@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-22"
+lastupdated: "2024-07-26"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -39,11 +39,8 @@ For more information about authorizations, see [Using authorizations to grant ac
 1. In the **Source** section, select the **Source account**. 
    - If the goal is to allow the use of a CRK by another account, select **Specific account** and enter the 32-character-long account ID. Then, click **Next**.
    - Otherwise, select **This account**. Then, click **Next**.
-1. For the source service, select **VPC Infrastructure Services** from the list. Click **Next**.
-   1. Select the scope by clicking **Specific resources**.
-   1. Click **Select an attribute**.
-   1. From the list, select **Resource type**. 
-   1. In the next field, select **Block Storage for VPC**.
+1. For the source service, select **Cloud Block Storage** from the list. Click **Next**.
+   1. Select the scope by clicking **All resources**.
    1. Click **Next**.
 1. For the target service, select **Hyper Protect Crypto Services** or **KeyProtect** from the list.
 1. Select the role `Reader`.
@@ -108,8 +105,7 @@ Run the `ibmcloud iam authorization-policy-create` command to create authorizati
          {"role_id":"crn:v1:bluemix:public:iam::::serviceRole:Reader"}],
       "subjects": [
          {"attributes": [
-            {"name":"Block Storage for VPC","value":"is"},
-            {"name":"resourceType","value":"server-protect"},
+            {"name":"Cloud Block Storage","value":"server-protect"},
             {"name":"Account-B","value":"<Account-B-ID>"}]}],
       "type":"authorization",
    }'
@@ -140,7 +136,7 @@ Make a request to the [IAM Policy Management API](/apidocs/iam-policy-management
    '{
      "type":"access",
      "description":"Reader role for the Block service to interact with the KeyProtect service.",
-     "subjects": [{"attributes":[{"name":"Block Storage for VPC","value":"server-protect"}]}],
+     "subjects": [{"attributes":[{"name":"Cloud Block Storage","value":"server-protect"}]}],
      "roles":[{"role_id":"crn:v1:bluemix:public:iam::::role:Reader"}],
      "resources":[{"attributes": [{"name":"KeyProtect","value":"kms"}]}]
      }'
@@ -166,8 +162,7 @@ Make a request to the [IAM Policy Management API](/apidocs/iam-policy-management
         "description":"Reader and Delegator access to HPCS service instance",
         "subjects": [
           {"attributes": 
-            {"name":"Block Storage for VPC","value":"is"},
-            {"name":"resourceType","value":"server-protect"},
+            {"name":"Cloud Block Storage","value":"server-protect"},
             {"name":"Account-B","value":"<Account-B-ID>"}]}],
         "roles": [{"role_id":"crn:v1:bluemix:public:iam::::role:AuthorizationDelegator"},{"role_id":"crn:v1:bluemix:public:iam::::serviceRole:Reader"}],
         "resources": [
@@ -192,8 +187,7 @@ Create an authorization policy between the Block service and the key management 
 The following example creates an authorization policy between the Block service and {{site.data.keyword.keymanagementserviceshort}} when applied. 
 ```terraform 
 resource "ibm_iam_authorization_policy" "mypolicy4keyprotect" {
-  source_service_name  = "is"
-  source_resource_type = "server-protect"
+  source_service_name  = "server-protect"
   target_service_name  = "kms"
   roles                = ["Reader"]
 }
@@ -203,8 +197,7 @@ resource "ibm_iam_authorization_policy" "mypolicy4keyprotect" {
 The following example creates an authorization policy between the Block service and {{site.data.keyword.hscrypto}} when applied.
 ```terraform 
 resource "ibm_iam_authorization_policy" "mypolicy4HPCS" {
-  source_service_name  = "is"
-  source_resource_type = "server-protect"
+  source_service_name  = "server-protect"
   target_service_name  = "hs-crypto"
   roles                = ["Reader"]
 }
@@ -250,8 +243,7 @@ For more information about the arguments and attributes, see the [Terraform docu
 
    ```Terraform
    resource "ibm_iam_authorization_policy" "policy" {
-       source_service_name = "is"
-       source_resource_type = "server-protect"
+       source_service_name = "server-protect"
        source_service_account = "<volume-account-id>"
        target_service_name = "kms"   
        target_resource_instance_id = ibm_kms_key.key.instance_id
