@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-03-05"
+lastupdated: "2024-07-26"
 
 keywords: scheduled scaling, instance scaling, virtual server instance scaling, scheduled actions, scaling actions
 
@@ -45,13 +45,13 @@ For more information about auto scale, see [Auto scale for VPC](/docs/vpc?topic=
 To create a one-time scheduled action, use the following steps.
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Instance groups**.
-2. Select the instance group that you want to create a scheduled action for by clicking its name.
-3. Click **Scheduled actions**.
-4. In the new screen, click **Create**
-5. Enter an appropriate name for the scheduled action.
-6. Select **One time**, then select the start date and time for your scheduled action.
-7. If your instance group is _dynamic_, enter a minimum and or maximum instance group size to apply when this action runs. If your instance group is _static_, enter the instance group size to apply when this action runs.
-8. Click **Create**.
+1. Select the instance group that you want to create a scheduled action for by clicking its name.
+1. Click **Scheduled actions**.
+1. In the new screen, click **Create**
+1. Enter an appropriate name for the scheduled action.
+1. Select **One time**, then select the start date and time for your scheduled action.
+1. If your instance group is _dynamic_, enter a minimum and or maximum instance group size to apply when this action runs. If your instance group is _static_, enter the instance group size to apply when this action runs.
+1. Click **Create**.
 
 ### Creating a recurring scheduled action
 {: #set-up-recurring-scheduled-scaling}
@@ -59,12 +59,12 @@ To create a one-time scheduled action, use the following steps.
 To create a recurring scheduled action, use the following steps.
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Instance groups**.
-2. Select the instance group that you want to create a scheduled action for by clicking its name.
-3. Click **Scheduled actions**.
-4. In the new screen, click **Create**
-5. Enter an appropriate name for the scheduled action.
-6. Click **Recurring**.
-7. Select a date and time to run the scheduled action by using the predefined options for each pattern section (Monthly, Days, Hours, Minutes). Or choose a custom schedule by clicking what months, days, hours, and minutes that you want the schedule to run. \n Alternatively, you can select a date and time schedule by entering a cron expression. Click **Cron** and enter an appropriate cron expression.
+1. Select the instance group that you want to create a scheduled action for by clicking its name.
+1. Click **Scheduled actions**.
+1. In the new screen, click **Create**
+1. Enter an appropriate name for the scheduled action.
+1. Click **Recurring**.
+1. Select a date and time to run the scheduled action by using the predefined options for each pattern section (Monthly, Days, Hours, Minutes). Or choose a custom schedule by clicking what months, days, hours, and minutes that you want the schedule to run. \n Alternatively, you can select a date and time schedule by entering a cron expression. Click **Cron** and enter an appropriate cron expression.
 8. If your instance group is _dynamic_, enter a minimum and or maximum instance group size to apply when this action runs. If your instance group is _static_, enter the instance group size to apply when this action runs.
 9. Click **Create**.
 
