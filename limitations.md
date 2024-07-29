@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-03-01"
+lastupdated: "2024-07-29"
 
 keywords: limitations, restrictions
 
@@ -53,10 +53,6 @@ An {{site.data.keyword.vpc_short}} cannot be peered with other VPCs natively. It
 
 ## Network restrictions
 {: #network-restrictions}
-
-* Multi-zone regions - A security group can’t reference another security group in a different zone in the same region.
-
-* VPN - A VPN gateway serves only subnets that are in the zone in which the VPN is created. For more information, see [About VPN](/docs/vpc?topic=vpc-using-vpn).
 
 * *z/OS - Experimental* Deleting a subnet through the user interface might not work as expected when you delete an existing VPC. You can use the command `ibmcloud is subnet-delete` as the workaround.
 
