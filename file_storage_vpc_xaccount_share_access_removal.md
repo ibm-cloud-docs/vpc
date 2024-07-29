@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-07-12"
+lastupdated: "2024-07-29"
 
 keywords: file share, file storage, virtual network interface, accessor share, de-auth
 
@@ -14,8 +14,6 @@ subcollection: vpc
 
 # Removing access to a file share from other accounts
 {: #file-storage-accessor-delete}
-
-[New]{: tag-new}
 
 When you no longer want to allow another account or service to have access to your file share data, you can revoke their access at any time. To revoke access, first remove the IAM authorization. Removal of the IAM authorization prevents the other account or service from creating another accessor share and mount target. Then, delete the binding that connects the origin file share to the accessor shares. This action severs the network path, and puts the accessor share and the mount target that is attached to the accessor share in a failed state.
 

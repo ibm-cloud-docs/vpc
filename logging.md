@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-07-17"
+lastupdated: "2024-07-29"
 
 keywords: flow logs, ordering, logging, log analysis
 
@@ -221,8 +221,6 @@ A log is generated when a replication event occurs.
 
 ### File share cross-account access
 {: #logging-file-share-accessor}
-
-[New]{: tag-new}
 
 Table 7 outlines the message IDs that are generated for File Storage related events:
 

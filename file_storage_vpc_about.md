@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-07-22"
+lastupdated: "2024-07-29"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -150,8 +150,6 @@ For more information, see the [best practices for assigning access](/docs/accoun
 ## Sharing file share data between accounts and services
 {: #fs-cross-account-mount}
 
-[New]{: tag-new}
-
 Customers who manage multiple accounts sometimes find that some of their accounts need to access and work with the same data. Administrators with the correct authorizations can share an NFS file system across accounts, so the data that their applications depend on is available across the different systems within the company. Customer can also share their {{site.data.keyword.filestorage_vpc_short}} shares with the [IBM watsonX](https://dataplatform.cloud.ibm.com/docs/content/wsj/getting-started/welcome-main.html?context=wx){: external} service.
 
 Cross-account [service-to-service authorization](/docs/vpc?topic=vpc-file-s2s-auth) is used to establish trust between share owner and accessor accounts. After the authorization is set in place, the share owner account can see the IDs of the accounts that can mount the shared file share and the accessor account can see the shared NFS shares in their resources list along with the share's owner information. The accessor account can't edit the properties of the origin share. Nor can they delete the origin share, but they can mount them in their own VPCs.
@@ -235,7 +233,7 @@ The following limitations apply to this release of {{site.data.keyword.filestora
 * No data retention policy exists for deleted file shares. You cannot undelete a file share after you delete it.
 * Up to 256 hosts per zone per VPC can be concurrently connected to a single file share.
 * You can create up to 300 file shares within your VPC.
-* Up to 100 accessor share bindings can be created when you share your file share with another account or external service. [New]{: tag-new}
+* Up to 100 accessor share bindings can be created when you share your file share with another account or external service.
 * A file share cannot be deleted by using a `DELETE /shares/<id>` API request, if an existing mount target is associated with that file share or if replica operations are in progress.
 * Only {{site.data.keyword.bm_is_short}} that are provisioned after 31 August 2023 support {{site.data.keyword.filestorage_vpc_short}}.
 * Encryption in transit is not supported between {{site.data.keyword.filestorage_vpc_short}} for VPC and {{site.data.keyword.bm_is_short}}.
@@ -246,7 +244,7 @@ The following limitations apply to this release of {{site.data.keyword.filestora
 {: #file-storage-vpc-next-steps}
 
 * [Plan your file shares and mount targets](/docs/vpc?topic=vpc-file-storage-planning).
-* [IAM Roles and Actions](/docs/account?topic=account-iam-service-roles-actions#is.share-roles). [New]{: tag-new}
+* [IAM Roles and Actions](/docs/account?topic=account-iam-service-roles-actions#is.share-roles).
 * [Create a file share and mount targets](/docs/vpc?topic=vpc-file-storage-create).
 * Mount your file share. Mounting is a process by which a server's operating system makes files and directories on the storage device available for users to access through the server's file system. For more information, see the following topics:
    * [IBM Cloud File Share Mount Helper utility](/docs/vpc?topic=vpc-fs-mount-helper-utility)

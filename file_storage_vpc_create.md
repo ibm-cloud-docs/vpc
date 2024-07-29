@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-07-22"
+lastupdated: "2024-07-29"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -53,9 +53,9 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
    | Access Management Tags | Enter access management tags that you created in IAM to apply them to this file share. For more information about access management tags, see [Access management tags for file shares](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-about-mgt-tags). |
    | Profile | All file shares are created with the dp2 profile. For more information, see [file Storage profiles](/docs/vpc?topic=vpc-file-storage-profiles). \n Select the size and IOPS for your file share. You can increase the capacity later, and you can also adjust the IOPS as needed. |
    | Mount target access mode  | Select how you want to manage access to this file share: |
-   |  | Security group: Access to the file share is based on [security group](/docs/vpc?topic=vpc-using-security-groups#sg-getting-started) rules. This option can be used to restrict access to specific virtual server instances. You can also use this option if you want to mount the file share to a virtual server instance in another zone. This option is recommended as you have more control over who can access the data that is stored on the file share. [New]{: tag-new} When, you choose this type of access, you can also specify the allowed transit encryption modes. |
+   |  | Security group: Access to the file share is based on [security group](/docs/vpc?topic=vpc-using-security-groups#sg-getting-started) rules. This option can be used to restrict access to specific virtual server instances. You can also use this option if you want to mount the file share to a virtual server instance in another zone. This option is recommended as you have more control over who can access the data that is stored on the file share. When, you choose this type of access, you can also specify the allowed transit encryption modes. |
    |  | Virtual private cloud: Access to the file share is granted to any virtual server instance in the same region. Cross-zone mounting and encryption in transit are not supported. |
-   | Allowed transit encryption modes [New]{: tag-new}| As the share owner, you can specify how you want clients within your account and authorized accounts to connect to your file share. You can select *none* if you do not want them to use encryption in transit, and *user-managed* if you want them to use encryption in transit. If you select both, then the transit encryption type of the first mount target decides the transit encryption types of all future mount targets within the account. |
+   | Allowed transit encryption modes| As the share owner, you can specify how you want clients within your account and authorized accounts to connect to your file share. You can select *none* if you do not want them to use encryption in transit, and *user-managed* if you want them to use encryption in transit. If you select both, then the transit encryption type of the first mount target decides the transit encryption types of all future mount targets within the account. |
    {: caption="Table 1. Values for creating a file share" caption-side="top"}
 
    
@@ -980,4 +980,4 @@ Manage your file shares and data. For more information, see the following topics
 * [Viewing file shares and mount targets](/docs/vpc?topic=vpc-file-storage-view).
 * [Manage your file shares](/docs/vpc?topic=vpc-file-storage-managing).
 * [Create a file share with replication](/docs/vpc?topic=vpc-file-storage-create-replication).
-* [Sharing and mounting a file share from another account](/docs/vpc?topic=vpc-file-storage-accessor-create&interface=ui). [New]{: tag-new}
+* [Sharing and mounting a file share from another account](/docs/vpc?topic=vpc-file-storage-accessor-create&interface=ui).

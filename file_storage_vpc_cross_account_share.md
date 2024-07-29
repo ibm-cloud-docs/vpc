@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-07-22"
+lastupdated: "2024-07-29"
 
 keywords: file share, file storage, accessor share, cross-account share
 
@@ -15,8 +15,6 @@ subcollection: vpc
 
 # Sharing and mounting a file share from another account
 {: #file-storage-accessor-create}
-
-[New]{: tag-new}
 
 As a storage administrator that manages multiple accounts, you can share an NFS file system across accounts, so the data that your applications depend on is available across the different systems within the company. You can also share your {{site.data.keyword.filestorage_vpc_short}} with the [IBM watsonx](https://dataplatform.cloud.ibm.com/docs/content/wsj/getting-started/welcome-main.html?context=wx){: external} service.
 {: shortdesc}

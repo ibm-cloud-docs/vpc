@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-18"
+lastupdated: "2024-07-29"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -71,8 +71,8 @@ The following table describes the information on the file share details page.
 | Size | File share capacity in GB. |
 | Created | Date the file share was created. |
 | Mount target access mode   | Access to the file share is granted by either a security group within a subnet or to any virtual server instance in the VPC. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to switch access modes. Security group access is available only to file shares created with the [`dp2` profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile). For more information, see the [Mount target access modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-mount-access-mode). |
-| CRN [New]{: tag-new} | Copiable cloud resource name. |
-| Allowed encryption in transit modes [New]{: tag-new} | This value shows whether encryption in transit is required when clients access the file share. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change the allowed values.|   
+| CRN | Copiable cloud resource name. |
+| Allowed encryption in transit modes| This value shows whether encryption in transit is required when clients access the file share. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change the allowed values.|   
 | **Profile, size, and IOPS**| |
 | Size | File share capacity in GB. |
 | IOPS tier | IOPS [profile](/docs/vpc?topic=vpc-file-storage-profiles) that defines the file share performance. In most cases, the dp2 profile is shown. |
@@ -85,7 +85,7 @@ The following table describes the information on the file share details page.
 | Security group | This field is shown if the file share has Security group access mode. It's the number of security groups that the share is a member of. |
 | Reserved IP | This field is shown if the file share has Security group access mode. The IP address of the virtual network interface that is attached to the mount target |
 | Encryption in Transit |This field is shown if the file share has Security group access mode. Its value can be enabled or disabled. |
-| **Accessor share bindings** [New]{: tag-new} | This section is shown if the share has accessor shares in other VPCs. |
+| **Accessor share bindings**| This section is shown if the share has accessor shares in other VPCs. |
 | Binding ID | This field shows the ID of the binding that connects the origin share to the accessor share. |
 | Account ID | The ID of the account that has access to your share's data through the accessor share. |
 | Accessor ID | This field shows the account ID that created the accessor share in another VPC. |
@@ -240,7 +240,7 @@ For more information about the command options, see [`ibmcloud is share`](/docs/
 ### Viewing share bindings of a file share from the CLI
 {: #fs-view-share-bindings-cli}
 
-[New]{: tag-new} To view the accessor share bindings that are linked to an origin share from the CLI, use the `ibmcloud is share-accesssor-bindings` command. See the following example.
+To view the accessor share bindings that are linked to an origin share from the CLI, use the `ibmcloud is share-accesssor-bindings` command. See the following example.
 
 ```sh
 $ ibmcloud is share-accessor-bindings my-origin-share
@@ -254,7 +254,7 @@ r-006-c2e53b1b-3b15-4792-8d96-c9c035fd65c3   stable           2024-06-25T00:50:5
 ### Viewing a specific share binding of a file share from the CLI
 {: #fs-view-share-binding-cli}
 
-[New]{: tag-new} To view a specific accessor share binding that is linked to an origin share from the CLI, use the `ibmcloud is share-accesssor-binding` command. See the following example.
+To view a specific accessor share binding that is linked to an origin share from the CLI, use the `ibmcloud is share-accesssor-binding` command. See the following example.
 
 ```sh
 $ ibmcloud is share-accessor-binding my-origin-share r-006-c2e53b1b-3b15-4792-8d96-c9c035fd65c3
@@ -469,8 +469,6 @@ A successful response looks like the following example. In this example, the sha
 ### List share bindings of a file share with the API
 {: #fs-view-share-bindings-api}
 
-[New]{: tag-new} 
-
 Make a `GET /shares/{id}/bindings` request to get the list of bindings of a single file share. The request lists all bindings for a share. Each binding is implicitly created when an accessor share is created.
 
 ```sh
@@ -516,8 +514,6 @@ A successful response looks like the following example.
 
 ### Viewing a specific binding of a file share with the API
 {: #fs-view-share-binding-api}
-
-[New]{: tag-new} 
 
 Make a `GET /shares/{share_id}/bindings/{binding_id}` request to get the information of a specific binding of a file share. This request retrieves a single binding that is specified by the identifier in the URL.
 

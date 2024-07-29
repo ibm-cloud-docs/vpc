@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-22"
+lastupdated: "2024-07-29"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -79,8 +79,6 @@ For more information about authorizations, see [Using authorizations to grant ac
 {: #file-s2s-auth-xaccount-ui}
 {: ui}
 
-[New]{: tag-new}
-
 1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage > Access (IAM)**. The **Manage access and users** page is displayed.
 1. From the side panel, select **Authorizations**.
 1. On the **Manage authorizations** page, click **Create**. 
@@ -109,8 +107,6 @@ For more information about authorizations, see [Using authorizations to grant ac
 ## Creating service-to-service authorization for Watson Studio in the UI
 {: #file-s2s-auth-watsonstudio-ui}
 {: ui}
-
-[New]{: tag-new}
 
 1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage > Access (IAM)**. The **Manage access and users** page is displayed.
 1. From the side panel, select **Authorizations**.
@@ -213,8 +209,6 @@ For more information about all of the parameters that are available for this com
 {: #file-s2s-auth-xaccount-cli}
 {: cli}
 
-[New]{: tag-new} 
-
 As the share owner, create a JSON file and use it with the `ibmcloud iam authorization-policy-create` command to create the service-to-service authorization for the {{site.data.keyword.filestorage_vpc_short}} service of the share owner account (source) to access a share in accessor account (target).
 
 1. Create a JSON file with the following content. In this example, the file is created as the policy.json in the Documents folder.
@@ -295,8 +289,6 @@ For more information, see the api spec for [IAM Policy Management](/apidocs/iam-
 {: #file-s2s-auth-xaccount-api}
 {: api}
 
-[New]{: tag-new}
-
 As the share owner, make a request to the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy) to create the service-to-service authorization for the {{site.data.keyword.filestorage_vpc_short}} service of the origin share account (source) to access a share in accessor account (target).
 
 ```json
@@ -372,8 +364,6 @@ For more information about the arguments and attributes, see the [Terraform docu
 ## Creating service-to-service authorization for cross-account access with Terraform
 {: #file-s2s-auth-xaccount-terraform}
 {: terraform}
-
-[New]{: tag-new}
 
 1. Terraform supports configuring two different accounts for IBM provider. The provider without an alias is considered the default provider. See the following example, where two IBM accounts are specified, and the second is given the alias `team_account`. That configuration must be referred to as `ibm.team_account` later. 
 

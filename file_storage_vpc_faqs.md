@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-06-25"
+lastupdated: "2024-07-29"
 
 keywords: file share, file storage, replication, replica, size increase, capacity, encryption, BYOK, security group
 
@@ -161,15 +161,11 @@ Yes. When you create a file share, you must specify the access control mode. It 
 {: faq}
 {: #faq-fs-sec-5}
 
-[New]{: tag-new}
-
 Yes. You can use IAM authorization policies to allow another account to mount your file share and access its contents. For more information, see [Sharing file share data between accounts and services](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=cli#fs-cross-account-mount).
 
 ### What is an accessor share?
 {: faq}
 {: #faq-fs-accessor-share}
-
-[New]{: tag-new}
 
 Administrators with the right authorizations can configure access to a file share from virtual service instances of a VPC that belongs to another account. An accessor share is an object that is created in the accessor account that shares characteristics of the origin share such as size, profile and encryption types. It is the representation of the origin share in the accessor account. The accessor account creates a mount target to the accessor share which creates a network path that the virtual server can use to access the data on the origin share. The accessor share does not hold any data and cannot exist independently from the origin share.  For more information, see [Sharing file share data between accounts and services](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=cli#fs-cross-account-mount).
 
@@ -177,15 +173,11 @@ Administrators with the right authorizations can configure access to a file shar
 {: faq}
 {: #faq-fs-accessor-limit}
 
-[New]{: tag-new}
-
 A share can have maximum of 100 accessor bindings. This restriction is placed at origin share level. After the number of active accessor bindings reached 100, any attempt to create another accessor share fails.
 
 ### How can I ensure other accounts use encryption in transit when they access my data?
 {: faq}
 {: #faq-fs-accessor-EIT}
-
-[New]{: tag-new}
 
 As the share owner, you have the right to enforce the use of encryption in transit when another account accesses the file share data. When you create a file share, you can set the allowed transit encryption modes to `user_managed_required`. This value is inherited by the accessor share of the accessor account, which ensures that only mount targets that support encryption in transit can be attached to the accessor share.
 
