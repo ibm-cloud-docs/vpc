@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-07-22"
+lastupdated: "2024-07-29"
 
 keywords: vpc Block Storage, provision Block Storage for vpc, bootable snapshots, create volume from snapshot, fast restore
 
@@ -283,7 +283,7 @@ For more information, see [ibmcloud is volume-create](/docs/vpc?topic=vpc-vpc-re
 You can use the `instance-volume-attachment-add` command to create a volume and attach it to an instance. The following example creates a volume with the `custom` profile, 100 GB capacity, and 100 IOPS.
 
 ```sh
-ibmcloud is instance-volume-attachment-add acd-vol-attach1 my-instance-acadia-1 --profile custom --new-volume-name acd-vol-2 --iops 100 --capacity 100
+ibmcloud is instance-volume-attachment-add acd-vol-attach1 my-instance-1 --profile custom --new-volume-name acd-vol-2 --iops 100 --capacity 100
 Creating volume attachment acd-vol-attach1 for instance my-instance-1 under account Test Account as user test.user@ibm.com...
                      
 ID                730f-5f63eb4d-2683-4dd6-a20a-5ab06b4061c6   

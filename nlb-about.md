@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-07-10"
+lastupdated: "2024-07-30"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
 
@@ -142,6 +142,8 @@ The beta release of IBM Cloud Private Path services is only available to allowli
 {: beta}
 
 A Private Path NLB helps keep all the traffic checkpoints between the Provider and the Consumer within the IBM Cloud infrastructure. Data does not exit to the public backbone.
+
+Unlike other NLBs, the Private Path load balancer provides regional availability and is resilient to zone failure even if a single subnet is selected. You do not need to create multiple Private Path load balancers or specify more than a single subnet to ensure resiliency to zone failure. Your subnet selection only impacts the IP-addresses associated with the load balancer.
 
 You can only use Private Path NLBs with a Private Path service. For more information, see [About Private Path services](/docs/vpc?topic=vpc-private-path-service-intro).
 {: important}

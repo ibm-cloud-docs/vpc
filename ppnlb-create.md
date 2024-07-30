@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-05-09"
+lastupdated: "2024-07-30"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
 
@@ -21,10 +21,8 @@ The beta release of IBM Cloud Private Path services is only available to allowli
 You can use a Private Path network load balancer (NLB) only with a Private Path service. Create the Private Path NLB from the [Load Balancers for VPC page](/vpc-ext/provision/loadBalancer){: external} or as a part of the Private Path service provisioning process.
 
 A Private Path service allows service providers to enable and manage private connectivity for consumers of their hosted service. This Private Path service requires a Private Path NLB to establish a secure connection with each consumer's Virtual Private Endpoint (VPE) gateway. For more information, see [About Private Path services](/docs/vpc?topic=vpc-private-path-service-intro){: external}.
-{: important}
 
 Private Path network load balancers support the port range feature. Currently, all VPEs connected to a Private Path network load balancer can connect to any port in the range.
-{: note}
 
 To learn more, see [Setting public network load balancer port ranges](/docs/vpc?topic=vpc-nlb-port-ranges&interface=ui).
 
@@ -36,9 +34,6 @@ Review the following list to ensure that your Private Path network load balancer
 - If you don't have a VPC, create a VPC in the region that you want to create your Private Path NLB. Use the same VPC region for the Private Path NLB and Private Path service.
 - Recommendation: Create your virtual server instances prior to creating a Private Path NLB to ensure it is fully operational.
 - Ensure there is at least one subnet in your selected VPC.
-
-You can create a Private Path NLB while provisioning a Private Path service.
-{: note}
 
 ## Creating a Private Path network load balancer in the UI
 {: #ppnlb-ui}
@@ -86,8 +81,10 @@ To create and configure {{site.data.keyword.nlb_full}} in the {{site.data.keywor
    * **Subnet**: Choose a subnet.
    * From the list of servers, select the servers that you want to attach to the back-end pool. Ensure that you specify valid values for each server port.
 
-      You can attach up to 50 virtual server instances to a back-end pool.
+      You can attach up to 50 virtual server instances to a back-end pool, though your Private Path load balancer provides regional availability and is resilient to zone failure even if a single subnet is selected. 
       {: note}
+
+You do not need to create multiple Private Path load balancers or specify more than a single subnet to ensure resiliency to zone failure. Your subnet selection only impacts the IP-addresses associated with the load balancer.
 
 1. In the Front-end listeners section, click **Create listener +**, specify the following information, then click **Create**. You can create one or more listeners.
    * **Default back-end pool** - The default back-end pool to which this listener forwards traffic.

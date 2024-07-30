@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-07-18"
+lastupdated: "2024-07-30"
 
 keywords:
 
@@ -17,25 +17,6 @@ subcollection: vpc
 
 Known issues might change over time, so check back occasionally.
 {: shortdesc}
-
-## Network load balancer known issues
-{: #network-load-balancer-known-issues}
-
-**Issue:** When you create a listener for a network load balancer, you can specify a `protocol` of `tcp` or `udp`. However, each listener in the network load balancer must have a unique `port`. For network load balancer limitations, see [IBM Cloud Network Load Balancer for VPC limitations](/docs/vpc?topic=vpc-nlb-limitations).
-
-## `resource_type` known issues
-{: #resource-type-known-issues}
-
-**Issue**: Currently, not all operations that return responses with embedded `VPCReference` and `SubnetReference` schemas include the documented `resource_type` subproperty.
-
-**Workaround**: Before developing a client that uses the `resource_type` property of the `VPCReference` or `SubnetReference` schemas, check that the property is included in the responses that are returned for the operations that are used by your client.
-
-## Network load balancers fail if port settings fall outside the supported range
-{: #nlb-port-range}
-
-**Issue**: Cannot create network load balancers with specific port ranges
-
-Currently, the `port_min` and `port_max` properties are supported only when routing mode is enabled, and only when the entire port range is specified (`port_min` of `1` and `port_max` of `65535`). Support for allowing an arbitrary port range to be specified is planned for a future release.
 
 ## Image known issues
 {: #image-vpc-known-issues}
