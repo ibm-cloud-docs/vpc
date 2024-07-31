@@ -142,11 +142,11 @@ The following table lists the actions that are related to DNS resolution binding
 
 | Resource  | Action  | Description  |
 |:----------------|:-----------------------|:-----------------------|
-| DNS resolution binding | `is.vpc.dns-resolution-binding.create` | Creates a DNS resolution binding. Generates events for both hub VPC and DNS-shared VPCs. |
-| DNS resolution binding | `is.vpc.dns-resolution-binding.update` | Updates the name of a DNS resolution binding. |
-| DNS resolution binding | `is.vpc.dns-resolution-binding.delete` | Deletes a DNS resolution binding. Generate events for both hub VPC and DNS-shared VPCs. |
-| DNS resolution binding | `is.vpc.dns-resolution-binding.read` | Gets details of a DNS resolution binding. |
-| DNS resolution binding | `is.vpc.dns-resolution-binding.list` | Lists DNS resolution bindings. |
+| DNS resolution binding | is.vpc.dns-resolution-binding.create | Creates a DNS resolution binding. Generates events for both hub VPC and DNS-shared VPCs. |
+| DNS resolution binding | is.vpc.dns-resolution-binding.update | Updates the name of a DNS resolution binding. |
+| DNS resolution binding | is.vpc.dns-resolution-binding.delete | Deletes a DNS resolution binding. Generate events for both hub VPC and DNS-shared VPCs. |
+| DNS resolution binding | is.vpc.dns-resolution-binding.read | Gets details of a DNS resolution binding. |
+| DNS resolution binding | is.vpc.dns-resolution-binding.list | Lists DNS resolution bindings. |
 {: caption="Table 2. Actions that generate events for DNS resolution bindings" caption-side="bottom"}
 
 Although the DNS resolution binding is created or deleted by the DNS-shared VPC authorized user, the system is actually creating or deleting the DNS resolution binding objects for both the hub VPC and DNS-shared VPCs. Therefore, the system also generates the Activity Tracker event for both hub and DNS-shared VPCs.
