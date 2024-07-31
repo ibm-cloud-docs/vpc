@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, [{CURRENT_YEAR}]
-lastupdated: "[{LAST_UPDATED_DATE}]"
+  years: 2018, 2024
+lastupdated: "2024-07-31"
 
 keywords: ssh public keys, OpenSSH, add ssh key, ssh key, manage ssh key, generate ssh key, locate ssh key
 
@@ -15,68 +15,68 @@ subcollection: vpc
 # Getting started with SSH keys
 {: #ssh-keys}
 
-When you create a server, you must select an existing SSH key or generate an SSH key. SSH keys are used by servers to identify a user or device through public-key cryptography. SSH keys are made up of an alpha-numeric combination and are unique to the user or device to which they are assigned. You can create an SSH key by using the UI. You can add, edit, or delete SSH keys by using the {{site.data.keyword.cloud}} console, CLI, and API. By adding an SSH key to a server, you can access the server with the corresponding private SSH key instead of a password. You can add SSH keys to a server only when you initially create the server. After a Linux&reg; server is created, you can edit keys directly in the `~/.ssh/` directory of the server.
+When you create a server, you must select an existing SSH key or generate an SSH key. SSH keys are used by servers to identify a user or device through public-key cryptography. SSH keys are made up of an alpha-numeric combination and are unique to the user or device to which they are assigned. You can create an SSH key in the console. You can add, edit, or delete SSH keys by using the {{site.data.keyword.cloud}} console, CLI, and API. By adding an SSH key to a server, you can access the server with the corresponding private SSH key instead of a password. You can add SSH keys to a server only when you initially create the server. After a Linux&reg; server is created, you can edit keys directly in the `~/.ssh/` directory of the server.
 {: shortdesc}
 
 Creating a server with a password option for connecting isn't supported. You must specify an SSH key when you provision the server and use the private key to connect to the server.
-{: note}
+{: requirement}
 
-## Supported SSH key types: RSA and Ed25519 in the UI
+## Supported SSH key types: RSA and ED25519 in the UI
 {: #ssh-key-types-ui}
 {: ui}
 
 {{site.data.keyword.vpc_full}} supports two different types of public SSH keys.
 
 * RSA
-* Ed25519
+* ED25519
 
-On {{site.data.keyword.vpc_short}}, RSA is the default SSH key type. You can select to change the key type to Ed25519. The Ed25519 SSH key type enables a slightly higher performance benefit because it can give the same level of security as the RSA SSH key type with a smaller key. You can create virtual server instances and bare metal servers with a mix of RSA and Ed25519 SSH keys.
+On {{site.data.keyword.vpc_short}}, RSA is the default SSH key type. You can select to change the key type to ED25519. The ED25519 SSH key type enables a slightly higher performance benefit because it can give the same level of security as the RSA SSH key type with a smaller key. You can create virtual server instances and bare metal servers with a mix of RSA and ED25519 SSH keys.
 
-In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, you can go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > SSH keys** to manage your SSH keys. From here you can create, rename, or delete keys. If you select to create a key, that key must be an RSA SSH key type. You can upload an Ed25519 SSH key type, you just can't generate one within VPC.
+In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, you can go to **Navigation menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > SSH keys** to manage your SSH keys. From here you can create, rename, or delete keys. If you select to create a key, that key must be an RSA SSH key type. You can upload an ED25519 SSH key type, you just can't generate one within VPC.
 
-You can generate new RSA key pairs using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images.
+You can generate RSA key pairs in the console. Pre-existing RSA and ED25519 SSH keys can be uploaded. ED25519 can be used only if the operating system supports this key type. ED25519 can't be used with Windows or VMware images.
 {: note}
 
-You can generate new RSA key pairs using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded.
+You can generate RSA key pairs in the console. Pre-existing RSA and ED25519 SSH keys can be uploaded.
 
-## SSH key types: RSA and Ed25519 in the CLI
+## SSH key types: RSA and ED25519 in the CLI
 {: #ssh-key-types-cli}
 {: cli}
 
 {{site.data.keyword.vpc_full}} supports two different types of public SSH keys.
 
 * RSA
-* Ed25519
+* ED25519
 
-On {{site.data.keyword.vpc_short}}, RSA is the default SSH key type. You can select to change the key type to Ed25519. The Ed25519 SSH key type enables a slightly higher performance benefit because it can give the same level of security as the RSA SSH key type with a smaller key. You can create virtual server instances and bare metal servers with a mix of RSA and Ed25519 SSH keys.
+On {{site.data.keyword.vpc_short}}, RSA is the default SSH key type. You can select to change the key type to ED25519. The ED25519 SSH key type enables a slightly higher performance benefit because it can give the same level of security as the RSA SSH key type with a smaller key. You can create virtual server instances and bare metal servers with a mix of RSA and ED25519 SSH keys.
 
-* For Windows or VMware images, you must use the RSA SSH key type. The Ed25519 SSH key type can't be used with Windows or VMware images.
-* For Linux images, the Ed25519 SSH key type can be used only if the SSH server for the operating system supports that key type.
+* For Windows or VMware images, you must use the RSA SSH key type. The ED25519 SSH key type can't be used with Windows or VMware images.
+* For Linux images, the ED25519 SSH key type can be used only if the SSH server for the operating system supports that key type.
 
-In the CLI, you can specify which type of key by using the `--key-type` option. You can't create SSH keys within the CLI, you can import only an existing SSH key. The default `--key-type` is RSA. If you try to import an Ed25519 SSH key and don't specify the `ed25519` key type, the process fails.
+In the CLI, you can specify which type of key by using the `--key-type` option. You can't create SSH keys within the CLI, you can import only an existing SSH key. The default `--key-type` is RSA. If you try to import an ED25519 SSH key and don't specify the `ed25519` key type, the process fails.
 
 ```sh
 --key-type ed25519
 ```
 {: pre}
 
-## SSH key types: RSA and Ed25519 in the API
+## SSH key types: RSA and ED25519 in the API
 {: #ssh-key-types-api}
 {: api}
 
 {{site.data.keyword.vpc_full}} supports two different types of public SSH keys.
 
 * RSA
-* Ed25519
+* ED25519
 
-On {{site.data.keyword.vpc_short}}, RSA is the default SSH key type. You can select to change the key type to Ed25519. The Ed25519 SSH key type enables a slightly higher performance benefit because it can give the same level of security as the RSA SSH key type with a smaller key. You can create virtual server instances and bare metal servers with a mix of RSA and Ed25519 SSH keys.
+On {{site.data.keyword.vpc_short}}, RSA is the default SSH key type. You can select to change the key type to ED25519. The ED25519 SSH key type enables a slightly higher performance benefit because it can give the same level of security as the RSA SSH key type with a smaller key. You can create virtual server instances and bare metal servers with a mix of RSA and ED25519 SSH keys.
 
-* For Windows or VMware images, you must use the RSA SSH key type. The Ed25519 SSH key type can't be used with Windows or VMware images.
-* For Linux images, the Ed25519 SSH key type can be used only if the SSH server for the operating system supports that key type.
+* For Windows or VMware images, you must use the RSA SSH key type. The ED25519 SSH key type can't be used with Windows or VMware images.
+* For Linux images, the ED25519 SSH key type can be used only if the SSH server for the operating system supports that key type.
 
 You can't create SSH keys within the API, you can import only an existing SSH key. You can generate a new RSA SSH key pair within the UI. You have the option when you create an SSH key to copy the API code snippet for that key.
 
-In the API, you can specify which type of key by using the `type` variable. The default `type` is RSA. If you try to import an Ed25519 SSH key and don't specify the `ed25519` key type, the process fails.
+In the API, you can specify which type of key by using the `type` variable. The default `type` is RSA. If you try to import an ED25519 SSH key and don't specify the `ed25519` key type, the process fails.
 
 ```sh
 "type":"ed25519"
@@ -84,23 +84,23 @@ In the API, you can specify which type of key by using the `type` variable. The 
 {: pre}
 
 
-## SSH key types: RSA and Ed25519 in the Terraform
+## SSH key types: RSA and ED25519 in the Terraform
 {: #ssh-key-types-terraform}
 {: terraform}
 
 {{site.data.keyword.vpc_full}} supports two different types of public SSH keys.
 
 * RSA
-* Ed25519
+* ED25519
 
-On {{site.data.keyword.vpc_short}}, RSA is the default SSH key type. You can select to change the key type to Ed25519. The Ed25519 SSH key type enables a slightly higher performance benefit because it can give the same level of security as the RSA SSH key type with a smaller key. You can create virtual server instances and bare metal servers with a mix of RSA and Ed25519 SSH keys.
+On {{site.data.keyword.vpc_short}}, RSA is the default SSH key type. You can select to change the key type to ED25519. The ED25519 SSH key type enables a slightly higher performance benefit because it can give the same level of security as the RSA SSH key type with a smaller key. You can create virtual server instances and bare metal servers with a mix of RSA and ED25519 SSH keys.
 
-* For Windows or VMware images, you must use the RSA SSH key type. The Ed25519 SSH key type can't be used with Windows or VMware images.
-* For Linux images, the Ed25519 SSH key type can be used only if the SSH server for the operating system supports that key type.
+* For Windows or VMware images, you must use the RSA SSH key type. The ED25519 SSH key type can't be used with Windows or VMware images.
+* For Linux images, the ED25519 SSH key type can be used only if the SSH server for the operating system supports that key type.
 
 You can't create SSH keys within Terraform, you can import only an existing SSH key. You can generate a new RSA SSH key pair within the UI.
 
-In Terraform, you can specify which type of key by using the `type` variable. The default type is `rsa`. If you try to import the Ed25519 SSH key and don't specify the `ed25519` key type, the process fails.
+In Terraform, you can specify which type of key by using the `type` variable. The default type is `rsa`. If you try to import the ED25519 SSH key and don't specify the `ed25519` key type, the process fails.
 
 ```terraform
 type = "ed25519"
@@ -112,17 +112,17 @@ type = "ed25519"
 
 You can generate an SSH key in {{site.data.keyword.vpc_full}} when you create the SSH key on the **SSH keys for VPC** page. However, if you choose to import an existing SSH key file, keep the following limitations in mind.
 
-* Your SSH key must be an RSA or Ed25519 key type with a key size of either 2048 bits or 4096 bits.
+* Your SSH key must be an RSA or ED25519 key type with a key size of either 2048 bits or 4096 bits.
 * If your Mac system generates a key size of 3072 bits (by default), run one of the following commands to make sure that the generated key is a supported size.
    * For RSA SSH key type, issue:  `ssh-keygen -t rsa -b 4096 -C "user_ID"`
-   * For Ed25519 SSH key type, issue:  `ssh-keygen -t ed25519 -b 4096 -C "user_ID"`
+   * For ED25519 SSH key type, issue:  `ssh-keygen -t ed25519 -b 4096 -C "user_ID"`
 * SSH keys are generated as key pairs; one is a public key, and the other is a private key. Select the public key when you import an SSH key to your VPC. The corresponding private key remains on your local workstation and is not imported.
 * When you copy an SSH key from a terminal to add the public key to your VPC, sometimes extra line breaks are introduced which cause a parsing error. To avoid this issue, first paste your public key into a text editor and remove any extra line breaks. Then, copy the public key from text editor and paste it into the {{site.data.keyword.vpc_short}} UI, CLI, or API.
 
 ### Locating your existing SSH key
 {: #locate-ssh-key}
 
-If you choose to import an existing SSH key file, look for a file that is called `id_rsa.pub` or `id_ed25519.pub` that contains your public key. The file might be in an `.ssh` directory under your home directory, for example, `/Users/<USERNAME>/.ssh/id_rsa.pub`. The content of the public key file for an RSA SSH key typically starts with `ssh-rsa`, whereas the contents of the public key file for an Ed25519 SSH key typcially starts with `ssh-ed25519`. The file extension, `.pub`, indicates which file contains the public key.
+If you choose to import an existing SSH key file, look for a file that is called `id_rsa.pub` or `id_ed25519.pub` that contains your public key. The file might be in an `.ssh` directory under your home directory, for example, `/Users/<USERNAME>/.ssh/id_rsa.pub`. The content of the public key file for an RSA SSH key typically starts with `ssh-rsa`, whereas the contents of the public key file for an ED25519 SSH key typically starts with `ssh-ed25519`. The file extension `.pub`, indicates which file contains the public key.
 
 ### Generating an external SSH key
 {: #generating-ssh-keys}
@@ -134,14 +134,14 @@ Press **Enter** to accept the default location for the file. The command generat
 If you are using OpenSSH version 7.8 or higher and plan to access a Windows server, use the following command to generate the key in PEM format. `ssh-keygen -m PEM -t rsa -C "user_ID"`
 {: important}
 
-## Locating your existing SSH keys by using the UI
+## Locating your existing SSH keys in the console
 {: #locating-ssh-keys-ui}
 {: ui}
 
-1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > SSH keys**.
+1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > SSH keys**.
 2. Any existing SSH keys are displayed.
 
-## Listing your existing SSH keys by using the CLI
+## Listing your existing SSH keys from the CLI
 {: #locating-ssh-keys-cli}
 {: cli}
 
@@ -152,9 +152,9 @@ ibmcloud is keys [--all-resource-groups]
 ```
 {: pre}
 
-For more information, see [ibmcloud is keys](/docs/vpc?topic=vpc-vpc-reference#keys-list) in the VPC CLI reference.
+For more information, see the [ibmcloud is keys](/docs/vpc?topic=vpc-vpc-reference#keys-list) in the VPC CLI reference.
 
-## Listing your existing SSH keys by using the API
+## Listing your existing SSH keys with the API
 {: #locating-ssh-keys-api}
 {: api}
 
@@ -176,22 +176,23 @@ data "ibm_is_ssh_keys" keys {}
 ```
 {: pre}
 
-## Creating your SSH key by using the UI
+## Creating your SSH key in the console
 {: #generate-ssh-keys-ui}
 {: ui}
 
-Use the following steps to create an SSH key. You can create only an RSA SSH key. For Ed25519 SSH keys, you must upload the SSH key.
+Use the following steps to create an SSH key. You can create only an RSA SSH key. For ED25519 SSH keys, you must upload the SSH key.
 
-1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > SSH keys**.
+1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > SSH keys**.
 1. Click **Create** and enter the information that is in Table 1.
+
    | Field | Value |
-   | --- | --- |
+   |-------|-------|
    | Location | Locations are composed of regions (specific geographic areas) and zones (fault-tolerant data centers within a region). Select the location where you want to create your SSH key. |
    | Name  | A name is required for your SSH key. |
    | Resource group | Select a resource group for the SSH key. |
    | Tags | You can assign a user tag to the SSH key so that you can easily filter a list of SSH keys. For more information, see [Working with tags](/docs/account?topic=account-tag&interface=ui).|
    | Access management tags | Access management tags help you apply flexible access policies on specific resources. For more information, see the [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial) UI tutorial. |
-   | SSH key type | The default value is `rsa`.You can generate new RSA key pairs using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images. |
+   | SSH key type | The default value is `rsa`. You can generate new RSA key pairs in the UI. Pre-existing RSA and ED25519 SSH keys can be uploaded. ED25519 can be used only if the operating system supports this key type. ED25519 can't be used with Windows or VMware images. |
    {: caption="Table 1. Creating an SSH key for VPC selections" caption-side="bottom"}
 
 1. Select **Generate a key pair for me**.
@@ -200,7 +201,7 @@ Use the following steps to create an SSH key. You can create only an RSA SSH key
 
 Your SSH key is now displayed in the list of SSH keys on the UI.
 
-## Importing an SSH key by using the UI
+## Importing an SSH key in the console
 {: #import-ssh-keys-ui}
 {: ui}
 
@@ -208,7 +209,7 @@ You can import an SSH key in two ways. You can upload a public key from a local 
 
 Use the following steps to import an SSH key from a local file.
 
-1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > SSH keys**.
+1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > SSH keys**.
 1. Click **Create** and enter the information that is in Table 1.
    | Field | Value |
    | --- | --- |
@@ -236,7 +237,7 @@ Your imported SSH key is now displayed in the list of SSH keys on the UI.
 {: #generate-ssh-keys-cli}
 {: cli}
 
-To import an SSH key by using the CLI, use the **ibmcloud is key-create** command. You also must specify a `KEY_NAME` and the `KEY`. The SSH key file is either the `id_rsa.pub` or `id_ed25519.pub` depending on which key type you are importing. Optionally, you can specify the resource by using either the `RESOURCE_GROUP_ID` or `RESOURCE_GROUP_NAME` variable. See [ibmcloud is key-create](/docs/vpc?topic=vpc-vpc-reference#key-create) in the VPC CLI reference guide.
+To import an SSH key by using the CLI, use the **ibmcloud is key-create** command. You must also specify a `KEY_NAME` and the `KEY`. The SSH key file is either the `id_rsa.pub` or `id_ed25519.pub` depending on which key type you are importing. Optionally, you can specify the resource by using either the `RESOURCE_GROUP_ID` or `RESOURCE_GROUP_NAME` variable. For more information, see the [ibmcloud is key-create](/docs/vpc?topic=vpc-vpc-reference#key-create) in the VPC CLI reference guide.
 
 ```sh
 ibmcloud is key-create KEY_NAME (KEY | @KEY_FILE) [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME]
@@ -247,7 +248,7 @@ ibmcloud is key-create KEY_NAME (KEY | @KEY_FILE) [--resource-group-id RESOURCE_
 {: #import-ssh-keys-api}
 {: api}
 
-To import an SSH key by using the API, use the [Create a key](/apidocs/vpc/latest#create-key). You can't create an SSH key by using the API. However, you can create an SSH key by using the UI and from the UI, generate the API code snippet that you need that includes the new SSH key. If you use the UI, make sure you save the SSH key that you create in the UI before you generate the API code snippet.
+To import an SSH key by using the API, use the [Create a key](/apidocs/vpc/latest#create-key). You can't create an SSH key by using the API. However, you can create an SSH key in the console and from the UI, generate the API code snippet that you need that includes the new SSH key. If you use the UI, make sure you save the SSH key that you create in the UI before you generate the API code snippet.
 
 For the `name` property, specify the name of the SSH key. For `public_key` property, enter in the public key information. For the `type` property, specify either `rsa` or `ed25519` for the SSH key type.
 
@@ -285,7 +286,7 @@ After you locate or generate an SSH key, it's time to plan for and create a serv
 Virtual servers
 
 * [Planning for virtual servers](/docs/vpc?topic=vpc-vsi_best_practices)
-* [Creating a virtual server by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers)
+* [Creating a virtual server in the console](/docs/vpc?topic=vpc-creating-virtual-servers)
 * [Creating a virtual server by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli)
 
 Bare metal servers
