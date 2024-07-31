@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-07-29"
+lastupdated: "2024-07-31"
 
 keywords:
 
@@ -16,8 +16,6 @@ subcollection: vpc
 # Activity tracking events for {{site.data.keyword.vpc_short}}
 {: #at_events}
 
-
-
 {{site.data.keyword.cloud_notm}} services, such as {{site.data.keyword.vpc_short}}, generate activity tracking events.
 {: shortdesc}
 
@@ -27,20 +25,14 @@ You can use {{site.data.keyword.atracker_full_notm}}, a platform service, to rou
 
 You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on events that are generated in your account and routed by {{site.data.keyword.atracker_full_notm}} to an {{site.data.keyword.logs_full_notm}} instance.
 
-
-
 As of 28 March 2024, the {{site.data.keyword.at_full_notm}} service is deprecated and will no longer be supported as of 30 March 2025. Customers will need to migrate to {{site.data.keyword.logs_full_notm}} before 30 March 2025. During the migration period, customers can use {{site.data.keyword.at_full_notm}} along with {{site.data.keyword.logs_full_notm}}. Activity tracking events are the same for both services. For information about migrating from {{site.data.keyword.at_full_notm}} to {{site.data.keyword.logs_full_notm}} and running the services in parallel, see [migration planning](/docs/cloud-logs?topic=cloud-logs-migration-intro).
 {: important}
 
 ## Locations where activity tracking events are generated
 {: #at-locations}
 
-
-
 ### Locations where activity tracking events are sent to {{site.data.keyword.at_full_notm}} hosted event search
 {: #at-legacy-locations}
-
-
 
 {{site.data.keyword.vpc_short}} sends activity tracking events to {{site.data.keyword.at_full_notm}} hosted event search in the regions that are indicated in the following table.
 
@@ -54,7 +46,7 @@ As of 28 March 2024, the {{site.data.keyword.at_full_notm}} service is deprecate
 {: class="simple-tab-table"}
 {: row-headers}
 
-| Tokyo (`jp-tok`)    | Sydney (`au-syd`) |  Osaka (`jp-osa`) | 
+| Tokyo (`jp-tok`)    | Sydney (`au-syd`) |  Osaka (`jp-osa`) |
 |---------------------|------------------|------------------|
 | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
 {: caption="Regions where activity tracking events are sent in Asia Pacific locations" caption-side="top"}
@@ -77,8 +69,6 @@ As of 28 March 2024, the {{site.data.keyword.at_full_notm}} service is deprecate
 ### Locations where activity tracking events are sent by {{site.data.keyword.atracker_full_notm}}
 {: #atracker-locations}
 
-
-
 {{site.data.keyword.vpc_short}} sends activity tracking events by {{site.data.keyword.atracker_full_notm}} in the regions that are indicated in the following table.
 
 | Dallas (`us-south`) | Washington (`us-east`)  | Toronto (`ca-tor`) | Sao Paulo (`br-sao`) |
@@ -91,7 +81,7 @@ As of 28 March 2024, the {{site.data.keyword.at_full_notm}} service is deprecate
 {: class="simple-tab-table"}
 {: row-headers}
 
-| Tokyo (`jp-tok`)    | Sydney (`au-syd`) |  Osaka (`jp-osa`) | 
+| Tokyo (`jp-tok`)    | Sydney (`au-syd`) |  Osaka (`jp-osa`) |
 |---------------------|------------------|------------------|
 | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
 {: caption="Regions where activity tracking events are sent in Asia Pacific locations" caption-side="top"}
@@ -113,8 +103,6 @@ As of 28 March 2024, the {{site.data.keyword.at_full_notm}} service is deprecate
 
 ## Viewing activity tracking events for {{site.data.keyword.vpc_short}}
 {: #at-viewing}
-
-
 
 You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on events that are generated in your account and routed by {{site.data.keyword.atracker_full_notm}} to an {{site.data.keyword.logs_full_notm}} instance.
 
@@ -145,6 +133,8 @@ The following tables list the actions that are related to network resources and 
 | network-acl  | is.network-acl.rule.read | One or more network ACL rules was retrieved |
 {: caption="Table 1. Actions that generate events for Network ACL" caption-side="bottom"}
 
+
+
 ### DNS resolution binding events
 {: #events-dns-resolution-bindings}
 
@@ -152,11 +142,11 @@ The following table lists the actions that are related to DNS resolution binding
 
 | Resource  | Action  | Description  |
 |:----------------|:-----------------------|:-----------------------|
-| DNS resolution binding | `is.vpc.dns-resolution-binding.create` | Creates a DNS resolution binding. Generates events for both hub VPC and DNS-shared VPCs. |
-| DNS resolution binding | `is.vpc.dns-resolution-binding.update` | Updates the name of a DNS resolution binding. |
-| DNS resolution binding | `is.vpc.dns-resolution-binding.delete` | Deletes a DNS resolution binding. Generate events for both hub VPC and DNS-shared VPCs. |
-| DNS resolution binding | `is.vpc.dns-resolution-binding.read` | Gets details of a DNS resolution binding. |
-| DNS resolution binding | `is.vpc.dns-resolution-binding.list` | Lists DNS resolution bindings. |
+| DNS resolution binding | is.vpc.dns-resolution-binding.create | Creates a DNS resolution binding. Generates events for both hub VPC and DNS-shared VPCs. |
+| DNS resolution binding | is.vpc.dns-resolution-binding.update | Updates the name of a DNS resolution binding. |
+| DNS resolution binding | is.vpc.dns-resolution-binding.delete | Deletes a DNS resolution binding. Generate events for both hub VPC and DNS-shared VPCs. |
+| DNS resolution binding | is.vpc.dns-resolution-binding.read | Gets details of a DNS resolution binding. |
+| DNS resolution binding | is.vpc.dns-resolution-binding.list | Lists DNS resolution bindings. |
 {: caption="Table 2. Actions that generate events for DNS resolution bindings" caption-side="bottom"}
 
 Although the DNS resolution binding is created or deleted by the DNS-shared VPC authorized user, the system is actually creating or deleting the DNS resolution binding objects for both the hub VPC and DNS-shared VPCs. Therefore, the system also generates the Activity Tracker event for both hub and DNS-shared VPCs.
