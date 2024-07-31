@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-07-29"
+lastupdated: "2024-07-31"
 
 keywords:
 
@@ -144,6 +144,8 @@ The following tables list the actions that are related to network resources and 
 | network-acl  | is.network-acl.rule.delete  | Rule was removed from Network ACL  |
 | network-acl  | is.network-acl.rule.read | One or more network ACL rules was retrieved |
 {: caption="Table 1. Actions that generate events for Network ACL" caption-side="bottom"}
+
+
 
 ### DNS resolution binding events
 {: #events-dns-resolution-bindings}
