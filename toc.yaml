@@ -556,7 +556,6 @@ toc:
                 topics:
                 - block_storage_vpc_create.md
                 - block_storage_vpc_byok_encryption.md
-                - block_storage_vpc_byok_multitenant_encryption.md
                 - block_storage_vpc_manage_storage_limits.md
             - block_storage_vpc_attach.md
             - block_storage_vpc_use_volume_lin.md
@@ -618,7 +617,6 @@ toc:
                 topics:
                 - file_storage_vpc_create.md
                 - file_storage_vpc_byok_encryption.md
-                - file_storage_vpc_byok_multitenant_encryption.md
                 - file_storage_vpc_cross_account_share.md
             - topicgroup:
                 label: Mounting file shares
