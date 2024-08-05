@@ -24,6 +24,20 @@ For more information about changes to the {{site.data.keyword.vpc_short}} API, s
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
 
+## August 2024
+{: #vpc-aug24}
+
+### 5 August 2024
+{: #vpc-aug0524}
+{: release-note}
+
+IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-18` updates
+:   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-18`, new certificates are available.
+   - [Attestation certificate](/docs/vpc?topic=vpc-about-attestation)
+   - [Encryption certificate](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_encrypt)
+   - [Intermediate certificate](/docs/vpc?topic=vpc-cert_validate#download_cert)
+
+
 ## July 2024
 {: #vpc-jul24}
 

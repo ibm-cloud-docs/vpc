@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-08"
+lastupdated: "2024-08-05"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -45,6 +45,7 @@ Use the following procedure to validate the attestation record and hashes:
 
     | Image version| Certificate link | Expiry date |
     | -------- | ----------- | ----------- |
+    | `ibm-hyper-protect-container-runtime-1-0-s390x-18` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-18-attestation.crt){: external} | 01 August 2025 |
     | `ibm-hyper-protect-container-runtime-1-0-s390x-17` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-17-attestation.crt){: external} | 04 July 2025 |
     | `ibm-hyper-protect-container-runtime-1-0-s390x-16` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-16-attestation.crt){: external} | 11 June 2025 |
     | `ibm-hyper-protect-container-runtime-1-0-s390x-15` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-15-attestation.crt){: external} | 8 March 2025 |
@@ -56,7 +57,7 @@ Use the following procedure to validate the attestation record and hashes:
 * Extract the encryption public key from the encryption certificate by using the following command:
 
    ```sh
-   openssl x509 -pubkey -noout -in ibm-hyper-protect-container-runtime-1-0-s390x-17-attestation.crt > contract-public-key.pub
+   openssl x509 -pubkey -noout -in ibm-hyper-protect-container-runtime-1-0-s390x-18-attestation.crt > contract-public-key.pub
    ```
    {: pre}
 
@@ -153,7 +154,7 @@ sha256sum <file>
 
 The following snippet is an example of an attestation document:
 ```text
-24.7.1
+24.8.0
 Machine Type/Plant/Serial: 8562/02/4C578
 4802242b82dce78d11c4b02129a9b9c1e62598b1cb8073f8e7b097449644bbb4 root.tar.gz
 f9940321d043d133ddf2f22cd4794bc56be9d54b2e9c7893a6d6a4813635024c baseimage
@@ -176,6 +177,12 @@ de4178e749c6ab0ee9af8610d0615cfd004d7d488dfdc0d5aa87e0b75fdff7fc contract:envWor
 {: #base_image}
 
 The `baseimage` is the IBM internal QEMU Copy On Write Version 2 (QCOW2) file, which is used as the source for most of the operating system files of the Hyper Protect Container Runtime image. It is used only at image build time by the enabler process. The enabler uses this source together with other Debian packages to create the `root.tar.gz` and the encrypted secure execution kernel or 'initrd' image.
+
+The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-18 `baseimage`:
+```sh
+f9940321d043d133ddf2f22cd4794bc56be9d54b2e9c7893a6d6a4813635024c baseimage
+```
+{: pre}
 
 The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-17 and ibm-hyper-protect-container-runtime-1-0-s390x-16 `baseimage`:
 ```sh
@@ -200,6 +207,12 @@ The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x
 {: #root_tarfile}
 
 The `root.tar.gz` is part of the final secure execution enabled IBM Hyper Protect Container Runtime image and contains all operating system files. It is stored on the image's first partition (boot partition) as `/boot/root.tar.gz`.
+
+The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-18 `root.tar.gz`.
+```sh
+4802242b82dce78d11c4b02129a9b9c1e62598b1cb8073f8e7b097449644bbb4 root.tar.gz
+```
+{: pre}
 
 The following is the shasum of the ibm-hyper-protect-container-runtime-1-0-s390x-17 and ibm-hyper-protect-container-runtime-1-0-s390x-16 `root.tar.gz`.
 ```sh
