@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-07-31"
+lastupdated: "2024-08-05"
 
 keywords:
 
@@ -69,7 +69,7 @@ Hyper Protect Secure Build
 {: release-note}
 
 Sapphire Rapids (x3 and x3d) x86-64 bare metal server profiles (Select availability)
-:   Sapphire Rapids (x3 and x3d) x86-64 bare metal server profiles are now available in the US South (Dallas) region. For more information, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui).
+:   Sapphire Rapids (x3 and x3d) x86-64 bare metal server profiles are now available in the US South (Dallas) region. For more information, see [x86-64 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 ### 25 June 2024
 {: #vpc-june2524}
