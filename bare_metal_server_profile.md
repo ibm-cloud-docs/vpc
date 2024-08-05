@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-07-16"
+lastupdated: "2024-08-05"
 
 keywords:
 
@@ -46,8 +46,6 @@ Profiles contained either the Cascade Lake current generation of Cascade Lake pr
 |---------|---------|---------|---------|---------|
 | bx2-metal-96x384 | 96 | 384 | 960 GB | 100 |
 | bx2d-metal-96x384  | 96 | 384  | 960 GB  \n 25.6 TB secondary storage (allocation of 8 x 3200) | 100 |
-| bx2-metal-192x768 | 192 | 768 | 960 GB | 100 |
-| bx2d-metal-192x768 | 192 | 768 | 960 GB  \n 51.2 TB secondary storage (allocation of 16 x 3200) | 100 |
 {: caption="Table 2. Profile families for x2 and x2d" caption-side='top"}
 {: #bare-metal-balanced-profiles-x2}
 {: tab-title="Balanced profiles for x2 and x2d"}
@@ -92,6 +90,20 @@ The 960 GB of available local storage is composed of 2 960 GB SSDs in RAID1 for 
 
 | Name | vCPU | Memory (GiB) | Local storage | Total network bandwidth (Gbps) |
 |---------|---------|---------|---------|---------|
+| bx3-metal-48x256 | 48 | 256 | 480 | 100 |
+| bx3d-metal-48x256 | 48 | 256 | 4x7600 | 100 |
+| bx3-metal-64x256 | 64 | 256 | 480 | 100 |
+| bx3d-metal-64x256 | 64 | 256 | 4x7600 | 100 |
+| bx3d-metal-192x1024 | 192 | 1024 | 8x7600 | 100 |
+{: caption="Table 3. Profile families for x3 and x3d" caption-side='top"}
+{: #bare-metal-balanced-profiles-x3}
+{: tab-title="Balanced profiles for x3 and x3d"}
+{: tab-group="profile-configurations-x3"}
+{: class="simple-tab-table"}
+{: summary="Use the buttons before the table to change the context of the table. The column headers identify the hardware class."}
+
+| Name | vCPU | Memory (GiB) | Local storage | Total network bandwidth (Gbps) |
+|---------|---------|---------|---------|---------|
 | cx3-metal-48x128 | 48 | 128 | 480 | 100 |
 | cx3d-metal-48x128 | 48 | 128 | 4x7600 | 100 |
 | cx3-metal-64x128 | 64 | 128 | 480 | 100 |
@@ -111,11 +123,8 @@ The 960 GB of available local storage is composed of 2 960 GB SSDs in RAID1 for 
 | mx3d-metal-48x512 | 48 | 512 | 4x7600 GB | 100 |
 | mx3-metal-64x512 | 64 | 512 | 480 GB | 100 |
 | mx3d-metal-64x512 | 64 | 512 | 4x7600 GB | 100 |
-| mx3-metal-96x1024 | 96 | 1024 | 480 GB | 100 |
 | mx3d-metal-96x1024 | 96 | 1024 | 4x7600 GB | 100 |
-| mx3-metal-128x1024 | 128 | 1024 | 480 GB | 100 |
 | mx3d-metal-128x1024 | 128 | 1024 | 4x7600 GB | 100 |
-| mx3d-metal-192x2048 | 192 | 2048 | 4x7600 GB | 100 |
 {: caption="Table 3. Profile families for x3 and x3d" caption-side='top"}
 {: #bare-metal-memory-profiles-mx3d}
 {: tab-title="Memory profiles for x3 and x3d"}
@@ -127,8 +136,6 @@ The 960 GB of available local storage is composed of 2 960 GB SSDs in RAID1 for 
 |---------|---------|---------|---------|---------|
 | vx3-metal-16x256 | 16 | 256 | 1x480	| 100 |
 | vx3d-metal-16x256 | 16 | 256 | 1x480, 4x7600 | 100 |
-| vx3d-metal-128x2048 | 128 | 2048 | 1x480, 4x7600 | 100 |
-| vx3d-metal-192x3072 | 128 | 2048 | 1x480, 4x7600 | 100 |
 {: caption="Table 3. Profile families for x3 and x3d" caption-side='top"}
 {: #bare-metal-memory-profiles-vx3d}
 {: tab-title="Very High Memory profiles for for x3 and x3d"}
@@ -140,12 +147,6 @@ The 960 GB of available local storage is composed of 2 960 GB SSDs in RAID1 for 
 |---------|---------|---------|---------|---------|
 | ux3-metal-16x512 | 16 | 512 | 480 | 100 |
 | ux3d-metal-16x512 | 16 | 512 | 1x480, 4x7600 | 100 |
-| ux3d-metal-96x2048 | 96 | 2048 | 1x480, 4x7600 | 100 |
-| ux3d-metal-96x3072 | 96 | 2048 | 1x480, 4x7600 | 100 |
-| ux3d-metal-128x3072 | 128 | 3072 | 1x480, 4x7600 | 100 |
-| ux3d-metal-96x4096 | 96 | 4096 | 1x480, 4x7600 | 100 |
-| ux3d-metal-128x4096 | 128 | 4096 | 1x480, 4x7600 | 100 |
-| ux3d-metal-192x4096 | 192 | 4096 | 1x480, 4x7600 | 100 |
 {: caption="Table 3. Profile families for x3 and x3d" caption-side="top"}
 {: #bare-metal-uhmemory-profiles-x3}
 {: tab-title="Ultra High Memory profiles for x3 and x3d"}
