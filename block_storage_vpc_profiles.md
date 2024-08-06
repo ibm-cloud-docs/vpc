@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-07-29"
+lastupdated: "2024-08-06"
 
 keywords: Block Storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
@@ -23,7 +23,7 @@ When you provision {{site.data.keyword.block_storage_is_short}} volumes by using
 
 When you create a Block Storage volume, you can select between custom and tiered-IOPS profiles. All these profiles are backed by solid-state drives (SSDs). The following table shows the available storage profiles.
 
-| Profile family | Profile name      | IOPS^1^      | IOPS per volume| Max throughput^2^| Volume size (GB)|   
+| Profile family | Profile name      | IOPS[^tabletext1]     | IOPS per volume| Max throughput[^tabletext2] | Volume size (GB)|   
 |----------------|-------------------|----------------:|---------------:|---------------:|---------------:|
 | `tiered`       | `general-purpose` | 3 IOPS/GB       | 3,000 - 48,000 | 670 MBps       | 10 GB - 16,000 | 
 | `tiered`       | `5iops-tier`      | 5 IOPS/GB       | 3,000 - 48,000 | 768 MBps       | 10 GB - 9,600  | 
@@ -31,8 +31,10 @@ When you create a Block Storage volume, you can select between custom and tiered
 | `custom`       | `custom`          | 1 - 100 IOPS/GB |   100 - 48,000 | 1024 MBps      | 10 GB - 16,000 |
 {: caption="Table 1. Block Storage profiles and performance levels." caption-side="bottom"}
 
-^1^ IOPS values are based on 16k I/O size.
-^2^ Baseline throughput is determined by the number of IOPS multiplied by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB or custom IOPS tiers. The higher the IOPS that you specify, the higher the throughput. Maximum throughput is 1024 MBps.
+[^tabletext1]: IOPS values are based on 16k I/O size.
+[^tabletext2]: Baseline throughput is determined by the number of IOPS multiplied by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB or custom IOPS tiers. The higher the IOPS that you specify, the higher the throughput. Maximum throughput is 1024 MBps.
+
+IOPS values are based on 16k I/O size. Baseline throughput is determined by the number of IOPS multiplied by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB or custom IOPS tiers. The higher the IOPS that you specify, the higher the throughput. Maximum throughput is 1024 MBps.
 
 Moving volumes across volume-profiles that belong to different families is not allowed.
 {: restriction}
