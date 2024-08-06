@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-07-29"
+lastupdated: "2024-08-06"
 
 keywords: IAM access for vpc infrastructure services, permissions for vpc infrastructure services, identity and access management for vpc infrastructure services, roles for vpc infrastructure services, actions for vpc infrastructure services, assigning access for vpc infrastructure services
 
@@ -85,6 +85,7 @@ The following links take you directly to the specific infrastructure service on 
 - [VPN for VPC](/docs/account?topic=account-iam-service-roles-actions#is.vpn-roles)
 - [VPN Client for VPC](/docs/account?topic=account-iam-service-roles-actions#is.vpn-server-roles)
 - [Virtual Network Interface](/docs/account?topic=account-iam-service-roles-actions#is.virtual-network-interface-roles)
+- [Private Path services](/docs/account?topic=account-iam-service-roles-actions#is.private-path-service-gateway-roles)
 
 ## Compute IAM roles and actions
 {: #compute-iam-roles-actions}

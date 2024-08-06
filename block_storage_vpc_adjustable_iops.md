@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-07-22"
+lastupdated: "2024-08-06"
 
 keywords: Block Storage for VPC, boot volume, data volume, volume, data storage, virtual server instance, instance, adjustable volume, iops
 
@@ -113,7 +113,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    ```
    {: pre}
 
-   This command returns a URL and prompts for a passcode. Go to that URL in your browser and log in. If successful, you get a one-time passcode. Copy this passcode and paste it as a response on the prompt. After successful authentication, you are prompted to choose your account. If you have access to multiple accounts, select the account that you want to log in as. Respond to any remaining prompts to finish logging in.{: pre}
+   This command returns a URL and prompts for a passcode. Go to that URL in your browser and log in. If successful, you get a one-time passcode. Copy this passcode and paste it as a response on the prompt. After successful authentication, you are prompted to choose your account. If you have access to multiple accounts, select the account that you want to log in as. Respond to any remaining prompts to finish logging in.
 
 ### Adjust IOPS for a custom profile
 {: #adjust-iops-cli-block}
@@ -199,7 +199,7 @@ For more information about available command options, see [`ibmcloud is volume-u
 
 You can adjust IOPS for existing data volumes by calling the Virtual Private Cloud (VPC) API. 
 
-### Adjust IOPS for a Custom profile
+### Adjust IOPS for a volume with the Custom profile
 {: #adjust-iops-api-block}
 
 Make a `PATCH /volumes` request and specify the `iops` parameter to adjust the IOPS within a custom IOPS profile band. 
