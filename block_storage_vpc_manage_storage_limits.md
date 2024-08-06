@@ -15,7 +15,7 @@ subcollection: vpc
 # Managing volume count and capacity limits
 {: #manage-storage-limit}
 
-{{site.data.keyword.block_storage_is_short}} offers block-level data storage volumes that can be attached to an instance as either a boot volume or as a data volume. You can create up to 300 boot and data Block Storage volumes per account in a region. You can request an increase of this quota by contacting [IBM Support](/unifiedsupport/cases/add){: external} and submitting a support case. Answer the following questions when you're ordering Block Storage volumes or requesting an increase in your volume or capacity limits. 
+{{site.data.keyword.block_storage_is_short}} offers block-level data storage volumes that can be attached to an instance as either a boot volume or as a data volume. You can create up to 300 boot and data Block Storage volumes per account in a region. You can request an increase of this quota by contacting [IBM Support](/unifiedsupport/cases/add){: external} and submitting a support case. Answer the following questions when you're requesting an increase in your volume or capacity limits. 
 {: shortdesc}
 
 ## Volume count and storage limits checklist
@@ -51,6 +51,6 @@ Respond promptly to all questions and statements in your request. They're necess
 You're notified about the update to your limits throughout the case process.
 
 ## Increasing volume capacity
-{: #manage-storage-limit-overview}
+{: #manage-storage-capacity}
 
 Capacity for secondary volumes ranges 10 - 16,000 GB. For more information, see [expanding Block Storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
