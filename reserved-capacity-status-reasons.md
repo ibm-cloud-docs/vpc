@@ -13,7 +13,7 @@ subcollection: vpc
 # Reservation status message reasons
 {: #reserved-capacity-status-reasons}
 
-If you receive a status message for a reservation, you can use the following information to help determine the message.
+If you receive a status message for a reservation, you can use the following information to help determine the meaning of the message.
 {: shortdesc}
 
 ## Capacity status
