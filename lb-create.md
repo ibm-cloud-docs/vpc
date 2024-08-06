@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-07-08"
+lastupdated: "2024-08-06"
 
 keywords:
 
@@ -119,13 +119,17 @@ To create an ALB:
 
 1. After you finish creating pools and listeners, click **Create load balancer**.
 1. To view details of an existing load balancer, click the name of your load balancer on the **Load balancers** page.
+
 1. If you want to redirect the traffic from an HTTP listener to an HTTPS listener, you can create an HTTP listener with HTTPS redirect settings.
 
     Layer 7 load-balancing policies overwrite settings that you define here.
     {: note}
 
     To do so:
-    *  There must be an existing HTTPS listener before you create a new HTTP listener with HTTPS redirect.
+    
+    There must be an existing HTTPS listener before you create a new HTTP listener with HTTPS redirect.
+    {: note}
+    
     *  After the status of the load balancer changes to **Active**, click the **Front-end listeners** tab.
     *  In the listener list page, click **Create**, then specify the following information:
         * **Protocol**: Select your **HTTP** protocol.

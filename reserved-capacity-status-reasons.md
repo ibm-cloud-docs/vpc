@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2024
-lastupdated: "2024-07-03"
+lastupdated: "2024-08-06"
 
 subcollection: vpc
 
@@ -10,8 +10,8 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Reservation status messages
-{: #reserved-capacity-status-messages}
+# Reservation status message reasons
+{: #reserved-capacity-status-reasons}
 
 If you receive a status message for a reservation, you can use the following information to help determine the message.
 {: shortdesc}
