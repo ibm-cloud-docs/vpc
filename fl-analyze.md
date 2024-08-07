@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-07-16"
+lastupdated: "2024-08-07"
 
 keywords: flow logs, viewing objects, SQL, analyze
 
@@ -14,44 +14,18 @@ subcollection: vpc
 # Viewing flow log objects
 {: #fl-analyze}
 
-A flow log is a summary of the network traffic that is uniquely identified by a connection between two virtual network interface cards (vNICs), within a certain time window. A flow log describes traffic the firewall either accepts (relevant security groups or network ACLs) or rejects, but not both. It contains header information and
-payload statistics.
+A flow log is a summary of the network traffic that is uniquely identified by a connection between two virtual network interface cards (vNICs), within a certain time window. A flow log describes traffic the firewall either accepts (relevant security groups or network ACLs) or rejects, but not both. It contains header information and payload statistics.
 {: shortdesc}
+
+Flow logs are periodically written to {{site.data.keyword.cos_full}} about every 5 minutes. Flow logs are published more frequently in cases where the flow log collector reaches 100 KB flows.
 
 Currently, flow logs collect Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) traffic, but not Internet Control Message Protocol (ICMP) traffic.
 {: note}
 
-Each flow log object contains individual flow logs. To view or analyze the flow logs, follow these steps.
+Each flow log object contains individual flow logs. To view or analyze the flow logs, use the IBM Analytics Engine. For more information, see the IBM Analytics Engine [Getting started tutoral](/docs/AnalyticsEngine?topic=AnalyticsEngine-getting-started).
 
-1. Ensure that you created an instance of {{site.data.keyword.sqlquery_full}}. To create a service instance, see [Getting started with IBM Cloud Data Engine](/docs/sql-query).
-
-   {{site.data.keyword.cos_full_notm}} offers Lite (free) and Standard pricing plans. If you are using the Lite plan, you will not be able to perform tasks that are available with the Standard plan, such as creating tables or using SQL queries. Instead, see [Viewing generated flow log object files from the {{site.data.keyword.cos_short}} bucket](/docs/vpc?topic=vpc-fl-analyze&interface=ui#alternative-method) and alternative methods documented in the following procedures.
-   {: note}
-
-1. Launch {{site.data.keyword.sqlquery_full}}.
-1. Start querying flow logs from the bucket that you specified when [Creating a flow log collector](/docs/vpc?topic=vpc-ordering-flow-log-collector).
-
-   To view the most frequent flow object, run the following query:
-
-   ```json
-   SELECT * FROM cos://<region>/<bucket>/ibm_vpc_flowlogs_v1/ STORED AS JSON ORDER BY `stream-id` LIMIT 1 INTO cos://<region>/<target_bucket>/result/ STORED AS JSON
-   ```
-   {: pre}
-
-   Where:
-
-   * **bucket** - The bucket where your flow logs are stored.
-   * **region** - The [region alias](/docs/sql-query#endpoints) of the bucket that holds your flow logs.
-   * **target_bucket** - A bucket that is different from the bucket where your flow logs are stored. It is recommended to use the target location that was created by {{site.data.keyword.sqlquery_full}}.
-
-      You can find the **Target location** listed under the query editor field in the IBM SQL Query UI.
-      {: note}
-
-1. Use the preview to inspect the content of the object.
-1. Refine your query to analyze specific aspects of your flow logs by using [SQL](/docs/sql-query?topic=sql-query-sql-reference "SQL Query Language Reference").
-
-Flow logs are periodically written to {{site.data.keyword.cos_full}} about every 5 minutes. Flow logs are published more frequently in cases where the flow log collector reaches 100 KB flows.
-{: note}
+IBM Cloud Data Engine is depreciated and will no longer be supported after 19 January 2025. If you currently use existing instances of Data Engine, it is recommended that you [migrate your worloads to IBM Analytics Engine](/docs/sql-query?topic=sql-query-deprecation#migrate-analytics-engine).
+{: deprecated}
 
 ## Flow log data format
 {: #flow-log-data-format}
