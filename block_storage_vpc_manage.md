@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-07-22"
+lastupdated: "2024-08-07"
 
 keywords:
 
@@ -178,7 +178,7 @@ Unattached iops update supported       false
 Busy                                   false
 Tags                                   -
 ```
-{: screen}
+{: screen}<
 
 ### Updating a volume attachment from the CLI
 {: #update-vol-attachment-cli}
