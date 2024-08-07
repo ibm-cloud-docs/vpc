@@ -178,7 +178,7 @@ Unattached iops update supported       false
 Busy                                   false
 Tags                                   -
 ```
-{: screen}<
+{: screen}
 
 ### Updating a volume attachment from the CLI
 {: #update-vol-attachment-cli}
