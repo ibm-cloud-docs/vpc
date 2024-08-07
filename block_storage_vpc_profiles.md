@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-08-06"
+lastupdated: "2024-08-07"
 
 keywords: Block Storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
@@ -137,8 +137,7 @@ Name              Family
 general-purpose   tiered   
 5iops-tier        tiered   
 10iops-tier       tiered   
-custom            custom  
-
+custom            custom
 ```
 {: codeblock}
 

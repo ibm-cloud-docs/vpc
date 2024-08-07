@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-08-06"
+lastupdated: "2024-08-07"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -44,8 +44,7 @@ For an existing instance, you can increase its boot volume capacity by selecting
 
 3. In the boot volume details, click the **Size** pencil icon. Alternatively, select **Expand volume** from the Actions menu ![Actions icon](../icons/action-menu-icon.svg "Actions").
 
-4. In the side panel, increase the boot volume size in the **Create size** field. The size must be more than the current size up to 250 GB. 
-   
+4. In the side panel, increase the boot volume size in the **Create size** field. The size must be more than the current size up to 250 GB.
    
 5. Click **Expand boot volume size**.
 
