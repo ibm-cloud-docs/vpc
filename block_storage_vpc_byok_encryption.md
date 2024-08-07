@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-07-22"
+lastupdated: "2024-08-07"
 
 keywords: Block Storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, Block Storage for vpc, customer-managed encryption,
 
@@ -265,7 +265,7 @@ The following `BOOT_VOLUME_JSON_FILE` example defines the properties of the boot
 ```
 {: screen}
 
-The `VOLUME_ATTACH_JSON_FILE` example defines a general-purpose data volume with customer-managed encryption.
+The following `VOLUME_ATTACH_JSON_FILE` example defines a data volume with the 10iops-tier profile and customer-managed encryption.
 
 ```json
    {  
@@ -273,7 +273,7 @@ The `VOLUME_ATTACH_JSON_FILE` example defines a general-purpose data volume with
       "volume":{  
          "name":"data-volume-1",
          "capacity":2000,
-         "profile":{"name":"general-purpose"},
+         "profile":{"name":"10iops-tier"},
          "encryption_key":{"crn":"crn:[...key:...]"}
       },
       "delete_volume_on_instance_delete":true
