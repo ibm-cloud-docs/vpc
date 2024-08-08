@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-07-29"
+lastupdated: "2024-08-08"
 
 keywords:
 
@@ -24,7 +24,7 @@ Rules are _stateful_. To have _stateful_ rules means when you create a rule that
 
 Security groups are scoped to a single VPC. This scoping implies that a security group can be attached to any security group target within the same VPC. You can set up a security group rule to allow traffic between all members of a security group.
 
-When you create a new security group, it is assigned a default security group. You can modify the default security group settings and the rules of individual security groups.
+When you create a VPC, it is assigned a default security group. You can modify the default security group settings and the rules of individual security groups.
 
 When you create a resource that uses a security group and don't specify a security group, the resource's primary network interface is attached to the _default_ security group of that resource's VPC.
 {: note}
