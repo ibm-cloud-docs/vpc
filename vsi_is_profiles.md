@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-07-25"
+lastupdated: "2024-08-08"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -505,7 +505,7 @@ The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_i
 
 [Select availability]{: tag-green}
 
-The following profiles support secure boot, SGX and TDX.
+The following profiles support secure boot and SGX.
 
 For more information about confidential computing, see [Confidential computing with Intel Software Guard Extensions (SGX) for Virtual Servers for VPC](/docs/vpc?topic=vpc-about-sgx-vpc).
 
