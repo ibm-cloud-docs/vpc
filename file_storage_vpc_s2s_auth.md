@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-29"
+lastupdated: "2024-08-08"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -23,7 +23,7 @@ You can use the {{site.data.keyword.iamshort}} (IAM) to create or remove an auth
 
 In an authorization, the source service is the service that is granted access to the target service. The roles that you select define the level of access for the source service. The target service is the service that you are granting permission to be accessed by the source service based on the roles that you assign. Generally, a source service can be in the same account where the authorization is created or in another account. The target service is always in the account where the authorization is created. 
 
-To be able to create an encrypted file share with customer-managed CRKs, you need to establish service-to-service authorization between the File service and the Key Management Service of your choice. The instructions to create the service-to-service authorization are provided in this topic. For more information about using another account's CRK, see [Cross-account encryption for File Storage resources](/docs/vpc?topic=vpc-vpc-byok-cross-acct-key-file).
+To be able to create an encrypted file share with customer-managed CRKs, you need to establish service-to-service authorization between the File service and the Key Management Service of your choice. The instructions to create the service-to-service authorization are provided in this topic.
 
 For cross-region replication, you need to establish service-to-service authorizations and specify [user roles](/docs/account?topic=account-iam-service-roles-actions#is.share-roles). for the various File service instances in different VPCs. This authorization enables the File service in one VPC to interact with the File service of another VPC. Both VPCs must belong to the same account. Cross-account replication is not supported. For more information, see [Replication overview](/docs/vpc?topic=vpc-file-storage-replication).
 

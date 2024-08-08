@@ -2,7 +2,7 @@
 copyright:
   years: 2020, 2024
 
-lastupdated: "2024-05-30"
+lastupdated: "2024-08-07"
 
 keywords: dedicated host profiles, balanced, compute, memory, ultra high memory, generation 2, gen 2
 
@@ -53,7 +53,7 @@ The Balanced profile family of dedicated hosts on Intel&reg; x86-64 systems are 
 - *bx2* and *bx2d* profiles can be deployed on an Intel&reg; Xeon&reg; Gold 6248 Cascade Lake processor with 80 cores in a 4-socket configuration.
 - *bx3d* profiles are deployed on a custom Intel&reg; Xeon&reg; Platinum 8474C Sapphire Rapids processor with 96 cores in a 2-socket configuration.
 
-New 3rd generation profiles are available in the Dallas, London, Frankfurt, Washington DC, Toronto, Madrid, Sydney, Tokyo, and Osaka regions to create dedicated hosts on hardware that uses 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids).
+New 3rd generation profiles are available in the Dallas, London, Frankfurt, Toronto, and Madrid regions to create dedicated hosts on hardware that uses 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids).
 {: preview}
 
 The following Balanced profiles are available for dedicated hosts.
@@ -107,7 +107,7 @@ The Compute profile family of dedicated hosts on Intel&reg; x86-64 systems are d
 - *cx2* and *cx2d* profiles can be deployed on an Intel&reg; Xeon&reg; Gold 6248 Cascade Lake processor with 80 cores in a 4-socket configuration.
 - *cx3d* profiles are deployed on a custom Intel&reg; Xeon&reg; Platinum 8474C Sapphire Rapids processor with 96 cores in a 2-socket configuration.
 
-New 3rd generation profiles are available in the Dallas, London, Frankfurt, Washington DC, Toronto, Madrid, Sydney, Tokyo, and Osaka regions to create dedicated hosts on hardware that uses 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids).
+New 3rd generation profiles are available in the Dallas, London, Toronto, and Madrid regions to create dedicated hosts on hardware that uses 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids).
 {: preview}
 
 The following Compute profiles are available for dedicated hosts.
@@ -151,7 +151,7 @@ The Memory profile family of dedicated hosts on Intel&reg; x86-64 systems are de
 - *mx2* and *mx2d* profiles can be deployed on an Intel&reg; Xeon&reg; Gold 6248 Cascade Lake processor with 80 cores in a 4-socket configuration.
 - *mx3d* profiles are deployed on a custom Intel&reg; Xeon&reg; Platinum 8474C Sapphire Rapids processor with 96 cores in a 2-socket configuration.
 
-New 3rd generation profiles are available in the Dallas, London, Frankfurt, Washington DC, Toronto, Madrid, Sydney, Tokyo, and Osaka regions to create dedicated hosts on hardware that uses 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids).
+New 3rd generation profiles are available in the Dallas, London, Toronto, and Madrid regions to create dedicated hosts on hardware that uses 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids).
 {: preview}
 
 The following Memory profiles are available for dedicated hosts.
