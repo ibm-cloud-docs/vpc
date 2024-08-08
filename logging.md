@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-07-29"
+lastupdated: "2024-08-08"
 
 keywords: flow logs, ordering, logging, log analysis
 
@@ -78,7 +78,7 @@ As of 28 March 2024, the {{site.data.keyword.la_full_notm}} service is deprecate
 
 | Dallas (`us-south`) | Washington (`us-east`)  | Toronto (`ca-tor`) | Sao Paulo (`br-sao`) |
 |---------------------|-------------------------|-------------------|----------------------|
-| [No]{: tag-red} | [No]{: tag-red} | [No]{: tag-red} | [No]{: tag-red} |
+| [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
 {: caption="Regions where platform logs are sent in Americas locations" caption-side="top"}
 {: #lr-table-1}
 {: tab-title="Americas"}
@@ -88,7 +88,7 @@ As of 28 March 2024, the {{site.data.keyword.la_full_notm}} service is deprecate
 
 | Tokyo (`jp-tok`)    | Sydney (`au-syd`) |  Osaka (`jp-osa`) | 
 |---------------------|------------------|------------------|
-| [No]{: tag-red} | [Yes]{: tag-green} | [No]{: tag-red} | 
+| [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} | 
 {: caption="Regions where platform logs are sent in Asia Pacific locations" caption-side="top"}
 {: #lr-table-2}
 {: tab-title="Asia Pacific"}
@@ -98,7 +98,7 @@ As of 28 March 2024, the {{site.data.keyword.la_full_notm}} service is deprecate
 
 | Frankfurt (`eu-de`)  | London (`eu-gb`) | Madrid (`eu-es`) |
 |---------------------------------------------------------------|---------------------|------------------|
-| [No]{: tag-red} | [No]{: tag-red} | [No]{: tag-red} |
+| [Yes]{: tag-green} | [Yes]{: tag-green} | [Yes]{: tag-green} |
 {: caption="Regions where platform logs are sent in Europe locations" caption-side="top"}
 {: #lr-table-3}
 {: tab-title="Europe"}
