@@ -50,7 +50,7 @@ When you create your storage volume, you can select from three predefined IOPS t
 | `10iops-tier` - Demanding storage workloads - Data intensive workloads created by NoSQL databases, data processing for video, machine learning, and analytics.| 10 IOPS/GB | 10 - 4,800 GB | 3,000 - 48,000 | 256 KB | 
 {: caption="Table 2. IOPS tier profiles and performance levels for each tier" caption-side="bottom"}
 
-Max IOPS for all tiered profiles starts at 3,000 IOPS. Max IOPS then increases, based on the storage tier and volume size, up to the Max IOPS in Table 2. While you can't customize the IOPS value of a volume with a tiered profile, you can change to another profile within the tiered family and adjust the IOPS that way if needed.
+Max IOPS for all tiered profiles starts at 3,000 IOPS. Max IOPS then increases, based on the storage tier and volume size, up to the Max IOPS in Table 2. While you can't customize the IOPS value of a volume with a tiered profile, you can change the volume to another tiered profile and adjust the IOPS that way.
 
 ### Custom IOPS profile
 {: #custom}
@@ -73,7 +73,7 @@ The following table shows the available IOPS ranges based on volume capacity for
 | 10,000 - 16,000  | 1,000 - 48,000 |
 {: caption="Table 3. Available IOPS based on volume size" caption-side="bottom"}
 
-If your application needs more IOPS and throughput, you can increase the volume size and specify new IOPS value in a higher range. Capacity and IOPS can be modified only when the volume is attached to a running instance.
+If your application needs more IOPS and throughput, you can increase the volume size and specify a new IOPS value in a higher range. Capacity and IOPS can be modified only when the volume is attached to a running instance.
 
 Moving volumes across volume-profiles that belong to different families is not allowed.
 {: restriction}
