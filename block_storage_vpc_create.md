@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-07-29"
+lastupdated: "2024-08-08"
 
 keywords: vpc Block Storage, provision Block Storage for vpc, bootable snapshots, create volume from snapshot, fast restore
 
@@ -44,9 +44,9 @@ Use the {{site.data.keyword.cloud_notm}} console to create a {{site.data.keyword
    1. You can specify optional user tags to associate with this volume. For more information about organizing resources with user tags, see [Working with tags](/docs/account?topic=account-tag&interface=ui).
    1. Select the encryption type. Provider-managed encryption is enabled by default on all volumes. You can also choose to create an envelop encryption with your own root keys. Encryption keys are created and maintained in Key Management Services ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}). For more information, see [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-encryption-prereqs).
    1. Click **Next**.
-   1. Select the storage profile. 
-      - Select [IOPS Tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) when you want to pick a predefined profile with flexible IOPS performance that falls within a general range in three performance tiers. 
-      - Select [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) if your performance requirements don't fall within any of the predefined IOPS tier.
+   1. Select the storage profile.
+      - For [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers), select the tile with the performance level that you require and specify the volume size in GBs. Volume sizes can be 10 - 16,000 GB. 
+      - For [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) IOPS, specify the size of your volume and IOPS range based on the size of the volume. As you type the IOPS value, the UI shows the acceptable range. You can also click the **storage size** link to see a table of size and IOPS ranges. For more information, see the [Custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#custom)
    1. Enter the volume size in GBs. Volume sizes can be 10 - 16,000 GB.
    1. If you selected a profile with custom IOPS, specify an IOPS value within range based on the storage size. For more information, see [Custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#custom).
    1. Click **Save**.
@@ -72,8 +72,8 @@ You can create a {{site.data.keyword.block_storage_is_short}} volume from an exi
    1. Select the encryption type. Provider-managed encryption is enabled by default on all volumes. You can also choose to create an envelop encryption with your own root keys. Encryption keys are created and maintained in Key Management Services ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}).
    1. Click **Next**.
    1. Select the storage profile. 
-      - Select [IOPS Tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) when you want to pick a predefined profile with flexible IOPS performance that falls within a general range in three performance tiers. 
-      - Select [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) if your performance requirements don't fall within any of the predefined IOPS tier.
+      - For [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers), select the tile with the performance level that you require and specify the volume size in GBs. Volume sizes can be 10 - 16,000 GB. 
+      - For [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) IOPS, specify the size of your volume and IOPS range based on the size of the volume. As you type the IOPS value, the UI shows the acceptable range. You can also click the **storage size** link to see a table of size and IOPS ranges. For more information, see the [Custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#custom
    1. Enter the volume size in GBs. Volume sizes can be 10 - 16,000 GB.
    1. If you selected a profile with custom IOPS, specify an IOPS value within range based on the storage size. For more information, see [Custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#custom).
    1. Click **Save**.

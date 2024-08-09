@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-06-14"
+lastupdated: "2024-08-09"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -66,7 +66,7 @@ The {{site.data.keyword.cloud}} file service provides a [Mount Helper utility](/
 
       When you run the command, replace the country code `US` with your two-digit country code in `'/C=US'`.
 
-      OpenSSL is an open source command-line toolkit that you can use to work with X.509 certificates, certificate signing requests (CSRs), and cryptographic keys. For more information, see [OpenSSL Documentation](https://www.openssl.org/docs/){: external}.
+      OpenSSL is an open source command-line toolkit that you can use to work with X.509 certificates, certificate signing requests (CSRs), and cryptographic keys. For more information, see [OpenSSL Documentation](https://docs.openssl.org/){: external}.
       {: note}
 
       If you're using a different software to create the CSR, you might be prompted to enter information about your location such as country code (C), state (ST), locality (L), your organization name (O), and organization unit (OU). Any one of these naming attributes can be used. Any other naming attributes, such as common name, are rejected. CSRs with Common Name specified are rejected because when you make the request to the Metadata API, the system applies instance ID values to the subject Common Name for the instance identity certificates. CSRs with extensions are also rejected.

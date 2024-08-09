@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-17"
+lastupdated: "2024-08-09"
 
 keywords: confidential computing, secure execution, logging for hyper protect virtual server for vpc
 
@@ -153,7 +153,7 @@ You can follow the following procedure to create the required certificates and k
 
 2. Create files used on the **server side** (the rsyslog server).
 
-   Prepare the `server.cnf` configuration file. It's important to set the `default_md` value to at least `sha256`. Make sure to fill in the correct information for the `dn` field. It's preferred to use a domain name for `CN` but an IP address works too. For more information, see the OpenSSL documentation on [Subject Alternative Name](https://www.openssl.org/docs/man1.0.2/man5/x509v3_config.html#Subject-Alternative-Name){: external}.
+   Prepare the `server.cnf` configuration file. It's important to set the `default_md` value to at least `sha256`. Make sure to fill in the correct information for the `dn` field. It's preferred to use a domain name for `CN` but an IP address works too. For more information, see the OpenSSL documentation on [Subject Alternative Name](https://docs.openssl.org/man1.0.2/man5/x509v3_config.html#Subject-Alternative-Name){: external}.
 
    Example that uses a hostname:
    ```toml
