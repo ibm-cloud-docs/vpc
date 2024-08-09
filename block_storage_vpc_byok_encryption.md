@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-08-07"
+lastupdated: "2024-08-09"
 
 keywords: Block Storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, Block Storage for vpc, customer-managed encryption,
 
@@ -51,7 +51,7 @@ This procedure explains how to specify customer-managed encryption when you crea
     - Apply backup policy: click **Apply** to see available policies and plans.
 1. In the **Profile** section, you can specify the performance profile of your volume, its IOPS, and capacity.
     - For [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers), select the tile with the performance level that you require and specify the volume size in GBs. Volume sizes can be 10 - 16,000 GB. 
-    - For [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) IOPS, specify the size of your volume and IOPS range based on the size of the volume. As you type the IOPS value, the UI shows the acceptable range. You can also click the **storage size** link to see a table of size and IOPS ranges. For more information, see the [Custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#custom).
+    - For [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) IOPS, specify the size of your volume and IOPS range based on the size of the volume. As you type the IOPS value, the UI shows the acceptable range. You can also click the **storage size** link to see the table that contains the size and IOPS ranges of the [custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#custom).
 1. In the **Encryption at rest** section, you can choose to keep the encryption with IBM-managed keys that is enabled by default on all volumes. Or you can choose to use [your own encryption key](/docs/vpc?topic=vpc-block-storage-vpc-encryption) by selecting your key management service: {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. To locate your encryption key, select one of the following options:
     - **Locate by Instance**:
        1. Select the data encryption instance from the list. If you don't have an instance yet, you can click the link to create one.
