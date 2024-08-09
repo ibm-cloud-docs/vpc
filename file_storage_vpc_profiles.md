@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-06-14"
+lastupdated: "2024-08-09"
 
 keywords: file storage, file share, performance, IOPS, block size, capacity, range
 
@@ -27,7 +27,7 @@ File shares that were created during the beta and limited availability phases wi
 
 Table 1 shows the dp2 profile performance levels compared to the earlier profiles.
 
-| Family   | Profile         | IOPS^1^    | IOPS per share | Max throughput^2^ | Share size   |
+| Family   | Profile         | IOPS[^tabletext1] | IOPS per share | Max throughput[^tabletext2]  | Share size   |
 |----------|-----------------|--------------:|---------------:|---------------------|-------------:|
 | `defined_performance`|`dp2`| 1-100 IOPS/GB |     100-96,000 |           1024 MB/s | 10-32,000 GB | 
 | `tiered` | `tier-3iops`    |     3 IOPS/GB |   3,000-96,000 |            670 MB/s | 10-32,000 GB | 
@@ -36,9 +36,8 @@ Table 1 shows the dp2 profile performance levels compared to the earlier profile
 | `custom` | `custom`        | 1-100 IOPS/GB |   3,000-48,000 |           1024 MB/s | 10-16,000 GB | 
 {: caption="Table 1. Comparison of file share profiles and performance levels." caption-side="top"}
 
-^1^ IOPS values are based on 16k I/O size.
-
-^2^ Baseline throughput is determined by the number of IOPS multiplied by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB or custom IOPS tiers. The higher the IOPS that you specify, the higher the throughput. Maximum throughput is 1024 MBps.
+[^tabletext1]: IOPS values are based on 16k I/O size.
+[^tabletext2]: Baseline throughput is determined by the number of IOPS multiplied by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB or custom IOPS tiers. The higher the IOPS that you specify, the higher the throughput. Maximum throughput is 1024 MBps.
 
 The application I/O size directly impacts storage performance. If the application I/O size is smaller than the throughput multiplier that is used by the profile to calculate the bandwidth, the IOPS limit is reached before the throughput limit. Conversely, if the application I/O size is larger, the throughput limit is reached before the IOPS limit.
 

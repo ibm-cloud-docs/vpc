@@ -25,7 +25,7 @@ When you create a Block Storage volume, you can select between two types of prof
 
 The following table shows the available storage profiles with their different properties.
 
-| Profile family | Profile name      | IOPS[^tabletext1]     | IOPS per volume| Max throughput[^tabletext2] | Volume size (GB)|   
+| Family         | Profile           | IOPS[^tabletext1]| IOPS per volume | Max throughput[^tabletext2]  | Volume size (GB)| 
 |----------------|-------------------|----------------:|---------------:|---------------:|---------------:|
 | `tiered`       | `general-purpose` | 3 IOPS/GB       | 3,000 - 48,000 | 670 MBps       | 10 GB - 16,000 | 
 | `tiered`       | `5iops-tier`      | 5 IOPS/GB       | 3,000 - 48,000 | 768 MBps       | 10 GB - 9,600  | 
@@ -43,9 +43,9 @@ IOPS values are based on 16k I/O size. Baseline throughput is determined by the 
 
 When you create your storage volume, you can select from three predefined IOPS tiers. Choose the profile that provides optimal performance for your Compute workloads. Table 2 describes the IOPS performance that you can expect for each tier.
 
-|  Name and purpose | IOPS rate	| Capacity range (GB)	| IOPS range	| I/O size |
-|-------------------|------------:|----------------------:|-------------------:|----------:|
-| `general-purpose` - Workloads that host small databases for web applications or store virtual machine disk images for a hypervisor. | 3 IOPS/GB  | 10 -	16,000 | 3,000	- 48,000 | 16 KB |
+| Name and purpose | IOPS rate	| Capacity (GB)	| IOPS range	| I/O size  |
+|------------------|------------:|----------------:|-------------:|----------:|
+| `general-purpose` - Workloads that host small databases for web applications or store virtual machine disk images for a hypervisor. | 3 IOPS/GB  | 10 - 16,000 | 3,000	- 48,000 | 16 KB |
 | `5iops-tier` - High I/O intensity workloads - Workloads characterized by a large percentage of active data, such as transactional and other performance-sensitive databases.| 5 IOPS/GB | 10 - 9,600 | 3,000 - 48,000 | 16 KB |
 | `10iops-tier` - Demanding storage workloads - Data intensive workloads created by NoSQL databases, data processing for video, machine learning, and analytics. Bandwidth limits are calculated by using a 256 KB block size.| 10 IOPS/GB | 10 - 4,800 | 3,000 - 48,000 | 256 KB | 
 {: caption="Table 2. IOPS tier profiles and performance levels for each tier" caption-side="bottom"}
@@ -74,8 +74,6 @@ The following table shows the available IOPS ranges based on volume capacity for
 {: caption="Table 3. Available IOPS based on volume size" caption-side="bottom"}
 
 If your application needs more IOPS and throughput, you can increase the volume size and specify new IOPS value in a higher range. Capacity and IOPS can be modified only when the volume is attached to a running instance.
-
-
 
 Moving volumes across volume-profiles that belong to different families is not allowed.
 {: restriction}
@@ -126,7 +124,7 @@ You can view available IOPS profiles by using the {{site.data.keyword.cloud_notm
 
 When you [create a Block Storage volume in the {{site.data.keyword.cloud_notm}} console](/docs/vpc?topic=vpc-creating-block-storage), you can see the available profiles on two tabs. 
 - For [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers), you can see 3 tiles with the different performance levels. Select the one that best suits your needs. 
-- For [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) IOPS, you can specify the size of your volume and IOPS range based on the size of the volume. As you type the IOPS value, the console shows the acceptable range. You can also click the **storage size** link to see Table 3.
+- For [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) IOPS, you can specify the size of your volume and IOPS range based on the size of the volume. As you type the IOPS value, the console shows the acceptable range. You can also click the **storage size** link to see [Table 3](#custom).
 
 ### From the CLI
 {: #using-cli-iops-profiles}
