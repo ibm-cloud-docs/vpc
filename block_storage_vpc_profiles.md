@@ -21,9 +21,9 @@ When you provision {{site.data.keyword.block_storage_is_short}} volumes by using
 ## Block Storage profile families
 {: #block-storage-profile-overview}
 
-When you create a Block Storage volume, you can select between numerous profiles. 
-- Select a profile from the tiered profile family when you want to pick a profile with a predefined performance range. 
-- Select the profile from the custom profile family if your performance requirements don't fall within any of the predefined IOPS tiers. When you select the custom profile, you can define your IOPS within a range that depends on the capacity that you specified.
+When you create a Block Storage volume, you can select from various profiles. 
+- Select a profile from the _tiered_ profile family when you want to pick a profile with a predefined performance range. 
+- Select the profile from the _custom_ profile family if your performance requirements don't fall within any of the predefined IOPS tiers. When you select the custom profile, you can define your IOPS within a range that depends on the capacity that you specified.
 
 The following table shows the available storage profiles with their different properties.
 
