@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-07-22"
+lastupdated: "2024-08-09"
 
 keywords: bare metal servers, managing, operation, manage bare metal server, manage bare metal, manage server, restart bare metal, stop bare metal, delete bare metal, reboot bare metal, restart server, stop server, delete server
 
@@ -205,7 +205,7 @@ Specify the following variables to be used when reinitializing the bare metal se
 - `KEYS` specifies the SSH keys
 - `DATA` specifies any optional user data
 
-For a full list of command options, see [ibmcloud is bare-metal-server-initialization-replace](/docs/vpc?topic=vpc-vpc-reference#bare-metal-server-initialization-replace).
+For a full list of command options, see [ibmcloud is bare-metal-server-initialization-replace](/docs/vpc?topic=vpc-vpc-reference#bare-metal-server-initialization-replace-view).
 
 ### Updating the firmware for a bare metal server by using the CLI
 {: #update-firmware-bare-metal-servers-cli}
