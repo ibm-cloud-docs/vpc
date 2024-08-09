@@ -21,7 +21,9 @@ When you provision {{site.data.keyword.block_storage_is_short}} volumes by using
 ## Block Storage profile families
 {: #block-storage-profile-overview}
 
-When you create a Block Storage volume, you can select between two types of profiles: custom and tiered. Select a profile from the tiered profile family when you want to pick a profile with a predefined performance range. Select the profile from the custom profile family if your performance requirements don't fall within any of the predefined IOPS tiers. When you select the custom profile, you can define your IOPS within a range that depends on the capacity that you specified.
+When you create a Block Storage volume, you can select between numerous profiles. 
+- Select a profile from the tiered profile family when you want to pick a profile with a predefined performance range. 
+- Select the profile from the custom profile family if your performance requirements don't fall within any of the predefined IOPS tiers. When you select the custom profile, you can define your IOPS within a range that depends on the capacity that you specified.
 
 The following table shows the available storage profiles with their different properties.
 
@@ -59,7 +61,7 @@ Custom IOPS is a good option when you have well-defined performance requirements
 
 The following table shows the available IOPS ranges based on volume capacity for the custom profile. 
 
-| Volume size (GB) | IOPS range    |
+| Volume capacity (GB) | IOPS range    |
 |------------------|---------------|
 | 10 -39           | 100 - 1,000   |
 | 40 - 79          | 100 - 2,000   |
@@ -214,8 +216,8 @@ For more information about this method, see the API reference for [listing all v
 ## Next Steps
 {: #profile-next-steps}
 
-To expand volume capacity, see [expanding Block Storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
+For more information about how to expand volume capacity, see [expanding Block Storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 
-To [change the IOPS tier or Custom IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops) for an existing volume that is attached to a virtual server instance.
+For more information about how to change the IOPS tier or Custom IOPS for an existing volume, see [Adjusting IOPS of a Block Storage for VPC volume](/docs/vpc?topic=vpc-adjusting-volume-iops).
 
-For more information about Balanced, Compute, and Memory profiles for {{site.data.keyword.vsi_is_short}}, see [Profiles](/docs/vpc?topic=vpc-profiles).
+For more information about Balanced, Compute, and Memory profiles for {{site.data.keyword.vsi_is_short}}, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles).
