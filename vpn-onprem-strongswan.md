@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-06-20"
+lastupdated: "2024-08-12"
 
 keywords: strongswan peer
 
@@ -41,6 +41,7 @@ To support these functions, the following general configuration steps must be pe
 {: #strongswan-config-policy-based}
 
 Use the following configuration:
+
 1. Choose `IKEv2` in authentication.
 1. Enable `DH-group 2` in the Phase 1 proposal.
 1. Set `lifetime = 36000` in the Phase 1 proposal.
@@ -91,3 +92,104 @@ Use the following configuration:
 
    ```
    {: pre}
+   
+## Setting up a route-based configuration for strongSwan
+{: #route-based-configuration-strongswan}   
+   
+The following example configuration shows how to set up two route-based tunnels between the strongSwan and VPN for VPC.
+ 
+1. To enable ipforwarding, enter the following command:
+
+   ```sh
+   sudo sysctl -w net.ipv4.conf.all.forwarding=1
+   ```
+   {: pre}
+   
+1. Create a file named `/etc/strongswan.d/charon-no-route-install.conf` and add the following content:
+
+   ```sh
+   charon {
+         install_routes = no
+   }
+   ```
+   {: pre}
+   
+   
+1. To configure the VPN connection, update the `/etc/ipsec.abc.conf` file. In the following example, the VPN gateway has 2 public IPs (`135.90.134.86`, `135.90.134.87`), the strongSwan server IP is `169.59.212.125`, and two connections are created, where the `leftid` is the public IP of the strongSwan server; the `right`, `rightid` is the VPC VPN public IP.
+
+   ```sh
+   conn peer_135.90.134.86
+ 	 keyexchange=ikev2
+   left=%any
+	 leftid=169.59.212.125
+	 leftsubnet=0.0.0.0/0
+	 rightsubnet=0.0.0.0/0
+	 right=135.90.134.86
+	 rightid=135.90.134.86
+	 auto=start
+	 ike=aes256-aes192-aes128-sha512-sha384-sha256-modp2048s256-modp2048s224-modp1024s160-ecp521-ecp384-ecp256-modp8192-modp6144-modp4096-modp3072-modp2048-x25519!
+	 ikelifetime=36000s
+	 esp=aes256gcm16-aes192gcm16-aes128gcm16,aes256-aes192-aes128-sha512-sha384-sha256!
+	 lifetime=10800s
+	 type=tunnel
+	 leftauth=psk
+	 rightauth=psk
+	 dpdaction = restart
+	 dpddelay = 10s
+	 mark = 1
+   conn peer_135.90.134.87
+ 	 keyexchange=ikev2
+	 left=%any
+	 leftid=169.59.212.125
+	 leftsubnet=0.0.0.0/0
+	 rightsubnet=0.0.0.0/0
+	 right=135.90.134.87
+	 rightid=135.90.134.87
+	 auto=start
+	 ike=aes256-aes192-aes128-sha512-sha384-sha256-modp2048s256-modp2048s224-modp1024s160-ecp521-ecp384-ecp256-modp8192-modp6144-modp4096-modp3072-modp2048-x25519!
+	 ikelifetime=36000s
+	 esp=aes256gcm16-aes192gcm16-aes128gcm16,aes256-aes192-aes128-sha512-sha384-sha256!
+	 lifetime=10800s
+	 type=tunnel
+	 leftauth=psk
+	 rightauth=psk
+	 dpdaction = restart
+	 dpddelay = 10s
+	 mark = 2
+   ```
+   {: codeblock}
+  
+1. Set the preshared key in the `/etc/ipsec.secrets` file and replace `******` to the real preshared key value:
+
+   ```sh
+   169.59.212.125 135.90.134.86 : PSK "******"
+   169.59.212.125 135.90.134.86 : PSK "******"
+   ```
+   {: pre}
+   
+1. Create virtual interfaces on the server and up it. In this example, replace `mark_num` with the value of `mark` defined in step 3. The `local_ip` is the **private IP** of the strongSwan server, and the `remote_ip` is the public IP of the VPC VPN public IP addresses.
+
+   ```sh
+   # sample: sudo ip tunnel add vti<mark_num> local <local_ip> remote <remote_ip> mode vti key <mark_num>
+   sudo ip tunnel add vti1 local 10.240.2.11 remote 135.90.134.86 mode vti key 1
+   sudo ip tunnel add vti1 local 10.240.2.11 remote 135.90.134.87 mode vti key 2
+   sudo ip link set vti1 up
+   sudo ip link set vti2 up  
+   ```
+   {: pre}
+   
+1. Add a route on the strongSwan server. In this example, `10.240.0.0/24` is the subnet of VPC VPN to connect and the VTI names are the VTI names from step 5.
+
+   ```sh
+   sudo ip route add 10.240.0.0/24 proto static nexthop dev vti1 nexthop dev vti2
+   ```
+   {: pre}
+  
+1. After the configuration file finishes running, restart the strongSwan VPN.
+
+   ```sh
+   ipsec restart
+   ```
+   {: pre}
+
+   
