@@ -119,43 +119,43 @@ The following example configuration shows how to set up two route-based tunnels 
 
    ```sh
    conn peer_135.90.134.86
- 	 keyexchange=ikev2
-   left=%any
-	 leftid=169.59.212.125
-	 leftsubnet=0.0.0.0/0
-	 rightsubnet=0.0.0.0/0
-	 right=135.90.134.86
-	 rightid=135.90.134.86
-	 auto=start
-	 ike=aes256-aes192-aes128-sha512-sha384-sha256-modp2048s256-modp2048s224-modp1024s160-ecp521-ecp384-ecp256-modp8192-modp6144-modp4096-modp3072-modp2048-x25519!
-	 ikelifetime=36000s
-	 esp=aes256gcm16-aes192gcm16-aes128gcm16,aes256-aes192-aes128-sha512-sha384-sha256!
-	 lifetime=10800s
-	 type=tunnel
-	 leftauth=psk
-	 rightauth=psk
-	 dpdaction = restart
-	 dpddelay = 10s
-	 mark = 1
+     keyexchange=ikev2
+     left=%any
+     leftid=169.59.212.125
+     leftsubnet=0.0.0.0/0
+     rightsubnet=0.0.0.0/0
+     right=135.90.134.86
+     rightid=135.90.134.86
+     auto=start
+     ike=aes256-aes192-aes128-sha512-sha384-sha256-modp2048s256-modp2048s224-modp1024s160-ecp521-ecp384-ecp256-modp8192-modp6144-modp4096-modp3072-modp2048-x25519!
+     ikelifetime=36000s
+     esp=aes256gcm16-aes192gcm16-aes128gcm16,aes256-aes192-aes128-sha512-sha384-sha256!
+     lifetime=10800s
+     type=tunnel
+     leftauth=psk
+     rightauth=psk
+     dpdaction = restart
+     dpddelay = 10s
+     mark = 1
    conn peer_135.90.134.87
- 	 keyexchange=ikev2
-	 left=%any
-	 leftid=169.59.212.125
-	 leftsubnet=0.0.0.0/0
-	 rightsubnet=0.0.0.0/0
-	 right=135.90.134.87
-	 rightid=135.90.134.87
-	 auto=start
-	 ike=aes256-aes192-aes128-sha512-sha384-sha256-modp2048s256-modp2048s224-modp1024s160-ecp521-ecp384-ecp256-modp8192-modp6144-modp4096-modp3072-modp2048-x25519!
-	 ikelifetime=36000s
-	 esp=aes256gcm16-aes192gcm16-aes128gcm16,aes256-aes192-aes128-sha512-sha384-sha256!
-	 lifetime=10800s
-	 type=tunnel
-	 leftauth=psk
-	 rightauth=psk
-	 dpdaction = restart
-	 dpddelay = 10s
-	 mark = 2
+     keyexchange=ikev2
+     left=%any
+     leftid=169.59.212.125
+     leftsubnet=0.0.0.0/0
+     rightsubnet=0.0.0.0/0
+     right=135.90.134.87
+     rightid=135.90.134.87
+     auto=start
+     ike=aes256-aes192-aes128-sha512-sha384-sha256-modp2048s256-modp2048s224-modp1024s160-ecp521-ecp384-ecp256-modp8192-modp6144-modp4096-modp3072-modp2048-x25519!
+     ikelifetime=36000s
+     esp=aes256gcm16-aes192gcm16-aes128gcm16,aes256-aes192-aes128-sha512-sha384-sha256!
+     lifetime=10800s
+     type=tunnel
+     leftauth=psk
+     rightauth=psk
+     dpdaction = restart
+     dpddelay = 10s
+     mark = 2
    ```
    {: codeblock}
   
