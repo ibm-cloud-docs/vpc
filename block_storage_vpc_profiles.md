@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-08-09"
+lastupdated: "2024-08-12"
 
 keywords: Block Storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # {{site.data.keyword.block_storage_is_short}} profiles
 {: #block-storage-profiles}
 
-When you provision {{site.data.keyword.block_storage_is_short}} volumes by using the {{site.data.keyword.cloud_notm}} console, CLI, API, or Terraform you specify an IOPS profile that best meets your storage requirements. Profiles are generally available as three predefined IOPS levels or with custom IOPS. IOPS tiers provide reliable IOPS/GB performance for volumes up to 16,000 GB capacity. With a custom profile, you can specify your own IOPS value in a range that is appropriate for your selected volume capacity.
+When you provision {{site.data.keyword.block_storage_is_short}} volumes by using the {{site.data.keyword.cloud_notm}} console, CLI, API, or Terraform you specify a volume profile that best meets your storage requirements. Profiles are generally available as three predefined IOPS levels or with custom IOPS. The volume profiles from the _tiered_ family provide reliable IOPS/GB performance for volumes up to 16,000 GB capacity. With a _custom_ volume profile, you can specify your own IOPS value in a range that is appropriate for your selected volume capacity.
 {: shortdesc}
 
 ## Block Storage profile families
@@ -40,7 +40,10 @@ The following table shows the available storage profiles with their different pr
 
 IOPS values are based on 16k I/O size. Baseline throughput is determined by the number of IOPS multiplied by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB or custom IOPS tiers. The higher the IOPS that you specify, the higher the throughput the volume can handle. Maximum throughput is 1024 MBps.
 
-### Tiered IOPS profiles
+Moving volumes across volume-profiles that belong to different families is not allowed.
+{: restriction}
+
+### Tiered volume profiles
 {: #tiers}
 
 When you create your storage volume, you can select from three predefined IOPS tiers. Choose the profile that provides optimal performance for your Compute workloads. Table 2 describes the IOPS performance that you can expect for each tier.
@@ -52,9 +55,9 @@ When you create your storage volume, you can select from three predefined IOPS t
 | `10iops-tier` - Demanding storage workloads - Data intensive workloads created by NoSQL databases, data processing for video, machine learning, and analytics.| 10 IOPS/GB | 10 - 4,800 GB | 3,000 - 48,000 | 256 KB | 
 {: caption="Table 2. IOPS tier profiles and performance levels for each tier" caption-side="bottom"}
 
-Max IOPS for all tiered profiles starts at 3,000 IOPS. Max IOPS then increases, based on the storage tier and volume size, up to the Max IOPS in Table 2. While you can't customize the IOPS value of a volume with a tiered profile, you can change the volume to another tiered profile and adjust the IOPS that way.
+Max IOPS for all volume profiles from the _tiered_ family starts at 3,000 IOPS. Max IOPS then increases, based on the storage tier and volume size, up to the Max IOPS in Table 2. While you can't customize the IOPS value of a volume with a tiered profile, you can change the volume to another tiered profile and adjust the IOPS that way.
 
-### Custom IOPS profile
+### Custom volume profile
 {: #custom}
 
 Custom IOPS is a good option when you have well-defined performance requirements that do not fall within a predefined IOPS tier. You can customize the IOPS by specifying the total IOPS for the volume within the range for its volume size. You can provision volumes with IOPS performance from 100 IOPS to 48,000 IOPS, based on volume size.
@@ -77,27 +80,24 @@ The following table shows the available IOPS ranges based on volume capacity for
 
 If your application needs more IOPS and throughput, you can increase the volume size and specify a new IOPS value in a higher range. Capacity and IOPS can be modified only when the volume is attached to a running instance.
 
-Moving volumes across volume-profiles that belong to different families is not allowed.
-{: restriction}
-
 ## Profiles for boot volumes
 {: #vsi-profiles-boot}
 
-By default, boot volumes are created with the `general-purpose` IOPS profile with 100 GB capacity during instance provisioning. [Boot volume capacity](/docs/vpc?topic=vpc-resize-boot-volumes) can be increased by modifying the boot volume, up to 250 GB.
+By default, boot volumes are created with the `general-purpose` volume profile with 100 GB capacity during instance provisioning. [Boot volume capacity](/docs/vpc?topic=vpc-resize-boot-volumes) can be increased by modifying the boot volume, up to 250 GB.
 
-## How virtual server profiles relate to storage profiles
+## How virtual server profiles relate to volume profiles
 {: #vsi-profiles-relate-to-storage}
 
-Virtual server profiles are a combination of vCPU and RAM that can be instantiated quickly to start a virtual server instance. Select from [three families of profiles](/docs/vpc?topic=vpc-profiles#profiles) based on your workload requirements. These requirements can range from common workloads to CPU-intensive or memory-intensive workloads.
+Virtual server profiles are a combination of vCPU and RAM that can be instantiated quickly to start a virtual server instance. Select from [three families of instance profiles](/docs/vpc?topic=vpc-profiles#profiles) based on your workload requirements. These requirements can range from common workloads to CPU-intensive or memory-intensive workloads.
 
-Similarly, storage profiles provide a range of capacity and performance for secondary volumes. By default, a 100 GB primary boot volume is created when you create a virtual server instance. You can also create and attach secondary volumes. When you create a data volume as part of instance creation, you can select a storage profile that best meets your storage requirements for your Compute workloads. In general, as your Compute requirements increase, you need higher IOPS performance. Table 4 shows this relationship.
+Similarly, volume profiles provide a range of capacity and performance for secondary volumes. By default, a 100 GB primary boot volume is created when you create a virtual server instance. You can also create and attach secondary volumes. When you create a data volume as part of instance creation, you can select a volume profile that best meets your storage requirements for your Compute workloads. In general, as your Compute requirements increase, you need higher IOPS performance. Table 4 shows this relationship.
 
 | IOPS tier storage profile | Virtual server profile                                             |
 |-----------------|------------------------------------------------------------------------------|
 | 3 IOPS/GB       | [Balanced](/docs/vpc?topic=vpc-profiles#balanced) for common workloads.      |
 | 5 IOPS/GB       | [Compute](/docs/vpc?topic=vpc-profiles#compute) for intensive CPU demands.   |
 | 10 IOPS/GB      | [Memory](/docs/vpc?topic=vpc-profiles#memory) for memory-intensive workloads.|
-{: caption="Table 4. Relationship of Block Storage profiles to virtual server profiles" caption-side="top"}
+{: caption="Table 4. Relationship of Block Storage volume profiles to virtual server instance profiles" caption-side="top"}
 
 ## I/O size and performance
 {: #note-about-io-size}
@@ -115,10 +115,10 @@ The difference between GB and GiB lies in their numerical representation:
 
 To ensure transparency, please note that your provisioned storage and associated charges are calculated based on GiB. Rest assured that you receive the exact amount of storage you expect and are billed accurately for the GiB you use. For more information, see the [FAQs](/docs/vpc?topic=vpc-block-storage-vpc-faq#faq-storage-units).
 
-## Viewing available IOPS profiles
+## Viewing available volume profiles
 {: #view-iops-profiles}
 
-You can view available IOPS profiles by using the {{site.data.keyword.cloud_notm}} UI, CLI, API, or Terraform.
+You can view available volume profiles by using the {{site.data.keyword.cloud_notm}} UI, CLI, API, or Terraform.
 
 ### In the console
 {: #using-console-iops-profile}

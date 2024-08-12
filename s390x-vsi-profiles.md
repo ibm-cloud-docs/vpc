@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-11"
+lastupdated: "2024-08-12"
 
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, storage optimized
@@ -254,7 +254,7 @@ curl -X GET \
 ## Block Storage volume notes for profiles
 {: #vs-block-storage-notes-for-profiles}
 
-When you create secondary data volumes, you select a volume profile that best meets your requirements. Volume profiles are available as three predefined [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) or as a [custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#custom). These volume profiles relate to virtual server instance profiles:
+When you create secondary data volumes, you select a volume profile that best meets your requirements. Volume profiles are available as three predefined [tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) or as a [custom volume profile](/docs/vpc?topic=vpc-block-storage-profiles#custom). These volume profiles relate to virtual server instance profiles:
 
 * A [3 IOPS general-purpose tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers) provides IOPS/GB performance suitable for a virtual server instance Balanced profile.
 * A [5-IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) profile provides IOPS/GB performance suitable for a virtual server instance Compute profile.

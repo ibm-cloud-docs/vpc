@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-08-09"
+lastupdated: "2024-08-12"
 
 keywords: file storage, file share, performance, IOPS, block size, capacity, range
 
@@ -12,13 +12,13 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# {{site.data.keyword.filestorage_vpc_short}} profiles
+# {{site.data.keyword.filestorage_vpc_short}} profile
 {: #file-storage-profiles}
 
 When you provision {{site.data.keyword.filestorage_vpc_short}} file shares by using the {{site.data.keyword.cloud_notm}} console, CLI, or API, you specify capacity and performance within a file share profile. Available performance levels vary based on the file share size. All file shares are backed by solid-state drives (SSDs).
 {: shortdesc}
 
-## File Storage profiles overview
+## File Storage profile overview
 {: #file-storage-profile-overview}
 
 When you [create a file share](/docs/vpc?topic=vpc-file-storage-create), you select the share size and IOPS performance that is available, based on a file storage profile. All new file shares are created based on the high-performance [dp2](#dp2-profile) profile. 
@@ -87,7 +87,7 @@ Existing file shares can be based on IOPS tiers that you selected when you creat
 The total maximum IOPS is rounded up to the next multiple of 10 when the IOPS calculation results in IOPS less than or equal to 48,000 IOPS. The total maximum IOPS is rounded up to the next multiple of 100 for IOPS calculations that result in IOPS greater than 48,000 IOPS up to 96,000 IOPS.
 {: note}
 
-### Custom IOPS profile
+### Custom share profile
 {: #fs-custom}
 
 Custom IOPS profile specifies the total IOPS for the file share within the range for its size. File shares that use a custom IOPS profile can have an IOPS performance level in the range of 100-48000 IOPS.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-08-06"
+lastupdated: "2024-08-12"
 
 keywords:
 
@@ -29,7 +29,7 @@ Boot volumes are 100 GB by default. If you provision an instance from a custom i
 
 
 
-## Block Storage IOPS profiles
+## Block Storage volume profiles
 {: #iops-profiles}
 
 When you provision {{site.data.keyword.block_storage_is_short}} volumes, you specify an [IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles) that best meets your storage requirements. Three predefined tiered profiles are available, or you can choose a custom profile. [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) provide guaranteed IOPS/GB performance for volumes up to 16,000 GB capacity. A [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) profile defines ranges of volume capacity and IOPS that you can select. These profiles are backed by solid-state drives (SSDs).

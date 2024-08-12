@@ -413,7 +413,7 @@ For more information, see [Managing network interfaces](/docs/vpc?topic=vpc-usin
 ## Block Storage volume notes for profiles
 {: #block-storage-notes-for-profiles}
 
-When you create secondary data volumes, you select a volume profile that best meets your requirements. Volume profiles are available as three predefined [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) or as a [custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#custom). These volume profiles relate to virtual server instance profiles:
+When you create secondary data volumes, you select a volume profile that best meets your requirements. Volume profiles are available as three predefined [tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) or as a [custom profile](/docs/vpc?topic=vpc-block-storage-profiles#custom). These volume profiles relate to virtual server instance profiles:
 
 - A [3 IOPS general-purpose tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers) provides IOPS/GB performance that is suitable for a virtual server instance Balanced profile.
 - A [5-IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) profile provides IOPS/GB performance that is suitable for a virtual server instance Compute profile.

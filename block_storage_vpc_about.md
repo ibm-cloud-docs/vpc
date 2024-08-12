@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-07-22"
+lastupdated: "2024-08-12"
 
 keywords:
 
@@ -16,7 +16,7 @@ subcollection: vpc
 # About {{site.data.keyword.block_storage_is_short}}
 {: #block-storage-about}
 
-{{site.data.keyword.block_storage_is_full}} provides hypervisor-mounted, high-performance data storage for your virtual server instances that you can provision within an {{site.data.keyword.vpc_full}} (VPC). The [VPC infrastructure](/docs/vpc?topic=vpc-about-vpc) provides rapid scaling across zones and extra performance and security.
+{{site.data.keyword.block_storage_is_full}} provides high-performance data storage for your virtual server instances that you can provision within an {{site.data.keyword.vpc_full}} (VPC). The [VPC infrastructure](/docs/vpc?topic=vpc-about-vpc) provides rapid scaling across zones and extra performance and security.
 {: shortdesc}
 
 ## Overview
@@ -82,7 +82,7 @@ When you create and attach a data volume to a virtual server instance, you can l
 
 Data volumes are encrypted by default with IBM-managed encryption. You can also encrypt data volumes by using your own root keys.
 
-### {{site.data.keyword.block_storage_is_short}} IOPS profiles
+### {{site.data.keyword.block_storage_is_short}} volume profiles
 {: #block-storage-profiles-intro}
 
 When you create a {{site.data.keyword.block_storage_is_short}} volume in your availability zone, you can use 3 different tiered profiles with predefined IOPS levels. Or you can select a custom profile with which you can define your own IOPS level based on the volume capacity. All profiles are backed by solid-state drives (SSDs).
@@ -133,10 +133,10 @@ For more information about managing tags for your account, see [Working with tag
 
 For more information about monitoring security and compliance for VPC, see [Getting started with Security and Compliance Center](/docs/security-compliance?topic=security-compliance-getting-started). For more information about creating security and compliance goals, see [Defining rules](/docs/security-compliance?topic=security-compliance-rules-define&interface=ui) in the Security and Compliance documentation.
 
-## Cancelling your {{site.data.keyword.block_storage_is_short}}
+## Deleting your {{site.data.keyword.block_storage_is_short}}
 {: #vpc-cancel-storage}
 
-If you no longer need a volume, you can cancel it at any time. IBM [wipes all data](/docs/vpc?topic=vpc-managing-block-storage#block-storage-data-eradication) before the storage is reused. If you have extra compliance requirements such as NIST 800-88 Guidelines for Media Sanitization, you must perform data sanitation procedures before you delete your volumes. For more information, see [Sanitize your data before you delete a volume](/docs/vpc?topic=vpc-managing-block-storage#block-storage-sanitization).
+If you no longer need a volume, you can delete it at any time. IBM [wipes all data](/docs/vpc?topic=vpc-managing-block-storage#block-storage-data-eradication) before the storage is reused. If you have extra compliance requirements such as NIST 800-88 Guidelines for Media Sanitization, you must perform data sanitation procedures before you delete your volumes. For more information, see [Sanitize your data before you delete a volume](/docs/vpc?topic=vpc-managing-block-storage#block-storage-sanitization).
 
 ## Next steps
 {: #block-storage-about-next-steps}

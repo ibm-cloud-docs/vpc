@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-07-11"
+lastupdated: "2024-08-12"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -295,12 +295,12 @@ Input/output operations per second (IOPS) is used to measure the performance of 
 
 IOPS is enforced at the volume level.
 
-### What are IOPS profiles and how do they affect volume performance?
+### What are volume profiles and how do they affect volume performance?
 {: faq}
 {: #faq-block-storage-5}
 {: support}
 
-IOPS profiles define IOPS/GB performance for volumes of various capacities. You can select from three predefined [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) that offer reliable IOPS performance for your workload requirements. You can also define [custom IOPS](/docs/vpc?topic=vpc-block-storage-profiles#custom) and specify a range of IOPS for a volume size that you choose. Custom IOPS is a good option when you have well-defined performance requirements that do not fall within a predefined IOPS tier. If you choose a custom IOPS profile, also define a minimum and maximum range for the volume size.
+volume profiles define IOPS/GB performance for volumes of various capacities. You can select from three predefined [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) that offer reliable IOPS performance for your workload requirements. You can also define [custom IOPS](/docs/vpc?topic=vpc-block-storage-profiles#custom) and specify a range of IOPS for a volume size that you choose. Custom IOPS is a good option when you have well-defined performance requirements that do not fall within a predefined IOPS tier. If you choose a custom volume profile, also define a minimum and maximum range for the volume size.
 
 Maximum IOPS for data volumes varies based on volume size and the type of profile you select.
 

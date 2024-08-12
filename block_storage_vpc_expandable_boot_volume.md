@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-08-07"
+lastupdated: "2024-08-12"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Increasing capacity of a {{site.data.keyword.block_storage_is_short}} boot volume
 {: #resize-boot-volumes}
 
-For boot volumes that are attached to an instance, you can increase the capacity from the default 100 MB up to 250 MB during or after instance provisioning in the console, from the CLI, with the API, or Terraform.
+For boot volumes that are attached to an instance, you can increase the capacity from the default 100 GB up to 250 GB during or after instance provisioning in the console, from the CLI, with the API, or Terraform.
 {: shortdesc}
 
 

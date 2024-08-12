@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-17"
+lastupdated: "2024-08-12"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -99,7 +99,7 @@ From the list of {{site.data.keyword.block_storage_is_short}} snapshots, you can
    | - Zone | Inherited from the snapshot. |
    | - Auto-delete | Inherited from the snapshot. |
    | **Profile** | Defaults to the snapshot's IOPS tier or custom profile. You can change the profile. |
-   | - IOPS | For IOPS tiers, specify an IOPS tier profile. For custom IOPS, select a range. |
+   | - IOPS | For IOPS tiers, specify a profile from the tiered family. For custom IOPS, select a range. |
    | - Size | Enter a volume size allowed by the profile. The default is the minimum provisioning size based on the snapshot. |
    | **Encryption** | Inherited from the snapshot. If the encryption is provider-managed, you can change it to customer-managed encryption and select either {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. If the encryption is already customer-managed, you can choose a different key management service but you can't change to provider-managed encryption. |
    {: caption="Table 1. Create {{site.data.keyword.block_storage_is_short}} volume options." caption-side="bottom"}

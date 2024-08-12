@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-07-29"
+lastupdated: "2024-08-12"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -37,7 +37,7 @@ You can enable context-based restrictions (CBR) for all file share operations. T
 
 You can [increase the file share size](/docs/vpc?topic=vpc-file-storage-expand-capacity) from its original capacity in GB increments up to 32,000 GB capacity, depending on your file share profile. You can also [increase or decrease file share IOPS](/docs/vpc?topic=vpc-adjusting-share-iops) to meet your performance needs. Adjust IOPS by specifying a different IOPS tier profile or different IOPS value withing a custom IOPS band. Operations to increase the capacity or adjust the IOPS cause no outage or lack of access to the storage. Billing is adjusted automatically. You pay for only the capacity and performance that you need. 
 
-### File Storage IOPS profiles
+### File Storage profiles
 {: #fs-profiles-intro}
 
 When you create a file share in your availability zone, you use the **dp2** profile to specify the total IOPS for the file share based on the share size.

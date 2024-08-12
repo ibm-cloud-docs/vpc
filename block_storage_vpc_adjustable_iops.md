@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-08-06"
+lastupdated: "2024-08-12"
 
 keywords: Block Storage for VPC, boot volume, data volume, volume, data storage, virtual server instance, instance, adjustable volume, iops
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Adjusting IOPS of a {{site.data.keyword.block_storage_is_short}} volume
 {: #adjusting-volume-iops}
 
-For {{site.data.keyword.block_storage_is_full}} volumes that are attached to a virtual server instance, you can increase or decrease IOPS to meet your performance needs. Adjust IOPs by specifying a different IOPS tier profile or different IOPS value withing a custom IOPS band. The IOPS adjustment causes no outage or lack of access to the storage.
+For {{site.data.keyword.block_storage_is_full}} volumes that are attached to a virtual server instance, you can increase or decrease IOPS to meet your performance needs. Adjust IOPS by specifying a different profile from the tiered famil or a different IOPS value within a custom IOPS band. The IOPS adjustment causes no outage or lack of access to the storage.
 {: shortdesc}
 
 Billing for an updated volume is automatically updated. The prorated difference of the new price is added to the current billing cycle. The new full amount is then billed in the next billing cycle.
@@ -35,9 +35,9 @@ With this feature, you can:
 * Adjust IOPS within a [custom IOPS](/docs/vpc?topic=vpc-block-storage-profiles&interface=api#custom) band.
 * Adjust IOPS without having to detach the volume from the virtual server instance.
 
-The degree to which IOPS can be increased is determined by the maximum that is allowed by the volume's [IOPS tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers). You can adjust IOPS for an IOPS tier based on volume size or select the next profile that allows for increased performance.
+The degree to which IOPS can be increased is determined by the maximum that is allowed by the volume's [tiered profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers). You can adjust IOPS for an IOPS tier based on volume size or select the next profile that allows for increased performance.
 
-If you use a [Custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#custom), you can increase IOPS by specifying the next IOPS custom band. For example, for a volume 10 - 39 GB, you can increase custom IOPS to 1,000 IOPS by specifying a custom IOPS value. The IOPS range within a custom band is based on the volume size. If you later [increase the size of a volume](/docs/vpc?topic=vpc-expanding-block-storage-volumes), you can increase the IOPS again.
+If you use a [custom volume profile](/docs/vpc?topic=vpc-block-storage-profiles#custom), you can increase IOPS by specifying the next IOPS custom band. For example, for a volume 10 - 39 GB, you can increase custom IOPS to 1,000 IOPS by specifying a custom IOPS value. The IOPS range within a custom band is based on the volume size. If you later [increase the size of a volume](/docs/vpc?topic=vpc-expanding-block-storage-volumes), you can increase the IOPS again.
 
 To adjust a volume's IOPS, the volume must be in an _available_ state and the instance must be running. Your user authorization is verified before IOPS is adjusted.
 
@@ -60,10 +60,10 @@ The following limitations apply to this release.
 ### Volume and IOPS limitations
 {: #exp-vol-IOPS-limitations}
 
-* For a volume that was created by using an [IOPS tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers), select a different profile for the volume size to increase or decrease IOPS. If the volume size exceeds that of the new IOPS tier profile, you can't change the profile.
-* A [custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#custom) can expand to the highest value that is allowed by the custom band. You can't switch custom bands unless you increase the volume size and move to a higher band.
+* For a volume that was created with a [profile from the tiered family](/docs/vpc?topic=vpc-block-storage-profiles#tiers), select a different profile for the volume size to increase or decrease IOPS. If the volume size exceeds the maximum of the new tiered profile, you can't change the profile.
+* A [custom volume profile](/docs/vpc?topic=vpc-block-storage-profiles#custom) can expand to the highest value that is allowed by the custom band. You can't switch custom bands unless you increase the volume size and move to a higher band.
 * Custom IOPS can be adjusted multiple times until the maximum or minimum limit is reached.
-* The maximum IOPS for a volume with the `tier` and `custom` profiles is [48,000 IOPS](/docs/vpc?topic=vpc-block-storage-profiles#tiers).
+* The maximum IOPS for a volume with a profile within the _tiered_ or _custom_ volume profile families is [48,000 IOPS](/docs/vpc?topic=vpc-block-storage-profiles#tiers).
 
 ### Other limitations
 {: #exp-vols-additional-limitations}
@@ -118,7 +118,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 ### Adjust IOPS for a custom profile
 {: #adjust-iops-cli-block}
 
-From the CLI, use the `ibmcloud is volume-update` command with the `--iops` option to indicate the new IOPS size for a custom profile. The IOPS that you choose must be within the range for the size of the volume. For more information, see [Custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#custom).
+From the CLI, use the `ibmcloud is volume-update` command with the `--iops` option to indicate the new IOPS size for a custom profile. The IOPS that you choose must be within the range for the size of the volume. For more information, see [custom volume profile](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#custom).
 
 ```sh
 ibmcloud is volume-update VOLUME_ID --iops IOPS
@@ -202,7 +202,7 @@ You can adjust IOPS for existing data volumes by calling the Virtual Private Clo
 ### Adjust IOPS for a volume with the Custom profile
 {: #adjust-iops-api-block}
 
-Make a `PATCH /volumes` request and specify the `iops` parameter to adjust the IOPS within a custom IOPS profile band. 
+Make a `PATCH /volumes` request and specify the `iops` parameter to adjust the IOPS within a custom volume profile band. 
 
 You can't update the name of the volume and adjust IOPS in the same `PATCH /volumes` request. Make two `PATCH /volumes` requests.
 {: note}

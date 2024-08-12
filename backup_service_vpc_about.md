@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-22"
+lastupdated: "2024-08-12"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -155,7 +155,7 @@ You can create a separate volume from a backup snapshot. This process is called 
 
 A volume can be restored when you create an instance, modify an instance, or when you create a stand-alone volume. Volume data restoration begins immediately as the volume is hydrated, but [performance is degraded](/docs/vpc?topic=vpc-baas-vpc-restore&interface=ui#baas-performance-considerations) until the volume is fully restored. Restoring from a bootable snapshot is slower than using a regular boot volume.
 
-The restored volume has the same capacity and IOPS tier profile as the original volume. For more information, see [Restoring a volume from a backup snapshot](/docs/vpc?topic=vpc-baas-vpc-restore).
+The restored volume has the same capacity and volume profile as the original volume. For more information, see [Restoring a volume from a backup snapshot](/docs/vpc?topic=vpc-baas-vpc-restore).
 
 Restoring a virtual server instance directly from snapshot consistency group identifier is not supported. However, you can restore a virtual server instance by restoring all of its boot and data volumes from the snapshots that are part of a consistency group.
 
