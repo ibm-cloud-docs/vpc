@@ -98,7 +98,7 @@ Use the following configuration:
    
 The following example configuration shows how to set up two route-based tunnels between the strongSwan and VPN for VPC.
  
-1. To enable ipforwarding, enter the following command:
+1. To enable IP forwarding, enter the following command:
 
    ```sh
    sudo sysctl -w net.ipv4.conf.all.forwarding=1
