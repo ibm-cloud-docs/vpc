@@ -292,7 +292,7 @@ Device            -
 Auto delete       false   
 Created           2023-05-05T07:42:33+05:30   
 ```
-{: codeblock}
+{: screen}
 
 For more information, see [ibmcloud is instance-volume-attachment-add](/docs/vpc?topic=vpc-vpc-reference&interface=cli#instance-volume-attachment-add) in the CLI reference.
 

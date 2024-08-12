@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-06-20"
+lastupdated: "2024-08-12"
 
 keywords: strongswan peer
 
@@ -41,6 +41,7 @@ To support these functions, the following general configuration steps must be pe
 {: #strongswan-config-policy-based}
 
 Use the following configuration:
+
 1. Choose `IKEv2` in authentication.
 1. Enable `DH-group 2` in the Phase 1 proposal.
 1. Set `lifetime = 36000` in the Phase 1 proposal.
@@ -91,3 +92,4 @@ Use the following configuration:
 
    ```
    {: pre}
+
