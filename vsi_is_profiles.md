@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-08-08"
+lastupdated: "2024-08-12"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -171,7 +171,7 @@ The following table shows all compute profiles that are available for x86-64.
 | cx2-128x256 | 128 / 64 | 256 | 80 | - |
 | cx2d-128x256 | 128 / 64 | 256 | 80 | 2x2400 |
 {: caption="Table 4. Compute profile options for x86-64 instances" caption-side="bottom"}
-{: #compute-intel-x86-64}
+{: #compute-intel-x86-64b}
 {: tab-title="cx2"}
 {: tab-group="Compute"}
 {: class="simple-tab-table"}
@@ -229,7 +229,7 @@ Memory profiles with the mx2d prefix are available in the US South (Dallas), US 
 | mx2-128x1024| 128 / 64 | 1024 | 80 | - |
 | mx2d-128x1024| 128 / 64 | 1024 | 80 | 2x2400 |
 {: caption="Table 5. Memory mx2 profile options for x86-64 instances " caption-side="bottom"}
-{: #memory-intel-x86-64}
+{: #memory-intel-x86-64b}
 {: tab-title="mx2"}
 {: tab-group="Memory"}
 {: class="simple-tab-table"}
@@ -255,7 +255,7 @@ Very High Memory profiles offer 1 vCPU to 14 GiB of RAM to host small to medium-
 | vx2d-144x2016 | 144 | 72 | 2016 | 80 | 2x2160 |
 | vx2d-176x2464 | 176 | 88 | 2464 | 80 | 2x2640 |
 {: caption="Table 6. Very High Memory profiles options for x86-64 instances" caption-side="bottom"}
-{: #vhmemory-intel-x86-64}
+{: #vhmemory-intel-x86-64b}
 {: tab-title="vx2d"}
 {: tab-group="Very High Memory"}
 {: class="simple-tab-table"}
@@ -320,7 +320,7 @@ See [Download drivers](https://www.nvidia.com/Download/index.aspx?lang=en-us) to
 | gx2-32x256x2v100 | 32 / 16 | 256 | v100 / 2 | 64 | - |
 | gx2-80x1280x8a100 | 80 / 40 | 1280 | a100 / 8  | 200 | 4x3200 |
 {: caption="Table 8. GPU gx2 16 GB profile options for Intel x86-64 instances" caption-side="bottom"}
-{: #gpu-intel-x86-64}
+{: #gpu-intel-x86-64b}
 {: tab-title="gx2"}
 {: tab-group="GPU"}
 {: class="simple-tab-table"}
