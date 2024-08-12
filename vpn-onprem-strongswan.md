@@ -19,11 +19,12 @@ You can use IBM Cloud VPN for VPC to securely connect your VPC to an on-premises
 {: shortdesc}
 
 These instructions are based on Linux strongSwan U5.3.5/K4.4.0-133-generic.
-
-Read [VPN gateway limitations](/docs/vpc?topic=vpc-vpn-limitations) before continuing to connect to your on-premises peer.
 {: note}
 
-Go to the **/etc** directory and create a new custom tunnel configuration file with a name such as `ipsec.abc.conf`. Edit the `/etc/ipsec.conf` file to include the new `ipsec.abc.conf` file by adding the following line:
+Read [VPN gateway limitations](/docs/vpc?topic=vpc-vpn-limitations) before continuing to connect to your on-premises peer.
+{: important}
+
+Go to the **/etc** directory and create a new custom tunnel configuration file with a name (such as `ipsec.abc.conf`). Edit the `/etc/ipsec.conf` file to include the new `ipsec.abc.conf` file by adding the following line:
 
 ```sh
 include /etc/ipsec.abc.conf
@@ -47,7 +48,9 @@ Use the following configuration:
 1. Set `lifetime = 36000` in the Phase 1 proposal.
 1. Disable PFS in the Phase 2 proposal.
 1. Set `lifetime = 10800` in the Phase 2 proposal.
-1. Input your peers and subnets information in the Phase 2 proposal. In the following example, a connection is defined between the on-premises subnet `10.160.26.64/26` whose strongSwan VPN gateway has the IP address `169.45.74.119` and the VPC subnet `192.168.17.0/28` whose {{site.data.keyword.vpn_vpc_short}} gateway has the IP address `169.61.181.116`.
+1. Input your peers and subnets information in the Phase 2 proposal. 
+
+   The following example defines a connection between the on-premises subnet `10.160.26.64/26` (whose strongSwan VPN gateway has the IP address `169.45.74.119`) and the VPC subnet `192.168.17.0/28` (whose {{site.data.keyword.vpn_vpc_short}} gateway has the IP address `169.61.181.116`).
 
     ```sh
     vim /etc/ipsec.abc.conf
@@ -114,7 +117,7 @@ The following example configuration shows how to set up two route-based tunnels 
    ```
    {: pre}
 
-1. To configure the VPN connection, update the `/etc/ipsec.abc.conf` file. In the following example, the VPN gateway has two public IPs (`135.90.134.86`, `135.90.134.87`), the strongSwan server IP is `169.59.212.125`, and two connections are created. The `leftid` is the public IP of the strongSwan server; the `right`, `rightid` is the VPN gateway's public IP.
+1. To configure the VPN connection, update the `/etc/ipsec.abc.conf` file. In the following example, the VPN gateway has two public IPs (`135.90.134.86`, `135.90.134.87`). The strongSwan server IP is `169.59.212.125`. This configuration creates two connections. The `leftid` is the public IP of the strongSwan server, while the `right` and `rightid` represent the VPN gateway's public IP.
 
    ```sh
    conn peer_135.90.134.86
@@ -166,7 +169,7 @@ The following example configuration shows how to set up two route-based tunnels 
    ```
    {: pre}
 
-1. Create virtual interfaces on the server and set the VTI interface status to `up`. Replace `mark_num` with the value of `mark` defined in step 3. The `local_ip` is the **private IP** of the strongSwan server, and the `remote_ip` is the public IP of the VPN gateway's public IP addresses.
+1. Create virtual interfaces on the server and set the VTI interface status to `up`. Replace `mark_num` with the value of `mark` (as defined in step 3). The `local_ip` is the **private IP** of the strongSwan server, and the `remote_ip` is the **public IP** of the VPN gateway's public IP addresses.
 
    ```sh
    # sample: sudo ip tunnel add vti<mark_num> local <local_ip> remote <remote_ip> mode vti key <mark_num>
@@ -177,7 +180,7 @@ The following example configuration shows how to set up two route-based tunnels 
    ```
    {: pre}
 
-1. Add a route on the strongSwan server. In this example, `10.240.0.0/24` is the subnet of VPC VPN to connect and the VTI names are the VTI names from step 5.
+1. Add a route on the strongSwan server. In this example, `10.240.0.0/24` is the subnet of the VPN gateway to connect to and the VTI names are the VTI names from step 5.
 
    ```sh
    sudo ip route add 10.240.0.0/24 proto static nexthop dev vti1 nexthop dev vti2
