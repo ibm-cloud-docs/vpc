@@ -115,7 +115,7 @@ The following example configuration shows how to set up two route-based tunnels 
    {: pre}
    
    
-1. To configure the VPN connection, update the `/etc/ipsec.abc.conf` file. In the following example, the VPN gateway has 2 public IPs (`135.90.134.86`, `135.90.134.87`), the strongSwan server IP is `169.59.212.125`, and two connections are created, where the `leftid` is the public IP of the strongSwan server; the `right`, `rightid` is the VPC VPN public IP.
+1. To configure the VPN connection, update the `/etc/ipsec.abc.conf` file. In the following example, the VPN gateway has two public IPs (`135.90.134.86`, `135.90.134.87`), the strongSwan server IP is `169.59.212.125`, and two connections are created. The `leftid` is the public IP of the strongSwan server; the `right`, `rightid` is the VPC VPN public IP.
 
    ```sh
    conn peer_135.90.134.86
