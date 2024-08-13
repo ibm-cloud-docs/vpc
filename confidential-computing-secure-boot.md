@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-05-31"
+lastupdated: "2024-08-13"
 
 keywords: secure boot, secure boot for virtual servers
 
@@ -39,6 +39,10 @@ When you use a custom kernel or custom kernel modules, you must sign it with you
 
 ## Limitations
 {: #confidential-computing-secure-boot-limitations-vpc}
+
+Keep the following limitations in mind when you use secure boot.
+
+
 
 Secure boot does not provide protection in the following circumstances.
 
