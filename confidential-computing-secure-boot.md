@@ -42,8 +42,6 @@ When you use a custom kernel or custom kernel modules, you must sign it with you
 
 Keep the following limitations in mind when you use secure boot.
 
-
-
 Secure boot does not provide protection in the following circumstances.
 
 * Operating system-based attacks
