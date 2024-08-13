@@ -102,16 +102,6 @@ Similarly, volume profiles provide a range of capacity and performance for secon
 
 The application I/O size directly impacts storage performance. If the application I/O size is smaller than the throughput multiplier that is used by the profile to calculate the volume’s bandwidth limit, the IOPS limit is reached before the throughput limit. Conversely, if the application I/O size is larger, the throughput limit is reached before the IOPS limit. For more information, see [How I/O size affects performance](/docs/vpc?topic=vpc-capacity-performance#how-block-size-affects-performance).
 
-| Family         | Profile           | Max IOPS rate   | Max IOPS per volume | Throughput multiplier| Max throughput  |
-|----------------|-------------------|----------------:|---------------:|---------------:|---------------:|
-| `tiered`       | `general-purpose` | 3 IOPS/GB       | 48,000 | 16 KB          | 670 MBps       | 
-| `tiered`       | `5iops-tier`      | 5 IOPS/GB       | 48,000 | 16 KB          | 768 MBps       | 
-| `tiered`       | `10iops-tier`     | 10 IOPS/GB      | 48,000 | 256 KB         | 1024 MBps      | 
-| `custom`       | `custom`          | 100 IOPS/GB     | 48,000 | 256 KB         | 1024 MBps      |
-{: caption="Table 5. Block Storage profiles and performance levels." caption-side="bottom"}
-
-IOPS values are based on 16k I/O size. Baseline throughput is determined by the number of IOPS multiplied by the throughput multiplier. The higher the IOPS that you specify, the higher the throughput the volume can handle. Maximum throughput is 1024 MBps.
-
 ## Storage capacity
 {: #note-about-measurement-unit}
 
