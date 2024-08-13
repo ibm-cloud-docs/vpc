@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, [{CURRENT_YEAR}]
-lastupdated: "[{LAST_UPDATED_DATE}]"
+  years: 2018, 2024
+lastupdated: "2024-08-13"
 
 keywords: virtual server instances, VSI, compute, virtual machines, planning, best practices, instances, virtual servers, virtual server instance, Virtual servers for VPC, gen 2, generation 2, infrastructure, infrastructure as a service, IaaS
 
@@ -33,7 +33,7 @@ Most updates are done transparently to the host and the virtual servers that run
 ## Possible impacts to virtual server instances during maintenance operations
 {: #maintenance-impacts}
 
-Some changes can require a secure live migration of a virtual server to update the hypervisor or host. These changes can be a firmware update, an event where the hypervisor kernel cannot be live patched, or load balancing. The regular live migration process is nondisruptive and use of dedicated hosts and virtual servers is not interrupted.
+Some changes can require a secure live migration of a virtual server to update the hypervisor or host. These changes can be a firmware update, an event where the hypervisor kernel cannot be live patched, or load balancing. The regular live migration process is nondisruptive and the use of dedicated hosts and virtual servers is not interrupted.
 
 When nondisruptive live migration occurs, the virtual server experiences a brief pause of around 10 seconds, and in some cases up to 30 seconds. You are not notified in advance of nondisruptive migration. The virtual server instance is not restarted as part of this process.
 

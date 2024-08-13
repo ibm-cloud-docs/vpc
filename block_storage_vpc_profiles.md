@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-08-12"
+lastupdated: "2024-08-13"
 
 keywords: Block Storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
@@ -22,21 +22,21 @@ When you provision {{site.data.keyword.block_storage_is_short}} volumes by using
 {: #block-storage-profile-overview}
 
 When you create a Block Storage volume, you can select from various profiles. 
-- Select a profile from the _tiered_ profile family when you want to pick a profile with a predefined performance range. 
+- Select a profile from the _tiered_ profile family when you want to pick a profile where performance scales with capacity of the volume.
 - Select the profile from the _custom_ profile family if your performance requirements don't fall within any of the predefined IOPS tiers. When you select the custom profile, you can define your IOPS within a range that depends on the capacity that you specified.
 
 The following table shows the available storage profiles with their different properties.
 
-| Family         | Profile           | IOPS[^tabletext1]| IOPS per volume | Max throughput[^tabletext2]  | Volume size (GB)| 
-|----------------|-------------------|----------------:|---------------:|---------------:|---------------:|
-| `tiered`       | `general-purpose` | 3 IOPS/GB       | 3,000 - 48,000 | 670 MBps       | 10 GB - 16,000 | 
-| `tiered`       | `5iops-tier`      | 5 IOPS/GB       | 3,000 - 48,000 | 768 MBps       | 10 GB - 9,600  | 
-| `tiered`       | `10iops-tier`     | 10 IOPS/GB      | 3,000 - 48,000 | 1024 MBps      | 10 GB - 4,800  |
-| `custom`       | `custom`          | 1 - 100 IOPS/GB |   100 - 48,000 | 1024 MBps      | 10 GB - 16,000 |
+| Family       | Profile           | IOPS[^ttext1]| IOPS per volume | Max throughput[^ttext2]  | Capacity (GB)|
+|--------------|-------------------|----------------:|---------------:|----------:|---------------:|
+| tiered       | `general-purpose` | 3 IOPS/GB       | 3,000 - 48,000 | 670 MBps  | 10 GB - 16,000 |
+| tiered       | `5iops-tier`      | 5 IOPS/GB       | 3,000 - 48,000 | 768 MBps  | 10 GB - 9,600  |
+| tiered       | `10iops-tier`     | 10 IOPS/GB      | 3,000 - 48,000 | 1024 MBps | 10 GB - 4,800  |
+| custom       | `custom`          | 1 - 100 IOPS/GB |   100 - 48,000 | 1024 MBps | 10 GB - 16,000 |
 {: caption="Table 1. Block Storage profiles and performance levels." caption-side="bottom"}
 
-[^tabletext1]: IOPS values are based on 16k I/O size.
-[^tabletext2]: Baseline throughput is determined by the number of IOPS multiplied by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB or custom IOPS tiers. The higher the IOPS that you specify, the higher the throughput. Maximum throughput is 1024 MBps.
+[^ttext1]: IOPS values are based on 16k I/O size.
+[^ttext2]: Baseline throughput is determined by the number of IOPS multiplied by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers. The throughput multiplier for the 10 IOPS/GB  tier and the custom profile is 256 KB. The higher the IOPS that you specify, the higher the throughput. Maximum throughput is 1024 MBps.
 
 IOPS values are based on 16k I/O size. Baseline throughput is determined by the number of IOPS multiplied by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB or custom IOPS tiers. The higher the IOPS that you specify, the higher the throughput the volume can handle. Maximum throughput is 1024 MBps.
 
@@ -48,8 +48,8 @@ Moving volumes across volume-profiles that belong to different families is not a
 
 When you create your storage volume, you can select from three predefined IOPS tiers. Choose the profile that provides optimal performance for your Compute workloads. Table 2 describes the IOPS performance that you can expect for each tier.
 
-| Intended workload | IOPS rate	| Capacity range	| IOPS range	| I/O size |
-|------------------|------------:|----------------:|-------------:|---------:|
+| Intended workload | IOPS rate	| Capacity range	| IOPS range	| Throughput multiplier |
+|------------------|------------:|----------------:|-------------:|----------------------:|
 | `general-purpose` - Workloads that host small databases for web applications or store virtual machine disk images for a hypervisor. | 3 IOPS/GB  | 10 - 16,000 GB | 3,000	- 48,000 | 16 KB |
 | `5iops-tier` - High I/O intensity workloads - Workloads characterized by a large percentage of active data, such as transactional and other performance-sensitive databases.| 5 IOPS/GB | 10 - 9,600 GB | 3,000 - 48,000 | 16 KB |
 | `10iops-tier` - Demanding storage workloads - Data intensive workloads created by NoSQL databases, data processing for video, machine learning, and analytics.| 10 IOPS/GB | 10 - 4,800 GB | 3,000 - 48,000 | 256 KB | 
@@ -64,7 +64,7 @@ Custom IOPS is a good option when you have well-defined performance requirements
 
 The following table shows the available IOPS ranges based on volume capacity for the custom profile. 
 
-| Volume capacity (GB) | IOPS range    |
+| Volume capacity (GB) | IOPS range| 
 |------------------|---------------|
 | 10 -39           | 100 - 1,000   |
 | 40 - 79          | 100 - 2,000   |
@@ -75,10 +75,10 @@ The following table shows the available IOPS ranges based on volume capacity for
 | 2,000 - 3,999    | 200 - 40,000  |
 | 4,000 - 7,999    | 300 - 40,000  |
 | 8,000 - 9,999    | 500 - 48,000  |
-| 10,000 - 16,000  | 1,000 - 48,000 |
+| 10,000 - 16,000  | 1,000 - 48,000|
 {: caption="Table 3. Available IOPS based on volume size" caption-side="bottom"}
 
-If your application needs more IOPS and throughput, you can increase the volume size and specify a new IOPS value in a higher range. Capacity and IOPS can be modified only when the volume is attached to a running instance.
+Througput for the custom profile is calculated by using a multiplier of 256 KB. If your application needs more IOPS and throughput, you can increase the volume size and specify a new IOPS value in a higher range. Capacity and IOPS can be modified only when the volume is attached to a running instance.
 
 ## Profiles for boot volumes
 {: #vsi-profiles-boot}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-08-12"
+lastupdated: "2024-08-13"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -49,8 +49,8 @@ You can monitor the progress of your volume expansion from the UI or CLI. You ca
 You can resize a data volume that is attached to an {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} instance, however you must restart the instance to use the resized volume.
 {: note}
 
-_z/OS - Experimental_ When you expand Block Storage volume capacity on an existing z/OS virtual server instance, a new device address is broadcasted to the users with the additional storage size.
-{: note}
+_z/OS_ When you expand Block Storage volume capacity on an existing z/OS virtual server instance, a new device address is broadcasted to the users with the additional storage size.
+{: tip}
 
 
 
