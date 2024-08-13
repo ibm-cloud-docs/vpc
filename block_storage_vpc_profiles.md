@@ -27,10 +27,10 @@ When you create a Block Storage volume, you can select from various profiles.
 
 The following table shows the available storage profiles with their different properties.
 
-| Family       | Profile           | IOPS[^ttext1]| IOPS per volume | Max throughput[^ttext2]  | Capacity (GB)| 
+| Family       | Profile           | IOPS[^ttext1]| IOPS per volume | Max throughput[^ttext2]  | Capacity (GB)|
 |--------------|-------------------|----------------:|---------------:|----------:|---------------:|
-| tiered       | `general-purpose` | 3 IOPS/GB       | 3,000 - 48,000 | 670 MBps  | 10 GB - 16,000 | 
-| tiered       | `5iops-tier`      | 5 IOPS/GB       | 3,000 - 48,000 | 768 MBps  | 10 GB - 9,600  | 
+| tiered       | `general-purpose` | 3 IOPS/GB       | 3,000 - 48,000 | 670 MBps  | 10 GB - 16,000 |
+| tiered       | `5iops-tier`      | 5 IOPS/GB       | 3,000 - 48,000 | 768 MBps  | 10 GB - 9,600  |
 | tiered       | `10iops-tier`     | 10 IOPS/GB      | 3,000 - 48,000 | 1024 MBps | 10 GB - 4,800  |
 | custom       | `custom`          | 1 - 100 IOPS/GB |   100 - 48,000 | 1024 MBps | 10 GB - 16,000 |
 {: caption="Table 1. Block Storage profiles and performance levels." caption-side="bottom"}
@@ -62,7 +62,7 @@ Custom IOPS is a good option when you have well-defined performance requirements
 
 The following table shows the available IOPS ranges based on volume capacity for the custom profile. 
 
-| Volume capacity (GB) | IOPS range    | 
+| Volume capacity (GB) | IOPS range| 
 |------------------|---------------|
 | 10 -39           | 100 - 1,000   |
 | 40 - 79          | 100 - 2,000   |
@@ -73,7 +73,7 @@ The following table shows the available IOPS ranges based on volume capacity for
 | 2,000 - 3,999    | 200 - 40,000  |
 | 4,000 - 7,999    | 300 - 40,000  |
 | 8,000 - 9,999    | 500 - 48,000  |
-| 10,000 - 16,000  | 1,000 - 48,000 |
+| 10,000 - 16,000  | 1,000 - 48,000|
 {: caption="Table 3. Available IOPS based on volume size" caption-side="bottom"}
 
 Througput for the custom profile is calculated by using a multiplier of 256 KB. If your application needs more IOPS and throughput, you can increase the volume size and specify a new IOPS value in a higher range. Capacity and IOPS can be modified only when the volume is attached to a running instance.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-07-29"
+lastupdated: "2024-08-13"
 
 keywords: limitations, restrictions
 
@@ -54,7 +54,7 @@ An {{site.data.keyword.vpc_short}} cannot be peered with other VPCs natively. It
 ## Network restrictions
 {: #network-restrictions}
 
-* *z/OS - Experimental* Deleting a subnet through the user interface might not work as expected when you delete an existing VPC. You can use the command `ibmcloud is subnet-delete` as the workaround.
+* z/OS - Deleting a subnet through the user interface might not work as expected when you delete an existing VPC. You can use the command `ibmcloud is subnet-delete` as the workaround.
 
 ## Compute restrictions
 {: #compute-restrictions}
