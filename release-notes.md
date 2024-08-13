@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-08-05"
+lastupdated: "2024-08-13"
 
 keywords:
 
@@ -26,6 +26,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## August 2024
 {: #vpc-aug24}
+
+### 7 August 2024
+{: #vpc-aug0724}
+{: release-note}
+
+UI enhancement: Filter instance profiles by business scenario
+:   When provisioning a virtual server, you can now use the **By scenario** tab on the Select an instance profile page to narrow the results to include only applicable instance profiles. For example, you can filter profiles by the following business scenarios: SAP; Web Development and Test; HPC; Confidential computing; AI, Deep learning & Machine learning; Visualizations, VDI; and Storage optimized. When a specific filter is selected, the profile results display only the profiles related to the defined business scenario.
 
 ### 5 August 2024
 {: #vpc-aug0524}
