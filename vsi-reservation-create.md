@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-05-02"
+lastupdated: "2024-08-14"
 
 subcollection: vpc
 
@@ -57,8 +57,8 @@ You can attach existing virtual servers to your reservation. Keep in mind that a
 
 1. From your virtual server list, click **Attach**.
 
-When a reservation expires, the servers that are attached to a reservation convert to the nondiscounted on-demand rate upon expiration or nonrenewal of the reservation term and any consumption are billed monthly.
-{: note}
+   When a reservation expires, the servers that are attached to a reservation convert to the nondiscounted on-demand rate upon expiration or  nonrenewal of the reservation term and any consumption are billed monthly.
+   {: note}
 
 ## Provisioning a reservation with the CLI
 {: #provisioning-reserved-capacity-cli-vpc}
