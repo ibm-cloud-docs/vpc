@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-06-11"
+lastupdated: "2024-08-14"
 
 keywords: VPC File Storage, file for VPC, NSF, replica, file share, replication, schedule
 
@@ -21,6 +21,96 @@ Manage replica file shares by removing the replication relationship to create tw
 You need Administrator or Editor IAM user roles to create and manage file share replicas and the replication relationship. For a list of these roles and actions, see [IAM roles for creating and managing file shares](/docs/account?topic=account-iam-service-roles-actions#is.share-roles).
 {: requirement}
 
+## Replication sync information
+{: #fs-repl-syncinfo}
+
+Replication is an asynchronous operation, which is not instantaneous. After each sync operation, the system provides useful information about the last replication process, such as start and end date, and the transferred data volume. By viewing the replication information, you can see how long the last replication took and calculate the transfer rate. Seeing the transferred data values can help you estimate the global transfer charges at the end of the billing period.
+
+You can use the replication sync information to fine-tune your replication schedule. It can help you balance the cost and the frequency that you need the data to be refreshed on the replica to satisfy your [recovery point objective](#x3429911){: term}. It can also help to determine whether the replication process is in danger of degradation. 
+
+When the amount of data to be transferred exceeds the amount of data that can be transferred during the replication window with the normal transfer rate, the replication process can't complete and the replication status becomes `degraded`. If this situation occurs, try adjusting the rate of change on the file share and the replication frequency.
+
+The system queries the last sync status every 15 minutes. The result shows the data of the last replication that completed. If a replication is in progress when the query runs, it does not show in the response. After the replication is completed, the next query updates the last sync information. You can expect a short delay between the replication completion and the time the last sync information is updated in the interfaces.
+
+You can see information about the last replication operation when you view the details of either the source or the replica share. For more information, see [View details of a file share in the UI](/docs/vpc?topic=vpc-file-storage-view&interface=ui#fs-view-single-share-ui).
+{: ui}
+
+You can see information about the last replication operation when you list the details of either the source or the replica share. For more information, see [View details of a file share from the CLI](/docs/vpc?topic=vpc-file-storage-view&interface=cli#fs-share-details-cli).
+{: cli}
+
+You can programmatically retrieve the last sync details by calling the `/shares` method in the [VPC API](/apidocs/vpc/latest#get-share){: external}. Look for the `latest_sync` section in the API response to see when the replication started (`started_at`), when it ended (`completed_at`), and how much data was transferred (`data_transferred`). For more information, see [View a single file share with the API](/docs/vpc?topic=vpc-file-storage-view&interface=api#fs-single-file-shares-api).
+{: api}
+
+In addition, you can view historical information of the recent replication sync when you use {{site.data.keyword.la_full}}. When replication occurs, the file service generates a `regional-file.00002I` log message, which includes information about when the replication occurred, and how much data was transferred. For more information, see [Logging for VPC](/docs/vpc?topic=vpc-logging#logging-file-share-replication).
+
+## Verifying replication with the API
+{: #fs-verify-replica-api}
+{: api}
+
+You can use the API to verify that the replication succeeded, is pending, or failed. You can make the `GET /shares/{share_id}` request to see the status with the share ID of the source or the replica shares.
+
+```sh
+curl -X GET \
+"$vpc_api_endpoint/v1/shares/$share_id?version=2023-08-08&generation=2"\
+-H "Authorization: $iam_token"
+```
+{: pre}
+
+In the response, look at the `latest_job` property. The example shows the replication failover succeeded:
+
+```json
+  "created_at": "2023-08-08T23:31:59Z",
+  "crn": "crn:[...]",
+  "encryption": "provider_managed",
+  "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63",
+  "id": "199d78ec-b971-4a5c-a904-8f37ae710c63",
+  "iops": 3000,
+  "lifecycle_state": "stable",
+  "name": "share-name1",
+  .
+  .
+  .
+  "latest_job": {
+      "status": "succeeded",
+      "status_reason": {
+          "code": "",
+          "message": "",
+          "more_info": ""
+      },
+      "type": "replication_failover"
+  }
+```
+{: codeblock}
+
+For a replication split, when the replica share is being split from the source share, you can see a `running` status for `latest_job` in the response.
+
+```json
+"latest_job": {
+    "status": "running",
+     "status_reason": {
+          "code": "",
+          "message": "",
+         "more_info": ""
+    },
+    "type": "replication_split"
+},
+```
+{: codeblock}
+
+A replication `failover` or `split` operation cannot happen if any other operation is being performed on the file share, such as expanding size. You can see a 409 error in the response that indicates the issue. See the following example.
+
+```json
+"errors": [
+    {
+        "code": "share_operation_pending",
+          "message": "An operation 'replication_failover' is pending on file share, request to 'replication_split' cannot be accepted.",
+          "more_info": "Before sending another request wait for the current operation to complete and try again."
+     }
+],
+"trace": "4634eee2-0a9b-43b7-b35e-8885cc258500"
+```
+{: codeblock}
+
 ## Removing the replication relationship
 {: #fs-remove-replication}
 
@@ -29,7 +119,7 @@ You can end replication by removing the replication relationship between the sou
 You can also specify that the source and replica file shares are split if a [failover](/docs/vpc?topic=vpc-file-storage-failover) operation does not succeed.
 {: note}
 
-Removing the replication relationship cannot occur when another operation is being performed on the source or replica file share (for example, the file share size is being expanded). The split operation remains pending until the other operation completes.
+Removing the replication relationship cannot occur when another operation is being performed on the source or replica file share (for example, the file share size is being expanded). The split operation remains in pending state until the other operation completes.
 
 When you remove the replication relationship, you can't undo the action. Also, the data on the replica is not synced automatically with the source file before removal of the replication relationship.
 {: important}
@@ -177,93 +267,3 @@ The process for deleting a replica file share is similar to deleting a source fi
 * Delete the replica file share directly after you deleted the mount targets. A `split` process is automatically initiated in the background. After the split operation is finished, the replica file share is deleted.
 
 You can use the [UI](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#delete-file-share-ui){: ui}[CLI](/docs/vpc?topic=vpc-file-storage-managing&interface=cli#delete-file-share-cli){: cli}[API](/docs/vpc?topic=vpc-file-storage-managing&interface=api#delete-file-share-api){: api}[Terraform](/docs/vpc?topic=vpc-file-storage-managing&interface=terraform#delete-file-share-terraform){: terraform} to delete a file share.
-
-## Replication sync information
-{: #fs-repl-syncinfo}
-
-Replication is an asynchronous operation, which is not instantaneous. After each sync operation, the system provides useful information about the last replication process, such as start and end date, and the transferred data volume. By viewing the replication information, you can see how long the last replication took and calculate the transfer rate. Seeing the transferred data values can help you estimate the global transfer charges at the end of the billing period.
-
-You can use the replication sync information to fine-tune your replication schedule. It can help you balance the cost and the frequency that you need the data to be refreshed on the replica to satisfy your [recovery point objective](#x3429911){: term}. It can also help to determine whether the replication process is in danger of degradation. 
-
-When the amount of data to be transferred exceeds the amount of data that can be transferred during the replication window with the normal transfer rate, the replication process can't complete and the replication status becomes `degraded`. If this situation occurs, try adjusting the rate of change on the file share and the replication frequency.
-
-The systems queries the last sync status every 15 minutes. The result shows the data of the last replication that completed. If a replication is in progress when the query runs, it does not show in the response. After the replication is completed, the next query updates the last sync information. You can expect a short delay between the replication completion and the last sync information being updated in the interfaces.
-
-You can see information about the last replication operation when you view the details of either the source or the replica share. For more information, see [View details of a file share in the UI](/docs/vpc?topic=vpc-file-storage-view&interface=ui#fs-view-single-share-ui).
-{: ui}
-
-You can see information about the last replication operation when you list the details of either the source or the replica share. For more information, see [View details of a file share from the CLI](/docs/vpc?topic=vpc-file-storage-view&interface=cli#fs-share-details-cli).
-{: cli}
-
-You can programmatically retrieve the last sync details by calling the `/shares` method in the [VPC API](/apidocs/vpc/latest#get-share){: external}. Look for the `latest_sync` section in the API response to see when the replication started (`started_at`), when it ended (`completed_at`), and how much data was transferred (`data_transferred`). For more information, see [View a single file share with the API](/docs/vpc?topic=vpc-file-storage-view&interface=api#fs-single-file-shares-api).
-{: api}
-
-In addition, you can view historical information of the recent replication sync when you use {{site.data.keyword.la_full}}. When replication occurs, the file service generates a `regional-file.00002I` log message, which includes information about when the replication occurred, and how much data was transferred. For more information, see [Logging for VPC](/docs/vpc?topic=vpc-logging#logging-file-share-replication).
-
-## Verifying replication with the API
-{: #fs-verify-replica-api}
-{: api}
-
-You can use the API to verify that the replication succeeded, is pending, or failed. You can make the `GET /shares/{share_id}` request to see the status with the share ID of the source or the replica shares.
-
-```sh
-curl -X GET \
-"$vpc_api_endpoint/v1/shares/$share_id?version=2023-08-08&generation=2"\
--H "Authorization: $iam_token"
-```
-{: pre}
-
-In the response, look at the `latest_job` property. The example shows the replication failover succeeded:
-
-```json
-  "created_at": "2023-08-08T23:31:59Z",
-  "crn": "crn:[...]",
-  "encryption": "provider_managed",
-  "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63",
-  "id": "199d78ec-b971-4a5c-a904-8f37ae710c63",
-  "iops": 3000,
-  "lifecycle_state": "stable",
-  "name": "share-name1",
-  .
-  .
-  .
-  "latest_job": {
-      "status": "succeeded",
-      "status_reason": {
-          "code": "",
-          "message": "",
-          "more_info": ""
-      },
-      "type": "replication_failover"
-  }
-```
-{: codeblock}
-
-For a replication split, when the replica share is being split from the source share, you can see a `running` status for `latest_job` in the response.
-
-```json
-"latest_job": {
-    "status": "running",
-     "status_reason": {
-          "code": "",
-          "message": "",
-         "more_info": ""
-    },
-    "type": "replication_split"
-},
-```
-{: codeblock}
-
-A replication `failover` or `split` operation cannot happen if any other operation is being performed on the file share, such as expanding size. You can see a 409 error in the response that indicates the issue. See the following example.
-
-```json
-"errors": [
-    {
-        "code": "share_operation_pending",
-          "message": "An operation 'replication_failover' is pending on file share, request to 'replication_split' cannot be accepted.",
-          "more_info": "Before sending another request wait for the current operation to complete and try again."
-     }
-],
-"trace": "4634eee2-0a9b-43b7-b35e-8885cc258500"
-```
-{: codeblock}
