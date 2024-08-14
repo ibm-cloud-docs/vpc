@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-08-12"
+lastupdated: "2024-08-14"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -52,7 +52,7 @@ You can attach 12 {{site.data.keyword.block_storage_is_short}} data volumes per 
 
 The cost for {{site.data.keyword.block_storage_is_short}} is calculated based on GiB capacity that is stored per month, unless the duration is less than one month. The volume exists on the account until you delete the volume or you reach the end of a billing cycle, whichever comes first.
 
-Pricing is also affected when you [expand volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes) or [adjust IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops) by specifying a different IOPS profile. For example, expanding volume capacity increases costs, and changing an IOPS profile from a 5-IOPS/GB tier to a 3-IOPS/GB tier decreases the monthly and hourly rate. Billing for an updated volume is automatically updated to add the prorated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.
+Pricing is also affected when you [expand volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes) or [adjust IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops) by specifying a different volume profile. For example, expanding volume capacity increases costs, and changing a volume profile from a 5-IOPS/GB tier to a 3-IOPS/GB tier decreases the monthly and hourly rate. Billing for an updated volume is automatically updated to add the prorated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.
 
 You can use the Cost estimator ![Cost estimator icon](../icons/calculator.svg "Cost estimator") in {{site.data.keyword.cloud_notm}} console to see how changes in capacity and IOPS affect the cost. For more information, see [Estimating your costs](/docs/billing-usage?topic=billing-usage-cost).
 
