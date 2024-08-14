@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-08-13"
+lastupdated: "2024-08-14"
 
 keywords:
 
@@ -31,7 +31,7 @@ Reservations offer many advantages, including the following benefits:
 A reservation cannot be used for a container service discount such as IBM Kubernetes Service or ROKS.
 {: note}
 
-## Supported profiles
+## Supported virtual server profiles
 {: #reserved-virtual-servers-vpc-supported-profiles}
 
 The following x86 profiles for virtual servers are available when you provision a reservation in all [ten available MZRs](/docs/overview?topic=overview-locations).
@@ -45,7 +45,7 @@ The following x86 profiles for virtual servers are available when you provision 
 * ux2d profiles
 * vx2d profiles
 
-The following profiles are available in specific MZRs.
+The following virtual server profiles are available in specific MZRs.
 
 * bx2a profiles are available in Toronto only.
 * bx3d, cx3d, and mx3d profiles are available in Dallas, Frankfurt, London, Madrid, Osaka, Sydney, Toronto, and Washington DC.
@@ -59,7 +59,7 @@ For more information about profiles, see [x86-64 instance profiles](/docs/vpc?to
 
 Consider the following limitations before you provision a reservation and provision a virtual server within that reservation.
 
-* You can't resize a virtual server that's in a reservation.
+* You can't resize a server that's in a reservation.
 * Reservations comply with the VPC quotas and service limits. For more information, see [Quotas and service limits](/docs/vpc?topic=vpc-quotas).
 * SGX isn't supported.
 * Reservations aren't compatible with container services. For more information, see [Using reservations to reduce classic worker node costs](/docs/containers?topic=containers-reservations).
