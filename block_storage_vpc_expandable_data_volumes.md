@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-08-14"
+lastupdated: "2024-08-15"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -37,7 +37,7 @@ Follow these steps to expand volume capacity:
 
 1. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit"). Alternatively, click the **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions"), and select **Expand Block Storage volume**.
 
-1. In the panel, increase the volume size in GB up to 16,000 GB. The maximum size that you can expand to is based on the selected profile or custom volume settings. The UI indicates the maximum capacity for the selected profile. For a custom profile, you can expand the volume based on [sizing limits](/docs/vpc?topic=vpc-about-increasing-volume-capacity#expandable-volume-limitations). When you increase the size of the volume, max IOPS and throughput are calculated for the expanded volume.
+1. In the panel, increase the volume size in GB up to 16,000 GB. The maximum size that you can expand to is based on the selected profile. The UI indicates the maximum capacity for the selected profile. For a custom profile, you can expand the volume based on [sizing limits](/docs/vpc?topic=vpc-about-increasing-volume-capacity#expandable-volume-limitations). When you increase the size of the volume, max IOPS and throughput are calculated for the expanded volume.
 
 1. Review the estimated monthly order summary for your geography and new pricing.
 
