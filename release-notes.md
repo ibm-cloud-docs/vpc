@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-08-13"
+lastupdated: "2024-08-15"
 
 keywords:
 
@@ -26,6 +26,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## August 2024
 {: #vpc-aug24}
+
+### 15 August 2024
+{: #vpc-aug1524}
+{: release-note}
+
+IBM Wazi as a Service available in Germany (Frankfurt) region
+:   {{site.data.keyword.waziaas_full_notm}} (Wazi aaS) is now available in the Germany (Frankfurt) region in {{site.data.keyword.cloud_notm}}. For more information, see [{{site.data.keyword.waziaas_full_notm}} product page](https://www.ibm.com/cloud/wazi-as-a-service){: external}.
 
 ### 7 August 2024
 {: #vpc-aug0724}
