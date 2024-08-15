@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-08-14"
+lastupdated: "2024-08-15"
 
 keywords: Block Storage, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, bandwidth
 
@@ -106,7 +106,7 @@ The API response for a `GET /volume/{id}` call shows the bandwidth for an unatta
      "name": "my-volume-1",
      "profile": {
        "href": "https://us-south.iaas.cloud.ibm.com/v1/volume/profiles/general-purpose",
-       "name": "custom"
+       "name": "custom"}
      .
      .
      .
