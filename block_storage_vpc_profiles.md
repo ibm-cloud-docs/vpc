@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-08-13"
+lastupdated: "2024-08-15"
 
 keywords: Block Storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
@@ -29,14 +29,15 @@ The following table shows the available storage profiles with their different pr
 
 | Family       | Profile           | IOPS[^ttext1]| IOPS per volume | Max throughput[^ttext2]  | Capacity (GB)|
 |--------------|-------------------|----------------:|---------------:|----------:|---------------:|
-| tiered       | `general-purpose` | 3 IOPS/GB       | 3,000 - 48,000 | 670 MBps  | 10 GB - 16,000 |
-| tiered       | `5iops-tier`      | 5 IOPS/GB       | 3,000 - 48,000 | 768 MBps  | 10 GB - 9,600  |
-| tiered       | `10iops-tier`     | 10 IOPS/GB      | 3,000 - 48,000 | 1024 MBps | 10 GB - 4,800  |
-| custom       | `custom`          | 1 - 100 IOPS/GB |   100 - 48,000 | 1024 MBps | 10 GB - 16,000 |
+| tiered       | `general-purpose` | 3 IOPS/GB       | 3,000 - 48,000 | 670 MBps  | 10 - 16,000 |
+| tiered       | `5iops-tier`      | 5 IOPS/GB       | 3,000 - 48,000 | 768 MBps  | 10 - 9,600  |
+| tiered       | `10iops-tier`     | 10 IOPS/GB      | 3,000 - 48,000 | 1024 MBps | 10 - 4,800  |
+| custom       | `custom`          | 1 - 100 IOPS/GB |   100 - 48,000[^ttext3] | 1024 MBps | 10 - 16,000 |
 {: caption="Table 1. Block Storage profiles and performance levels." caption-side="bottom"}
 
 [^ttext1]: IOPS values are based on 16k I/O size.
 [^ttext2]: Baseline throughput is determined by the number of IOPS multiplied by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers. The throughput multiplier for the 10 IOPS/GB  tier and the custom profile is 256 KB. The higher the IOPS that you specify, the higher the throughput. Maximum throughput is 1024 MBps.
+[^ttext3]: The IOPS range that is available is dependent on the volume capacity. For more information, see [Table 3](#custom).
 
 IOPS values are based on 16k I/O size. Baseline throughput is determined by the number of IOPS multiplied by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB or custom IOPS tiers. The higher the IOPS that you specify, the higher the throughput the volume can handle. Maximum throughput is 1024 MBps.
 
@@ -83,7 +84,7 @@ Througput for the custom profile is calculated by using a multiplier of 256 KB. 
 ## Profiles for boot volumes
 {: #vsi-profiles-boot}
 
-By default, boot volumes are created with the `general-purpose` volume profile with 100 GB capacity during instance provisioning. [Boot volume capacity](/docs/vpc?topic=vpc-resize-boot-volumes) can be increased by modifying the boot volume, up to 250 GB.
+By default, boot volumes are created with the `general-purpose` volume profile with 100 GB capacity during instance provisioning. [Boot volume capacity](/docs/vpc?topic=vpc-resize-boot-volumes) can be increased by modifying the boot volume, up to 250 GB. Boot volume IOPS and bandwidth are never reduced to be less than 3000 IOPS or 393 MBps.
 
 ## How virtual server profiles relate to volume profiles
 {: #vsi-profiles-relate-to-storage}

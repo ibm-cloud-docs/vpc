@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-07-29"
+lastupdated: "2024-08-15"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -28,22 +28,22 @@ Follow these steps to expand volume capacity:
 
 1. Go to the list of Block Storage volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage volumes**. By default, Block Storage volumes display for all resource groups in your region.
 
-2. In the list of all **Block Storage for VPC volumes**, click the name of the volume you want to expand to see the volume details.
+1. In the list of all **Block Storage for VPC volumes**, click the name of the volume you want to expand to see the volume details.
 
    The volume that you select must be attached to a virtual server instance. In the list of volumes, its attachment type is _data_.
    {: note}
 
-3. Alternatively, go to a virtual server instance with an attached volume that you want to expand and select it from the list of attached volumes.
+1. On the volume details page, locate **Size**.
 
-4. On the volume details page, locate **Size**. The current IOPS profile and volume size are displayed.
+1. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit"). Alternatively, click the **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions"), and select **Expand Block Storage volume**.
 
-5. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit"). Alternatively, click the **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions"), and select **Expand Block Storage volume**.
+1. In the panel, increase the volume size in GB up to 16,000 GB. The maximum size that you can expand to is based on the selected profile. The UI indicates the maximum capacity for the selected profile. For a custom profile, you can expand the volume based on [sizing limits](/docs/vpc?topic=vpc-about-increasing-volume-capacity#expandable-volume-limitations). When you increase the size of the volume, max IOPS and throughput are calculated for the expanded volume.
 
-6. In the panel, increase the volume size in GB up to 16,000 GB. The maximum size that you can expand to is based on the selected IOPS profile or custom volume settings. The UI indicates the maximum capacity for the selected profile. For a custom profile, you can expand the volume based on [sizing limits](/docs/vpc?topic=vpc-about-increasing-volume-capacity#expandable-volume-limitations). When you increase the size of the volume, max IOPS and throughput are calculated for the expanded volume.
+1. Review the estimated monthly order summary and new pricing.
 
-7. Review the estimated monthly order summary for your geography and new pricing.
+1. If you're satisfied, click **Save and continue**. Your new block storage allocation is available in a few minutes.
 
-8. If you're satisfied, click **Save and continue**. Your new Block Storage allocation is available in a few minutes.
+Alternatively, you can locate the virtual server instance that the volume is attached to. Select the volume from the list of attached volumes to display its volume details. Then, follow Steps 3-7 to increase the volume capacity.
 
 ## Expand Block Storage volumes from the CLI
 {: #expand-vpc-volumes-cli}

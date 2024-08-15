@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-07-31"
+lastupdated: "2024-08-14"
 
 keywords:
 
@@ -25,7 +25,7 @@ Restoring a volume from a snapshot creates a boot or data volume, depending on w
 
 * Restoring from a **bootable** snapshot creates a boot volume that you can use to start a virtual server instance. The boot volume uses a general-purpose profile and is limited to 250 GB.
 
-* A new data volume that was created from **nonbootable** snapshot inherits its properties from the original volume, such as [profile](/docs/vpc?topic=vpc-block-storage-profiles), capacity, data, and metadata. If the source volume used [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption), the volume inherits that encryption with the original customer root key (CRK). However, you can specify a larger volume size, different IOPS profile, and a different CRK if you prefer.
+* A new data volume that was created from **nonbootable** snapshot inherits its properties from the original volume, such as [profile](/docs/vpc?topic=vpc-block-storage-profiles), capacity, data, and metadata. If the source volume used [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption), the volume inherits that encryption with the original customer root key (CRK). However, you can specify a larger volume size, different profile, and a different CRK if you prefer.
 
 You can restore volumes from a manually created snapshot or from a snapshot that was created by a backup policy. This type of snapshot is called a backup. For more information, see [Restoring a volume from a backup snapshot](/docs/vpc?topic=vpc-baas-vpc-restore).
 
