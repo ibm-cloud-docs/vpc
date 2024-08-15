@@ -118,7 +118,7 @@ The API response for a `GET /volume/{id}` call shows the bandwidth for an unatta
 
 When you attach a secondary volume to a virtual server instance, the primary boot volume gets priority IOPS and bandwidth allocation to ensure reasonable boot times. Boot volume IOPS and bandwidth are never reduced to be less than 3000 IOPS or 393 MBps.
 
-All volumes are assigned instance bandwidth proportional to their maximum bandwidth, where the sum of all volume bandwidth equals the overall "volumes" bandwidth.
+All volumes are assigned instance bandwidth proportional to their maximum bandwidth, where the sum of all volume bandwidth equals the overall volumes bandwidth.
 
 In our example, the remaining bandwidth that is allocated on the instance for data volumes is 1,607 MBps (2000 MBps minus 393 MBps for the boot volume). After the data volume is attached to the instance, if this volume is the only attached volume, it gets the full bandwidth allocation and is only limited by its own IOPS and throughput values. As a single attachment, the volume can use up to 640 MBps, its provisioned throughput limit. If you add three more volumes of the same capacity and profile, the bandwidth allocation of each volume is updated because the bandwidth is divided among the volumes. Each of the 4 volumes is allocated about 400 MBps. Although they are provisioned to handle up to 640 MBps thoughput, they are maxed out at 400 MBps.
 

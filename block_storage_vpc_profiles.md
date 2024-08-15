@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-08-14"
+lastupdated: "2024-08-15"
 
 keywords: Block Storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
@@ -84,7 +84,7 @@ Througput for the custom profile is calculated by using a multiplier of 256 KB. 
 ## Profiles for boot volumes
 {: #vsi-profiles-boot}
 
-By default, boot volumes are created with the `general-purpose` volume profile with 100 GB capacity during instance provisioning. [Boot volume capacity](/docs/vpc?topic=vpc-resize-boot-volumes) can be increased by modifying the boot volume, up to 250 GB.
+By default, boot volumes are created with the `general-purpose` volume profile with 100 GB capacity during instance provisioning. [Boot volume capacity](/docs/vpc?topic=vpc-resize-boot-volumes) can be increased by modifying the boot volume, up to 250 GB. Boot volume IOPS and bandwidth are never reduced to be less than 3000 IOPS or 393 MBps.
 
 ## How virtual server profiles relate to volume profiles
 {: #vsi-profiles-relate-to-storage}
