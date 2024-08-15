@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-08-14"
+lastupdated: "2024-08-15"
 
 keywords:
 
@@ -63,7 +63,7 @@ Consider the following limitations before you provision a reservation and provis
 * Reservations comply with the VPC quotas and service limits. For more information, see [Quotas and service limits](/docs/vpc?topic=vpc-quotas).
 * SGX isn't supported.
 * Reservations aren't compatible with container services. For more information, see [Using reservations to reduce classic worker node costs](/docs/containers?topic=containers-reservations).
-* A virtual server reservation can be used only for {{site.data.keyword.vsi_is_full}} resources.
+* A virtual server reservation can be used only for {{site.data.keyword.cloud}} Virtual Servers for VPC resources.
 
 ## Notifications
 {: #notifications-reserved-virtual-servers-vpc}
