@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-07-30"
+lastupdated: "2024-08-16"
 
 keywords:
 
@@ -84,15 +84,10 @@ Because all bare metal profiles are VMware&reg; certified, the `supported_image_
 ## Storage known issues
 {: #storage-vpc-known-issues}
 
-### Cross-regional copy array issue
-{: #snapshots-CRC-known-issue}
-
-**Issue:** When you create a snapshot or list details of a snapshot with the API, the copies array in the API response lists only the direct copies of the snapshot that you specified. If you create a copy of a copy, the second copy is not returned when you query the original snapshot.
-
 ### Fast restore snapshots with customer-managed encryption issue
 {: #snapshots-fast-restore-known-issue}
 
-**Issue:** When you restore a volume from a snapshot by using the fast restore feature, you can use a different encryption key for the snapshot and the volume. If you delete the snapshot encryption key from the key management service, the volume might still become inaccessible when it is attached or reattached to the virtual server instance.
+**Issue:** When you restore a volume from a snapshot by using the fast restore feature, you can use a different encryption key for the snapshot and for the new volume. If you delete the snapshot encryption key from the key management service, the volume might still become inaccessible when it is attached or reattached to a virtual server instance.
 
 **Workaround:** To recover the snapshot encryption key, use [the key recovery procedure](/docs/key-protect?topic=key-protect-restore-keys). When the key is recovered, the volume becomes accessible.
 

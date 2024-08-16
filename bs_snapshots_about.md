@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-22"
+lastupdated: "2024-08-16"
 
 keywords: snapshots, Block Storage, volumes, cross-regional snapshot, restore volume, copy snapshot
 
@@ -77,6 +77,9 @@ The first time that you create a cross-regional copy, the snapshot is a full cop
 You can use and manage the cross-regional snapshot in the target region independently from the parent volume or the original snapshot.
 
 Creating a cross-regional copy affects billing. You're charged for the data transfer and the storage consumption in the target region separately.
+
+When you create a snapshot or list details of a snapshot in the console, from the CLI or with the API, the system lists only the direct copies of the snapshot that you specified. If you create a copy of a copy, the second copy is not returned when you query the original snapshot.
+{: note}
 
 ### Snapshot consistency groups
 {: #multi-volume-snapshots}
