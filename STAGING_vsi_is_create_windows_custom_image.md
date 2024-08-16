@@ -12,8 +12,8 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Creating a custom Windows&reg; image
-{: #create-windows-custom-image}
+# WIP-Creating a custom Windows&reg; image
+{: #create-windows-custom-image-staging}
 
 You can create your own custom Windows&reg;-based image to import the custom image into {{site.data.keyword.vpc_full}}. Then, you can use the custom image to deploy a virtual server or bare metal server in your {{site.data.keyword.vpc_full}} infrastructure.
 {: shortdesc}
