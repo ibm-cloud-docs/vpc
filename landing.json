@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2024-08-09",
+    "lastupdated": "2024-08-16",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
@@ -31,19 +31,19 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
+          "date": "15 August 2024",
+          "title": "IBM Wazi as a Service available in Germany (Frankfurt) region",
+          "description": "IBM Wazi as a Service (Wazi aaS) is now available in the Germany (Frankfurt) region in IBM Cloud."
+        },
+        {
+          "date": "07 August 2024",
+          "title": "UI enhancement: Filter instance profiles by business scenario",
+          "description": "When provisioning a virtual server, you can now use the By scenario tab on the Select an instance profile page to narrow the results to include only applicable instance profiles. For example, you can filter profiles by the following business scenarios: SAP; Web Development and Test; HPC; Confidential computing; AI, Deep learning & Machine learning; Visualizations, VDI; and Storage optimized. When a specific filter is selected, the profile results display only the profiles related to the defined business scenario."
+        },
+        {
           "date": "05 August 2024",
           "title": "IBM Hyper Protect Container Runtime image ibm-hyper-protect-container-runtime-1-0-s390x-18 updates",
           "description": "For the IBM Hyper Protect Container Runtime image version ibm-hyper-protect-container-runtime-1-0-s390x-18, new certificates are available. "
-        },
-        {
-          "date": "22 July 2024",
-          "title": "Hyper Protect Secure Build",
-          "description": "The workload section for Hyper Protect Secure Build is updated based on the IBM Hyper Protect Container Runtime image ibm-hyper-protect-container-runtime-1-0-s390x-17."
-        },
-        {
-          "date": "18 July 2024",
-          "title": "Reinitialization on Bare Metal Servers for VPC (GA)",
-          "description": "With the new Reinitialization action on Bare Metal Servers for VPC, you can reinitialize the bare metal server. This action is not available if the status is Running or if the bare metal server was provisioned with a boot volume. You can only reinitialize a bare metal server that is stopped or failed. When the bare metal server is reinitialized, the contents of the boot disk are wiped and the specified operating system is installed. The server retains the same physical node, interfaces, IP addresses, and resource IDs. Data on secondary drives is preserved."
         }
       ]
     }
