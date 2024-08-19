@@ -151,6 +151,7 @@ The beta release of IBM Cloud Private Path is available only to allowlisted user
 | Members | 150 per pool |
 {: caption="Table 8. Quotas for Private Path load balancers" caption-side="bottom"}
 
+
 ### Routing tables and routes
 {: #routing-tables-routes-quotas}
 
