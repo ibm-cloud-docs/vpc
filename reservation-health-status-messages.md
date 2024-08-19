@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2023-12-13"
+lastupdated: "2024-08-19"
 
 keywords: health status reasons, instance health status, virtual server health status,
 
@@ -11,7 +11,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Virtual server instance health status reasons
+# Server health status reasons
 {: #virtual-server-health-status-reasons}
 
 If you receive a health status message, you can use the following information to help determine the message.
