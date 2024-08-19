@@ -102,7 +102,7 @@ The following table describes the information on the file share details page.
 | File share Name | Click the file share name to see its details. |
 | Location | It displays the zone information of the file share. |
 | Status   | It displays the lifecycle status of the file share. The [status](/docs/vpc?topic=vpc-fs-vpc-monitoring&interface=ui#file-share-statuses) `Stable` is expected.|
-{: caption="Table 2. File shares details page" caption-side="bottom"}.
+{: caption="Table 2. File shares details page" caption-side="bottom"}
 
 ### Viewing all file shares for a VPC in the UI
 {: #fs-view-shares-vpc}
