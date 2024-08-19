@@ -14,7 +14,7 @@ subcollection: vpc
 # Server health status reasons
 {: #virtual-server-health-status-reasons}
 
-If you receive a health status message, you can use the following information to help determine the message.
+If you receive a health status message on a server, you can use the following information to help determine the message.
 {: shortdesc}
 
 ## Health states
