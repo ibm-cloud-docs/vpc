@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-08-14"
+lastupdated: "2024-08-19"
 
 subcollection: vpc
 
@@ -154,7 +154,7 @@ Where the following argument and option values are used.
 
 After your reservation is provisioned and active, you can **Attach** or **Create** virtual servers by using the {{site.data.keyword.cloud_notm}} console, the CLI, or the API. For more information about creating a virtual server, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers).
 
-### Attaching a virtual server to a reservation with the CLI
+### Attaching an existing virtual server to a reservation with the CLI
 {: #attach-virtual-server-cli-vpc}
 {: cli}
 
