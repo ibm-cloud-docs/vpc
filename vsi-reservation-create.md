@@ -49,6 +49,9 @@ In the {{site.data.keyword.cloud_notm}}, complete the following steps to provisi
 
 4. Click **Create a reservation**.
 
+When a reservation expires, the servers that are attached to a reservation convert to the nondiscounted on-demand rate upon expiration or  nonrenewal of the reservation term and any consumption are billed monthly.
+{: note}
+
 ## Attaching an existing virtual server to a reservation with the UI
 {: #attach-virtual-server-ui-vpc}
 {: ui}
@@ -56,9 +59,7 @@ In the {{site.data.keyword.cloud_notm}}, complete the following steps to provisi
 You can attach existing virtual servers to your reservation. Keep in mind that all existing virtual servers must be the same profile, size, and location.
 
 1. From your virtual server list, click **Attach**.
-
-When a reservation expires, the servers that are attached to a reservation convert to the nondiscounted on-demand rate upon expiration or  nonrenewal of the reservation term and any consumption are billed monthly.
-{: note}
+2. Select the reservation to attach the server to.
 
 ## Provisioning a reservation with the CLI
 {: #provisioning-reserved-capacity-cli-vpc}
@@ -101,7 +102,7 @@ Gather the following information by using the associated commands.
 {: #provision-reserved-capacity-cli-vpc}
 {: cli}
 
-You can create an {{site.data.keyword.vpc_short}} Reservation in your region by using the command-line interface (CLI). To create a reserved reservation by using the CLI, use the `ibmcloud is reservation-create` command.
+You can create an {{site.data.keyword.vpc_short}} Reservation in your region by using the command-line interface (CLI). To create a reservation by using the CLI, use the `ibmcloud is reservation-create` command.
 
 1. Provision a reservation by using the following command with the associated details.
 
