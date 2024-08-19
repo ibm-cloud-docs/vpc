@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2023-12-13"
+lastupdated: "2024-08-19"
 
 keywords: health status reasons, instance health status, virtual server health status,
 
@@ -11,10 +11,10 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Virtual server instance health status reasons
+# Server health status reasons
 {: #virtual-server-health-status-reasons}
 
-If you receive a health status message, you can use the following information to help determine the message.
+If you receive a health status message on a server, you can use the following information to help determine the message.
 {: shortdesc}
 
 ## Health states
@@ -65,8 +65,8 @@ For more information about managing reserved capacity, see [Managing reserved ca
 
 Your reservation affinity pool has an expired reservation and can't be used. To resolve this issue, try the following possible resolutions:
 
-* Renew the reservation
-* If no longer needed, delete the expired reservation.
+* Renew the reservation.
+* If the reservation is no longer needed, delete the expired reservation.
 
 If you still need help, contact [support](/docs/vpc?topic=vpc-getting-help-and-support-for-vpc).
 
