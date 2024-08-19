@@ -65,8 +65,8 @@ For more information about managing reserved capacity, see [Managing reserved ca
 
 Your reservation affinity pool has an expired reservation and can't be used. To resolve this issue, try the following possible resolutions:
 
-* Renew the reservation
-* If no longer needed, delete the expired reservation.
+* Renew the reservation.
+* If the reservation is no longer needed, delete the expired reservation.
 
 If you still need help, contact [support](/docs/vpc?topic=vpc-getting-help-and-support-for-vpc).
 
