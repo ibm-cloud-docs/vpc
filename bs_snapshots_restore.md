@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-08-14"
+lastupdated: "2024-08-20"
 
 keywords:
 
@@ -106,7 +106,7 @@ From the list of {{site.data.keyword.block_storage_is_short}} snapshots, you can
     | Resource group | Use the defaults or select from the list. |
     | Zone | Inherited from the snapshot. Change it to another zone in your region if you want to. |
     | Size | Enter a volume size allowed by the profile. The default is the minimum provisioning size based on the snapshot. |
-    | **Profile** | Defaults to the snapshot's IOPS tier or custom profile. You can change the profile. |
+    | **Profile** | This value defaults to the snapshot's IOPS tier or custom profile. You can change the profile. |
     | IOPS | For IOPS tiers, specify an IOPS tier profile. For custom IOPS, select a range. |
     | Size | Enter a volume size that is allowed by the profile. |
     | **Encryption** | Inherited from the snapshot.|
@@ -538,3 +538,5 @@ For more information about the arguments and attributes, see [ibm_is_volume](htt
 {: #bs_snapshots_restore_next_steps}
 
 You can [create](/docs/vpc?topic=vpc-snapshots-vpc-create) more snapshots or [manage](/docs/vpc?topic=vpc-snapshots-vpc-manage) existing snapshots.
+
+When you restore a volume from a snapshot by using the fast restore feature, you can change the encryption key. So the encryption key that is used for the new volume differs from the encryption key that was used for the snapshot. However, if you delete the snapshot encryption key from the key management service, the volume might still become inaccessible when it is attached to a virtual server instance. For more information, see [Known issues](/docs/vpc?topic=vpc-known-issues&interface=ui#snapshots-fast-restore-known-issue).
