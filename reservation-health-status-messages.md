@@ -1,9 +1,9 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-08-19"
+lastupdated: "2024-08-20"
 
-keywords: health status reasons, instance health status, virtual server health status,
+keywords: health status reasons, instance health status, virtual server health status, bare metal server health status
 
 subcollection: vpc
 
@@ -12,9 +12,9 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # Server health status reasons
-{: #virtual-server-health-status-reasons}
+{: #server-health-status-reasons}
 
-If you receive a health status message on a server, you can use the following information to help determine the message.
+If you receive a health status message on a server, you can use the following information to help determine what the message means.
 {: shortdesc}
 
 ## Health states
