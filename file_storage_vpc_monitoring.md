@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-07-29"
+lastupdated: "2024-08-19"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -46,7 +46,7 @@ Table 1 shows the lifecycle statuses that the file share can have.
 ## file share replication status
 {: #file-share-replication-status}
 
-When you [view your file share in the console](/docs/vpc?topic=vpc-file-storage-view&interface=ui), you can see its Replication role and Replication status in the file shares list and the file share details page in the File share replication relationship section.
+When you [view your file share in the console](/docs/vpc?topic=vpc-file-storage-view&interface=ui), you can see its Replication role and Replication status. This information is displayed in the file shares list and the file share details page in the File share replication relationship section.
 {: ui}
 
 When you [view the details of a file share from the CLI](/docs/vpc?topic=vpc-file-storage-view&interface=cli#fs-share-details-cli) by running the `ibmcloud is share` command, the response contains the `Replication status` of the specified file share.
@@ -69,7 +69,7 @@ Table 2 shows all the replication status that the file shares can have.
 ## Replication sync health
 {: #fs-repl-synchealth}
 
-Replication is an asynchronous operation, which is not instantaneous. The systems queries the last sync status every 15 minutes. The result shows the data of the last replication that completed, such as start and end date, and the transferred data volume.
+Replication is an asynchronous operation, which is not instantaneous. The system queries the last sync status every 15 minutes. The result shows the data of the last replication that completed, such as start and end date, and the transferred data volume.
 
 You can see information about the last replication operation when you view the details of either the source or the replica share. For more information, see [View details of a file share in the UI](/docs/vpc?topic=vpc-file-storage-view&interface=ui#fs-view-single-share-ui).
 {: ui}
