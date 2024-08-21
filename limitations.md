@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-08-13"
+lastupdated: "2024-08-21"
 
 keywords: limitations, restrictions
 
@@ -50,11 +50,6 @@ An {{site.data.keyword.vpc_short}} cannot be peered with other VPCs natively. It
 
 * Both VPN Gateways and Floating IPs can't use an automatic route advertisement between the two VPCs. Static routes must be used in each VPC to enable layer 3 connectivity between the two VPCs. See [Example: Connecting two VPCs by using the VPN](/docs/vpc?topic=vpc-vpn-example) for how you can achieve VPC-to-VPC connectivity by using this method.
 * With Transit Gateway, it advertises the root subnets of each VPC allowing traffic to be routed without the use of static routes. For more information, see [Getting started with IBM Cloud Transit Gateway](/docs/transit-gateway?topic=transit-gateway-getting-started).
-
-## Network restrictions
-{: #network-restrictions}
-
-* z/OS - Deleting a subnet through the user interface might not work as expected when you delete an existing VPC. You can use the command `ibmcloud is subnet-delete` as the workaround.
 
 ## Compute restrictions
 {: #compute-restrictions}

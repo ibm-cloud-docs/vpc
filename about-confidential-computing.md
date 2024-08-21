@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-10"
+lastupdated: "2024-08-21"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -31,7 +31,10 @@ For the on-prem version of {{site.data.keyword.hpvs}}, see [IBM Hyper Protect Vi
 ## {{site.data.keyword.hpvs}} for VPC
 {: #about-hyper-protect-virtual-servers-for-vpc}
 
-The {{site.data.keyword.hpvs}} for VPC takes advantage of the IBM Secure Execution for Linux to provide a boundary around each instance and provides the following benefits:
+The {{site.data.keyword.hpvs}} for VPC takes advantage of the IBM Secure Execution for Linux to provide a boundary around each instance and provides the following benefits: 
+
+- Select Availability
+   For the Hyper Protect Virtual Server instances, the profiles are available in the US South (Dallas), Japan (Tokyo), Brazil (São Paulo), Spain (Madrid), Canada (Toronto), United Kingdom (London), Germany (Frankfurt), and US East (Washington DC) regions.
 
 - Secure Execution boundary for protection from internal and external threats
 
@@ -118,6 +121,9 @@ See the [troubleshooting documentation](/docs/vpc?topic=vpc-hyper-protect-virtua
 You can use [Terraform](/docs/vpc?topic=vpc-terraform-for-hyper-protect-virtual-servers-for-vpc) to automate operations with {{site.data.keyword.hpvs}} for VPC.
 
 You can use your {{site.data.keyword.hpvs}} for VPC instance in **private-only** network configurations, in which the VPC doesn't have a public gateway and the virtual server instance doesn't have a floating IP. You can connect to private endpoints of other services, including container registry and [IBM Log Analysis](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc). The prerequisite is to have a DNS server attached to your virtual server instance. You don't need to do any additional configurations.
+
+**Deprecated**: As of 28 March 2024, the IBM Log Analysis and IBM Cloud Activity Tracker services are deprecated and will no longer be supported as of 30 March 2025. Customers will need to migrate to IBM Cloud Logs, which replaces these two services, prior to 30 March 2025. IBM Cloud Logs will become generally available during the summer of 2024 in Frankfurt and Madrid with day-one support for EU-managed controls. The service will continue its worldwide multizone region (MZR) roll-out through 3Q2024. For information about IBM Cloud Logs, see the [IBM Cloud Logs documentation](https://cloud.ibm.com/docs/cloud-logs).
+
 
 ## Recovering or upgrading a {{site.data.keyword.hpvs}} for VPC instance by using {{site.data.keyword.vpc_short}} Snapshots.
 {: #recover-upgrade-hyper-protect-virtual-servers-for-vpc-using-snapshots}

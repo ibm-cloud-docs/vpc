@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-08-15"
+lastupdated: "2024-08-21"
 
 keywords:
 
@@ -26,6 +26,21 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## August 2024
 {: #vpc-aug24}
+
+### 21 August 2024
+{: #vpc-aug2124}
+{: release-note}
+
+ **Select Availability**: 
+For the  Hyper Protect Virtual Server instances, the profiles are available in the US South (Dallas), Japan (Tokyo), Brazil (São Paulo), Spain (Madrid), Canada (Toronto), United Kingdom (London), Germany (Frankfurt), and US East (Washington DC) regions.
+
+**Deprecated**: 
+- Effective 28 March 2024, the IBM Log Analysis and IBM Cloud Activity Tracker services are deprecated and will no longer be supported as of 30 March 2025. Customers will need to migrate to IBM Cloud Logs, which replaces these two services, prior to 30 March 2025. IBM Cloud Logs will become generally available during the summer of 2024 in Frankfurt and Madrid with day-one support for EU-managed controls. The service will continue its worldwide multi-zone region (MZR) roll-out through 3Q2024. For information about IBM Cloud Logs, see the [IBM Cloud Logs documentation](https://cloud.ibm.com/docs/cloud-logs).
+
+- Effective 20 August 2024, no new instances of [Hyper Protect Virtual Servers Classic](https://cloud.ibm.com/catalog/services/hyper-protect-virtual-server-for-classic) can be provisioned in the IBM Cloud Classic DC in DAL/WDC.
+
+- Effective 20 September 2024, no new instances of  [Hyper Protect Virtual Servers Classic](https://cloud.ibm.com/catalog/services/hyper-protect-virtual-server-for-classic) can be provisioned in the IBM Cloud Classic DC in FRA. 
+  
 
 ### 15 August 2024
 {: #vpc-aug1524}
