@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-11-10"
+lastupdated: "2024-08-21"
 
 keywords: CSE, endpoint, service, DNS, resolver, mirror, object, storage, bandwidth, charges
 
@@ -39,7 +39,7 @@ Use one of the following public endpoints to connect to the VPC infrastructure A
 |   Location     | Region | Public Endpoint | Private Endpoint |
 | ------- | ------ | ------ | ------ |
 | United Kingdom (London) | `eu-gb` |  `https://eu-gb.iaas.cloud.ibm.com`    | `https://eu-gb.private.iaas.cloud.ibm.com` |
-| EU Germany (Frankfurt) | `eu-de` | `https://eu-de.iaas.cloud.ibm.com`    | `https://eu-de.private.iaas.cloud.ibm.com` |
+| Germany (Frankfurt) | `eu-de` | `https://eu-de.iaas.cloud.ibm.com`    | `https://eu-de.private.iaas.cloud.ibm.com` |
 | Spain (Madrid) | `eu-es` | `https://eu-es.iaas.cloud.ibm.com` | `https://eu-es.private.iaas.cloud.ibm.com` |
 {: class="simple-tab-table"}
 {: tab-title="Europe"}

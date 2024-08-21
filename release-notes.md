@@ -31,16 +31,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-aug2124}
 {: release-note}
 
- **Select Availability**: 
-For the  Hyper Protect Virtual Server instances, the profiles are available in the US South (Dallas), Japan (Tokyo), Brazil (São Paulo), Spain (Madrid), Canada (Toronto), United Kingdom (London), Germany (Frankfurt), and US East (Washington DC) regions.
-
-**Deprecated**: 
-- Effective 28 March 2024, the IBM Log Analysis and IBM Cloud Activity Tracker services are deprecated and will no longer be supported as of 30 March 2025. Customers will need to migrate to IBM Cloud Logs, which replaces these two services, prior to 30 March 2025. IBM Cloud Logs will become generally available during the summer of 2024 in Frankfurt and Madrid with day-one support for EU-managed controls. The service will continue its worldwide multi-zone region (MZR) roll-out through 3Q2024. For information about IBM Cloud Logs, see the [IBM Cloud Logs documentation](https://cloud.ibm.com/docs/cloud-logs).
-
-- Effective 20 August 2024, no new instances of [Hyper Protect Virtual Servers Classic](https://cloud.ibm.com/catalog/services/hyper-protect-virtual-server-for-classic) can be provisioned in the IBM Cloud Classic DC in DAL/WDC.
-
-- Effective 20 September 2024, no new instances of  [Hyper Protect Virtual Servers Classic](https://cloud.ibm.com/catalog/services/hyper-protect-virtual-server-for-classic) can be provisioned in the IBM Cloud Classic DC in FRA. 
-  
+Select availability for {{site.data.keyword.hpvs}} for VPC profiles
+:   {{site.data.keyword.hpvs}} for Classic are transitioning out of {{site.data.keyword.cloud}} classic data centers in Dallas, Washington D.C, and Frankfurt to IBM Cloud Virtual Private Cloud (VPC) MZRs. Customers can no longer provision {{site.data.keyword.hpvs}} in Dallas and Washington, DC from 20 August 2024, and in Frankfurt from 20 September 2024. Instance profiles for the Hyper Protect Virtual Server instances are available in the US South (Dallas), US East (Washington, DC), Canada (Toronto), Brazil (São Paulo), United Kingdom (London), Germany (Frankfurt), Spain (Madrid), and Japan (Tokyo) regions. For more information, see [Migration from IBM Cloud Hyper Protect Virtual Servers for Classic to IBM Cloud Hyper Protect Virtual Servers for VPC](/docs/hp-virtual-servers?topic=hp-virtual-servers-whats-new#hp-virtual-servers-jul1824) and [{{site.data.keyword.hpvs}}for VPC](/docs/vpc?topic=vpc-about-se#about-hyper-protect-virtual-servers-for-vpc).
 
 ### 15 August 2024
 {: #vpc-aug1524}
@@ -189,7 +181,7 @@ Third-party image billing and metering (GA)
 {: release-note}
 
 Next generation instance profiles available in Tokyo and Osaka regions (select availability)
-:   The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are now available as a select availability offering in the Japan (Tokyo) and Japan (Osaka) regions, in addition to the US South (Dallas), United Kingdom (London), EU Germany (Frankfurt), US East (Washington DC), Canada (Toronto), Spain (Madrid), and Australia (Sydney) regions. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel&reg; Xeon&reg; Scalable processors to provide the most powerful and performant general-purpose profiles available. For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles). In the [Balanced](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) family, see the *bx3d* profiles tab. In the [Compute](/docs/vpc?topic=vpc-profiles&interface=ui#compute) family, see the *cx3d* profiles tab. In the [Memory](/docs/vpc?topic=vpc-profiles&interface=ui#memory) family, see the *mx3d* profiles tab. 3rd generation dedicated host profiles are also available. For more information, see *bx3d*, *cx3d*, and *mx3d* profiles in [x86-64 dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+:   The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are now available as a select availability offering in the Japan (Tokyo) and Japan (Osaka) regions, in addition to the US South (Dallas), United Kingdom (London), Germany (Frankfurt), US East (Washington DC), Canada (Toronto), Spain (Madrid), and Australia (Sydney) regions. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel&reg; Xeon&reg; Scalable processors to provide the most powerful and performant general-purpose profiles available. For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles). In the [Balanced](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) family, see the *bx3d* profiles tab. In the [Compute](/docs/vpc?topic=vpc-profiles&interface=ui#compute) family, see the *cx3d* profiles tab. In the [Memory](/docs/vpc?topic=vpc-profiles&interface=ui#memory) family, see the *mx3d* profiles tab. 3rd generation dedicated host profiles are also available. For more information, see *bx3d*, *cx3d*, and *mx3d* profiles in [x86-64 dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 Security group support for secondary IP addresses (GA)
 :   You can now attach both primary and secondary IP addresses to a security group to refine the binding of security groups rules to a particular port IP instead of all IPs belonging to the port. Also, security group rules now support both source and destination on ingress and egress rules. This allows customers with multiple, secondary private IP addresses associated with a single vNIC to have the ability to apply security group rules to source and destination IP addresses, thus enabling finer granularity in security rules. This enhancement provides the capability to secure the primary IP different from the secondary IPs, and also applies to VIP prefixes (custom routes) used with a vNIC with IP spoofing disabled. For more information, see [Applying security group rules to source and destination IP addresses](/docs/vpc?topic=vpc-security-groups-rules&interface=ui).
@@ -206,7 +198,7 @@ Confidential computing with Intel Software Guard Extensions (SGX) for Virtual Se
 {: release-note}
 
 Next generation instance profiles available in Sydney region (select availability)
-:   The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are now available as a select availability offering in the Australia (Sydney) region, in addition to the US South (Dallas), United Kingdom (London), EU Germany (Frankfurt), US East (Washington DC), Canada (Toronto), and Spain (Madrid) regions. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel&reg; Xeon&reg; Scalable processors to provide the most powerful and performant general-purpose profiles available. For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles). In the [Balanced](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) family, see the *bx3d* profiles tab. In the [Compute](/docs/vpc?topic=vpc-profiles&interface=ui#compute) family, see the *cx3d* profiles tab. In the [Memory](/docs/vpc?topic=vpc-profiles&interface=ui#memory) family, see the *mx3d* profiles tab. 3rd generation dedicated host profiles are also available. For more information, see *bx3d*, *cx3d*, and *mx3d* profiles in [x86-64 dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+:   The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are now available as a select availability offering in the Australia (Sydney) region, in addition to the US South (Dallas), United Kingdom (London), Germany (Frankfurt), US East (Washington DC), Canada (Toronto), and Spain (Madrid) regions. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel&reg; Xeon&reg; Scalable processors to provide the most powerful and performant general-purpose profiles available. For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles). In the [Balanced](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) family, see the *bx3d* profiles tab. In the [Compute](/docs/vpc?topic=vpc-profiles&interface=ui#compute) family, see the *cx3d* profiles tab. In the [Memory](/docs/vpc?topic=vpc-profiles&interface=ui#memory) family, see the *mx3d* profiles tab. 3rd generation dedicated host profiles are also available. For more information, see *bx3d*, *cx3d*, and *mx3d* profiles in [x86-64 dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 ### 03 May 2024
 {: #vpc-may0324}
@@ -261,14 +253,14 @@ Network boot of operating systems with Bare Metal Servers for VPC (beta)
 {: release-note}
 
 Next generation instance profiles available in Madrid region (select availability)
-:   The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are now available as a select availability offering in the Spain (Madrid) region, in addition to the US South (Dallas), United Kingdom (London), EU Germany (Frankfurt), US East (Washington DC), and Canada (Toronto) regions. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel&reg; Xeon&reg; Scalable processors to provide the most powerful and performant general-purpose profiles available. For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles). In the [Balanced](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) family, see the *bx3d* profiles tab. In the [Compute](/docs/vpc?topic=vpc-profiles&interface=ui#compute) family, see the *cx3d* profiles tab. In the [Memory](/docs/vpc?topic=vpc-profiles&interface=ui#memory) family, see the *mx3d* profiles tab. 3rd generation dedicated host profiles are also available. For more information, see *bx3d*, *cx3d*, and *mx3d* profiles in [x86-64 dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+:   The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are now available as a select availability offering in the Spain (Madrid) region, in addition to the US South (Dallas), United Kingdom (London), Germany (Frankfurt), US East (Washington DC), and Canada (Toronto) regions. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel&reg; Xeon&reg; Scalable processors to provide the most powerful and performant general-purpose profiles available. For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles). In the [Balanced](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) family, see the *bx3d* profiles tab. In the [Compute](/docs/vpc?topic=vpc-profiles&interface=ui#compute) family, see the *cx3d* profiles tab. In the [Memory](/docs/vpc?topic=vpc-profiles&interface=ui#memory) family, see the *mx3d* profiles tab. 3rd generation dedicated host profiles are also available. For more information, see *bx3d*, *cx3d*, and *mx3d* profiles in [x86-64 dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 ### 03 April 2024
 {: #vpc-april0324}
 {: release-note}
 
 Next generation instance profiles available in Toronto region (select availability)
-:   The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are now available as a select availability offering in the Canada (Toronto) region, in addition to the US East (Washington DC), US South (Dallas), United Kingdom (London), and EU Germany (Frankfurt) regions. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel&reg; Xeon&reg; Scalable processors to provide the most powerful and performant general-purpose profiles available. For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles). In the [Balanced](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) family, see the *bx3d* profiles tab. In the [Compute](/docs/vpc?topic=vpc-profiles&interface=ui#compute) family, see the *cx3d* profiles tab. In the [Memory](/docs/vpc?topic=vpc-profiles&interface=ui#memory) family, see the *mx3d* profiles tab. 3rd generation dedicated host profiles are also available. For more information, see *bx3d*, *cx3d*, and *mx3d* profiles in [x86-64 dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+:   The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are now available as a select availability offering in the Canada (Toronto) region, in addition to the US East (Washington DC), US South (Dallas), United Kingdom (London), and Germany (Frankfurt) regions. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel&reg; Xeon&reg; Scalable processors to provide the most powerful and performant general-purpose profiles available. For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles). In the [Balanced](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) family, see the *bx3d* profiles tab. In the [Compute](/docs/vpc?topic=vpc-profiles&interface=ui#compute) family, see the *cx3d* profiles tab. In the [Memory](/docs/vpc?topic=vpc-profiles&interface=ui#memory) family, see the *mx3d* profiles tab. 3rd generation dedicated host profiles are also available. For more information, see *bx3d*, *cx3d*, and *mx3d* profiles in [x86-64 dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 ## March 2024
 {: #vpc-mar24}
@@ -288,7 +280,7 @@ VMware ESXi 7 End of Market for Bare Metal for VPC
 :   VMware ESXi image on Bare Metal Servers for VPC will no longer be available when you provision a bare metal for VPC servers. If looking to deploy a VMware solution in VPC, consider provisioning VMware Cloud Foundation (VCF) through IBM Cloud VMware Solutions. For more information about this solution, see [VMware Cloud Foundation overview](/docs/vmwaresolutions?topic=vmwaresolutions-vpc-vcf-ovw). For more information on the updated packaging and pricing for VMware® portfolio, see [Packaging and pricing for VMware by Broadcom](/docs/vmwaresolutions?topic=vmwaresolutions-vmwaresol_packaging-pricing).
 
 Next generation instance profiles available in Washington DC region (select availability)
-:   The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are now available as a select availability offering in the US East (Washington DC) region, in addition to the US South (Dallas), United Kingdom (London), and EU Germany (Frankfurt) regions. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel&reg; Xeon&reg; Scalable processors to provide the most powerful and performant general-purpose profiles available. For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles). In the [Balanced](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) family, see the *bx3d* profiles tab. In the [Compute](/docs/vpc?topic=vpc-profiles&interface=ui#compute) family, see the *cx3d* profiles tab. In the [Memory](/docs/vpc?topic=vpc-profiles&interface=ui#memory) family, see the *mx3d* profiles tab. 3rd generation dedicated host profiles are also available. For more information, see *bx3d*, *cx3d*, and *mx3d* profiles in [x86-64 dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+:   The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are now available as a select availability offering in the US East (Washington DC) region, in addition to the US South (Dallas), United Kingdom (London), and Germany (Frankfurt) regions. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel&reg; Xeon&reg; Scalable processors to provide the most powerful and performant general-purpose profiles available. For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles). In the [Balanced](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) family, see the *bx3d* profiles tab. In the [Compute](/docs/vpc?topic=vpc-profiles&interface=ui#compute) family, see the *cx3d* profiles tab. In the [Memory](/docs/vpc?topic=vpc-profiles&interface=ui#memory) family, see the *mx3d* profiles tab. 3rd generation dedicated host profiles are also available. For more information, see *bx3d*, *cx3d*, and *mx3d* profiles in [x86-64 dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 ### 26 March 2024
 {: #vpc-mar2624}
@@ -301,7 +293,7 @@ Security group support for secondary IP addresses (select availability)
 {: #vpc-mar2524}
 
 Reservations for VPC (GA)
-:   Reservations for VPC are now GA (generally available). A reservation is a great option if you want guaranteed resources for future deployments and cost savings. You can choose between either a 1 or 3-year contract term for your reservation. Reservations are available the US South (Dallas), US East (Washington DC), Brazil (São Paulo), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Spain (Madrid), Japan (Osaka), Japan (Tokyo), and Australia (Sydney) multizone regions (MZRs). For more information, see [About reservations for VPC](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc).
+:   Reservations for VPC are now GA (generally available). A reservation is a great option if you want guaranteed resources for future deployments and cost savings. You can choose between either a 1 or 3-year contract term for your reservation. Reservations are available the US South (Dallas), US East (Washington DC), Brazil (São Paulo), Canada (Toronto), United Kingdom (London), Germany (Frankfurt), Spain (Madrid), Japan (Osaka), Japan (Tokyo), and Australia (Sydney) multizone regions (MZRs). For more information, see [About reservations for VPC](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc).
 
 ### 22 March 2024
 {: #vpc-mar2224}
@@ -359,14 +351,14 @@ Virtual Network Interfaces for VPC
    {: note}
 
 GPU l4 and l40S profiles now available in US South region
-:   The `l4` and `l40S` GPU profiles are now available US South (Dallas) region. For the `l4` profiles, these regions are in addition to US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Spain (Madrid), Australia (Sydney), and Japan (Tokyo) regions. For the `l40S` profiles, this region is in addition to US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Spain (Madrid), Australia (Sydney), and Japan (Tokyo) regions. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+:   The `l4` and `l40S` GPU profiles are now available US South (Dallas) region. For the `l4` profiles, these regions are in addition to US East (Washington DC), Canada (Toronto), United Kingdom (London), Germany (Frankfurt), Spain (Madrid), Australia (Sydney), and Japan (Tokyo) regions. For the `l40S` profiles, this region is in addition to US East (Washington DC), Canada (Toronto), United Kingdom (London), Germany (Frankfurt), Spain (Madrid), Australia (Sydney), and Japan (Tokyo) regions. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 ### 11 March 2024
 {: #vpc-mar1124}
 {: release-note}
 
 GPU l40S profiles now available in Canada and United Kingdom regions
-:   The `l40S` GPU profiles are now available in the Canada (Toronto) and United Kingdom (London) regions. These regions are in addition to US East (Washington DC), EU Germany (Frankfurt), Spain (Madrid), Australia (Sydney), and Japan (Tokyo) regions. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+:   The `l40S` GPU profiles are now available in the Canada (Toronto) and United Kingdom (London) regions. These regions are in addition to US East (Washington DC), Germany (Frankfurt), Spain (Madrid), Australia (Sydney), and Japan (Tokyo) regions. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 ### 07 March 2024
 {: #vpc-mar0724}
@@ -397,10 +389,10 @@ UI navigation change to Auto scale
 {: release-note}
 
 GPU l40S profiles with PCIe now available
-:   New `l40S` GPU profiles that include NVIDIA's L40S 48GB GPU are now available in the EU Germany (Frankfurt), Spain (Madrid), Australia (Sydney), and Japan (Tokyo) regions. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+:   New `l40S` GPU profiles that include NVIDIA's L40S 48GB GPU are now available in the Germany (Frankfurt), Spain (Madrid), Australia (Sydney), and Japan (Tokyo) regions. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 GPU l4 profiles now available
-:   New `l4` GPU profiles that include NVIDIA's L4 24GB GPU are now available in the Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Spain (Madrid),  Australia (Sydney), and Japan (Tokyo) regions. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+:   New `l4` GPU profiles that include NVIDIA's L4 24GB GPU are now available in the Canada (Toronto), United Kingdom (London), Germany (Frankfurt), Spain (Madrid),  Australia (Sydney), and Japan (Tokyo) regions. For more information, see [GPU x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 ### 23 February 2024
 {: #vpc-feb2324}
@@ -425,8 +417,8 @@ Virtual Network Interfaces for VPC (Select availability)
    If you have automation for managing your virtual network interfaces, bare metal servers, and file share mount targets, and you are not interested in expanded support for virtual network interfaces, you'll have the option to opt out when the feature becomes generally available.
    {: note}
 
-Next generation instance profiles available in EU Germany (Frankfurt) region (select availability)
-:   The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are now available as a select availability offering in the EU Germany (Frankfurt) region, in addition to the US South (Dallas) and United Kingdom (London) regions. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel&reg; Xeon&reg; Scalable processors to provide the most powerful and performant general-purpose profiles available. For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles). In the [Balanced](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) family, see the *bx3d* profiles tab. In the [Compute](/docs/vpc?topic=vpc-profiles&interface=ui#compute) family, see the *cx3d* profiles tab. In the [Memory](/docs/vpc?topic=vpc-profiles&interface=ui#memory) family, see the *mx3d* profiles tab. 3rd generation dedicated host profiles are also available. For more information, see *bx3d*, *cx3d*, and *mx3d* profiles in [x86-64 dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+Next generation instance profiles available in Germany (Frankfurt) region (select availability)
+:   The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are now available as a select availability offering in the Germany (Frankfurt) region, in addition to the US South (Dallas) and United Kingdom (London) regions. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel&reg; Xeon&reg; Scalable processors to provide the most powerful and performant general-purpose profiles available. For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles). In the [Balanced](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) family, see the *bx3d* profiles tab. In the [Compute](/docs/vpc?topic=vpc-profiles&interface=ui#compute) family, see the *cx3d* profiles tab. In the [Memory](/docs/vpc?topic=vpc-profiles&interface=ui#memory) family, see the *mx3d* profiles tab. 3rd generation dedicated host profiles are also available. For more information, see *bx3d*, *cx3d*, and *mx3d* profiles in [x86-64 dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 ### 13 February 2024
 {: #vpc-feb1324}
@@ -836,7 +828,7 @@ VPC routing table authorizations
 {: release-note}
 
 New regions available for Ultra High Memory profiles:
-:   Ultra High Memory (ux2d) profiles are now available in the US East (Washington DC), Canada (Toronto), and EU Germany (Frankfurt) regions. For more information, see the [Ultra High Memory](/docs/vpc?topic=vpc-profiles&interface=ui#uhmemory) profiles documentation. For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+:   Ultra High Memory (ux2d) profiles are now available in the US East (Washington DC), Canada (Toronto), and Germany (Frankfurt) regions. For more information, see the [Ultra High Memory](/docs/vpc?topic=vpc-profiles&interface=ui#uhmemory) profiles documentation. For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 ### 08 June 2023
 {: #vpc-jun0823}
@@ -968,7 +960,7 @@ Enhancements to viewing profiles - number of supported network interfaces
 New network latency dashboard
 :   Provides visibility into network latency between all regions to help you plan the optimal selection for your cloud deployment and plan for scenarios, such as data residency and performance. This dashboard provides the average network round-trip latency (round-trip time or RTT) for all pairs of regions in {{site.data.keyword.cloud_notm}} over a 30-day period.
 
-   You can view and monitor performance in the following {{site.data.keyword.cloud_notm}} regions: US South (Dallas), Canada (Toronto), US East (Washington DC), EU Germany (Frankfurt), United Kingdom (London), Japan (Osaka), Australia (Sydney), Japan (Tokyo), and Brazil (São Paulo).
+   You can view and monitor performance in the following {{site.data.keyword.cloud_notm}} regions: US South (Dallas), Canada (Toronto), US East (Washington DC), Germany (Frankfurt), United Kingdom (London), Japan (Osaka), Australia (Sydney), Japan (Tokyo), and Brazil (São Paulo).
 
    To view performance metrics, see the [Network latency dashboard](/docs/vpc?topic=vpc-network-latency-dashboard).
 
@@ -1638,7 +1630,7 @@ UI update when you create a virtual server
 {: release-note}
 
 File Storage for VPC (select availability)
-:   {{site.data.keyword.filestorage_vpc_full}} is now available for customers with special approval to preview this service in the US East (Washington DC), US South (Dallas), EU Germany (Frankfurt), United Kingdom (London), Australia (Sydney), and Japan (Tokyo) regions.
+:   {{site.data.keyword.filestorage_vpc_full}} is now available for customers with special approval to preview this service in the US East (Washington DC), US South (Dallas), Germany (Frankfurt), United Kingdom (London), Australia (Sydney), and Japan (Tokyo) regions.
 
 :   For more information about this service, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about).
 
@@ -1680,9 +1672,9 @@ VPN client-to-site servers update (open beta)
 New Very High Memory and Ultra High Memory instance profile family for dedicated host (select availability)
 :   Very High Memory with instance storage and Ultra High Memory with instance storage profiles are now available for dedicated host.
 
-:   Very High Memory profiles offer a core to RAM ratio of 1 vCPU to 14 GiB of RAM. This family is hosted exclusively on the latest generation Intel® Xeon® Platinum Cascade Lake server hosts and is best for OLAP workloads and SAP-related services, such as SAP NetWeaver. Very High Memory profiles are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions. For more information, see [Very High Memory with instance storage profiles](/docs/vpc?topic=vpc-dh-profiles#vhm-is-dh-pr). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+:   Very High Memory profiles offer a core to RAM ratio of 1 vCPU to 14 GiB of RAM. This family is hosted exclusively on the latest generation Intel® Xeon® Platinum Cascade Lake server hosts and is best for OLAP workloads and SAP-related services, such as SAP NetWeaver. Very High Memory profiles are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London), Germany (Frankfurt), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions. For more information, see [Very High Memory with instance storage profiles](/docs/vpc?topic=vpc-dh-profiles#vhm-is-dh-pr). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
-:   Ultra High Memory profiles offer a core to RAM ratio of 1 vCPU to 28 GiB of RAM. This family is hosted exclusively on the latest generation Intel® Xeon® Platinum Cascade Lake server hosts and is optimized for running memory intensive applications and in-memory database such as SAP HANA, Memcached, or Redis. Ultra High Memory profiles are available in the US South (Dallas) and EU Germany (Frankfurt) regions. For more information, see [Ultra HIgh Memory with instance storage profiles](/docs/vpc?topic=vpc-dh-profiles#uhm-is-dh-pr). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+:   Ultra High Memory profiles offer a core to RAM ratio of 1 vCPU to 28 GiB of RAM. This family is hosted exclusively on the latest generation Intel® Xeon® Platinum Cascade Lake server hosts and is optimized for running memory intensive applications and in-memory database such as SAP HANA, Memcached, or Redis. Ultra High Memory profiles are available in the US South (Dallas) and Germany (Frankfurt) regions. For more information, see [Ultra HIgh Memory with instance storage profiles](/docs/vpc?topic=vpc-dh-profiles#uhm-is-dh-pr). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 ### 12 November 2021
 {: #vpc-nov1221}
@@ -1756,10 +1748,10 @@ Terraform available for Placement Groups
 {: release-note}
 
 New Very High Memory instance profile family (select availability)
-:   Very High Memory profiles are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), EU Germany (Frankfurt), and Japan (Tokyo) regions. Very High Memory profiles offer a core to RAM ratio of 1 vCPU to 14 GiB of RAM. This family is optimized for running high-compute-intensity in-memory workloads like SAP BW/4 HANA. For more information, see [Very High Memory profiles](/docs/vpc?topic=vpc-profiles&interface=ui#vhmemory). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+:   Very High Memory profiles are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), Germany (Frankfurt), and Japan (Tokyo) regions. Very High Memory profiles offer a core to RAM ratio of 1 vCPU to 14 GiB of RAM. This family is optimized for running high-compute-intensity in-memory workloads like SAP BW/4 HANA. For more information, see [Very High Memory profiles](/docs/vpc?topic=vpc-profiles&interface=ui#vhmemory). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 Instance Bandwidth (select availability)
-:   Instance bandwidth is now available in the US South (Dallas), US East (Washington DC), Canada (Toronto), EU Germany (Frankfurt), Japan (Osaka), Brazil (Sao Paulo) regions. When you provision a virtual server instance, you can now allocate bandwidth between attached volumes and networking by using the API and CLI. You can adjust bandwidth after you provision a virtual server instance by using the UI, API, and CLI. The maximum bandwidth capacity is determined by the instance profile that you select during instance provisioning. For more information, see [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles).
+:   Instance bandwidth is now available in the US South (Dallas), US East (Washington DC), Canada (Toronto), Germany (Frankfurt), Japan (Osaka), Brazil (Sao Paulo) regions. When you provision a virtual server instance, you can now allocate bandwidth between attached volumes and networking by using the API and CLI. You can adjust bandwidth after you provision a virtual server instance by using the UI, API, and CLI. The maximum bandwidth capacity is determined by the instance profile that you select during instance provisioning. For more information, see [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles).
 
 ### 01 September 2021
 {: #vpc-sep0121}
@@ -1810,7 +1802,7 @@ File Storage for VPC
 
 :   You can also increase the file share size from its original capacity in GB increments up to 32,000 GB capacity, depending on your share profile. For more information, see [Expanding file share capacity](/docs/vpc?topic=vpc-file-storage-expand-capacity).
 
-:   {{site.data.keyword.filestorage_vpc_full}} is available to customers with special approval to preview this service in the US East (Washington DC), US South (Dallas), and EU Germany (Frankfurt) regions.
+:   {{site.data.keyword.filestorage_vpc_full}} is available to customers with special approval to preview this service in the US East (Washington DC), US South (Dallas), and Germany (Frankfurt) regions.
 
 ### 17 August 2021
 {: #vpc-aug1721}
@@ -1876,7 +1868,7 @@ Instance Identifier Update
 {: release-note}
 
 File Storage for VPC
-:   The file storage general purpose 3 IOPS/GB profile is expanded so you can create file shares up to 32 TB with potential max IOPS performance of 96,000 IOPS. For more information, see [File Storage profiles](/docs/vpc?topic=vpc-file-storage-profiles). File Storage for VPC is available to customers with special approval to preview this service in the US East (Washington DC), US South (Dallas), and EU Germany (Frankfurt) regions.
+:   The file storage general purpose 3 IOPS/GB profile is expanded so you can create file shares up to 32 TB with potential max IOPS performance of 96,000 IOPS. For more information, see [File Storage profiles](/docs/vpc?topic=vpc-file-storage-profiles). File Storage for VPC is available to customers with special approval to preview this service in the US East (Washington DC), US South (Dallas), and Germany (Frankfurt) regions.
 
 ## June 2021
 {: #vpc-jun21}
@@ -1943,7 +1935,7 @@ Virtual Private Cloud (VPC) Gen 1 end of service
 New Ultra High Memory instance profile family (select availability)
 :   Ultra High Memory profiles are hosted exclusively on the latest generation Intel® Xeon® Platinum Cascade Lake server hosts and are optimized for running memory intensive applications and in-memory database such as SAP HANA, Memcached, or Redis. This profile family offers our highest vCPU to memory ratio with 28 GiB of memory for every 1 vCPU of compute and up to 5.7 TiB of available RAM. For more information, see [x86 Instance Profiles](/docs/vpc?topic=vpc-profiles).
 
-:   The Ultra High Memory family of profiles is currently available in the US South (Dallas) and EU Germany (Frankfurt) multizone regions (MZRs). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations). Contact your IBM Sales representative if you need Ultra High Memory profiles in an MZR other than Dallas or Frankfurt.
+:   The Ultra High Memory family of profiles is currently available in the US South (Dallas) and Germany (Frankfurt) multizone regions (MZRs). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations). Contact your IBM Sales representative if you need Ultra High Memory profiles in an MZR other than Dallas or Frankfurt.
 
 ## April 2021
 {: #vpc-apr21}
@@ -2027,7 +2019,7 @@ Private network load balancers
 {: release-note}
 
 Virtual server instance console
-:   The virtual server instance console feature is now generally available in the following regions: US South (Dallas),EU Germany (Frankfurt), United Kingdom (London), Japan (Osaka), and US East (Washington DC). For more information, see [Accessing virtual server instances by using VNC or serial consoles](/docs/vpc?topic=vpc-vsi_is_connecting_console).
+:   The virtual server instance console feature is now generally available in the following regions: US South (Dallas),Germany (Frankfurt), United Kingdom (London), Japan (Osaka), and US East (Washington DC). For more information, see [Accessing virtual server instances by using VNC or serial consoles](/docs/vpc?topic=vpc-vsi_is_connecting_console).
 
 Bring you own license (GA)
 :   You can bring your own license (BYOL) when you import a RedHat Enterprise Linux (RHEL) or Windows&reg; custom image to IBM Cloud VPC. Because these images are registered and licensed by you, you maintain control over your licenses and with no additional cost. Acquisition and activation of the license is between you and and the OS vendor. For more information, see [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about).
@@ -2411,8 +2403,8 @@ UI enhancement
 {: #vpc-apr2220}
 {: release-note}
 
-New EU Germany (Frankfurt) region
-:   The EU Germany (Frankfurt) region endpoint (eu-de) is now in service at `http://eu-de.iaas.cloud.ibm.com`. For more information, see [Endpoint URLs](/apidocs/vpc#endpoint-url) in the {{site.data.keyword.vpc_short}} API. See also [Creating a VPC in a different region](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region).
+New Germany (Frankfurt) region
+:   The Germany (Frankfurt) region endpoint (eu-de) is now in service at `http://eu-de.iaas.cloud.ibm.com`. For more information, see [Endpoint URLs](/apidocs/vpc#endpoint-url) in the {{site.data.keyword.vpc_short}} API. See also [Creating a VPC in a different region](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region).
 
 ### 17 April 2020
 {: #vpc-apr1720}
@@ -2592,4 +2584,4 @@ Advanced routing
 {: release-note}
 
 Introducing {{site.data.keyword.vpc_short}}
-:   {{site.data.keyword.vpc_full}} is now generally available in the US South (Dallas), EU Germany (Frankfurt), and Japan (Tokyo) regions. For more information, see [{{site.data.keyword.vpc_short}}](https://www.ibm.com/blog/introducing-ibm-cloud-virtual-private-cloud/).{: external}
+:   {{site.data.keyword.vpc_full}} is now generally available in the US South (Dallas), Germany (Frankfurt), and Japan (Tokyo) regions. For more information, see [{{site.data.keyword.vpc_short}}](https://www.ibm.com/blog/introducing-ibm-cloud-virtual-private-cloud/).{: external}

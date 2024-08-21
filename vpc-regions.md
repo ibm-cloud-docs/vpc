@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-12-15"
+  years: 2020, 2024
+lastupdated: "2024-08-21"
 
 keywords: region, zone, deploy, datacenter, data, center, federated, CLI, API, account, failover, disaster, recovery, DR, data center
 
@@ -38,7 +38,7 @@ Virtual Private Cloud is available in the following {{site.data.keyword.cloud}} 
 |   Location     | Region | API Endpoint |
 | ------- | :------: | :------: |
 | United Kingdom (London) | eu-gb | `eu-gb.iaas.cloud.ibm.com`|
-| EU Germany (Frankfurt) | eu-de | `eu-de.iaas.cloud.ibm.com`|
+| Germany (Frankfurt) | eu-de | `eu-de.iaas.cloud.ibm.com`|
 | Spain (Madrid) | eu-es | `eu-es.iaas.cloud.ibm.com` |
 {: class="simple-tab-table"}
 {: tab-title="Europe"}

@@ -15,16 +15,16 @@ subcollection: vpc
 # Confidential computing with LinuxONE
 {: #about-se}
 
-Confidential computing is enabled on LinuxONE (s390x processor architecture) by using the [IBM Secure Execution for Linux](https://www.ibm.com/docs/en/linux-on-systems?topic=management-secure-execution){: external} technology. This technology is part of the hardware of IBM z15 (z15) and IBM LinuxONE III generation systems. With IBM Secure Execution for Linux, you can securely deploy workloads in the cloud. It ensures the integrity and confidentiality of boot images, and server authenticity. Applications are isolated from the operating system, thus providing more privacy and security for the workload.
+Confidential computing is enabled on LinuxONE (s390x processor architecture) by using the [IBM Secure Execution for Linux](https://www.ibm.com/docs/en/linux-on-systems?topic=management-secure-execution){: external} technology. This technology is part of the hardware of IBM z15 (z15) and IBM LinuxONE III generation systems. With IBM Secure Execution for Linux, you can securely deploy workloads in the cloud. It helps ensure the integrity and confidentiality of boot images, and server authenticity. Applications are isolated from the operating system, thus providing more privacy and security for the workload.
 {: shortdesc}
 
 By using IBM Secure Execution for Linux, you can create encrypted Linux images that can run on a public, private, or hybrid cloud with their in-use memory protected. The workload or data is protected from external and insider threats.
 
-A new operating system that leverages the IBM Secure Execution for Linux technology is now available as **IBM Hyper Protect**. The associated image that's used to create the instance is called the [IBM Hyper Protect Container Runtime (HPCR) image](/docs/vpc?topic=vpc-vsabout-images#hyper-protect-runtime). A virtual server instance that's provisioned by using this image is called as an **{{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for VPC** (Virtual Private Cloud) instance.
+A new operating system that uses the IBM Secure Execution for Linux technology is now available as **IBM Hyper Protect**. The associated image that is used to create the instance is called the [IBM Hyper Protect Container Runtime (HPCR) image](/docs/vpc?topic=vpc-vsabout-images#hyper-protect-runtime). A virtual server instance that's provisioned by using this image is called as an **{{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for VPC** (Virtual Private Cloud) instance.
 
 For a technical deep dive into the IBM Hyper Protect Platform, see the white paper [The Second Generation of IBM Hyper Protect Platform](https://www.ibm.com/downloads/cas/GPVMWPM3){: external}.
 
-Check out the [tutorial](/docs/vpc?topic=vpc-financial-transaction-confidential-computing-on-hyper-protect-virtual-server-for-vpc) and the [video](https://mediacenter.ibm.com/media/Confidential+Computing+for+a+financial+transaction+using+Hyper+Protect+Virtual+Server+for+VPC/1_vv3j2oo6){: external} on Confidential Computing for a financial transaction using Hyper Protect Virtual Server for VPC. You can learn about how to protect Personally Identifiable Information and credit card information entered into web forms by using Confidential Computing on Hyper Protect Virtual Server for VPC.
+Check out the [tutorial](/docs/vpc?topic=vpc-financial-transaction-confidential-computing-on-hyper-protect-virtual-server-for-vpc) and the [video](https://mediacenter.ibm.com/media/Confidential+Computing+for+a+financial+transaction+using+Hyper+Protect+Virtual+Server+for+VPC/1_vv3j2oo6){: external} on Confidential Computing for a financial transaction by using Hyper Protect Virtual Server for VPC. You can learn about how to protect Personally Identifiable Information and credit card information that is entered into web forms by using Confidential Computing on Hyper Protect Virtual Server for VPC.
 
 For the on-prem version of {{site.data.keyword.hpvs}}, see [IBM Hyper Protect Virtual Servers v2.1](https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/nicolas-mding/2022/10/06/ibm-hyper-protect-virtual-servers-v21){: external}.
 
@@ -34,7 +34,8 @@ For the on-prem version of {{site.data.keyword.hpvs}}, see [IBM Hyper Protect Vi
 The {{site.data.keyword.hpvs}} for VPC takes advantage of the IBM Secure Execution for Linux to provide a boundary around each instance and provides the following benefits: 
 
 - Select Availability
-   For the Hyper Protect Virtual Server instances, the profiles are available in the US South (Dallas), Japan (Tokyo), Brazil (São Paulo), Spain (Madrid), Canada (Toronto), United Kingdom (London), Germany (Frankfurt), and US East (Washington DC) regions.
+
+   Instance profiles for the Hyper Protect Virtual Server instances are available in the US South (Dallas), US East (Washington, DC), Canada (Toronto), Brazil (São Paulo), United Kingdom (London), Germany (Frankfurt), Spain (Madrid), and Japan (Tokyo) regions.
 
 - Secure Execution boundary for protection from internal and external threats
 
@@ -42,13 +43,13 @@ The {{site.data.keyword.hpvs}} for VPC takes advantage of the IBM Secure Executi
 
 - Multiparty contract and attestation of deployment
 
-   Apply Zero Trust principles from workload development through deployment. As multiple personas and legal entities collaborate, it’s essential to separate duty and access. {{site.data.keyword.hpvs}} for VPC is based on a newly introduced [encrypted contract](/docs/vpc?topic=vpc-about-contract_se) concept. It enables each persona to provide its contribution and be ensured through encryption that none of the other personas can access this data or intellectual property. The deployment can be validated by an auditor persona through an [attestation record](https://cloud.ibm.com/docs/vpc?topic=vpc-about-attestation), which is signed and encrypted to ensure only the auditor has this level of insight.
+   Apply zero trust principles from workload development through deployment. As multiple personas and legal entities collaborate, it’s essential to separate duty and access. {{site.data.keyword.hpvs}} for VPC is based on a newly introduced [encrypted contract](/docs/vpc?topic=vpc-about-contract_se) concept. It enables each persona to provide its contribution and be ensured through encryption that none of the other personas can access this data or intellectual property. The deployment can be validated by an auditor persona through an [attestation record](https://cloud.ibm.com/docs/vpc?topic=vpc-about-attestation), which is signed and encrypted to ensure that only the auditor has this level of insight.
 
 - Malware protections
 
-   {{site.data.keyword.hpvs}} for VPC leverages Secure Build to set up a verification process to ensure that only authorized code is running in an application. It deploys only container versions that are validated at deployment through explicit [digest or are signed](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_images) and may be pulled from a [private container registry with authentication](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_auths) only.
+   {{site.data.keyword.hpvs}} for VPC uses Secure Build to set up a verification process to ensure that only authorized code is running in an application. It deploys only container versions that are validated at deployment through explicit [digest or are signed](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_images) and may be pulled from a [private Container Registry with authentication](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_auths) only.
 
-- Bring your own OCI image and leverage managed Container Runtime service
+- Bring your own OCI image and use managed Container Runtime service
 
    Use any [open-container initiative (OCI)](https://opencontainers.org/){: external} image and gain the benefits of a confidential computing solution for extra levels of protection. Ensure through a [signed contract](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_sign), that only a given combination of your workload and environment is deployed.
 
@@ -57,7 +58,7 @@ The {{site.data.keyword.hpvs}} for VPC takes advantage of the IBM Secure Executi
 
    Choose from various profile sizes and grow as needed to protect containerized applications and pay-as-you-go on an hourly basis.
 
-   Leverage your existing or common [network security groups](/docs/vpc?topic=vpc-security-in-your-vpc)  and [logging infrastructure](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc).
+   Leverage your existing or common [network security groups](/docs/vpc?topic=vpc-security-in-your-vpc) and [logging infrastructure](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc).
 
 Complete the following steps to get started with {{site.data.keyword.hpvs}} for VPC. Most importantly, a valid [contract](/docs/vpc?topic=vpc-about-contract_se) is required for creating an instance.
 
@@ -98,11 +99,11 @@ It's important to read the following information and complete the required prepa
 
 - Data volume
 
-   Currently, the instance supports only one data volume and [encrypted by default with the seed or passphrase that you provide](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_volumes), which ensures that your workload data is protected. Even though you can add multiple data volumes, they're ignored and only one of them is encrypted. It's recommended that you attach one data volume to the instance during instance creation so that data from the container is stored in the data volume. It's also recommended that you take a snapshot of the data volume so that you can revert to it in case you face any issues in the future.
+   Currently, the instance supports only one data volume that is [encrypted by default with the seed or passphrase that you provide](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_volumes), which helps ensure that your workload data is protected. Even though you can add multiple data volumes, they're ignored and only one of them is encrypted. It's recommended that you attach one data volume to the instance during instance creation so that data from the container is stored in the data volume. It's also recommended that you take a snapshot of the data volume so that you can revert to it in case you face any issues in the future.
 
    Starting from the HPCR image version `ibm-hyper-protect-container-runtime-1-0-s390x-9`, for new {{site.data.keyword.hpvs}} for VPC instances, the data volume is partitioned into two parts. The first partition (100Mib) is reserved for internal metadata; the second partition remains as the data volume for workload. Only new volumes are partitioned, and you can't use the partitioned volume with an older version of the HPCR image. Provisioning with an existing encrypted volume also works. The difference is that the existing volume does not get partitioned, and you can also go back to an older image with this volume.
 
-   When you create a {{site.data.keyword.hpvs}} for VPC instance, detaching the data volume attached to the running instance causes the workload running on the instance to fail. It's recommended that you do not detach the data volume.
+   When you create a {{site.data.keyword.hpvs}} for VPC instance with an attached data volume, detaching that data volume causes the workload running on the instance to fail. It's recommended that you do not detach the data volume.
 
 - Security group for ports
 
@@ -120,10 +121,9 @@ See the [troubleshooting documentation](/docs/vpc?topic=vpc-hyper-protect-virtua
 
 You can use [Terraform](/docs/vpc?topic=vpc-terraform-for-hyper-protect-virtual-servers-for-vpc) to automate operations with {{site.data.keyword.hpvs}} for VPC.
 
-You can use your {{site.data.keyword.hpvs}} for VPC instance in **private-only** network configurations, in which the VPC doesn't have a public gateway and the virtual server instance doesn't have a floating IP. You can connect to private endpoints of other services, including container registry and [IBM Log Analysis](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc). The prerequisite is to have a DNS server attached to your virtual server instance. You don't need to do any additional configurations.
+You can use your {{site.data.keyword.hpvs}} for VPC instance in **private-only** network configurations, in which the VPC doesn't have a public gateway, and the virtual server instance doesn't have a floating IP. You can connect to private endpoints of other services, including Container Registry and [IBM Log Analysis](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc). The prerequisite is to have a DNS server attached to your virtual server instance. You don't need to do any additional configurations.
 
-**Deprecated**: As of 28 March 2024, the IBM Log Analysis and IBM Cloud Activity Tracker services are deprecated and will no longer be supported as of 30 March 2025. Customers will need to migrate to IBM Cloud Logs, which replaces these two services, prior to 30 March 2025. IBM Cloud Logs will become generally available during the summer of 2024 in Frankfurt and Madrid with day-one support for EU-managed controls. The service will continue its worldwide multizone region (MZR) roll-out through 3Q2024. For information about IBM Cloud Logs, see the [IBM Cloud Logs documentation](https://cloud.ibm.com/docs/cloud-logs).
-
+**Deprecated**: As of 28 March 2024, the IBM Log Analysis and IBM Cloud Activity Tracker services are deprecated and will no longer be supported as of 30 March 2025. Customers need to migrate to IBM Cloud Logs, which replaces these two services, before 30 March 2025. IBM Cloud Logs became generally available in Frankfurt and Madrid with day-one support for EU-managed controls on 24 June 2024. The service will continue its worldwide multizone region (MZR) roll-out through the 3rd quarter of 2024. For information about IBM Cloud Logs, see the [IBM Cloud Logs documentation](https://cloud.ibm.com/docs/cloud-logs).
 
 ## Recovering or upgrading a {{site.data.keyword.hpvs}} for VPC instance by using {{site.data.keyword.vpc_short}} Snapshots.
 {: #recover-upgrade-hyper-protect-virtual-servers-for-vpc-using-snapshots}
