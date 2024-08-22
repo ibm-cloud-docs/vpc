@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-03-12"
+lastupdated: "2024-08-22"
 
 keywords:
 
@@ -20,12 +20,9 @@ A secondary IP addresses in virtual network interfaces can help you operate netw
 
 Secondary IP addresses can be created when you create your virtual network interface, or they can be added to the virtual network interface after the VNI creation. For steps to add a secondary IP while you create a VNI, see [Creating a virtual network interface](/docs/vpc?topic=vpc-vni-create).
 
-## Adding a secondary IP address in an existing virtual network interface
-{: #create-secondary-ip-existing-vni}
-
 You can add secondary IP addresses to a VNI with the UI, CLI, API, or Terraform.
 
-### Adding a secondary IP address to an existing virtual network interface in the UI
+## Adding a secondary IP address to an existing virtual network interface in the UI
 {: #vni-existing-secondary-ip-ui}
 {: ui}
 
@@ -53,7 +50,7 @@ export IBMCLOUD_IS_FEATURE_VNI_PHASE_II=true
 ```
 {: pre}
 
-Then run the following command: [examples only show rename]{: tag-red}
+Then run the following command:
 
 ```sh
 ibmcloud is virtual-network-interface-update VIRTUAL_NETWORK_INTERFACE --name NEW_NAME [--allow-ip-spoofing false | true] [--auto-delete false | true] [--enable-infrastructure-nat false | true] [--output JSON] [-q, --quiet]
@@ -91,7 +88,6 @@ Where:
 - `ibmcloud is virtual-network-interface-update 7208-8918786e-5958-42fc-9e4b-410c5a58b164 --name cli-vni-1 --allow-ip-spoofing false --auto-delete false --enable-infrastructure-nat false`
 - `ibmcloud is virtual-network-interface-update cli-vni-1 --name cli-vni-2 --allow-ip-spoofing false --auto-delete true --enable-infrastructure-nat false`
 
-
 ## Attaching a secondary IP to an existing virtual network interface from the API
 {: #vni-existing-secondary-ip-api}
 {: api}
@@ -101,7 +97,7 @@ Where:
 
     * `version` (string): The API version, in format `YYYY-MM-DD`.
     * `virtual_network_interface_id` (string): The virtual network interface identifier.
-    * `secondary_ip` (array): The information about the secondary IP you wish to attach.
+    * `secondary_ip` (array): The information about the secondary IP that you want to attach.
 
 1. When all variables are initiated, add the secondary IP to the existing virtual network interface: [examples only show rename]{: tag-red}
 
