@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-03-12"
+lastupdated: "2024-08-22"
 
 keywords:
 
@@ -101,7 +101,7 @@ Where:
 
     * `version` (string): The API version, in format `YYYY-MM-DD`.
     * `virtual_network_interface_id` (string): The virtual network interface identifier.
-    * `secondary_ip` (array): The information about the secondary IP you wish to attach.
+    * `secondary_ip` (array): The information about the secondary IP that you want to attach.
 
 1. When all variables are initiated, add the secondary IP to the existing virtual network interface: [examples only show rename]{: tag-red}
 
