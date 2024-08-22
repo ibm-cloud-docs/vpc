@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-07-19"
+lastupdated: "2024-08-22"
 
 keywords: view instance details, restart virtual server, stop, details, delete
 
@@ -110,7 +110,7 @@ ibmcloud is instance-stop INSTANCE
 
 The stop action shuts down the guest operating system and then the virtual server instance is deprovisioned. This change releases the instance resources that were being consumed. The virtual server instance goes into the Stop state. If the instance is stopped, the instance remains in the stopped state and must be started manually. Billing is [suspended](/docs/vpc?topic=vpc-suspend-billing) for some compute resources while the instance is stopped. You cannot interact with an instance if it is stopped, but volumes remain provisioned. If the instance is started, normal interaction and billing continue.
 
-The following example stops an instance without requesting confirmation. The virtual server instance has an ID of `0777_e7af506a-35d4-451d-aa9e-59330e62b77e`. The `--force` option indicates that the request for confirmation is skipped. 
+The following example stops an instance without requesting confirmation. The virtual server instance has an ID of `0777_e7af506a-35d4-451d-aa9e-59330e62b77e`. The `--force` option indicates that the request for confirmation is skipped.
 
 ```sh
 ibmcloud is instance-stop 0777_e7af506a-35d4-451d-aa9e-59330e62b77e --force
@@ -120,7 +120,7 @@ ibmcloud is instance-stop 0777_e7af506a-35d4-451d-aa9e-59330e62b77e --force
 A Force stop action triggers a power cycle reset of the virtual server instance.
 {: note}
 
-If you have an instance that gets stuck in a _stopping_ state, you can use the following example command with the `--force` and `--no-wait` options that are specified to stop the instance immediately without confirmation. The instance has an ID of `0757_5446c277-3190-48dd-ac67-5f02fab39ed5`. The `--force` option indicates that the request for confirmation is skipped. The `--no-wait` option runs the command immediately, dropping any queued actions. 
+If you have an instance that gets stuck in a _stopping_ state, you can use the following example command with the `--force` and `--no-wait` options that are specified to stop the instance immediately without confirmation. The instance has an ID of `0757_5446c277-3190-48dd-ac67-5f02fab39ed5`. The `--force` option indicates that the request for confirmation is skipped. The `--no-wait` option runs the command immediately, dropping any queued actions.
 
 ```sh
 ibmcloud is instance-stop 0757_5446c277-3190-48dd-ac67-5f02fab39ed5 --force --no-wait
@@ -138,7 +138,7 @@ You can start a virtual server instance that is stopped in your {{site.data.keyw
 To start the virtual server instance, use the **`ibmcloud is instance-start`** command. Specify the ID or name of the virtual server instance that you want to start by using the `INSTANCE` variable.
 
 ```sh
-ibmcloud is instance-start INSTANCE 
+ibmcloud is instance-start INSTANCE
 ```
 {: pre}
 
@@ -206,7 +206,7 @@ You can reboot the virtual server instance in your {{site.data.keyword.vpc_short
 To reboot the virtual server instance, use the **`ibmcloud is instance-reboot`** command. Specify the ID or name of the virtual server instance that you want to reboot by using the `INSTANCE` variable.
 
 ```sh
-ibmcloud is instance-reboot INSTANCE 
+ibmcloud is instance-reboot INSTANCE
 ```
 {: pre}
 
@@ -279,11 +279,11 @@ If the instance has a floating IP address, it must be unassociated or released b
 To delete the virtual server instance, use the **`ibmcloud is instance-delete`** command. Specify the ID or name of the virtual server instance that you want to delete by using the `INSTANCE` variable.
 
 ```sh
-ibmcloud is instance-delete INSTANCE 
+ibmcloud is instance-delete INSTANCE
 ```
 {: pre}
 
-For a full list of command options, see [ibmcloud is instance-delete](/docs/vpc?topic=vpc-vpc-reference#instance-delete). 
+For a full list of command options, see [ibmcloud is instance-delete](/docs/vpc?topic=vpc-vpc-reference#instance-delete).
 
 The delete action permanently removes an instance, its connected vNIC, and data from your account. The instance boot volume is also deleted if the volume auto-delete setting is configured to delete when the attached instance is deleted. If an existing boot volume is attached as part of provisioning a virtual server instance, the volume is preserved by default when the instance is deleted. If a boot volume was created as part of provisioning a virtual server instance, the volume is deleted by default when the instance is deleted. After you confirm the delete action, the process to delete the instance and its associated vNIC, boot volume, and data begins. The delete action can take up to 30 minutes, but when the process is complete, the instance no longer appears on the virtual server instances page.
 
@@ -335,12 +335,12 @@ You can view a summary of all instances on the _Virtual server instances_ page. 
 {: #viewing-virtual-server-instances-cli}
 {: cli}
 
-You can view the virtual server instance details in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI). 
+You can view the virtual server instance details in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI).
 
 To view the virtual server instance details, use the **`ibmcloud is instance`** command. Specify the ID or name of the virtual server instance that you want to view by using the `INSTANCE` variable.
 
 ```sh
-ibmcloud is instance INSTANCE 
+ibmcloud is instance INSTANCE
 ```
 {: pre}
 
@@ -465,7 +465,7 @@ For z/OS virtual server instances, you can SSH into the instance, and then run t
 To set the host failure auto restart for an existing instance, complete the following steps.
    1. In [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com){: external}, click **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
    2. On the **Virtual server instances** page, click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for the instance that you want to manage.
-   3. From the instance details page, locate 'Host failure auto restart'. Click the pencil icon and choose Enabled or Disabled to toggle the status of the host recovery policy on or off.
+   3. From the instance details page, locate 'Host failure auto restart'. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") and choose Enabled or Disabled to toggle the status of the host recovery policy on or off.
 
 For more information, see [Host failure recovery policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=api).
 

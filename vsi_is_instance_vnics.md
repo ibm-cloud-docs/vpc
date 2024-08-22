@@ -58,7 +58,7 @@ To add or edit the network interfaces associated with your virtual server instan
 If you want to add a floating IP address to a primary network interface to allow traffic from the internet to access your virtual server instance, complete the following steps.
 
 1. If you are adding a floating IP address to the virtual server instance for the first time, identify the primary network interface in the **Network interfaces** section of the **Instance details** page. By default, the first interface is named `eth0`. Initially associating the floating IP address with the primary network interface helps establish the data path. Later, you can associate the floating IP to a different primary network interface.
-2. Click the pencil icon to edit the primary network interface.
+2. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to edit the primary network interface.
 3. On the **Edit network interface** page, locate the **Floating IP address** field. You can select **Reserve a new floating IP** or you can select an existing floating IP address.
 4. After you make your selection, click **Save**.
 
@@ -184,7 +184,7 @@ Virtual network interfaces can be attached to new virtual server instances, and 
 
 You can create a virtual network interface by using the command-line interface (CLI). For more information about capabilities, planning considerations, getting started, and use cases, see [About virtual network interfaces](/docs/vpc?topic=vpc-vni-about).
 
-To create a virtual network interface by using the CLI, use the **ibmcloud is virtual-network-interface-create** command. 
+To create a virtual network interface by using the CLI, use the **ibmcloud is virtual-network-interface-create** command.
 
 ```sh
 ibmcloud is virtual-network-interface-create [--name NAME] [--allow-ip-spoofing false | true] [--auto-delete false | true] [--enable-infrastructure-nat false | true] [[--rip RIP | [--rip-address RIP_ADDRESS --rip-auto-delete RIP_AUTO_DELETE --rip-name RIP_NAME]]] [--subnet SUBNET] [--ips RESERVED_IPS_JSON | @RESERVED_IPS_JSON_FILE] [--sgs SGS] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--vpc VPC] [--output JSON] [-q, --quiet]
@@ -206,9 +206,9 @@ For more information, see [ibmcloud is virtual-network-interface-create](/docs/v
 
 You can create a virtual server instance that uses an existing virtual network interface by using the command-line interface (CLI).
 
-To create a virtual server instance with an existing virtual network interface by using the CLI, use the **ibmcloud is instance-create** command. 
+To create a virtual server instance with an existing virtual network interface by using the CLI, use the **ibmcloud is instance-create** command.
 
-The following example creates a virtual server that includes an existing virtual network interface. The virtual server name is `my-instance-name`. The ID of the VPC is `72b27b5c-f4b0-48bb-b954-5becc7c1dcb8`. The zone name is `us-south-1`. The profile for the virtual server is `bx2-2x8`. The subnet is `72b27b5c-f4b0-48bb-b954-5becc7c1dcb8`.  The primary network attachment name is `cli-pnac-1`. The ID of the virtual network interface that is associated with the primary network interface is `7322-1293a27a-7178-4e62-ba5b-272623c989aa`. The network attachment configuration includes the name `instance-snac-1` and the virtual network interface ID `02h7-56705448-c9d9-43dc-aa11-20d42333cd87`. The image ID for the virtual server is `r123-72b27b5c-f4b0-48bb-b954-5becc7c1dcb8`. 
+The following example creates a virtual server that includes an existing virtual network interface. The virtual server name is `my-instance-name`. The ID of the VPC is `72b27b5c-f4b0-48bb-b954-5becc7c1dcb8`. The zone name is `us-south-1`. The profile for the virtual server is `bx2-2x8`. The subnet is `72b27b5c-f4b0-48bb-b954-5becc7c1dcb8`.  The primary network attachment name is `cli-pnac-1`. The ID of the virtual network interface that is associated with the primary network interface is `7322-1293a27a-7178-4e62-ba5b-272623c989aa`. The network attachment configuration includes the name `instance-snac-1` and the virtual network interface ID `02h7-56705448-c9d9-43dc-aa11-20d42333cd87`. The image ID for the virtual server is `r123-72b27b5c-f4b0-48bb-b954-5becc7c1dcb8`.
 
 ```sh
 ibmcloud is instance-create my-instance-name 72b27b5c-f4b0-48bb-b954-5becc7c1dcb8 us-south-1 bx2-2x8 72b27b5c-f4b0-48bb-b954-5becc7c1dcb8 --pnac-name cli-pnac-1 --pnac-vni 7322-1293a27a-7178-4e62-ba5b-272623c989aa --network-attachments [{"name": "instance-snac-1","virtual_network_interface": {"id":"02h7-56705448-c9d9-43dc-aa11-20d42333cd87"}}] --image r123-72b27b5c-f4b0-48bb-b954-5becc7c1dcb8
@@ -233,7 +233,7 @@ To create a virtual network interface with the API, follow these steps:
 
     * `version` (string): The API version, in format `YYYY-MM-DD`.
 
-1. When all variables are initiated, create the virtual network interface. The following example includes sample information for the primary IP address, security groups, and subnet. 
+1. When all variables are initiated, create the virtual network interface. The following example includes sample information for the primary IP address, security groups, and subnet.
 
     ```sh
     curl -X POST \
@@ -258,7 +258,7 @@ To create a virtual network interface with the API, follow these steps:
     }'
     ```
     {: codeblock}
-    
+
 For more information, see [Create a virtual network interface](/apidocs/vpc/latest#create-virtual-network-interface).
 
 If you want to attach the virtual network interface to a new virtual server instance, see [Create an instance](/apidocs/vpc/latest#create-instance).
@@ -271,7 +271,7 @@ If you want to attach the virtual network interface to a new virtual server inst
 Virtual network interfaces can be attached to new virtual server instances, and cannot be added to existing virtual server instances with child network interfaces.
 {: note}
 
-For more information about capabilities, planning considerations, getting started, and use cases, see [About virtual network interfaces](/docs/vpc?topic=vpc-vni-about). 
+For more information about capabilities, planning considerations, getting started, and use cases, see [About virtual network interfaces](/docs/vpc?topic=vpc-vni-about).
 
 The following example creates a virtual network interface by using Terraform:
 

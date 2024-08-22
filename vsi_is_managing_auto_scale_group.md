@@ -42,7 +42,7 @@ You can access the instance group details page to change the instance group. You
 ### Editing the details for an instance group
 {: #editing-details-group}
 
-On the Instance group details page, you can use the pencil icon to change the following items:
+On the Instance group details page, you can click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change the following items:
 
 * **Name**
 * **Subnets**: Subnet IP address capacity is validated against the size of the instance group. The membership count of the group cannot exceed the total number of IP addresses that are available to assign across your subnets. Currently, 6 IP addresses per subnet are allotted as overhead and not available to assign to instances.
@@ -95,7 +95,7 @@ To add scaling policies, complete the following steps. You can define more than 
 | Average target utilization | Specify the average utilization for the metric that you select. This target value defines when the instance group manager needs to scale up instances or scale down instances in your group. At the end of each aggregation window, the instance group manager adds the current utilization of each instance and divides it by this target utilization value to determine the membership count. |
 {: caption="Table 2. Target policies selections" caption-side="bottom"}
 
-For existing target scaling policies, you can edit them by using the pencil icon.
+For existing target scaling policies, you can edit them by using the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit").
 {: tip}
 
 ### Viewing and managing memberships
@@ -124,7 +124,7 @@ You can temporarily disable dynamic auto scaling for an instance group to create
 
 1. When the dynamic auto scale scaling method is enabled, move the slider in the **Scaling method** section from **Enabled** to change it to **Disabled**.
 2. With Auto scale set to **Disabled**, change your **Membership count** for the instance group to 0. All of your existing instances in the group are removed.
-3. For the **Instance template** field, use the pencil icon to edit and select a new instance template to use for creating instances in the instance group.
+3. For the **Instance template** field, use the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to edit and select a new instance template to use for creating instances in the instance group.
 4. Change the **Membership count** for the instance group to the number of instances that you want to provision with the new instance template. For example, you can specify a membership count of _5_.
 5. When you are ready to use the dynamic scaling method again, move the slider in the **Scaling method** section from Disabled** to change it to **Enabled**. The instance group creates five instances that use the new instance template.
 

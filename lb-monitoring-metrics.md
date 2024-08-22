@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-06-20"
+lastupdated: "2024-08-22"
 
 keywords: l7, layer 7, monitor, metrics, connection
 
@@ -358,7 +358,7 @@ To customize your dashboard, follow these steps:
 
 1. Click **Save** for your new custom dashboard to be accessible.
 
-   By default, the dashboard begins with the name "blank dashboard". You can change the name by selecting **Dashboards** from the sidebar, then clicking the Pencil icon next to the name.
+   By default, the dashboard begins with the name "blank dashboard". You can change the name by selecting **Dashboards** from the sidebar, then clicking the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") next to the name.
    {: tip}
 
 To return to the default dashboard at any time, select **Dashboards > Default Dashboards > IBM > Load Balancer Monitoring Metrics**.

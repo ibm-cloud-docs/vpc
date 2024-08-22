@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-07-10"
+lastupdated: "2024-08-22"
 
 keywords:
 
@@ -84,7 +84,7 @@ To create a VPC and subnet follow these steps:
     {: important}
 
 1. _Optional:_ Clear the **Default address prefixes** option if you don't want to assign default address prefixes to each zone in your VPC. After you create your VPC, you can go to its details page and set your own address prefixes.
-1. By default the create VPC process defines three subnets. If you need to edit the properties that are defined for the subnet, click the pencil icon for the subnet that you want to edit. You can also remove a subnet that is pre-defined by clicking the minus icon. If you need to add a subnet, complete the following steps.
+1. By default the create VPC process defines three subnets. If you need to edit the properties that are defined for the subnet, click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") for the subnet that you want to edit. You can also remove a subnet that is pre-defined by clicking the minus icon. If you need to add a subnet, complete the following steps.
 1. Click **Add subnet** and enter a name for the new subnet in your VPC, such as `my-subnet`.
 1. Select a location for the subnet. The location consists of a region and a zone. The region that you select is used as the region of the VPC. All extra resources that you create in this VPC are created in the selected region.
 1. Select a resource group for the subnet.
