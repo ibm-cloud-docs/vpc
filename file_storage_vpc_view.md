@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-08-19"
+lastupdated: "2024-08-22"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -39,7 +39,7 @@ You can view all file shares, their bindings and mount targets in the UI, retrie
 | Size | Size of the file share, in GBs. |
 | IOPS profile| It shows the performance profile that is associated with the file share.|
 | Replication role | Relationship to the source file share. "Replica of" indicates that the file share a replica of the source share, which is linked. "Source of" indicates that the share the source of the replica, which is linked. "None" indicates that the file share does not replicate with another share. |
-| Cross account role | The values in this column can be None, Origin share, or Accessor share. If the value is None, the share is not shared with another account or external service. If the value is Origin share, the share is shared with another account or external service and is bound to an accessor share in the other account. If the value is Accessor share, then this share is bound to an origin share with the purpose of accessing the origin share's data.|
+| Cross account role | The values in this column can be _None_, _Origin share_, or _Accessor share_. If the value is _None_, the share is not shared with another account or external service. If the value is _Origin share_, the share is shared with another account or external service and is bound to an accessor share in the other account. If the value is _Accessor share_, then this share is bound to an origin share with the purpose of accessing the origin share's data.|
 | Encryption type | It shows the encryption type of the file share, either provider-managed or customer-managed. [Customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption) uses your own root keys to protect your data. The UI also identifies the key management service (KMS), either {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. |
 {: caption="Table 1. File shares list page." caption-side="bottom"}
 
@@ -50,11 +50,9 @@ You can access the Actions menu by clicking ![Actions icon](../icons/action-menu
 
 1. Go to the list of all file shares. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > File Shares**.
 
-2. Click the name of a file share to see the details page.
+2. Click the name of a file share to see the details page. The editable name and status of the file share is shown. If you applied user or access management tags to the file share, they are listed next to the status. Click **Add tags** to apply new [tags](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-about-fs-tags) to the share.
 
-The editable name and status of the file share is shown. If you applied user or access management tags to the file share, they are listed. Click **Add tags** to apply new [tags](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-about-fs-tags) to the share.
-
-The following table describes the information on the file share details page.
+3. The following table describes the information on the file share details page. Some of these details are editable.
 
 | Field | Value |
 |-------|-------|
@@ -68,13 +66,13 @@ The following table describes the information on the file share details page.
 | Encryption instance | For customer-managed encryption, link to the {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} instance. |
 | Key ID |  Copiable customer root key ID. |
 | ID | For customer-managed encryption, the UUID generated when you created the file share. |
-| Size | File share capacity in GB. |
+| Size | File share capacity is displayed in GB. |
 | Created | Date the file share was created. |
 | Mount target access mode   | Access to the file share is granted by either a security group within a subnet or to any virtual server instance in the VPC. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to switch access modes. Security group access is available only to file shares created with the [`dp2` profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile). For more information, see the [Mount target access modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-mount-access-mode). |
 | CRN | Copiable cloud resource name. |
 | Allowed encryption in transit modes| This value shows whether encryption in transit is required when clients access the file share. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change the allowed values.|   
 | **Profile, size, and IOPS**| |
-| Size | File share capacity in GB. |
+| Size | File share capacity is displayed in GB. |
 | IOPS tier | IOPS [profile](/docs/vpc?topic=vpc-file-storage-profiles) that defines the file share performance. In most cases, the dp2 profile is shown. |
 | Max IOPS | Maximum IOPS for the specified profile. |
 | **Mount targets** | Number of mount targets associated with the file share. You can have one mount target per VPC per file share. You can create more mount targets for other VPCs. Click ![Actions icon](../icons/action-menu-icon.svg) to rename or delete the mount target, or to view the mount path. |

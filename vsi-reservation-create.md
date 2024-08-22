@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-08-19"
+lastupdated: "2024-08-21"
 
 subcollection: vpc
 
@@ -59,7 +59,7 @@ When a reservation expires, the servers that are attached to a reservation conve
 You can attach existing virtual servers to your reservation. Keep in mind that all existing virtual servers must be the same profile, size, and location.
 
 1. From your virtual server list, click **Attach**.
-2. Select the reservation to attach the server to.
+2. Select the reservation to attach the server to and click **Attach**.
 
 ## Provisioning a reservation with the CLI
 {: #provisioning-reserved-capacity-cli-vpc}
@@ -200,7 +200,7 @@ curl -X POST "$vpc_api_endpoint/v1/reservations?version=2024-01-27&generation=2"
 ## Next steps
 {: #next-step-provisioning-reserved}
 
-After your reservation is provisioned and active, you can Attach an existing virtual server to your reservation. Or, you can Create virtual servers in your reservation by using the IBM Cloud console, the CLI, or the API. For more information about creating a virtual server, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers).
+After your reservation is provisioned and active, you can attach an existing server to your reservation. Or, you can create servers in your reservation by using the IBM Cloud console, the CLI, or the API. For more information about creating server, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers).
 
 ## Creating a reservation with Terraform
 {: #create-reservation-terraform-vpc}
