@@ -12,9 +12,9 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # Secure boot for Virtual Servers for VPC
-{: #confidential-computing-with-secure-boot-vpc}<publishing>
+{: #confidential-computing-with-secure-boot-vpc}
 
-[Select availability]{: tag-green}</publishing>
+[Select availability]{: tag-green}
 
 Secure boot is a security standard that makes sure that your server starts with trusted software by verifying the digital signatures for all code in the boot process. When a server starts in secure boot mode, the firmware checks the signature of the boot software, including UEFI firmware drivers, EFI applications, and the operating system. If the signatures are valid, the server boots, and the firmware grants control to the operating system. Which means that secure boot helps prevent malicious software from loading when your server starts.
 {: shortdesc}
