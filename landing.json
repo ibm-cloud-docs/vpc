@@ -34,7 +34,7 @@
           "date": "21 August 2024",
           "title": "Select availability for Hyper Protect Virtual Servers for VPC profiles",
           "description": "Hyper Protect Virtual Servers for Classic are transitioning out of IBM Cloud® classic data centers in Dallas, Washington D.C, and Frankfurt to IBM Cloud Virtual Private Cloud (VPC) MZRs. Customers can no longer provision Hyper Protect Virtual Servers in Dallas and Washington, DC from 20 August 2024, and in Frankfurt from 20 September 2024. Instance profiles for the Hyper Protect Virtual Server instances are available in the US South (Dallas), US East (Washington, DC), Canada (Toronto), Brazil (São Paulo), United Kingdom (London), Germany (Frankfurt), Spain (Madrid), and Japan (Tokyo) regions."
-        }
+        },
         {
           "date": "15 August 2024",
           "title": "IBM Wazi as a Service available in Germany (Frankfurt) region",
