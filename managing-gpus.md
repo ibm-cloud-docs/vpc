@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-07-10"
+lastupdated: "2024-08-26"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance, gpu, graphics processing unit, set up gpu
 
@@ -23,7 +23,7 @@ The GPU-enabled family of profiles provides on demand, cost-effective access to 
 {: #provision-gpu-on-vsi}
 
 1. Provision a [virtual server instance](/docs/vpc?topic=vpc-creating-virtual-servers) by choosing a [GPU profile](/docs/vpc?topic=vpc-profiles&interface=ui#gpu) in the Profile field. Stock and custom operating system images are supported.
-2. Install the NVIDIA GPU driver for your Virtual Server Instance's image and GPU profile. A NVIDIA driver level of R440 or newer is recommended. To download the drivers, see NVIDIA's [Download drivers](https://www.nvidia.com/Download/index.aspx?lang=en-us){: external} page.
+2. Install the NVIDIA GPU driver for your Virtual Server Instance's image and GPU profile. A NVIDIA driver level of R440 or newer is recommended. To download the drivers, see NVIDIA's [Download drivers](https://www.nvidia.com/en-us/drivers/){: external} page.
 3. Install associated toolkit for your workload. Visit NVIDIA's [CUDA toolkit downloads](https://developer.nvidia.com/cuda-downloads){: external} page.
 
 For detailed instructions to complete Steps 2 and 3, other GPU tools, and examples, see [How to Use V100-Based GPUs on IBM Cloud VPC](https://www.ibm.com/blog/how-to-use-v100-based-gpus-on-ibm-cloud-vpc/){: external}.

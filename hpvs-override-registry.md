@@ -59,7 +59,7 @@ services:
 ```
 {: codeblock}
 
-Note that the digest of the image is identical across registries, so the workload provider can lock down the desired version of the image by setting the key, independent of what registry is actually being used. Using tokens in the compose file is a native feature of the [compose specification](https://docs.docker.com/compose/compose-file/#interpolation){: external}.
+Note that the digest of the image is identical across registries, so the workload provider can lock down the desired version of the image by setting the key, independent of what registry is actually being used. Using tokens in the compose file is a native feature of the [compose specification](https://docs.docker.com/reference/compose-file/#interpolation){: external}.
 
 Now the workload provider can prepare (encrypt) the workload section **without** specifying the pull secrets for that registry.
 

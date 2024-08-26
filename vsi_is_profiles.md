@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-08-21"
+lastupdated: "2024-08-26"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -296,7 +296,7 @@ The GPU profile family includes `-v100`, `-a100`, `-l4`, and `-l40S`  profiles. 
 - GPU `-l4` profiles include NVIDIA L4 24GB GPUs.
 - GPU `-l40S` profiles include NVIDIA L40S 48GB GPUs.
 
-See [Download drivers](https://www.nvidia.com/Download/index.aspx?lang=en-us) to review the most current versions that are supported. NVIDIA GPU drivers must be installed separately.
+See [Download drivers](https://www.nvidia.com/en-us/drivers/) to review the most current versions that are supported. NVIDIA GPU drivers must be installed separately.
 
 | Instance profile | vCPU / Cores | GiB RAM | Type / Number of GPUs | Bandwidth Cap (Gbps) | Instance storage (GB) |
 |---------|---------|---------|---------|---------|---------|

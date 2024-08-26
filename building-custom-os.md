@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-05-09"
+lastupdated: "2024-08-26"
 
 keywords: custom os, creating a custom os, custom operating system, creating a custom operating system, kernel, custom kernel
 
@@ -130,5 +130,5 @@ The custom image you create for bare metal servers must support the following:
 * Intel chipset device drivers.
 * Bare Metal servers require the pensando ionic device driver for networking. This is normally an in-box driver for 5.x linux kernels. If the ionic driver is not part of your kernel, you can include it as a kernel module and use DKMS to manage kernel upgrades.
 
-To create secure execution based custom images by using the {{site.data.keyword.cos_full_notm}} option, see [Preparing the workload](https://www.ibm.com/docs/en/linux-on-systems?topic=tasks-prepare-workload). For more information about creating secure execution based images, [IBM Secure Execution for Linux](https://www.ibm.com/docs/en/linux-on-systems?topic=overview-introducing-secure-execution-linux).
+To create secure execution based custom images by using the {{site.data.keyword.cos_full_notm}} option, see [Preparing the workload](https://www.ibm.com/docs/en/linux-on-systems?topic=execution-workload-owner-tasks). For more information about creating secure execution based images, [IBM Secure Execution for Linux](https://www.ibm.com/docs/en/linux-on-systems?topic=management-secure-execution).
 {: note}
