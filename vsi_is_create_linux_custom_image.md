@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-07-10"
+lastupdated: "2024-08-26"
 
 keywords: creating a linux custom image, cloud-init, qcow2
 
@@ -23,7 +23,7 @@ You can begin with an image template from the {{site.data.keyword.cloud_notm}} C
 
 {{site.data.content.custom-image-requirements-list}}
 
-To create secure execution-based custom images by using the {{site.data.keyword.cos_full_notm}} option, see [Preparing the workload](https://www.ibm.com/docs/en/linux-on-systems?topic=tasks-prepare-workload). For more information about creating secure execution-based images, [IBM Secure Execution for Linux](https://www.ibm.com/docs/en/linux-on-systems?topic=management-secure-execution).
+To create secure execution-based custom images by using the {{site.data.keyword.cos_full_notm}} option, see [Preparing the workload](https://www.ibm.com/docs/en/linux-on-systems?topic=execution-workload-owner-tasks). For more information about creating secure execution-based images, [IBM Secure Execution for Linux](https://www.ibm.com/docs/en/linux-on-systems?topic=management-secure-execution).
 
 
 {{_include-segments/linux-ed25519-ssh-key-type-note.md}}
