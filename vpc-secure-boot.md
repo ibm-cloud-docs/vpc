@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-07-23"
+lastupdated: "2024-08-26"
 
 keywords: secure boot, tpm, Trusted Platform Module
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-07-10"
+lastupdated: "2024-08-26"
 
 keywords: sgx, intel sgx, software guard extension, confidential computing, attestation, DCAP, data center attestation primitives
 
