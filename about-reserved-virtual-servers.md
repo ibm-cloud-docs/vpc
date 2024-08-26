@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-08-15"
+lastupdated: "2024-08-23"
 
 keywords:
 
@@ -34,7 +34,7 @@ A reservation cannot be used for a container service discount such as IBM Kubern
 ## Supported virtual server profiles
 {: #reserved-virtual-servers-vpc-supported-profiles}
 
-The following x86 profiles for virtual servers are available when you provision a reservation in all [ten available MZRs](/docs/overview?topic=overview-locations).
+The following x86 profiles for virtual servers are available when you provision a reservation in all [available MZRs](/docs/overview?topic=overview-locations).
 
 * bx2 profiles
 * bx2d profiles
