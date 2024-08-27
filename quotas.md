@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-08-26"
+lastupdated: "2024-08-27"
 
 keywords:
 
@@ -159,7 +159,7 @@ The beta release of IBM Cloud Private Path is available only to allowlisted user
 |--------|-----|
 | Routing tables per VPC | 50 |
 | Routes per routing table | 200 |
-| Advertise routes per VPC | 30 |
+| Advertise routes per VPC | 15 |
 {: caption="Table 9. Quotas for routing tables and routes" caption-side="bottom"}
 
 Each route has a destination property, which includes a prefix length (`/24` in `10.2.0.0/24`). The number of unique prefix lengths that are supported per custom routing table is 14. Multiple routes with the same prefix count as only one unique prefix.
