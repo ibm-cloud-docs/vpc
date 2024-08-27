@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-06-18"
+lastupdated: "2024-08-27"
 
 keywords: api, change log, beta
 
@@ -25,6 +25,20 @@ There are no backward-compatibility guarantees as a feature progresses through i
 {: important}
 
 To review the change log of generally available API features, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log).
+
+## 27 August 2024
+{: #27-august-2024-beta}
+
+### For all version dates
+{: #27-august-2024-all-version-dates-beta}
+
+**Reservations for Bare Metal Servers for VPC.** Accounts that have been granted special approval to preview this feature can now purchase a [capacity reservation](/docs/vpc?topic=vpc-about-reserved-bare-metal-vpc) for a specified bare metal server profile in a specified zone. Reservations provide resources for future deployments and cost savings over the life of the term within the availability zone of your choice.
+
+When [creating](/apidocs/vpc-beta/initial#create-reservation) or [updating](/apidocs/vpc-beta/initial#update-reservation) a reservation, specify the `capacity.total` and `committed_use.term` properties to use for this reservation. Optionally specify the `committed_use.expiration_policy` property to apply when the committed use term expires (default: `release`). Specify the `profile.name` and `profile.resource_type` properties of the profile, and the `zone` property to use for this reservation. After you confirm the reservation is configured the way you want it, you must [activate the reservation](/apidocs/vpc-beta/initial#activate-reservation). The reservation cannot be deleted until the committed use term expires. To provision a bare metal server using a reservation's capacity, specify the reservation using the `reservation_affinity.pool` property when [creating the bare metal server](/apidocs/vpc-beta/initial#create-bare-metal-server). You can also [update a bare metal server](/apidocs/vpc-beta/initial#update-bare-metal-server) that's been provisioned to associate it with a reservation.
+
+When [retrieving a bare metal server](/apidocs/vpc-beta/initial#get-bare-metal-server), the new `reservation_affinity` property indicates the reservation affinity policy in effect for the bare metal server. The new `health_state` property indicates the bare metal server's overall health state, while an accompanying `health_reasons` property indicates the reason for any unhealthy health states, such as a failed reservation.
+
+For more information, see [Provisioning reserved capacity for VPC](/docs/vpc?topic=vpc-provisioning-reserved-capacity-vpc&interface=api).
 
 ## 18 June 2024
 {: #18-june-2024-beta}
