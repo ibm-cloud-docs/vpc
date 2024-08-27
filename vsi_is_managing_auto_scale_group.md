@@ -151,5 +151,3 @@ If the available capacity of a reservation increases after the autoscale self-he
 
 
 You can create autoscale groups with up to three subnets, one for each zone. However, the instance template that is associated with the autoscale group can target only a single reservation, which is scoped to exactly one zone. Therefore, if you use an instance template that targets a reservation, it is recommended that the autoscale group contain only a single subnet and that subnet's zone needs to match that of the reservation. If multiple subnets are used, the instances that are created in zones that are not the same as the reservation's zone fail.
-
-

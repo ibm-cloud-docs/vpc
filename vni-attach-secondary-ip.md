@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-08-22"
+lastupdated: "2024-08-27"
 
 keywords:
 
@@ -99,7 +99,7 @@ Where:
     * `virtual_network_interface_id` (string): The virtual network interface identifier.
     * `secondary_ip` (array): The information about the secondary IP that you want to attach.
 
-1. When all variables are initiated, add the secondary IP to the existing virtual network interface: [examples only show rename]{: tag-red}
+1. When all variables are initiated, add the secondary IP to the existing virtual network interface: 
 
     ```sh
     curl -X PATCH \
@@ -115,7 +115,7 @@ Where:
 {: #vni-terraform-existing-secondary-ip}
 {: terraform}
 
-The following example adds a secondary IP to an existing virtual network interface by using Terraform: [examples only show rename]{: tag-red}
+The following example adds a secondary IP to an existing virtual network interface by using Terraform:
 
 ```terraform
 resource "ibm_is_virtual_network_interface" "my_virtual_network_interface_instance" {
