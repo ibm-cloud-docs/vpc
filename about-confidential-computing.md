@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-08-21"
+lastupdated: "2024-08-28"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -123,7 +123,6 @@ You can use [Terraform](/docs/vpc?topic=vpc-terraform-for-hyper-protect-virtual-
 
 You can use your {{site.data.keyword.hpvs}} for VPC instance in **private-only** network configurations, in which the VPC doesn't have a public gateway, and the virtual server instance doesn't have a floating IP. You can connect to private endpoints of other services, including Container Registry and [IBM Log Analysis](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc). The prerequisite is to have a DNS server attached to your virtual server instance. You don't need to do any additional configurations.
 
-**Deprecated**: As of 28 March 2024, the IBM Log Analysis and IBM Cloud Activity Tracker services are deprecated and will no longer be supported as of 30 March 2025. Customers need to migrate to IBM Cloud Logs, which replaces these two services, before 30 March 2025. IBM Cloud Logs became generally available in Frankfurt and Madrid with day-one support for EU-managed controls on 24 June 2024. The service will continue its worldwide multizone region (MZR) roll-out through the 3rd quarter of 2024. For information about IBM Cloud Logs, see the [IBM Cloud Logs documentation](https://cloud.ibm.com/docs/cloud-logs).
 
 ## Recovering or upgrading a {{site.data.keyword.hpvs}} for VPC instance by using {{site.data.keyword.vpc_short}} Snapshots.
 {: #recover-upgrade-hyper-protect-virtual-servers-for-vpc-using-snapshots}
