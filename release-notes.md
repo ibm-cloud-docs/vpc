@@ -27,6 +27,12 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## August 2024
 {: #vpc-aug24}
 
+### 28 March 2024
+{: #vpc-mar2824}
+
+Reservations for Bare Metal Servers for VPC (beta)
+:   Reservations for Bare Metal Servers for VPC is now available as a beta feature. A reservation is a great option if you want guaranteed resources for future deployments and cost savings. You can choose between either a 1 or 3-year contract term for your reservation.
+
 ### 21 August 2024
 {: #vpc-aug2124}
 {: release-note}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-08-21"
+lastupdated: "2024-08-28"
 
 subcollection: vpc
 
@@ -59,6 +59,18 @@ When a reservation expires, the servers that are attached to a reservation conve
 You can attach existing virtual servers to your reservation. Keep in mind that all existing virtual servers must be the same profile, size, and location.
 
 1. From your virtual server list, click **Attach**.
+2. Select the reservation to attach the server to and click **Attach**.
+
+## Attaching an existing bare metal server to a reservation with the UI (beta)
+{: #attach-bare-metal-server-ui-vpc}
+{: ui}
+
+Reserved bare metal servers are a beta feature that is available for evaluation and testing purposes.
+{: beta}
+
+You can attach an existing bare metal server to your reservation. Keep in mind that all existing bare metal servers that are attached to a reservation must be the same profile, size, and location.
+
+1. From your bare metal server list, click **Attach**.
 2. Select the reservation to attach the server to and click **Attach**.
 
 ## Provisioning a reservation with the CLI
@@ -168,6 +180,22 @@ ibmcloud is instance-update <instance-name> -reservation-affinity-policy manual 
 ```
 {: pre}
 
+### Attaching an existing bare metal server to a reservation with the CLI (beta)
+{: #attach-bare-metal-server-cli-vpc}
+{: cli}
+
+Reserved bare metal servers are a beta feature that is available for evaluation and testing purposes.
+{: beta}
+
+You can attach an existing bare metal server to a reservation by using the CLI. To create a reserved reservation by using the CLI, use the `ibmcloud is bare-metal-server-update` command.
+
+1. Attach a bare metal server to a reservation by using the following command with the associated details.
+
+```sh
+ibmcloud is bare-metal-server-update SERVER [--name NEW_NAME] [--enable-secure-boot false | true] [--tpm-mode tpm_2 | disabled] [--bandwidth BANDWIDTH] [--reservation-affinity-policy, --res-policy disabled | manual] [--reservation-affinity-pool, --res-pool RESERVATION_AFFINITY_POOL] [--output JSON] [-q, --quiet]
+```
+{: pre}
+
 ## Creating a reservation with the API
 {: #create-reservation-api-vpc}
 {: api}
@@ -200,7 +228,7 @@ curl -X POST "$vpc_api_endpoint/v1/reservations?version=2024-01-27&generation=2"
 ## Next steps
 {: #next-step-provisioning-reserved}
 
-After your reservation is provisioned and active, you can attach an existing server to your reservation. Or, you can create servers in your reservation by using the IBM Cloud console, the CLI, or the API. For more information about creating server, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers).
+After your reservation is provisioned and active, you can attach an existing server to your reservation. Or, you can create servers in your reservation by using the IBM Cloud console, the CLI, or the API. For more information about creating server, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers) and [Creating Bare Metal Servers on VPC](vpc-creating-bare-metal-servers).
 
 ## Creating a reservation with Terraform
 {: #create-reservation-terraform-vpc}
