@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-08-21"
+lastupdated: "2024-08-28"
 
 keywords:
 
@@ -32,7 +32,7 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: release-note}
 
 Select availability for {{site.data.keyword.hpvs}} for VPC profiles
-:   {{site.data.keyword.hpvs}} for Classic are transitioning out of {{site.data.keyword.cloud}} classic data centers in Dallas, Washington D.C, and Frankfurt to IBM Cloud Virtual Private Cloud (VPC) MZRs. Customers can no longer provision {{site.data.keyword.hpvs}} in Dallas and Washington, DC from 20 August 2024, and in Frankfurt from 20 September 2024. Instance profiles for the Hyper Protect Virtual Server instances are available in the US South (Dallas), US East (Washington, DC), Canada (Toronto), Brazil (São Paulo), United Kingdom (London), Germany (Frankfurt), Spain (Madrid), and Japan (Tokyo) regions. For more information, see [Migration from IBM Cloud Hyper Protect Virtual Servers for Classic to IBM Cloud Hyper Protect Virtual Servers for VPC](/docs/hp-virtual-servers?topic=hp-virtual-servers-whats-new#hp-virtual-servers-jul1824) and [{{site.data.keyword.hpvs}}for VPC](/docs/vpc?topic=vpc-about-se#about-hyper-protect-virtual-servers-for-vpc).
+:  Instance profiles for the Hyper Protect Virtual Server instances are available in the US South (Dallas), US East (Washington, DC), Canada (Toronto), Brazil (São Paulo), United Kingdom (London), Germany (Frankfurt), Spain (Madrid), and Japan (Tokyo) regions. 
 
 ### 15 August 2024
 {: #vpc-aug1524}
@@ -58,6 +58,7 @@ IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1
    - [Encryption certificate](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_encrypt)
    - [Intermediate certificate](/docs/vpc?topic=vpc-cert_validate#download_cert)
 
+{{site.data.keyword.hpvs}} image now supports IBM Cloud Log analysis renewed certificate that is signed with Digicert Global Root G2.
 
 ## July 2024
 {: #vpc-jul24}
