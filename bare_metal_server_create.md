@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-06-28"
+lastupdated: "2024-08-28"
 
 keywords: creating bare metal servers
 
@@ -57,6 +57,7 @@ Adjustable network bandwidth for Sapphire Rapids bare metal servers is only avai
 | User data | Paste your user data to the **User data (optional)** field or click **Import user data** to upload from your user data. For example, you can enable SSH by adding the following script to the **User data (optional)** field. For more information about user data, see [User data](/docs/vpc?topic=vpc-user-data).|
 | Trusted Platform Module (TPM) | Click the toggle to enable Trusted Platform Module capabilities. Then, select the mode that you want to use. For more information, see [Secure boot with Trusted Platform Module (TPM)](/docs/vpc?topic=vpc-secure-boot-tpm&interface=ui). |
 | Secure boot | Click the toggle to enable secure boot. For more information, see [Secure boot with Trusted Platform Module (TPM)](/docs/vpc?topic=vpc-secure-boot-tpm&interface=ui). |
+| Add to reservation (beta) | If you have an active reservation, click the toggle to add the server to that reservation. For more information about reservations, see [About Reservations for VPC](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc). |
 {: caption="Table 2. Bare metal server advanced options" caption-side="bottom"}
 
 
@@ -393,4 +394,3 @@ ibmcloud is bare-metal-server $bare_metal_server_id --output JSON
 When the bare metal server status changes to **Running**, you can connect to it.
 
 * For x86 architecture, you can connect to VMware ESXi Direct Console User Interface (DCUI) and ESXi's web client. For more information, see [Connecting to ESXi bare metal servers](/docs/vpc?topic=vpc-connect-to-ESXi-bare-metal-servers).
-
