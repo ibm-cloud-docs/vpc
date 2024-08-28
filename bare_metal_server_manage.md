@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-08-26"
+lastupdated: "2024-08-28"
 
 keywords: bare metal servers, managing, operation, manage bare metal server, manage bare metal, manage server, restart bare metal, stop bare metal, delete bare metal, reboot bare metal, restart server, stop server, delete server
 
@@ -377,3 +377,150 @@ curl -X DELETE "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id?ve
 
 The delete action permanently removes a server and its connected vNIC, boot volume, and data from your account.
 {: important}
+
+## Managing bare metal servers by using Terraform
+{: #managing-bare-metal-servers-terraform}
+{: terraform}
+
+Make sure that you set up [Terraform for VPC](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest).
+
+### Viewing your bare metal servers by using Terraform
+{: #viewing-bare-metal-server-terraform}
+{: terraform}
+
+To view a bare metal server by using the Terraform, use the `ibm_is_bare_metal_server` resource.
+
+```terraform
+data "ibm_is_bare_metal_server" "example" {
+  identifier        = "9328-9849-9849-9849"
+}
+```
+{: pre}
+
+For more information, see [ibm_is_bare_metal_server](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_bare_metal_server).
+
+To view a list of all the bare metal servers, use the `ibm_is_bare_metal_servers` resource.
+
+```terraform
+data "ibm_is_bare_metal_servers" "example" {
+}
+```
+{: pre}
+
+For more information, see [ibm_is_bare_metal_servers](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_bare_metal_servers).
+
+### Restarting a bare metal server by using Terraform
+{: #reboot-bare-metal-servers-terraform}
+{: terraform}
+
+To restart a bare metal server by using the Terraform, you need to use the `ibm_is_bare_metal_server_action` resource.
+
+```sh
+resource "ibm_is_bare_metal_server_action" "bms_action" {
+  bare_metal_server = SERVER
+  action            = "restart"
+}
+```
+{: pre}
+
+Specify the following variables to use when you reinitialize the bare metal server.
+- `SERVER` specifies the name of the bare metal server
+- `restart` specifies the action for the server
+
+For a full list of command options, see [ibm_is_bare_metal_server_action](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_bare_metal_server_action).
+
+### Stopping and starting a bare metal server by using Terraform
+{: #stop-start-bare-metal-servers-terraform}
+{: terraform}
+
+To stop a bare metal server by using the Terraform, you need to use the `ibm_is_bare_metal_server_action` resource.
+
+```sh
+resource "ibm_is_bare_metal_server_action" "bms_action" {
+  bare_metal_server = SERVER
+  action            = "stop"
+  stop_type         = "hard"
+}
+```
+{: pre}
+
+To start a bare metal server by using the Terraform, you need to use the `ibm_is_bare_metal_server_action` resource.
+
+```sh
+resource "ibm_is_bare_metal_server_action" "bms_action" {
+  bare_metal_server = SERVER
+  action            = "stop"
+  delete_type       = "hard"
+}
+```
+{: pre}
+
+Specify the following variables to use when you reinitialize the bare metal server.
+- `SERVER` specifies the name of the bare metal server
+- `stop` or `start` specifies the action for the server
+- `hard` is specific to stopping the server and indicates the type of stop. Specifying `hard` immediately stops the server and `soft` shuts down the operating system.
+
+For a full list of command options, see [ibm_is_bare_metal_server_action](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_bare_metal_server_action).
+
+### Reinitializing a bare metal server by using Terraform
+{: #reinitialize-bare-metal-servers-terraform}
+{: terraform}
+
+You can reinitialize the server only if the server is stopped and provisioned with local storage. Or, you can reinitialize if the server status is `failed` and the lifecycle state has a status reason of `cannot_reinitialize`. When the bare metal server is reinitialized, the contents of the boot disk are wiped and the specified operating system is installed. The server retains the same physical node, interfaces, IP addresses, and resource IDs. Data on secondary drives is preserved.
+
+To reinitialize a bare metal server by using the Terraform, you need to use the resource command `ibm_is_bare_metal_server_initialization`.
+
+```sh
+resource "ibm_is_bare_metal_server_initialization" "reinitialize" {
+  bare_metal_server = SERVER
+  user_data         = DATA
+  keys              = KEYS
+  image             = "IMAGE"
+}
+```
+{: codeblock}
+
+Specify the following variables to use when you reinitialize the bare metal server.
+- `SERVER` specifies the name of the bare metal server
+- `DATA` specifies any optional user data
+- `KEYS` specifies the SSH keys
+- `IMAGE` specifies the operating system image
+
+While you can retain the same physical node, interfaces, IP addresses, and resource IDs, you can also select to avoid these changes by using the `lifecycle` property.
+
+For a full list of command options, see [ibm_is_bare_metal_server_initialization](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_bare_metal_server_initialization).
+
+```sh
+resource "ibm_is_bare_metal_server_initialization" "reinitialize" {
+  bare_metal_server = SERVER
+  user_data         = DATA
+  keys              = KEYS
+  image             = "IMAGE"
+}
+## to avoid changes on the ibm_is_bare_metal_server resource, use lifecycle meta argument ignore_changes
+resource "ibm_is_bare_metal_server" "bms" {
+  ....
+  lifecycle{
+    ignore_changes = [ image, keys, user_data ]
+  }
+}
+```
+{: codeblock}
+
+### Deleting a bare metal server by using Terraform
+{: #delete-bare-metal-servers-terraform}
+{: terraform}
+
+To delete a bare metal server resource by using Terraform, you need to use the `ibm_is_bare_metal_server` resource.
+
+```sh
+resource "ibm_is_bare_metal" "server" {
+  delete_type          = "hard"
+}
+```
+{: pre}
+
+Specify the following variables to use when you delete the bare metal server.
+- `hard` specifies a `hard` delete that immediately stops and deletes the server. The other option is `soft` delete which shutdowns the operating system.
+
+For a full list of command options, see [ibm_is_bare_metal_server](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_bare_metal_server).
