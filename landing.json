@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2024-08-28",
+    "lastupdated": "2024-08-29",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
@@ -31,6 +31,11 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
+          "date": "28 August 2024",
+          "title": "Reservations for Bare Metal Servers for VPC (beta)",
+          "description": "Reservations for Bare Metal Servers for VPC is now available as a beta feature. A reservation is a great option if you want guaranteed resources for future deployments and cost savings. You can choose between either a 1 or 3-year contract term for your reservation."
+        },
+        {
           "date": "21 August 2024",
           "title": "Select availability for Hyper Protect Virtual Servers for VPC profiles",
           "description": "Hyper Protect Virtual Servers for Classic are transitioning out of IBM Cloud® classic data centers in Dallas, Washington D.C, and Frankfurt to IBM Cloud Virtual Private Cloud (VPC) MZRs. Customers can no longer provision Hyper Protect Virtual Servers in Dallas and Washington, DC from 20 August 2024, and in Frankfurt from 20 September 2024. Instance profiles for the Hyper Protect Virtual Server instances are available in the US South (Dallas), US East (Washington, DC), Canada (Toronto), Brazil (São Paulo), United Kingdom (London), Germany (Frankfurt), Spain (Madrid), and Japan (Tokyo) regions. "
@@ -39,11 +44,6 @@
           "date": "15 August 2024",
           "title": "IBM Wazi as a Service available in Germany (Frankfurt) region",
           "description": "IBM Wazi as a Service (Wazi aaS) is now available in the Germany (Frankfurt) region in IBM Cloud."
-        },
-        {
-          "date": "07 August 2024",
-          "title": "UI enhancement: Filter instance profiles by business scenario",
-          "description": "When provisioning a virtual server, you can now use the By scenario tab on the Select an instance profile page to narrow the results to include only applicable instance profiles. For example, you can filter profiles by the following business scenarios: SAP; Web Development and Test; HPC; Confidential computing; AI, Deep learning & Machine learning; Visualizations, VDI; and Storage optimized. When a specific filter is selected, the profile results display only the profiles related to the defined business scenario."
         }
       ]
     }
