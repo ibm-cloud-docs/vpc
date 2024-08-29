@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-08-28"
+lastupdated: "2024-08-29"
 
 subcollection: vpc
 
@@ -228,7 +228,7 @@ curl -X POST "$vpc_api_endpoint/v1/reservations?version=2024-01-27&generation=2"
 ## Next steps
 {: #next-step-provisioning-reserved}
 
-After your reservation is provisioned and active, you can attach an existing server to your reservation. Or, you can create servers in your reservation by using the IBM Cloud console, the CLI, or the API. For more information about creating server, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers) and [Creating Bare Metal Servers on VPC](vpc-creating-bare-metal-servers).
+After your reservation is provisioned and active, you can attach an existing server to your reservation. Or, you can create servers in your reservation by using the IBM Cloud console, the CLI, or the API. For more information about creating server, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers) and [Creating Bare Metal Servers on VPC](/docs/vpc?topic=vpc-creating-bare-metal-servers).
 
 ## Creating a reservation with Terraform
 {: #create-reservation-terraform-vpc}
