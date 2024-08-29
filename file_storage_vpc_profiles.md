@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-08-12"
+lastupdated: "2024-08-29"
 
 keywords: file storage, file share, performance, IOPS, block size, capacity, range
 
@@ -239,5 +239,5 @@ Maximum IOPS can still be obtained when you use smaller block sizes, but through
 ## Next steps
 {: #fs-next-steps}
 
-* [Creating file shares](/docs/vpc?topic=vpc-file-storage-create).
-* [Managing file shares](/docs/vpc?topic=vpc-file-storage-managing)
+* [Create a file shares](/docs/vpc?topic=vpc-file-storage-create).
+* [Manage file shares](/docs/vpc?topic=vpc-file-storage-managing).
