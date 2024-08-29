@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-08-28"
+lastupdated: "2024-08-29"
 
 keywords:
 
@@ -31,14 +31,14 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-aug2824}
 
 Reservations for Bare Metal Servers for VPC (beta)
-:   Reservations for Bare Metal Servers for VPC is now available as a beta feature. A reservation is a great option if you want guaranteed resources for future deployments and cost savings. You can choose between either a 1 or 3-year contract term for your reservation.
+:   Reservations for Bare Metal Servers for VPC is now available as a beta feature. A reservation is a great option if you want guaranteed resources for future deployments and cost savings. You can choose between either a 1 or 3-year contract term for your reservation. For more information about reservations, see [About Reservations for VPC](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc).
 
 ### 21 August 2024
 {: #vpc-aug2124}
 {: release-note}
 
 Select availability for {{site.data.keyword.hpvs}} for VPC profiles
-:  Instance profiles for the Hyper Protect Virtual Server instances are available in the US South (Dallas), US East (Washington, DC), Canada (Toronto), Brazil (São Paulo), United Kingdom (London), Germany (Frankfurt), Spain (Madrid), and Japan (Tokyo) regions. 
+:  Instance profiles for the Hyper Protect Virtual Server instances are available in the US South (Dallas), US East (Washington, DC), Canada (Toronto), Brazil (São Paulo), United Kingdom (London), Germany (Frankfurt), Spain (Madrid), and Japan (Tokyo) regions.
 
 ### 15 August 2024
 {: #vpc-aug1524}
