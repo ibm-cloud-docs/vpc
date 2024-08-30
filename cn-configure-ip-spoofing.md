@@ -27,7 +27,7 @@ Configure IP spoofing on a cluster network.
 ## Before you begin
 {: #config-ip-spoofing-prerequisites}
 
-* Before you configure IP spoofing on a cluster network, review [Planning considerations](/docs/vpc?topic=vpc-planning-cluster-network&interface=ui) and [Known issues and limitations](/docs/vpc?topic=vpc-limitations-cluster-network&interface=ui).
+Review [Planning considerations](/docs/vpc?topic=vpc-planning-cluster-network&interface=ui) and [Known issues and limitations](/docs/vpc?topic=vpc-limitations-cluster-network&interface=ui).
 
 You can configure IP spoofing on a cluster network with the UI, CLI, API, or Terraform.
 
@@ -83,7 +83,6 @@ To configure IP spoofing on a cluster network with the API, follow these steps:
 1. Store any additional variables to be used in the API commands; for example:
 
     * `version` (string): The API version, in format `YYYY-MM-DD`.
-    * _Any others?_
 
 1. When all variables are initiated, run the following command to configure IP spoofing on a cluster network:
 
