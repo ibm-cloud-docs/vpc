@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2024-06-20"
+  years: 2020, 2024
+lastupdated: "2024-08-30"
 
 keywords: peering, interconnectivity, interconnect
 
@@ -212,33 +212,33 @@ Using IANA ranges works only with custom routes having the `Delegate-VPC` action
 {: tab-group="connect-simple4"}
 {: class="simple-tab-table"}
 
-| Destination | Action | Next Hop | Location |
+| Destination | Action | Next Hop | Zone |
 |---|---|---|---|
-| `13.0.0.0/8` | `Delegate-VPC` | - | Dallas 1 |
-| `13.0.0.0/8` | `Delegate-VPC` | - | Dallas 2 |
-| `13.0.0.0/8` | `Delegate-VPC` | - | Dallas 3 |
+| `13.0.0.0/8` | `Delegate-VPC` | - | us-south-1 |
+| `13.0.0.0/8` | `Delegate-VPC` | - | us-south-2 |
+| `13.0.0.0/8` | `Delegate-VPC` | - | us-south-3 |
 {: class="simple-tab-table"}
 {: caption="Table 11. VPC A Default (Egress) Routing Table" caption-side="bottom"}
 {: #simpletabtable11}
 {: tab-title="VPC A Default (Egress) Routing Table"}
 {: tab-group="connect-simple5"}
 
-| Destination | Action | Next Hop | Location |
+| Destination | Action | Next Hop | Zone |
 |---|---|---|---|
-| `13.0.0.0/8` | `Delegate-VPC` | - | Dallas 1 |
-| `13.0.0.0/8` | `Delegate-VPC` | - | Dallas 2 |
-| `13.0.0.0/8` | `Delegate-VPC` | - | Dallas 3 |
+| `13.0.0.0/8` | `Delegate-VPC` | - | us-south-1 |
+| `13.0.0.0/8` | `Delegate-VPC` | - | us-south-2 |
+| `13.0.0.0/8` | `Delegate-VPC` | - | us-south-3 |
 {: class="simple-tab-table"}
 {: caption="Table 12. VPC B Default (Egress) Routing Table" caption-side="bottom"}
 {: #simpletabtable12}
 {: tab-title="VPC B Default (Egress) Routing Table"}
 {: tab-group="connect-simple5"}
 
-| Destination | Action | Next Hop | Location |
+| Destination | Action | Next Hop | Zone |
 |---|---|---|---|
-| `13.0.0.0/8` | `Delegate-VPC` | - | WDC 1 |
-| `13.0.0.0/8` | `Delegate-VPC` | - | WDC 2 |
-| `13.0.0.0/8` | `Delegate-VPC` | - | WDC 3 |
+| `13.0.0.0/8` | `Delegate-VPC` | - | us-east-1 |
+| `13.0.0.0/8` | `Delegate-VPC` | - | us-east-2 |
+| `13.0.0.0/8` | `Delegate-VPC` | - | us-east-3 |
 {: caption="Table 13. VPC Z Default (Egress) Routing Table" caption-side="bottom"}
 {: #simpletabtable13}
 {: tab-title="VPC Z Default (Egress) Routing Table"}
