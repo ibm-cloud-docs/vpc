@@ -147,7 +147,7 @@ Using IANA ranges works only with custom routes having the `Delegate-VPC` action
 {: tab-group="connect-simple2"}
 {: class="simple-tab-table"}
 
-| Destination | Action | Next Hop | Location |
+| Destination | Action | Next Hop | Zone |
 |---|---|---|---|
 | `13.0.0.0/8` | `Delegate-VPC` | - | us-south-1 |
 | `13.0.0.0/8` | `Delegate-VPC` | - | us-south-2 |
@@ -158,7 +158,7 @@ Using IANA ranges works only with custom routes having the `Delegate-VPC` action
 {: tab-title="VPC A Default (Egress) Routing Table"}
 {: tab-group="connect-simple3"}
 
-| Destination | Action | Next Hop | Location |
+| Destination | Action | Next Hop | Zone |
 |---|---|---|---|
 | `13.0.0.0/8` | `Delegate-VPC` | - | us-south-1 |
 | `13.0.0.0/8` | `Delegate-VPC` | - | us-south-2 |
