@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-08-26"
+lastupdated: "2024-09-04"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -289,12 +289,13 @@ The following Ultra High Memory profiles are available for x86-64 processors:
 ## GPU
 {: #gpu}
 
-The GPU profile family includes `-v100`, `-a100`, `-l4`, and `-l40S`  profiles. The GPU profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage).
+The GPU profile family includes `-v100`, `-a100`, `-l4`, and `-l40S` and `-h100` profiles. The GPU profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage).
 
 - GPU `-v100` profiles include 1 or 2 NVIDIA V100 PCIe 16 GB GPUs. All OS images are supported on these GPU profiles.
 - [Select availability]{: tag-green} GPU `-a100` profiles includes 8 NVIDIA A100 NVlink 80 GB GPUs. The a100 offering is available to select customers. This GPU profile supports only Linux OS images Ubuntu or RHEL.
 - GPU `-l4` profiles include NVIDIA L4 24GB GPUs.
 - GPU `-l40S` profiles include NVIDIA L40S 48GB GPUs.
+- [Select availability]{: tag-green} GPU `-h100` profiles include [NVIDIA H100](https://www.nvidia.com/en-us/data-center/hgx/){: external} 80 GB GPUs. The system is an HGX design. The H100 offering is available in the following regions and zones: London (eu-gb-2), Sydney (au-syd-2), Toronto (ca-tor-3), Madrid (eu-es-3), and Washington DC (us-east-3).
 
 See [Download drivers](https://www.nvidia.com/en-us/drivers/) to review the most current versions that are supported. NVIDIA GPU drivers must be installed separately.
 
@@ -305,6 +306,7 @@ See [Download drivers](https://www.nvidia.com/en-us/drivers/) to review the most
 | gx3-64x320x4l4 | 64 / 32 | 320 | l4 / 4 | 128 | - |
 | gx3-24x120x1l40s | 24 / 12 | 120 | l40s / 1 | 50 | - |
 | gx3-48x240x2l40s | 48 / 24 | 240 | l40s / 2  | 100 | - |
+| gx3d-160x1792x8h100 | 160 / 80 | 1792 | h100 / 8 | 200 | 8x7680 |
 {: caption="Table 8. GPU gx3 24 GB profile options for Intel x86-64 instances" caption-side="bottom"}
 {: #gpu-intel-x86-64}
 {: tab-title="gx3"}
@@ -329,7 +331,7 @@ See [Download drivers](https://www.nvidia.com/en-us/drivers/) to review the most
 ### Considerations for GPU profiles
 {: #considerations-gpu-profiles}
 
-When you create a `-v100`, `-a100`,  `l4`, or `l40S` GPU profile, keep the following recommendations in mind.
+When you create a `-v100`, `-a100`, `-h100`, `l4`, or `l40S` GPU profile, keep the following recommendations in mind.
 
 - During {{site.data.keyword.Bluemix_notm}} periodic maintenance, GPU workloads aren't secure live migrated. Instead, the virtual server instance is restarted. You are notified 30 days in advance of any maintenance where the virtual server instance restarts. For more information, see [Understanding cloud maintenance operations](/docs/vpc?topic=vpc-about-cloud-maintenance).
 - If you are using GPU profiles, you need to install the NVIDA driver onto your virtual server instance. For more information, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
