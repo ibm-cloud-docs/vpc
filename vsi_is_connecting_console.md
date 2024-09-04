@@ -34,27 +34,31 @@ The console can be opened by using any of the [supported browsers](/docs/overvie
 
 1. To connect to the consoles, you need to be assigned `Operator` (or greater) and `Console Administrator` roles for the virtual server instance in IBM Cloud Identity and Access Management (IAM).
 
-    `Console Administrator` is a new role that is added with this feature. This role is not applied automatically.
-    {: note}
-
-    If you are an administrator of your account, you also need to self-assign the `Console Administrator` role to use this feature.
+    `Console Administrator` role is not applied automatically. If you are an administrator of your account, you also need to self-assign the `Console Administrator` role to use this feature.
     {: important}
 
     To check whether you are assigned the required roles, go to the [IAM Users](/iam/users){: external} page in the IBM Cloud console and select your account under **User**, then select **Access policies**. Make sure that you see an access policy that assigns you the `Operator` (or greater) role and the `VirtualServerConsoleAdmin` role to the **Resource Attributes** of the target virtual server instance. Otherwise, you would need to contact an administrator of your account to assign you the roles by using the following steps:
 
     1. Go to the [IAM Users](/iam/users){: external} page in the IBM Cloud console and select the target user.
+    1. Click the **Access** tab, and scroll to **Access policies**.
+    1. Click **Assign access**.
+    1. Scroll to the **Create policy** section.
+    1. In the **Service** section, select _VPC Infrastructure services_. Then, click **Next**.
+    1. In the **Resources** section, select _All resources_.
+    1. In the **Roles and actions, select the following Service access:
+       - Console Administrator
+    1. Then, select one of the following Platform accesses:
+       - Operator
+       - Editor
+       - Administrator
+    1. Click **Next**.
+    1. Optionally, add a Condition.
+    1. Click **Review**.
+    1. Click **Add**.
+    1. Review the **Access summary** side pane, and click **Assign**.
 
-    2. On **Access policies**, click **Assign access**.
-
-    3. In the **Assign users additional access** section, select **IAM services** and complete the following tasks:
-        * From the **What type of access do you want to assign?** list, select **VPC Infrastructure Services**.
-        * Under **How do you want to scope the access?**, select **All resources** or **Resources based on selected attributes**. The administrators can further scope the access by adding attributes.
-        * In the **Platform access** area, select from **Operator**, **Editor**, or **Administrator**.
-        * In the **Service access** area, select **Console Administrator**.
-        * Scroll to the end of the page and click **Add**.
-        * Review the **Access summary** side pane, and click **Assign**.
-
-        For more information about the IAM roles, see [Getting Started with IAM](/docs/vpc?topic=vpc-iam-getting-started).
+    For more information about the IAM roles, see [Getting Started with IAM](/docs/vpc?topic=vpc-iam-getting-started).
+    {: tip}
 
 2. The images that are provided by IBM Cloud typically do not have passwords. To successfully access the instance with the consoles, you might need to create a password for a Linux image, or retrieve the password for a Windows image in advance.
 
