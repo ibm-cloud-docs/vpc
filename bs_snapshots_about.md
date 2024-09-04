@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-09-03"
+lastupdated: "2024-09-04"
 
 keywords: snapshots, Block Storage, volumes, cross-regional snapshot, restore volume, copy snapshot
 
@@ -112,7 +112,7 @@ When you restore volumes from snapshots in a consistency group, you can select s
 ## IAM roles for creating and managing single and consistency group snapshots
 {: #snapshots-vpc-iam}
 
-Snapshots require IAM permissions for role-based access control. Depending on your assigned role, you can create and manage single and multi-volume snapshots. For more information, see [IAM roles and actions for Block Storage Snapshots for VPC](/docs/account?topic=account-iam-service-roles-actions#is.snapshot-roles) and [IAM roles and actions for Multi Volume Snapshots for VPC](/docs/account?topic=account-iam-service-roles-actions#is.snapshot-consistency-group-roles). 
+Snapshots require IAM permissions for role-based access control. Depending on your assigned role, you can create and manage single and multi-volume snapshots. For more information, see [IAM roles and actions for Block Storage Snapshots for VPC](/docs/account?topic=account-iam-service-roles-actions#is.snapshot-roles), and [IAM roles and actions for Multi Volume Snapshots for VPC](/docs/account?topic=account-iam-service-roles-actions#is.snapshot-consistency-group-roles).
 
 For more information, see the [best practices for assigning access](/docs/account?topic=account-account_setup#account_setup). For the complete IAM process, which includes inviting users to your account and assigning Cloud IAM access, see the [IAM getting started tutorial](/docs/account?topic=account-iamoverview).
 {: tip}
