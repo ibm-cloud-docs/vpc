@@ -4,7 +4,7 @@ copyright:
 
   years: 2022, 2024
 
-lastupdated: "2024-09-04"
+lastupdated: "2024-09-05"
 
 keywords: operating system end of support (eos)
 
@@ -25,7 +25,7 @@ If you are using a generic operating system custom image, refer to your vendor d
 | Image status | Description |
 | -------------- | -------------- |
 | `available` | The most current version of the stock operating system image is `available`. When a new version of an operating system is made `available`, the older version image of that guest operating system changes to `deprecated`. No stock operating system that reaches EOS has an `available` image. |
-| `deprecated` | Older versions of stock operating systems are `deprecated`. Also, any stock operating system that reached EOS is also `deprecated`. The UI doesn't display any `deprecated` images when you create an instance. These images are still visible in the CLI and API. |
+| `deprecated` | Older versions of stock operating systems are `deprecated`. Also, any stock operating system that reached EOS is also `deprecated`. You can still provision an instance with these images. The UI doesn't display any `deprecated` images when you create an instance. These images are still visible in the CLI and API. |
 {: caption="Table 1. Image lifecycle status" caption-side="bottom"}
 
 If you choose to continue to use a `deprecated` stock operating system image after EOS, review the [End of support operating system considerations](/docs/vpc?topic=vpc-eos-os-considerations-intro).
