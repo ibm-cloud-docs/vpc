@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-02"
+lastupdated: "2024-09-05"
 
 keywords:
 
@@ -93,6 +93,16 @@ If you plan to import an image from a file, you must provision an instance of {{
 | `deprecated`           | `deprecated`               |
 | `archived`             | `obsolete`                 |
 {: caption="Table 2. Catalog image lifecycle status and the corresponding VPC status" caption-side="bottom"}
+
+## Red Hat Enterprise Linux AI BYOL custom images
+{: #rhel-ai-byol-custom-images}
+
+The Red Hat Enterprise AI (RHEL AI) operating system can be imported as a bring your own license (BYOL). A RHEL AI qcow2 file is available directly from Red Hat. The operating system name to use when importing the image into {{site.data.keyword.vpc_short}} is`red-ai-9-amd64-nvidia-byol`. For more information, see [Red Hat Enterprise Linux AI](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/ai){: external}. To download the RHEL AI image, see [Download Red Hat Enterprise Linux AI](https://access.redhat.com/downloads/content/932){: external}. You will need a Red Hat account in order to view the documentation and download the image.
+
+For information regarding the supported profiles and use cases, see [Red Hat Enterprise Linux AI hardware requirements](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_ai/1.1/html-single/getting_started/index#hardware_requirements_rhelai){: external}.
+{: note}
+
+For more information about importing the image into {{site.data.keyword.vpc_short}}, see [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about) and [Importing and validating custom images into VPC](/docs/vpc?topic=vpc-importing-custom-images-vpc&interface=ui). For more information on the GPU profiles, see the [x86 GPU profiles](/docs/vpc?topic=vpc-profiles&interface=ui#gpu).
 
 ## Generic operating system custom images
 {: #generic-os-custom-images}
