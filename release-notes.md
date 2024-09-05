@@ -27,6 +27,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## September 2024
 {: #vpc-sep24}
 
+### 05 September 2024
+{: #vpc-sep0524}
+{: release-note}
+
+Red Hat Enteprise Linux AI BYOL custom images (GA)
+:   The Red Hat Enterprise AI (RHEL AI) operating system can be imported as a bring your own license (BYOL). A RHEL AI qcow2 file is available directly from Red Hat. For more information, see [Red Hat Enteprise Linux AI BYOL custom images](/docs/vpc?topic=vpc-planning-custom-images#rhel-ai-byol-custom-images).
+
 ### 03 September 2024
 {: #vpc-sep0324}
 {: release-note}
