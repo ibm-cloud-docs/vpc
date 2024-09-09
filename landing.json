@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2024-09-04",
+    "lastupdated": "2024-09-09",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
@@ -31,19 +31,19 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
+          "date": "05 September 2024",
+          "title": "Red Hat Enteprise Linux AI BYOL custom images (GA)",
+          "description": "The Red Hat Enterprise AI (RHEL AI) operating system can be imported as a bring your own license (BYOL). A RHEL AI qcow2 file is available directly from Red Hat."
+        },
+        {
+          "date": "03 September 2024",
+          "title": "GPU H100 profile available in select regions (select availability)",
+          "description": "The GPU H100 profile is now available on the latest generation GPU-enabled infrastructure for running machine learning (ML) and deep learning (DL) frameworks in support of AI initiatives. The GPU H100 profile is available in the following regions: London (eu-gb), Sydney (au-syd), Toronto (ca-tor), Madrid (eu-es), and Washington DC (us-east). When you use the H100 virtual server profile, it runs on an NVIDIA Hopper-based HGX server and is the sole tenant running on the host."
+        },
+        {
           "date": "28 August 2024",
           "title": "Reservations for Bare Metal Servers for VPC (beta)",
           "description": "Reservations for Bare Metal Servers for VPC is now available as a beta feature. A reservation is a great option if you want guaranteed resources for future deployments and cost savings. You can choose between either a 1 or 3-year contract term for your reservation."
-        },
-        {
-          "date": "21 August 2024",
-          "title": "Select availability for Hyper Protect Virtual Servers for VPC profiles",
-          "description": "Hyper Protect Virtual Servers for Classic are transitioning out of IBM Cloud® classic data centers in Dallas, Washington D.C, and Frankfurt to IBM Cloud Virtual Private Cloud (VPC) MZRs. Customers can no longer provision Hyper Protect Virtual Servers in Dallas and Washington, DC from 20 August 2024, and in Frankfurt from 20 September 2024. Instance profiles for the Hyper Protect Virtual Server instances are available in the US South (Dallas), US East (Washington, DC), Canada (Toronto), Brazil (São Paulo), United Kingdom (London), Germany (Frankfurt), Spain (Madrid), and Japan (Tokyo) regions. "
-        },
-        {
-          "date": "15 August 2024",
-          "title": "IBM Wazi as a Service available in Germany (Frankfurt) region",
-          "description": "IBM Wazi as a Service (Wazi aaS) is now available in the Germany (Frankfurt) region in IBM Cloud."
         }
       ]
     }
