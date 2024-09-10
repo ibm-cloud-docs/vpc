@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2024
-lastupdated: "2024-08-12"
+lastupdated: "2024-09-10"
 
 keywords: vpc, virtual private cloud, private cloud network, quick provisioning, logical isolation, security, cloud-native, workloads, BYOIP, high availability, ACL, Access control list, Block Storage volumes, File shares, snapshots
 
@@ -58,7 +58,7 @@ For instance-level protection, use *security groups* that act as virtual firewal
 ## High availability
 {: #about-vpc-high-availability}
 
-A *region* is the geographical location where you deploy the VPC's services, resources, and applications. Each region contains *zones*, which are logically isolated data centers with independent infrastructures. You can deploy resources in multiple zones to achieve fault tolerance and high availability.
+A *region* is the geographical location where you deploy the VPC's services, resources, and applications. Each region contains *zones*, which are logically isolated zones with independent infrastructures. You can deploy resources in multiple zones to achieve fault tolerance and high availability.
 
 Use load balancers to distribute your network traffic across a set of virtual server instances to improve performance and availability. You can set up a load balancer to distribute incoming application traffic across instances in a single zone or across multiple zones within a region.
 

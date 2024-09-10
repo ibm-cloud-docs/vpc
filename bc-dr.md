@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-01-27"
+lastupdated: "2024-09-10"
 
 keywords: disaster recovery for VPC, failover for VPC, BC for VPC, DR for VPC, business continuity for VPC, disaster recovery for VPC
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Understanding business continuity and disaster recovery for IBM Cloud VPC
 {: #bc-dr}
 
- [Disaster recovery](#x2113280){: term} involves a set of policies, tools, and procedures for returning a system, an application, or an entire data center to full operation after a catastrophic interruption. It includes procedures for copying and storing an installed system's essential data in a secure location, and for recovering that data to restore normalcy of operation.
+ [Disaster recovery](#x2113280){: term} involves a set of policies, tools, and procedures for returning a system, an application, or an entire zone to full operation after a catastrophic interruption. It includes procedures for copying and storing an installed system's essential data in a secure location, and for recovering that data to restore normalcy of operation.
 {: shortdesc}
 
 ## Responsibilities
@@ -39,4 +39,4 @@ IBM Cloud VPC provides mechanisms to protect your data and restore service funct
 ## Locations
 {: #ha-locations}
 
-For more information about service availability within regions and data centers, see [Service and infrastructure availability by location](/docs/overview?topic=overview-services_region).
+For more information about service availability within regions and zones, see [Service and infrastructure availability by location](/docs/overview?topic=overview-services_region).

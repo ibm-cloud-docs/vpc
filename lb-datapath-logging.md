@@ -38,6 +38,7 @@ To create a {{site.data.keyword.la_short}} instance, follow these steps:
 
 1. Select **Create a logging instance**. The logging instance creation page shows.
 
+
 2. Choose the region from the menu list that corresponds to the zone where you provisioned the load balancer. For example, for a load balancer in SYD01, choose the region of Sydney.
 
    For information about the mapping between regions and zones, see [Zone mapping per account](/docs/overview?topic=overview-locations#zone-mapping).

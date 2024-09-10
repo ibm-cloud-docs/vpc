@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2023
-lastupdated: "2023-01-26"
+  years: 2017, 2024
+lastupdated: "2024-09-10"
 
 keywords: secure, region, zone, subnet, public gateway, floating IP, NAT
 subcollection: vpc
@@ -37,12 +37,12 @@ To work with your VPC, review the basic concepts of _region_ and _zone_ as they 
 ### Regions
 {: #networking-terms-regions}
 
-A region is an abstraction that is related to the geographic area in which a VPC is deployed. Each region contains multiple zones, which represent independent fault domains. A VPC can span multiple zones within its assigned region.
+A [region](#x2091391){: term} is an abstraction of the geographic area in which a VPC is deployed. Each region contains multiple [zones](#x2070723){: term}. A VPC can span multiple zones within its assigned region. {{site.data.keyword.cloud_notm}} provides two tiers of regions: [multizone regions](#x9774820){: term} and [single-campus multizone regions](#x10127487){: term}.
 
 ### Zones
 {: #networking-terms-zones}
 
-A zone is an abstraction that refers to the physical data center that hosts the compute, network, and storage resources, plus the related cooling and power, which provides services and applications. Zones are isolated from each other to create no shared single point of failure, improved fault tolerance, and reduced latency. Each zone is assigned a default address prefix, which specifies the address range in which subnets can be created. If the default address scheme does not suit your requirements, such as if you want to bring your own public IPv4 address range, you can customize the address prefixes.
+Each [zone](#x2070723){: term} is assigned a default address prefix, which specifies the address range in which subnets can be created. If the default address scheme does not suit your requirements, such as if you want to bring your own public IPv4 address range, you can customize the address prefixes. The mapping of logical zone names to the physical zones is relative to the account, so the default address prefix range for a zone may differ across accounts. For more information, see [IBM Cloud locations for resource deployment](/docs/overview?topic=overview-locations#zone-mapping).
 
 ## Characteristics of subnets in the VPC
 {: #subnets-in-the-vpc}

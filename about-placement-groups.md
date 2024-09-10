@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2021, 2023
-lastupdated: "2024-07-08"
+  years: 2021, 2024
+lastupdated: "2024-09-10"
 
 keywords: virtual private cloud, private cloud network, cloud-native, workloads, high availability, generation 2, placement group, host spread, power spread
 
@@ -31,7 +31,7 @@ Placement groups give you a measure of control over the host on which a new publ
 
 They support high availability workloads by making sure that virtual server instances in the group do not share a physical host or power supply. This technology is an added layer of assuredness for the resiliency of your virtual server instances if an unexpected power disruption or host failure occurs.
 
-You can build a workload high availability application within a data center knowing that your virtual servers are isolated from each other. You can be assured that your applications are provisioned on the cloud data center infrastructure to maximize availability with unique host server hardware.
+You can build a highly available application within a zone knowing that your virtual servers are isolated from each other. You can be assured that your applications are provisioned on the cloud zone infrastructure to maximize availability with unique host server hardware.
 
 ## Understanding placement strategies
 {: #understand-placement-strategies}

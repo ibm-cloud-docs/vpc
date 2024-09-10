@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-08-21"
+lastupdated: "2024-09-10"
 
 keywords: region, zone, deploy, datacenter, data, center, federated, CLI, API, account, failover, disaster, recovery, DR, data center
 
@@ -203,10 +203,10 @@ CF API endpoint:
 Org:
 Space:
 Listing zones in target region us-east under account Test Account as user test.user@ibm.com...
-Name        Region    Status
-us-east-1   us-east   available
-us-east-2   us-east   available
-us-east-3   us-east   available
+Name         Universal name      Data center    Region      Status
+us-south-1   us-south-dal13-a    DAL13          us-south    available
+us-south-2   us-south-dal14-a    DAL14          us-south    available
+us-south-3   us-south-dal10-a    DAL10          us-south    available
 ```
 {: pre}
 

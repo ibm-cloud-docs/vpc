@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-08-28"
+lastupdated: "2024-09-10"
 
 keywords:
 
@@ -24,7 +24,7 @@ Reservations offer many advantages, including the following benefits:
 | ----- | ----- |
 | Cost savings | Save up to 60% by choosing a 1 or 3-year term compared to on-demand virtual server billing cycles. |
 |  |  Save up to 55% by choosing a 1 or 3-year term compared to on-demand bare metal server billing cycles. |
-| Guaranteed capacity | Your servers are there when you need them. {{site.data.keyword.cloud}} Reservations are guaranteed capacity within the availability zone and data center of your choice for the life of your committed term. |
+| Guaranteed capacity | Your servers are there when you need them. {{site.data.keyword.cloud}} Reservations are guaranteed capacity within the zone of your choice for the life of your committed term. |
 | Predictable management | Accurately plan for the future and define your budgeting roadmap with reserved capacity for 1-year or 3-year terms. Your reserved pricing is a fixed discount rate that is applied to the corresponding virtual server profile on-demand rates that are listed in the {{site.data.keyword.cloud}} portal. |
 | Flexibility in deployment | Convert any existing on-demand virtual server to {{site.data.keyword.cloud}} Reservation billing. Attach or detach any compatible virtual server to your reservation. |
 {: caption="Table 1. Benefits of IBM Cloud Reservations" caption-side="top"}

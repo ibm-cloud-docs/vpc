@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-09-05"
+lastupdated: "2024-09-10"
 
 keywords:
 
@@ -26,6 +26,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## September 2024
 {: #vpc-sep24}
+
+### 10 September 2024
+{: #vpc-sep0624}
+{: release-note}
+
+Zone Maps and Universal Names for Zones
+:   Account specific zone mapping has been introduced in all regions. Zones have an extra name that can serve as a global, cross-account identifier. A zone's universal name is documented per region and can be viewed when you view or retrieve a zone. For more information, see [Zone mapping per account](/docs/overview?topic=overview-locations#zone-mapping).
 
 ### 05 September 2024
 {: #vpc-sep0524}
