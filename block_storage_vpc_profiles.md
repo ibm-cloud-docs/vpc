@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-08-15"
+lastupdated: "2024-09-10"
 
 keywords: Block Storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
@@ -98,7 +98,7 @@ Similarly, volume profiles provide a range of capacity and performance for secon
 | 3 IOPS/GB       | [Balanced](/docs/vpc?topic=vpc-profiles#balanced) for common workloads.      |
 | 5 IOPS/GB       | [Compute](/docs/vpc?topic=vpc-profiles#compute) for intensive CPU demands.   |
 | 10 IOPS/GB      | [Memory](/docs/vpc?topic=vpc-profiles#memory) for memory-intensive workloads.|
-{: caption="Table 4. Relationship of Block Storage volume profiles to virtual server instance profiles" caption-side="top"}
+{: caption="Table 4. Relationship of Block Storage volume profiles to virtual server instance profiles" caption-side="bottom"}
 
 ## I/O size and performance
 {: #note-about-io-size}

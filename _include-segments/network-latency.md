@@ -1,5 +1,138 @@
 
 
+## 8 Sep 2024
+{: #network-latency-2024-09-08}
+
+### Inter-region latency
+{: #network-latency-2024-09-08-mzr}
+
+| Average latency (ms) | Dallas | Toronto | Washington DC | Frankfurt | London | Madrid | Osaka | Sydney | Tokyo | Sao Paulo |
+| --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Dallas** |   | 34 | 31 | 123 | 113 | 118 | 150 | 186 | 143 | 145 |
+| **Toronto** |  34 |  | 20 | 92 | 82 | 107 | 167 | 214 | 161 | 130 |
+| **Washington DC** |  32 | 20 |  | 92 | 75 | 87 | 173 | 214 | 165 | 117 |
+| **Frankfurt** |  123 | 93 | 91 |  | 13 | 29 | 233 | 250 | 228 | 198 |
+| **London** |  113 | 83 | 75 | 13 |  | 27 | 244 | 261 | 242 | 188 |
+| **Madrid** |  120 | 109 | 90 | 29 | 27 |  | 258 | 275 | 256 | 207 |
+| **Osaka** |  150 | 168 | 173 | 232 | 244 | 258 |  | 122 | 9 | 292 |
+| **Sydney** |  186 | 214 | 216 | 249 | 261 | 275 | 122 |  | 115 | 328 |
+| **Tokyo** |  143 | 162 | 166 | 231 | 243 | 257 | 9 | 115 |  | 283 |
+| **Sao Paulo** |  145 | 128 | 119 | 198 | 187 | 206 | 290 | 328 | 284 |  |
+{: caption="Table 1. 10 Aug 2024–8 Sep 2024" caption-side="bottom"}
+
+### Inter-AZ latency
+{: #network-latency-2024-09-08-az}
+
+| Average latency (ms) | us-south-dal10-a | us-south-dal12-a | us-south-dal13-a |
+| --- | :---: | :---: | :---: |
+| **us-south-dal10-a** |  0.09 | 2.05 | 2.22 |
+| **us-south-dal12-a** |  2.05 | 0.09 | 2.18 |
+| **us-south-dal13-a** |  2.22 | 2.18 | 0.09 |
+{: caption="Table 2. 10 Aug 2024–8 Sep 2024" caption-side="bottom"}
+{: #network-latency-az-tabs-2024-09-08-us-south}
+{: tab-title="Dallas"}
+{: tab-group="network-latency-az-tabs-2024-09-08"}
+{: class="simple-tab-table"}
+
+| Average latency (ms) | ca-tor-tor01-a | ca-tor-tor04-a | ca-tor-tor05-a |
+| --- | :---: | :---: | :---: |
+| **ca-tor-tor01-a** |  0.1 | 1.8 | 1.98 |
+| **ca-tor-tor04-a** |  1.8 | 0.09 | 1.95 |
+| **ca-tor-tor05-a** |  1.98 | 1.95 | 0.09 |
+{: caption="Table 3. 10 Aug 2024–8 Sep 2024" caption-side="bottom"}
+{: #network-latency-az-tabs-2024-09-08-ca-tor}
+{: tab-title="Toronto"}
+{: tab-group="network-latency-az-tabs-2024-09-08"}
+{: class="simple-tab-table"}
+
+| Average latency (ms) | us-east-wdc04-a | us-east-wdc06-a | us-east-wdc07-a |
+| --- | :---: | :---: | :---: |
+| **us-east-wdc04-a** |  0.08 | 0.87 | 0.89 |
+| **us-east-wdc06-a** |  0.87 | 0.1 | 0.83 |
+| **us-east-wdc07-a** |  0.89 | 0.83 | 0.08 |
+{: caption="Table 4. 10 Aug 2024–8 Sep 2024" caption-side="bottom"}
+{: #network-latency-az-tabs-2024-09-08-us-east}
+{: tab-title="Washington DC"}
+{: tab-group="network-latency-az-tabs-2024-09-08"}
+{: class="simple-tab-table"}
+
+| Average latency (ms) | eu-de-fra02-a | eu-de-fra04-a | eu-de-fra05-a |
+| --- | :---: | :---: | :---: |
+| **eu-de-fra02-a** |  0.1 | 0.89 | 0.84 |
+| **eu-de-fra04-a** |  0.89 | 0.1 | 0.82 |
+| **eu-de-fra05-a** |  0.84 | 0.82 | 0.1 |
+{: caption="Table 5. 10 Aug 2024–8 Sep 2024" caption-side="bottom"}
+{: #network-latency-az-tabs-2024-09-08-eu-de}
+{: tab-title="Frankfurt"}
+{: tab-group="network-latency-az-tabs-2024-09-08"}
+{: class="simple-tab-table"}
+
+| Average latency (ms) | eu-gb-lon04-a | eu-gb-lon05-a | eu-gb-lon06-a |
+| --- | :---: | :---: | :---: |
+| **eu-gb-lon04-a** |  0.09 | 2.44 | 2.21 |
+| **eu-gb-lon05-a** |  2.44 | 0.09 | 1.99 |
+| **eu-gb-lon06-a** |  2.21 | 1.99 | 0.09 |
+{: caption="Table 6. 10 Aug 2024–8 Sep 2024" caption-side="bottom"}
+{: #network-latency-az-tabs-2024-09-08-eu-gb}
+{: tab-title="London"}
+{: tab-group="network-latency-az-tabs-2024-09-08"}
+{: class="simple-tab-table"}
+
+| Average latency (ms) | eu-es-mad02-a | eu-es-mad04-a | eu-es-mad05-a |
+| --- | :---: | :---: | :---: |
+| **eu-es-mad02-a** |  0.09 | 0.68 | 0.64 |
+| **eu-es-mad04-a** |  0.68 | 0.09 | 0.82 |
+| **eu-es-mad05-a** |  0.64 | 0.82 | 0.09 |
+{: caption="Table 7. 10 Aug 2024–8 Sep 2024" caption-side="bottom"}
+{: #network-latency-az-tabs-2024-09-08-eu-es}
+{: tab-title="Madrid"}
+{: tab-group="network-latency-az-tabs-2024-09-08"}
+{: class="simple-tab-table"}
+
+| Average latency (ms) | jp-osa-osa21-a | jp-osa-osa22-a | jp-osa-osa23-a |
+| --- | :---: | :---: | :---: |
+| **jp-osa-osa21-a** |  0.09 | 1.79 | 1.74 |
+| **jp-osa-osa22-a** |  1.79 | 0.1 | 1.78 |
+| **jp-osa-osa23-a** |  1.74 | 1.78 | 0.09 |
+{: caption="Table 8. 10 Aug 2024–8 Sep 2024" caption-side="bottom"}
+{: #network-latency-az-tabs-2024-09-08-jp-osa}
+{: tab-title="Osaka"}
+{: tab-group="network-latency-az-tabs-2024-09-08"}
+{: class="simple-tab-table"}
+
+| Average latency (ms) | au-syd-syd01-a | au-syd-syd04-a | au-syd-syd05-a |
+| --- | :---: | :---: | :---: |
+| **au-syd-syd01-a** |  0.1 | 1.72 | 0.85 |
+| **au-syd-syd04-a** |  1.72 | 0.09 | 1.79 |
+| **au-syd-syd05-a** |  0.85 | 1.79 | 0.09 |
+{: caption="Table 9. 10 Aug 2024–8 Sep 2024" caption-side="bottom"}
+{: #network-latency-az-tabs-2024-09-08-au-syd}
+{: tab-title="Sydney"}
+{: tab-group="network-latency-az-tabs-2024-09-08"}
+{: class="simple-tab-table"}
+
+| Average latency (ms) | jp-tok-tok02-a | jp-tok-tok04-a | jp-tok-tok05-a |
+| --- | :---: | :---: | :---: |
+| **jp-tok-tok02-a** |  0.1 | 1.73 | 1.51 |
+| **jp-tok-tok04-a** |  1.73 | 0.1 | 1.9 |
+| **jp-tok-tok05-a** |  1.51 | 1.9 | 0.1 |
+{: caption="Table 10. 10 Aug 2024–8 Sep 2024" caption-side="bottom"}
+{: #network-latency-az-tabs-2024-09-08-jp-tok}
+{: tab-title="Tokyo"}
+{: tab-group="network-latency-az-tabs-2024-09-08"}
+{: class="simple-tab-table"}
+
+| Average latency (ms) | br-sao-sao01-a | br-sao-sao04-a | br-sao-sao05-a |
+| --- | :---: | :---: | :---: |
+| **br-sao-sao01-a** |  0.1 | 1.83 | 2.69 |
+| **br-sao-sao04-a** |  1.83 | 0.09 | 1.92 |
+| **br-sao-sao05-a** |  2.69 | 1.92 | 0.09 |
+{: caption="Table 11. 10 Aug 2024–8 Sep 2024" caption-side="bottom"}
+{: #network-latency-az-tabs-2024-09-08-br-sao}
+{: tab-title="Sao Paulo"}
+{: tab-group="network-latency-az-tabs-2024-09-08"}
+{: class="simple-tab-table"}
+
 ## 1 Sep 2024
 {: #network-latency-2024-09-01}
 
@@ -18,116 +151,116 @@
 | **Sydney** |  186 | 214 | 215 | 249 | 261 | 275 | 122 |  | 115 | 326 |
 | **Tokyo** |  143 | 161 | 166 | 231 | 243 | 254 | 9 | 115 |  | 284 |
 | **Sao Paulo** |  144 | 129 | 119 | 197 | 187 | 208 | 290 | 328 | 283 |  |
-{: caption="Table 1. 3 Aug 2024–1 Sep 2024" caption-side="bottom"}
+{: caption="Table 12. 3 Aug 2024–1 Sep 2024" caption-side="bottom"}
 
 ### Inter-AZ latency
 {: #network-latency-2024-09-01-az}
 
-| Average latency (ms) | Dallas 1 | Dallas 2 | Dallas 3 |
+| Average latency (ms) | us-south-dal10-a | us-south-dal12-a | us-south-dal13-a |
 | --- | :---: | :---: | :---: |
-| **Dallas 1** |  0.09 | 2.03 | 2.2 |
-| **Dallas 2** |  2.03 | 0.09 | 2.17 |
-| **Dallas 3** |  2.2 | 2.17 | 0.08 |
-{: caption="Table 2. 3 Aug 2024–1 Sep 2024" caption-side="bottom"}
+| **us-south-dal10-a** |  0.09 | 2.03 | 2.2 |
+| **us-south-dal12-a** |  2.03 | 0.09 | 2.17 |
+| **us-south-dal13-a** |  2.2 | 2.17 | 0.08 |
+{: caption="Table 13. 3 Aug 2024–1 Sep 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-09-01-us-south}
 {: tab-title="Dallas"}
 {: tab-group="network-latency-az-tabs-2024-09-01"}
 {: class="simple-tab-table"}
 
-| Average latency (ms) | Toronto 1 | Toronto 2 | Toronto 3 |
+| Average latency (ms) | ca-tor-tor01-a | ca-tor-tor04-a | ca-tor-tor05-a |
 | --- | :---: | :---: | :---: |
-| **Toronto 1** |  0.1 | 1.79 | 1.99 |
-| **Toronto 2** |  1.79 | 0.09 | 1.96 |
-| **Toronto 3** |  1.99 | 1.96 | 0.1 |
-{: caption="Table 3. 3 Aug 2024–1 Sep 2024" caption-side="bottom"}
+| **ca-tor-tor01-a** |  0.1 | 1.79 | 1.99 |
+| **ca-tor-tor04-a** |  1.79 | 0.09 | 1.96 |
+| **ca-tor-tor05-a** |  1.99 | 1.96 | 0.1 |
+{: caption="Table 14. 3 Aug 2024–1 Sep 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-09-01-ca-tor}
 {: tab-title="Toronto"}
 {: tab-group="network-latency-az-tabs-2024-09-01"}
 {: class="simple-tab-table"}
 
-| Average latency (ms) | Washington DC 1 | Washington DC 2 | Washington DC 3 |
+| Average latency (ms) | us-east-wdc04-a | us-east-wdc06-a | us-east-wdc07-a |
 | --- | :---: | :---: | :---: |
-| **Washington DC 1** |  0.08 | 0.87 | 0.88 |
-| **Washington DC 2** |  0.87 | 0.1 | 0.85 |
-| **Washington DC 3** |  0.88 | 0.85 | 0.08 |
-{: caption="Table 4. 3 Aug 2024–1 Sep 2024" caption-side="bottom"}
+| **us-east-wdc04-a** |  0.08 | 0.87 | 0.88 |
+| **us-east-wdc06-a** |  0.87 | 0.1 | 0.85 |
+| **us-east-wdc07-a** |  0.88 | 0.85 | 0.08 |
+{: caption="Table 15. 3 Aug 2024–1 Sep 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-09-01-us-east}
 {: tab-title="Washington DC"}
 {: tab-group="network-latency-az-tabs-2024-09-01"}
 {: class="simple-tab-table"}
 
-| Average latency (ms) | Frankfurt 1 | Frankfurt 2 | Frankfurt 3 |
+| Average latency (ms) | eu-de-fra02-a | eu-de-fra04-a | eu-de-fra05-a |
 | --- | :---: | :---: | :---: |
-| **Frankfurt 1** |  0.1 | 0.89 | 0.83 |
-| **Frankfurt 2** |  0.89 | 0.1 | 0.83 |
-| **Frankfurt 3** |  0.83 | 0.83 | 0.1 |
-{: caption="Table 5. 3 Aug 2024–1 Sep 2024" caption-side="bottom"}
+| **eu-de-fra02-a** |  0.1 | 0.89 | 0.83 |
+| **eu-de-fra04-a** |  0.89 | 0.1 | 0.83 |
+| **eu-de-fra05-a** |  0.83 | 0.83 | 0.1 |
+{: caption="Table 16. 3 Aug 2024–1 Sep 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-09-01-eu-de}
 {: tab-title="Frankfurt"}
 {: tab-group="network-latency-az-tabs-2024-09-01"}
 {: class="simple-tab-table"}
 
-| Average latency (ms) | London 1 | London 2 | London 3 |
+| Average latency (ms) | eu-gb-lon04-a | eu-gb-lon05-a | eu-gb-lon06-a |
 | --- | :---: | :---: | :---: |
-| **London 1** |  0.1 | 2.53 | 2.23 |
-| **London 2** |  2.53 | 0.09 | 2.02 |
-| **London 3** |  2.23 | 2.02 | 0.1 |
-{: caption="Table 6. 3 Aug 2024–1 Sep 2024" caption-side="bottom"}
+| **eu-gb-lon04-a** |  0.1 | 2.53 | 2.23 |
+| **eu-gb-lon05-a** |  2.53 | 0.09 | 2.02 |
+| **eu-gb-lon06-a** |  2.23 | 2.02 | 0.1 |
+{: caption="Table 17. 3 Aug 2024–1 Sep 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-09-01-eu-gb}
 {: tab-title="London"}
 {: tab-group="network-latency-az-tabs-2024-09-01"}
 {: class="simple-tab-table"}
 
-| Average latency (ms) | Madrid 1 | Madrid 2 | Madrid 3 |
+| Average latency (ms) | eu-es-mad02-a | eu-es-mad04-a | eu-es-mad05-a |
 | --- | :---: | :---: | :---: |
-| **Madrid 1** |  0.09 | 0.68 | 0.64 |
-| **Madrid 2** |  0.68 | 0.09 | 0.81 |
-| **Madrid 3** |  0.64 | 0.81 | 0.09 |
-{: caption="Table 7. 3 Aug 2024–1 Sep 2024" caption-side="bottom"}
+| **eu-es-mad02-a** |  0.09 | 0.68 | 0.64 |
+| **eu-es-mad04-a** |  0.68 | 0.09 | 0.81 |
+| **eu-es-mad05-a** |  0.64 | 0.81 | 0.09 |
+{: caption="Table 18. 3 Aug 2024–1 Sep 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-09-01-eu-es}
 {: tab-title="Madrid"}
 {: tab-group="network-latency-az-tabs-2024-09-01"}
 {: class="simple-tab-table"}
 
-| Average latency (ms) | Osaka 1 | Osaka 2 | Osaka 3 |
+| Average latency (ms) | jp-osa-osa21-a | jp-osa-osa22-a | jp-osa-osa23-a |
 | --- | :---: | :---: | :---: |
-| **Osaka 1** |  0.09 | 1.79 | 1.74 |
-| **Osaka 2** |  1.79 | 0.1 | 1.77 |
-| **Osaka 3** |  1.74 | 1.77 | 0.09 |
-{: caption="Table 8. 3 Aug 2024–1 Sep 2024" caption-side="bottom"}
+| **jp-osa-osa21-a** |  0.09 | 1.79 | 1.74 |
+| **jp-osa-osa22-a** |  1.79 | 0.1 | 1.77 |
+| **jp-osa-osa23-a** |  1.74 | 1.77 | 0.09 |
+{: caption="Table 19. 3 Aug 2024–1 Sep 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-09-01-jp-osa}
 {: tab-title="Osaka"}
 {: tab-group="network-latency-az-tabs-2024-09-01"}
 {: class="simple-tab-table"}
 
-| Average latency (ms) | Sydney 1 | Sydney 2 | Sydney 3 |
+| Average latency (ms) | au-syd-syd01-a | au-syd-syd04-a | au-syd-syd05-a |
 | --- | :---: | :---: | :---: |
-| **Sydney 1** |  0.09 | 1.75 | 0.82 |
-| **Sydney 2** |  1.75 | 0.09 | 1.77 |
-| **Sydney 3** |  0.82 | 1.77 | 0.1 |
-{: caption="Table 9. 3 Aug 2024–1 Sep 2024" caption-side="bottom"}
+| **au-syd-syd01-a** |  0.09 | 1.75 | 0.82 |
+| **au-syd-syd04-a** |  1.75 | 0.09 | 1.77 |
+| **au-syd-syd05-a** |  0.82 | 1.77 | 0.1 |
+{: caption="Table 20. 3 Aug 2024–1 Sep 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-09-01-au-syd}
 {: tab-title="Sydney"}
 {: tab-group="network-latency-az-tabs-2024-09-01"}
 {: class="simple-tab-table"}
 
-| Average latency (ms) | Tokyo 1 | Tokyo 2 | Tokyo 3 |
+| Average latency (ms) | jp-tok-tok02-a | jp-tok-tok04-a | jp-tok-tok05-a |
 | --- | :---: | :---: | :---: |
-| **Tokyo 1** |  0.09 | 1.72 | 1.5 |
-| **Tokyo 2** |  1.72 | 0.1 | 1.89 |
-| **Tokyo 3** |  1.5 | 1.89 | 0.1 |
-{: caption="Table 10. 3 Aug 2024–1 Sep 2024" caption-side="bottom"}
+| **jp-tok-tok02-a** |  0.09 | 1.72 | 1.5 |
+| **jp-tok-tok04-a** |  1.72 | 0.1 | 1.89 |
+| **jp-tok-tok05-a** |  1.5 | 1.89 | 0.1 |
+{: caption="Table 21. 3 Aug 2024–1 Sep 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-09-01-jp-tok}
 {: tab-title="Tokyo"}
 {: tab-group="network-latency-az-tabs-2024-09-01"}
 {: class="simple-tab-table"}
 
-| Average latency (ms) | Sao Paulo 1 | Sao Paulo 2 | Sao Paulo 3 |
+| Average latency (ms) | br-sao-sao01-a | br-sao-sao04-a | br-sao-sao05-a |
 | --- | :---: | :---: | :---: |
-| **Sao Paulo 1** |  0.1 | 1.81 | 2.68 |
-| **Sao Paulo 2** |  1.81 | 0.09 | 1.92 |
-| **Sao Paulo 3** |  2.68 | 1.92 | 0.09 |
-{: caption="Table 11. 3 Aug 2024–1 Sep 2024" caption-side="bottom"}
+| **br-sao-sao01-a** |  0.1 | 1.81 | 2.68 |
+| **br-sao-sao04-a** |  1.81 | 0.09 | 1.92 |
+| **br-sao-sao05-a** |  2.68 | 1.92 | 0.09 |
+{: caption="Table 22. 3 Aug 2024–1 Sep 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-09-01-br-sao}
 {: tab-title="Sao Paulo"}
 {: tab-group="network-latency-az-tabs-2024-09-01"}
@@ -151,116 +284,116 @@
 | **Sydney** |  186 | 214 | 214 | 249 | 261 | 275 | 122 |  | 115 | 328 |
 | **Tokyo** |  143 | 162 | 166 | 233 | 244 | 256 | 9 | 115 |  | 284 |
 | **Sao Paulo** |  144 | 128 | 119 | 196 | 187 | 208 | 291 | 328 | 283 |  |
-{: caption="Table 12. 27 Jul 2024–25 Aug 2024" caption-side="bottom"}
+{: caption="Table 23. 27 Jul 2024–25 Aug 2024" caption-side="bottom"}
 
 ### Inter-AZ latency
 {: #network-latency-2024-08-25-az}
 
-| Average latency (ms) | Dallas 1 | Dallas 2 | Dallas 3 |
+| Average latency (ms) | us-south-dal10-a | us-south-dal12-a | us-south-dal13-a |
 | --- | :---: | :---: | :---: |
-| **Dallas 1** |  0.09 | 2.03 | 2.2 |
-| **Dallas 2** |  2.03 | 0.09 | 2.18 |
-| **Dallas 3** |  2.2 | 2.18 | 0.08 |
-{: caption="Table 13. 27 Jul 2024–25 Aug 2024" caption-side="bottom"}
+| **us-south-dal10-a** |  0.09 | 2.03 | 2.2 |
+| **us-south-dal12-a** |  2.03 | 0.09 | 2.18 |
+| **us-south-dal13-a** |  2.2 | 2.18 | 0.08 |
+{: caption="Table 24. 27 Jul 2024–25 Aug 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-08-25-us-south}
 {: tab-title="Dallas"}
 {: tab-group="network-latency-az-tabs-2024-08-25"}
 {: class="simple-tab-table"}
 
-| Average latency (ms) | Toronto 1 | Toronto 2 | Toronto 3 |
+| Average latency (ms) | ca-tor-tor01-a | ca-tor-tor04-a | ca-tor-tor05-a |
 | --- | :---: | :---: | :---: |
-| **Toronto 1** |  0.1 | 1.79 | 1.99 |
-| **Toronto 2** |  1.79 | 0.09 | 1.95 |
-| **Toronto 3** |  1.99 | 1.95 | 0.09 |
-{: caption="Table 14. 27 Jul 2024–25 Aug 2024" caption-side="bottom"}
+| **ca-tor-tor01-a** |  0.1 | 1.79 | 1.99 |
+| **ca-tor-tor04-a** |  1.79 | 0.09 | 1.95 |
+| **ca-tor-tor05-a** |  1.99 | 1.95 | 0.09 |
+{: caption="Table 25. 27 Jul 2024–25 Aug 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-08-25-ca-tor}
 {: tab-title="Toronto"}
 {: tab-group="network-latency-az-tabs-2024-08-25"}
 {: class="simple-tab-table"}
 
-| Average latency (ms) | Washington DC 1 | Washington DC 2 | Washington DC 3 |
+| Average latency (ms) | us-east-wdc04-a | us-east-wdc06-a | us-east-wdc07-a |
 | --- | :---: | :---: | :---: |
-| **Washington DC 1** |  0.09 | 0.86 | 0.89 |
-| **Washington DC 2** |  0.86 | 0.11 | 0.86 |
-| **Washington DC 3** |  0.89 | 0.86 | 0.08 |
-{: caption="Table 15. 27 Jul 2024–25 Aug 2024" caption-side="bottom"}
+| **us-east-wdc04-a** |  0.09 | 0.86 | 0.89 |
+| **us-east-wdc06-a** |  0.86 | 0.11 | 0.86 |
+| **us-east-wdc07-a** |  0.89 | 0.86 | 0.08 |
+{: caption="Table 26. 27 Jul 2024–25 Aug 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-08-25-us-east}
 {: tab-title="Washington DC"}
 {: tab-group="network-latency-az-tabs-2024-08-25"}
 {: class="simple-tab-table"}
 
-| Average latency (ms) | Frankfurt 1 | Frankfurt 2 | Frankfurt 3 |
+| Average latency (ms) | eu-de-fra02-a | eu-de-fra04-a | eu-de-fra05-a |
 | --- | :---: | :---: | :---: |
-| **Frankfurt 1** |  0.09 | 0.89 | 0.85 |
-| **Frankfurt 2** |  0.89 | 0.1 | 0.82 |
-| **Frankfurt 3** |  0.85 | 0.82 | 0.1 |
-{: caption="Table 16. 27 Jul 2024–25 Aug 2024" caption-side="bottom"}
+| **eu-de-fra02-a** |  0.09 | 0.89 | 0.85 |
+| **eu-de-fra04-a** |  0.89 | 0.1 | 0.82 |
+| **eu-de-fra05-a** |  0.85 | 0.82 | 0.1 |
+{: caption="Table 27. 27 Jul 2024–25 Aug 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-08-25-eu-de}
 {: tab-title="Frankfurt"}
 {: tab-group="network-latency-az-tabs-2024-08-25"}
 {: class="simple-tab-table"}
 
-| Average latency (ms) | London 1 | London 2 | London 3 |
+| Average latency (ms) | eu-gb-lon04-a | eu-gb-lon05-a | eu-gb-lon06-a |
 | --- | :---: | :---: | :---: |
-| **London 1** |  0.1 | 2.61 | 2.34 |
-| **London 2** |  2.61 | 0.1 | 2.03 |
-| **London 3** |  2.34 | 2.03 | 0.1 |
-{: caption="Table 17. 27 Jul 2024–25 Aug 2024" caption-side="bottom"}
+| **eu-gb-lon04-a** |  0.1 | 2.61 | 2.34 |
+| **eu-gb-lon05-a** |  2.61 | 0.1 | 2.03 |
+| **eu-gb-lon06-a** |  2.34 | 2.03 | 0.1 |
+{: caption="Table 28. 27 Jul 2024–25 Aug 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-08-25-eu-gb}
 {: tab-title="London"}
 {: tab-group="network-latency-az-tabs-2024-08-25"}
 {: class="simple-tab-table"}
 
-| Average latency (ms) | Madrid 1 | Madrid 2 | Madrid 3 |
+| Average latency (ms) | eu-es-mad02-a | eu-es-mad04-a | eu-es-mad05-a |
 | --- | :---: | :---: | :---: |
-| **Madrid 1** |  0.09 | 0.68 | 0.63 |
-| **Madrid 2** |  0.68 | 0.09 | 0.82 |
-| **Madrid 3** |  0.63 | 0.82 | 0.09 |
-{: caption="Table 18. 27 Jul 2024–25 Aug 2024" caption-side="bottom"}
+| **eu-es-mad02-a** |  0.09 | 0.68 | 0.63 |
+| **eu-es-mad04-a** |  0.68 | 0.09 | 0.82 |
+| **eu-es-mad05-a** |  0.63 | 0.82 | 0.09 |
+{: caption="Table 29. 27 Jul 2024–25 Aug 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-08-25-eu-es}
 {: tab-title="Madrid"}
 {: tab-group="network-latency-az-tabs-2024-08-25"}
 {: class="simple-tab-table"}
 
-| Average latency (ms) | Osaka 1 | Osaka 2 | Osaka 3 |
+| Average latency (ms) | jp-osa-osa21-a | jp-osa-osa22-a | jp-osa-osa23-a |
 | --- | :---: | :---: | :---: |
-| **Osaka 1** |  0.09 | 1.77 | 1.74 |
-| **Osaka 2** |  1.77 | 0.1 | 1.78 |
-| **Osaka 3** |  1.74 | 1.78 | 0.09 |
-{: caption="Table 19. 27 Jul 2024–25 Aug 2024" caption-side="bottom"}
+| **jp-osa-osa21-a** |  0.09 | 1.77 | 1.74 |
+| **jp-osa-osa22-a** |  1.77 | 0.1 | 1.78 |
+| **jp-osa-osa23-a** |  1.74 | 1.78 | 0.09 |
+{: caption="Table 30. 27 Jul 2024–25 Aug 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-08-25-jp-osa}
 {: tab-title="Osaka"}
 {: tab-group="network-latency-az-tabs-2024-08-25"}
 {: class="simple-tab-table"}
 
-| Average latency (ms) | Sydney 1 | Sydney 2 | Sydney 3 |
+| Average latency (ms) | au-syd-syd01-a | au-syd-syd04-a | au-syd-syd05-a |
 | --- | :---: | :---: | :---: |
-| **Sydney 1** |  0.09 | 1.72 | 0.82 |
-| **Sydney 2** |  1.72 | 0.09 | 1.79 |
-| **Sydney 3** |  0.82 | 1.79 | 0.1 |
-{: caption="Table 20. 27 Jul 2024–25 Aug 2024" caption-side="bottom"}
+| **au-syd-syd01-a** |  0.09 | 1.72 | 0.82 |
+| **au-syd-syd04-a** |  1.72 | 0.09 | 1.79 |
+| **au-syd-syd05-a** |  0.82 | 1.79 | 0.1 |
+{: caption="Table 31. 27 Jul 2024–25 Aug 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-08-25-au-syd}
 {: tab-title="Sydney"}
 {: tab-group="network-latency-az-tabs-2024-08-25"}
 {: class="simple-tab-table"}
 
-| Average latency (ms) | Tokyo 1 | Tokyo 2 | Tokyo 3 |
+| Average latency (ms) | jp-tok-tok02-a | jp-tok-tok04-a | jp-tok-tok05-a |
 | --- | :---: | :---: | :---: |
-| **Tokyo 1** |  0.1 | 1.72 | 1.47 |
-| **Tokyo 2** |  1.72 | 0.1 | 1.9 |
-| **Tokyo 3** |  1.47 | 1.9 | 0.1 |
-{: caption="Table 21. 27 Jul 2024–25 Aug 2024" caption-side="bottom"}
+| **jp-tok-tok02-a** |  0.1 | 1.72 | 1.47 |
+| **jp-tok-tok04-a** |  1.72 | 0.1 | 1.9 |
+| **jp-tok-tok05-a** |  1.47 | 1.9 | 0.1 |
+{: caption="Table 32. 27 Jul 2024–25 Aug 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-08-25-jp-tok}
 {: tab-title="Tokyo"}
 {: tab-group="network-latency-az-tabs-2024-08-25"}
 {: class="simple-tab-table"}
 
-| Average latency (ms) | Sao Paulo 1 | Sao Paulo 2 | Sao Paulo 3 |
+| Average latency (ms) | br-sao-sao01-a | br-sao-sao04-a | br-sao-sao05-a |
 | --- | :---: | :---: | :---: |
-| **Sao Paulo 1** |  0.09 | 1.81 | 2.7 |
-| **Sao Paulo 2** |  1.81 | 0.09 | 1.93 |
-| **Sao Paulo 3** |  2.7 | 1.93 | 0.09 |
-{: caption="Table 22. 27 Jul 2024–25 Aug 2024" caption-side="bottom"}
+| **br-sao-sao01-a** |  0.09 | 1.81 | 2.7 |
+| **br-sao-sao04-a** |  1.81 | 0.09 | 1.93 |
+| **br-sao-sao05-a** |  2.7 | 1.93 | 0.09 |
+{: caption="Table 33. 27 Jul 2024–25 Aug 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-08-25-br-sao}
 {: tab-title="Sao Paulo"}
 {: tab-group="network-latency-az-tabs-2024-08-25"}
@@ -284,116 +417,116 @@
 | **Sydney** |  185 | 214 | 213 | 249 | 261 | 275 | 122 |  | 115 | 328 |
 | **Tokyo** |  143 | 162 | 167 | 234 | 245 | 258 | 9 | 115 |  | 284 |
 | **Sao Paulo** |  144 | 129 | 120 | 195 | 186 | 208 | 291 | 327 | 283 |  |
-{: caption="Table 23. 20 Jul 2024–18 Aug 2024" caption-side="bottom"}
+{: caption="Table 34. 20 Jul 2024–18 Aug 2024" caption-side="bottom"}
 
 ### Inter-AZ latency
 {: #network-latency-2024-08-18-az}
 
-| Average latency (ms) | Dallas 1 | Dallas 2 | Dallas 3 |
+| Average latency (ms) | us-south-dal10-a | us-south-dal12-a | us-south-dal13-a |
 | --- | :---: | :---: | :---: |
-| **Dallas 1** |  0.09 | 2.06 | 2.22 |
-| **Dallas 2** |  2.06 | 0.09 | 2.19 |
-| **Dallas 3** |  2.22 | 2.19 | 0.09 |
-{: caption="Table 24. 20 Jul 2024–18 Aug 2024" caption-side="bottom"}
+| **us-south-dal10-a** |  0.09 | 2.06 | 2.22 |
+| **us-south-dal12-a** |  2.06 | 0.09 | 2.19 |
+| **us-south-dal13-a** |  2.22 | 2.19 | 0.09 |
+{: caption="Table 35. 20 Jul 2024–18 Aug 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-08-18-us-south}
 {: tab-title="Dallas"}
 {: tab-group="network-latency-az-tabs-2024-08-18"}
 {: class="simple-tab-table"}
 
-| Average latency (ms) | Toronto 1 | Toronto 2 | Toronto 3 |
+| Average latency (ms) | ca-tor-tor01-a | ca-tor-tor04-a | ca-tor-tor05-a |
 | --- | :---: | :---: | :---: |
-| **Toronto 1** |  0.09 | 1.79 | 1.98 |
-| **Toronto 2** |  1.79 | 0.09 | 1.95 |
-| **Toronto 3** |  1.98 | 1.95 | 0.09 |
-{: caption="Table 25. 20 Jul 2024–18 Aug 2024" caption-side="bottom"}
+| **ca-tor-tor01-a** |  0.09 | 1.79 | 1.98 |
+| **ca-tor-tor04-a** |  1.79 | 0.09 | 1.95 |
+| **ca-tor-tor05-a** |  1.98 | 1.95 | 0.09 |
+{: caption="Table 36. 20 Jul 2024–18 Aug 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-08-18-ca-tor}
 {: tab-title="Toronto"}
 {: tab-group="network-latency-az-tabs-2024-08-18"}
 {: class="simple-tab-table"}
 
-| Average latency (ms) | Washington DC 1 | Washington DC 2 | Washington DC 3 |
+| Average latency (ms) | us-east-wdc04-a | us-east-wdc06-a | us-east-wdc07-a |
 | --- | :---: | :---: | :---: |
-| **Washington DC 1** |  0.08 | 0.87 | 0.9 |
-| **Washington DC 2** |  0.87 | 0.11 | 0.82 |
-| **Washington DC 3** |  0.9 | 0.82 | 0.08 |
-{: caption="Table 26. 20 Jul 2024–18 Aug 2024" caption-side="bottom"}
+| **us-east-wdc04-a** |  0.08 | 0.87 | 0.9 |
+| **us-east-wdc06-a** |  0.87 | 0.11 | 0.82 |
+| **us-east-wdc07-a** |  0.9 | 0.82 | 0.08 |
+{: caption="Table 37. 20 Jul 2024–18 Aug 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-08-18-us-east}
 {: tab-title="Washington DC"}
 {: tab-group="network-latency-az-tabs-2024-08-18"}
 {: class="simple-tab-table"}
 
-| Average latency (ms) | Frankfurt 1 | Frankfurt 2 | Frankfurt 3 |
+| Average latency (ms) | eu-de-fra02-a | eu-de-fra04-a | eu-de-fra05-a |
 | --- | :---: | :---: | :---: |
-| **Frankfurt 1** |  0.09 | 0.88 | 0.85 |
-| **Frankfurt 2** |  0.88 | 0.1 | 0.84 |
-| **Frankfurt 3** |  0.85 | 0.84 | 0.1 |
-{: caption="Table 27. 20 Jul 2024–18 Aug 2024" caption-side="bottom"}
+| **eu-de-fra02-a** |  0.09 | 0.88 | 0.85 |
+| **eu-de-fra04-a** |  0.88 | 0.1 | 0.84 |
+| **eu-de-fra05-a** |  0.85 | 0.84 | 0.1 |
+{: caption="Table 38. 20 Jul 2024–18 Aug 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-08-18-eu-de}
 {: tab-title="Frankfurt"}
 {: tab-group="network-latency-az-tabs-2024-08-18"}
 {: class="simple-tab-table"}
 
-| Average latency (ms) | London 1 | London 2 | London 3 |
+| Average latency (ms) | eu-gb-lon04-a | eu-gb-lon05-a | eu-gb-lon06-a |
 | --- | :---: | :---: | :---: |
-| **London 1** |  0.1 | 2.6 | 2.32 |
-| **London 2** |  2.6 | 0.09 | 2.06 |
-| **London 3** |  2.32 | 2.06 | 0.1 |
-{: caption="Table 28. 20 Jul 2024–18 Aug 2024" caption-side="bottom"}
+| **eu-gb-lon04-a** |  0.1 | 2.6 | 2.32 |
+| **eu-gb-lon05-a** |  2.6 | 0.09 | 2.06 |
+| **eu-gb-lon06-a** |  2.32 | 2.06 | 0.1 |
+{: caption="Table 39. 20 Jul 2024–18 Aug 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-08-18-eu-gb}
 {: tab-title="London"}
 {: tab-group="network-latency-az-tabs-2024-08-18"}
 {: class="simple-tab-table"}
 
-| Average latency (ms) | Madrid 1 | Madrid 2 | Madrid 3 |
+| Average latency (ms) | eu-es-mad02-a | eu-es-mad04-a | eu-es-mad05-a |
 | --- | :---: | :---: | :---: |
-| **Madrid 1** |  0.09 | 0.68 | 0.63 |
-| **Madrid 2** |  0.68 | 0.09 | 0.81 |
-| **Madrid 3** |  0.63 | 0.81 | 0.09 |
-{: caption="Table 29. 20 Jul 2024–18 Aug 2024" caption-side="bottom"}
+| **eu-es-mad02-a** |  0.09 | 0.68 | 0.63 |
+| **eu-es-mad04-a** |  0.68 | 0.09 | 0.81 |
+| **eu-es-mad05-a** |  0.63 | 0.81 | 0.09 |
+{: caption="Table 40. 20 Jul 2024–18 Aug 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-08-18-eu-es}
 {: tab-title="Madrid"}
 {: tab-group="network-latency-az-tabs-2024-08-18"}
 {: class="simple-tab-table"}
 
-| Average latency (ms) | Osaka 1 | Osaka 2 | Osaka 3 |
+| Average latency (ms) | jp-osa-osa21-a | jp-osa-osa22-a | jp-osa-osa23-a |
 | --- | :---: | :---: | :---: |
-| **Osaka 1** |  0.09 | 1.74 | 1.74 |
-| **Osaka 2** |  1.74 | 0.09 | 1.76 |
-| **Osaka 3** |  1.74 | 1.76 | 0.09 |
-{: caption="Table 30. 20 Jul 2024–18 Aug 2024" caption-side="bottom"}
+| **jp-osa-osa21-a** |  0.09 | 1.74 | 1.74 |
+| **jp-osa-osa22-a** |  1.74 | 0.09 | 1.76 |
+| **jp-osa-osa23-a** |  1.74 | 1.76 | 0.09 |
+{: caption="Table 41. 20 Jul 2024–18 Aug 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-08-18-jp-osa}
 {: tab-title="Osaka"}
 {: tab-group="network-latency-az-tabs-2024-08-18"}
 {: class="simple-tab-table"}
 
-| Average latency (ms) | Sydney 1 | Sydney 2 | Sydney 3 |
+| Average latency (ms) | au-syd-syd01-a | au-syd-syd04-a | au-syd-syd05-a |
 | --- | :---: | :---: | :---: |
-| **Sydney 1** |  0.09 | 1.7 | 0.84 |
-| **Sydney 2** |  1.7 | 0.08 | 1.81 |
-| **Sydney 3** |  0.84 | 1.81 | 0.1 |
-{: caption="Table 31. 20 Jul 2024–18 Aug 2024" caption-side="bottom"}
+| **au-syd-syd01-a** |  0.09 | 1.7 | 0.84 |
+| **au-syd-syd04-a** |  1.7 | 0.08 | 1.81 |
+| **au-syd-syd05-a** |  0.84 | 1.81 | 0.1 |
+{: caption="Table 42. 20 Jul 2024–18 Aug 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-08-18-au-syd}
 {: tab-title="Sydney"}
 {: tab-group="network-latency-az-tabs-2024-08-18"}
 {: class="simple-tab-table"}
 
-| Average latency (ms) | Tokyo 1 | Tokyo 2 | Tokyo 3 |
+| Average latency (ms) | jp-tok-tok02-a | jp-tok-tok04-a | jp-tok-tok05-a |
 | --- | :---: | :---: | :---: |
-| **Tokyo 1** |  0.1 | 1.72 | 1.46 |
-| **Tokyo 2** |  1.72 | 0.09 | 1.9 |
-| **Tokyo 3** |  1.46 | 1.9 | 0.1 |
-{: caption="Table 32. 20 Jul 2024–18 Aug 2024" caption-side="bottom"}
+| **jp-tok-tok02-a** |  0.1 | 1.72 | 1.46 |
+| **jp-tok-tok04-a** |  1.72 | 0.09 | 1.9 |
+| **jp-tok-tok05-a** |  1.46 | 1.9 | 0.1 |
+{: caption="Table 43. 20 Jul 2024–18 Aug 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-08-18-jp-tok}
 {: tab-title="Tokyo"}
 {: tab-group="network-latency-az-tabs-2024-08-18"}
 {: class="simple-tab-table"}
 
-| Average latency (ms) | Sao Paulo 1 | Sao Paulo 2 | Sao Paulo 3 |
+| Average latency (ms) | br-sao-sao01-a | br-sao-sao04-a | br-sao-sao05-a |
 | --- | :---: | :---: | :---: |
-| **Sao Paulo 1** |  0.09 | 1.78 | 2.66 |
-| **Sao Paulo 2** |  1.78 | 0.09 | 1.91 |
-| **Sao Paulo 3** |  2.66 | 1.91 | 0.09 |
-{: caption="Table 33. 20 Jul 2024–18 Aug 2024" caption-side="bottom"}
+| **br-sao-sao01-a** |  0.09 | 1.78 | 2.66 |
+| **br-sao-sao04-a** |  1.78 | 0.09 | 1.91 |
+| **br-sao-sao05-a** |  2.66 | 1.91 | 0.09 |
+{: caption="Table 44. 20 Jul 2024–18 Aug 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-08-18-br-sao}
 {: tab-title="Sao Paulo"}
 {: tab-group="network-latency-az-tabs-2024-08-18"}
@@ -417,250 +550,117 @@
 | **Sydney** |  185 | 214 | 214 | 249 | 261 | 275 | 122 |  | 115 | 327 |
 | **Tokyo** |  144 | 163 | 168 | 236 | 246 | 259 | 9 | 115 |  | 286 |
 | **Sao Paulo** |  144 | 130 | 120 | 195 | 186 | 208 | 293 | 326 | 285 |  |
-{: caption="Table 34. 13 Jul 2024–11 Aug 2024" caption-side="bottom"}
+{: caption="Table 45. 13 Jul 2024–11 Aug 2024" caption-side="bottom"}
 
 ### Inter-AZ latency
 {: #network-latency-2024-08-11-az}
 
-| Average latency (ms) | Dallas 1 | Dallas 2 | Dallas 3 |
+| Average latency (ms) | us-south-dal10-a | us-south-dal12-a | us-south-dal13-a |
 | --- | :---: | :---: | :---: |
-| **Dallas 1** |  0.1 | 2.09 | 2.22 |
-| **Dallas 2** |  2.09 | 0.1 | 2.18 |
-| **Dallas 3** |  2.22 | 2.18 | 0.09 |
-{: caption="Table 35. 13 Jul 2024–11 Aug 2024" caption-side="bottom"}
+| **us-south-dal10-a** |  0.1 | 2.09 | 2.22 |
+| **us-south-dal12-a** |  2.09 | 0.1 | 2.18 |
+| **us-south-dal13-a** |  2.22 | 2.18 | 0.09 |
+{: caption="Table 46. 13 Jul 2024–11 Aug 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-08-11-us-south}
 {: tab-title="Dallas"}
 {: tab-group="network-latency-az-tabs-2024-08-11"}
 {: class="simple-tab-table"}
 
-| Average latency (ms) | Toronto 1 | Toronto 2 | Toronto 3 |
+| Average latency (ms) | ca-tor-tor01-a | ca-tor-tor04-a | ca-tor-tor05-a |
 | --- | :---: | :---: | :---: |
-| **Toronto 1** |  0.09 | 1.78 | 1.99 |
-| **Toronto 2** |  1.78 | 0.09 | 1.97 |
-| **Toronto 3** |  1.99 | 1.97 | 0.09 |
-{: caption="Table 36. 13 Jul 2024–11 Aug 2024" caption-side="bottom"}
+| **ca-tor-tor01-a** |  0.09 | 1.78 | 1.99 |
+| **ca-tor-tor04-a** |  1.78 | 0.09 | 1.97 |
+| **ca-tor-tor05-a** |  1.99 | 1.97 | 0.09 |
+{: caption="Table 47. 13 Jul 2024–11 Aug 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-08-11-ca-tor}
 {: tab-title="Toronto"}
 {: tab-group="network-latency-az-tabs-2024-08-11"}
 {: class="simple-tab-table"}
 
-| Average latency (ms) | Washington DC 1 | Washington DC 2 | Washington DC 3 |
+| Average latency (ms) | us-east-wdc04-a | us-east-wdc06-a | us-east-wdc07-a |
 | --- | :---: | :---: | :---: |
-| **Washington DC 1** |  0.08 | 0.87 | 0.88 |
-| **Washington DC 2** |  0.87 | 0.11 | 0.81 |
-| **Washington DC 3** |  0.88 | 0.81 | 0.08 |
-{: caption="Table 37. 13 Jul 2024–11 Aug 2024" caption-side="bottom"}
+| **us-east-wdc04-a** |  0.08 | 0.87 | 0.88 |
+| **us-east-wdc06-a** |  0.87 | 0.11 | 0.81 |
+| **us-east-wdc07-a** |  0.88 | 0.81 | 0.08 |
+{: caption="Table 48. 13 Jul 2024–11 Aug 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-08-11-us-east}
 {: tab-title="Washington DC"}
 {: tab-group="network-latency-az-tabs-2024-08-11"}
 {: class="simple-tab-table"}
 
-| Average latency (ms) | Frankfurt 1 | Frankfurt 2 | Frankfurt 3 |
+| Average latency (ms) | eu-de-fra02-a | eu-de-fra04-a | eu-de-fra05-a |
 | --- | :---: | :---: | :---: |
-| **Frankfurt 1** |  0.09 | 0.88 | 0.85 |
-| **Frankfurt 2** |  0.88 | 0.1 | 0.84 |
-| **Frankfurt 3** |  0.85 | 0.84 | 0.11 |
-{: caption="Table 38. 13 Jul 2024–11 Aug 2024" caption-side="bottom"}
+| **eu-de-fra02-a** |  0.09 | 0.88 | 0.85 |
+| **eu-de-fra04-a** |  0.88 | 0.1 | 0.84 |
+| **eu-de-fra05-a** |  0.85 | 0.84 | 0.11 |
+{: caption="Table 49. 13 Jul 2024–11 Aug 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-08-11-eu-de}
 {: tab-title="Frankfurt"}
 {: tab-group="network-latency-az-tabs-2024-08-11"}
 {: class="simple-tab-table"}
 
-| Average latency (ms) | London 1 | London 2 | London 3 |
+| Average latency (ms) | eu-gb-lon04-a | eu-gb-lon05-a | eu-gb-lon06-a |
 | --- | :---: | :---: | :---: |
-| **London 1** |  0.09 | 2.59 | 2.23 |
-| **London 2** |  2.59 | 0.09 | 2.01 |
-| **London 3** |  2.23 | 2.01 | 0.09 |
-{: caption="Table 39. 13 Jul 2024–11 Aug 2024" caption-side="bottom"}
+| **eu-gb-lon04-a** |  0.09 | 2.59 | 2.23 |
+| **eu-gb-lon05-a** |  2.59 | 0.09 | 2.01 |
+| **eu-gb-lon06-a** |  2.23 | 2.01 | 0.09 |
+{: caption="Table 50. 13 Jul 2024–11 Aug 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-08-11-eu-gb}
 {: tab-title="London"}
 {: tab-group="network-latency-az-tabs-2024-08-11"}
 {: class="simple-tab-table"}
 
-| Average latency (ms) | Madrid 1 | Madrid 2 | Madrid 3 |
+| Average latency (ms) | eu-es-mad02-a | eu-es-mad04-a | eu-es-mad05-a |
 | --- | :---: | :---: | :---: |
-| **Madrid 1** |  0.09 | 0.68 | 0.63 |
-| **Madrid 2** |  0.68 | 0.09 | 0.79 |
-| **Madrid 3** |  0.63 | 0.79 | 0.09 |
-{: caption="Table 40. 13 Jul 2024–11 Aug 2024" caption-side="bottom"}
+| **eu-es-mad02-a** |  0.09 | 0.68 | 0.63 |
+| **eu-es-mad04-a** |  0.68 | 0.09 | 0.79 |
+| **eu-es-mad05-a** |  0.63 | 0.79 | 0.09 |
+{: caption="Table 51. 13 Jul 2024–11 Aug 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-08-11-eu-es}
 {: tab-title="Madrid"}
 {: tab-group="network-latency-az-tabs-2024-08-11"}
 {: class="simple-tab-table"}
 
-| Average latency (ms) | Osaka 1 | Osaka 2 | Osaka 3 |
+| Average latency (ms) | jp-osa-osa21-a | jp-osa-osa22-a | jp-osa-osa23-a |
 | --- | :---: | :---: | :---: |
-| **Osaka 1** |  0.1 | 1.74 | 1.74 |
-| **Osaka 2** |  1.74 | 0.09 | 1.74 |
-| **Osaka 3** |  1.74 | 1.74 | 0.09 |
-{: caption="Table 41. 13 Jul 2024–11 Aug 2024" caption-side="bottom"}
+| **jp-osa-osa21-a** |  0.1 | 1.74 | 1.74 |
+| **jp-osa-osa22-a** |  1.74 | 0.09 | 1.74 |
+| **jp-osa-osa23-a** |  1.74 | 1.74 | 0.09 |
+{: caption="Table 52. 13 Jul 2024–11 Aug 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-08-11-jp-osa}
 {: tab-title="Osaka"}
 {: tab-group="network-latency-az-tabs-2024-08-11"}
 {: class="simple-tab-table"}
 
-| Average latency (ms) | Sydney 1 | Sydney 2 | Sydney 3 |
+| Average latency (ms) | au-syd-syd01-a | au-syd-syd04-a | au-syd-syd05-a |
 | --- | :---: | :---: | :---: |
-| **Sydney 1** |  0.08 | 1.68 | 0.85 |
-| **Sydney 2** |  1.68 | 0.08 | 1.77 |
-| **Sydney 3** |  0.85 | 1.77 | 0.1 |
-{: caption="Table 42. 13 Jul 2024–11 Aug 2024" caption-side="bottom"}
+| **au-syd-syd01-a** |  0.08 | 1.68 | 0.85 |
+| **au-syd-syd04-a** |  1.68 | 0.08 | 1.77 |
+| **au-syd-syd05-a** |  0.85 | 1.77 | 0.1 |
+{: caption="Table 53. 13 Jul 2024–11 Aug 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-08-11-au-syd}
 {: tab-title="Sydney"}
 {: tab-group="network-latency-az-tabs-2024-08-11"}
 {: class="simple-tab-table"}
 
-| Average latency (ms) | Tokyo 1 | Tokyo 2 | Tokyo 3 |
+| Average latency (ms) | jp-tok-tok02-a | jp-tok-tok04-a | jp-tok-tok05-a |
 | --- | :---: | :---: | :---: |
-| **Tokyo 1** |  0.1 | 1.72 | 1.47 |
-| **Tokyo 2** |  1.72 | 0.09 | 1.93 |
-| **Tokyo 3** |  1.47 | 1.93 | 0.1 |
-{: caption="Table 43. 13 Jul 2024–11 Aug 2024" caption-side="bottom"}
+| **jp-tok-tok02-a** |  0.1 | 1.72 | 1.47 |
+| **jp-tok-tok04-a** |  1.72 | 0.09 | 1.93 |
+| **jp-tok-tok05-a** |  1.47 | 1.93 | 0.1 |
+{: caption="Table 54. 13 Jul 2024–11 Aug 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-08-11-jp-tok}
 {: tab-title="Tokyo"}
 {: tab-group="network-latency-az-tabs-2024-08-11"}
 {: class="simple-tab-table"}
 
-| Average latency (ms) | Sao Paulo 1 | Sao Paulo 2 | Sao Paulo 3 |
+| Average latency (ms) | br-sao-sao01-a | br-sao-sao04-a | br-sao-sao05-a |
 | --- | :---: | :---: | :---: |
-| **Sao Paulo 1** |  0.09 | 1.77 | 2.64 |
-| **Sao Paulo 2** |  1.77 | 0.09 | 1.9 |
-| **Sao Paulo 3** |  2.64 | 1.9 | 0.09 |
-{: caption="Table 44. 13 Jul 2024–11 Aug 2024" caption-side="bottom"}
+| **br-sao-sao01-a** |  0.09 | 1.77 | 2.64 |
+| **br-sao-sao04-a** |  1.77 | 0.09 | 1.9 |
+| **br-sao-sao05-a** |  2.64 | 1.9 | 0.09 |
+{: caption="Table 55. 13 Jul 2024–11 Aug 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-08-11-br-sao}
 {: tab-title="Sao Paulo"}
 {: tab-group="network-latency-az-tabs-2024-08-11"}
-{: class="simple-tab-table"}
-
-## 4 Aug 2024
-{: #network-latency-2024-08-04}
-
-### Inter-region latency
-{: #network-latency-2024-08-04-mzr}
-
-| Average latency (ms) | Dallas | Toronto | Washington DC | Frankfurt | London | Madrid | Osaka | Sydney | Tokyo | Sao Paulo |
-| --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Dallas** |   | 34 | 31 | 123 | 113 | 118 | 151 | 186 | 143 | 144 |
-| **Toronto** |  34 |  | 19 | 92 | 82 | 107 | 169 | 215 | 163 | 130 |
-| **Washington DC** |  31 | 19 |  | 91 | 75 | 88 | 174 | 214 | 166 | 119 |
-| **Frankfurt** |  123 | 93 | 92 |  | 13 | 30 | 232 | 250 | 236 | 199 |
-| **London** |  113 | 83 | 76 | 13 |  | 27 | 245 | 261 | 247 | 187 |
-| **Madrid** |  120 | 106 | 88 | 29 | 27 |  | 258 | 275 | 261 | 208 |
-| **Osaka** |  151 | 170 | 174 | 232 | 244 | 257 |  | 122 | 9 | 293 |
-| **Sydney** |  184 | 214 | 214 | 250 | 261 | 275 | 122 |  | 115 | 328 |
-| **Tokyo** |  144 | 162 | 168 | 237 | 246 | 260 | 9 | 115 |  | 285 |
-| **Sao Paulo** |  145 | 130 | 121 | 195 | 186 | 209 | 294 | 327 | 286 |  |
-{: caption="Table 45. 6 Jul 2024–4 Aug 2024" caption-side="bottom"}
-
-### Inter-AZ latency
-{: #network-latency-2024-08-04-az}
-
-| Average latency (ms) | Dallas 1 | Dallas 2 | Dallas 3 |
-| --- | :---: | :---: | :---: |
-| **Dallas 1** |  0.1 | 2.09 | 2.22 |
-| **Dallas 2** |  2.09 | 0.1 | 2.21 |
-| **Dallas 3** |  2.22 | 2.21 | 0.1 |
-{: caption="Table 46. 6 Jul 2024–4 Aug 2024" caption-side="bottom"}
-{: #network-latency-az-tabs-2024-08-04-us-south}
-{: tab-title="Dallas"}
-{: tab-group="network-latency-az-tabs-2024-08-04"}
-{: class="simple-tab-table"}
-
-| Average latency (ms) | Toronto 1 | Toronto 2 | Toronto 3 |
-| --- | :---: | :---: | :---: |
-| **Toronto 1** |  0.09 | 1.78 | 1.98 |
-| **Toronto 2** |  1.78 | 0.09 | 1.94 |
-| **Toronto 3** |  1.98 | 1.94 | 0.09 |
-{: caption="Table 47. 6 Jul 2024–4 Aug 2024" caption-side="bottom"}
-{: #network-latency-az-tabs-2024-08-04-ca-tor}
-{: tab-title="Toronto"}
-{: tab-group="network-latency-az-tabs-2024-08-04"}
-{: class="simple-tab-table"}
-
-| Average latency (ms) | Washington DC 1 | Washington DC 2 | Washington DC 3 |
-| --- | :---: | :---: | :---: |
-| **Washington DC 1** |  0.08 | 0.88 | 0.89 |
-| **Washington DC 2** |  0.88 | 0.1 | 0.78 |
-| **Washington DC 3** |  0.89 | 0.78 | 0.08 |
-{: caption="Table 48. 6 Jul 2024–4 Aug 2024" caption-side="bottom"}
-{: #network-latency-az-tabs-2024-08-04-us-east}
-{: tab-title="Washington DC"}
-{: tab-group="network-latency-az-tabs-2024-08-04"}
-{: class="simple-tab-table"}
-
-| Average latency (ms) | Frankfurt 1 | Frankfurt 2 | Frankfurt 3 |
-| --- | :---: | :---: | :---: |
-| **Frankfurt 1** |  0.09 | 0.88 | 0.85 |
-| **Frankfurt 2** |  0.88 | 0.1 | 0.83 |
-| **Frankfurt 3** |  0.85 | 0.83 | 0.1 |
-{: caption="Table 49. 6 Jul 2024–4 Aug 2024" caption-side="bottom"}
-{: #network-latency-az-tabs-2024-08-04-eu-de}
-{: tab-title="Frankfurt"}
-{: tab-group="network-latency-az-tabs-2024-08-04"}
-{: class="simple-tab-table"}
-
-| Average latency (ms) | London 1 | London 2 | London 3 |
-| --- | :---: | :---: | :---: |
-| **London 1** |  0.09 | 2.52 | 2.1 |
-| **London 2** |  2.52 | 0.09 | 2.1 |
-| **London 3** |  2.1 | 2.1 | 0.09 |
-{: caption="Table 50. 6 Jul 2024–4 Aug 2024" caption-side="bottom"}
-{: #network-latency-az-tabs-2024-08-04-eu-gb}
-{: tab-title="London"}
-{: tab-group="network-latency-az-tabs-2024-08-04"}
-{: class="simple-tab-table"}
-
-| Average latency (ms) | Madrid 1 | Madrid 2 | Madrid 3 |
-| --- | :---: | :---: | :---: |
-| **Madrid 1** |  0.09 | 0.68 | 0.63 |
-| **Madrid 2** |  0.68 | 0.09 | 0.8 |
-| **Madrid 3** |  0.63 | 0.8 | 0.09 |
-{: caption="Table 51. 6 Jul 2024–4 Aug 2024" caption-side="bottom"}
-{: #network-latency-az-tabs-2024-08-04-eu-es}
-{: tab-title="Madrid"}
-{: tab-group="network-latency-az-tabs-2024-08-04"}
-{: class="simple-tab-table"}
-
-| Average latency (ms) | Osaka 1 | Osaka 2 | Osaka 3 |
-| --- | :---: | :---: | :---: |
-| **Osaka 1** |  0.1 | 1.73 | 1.74 |
-| **Osaka 2** |  1.73 | 0.09 | 1.76 |
-| **Osaka 3** |  1.74 | 1.76 | 0.09 |
-{: caption="Table 52. 6 Jul 2024–4 Aug 2024" caption-side="bottom"}
-{: #network-latency-az-tabs-2024-08-04-jp-osa}
-{: tab-title="Osaka"}
-{: tab-group="network-latency-az-tabs-2024-08-04"}
-{: class="simple-tab-table"}
-
-| Average latency (ms) | Sydney 1 | Sydney 2 | Sydney 3 |
-| --- | :---: | :---: | :---: |
-| **Sydney 1** |  0.08 | 1.68 | 0.84 |
-| **Sydney 2** |  1.68 | 0.08 | 1.74 |
-| **Sydney 3** |  0.84 | 1.74 | 0.1 |
-{: caption="Table 53. 6 Jul 2024–4 Aug 2024" caption-side="bottom"}
-{: #network-latency-az-tabs-2024-08-04-au-syd}
-{: tab-title="Sydney"}
-{: tab-group="network-latency-az-tabs-2024-08-04"}
-{: class="simple-tab-table"}
-
-| Average latency (ms) | Tokyo 1 | Tokyo 2 | Tokyo 3 |
-| --- | :---: | :---: | :---: |
-| **Tokyo 1** |  0.1 | 1.72 | 1.46 |
-| **Tokyo 2** |  1.72 | 0.09 | 1.93 |
-| **Tokyo 3** |  1.46 | 1.93 | 0.1 |
-{: caption="Table 54. 6 Jul 2024–4 Aug 2024" caption-side="bottom"}
-{: #network-latency-az-tabs-2024-08-04-jp-tok}
-{: tab-title="Tokyo"}
-{: tab-group="network-latency-az-tabs-2024-08-04"}
-{: class="simple-tab-table"}
-
-| Average latency (ms) | Sao Paulo 1 | Sao Paulo 2 | Sao Paulo 3 |
-| --- | :---: | :---: | :---: |
-| **Sao Paulo 1** |  0.09 | 1.82 | 2.68 |
-| **Sao Paulo 2** |  1.82 | 0.09 | 1.92 |
-| **Sao Paulo 3** |  2.68 | 1.92 | 0.09 |
-{: caption="Table 55. 6 Jul 2024–4 Aug 2024" caption-side="bottom"}
-{: #network-latency-az-tabs-2024-08-04-br-sao}
-{: tab-title="Sao Paulo"}
-{: tab-group="network-latency-az-tabs-2024-08-04"}
 {: class="simple-tab-table"}
