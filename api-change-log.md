@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-07-09"
+lastupdated: "2024-09-10"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -38,8 +38,6 @@ SDK changes are based on API changes. For more information about the latest chan
 ## Upcoming changes
 {: #upcoming-changes}
 
-**`Zone.status` enumeration expansion** In an upcoming release, when [retrieving](https://cloud.ibm.com/apidocs/vpc#get-region-zone) or [listing](https://cloud.ibm.com/apidocs/vpc#list-region-zones) zones, the existing `Zone` schema will include an expanded set of enumerated values for the `status` property. To prepare for this change, verify that your clients are tolerant of unexpected `status` values, such as by logging a message and skipping over the zone on which the unexpected `status` value was encountered.
-
 **`InstanceTemplate` response schema change.** In an upcoming release, future methods of creating instances, and therefore creating instance templates, may not require a primary network interface. To accommodate this, the `primary_network_interface` property is now optional in the instance template response model.
 
 At this time, all instances, and therefore all instance templates, continue to require that a primary network interface be specified. Therefore, existing instance templates are unaffected. Additionally, new instance templates will continue to include a primary network interface until further notice. However, to ensure your clients will not be affected in the future, verify that they are tolerant of the `primary_network_interface` property not being included when consuming `InstanceTemplate` responses.
@@ -55,6 +53,16 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 10 September 2024
+{: #10-september-2024}
+
+### For all version dates
+{: #10-september-2024-all-version-dates}
+
+**Zone universal names.** Unique identifiers for IBM Cloud zones are now available in the Geography API methods. When [retrieving a zone](/apidocs/vpc/latest#get-region-zone) and [listing zones](/apidocs/vpc/latest#list-region-zones) in a region, new properties `universal_name` and `data_center` are included in the response. A zone's `universal_name` is a persistent identifier of the zone, irrespective of the IBM Cloud account's [logical zone name mapping](/docs/overview?topic=overview-locations#zone-mapping). The `data_center` property denotes the primary physical data center where the logical zone is hosted. This property lets you connect your VPC resources to your resources in IBM Classic data centers. If the `data_center` property is absent from the response, no physical data center has been assigned.
+
+The response may also include a new zone `status` property value of `unassigned`, which indicates that the IBM Cloud account's zone mapping has not yet been assigned. For more information, see the overview [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 ## 23 July 2024
 {: #23-july-2024}
