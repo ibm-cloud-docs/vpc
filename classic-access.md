@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2018, 2024
-lastupdated: "2024-06-20"
+lastupdated: "2024-09-10"
 
 keywords: classic, access, classic access, VRF, peering
 
@@ -135,7 +135,7 @@ curl -H "Authorization:$iam_token" "$iaas_endpoint/v1/vpcs?generation=2&version=
 
 The VRF conversion process involves a network disruption while the VLANs and their subnets are detached from the ACL backbone and then attached to the _Customer VRF_. This process results in a few moments of packet loss for traffic that is entering or exiting the VLANs. Packets within the VLAN continue to flow. In the cases where a network gateway, such as a FortiGate Security Appliance or Virtual Router Appliance is involved, no disruption occurs among the VLANs attached to that gateway. The servers see no network outage themselves, and most workloads automatically recover when the traffic flow resumes. The total duration of the disruption depends on the extent of the tenant’s topology, that is, the number of subnets, VLANs, and pods that your tenancy includes.
 
-During migration, the VLANs are disconnected from the backbone and reconnected to the _Customer VRF_. The duration of disruption varies, depending on the quantity of VLANs, PODs, and data centers involved. Traffic among VLANs is disrupted, yet the servers stay connected to the network. The application might or might not be affected, depending on its sensitivity to packet loss.
+During migration, the VLANs are disconnected from the backbone and reconnected to the _Customer VRF_. The duration of disruption varies, depending on the quantity of VLANs, PODs, and zones involved. Traffic among VLANs is disrupted, yet the servers stay connected to the network. The application might or might not be affected, depending on its sensitivity to packet loss.
 
 ### How to initiate VRF conversion
 {: #how-you-can-initiate-the-conversion}

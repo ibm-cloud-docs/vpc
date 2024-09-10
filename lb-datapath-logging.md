@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-09-04"
+lastupdated: "2024-09-10"
 
 keywords: application load balancer, datapath logging
 
@@ -38,9 +38,10 @@ To create a {{site.data.keyword.la_short}} instance, follow these steps:
 
 1. Select **Create a logging instance**. The logging instance creation page shows.
 
+
 2. Choose the region from the menu list that corresponds to the zone where you provisioned the load balancer. For example, for a load balancer in SYD01, choose the region of Sydney.
 
-   You can find full information about the mapping between regions and zones in [Zone mapping per account](/docs/overview?topic=overview-locations#zone-mapping).
+   For information about the mapping between regions and zones, see [Zone mapping per account](/docs/overview?topic=overview-locations#zone-mapping).
    {: tip}
 
 After you choose your region, click **Create** to create the logging instance, then configure it by clicking **Configure the platform service logs**.

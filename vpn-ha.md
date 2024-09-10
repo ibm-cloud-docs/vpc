@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-01-30"
+  years: 2022, 2024 2024
+lastupdated: "2024-09-10"
 
 keywords: VPN, VPN gateways, HA, High availability, Redundancy
 
@@ -22,13 +22,11 @@ A VPN gateway consists of two back-end instances in the same zone for high avail
 
 ![VPN gateway HA in single zone](images/vpn-gateway-ha.png "VPN gateway HA in single zone"){: caption="Figure 1. VPN gateway HA in single zone" caption-side="bottom"}
 
-## VPN gateway high availability in multiple zones
+## VPN gateway high availability in a Multizone region
 {: #vpn-gateway-ha-in-multiple-zones}
 
-An availability zone (AZ) is the fault domain that is defined by the data center within a region. AZs provide low latency connectivity between them. Each VPC region supports three availability zones.
+When a network outage occurs in a [zone](#x2070723){: term}, you might lose network access to all resources, including the VPN gateway in that zone. It is recommended to spread your workload across zones with a VPN gateway in each zone, and load-balance between zones to achieve high availability.
 
-When a network outage occurs in an availability zone, you might lose network access to all resources, including the VPN gateway in that zone. It is recommended to spread your workload across fault domains (AZs) with a VPN gateway in each AZ, and load-balance between AZs to achieve high availability.
-
-Figure 2 describes how to spread your workload over multiple zones. Each VPN gateway in the zone is to be used to access only the VPC network in the same zone.
+Figure 2 describes how to spread your workload in [multizone regions](#x9774820){: term}. Each VPN gateway in the zone is to be used to access only the VPC network in the same zone.
 
 ![VPN gateway HA in multiple zones](images/vpn-gateway-ha-in-multiple-zones.png "VPN gateway HA in multiple zones"){: caption="Figure 2. VPN gateway HA in multiple zones" caption-side="bottom"}
