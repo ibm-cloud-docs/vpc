@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2024-09-09",
+    "lastupdated": "2024-09-10",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
