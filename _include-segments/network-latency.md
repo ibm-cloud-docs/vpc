@@ -23,11 +23,12 @@
 ### Inter-AZ latency
 {: #network-latency-2024-09-08-az}
 
-| Average latency (ms) | us-south-dal10-a | us-south-dal12-a | us-south-dal13-a |
-| --- | :---: | :---: | :---: |
-| **us-south-dal10-a** |  0.09 | 2.05 | 2.22 |
-| **us-south-dal12-a** |  2.05 | 0.09 | 2.18 |
-| **us-south-dal13-a** |  2.22 | 2.18 | 0.09 |
+| Average latency (ms) | us-south-dal10-a | us-south-dal12-a | us-south-dal13-a | us-south-dal14-a |
+| --- | :---: | :---: | :---: | :---: |
+| **us-south-dal10-a** |  0.09 | 2.05 | 2.22 | 2.38 |
+| **us-south-dal12-a** |  2.05 | 0.09 | 2.18 | 2.26 |
+| **us-south-dal13-a** |  2.22 | 2.18 | 0.09 | 2.36 |
+| **us-south-dal14-a** |  2.38 | 2.26 | 2.36 | 0.08 |
 {: caption="Table 2. 10 Aug 2024–8 Sep 2024" caption-side="bottom"}
 {: #network-latency-az-tabs-2024-09-08-us-south}
 {: tab-title="Dallas"}
