@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-08-22"
+lastupdated: "2024-09-10"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -39,7 +39,7 @@ You can view all file shares, their bindings and mount targets in the UI, retrie
 | Size | Size of the file share, in GBs. |
 | IOPS profile| It shows the performance profile that is associated with the file share.|
 | Replication role | Relationship to the source file share. "Replica of" indicates that the file share a replica of the source share, which is linked. "Source of" indicates that the share the source of the replica, which is linked. "None" indicates that the file share does not replicate with another share. |
-| Cross account role | The values in this column can be _None_, _Origin share_, or _Accessor share_. If the value is _None_, the share is not shared with another account or external service. If the value is _Origin share_, the share is shared with another account or external service and is bound to an accessor share in the other account. If the value is _Accessor share_, then this share is bound to an origin share with the purpose of accessing the origin share's data.|
+| Cross-account role | The values in this column can be _None_, _Origin share_, or _Accessor share_. If the value is _None_, the share is not shared with another account or external service. If the value is _Origin share_, the share is shared with another account or external service and is bound to an accessor share in the other account. If the value is _Accessor share_, then this share is bound to an origin share with the purpose of accessing the origin share's data.|
 | Encryption type | It shows the encryption type of the file share, either provider-managed or customer-managed. [Customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption) uses your own root keys to protect your data. The UI also identifies the key management service (KMS), either {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. |
 {: caption="Table 1. File shares list page." caption-side="bottom"}
 
@@ -83,7 +83,7 @@ You can access the Actions menu by clicking ![Actions icon](../icons/action-menu
 | Security group | This field is shown if the file share has Security group access mode. It's the number of security groups that the share is a member of. |
 | Reserved IP | This field is shown if the file share has Security group access mode. The IP address of the virtual network interface that is attached to the mount target |
 | Encryption in Transit |This field is shown if the file share has Security group access mode. Its value can be enabled or disabled. |
-| **Accessor share bindings**| This section is shown if the share has accessor shares in other VPCs. |
+| **Accessor share bindings**| The section is shown if the share has accessor shares in other VPCs. |
 | Binding ID | This field shows the ID of the binding that connects the origin share to the accessor share. |
 | Account ID | The ID of the account that has access to your share's data through the accessor share. |
 | Accessor ID | This field shows the account ID that created the accessor share in another VPC. |
