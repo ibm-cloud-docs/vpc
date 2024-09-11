@@ -24,6 +24,10 @@ After you [verify successful connectivity to your Private Path service](/docs/vp
 If a Private Path service is not published, it cannot be accessed outside of the account.
 {: important}
 
+Publishing allows any account to request access to to the Private Path service. Once unpublished, access will again be restricted to the account that created the Private Path service.
+
+For an unpublish request to succeed, any existing access from other accounts must first be revoked. To learn more, see [Revoking an account's access to a Private Path service](/docs/vpc?topic=vpc-pps-ui-revoke-account&interface=ui).
+
 You can publish and unpublish an {{site.data.keyword.cloud}} Private Path service using the UI, CLI, or API.
 
 ## Publishing a Private Path service in the UI
