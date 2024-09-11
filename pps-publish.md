@@ -39,9 +39,10 @@ To publish a Private Path service with the {{site.data.keyword.cloud_notm}} cons
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 1. Select the Menu icon ![Menu icon](images/menu_icon.png), then click **VPC Infrastructure**.
 1. Click **Private Path services** in the Network section.
-1. Locate the name of your new Private Path service in the table, then click **Publish** in the Actions menu ![Actions menu](images/overflow.png).
+1. Locate the name of your new Private Path service in the table, and click on the name to view the Private Path service details page. 
+1. Click **Publish** in the Actions menu ![Actions menu](images/overflow.png).
 
-   The Published column in the Private Path services for VPC table changes to `Yes`.
+   The Publication column in the Private Path services for VPC table changes to `Published`.
 
 The Private Path service is now exposed for other accounts to connect to the service through Virtual Private Endpoint (VPE) gateways.
 

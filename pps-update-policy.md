@@ -34,7 +34,7 @@ To update an account policy in the {{site.data.keyword.cloud_notm}} console, fol
 1. Select the Menu icon ![Menu icon](images/menu_icon.png), then click **VPC Infrastructure**.
 1. Click **Private Path services** in the Network section.
 1. Click the name of the Private Path service that includes the account policy that you want to update.
-1. On the Private Path service's Details page, click the Account policies tab.
+1. On the Private Path service's Details page, click the Policies tab.
 1. Locate the account with the policy that you want to update, then click the Edit ![Edit icon](images/edit.png) or Delete ![Delete icon](images/delete.png) icon.
 
    In the Edit policy panel, you can update the policy name and the request policy (**Review**, **Permit**, or **Deny**).

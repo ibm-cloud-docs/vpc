@@ -21,7 +21,7 @@ The beta release of IBM Cloud Private Path services is only available to allowli
 After you create a Private Path service, the service's status is `Stable`. At this time, it's a good idea to test the connection to your service by creating a VPE gateway with the cloud resource name (CRN) associated with your Private Path service.
 {: shortdesc}
 
-To verify that the Private Path service is fully functional before publishing it for consumer use, you must use the same account to create the VPE gateway as the account used to create the Private Path service. (After you publish your Private Path service, any account can be used to create the VPE gateway.)
+To verify that the Private Path service is fully functional before publishing it for consumer use, you must use the same account to create the VPE gateway as the account used to create the Private Path service. After you publish your Private Path service, any account can be used to create the VPE gateway.
 {: important}
 
 You can verify connectivity to a Private Path service by SSH into a virtual server instance running in the VPC containing the endpoint gateway. Initiate traffic to the VPE service endpoint or private IP.
