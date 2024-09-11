@@ -50,7 +50,7 @@ After publishing, the Private Path service name will be visible to customers con
 {: note}
 
 ### Unpublishing a Private Path service in the UI
-{: #pps-ui-activating-private-path-service}
+{: #pps-ui-deactivating-private-path-service}
 {: ui}
 
 To unpublish a Private Path service in the {{site.data.keyword.cloud_notm}} console, follow these steps:
