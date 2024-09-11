@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-02-08"
+lastupdated: "2024-09-11"
 
 keywords: private path
 
@@ -33,7 +33,7 @@ You can create an account policy to review, accept, or reject connection request
 To create a Private Path service policy in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the Menu icon ![navigation menu](../icons/icon_hamburger.svg), then click **VPC Infrastructure**.
+1. Select the Menu icon ![Menu icon](images/menu_icon.png), then click **VPC Infrastructure**.
 1. Click **Private Path services** in the Network section.
 1. Click the name of the Private Path service where you want to add an account policy.
 1. On the Private Path service's Details page, click the Account policies tab.
