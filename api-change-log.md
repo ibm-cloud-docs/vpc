@@ -38,7 +38,7 @@ SDK changes are based on API changes. For more information about the latest chan
 ## Upcoming changes
 {: #upcoming-changes}
 
-**`InstanceTemplate` response schema change.** In an upcoming release, future methods of creating instances, and therefore creating instance templates, may not require a primary network interface. To accommodate this, the `primary_network_interface` property is now optional in the instance template response model.
+**`InstanceTemplate` response schema change.** In an upcoming release, future methods of creating instances, and therefore creating instance templates, may not require a primary network interface. To accommodate this, the `primary_network_interface` property is now optional in the instance template response model. 
 
 At this time, all instances, and therefore all instance templates, continue to require that a primary network interface be specified. Therefore, existing instance templates are unaffected. Additionally, new instance templates will continue to include a primary network interface until further notice. However, to ensure your clients will not be affected in the future, verify that they are tolerant of the `primary_network_interface` property not being included when consuming `InstanceTemplate` responses.
 {: important}
