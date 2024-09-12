@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-09-04"
+lastupdated: "2024-09-12"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -41,7 +41,7 @@ The following profile families are available when you provision a virtual server
 
 For more information about LinuxONE (s390x processor architecture) profiles, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles&interface=ui).
 
-Profiles with AMD manufactured processors are available in the Toronto region.
+Profiles with AMD-manufactured processors are available in the Toronto region.
 {: preview}
 
 ## Balanced
@@ -52,7 +52,7 @@ Balanced profiles provide a mix of performance and scalability for more common w
 Balanced profiles with the bx2d prefix are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London), Germany (Frankfurt), Spain (Madrid), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions.
 {: preview}
 
-3rd generation profiles with the bx3d prefix are available in the Dallas, London, Frankfurt, Washington DC, Toronto, Madrid, Sydney, Tokyo, and Osaka regions to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids).  For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
+3rd generation profiles with the bx3d prefix are available in the Dallas, London, Frankfurt, Washington DC, Toronto, Madrid, Sydney, Tokyo, and Osaka regions to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
 {: preview}
 
 The following table shows all balance profiles that are available for x86-64.
@@ -114,7 +114,7 @@ The following table shows all balance profiles that are available for x86-64.
 {: class="simple-tab-table"}
 {: summary="Balanced bx2 profile options for Intel x86-64 virtual server instances."}
 
-AMD based virtual machines use AMD EPYC Milan processors. Compute capabilities are limited to AMD EPYC Rome capabilities.
+AMD-based virtual machines use AMD EPYC Milan processors. Compute capabilities are limited to AMD EPYC Rome capabilities.
 {: important}
 
 ## Compute
@@ -185,7 +185,7 @@ Memory profiles are best for memory intensive workloads, such as large caching w
 Memory profiles with the mx2d prefix are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London), Germany (Frankfurt), Spain (Madrid), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions.
 {: preview}
 
-3rd generation profiles with the mx3d prefix are available in the Dallas, London, Frankfurt, Washington DC, Toronto, Madrid, Sydney, Tokyo, and Osaka regions to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids).  For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
+3rd generation profiles with the mx3d prefix are available in the Dallas, London, Frankfurt, Washington DC, Toronto, Madrid, Sydney, Tokyo, and Osaka regions to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
 {: preview}
 
 | Instance profile | vCPU / Cores | NUMA count | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) |
@@ -293,8 +293,8 @@ The GPU profile family includes `-v100`, `-a100`, `-l4`, and `-l40S` and `-h100`
 
 - GPU `-v100` profiles include 1 or 2 NVIDIA V100 PCIe 16 GB GPUs. All OS images are supported on these GPU profiles.
 - [Select availability]{: tag-green} GPU `-a100` profiles includes 8 NVIDIA A100 NVlink 80 GB GPUs. The a100 offering is available to select customers. This GPU profile supports only Linux OS images Ubuntu or RHEL.
-- GPU `-l4` profiles include NVIDIA L4 24GB GPUs.
-- GPU `-l40S` profiles include NVIDIA L40S 48GB GPUs.
+- GPU `-l4` profiles include NVIDIA L4 24 GB GPUs.
+- GPU `-l40S` profiles include NVIDIA L40S 48 GB GPUs.
 - [Select availability]{: tag-green} GPU `-h100` profiles include [NVIDIA H100](https://www.nvidia.com/en-us/data-center/hgx/){: external} 80 GB GPUs. The system is an HGX design. The H100 offering is available in the following regions and zones: London (eu-gb-2), Sydney (au-syd-2), Toronto (ca-tor-3), Madrid (eu-es-3), and Washington DC (us-east-3).
 
 See [Download drivers](https://www.nvidia.com/en-us/drivers/) to review the most current versions that are supported. NVIDIA GPU drivers must be installed separately.
@@ -343,7 +343,7 @@ When you create a `-v100`, `-a100`, `-h100`, `l4`, or `l40S` GPU profile, keep t
 
 Storage Optimized profiles are hosted exclusively on Intel® Xeon® Platinum Cascade Lake servers. This profile family offers our highest vCPU to [instance storage](/docs/vpc?topic=vpc-instance-storage) ratio with 300 GB of storage for every 1 vCPU and is optimized for running data lake and other workloads that require more intensive data capabilities. All storage optimized profiles are provisioned with temporary SSD-backed instance storage at no additional charge. For more information, see [Lifecycle of instance storage](/docs/vpc?topic=vpc-instance-storage#instance-storage-lifecycle).
 
-Storage Optimized profiles use the `Storage optimized (ox2) instance storage` quota for instance storage quota tracking. Unlike other profiles, which use the `Instance storage` quota. For more information, see [Quotas](/docs/vpc?topic=vpc-quotas#vpcquotas).
+Storage Optimized profiles use the `Storage optimized (ox2) instance storage` quota, for instance, storage quota tracking. Unlike other profiles, which use the `Instance storage` quota. For more information, see [Quotas](/docs/vpc?topic=vpc-quotas#vpcquotas).
 
 Storage Optimized profiles are available in the US South (Dallas), US East (Washington DC), United Kingdom (London), Germany (Frankfurt), EU Spain (Madrid), Japan (Tokyo), and Japan (Osaka) regions.
 {: preview}
@@ -381,7 +381,7 @@ For example, for the bx2-2x8 profile, you might have the following bandwidth con
 - Storage: 1 Gbps
 - Network: 3 Gbps
 
-You can adjust amount of overall bandwidth that is provided to storage volumes within the overall instance limits. However, both volume and network bandwidth must be at least 500 MBps each. For example, to allow more bandwidth for volumes, you can apportion the bx2-2x8 example in equal allocations:
+You can adjust the amount of overall bandwidth that is provided to storage volumes within the overall instance limits. However, both volume and network bandwidth must be at least 500 MBps each. For example, to allow more bandwidth for volumes, you can apportion the bx2-2x8 example in equal allocations:
    - Storage: 2 Gbps
    - Network: 2 Gbps
 
@@ -397,7 +397,7 @@ For more information, see [Bandwidth allocation for instance profiles](/docs/vpc
 ### Bandwidth allocation with multiple data volumes
 {: #bandwidth-multi-volumes}
 
-The bandwidth for volumes is divided between all the attached volumes. To ensure reasonable boot times, a minimum of 393 MBps is allocated to the primary boot volume. The remaining bandwidth is divided between the data volumes. You can attach up to 12 data volumes to your instance. The data volumes are assigned bandwidth that is proportional to their maximum bandwidth. For example, if you have an instance with four identical data volumes, the overall volumes bandwidth is divided equally amongs them. If you are using only one volume at a time, then that volume still gets only the bandwidth that is assigned to it, one fourth of the overall volumes bandwidth.
+The bandwidth for volumes is divided between all the attached volumes. To help ensure reasonable boot times, a minimum of 393 MBps is allocated to the primary boot volume. The remaining bandwidth is divided between the data volumes. You can attach up to 12 data volumes to your instance. The data volumes are assigned bandwidth that is proportional to their maximum bandwidth. For example, if you have an instance with four identical data volumes, the overall volumes bandwidth is divided equally among them. If you are using only one volume at a time, then that volume still gets only the bandwidth that is assigned to it, one-fourth of the overall volumes bandwidth.
 
 ### Bandwidth allocation with multiple network interfaces
 {: #bandwidth-multi-vnic}
@@ -424,7 +424,7 @@ When you create secondary data volumes, you select a volume profile that best me
 ## Viewing profile configurations
 {: #popular-profiles}
 
-You can view available profile configurations by using the {{site.data.keyword.cloud_notm}} console or the CLI. In the {{site.data.keyword.cloud_notm}} console, you can select from popular profile configurations that support most common use cases.
+You can view available profile configurations by using the {{site.data.keyword.cloud_notm}} console or the CLI. In the {{site.data.keyword.cloud_notm}} console, you can select from popular profile configurations that support the most common use cases.
 
 ### Understanding the naming rule of the profiles
 {: #profiles-naming-rule}
@@ -499,7 +499,7 @@ The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_i
 - A wide variety of profiles sizes with core to memory ratios optimized to maximize performance and economics for intensive workloads.
 - Enhanced integrated accelerators that feature AMX-512, AVX, and enhanced crypto acceleration.
 - Instances are started by default with Open Virtual Machine Format (OVMF), and run in Unified Extensible Firmware Interface (UEFI) mode for enhanced security.
-- Local instance storage is included with all profiles for easy access to temporary storage and swap space. For more information about the temporary nature of instance storage, see [Lifecycle of instance storage](/docs/vpc?topic=vpc-instance-storage#instance-storage-lifecycle).
+- Local instance storage is included with all profiles for ease of access to temporary storage and swap space. For more information about the temporary nature of instance storage, see [Lifecycle of instance storage](/docs/vpc?topic=vpc-instance-storage#instance-storage-lifecycle).
 - A 3rd generation profile can be resized to a 2nd generation profile. A 2nd generation profile can be resized to a 3rd generation profile. For more information, see [Resizing between Gen 2 and Gen 3 profiles](/docs/vpc?topic=vpc-resizing-an-instance&interface=ui#resizing-instance-generations).
 
 ## Confidential computing profiles
@@ -551,7 +551,7 @@ For more information about confidential computing, see [Confidential computing w
 ## Intel Hyper-Threading Technology
 {: #vpc-intel-hyper-threading-technology}
 
-All Intel&reg; x86-64 servers have Hyper-Threading enabled by default. Intel&reg; Hyper-Threading Technology is a term that describes simultaneous multithreading (SMT). Hyper-Threading Technology splits each physical core into two virtual processors. Hyper-Threading Technology is like taking a wide road with a single lane and making it into two relatively narrower lanes. The two-lane highway provides better service over the single lane road if traffic is moving slow and fast. Hyper-Threading Technology provides better application performance for File I/O, Network I/O, and other slower operations mixed with CPU intensive operations. The performance advantage of Hyper-Threading Technology typically ranges in the range 0 - 30% over a single-thread mode. Some applications might also see a drop in performance.
+All Intel&reg; x86-64 servers have Hyper-Threading enabled by default. Intel&reg; Hyper-Threading Technology is a term that describes simultaneous multithreading (SMT). Hyper-Threading Technology splits each physical core into two virtual processors. Hyper-Threading Technology is like taking a wide road with a single lane and making it into two relatively narrower lanes. The two-lane highway provides better service over the single-lane road if traffic is moving slow and fast. Hyper-Threading Technology provides better application performance for File I/O, Network I/O, and other slower operations mixed with CPU-intensive operations. The performance advantage of Hyper-Threading Technology typically ranges in the range 0 - 30% over a single-thread mode. Some applications might also see a drop in performance.
 
 If you want to disable Intel&reg; Hyper-Threading, see [Disabling Intel Hyper-Threading Technology](/docs/vpc?topic=vpc-disabling-hyper-threading).
 

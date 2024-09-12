@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-02-08"
+lastupdated: "2024-09-11"
 
 keywords:
 
@@ -31,7 +31,7 @@ You can revoke an account's access to a Private Path service using the UI, CLI, 
 To Revoke an account's access to a Private Path service in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the Menu icon ![navigation menu](../icons/icon_hamburger.svg), then click **VPC Infrastructure**.
+1. Select the Menu icon ![Menu icon](images/menu_icon.png), then click **VPC Infrastructure**.
 1. Click **Private Path services** in the Network section.
 1. Click the name of the Private Path service that includes the account policy that you want to update.
 1. On the Private Path service's Details page, click the Connections tab.

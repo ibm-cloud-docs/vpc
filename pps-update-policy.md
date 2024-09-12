@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-06-20"
+lastupdated: "2024-09-11"
 
 keywords: private path
 
@@ -31,10 +31,10 @@ You can update or delete a Private Path service account policy at any time using
 To update an account policy in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the Menu icon ![navigation menu](../icons/icon_hamburger.svg), then click **VPC Infrastructure**.
+1. Select the Menu icon ![Menu icon](images/menu_icon.png), then click **VPC Infrastructure**.
 1. Click **Private Path services** in the Network section.
 1. Click the name of the Private Path service that includes the account policy that you want to update.
-1. On the Private Path service's Details page, click the Account policies tab.
+1. On the Private Path service's Details page, click the Policies tab.
 1. Locate the account with the policy that you want to update, then click the Edit ![Edit icon](images/edit.png) or Delete ![Delete icon](images/delete.png) icon.
 
    In the Edit policy panel, you can update the policy name and the request policy (**Review**, **Permit**, or **Deny**).

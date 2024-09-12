@@ -44,10 +44,10 @@ As the service provider, you can review and triage (permit, deny, or revoke) con
 To triage incoming connection requests in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the Menu icon ![navigation menu](../icons/icon_hamburger.svg), then click **VPC Infrastructure**.
+1. Select the Menu icon ![Menu icon](images/menu_icon.png), then click **VPC Infrastructure**.
 1. Click **Private Path services** in the Network section.
-1. In the Private Path services for VPC table, click the name of a Private Path service to show its Details page.
-1. Scroll to the Connections section to review connection requests. Click the Actions menu ![Actions menu](images/overflow.png) and select an option. After you select an option, you are prompted to confirm your choice, and optionally create an account policy for the account ID.
+1. In the Private Path services for VPC table, click the name of a Private Path service to show its details page.
+1. Scroll to the Connections section to review connection requests. Click the Actions menu ![Actions menu](images/overflow.png) and select an option to permit, deny, or revoke the connectin request. After you select an option, you are prompted to confirm your choice, and optionally create an account policy for the account ID.
 
 The consumer associated with the account ID is notified of your action. If permitted, the consumer can now access your service.
 
