@@ -2,7 +2,7 @@
 copyright:
   years: 2020, 2024
 
-lastupdated: "2024-08-07"
+lastupdated: "2024-09-12"
 
 keywords: dedicated host profiles, balanced, compute, memory, ultra high memory, generation 2, gen 2
 
@@ -15,16 +15,16 @@ subcollection: vpc
 # x86-64 dedicated host profiles
 {: #dh-profiles}
 
- A dedicated host profile is a combination of attributes, such as the number of vCPUs, amount of RAM, and optionally instance storage that define the amount of compute capacity that is provided in a host that is provisioned exclusively for your use.
+ A dedicated host profile is a combination of attributes, such as the number of vCPUs, amount of RAM, and optional instance storage that define the amount of compute capacity that is provided in a host that is provisioned exclusively for your use.
 {: shortdesc}
 
-Dedicated hosts are available in various profile sizes to best suit the size and scale of your workloads: Balanced, Compute, Memory, Very High Memory, and Ultra High Memory. All virtual server instances that are provisioned on the dedicated host are provisioned from the same family and class of profiles. For example, if you choose a Memory profile for your dedicated host, all instances that are provisioned on the host must also be created with a Memory virtual server profile. If you choose a Compute with instance storage dedicated host, all instances that are provisioned on the host must also be created with Compute with instance storage virtual server profiles. This set up ensures you can always use the entire dedicated host resource.
+Dedicated hosts are available in various profile sizes to best suit the size and scale of your workloads: Balanced, Compute, Memory, Very High Memory, and Ultra High Memory. All virtual server instances that are provisioned on the dedicated host are provisioned from the same family and class of profiles. For example, if you choose a Memory profile for your dedicated host, all instances that are provisioned on the host must also be created with a Memory virtual server profile. If you choose a Compute with instance storage dedicated host, all instances that are provisioned on the host must also be created with Compute with instance storage virtual server profiles. This set up helps make sure that you can always use the entire dedicated host resource.
 
 For more information about dedicated host profiles for IBM Z (s390x processor architecture), see [s390x dedicated host profiles](/docs/vpc?topic=vpc-s390x-dh-profiles).
 
 
 
-For x86-64 dedicated host profiles, the Madrid region only supports dedicated host profiles with instance storage.
+For x86-64 dedicated host profiles, only the Madrid region supports dedicated host profiles with instance storage.
 {: important}
 
 The following profile families are available:
@@ -34,11 +34,11 @@ The following profile families are available:
 | [Balanced](#balanced-dh-pr) | Best for midsize databases and common cloud applications with moderate traffic. Balanced profiles are offered with and without instance storage. |
 | [Compute](#compute-dh-pr) | Best for workloads with intensive CPU demands, such as medium to high web traffic workloads, production batch processing, and front-end web servers. Compute profiles are offered with and without instance storage. |
 | [Memory](#memory-dh-pr) | Best for memory intensive processes, such as memory caching, intensive database applications, or in-memory analytics workloads. Memory profiles are offered with and without instance storage. |
-|[Very High Memory with instance storage](#vhm-is-dh-pr) | Best for OLAP workloads and SAP-related services, such as SAP NetWeaver. The Very High Memory profile offers 1 vCPU to 14 GiB of RAM memory ratio, is hosted exclusively on the Intel® Xeon® Platinum Cascade Lake server, and includes instance storage for temporary swap space or cache. |
-|[Ultra High Memory with instance storage](#uhm-is-dh-pr) | Best for in-memory OLTP databases, such as SAP. The Ultra High Memory profile offers the highest vCPU to memory ratios with 1 vCPU to 28 GiB of RAM, is hosted exclusively on the Intel® Xeon® Platinum Cascade Lake server, and includes instance storage for temporary swap space or cache|
+|[Very High Memory with instance storage](#vhm-is-dh-pr) | Best for OLAP workloads and SAP-related services, such as SAP NetWeaver. The Very High Memory profile offers 1 vCPU to 14 GiB of RAM memory ratio. This profile is hosted exclusively on the Intel® Xeon® Platinum Cascade Lake server, and includes instance storage for temporary swap space or cache. |
+|[Ultra High Memory with instance storage](#uhm-is-dh-pr) | Best for in-memory OLTP databases, such as SAP. The Ultra High Memory profile offers the highest vCPU to memory ratios with 1 vCPU to 28 GiB of RAM. This profile is hosted exclusively on the Intel® Xeon® Platinum Cascade Lake server and includes instance storage for temporary swap space or cache|
 {: caption="Table 1. Dedicated host family selections" caption-side="bottom"}
 
-Profiles with AMD manufactured processors are available in the Toronto region.
+Profiles with AMD-manufactured processors are available in the Toronto region.
 {: preview}
 
 ## Balanced
@@ -46,7 +46,7 @@ Profiles with AMD manufactured processors are available in the Toronto region.
 
 The Balanced profile provides a good mix of performance and scalability for more common workloads.
 
-The Balanced with instance storage profile provisions your host with the capability for hosting instances that include [instance storage](/docs/vpc?topic=vpc-instance-storage). If you provision a dedicated host with a Balanced with instance storage profile, any virtual server instances that are provisioned on the dedicated host must also be provisioned with a Balanced profile that includes instance storage. Profiles with instance storage include *d* in the profile name, for example *bx2d* or *bx3d*.
+The Balanced with instance storage profile provisions your host with the capability for hosting instances that include [instance storage](/docs/vpc?topic=vpc-instance-storage). If you provision a dedicated host with a Balanced instance storage profile, any virtual server instances that are provisioned on the dedicated host must also be provisioned with a Balanced profile that includes instance storage. Profiles with instance storage include *d* in the profile name, for example *bx2d* or *bx3d*.
 
 The Balanced profile family of dedicated hosts on Intel&reg; x86-64 systems are deployed on one of the following processors:
 - *bx2* and *bx2d* profiles can be deployed on an Intel&reg; Xeon&reg; Platinum 8260 Cascade Lake processor with 96 cores in a 4-socket configuration.
@@ -217,7 +217,7 @@ Dedicated hosts have a network performance cap of 80 Gbps. Instances provisioned
 ## Ultra High Memory with instance storage
 {: #uhm-is-dh-pr}
 
-The Ultra High Memory with instance storage profile is best for in-memory OLTP databases, such as SAP. They are optimized for running memory intensive applications and in-memory databases such as SAP HANA, Memcached, or Redis. This profile family offers our highest vCPU to memory ratio with 28 GiB of memory for every 1 vCPU of compute and up to 5.7 TiB of available RAM.
+The Ultra High Memory with instance storage profile is best for in-memory OLTP databases, such as SAP. They are optimized for running memory-intensive applications and in-memory databases such as SAP HANA, Memcached, or Redis. This profile family offers our highest vCPU to memory ratio with 28 GiB of memory for every 1 vCPU of compute and up to 5.7 TiB of available RAM.
 
 The Ultra High Memory profile is hosted exclusively on the latest generation Intel® Xeon® Platinum 8280L Cascade Lake server with 112 cores that are running a base speed of 2.7 GHz and an all-core turbo frequency of 4.0 GHz. The Ultra High Memory profile is provisioned with temporary SSD-backed [Instance Storage](/docs/vpc?topic=vpc-instance-storage) at no additional charge.
 
@@ -245,12 +245,12 @@ instances.
 ## Viewing profile configurations
 {: #dh-popular-profiles}
 
-You can view available profile configurations by using the {{site.data.keyword.cloud_notm}} console or the CLI. In the {{site.data.keyword.cloud_notm}} console, you can select from popular profile configurations that support most common use cases.
+You can view available profile configurations by using the {{site.data.keyword.cloud_notm}} console or the CLI. In the {{site.data.keyword.cloud_notm}} console, you can select from popular profile configurations that support the most common use cases.
 
 ### Understanding profiles
 {: #dh-profiles-naming-rule}
 
-The following example describes the individual parts that make up a dedicated host profile name, for this example, `bx2d-host-152x608`. The prefix, `bx2d` is composed of the family, architecture, generation, and specialty. Together this information comprises the profile *class*.
+The following example describes the individual parts that make up a dedicated host profile name, for this example, `bx2d-host-152x608`. The prefix `bx2d` is composed of the family, architecture, generation, and specialty. Together this information comprises the profile *class*.
 
 | Family | Architecture | Generation | Specialty | Offering | vCPU | RAM |
 | ------ | ------------ | ---------- | ----------| -------- | ---- | --- |
@@ -303,12 +303,12 @@ ibmcloud is dedicated-host-profiles
 ## Intel Hyper-Threading Technology
 {: #profiles-hyper-threading}
 
-All Intel&reg;-based servers operate with the Intel&reg; Hyper-Threading Technology enabled. Hyper-Threading Technology provies 2 vCPUs for every physical core in the box.  Hyper-Threading Technology can also be disabled if needed. For more information, see [Disabling Intel Hyper-Threading Technology](/docs/vpc?topic=vpc-disabling-hyper-threading).
+All Intel&reg;-based servers operate with the Intel&reg; Hyper-Threading Technology enabled. Hyper-Threading Technology provies 2 vCPUs for every physical core in the box. Hyper-Threading Technology can also be disabled if needed. For more information, see [Disabling Intel Hyper-Threading Technology](/docs/vpc?topic=vpc-disabling-hyper-threading).
 
 ## Querying dedicated host capacity
 {: #profiles-query-dedicated-host-capacity}
 
-For licensing purposes, you can retrieve the total physical capacity of the dedicated host that includes the compute that is held back for overhead. To see the total physical dedicated host compute, use the `GET` API command to query the dedicated host. The `GET` command returns both `available_memory` and `available_vcpu`. A vCPU is 1/2 of a physical core. For more information, see [Retrieve a dedicated host](/apidocs/vpc#get-dedicated-host).
+For licensing purposes, you can retrieve the total physical capacity of the dedicated host that includes the compute that is held back for intensive resource usage. To see the total physical dedicated host compute, use the `GET` API command to query the dedicated host. The `GET` command returns both `available_memory` and `available_vcpu`. A vCPU is 1/2 of a physical core. For more information, see [Retrieve a dedicated host](/apidocs/vpc#get-dedicated-host).
 
 ## Next steps
 {: #dh-nextsteps-profiles}
