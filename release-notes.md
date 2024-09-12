@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-09-11"
+lastupdated: "2024-09-12"
 
 keywords:
 
@@ -35,7 +35,7 @@ Hyper Protect Secure Build
 :   The `workload` section for Hyper Protect Secure Build is updated based on the IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-18`. For more information, see [Configuring and using Hyper Protect Secure Build in {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-about-hpsb#hpvs_hpsb).
 
 ### 10 September 2024
-{: #vpc-sep0624}
+{: #vpc-sep1024}
 {: release-note}
 
 Zone Maps and Universal Names for Zones
