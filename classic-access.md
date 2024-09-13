@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2018, 2024
-lastupdated: "2024-09-10"
+lastupdated: "2024-09-13"
 
 keywords: classic, access, classic access, VRF, peering
 
@@ -84,41 +84,7 @@ curl -X POST "$rias_endpoint/v1/vpcs?version=$api_version&generation=2" \
 Classic Virtual Servers aren't available in the Madrid MZR.
 {: important}
 
-When a classic access VPC is created, the default address prefixes are assigned based on the zone as follows:
-
-Zone         | Address Prefix
----------------|---------------
-`us-south-1`   | `172.16.0.0/18`
-`us-south-2`   | `172.16.64.0/18`
-`us-south-3`   | `172.16.128.0/18`
-`us-east-1`    | `172.17.0.0/18`
-`us-east-2`    | `172.17.64.0/18`
-`us-east-3`    | `172.17.128.0/18`
-`eu-gb-1`      | `172.18.0.0/18`
-`eu-gb-2`      | `172.18.64.0/18`
-`eu-gb-3`      | `172.18.128.0/18`
-`eu-de-1`      | `172.19.0.0/18`
-`eu-de-2`      | `172.19.64.0/18`
-`eu-de-3`      | `172.19.128.0/18`
-`eu-es-1`      | `172.27.0.0/18`
-`eu-es-2`      | `172.27.64.0/18`
-`eu-es-3`      | `172.27.128.0/18`
-`jp-tok-1`     | `172.20.0.0/18`
-`jp-tok-2` 	   | `172.20.64.0/18`
-`jp-tok-3` 	   | `172.20.128.0/18`
-`au-syd-1`     | `172.21.0.0/18`
-`au-syd-2`     | `172.21.64.0/18`
-`au-syd-3`     | `172.21.128.0/18`
-`jp-osa-1`     | `172.24.0.0/18`
-`jp-osa-2`     | `172.24.64.0/18`
-`jp-osa-3`     | `172.24.128.0/18`
-`ca-tor-1`     | `10.249.0.0/18`
-`ca-tor-2`     | `10.249.64.0/18`
-`ca-tor-3`     | `10.249.128.0/18`
-`br-sao-1`     | `172.26.0.0/18`
-`br-sao-2`     | `172.26.64.0/18`
-`br-sao-3`     | `172.26.128.0/18`
-{: caption="Table 1. Classic access VPC address prefixes by zone" caption-side="bottom"}
+When a classic access VPC is created, a default address prefix is also created in each zone of the region. Unlike a VPC without classic access, the default address prefixes for a classic access VPC are not in the `10.0.0.0/8` range, which is the range used for private IP addresses of local classic resources. This prevents classic access VPC private addresses from colliding with private addresses of classic resources.
 
 For x86-64 dedicated host profiles, the Madrid region only supports dedicated host profiles with instance storage. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui).
 {: important}
