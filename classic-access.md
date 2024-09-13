@@ -30,7 +30,7 @@ For virtual server instances and bare metal instances on the classic infrastruct
 ## Prerequisites
 {: #vpc-prerequisites}
 
-Your classic account must be enabled for Virtual Router Forwarding (VRF). If your account is not VRF-enabled, open a ticket to request "VRF Migration" for your account. See [Converting to VRF](#vrf-conversion) to learn more about the conversion process.
+Your classic account must be enabled for Virtual Router Forwarding (VRF). If your account is not VRF-enabled, see [Converting to VRF](/docs/account?topic=account-vrf-service-endpoint#vrf) to learn more about the conversion process.
 
 All subnets in a classic access VPC are shared into the classic infrastructure VRF, which uses IP addresses in the `10.0.0.0/8` space. To avoid IP address conflicts, don't use IP addresses in the `10.0.0.0/14`, `10.200.0.0/14`, `10.198.0.0/15`, and `10.254.0.0/16` blocks in your classic access VPC. Also, don't use addresses from your classic infrastructure subnets. To view the list of your classic infrastructure subnets, see [View all Subnets](/docs/subnets?topic=subnets-view-all-subnets).
 {: important}
@@ -96,25 +96,6 @@ curl -H "Authorization:$iam_token" "$iaas_endpoint/v1/vpcs?generation=2&version=
 ```
 {: pre}
 
-## Converting your account to VRF
-{: #vrf-conversion}
-
-The VRF conversion process involves a network disruption while the VLANs and their subnets are detached from the ACL backbone and then attached to the _Customer VRF_. This process results in a few moments of packet loss for traffic that is entering or exiting the VLANs. Packets within the VLAN continue to flow. In the cases where a network gateway, such as a FortiGate Security Appliance or Virtual Router Appliance is involved, no disruption occurs among the VLANs attached to that gateway. The servers see no network outage themselves, and most workloads automatically recover when the traffic flow resumes. The total duration of the disruption depends on the extent of the tenant’s topology, that is, the number of subnets, VLANs, and pods that your tenancy includes.
-
-During migration, the VLANs are disconnected from the backbone and reconnected to the _Customer VRF_. The duration of disruption varies, depending on the quantity of VLANs, PODs, and zones involved. Traffic among VLANs is disrupted, yet the servers stay connected to the network. The application might or might not be affected, depending on its sensitivity to packet loss.
-
-### How to initiate VRF conversion
-{: #how-you-can-initiate-the-conversion}
-
-To request conversion of your account to VRF, follow these steps:
-
-1. [Open a support case](/unifiedsupport/cases/add){: external} through the {{site.data.keyword.cloud_notm}} console.
-1. Select the **Virtual Private Cloud** tile.
-1. Enter "Convert account to VRF for VPC Classic Access" as the subject.
-1. For the description, enter the following text:
-   "We are requesting that account _your account number_ is moved to its own VRF. We understand the risks and approve the change. Please reply with the scheduled window(s) of time where this change will be made so we can prepare for the migration."
-
-Migration is completed by the {{site.data.keyword.cloud_notm}} Network Engineering team. No other information is required from you, except an agreed-to schedule. Typically, packet loss might last 15 - 30 minutes, depending on the complexity of your account. It might be longer if your account has legacy Direct Link connections.
 
 ## Limitations
 {: #vpc-limitations}
