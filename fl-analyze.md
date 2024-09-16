@@ -4,7 +4,7 @@ copyright:
   years: 2020, 2024
 lastupdated: "2024-09-16"
 
-keywords: flow logs, viewing objects, SQL, analyze
+keywords: flow logs, viewing objects, analyze
 
 subcollection: vpc
 ---
@@ -190,7 +190,7 @@ In most cases, you can find the direction field by comparing the vNIC’s privat
 ### Viewing generated flow log files from the {{site.data.keyword.cos_short}} bucket
 {: #alternative-method}
 
-If you use the Lite (free) pricing plan for {{site.data.keyword.cos_full_notm}}, you cannot use an SQL query to confirm the creation of flow log objects in the {{site.data.keyword.cos_short}} bucket without purchasing the Standard pricing plan. As an alternative, you can access generated flow log object files directly from the {{site.data.keyword.cos_short}} bucket to verify that the files were created successfully and that the objects are being generated.
+If you use the Lite (free) pricing plan for {{site.data.keyword.cos_full_notm}}, you can access generated flow log object files directly from the {{site.data.keyword.cos_short}} bucket to verify that the files were created successfully and that the objects are being generated.
 
 To view generated flow log files from the {{site.data.keyword.cos_short}} bucket, follow these steps:
 
@@ -200,5 +200,5 @@ To view generated flow log files from the {{site.data.keyword.cos_short}} bucket
 
    If configured correctly, you should see several gzip files for each log entry.
 
-Using SQL queries, you can flatten and view these objects or any other type of view of all these files. In our case, we want to ensure that data is being captured. Download one of the files to view its contents to ensure that traffic is being captured.
+To ensure that data is being captured, download one of the files to view its contents to ensure that traffic is being captured.
 {: note}

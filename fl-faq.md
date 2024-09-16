@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-07-15"
+  years: 2019, 2024
+lastupdated: "2024-09-16"
 
 keywords: flow logs, FAQs
 
@@ -73,7 +73,7 @@ At this time, flow log collection does not include support for bare metal server
 {: faq}
 {: support}
 
-Flow Logs for VPC does not have a native viewer or filter. However, SQL Query is a viable option.
+Flow Logs for VPC does not have a native viewer or filter.
 
 ## Can I modify the target scope for a flow log collector?
 {: #faq-modify-target-scope-flow-log-collector}
