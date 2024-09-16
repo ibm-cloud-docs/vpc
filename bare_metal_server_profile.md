@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-09-10"
+lastupdated: "2024-09-16"
 
 keywords:
 
@@ -174,12 +174,47 @@ Using “bx2d-metal-96x384” as an example, it's a _Balanced_ bare metal profil
 
 Bare metal profiles are dedicated servers that provide physical cores. vCPU measurements are used in profile naming only. vCPU to physical cores are a 2:1 ratio (e.g 96 vCPU = 48 physical cores).
 
+## Generation 3 (x3 and x3d) bare metal profiles availability by region
+{: #bare-metal-profile-availability-by-region-gen3}
+
+See the following table to see what Generation 3 (x3 and x3d) bare metal profiles are available by region.
+
+| Profile |  us-south-1 | us-south-2 | us-south-3 |
+| ------- | ----------- | ---------- | ---------- |
+| mx3-metal-16x128   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| cx3-metal-48x128   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| cx3-metal-64x128   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| mx3d-metal-16x128   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| cx3d-metal-48x128   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| cx3d-metal-64x128   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| vx3-metal-16x256   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| bx3-metal-48x256   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| bx3-metal-64x256   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| vx3d-metal-16x256   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| bx3d-metal-48x256   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| bx3d-metal-64x256   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| ux3-metal-16x512   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| mx3-metal-48x512   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| mx3-metal-64x512   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| ux3d-metal-16x512   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| mx3d-metal-48x512   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| mx3d-metal-64x512   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| mx3d-metal-96x1024  | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| mx3d-metal-128x1024   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| bx3d-metal-192x1024   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+{: caption="Table 3. Bare metal profiles availability by region" caption-side='top"}
+{: #bare-metal-profiles-americas}
+{: tab-title="Americas"}
+{: tab-group="profile-regions"}
+{: class="simple-tab-table"}
+{: summary="Use the buttons before the table to change the context of the table. The column headers identify the hardware class."}
+
 ## Generation 2 (x2 and x2d) bare metal profiles availability by region
 {: #bare-metal-profile-availability-by-region}
 
 See the following table to see what Generation 2 (x2 and x2d) bare metal profiles are available by region.
 
-| Profile |  us-south-dal10-a | us-south-dal12-a | us-south-dal13-a | us-east-wdc04-a | us-east-wdc06-a | ca-tor-tor04-a | ca-tor-tor05-a |
+| Profile |  us-south-1 | us-south-2 | us-south-3 | us-east-1 | us-east-2 | ca-tor-2 | ca-tor-3 |
 | ------- | ----------- | ---------- | ---------- | --------- | -------- | -------- | -------- |
 | cx2-metal-96x192   | ![Checkmark icon](../icons/checkmark-icon.svg) | |
 | cx2d-metal-96x192  | ![Checkmark icon](../icons/checkmark-icon.svg) | | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |  |
@@ -195,7 +230,7 @@ See the following table to see what Generation 2 (x2 and x2d) bare metal profile
 {: class="simple-tab-table"}
 {: summary="Use the buttons before the table to change the context of the table. The column headers identify the hardware class."}
 
-| Profile | eu-de-fra02-a | eu-de-fra04-a | eu-es-mad02-a | eu-es-mad05-a | eu-gb-lon04-a |
+| Profile | eu-de-1 | eu-de-2 | eu-es-1 | eu-es-3 | eu-gb-1 |
 | ------- | ----------- | ---------- | ---------- | ---------- | ---------- |
 | cx2-metal-96x192    | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |  ![Checkmark icon](../icons/checkmark-icon.svg) |
 | cx2d-metal-96x192   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | | ![Checkmark icon](../icons/checkmark-icon.svg) |
@@ -211,14 +246,14 @@ See the following table to see what Generation 2 (x2 and x2d) bare metal profile
 {: class="simple-tab-table"}
 {: summary="Use the buttons before the table to change the context of the table. The column headers identify the hardware class."}
 
-| Profile | jp-tok-tok02-a |
-| ------- | ----------- |
-| cx2-metal-96x192    |  |
-| cx2d-metal-96x192   | ![Checkmark icon](../icons/checkmark-icon.svg) |
-| bx2-metal-96x384    | |
-| bx2d-metal-96x384   | ![Checkmark icon](../icons/checkmark-icon.svg) |
-| mx2-metal-96x768    |  |
-| mx2d-metal-96x768   | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| Profile | jp-tok-2 | jp-tok-3 |
+| ------- | ----------- | ----------- |
+| cx2-metal-96x192    |  |  |
+| cx2d-metal-96x192   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| bx2-metal-96x384    | |  |
+| bx2d-metal-96x384   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| mx2-metal-96x768    |  |  |
+| mx2d-metal-96x768   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 {: caption="Table 3. Bare metal profiles availability by region" caption-side='top"}
 {: #bare-metal-profiles-asiapacific}
 {: tab-title="Asia Pacific"}
