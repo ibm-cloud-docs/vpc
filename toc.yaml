@@ -9,7 +9,7 @@ toc:
     category: network_vpc
     audience: service
     href: /docs/vpc
-    console-page: /vpc-ext/overview
+    console-page: /infrastructure/overview
     product-page: https://www.ibm.com/cloud/vpc
     path: vpc
     label: Virtual Private Cloud (VPC)
@@ -21,10 +21,10 @@ toc:
        - getting-started.md
        - link:
           label: What is Virtual Private Cloud?
-          href: https://www.ibm.com/topics/vpc
+          href: https://www.ibm.com/cloud/vpc
        - link:
           label: Architecture Center VPC Resources
-          href: https://www.ibm.com/topics/vpc
+          href: https://www.ibm.com/cloud/vpc
        - about-vpc.md
        - quotas.md
        - topicgroup:
