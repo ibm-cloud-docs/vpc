@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-07-08"
+lastupdated: "2024-09-16"
 
 keywords: flow logs, getting started
 
@@ -84,12 +84,7 @@ Creating or deleting a flow log doesn't impact network performance. Flow log dat
 
 With IBM Cloud Flow Logs for VPC, you can validate that network connections and data are arriving to destination targets successfully, and troubleshoot if it is not. This is useful when diagnosing security group rules, denied flows, and so on.
 
-### Use case 1: Analyzing flow logs
-{: #analyzing-flow-logs-using-example}
-
-You can review and download a [flow log example solution](https://github.com/IBM-Cloud/vpc-flowlogs){: external} of how to use a trigger function to read a flow log {{site.data.keyword.cos_short}} object and write it to IBM Log Analysis.
-
-### Use case 2: Setting up finest granularity wins
+### Use case 1: Setting up finest granularity wins
 {: #finest-granularity-wins-example}
 
 The following diagram shows possible ways that you can configure flow log collectors. This example highlights different flow log targets defined within the same VPC, depicting which collectors get the data from their associated instances. For example:
@@ -100,7 +95,7 @@ The following diagram shows possible ways that you can configure flow log collec
 
    ![Finest granularity wins example](images/fl-granularity.png "Finest granularity wins example"){: caption="Figure 1. Finest granularity wins example" caption-side="bottom}
 
-### Use case 3: Troubleshooting security groups and network ACLs
+### Use case 2: Troubleshooting security groups and network ACLs
 {: #troubleshooting-perf-problems-example}
 
 Similar to use case 2, this use case illustrates how to set the granularity of flow log collectors for different target scopes. It also goes one step further to depict how flow logs can help you troubleshoot by using security groups and network ACLs (NACLs).
@@ -115,7 +110,7 @@ Scenario:
 
 ![Troubleshooting security groups and network ACLs](images/fl-sc-acls.png "Troubleshooting security groups and network ACLs"){: caption="Figure 2. Troubleshooting security groups and network ACLs" caption-side="bottom}
 
-### Use case 4: Detecting port vulnerabilities
+### Use case 3: Detecting port vulnerabilities
 {: #detect-port-vulnerabilities-example}
 
 Consider a scenario where an attacker initiates connections to different TCP ports. In turn, these connections are blocked by the security group filter. Flow logs collect all the flows that were rejected by the security group and reports them to {{site.data.keyword.cos_full}}.
