@@ -203,7 +203,7 @@ See the following table to see what Generation 3 (x3 and x3d) bare metal profile
 | mx3d-metal-128x1024   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | bx3d-metal-192x1024   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 {: caption="Table 3. Bare metal profiles availability by region" caption-side='top"}
-{: #bare-metal-profiles-americas}
+{: #bare-metal-profiles-americas-gen3}
 {: tab-title="Americas"}
 {: tab-group="profile-regions"}
 {: class="simple-tab-table"}
