@@ -98,7 +98,7 @@ The following diagram shows possible ways that you can configure flow log collec
 ### Use case 2: Troubleshooting security groups and network ACLs
 {: #troubleshooting-perf-problems-example}
 
-Similar to use case 2, this use case illustrates how to set the granularity of flow log collectors for different target scopes. It also goes one step further to depict how flow logs can help you troubleshoot by using security groups and network ACLs (NACLs).
+Similar to use case 1, this use case illustrates how to set the granularity of flow log collectors for different target scopes. It also goes one step further to depict how flow logs can help you troubleshoot by using security groups and network ACLs (NACLs).
 
 Scenario:
 
