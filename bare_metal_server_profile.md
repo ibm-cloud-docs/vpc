@@ -205,7 +205,7 @@ See the following table to see what Generation 3 (x3 and x3d) bare metal profile
 {: caption="Table 3. Bare metal profiles availability by region" caption-side='top"}
 {: #bare-metal-profiles-americas-gen3}
 {: tab-title="Americas"}
-{: tab-group="profile-regions"}
+{: tab-group="profile-regions-gen3"}
 {: class="simple-tab-table"}
 {: summary="Use the buttons before the table to change the context of the table. The column headers identify the hardware class."}
 
@@ -223,7 +223,7 @@ See the following table to see what Generation 2 (x2 and x2d) bare metal profile
 | mx2-metal-96x768   | ![Checkmark icon](../icons/checkmark-icon.svg) |  | ![Checkmark icon](../icons/checkmark-icon.svg) |  ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | mx2d-metal-96x768  | ![Checkmark icon](../icons/checkmark-icon.svg) |  | ![Checkmark icon](../icons/checkmark-icon.svg) |  ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |  |
 | vx2d-metal-96x1536 | | ![Checkmark icon](../icons/checkmark-icon.svg) | |
-{: caption="Table 3. Bare metal profiles availability by region" caption-side='top"}
+{: caption="Table 4. Bare metal profiles availability by region" caption-side='top"}
 {: #bare-metal-profiles-americas}
 {: tab-title="Americas"}
 {: tab-group="profile-regions"}
@@ -239,7 +239,7 @@ See the following table to see what Generation 2 (x2 and x2d) bare metal profile
 | mx2-metal-96x768    | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | mx2d-metal-96x768   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | | | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | vx2d-metal-96x1536 |  ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
-{: caption="Table 3. Bare metal profiles availability by region" caption-side='top"}
+{: caption="Table 4. Bare metal profiles availability by region" caption-side='top"}
 {: #bare-metal-profiles-europe}
 {: tab-title="Europe"}
 {: tab-group="profile-regions"}
@@ -254,7 +254,7 @@ See the following table to see what Generation 2 (x2 and x2d) bare metal profile
 | bx2d-metal-96x384   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | mx2-metal-96x768    |  |  |
 | mx2d-metal-96x768   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
-{: caption="Table 3. Bare metal profiles availability by region" caption-side='top"}
+{: caption="Table 4. Bare metal profiles availability by region" caption-side='top"}
 {: #bare-metal-profiles-asiapacific}
 {: tab-title="Asia Pacific"}
 {: tab-group="profile-regions"}
