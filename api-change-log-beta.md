@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-08-27"
+lastupdated: "2024-09-17"
 
 keywords: api, change log, beta
 
