@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-08-22"
+lastupdated: "2024-09-17"
 
 keywords:
 
@@ -59,7 +59,7 @@ Use the following steps to create a virtual server instance.
    | Confidential computing - SGX [Select availability]{: tag-green} | Confidential computing with Intel® Software Guard Extensions (SGX) protects your data through hardware-based server security by using isolated memory regions that are known as encrypted enclaves. SGX is available with only compatible profiles. For more information about confidential computing, see [Confidential computing with Intel Software Guard Extensions (SGX) for Virtual Servers for VPC](/docs/vpc?topic=vpc-about-sgx-vpc). |
    {: caption="Table 3. Profile selections" caption-side="bottom"}
 
-   Secure boot and confidential computing are available with balanced and compute profiles. For more information, see [https://test.cloud.ibm.com/docs/vpc?topic=vpc-about-sgx-vpc#compatible-profiles-confidential-computing-vpc-sgx](/docs/vpc?topic=vpc-about-sgx-vpc#compatible-profiles-confidential-computing-vpc-sgx).
+   Secure boot and confidential computing are available with balanced and compute profiles. For more information, see [SGX-compatible profiles](/docs/vpc?topic=vpc-about-sgx-vpc#compatible-profiles-confidential-computing-vpc-sgx).
    {: important}
 
 4. Complete SSH keys, storage, and networking details by specifying the information in Table 4.
