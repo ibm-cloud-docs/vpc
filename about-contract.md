@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-08-05"
+lastupdated: "2024-09-17"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -541,6 +541,7 @@ The subsections for the `env` section are:
 * [`signingKey`](#hpcr_contract_env_signkey). This subsection must be used only when you want to use a contract signature.
 * [`env`](#hpcr_contract_env_env). This subsection is used to specify values for `env` variables if they are defined by the workload provider.
 
+
 ### The `logging` subsection
 {: #hpcr_contract_env_log}
 
@@ -555,9 +556,7 @@ logging:
     port: <port default-6514>
     tags: ["custom tag name 1", "custom tag name 2"]
 ```
-{: codeblock}
-
-
+{: codeblock} 
 ### The `env` - `volumes` subsection
 {: #hpcr_contract_env_vol}
 
