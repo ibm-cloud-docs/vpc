@@ -82,7 +82,7 @@ As recommended in [contract encryption](/docs/vpc?topic=vpc-about-contract_se#hp
 
    Compress and encrypt the folder, as the `compose` subsection requires this for the `archive` value. Use the following command to obtain the `base64` encoded archive as a file named `compose.b64`. Use the raw content of `compose.b64` for the value of `archive` under the `compose` subsection.
    ```sh
-   tar czvf compose.tgz docker-compose.yml logging.pub
+   tar czvf compose.tgz docker-compose.yml logging.pub 
    base64 -w0 compose.tgz > compose.b64
    ```
    {: codeblock}
