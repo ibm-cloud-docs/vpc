@@ -200,7 +200,7 @@ curl -s -X GET "$vpc_api_endpoint/v1/volumes/r134-844af68c-a928-4960-a725-f8702c
   "unattached_capacity_update_supported": true,
   "unattached_iops_update_supported": true
 }
-  ```
+```
 {: pre}
 
 The following example uses API version `2024-09-17` or later to retrieve a volume. The response includes the volume definition with new properties `adjustable_capacity_states` and `adjustable_iops_states`. 
@@ -253,5 +253,5 @@ curl -s -X GET "$vpc_api_endpoint/v1/volumes/r134-844af68c-a928-4960-a725-f8702c
     "unattached"
   ]
 }
-  ```
+```
 {: pre}
