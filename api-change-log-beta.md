@@ -526,4 +526,4 @@ This feature is now generally available. See the [VPC API change log](/docs/vpc?
 - [Create a console access token for an instance](/apidocs/vpc-beta/initial#create-instance-console-access-token)
 - [Retrieve the console WebSocket for an instance](/apidocs/vpc-beta/initial#get-instance-console)
 
-This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#30-march-2021).
+This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#30-march-2021).  
