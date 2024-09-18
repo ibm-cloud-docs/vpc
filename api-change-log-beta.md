@@ -49,7 +49,7 @@ This release introduces the following updates for accounts that have been grante
 
 **Private path service gateway property name change.** When using a version query parameter of `2024-09-17` or later to [create](/apidocs/vpc-beta/latest#create-private-path-service-gateway) or [update](/apidocs/vpc-beta/latest#update-private-path-service-gateway) a private path service gateway, the `endpoint_gateways_count` property is renamed to `endpoint_gateway_count`. The `endpoint_gateways_count` property name will continue to be returned when using a version query parameter of `2024-09-16` and earlier.
 
-Learn about [creating private path service gateways](/docs/vpc?topic=vpc-private-path-service-about&interface=api).
+See [Updating to the `2024-09-17` version (Private Path service gateway)](/docs/vpc?topic=vpc-2024-09-17-migration-private-path-service-gateway) for guidance on migrating. See also [creating private path service gateways](/docs/vpc?topic=vpc-private-path-service-about&interface=api).
 
 **Revised block storage capabilities.** When making API requests using a `version`  query parameter of `2024-09-17` or later, the volume profile `unattached_capacity_update_supported` property has been changed to `adjustable_capacity_states`, and the volume profile `unattached_iops_update_supported` property has been changed to `adjustable_iops_states`. This change applies when [listing](/apidocs/vpc-beta/latest#list-volume-profiles) or [retrieving](/apidocs/vpc-beta/latest#get-volume-profile) a volume profile.
 
