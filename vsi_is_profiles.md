@@ -482,8 +482,6 @@ curl -X GET \
 ## Next generation instance profiles
 {: #next-gen-profiles}
 
-[Select availability]{: tag-green}
-
 The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are available to provision in all regions. This new generation features virtual server profile families that are hosted exclusively on Intel 4th Generation Xeon Scalable processors to provide the most powerful and performant general-purpose profiles available. These 3rd generation profiles provide the following enhancements:
 
 - Improved performance with DDR 5 memory DIMMs, PCI Gen 5 interconnects, and more memory per vCPU than prior generation profiles.

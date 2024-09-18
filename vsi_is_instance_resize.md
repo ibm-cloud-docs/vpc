@@ -71,9 +71,6 @@ When you resize an instance that was provisioned from an instance template or th
 ## Resizing instances between Gen 2 and Gen 3 profiles
 {: #resizing-instance-generations}
 
-3rd generation profiles are available in the Dallas, London, Frankfurt, Washington DC, Toronto, Madrid, Sydney, Tokyo, and Osaka regions to provision virtual server instances on 4th Generation Intel® Xeon® Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). For more information about the capabilities of the new profiles, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles).
-{: preview}
-
 You can resize a 2nd generation profile to a 3rd generation profile. A 3rd generation profile can be resized to a 2nd generation profile. Before you resize between profile generations, review the following information.
 
 * Before you resize an instance with a 2nd generation profile to a 3rd generation profile, take a [snapshot](/docs/vpc?topic=vpc-snapshots-vpc-create) of the boot volume that is attached to your virtual server instance. You can refer to the snapshot if needed.
