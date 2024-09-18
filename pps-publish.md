@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-09-11"
+lastupdated: "2024-09-18"
 
 keywords:
 
@@ -18,15 +18,16 @@ subcollection: vpc
 The beta release of IBM Cloud Private Path services is only available to allowlisted users. Contact your IBM Support representative if you are interested in getting early access to this beta offering.
 {: beta}
 
-After you [verify successful connectivity to your Private Path service](/docs/vpc?topic=vpc-pps-verify), it's time to publish your service for deployment to consumers.
+After you verify a successful [connection to your Private Path service](/docs/vpc?topic=vpc-pps-verify), you must publish your service for deployment to consumers.
 {: shortdesc}
 
 If a Private Path service is not published, it cannot be accessed outside of the account.
 {: important}
 
-Publishing allows any account to request access to to the Private Path service. Once unpublished, access will again be restricted to the account that created the Private Path service.
+Publishing allows any account to request access to to the Private Path service. If need be, you can also unpublish where access is restricted to the account that created the Private Path service.
 
-For an unpublish request to succeed, any existing access from other accounts must first be revoked. To learn more, see [Revoking an account's access to a Private Path service](/docs/vpc?topic=vpc-pps-ui-revoke-account&interface=ui).
+For an unpublish request to succeed, you must first revoke any existing access from other accounts. For more information, see [Revoking an account's access to a Private Path service](/docs/vpc?topic=vpc-pps-ui-revoke-account&interface=ui).
+{: note}
 
 You can publish and unpublish an {{site.data.keyword.cloud}} Private Path service using the UI, CLI, or API.
 
@@ -34,20 +35,19 @@ You can publish and unpublish an {{site.data.keyword.cloud}} Private Path servic
 {: #pps-ui-activating-private-path-service}
 {: ui}
 
-To publish a Private Path service with the {{site.data.keyword.cloud_notm}} console, follow these steps:
+To publish a Private Path service in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 1. Select the Menu icon ![Menu icon](images/menu_icon.png), then click **VPC Infrastructure**.
 1. Click **Private Path services** in the Network section.
-1. Locate the name of your new Private Path service in the table, and click on the name to view the Private Path service details page. 
+1. Locate the name of your new Private Path service in the table, and click the name to view the Private Path service details page. 
 1. Click **Publish** in the Actions menu ![Actions menu](images/overflow.png).
 
    The Publication column in the Private Path services for VPC table changes to `Published`.
 
 The Private Path service is now exposed for other accounts to connect to the service through Virtual Private Endpoint (VPE) gateways.
 
-After publishing, the Private Path service name will be visible to customers connecting to the Private Path service.
-{: note}
+After publishing, the Private Path service name is visible to customers connecting to the Private Path service. 
 
 ### Unpublishing a Private Path service in the UI
 {: #pps-ui-deactivating-private-path-service}
@@ -56,11 +56,10 @@ After publishing, the Private Path service name will be visible to customers con
 To unpublish a Private Path service in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the Menu icon ![Menu icon](images/menu_icon.png), then click  **VPC Infrastructure** ![VPC icon](../../icons/vpc.svg)  > **Private Path services**.
-1. In the Private Path services for VPC table, locate the Private Path service that you want to unpublish, then click the name of that Private Path service.
+1. Select the Menu icon ![Menu icon](images/menu_icon.png), then click  **VPC Infrastructure** ![VPC icon](../../icons/vpc.svg)  > Private Path services**.
+1. In the Private Path services for VPC table, locate the Private Path that you want to unpublish, then click the name of that Private Path service.
 1. On the **Private Path service details** page, click the **Actions** menu, then click **Unpublish**.
-1. Confirm that you want to Unpublish your Private Path service.
-
+1. Confirm that you want to unpublish your Private Path.
 
 ## Publishing a Private Path service from the CLI
 {: #pps-cli-publish-private-path-service}
@@ -110,8 +109,9 @@ Where:
 `--load-balancer`
 :   Indicates ID or name of load balancer for this Private Path service.
 
-`--published**`
+`--published`
 :   Indicates the availability of this Private Path service. If passed, value is set to true (any account can request access to this Private Path service).
+
 `--zonal-affinity`
 :   Indicates whether this Private Path service has zonal affinity. One of: `false`, `true`.
 

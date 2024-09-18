@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-06-20"
+lastupdated: "2024-09-18"
 
 keywords:
 
@@ -34,4 +34,4 @@ A possible cause is that the provider needs to update their target service witho
 Follow these steps to troubleshoot this Private Path issue:
 {: tsResolve}
 
-If you’re updating the actual target service without changing the load balancer, you don’t need to take any actions in Private Path service. Instead, you need to update the Private Path network load balancer. For more information, see [Updating and deleting a Private Path service](/docs/vpc?topic=vpc-pps-ui-updating-deleting&interface=ui#pps-ui-update-target-private-path-service).
+If you’re updating the actual target service without changing the load balancer, you don’t need to take any actions in Private Path service. Instead, update the Private Path network load balancer. For more information, see [Updating and deleting a Private Path service](/docs/vpc?topic=vpc-pps-ui-updating-deleting&interface=ui#pps-ui-update-target-private-path-service).

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-03-12"
+lastupdated: "2024-09-18"
 
 keywords:
 
@@ -34,5 +34,6 @@ The Private Path service is still permitting accounts associated with active VPE
 Follow these steps to troubleshoot this issue:
 {: tsResolve}
 
-1. Revoke accounts associated with any active VPE gateways. The customer gets notified that their account is denied and the VPE gateway changes to `failed` state. For more information, see [Revoking an account's access to a Private Path service](/docs/vpc?topic=vpc-pps-ui-revoke-account&interface=ui).
-1. Delete the Private Path service gateway. For more information, see [Updating and deleting a Private Path service](/docs/vpc?topic=vpc-pps-ui-updating-deleting&interface=ui).
+1. Revoke accounts associated with any active VPE gateways. The customer receives a notification that their account is denied and the VPE gateway changes to a `failed` state. For more information, see [Revoking an account's access to a Private Path service](/docs/vpc?topic=vpc-pps-ui-revoke-account&interface=ui).
+
+1. Delete the Private Path service. For more information, see [Updating and deleting a Private Path service](/docs/vpc?topic=vpc-pps-ui-updating-deleting&interface=ui).

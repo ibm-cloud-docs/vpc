@@ -18,19 +18,19 @@ subcollection: vpc
 The beta release of IBM Cloud Private Path services is only available to allowlisted users. Contact your IBM Support representative if you are interested in getting early access to this beta offering.
 {: beta}
 
-As a service provider, you are responsible for managing your consumer account IDs. Currently, tracking or validating account IDs is not supported. For more information, see [Responsibilities for managing consumer account IDs](/docs/vpc?topic=vpc-pps-consumer-account-id-responsibilities&interface=ui).
+As a service provider, you are responsible for managing your consumer account IDs. Currently, the tracking or validating of account IDs is not supported. For more information, see [Responsibilities for managing consumer account IDs](/docs/vpc?topic=vpc-pps-consumer-account-id-responsibilities&interface=ui).
 {: attention}
 
-If your default policy is set to **Review**, or if you have account policies set to **Review**, you are notified of incoming connection requests. You can choose to **Permit**, **Deny**, or **Revoke** these connection requests. On the Private Path service's Details page, you can also view connection requests that were permitted, denied, or expired.
+If your default policy is set to **Review**, or if you have account policies set to **Review**, you are notified of incoming connection requests. You can choose to **Permit**, **Deny**, or **Revoke** these requests. On the Private Path service's Details page, you can also view connection requests that were permitted, denied, or expired.
 {: shortdesc}
 
 You can choose from three options when working with connection requests:
 
-* **Permit** - Permits the account's request to connect to the service. Examine the originating account ID to ensure the connection request is legitimate and does not result in unauthorized access. It is recommended that you only accept requests from known sources. If you do not recognize this request, you can deny it or let it expire automatically.
+* **Permit** - Permits the account's request to connect to the service. Examine the originating account ID to ensure the connection request is legitimate. You should only accept requests from known sources. If you do not recognize this request, you can deny it or let it expire automatically.
 
-* **Deny** - Denies the account's request to connect to the service. Keep in mind that if you deny a request and later want to permit it, the consumer must create a new connection request by creating a Virtual Private Endpoint (VPE) gateway.
+* **Deny** - Denies the account's request to connect to the service. If you deny a request and later want to permit it, the consumer must create a new connection request by creating a Virtual Private Endpoint (VPE) gateway.
 
-* **Revoke** - Removes all existing connections from this account ID. If an account policy exists for this account ID, it is updated to **Deny**; if one does not exist, a **Deny** policy is created for this account ID.
+* **Revoke** - Removes all existing connections from this account ID. If an account policy exists for this account ID, its status is updated to **Deny**; if one does not exist, a **Deny** policy is created for this account ID.
 
 If you don't want to review every connection request, you can streamline the process by changing the default policy or creating account-specific policies. For more information, see [About account policies](/docs/vpc?topic=vpc-pps-about-account-policies){: external}.
 {: fast-path}
@@ -47,7 +47,7 @@ To triage incoming connection requests in the {{site.data.keyword.cloud_notm}} c
 1. Select the Menu icon ![Menu icon](images/menu_icon.png), then click **VPC Infrastructure**.
 1. Click **Private Path services** in the Network section.
 1. In the Private Path services for VPC table, click the name of a Private Path service to show its details page.
-1. Scroll to the Connections section to review connection requests. Click the Actions menu ![Actions menu](images/overflow.png) and select an option to permit, deny, or revoke the connectin request. After you select an option, you are prompted to confirm your choice, and optionally create an account policy for the account ID.
+1. Scroll to the **Connections** section to review connection requests. Click the Actions menu ![Actions menu](images/overflow.png) and select an option to permit, deny, or revoke the connection request. After you select an option, you are prompted to confirm your choice, and optionally create an account policy for the account ID.
 
 The consumer associated with the account ID is notified of your action. If permitted, the consumer can now access your service.
 
@@ -122,11 +122,20 @@ ibmcloud is private-path-service-gateway-endpoint-gateway-binding-deny PRIVATE_P
 
 Where:
 
-- **PRIVATE_PATH_SERVICE_GATEWAY** - ID or name of the Private Path service.
-- **ENDPOINT_GATEWAY_BINDING** - ID of the VPE gateway binding for the Private Path service.
-- **--set-account-policy** - Indicates whether this becomes the access policy for any pending and future VPE gateway bindings from the same account. One of: **true**, **false**.
-- **--output** - Specify output format, only JSON is supported. One of: **JSON**.
-- **-q, --quiet** - Suppress verbose output.
+`PRIVATE_PATH_SERVICE_GATEWAY`
+:   ID or name of the Private Path service.
+
+`ENDPOINT_GATEWAY_BINDING`
+:   ID of the VPE gateway binding for the Private Path service.
+
+`--set-account-policy`
+:   Indicates whether this becomes the access policy for any pending and future VPE gateway bindings from the same account. One of: `true`, `false`.
+
+`--output`
+:   Specify output format, only `JSON` is supported. 
+
+`-q, --quiet`
+:   Suppress verbose output.
 
 ### Command examples
 {: #cli-cmd-examples-consumer-requests-private-path-service}
@@ -167,7 +176,8 @@ To triage incoming connection requests with the API, follow these steps:
       ```
       {: pre}
 
-The following example shows how to use the API to permit, deny, or revoke an account-specific connection request.
+The following example shows how to use the API to permit, deny, or revoke an account-specific connection request:
+
 1. To permit a connection request:
 
       ```sh
@@ -180,8 +190,9 @@ The following example shows how to use the API to permit, deny, or revoke an acc
       {: codeblock}
 
 If `set_account_policy` is set to `true`:
-* If the account has an existing access policy, that policy will be updated to permit. Otherwise, a new permit access policy will be created for the account.
-* All pending VPE gateway bindings for the account will be permitted.
+
+   * If the account has an existing access policy, that policy is updated to permit access. Otherwise, a new permit access policy is created for the account.
+   * All pending VPE gateway bindings for the account are permitted.
 
 2. To deny a connection request:
 
@@ -195,8 +206,9 @@ If `set_account_policy` is set to `true`:
       {: codeblock}
 
 If `set_account_policy` is set to `true`:
-* If the account has an existing access policy, that policy will be updated to deny. Otherwise, a new permit access policy will be created for the account.
-* All pending VPE gateway bindings for the account will be denied.
+
+   * If the account has an existing access policy, that policy is updated to deny the request. Otherwise, a new permit access policy is created for the account.
+   * All pending VPE gateway bindings for the account are denied.
 
 3. To revoke an account:
    * `accountId` - Get consumer account ID and then populate the variable:

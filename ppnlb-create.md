@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-09-11"
+lastupdated: "2024-09-18"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
 
@@ -18,22 +18,21 @@ subcollection: vpc
 The beta release of IBM Cloud Private Path services is only available to allowlisted users. Contact your IBM Support representative if you are interested in getting early access to this beta offering.
 {: beta}
 
-You can use a Private Path network load balancer (NLB) only with a Private Path service. Create the Private Path NLB from the [Load Balancers for VPC page](/vpc-ext/provision/loadBalancer){: external} or as a part of the Private Path service provisioning process.
+You can use a Private Path network load balancer (NLB) only with a Private Path service. Create the Private Path NLB from the [Load Balancers for VPC page](/vpc-ext/provision/loadBalancer){: external} or as part of the Private Path service provisioning process.
 
-A Private Path service allows service providers to enable and manage private connectivity for consumers of their hosted service. This Private Path service requires a Private Path NLB to establish a secure connection with each consumer's Virtual Private Endpoint (VPE) gateway. For more information, see [About Private Path services](/docs/vpc?topic=vpc-private-path-service-intro){: external}.
+Private Path allows service providers to enable and manage private connectivity for the consumers of their hosted service. The Private Path service requires a Private Path NLB to establish a secure connection with each consumer's Virtual Private Endpoint (VPE) gateway. For more information, see [About Private Path services](/docs/vpc?topic=vpc-private-path-service-intro){: external}.
 
-Private Path network load balancers support the port range feature. Currently, all VPEs connected to a Private Path network load balancer can connect to any port in the range.
-
-To learn more, see [Setting public network load balancer port ranges](/docs/vpc?topic=vpc-nlb-port-ranges&interface=ui).
+Private Path NLBs support the port range feature. Currently, all VPEs connected to a Private Path NLB can connect to any port in the range. For more information, see [Setting public network load balancer port ranges](/docs/vpc?topic=vpc-nlb-port-ranges&interface=ui).
+{: note}
 
 ## Before you begin
 {: #ppnlb-prerequisites}
 
-Review the following list to ensure that your Private Path network load balancer (NLB) is properly configured:
+Review the following requirements to ensure that your Private Path NLB is properly configured:
 
-- If you don't have a VPC, create a VPC in the region that you want to create your Private Path NLB. Use the same VPC region for the Private Path NLB and Private Path service.
-- Recommendation: Create your virtual server instances prior to creating a Private Path NLB to ensure it is fully operational.
-- Ensure there is at least one subnet in your selected VPC.
+- If you don't have a VPC, create one in the same region that you want to create your Private Path NLB. Use the same VPC region for the Private Path NLB and Private Path service.
+- Create your virtual server instances prior to creating a Private Path NLB. This ensures that it is fully operational.
+- Make sure you have at least one subnet in your selected VPC.
 
 ## Creating a Private Path network load balancer in the UI
 {: #ppnlb-ui}
@@ -55,7 +54,7 @@ To create and configure {{site.data.keyword.nlb_full}} in the {{site.data.keywor
    * **Access management tags**: (Optional) Add access management tags to resources to help organize access control relationships. The only supported format for access management tags is `key:value`. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
    * **Virtual private cloud**: Select the VPC where you want to deploy the load balancer.
    * **Subnet**: Select a subnet.
-   * **Type**: Select **Private path**.
+   * **Type**: Select **Private Path**.
 1. In the Back-end pools section, click **Create pool +**, specify the following information, then click **Create**. You can create one or more pools.
    * Type a unique name for the pool, such as `private-path-pool`.
    * Select a protocol for your instances in this pool. The protocol of the pool must match the protocol of its associated listener. For example, if the listener is TCP, the protocol of the pool must be TCP.
@@ -118,7 +117,7 @@ To create a Private Path NLB from the CLI, follow these steps:
 
 1. Set up your [CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli){: external}.
 
-1. Log in to your account with the CLI. After you enter the password, the system prompts which account and region that you want to use:
+1. Log in to your account with the CLI. After you enter the password, the system prompts you to choose which account and region that you want to use:
 
     ```sh
     ibmcloud login --sso
@@ -275,12 +274,12 @@ To create a Private Path NLB from the CLI, follow these steps:
 {: #ppnlb-api-creating-network-load-balancer}
 {: api}
 
-The following example illustrates creating a Private Path network load balancer with the API. The NLB detailed here is in front of two VPC virtual server instances (`192.168.100.5` and `192.168.100.6`) running a web application that listens on port `80`. It has a front-end listener, which allows secure access to the web application by using HTTPS.
+The following example illustrates creating a Private Path NLB with the API. The NLB detailed here is in front of two VPC virtual server instances (`192.168.100.5` and `192.168.100.6`) running a web application that listens on port `80`. It has a front-end listener, which allows secure access to the web application by using HTTPS.
 
 This example skips the [prerequisite steps](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli){: external} for using the API to provision a VPC, subnets, and instances.
 {: note}
 
-To create a Private Path network load balancer with the API, follow these steps:
+To create a Private Path NLB with the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli){: external}.
 
@@ -293,14 +292,14 @@ To create a Private Path network load balancer with the API, follow these steps:
     ```
     {: pre}
 
-   * `vsiId` - Second, get your VSI that is in the same VPC as subnet's
+   * `vsiId` - Second, get the VSI that is in the same VPC as the subnet's:
 
     ```bash
     export vsiId=<your_VSI_id>
     ```
     {: pre}
 
-1. Create a Private Path network load balancer with a listener, pool, and attached server instances (pool members):
+1. Create a Private Path NLB with a listener, pool, and attached server instances (pool members):
 
    ```bash
    curl -H "Authorization: $iam_token" -X POST
@@ -459,7 +458,7 @@ To create a Private Path network load balancer with the API, follow these steps:
    ```
    {: codeblock}
 
-   Allow some time for provisioning. When the load balancer is ready, it is set to `online` and `active` status, as shown in the following sample output:
+   Allow time for provisioning. When the load balancer is ready, it is set to `online` and `active` status, as shown in the following sample output:
 
    ```sh
         {

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2023
-lastupdated: "2023-11-03"
+  years: 2019, 2024
+lastupdated: "2024-09-18"
 
 keywords:
 
@@ -14,7 +14,7 @@ content-type: troubleshoot
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Private Path: Why am I receiving an authorization error when creating a Private Path network load balancer?
+# Why am I receiving an authorization error when creating a Private Path network load balancer?
 {: #auth-errors}
 {: troubleshoot}
 

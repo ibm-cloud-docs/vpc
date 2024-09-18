@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-09-12"
+lastupdated: "2024-09-18"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -50,9 +50,6 @@ Profiles with AMD-manufactured processors are available in the Toronto region.
 Balanced profiles provide a mix of performance and scalability for more common workloads. The Balanced profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Balanced profiles that are available for Intel&reg; x86-64, and AMD x86-64 processors.
 
 Balanced profiles with the bx2d prefix are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London), Germany (Frankfurt), Spain (Madrid), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions.
-{: preview}
-
-3rd generation profiles with the bx3d prefix are available in the Dallas, London, Frankfurt, Washington DC, Toronto, Madrid, Sydney, Tokyo, and Osaka regions to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
 {: preview}
 
 The following table shows all balance profiles that are available for x86-64.
@@ -125,9 +122,6 @@ Compute profiles are best for workloads with intensive CPU demands, such as high
 Compute profiles with the cx2d prefix are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London), Germany (Frankfurt), Spain (Madrid), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions.
 {: preview}
 
-3rd generation profiles with the cx3d prefix are available in the Dallas, London, Frankfurt, Washington DC, Toronto, Madrid, Sydney, Tokyo, and Osaka regions to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
-{: preview}
-
 The following table shows all compute profiles that are available for x86-64.
 
 | Instance profile | vCPU / Cores | NUMA count | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) |
@@ -183,9 +177,6 @@ The following table shows all compute profiles that are available for x86-64.
 Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads. The Memory profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Memory profiles that are available for Intel&reg; x86-64.
 
 Memory profiles with the mx2d prefix are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London), Germany (Frankfurt), Spain (Madrid), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions.
-{: preview}
-
-3rd generation profiles with the mx3d prefix are available in the Dallas, London, Frankfurt, Washington DC, Toronto, Madrid, Sydney, Tokyo, and Osaka regions to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
 {: preview}
 
 | Instance profile | vCPU / Cores | NUMA count | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) |
@@ -493,7 +484,7 @@ curl -X GET \
 
 [Select availability]{: tag-green}
 
-The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are available to provision in the Dallas, London, Frankfurt, Washington DC, Toronto, Madrid, Sydney, Tokyo, and Osaka regions. This new generation features virtual server profile families that are hosted exclusively on Intel 4th Generation Xeon Scalable processors to provide the most powerful and performant general-purpose profiles available. These 3rd generation profiles provide the following enhancements:
+The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are available to provision in all regions. This new generation features virtual server profile families that are hosted exclusively on Intel 4th Generation Xeon Scalable processors to provide the most powerful and performant general-purpose profiles available. These 3rd generation profiles provide the following enhancements:
 
 - Improved performance with DDR 5 memory DIMMs, PCI Gen 5 interconnects, and more memory per vCPU than prior generation profiles.
 - A wide variety of profiles sizes with core to memory ratios optimized to maximize performance and economics for intensive workloads.

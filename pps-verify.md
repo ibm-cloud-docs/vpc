@@ -24,7 +24,7 @@ After you create a Private Path service, the service's status is `Stable`. At th
 To verify that the Private Path service is fully functional before publishing it for consumer use, you must use the same account to create the VPE gateway as the account used to create the Private Path service. After you publish your Private Path service, any account can be used to create the VPE gateway.
 {: important}
 
-You can verify connectivity to a Private Path service by SSH into a virtual server instance running in the VPC containing the endpoint gateway. Initiate traffic to the VPE service endpoint or private IP.
+You can verify connectivity to a Private Path service by using SSH to log into a virtual server instance running in the VPC containing the endpoint gateway. Then, initiate traffic to the VPE service endpoint or private IP.
 
 ## Verifying connectivity to a Private Path service in the UI
 {: #pps-ui-verify-private-path-service}
@@ -35,7 +35,7 @@ To verify connectivity to a Private Path service from the IBM Cloud console, fol
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 1. Select the Menu icon ![Menu icon](images/menu_icon.png), then click **VPC Infrastructure**.
 1. Click **Private Path services** in the Network section.
-1. Locate your new Private Path service in the table and click the name of the service to show its Details page.
+1. Locate your new Private Path in the table and click the name of the service to show its Details page.
 1. Copy the CRN to your clipboard.
 1. Click the **VPC Infrastructure** breadcrumb at the top of the page, then click **Virtual private endpoint gateways** in the Network section.
 1. Create a VPE gateway to connect to your Private Path service using your Private Path CRN. For instructions, see [Creating a VPE gateway](/docs/vpc?topic=vpc-ordering-endpoint-gateway){: external}.
@@ -44,6 +44,7 @@ To verify connectivity to a Private Path service from the IBM Cloud console, fol
 
    * If your default policy is set to **Permit all requests**, your request shows in the **Permitted** view.
    * If your default policy is set to **Review all requests**, your request shows in the **Requests to review** view. Permit your connection request.
+   
 1. Connect to your service.
 
 ## Verifying connectivity to a Private Path service from the CLI
@@ -76,9 +77,9 @@ To verify connectivity to a Private Path service from the CLI, follow these step
 
 To verify connectivity to a Private Path service with the API, follow these steps:
 
-1. Follow [this instruction](/docs/vpc?topic=vpc-ordering-endpoint-gateway&interface=api){: external} to create a VPE with `TargetCrn` specified with your Private Path service CRN.
+1. Follow [these instructions](/docs/vpc?topic=vpc-ordering-endpoint-gateway&interface=api){: external} to create a VPE with `TargetCrn` specified with your Private Path service CRN.
 1. Ensure that at least one of your load balancer's members health is shown as `ok`..
-1. From a VSI in the same VPE's VPC, initiate a request to the VPE's `private IP` or `service_endpoint` and expect to get a reply. For example, ssh into a VSI in the same VPE's VPC with image `ibm-ubuntu-18-04-6-minimal-s390x-3` and run this command:
+1. From a VSI in the same VPE's VPC, initiate a request to the VPE's `private IP` or `service_endpoint` and expect to get a reply. For example, SSH into a VSI in the same VPE's VPC with image `ibm-ubuntu-18-04-6-minimal-s390x-3`. Then run this command:
 
 ```sh
   export ip=<VPE-private-ip>
@@ -86,8 +87,6 @@ To verify connectivity to a Private Path service with the API, follow these step
   wget http://$ip:$port
 ```
 {: codeblock}
-
-The following example shows how to use the API to verify connectivity to a Private Path service.
 
 ## Next steps
 {: #pps-next-step-after-verify}
