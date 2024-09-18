@@ -157,7 +157,6 @@ toc:
             - backup_service_API_migration_instance_backups.md
             - vpn-api-migration.md
             - 2022-03-29-migration.md
-            - 2022-03-29-migration.md
         - topicgroup:
             label: Managing access
             topics:
