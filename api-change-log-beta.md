@@ -26,6 +26,37 @@ There are no backward-compatibility guarantees as a feature progresses through i
 
 To review the change log of generally available API features, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log).
 
+## 17 September 2024
+{: #17-september-2024-beta}
+
+This release introduces the following updates for accounts that have been granted special approval to preview these features.
+
+### For all version dates
+{: #17-september-2024-all-version-dates-beta}
+
+**Automatic deletion policy for endpoint gateway bindings.** Endpoint gateway bindings are automatically deleted when they are no longer needed. This policy is now reflected in the new `endpoint_gateway_binding_auto_delete` and `endpoint_gateway_binding_auto_delete_timeout` properties included when [listing](/apidocs/vpc-beta/latest#list-private-path-service-gateways) or [retrieving](/apidocs/vpc-beta/latest#get-private-path-service-gateway) a private service gateway, and may be configurable in the future.
+
+**Wildcard support for private path service gateway `service_endpoints`.** When [creating a private path service gateway](/apidocs/vpc-beta/latest#create-private-path-service-gateway), wildcard domains in the `service_endpoints` property are now supported, allowing you to specify service endpoints using patterns such as `*.example.com`.
+
+**Load balancer access modes.** New properties are provided in responses to load balancer and load balancer profile methods, allowing you to view the access mode for load balancers. Possible values are `private`, `private_path`, and `public`. When [listing](/apidocs/vpc-beta/latest#list-load-balancer-profiles) and [retrieving](/apidocs/vpc-beta/latest#get-load-balancer-profile) load balancer profiles, the `access_modes` property denotes the access modes supported by load balancers with this profile. When [listing](/apidocs/vpc-beta/latest#list-load-balancers) or [retrieving](/apidocs/vpc-beta/latest#get-load-balancer) load balancers, the `access_mode` property denotes the access mode for the load balancer.
+
+### For version `2024-09-17` or later
+{: #version-2024-09-17-beta}
+
+**Publishing or unpublishing changes for private path service gateways.** When using a version query parameter of `2024-09-17` or later to [update a private path service gateway](/apidocs/vpc-beta/latest#update-private-path-service-gateway), the `published` property is no longer supported. `published` is now read only and defaults to `false` when a private path service gateway is first [created](/apidocs/vpc-beta/latest#create-private-path-service-gateway), indicating that access is restricted to the account that created this private path service gateway. New methods must be used to [publish](/apidocs/vpc-beta/latest#publish-private-path-service-gateway) or [unpublish](/apidocs/vpc-beta/latest#unpublish-private-path-service-gateway) a private path service gateway. 
+
+**HTTP status code changes for private path service gateway methods.** When using a version query parameter of `2024-09-17` or later to [permit](/apidocs/vpc-beta/latest#permit-private-path-service-gateway-endpoint-gatew) or [deny](/apidocs/vpc-beta/latest#deny-private-path-service-gateway-endpoint-gateway) an endpoint gateway binding for a private path service gateway, [revoke access](/apidocs/vpc-beta/latest#revoke-account-for-private-path-service-gateway) to a private path service gateway for an account, or [delete](/apidocs/vpc-beta/latest#delete-private-path-service-gateway) a private path service gateway, the response code is changed from `200` to `204` for successful operations. A response code of `200` will continue to be returned for these API requests when using a version query parameter of `2024-09-16` and earlier.
+
+**Private path service gateway property name change.** When using a version query parameter of `2024-09-17` or later to [create](/apidocs/vpc-beta/latest#create-private-path-service-gateway) or [update](/apidocs/vpc-beta/latest#update-private-path-service-gateway) a private path service gateway, the `endpoint_gateways_count` property is renamed to `endpoint_gateway_count`. The `endpoint_gateways_count` property name will continue to be returned when using a version query parameter of `2024-09-16` and earlier.
+
+Learn about [creating private path service gateways](/docs/vpc?topic=vpc-private-path-service-about&interface=api).
+
+**Revised block storage capabilities.** When making API requests using a `version`  query parameter of `2024-09-17` or later, the volume profile `unattached_capacity_update_supported` property has been changed to `adjustable_capacity_states`, and the volume profile `unattached_iops_update_supported` property has been changed to `adjustable_iops_states`. This change applies when [listing](/apidocs/vpc-beta/latest#list-volume-profiles) or [retrieving](/apidocs/vpc-beta/latest#get-volume-profile) a volume profile.
+
+Similarly, when making API requests using a `version` query parameter of `2024-09-17` or later, the volume `unattached_capacity_update_supported` property has been changed to `adjustable_capacity_states`, and the volume `unattached_iops_update_supported` property has been changed to `adjustable_iops_states`. This change applies when [creating](/apidocs/vpc-beta/latest#create-volume) or [updating](/apidocs/vpc-beta/latest#update-volume) a volume, [listing volumes](/apidocs/vpc-beta/latest#list-volumes), or [retrieving a volume](/apidocs/vpc-beta/latest#get-volume).
+
+See [Updating to the `2024-09-17` version (volumes and volume profiles)](/docs/vpc?topic=vpc-2024-09-17-migration-volumes) for guidance on migrating.
+
 ## 27 August 2024
 {: #27-august-2024-beta}
 
