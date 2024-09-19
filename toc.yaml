@@ -152,6 +152,7 @@ toc:
             label: Updating to the latest API code
             topics:
             - private_path_api_migration.md
+            - block_storage_vpc_api_migration.md
             - vpn_advanced_configuration_api_migration.md
             - backup_service_API_migration_instance_backups.md
             - vpn-api-migration.md
