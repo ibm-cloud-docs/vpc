@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-09-18"
+lastupdated: "2024-09-20"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -231,9 +231,32 @@ Memory profiles with the mx2d prefix are available in the US South (Dallas), US 
 
 Very High Memory profiles offer 1 vCPU to 14 GiB of RAM to host small to medium-sized in-memory databases, OLAP services such as SAP NetWeaver, and other memory intensive applications. All Very High Memory profiles are provisioned with temporary SSD-backed [instance storage](/docs/vpc?topic=vpc-instance-storage) at no additional charge. The following Very High Memory profiles are available on Intel&reg; x86 processors.
 
+The 3rd generation profile with the vx3d prefix is a beta feature that is available for evaluation and testing purposes. This profile is available only in the Toronto (`ca-tor`) region to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
+{: preview}
+
 - The vx2d profiles are on the Cascade Lake processors.
+- The vx3d profiles are on the Sapphire Rapids processors.
 
-
+| Instance profile | vCPU | Cores | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) |
+|---------|---------|---------|---------|---------|---------|
+| vx3d-2x32 | 2 | 1 | 32 | 4 | 1x65 |
+| vx3d-4x64| 4 |  2 | 64 | 8 | 1x130 |
+| vx3d-8x128 | 8 | 4 | 128 | 16 | 1x260 |
+| vx3d-16x256| 16 | 8 | 256 | 32 | 1x520 |
+| vx3d-24x384| 24 | 12 | 384 | 48 | 1x780 |
+| vx3d-32x512 | 32 | 16 | 512 | 64 | 2x520 |
+| vx3d-48x768 | 48 | 24 | 768 | 96 | 2x780 |
+| vx3d-64x1024 | 64 | 32 | 1024 | 128 | 2x1024 |
+| vx3d-88x1408 | 88 | 44 | 1408 | 176 | 2x1430 |
+| vx3d-96x1536 | 96 | 48 | 1536 | 200 | 2x1560 |
+| vx3d-128x2048 | 128 | 64 | 2048 | 200 | 2x2080 |
+| vx3d-176x2816| 176 | 88 | 2816 | 200 | 2x2860 |
+{: caption="Table 6. Very High Memory profiles options for x86-64 instances" caption-side="bottom"}
+{: #vhmemory-intel-x86-64}
+{: tab-title="vx3d"}
+{: tab-group="Very High Memory"}
+{: class="simple-tab-table"}
+{: summary="Very High Memory profiles options for Intel x86-64 virtual server instances."}
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth cap (Gbps) | Instance storage (GB) |
 |---------|---------|---------|---------|---------|---------|
