@@ -27,6 +27,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## September 2024
 {: #vpc-sep24}
 
+### 20 September 2024
+{: #vpc-sep2024}
+{: release-note}
+
+Secure boot for Virtual Servers for VPC (GA)
+:   Secure boot is now generally available. Secure boot is a security standard that makes sure that your server starts with trusted software by verifying the digital signatures for all code in the boot process. When a server starts in secure boot mode, the firmware checks the signature of the boot software, including UEFI firmware drivers, EFI applications, and the operating system. If the signatures are valid, the server boots, and the firmware grants control to the operating system. Which means that secure boot helps prevent malicious software from loading when your server starts. For more information, see [Secure boot for Virtual Servers for VPC](/docs/vpc?topic=vpc-confidential-computing-with-secure-boot-vpc&interface=ui).
+
 ### 18 September 2024
 {: #vpc-sep1824}
 {: release-note}

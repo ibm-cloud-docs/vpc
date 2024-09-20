@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-08-26"
+lastupdated: "2024-09-20"
 
 keywords: secure boot, secure boot for virtual servers
 
@@ -41,6 +41,13 @@ When you use a custom kernel or custom kernel modules, you must sign it with you
 {: #confidential-computing-secure-boot-limitations-vpc}
 
 Keep the following limitations in mind when you use secure boot.
+
+* Secure boot is available on only third-generation Sapphire Rapids-based virtual servers with the exception of the following profiles.
+   - mx3d-128x1280
+   - mx3d-176x1760
+   - bx3d-176x880
+
+If you resize a virtual server that is secure boot-enabled to a profile that is secure boot-disabled (and vice-versa), the topology of PCIe devices changes. Depending on the operating system, this topology change can rename devices and realign PCI address. The I/O performance can also change.{: note}
 
 Secure boot does not provide protection in the following circumstances.
 
