@@ -31,19 +31,19 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
-          "date": "11 September 2024",
-          "title": "Hyper Protect Secure Build",
-          "description": "The workload section for Hyper Protect Secure Build is updated based on the IBM Hyper Protect Container Runtime image ibm-hyper-protect-container-runtime-1-0-s390x-18."
+          "date": "20 September 2024",
+          "title": "Next generation instance profiles available in Sao Paulo (br-sao) region (GA)",
+          "description": "The 3rd generation of IBM Cloud Virtual Servers for VPC are now available in the Sao Paulo (br-sao) region, in addition to the Dallas (us-south), London (eu-gb), Frankfurt (eu-de), Washington DC (us-east), Toronto (ca-tor), Madrid (eu-es), Sydney (au-syd), Tokyo (jp-tok), and Osaka (jp-osa) regions. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel® Xeon® Scalable processors to provide the most powerful and performant general-purpose profiles available. For more information, see Next generation instance profiles. In the Balanced family, see the bx3d profiles tab. In the Compute family, see the cx3d profiles tab. In the Memory family, see the mx3d profiles tab. 3rd generation dedicated host profiles are also available."
         },
         {
-          "date": "10 September 2024",
-          "title": "Zone Maps and Universal Names for Zones",
-          "description": "Account specific zone mapping has been introduced in all regions. Zones have an extra name that can serve as a global, cross-account identifier. A zone's universal name is documented per region and can be viewed when you view or retrieve a zone."
+          "date": "20 September 2024",
+          "title": "Secure boot for Virtual Servers for VPC (GA)",
+          "description": "Secure boot is now generally available. Secure boot is a security standard that makes sure that your server starts with trusted software by verifying the digital signatures for all code in the boot process. When a server starts in secure boot mode, the firmware checks the signature of the boot software, including UEFI firmware drivers, EFI applications, and the operating system. If the signatures are valid, the server boots, and the firmware grants control to the operating system. Which means that secure boot helps prevent malicious software from loading when your server starts."
         },
         {
-          "date": "05 September 2024",
-          "title": "Red Hat Enteprise Linux AI BYOL custom images (GA)",
-          "description": "The Red Hat Enterprise AI (RHEL AI) operating system can be imported as a bring your own license (BYOL). A RHEL AI qcow2 file is available directly from Red Hat."
+          "date": "17 September 2024",
+          "title": "Very High Memory profiles for SAP-HANA (select availabilty)",
+          "description": "New Very High Memory profiles for SAP-HANA are now available. These profiles are indicated by the spl suffix and have one UMA node. These profiles are only available in Toronto (ca-tor) region."
         }
       ]
     }
