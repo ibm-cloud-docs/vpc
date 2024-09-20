@@ -2,7 +2,7 @@
 copyright:
   years: 2020, 2024
 
-lastupdated: "2024-09-12"
+lastupdated: "2024-09-20"
 
 keywords: dedicated host profiles, balanced, compute, memory, ultra high memory, generation 2, gen 2
 
@@ -189,11 +189,12 @@ instances.
 The Very High Memory with instance storage profile with a high memory ratio of 14 GiB of memory to 1 vCPU of compute is best for OLAP workloads and SAP-related services such as SAP NetWeaver. The Very High Memory profile includes temporary SSD-backed [Instance Storage](/docs/vpc?topic=vpc-instance-storage) at no additional charge.
 
 - The vx2d profile hosted exclusively on the Intel® Xeon® Platinum 8260 Cascade Lake with 96 cores of compute that are running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz, a dedicated host that is provisioned with a Very High Memory profile delivers maximum speed and performance.
-
+- The vx3d profile is hosted exclusively on the 4th Generation Intel® Xeon® Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids).
 
 If you provision a dedicated host with a Very High Memory profile, any virtual server instances that are provisioned on the dedicated host must also be provisioned with a Very High Memory profile. All Very High Memory profiles include instance storage that is designated by the *d* in the profile name, for example *vx2d*.
 
-
+The 3rd generation profile with the vx3d prefix is a beta feature that is available for evaluation and testing purposes. This profile is available only in the Toronto (`ca-tor`) region to provision virtual server instances on 4th Generation Intel&reg; Xeon&reg; Scalable processors, the Intel 8474C processor (previously code named Sapphire Rapids). For more information about the capabilities of the new profiles, see [Next generation instance profiles](#next-gen-profiles).
+{: preview}
 
 The following Very High Memory profile is available for dedicated hosts.
 
@@ -207,7 +208,15 @@ The following Very High Memory profile is available for dedicated hosts.
 {: class="simple-tab-table"}
 {: summary="Dedicated Host Very High Memory profile option for Intel&reg; x86-64 virtual server instances."}
 
-
+| Dedicated host profile | vCPU | Cores | GiB RAM | Instance storage |
+|---------|---------|---------|---------|---------|
+| vx3d-host-176x2816 | 176 | 88 | 2816| 2x2860 GB |
+{: caption="Table 5. Intel x86-64 very high memory profiles for dedicated hosts" caption-side="bottom"}
+{: #dh-vhmemory-intel-x86-64-vx3d}
+{: tab-title="vx3d"}
+{: tab-group="DH Very High Memory"}
+{: class="simple-tab-table"}
+{: summary="Dedicated Host Very High Memory profile option for Intel&reg; x86-64 virtual server instances."}
 
 For more information about instance profiles that include instance storage in the Very High Memory family, see [very high memory profiles](/docs/vpc?topic=vpc-profiles#vhmemory).
 

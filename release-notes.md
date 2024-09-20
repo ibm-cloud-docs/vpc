@@ -36,7 +36,10 @@ Next generation instance profiles available in Sao Paulo (br-sao) region (GA)
 
 ### 17 September 2024
 {: #vpc-sep1724}
-{: release-note}
+{: release-note} 
+
+Very High Memory profiles for SAP-HANA (select availabilty)
+:   New Very High Memory profiles for SAP-HANA are now available. These profiles are indicated by the `spl` suffix and have one UMA node. These profiles are only available in Toronto (`ca-tor`) region. For more information, see [x86-64 Very High Memory profiles](/docs/vpc?topic=vpc-profiles&interface=ui#vhmemory). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 ### 11 September 2024
 {: #vpc-sep1124}
