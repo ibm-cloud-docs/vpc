@@ -418,6 +418,7 @@ toc:
                 - cr-attach-subnet.md
                 - cr-list-table.md
                 - cr-delete-table.md
+                - cr-announcement.md
             - topicgroup:
                 label: VPC routes
                 topics:
