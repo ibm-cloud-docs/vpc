@@ -30,6 +30,9 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ### 20 September 2024
 {: #vpc-sep2024}
 {: release-note}
+  
+GPU H100 profile now available in Tokyo (`jp-tok`) and Sao Paulo (`br-sao`) regions (select availability)
+:   The GPU H100 profile is now available in the Tokyo (`jp-tok`) and Sao Paulo (`br-sao`) regions, in addition to London (`eu-gb`), Sydney (`au-syd`), Toronto (`ca-tor`), Madrid (`eu-es`), and Washington DC (`us-east`). The GPU H100 profile is now available on the latest generation GPU-enabled infrastructure for running machine learning (ML) and deep learning (DL) frameworks in support of AI initiatives. When you use the H100 virtual server profile, it runs on an [NVIDIA Hopper-based HGX](https://www.nvidia.com/en-us/data-center/hgx/){: external} server and is the sole tenant running on the host. For more information about the `gx3d-160x1792x8h100` profile, see [GPU](/docs/vpc?topic=vpc-profiles&interface=ui#gpu) profiles. 
 
 Secure boot for Virtual Servers for VPC (GA)
 :   Secure boot is now generally available. Secure boot is a security standard that makes sure that your server starts with trusted software by verifying the digital signatures for all code in the boot process. When a server starts in secure boot mode, the firmware checks the signature of the boot software, including UEFI firmware drivers, EFI applications, and the operating system. If the signatures are valid, the server boots, and the firmware grants control to the operating system. Which means that secure boot helps prevent malicious software from loading when your server starts. For more information, see [Secure boot for Virtual Servers for VPC](/docs/vpc?topic=vpc-confidential-computing-with-secure-boot-vpc&interface=ui).
