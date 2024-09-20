@@ -30,9 +30,9 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ### 20 September 2024
 {: #vpc-sep2024}
 {: release-note}
-  
+
 GPU H100 profile now available in Tokyo (`jp-tok`) and Sao Paulo (`br-sao`) regions (select availability)
-:   The GPU H100 profile is now available in the Tokyo (`jp-tok`) and Sao Paulo (`br-sao`) regions, in addition to London (`eu-gb`), Sydney (`au-syd`), Toronto (`ca-tor`), Madrid (`eu-es`), and Washington DC (`us-east`). The GPU H100 profile is now available on the latest generation GPU-enabled infrastructure for running machine learning (ML) and deep learning (DL) frameworks in support of AI initiatives. When you use the H100 virtual server profile, it runs on an [NVIDIA Hopper-based HGX](https://www.nvidia.com/en-us/data-center/hgx/){: external} server and is the sole tenant running on the host. For more information about the `gx3d-160x1792x8h100` profile, see [GPU](/docs/vpc?topic=vpc-profiles&interface=ui#gpu) profiles. 
+:   The GPU H100 profile is now available in the Tokyo (`jp-tok`) and Sao Paulo (`br-sao`) regions, in addition to London (`eu-gb`), Sydney (`au-syd`), Toronto (`ca-tor`), Madrid (`eu-es`), and Washington DC (`us-east`). The GPU H100 profile is now available on the latest generation GPU-enabled infrastructure for running machine learning (ML) and deep learning (DL) frameworks in support of AI initiatives. When you use the H100 virtual server profile, it runs on an [NVIDIA Hopper-based HGX](https://www.nvidia.com/en-us/data-center/hgx/){: external} server and is the sole tenant running on the host. For more information about the `gx3d-160x1792x8h100` profile, see [GPU](/docs/vpc?topic=vpc-profiles&interface=ui#gpu) profiles.
 
 Secure boot for Virtual Servers for VPC (GA)
 :   Secure boot is now generally available. Secure boot is a security standard that makes sure that your server starts with trusted software by verifying the digital signatures for all code in the boot process. When a server starts in secure boot mode, the firmware checks the signature of the boot software, including UEFI firmware drivers, EFI applications, and the operating system. If the signatures are valid, the server boots, and the firmware grants control to the operating system. Which means that secure boot helps prevent malicious software from loading when your server starts. For more information, see [Secure boot for Virtual Servers for VPC](/docs/vpc?topic=vpc-confidential-computing-with-secure-boot-vpc&interface=ui).
@@ -40,15 +40,15 @@ Secure boot for Virtual Servers for VPC (GA)
 ### 18 September 2024
 {: #vpc-sep1824}
 {: release-note}
-  
+
 Next generation instance profiles available in Sao Paulo (br-sao) region (GA)
 :   The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_is_short}} are now available in the Sao Paulo (`br-sao`) region, in addition to the Dallas (`us-south`), London (`eu-gb`), Frankfurt (`eu-de`), Washington DC (`us-east`), Toronto (`ca-tor`), Madrid (`eu-es`), Sydney (`au-syd`), Tokyo (`jp-tok`), and Osaka (`jp-osa`) regions. This new generation features virtual server profile families hosted exclusively on 4th Generation Intel&reg; Xeon&reg; Scalable processors to provide the most powerful and performant general-purpose profiles available. For more information, see [Next generation instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#next-gen-profiles). In the [Balanced](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) family, see the *bx3d* profiles tab. In the [Compute](/docs/vpc?topic=vpc-profiles&interface=ui#compute) family, see the *cx3d* profiles tab. In the [Memory](/docs/vpc?topic=vpc-profiles&interface=ui#memory) family, see the *mx3d* profiles tab. 3rd generation dedicated host profiles are also available. For more information, see *bx3d*, *cx3d*, and *mx3d* profiles in [x86-64 dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 ### 17 September 2024
 {: #vpc-sep1724}
-{: release-note} 
+{: release-note}
 
-Very High Memory profiles for SAP-HANA (select availabilty)
+Very High Memory profiles for SAP-HANA (select availability)
 :   New Very High Memory profiles for SAP-HANA are now available. These profiles are indicated by the `spl` suffix and have one UMA node. These profiles are only available in Toronto (`ca-tor`) region. For more information, see [x86-64 Very High Memory profiles](/docs/vpc?topic=vpc-profiles&interface=ui#vhmemory). For more information about the Multizone regions, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 ### 11 September 2024
