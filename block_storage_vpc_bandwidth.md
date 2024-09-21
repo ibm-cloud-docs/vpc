@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-08-15"
+lastupdated: "2024-09-21"
 
 keywords: Block Storage, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, bandwidth
 
@@ -16,7 +16,7 @@ subcollection: vpc
 {: #block-storage-bandwidth}
 
 Instance bandwidth is distributed between networking and storage resources. The storage bandwidth is divided between the boot volume and the attached data volumes. You can adjust the storage-networking bandwidth ratio in the console, from the CLI or with the API. After that change, you can adjust the portion of available bandwidth that is allocated to the data volumes by detaching and reattaching them.
-{: shortdesc} 
+{: shortdesc}
 
 ## Bandwidth allocation for volumes that are attached to an instance
 {: #attached-block-vol-bandwidth}
@@ -31,7 +31,7 @@ For example, for the bx2-2x8 profile you might have the following allocations.
    - Volumes: 1,000 MBps.
    - Network: 3,000 MBps.
 
-To ensure reasonable boot times, a minimum of 393 MBps is allocated to the primary boot volume. In the example, the instance's total volume bandwidth is 1,000 MBps. The remaining 607 MBps is allocated to the secondary volumes that you attach, up to the maximum bandwidth of the volume. For example, if you have only one data volume with 500 MBps, you can expect to get that level of performance.
+To help ensure reasonable boot times, a minimum of 393 MBps is allocated to the primary boot volume. In the example, the instance's total volume bandwidth is 1,000 MBps. The remaining 607 MBps is allocated to the secondary volumes that you attach, up to the maximum bandwidth of the volume. For example, if you have only one data volume with 500 MBps, you can expect to get that level of performance.
 
 Each volume has an IOPS and bandwidth limit set. The IOPS limit is always set to the maximum IOPS of the volume. The bandwidth for each attached volume is set proportionally based on the [volume size and profile](/docs/vpc?topic=vpc-block-storage-profiles). 
 
@@ -113,7 +113,7 @@ The API response for a `GET /volume/{id}` call shows the bandwidth for an unatta
    {: screen}
    {: api}
 
-When you attach a secondary volume to a virtual server instance, the primary boot volume gets priority IOPS and bandwidth allocation to ensure reasonable boot times. Boot volume IOPS and bandwidth are never reduced to be less than 3000 IOPS or 393 MBps.
+When you attach a secondary volume to a virtual server instance, the primary boot volume gets priority IOPS and bandwidth allocation to help ensure reasonable boot times. Boot volume IOPS and bandwidth are never reduced to be less than 3000 IOPS or 393 MBps.
 
 All volumes are assigned instance bandwidth proportional to their maximum bandwidth, where the sum of all volume bandwidth equals the overall volumes bandwidth.
 
@@ -121,14 +121,8 @@ In our example, the remaining bandwidth that is allocated on the instance for da
 
 In summary, the unattached volume bandwidth might not be the same as the actual bandwidth that you see after the volume is attached to an instance. The difference is due to the amount of bandwidth that is dedicated to the boot volume and how the remaining volume bandwidth is divided between all attached data volumes.
 
+
 ## Estimating volume bandwidth
 {: #volume-estimate-bandwidth}
 
 Think about the type of data volume that your workloads require and select the appropriate volume profile. Data intensive workloads might require the higher bandwidth performance of a 10 IOPS/GB profile. For more information, see [How virtual server profiles relate to storage profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#vsi-profiles-relate-to-storage).
-
-## Next steps
-{: #vol-bandwidth-next-steps}
-
-You can allocate total volume bandwidth in the UI, from the CLI or with the API. For more information, see [Adjusting bandwidth allocation in the UI](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#adjusting-bandwidth-allocation-ui){: ui}[Adjusting bandwidth allocation from the CLI](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=cli#adjusting-bandwidth-allocation-cli){: cli}[Adjusting total volume bandwidth with the API](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=api#adjusting-bandwidth-allocation-api){: api}.
-
-You can also [view volume bandwidth for an unattached volume](/docs/vpc?topic=vpc-viewing-block-storage).
