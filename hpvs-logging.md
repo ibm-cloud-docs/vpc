@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-08-28"
+lastupdated: "2024-09-21"
 
 keywords: confidential computing, secure execution, logging for hyper protect virtual server for vpc
 
@@ -297,18 +297,18 @@ There are many ways to set up a compatible server endpoint. The following exampl
    ```
    {: codeblock}
 
-## IBM Log Analysis
+## {{site.data.keyword.loganalysislong_notm}}
 {: #log-analysis}
 
-Logging to Log Analysis is dependent on the state and health of the Log Analysis service. Service outages might lead to a loss of log data. If you want to log data for audit purposes, it's suggested that you employ your own logging service.
+Logging to {{site.data.keyword.loganalysisshort}} is dependent on the state and health of the {{site.data.keyword.loganalysisshort}} service. Service outages might lead to a loss of log data. If you want to log data for audit purposes, it's suggested that you employ your own logging service.
 {: note}
 
-Deprecation of IBM Log Analysis and IBM Cloud Activity Tracker services 
-: Effective 28 March 2024, the IBM Log Analysis and IBM Cloud Activity Tracker services are deprecated and will no longer be supported as of 30 March 2025. Customers will need to migrate to IBM Cloud Logs, which replaces these two services, prior to 30 March 2025. IBM Cloud Logs will become generally available during the summer of 2024 in Frankfurt and Madrid with day-one support for EU-managed controls. The service will continue its worldwide multizone region (MZR) roll-out through 3Q2024. For information about IBM Cloud Logs, see the [IBM Cloud Logs](https://cloud.ibm.com/docs/cloud-logs) documentation.
+Deprecation of {{site.data.keyword.loganalysisshort_notm}} and {{site.data.keyword.at_full_notm}} services 
+: Effective 28 March 2024, the IBM {{site.data.keyword.loganalysisshort}} and {{site.data.keyword.at_full_notm}} services are deprecated and will no longer be supported as of 30 March 2025. Customers will need to migrate to {{site.data.keyword.logs_full_notm}}, which replaces these two services, prior to 30 March 2025. {{site.data.keyword.logs_full_notm}} will become generally available during the summer of 2024 in Frankfurt and Madrid with day-one support for EU-managed controls. The service will continue its worldwide multizone region (MZR) roll-out through 3Q2024. For information about {{site.data.keyword.logs_full_notm}}, see the [{{site.data.keyword.logs_full_notm}}](https://cloud.ibm.com/docs/cloud-logs) documentation.
 
 1. [Log in to your IBM Cloud account](/login){: external}.
-2. [Provision a Log Analysis instance](/docs/log-analysis?topic=log-analysis-provision). Choose a plan according to your requirements.  
-3. After you create the Log Analysis instance, click it open and click **Open dashboard**.
+2. [Provision a {{site.data.keyword.loganalysisshort}} instance](/docs/log-analysis?topic=log-analysis-provision). Choose a plan according to your requirements.  
+3. After you create the {{site.data.keyword.loganalysisshort}} instance, click it open and click **Open dashboard**.
 4. Click the question mark icon (**Install Instructions**) at the lower left of the page. On the **Add Log Source** page, under **Via Syslog**, click **rsyslog**.
 5. Make a note of the ingestion key value at the upper right of the page, and the endpoint value. In the following example, the endpoint value is `syslog-u.au-syd.logging.cloud.ibm.com`.
    ```sh
@@ -342,7 +342,7 @@ Deprecation of IBM Log Analysis and IBM Cloud Activity Tracker services
     ```
     {: codeblock}
 
-   When the {{site.data.keyword.hpvs}} for VPC instance boots, it extracts the Log Analysis information from the contract and configures accordingly so that all the logs are routed to the endpoint specified. Then, you can open the Log Analysis dashboard and view the logs from the virtual server instance.
+   When the {{site.data.keyword.hpvs}} for VPC instance boots, it extracts the {{site.data.keyword.loganalysisshort}} information from the contract and configures accordingly so that all the logs are routed to the endpoint specified. Then, you can open the {{site.data.keyword.loganalysisshort}} dashboard and view the logs from the virtual server instance.
 7. If the LogDNA is used for collecting logs from multiple systems, you can utilise custom tags to isolate logs optionally. 
    Following is an example of a custom tag:
   
