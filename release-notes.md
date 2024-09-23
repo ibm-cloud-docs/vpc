@@ -27,6 +27,10 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## September 2024
 {: #vpc-sep24}
 
+### 23 September 2024
+{: #vpc-sep2324}
+{: release-note}
+
 Backup service integration with Event Notifications
 :   Backup jobs that create or delete backup snapshots run according to the backup plan and the retention policy. You can now set up a connection between the Backup service and {{site.data.keyword.en_short}} and receive notifications to your preferred destinations if a backup job fails. For more information, see [Enabling event notifications for Backup for VPC](/docs/vpc?topic=vpc-event-notifications-events).
 
