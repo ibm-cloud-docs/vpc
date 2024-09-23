@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-08-14"
+lastupdated: "2024-09-23"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, faqs
 
@@ -135,3 +135,45 @@ If you modify the value of the backup consistency group's `delete_snapshots_on_d
 {: #faq-baas-cg-restore}
 
 Restoring a virtual server instance directly from snapshot consistency group identifier is not supported. However, you can restore a virtual server instance by restoring all of its boot and data volumes from the snapshots that are part of a consistency group. Virtual server instance configuration is not part of the backup, and you must manually or programmatically configure the instance in the console, from the CLI, with the API, or Terraform. For more information, see [Creating volumes for a virtual server instance from a consistency group](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-restore-cr-details-ui).
+
+## Can I enable event notifications for Backup for VPC?
+{: faq}
+{: #faq-baas-en}
+
+Yes. If you have an {{site.data.keyword.en_full}} instance, you can connect your backup policy to it in the console or with the API. For more information, see [Enabling event notifications for Backup for VPC](/docs/vpc?topic=vpc-event-notifications-events).
+
+For more information about working with {{site.data.keyword.en_short}}, see [Getting started with {{site.data.keyword.en_short}}](/docs/event-notifications?topic=event-notifications-getting-started).
+
+## What service authorizations are needed for event notifications?
+{: faq}
+{: #faq-baas-en-s2s}
+
+You need to create a service-to-service authorization between the Backup for VPC service (source service) and {{site.data.keyword.en_short}} (target service). Set the service access level to `Event Source Manager`. For more information, see [Enabling service-to-service authorization for Event Notifications](/docs/vpc?topic=vpc-backup-s2s-auth&interface=ui#backup-s2s-auth-procedure-en-ui){: ui}[Enabling service-to-service authorization for Event Notifications](/docs/vpc?topic=vpc-backup-s2s-auth&interface=cli#backup-s2s-auth-procedure-en-cli){: cli}[Enabling service-to-service authorization for Event Notifications](/docs/vpc?topic=vpc-backup-s2s-auth&interface=api#backup-s2s-auth-procedure-en-api){: api}[Enabling service-to-service authorization for Event Notifications](/docs/vpc?topic=vpc-backup-s2s-auth&interface=terraform#backup-s2s-auth-procedure-en-terraform){: terraform}.
+
+## Can I receive notifications if backup jobs fail in a different region?
+{: faq}
+{: #faq-baas-en-location}
+
+{{site.data.keyword.en_short}} are supported in Dallas (`us-south`), London (`eu-gb`), Frankfurt (`eu-de`), Sydney (`au-syd`), and Madrid (`eu-es`). For more information, see [Getting started with {{site.data.keyword.en_short}}](/docs/event-notifications?topic=event-notifications-getting-started). 
+
+For locations that don't currently support {{site.data.keyword.en_short}}, the notifications can be routed to another region. For more details, see the following table.
+
+| VPC Backup Region     | Receiving {{site.data.keyword.en_short}} region |
+|-----------------------|-------------------------------------------------|
+| Dallas (`us-south`)   | Dallas (`us-south`)  |
+| Washington (`us-east`)| Dallas (`us-south`)  |
+| Toronto (`ca-tor`)    | Dallas (`us-south`)  |
+| Sao Paulo (`br-sao`)  | Dallas (`us-south`)  |
+| Frankfurt (`eu-de`)   | Frankfurt (`eu-de`)  |
+| Madrid (`eu-es`)      | Madrid (`eu-es`)     |
+| London (`eu-gb`)      | London (`eu-gb`)     |
+| Osaka (`jp-osa`)      | Sydney (`au-syd`)    |
+| Tokyo (`jp-tok`)      | Sydney (`au-syd`)    |
+| Sydney (`au-syd`)     | Sydney (`au-syd`)    |
+ {: caption="Table 1. Backup regions and {{site.data.keyword.en_short}} destinations" caption-side="bottom"}
+
+## Why am I receiving some notifications but not all?
+{: faq}
+{: #faq-baas-en-limit}
+
+As a customer, you can register your backup service to your {{site.data.keyword.en_short}} instance. In this case, all backup job failure notifications from all policies are forwarded to that {{site.data.keyword.en_short}} instance. You can use multiple topics to filter and route the notifications. You can create as many topics as you want. However, if more than 20 topics are registered to a backup event source, then only the first 20 can receive backup service events per account.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-22"
+lastupdated: "2024-09-23"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -71,3 +71,10 @@ Backup jobs create or delete backup snapshots based on the backup plan's frequen
 {: #backup-activity-tracker}
 
 When a backup is created, an event is triggered in the Activity Tracker for the [Backup service](/docs/vpc?topic=vpc-at_events&interface=ui#events-backup-service) and [Snapshots service](/docs/vpc?topic=vpc-at_events&interface=ui#events-snapshots). Similarly, when the service fails to create a backup due to missing authorization, an event is triggered to notify you. For more information, see [Activity tracking events for IBM Cloud VPC](/docs/vpc?topic=vpc-at_events).
+
+## Event notifications
+{: #backup-event-notifications}
+
+[New]{: tag-new}[Backup Event Notification]{: tag-teal}
+
+By setting up {{site.data.keyword.en_full}}, you can send notifications of events in IBM Cloud Backup for VPC to other users by using email, SMS, or other supported delivery channels. Additionally, you might want to send these notifications of events to other applications to build logic by using event-driven programming with webhooks, for example. For more information, see [Enabling event notifications for Backup for VPC](/docs/vpc?topic=vpc-event-notifications-events).
