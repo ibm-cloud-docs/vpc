@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-08-22"
+lastupdated: "2024-09-23"
 
 keywords:
 
@@ -72,7 +72,7 @@ Allow extra time for completing any optional steps.
 To create a VPC and subnet follow these steps:
 
 1. Open [{{site.data.keyword.cloud_notm}} console](/login){: external}.
-1. Click **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Network > VPCs** and click **Create**.
+1. Click **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Network > VPCs** and click **Create**.
 1. Enter a name for the VPC, such as `my-vpc`.
 1. Select a resource group for the VPC. Use resource groups to organize your account resources for access control and billing purposes. For more information, see [Best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup).
 1. _Optional:_ Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
@@ -250,7 +250,7 @@ Create a public gateway and connect your virtual server instance if you want mul
 
 To create a public gateway:
 1. Go to the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the menu icon ![Menu icon](./images/menu_icon.png), then click **VPC Infrastructure** > **Public gateways**. The Public gateways for VPC dashboard appear.
+1. Select the menu icon ![Menu icon](./images/menu_icon.png), then click **Infrastructure** > **Public gateways**. The Public gateways for VPC dashboard appear.
 1. Click **Create** to go to the **Create public gateway** menu.
 
 A public gateway provides virtual server instances only outbound connectivity, whereas a floating IP address provides virtual server instances outbound and inbound connectivity. A floating IP address exposes a service on the internet to inbound activity.

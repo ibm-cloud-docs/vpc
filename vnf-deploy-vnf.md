@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-16"
+lastupdated: "2024-09-23"
 
 keywords:
 
@@ -18,7 +18,7 @@ subcollection: vpc
 Before you start deploying VNF, meet the following requirements:
 
 1. Ensure that the VNF data interface is on the same shared subnet as the NLB, which is created in [Creating a network load balancer with routing mode](/docs/vpc?topic=vpc-deploy-nlb).
-1. Ensure that the VNF data interface (shared subnet with NLB) shows `Allow IP Spoofing` as enabled. You can enable this function through the [Virtual server instances for VPC](https://cloud.ibm.com/vpc-ext){: external} UI in the **Network interfaces** section of a virtual server's details page.
+1. Ensure that the VNF data interface (shared subnet with NLB) shows `Allow IP Spoofing` as enabled. You can enable this function through the [Virtual server instances for VPC](https://cloud.ibm.com/infrastructure){: external} UI in the **Network interfaces** section of a virtual server's details page.
 
    For more information about IP spoofing, see [About IP spoofing checks](/docs/vpc?topic=vpc-ip-spoofing-about).
    {: note}
@@ -32,7 +32,7 @@ Before you start deploying VNF, meet the following requirements:
    * The NLB is deployed as an active/passive cluster. Each node has a distinct IP address.
    * You must use the active IP address in the custom routes that are created later in this process.
 
-      To retrieve the IP addresses, go to the [Load balancers for VPC](/vpc-ext/network/loadBalancers){: external} page in the [{{site.data.keyword.cloud_notm}} console](/login){: external}, and select the name of the NLB in the table to show its details. In the Load balancer details section (Overview tab), the Private IP addresses are shown. The first IP is the primary IP address.
+      To retrieve the IP addresses, go to the [Load balancers for VPC](/infrastructure/network/loadBalancers){: external} page in the [{{site.data.keyword.cloud_notm}} console](/login){: external}, and select the name of the NLB in the table to show its details. In the Load balancer details section (Overview tab), the Private IP addresses are shown. The first IP is the primary IP address.
 
       Because NLB failovers can occur, you must configure the VNF to accept health check requests on both IP addresses.
       {: note}

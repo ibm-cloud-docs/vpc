@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-11"
+lastupdated: "2024-09-23"
 
 keywords: confidential computing, secure execution, hyper protect virtual server for vpc, terraform, tutorial, financial transaction
 
@@ -33,7 +33,7 @@ To complete this tutorial, you need to meet the following prerequisites:
 1.	Create an IBM Cloud account.
 2.	[Create an API key](/docs/account?topic=account-userapikey) for your user identity.
 3.	[Install IBM Cloud CLI](/docs/cli?topic=cli-install-ibmcloud-cli) and the [container registry CLI plug-in](/docs/cli?topic=cli-containerregcli).
-4.	Create a [VPC and a subnet](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vpc-and-subnet) with a [public gateway](/docs/vpc?topic=vpc-create-public-gateways) and a [security group](https://cloud.ibm.com/vpc-ext/network/securityGroups){: external} with rules that allow at least inbound IP connections on port 8443 and all outbound IP connections.
+4.	Create a [VPC and a subnet](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vpc-and-subnet) with a [public gateway](/docs/vpc?topic=vpc-create-public-gateways) and a [security group](https://cloud.ibm.com/infrastructure/network/securityGroups){: external} with rules that allow at least inbound IP connections on port 8443 and all outbound IP connections.
 5.	Create a [Log Analysis instance](https://cloud.ibm.com/catalog/services/logdna?callback=%2Fobserve%2Flogging%2Fcreate){: external} on IBM Cloud. Make a note of the ingestion host and the ingestion key.
 6.	Install [Git](https://github.com/git-guides/install-git){: external}.
 
@@ -151,7 +151,7 @@ Completing this tutorial takes approximately 60 minutes.
 {: #hpvs-ftcc-step3}
 
 1.	Log in to [IBM Cloud](/login){: external}.
-2.	Go to the [provisoning page](/vpc-ext/provision/vs?architecture=s390x&secureExecution=true){: external} for Hyper Protect Virtual Server for VPC on the IBM Cloud catalog.
+2.	Go to the [provisoning page](/infrastructure/provision/vs?architecture=s390x&secureExecution=true){: external} for Hyper Protect Virtual Server for VPC on the IBM Cloud catalog.
 3.	Name the virtual server instance.
 4.	Paste the created contract information into **User data**. 
 5.	Under the **Networking**, select your VPC and subnet.

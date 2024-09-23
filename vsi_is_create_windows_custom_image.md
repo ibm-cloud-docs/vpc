@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-08-16"
+lastupdated: "2024-09-23"
 
 keywords: creating a Windows custom image, cloudbase-init, qcow2
 
@@ -312,5 +312,5 @@ After the custom image is imported, you can use it to deploy a server in your {{
 
 After you create a new virtual server from the imported image, stop and then start the virtual server before you access it:
 
-1. In [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com){: external}, click **Navigation menu** ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
+1. In [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com){: external}, click **Navigation menu** ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 1. On the **Virtual server instances** page, click Actions icon ![More Actions icon](../icons/action-menu-icon.svg).

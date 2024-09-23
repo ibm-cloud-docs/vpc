@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-03-07"
+lastupdated: "2024-09-23"
 
 keywords: help, support
 
@@ -36,7 +36,7 @@ If you need to open a support case, collect as much information as possible to h
 For UI issues:
 
 * Provide error codes and reference IDs.
-* Save the full URL of the console when the problem occurred, for example: `https://cloud.ibm.com/vpc-ext/provision/vs`
+* Save the full URL of the console when the problem occurred, for example: `https://cloud.ibm.com/infrastructure/provision/vs`
 * Include steps to reproduce the issue, along with your inputs and expected outputs.
 * Note the approximate time that the error occurred.
 * Provide the code version and error details:

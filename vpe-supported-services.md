@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-13"
+lastupdated: "2024-09-23"
 
 keywords: virtual private endpoints, endpoint gateway, VPE services
 subcollection: vpc
@@ -30,7 +30,7 @@ with your account. See [VPE-enabled services](/docs/vpc?topic=vpc-vpe-supported-
 
    Select this option if you received connection information from a provider of a service or application that includes a cloud resource name (CRN) to a Private Path service. A Private Path service is what your provider sets up to create a connection to their service or application over the IBM Cloud private network.
 
-   After you create a VPE gateway, a connection request is sent for review to the provider of the service that you are trying to connect to. Keep in mind that your account ID is shared in this request. To track the progress of your request, go to the [Virtual private endpoint gateways for VPC](/vpc-ext/network/endpointGateways){: external} dashboard to view the status of your request. The status of your VPE gateway remains `Pending` until your connection request is either accepted (`Stable`) or rejected (`Failed`).
+   After you create a VPE gateway, a connection request is sent for review to the provider of the service that you are trying to connect to. Keep in mind that your account ID is shared in this request. To track the progress of your request, go to the [Virtual private endpoint gateways for VPC](/infrastructure/network/endpointGateways){: external} dashboard to view the status of your request. The status of your VPE gateway remains `Pending` until your connection request is either accepted (`Stable`) or rejected (`Failed`).
 
    If you have any questions, contact your service provider.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-06-20"
+lastupdated: "2024-09-23"
 
 keywords:
 
@@ -30,7 +30,7 @@ Before you begin, ensure that you have created a VPC and subnet.
 To configure an ACL in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. Go to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} and log in to your account.
-1. Click the **Navigation menu** ![menu icon](../../icons/icon_hamburger.svg)  > **VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Access control lists** in the Network section.
+1. Click the **Navigation menu** ![menu icon](../../icons/icon_hamburger.svg)  > **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Access control lists** in the Network section.
 1. Click **Create +**.
 1. Select the **Edit location** icon ![Edit location icon](../icons/edit-tagging.svg "Edit location") and enter values for the following fields:
 

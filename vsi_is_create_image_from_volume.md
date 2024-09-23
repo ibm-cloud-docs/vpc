@@ -41,7 +41,7 @@ You can create an image from a volume that is attached to an available virtual s
 To create an image of the boot volume, the associated virtual server instance must be stopped.
 {: requirement}
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) > **Compute** > **Images**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) > **Compute** > **Images**.
 
 2. On the **Custom images** tab, click **Create**. The Custom image for VPC page is displayed.
 

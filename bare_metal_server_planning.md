@@ -36,5 +36,5 @@ When you are planning to create a bare metal server on {{site.data.keyword.vpc_f
 ## Next steps
 {: #next-steps-bare-metal-servers-on-vpc}
 
-* If you're ready to get started, you can [create a bare metal server](/vpc-ext/provision/bm){: external} on {{site.data.keyword.vpc_full}} now.
+* If you're ready to get started, you can [create a bare metal server](/infrastructure/provision/bm){: external} on {{site.data.keyword.vpc_full}} now.
 * For more information about creating a bare metal server on VPC, see [Creating bare metal servers on VPC](/docs/vpc?topic=vpc-creating-bare-metal-servers).

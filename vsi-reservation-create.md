@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-08-29"
+lastupdated: "2024-09-23"
 
 subcollection: vpc
 
@@ -29,7 +29,7 @@ For more information about managing IAM access, see [Managing IAM access for VPC
 
 In the {{site.data.keyword.cloud_notm}}, complete the following steps to provision your reservation.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click **Navigation Menu** icon ![the menu icon ](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Reservations**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click **Navigation Menu** icon ![the menu icon ](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Reservations**.
 2. To create a new reservation, click **Create**.
 3. From the **New reservation for VPC** page, enter or select the following information:
 

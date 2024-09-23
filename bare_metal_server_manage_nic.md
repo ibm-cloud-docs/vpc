@@ -96,7 +96,7 @@ Virtual network interfaces can be attached to new bare metal server instances, a
 
 ![Bare metal server network attachment](images/vni-bm-arch.svg "Bare metal server with a network attachment"){: caption="Figure 1. Diagram of a bare metal server with a network attachment connected to a virtual network interface" caption-side="bottom"}
 
-1. In the {{site.data.keyword.cloud_notm}} console, go to **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**.
+1. In the {{site.data.keyword.cloud_notm}} console, go to **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**.
 1. Click **Create** to begin creating a bare metal server capable of using a virtual network interface.
 1. In the **Networking** section, select whether to create one of the following:
    * **Network attachment with a virtual network interface**: a network interface with additional features, such as secondary IP addresses and a lifecycle separate from the bare metal server you are creating.

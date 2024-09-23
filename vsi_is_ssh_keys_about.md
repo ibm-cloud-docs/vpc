@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-07-31"
+lastupdated: "2024-09-23"
 
 keywords: ssh public keys, OpenSSH, add ssh key, ssh key, manage ssh key, generate ssh key, locate ssh key
 
@@ -32,7 +32,7 @@ Creating a server with a password option for connecting isn't supported. You mus
 
 On {{site.data.keyword.vpc_short}}, RSA is the default SSH key type. You can select to change the key type to ED25519. The ED25519 SSH key type enables a slightly higher performance benefit because it can give the same level of security as the RSA SSH key type with a smaller key. You can create virtual server instances and bare metal servers with a mix of RSA and ED25519 SSH keys.
 
-In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, you can go to **Navigation menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > SSH keys** to manage your SSH keys. From here you can create, rename, or delete keys. If you select to create a key, that key must be an RSA SSH key type. You can upload an ED25519 SSH key type, you just can't generate one within VPC.
+In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, you can go to **Navigation menu** icon![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > SSH keys** to manage your SSH keys. From here you can create, rename, or delete keys. If you select to create a key, that key must be an RSA SSH key type. You can upload an ED25519 SSH key type, you just can't generate one within VPC.
 
 You can generate RSA key pairs in the console. Pre-existing RSA and ED25519 SSH keys can be uploaded. ED25519 can be used only if the operating system supports this key type. ED25519 can't be used with Windows or VMware images.
 {: note}
@@ -138,7 +138,7 @@ If you are using OpenSSH version 7.8 or higher and plan to access a Windows serv
 {: #locating-ssh-keys-ui}
 {: ui}
 
-1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > SSH keys**.
+1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation menu** icon![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > SSH keys**.
 2. Any existing SSH keys are displayed.
 
 ## Listing your existing SSH keys from the CLI
@@ -182,7 +182,7 @@ data "ibm_is_ssh_keys" keys {}
 
 Use the following steps to create an SSH key. You can create only an RSA SSH key. For ED25519 SSH keys, you must upload the SSH key.
 
-1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > SSH keys**.
+1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation menu** icon![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > SSH keys**.
 1. Click **Create** and enter the information that is in Table 1.
 
    | Field | Value |
@@ -209,7 +209,7 @@ You can import an SSH key in two ways. You can upload a public key from a local 
 
 Use the following steps to import an SSH key from a local file.
 
-1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > SSH keys**.
+1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation menu** icon![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > SSH keys**.
 1. Click **Create** and enter the information that is in Table 1.
    | Field | Value |
    | --- | --- |

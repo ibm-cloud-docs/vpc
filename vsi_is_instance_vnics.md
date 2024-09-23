@@ -47,7 +47,7 @@ If you assign a new network interface to a virtual server instance while it is r
 {: ui}
 
 To add or edit the network interfaces associated with your virtual server instances, complete the following steps.
-1. In the {{site.data.keyword.cloud_notm}} console, go to **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
+1. In the {{site.data.keyword.cloud_notm}} console, go to **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 2. Click the name of a virtual server instance that includes the network interface that you want to edit. Or you can add a network interface to the virtual server instance.
 3. On the Instance details page, find the **Network interfaces** section.
 4. For specific steps for adding a floating IP address or adding a network interface, see the following sections.
@@ -89,7 +89,7 @@ Virtual network interfaces can be attached to new virtual server instances, and 
 
 ![Virtual server instance network attachment](images/vni-vsi-arch.svg "Virtual server instance with a network attachment"){: caption="Figure 1. Diagram of a virtual server instance with a network attachment connected to a virtual network interface" caption-side="bottom"}
 
-1. In the {{site.data.keyword.cloud_notm}} console, go to **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
+1. In the {{site.data.keyword.cloud_notm}} console, go to **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 1. Click **Create** to begin creating a new virtual server instance capable of using a virtual network interface.
 1. In the **Networking** section, select whether to create one of the following:
    * **Network attachment with a virtual network interface**: a network interface that has additional features, such as secondary IP addresses and a lifecycle separate from the virtual server instance you are creating.

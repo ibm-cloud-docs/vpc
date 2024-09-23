@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-09-19"
+lastupdated: "2024-09-23"
 
 keywords:
 
@@ -42,7 +42,7 @@ As a service provider, follow these steps to get started:
 1. Make sure that you have a Virtual Private Cloud (VPC) and at least one subnet in the selected VPC.
 1. Create a Private Path NLB.
 
-   * You can create a Private Path NLB when you create your Private Path service, or you can use the [Load balancer for VPC](/vpc-ext/provision/loadBalancer){: external} provisioning page to create one. To create a Private Path load balancer separate from the Private Path service, see [Creating a Private Path network load balancer](/docs/vpc?topic=vpc-ppnlb-ui-creating-private-path-network-load-balancer&interface=ui){: external}.
+   * You can create a Private Path NLB when you create your Private Path service, or you can use the [Load balancer for VPC](/infrastructure/provision/loadBalancer){: external} provisioning page to create one. To create a Private Path load balancer separate from the Private Path service, see [Creating a Private Path network load balancer](/docs/vpc?topic=vpc-ppnlb-ui-creating-private-path-network-load-balancer&interface=ui){: external}.
    * You must use the same account within the same VPC region for your Private Path NLB and Private Path service.
 
 1. [Create a Private Path service](/docs/vpc?topic=vpc-private-path-service-about&interface=ui){: external}.

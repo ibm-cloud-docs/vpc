@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-03-29"
+lastupdated: "2024-09-23"
 
 keywords:
 
@@ -36,7 +36,7 @@ You can create a DNS resolution binding with the UI, CLI, API, or Terraform.
 To create a DNS resolution binding in the IBM Cloud console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg), then click > **VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) > **VPCs**.
+1. Select the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg), then click > **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **VPCs**.
 1. Click the Virtual Private Cloud in which you want to share DNS records with the DNS hub VPC.
 1. Scroll to the Optional DNS settings section, then expand the DNS resolution binding section and click **Create**.
 1. In the Create side panel, enter a name for the resolution binding.
@@ -52,7 +52,7 @@ To create a DNS resolution binding in the IBM Cloud console, follow these steps:
 To delete a DNS resolution binding in the IBM Cloud console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg), then click > **VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) > **VPCs**.
+1. Select the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg), then click > **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **VPCs**.
 1. Click the Virtual Private Cloud in which you want to delete the DNS resolution binding.
 1. Scroll to the Optional DNS settings section, then expand the DNS resolution binding section.
 1. Click **Delete**. If there is more than one binding, click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg), then click **Delete**.

@@ -71,7 +71,7 @@ You are responsible for security on your bare metal server. That means upgrading
 
 Pay-as-you-go bandwidth is per gigabyte. Your billing charges accrue from provision to cancellation, and are billed in arrears. Total pricing includes bare metal server instance profiles and software, internet data transfers, and optional VPC services. Each additional component is priced separately and included as part of your total IBM Cloud VPC charge. Service tiers are bound to your account, not to any specific VPC.
 
-For more information about pricing, see the [bare metal server provisioning page](https://cloud.ibm.com/vpc-ext/provision/bm){: external}.
+For more information about pricing, see the [bare metal server provisioning page](https://cloud.ibm.com/infrastructure/provision/bm){: external}.
 
 ## Bare Metal Servers for VPC versus bare metal servers on classic infrastructure
 {: #vs-classic-bare-metal}
