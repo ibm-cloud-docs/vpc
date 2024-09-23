@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, [{CURRENT_YEAR}]
-lastupdated: "[{LAST_UPDATED_DATE}]"
+  years: 2022, 2024
+lastupdated: "2024-09-23"
 
 keywords: 
 
@@ -25,7 +25,7 @@ This service-to-service policy applies only to custom images in a private catalo
 
 Use the following steps to create the `globalcatalog-collection.instance.retrieve` service-to-service policy.
 
-1. In [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com/vpc-ext){: external}, go to **Manage > Access (IAM) > Authorizations**
+1. In [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com/infrastructure){: external}, go to **Manage > Access (IAM) > Authorizations**
 1. Click **Create**.
 1. On the **Grant a service authorization** page, select **VPC Infrastructure Services** for **Source service** and then select **All resources** for **How do you want to scope the access?**
 1. For **Target service**, select **Catalog Management** > **Resources based on selected attributes** for **How do you want to scope the access?**.

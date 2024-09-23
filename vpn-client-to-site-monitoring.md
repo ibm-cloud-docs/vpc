@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-07-11"
+  years: 2021, 2024
+lastupdated: "2024-09-23"
 
 keywords:
 
@@ -367,7 +367,7 @@ If the time range that is specified by `from` and `to` is large (for example, 4 
 
 To access metrics for a specific VPN server, follow these steps:
 
-1. Navigate to the [VPNs for VPC](/vpc-ext/network/vpngateways){: external} page and click the **Client-to-site servers** tab.
+1. Navigate to the [VPNs for VPC](/infrastructure/network/vpngateways){: external} page and click the **Client-to-site servers** tab.
 1. Click the name of the VPN server to display its details.
 1. Click the **Monitoring** tab to view the VPN server metrics.
 1. Configure the history, dates, and time zone to generate the output you are looking for.

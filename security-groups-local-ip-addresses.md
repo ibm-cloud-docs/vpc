@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-07-08"
+lastupdated: "2024-09-23"
 
 keywords:
 
@@ -56,7 +56,7 @@ You can create inbound and outbound rules during or after the provisioning of a 
 {: shortdesc}
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
-1. Select the Navigation Menu icon ![Menu icon](../icons/icon_hamburger.svg), then click **VPC Infrastructure**.
+1. Select the Navigation Menu icon ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure**.
 1. Click **Security groups**.
 1. From the Security groups for VPC table, choose one of the following:
 

@@ -2,7 +2,7 @@
 
 copyright:
   years:  2020, 2024
-lastupdated: "2024-08-22"
+lastupdated: "2024-09-23"
 
 keywords:
 
@@ -428,7 +428,7 @@ To collect this information and work with your {{site.data.keyword.mon_full_notm
 
 You can view individual VPN gateway metrics and launch the {{site.data.keyword.mon_full_notm}} dashboard from the VPN UI.
 
-1. Navigate to the [VPN UI](https://cloud.ibm.com/vpc-ext/network/vpngateways){: external}.
+1. Navigate to the [VPN UI](https://cloud.ibm.com/infrastructure/network/vpngateways){: external}.
 
 1. Click a VPN gateway name whose {{site.data.keyword.mon_full_notm}} metrics that you want to view and go to its **Overview** page.
 

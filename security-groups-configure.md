@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-06-20"
+lastupdated: "2024-09-23"
 
 keywords:
 
@@ -25,7 +25,7 @@ You can configure security groups to define the inbound and outbound traffic tha
 To configure your security group by using the UI, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
-1. Select the **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg), then click **VPC Infrastructure**.
+1. Select the **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg), then click **Infrastructure**.
 1. Click **Security groups**.
 1. Click **Create** on the security groups list table.
 1. In the Location section, provide the following information:

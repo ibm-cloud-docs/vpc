@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-06-14"
+lastupdated: "2024-09-23"
 
 keywords: dedicated host instance, instance on vpc dedicated host, create instance on dedicated host
 
@@ -29,7 +29,7 @@ The profile family and class must match for the dedicated host or dedicated grou
 {: important}
 
 To create an instance on a dedicated host:
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Dedicated hosts**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Dedicated hosts**.
 2. If you want to create an instance on a specific dedicated host, on the **Dedicated hosts** tab click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for the host where you want the instance to be created and select **New instance**.
 3. If you want to create an instance on any dedicated host within a dedicated group, on the **Dedicated groups** tab click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for the dedicated group where you want the instance to be created and select **New instance**. The virtual server instance is provisioned on any dedicated host in the group that has space available.
 4. For more information, see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
@@ -143,5 +143,3 @@ curl -X POST \
 For more information, see [Create an instance](/apidocs/vpc/latest#create-instance).
 
 For more information about the `$vpc_api_endpoint` and `$iam_token` variables, see the Authentication and Endpoint URLs sections in [Virtual Private Cloud API Introduction](/apidocs/vpc/latest#about-vpc-api).
-
-

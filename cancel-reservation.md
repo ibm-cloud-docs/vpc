@@ -26,7 +26,7 @@ You can't delete an active reservation. You can delete only an _inactive_ or _ex
 
 Use the following steps to delete an inactive or expired reservation.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Reservations**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Reservations**.
 2. In the reservation list, select the vertical action button to delete the reservation. You can also select the reservation first, then delete the reservation by using the **Actions** menu.
 
 Virtual servers that are attached to a reservation are charged the on-demand rates when the reservation is deleted.

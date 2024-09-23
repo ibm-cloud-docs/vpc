@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-06-11"
+lastupdated: "2024-09-23"
 
 keywords: dedicated host, dedicated hosts, dedicated host group, access, user access,
 
@@ -81,7 +81,7 @@ When you create a dedicated host, you assign it to a resource group. As part of 
 
 Complete the following steps to create a dedicated host and dedicated host group in their respective resource groups: *Admin resources* and *Users resources*.
 
-1. Click the **menu icon** ![menu icon](../icons/icon_hamburger.svg) > **VPC Infrastructure**.
+1. Click the **menu icon** ![menu icon](../icons/icon_hamburger.svg) > **Infrastructure**.
 1. From the *VPC Infrastructure* page, click **Dedicated hosts** > **Create**.
 1. Give the dedicated host a unique name such as *Example Dedicated Host*.
 1. Change the selected resource group from *Default* to *Admin resources*.
@@ -95,7 +95,7 @@ Complete the following steps to create a dedicated host and dedicated host group
 {: #creating-a-vpc}
 
 1. Open [{{site.data.keyword.cloud_notm}} console](/login){: external}.
-2. Click **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Network > VPCs** and click **Create**.
+2. Click **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Network > VPCs** and click **Create**.
 3. Enter a name for the VPC, such as `my-vpc`.
 4. Select *Users resources* as the resource group for the VPC.
 5. Create the default access control list for new subnets in this VPC.
@@ -121,7 +121,7 @@ Complete the following steps to create a dedicated host and dedicated host group
 Be sure to select VPC infrastructure from the menu icon.
 {: tip}
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 2. Click **Create** and enter the information in Table 1.
 3. Click **Create virtual server instance** when you are ready to provision.
 

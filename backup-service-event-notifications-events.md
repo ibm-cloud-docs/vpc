@@ -58,7 +58,7 @@ Then, you can connect to {{site.data.keyword.en_short}} programmatically by call
 {: #event-notifications-enable-ui}
 {: ui}
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Backup policies**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Backup policies**.
 1. Click a policy name. 
 1. Click **Actions** ![Actions icon](../icons/action-menu-icon.svg "Actions") and select **Event notifications**.
 1. In the Connect to {{site.data.keyword.en_short}} side panel, review the source details for the connection, and provide a description.

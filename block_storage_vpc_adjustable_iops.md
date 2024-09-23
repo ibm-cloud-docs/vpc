@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-08-12"
+lastupdated: "2024-09-23"
 
 keywords: Block Storage for VPC, boot volume, data volume, volume, data storage, virtual server instance, instance, adjustable volume, iops
 
@@ -77,7 +77,7 @@ The following limitations apply to this release.
 
 Follow these steps to adjust IOPS by selecting a new IOPS tier or custom IOPS band:
 
-1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage volumes**. By default, {{site.data.keyword.block_storage_is_short}} volumes display for all resource groups in your region.
+1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage volumes**. By default, {{site.data.keyword.block_storage_is_short}} volumes display for all resource groups in your region.
 1. In the list of all **{{site.data.keyword.block_storage_is_short}} volumes**, click the name of the volume to see the volume details.
    The volume that you select must be attached to a virtual server instance. In the list of volumes, its attachment type is _data_.
    {: note}

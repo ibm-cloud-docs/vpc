@@ -2,7 +2,7 @@
 copyright:
   years: 2020, 2024
 
-lastupdated: "2024-09-20"
+lastupdated: "2024-09-23"
 
 keywords: dedicated host profiles, balanced, compute, memory, ultra high memory, generation 2, gen 2
 
@@ -295,7 +295,7 @@ For the “bx2d-host-152x608” profile, you can know from the name that it is a
 {: #dh-profiles-using-console}
 {: ui}
 
-1. In the {{site.data.keyword.cloud_notm}} console, go to **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Dedicated hosts**.
+1. In the {{site.data.keyword.cloud_notm}} console, go to **Navigation Menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Dedicated hosts**.
 2. From the Dedicated host page, click **Create**.
 3. You can select from available profile configurations.
 

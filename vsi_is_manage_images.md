@@ -32,7 +32,7 @@ For details about the `$vpc_api_endpoint` and `$iam_token` variables in the foll
 
 You can manage an image by using the {{site.data.keyword.cloud_notm}} console.
 
-1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images**.
+1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images**.
 2. On the **Custom images** tab, click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for a specific image and select from the available options. Encrypted custom images are identified by a lock icon after the image name. You can select from the following actions:
 
 | Action | Description |
@@ -113,7 +113,7 @@ You can edit the name of the custom image, adds tags for searchability, and view
 
 To view details for a custom image, complete the following steps.
 
-1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images**.
+1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images**.
 2. On the **Custom images** tab, click the name of a custom image to view details about that image.
 3. On the **Image details** page you can edit the name of the image, add tags, and copy the CRN for the image.
 4. From the **Actions** menu of the Image details page, you can create a virtual server instance from the custom image or deleting the image. For a full list of possible actions, see [Managing custom images by using the UI](/docs/vpc?topic=vpc-managing-custom-images&interface=ui#custom-images-managing-ui).
@@ -186,7 +186,7 @@ If the image that is being exported is deleted while an export job is in progres
 
 To export a custom image to {{site.data.keyword.cos_full_notm}}, complete the following steps.
 
-1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images**.
+1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images**.
 2. On the **Custom images** tab, click the name of the custom image that you want to export.
 3. On the image details page, click the **Actions** menu and select **Export**.
 4. On the **Export custom image panel**, you can optionally specify a name for the export job. The name is used, along with the image name, to construct the name of the exported object in {{site.data.keyword.cos_full_notm}}. If you do not specify a name, a name is automatically generated.
@@ -266,7 +266,7 @@ The following limits exist for image export jobs:
 
 To view the export history of a custom image, complete the following steps.
 
-1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images**.
+1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images**.
 2. On the **Custom images** tab, click the name of a custom image to view details about that image.
 3. On the **Image details** page, click the **Export history** tab.
 
@@ -425,7 +425,7 @@ The **Share image to private catalog** action is not available for the following
 
 To share a custom image to a private catalog, complete the following steps.
 
-1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images**.
+1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Navigation Menu** icon![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images**.
 1. On the **Custom images** tab, click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) and select **Share to catalog**.
 1. On the **Share image to private catalog** page, select a **Private catalog** from the list of available private catalogs.
 1. Enter a version number in **Software version**.

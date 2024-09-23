@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-08-14"
+lastupdated: "2024-09-23"
 
 keywords: migrate virtual server from classic infrastructure, migrate to vpc, migrate image template, image template, import image to vpc infrastructure, migrate virtual server, migrate instance
 
@@ -245,7 +245,7 @@ To export the image template that you created from the modified virtual server t
 ### Step 6 - Importing the custom image to the {{site.data.keyword.vpc_short}} infrastructure
 {: #migrate-import-image}
 
-1. In the {{site.data.keyword.cloud_notm}} console, click **Navigation menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images**.
+1. In the {{site.data.keyword.cloud_notm}} console, click **Navigation menu** icon ![Menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Images**.
 1. On the **Custom images** tab, click **Import Custom Image**. For more information, see [Importing a custom image](/docs/vpc?topic=vpc-importing-custom-images-vpc).
 
 ### Step 7 - Using a custom image to create a virtual server in {{site.data.keyword.vpc_short}}
@@ -254,7 +254,7 @@ To export the image template that you created from the modified virtual server t
 When the image that you imported is available on the **Custom images** tab of the **Images for VPC** page, you can use it to create a virtual server instance in the {{site.data.keyword.vpc_short}} infrastructure.
 
 1. On the **Custom images** tab, find the name of the custom image that you imported, click Actions ![More Actions icon](../icons/action-menu-icon.svg), and select **New virtual server**.
-1. In [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com){: external}, go to **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
+1. In [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com){: external}, go to **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 1. On the **Virtual server instances** page, click Actions ![More Actions icon](../icons/action-menu-icon.svg). Stop and then start the virtual server before you access it.
 1. Create inbound and outbound security groups to give access to the RDP traffic port 3389. For more information, see [Setting up a security group for your resource](/docs/vpc?topic=vpc-configuring-the-security-group&interface=ui).
 1. To generate a password to allow access to Windows and RDP with a floating IP, see [Connecting to Windows instances](/docs/vpc?topic=vpc-vsi_is_connecting_windows).

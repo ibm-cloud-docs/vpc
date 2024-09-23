@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2023
-lastupdated: "2023-12-18"
+  years: 2021, 2024
+lastupdated: "2024-09-23"
 
 keywords:
 
@@ -48,7 +48,7 @@ To create a client-to-site VPN server in the UI:
 
 1. Complete all prerequisites in the "Before you begin" section.
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg), then click > **VPC Infrastructure** ![VPC icon](../../icons/vpc.svg) > **VPNs** in the Network section.
+1. Select the **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg), then click > **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **VPNs** in the Network section.
 1. Click **Create** in the upper right of the page.
 1. In the VPN type section, click **Client-to-site servers**.
 
@@ -231,6 +231,6 @@ To create a client-to-site VPN server with the API, follow these steps:
 ## Next steps
 {: #next-steps-after-provisioning-vpn-server}
 
-1. To validate that the VPN server was created successfully, wait a few minutes and then go to the [Client-to-site servers](https://cloud.ibm.com/vpc-ext/network/vpnServers){: external} table to ensure that the VPN server status is `Stable` and the Health status is `Healthy`.
+1. To validate that the VPN server was created successfully, wait a few minutes and then go to the [Client-to-site servers](https://cloud.ibm.com/infrastructure/network/vpnServers){: external} table to ensure that the VPN server status is `Stable` and the Health status is `Healthy`.
 1. [Create VPN routes](/docs/vpc?topic=vpc-vpn-client-to-site-routes).
 1. [Set up a VPN client environment and connect to the VPN server](/docs/vpc?topic=vpc-vpn-client-environment-setup).
