@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-09-20"
+lastupdated: "2024-09-23"
 
 keywords:
 
@@ -329,8 +329,6 @@ Summary of new is.instance AT events:
 
 The following table lists the actions that are related to VPC routing tables and routes.
 
-Starting 30 Sep 2024, VPC routing tables support tagging, which requires routing tables to be identified by a Cloud Resource Name (CRN). For more information, see [Activity Tracker event changes for routing tables](/docs/vpc?topic=vpc-at-changes-announcement-routing-table).
-{: attention}
 
 | Resource | Action | Description |
 |---|---|---|
