@@ -1,0 +1,50 @@
+{
+    "title": "IBM Cloud VPC docs",
+    "lastupdated": "2024-09-23",
+    "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
+    "section_devtools": {
+      "api": "/apidocs/vpc",
+      "cli": "/docs/vpc?topic=vpc-set-up-environment&interface=cli",
+      "terraform": "https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance"
+    },
+    "section_recommended": [
+      {
+        "title": "Using the IBM Cloud console to create VPC resources",
+        "description": "Get up and running quickly by completing this short tutorial to set up a VPC and subnet, configure an ACL, and create a virtual server instance with block storage and networking options.",
+        "href": "/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console"
+      },
+      {
+        "title": "Creating an instance group for auto scaling",
+        "description": "Set up an instance group to dynamically add or remove instances according to your requirements.",
+        "href": "/docs/vpc?topic=vpc-creating-auto-scale-instance-group"
+      },
+      {
+        "title": "About creating an image from a volume",
+        "description": "Learn about creating a custom image from a boot volume on a virtual server instance.",
+        "href": "/docs/vpc?topic=vpc-image-from-volume-vpc"
+      }
+    ],
+    "section_learn": {
+      "architecture": "https://www.ibm.com/topics/vpc"
+    },
+    "section_updates": {
+      "view_more": "/docs/vpc?topic=vpc-release-notes",
+      "tiles": [
+        {
+          "date": "20 September 2024",
+          "title": "GPU H100 profile now available in Tokyo (`jp-tok`) and Sao Paulo (`br-sao`) regions (select availability)",
+          "description": "The GPU H100 profile is now available in the Tokyo (`jp-tok`) and Sao Paulo (`br-sao`) regions, in addition to London (`eu-gb`), Sydney (`au-syd`), Toronto (`ca-tor`), Madrid (`eu-es`), and Washington DC (`us-east`). The GPU H100 profile is now available on the latest generation GPU-enabled infrastructure for running machine learning (ML) and deep learning (DL) frameworks in support of AI initiatives. When you use the H100 virtual server profile, it runs on an NVIDIA Hopper-based HGX server and is the sole tenant running on the host."
+        },
+        {
+          "date": "20 September 2024",
+          "title": "Secure boot for Virtual Servers for VPC (GA)",
+          "description": "Secure boot is now generally available. Secure boot is a security standard that makes sure that your server starts with trusted software by verifying the digital signatures for all code in the boot process. When a server starts in secure boot mode, the firmware checks the signature of the boot software, including UEFI firmware drivers, EFI applications, and the operating system. If the signatures are valid, the server boots, and the firmware grants control to the operating system. Which means that secure boot helps prevent malicious software from loading when your server starts."
+        },
+        {
+          "date": "17 September 2024",
+          "title": "Very High Memory profiles for SAP-HANA (select availabilty)",
+          "description": "New Very High Memory profiles for SAP-HANA are now available. These profiles are indicated by the spl suffix and have one UMA node. These profiles are only available in Toronto (ca-tor) region."
+        }
+      ]
+    }
+  }
