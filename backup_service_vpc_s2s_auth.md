@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-22"
+lastupdated: "2024-09-23"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -106,6 +106,31 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
 1. Click **Review** and inspect your choices.
 1. Click **Authorize**.
 1. When you are returned to the **Manage authorizations** page, click **Create** again and follow the same steps to set up authorizations for the remaining services.
+
+### Enabling service-to-service authorization for {{site.data.keyword.en_short}}
+{: #backup-s2s-auth-procedure-en-ui}
+{: ui}
+
+[New]{: tag-new} To create a service-to-service authorization policy for {{site.data.keyword.en_short}}, follow this procedure:
+
+1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage > Access (IAM)**. The **Manage access and users** page is displayed.
+1. From the side panel, select **Authorizations**.
+1. On the **Manage authorizations** page, click **Create**. 
+1. In the **Source** section, select the **Source account**. As you're setting up authorization for the Backup service in your account, select **This account**. Click **Next**.
+1. For the source service, select **VPC Infrastructure Services** from the list. Click **Next**.
+   1. Select the scope by clicking **Specific resources**.
+   1. Click **Select an attribute** and from the list, select **Resource type**. 
+   1. In the next field, select **IBM Cloud Backup for VPC**.
+   1. Click **Next**.
+1. Select **{{site.data.keyword.en_short}}** as the target service. Click **Next**.
+   1. Select the scope by clicking **Specific resources**.
+   1. Click **Select an attribute**.
+   1. Click **serviceInstance**.
+   1. In the next field, select **string equals**.
+   1. In the next field, select the {{site.data.keyword.en_short}} service instance that you want to authorize.
+1. Select the **Event Source Manager** role.
+1. Click **Review** and inspect your choices.
+1. Click **Authorize**.
 
 ## Creating authorization policies from the CLI
 {: #backup-s2s-auth-procedure-cli}
@@ -244,6 +269,19 @@ ibmcloud iam authorization-policy-create is is Editor --source-resource-type bac
 
 ```sh
 ibmcloud iam authorization-policy-create is is Editor --source-resource-type backup-policy --target-resource-type instance --source-service-account ACCOUNT_ID
+```
+{: pre}
+
+For more information about all of the parameters that are available for this command, see [ibmcloud iam authorization-policy-create](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_authorization_policy_create).
+
+### Enabling service-to-service authorization for {{site.data.keyword.en_short}}
+{: #backup-s2s-auth-procedure-en-cli}
+{: cli}
+
+[New]{: tag-new} To create a service-to-service authorization policy for {{site.data.keyword.en_short}}, use the `authorization-policy-create` command.
+
+```sh
+ibmcloud iam authorization-policy-create is event-notification EventSourceManager --source-resource-type backup-policy --target-resource-instance $en-instance-ID
 ```
 {: pre}
 
@@ -519,6 +557,40 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
       
 For more information, see the api spec for [IAM Policy Management](/apidocs/iam-policy-management#create-policy).
 
+### Enabling service-to-service authorization for {{site.data.keyword.en_short}}
+{: #backup-s2s-auth-procedure-en-api}
+{: api}
+
+[New]{: tag-new} To create a service-to-service authorization policy for {{site.data.keyword.en_short}}, make an API request to grant`is.backup-policy` (source) access to `event-notification` (target) with the `EventSourceManager` role.
+
+```sh
+curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H 
+'Authorization: Bearer $TOKEN' -H 
+'Content-Type: application/json' -d 
+'{
+  "type":"access",
+  "description":"Event Source Manager role for the backup service to interact with the Event notification service",
+  "subjects": [
+       {"attributes": [
+          {"name":"serviceName","value":"is"},
+          {"name":"resourceType","value":"backup-policy"}]
+        }
+  ],
+  "roles":[
+       {"role_id" "crn:v1:bluemix:public:iam::::role:EventSourceManager"}
+  ],
+  "resources":[
+       {"attributes": [
+          {"name":"serviceName","operator":"stringEquals","value":"event-notification"},
+          {"name":"instanceId","operator":"stringEquals", "value":"<en-instance-ID>"}]
+       }
+  ]
+}'
+```
+{: pre}
+
+
+
 ## Creating authorization policies with Terraform
 {: #backup-s2s-auth-procedure-terraform}
 {: terraform}
@@ -658,6 +730,27 @@ resource "ibm_iam_authorization_policy" "policy4" {
 {: screen}
 
 For more information about the arguments and attributes, see the [Terraform documentation for authorization resources](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/iam_authorization_policy){: external}.
+
+### Enabling service-to-service authorization for {{site.data.keyword.en_short}}
+{: #backup-s2s-auth-procedure-en-terraform}
+{: terraform}
+
+[New]{: tag-new} To create a service-to-service authorization policy for {{site.data.keyword.en_short}}, use the `ibm_iam_authorization_policy` resource argument in your `main.tf` file.
+
+```terraform 
+resource "ibm_iam_authorization_policy" "en-policy" {
+   source_service_name         = "is"
+   source_resource_type        = "backup-policy"
+   source_resource_instance_id = ibm_backup-policy_instance.instance.guid
+   target_service_name         = "event-notification"
+   target_resource_instance_id = ibm_event-notification_instance.instance.guid
+   roles                       = ["EventSourceManager"]
+}
+```
+{: codeblock}
+
+For more information about the arguments and attributes, see the [Terraform documentation for authorization resources](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/iam_authorization_policy){: external}.
+
 
 ## Next Steps
 {: #backup-s2s-next-steps}

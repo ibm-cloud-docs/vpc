@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-09-17"
+lastupdated: "2024-09-21"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -147,8 +147,6 @@ The following information is available at the `/var/hyperprotect/` directory:
 {: codeblock}
 
 Checksums are the SHA256 of the message digest and can be calculated by using the following Linux command-line utility:
-
-{: pre}
 
 The following snippet is an example of an attestation document:
 ```text

@@ -418,6 +418,7 @@ toc:
                 - cr-attach-subnet.md
                 - cr-list-table.md
                 - cr-delete-table.md
+                - cr-announcement.md
             - topicgroup:
                 label: VPC routes
                 topics:
@@ -612,6 +613,7 @@ toc:
                 - backup_service_vpc_manage_policy.md
                 - backup_service_vpc_monitoring.md
                 - backup_service_vpc_view_backup_jobs.md
+                - backup-service-event-notifications-events.md
             - backup_service_vpc_restore.md
         - topicgroup:
             label: File Storage

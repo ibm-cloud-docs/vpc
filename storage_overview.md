@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-31"
+lastupdated: "2024-09-23"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup, 
 
@@ -73,6 +73,8 @@ For more information, see [About {{site.data.keyword.filestorage_vpc_short}}](/d
 {: #vpc-backup-serv-overview}
 
 The {{site.data.keyword.cloud}} provides the means to create backup copies of your block storage volumes automatically. You can create a backup policy with one or more plans, and associate tags to the policy in the UI, from the CLI, with the API or Terraform. The user-defined tags can be added to block storage volumes. When tags match, the backup policy is applied to the volume, and backup copies of the data are created based on the backup plan. You can set your own retention schedule to automatically delete older backups. This way, you can control how much space is used and how long backups are retained. By using Backup for VPC service, you can prevent data loss, manage risk, and improve data compliance.
+
+Backup jobs that create or delete backup snapshots run according to the backup plan and the retention policy. You can view the status of the backup jobs in the console, from the CLI, with the API, or Terraform. If a job fails, the health status code shows the reason for the failure. You can also set up a connection to {{site.data.keyword.en_short}} and receive notifications to your preferred destinations.
 
 For more information, see [About Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
 

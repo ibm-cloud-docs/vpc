@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-09-17"
+lastupdated: "2024-09-21"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -557,6 +557,7 @@ logging:
     tags: ["custom tag name 1", "custom tag name 2"]
 ```
 {: codeblock} 
+
 ### The `env` - `volumes` subsection
 {: #hpcr_contract_env_vol}
 
