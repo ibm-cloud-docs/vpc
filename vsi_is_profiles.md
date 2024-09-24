@@ -386,9 +386,9 @@ The following Storage Optimized profiles are available for x86-64 processors:
 
 [Select availability]{: tag-green}
 
-The following profiles support Confidential computing with Intel Software Guard Extensions (SGX), Confidential computing with Intel Trusted Domain Extension (TDX), and secure boot.
+The following profiles support confidential computing with Intel Software Guard Extensions (SGX) and secure boot.
 
-For more information about confidential computing, see [Confidential computing for x86 Virtual Servers for VPC](/docs/vpc?topic=vpc-about-sgx-vpc).
+For more information about confidential computing, see [Confidential computing with Intel Software Guard Extensions (SGX) for Virtual Servers for VPC](/docs/vpc?topic=vpc-about-sgx-vpc).
 
 | Instance profile | vCPU / Cores | GiB RAM | EPC (SGX) capacity (GiB)  | Bandwidth cap (Gbps) | Instance storage (GB) |
 | ---------------- | ---- | ------- | ------------------------- |------- | ------------------------- |
