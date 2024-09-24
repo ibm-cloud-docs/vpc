@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-09-24"
 
 keywords:
 
@@ -173,8 +173,8 @@ Zone                                   us-east-1
 Health State                           ok
 Volume Attachment Instance Reference   -
 Active                                 false
-Unattached capacity update supported   false
-Unattached iops update supported       false
+Adjustable Capacity States             attached 
+Adjustable IOPS States                 
 Busy                                   false
 Tags                                   -
 ```

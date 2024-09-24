@@ -27,6 +27,28 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## September 2024
 {: #vpc-sep24}
 
+### 25 September 2024
+{: #vpc-sep2524}
+{: release-note}
+
+IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-19` updates
+:   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-19`, new certificates are available.
+   - [Attestation certificate](/docs/vpc?topic=vpc-about-attestation)
+   - [Encryption certificate](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_encrypt)
+   - [Intermediate certificate](/docs/vpc?topic=vpc-cert_validate#download_cert)
+
+HPVS supports IBM Cloud Logs
+:   HPVS supports IBM Cloud Logs solution. For more information, see [ICL](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc#cloud-logs).
+
+IBM log analysis is deprecated
+:   Migrate HPVS instances to IBM Cloud log. For more information on migration, see [Steps to migrate for existing customers](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc#cloud-logs-migrate).
+
+### 24 September 2024
+{: #vpc-sep2424}
+{: release-note}
+
+Block Storage for VPC snapshots for cross-account restore
+:   You can now share a snapshot with another account and allow the other account to create volumes with the snapshot. To do so, you must set up [cross-account authorization](/docs/vpc?topic=vpc-block-s2s-auth) in {{site.data.keyword.iamshort}}, and share the CRN of the snapshot with the other account. The other account's authorized storage administrator can use the CRN to create a volume in the console, from the CLI, with the API, or Terraform. For more information, see [Sharing a snapshot with another account in the console](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-s2s-ui) and [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore).
 
 ### 23 September 2024
 {: #vpc-sep2324}

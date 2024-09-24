@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-09-24"
 
 keywords: Block Storage for VPC, boot volume, data volume, volume, data storage, virtual server instance, instance, adjustable volume, iops
 
@@ -98,8 +98,6 @@ Your new IOPS allocation is realized when you restart the instance.
 ## Adjust IOPS from the CLI
 {: #adjust-vpc-iops-cli-block}
 {: cli}
-
-
 
 ### Before you begin
 {: #adjust-vpc-iops-cli-block-prereq}

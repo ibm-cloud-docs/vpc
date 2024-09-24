@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-09-24"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup, 
 
@@ -44,6 +44,8 @@ Block storage snapshots is a regional offering. A snapshot is a point-in-time co
 You can create, list, view details, and manage snapshots in the UI, from the CLI, and with the API or Terraform. You can select a nonbootable snapshot to create a data volume and attach it to a running virtual instance. You can also select a bootable snapshot during instance provisioning to restore its data to a new boot volume to start the instance. You can use the snapshot to create a stand-alone volume and attach it to an instance later.
 
 You can copy snapshot to another region and use it to provision new volumes in that region, as a BCDR measure or geographic expansion.
+
+[New]{: tag-new} You can also share a snapshot with another account and allow the other account to create volumes with the snapshot. To do so, set up cross-account authorization in {{site.data.keyword.iamshort}}, and share the CRN of the snapshot with the other account. The other account's authorized storage administrator can use the CRN to create a volume in the console, from the CLI, with the API, or Terraform.
 
 Snapshots are independent of the source block storage volumes. You can delete the original volume and the snapshot persists. However, you cannot delete a snapshot that is being used to hydrate a newly restored storage volume.
 

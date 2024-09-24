@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-09-10"
+lastupdated: "2024-09-24"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -53,6 +53,22 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 24 September 2024
+{: #24-september-2024}
+
+### For all version dates
+{: #24-september-2024-all-version-dates}
+
+**Sharing snapshots across accounts.** You can now use [cross-account authorization](/docs/vpc?topic=vpc-block-s2s-auth&interface=api#block-s2s-xaccount-encryption-api) in Identity and Access Management ([IAM](/docs/account?topic=account-iamoverview)) to share a snapshot CRN with a target IBM account. Sharing allows that account to create a block storage volume from the shared snapshot. When [creating a volume](/apidocs/vpc/latest#create-volume), users who have been authorized within the target account can specify the `source_snapshot.crn` property with the CRN of the snapshot. When [listing volumes](/apidocs/vpc/latest#list-volumes) or [retrieving a volume](/apidocs/vpc/latest#get-volume), the response includes `source_snapshot.remote.account` if the snapshot is from a different account.
+
+For more information, see [Sharing a snapshot with another account](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=api#snapshots-vpc-s2s-api) and [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=api#snapshots-vpc-restore-API).
+
+**Block storage `defined_performance` family.** For accounts that have been granted special approval to preview this feature, a new `defined_performance` family is introduced for data and boot [volumes](/apidocs/latest#create-volume). This family initially contains the new [`sdp`](/docs/vpc?topic=vpc-block-storage-about&interface=ui#block-storage-sdp-intro) profile, which provides similar functionality to the existing `custom` volume profile. The `sdp` profile introduces the ability to increase capacity and change IOPS to volumes, even when those volumes are not attached to a virtual server instance. To make use of these capabilities in your automation, refer to **Block storage schema enhancements for adjustable capacity and IOPS.**
+
+For more information, see [About Block Storage for VPC](/docs/vpc?topic=vpc-block-storage-about), [Block Storage for VPC profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=api), [Creating Block Storage for VPC volumes](/docs/vpc?topic=vpc-creating-block-storage&interface=api), and [Viewing available volume profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=api#view-iops-profiles).
+
+**Block storage schema enhancements for adjustable capacity and IOPS.** When [listing](/apidocs/vpc/latest#list-volume-profiles) and [retrieving](/apidocs/vpc/latest#get-volume-profile) a volume profile, the new `adjustable_capacity_states`, `adjustable_iops_states`, `boot_capacity`, `capacity`, and `iops` properties indicate the capacity and IOPS capabilities of the volume profile. While the capabilities of existing profiles are unchanged, accounts with access to the `defined_performance` profile family can use these properties in automation to robustly use the new capabilities. Similarly, when [listing](/apidocs/vpc/latest#list-volumes), and [retrieving](/apidocs/vpc/latest#get-volume) a volume, the new `adjustable_capacity_states` and `adjustable_iops_states` properties indicate the adjustable capacity and IOPS capabilities of the volume.
 
 ## 10 September 2024
 {: #10-september-2024}

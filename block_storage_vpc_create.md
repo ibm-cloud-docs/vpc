@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-09-24"
 
 keywords: vpc Block Storage, provision Block Storage for vpc, bootable snapshots, create volume from snapshot, fast restore
 
@@ -18,7 +18,7 @@ subcollection: vpc
 Create a {{site.data.keyword.block_storage_is_short}} volume by using the UI, CLI, API, or Terraform. You can create a volume as part of instance provisioning, as a stand-alone volume that you can later attach to an instance, or by restoring from a snapshot.
 {: shortdesc}
 
-Before you get started, make sure that you [created a VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
+Before you get started, make sure that you [created a VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console). When you create a volume from a snapshot, you can use a snapshot from your own account or another account. If you plan to use a snapshot from another account, make sure that the right [IAM authorizations](/docs/vpc?topic=vpc-block-s2s-auth&interface=ui#block-s2s-auth-xaccountrestore-ui) are in place.
 {: important}
 
 ## Creating {{site.data.keyword.block_storage_is_short}} volumes in the console
@@ -37,7 +37,7 @@ Use the {{site.data.keyword.cloud_notm}} console to create a {{site.data.keyword
 1. In the Virtual server for VPC provisioning page, select Server type, Location, OS, Profile, Placement Group, and so on. For more information about provisioning the instance, see [Creating a virtual server instance with the UI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#creating-virtual-servers-ui). 
 1. The details of the boot volume that is to be created are displayed on the page. You can edit the boot volume by clicking the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change the size, specify encryption, and add any user tags to identify this resource. 
 1. To create a data volume and attach it to the instance, in the **Data volumes** section of the instance provisioning page, click **Create**. In the side panel, specify the volume details.
-   1. You have the option to import data from a snaphot by clicking the **Import from snapshot** toggle. Select a snapshot from the list.
+   1. You have the option to import data from a snaphot by clicking the **Import from snapshot** toggle. Select an available snapshot from the list, or locate the snapshot by its CRN.
    1. Specify a unique, meaningful name for your volume. For example, it can be a name that describes your compute or workload function. The volume name must begin with a lowercase letter. The name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-). Volume names must be unique the entire VPC infrastructure. You can edit the name later if you want. 
    1. Auto-delete feature is disabled by default. If you want the volume to be deleted when the attached virtual server instance is deleted, click the toggle to enable the feature.
    1. Resource group and location are inherited from the instance. These values can't be changed.
@@ -62,7 +62,7 @@ You can create a {{site.data.keyword.block_storage_is_short}} volume from an exi
 2. Select an instance from the list.
 3. On the instance details page, scroll to **Storage volumes** and click **Attach**.
 4. In the side panel, click the down arrow under **Block volumes** and select **Create a data volume**. The side panel expands with fields to define the volume.
-   1. If you created volume snapshots previously, the option to import one becomes available. Click the toggle to **Import from snapshot**, and select a snapshot from the list.
+   1. If you created volume snapshots previously, the option to import one becomes available. Click the toggle to **Import from snapshot**, and select a snapshot from the list or locate the snapshot by its CRN.
    1. Specify a unique, meaningful name for your volume. For example, it can be a name that describes your compute or workload function. The volume name must begin with a lowercase letter. The name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-). Volume names must be unique the entire VPC infrastructure. You can edit the name later if you want. 
    1. Auto-delete feature is disabled by default. If you want the volume to be deleted when the attached virtual server instance is deleted, click the toggle to enable the feature.
    1. Resource group and location are inherited from the instance. These values can't be changed.
@@ -120,8 +120,9 @@ You can restore a boot volume from a "bootable" snapshot. The boot volume is res
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage volumes**.
 1. Select **Create**.
 1. Specify the location of the volume, volume name, optional resource group and tags.
-1. In the **Optional configurations** section, click **Import from snapshot**.
-1. Click **Select snapshot** to create the volume with data from the selected snapshot. By default, the **Nonbootable** tab is selected that lists all data volume snapshots. To restore a boot volume, click the **Bootable** tab. **Attach volume to new virtual server instance** is selected by default. The boot volume is restored when the instance is created.
+1. In the **Optional configurations** section, click **Import from snapshot**. Select one of the following options
+   - Click **Import existing snapshot** to see the list of available snapshots. All snapshots that are presented are in a _stable_ state. By default, the **Nonbootable** tab is selected that lists all data volume snapshots. To restore a boot volume, click the **Bootable** tab. **Attach volume to new virtual server instance** is selected by default. The boot volume is restored when the instance is created.
+   - [New]{: tag-new} Click **Import snapshot by CRN** and provide the CRN of the snapshot that you want to use.
 1. Click **Save**. Information about the snapshot is shown on the volume provisioning page, including the name, its size, the date when it was created, its source volume, and whether it is a bootable snapshot. Bootable snapshot information includes the operating system and image. The encryption is inherited from the snapshot and shown in the encryption section.
 1. Click **Create block storage volume**.
 
@@ -240,7 +241,7 @@ Tags                                   -
 ### Creating a stand-alone {{site.data.keyword.block_storage_is_short}} volume from a snapshot from the CLI
 {: #create-vol-from-snapshot-cli}
 
-Run the `ibmcloud is volume-create` command and specify the `--snapshot` option with the name or ID of the snapshot you're using to create the new volume. The volume is unattached, as indicated by the attachment state in the response.
+Run the `ibmcloud is volume-create` command and specify the `--snapshot` option with the name, ID, or CRN [New]{: tag-new} of the snapshot you're using to create the new volume. The volume is unattached, as indicated by the attachment state in the response.
 
 This example creates the new volume from a snapshot that is specified by name.
 
@@ -645,7 +646,7 @@ For more information about volume creation with the API, see [Creating Block Sto
 ### Creating a data volume from a snapshot of an unattached volume with the API
 {: #block-storage-create-vol-snapshot-api}
 
-You can specify a snapshot ID in a `POST /volumes` call to create a stand-alone data volume.
+You can specify a snapshot ID, name, or CRN in a `POST /volumes` call to create a stand-alone data volume.
 
 Data is fully restored when you attach the data volume to a virtual server instance. For more information, see [About restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-restore-concepts). For an example API call, see [Restoring a data volume from a snapshot of an unattached volume](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=api#snapshots-vpc-restore-unattached-api).
 
@@ -706,7 +707,7 @@ For more information about the arguments and attributes, see [ibm_is_volume](htt
 ### Creating a stand-alone {{site.data.keyword.block_storage_is_short}} volume from a snapshot with Terraform
 {: #create-vol-from-snapshot-terraform}
 
-To create a {{site.data.keyword.block_storage_is_short}} volume from a snapshot, use the `ibm_is_volume` resource. The following example creates a volume based on a snapshot that is identified by its ID.
+To create a {{site.data.keyword.block_storage_is_short}} volume from a snapshot, use the `ibm_is_volume` resource. The following example creates a volume based on a snapshot that is identified by its ID. You could also use the name or the CRN to identify the snapshot.
 
 ```terraform
 resource "ibm_is_volume" "storage" {
@@ -752,6 +753,8 @@ resource "ibm_is_instance" "example" {
 }
 ```
 {: codeblock}
+
+[New]{: tag-new} If you want to restore a volume from a snapshot of another account, you can use the `source_snapshot_crn` argument to identify the snapshot by its CRN, instead of its ID.
 
 For more information about the arguments and attributes, see [ibm_is_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance){: external}.
 

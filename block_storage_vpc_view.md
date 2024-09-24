@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-09-24"
 
 keywords:
 
@@ -207,8 +207,8 @@ Volume Attachment Instance Reference   Attachment type   Instance ID            
                                        data              0757_11f5db7f-35a1-4678-bcbd-c85204e09507   kj-test-ro      false         0757-4dfc4384-c4b5-497e-bab3-6415f9c4d44b   otp      
                                           
 Active                                 true   
-Unattached capacity update supported   false   
-Unattached iops update supported       false   
+Adjustable Capacity States             attached 
+Adjustable IOPS States                     
 Busy                                   false   
 Tags                                   -  
 ```

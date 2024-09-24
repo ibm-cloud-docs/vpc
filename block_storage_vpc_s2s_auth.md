@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-26"
+lastupdated: "2024-09-24"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -45,6 +45,34 @@ For more information about authorizations, see [Using authorizations to grant ac
 1. For the target service, select **Hyper Protect Crypto Services** or **KeyProtect** from the list.
 1. Select the role `Reader`.
 1. Check the box to enable authorization to be delegated by source and dependent services.
+1. Click **Review** and inspect your choices.
+1. Click **Authorize**.
+
+## Creating service-to-service authorization for cross-account restore in the console
+{: #block-s2s-auth-xaccountrestore-ui}
+{: ui}
+
+[New]{: tag-new}
+
+The following steps authorize the Block Storage service of one account to use a snapshot that is created by another account to restore volumes. The steps need to be performed by the account that owns the snapshot that is to be shared. The receiving account must ensure that their admin user has the `SnapshotRemoteAccountRestorer` role in IAM before they start a volume restoration with the CRN of the shared snapshot.
+
+1. On the **Manage authorizations** page, click **Create**. 
+1. On the **Grant a service authorization** page, select the source account. 
+   1. Because the goal is to allow the use of a snapshot from another account, select a **Specific account**.
+   1. Enter the 32-character account ID.
+   1. Click **Next**.
+1. For the source service, select **Cloud Block Storage** from the list. Click **Next**.
+   1. Select the scope by clicking **All resources**.
+   1. Click **Next**.
+1. For the target service, select **VPC Infrastructure Services** from the list.
+   1. Select the scope by clicking **Specific resources**.
+   1. Click **Select an attribute**.
+   1. From the list, select **Resource type**.
+   1. In the next field, select **Block Storage Snapshots for VPC**.
+   1. If you want to restrict the authorization to a specific snapshot, click **Add a condition**. 
+      1. Click **Select an attribute** and select **Snapshot ID**. 
+      1. Enter the ID of the snapshot. Click **Next**
+1. Select the role `Snapshot Remote Account Restorer`.
 1. Click **Review** and inspect your choices.
 1. Click **Authorize**.
 
@@ -121,6 +149,36 @@ Run the `ibmcloud iam authorization-policy-create` command to create authorizati
    The cross-account authorization is one-way and specific to key and service. When Account A authorizes their key to be used by Account B's file service, Account B can use Account A's CRK to encrypt Account B's shares. However, Account A cannot use Account B's root keys to encrypt Account A's shares.
    {: note}
 
+## Creating service-to-service authorization for cross-account restore from the CLI
+{: #block-s2s-auth-xaccountrestore-cli}
+{: cli}
+
+[New]{: tag-new}
+
+Run the `ibmcloud iam authorization-policy-create` command to authorize the Block Storage service of one account to use a snapshot that was created by another account to restore volumes. This command needs to be issued by the account that owns the snapshot that is to be shared. The receiving account must ensure that their admin user has the `SnapshotRemoteAccountRestorer` role in IAM before they start a volume restoration with the CRN of the shared snapshot.
+
+1. Create a JSON file with the following information for the authorization policies in your local Documents folder.
+   ```json
+   '{
+        "type":"authorization",
+        "description":"Providing the Block Storage service access to restore from a Snapshot of another account ",
+        "subjects": [{"attributes": [
+                {"name":"Block Storage for VPC","value":"server-protect"},
+                {"name":"Remote-restorer-account","value":"<Remote-Restorer-Account-ID>"}]}],
+        "roles": [{"role_id":"crn:v1:bluemix:public:iam::::role:SnapshotRemoteAccountRestorer"}],
+        "resources": [{"attributes": [
+                {"name":"Snaphot-owner-account","operator":"stringEquals","value":"<Snapshot-Owner-Account-ID>"},
+                {"name":"snapshotId","operator":"stringEquals","value":"*"}]}],
+   }'
+   ```
+   {: codeblock}
+
+1. Then, use the JSON files to run the following CLI command.
+   ```sh
+   ibmcloud iam authorization-policy-create --file ~/Documents/policy.json
+   ```
+   {: pre}
+
 ## Creating service-to-service authorization for customer-managed encryption with the API
 {: #block-s2s-auth-encryption-api}
 {: api}
@@ -177,6 +235,33 @@ Make a request to the [IAM Policy Management API](/apidocs/iam-policy-management
 
 The cross-account authorization is one-way and specific to key and service. When Account A authorizes their key to be used by Account B's file service, Account B can use Account A's CRK to encrypt Account B's shares. However, Account A cannot use Account B's root keys to encrypt Account A's shares.
 {: note}
+
+## Creating service-to-service authorization for cross-account restore with the API
+{: #block-s2s-auth-xaccountrestore-api}
+{: api}
+
+[New]{: tag-new}
+
+The following API request authorizes the Block Storage service of one account to use a snapshot that was created by another account to restore volumes. This call needs to be issued by the account that owns the snapshot that is to be shared. The receiving account must ensure that their admin user has the `SnapshotRemoteAccountRestorer` role in IAM before they start a volume restoration with the CRN of the shared snapshot.
+
+```sh
+curl -X "POST" "https://iam.cloud.ibm.com/v1/policies"\
+   -H 'Content-Type: application/json\
+   -d '{
+        "type":"authorization",
+        "description":"Providing the Block Storage service access to restore from a Snapshot of another account ",
+        "subjects": [{"attributes": [
+                {"name":"BCloud Block Storage","value":"server-protect"},
+                {"name":"Remote-restorer-account","value":"<Remote-Restorer-Account-ID>"}]}],
+        "roles": [{"role_id":"crn:v1:bluemix:public:iam::::role:SnapshotRemoteAccountRestorer"}],
+        "resources": [{"attributes": [
+                {"name":"Snaphot-owner-account","operator":"stringEquals","value":"<Snapshot-Owner-Account-ID>"},
+                {"name":"snapshotId","operator":"stringEquals","value":"*"}]}],
+   }'
+```
+{: codeblock}
+ 
+When you want to restrict the access to a specific snapshot, use the snapshot ID instead of `*` when you define your resources.
 
 ## Creating service-to-service authorization for customer-managed encryption with Terraform
 {: #block-s2s-auth-encryption-terraform}
@@ -248,6 +333,33 @@ For more information about the arguments and attributes, see the [Terraform docu
        target_service_name = "kms"   
        target_resource_instance_id = ibm_kms_key.key.instance_id
        roles               = ["Reader", "Authorization Delegator"]
+       description         = "Authorization Policy" 
+   }
+   ```
+   {: screen}
+
+   This terraform resource must also include the provider alias (in our example, `ibm.team_account`) with the account `ibmcloud_api_key` where the encryption key belongs.
+
+   For more information about the arguments and attributes, see [ibm_iam_authorization_policy](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/iam_authorization_policy#authorization-policy-between-two-specific-services){: external}.
+
+## Creating service-to-service authorization for cross-account restore Terraform
+{: #block-s2s-auth-xaccountrestore-terraform}
+{: terraform}
+
+[New]{: tag-new}
+
+1. Configure the two IBM accounts for IBM provider. See the example in the [previous section](#block-s2s-xaccount-encryption-terraform).
+
+1. To create the IAM authorization for the Block Storage service of one account to use a snapshot that was created by another account to restore volumes, use the resource `ibm_iam_authorization_policy`.
+
+   ```Terraform
+   resource "ibm_iam_authorization_policy" "policy" {
+       source_service_name = "server-protect"
+       source_service_account = "<volume-account-id>"
+       target_service_name = "ibm_is_snapshot"   
+       target_resource_instance_id = ibm_is_snapshot.snapshot.instance_id
+       target_service_account = "<snapshot-account-id>"
+       roles               = ["SnapshotRemoteAccountRestorer"]
        description         = "Authorization Policy" 
    }
    ```

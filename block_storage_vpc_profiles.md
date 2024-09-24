@@ -187,6 +187,65 @@ $vpc_api_endpoint/v1/volume/profiles?$api_version&generation=2 \
 ```
 {: pre}
 
+Before 24 September 2024, the API response included the fields `name`, `href`, `family`. Now the response is enhanced to include the following fields:
+
+- `boot_capacity` denotes the capacity values that are permissible for boot volumes for each profile. The returned value is a range with minimum and maximum values that are specified for each profile.
+   - For `custom` and `tiered` profiles, the range is 10 GB - 250 GB.
+- `capacity` denotes the capacity values that are permissible for data volumes for each profile. The returned value is a range with minimum and maximum values that are specified for each profile.
+   - For `custom` and `tiered` profiles, the range is 10 GB - 16 TB.
+- `adjustable_capacity_states` indicates whether the capacity for the volume can be changed when the volume is not attached to a running virtual server instance. This field is informational. It describes the characteristics of the volume profile and cannot be changed.
+   - For `custom` and `tiered` profiles, this value is `attached`.
+- `adjustable_iops_states` indicates whether the IOPS for the volume can be changed when the volume is not attached to a running virtual server instance. This field is informational. It describes the characteristics of the volume profile and cannot be changed.
+   - For the `custom` profiles, this value is `attached`.
+   - For the `tiered` profiles, this value is empty because changes to IOPS are not supported in any state. If you want to change the IOPS value of a volume, you can change to another `tiered` profile.
+
+To see details of a specific profile, make a `GET /volume/profiles/` request with the profile name.
+
+```sh
+curl -X GET "https://us-south.iaas.cloud.ibm.com/v1/volume/profiles/10iops-tier?version=2024-09-24&generation=2"\
+ -H "Authorization: $iam_token"
+```
+{: pre}
+
+A successful response looks like the following example.   
+
+```json
+   {
+  "boot_capacity": {
+    "max": 250,
+    "min": 10,
+    "step": 1,
+    "type": "dependent_range"
+  },
+  "capacity": {
+    "max": 16000,
+    "min": 10,
+    "step": 1,
+    "type": "dependent_range"
+  },
+  "family": "tiered",
+  "href": "https://us-south.iaas.cloud.ibm.com/v1/volume/profiles/10iops-tier",
+  "iops": {
+    "max": 48000,
+    "min": 100,
+    "step": 1,
+    "type": "dependent_range"
+  },
+  "name": "10iops-tier",
+  "adjustable_capacity_states": {
+    "type": "fixed",
+    "value": "attached"
+  },
+  "adjustable_iops_states": {
+    "type": "fixed",
+    "value": ""
+  }
+}
+```
+{: screen}
+
+
+
 For more information about this method, see the API reference for [listing all volume profiles](/apidocs/vpc/latest#list-volume-profiles) and [retrieving a volume profile](/apidocs/vpc/latest#get-volume-profile).
 
 ### With Terraform
