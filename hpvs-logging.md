@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-09-21"
+lastupdated: "2024-09-24"
 
 keywords: confidential computing, secure execution, logging for hyper protect virtual server for vpc
 
@@ -24,6 +24,94 @@ If your workload produces sensitive information, you can [encrypt your log messa
 {: tip}
 
 The following logging services are supported.
+
+## {{site.data.keyword.logs_full_notm}} (ICL)
+{: #cloud-logs}
+
+{{site.data.keyword.logs_full}} is a scalable logging service that persists logs and provides users with capabilities for querying, tailing, and visualizing logs.
+
+Logs are comprised of events that are typically human-readable and have different formats, for example, unstructured text, JSON, delimiter-separated values, key-value pairs, and so on. The {{site.data.keyword.logs_full_notm}} service can manage general purpose application logs, platform logs, or structured audit events. {{site.data.keyword.logs_full_notm}} can be used with logs from both IBM Cloud services and customer applications.
+
+For information about IBM Cloud Logs, see [IBM Cloud Logs](https://cloud.ibm.com/docs/cloud-logs).
+
+#### Access to IBM Cloud Logs:
+{: #cloud-logs-access}
+
+Access to IBM Cloud Logs instances for users in vpc account is controlled by IBM Cloud Identity and Access Management (IAM). Every user that accesses the IBM Cloud Logs in vpc account must be assigned an access policy with an IAM role.
+
+###### Access policies to be added:
+{: #cloud-logs-accesspolicies}
+
+ - Cloud Logs
+  
+To add relevant roles for these policies, refer to [Managing IAM access for IBM Cloud Logs Routing](https://cloud.ibm.com/docs/logs-router?topic=logs-router-iam&interface=api).
+
+
+### Provisioning an ICL instance
+{: #cloud-logs-provision-instance-ui}
+
+To provision an `ICL` instance from the Observability dashboard in the IBM Cloud, complete the following steps:
+
+1. [Log in to your IBM Cloud account.](https://cloud.ibm.com/login)
+2. [Provision an ICL instance](https://cloud.ibm.com/docs/cloud-logs?topic=cloud-logs-instance-provision&interface=ui). Choose a plan according to your requirements.
+
+
+Input parameters to be provided in `env` section of contract are:
+
+- [required] iamApiKey key for the service id. Generate and retrieve the API key from the service ID in IAM.
+  
+- [required] hostname of the service instance. Retrieve the Hostname from the ICL instance in the Endpoints section, labeled as the Public Ingress endpoint.
+  
+- [required] port of the service instance. That is 443.
+
+Add these values in the `env` `logging` subsection of the contract as the following example shows. For more information, see the [logging subsection](https://cloud.ibm.com/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_icl).
+
+```yaml
+ env:
+   logging:
+     logRouter:
+       hostname: <host name of the service instance> /
+       iamApiKey: <iamApiKey of the service instance> / xxxx
+       port: <port of the service instance(443).
+```
+
+**Note:** Custom tags are not supported for ICL.
+
+To see the logs, open ICL [instance](https://cloud.ibm.com/observability/logging).
+
+### Applying Filters in an ICL Instance
+{: #cloud-logs-filters}
+
+**Add Columns for Log Messages: Include the following columns to display detailed log messages:**
+- Timestamp | _HOSTNAME | Syslog_Identifier | Severity | Message
+
+**Filter by Hostname:**
+- Use the _HOSTNAME filter and select the desired hostname to view logs from a specific source.
+
+**Filter by Log Level:**
+- Apply the Severity filter and choose the appropriate log level to filter messages based on severity.
+
+**Filter By Service:**
+- Add the Syslog_Identifier filter to see logs from a specific service.
+
+**Filter by Image Name, Container Name, and Container ID:**
+- Add filters for IMAGE_NAME, CONTAINER_NAME, and CONTAINER_ID to refine the logs further.
+
+**View Additional Log Details:**
+- Select the Text option in the column to see more details about each log entry.
+
+**Explore Other Filters:**
+- Additional filters are available and can be applied based on specific requirements.
+
+For more information, see [Managing {{site.data.keyword.logs_full_notm}} logging instances](https://cloud.ibm.com/docs/cloud-logs?topic=cloud-logs-observe&interface=ui#observe_manage).
+
+#### Steps to migrate for existing customers:
+{: #cloud-logs-migrate}
+
+- Create an [ICL](https://cloud.ibm.com/catalog/services/cloud-logs) instance
+- Prepare a contract modifying the logging section from LogDNA to ICL
+- Bring down the current HPVS, without deleting the data volumes
+- Create new HPVS attaching the existing volumes with the new contract
 
 ## Syslog
 {: #syslog}
@@ -331,7 +419,7 @@ Deprecation of {{site.data.keyword.loganalysisshort_notm}} and {{site.data.keywo
    ```
    {: codeblock}
 
-6. Add these values in the `env` `logging` subsection of the contract as the following example shows. For more information, see the [`logging` subsection](/docs/vpc?topic=vpc-about-contract_se&interface=ui#hpcr_contract_env_log).
+6. Add these values in the `env` `logging` subsection of the contract as the following example shows. For more information, see the [`logging` subsection](/docs/vpc?topic=vpc-about-contract_se&interface=ui#hpcr_contract_logdna).
 
     ```yaml
     env:
