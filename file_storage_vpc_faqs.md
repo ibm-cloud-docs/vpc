@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-07-29"
+lastupdated: "2024-09-24"
 
 keywords: file share, file storage, replication, replica, size increase, capacity, encryption, BYOK, security group
 
@@ -62,6 +62,14 @@ Pricing is also affected when you [expand share capacity](/docs/vpc?topic=vpc-fi
 You can use the Cost estimator ![Cost estimator icon](../icons/calculator.svg "Cost estimator") in {{site.data.keyword.cloud_notm}} console to see how changes in capacity and IOPS affect the cost. For more information, see [Estimating your costs](/docs/billing-usage?topic=billing-usage-cost).
 
 You also incur charges when you [replicate data](/docs/vpc?topic=vpc-file-storage-replication) to a different region. Charges for data transfer between the two file shares are calculated with a flat rate in GiB increments. The charges are based on the amount of data that was transferred during the entire billing period. You can use the [replication sync information](/docs/vpc?topic=vpc-file-storage-manage-replication#fs-repl-syncinfo) to see the transferred data values, which can help you estimate the global transfer charges at the end of the billing period.
+
+### Where can I find pricing information?
+{: faq}
+{: #faq-fs-pricing}
+
+In the console, go to the [File storage share for VPC provisioning page](/infrastructure/provision/fileShare) and click the **Pricing** tab. On the **Pricing** tab, you can view details of the pricing plan based on the selected Geography, Region, and Currency. You can also switch between Hourly and Monthly rates.
+
+You can programmatically retrieve the pricing information by calling the [Global Catalog API](/apidocs/resource-catalog/global-catalog#get-pricing). For more information, see [Getting pricing by using the Global Catalog API](/docs/billing-usage?topic=billing-usage-getting-pricing-api).
 
 ## File share management questions
 {: #file-storage-vpc-management-questions}

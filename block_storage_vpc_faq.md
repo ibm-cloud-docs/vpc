@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-08-14"
+lastupdated: "2024-09-24"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -55,6 +55,14 @@ The cost for {{site.data.keyword.block_storage_is_short}} is calculated based on
 Pricing is also affected when you [expand volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes) or [adjust IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops) by specifying a different volume profile. For example, expanding volume capacity increases costs, and changing a volume profile from a 5-IOPS/GB tier to a 3-IOPS/GB tier decreases the monthly and hourly rate. Billing for an updated volume is automatically updated to add the prorated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.
 
 You can use the Cost estimator ![Cost estimator icon](../icons/calculator.svg "Cost estimator") in {{site.data.keyword.cloud_notm}} console to see how changes in capacity and IOPS affect the cost. For more information, see [Estimating your costs](/docs/billing-usage?topic=billing-usage-cost).
+
+### Where can I find pricing information?
+{: faq}
+{: #faq-bs-pricing}
+
+In the console, go to the [Block storage volume for VPC provisioning page](/infrastructure/provision/storage) and click the **Pricing** tab. On the **Pricing** tab, you can view details of the pricing plan for each volume profile based on the selected Geography, Region, and Currency. You can also switch between Hourly and Monthly rates.
+
+You can programmatically retrieve the pricing information by calling the [Global Catalog API](/apidocs/resource-catalog/global-catalog#get-pricing). For more information, see [Getting pricing by using the Global Catalog API](/docs/billing-usage?topic=billing-usage-getting-pricing-api).
 
 ### Is storage capacity measured in GB or GiB?
 {: faq}

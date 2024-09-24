@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-09-21"
+lastupdated: "2024-09-24"
 
 keywords: Block Storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
@@ -216,6 +216,8 @@ For more information about this method, see the API reference for [listing all v
 
 ## Next Steps
 {: #profile-next-steps}
+
+[New]{: tag-new} For more information about the pricing of the volume profiles, see the [FAQs](/docs/vpc?topic=vpc-block-storage-vpc-faqs#faq-bs-pricing).
 
 For more information about how to expand volume capacity, see [expanding Block Storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 

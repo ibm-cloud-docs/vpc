@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-08-08"
+lastupdated: "2024-09-24"
 
 keywords: file share, file storage, requirements, planning, encryption, share size, capacity, performance profile, IOPS, 
 
@@ -36,6 +36,7 @@ Consider the following prerequisites before you set up {{site.data.keyword.files
 |__ Think about which encryption type suits your needs the best. By default, your file shares are encrypted with IBM-managed encryption. For greater control, consider the use of customer-managed encryption. Your data can be protected at rest with your own root keys. For more information about this option, see [Creating file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption). |
 |__ You can also choose to [encrypt data in transit](/docs/vpc?topic=vpc-file-storage-vpc-eit). This feature can decrease performance for increased security. The impact depends on the workload characteristics. Workloads that perform synchronous writes or bypass VSI caching, such as databases, might have a substantial performance impact when EIT is enabled.|
 |__ Choose between the UI, CLI, API, or Terraform for creating and managing your file shares. |
+|__ Review pricing information in the console. For more information, see the [FAQs](/docs/vpc?topic=vpc-file-storage-vpc-faqs#faq-fs-pricing). |
 {: caption="Table 1. Checklist for planning file shares" caption-side="bottom"}
 
 ## Next Steps
