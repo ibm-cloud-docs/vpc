@@ -988,14 +988,6 @@ Additional API restrictions are enforced after an HTTPS redirect is configured:
 
 **LinuxONE (s390x processor architecture).** You can now [create virtual server instances](/apidocs/vpc/latest#create-instance) on LinuxONE in {{site.data.keyword.Bluemix}} using new virtual server instance profiles. Instances provisioned with these profiles will have a VCPU architecture of s390x and interoperate with other VPC storage and networking features such as block storage volumes, floating IPs, and security groups. For more information, see [x86 instance profiles](/docs/vpc?topic=vpc-profiles&interface=api#balanced), and [Service limitations](/docs/vpc?topic=vpc-limitations).
 
-## 27 July 2021
-{: #27-july-2021}
-
-### For version `2021-07-27` or later
-{: #version-2021-07-27}
-
-**Instances.** When you [create an instance](/docs/vpc?topic=vpc-creating-virtual-servers) using a `version` query parameter of `2021-07-27` or later, the value for the boot volume's `capacity` is now based on the image's `minimum_provisioned_size`. If you use a `version` query parameter of `2021-07-26` or earlier, the value for the boot volume's `capacity` will continue to be 100 GB.
-
 ## 29 June 2021
 {: #29-june-2021}
 
