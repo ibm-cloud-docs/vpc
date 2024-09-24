@@ -32,19 +32,19 @@ The following logging services are supported.
 
 Logs are comprised of events that are typically human-readable and have different formats, for example, unstructured text, JSON, delimiter-separated values, key-value pairs, and so on. The {{site.data.keyword.logs_full_notm}} service can manage general purpose application logs, platform logs, or structured audit events. {{site.data.keyword.logs_full_notm}} can be used with logs from both IBM Cloud services and customer applications.
 
-For information about IBM Cloud Logs, see [IBM Cloud Logs](https://cloud.ibm.com/docs/cloud-logs).
+For information about {{site.data.keyword.logs_full_notm}}, see [{{site.data.keyword.logs_full_notm}}](https://cloud.ibm.com/docs/cloud-logs).
 
-#### Access to IBM Cloud Logs:
+### Access to IBM Cloud Logs:
 {: #cloud-logs-access}
 
-Access to IBM Cloud Logs instances for users in vpc account is controlled by IBM Cloud Identity and Access Management (IAM). Every user that accesses the IBM Cloud Logs in vpc account must be assigned an access policy with an IAM role.
+Access to {{site.data.keyword.logs_full_notm}} instances for users in vpc account is controlled by {{site.data.keyword.iamlong}} (IAM). Every user that accesses the {{site.data.keyword.logs_full_notm}} in vpc account must be assigned an access policy with an IAM role.
 
-###### Access policies to be added:
+#### Access policies to be added:
 {: #cloud-logs-accesspolicies}
 
  - Cloud Logs
   
-To add relevant roles for these policies, refer to [Managing IAM access for IBM Cloud Logs Routing](https://cloud.ibm.com/docs/logs-router?topic=logs-router-iam&interface=api).
+To add relevant roles for these policies, refer to [Managing IAM access for {{site.data.keyword.logs_routing_full_notm}}](https://cloud.ibm.com/docs/logs-router?topic=logs-router-iam&interface=api).
 
 
 ### Provisioning an ICL instance

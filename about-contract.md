@@ -544,9 +544,12 @@ The subsections for the `env` section are:
 
 ### The `logging` subsection
 {: #hpcr_contract_env_log}
+
 #### LogDNA
 {: #hpcr_contract_logdna}
-**Note:** The LogDNA is deprecated and will no longer be supported as of 30 March 2025. It will remain supported till March 2025 along with [IBM Cloud Logs](https://cloud.ibm.com/docs/cloud-logs?topic=cloud-logs-getting-started).
+
+The LogDNA is deprecated and will no longer be supported as of 30 March 2025. It will remain supported till March 2025 along with [IBM Cloud Logs](https://cloud.ibm.com/docs/cloud-logs?topic=cloud-logs-getting-started).
+{: deprecated}
 
 The minimum subsection that is required for this section is the logDNA subsection. For more information, see [Logging for {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc#log-analysis).
 
