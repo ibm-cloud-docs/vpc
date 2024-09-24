@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-09-24"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -381,6 +381,52 @@ The following Storage Optimized profiles are available for x86-64 processors:
 {: class="simple-tab-table"}
 {: summary="Storage Optimized profiles options for Intel x86-64 virtual server instances."}
 
+## Confidential computing profiles
+{: #confidential-computing-profiles}
+
+[Select availability]{: tag-green}
+
+The following profiles support confidential computing with Intel Software Guard Extensions (SGX) and secure boot.
+
+For more information about confidential computing, see [Confidential computing with Intel Software Guard Extensions (SGX) for Virtual Servers for VPC](/docs/vpc?topic=vpc-about-sgx-vpc).
+
+| Instance profile | vCPU / Cores | GiB RAM | EPC (SGX) capacity (GiB)  | Bandwidth cap (Gbps) | Instance storage (GB) |
+| ---------------- | ---- | ------- | ------------------------- |------- | ------------------------- |
+| bx3dc-2x10 | 2 / 1 | 10 | 4 | 4 | 1x65 |
+| bx3dc-4x20 | 4 / 2 | 20 | 8 | 8 | 1x130 |
+| bx3dc-8x40 | 8 / 4 | 40 | 16 | 16 | 1x260 |
+| bx3dc-16x80 | 16 / 8 | 80 | 32 | 32 | 1x520 |
+| bx3dc-24x120 | 24 / 12 | 120 | 48 | 48 | 1x780 |
+| bx3dc-32x160 | 32 / 16 | 160 | 64 | 64 | 2x520 |
+| bx3dc-48x240 | 48 / 24 | 240 | 96 | 96 | 2x780 |
+| bx3dc-64x320 | 64 / 32 | 320 | 128 | 128 | 2x1024 |
+| bx3dc-96x480 | 96 / 48 | 480 | 192 | 480 | 2x1560 |
+{: caption="Table 9. Balanced profile options for confidential computing compatible virtual server instances" caption-side="bottom"}
+{: #balanced-cc-x86-64}
+{: tab-title="bx3"}
+{: tab-group="Confidential compute"}
+{: class="simple-tab-table"}
+{: summary="Balanced bx3 profiles for confidential compute compatible virtual server instances."}
+
+| Instance profile | vCPU / Cores | GiB RAM | EPC (SGX) capacity (GiB)  | Bandwidth cap (Gbps) | Instance storage (GB) |
+| ---------------- | ---- | ------- | ------------------------- |------- | ------------------------- |
+| cx3dc-2x5 | 2 / 1 | 5 | 2 | 4 | 1x65 |
+| cx3dc-4x10 | 4 / 2 | 10 | 4 | 8 | 1x130 |
+| cx3dc-8x20 | 8 / 4 | 20 | 8 | 16 | 1x260 |
+| cx3dc-16x40 | 16 / 8 | 40 | 16 | 32 | 1x520 |
+| cx3dc-24x60 | 24 / 12 | 60 | 24 | 48 | 1x780 |
+| cx3dc-32x80 | 32 / 16 | 80 | 32 | 64 | 2x520 |
+| cx3dc-48x120 | 48 / 24 | 120 | 48 | 96 | 2x780 |
+| cx3dc-64x160 | 64 / 32 | 160 | 64 | 128 | 2x1024 |
+| cx3dc-96x240 | 96 / 48 | 240 | 96 | 192 | 2x1560 |
+| cx3dc-128x320 | 128 / 64 | 320| 128 | 200 | 2x2860|
+{: caption="Table 9. Compute profile options for confidential computing compatible virtual server instances" caption-side="bottom"}
+{: #compute-cc-x86-64}
+{: tab-title="cx3"}
+{: tab-group="Confidential compute"}
+{: class="simple-tab-table"}
+{: summary="Compute cx3 profile options for confidential compute compatible virtual server instances."}
+
 ## Bandwidth allocation
 {: #bandwidth-allocation}
 
@@ -513,52 +559,6 @@ The 3rd generation of {{site.data.keyword.cloud_notm}} {{site.data.keyword.vsi_i
 - Instances are started by default with Open Virtual Machine Format (OVMF), and run in Unified Extensible Firmware Interface (UEFI) mode for enhanced security.
 - Local instance storage is included with all profiles for ease of access to temporary storage and swap space. For more information about the temporary nature of instance storage, see [Lifecycle of instance storage](/docs/vpc?topic=vpc-instance-storage#instance-storage-lifecycle).
 - A 3rd generation profile can be resized to a 2nd generation profile. A 2nd generation profile can be resized to a 3rd generation profile. For more information, see [Resizing between Gen 2 and Gen 3 profiles](/docs/vpc?topic=vpc-resizing-an-instance&interface=ui#resizing-instance-generations).
-
-## Confidential computing profiles
-{: #confidential-computing-profiles}
-
-[Select availability]{: tag-green}
-
-The following profiles support secure boot and SGX.
-
-For more information about confidential computing, see [Confidential computing with Intel Software Guard Extensions (SGX) for Virtual Servers for VPC](/docs/vpc?topic=vpc-about-sgx-vpc).
-
-| Instance profile | vCPU / Cores | GiB RAM | EPC (SGX) capacity (GiB)  | Bandwidth cap (Gbps) | Instance storage (GB) |
-| ---------------- | ---- | ------- | ------------------------- |------- | ------------------------- |
-| bx3dc-2x10 | 2 / 1 | 10 | 4 | 4 | 1x65 |
-| bx3dc-4x20 | 4 / 2 | 20 | 8 | 8 | 1x130 |
-| bx3dc-8x40 | 8 / 4 | 40 | 16 | 16 | 1x260 |
-| bx3dc-16x80 | 16 / 8 | 80 | 32 | 32 | 1x520 |
-| bx3dc-24x120 | 24 / 12 | 120 | 48 | 48 | 1x780 |
-| bx3dc-32x160 | 32 / 16 | 160 | 64 | 64 | 2x520 |
-| bx3dc-48x240 | 48 / 24 | 240 | 96 | 96 | 2x780 |
-| bx3dc-64x320 | 64 / 32 | 320 | 128 | 128 | 2x1024 |
-| bx3dc-96x480 | 96 / 48 | 480 | 192 | 480 | 2x1560 |
-{: caption="Table 9. Balanced profile options for confidential computing compatible virtual server instances" caption-side="bottom"}
-{: #balanced-cc-x86-64}
-{: tab-title="bx3"}
-{: tab-group="Confidential compute"}
-{: class="simple-tab-table"}
-{: summary="Balanced bx3 profiles for confidential compute compatible virtual server instances."}
-
-| Instance profile | vCPU / Cores | GiB RAM | EPC (SGX) capacity (GiB)  | Bandwidth cap (Gbps) | Instance storage (GB) |
-| ---------------- | ---- | ------- | ------------------------- |------- | ------------------------- |
-| cx3dc-2x5 | 2 / 1 | 5 | 2 | 4 | 1x65 |
-| cx3dc-4x10 | 4 / 2 | 10 | 4 | 8 | 1x130 |
-| cx3dc-8x20 | 8 / 4 | 20 | 8 | 16 | 1x260 |
-| cx3dc-16x40 | 16 / 8 | 40 | 16 | 32 | 1x520 |
-| cx3dc-24x60 | 24 / 12 | 60 | 24 | 48 | 1x780 |
-| cx3dc-32x80 | 32 / 16 | 80 | 32 | 64 | 2x520 |
-| cx3dc-48x120 | 48 / 24 | 120 | 48 | 96 | 2x780 |
-| cx3dc-64x160 | 64 / 32 | 160 | 64 | 128 | 2x1024 |
-| cx3dc-96x240 | 96 / 48 | 240 | 96 | 192 | 2x1560 |
-| cx3dc-128x320 | 128 / 64 | 320| 128 | 200 | 2x2860|
-{: caption="Table 9. Compute profile options for confidential computing compatible virtual server instances" caption-side="bottom"}
-{: #compute-cc-x86-64}
-{: tab-title="cx3"}
-{: tab-group="Confidential compute"}
-{: class="simple-tab-table"}
-{: summary="Compute cx3 profile options for confidential compute compatible virtual server instances."}
 
 ## Intel Hyper-Threading Technology
 {: #vpc-intel-hyper-threading-technology}
