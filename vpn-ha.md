@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2022, 2024 2024
-lastupdated: "2024-09-10"
+  years:  2022, 2024
+lastupdated: "2024-09-24"
 
-keywords: VPN, VPN gateways, HA, High availability, Redundancy
+keywords: VPN, vpn gateways, HA, High availability, Redundancy
 
 subcollection: vpc
 
