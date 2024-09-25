@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-09-25"
 
 keywords:
 
@@ -160,6 +160,8 @@ To publish a Private Path service with the API, follow these steps:
        }'
       ```
       {: codeblock}
+
+
 
 ## Next steps
 {: #pps-next-steps-after-activation}

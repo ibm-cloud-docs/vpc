@@ -189,7 +189,7 @@ Where:
 - Delete multiple Private Path services:
    `ibmcloud is private-path-service-gateway-delete cli-ppsg-0 cli-ppsg-1`
 
-## Updating a Private Path service service with the API
+## Updating a Private Path service with the API
 {: #pps-api-update-provider-service}
 {: api}
 

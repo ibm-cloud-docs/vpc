@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-09-25"
 
 keywords: private path
 
@@ -102,7 +102,7 @@ Where:
 - Create a review policy:
    `ibmcloud is private-path-service-gateway-account-policy-create cli-ppsg-0 --account-id 2d1bace7b46e4815a81e52c6ffeba5cf --access-policy review`
 
-## Creating a Private Path service with the API
+## Creating an account policy with the API
 {: #pps-api-create-account-policy}
 {: api}
 
@@ -138,6 +138,8 @@ The following example shows how to create an account policy with the API.
       }'
       ```
       {: codeblock}
+
+
 
 ## Related links
 {: #pps-create-policies-related-links}

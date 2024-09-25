@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-14"
+lastupdated: "2024-09-25"
 
 keywords: network load balancer, public, listener, pool, round-robin
 
@@ -93,7 +93,9 @@ To create and configure a network load balancer in the {{site.data.keyword.cloud
       You can attach server instances after you create your back-end pool.
       {: note}
 
-      Although the load balancer stops sending connections to unhealthy instances, the load balancer continues monitoring the health of these instances and resumes their use if they're found healthy again (that is, if they successfully pass two consecutive health check attempts).
+    
+
+     Although the load balancer stops sending connections to unhealthy instances, the load balancer continues monitoring the health of these instances and resumes their use if they're found healthy again (that is, if they successfully pass two consecutive health check attempts).
 
      If instances in the pool are unhealthy and you believe that your application is running fine, double check the health protocol and health path values. Also, check any security groups that are attached to the instances to ensure that the rules allow traffic between the load balancer and the instances.
      {: tip}
@@ -204,34 +206,7 @@ To create a network load balancer with the CLI, follow these steps:
    ```
    {: screen}
 
-1. Create a pool.
 
-   ```sh
-   ibmcloud is load-balancer-pool-create nlb-pool r006-99b5ab45-6357-42db-8b32-5d2c8aa62776  weighted_round_robin tcp 10
-   ```
-   {: pre}
-
-   Sample output:
-
-   ```sh
-   Creating pool nlb-pool of load balancer r006-99b5ab45-6357-42db-8b32-5d2c8aa62776  under account IBM Cloud Network Services as user test@ibm.com...
-
-   ID                         r006-3b66d605-6aa5-4166-9f66-b16054da3cb0
-   Name                       nlb-pool
-   Protocol                   tcp
-   Algorithm                  weighted_round_robin
-   Instance group             ID   Name
-                              -    -
-
-   Health monitor             Type   Port   Health monitor URL   Delay   Retries   Timeout
-                              http   8080   /                    10      2         5
-
-   Session persistence type   source_ip
-   Members
-   Provision status           active
-   Created                    2020-08-27T14:45:42.038-05:00
-   ```
-   {: screen}
 
 1. Create a member.
 

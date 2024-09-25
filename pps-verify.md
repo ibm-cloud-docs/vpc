@@ -88,6 +88,8 @@ To verify connectivity to a Private Path service with the API, follow these step
 ```
 {: codeblock}
 
+
+
 ## Next steps
 {: #pps-next-step-after-verify}
 

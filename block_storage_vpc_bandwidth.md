@@ -21,15 +21,15 @@ Instance bandwidth is distributed between networking and storage resources. The 
 ## Bandwidth allocation for volumes that are attached to an instance
 {: #attached-block-vol-bandwidth}
 
-When you provision an instance, bandwidth is allocated between storage volumes (boot volume and attached data volumes) and networking. The maximum bandwidth capacity is determined by the instance profile that you select during instance provisioning. For example, a bx2-2x8 balanced server profile allows a total instance bandwidth of 4,000 Mbps (4 Gbps), while a cx3d-8x20 compute profile has an instance bandwidth cap of 16,000 Mbps (16 Gbps). 
+When you provision an instance, bandwidth is allocated between storage volumes (boot volume and attached data volumes) and networking. The maximum bandwidth capacity is determined by the instance profile that you select during instance provisioning. The bandwidth multiplier for instance bandwidth is 2 Gbps per vCPU. For example, a bx2-2x8 balanced server profile allows a total instance bandwidth of 4 Gbps, while a cx3d-8x20 compute profile has an instance bandwidth cap of 16 Gbps.  
 
-The initial storage and network bandwidth allocation depends on what you set by using the API or by the instance profile you selected. If you do not specify the initial volume and network bandwidth allocation, then 25% of total instance bandwidth is allocated to volume bandwidth and 75% is allocated to network bandwidth.
+The initial storage and network bandwidth allocation depends on the instance profile you selected, and you can also specify its value when you provision the instance with the API. If you do not specify the initial volume and network bandwidth allocation, then 25% of total instance bandwidth is allocated to volume bandwidth and 75% is allocated to network bandwidth.
 
 The maximum bandwidth of a volume is the highest potential bandwidth that can be allocated to the volume when it is attached to an instance. In cases where the total maximum potential bandwidth of attached volumes exceeds the amount that is available on the instance, the bandwidth for each volume attachment is set proportionally. The bandwidth is allocated based on the corresponding volume's maximum bandwidth. The allocation does not change unless a volume is detached or attached to the instance.
 
 For example, for the bx2-2x8 profile you might have the following allocations.
-   - Volumes: 1,000 Mbps.
-   - Network: 3,000 Mbps.
+   - Volumes: 1 Gbps.
+   - Network: 3 Gbps.
 
 To help ensure reasonable boot times, a minimum of 393 Mbps is allocated to the primary boot volume. In the example, the instance's total volume bandwidth is 1,000 Mbps. The remaining 607 Mbps is allocated to the secondary volumes that you attach, up to the maximum bandwidth of the volume. For example, if you have only one data volume with 500 Mbps, you can expect to get that level of performance.
 

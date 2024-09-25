@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-09-25"
 
 keywords: private path
 
@@ -183,6 +183,8 @@ The following example shows how to use the API to delete an account policy.
       "$vpc_api_endpoint/v1/private_path_service_gateways/$ppsgId/account_policies/$accountPolicyId?version=$api_version&generation=2"
       ```
       {: codeblock}
+
+
 
 ## Related links
 {: #pps-update-policies-related-links}

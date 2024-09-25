@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-09-25"
 
 keywords:
 
@@ -213,34 +213,7 @@ To create an application load balancer from the CLI, follow these steps:
     ```
     {: screen}
 
-1. Create a pool:
 
-    ```sh
-    ibmcloud is load-balancer-pool-create alb-pool r006-99b5ab45-6357-42db-8b32-5d2c8aa62776  weighted_round_robin tcp 10
-    ```
-    {: pre}
-
-    Sample output:
-
-    ```sh
-    Creating pool nlb-pool of load balancer r006-99b5ab45-6357-42db-8b32-5d2c8aa62776  under account IBM Cloud Network Services as user test@ibm.com...
-
-    ID                         r006-3b66d605-6aa5-4166-9f66-b16054da3cb0
-    Name                       alb-pool
-    Protocol                   tcp
-    Algorithm                  weighted_round_robin
-    Instance group             ID   Name
-                               -    -
-
-    Health monitor             Type   Port   Health monitor URL   Delay   Retries   Timeout
-                               http   8080   /                    10      2         5
-
-    Session persistence type   source_ip
-    Members
-    Provision status           active
-    Created                    2020-08-27T14:45:42.038-05:00
-    ```
-    {: screen}
 
 1. Create a member:
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2024-07-18"
+lastupdated: "2024-09-25"
 
 keywords: compute, virtual private cloud, virtual server instance, instance, bandwidth
 
@@ -15,24 +15,24 @@ subcollection: vpc
 # About bandwidth allocation for instance profiles
 {: #bandwidth-allocation-profiles}
 
-Instance profiles inform the available instance bandwidth of an instance.
+Instance profiles inform the available instance bandwidth of an instance. The number of vCPUs determine the available instance bandwidth. The bandwidth multiplier for instance bandwidth is 2 Gbps per vCPU.
 {: shortdesc}
 
 ## Bandwidth allocation for resources that are attached to an instance
 {: #attached-resources}
 
-When you provision an instance, the total instance bandwidth is allocated between attached volumes and networking. The maximum bandwidth capacity is determined by the [x86-64 instance profile](/docs/vpc?topic=vpc-profiles&interface=ui) that you select during instance provisioning. For example, a bx2-2x8 balanced server profile allows a total instance bandwidth of 4,000 Mbps (4 Gbps). The initial volume and network bandwidth allocation depends on the bandwidth that you set by using the API or by the instance profile you selected. If you do not specify the initial volume and network bandwidth allocation, then 25% of total instance bandwidth is allocated to volume bandwidth and 75% is allocated to network bandwidth.
+When you provision an instance, the total instance bandwidth is allocated between attached storage and networking. The maximum bandwidth capacity is determined by the [x86-64 instance profile](/docs/vpc?topic=vpc-profiles&interface=ui) that you select during instance provisioning. For example, a bx2-2x8 balanced server profile allows a total instance bandwidth of 4 Gbps. 
 
-You can see bandwidth allocations with the `/instance/profiles` endpoint in the API. You can also see the bandwidth allocations in the profile information during instance creation in the UI.
-
-For example, for the bx2-2x8 profile you might have:
-
-* Volumes: 1,000 Mbps
-* Network: 3,000 Mbps
+The initial volume and network bandwidth allocation depends on the bandwidth that you set by using the API or by the instance profile you selected. If you do not specify the initial volume and network bandwidth allocation, then 25% of total instance bandwidth is allocated to volume bandwidth and 75% is allocated to network bandwidth. See the following example:
+* Instance bandwidth: 4 Gbps
+* Volumes bandwidth: 1 Gbps
+* Network bandwidth: 3 Gbps
 
 The maximum bandwidth of a volume is the highest potential bandwidth that can be allocated to the volume when attached to an instance. If the total maximum bandwidth of attached volumes exceeds the amount available on the instance, the bandwidth for each attached volume is set proportionally based on each volume's maximum bandwidth.
 
-To ensure reasonable boot times, a minimum of 393 Mbps of volume bandwidth is allocated to the boot volume. In the example that has the instance's total volume bandwidth of 1,000 Mbps, the remaining 607 Mbps is allocated to any secondary volumes that you attach, up to the maximum bandwidth of the volume. For example, if you have one data volume with 500 Mbps, you can expect to get that level of performance.
+To ensure reasonable boot times, a minimum of 393 Mbps of volume bandwidth is allocated to the boot volume. In the example that has the instance's total volume bandwidth of 1,000 Mbps, the remaining 607 Mbps is allocated to any data volumes that you attach, up to the maximum bandwidth of the volume. For example, if you attach one data volume with 500 Mbps bandwidth, you can expect to get 500 Mbps throughput.
+
+You can see bandwidth allocations with the `/instance/profiles` endpoint in the API. You can also see the bandwidth allocations in the profile information during instance creation in the UI.
 
 ## Adjusting bandwidth allocation
 {: #adjusting-bandwidth-allocation}
