@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-08-19"
+lastupdated: "2024-09-26"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -91,3 +91,14 @@ You can use {{site.data.keyword.atracker_full}} to configure how to route auditi
 {: #fs-event-la-logs}
 
 After you provision {{site.data.keyword.logs_routing_full_notm}} to add log management capabilities to your {{site.data.keyword.cloud}} architecture, you can enable platform logs to view and analyze logs of the {{site.data.keyword.filestorage_vpc_short}} service. When replication occurs, the file service generates a `regional-file.00002I` log message, which includes information about when the replication occurred, and how much data was transferred. For more information, see [Logging for VPC](/docs/vpc?topic=vpc-logging#logging-file-share-replication).
+
+[New]{: tag-new}
+
+## Monitoring metrics
+{: #fs-sysdig-mon}
+
+You can monitor the read and write throughput, read and write IOPS, number of mount targets, and capacity usage of your share over time in the {{site.data.keyword.cloud_notm}} console. To see these metrics, go to the file share details page, and click the **Monitoring** tab. 
+
+Monitoring utilization metrics such as total IOPS and total throughput can help you to determine how much work is done by your application or workload. You can use this information to determine whether the IOPS value needs to be adjusted. Monitoring the available capacity of your share can help you identify the need for more storage before insufficient space can become a problem with writing data to the share or replication. Seeing these metrics can help you anticipate any changes in charges at the end of the billing period. These graphs are available to you at no cost, even without an {{site.data.keyword.mon_full_notm}} instance.
+
+If you have an instance of the {{site.data.keyword.mon_full_notm}} service, click **Launch monitoring** to launch the Sysdig web UI to work with the metrics dashboards there. In the Sysdig web UI you can view these throughput, IOPS, capacity metrics in more detail, customize your dashboards, and set up alerts. For more information, see [Getting started with monitoring](/docs/monitoring?topic=monitoring-getting-started) and [Monitoring metrics for {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-fs-vpc-monitoring-sysdig).

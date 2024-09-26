@@ -27,6 +27,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## September 2024
 {: #vpc-sep24}
 
+### 26 September 2024
+{: #vpc-sep2624}
+{: release-note}
+
+File Storage for VPC monitoring
+:   You can monitor the read and write throughput, read and write IOPS, number of mount targets, and capacity usage of your share over time in the {{site.data.keyword.cloud_notm}} console. For more information, see [Getting started with monitoring](/docs/monitoring?topic=monitoring-getting-started) and [Monitoring metrics for {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-fs-vpc-monitoring-sysdig).
+
 ### 25 September 2024
 {: #vpc-sep2524}
 {: release-note}
