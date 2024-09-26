@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-09-25"
+lastupdated: "2024-09-26"
 
 keywords: Block Storage, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, bandwidth
 
@@ -23,7 +23,7 @@ Instance bandwidth is distributed between networking and storage resources. The 
 
 When you provision an instance, bandwidth is allocated between storage volumes (boot volume and attached data volumes) and networking. The maximum bandwidth capacity is determined by the instance profile that you select during instance provisioning. The bandwidth multiplier for instance bandwidth is 2 Gbps per vCPU. For example, a bx2-2x8 balanced server profile allows a total instance bandwidth of 4 Gbps, while a cx3d-8x20 compute profile has an instance bandwidth cap of 16 Gbps.  
 
-The initial storage and network bandwidth allocation depends on the instance profile you selected, and you can also specify its value when you provision the instance with the API. If you do not specify the initial volume and network bandwidth allocation, then 25% of total instance bandwidth is allocated to volume bandwidth and 75% is allocated to network bandwidth.
+The initial storage and network bandwidth allocation depends on the instance profile that you selected, and you can also specify its value when you provision the instance with the API. If you do not specify the initial volume and network bandwidth allocation, then 25% of total instance bandwidth is allocated to volume bandwidth and 75% is allocated to network bandwidth.
 
 The maximum bandwidth of a volume is the highest potential bandwidth that can be allocated to the volume when it is attached to an instance. In cases where the total maximum potential bandwidth of attached volumes exceeds the amount that is available on the instance, the bandwidth for each volume attachment is set proportionally. The bandwidth is allocated based on the corresponding volume's maximum bandwidth. The allocation does not change unless a volume is detached or attached to the instance.
 
