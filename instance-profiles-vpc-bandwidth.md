@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2024-09-25"
+lastupdated: "2024-09-26"
 
 keywords: compute, virtual private cloud, virtual server instance, instance, bandwidth
 
@@ -57,7 +57,7 @@ For example, if you choose the bx2-32x128 profile, the total bandwidth that is a
 The following table illustrates this allocation for three different profile examples. If you are using the same default values that were used for these calculations, you can match other instance profiles to the following table by matching the bandwidth cap value to the overall bandwidth in the table. For more information about instance profiles, including network performance information, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui).
 
 | Profile names | bx2-16x64 | bx2-32x128 | bx2-48-192 |
-| --- | --- | --- | --- |
+|-----|-----|-----|-----|
 | Overall bandwidth | 32 Gbps | 64 Gbps | 80 Gbps |
 | Default storage bandwidth allocation (25%) | 8 Gbps | 16 Gbps | 20 Gbps |
 | Default total network bandwidth allocation (75%) | 24 Gbps | 48 Gbps | 60 Gbps |

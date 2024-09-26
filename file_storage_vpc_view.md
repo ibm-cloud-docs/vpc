@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-09-26"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -52,55 +52,65 @@ You can access the Actions menu by clicking ![Actions icon](../icons/action-menu
 
 2. Click the name of a file share to see the details page. The editable name and status of the file share is shown. If you applied user or access management tags to the file share, they are listed next to the status. Click **Add tags** to apply new [tags](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-about-fs-tags) to the share.
 
-3. The following table describes the information on the file share details page. Some of these details are editable.
+3. The details page has two tabs. The **Overview** tab is displayed by default. 
+   - **Overview** - The following table describes the information that is available for your file share.
 
-| Field | Value |
-|-------|-------|
-| **File share details** | |
-| Name  | The file share name. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change the name. |
-| Zone | Zone for the file share (for example, Dallas 2). |
-| Max IOPS | Maximum IOPS for the IOPS tier, custom, or dp2 [profile](/docs/vpc?topic=vpc-file-storage-profiles) associated with the file share. |
-| Resource group | Resource groups associated with the file share in your account. |
-| Replication role | Source file share or replica. |
-| Encryption | Specifies provider-managed or [customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption). |
-| Encryption instance | For customer-managed encryption, link to the {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} instance. |
-| Key ID |  Copiable customer root key ID. |
-| ID | For customer-managed encryption, the UUID generated when you created the file share. |
-| Size | File share capacity is displayed in GB. |
-| Created | Date the file share was created. |
-| Mount target access mode   | Access to the file share is granted by either a security group within a subnet or to any virtual server instance in the VPC. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to switch access modes. Security group access is available only to file shares created with the [`dp2` profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile). For more information, see the [Mount target access modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-mount-access-mode). |
-| CRN | Copiable cloud resource name. |
-| Allowed encryption in transit modes| This value shows whether encryption in transit is required when clients access the file share. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change the allowed values.|   
-| **Profile, size, and IOPS**| |
-| Size | File share capacity is displayed in GB. |
-| IOPS tier | IOPS [profile](/docs/vpc?topic=vpc-file-storage-profiles) that defines the file share performance. In most cases, the dp2 profile is shown. |
-| Max IOPS | Maximum IOPS for the specified profile. |
-| **Mount targets** | Number of mount targets associated with the file share. You can have one mount target per VPC per file share. You can create more mount targets for other VPCs. Click ![Actions icon](../icons/action-menu-icon.svg) to rename or delete the mount target, or to view the mount path. |
-| Name | Name of the mount target. |
-| Status | Status of the mount target on the VPC. |
-| Virtual private cloud | This field is shown if the file share has VPC access mode. Click the name to go to the details page for that VPC, where you can see a [list of file shares](#fs-view-shares-vpc) that have a mount target in that VPC. |
-| Subnet | This field is shown if the file share has Security group access mode. Click the name of the subnet to see its details.|
-| Security group | This field is shown if the file share has Security group access mode. It's the number of security groups that the share is a member of. |
-| Reserved IP | This field is shown if the file share has Security group access mode. The IP address of the virtual network interface that is attached to the mount target |
-| Encryption in Transit |This field is shown if the file share has Security group access mode. Its value can be enabled or disabled. |
-| **Accessor share bindings**| The section is shown if the share has accessor shares in other VPCs. |
-| Binding ID | This field shows the ID of the binding that connects the origin share to the accessor share. |
-| Account ID | The ID of the account that has access to your share's data through the accessor share. |
-| Accessor ID | This field shows the account ID that created the accessor share in another VPC. |
-| Status  | It displays the lifecycle status of the accessor file share. The [status](/docs/vpc?topic=vpc-fs-vpc-monitoring&interface=ui#file-share-statuses) `Stable` is expected  |
-| Created date | The date and time when the accessor share was created. |  
-| **File share replication relationship** | Shows the name, location, and status of the source and the replica file shares \n * If no replica file shares were created, click **Create replica** to [create one](/docs/vpc?topic=vpc-file-storage-create-replication). \n * To break the replication relationship, click **Remove replication relationship**. Then, the replica file share becomes an independent read/write file share.|
-| Replication frequency | Hover over the information icon to see an explanation of the cron replication schedule. |
-| Status | Replication status; for example, _suspended_ or _available_. |
-| Last sync start time | The date and time of the last replication start. |
-| Last sync completion time | The date and time of the last replication ended. |
-| Transfer rate | It shows the speed at which data was copied from the source file share to its replica during the last sync. |
-| Transfer amount | The amount of data that is copied from the source file share to its replica during the last sync. |
-| Replication role | Source or replica file share. |
-| File share Name | Click the file share name to see its details. |
-| Location | It displays the zone information of the file share. |
-| Status   | It displays the lifecycle status of the file share. The [status](/docs/vpc?topic=vpc-fs-vpc-monitoring&interface=ui#file-share-statuses) `Stable` is expected.|
-{: caption="Table 2. File shares details page" caption-side="bottom"}
+     | Field | Value |
+     |-------|-------|
+     | **File share details** | |
+     | Name  | The file share name. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change the name. |
+     | Zone | Zone for the file share (for example, Dallas 2). |
+     | Max IOPS | Maximum IOPS for the IOPS tier, custom, or dp2 [profile](/docs/vpc?topic=vpc-file-storage-profiles) associated with the file share. |
+     | Resource group | Resource groups associated with the file share in your account. |
+     | Replication role | Source file share or replica. |
+     | Encryption | Specifies provider-managed or [customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption). |
+     | Encryption instance | For customer-managed encryption, link to the {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} instance. |
+     | Key ID |  Copiable customer root key ID. |
+     | ID | For customer-managed encryption, the UUID generated when you created the file share. |
+     | Size | File share capacity in GB. |
+     | Created | Date the file share was created. |
+     | Mount target access mode   | Access to the file share is granted by either a security group within a subnet or to any virtual server instance in the VPC. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to switch access modes. Security group access is available only to file shares created with the [`dp2` profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile). For more information, see the [Mount target access modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-mount-access-mode). |
+     | CRN | Copiable cloud resource name. |
+     | Allowed encryption in transit modes| This value shows whether encryption in transit is required when clients access the file share. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change the allowed values.|   
+     | **Profile, size, and IOPS**| |
+     | Size | File share capacity in GB. |
+     | IOPS tier | IOPS [profile](/docs/vpc?topic=vpc-file-storage-profiles) that defines the file share performance. In most cases, the dp2 profile is shown. |
+     | Max IOPS | Maximum IOPS for the specified profile. |
+     | **Mount targets** | Number of mount targets associated with the file share. You can have one mount target per VPC per file share. You can create more mount targets for other VPCs. Click ![Actions icon](../icons/action-menu-icon.svg) to rename or delete the mount target, or to view the mount path. |
+     | Name | Name of the mount target. |
+     | Status | Status of the mount target on the VPC. |
+     | Virtual private cloud | This field is shown if the file share has VPC access mode. Click the name to go to the details page for that VPC, where you can see a [list of file shares](#fs-view-shares-vpc) that have a mount target in that VPC. |
+     | Subnet | This field is shown if the file share has Security group access mode. Click the name of the subnet to see its details.|
+     | Security group | This field is shown if the file share has Security group access mode. It's the number of security groups that the share is a member of. |
+     | Reserved IP | This field is shown if the file share has Security group access mode. The IP address of the virtual network interface that is attached to the mount target |
+     | Encryption in Transit |This field is shown if the file share has Security group access mode. Its value can be enabled or disabled. |
+     | **Accessor share bindings**| This section is shown if the share has accessor shares in other VPCs. |
+     | Binding ID | This field shows the ID of the binding that connects the origin share to the accessor share. |
+     | Account ID | The ID of the account that has access to your share's data through the accessor share. |
+     | Accessor ID | This field shows the account ID that created the accessor share in another VPC. |
+     | Status  | It displays the lifecycle status of the accessor file share. The [status](/docs/vpc?topic=vpc-fs-vpc-monitoring&interface=ui#file-share-statuses) `Stable` is expected  |
+     | Created date | The date and time when the accessor share was created. |  
+     | **File share replication relationship** | Shows the name, location, and status of the source and the replica file shares \n * If no replica file shares were created, click **Create replica** to [create one](/docs/vpc?topic=vpc-file-storage-create-replication). \n * To break the replication relationship, click **Remove replication relationship**. Then, the replica file share becomes an independent read/write file share.|
+     | Replication frequency | Hover over the information icon to see an explanation of the cron replication schedule. |
+     | Status | Replication status; for example, _suspended_ or _available_. |
+     | Last sync start time | The date and time of the last replication start. |
+     | Last sync completion time | The date and time of the last replication ended. |
+     | Transfer rate | It shows the speed at which data was copied from the source file share to its replica during the last sync. |
+     | Transfer amount | The amount of data that is copied from the source file share to its replica during the last sync. |
+     | Replication role | Source or replica file share. |
+     | File share Name | Click the file share name to see its details. |
+     | Location | It displays the zone information of the file share. |
+     | Status   | It displays the lifecycle status of the file share. The [status](/docs/vpc?topic=vpc-fs-vpc-monitoring&interface=ui#file-share-statuses) `Stable` is expected.|
+     {: caption="Table 2. File shares details page" caption-side="bottom"}
+     
+   - **Monitoring** - [New]{: tag-new} On the Monitoring tab, you can see three graphs for share usage, total throughput, and total IOPS. These graphs are available to you at no cost, even without an {{site.data.keyword.mon_full_notm}} instance. You can customize the date range to view data over time.
+
+     Monitoring these utilization metrics can help you to determine how much work is done by your application or workload. You can use this information to determine whether the IOPS value needs to be adjusted. Monitoring the available capacity of your share can help you identify the need for more storage before insufficient space can become a problem with writing data to the share or replication. Seeing these metrics can help you anticipate any changes in charges at the end of the billing period.
+     
+     These metrics are not updated in real time. Data for new file shares can take up to an hour or an hour and 15 minutes to appear in the dashboard. Changes in usage can take from 15 to 30 minutes to be reflected in the graphs.
+     {: note}
+   
+     If you have an instance of the {{site.data.keyword.mon_full_notm}} service, click **Launch monitoring** to launch the Sysdig web UI to work with the metrics dashboards there. For more information about how to set up the {{site.data.keyword.mon_full_notm}} instance, see [Monitoring metrics for File Storage for VPC](/docs/vpc?topic=vpc-fs-vpc-monitoring-sysdig).
 
 ### Viewing all file shares for a VPC in the UI
 {: #fs-view-shares-vpc}

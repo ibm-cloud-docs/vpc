@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-09-26"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -1079,3 +1079,12 @@ Mounting is a process by which a server's operating system makes files and direc
 * [Mounting file shares in CentOS](/docs/vpc?topic=vpc-file-storage-mount-centos).
 * [Mounting file shares on Ubuntu](/docs/vpc?topic=vpc-file-storage-vpc-mount-ubuntu).
 * [Mounting file shares on z/OS](/docs/vpc?topic=vpc-file-storage-vpc-mount-zos)
+
+## Monitoring file shares
+{: #fs-manage-monitor}
+
+[New]{: tag-new}
+
+You can check the status and health states of your file share by using the console, the CLI, or the API. You can monitor the total throughput, the total IOPS, the number of mount targets, and capacity usage of your share over time in the {{site.data.keyword.cloud_notm}} console. You can use {{site.data.keyword.atracker_full}} to configure how to route auditing events for file shares. You can also configure {{site.data.keyword.logs_routing_full_notm}} for handling logs. For more information, see [Monitoring file share health states, lifecycle status, and events](/docs/vpc?topic=vpc-fs-vpc-monitoring).
+
+File shares can be integrated with {{site.data.keyword.mon_full}} to gain operational visibility into the performance and health of your shares. In the Sysdig web UI you can view the throughput, IOPS, and capacity metrics in more detail, customize your dashboards, and set up alerts. For more information, see [Monitoring metrics for {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-fs-vpc-monitoring-sysdig).

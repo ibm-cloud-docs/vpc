@@ -2,7 +2,7 @@
 
 copyright:
   years:  2021, 2023
-lastupdated: "2024-02-16"
+lastupdated: "2024-09-26"
 
 keywords: IBM Cloud monitoring, vpc monitoring, dashboards, dashboard
 
@@ -29,6 +29,7 @@ Each monitoring dashboard has the relevant metrics for its associated service as
 | VPC Gen 2 Load Balancer | [Monitoring Network Load Balancer for VPC metrics](/docs/vpc?topic=vpc-nlb_monitoring-metrics) |
 | Flow Logs for VPC Overview | [Monitoring flow logs for VPC metrics](/docs/vpc?topic=vpc-fl-monitoring-metrics) |
 | VPC Infrastructure Service Resource Quota Overview | [VPC quota metrics definitions](/docs/vpc?topic=vpc-vpc-quota-metrics) |
+| {{site.data.keyword.filestorage_vpc_short}} | [Monitoring metrics for {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-fs-vpc-monitoring-sysdig) |
 {: caption="Table 1: VPC metric definitions" caption-side="bottom"}
 
 To see a list of Cloud services outside of VPC that offer monitoring, see [Cloud services](/docs/monitoring?topic=monitoring-cloud_services).
@@ -40,3 +41,8 @@ To see a list of Cloud services outside of VPC that offer monitoring, see [Cloud
 2. In the Monitoring UI, select the instance that you want to view monitoring metrics for. Then, select Open Dashboard.
 3. Select the Dashboards tile, the Dashboards menu expands.
 4. Under DASHBOARD TEMPLATES, expand the `IBM` tab to select the dashboard you want to access. The names of available dashboards are detailed in Table 1.
+
+## Limitations of {{site.data.keyword.filestorage_vpc_short}} monitoring
+{: #fs-metrics-limitations}
+
+The system queries file share information hourly. When you create a file share or increase its capacity, it can take up to an hour for this information to appear on the monitoring dashboards.

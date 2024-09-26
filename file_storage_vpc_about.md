@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-08-26"
+lastupdated: "2024-09-26"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -219,6 +219,13 @@ You can use {{site.data.keyword.atracker_full}} to configure how to route auditi
 {: #fs-event-logs}
 
 After you provision {{site.data.keyword.la_full}} to add log management capabilities to your {{site.data.keyword.cloud}} architecture, you can enable platform logs to view and analyze logs of the {{site.data.keyword.filestorage_vpc_short}} service. For more information, see [Logging for VPC](/docs/vpc?topic=vpc-logging#logging-file-share-replication).
+
+## Monitoring share-related metrics in the console
+{: #fs-mon-sysdig}
+
+[New]{: tag-new}
+
+{{site.data.keyword.mon_full}} is a third-party cloud-native, and container-intelligence management system that you can include as part of your {{site.data.keyword.cloud_notm}} architecture. {{site.data.keyword.mon_full_notm}} is operated by Sysdig in partnership with {{site.data.keyword.IBM_notm}}. You can access File share dashboards in the {{site.data.keyword.cloud_notm}} console and view metrics such as current read and write throughput, and maximum throughput. For more information, see [Monitoring metrics for File Storage for VPC](/docs/vpc?topic=vpc-fs-vpc-monitoring-sysdig&interface=ui).
 
 ## Limitations in this release
 {: #fs-limitations}

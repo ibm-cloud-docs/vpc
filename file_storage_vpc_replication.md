@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-08-14"
+lastupdated: "2024-09-26"
 
 keywords: file share, file storage, replication, replica, 
 
@@ -43,6 +43,8 @@ When you replicate across regions, the data is crossing VPC boundaries. Both VPC
 When you replicate data across regions, consider the local data residency laws because moving data across borders can have legal implications.
 
 Replication is an asynchronous operation and it's not instantaneous. You can use the [replication sync information](/docs/vpc?topic=vpc-file-storage-manage-replication#fs-repl-syncinfo) to see the duration of the replication process and the transfer rate. By reviewing the replication sync information, you can adjust your replication schedule, and balance your costs with how often you need the data to be refreshed on the replica. By viewing the job logs and the transfer rates, you can also determine whether the size of the data that needs to be transferred fits within the replication window.
+
+You need to have sufficient unused capacity in your file share for replication to complete. During the replication process, new data from the source is copied to the replica volume. The old data is not overwritten immediately, but removed after the copy operation completes. For example, if your share is at 95% capacity and the rate of change is 10%, the replica might not have enough space to hold the changes. If the replica does not have enough space to hold the updates, the replication process fails. You can monitor the file share capacity in the console, and configure alerts for utilization. For more information, see [Monitoring metrics for {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-fs-vpc-monitoring-sysdig).
 
 Data on the replica share is read-only. You can obtain read/write access to the data in two ways:
 
@@ -96,4 +98,3 @@ You can use replication to address disaster recovery concerns. The replication a
 3. Use the replica file share - If the primary file share fails or becomes unavailable for any reason, you can fail over to the replica file share. When you perform the failover, the replica share becomes the new primary file share, with read and write capability.
    
 4. Restart the replication with the original file share as scheduled when it's back online. In this case, you can continue to use the replica site as primary, or fail back to the original site.
-

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-06-25"
+lastupdated: "2024-09-26"
 
 keywords: file share, file storage, source volume, replica share, 
 
@@ -76,7 +76,7 @@ On the File share replica create page, review the source file share details, and
    * When you replicate to another region, the encryption type (provider-managed vs customer-managed) of the replica must match the source share. However, it is not inherited from the source, and you must select a Customer Root Key for your replica if the source share is protected by customer-managed encryption.
   
    | Field | Value |
-   | ----- | ----- |
+   |------|------|
    | Encryption | Select either {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. |
    | Encryption service instance | If you provisioned multiple KMS instances in your account, select the one that includes the root key that you want to use for customer-managed encryption. Ensure that [service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth) between the file service and the target KMS are in place. |
    | Key name | Select the root key within the KMS instance that you want to use for encrypting the share. |

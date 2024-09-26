@@ -639,6 +639,7 @@ toc:
                 - file_storage_vpc_view.md
                 - file_storage_vpc_manage.md
                 - file_storage_vpc_monitoring.md
+                - file_storage_vpc_monitoring_sysdig.md
                 - file_storage_vpc_xaccount_share_access_removal.md
                 - file_storage_vpc_expandable_shares.md
                 - file_storage_vpc_adjustable_iops.md
