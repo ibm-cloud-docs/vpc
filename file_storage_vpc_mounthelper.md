@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-04-23"
+lastupdated: "2024-09-27"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -41,7 +41,7 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
 {: #fs-eit-restrictions}
 
 * The same certificates cannot be used across multiple regions.
-* The Mount Helper is supported for mounting on Linux hosts only. The utility is supported on the following distributions:
+* The Mount Helper is supported on Linux hosts only. See the table for the supported distributions:
 
    | Supported OS | Supported OS | Supported OS                 |
    |--------------|--------------|------------------------------|
@@ -51,6 +51,8 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
    | DEBIAN_10    | RHEL_9       | SAP_SLES_15_SP4_APPLICATIONS |
    | ROCKYLINUX_8 |              | |
    {: caption="Table 1 - This table shows the supported host OS distributions." caption-side="bottom"}
+
+* Installing the Mount Helper on Red Hat Enterprise Linux CoreOS is not supported.
    
 ## Installation and configuration of the Mount Helper
 {: #fs-eit-installation}

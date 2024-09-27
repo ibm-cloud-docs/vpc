@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-09-26"
+lastupdated: "2024-09-27"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -136,7 +136,7 @@ Even without EIT, the data is moving through a secure data center network. For m
 
 
 
-Encryption in transit is not supported for {{site.data.keyword.bm_is_short}}.
+Encryption in transit is not supported for {{site.data.keyword.bm_is_short}} or virtual server instances that are running on Red Hat Enterprise Linux CoreOS.
 {: restriction}
 
 ## IAM roles for creating and managing shares, accessor bindings, and mount targets
