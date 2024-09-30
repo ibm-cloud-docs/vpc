@@ -231,7 +231,35 @@ If `set_account_policy` is set to `true`:
       ```
       {: codeblock}
 
+## Reviewing connection requests with Terraform
+{: #review-pps-consumer-request-terraform}
+{: terraform}
 
+Terraform will support this feature after it reaches General Availability (GA) and is officially released.
+{: note}
+
+The following example permits an endpoint gateway binding to a Private Path network by using Terraform:
+
+```terraform
+resource "ibm_is_private_path_service_gateway_endpoint_gateway_binding_operations" "policy" {
+  access_policy = "permit"
+  endpoint_gateway_binding = data.ibm_is_private_path_service_gateway_endpoint_gateway_bindings.ppsgEGWBindings.endpoint_gateway_bindings.0.id
+  private_path_service_gateway = ibm_is_private_path_service_gateway.example.id
+}
+```
+{: codeblock}
+
+The following example denies an endpoint gateway binding to a Private Path network by using Terraform:
+
+```terraform
+resource "ibm_is_private_path_service_gateway_endpoint_gateway_binding_operations" "policy" {
+  count = length(data.ibm_is_private_path_service_gateway_endpoint_gateway_bindings.bindings.endpoint_gateway_bindings)
+  access_policy = "deny"
+  endpoint_gateway_binding = data.ibm_is_private_path_service_gateway_endpoint_gateway_bindings.bindings.endpoint_gateway_bindings[count.index].id
+  private_path_service_gateway = ibm_is_private_path_service_gateway.ppsg.id
+}
+```
+{: codeblock}
 
 ## Related links
 {: #related-links-review-requests}

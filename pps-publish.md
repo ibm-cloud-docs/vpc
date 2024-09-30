@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-09-25"
+lastupdated: "2024-09-30"
 
 keywords:
 
@@ -161,7 +161,22 @@ To publish a Private Path service with the API, follow these steps:
       ```
       {: codeblock}
 
+## Publishing a Private Path service with Terraform
+{: #publishing-private-path-service-terraform}
+{: terraform}
 
+Terraform will support this feature after it reaches General Availability (GA) and is officially released.
+{: note}
+
+The following example publishes a Private Path network by using Terraform:
+
+```terraform
+resource "ibm_is_private_path_service_gateway_operations" "publish" {
+  published = true
+  private_path_service_gateway = ibm_is_private_path_service_gateway.ppsg.id
+}
+```
+{: codeblock}
 
 ## Next steps
 {: #pps-next-steps-after-activation}

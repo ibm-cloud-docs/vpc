@@ -88,7 +88,26 @@ To verify connectivity to a Private Path service with the API, follow these step
 ```
 {: codeblock}
 
+## Verifying connectivity to a Private Path service with Terraform
+{: #verifying-private-path-service-terraform}
+{: terraform}
 
+Terraform will support this feature after it reaches General Availability (GA) and is officially released.
+{: note}
+
+The following example verifies connectivity to a Private Path network by using Terraform:
+
+```terraform
+resource "ibm_is_virtual_endpoint_gateway" "endpoint_gateway" {
+    name = "my-example-egw"
+    target {
+        crn = ibm_is_private_path_service_gateway.ppsg.crn
+        resource_type = "private_path_service_gateway"
+    }
+    vpc = ibm_is_vpc.vpc.id
+}
+```
+{: codeblock}
 
 ## Next steps
 {: #pps-next-step-after-verify}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-09-30"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
 
@@ -551,3 +551,22 @@ To create a Private Path NLB with the API, follow these steps:
         }
    ```
    {: codeblock}
+
+## Creating a Private Path network load balancer with Terraform
+{: #creating-private-path-network-load-balancer-terraform}
+{: terraform}
+
+Terraform will support this feature after it reaches General Availability (GA) and is officially released.
+{: note}
+
+The following example creates a Private Path network load balancer by using Terraform:
+
+```terraform
+resource "ibm_is_lb" "ppnlb" {
+  name     = "my-example-ppnlb"
+  subnets  = [ibm_is_subnet.subnet1.id]
+  profile = "network-private-path"
+  type = "private_path"
+}
+```
+{: codeblock}

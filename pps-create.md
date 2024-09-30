@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-09-30"
 
 keywords:
 
@@ -242,7 +242,25 @@ To create a Private Path service with the API, follow these steps:
       ```
       {: codeblock}
 
+## Creating a Private Path service with Terraform
+{: #creating-private-path-service-terraform}
+{: terraform}
 
+Terraform will support this feature after it reaches General Availability (GA) and is officially released.
+{: note}
+
+The following example provisions a Private Path network by using Terraform:
+
+```terraform
+resource "ibm_is_private_path_service_gateway" "ppsg" {
+    default_access_policy = "deny"
+    load_balancer = ibm_is_lb.ppnlb.id
+    service_endpoints = ["my-service.example.com"]
+    zonal_affinity = false
+    name = "my-example-ppsg"
+}
+```
+{: codeblock}
 
 ## Next steps
 {: #pps-next-steps}

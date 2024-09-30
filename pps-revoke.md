@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-09-30"
 
 keywords:
 
@@ -128,3 +128,20 @@ To revoke access to a Private Path service for an account, follow these steps:
       }'
       ```
       {: codeblock}
+
+## Revoking an account's access a Private Path service with Terraform
+{: #pps-revoke-account-access-terraform}
+{: terraform}
+
+Terraform will support this feature after it reaches General Availability (GA) and is officially released.
+{: note}
+
+The following example revokes an account's access to a Private Path network by using Terraform:
+
+```terraform
+resource "ibm_is_private_path_service_gateway_revoke_account" "example" {
+  account = "7f75c7b025e54bc5635f754b2f888665"
+  private_path_service_gateway = ibm_is_private_path_service_gateway.ppsg.id
+}
+```
+{: codeblock}
