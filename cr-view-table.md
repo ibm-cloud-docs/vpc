@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-07-25"
+lastupdated: "2024-09-30"
 
 keywords: custom routes
 
@@ -32,6 +32,7 @@ Field descriptions are as follows.
 
 | Field | Description |
 |-------|-------------|
+| Tags | Click the **Add tags** or Edit icon ![Edit icon](images/edit.png) to edit your tags for the routing table. |
 | Name | Click the Edit icon ![Edit icon](images/edit.png) to update the name. |
 | Routing table ID | The ID of this routing table. |
 | Virtual private cloud | The VPC for this routing table. |

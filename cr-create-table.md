@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-07-23"
+lastupdated: "2024-09-30"
 
 keywords: custom routes
 
@@ -37,6 +37,8 @@ To create a routing table in the UI, follow these steps:
 
    * Enter a unique name for your routing table.
    * Select the Virtual Private Cloud that you want to associate with the routing table.
+   * **Tags** - (Optional) Add tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
+   * **Access management tags** - (Optional) Add access management tags to resources to help organize access control relationships. The only supported format for access management tags is `key:value`. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
    * **Virtual private cloud** - Select your VPC.
    * In the Traffic section, you can select from these optional features:
 
@@ -201,5 +203,31 @@ To create a routing table with Terraform, follow these steps:
         advertise_routes_to           = ["direct_link", "transit_gateway"]
       }
       ```
-      
+
+   * To create a routing table that includes user tags and access tags:
+
+      ```terraform
+      resource "ibm_is_vpc_routing_table" "example" {
+        tags                          = ["rt-tag"]
+        access_tags                   = ["access:dev"]
+        vpc                           = ibm_is_vpc.example.id
+        name                          = "example-vpc-routing-table"
+        route_direct_link_ingress     = true
+        route_transit_gateway_ingress = false
+        route_vpc_zone_ingress        = false
+      }
+      ```
+
+      The CRN and resource group is included in the responses and data sources.
+
+      ```terraform
+      resource "ibm_is_subnet" "example" {
+        name               = "example-subnet"
+        vpc                = ibm_is_vpc.example.id
+        zone               = "us-south-1"
+        ipv4_cidr_block    = "10.240.0.0/24"
+        routing_table_crn  = ibm_is_vpc_routing_table.example.crn
+      }
+      ```
+
 For documentation about the `ibm_is_vpc_routing_table` resource, see the [Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_vpc_routing_table).{: external}
