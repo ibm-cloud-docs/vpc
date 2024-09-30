@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-09-26"
+lastupdated: "2024-09-30"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -43,7 +43,7 @@ Table 1 shows the lifecycle statuses that the file share can have.
 | `waiting`   |  |
 {: caption="Table 1. File Storage lifecycle states" caption-side="bottom"}
 
-## file share replication status
+## File share replication status
 {: #file-share-replication-status}
 
 When you [view your file share in the console](/docs/vpc?topic=vpc-file-storage-view&interface=ui), you can see its Replication role and Replication status. This information is displayed in the file shares list and the file share details page in the File share replication relationship section.
