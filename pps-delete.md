@@ -248,3 +248,25 @@ To delete a Private Path service with the API, follow these steps:
       "$vpc_api_endpoint/v1/private_path_service_gateways/$ppsgId?version=$api_version&generation=2"
       ```
       {: codeblock}
+
+## Updating and deleting a Private Path service with Terraform
+{: #update-delete-pps-terraform}
+{: terraform}
+
+Terraform will support this feature after it reaches General Availability (GA) and is officially released.
+{: note}
+
+Updating and Deleting a Private Path Service by using Terraform is done with the same resource.
+
+The following example updates and delete an endpoint gateway binding to a Private Path network by using Terraform:
+
+```terraform
+resource "ibm_is_private_path_service_gateway" "ppsg" {
+    default_access_policy = "deny"
+    load_balancer = ibm_is_lb.ppnlb.id
+    service_endpoints = ["my-service.example.com"]
+    zonal_affinity = false
+    name = "my-example-ppsg"
+}
+```
+{: codeblock}
