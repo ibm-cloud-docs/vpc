@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2018, 2024
-lastupdated: "2024-09-13"
+lastupdated: "2024-10-01"
 
 keywords: classic, access, classic access, VRF, peering
 
@@ -14,7 +14,6 @@ subcollection: vpc
 # Setting up access to classic infrastructure
 {: #setting-up-access-to-classic-infrastructure}
 
- 
 
 You can set up access from a VPC to your {{site.data.keyword.cloud}} classic infrastructure, including {{site.data.keyword.cloud_notm}} Direct Link connectivity. Only one VPC per region can communicate with classic resources.
 {: shortdesc}
