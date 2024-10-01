@@ -31,10 +31,11 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-sept3024}
 {: release-note}
 
-**Tagging VPC routing tables.** VPC [routing tables](/docs/vpc?topic=vpc-about-custom-routes&interface=ui) now support a cloud resource name (CRN) as an identifier when [creating](/docs/vpc?topic=vpc-create-vpc-routing-table&interface=ui) and [updating](/docs/vpc?topic=vpc-update-vpc-routing-table&interface=ui) routing tables. When [reassigning](/docs/vpc?topic=vpc-attach-subnets-routing-table&interface=ui) the routing table for a subnet, the new routing table for the subnet can now optionally be specified by its CRN.
+Tagging VPC routing tables
+:   VPC [routing tables](/docs/vpc?topic=vpc-about-custom-routes&interface=ui) now support a cloud resource name (CRN) as an identifier when [creating](/docs/vpc?topic=vpc-create-vpc-routing-table&interface=ui) and [updating](/docs/vpc?topic=vpc-update-vpc-routing-table&interface=ui) routing tables. When [reassigning](/docs/vpc?topic=vpc-attach-subnets-routing-table&interface=ui) the routing table for a subnet, the new routing table for the subnet can now optionally be specified by its CRN.
 
-Now that routing tables have a CRN, VPC routing tables can be [tagged](/docs/account?topic=account-tag), and access to VPC routing tables can be [controlled by using tags](/docs/account?topic=account-access-tags-tutorial).
-{: note}
+   Now that routing tables have a CRN, VPC routing tables can be [tagged](/docs/account?topic=account-tag), and access to VPC routing tables can be [controlled by using tags](/docs/account?topic=account-access-tags-tutorial).
+   {: note}
 
 ### 26 September 2024
 {: #vpc-sep2624}
