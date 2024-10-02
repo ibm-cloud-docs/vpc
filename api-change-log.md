@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-09-24"
+lastupdated: "2024-10-01"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -53,6 +53,34 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 1 October 2024
+{: #1-october-2024}
+
+### For all version dates
+{: #1-october-2024-all-version-dates}
+
+**Private Path network load balancers.** Accounts that have been granted special approval to preview this feature can now create a [Private Path network load balancer](/docs/vpc?topic=vpc-ppnlb-ui-creating-private-path-network-load-balancer&interface=api) to enable and manage private connectivity for consumers of a hosted service. When [creating a load balancer](/apidocs/vpc/latest#create-load-balancer), you can specify the new `is_private_path` property value as `true` to create a Private Path network load balancer.
+
+**Load balancer schema enhancements for Private Path network load balancers.** The Private Path network load balancer includes a new load balancer profile `network-private-path`, along with the following new load balancer and load balancer profile properties:
+
+- `source_ip_session_persistence_supported` indicates whether a load balancer supports source IP session persistence. Source IP session persistence is not supported by Private Path network load balancers.
+- `availability` indicates the availability of a load balancer. Load balancers with `subnet` availability remain available if at least one of its subnets is in a zone that's available. Load balancers with `region` availability remain available if at least one zone in the region is available. Private Path network load balancers have `region` availability. Other load balancers have `subnet` availability.
+
+The `value` for load balancer profiles properties `route_mode_supported`, `security_groups_supported`, `udp_supported`, and `logging_supported` is set to `false` for Private Path load balancers. Additionally, Private Path load balancers do not support setting or updating the `dns` property, because Private Path network load balancers are accessed using endpoint gateways where DNS is configured.
+
+**Private Path service gateways.** Accounts that have been granted special approval to preview this feature can now create a private path service gateway. [Creating](/apidocs/vpc/latest#create-private-path-service-gateway), [updating](/apidocs/vpc/latest#update-private-path-service-gateway), [publishing](/apidocs/vpc/latest#publish-private-path-service-gateway), [unpublishing](/apidocs/vpc/latest#unpublish-private-path-service-gateway) and [deleting](/apidocs/vpc/latest#delete-private-path-service-gateway) Private Path service gateways provide cross-account connectivity to the Private Path network load balancers fronting your [services](/docs/vpc?topic=vpc-private-path-service-about&interface=api). Consumers access your services by targeting their endpoint gateways at your Private Path service gateways. Private Path service gateways also have two child resources:
+
+- [Account policies](/apidocs/vpc/latest#list-private-path-service-gateway-account-policies) provide per-account access policies that supersede the Private Path service gateway's default access policy. You can [create](/apidocs/vpc/latest#create-private-path-service-gateway-account-policy), [update](/apidocs/vpc/latest#update-private-path-service-gateway-account-policy), and [delete](/apidocs/vpc/latest#delete-private-path-service-gateway-account-policy) policies to `permit`, `deny`, or manually `review` requests from any account. You can also [revoke](/apidocs/vpc/latest#revoke-account-for-private-path-service-gateway) current and future access for an account. For more information, see [About account policies](/docs/vpc?topic=vpc-pps-about-account-policies).
+
+- [Endpoint gateway bindings](/apidocs/vpc/latest#list-private-path-service-gateway-endpoint-gateway) are created for each endpoint gateway targeting the Private Path service gateway. The access policy for the endpoint gateway's account is applied to all new endpoint gateway bindings. If an account policy doesn't exist, the Private Path service gateway's `default_access_policy` is used. If the resulting policy is `review`, you must explicitly [permit](/apidocs/vpc/latest#permit_private_path_service_gateway_endpoint_gateway_bindingy) or [deny](/apidocs/vpc/latest#deny_private_path_service_gateway_endpoint_gateway_binding) the request, and optionally set a new policy for future requests from the account.
+
+Learn about [Creating Private Path service gateways](/docs/vpc?topic=vpc-private-path-service-intro&interface=ui), and explore the new [API methods](/apidocs/vpc/latest#list-private-path-service-gateways).
+
+**CRNs for VPC routing tables.** VPC routing tables now support the `crn` property as an identifier. As a result, the `RoutingTable`, `RoutingTableReference` and `RoutingTableIdentity` schemas now include a `crn` property. All operations that use these schemas have been updated. For operations where the response contains a routing table or a reference to a routing table, for example [creating a routing table](/apidocs/vpc/latest#create-vpc-routing-table), [retrieving a routing table](/apidocs/vpc/latest#get-vpc-routing-table) or [retrieving a VPC's default routing table](/apidocs/vpc/latest#get-vpc-default-routing-table), the `crn` property is now included. When [replacing the routing table for a subnet](/apidocs/vpc/latest#replace-subnet-routing-table), for example, you can now optionally specify the routing table by its `crn` property.
+
+Now that all VPC routing tables have a CRN, you can [tag](/docs/account?topic=account-tag&interface=api) routing tables to [control access](/docs/account?topic=account-access-tags-tutorial), as well as [search](/docs/account?topic=account-tag&interface=api#search-tags-api-link) for VPC routing tables using tags.
+{: note}
 
 ## 24 September 2024
 {: #24-september-2024}
