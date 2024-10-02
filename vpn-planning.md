@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-06-19"
+lastupdated: "2024-10-02"
 
 keywords:
 subcollection: vpc
@@ -34,3 +34,8 @@ A site-to-site VPN automation project is available that provides a Terraform mod
 
 The Github repository for this automation project is located in the [IBM /
 power-vpn-gateway Github repository](https://github.com/IBM/power-vpn-gateway/){: external}. This project [Readme file](https://github.com/IBM/power-vpn-gateway/blob/master/README.md){: external} create a VPN gateway and attaches it to a new or existing Power Virtual Server workspace, providing secure access to the IBM Cloud Power infrastructure.
+
+## Related link
+{: #related-link-vpn-gateways}
+
+[VPN gateway known limitations, issues, and restrictions](/docs/vpc?topic=vpc-vpn-limitations)
