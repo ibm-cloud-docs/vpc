@@ -433,6 +433,7 @@ toc:
                 topics:
                 - vpn-using.md
                 - vpn-planning.md
+                - vpn-limitations.md
                 - vpn-create.md
                 - vpn-add-connection.md
                 - vpn-create-ike-policy.md
@@ -455,7 +456,6 @@ toc:
                 - vpn-health.md
                 - vpn-view-logs.md
                 - vpn-monitoring-metrics.md
-                - vpn-limitations.md
                 - vpn-mtu.md
                 - vpn-api-example.md
             - topicgroup:
