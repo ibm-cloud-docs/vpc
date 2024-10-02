@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-09-10"
+lastupdated: "2024-10-02"
 
 keywords:
 
@@ -77,6 +77,8 @@ Consider the following limitations before you provision a reservation and provis
 
 Reservations don't have a resource quota. But, bare metal server reservations share your account's bare metal server quota. So, bare metal server reservations are limited by your [Bare metal server quota](/docs/vpc?topic=vpc-quotas#vsi-quotas). Keep in mind that bare metal servers that are attached to a reservation do not count toward your quota consumption.
 {: note}
+
+
 
 ### Bandwidth speed billing for a reservation
 {: #reservations-bandwidth-billing-bare-metal}
