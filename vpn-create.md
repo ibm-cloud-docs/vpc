@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-06-17"
+lastupdated: "2024-10-02"
 
 keywords:
 subcollection: vpc
@@ -17,7 +17,7 @@ subcollection: vpc
 You can create an IBM Cloud VPN for VPC to securely connect your VPC to another private network, such as an on-premises network or another VPC.
 {: shortdesc}
 
-Before you begin, review [Planning considerations for VPN gateways](/docs/vpc?topic=vpc-planning-considerations-vpn).
+Before you begin, review [Planning considerations for VPN gateways](/docs/vpc?topic=vpc-planning-considerations-vpn) and [VPN gateway known limitations, issues, and restrictions](/docs/vpc?topic=vpc-vpn-limitations&interface=ui).
 {: important}
 
 ## Creating a VPN gateway in the UI

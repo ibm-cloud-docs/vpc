@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-04-30"
+lastupdated: "2024-10-02"
 
 keywords:
 
@@ -12,10 +12,10 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# VPN gateway limitations and known issues
+# VPN gateway known limitations, issues, and restrictions
 {: #vpn-limitations}
 
-Lists known limitations and issues for IBM Cloud VPN for VPC.
+Lists known limitations, issues, and restrictions for IBM Cloud VPN for VPC.
 {: shortdesc}
 
 ## Limitations

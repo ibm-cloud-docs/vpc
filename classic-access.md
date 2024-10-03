@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2018, 2024
-lastupdated: "2024-10-01"
+lastupdated: "2024-10-03"
 
 keywords: classic, access, classic access, VRF, peering
 
@@ -13,8 +13,10 @@ subcollection: vpc
 
 # Setting up access to classic infrastructure
 {: #setting-up-access-to-classic-infrastructure}
-
-
+ 
+**End of Market (EOM) Announcement for deprecation of Classic access VPC** - Starting 3 Nov 2024, the “Classic access” option will not be available in the IBM Cloud console (UI). Additionally, if your account doesn't have any classic-access-enabled VPCs, as of 31 Dec 2024, you can't create VPCs with “Classic access” enabled (including through the CLI, Terraform, and the API). Instead, [Transit Gateway](/docs/transit-gateway?topic=transit-gateway-getting-started) can be used to connect your VPCs to the Classic network. If your account has existing classic-access-enabled VPCs, those VPCs will continue to work without any change and you can continue to create classic-access-enabled VPCs in that account through API and CLI.
+{: deprecated} 
+  
 You can set up access from a VPC to your {{site.data.keyword.cloud}} classic infrastructure, including {{site.data.keyword.cloud_notm}} Direct Link connectivity. Only one VPC per region can communicate with classic resources.
 {: shortdesc}
 
