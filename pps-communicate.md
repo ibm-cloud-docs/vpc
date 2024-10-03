@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-10-02"
+lastupdated: "2024-10-03"
 
 keywords:
 
@@ -28,11 +28,11 @@ To complete the connection to your service, you must communicate the following i
 
    Point consumers to instructions on [Creating a VPE gateway](/docs/vpc?topic=vpc-ordering-endpoint-gateway){: external} to create a non-IBM Cloud service connection request.
 
-* The approximate timeframe your consumer must wait to get connected to your service
+* The approximate time frame that your consumer must wait to get connected to your service
 
-   The time it takes for a consumer to get connected depends on you. For example, if you set the default policy to `permit`, all requests are automatically connected. Or, if you set an account policy to `permit` a certain account, again, the connection is approved and the consumer is connected. If, however, you set the default or an account-specific policy to `review`, then you must review the connection request and either `permit` or `deny` it. If you don't review an incoming request within the expiration period set when you created the Private Path service, their request expires and the consumer must create a new VPE gateway request. To learn more, see [Reviewing connection requests](/docs/vpc?topic=vpc-pps-ui-reviewing&interface=ui){: external}.
+   The time that it takes for a consumer to get connected depends on you. For example, if you set the default policy to `permit`, all requests are automatically connected. Or, if you set an account policy to `permit` a certain account, again, the connection is approved and the consumer is connected. However, if you set the default or an account-specific policy to `review`, then you must review the connection request and either `permit` or `deny` it. If you don't review an incoming request within the expiration period when you created the Private Path service, the request expires and the consumer must create a new VPE gateway request. For more information, see [Reviewing connection requests](/docs/vpc?topic=vpc-pps-ui-reviewing&interface=ui){: external}.
 
 * Your contact information
 * A URL to access the service, if necessary
 * Any necessary port information that you might need to communicate
-* [Video demonstrating how a consumer can set up their VPE gateway](https://www.kaltura.com/p/1773841/sp/177384100/embedIframeJs/uiconf_id/27941801/partner_id/1773841?iframeembed=true&entry_id=1_65e0wq3e){: external}
+* [Video that demonstrates how to set up a VPE gateway](https://www.kaltura.com/p/1773841/sp/177384100/embedIframeJs/uiconf_id/27941801/partner_id/1773841?iframeembed=true&entry_id=1_65e0wq3e){: external}

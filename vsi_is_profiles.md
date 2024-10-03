@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-09-24"
+lastupdated: "2024-10-03"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -457,7 +457,7 @@ For more information, see [Bandwidth allocation for instance profiles](/docs/vpc
 ### Bandwidth allocation with multiple data volumes
 {: #bandwidth-multi-volumes}
 
-The bandwidth for volumes is divided between all the attached volumes. To help ensure reasonable boot times, a minimum of 393 MBps is allocated to the primary boot volume. The remaining bandwidth is divided between the data volumes. You can attach up to 12 data volumes to your instance. The data volumes are assigned bandwidth that is proportional to their maximum bandwidth. For example, if you have an instance with four identical data volumes, the overall volumes bandwidth is divided equally among them. If you are using only one volume at a time, then that volume still gets only the bandwidth that is assigned to it, one-fourth of the overall volumes bandwidth.
+The bandwidth for volumes is divided between all the attached volumes. To help ensure reasonable boot times, a minimum of 393 MBps is allocated to the primary boot volume. The remaining bandwidth is divided between the data volumes. You can attach up to 12 data volumes to your instance. The data volumes are assigned bandwidth that is proportional to their maximum bandwidth. For example, if you have an instance with four identical data volumes, the overall volumes bandwidth is divided equally among them. If you are using only one volume at a time, then that volume still gets only the bandwidth that is assigned to it, one-fourth of the overall volumes bandwidth. For more information, see [Bandwidth allocation for Block Storage volumes](/docs/vpc?topic=vpc-block-storage-bandwidth).
 
 ### Bandwidth allocation with multiple network interfaces
 {: #bandwidth-multi-vnic}
