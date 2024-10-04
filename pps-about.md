@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-09-26"
+lastupdated: "2024-10-04"
 
 keywords:
 
@@ -127,10 +127,10 @@ First, a Consumer's application connects to the Consumer's VPE gateway within th
 
 ![A Private Path exposing a service to a customer within the same VPC](images/private_path_detailed_3.svg "A Private Path exposing a service to a customer within the same VPC"){: caption="Figure 3. A Private Path exposing a service to a customer within the same VPC without using public internet" caption-side="bottom"}
 
-### Use case 4: Access Provider VPC from IBM Cloud Service
+### Use case 4: Enable an IBM Cloud service to connect to a customer's VPC
 {: #pps-use-case-4}
 
-Private Path allows connection between IBM Cloud service like IBM Cloud Code Engine and your VPC without compromising security or putting your VPC at risk. Code Engine is a multi-tenant compute service that runs source-code or containerized workloads. Its dynamic scaling capabilities allow your apps to automatically scale up and down, even to zero, based on incoming requests. With it’s pay-per-use model, Code Engine only charges for the compute capacity you actually use. For more information, see [IBM Cloud Code Engine](https://www.ibm.com/products/code-engine){: external}.
+Private Path allows connection between an IBM Cloud service like IBM Cloud Code Engine and your VPC without compromising security or putting your VPC at risk. Code Engine is a multi-tenant compute service that runs source-code or containerized workloads. Its dynamic scaling capabilities allow your apps to automatically scale up and down, even to zero, based on incoming requests. With it’s pay-per-use model, Code Engine only charges for the compute capacity you actually use. For more information, see [IBM Cloud Code Engine](https://www.ibm.com/products/code-engine){: external}.
 
 Figure 4 illustrates how to establish a Private Path service with connections to the VPE gateway of a Code Engine application and your VPC. First, the Code Engine application connects to the VPE gateway within the Code Engine's VPC. Then, the VPE gateway connects to the Private Path NLB and Provider's account in the Provider's VPC. In turn, the Private Path NLB connects to the Provider's application. The Provider's application then responds to the Consumer's request through DSR. This Private Path service activity is completely contained in a single region (US South) in an IBM Cloud private network.
 
