@@ -44,7 +44,7 @@ To help ensure reasonable boot times, a minimum of 393 Mbps is allocated to the 
 ## Throughput limit value of unattached volumes
 {: #block-vol-bandwidth}
 
-Each volume has an IOPS and bandwidth limit. When you create a stand-alone (unattached) data volume, the volume throughput limit is calculated based on volume capacity, IOPS, and [volume profile](/docs/vpc?topic=vpc-block-storage-profiles). The IOPS limit is always set to the maximum IOPS of the volume. 
+Each volume has an IOPS and a throughput limit. When you create a stand-alone (unattached) data volume, the volume throughput limit is calculated based on volume capacity, IOPS, and [volume profile](/docs/vpc?topic=vpc-block-storage-profiles). The IOPS limit is always set to the maximum IOPS of the volume. 
 
 The provisioned throughput limit is determined by the total number of IOPS multiplied by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB or custom IOPS tiers. The maximum throughput limit for the general-purpose volume profile is 670 MBps (5360 Mbps). The maximum throughput limit for the 5iops-tier volume profile is 768 MBps (6144 Mbps). The remaining volume profiles (10iops-tier and custom) can't exceed the throughput limit of 1024 MBps (8192 Mbps).
 
