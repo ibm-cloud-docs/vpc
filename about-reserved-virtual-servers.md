@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-10-02"
+lastupdated: "2024-10-07"
 
 keywords:
 
@@ -51,6 +51,7 @@ The following virtual server profiles are available in specific MZRs.
 * bx2a profiles are available in Toronto only.
 * bx3d, cx3d, and mx3d profiles are available in Dallas, Frankfurt, London, Madrid, Osaka, Sydney, Toronto, and Washington DC.
 * gx2 profiles are available in all regions except Madrid.
+* gx3d profiles are available in Frankfurt, London, Madrid, Sao Paulo, Sydney, Tokyo, Toronto, and Washington DC.
 * ox2 profiles are available in Dallas, Frankfurt, London, Osaka, Tokyo, and Washington DC.
 
 For more information about profiles, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles).
