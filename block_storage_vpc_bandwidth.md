@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-09-26"
+lastupdated: "2024-10-07"
 
 keywords: Block Storage, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, bandwidth
 
@@ -18,48 +18,45 @@ subcollection: vpc
 Instance bandwidth is distributed between networking and storage resources. The storage bandwidth is divided between the boot volume and the attached data volumes. You can adjust the storage-networking bandwidth ratio in the console, from the CLI or with the API. After that change, you can adjust the portion of available bandwidth that is allocated to the data volumes by detaching and reattaching them.
 {: shortdesc}
 
-## Bandwidth allocation for volumes that are attached to an instance
-{: #attached-block-vol-bandwidth}
+## Adjusting Volume bandwidth vs Network bandwidth ratio
+{: #storage-network-bandwidth}
 
-When you provision an instance, bandwidth is allocated between storage volumes (boot volume and attached data volumes) and networking. The maximum bandwidth capacity is determined by the instance profile that you select during instance provisioning. The bandwidth multiplier for instance bandwidth is 2 Gbps per vCPU. For example, a bx2-2x8 balanced server profile allows a total instance bandwidth of 4 Gbps, while a cx3d-8x20 compute profile has an instance bandwidth cap of 16 Gbps.  
+When you provision an instance, bandwidth is allocated between storage volumes (boot volume and attached data volumes) and networking. The maximum bandwidth capacity is determined by the instance profile that you select during instance provisioning. For example, a bx2-2x8 balanced server profile allows a total instance bandwidth of 4 Gbps (4,000 Mbps), while a cx3d-8x20 compute profile has an instance bandwidth cap of 16 Gbps (16,000 Mbps).
 
-The initial storage and network bandwidth allocation depends on the instance profile that you selected, and you can also specify its value when you provision the instance with the API. If you do not specify the initial volume and network bandwidth allocation, then 25% of total instance bandwidth is allocated to volume bandwidth and 75% is allocated to network bandwidth.
+The initial storage and network bandwidth allocation depends on the instance profile you selected, and you can also specify its value when you provision the instance with the API. If you do not specify the initial volume and network bandwidth allocation, then 25% of total instance bandwidth is allocated to volume bandwidth and 75% is allocated to network bandwidth.
 
-The maximum bandwidth of a volume is the highest potential bandwidth that can be allocated to the volume when it is attached to an instance. In cases where the total maximum potential bandwidth of attached volumes exceeds the amount that is available on the instance, the bandwidth for each volume attachment is set proportionally. The bandwidth is allocated based on the corresponding volume's maximum bandwidth. The allocation does not change unless a volume is detached or attached to the instance.
-
-For example, for the bx2-2x8 profile you might have the following allocations.
+For example, with the bx2-2x8 profile you might have the following allocations.
    - Volumes: 1 Gbps.
    - Network: 3 Gbps.
 
-To help ensure reasonable boot times, a minimum of 393 Mbps is allocated to the primary boot volume. In the example, the instance's total volume bandwidth is 1,000 Mbps. The remaining 607 Mbps is allocated to the secondary volumes that you attach, up to the maximum bandwidth of the volume. For example, if you have only one data volume with 500 Mbps, you can expect to get that level of performance.
+For the cx3d-8x20 profile, you might have the following allocations.
+   - Volumes: 4 Gbps.
+   - Network: 12 Gbps.
 
-Each volume has an IOPS and bandwidth limit set. The IOPS limit is always set to the maximum IOPS of the volume. The bandwidth for each attached volume is set proportionally based on the [volume size and profile](/docs/vpc?topic=vpc-block-storage-profiles). 
+You can change the storage-networking bandwidth ratio [in the console](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#adjusting-bandwidth-allocation-ui){: ui}[from the CLI](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=cli#adjusting-bandwidth-allocation-cli){: cli}[with the API](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=api#adjusting-bandwidth-allocation-api){: api}, but both volume and network bandwidth must be at least 500 Mbps each.
 
-### Adjusting volume bandwidth
-{: #volume-adjust-bandwidth}
+Before you change the storage-networking bandwidth ratio, evaluate your instance's network bandwidth requirements. Make sure that the new bandwidth allocation does not have negative effects on your instance’s network performance.
+{: important} 
 
-You can change the storage-networking bandwidth ratio [in the console](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#adjusting-bandwidth-allocation-ui){: ui}[from the CLI](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=cli#adjusting-bandwidth-allocation-cli){: cli}[with the API](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=api#adjusting-bandwidth-allocation-api){: api} to meet your needs, but both volume and network bandwidth must be at least 500 Mbps each. For example, to allow more bandwidth for volumes, you can apportion the previous example in equal allocations:
-   - Storage volumes: 2,000 Mbps.
-   - Network: 2,000 Mbps.
+To help ensure reasonable boot times, a minimum of 393 Mbps is allocated to the primary boot volume. The remaining volume bandwidth is proportionally allocated between the attached data volumes. The allocation does not change unless a volume is detached or attached to the instance. If you change the storage-networking bandwidth ratio, detach and reattach the data volumes for the new bandwidth allocation to be realized.
+{: important}
 
-However, before you change the storage-networking bandwidth ratio, evaluate your instance's network bandwidth requirements. Make sure that the new bandwidth allocation does not have negative effects on your instance’s network performance.
-
-For optimal bandwidth to be realized, detach and reattach the data volume after volume bandwidth allocation. Extending the example for multiple volumes, the bandwidth allocations look like the following example.
-
-* The total allocation for volumes is 2,000 Mbps.
-* The boot volume minimum allocation is 393 Mbps.
-* The remaining bandwidth for data volumes is 1,607 Mbps.
-
-The volume bandwidth that is available to the instance is apportioned on a per volume basis. The bandwidth is assigned per volume, not shared between volumes. For example, if you have an instance with four identical attached volumes but you are using only one volume, then that volume can get only the bandwidth that is assigned to it. The individual volume bandwidth is 1/4th of the available overall volumes bandwidth. The volume in use can't access the extra bandwidth that is assigned to the unused volumes.
-
-### Unattached volume bandwidth versus attached volume bandwidth
+## Throughput limit value of unattached volumes
 {: #block-vol-bandwidth}
 
-When you create a stand-alone (unattached) data volume, the volume bandwidth is assigned based on volume capacity, IOPS, and volume profile.
+Each volume has an IOPS and bandwidth limit. When you create a stand-alone (unattached) data volume, the volume throughput limit is calculated based on volume capacity, IOPS, and [volume profile](/docs/vpc?topic=vpc-block-storage-profiles). The IOPS limit is always set to the maximum IOPS of the volume. 
 
-In the UI, the volume bandwidth can be seen as **Throughput** on the overview tab of the Block Storage volume details page.{: ui}
+The provisioned throughput limit is determined by the total number of IOPS multiplied by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB or custom IOPS tiers. The maximum throughput limit for the general-purpose volume profile is 670 MBps (5360 Mbps). The maximum throughput limit for the 5iops-tier volume profile is 768 MBps (6144 Mbps). The remaining volume profiles (10iops-tier and custom) can't exceed the throughput limit of 1024 MBps (8192 Mbps).
 
-In the CLI, you can see the bandwidth in the output of the `ibmcloud is volume` command.{: cli}
+See the following examples:
+- When you provision a stand-alone volume with 1,800 GB capacity and the 5 IOPS/GB volume profile, it can handle 9,000 IOPS, which means a maximum throughput limit of 1,179 Mbps. In the later example and tables, this volume is called _volume-a_.
+- When you provision a stand-alone volume with 3000 GB capacity and the 5 IOPS/GB volume profile, it can handle 15,000 IOPS, which means a maximum throughput limit of 1,966 Mbps. In the later example and tables, this volume is called _volume-b_.
+- When you provision a stand-alone volume with 3000 GB capacity and the general-purpose volume profile, it can handle 9,000 IOPS, which means a maximum throughput limit of 1,179 Mbps. In the later example and tables, this volume is called _volume c_.
+- When you provision a stand-alone volume with 2000 GB capacity and the general-purpose volume profile, it can handle 6,000 IOPS, which means a maximum throughput limit of 786 Mbps. In the later example and tables, this volume is called _volume_d_.
+
+Where can you see what bandwidth or throughput limit is assigned to your volume? In the UI, the volume bandwidth can be seen as **Throughput** on the overview tab of the Block Storage volume details page.{: ui}
+
+Where can you see what bandwidth or throughput limit is assigned to your volume? In the CLI, you can see the bandwidth in the output of the `ibmcloud is volume` command.{: cli}
 
    ```sh
    ibmcloud is volume my-test-volume 
@@ -70,7 +67,7 @@ In the CLI, you can see the bandwidth in the output of the `ibmcloud is volume` 
    CRN                                    crn:v1:bluemix:public:is:us-south-3:a/a1234567::volume:r006-3869cd62-7676-43e3-8196-dad27b0c0f27
    Status                                 available
    Attachment state                       unattached   
-   Capacity                               30
+   Capacity                               100
    IOPS                                   3000
    Bandwidth(Mbps)                        393
    Profile                                general-purpose
@@ -89,37 +86,86 @@ In the CLI, you can see the bandwidth in the output of the `ibmcloud is volume` 
    {: screen}
    {: cli}
 
-The API response for a `GET /volume/{id}` call shows the bandwidth for an unattached volume like the following example snippet.{: api}
+Where can you see what bandwidth or throughput limit is assigned to your volume? The API response for a `GET /volume/{id}` call shows the bandwidth for an unattached volume like the following example snippet.{: api}
 
    ```json
    {
      "active": true,
-     "bandwidth": 640,
+     "bandwidth": 393,
      "busy": false,
-     "capacity": 500,
-     "created_at": "2021-08-08T06:26:17Z",
-     "crn": "crn:[...]",
+     "capacity": 100,
+     "created_at": "2021-12-09T15:42:11+00:00",
+     "crn": "crn:v1:bluemix:public:is:us-south-3:a/a1234567::volume:r006-3869cd62-7676-43e3-8196-dad27b0c0f27",
      "encryption": "provider_managed",
      "href": "https://us-south.iaas.cloud.ibm.com/v1/volumes/ccbe6fe1-5680-4865-94d3-687076a38293",
-     "id": "ccbe6fe1-5680-4865-94d3-687076a38293",
-     "iops": 5000,
-     "name": "my-volume-1",
+     "id": "r006-3869cd62-7676-43e3-8196-dad27b0c0f273",
+     "iops": 3000,
+     "name": "my-test-volume",
      "profile": {
        "href": "https://us-south.iaas.cloud.ibm.com/v1/volume/profiles/general-purpose",
-       "name": "custom"}
+       "name": "general-purpose"}
      "volume_attachments": []
    } 
    ```
    {: screen}
    {: api}
 
-When you attach a secondary volume to a virtual server instance, the primary boot volume gets priority IOPS and bandwidth allocation to help ensure reasonable boot times. Boot volume IOPS and bandwidth are never reduced to be less than 3000 IOPS or 393 Mbps.
+## Bandwidth allocation for attached volumes
+{: #attached-block-vol-bandwidth}
 
-All volumes are assigned instance bandwidth proportional to their maximum bandwidth, where the sum of all volume bandwidth equals the overall volumes bandwidth.
+When you attach a data volume to a virtual server instance, the primary boot volume gets priority IOPS and bandwidth allocation to help ensure reasonable boot times. Boot volume IOPS and bandwidth are never reduced to be less than 3000 IOPS and 393 Mbps.
 
-In our example, the remaining bandwidth that is allocated on the instance for data volumes is 1,607 Mbps (2000 Mbps minus 393 Mbps for the boot volume). If only one data volume is attached, it gets the full bandwidth allocation and is only limited by its own IOPS and throughput values. As a single attachment, the volume can use up to 640 Mbps, its provisioned throughput limit. If you add three more volumes of the same capacity and profile, the bandwidth allocation of each volume is updated because the bandwidth is divided among the volumes. Each of the 4 volumes is allocated about 400 Mbps. Although they are provisioned to handle up to 640 Mbps throughput, they are maxed out at 400 Mbps.
+All attached volumes are assigned instance bandwidth proportional to their maximum throughput limit, where the sum of all volume bandwidth equals the overall volumes bandwidth.
 
-In summary, the unattached volume bandwidth might not be the same as the actual bandwidth that you see after the volume is attached to an instance. The difference is due to the amount of bandwidth that is dedicated to the boot volume and how the remaining volume bandwidth is divided between all attached data volumes.
+In the first example, the bx2-2x8 instance's total instance bandwidth of the bx2-2x8 profile is 4 Gbps. The storage bandwidth is 1 Gbps (1000 Mbps), and the boot volume is allocated 393 Mbps. The remaining 607 Mbps is divided among to the data volumes that you attach. The bandwidth allocation is proportional to the provisioned throughput limit of each data volume. 
+
+In table 1, you can see the 3 attached data volumes and their provisioned throughput limits. The percentage column shows the proportion of each volume's bandwidth compared to the combined provisioned throughput value. To calculate how the available instance volume bandwidth is allocated to each volume, multiply the available instance volume bandwidth with the volume's percentage. The results are shown in the allocated volume bandwidth column.
+
+In the first example, the combined provisioned  equal 4,324 Mbps, that is the 100%. Volume-a and volume-c throughput limit value is 27% of the combined throughput value. To see how much of the available instance volume bandwidth is allocated to them, you have to multiply 607 Mbps with 0.27. The result is 166 Mbps.
+
+| Volumes | Maximum IOPS | Provisioned max throughput limit | Percentage | Allocated volume bandwidth |
+|---------|-------------:|----------------------------------|-----------:|---------------------------:|
+| volume-a|  9,000 | 1,179 Mbps |  27% | 166 Mbps |
+| volume-b| 15,000 | 1,966 Mbps |  45% | 275 Mbps |
+| volume-c|  9,000 | 1,179 Mbps |  27% | 166 Mbps |
+| All data volumes | N/A | 4,324 Mbps | 100% | 607 Mbps |
+{: caption="Table 1. Volume bandwidth allocation with 3 data volumes." caption-side="bottom"}
+
+In the second example, the cx3d-8x20 instance's total volume bandwidth is 4 Gbps (4,000 Mbps). The available bandwidth that can be divided among the data volumes is 3607 Mbps. If you attach _volume-a_ and _volume-b_, both of which have the same 5 IOPS/GB volume profile, their combined maximum throughput limit is 3145 Mbps. That value is less than the available 3607 Mbps, which means that the volume with more capacity (_volume-b_) is allocated 1966 Mbps and the volume with less capacity (_volume-a_) is allocated 1179 Mbps. That's their provisioned throughput limit, and that's the most bandwidth that can be allocated to them, even if more bandwidth is available.
+
+| Volumes | Maximum IOPS | Provisioned max throughput limit | Percentage | Allocated volume bandwidth |
+|---------|-------------:|----------------------------------|-----------:|---------------------------:|
+| volume-a|  9,000 | 1,179 Mbps |  37.5% | 1,179 Mbps  |
+| volume-b| 15,000 | 1,966 Mbps |  62.5% | 1,966 Mbps  |
+| All data volumes | N/A |  3,145 Mbps | 100% | 3,145 Mbps[^ttext1] |
+{: caption="Table 2. Volume bandwidth allocation with 2 data volumes." caption-side="bottom"}
+
+[^ttext1]: The data volume's allocated bandwidth values equal their provisioned throughput limits. The available instance volume bandwidth is 3,607 MBps, which is more than the sum of the provisioned throughput limit of the data volumes.
+
+When you attach _volume-c_ the bandwidth allocation changes. The combined provisioned throughput limit values of the 3 data volumes are now 4324 Mbps. This value is more than the available 3607 Mbps, so the 3607 Mbps is divided among the 3 data volumes proportionally.
+
+| Volumes | Maximum IOPS | Provisioned max throughput limit | Percentage | Allocated volume bandwidth |
+|---------|-------------:|----------------------------------|-----------:|---------------------------:|
+| volume-a|  9,000 | 1,179 Mbps |  27% | 983.5 Mbps |
+| volume-b| 15,000 | 1,966 Mbps |  45% | 1,640 Mbps |
+| volume-c|  9,000 | 1,179 Mbps |  27% | 983.5 Mbps |
+| All data volumes | N/A |4,324 Mbps | 100% | 3,607 Mbps |
+{: caption="Table 3. Volume bandwidth allocation with 3 data volumes." caption-side="bottom"}
+
+If you provision and attach a 4th data volume with the general-purpose profile and capacity of 2,000 GB, the bandwidth allocation changes again. Table 4 shows the 4 attached volumes with their provisioned throughput limits in the 3rd column.
+
+| Volumes | Maximum IOPS | Provisioned max throughput limit | Percentage | Allocated volume bandwidth |
+|---------|-------------:|----------------------------------|-----------:|---------------------------:|
+| volume-a|  9,000 | 1,179 Mbps |  23% |   832 Mbps |
+| volume-b| 15,000 | 1,966 Mbps |  38% | 1,388 Mbps |
+| volume-c|  9,000 | 1,179 Mbps |  23% |   832 Mbps |
+| volume-d|  6,000 |   786 Mbps |  15% |   555 Mbps |
+| All data volumes |N/A | 4,324 Mbps | 100% | 3,607 Mbps |
+{: caption="Table 4. Volume bandwidth allocation with 4 data volumes." caption-side="bottom"}
+
+The volume bandwidth that is available to the instance is always apportioned on a per volume basis. The bandwidth is assigned per volume, not shared between volumes. In the examples where 3 or 4 data volumes are attached, the allocated bandwidth is less than the volume's own throughput limit. While the volume is provisioned to be able to handle more, it can use only the bandwidth that was allocated to it. It cannot use any bandwidth that is allocated to, but not used by another volume.
+
+In most cases, the unattached provisioned volume bandwidth value is not the same as the bandwidth value that you see after the volume is attached to an instance.
 
 ## Estimating volume bandwidth
 {: #volume-estimate-bandwidth}
