@@ -41,7 +41,7 @@ In the {{site.data.keyword.cloud_notm}}, complete the following steps to provisi
    | Tags                    | Enter any applicable tags. |
    | Access management tags  | Enter any applicable access management tags. |
    | Reservation type        | Available for [virtual servers](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc&interface=ui#reserved-virtual-servers-vpc-supported-profiles) and [bare metal servers](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc&interface=ui#reserved-bare-metal-servers-vpc-supported-profiles). |
-   | Server quantity         | Enter the number of instances that you want to assign to this reservation (limit of 200 vCPUs). |
+   | Server quantity         | Enter the number of instances that you want to assign to this reservation (a limit of 200 vCPUs). |
    | Term length             | Choose either a 1 or 3-year term length. |
    | Server profile          | Select a [profile](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc#reserved-virtual-servers-vpc-supported-profiles) for your reservation. Keep the following rules in mind when you reserve capacity.  \n You can't change profiles after your reservation is created.  \n You can't combine different profile sizes.  \n Your reserved virtual servers must all have the same size (all resources must be identical). |
    | Advanced options | Toggle **Auto renew** to **On** if you want to continue your reservation after your selected term length completes.|
@@ -49,7 +49,7 @@ In the {{site.data.keyword.cloud_notm}}, complete the following steps to provisi
 
 4. Click **Create a reservation**.
 
-When a reservation expires, the servers that are attached to a reservation convert to the nondiscounted on-demand rate upon expiration or  nonrenewal of the reservation term and any consumption are billed monthly.
+When a reservation expires, the servers that are attached to a reservation convert to the nondiscounted on-demand rate upon expiration or nonrenewal of the reservation term and any consumption are billed monthly.
 {: note}
 
 ## Attaching an existing virtual server to a reservation with the UI
@@ -147,15 +147,15 @@ Capacity          Allocated   Available   Total   Used   Status
 ```
 {: screen}
 
-Where the following argument and option values are used.
+Where the following argument and option values are used:
 
 * --name: New name for the reservation.
 * --capacity: The capacity configuration for this reservation.
 * --term: Term of the reservation. One of: one_year, three_year.
-* --profile: The name of the profile to be used for this reservation.
+* --profile: The name of the profile to use for this reservation.
 * --profile-resource-type: The resource type of the profile. One of: instance_profile.
 * --zone: Name of the zone
-* --affinity-policy: The affinity policy to be used for this reservation.
+* --affinity-policy: The affinity policy for this reservation.
 * --expiration-policy: The policy to apply when the committed use term expires. One of: release, renew.
 * --resource-group-id: ID of the resource group. This ID is mutually exclusive with --resource-group-name.
 * --resource-group-name: Name of the resource group. This name is mutually exclusive with --resource-group-id.
@@ -171,7 +171,7 @@ After your reservation is provisioned and active, you can **Attach** or **Create
 {: #attach-virtual-server-cli-vpc}
 {: cli}
 
-You can attach an existing virutal server to a reservation by using the CLI. To create a reserved reservation by using the CLI, use the `ibmcloud is instance-update` command.
+You can attach an existing virtual server to a reservation by using the CLI. To create a reserved reservation by using the CLI, use the `ibmcloud is instance-update` command.
 
 1. Attach a virtual server to a reservation by using the following command with the associated details.
 
