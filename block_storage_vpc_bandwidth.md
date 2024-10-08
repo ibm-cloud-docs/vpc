@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-10-07"
+lastupdated: "2024-10-08"
 
 keywords: Block Storage, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, bandwidth
 
@@ -121,7 +121,7 @@ In the first example, the bx2-2x8 instance's total instance bandwidth of the bx2
 
 In table 1, you can see the 3 attached data volumes and their provisioned throughput limits. The percentage column shows the proportion of each volume's bandwidth compared to the combined provisioned throughput value. To calculate how the available instance volume bandwidth is allocated to each volume, multiply the available instance volume bandwidth with the volume's percentage. The results are shown in the allocated volume bandwidth column.
 
-In the first example, the combined provisioned  equal 4,324 Mbps, that is the 100%. Volume-a and volume-c throughput limit value is 27% of the combined throughput value. To see how much of the available instance volume bandwidth is allocated to them, you have to multiply 607 Mbps with 0.27. The result is 166 Mbps.
+In the first example, the combined provisioned value equals 4,324 Mbps, that is the 100%. Volume-a and volume-c throughput limit value is 27% of the combined throughput value. To see how much of the available instance volume bandwidth is allocated to them, you have to multiply 607 Mbps with 0.27. The result is 166 Mbps.
 
 | Volumes | Maximum IOPS | Provisioned max throughput limit | Percentage | Allocated volume bandwidth |
 |---------|-------------:|----------------------------------|-----------:|---------------------------:|
@@ -142,7 +142,7 @@ In the second example, the cx3d-8x20 instance's total volume bandwidth is 4 Gbps
 
 [^ttext1]: The data volume's allocated bandwidth values equal their provisioned throughput limits. The available instance volume bandwidth is 3,607 MBps, which is more than the sum of the provisioned throughput limit of the data volumes.
 
-When you attach _volume-c_ the bandwidth allocation changes. The combined provisioned throughput limit values of the 3 data volumes are now 4324 Mbps. This value is more than the available 3607 Mbps, so the 3607 Mbps is divided among the 3 data volumes proportionally.
+When you attach _volume-c_ the bandwidth allocation changes. The combined provisioned throughput limit value of the 3 data volumes is now 4324 Mbps. This value is more than the available 3607 Mbps, so the 3607 Mbps is divided among the 3 data volumes proportionally.
 
 | Volumes | Maximum IOPS | Provisioned max throughput limit | Percentage | Allocated volume bandwidth |
 |---------|-------------:|----------------------------------|-----------:|---------------------------:|
