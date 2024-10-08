@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-08"
 
 keywords: virtual private endpoints, endpoint gateway, VPE services
 subcollection: vpc
@@ -41,6 +41,7 @@ The following IBM Cloud services are enabled for Virtual Private Endpoints (VPE)
 {: shortdesc}
 
 * {{site.data.keyword.appconfig_short}} ([Endpoint URLs](/apidocs/app-configuration#endpoint-url))
+* {{site.data.keyword.logs_full_notm}} ([Instructions](/docs/cloud-logs?topic=cloud-logs-vpe-connection&interface=cli))
 * Catalog Management ([Endpoint URLs](/apidocs/resource-catalog/private-catalog#endpoint-url))
 * Cloud Object Storage ([Instructions](/docs/cloud-object-storage?topic=cloud-object-storage-vpes))
 * Code Engine ([Instructions](/docs/codeengine?topic=codeengine-vpe))
