@@ -35,7 +35,7 @@ In the {{site.data.keyword.cloud_notm}}, complete the following steps to provisi
 
    | Field                   | Value               |
    | ----------------------- | ------------------- |
-   | Geography               | Select the specific location for your workload. Locations are composed of regions; each region is a separate geographic area. Keep in mind that you can't select individual locations for each virtual server that you provision within this reservation. Your selection is the location for all virtual server instances that you provision within this reservation. |
+   | Geography               | Select the specific location for your workload. Locations are composed of regions. Each region is a separate geographic area. Keep in mind that you can't select individual locations for each virtual server that you provision within this reservation. Your selection is the location for all virtual server instances that you provision within this reservation. |
    | Name                    | Enter a name for your reservation. |
    | Resource group          | Select a resource group. |
    | Tags                    | Enter any applicable tags. |
