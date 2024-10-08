@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-08"
 
 subcollection: vpc
 
@@ -40,7 +40,7 @@ In the {{site.data.keyword.cloud_notm}}, complete the following steps to provisi
    | Resource group          | Select a resource group. |
    | Tags                    | Enter any applicable tags. |
    | Access management tags  | Enter any applicable access management tags. |
-   | Reservation type        | Only available with Virtual Servers for VPC. |
+   | Reservation type        | Available for [virtual servers](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc&interface=ui#reserved-virtual-servers-vpc-supported-profiles) and [bare metal servers](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc&interface=ui#reserved-bare-metal-servers-vpc-supported-profiles). |
    | Server quantity         | Enter the number of instances that you want to assign to this reservation (limit of 200 vCPUs). |
    | Term length             | Choose either a 1 or 3-year term length. |
    | Server profile          | Select a [profile](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc#reserved-virtual-servers-vpc-supported-profiles) for your reservation. Keep the following rules in mind when you reserve capacity.  \n You can't change profiles after your reservation is created.  \n You can't combine different profile sizes.  \n Your reserved virtual servers must all have the same size (all resources must be identical). |
