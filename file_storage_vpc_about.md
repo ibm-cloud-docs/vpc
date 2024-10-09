@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-09-27"
+lastupdated: "2024-10-09"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -134,7 +134,8 @@ If you choose to use Encryption-in-transit, you need to balance your requirement
 
 Even without EIT, the data is moving through a secure data center network. For more information about network security, see [Security in your VPC](/docs/vpc?topic=vpc-security-in-your-vpc) and [Protecting Virtual Private Cloud (VPC) Infrastructure Services with context-based restrictions](/docs/vpc?topic=vpc-cbr).
 
-
+{{site.data.keyword.filestorage_vpc_short}} is considered to be a Financial Services Validated service only when encryption-in-transit is enabled. For more information, see [what is a Financial Services Validated service](/docs/framework-financial-services?topic=framework-financial-services-faqs-framework#financial-services-validated){: external}.
+{: important}
 
 Encryption in transit is not supported for {{site.data.keyword.bm_is_short}} or virtual server instances that are running on Red Hat Enterprise Linux CoreOS.
 {: restriction}

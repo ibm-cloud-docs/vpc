@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-06-20"
+lastupdated: "2024-10-09"
 
 keywords: responsibilities, ha, high availability, disaster recovery
 
@@ -98,7 +98,7 @@ Security and regulation compliance includes tasks such as security control imple
 | Public Network Access | {{site.data.keyword.IBM_notm}} provides options to use a public gateway or floating IP addresses. | The Customer chooses how to connect their workload to the public internet, if applicable, either through a public gateway or floating IP. |
 | Access restriction | {{site.data.keyword.IBM_notm}} provides security measures for customers to restrict access to resources and resource groups. | The Customer restricts user access to the appropriate resources and resource groups.
 | Activity tracker | {{site.data.keyword.IBM_notm}} provides logging and monitoring tools. | The Customer integrates {{site.data.keyword.at_full_notm}} and {{site.data.keyword.monitoringlong_notm}} data into their auditing and monitoring processes. |
-| Encryption |  IBM Cloud {{site.data.keyword.vpn_vpc_short}} supports encrypted traffic by using IKE/IPsec policies. | The Customer ensures that their connection is encrypted end-to-end, if required. |
+| Encryption |  IBM Cloud {{site.data.keyword.vpn_vpc_short}} supports encrypted traffic by using IKE/IPsec policies. \n \n {{site.data.keyword.filestorage_vpc_short}} is considered to be a Financial Services Validated service only when encryption-in-transit is enabled. | The Customer ensures that their connection is encrypted end-to-end, if required. |
 {: caption="Table 5. Responsibilities for security and regulation compliance" caption-side="bottom"}
 
 ### Disaster recovery
