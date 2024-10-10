@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-06-14"
+lastupdated: "2024-10-10"
 
 keywords: 
 
@@ -36,7 +36,7 @@ The following operating systems are available as images when you create a bare m
 | SUSE Red Hat Enterprise Linux for SAP 15, 12  \n  \n For more information about SAP and bare metal servers, see [SAP fast path for IBM Cloud Intel bare metal servers](/docs/sap?topic=sap-fast-path-site-map-intel-bm). | x86-64 |
 | [Ubuntu](#bare-metal-images-ubuntu-considerations) 22, 20.04 | x86-64 |
 | [VMware ESXi](#bare-metal-images-vmware-esxi-considerations) | x86-64 |
-{: caption="Table 1. Bare metal server images" caption-side="bottom"}
+{: caption="Bare metal server images" caption-side="bottom"}
 
 ### Special considerations for Red Hat Enterprise Linux 8.4
 {: #bare-metal-images-rhel-considerations}
@@ -158,5 +158,3 @@ To install the latest driver on a Linux distribution:
 
 * [Planning for bare metal servers](/docs/vpc?topic=vpc-planning-for-bare-metal-servers)
 * [Creating a bare metal server](/docs/vpc?topic=vpc-creating-bare-metal-servers)
-
-

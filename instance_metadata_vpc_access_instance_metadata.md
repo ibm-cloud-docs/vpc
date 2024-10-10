@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2024-07-22"
+lastupdated: "2024-10-10"
 
 keywords:
 
@@ -40,7 +40,7 @@ Table 1 describes the steps that are involved in accessing instance metadata. Th
 | 3    | VPC instance | Metadata service | Provide a `curl` command to call the metadata token service to [acquire an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-json-token). |
 | 4    | VPC instance | Metadata service | Provide a `curl` command to [call the metadata service](/docs/vpc?topic=vpc-imd-get-metadata#imd-retrieve-instance-data). The token from the previous step is passed and the metadata is returned.|
 | 5    | VPC instance | - | Parse the JSON returned in the previous step to acquire the user data. |
-{: caption="Table 1. General procedure for accessing instance metadata" caption-side="bottom"}
+{: caption="General procedure for accessing instance metadata" caption-side="bottom"}
 
 ## End-to-end procedure for accessing metadata from an instance
 {: #imd-access-md-ex}

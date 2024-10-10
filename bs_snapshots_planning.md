@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-22"
+lastupdated: "2024-10-10"
 
 keywords:
 
@@ -37,7 +37,7 @@ Consider the following topics and prerequisites before you create snapshots.
 | Virtual server instances | To create a snapshot from a volume that is attached to an instance, verify that the instance is in a running state. \n To create an instance from a snapshot of a boot volume, use a snapshot in the same region. |
 | Billing | Think about the number of snapshots that you want to take. Consider whether you want to create fast-restore clones in other zones of your region. Evaluate if you need cross-regional copies. You're charged for the storage consumption and the data transfer separately. Billing for the fast restore clones is set at a flat rate based on instance hours, and it is considerably more costly than regular snapshots. For more information, see the [FAQs](/docs/vpc?topic=vpc-snapshots-vpc-faqs#faq-snapshot-pricing). |
 | Performance | Review the [performance impacts](/docs/vpc?topic=vpc-snapshots-vpc-restore#snapshots-performance-considerations) for restoring a volume from a snapshot. |
-{: caption="Table 1. Checklist for planning snapshots" caption-side="bottom"}
+{: caption="Checklist for planning snapshots" caption-side="bottom"}
 
 ## Next Steps
 {: #snapshots-vpc-planning-next-steps}

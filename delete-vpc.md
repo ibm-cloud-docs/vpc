@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, [{CURRENT_YEAR}]
-lastupdated: "[{LAST_UPDATED_DATE}]"
+  years: 2019, 2024
+lastupdated: "2024-10-10"
 
 keywords: delete, resources
 
@@ -35,7 +35,7 @@ The following table summarizes the types of VPC resources and the relationships 
 | Public gateway | The public gateway must be detached from all subnets. |  ---- |
 | Load balancer | ---- | ---- |
 | VPN gateway | ---- | Because IKE and IPsec policies can be shared between gateways, these policies are not deleted when a VPN Gateway is deleted. These policies must be removed manually. |
-{: caption="Table 1. Types of resources and relationships that affect deletions" caption-side="bottom"}
+{: caption="Types of resources and relationships that affect deletions" caption-side="bottom"}
 
 ## VPC resources cannot be deleted in a transient state
 {: #deleting-status}
@@ -79,7 +79,7 @@ A VPC must have a default security group and a default network ACL. If you creat
 | Subnet | Instances, load balancers, VPN gateways | Public gateway, network ACL | Yes| No | Yes|
 | Public gateway| --- | Subnets, floating IP | Yes | No | No to subnets, Yes to floating IP |
 | Security Groups | ---  | Instances (NIC), VPC as default | No| Yes | No |
-{: caption="Table 2. Requirements for deleting subnets, public gateways, and security groups" caption-side="bottom"}
+{: caption="Requirements for deleting subnets, public gateways, and security groups" caption-side="bottom"}
 
 ### Subnet
 {: #deleting-subnet}
@@ -93,7 +93,7 @@ An instance can have multiple network interfaces, and those network interfaces c
 | Instance (network interface) | Multiple network interfaces | Volume attachments, security groups | Yes| No  | Yes|
 | VPN | --- | ---| Yes | No  | --- |
 | Load Balancer | ---  | --- | Yes | No | ---  |
-{: caption="Table 3. Requirements for deleting network interfaces" caption-side="bottom"}
+{: caption="Requirements for deleting network interfaces" caption-side="bottom"}
 
 ### Instance
 {: #deleting-instance}
@@ -103,7 +103,7 @@ No prerequisites are required for deleting an instance. When the instance is del
 | In Instance | Can contain | Can attach to | Has Status? | Automatically deleted when instance is deleted | Automatically detached when deleted |
 | ---------------- | ----------------------------------------- | --------------------------- | ------ | ---------------------------------------------- | ----------------------------------- |
 | Network interface | --- | Subnets, floating IP, security groups | No | Yes | Yes |
-{: caption="Table 4. Information for deleting instances" caption-side="bottom"}
+{: caption="Information for deleting instances" caption-side="bottom"}
 
 ### Load Balancer
 {: #deleting-lb}

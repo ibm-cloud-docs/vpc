@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2024-06-20"
+lastupdated: "2024-10-10"
 
 keywords:
 
@@ -83,7 +83,7 @@ Use the information in the Table 1 to understand the type of metadata returned f
 | `/instance/volume_attachments/{id}`	| `status` | The status of the volume attachment: attached, attaching, deleting, or detaching. |
 | `/instance/volume_attachments/{id}`	| `type` | The type of volume attachment, boot or data. |
 | `/instance/volume_attachments/{id}`	| `volume` | The attached volume, which contains the CRN, ID, name, and `deleted` value, when the volume is deleted. |
-{: caption="Table 1. Metadata for an instance" caption-side="bottom"}
+{: caption="Metadata for an instance" caption-side="bottom"}
 
 ## Summary of metadata for SSH keys
 {: #imd-sshkeys-summary}
@@ -101,7 +101,7 @@ Use the information in the Table 2 to understand the type of metadata returned f
 | `/keys/{id}` | `name` | The unique user-defined name for the key. If unspecified, the name is a hyphenated list of randomly selected words (for example, `elderly-mountain-troop-opponent`.) |
 | `/keys/{id}` | `public_key` | The public SSH key. |
 | `/keys/{id}` | `type` | The cryptosystem used by the key. |
-{: caption="Table 2. Metadata for SSH keys" caption-side="bottom"}
+{: caption="Metadata for SSH keys" caption-side="bottom"}
 
 
 ## Summary of metadata for placement groups
@@ -119,7 +119,7 @@ Use the information in the Table 3 to understand the type of metadata returned f
 | `/placement_groups/{id}` | `name` | The user-defined name for the placement group. |
 | `/placement_groups/{id}` | `resource_type` | The resource type. |
 | `/placement_groups/{id}` | `strategy` | The strategy for the placement group. |
-{: caption="Table 3. Metadata for placement groups" caption-side="bottom"}
+{: caption="Metadata for placement groups" caption-side="bottom"}
 
 ## Next steps
 {: #imd-summary-next-steps}

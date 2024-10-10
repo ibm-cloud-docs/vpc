@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-08"
+lastupdated: "2024-10-10"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, faqs
 
@@ -137,7 +137,7 @@ When you make a `GET /backup_policies/{id}` request, the API returns a `health_s
 |`degraded`| Experiencing compromised performance, capacity, or connectivity. |
 |`faulted`| Unreachable, inoperative, or otherwise entirely incapacitated. |
 |`inapplicable` | The health state does not apply because of the current lifecycle state. A resource with a lifecycle state of `failed` or `deleting` also has a health state of `inapplicable`. A `pending` resource can also have this state.|
-{: caption="Table 1. Backup policy health states." caption-side="bottom"}
+{: caption="Backup policy health states." caption-side="bottom"}
 
 For more information, see the API Spec for [Retrieve a backup policy](/apidocs/vpc/latest#get-backup-policy){: external}.
 

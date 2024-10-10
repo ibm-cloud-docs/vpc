@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-10"
 
 keywords:
 
@@ -42,11 +42,11 @@ When you create a security group rule, you have the choice to allow a specific l
 
 Figure 1 illustrates a security group outbound rule with a `local` IP address. Traffic is allowed from local IP address `10.243.0.1` to any remote address in the range `10.243.200.0/24`. The green data path line shows traffic that is allowed; the red line shows traffic that is not allowed.
 
-![Figure of security group rules that handle outbound traffic](images/outbound.svg "Figure of security group rules that handle outbound traffic"){: caption="Figure 1. A security group rule handling outbound traffic" caption-side="bottom"}
+![Figure of security group rules that handle outbound traffic](images/outbound.svg "Figure of security group rules that handle outbound traffic"){: caption="A security group rule handling outbound traffic" caption-side="bottom"}
 
 Figure 2 depicts a security group inbound rule with a `local` IP address. Traffic destined to local IP address `10.243.0.1` from any remote address in the range `10.243.200.0/24` is allowed. Traffic to other local IP addresses is not allowed.
 
-![Figure of security group rules that handle inbound traffic](images/inbound.svg "Figure showing security group rules handling inbound traffic"){: caption="Figure 2. A security group rule handling inbound traffic" caption-side="bottom"}
+![Figure of security group rules that handle inbound traffic](images/inbound.svg "Figure showing security group rules handling inbound traffic"){: caption="A security group rule handling inbound traffic" caption-side="bottom"}
 
 ## Creating security group rules in the UI
 {: #security-groups-secondary-ip-ui}

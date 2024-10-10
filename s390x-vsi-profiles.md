@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2022, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-10"
 
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, storage optimized
@@ -33,7 +33,7 @@ The following profile families are available:
 | [Balanced](#vs-balanced) | Balanced profiles offer a core to RAM ratio 1 vCPU to 4 GiB of RAM ratio and are best for midsize databases and common cloud applications with moderate traffic. |
 | [Compute](#vs-compute)  | Compute profiles offer a core to RAM ratio 1 vCPU to 2 GiB of RAM ratio and are best for moderate to high web traffic workloads. Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers. |
 | [Memory](#vs-memory) | Memory profiles offer a core to RAM ratio 1 vCPU to 8 GiB of RAM ratio and are best for memory caching and real-time analytics workloads. Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads. |
-{: caption="Table 1. Virtual server family selections" caption-side="bottom"}
+{: caption="Virtual server family selections" caption-side="bottom"}
 
 s390x processor architecture profiles can be used to provision {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}}, LinuxONE virtual server instances, and z/OS virtual server instances.
 
@@ -56,7 +56,7 @@ Ensure that you select a secure execution enabled profile (for example, cz2e-2x4
 | bz2-4x16 | 4 | 2 | 16 | 8 |
 | bz2-8x32 | 8 | 4 | 32 | 16 |
 | bz2-16x64 | 16 | 8 | 64 | 32 |
-{: caption="Table 2. Balanced profiles options for IBM Z or LinuxONE s390x instances" caption-side="bottom"}
+{: caption="Balanced profiles options for IBM Z or LinuxONE s390x instances" caption-side="bottom"}
 {: #balanced-s390x}
 {: tab-title="s390x"}
 {: tab-group="Balanced"}
@@ -70,7 +70,7 @@ Ensure that you select a secure execution enabled profile (for example, cz2e-2x4
 | bz2e-4x16 | 4 | 2 | 16 | 8  |
 | bz2e-8x32 | 8 | 4 | 32 | 16 |
 | bz2e-16x64 | 16 | 8 | 64 | 32 |
-{: caption="Table 2. Balanced secure execution profiles options for IBM Z or LinuxONE s390x instances" caption-side="bottom"}
+{: caption="Balanced secure execution profiles options for IBM Z or LinuxONE s390x instances" caption-side="bottom"}
 {: #balanced-se-s390x}
 {: tab-title="s390x with secure execution "}
 {: tab-group="Balanced"}
@@ -92,7 +92,7 @@ Ensure that you select a secure execution enabled profile (for example, cz2e-2x4
 | cz2-4x8 | 4 | 2 | 8 | 8 |
 | cz2-8x16 | 8 | 4 | 16 | 16 |
 | cz2-16x32 | 16 | 8 | 32 | 32 |
-{: caption="Table 3. Compute profiles options for s390x instances" caption-side="bottom"}
+{: caption="Compute profiles options for s390x instances" caption-side="bottom"}
 {: #compute-s390x}
 {: tab-title="s390x"}
 {: tab-group="Compute"}
@@ -105,7 +105,7 @@ Ensure that you select a secure execution enabled profile (for example, cz2e-2x4
 | cz2e-4x8 | 4 | 2 | 8 | 8 |
 | cz2e-8x16 | 8 | 4 | 16 | 16 |
 | cz2e-16x32 | 16 | 8 | 32 | 32 |
-{: caption="Table 3. Compute secure execution profiles options for IBM Z or LinuxONE s390x instances" caption-side="bottom"}
+{: caption="Compute secure execution profiles options for IBM Z or LinuxONE s390x instances" caption-side="bottom"}
 {: #compute-se-s390x}
 {: tab-title="s390x with secure execution"}
 {: tab-group="Compute"}
@@ -127,7 +127,7 @@ Ensure that you select a secure execution enabled profile (for example, mz2e-2x1
 | mz2-4x32 | 4 | 2 | 32 | 8 |
 | mz2-8x64 | 8 | 4 | 64 | 16 |
 | mz2-16x128 | 16 | 8 | 128 | 32 |
-{: caption="Table 4. Memory profiles options for IBM Z or LinuxONE s390x instances" caption-side="bottom"}
+{: caption="Memory profiles options for IBM Z or LinuxONE s390x instances" caption-side="bottom"}
 {: #memory-s390x}
 {: tab-title="s390x"}
 {: tab-group="Memory"}
@@ -140,7 +140,7 @@ Ensure that you select a secure execution enabled profile (for example, mz2e-2x1
 | mz2e-4x32 | 4 | 2 | 32 | 8 |
 | mz2e-8x64 | 8 | 4 | 64 | 16 |
 | mz2e-16x128 | 16 | 8 | 128 | 32 |
-{: caption="Table 4. Memory secure execution profiles options for IBM Z or LinuxONE s390x instances" caption-side="bottom"}
+{: caption="Memory secure execution profiles options for IBM Z or LinuxONE s390x instances" caption-side="bottom"}
 {: #memory-se-s390x}
 {: tab-title="s390x with secure execution"}
 {: tab-group="Memory"}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-02-21"
+lastupdated: "2024-10-10"
 
 keywords: custom image, creating a custom image, migrating a custom image, rbac, permissions, granular, granular permissions, rbac role-based access control
 
@@ -59,7 +59,7 @@ When an access group is created, a policy must be applied to set permissions in 
 |Viewer|A user with this role can view images.|
 |Operator|A user with this role can use images.|
 |Editor|A user with this role can create and delete images|
-{: caption="Table 1.  RBAC roles" caption-side="bottom"}
+{: caption="RBAC roles" caption-side="bottom"}
 
 You now have access group permissions in the resource group. To assign users to this access group, click the **Users** tab of the access group and **Add Users**.
 

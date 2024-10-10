@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-09-05"
+lastupdated: "2024-10-10"
 
 keywords:
 
@@ -92,7 +92,7 @@ If you plan to import an image from a file, you must provision an instance of {{
 | `published/verified`   | `available`                |
 | `deprecated`           | `deprecated`               |
 | `archived`             | `obsolete`                 |
-{: caption="Table 2. Catalog image lifecycle status and the corresponding VPC status" caption-side="bottom"}
+{: caption="Catalog image lifecycle status and the corresponding VPC status" caption-side="bottom"}
 
 ## Red Hat Enterprise Linux AI BYOL custom images
 {: #rhel-ai-byol-custom-images}

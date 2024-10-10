@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-08"
+lastupdated: "2024-10-10"
 
 keywords:
 
@@ -291,7 +291,7 @@ Table 1 shows more endpoints for API GET calls that you can make to get specific
 | `/metadata/v1/instance/network_interfaces/{id}` | Retrieve metadata for a network interface by ID. |
 | `/metadata/v1/instance/volume_attachments` | List metadata for all volume attachments for an instance. |
 | `/metadata/v1/instance/volume_attachment/{id}` | Retrieve metadata for a volume attachment by ID. |
-{: caption="Table 1. Instance metadata endpoints" caption-side="bottom"}
+{: caption="Instance metadata endpoints" caption-side="bottom"}
 
 For more information about these APIs, including required parameters and examples, see the [Metadata service API reference guide](/apidocs/vpc-metadata).
 

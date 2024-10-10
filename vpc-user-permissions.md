@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2024
 
-lastupdated: "2024-02-21"
+lastupdated: "2024-10-10"
 
 keywords: resource, access, role, role-based, authorization, policy, access group, resource group, permission, assign, administrator, operator, editor, viewer, user, team, scenario, manage, create, IAM
 
@@ -132,7 +132,7 @@ Because floating IP resources and the boot volume that's automatically attached 
 | -------------- | -------------- | -------------- | -------------- | -------------- |
 |test_team_manage_vpcs|Default|Block Storage for VPC| Editor|   |
 |test_team_manage_vpcs|Default|Floating IP for VPC| Editor|   |
-{: caption="Table 1. Access policies for the default resource group" caption-side="bottom"}
+{: caption="Access policies for the default resource group" caption-side="bottom"}
 
 Repeat the previous steps to add access policies for the remaining three access groups.
 
@@ -147,7 +147,7 @@ Repeat the previous steps to add access policies for the remaining three access 
 | production_team_view_vpcs | production_team | All resource types | Viewer |   |
 | production_team_view_vpcs | Default | Block Storage for VPC | Viewer |   |
 | production_team_view_vpcs | Default | Floating IP for VPC | Viewer |   |
-{: caption="Table 2. Access policies for the remaining access groups" caption-side="bottom"}
+{: caption="Access policies for the remaining access groups" caption-side="bottom"}
 
 The teams are now set up to use VPCs. Members of the `test_team_manage_vpcs` and `production_team_manage_vpcs` access groups can now create VPCs in their assigned resource groups (that is, in the `test_team` and `production_team` resource groups).
 

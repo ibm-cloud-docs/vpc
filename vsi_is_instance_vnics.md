@@ -87,7 +87,7 @@ You can create a virtual network interface without attaching it to a target. The
 Virtual network interfaces can be attached to new virtual server instances, and cannot be added to existing virtual server instances with child network interfaces.
 {: note}
 
-![Virtual server instance network attachment](images/vni-vsi-arch.svg "Virtual server instance with a network attachment"){: caption="Figure 1. Diagram of a virtual server instance with a network attachment connected to a virtual network interface" caption-side="bottom"}
+![Virtual server instance network attachment](images/vni-vsi-arch.svg "Virtual server instance with a network attachment"){: caption="Diagram of a virtual server instance with a network attachment connected to a virtual network interface" caption-side="bottom"}
 
 1. In the {{site.data.keyword.cloud_notm}} console, go to **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Virtual server instances**.
 1. Click **Create** to begin creating a new virtual server instance capable of using a virtual network interface.
@@ -129,7 +129,7 @@ Example virtual server setup:
 | `net_1_1` | `gw_ip_1_1` | `cidr_1_1` | `ip_1_1` |
 | `net_2_0` | `gw_ip_2_0` | `cidr_2_0` | `ip_2_0` |
 | `net_2_1` | `gw_ip_2_1` | `cidr_2_1` | `ip_2_1` |
-{: caption="Table 1. Example of a virtual server instance with multiple interfaces" caption-side="bottom"}
+{: caption="Example of a virtual server instance with multiple interfaces" caption-side="bottom"}
 
 ### Adding a static route for the second interface
 {: #adding-static-route-second-interface}

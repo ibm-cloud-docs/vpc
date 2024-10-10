@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2020-10-30"
+  years: 2019, 2024
+lastupdated: "2024-10-10"
 
 keywords: virtual private endpoint, IAM, VPE endpoint gateway
 
@@ -31,7 +31,7 @@ VPE supports Administrator, Editor, Operator, and Viewer platform-access roles. 
 | Editor | All Operator actions, plus actions that modify the state of an endpoint gateway, such as create, delete, and update. | * List all endpoint gateways.  \n * List a specific endpoint gateway and view its details.  \n * Create an endpoint gateway and bind a reserved IP to it.[^C]  \n * Update the name of an existing endpoint gateway.  \n * Delete an endpoint gateway and unbind its reserved IP address.  \n * Bind a reserved IP address to an endpoint gateway.[^D] |
 | Operator | All Viewer actions, plus the action to bind a reserved IP to an endpoint gateway. | * List all endpoint gateways.  \n * List a specific endpoint gateway and view its details.  \n * Bind a reserved IP address to an endpoint gateway.[^E] |
 | Viewer | Performs actions that don't change the state of the endpoint gateway. | * List all endpoint gateways.  \n * List a specific endpoint gateway and view its details.|
-{: caption="Table 1. IAM platform-access user role and actions" caption-side="bottom"}
+{: caption="IAM platform-access user role and actions" caption-side="bottom"}
 
 [^A]:A user must have Operator privileges for a reserved IP resource to bind a reserved IP when an endpoint gateway is created. To create an endpoint gateway without binding a reserved IP, a user requires only Administrator or Editor privileges.
 

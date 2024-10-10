@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-07-23"
+lastupdated: "2024-10-10"
 
 keywords:
 
@@ -43,7 +43,7 @@ The default VPC is selected automatically. If another VPC is not selected, the d
 | Bandwidth allocation | Instance bandwidth is distributed between networking and storage resources. If you do not specify the initial volume and network bandwidth allocation, then 25% of total instance bandwidth is allocated to volume bandwidth and 75% is allocated to network bandwidth. The network bandwidth allocation is distributed evenly across network interfaces, and each network interface has a cap of 25 Gbps. The storage bandwidth is divided between the boot volume and the attached data volumes. To ensure reasonable boot times, a minimum of 393 MBps is allocated to the primary boot volume. The remaining bandwidth is divided proportionally between the attached data volumes based on their provisioned size and IOPS setting. The storage bandwidth allocation changes only if and when a data volume is attached or detached.|
 | User tags | Decide what [user tags](/docs/account?topic=account-tag&interface=ui) you might want to add during instance provisioning. You can add user tags identify the instance, the boot volume, and any data volumes you create and attach during instance provisioning. |
 | Connectivity | For {{site.data.keyword.cloud}} Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instances, make sure that you either [enable a public gateway](/docs/vpc?topic=vpc-about-networking-for-vpc#public-gateway-for-external-connectivity) in the subnet, or [reserve a floating IP address](/docs/vpc?topic=vpc-about-networking-for-vpc#floating-ip-for-external-connectivity) and associate it with the network interface of the instance just after instance creation. |
-{: caption="Table 1. Checklist for planning to provision a virtual server instance" caption-side="bottom"}
+{: caption="Checklist for planning to provision a virtual server instance" caption-side="bottom"}
 
 ## Next steps
 {: #next-create-instance}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2024-07-16"
+lastupdated: "2024-10-10"
 
 keywords: subnet, address prefixes, design, addressing
 
@@ -53,7 +53,7 @@ Another consideration is the number of available addresses that a subnet might n
 |      /26        |          59         |
 |      /27        |          27         |
 |      /28        |          11         |
-{: caption="Table 1. Available addresses in a subnet based on CIDR block size" caption-side="bottom"}
+{: caption="Available addresses in a subnet based on CIDR block size" caption-side="bottom"}
 
 Based on these two considerations, the following assumptions are made for this example:
 
@@ -88,7 +88,7 @@ After you determine the correct subnet size, you can assign the actual address p
 | Zone 1 | `172.16.0.0/23` |
 | Zone 2 | `172.16.2.0/23` |
 | Zone 3 | `172.16.4.0/23` |
-{: caption="Table 2. Zones assigned address prefixes" caption-side="bottom"}
+{: caption="Zones assigned address prefixes" caption-side="bottom"}
 
 And from this basis, you can also assign the three subnets within each zone:
 
@@ -103,7 +103,7 @@ And from this basis, you can also assign the three subnets within each zone:
 | Zone 3 |  Middle  |  `172.16.4.0/25`  |
 | Zone 3 |  Front   |  `172.16.5.0/26`  |
 | Zone 3 | Database | `172.16.5.128/27` |
-{: caption="Table 3. Subnets assigned within each zone" caption-side="bottom"}
+{: caption="Subnets assigned within each zone" caption-side="bottom"}
 
 ## Considerations for extending an existing infrastructure
 {: #considerations-for-extending-an-existing-infrastructure}

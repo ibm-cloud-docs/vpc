@@ -43,14 +43,14 @@ Complete the following prerequisites:
    | TCP| Any | `<cidr_range>` | 3389 |
    | UDP| Any | `<cidr_range>` | 3389 |
    | ICMP | Any | `<cidr_range>` | Type: 8, Code: Any|
-   {: caption="Table 1. Configuration information for inbound rules" caption-side="bottom"}
+   {: caption="Configuration information for inbound rules" caption-side="bottom"}
 
    Then, configure outbound rules to allow all TCP traffic:
 
    | Protocol | Destination Type | Source | Value |
    |-----------|------|------|------|
    | TCP| Any | `<cidr_range>` | Any port|
-   {: caption="Table 2. Configuration information for outbound rules" caption-side="bottom"}
+   {: caption="Configuration information for outbound rules" caption-side="bottom"}
 
 ## Connecting to your Windows bare metal server
 {: #bare_metal_server_connect_windows}

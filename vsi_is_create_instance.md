@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-10-01"
+lastupdated: "2024-10-10"
 
 keywords:
 
@@ -37,7 +37,7 @@ Use the following steps to create a virtual server instance.
    | Resource group | Select a resource group for the instance. |
    | Tags | You can assign a user tag to the instance so that you can easily filter instance resources in your resource list. For more information, see [Working with tags](/docs/account?topic=account-tag&interface=ui).|
    | Access management tags | Access management tags help you apply flexible access policies on specific resources. For more information, see the [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial) UI tutorial. |
-   {: caption="Table 1. Selections to begin instance provisioning" caption-side="bottom"}
+   {: caption="Selections to begin instance provisioning" caption-side="bottom"}
 
 3. Select an image and profile for the instance. To select from all available images, click **Change image**. You can select an image, a snapshot of a boot volume, or an existing boot volume. If the geographic location where you are provisioning an instance supports it, you can select either *x86* or *s390x* architecture. Table 2 describes image, snapshot, and existing volume options. Then, select a profile. To select from all available vCPU and RAM combinations, click **Change profile**. Table 3 describes profile selection. {: #select-image-and-profile}
 
@@ -48,7 +48,7 @@ Use the following steps to create a virtual server instance.
    | Catalog image | After you select an available catalog image, click **Select version and pricing plan**, choose the version and pricing plan, and then click **Save**. \n - A catalog image is a custom image that is imported into a private catalog. For more information about catalog images, see [VPC considerations for custom images in a private catalog](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=ui). \n **Note:** If you select a catalog image that belongs to a different account, you have more considerations and limitations to review. See [Using cross-account image references in a private catalog in the UI](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=ui#private-catalog-image-reference-vpc-ui). \n - To create a private catalog, see the tutorial [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui).|
    | Snapshot | Select either **Import existing snapshot** or **Import snapshot by CRN**. [Updated]{: tag-new}Then, choose a snapshot of a boot volume, and click **Save**. If no snapshots are available, click **Create**. \n - Filter the list of snapshots for [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-use-fast-restore). With this option, you can create the boot volume quickly by using a snapshot that is cached in a different zone of your region. For more information about restoring a volume from a snapshot, see [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore). \n - If you're using the CRN of a snapshot from another account, make sure that the right [IAM authorizations](/docs/vpc?topic=vpc-block-s2s-auth&interface=ui#block-s2s-auth-xaccountrestore-ui) are in place. |
    | Existing volume | Select an existing boot volume that is not attached to an instance and click **Save**.  |
-   {: caption="Table 2. Instance provisioning image, snapshot, or volume selections" caption-side="bottom"}
+   {: caption="Instance provisioning image, snapshot, or volume selections" caption-side="bottom"}
    {: #table-select-image-and-profile}
 
    | Field | Value |
@@ -57,7 +57,7 @@ Use the following steps to create a virtual server instance.
    | Advanced security selections |  |
    | Secure boot | Click the toggle to enable secure boot. Secure boot is available with only compatible profiles. For more information about secure boot, see [Secure boot for Virtual Servers for VPC](/docs/vpc?topic=vpc-confidential-computing-with-secure-boot-vpc).|
    | Confidential computing - SGX [Select availability]{: tag-green} | Confidential computing with Intel® Software Guard Extensions (SGX) protects your data through hardware-based server security by using isolated memory regions that are known as encrypted enclaves. SGX is available with only compatible profiles. For more information about confidential computing, see [Confidential computing with Intel Software Guard Extensions (SGX) for Virtual Servers for VPC](/docs/vpc?topic=vpc-about-sgx-vpc). |
-   {: caption="Table 3. Profile selections" caption-side="bottom"}
+   {: caption="Profile selections" caption-side="bottom"}
 
    Secure boot and confidential computing are available with balanced and compute profiles. For more information, see [SGX-compatible profiles](/docs/vpc?topic=vpc-about-sgx-vpc#compatible-profiles-confidential-computing-vpc-sgx).
    {: important}
@@ -83,7 +83,7 @@ Use the following steps to create a virtual server instance.
    | |You can select the [Storage profile](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui) that best suits your needs for capacity and IOPS. For more information, see [Create and attach a Block Storage volume when you create an instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi).|
    | Virtual private cloud | Specify the IBM Cloud VPC where you want to create your instance. You can use the default VPC, another existing VPC, or you can create a new VPC. To create a new VPC, click **New VPC**. |
    | Network interfaces | By default the virtual server instance is created with a single primary network interface. You can click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to edit the details of the network interface, for example, the subnet or security group that's associated with the interface. To include extra secondary network interfaces, click **Create**. You can create and assign up to 15 network interfaces for your virtual server instance, depending on the vCPU count that is included in the instance profile. For more information, see [About network interfaces](/docs/vpc?topic=vpc-using-instance-vnics#about-network-interfaces). \n With the virtual network interface feature, you can select the type of network interface that you want to use. You can select the new option **Network attachment with a virtual network interface** or the legacy option **Instance network interface**. Whichever type of network interface option that you select when you provision the virtual server persists through the lifecycle of the virtual server. You can click **Attach** to create a network attachment with an existing virtual network interface. For more information, see [About virtual network interfaces](/docs/vpc?topic=vpc-vni-about). |
-   {: caption="Table 4. Selections to complete instance provisioning" caption-side="bottom"}
+   {: caption="Selections to complete instance provisioning" caption-side="bottom"}
 
 5. For Advanced options, you can choose to complete more instance configurations.
 
@@ -96,7 +96,7 @@ Use the following steps to create a virtual server instance.
    | Add to placement group | Placement groups are disabled by default. Click the toggle to enable placement groups. Then, select or create a placement group for the instance. If you add a placement group, the instance is placed according to the placement group policy. For more information, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc). |
    | Add to reservation | If you have an active reservation, click the toggle to add the virtual server instance to that reservation. For more information, see [About Reservations for VPC](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc). |
    | Host failure auto restart | This setting is enabled by default. To disable host failure auto restart, click the toggle. For more information, see [Host failure recovery policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=ui). |
-   {: caption="Table 5. Instance provisioning advanced options selections" caption-side="bottom"}
+   {: caption="Instance provisioning advanced options selections" caption-side="bottom"}
 
 6. Click **Create virtual server instance** when you are ready to provision.
 
@@ -149,7 +149,7 @@ Gather the following information by using the associated commands.
 | Subnet | `ibmcloud is subnets` | [List all subnets](/docs/vpc?topic=vpc-vpc-reference#subnets-list) |
 | Zone | `ibmcloud is zones` | [List all regions](/docs/vpc?topic=vpc-vpc-reference#zones-list) |
 | Placement groups | `ibmcloud is placement-groups` | [List all placement groups](/docs/vpc?topic=vpc-vpc-reference#placement-groups-list) |
-{: caption="Table 1. Required instance details" caption-side="bottom"}
+{: caption="Required instance details" caption-side="bottom"}
 
 Use the following commands to determine the required information for creating a new instance.
 
@@ -761,7 +761,7 @@ Before you can create an instance, you need to know the details about the instan
 | Subnet                | `GET /subnets`                  | [List all subnets](/apidocs/vpc/latest#list-subnets) |
 | Zone                  | `GET /regions/<region>/zones`   | [List all zones in a region](/apidocs/vpc/latest#list-region-zones) |
 | Placement groups      | `GET /placement_groups`         | [List all placement groups](/apidocs/vpc/latest#list-placement-groups)|
-{: caption="Table 2. Required instance details api" caption-side="bottom"}
+{: caption="Required instance details api" caption-side="bottom"}
 
 [New]{: tag-new} If you plan to use a snapshot from another account, make sure that the right [IAM authorizations](/docs/vpc?topic=vpc-block-s2s-auth&interface=api#block-s2s-auth-xaccountrestore-api) are in place first. Then, contact the snapshot's owner for the CRN of the snapshot.
 

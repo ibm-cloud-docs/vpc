@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-06-20"
+lastupdated: "2024-10-10"
 
 keywords:  network, encryption, client VPN, server VPN
 
@@ -32,13 +32,13 @@ VPN servers can run on TCP or UDP protocols. You can specify the protocol and po
 |-----------|-----------|------|------|-------|
 |inbound| `VPN server protocol`| CIDR block | `0.0.0.0/0` | `VPN server port` |
 |outbound| `VPN server protocol`| CIDR block | `0.0.0.0/0` | `VPN server port` |
-{: caption="Table 1. Security group rules for a VPN server" caption-side="bottom"}
+{: caption="Security group rules for a VPN server" caption-side="bottom"}
 
 | Inbound/Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
 |--------------|------|------|------|------|------------------|
 | inbound | `VPN server protocol` | Any | Any | `VPN server subnet` | `VPN server port`|
 | outbound | `VPN server protocol`  | `VPN server subnet` | `VPN server port` | Any | Any |
-{: caption="Table 2. ACL rules for a VPN server" caption-side="bottom"}
+{: caption="ACL rules for a VPN server" caption-side="bottom"}
 
 For example, by default, the VPN server runs on UDP port `443`, so you should configure the security group and ACL rules as follows:
 
@@ -46,13 +46,13 @@ For example, by default, the VPN server runs on UDP port `443`, so you should co
 |-----------|-----------|------|------|-------|
 |inbound| UDP| CIDR block | `0.0.0.0/0` | `443` |
 |outbound| UDP| CIDR block | `0.0.0.0/0` | `443` |
-{: caption="Table 3. Configuration information for security group rules of a VPN server with default protocol and port" caption-side="bottom"}
+{: caption="Configuration information for security group rules of a VPN server with default protocol and port" caption-side="bottom"}
 
 | Inbound/Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
 |--------------|------|------|------|------|------------------|
 | inbound | UDP | Any | Any | `VPN server subnet` | `443` |
 | outbound | UDP  | `VPN server subnet` | `443` | Any | Any |
-{: caption="Table 4. Configuration information for ACL of a VPN server with default protocol and port" caption-side="bottom"}
+{: caption="Configuration information for ACL of a VPN server with default protocol and port" caption-side="bottom"}
 
 ## Rules for VPN traffic with `deliver` route action
 {: #rules-vpn-traffic-with-deliver-route}
@@ -68,13 +68,13 @@ Note which CIDR should be specified when you create the security group and ACL r
 |-----------|-----------|------|------|-------|
 |inbound| ALL| CIDR block | `VPN route destination CIDR` | Any |
 |outbound| ALL| CIDR block | `VPN route destination CIDR` | Any |
-{: caption="Table 5. Security group rules for a VPN deliver route on the VPN server" caption-side="bottom"}
+{: caption="Security group rules for a VPN deliver route on the VPN server" caption-side="bottom"}
 
 | Inbound/Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
 |--------------|------|------|------|------|------------------|
 | inbound | ALL | `VPN route destination CIDR` | Any | `VPN server client IP pool` | Any|
 | outbound | ALL  | `VPN server client IP pool` | Any | `VPN route destination CIDR` | Any |
-{: caption="Table 6. ACL rules for a VPN deliver route on the VPN server subnet" caption-side="bottom"}
+{: caption="ACL rules for a VPN deliver route on the VPN server subnet" caption-side="bottom"}
 
 At the same time, you need to configure the security group and ACL on the VPC VSI to unblock traffic from the VPN client:
 
@@ -82,13 +82,13 @@ At the same time, you need to configure the security group and ACL on the VPC VS
 |-----------|-----------|------|------|-------|
 | inbound | ALL | CIDR block | `VPN server client IP pool` | Any |
 | outbound | ALL | CIDR block | `VPN server client IP pool` | Any |
-{: caption="Table 7. Security group rules for a VPN deliver route on the VPC VSI" caption-side="bottom"}
+{: caption="Security group rules for a VPN deliver route on the VPC VSI" caption-side="bottom"}
 
 | Inbound/Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
 |--------------|------|------|------|------|------------------|
 | inbound | ALL | `VPN server client IP pool` | Any | `VPN route destination CIDR` | Any|
 | outbound | ALL  | `VPN route destination CIDR` | Any | `VPN server client IP pool` | Any |
-{: caption="Table 8. ACL rules for a VPN deliver route on the VPC VSI subnet" caption-side="bottom"}
+{: caption="ACL rules for a VPN deliver route on the VPC VSI subnet" caption-side="bottom"}
 
 For example, if you use `172.16.0.0/20` as the client IP pool when you provision the VPN server, and you want to access the resources of subnet `10.240.128.0/24` from the VPN client, you need to create a VPN route with destination:`10.240.128.0/24`, and action: `deliver`. You should also configure security group and ACL rules as follows:
 
@@ -96,25 +96,25 @@ For example, if you use `172.16.0.0/20` as the client IP pool when you provision
 |-----------|-----------|------|------|-------|
 |inbound| ALL| CIDR block | `10.240.128.0/24` | Any |
 |outbound| ALL| CIDR block | `10.240.128.0/24` | Any |
-{: caption="Table 9. Security group rules for a VPN deliver route on the VPN server" caption-side="bottom"}
+{: caption="Security group rules for a VPN deliver route on the VPN server" caption-side="bottom"}
 
 | Inbound/Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
 |--------------|------|------|------|------|------------------|
 | inbound | ALL | `10.240.128.0/24` | Any | `172.16.0.0/20` | Any|
 | outbound | ALL | `172.16.0.0/20` | Any | `10.240.128.0/24` | Any |
-{: caption="Table 10. ACL rules for a VPN deliver route on the VPN server subnet" caption-side="bottom"}
+{: caption="ACL rules for a VPN deliver route on the VPN server subnet" caption-side="bottom"}
 
 |Inbound/Outbound Rules| Protocol | Source/Destination Type | Source | Value |
 |-----------|-----------|------|------|-------|
 |inbound| ALL| CIDR block | `172.16.0.0/20` | Any |
 |outbound| ALL| CIDR block | `172.16.0.0/20` | Any |
-{: caption="Table 11. Security group rules for a VPN deliver route on the VPC VSI" caption-side="bottom"}
+{: caption="Security group rules for a VPN deliver route on the VPC VSI" caption-side="bottom"}
 
 | Inbound/Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
 |--------------|------|------|------|------|------------------|
 | inbound | ALL | `172.16.0.0/20` | Any | `10.240.128.0/24` | Any|
 | outbound | ALL  | `10.240.128.0/24` | Any | `172.16.0.0/20` | Any |
-{: caption="Table 12. ACL rules for a VPN deliver route on the VPC VSI subnet" caption-side="bottom"}
+{: caption="ACL rules for a VPN deliver route on the VPC VSI subnet" caption-side="bottom"}
 
 ## Rules for VPN traffic with `translate` route action
 {: #rules-vpn-traffic-with-translate-route}
@@ -128,13 +128,13 @@ If you select multiple subnets when you provision the VPN server, you must inclu
 |-----------|-----------|------|------|-------|
 |inbound| ALL| CIDR block | `VPN route destination CIDR` | Any |
 |outbound| ALL| CIDR block | `VPN route destination CIDR` | Any |
-{: caption="Table 13. Security group rules for a VPN translate route on the VPN server" caption-side="bottom"}
+{: caption="Security group rules for a VPN translate route on the VPN server" caption-side="bottom"}
 
 | Inbound/Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
 |--------------|------|------|------|------|------------------|
 | inbound | ALL | `VPN route destination CIDR` | Any | `VPN server subnet CIDR` | Any|
 | outbound | ALL  | `VPN server subnet CIDR` | Any | `VPN route destination CIDR` | Any |
-{: caption="Table 14. ACL rules for a VPN translate route on the VPN server subnet" caption-side="bottom"}
+{: caption="ACL rules for a VPN translate route on the VPN server subnet" caption-side="bottom"}
 
 Normally, the destination of the VPN translate route is out of the VPC. For example, suppose that you want to use a VPN server to access the IBM classic infrastructure virtual server instance. At the same time, you must configure firewall rules on the destination to unblock traffic from the VPN client.
 
@@ -144,7 +144,7 @@ For example, if you use the subnets `10.240.64.0/24` and `10.240.129.0/24` when 
 |-----------|-----------|------|------|-------|
 | inbound | ALL| CIDR block | `10.187.190.0/26` | Any |
 | outbound | ALL| CIDR block | `10.187.190.0/26` | Any |
-{: caption="Table 15. Security group rules for a VPN translate route on the VPN server" caption-side="bottom"}
+{: caption="Security group rules for a VPN translate route on the VPN server" caption-side="bottom"}
 
 | Inbound/Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
 |--------------|------|------|------|------|------------------|
@@ -152,7 +152,7 @@ For example, if you use the subnets `10.240.64.0/24` and `10.240.129.0/24` when 
 | inbound | ALL | `10.187.190.0/26` | Any | `10.240.129.0/24` | Any|
 | outbound | ALL  | `10.240.64.0/24` | Any | `10.187.190.0/26` | Any |
 | outbound | ALL  | `10.240.129.0/24` | Any | `10.187.190.0/26` | Any |
-{: caption="Table 16. ACL rules for a VPN translate route on the VPN server subnet" caption-side="bottom"}
+{: caption="ACL rules for a VPN translate route on the VPN server subnet" caption-side="bottom"}
 
 | Inbound/Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
 |--------------|------|------|------|------|------------------|
@@ -160,4 +160,4 @@ For example, if you use the subnets `10.240.64.0/24` and `10.240.129.0/24` when 
 | inbound | ALL | `10.240.129.0/24` | Any | `10.187.190.0/26` | Any|
 | outbound | ALL  | `10.187.190.0/26` | Any | `10.240.64.0/24` | Any |
 | outbound | ALL  | `10.187.190.0/26` | Any | `10.240.129.0/24` | Any |
-{: caption="Table 17. Firewall rules for a VPN translate route on the target firewall device (optional)" caption-side="bottom"}
+{: caption="Firewall rules for a VPN translate route on the target firewall device (optional)" caption-side="bottom"}

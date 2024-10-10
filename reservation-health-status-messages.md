@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-08-20"
+lastupdated: "2024-10-10"
 
 keywords: health status reasons, instance health status, virtual server health status, bare metal server health status
 
@@ -28,7 +28,7 @@ See the following information to understand the health state of your reservation
 | `degraded` | Reservation is experiencing compromised performance, capacity, or connectivity. |
 | `faulted` | Reservation is unreachable, inoperative, or otherwise entirely incapacitated. |
 | `inapplicable` | The reservation health state does not apply because of the current lifecycle state. A resource with a lifecycle state of `failed` or `deleting` has a health state of inapplicable. A pending resource can also have this state (`degraded`, `faulted`, `inapplicable`, `ok`). |
-{: caption="Table 1. Reservation health states" caption-side="top"}
+{: caption="Reservation health states" caption-side="top"}
 
 ## Message: `reservation_capacity_unavailable`
 {: #capacity-unavailable}

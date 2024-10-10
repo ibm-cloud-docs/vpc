@@ -4,7 +4,7 @@ copyright:
 
   years: 2022, 2024
 
-lastupdated: "2024-09-05"
+lastupdated: "2024-10-10"
 
 keywords: operating system end of support (eos)
 
@@ -26,7 +26,7 @@ If you are using a generic operating system custom image, refer to your vendor d
 | -------------- | -------------- |
 | `available` | The most current version of the stock operating system image is `available`. When a new version of an operating system is made `available`, the older version image of that guest operating system changes to `deprecated`. No stock operating system that reaches EOS has an `available` image. |
 | `deprecated` | Older versions of stock operating systems are `deprecated`. Also, any stock operating system that reached EOS is also `deprecated`. You can still provision an instance with these images. The UI doesn't display any `deprecated` images when you create an instance. These images are still visible in the CLI and API. |
-{: caption="Table 1. Image lifecycle status" caption-side="bottom"}
+{: caption="Image lifecycle status" caption-side="bottom"}
 
 If you choose to continue to use a `deprecated` stock operating system image after EOS, review the [End of support operating system considerations](/docs/vpc?topic=vpc-eos-os-considerations-intro).
 
@@ -41,7 +41,7 @@ The following table describes the end of support date and license model for Cent
 | CentOS 7.9 minimal | 30 June 2024  | Free |
 | CentOS Stream 8 | 31 May 2024 | Free |
 | CentOS Stream 9 | 31 May 2027 | Free |
-{: caption="Table 1. Lifecycle for CentOS operating systems" caption-side="bottom"}
+{: caption="Lifecycle for CentOS operating systems" caption-side="bottom"}
 
 ## Debian
 {: #debian}
@@ -54,7 +54,7 @@ The following table describes the end of support date and license model for Debi
 | Debian 11 minimal | 30 June 2026 | Free |
 | Debian 10 minimal | 30 June 2024 | Free |
 | Debian 9 minimal | 30 June 2022 | Free |
-{: caption="Table 2. Lifecycle for Debian operating systems" caption-side="bottom"}
+{: caption="Lifecycle for Debian operating systems" caption-side="bottom"}
 
 ## Fedora CoreOS
 {: #fedora-coreos}
@@ -64,7 +64,7 @@ The version of Fedora&reg; CoreOS is updated regularly, with the previous releas
 | Operating system | End of support | License model |
 |-----------------|----------------|---------------|
 | Fedora CoreOS latest | N/A | Free |
-{: caption="Table 3. Lifecycle for Fedora CoreOS operating systems" caption-side="bottom"}
+{: caption="Lifecycle for Fedora CoreOS operating systems" caption-side="bottom"}
 
 ## Red Hat Enterprise Linux (RHEL)
 {: #rhel}
@@ -92,7 +92,7 @@ The following table describes the end of support date and license model for Red 
 | RHEL 7.9 minimal | 30 June 2024 | Pay-as-you-Go / BYOL |
 | RHEL 7.9 (SAP HANA and SAP applications) | 30 June 2024 | Pay-as-you-Go |
 | RHEL 7.6 (SAP HANA and SAP applications) | 28 February 2023  | Pay-as-you-Go |
-{: caption="Table 4. Lifecycle for Red Hat Enterprise Linux (RHEL) operating systems" caption-side="bottom"}
+{: caption="Lifecycle for Red Hat Enterprise Linux (RHEL) operating systems" caption-side="bottom"}
 
 **BYOL**: For Red Hat Enterprise Linux® (RHEL) operating systems, you can bring your own license (BYOL) to {{site.data.keyword.vpc_short}} when you import a custom image. These images are registered and licensed by you. You maintain control over your license and incur no additional costs by using your license. Acquisition and activation of the license is between you and the OS vendor. BYOL is not supported on Red Hat Enterprise Linux for SAP.
 
@@ -105,7 +105,7 @@ The version of Rocky Linux is updated regularly, with the previous release depre
 |-----------------|----------------|---------------|
 | Rocky Linux 8.x | 31 May 2029 | Free |
 | Rocky Linux 9.x | 31 May 2032 | Free |
-{: caption="Table 5. Lifecycle for Rocky Linux operating systems" caption-side="bottom"}
+{: caption="Lifecycle for Rocky Linux operating systems" caption-side="bottom"}
 
 ## SUSE Linux Enterprise Server (SLES)
 {: #suse}
@@ -122,7 +122,7 @@ The following table describes the end of support date and license model for SUSE
 | SLES 12 SP5 | 31 October 2024 |  Pay-as-you-Go  |
 | SLES 12 SP5 (SAP HANA and SAP applications) | 31 October 2024 |  Pay-as-you-Go  |
 | SLES 12 SP4 (SAP HANA and SAP applications) | 30 June 2023 | Pay-as-you-Go  |
-{: caption="Table 6. Lifecycle for SUSE Linux Enterprise Server (SLES) operating systems" caption-side="bottom"}
+{: caption="Lifecycle for SUSE Linux Enterprise Server (SLES) operating systems" caption-side="bottom"}
 
 ## Ubuntu LTS
 {: #ubuntu-lts}
@@ -136,7 +136,7 @@ The following table describes the end of support date and license model for Ubun
 | Ubuntu 20.04 minimal | 30 April 2025 | Free |
 | Ubuntu 18.04 minimal [^tabletext]| 31 May 2023  | Free |
 | Ubuntu 16.04 minimal | 01 April 2021  | Free |
-{: caption="Table 7. Lifecycle for Ubuntu operating systems" caption-side="bottom"}
+{: caption="Lifecycle for Ubuntu operating systems" caption-side="bottom"}
 
 [^tabletext]: [Out of standard support. Upgrade to Ubuntu Pro.](https://ubuntu.com/18-04/ibm){: external}
 
@@ -155,7 +155,7 @@ The following table describes the end of support date and license model for Wind
 | Windows Server 2012 full standard | 10 October 2023 | Pay-as-you-Go / BYOL |
 | Windows Server 2012 r2 full standard | 10 October 2023 | Pay-as-you-Go / BYOL |
 | Windows Server 2019 Standard Edition with SQL Server 2019 Web Edition | 08 January 2030 | Pay-as-you-Go |
-{: caption="Table 8. Lifecycle for Windows Server operating systems" caption-side="bottom"}
+{: caption="Lifecycle for Windows Server operating systems" caption-side="bottom"}
 
 **BYOL**: For Windows operating systems, you can bring your own license (BYOL) to {{site.data.keyword.vpc_short}} when you import a custom image. These images are registered and licensed by you. You maintain control over your license and incur no additional costs by using your license. Acquisition and activation of the license is between you and the OS vendor.
 

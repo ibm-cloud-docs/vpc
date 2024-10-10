@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-07-17"
+lastupdated: "2024-10-10"
 
 keywords: flow, connections, connectivity, scenarios, hosts
 
@@ -27,4 +27,4 @@ The following table provides information on VPC network flows and connections fo
 | Multi-region networks | Virtual Server (VPC) \n \n **Location:** Region A, VPC 1, Zone 1, Subnet 1 | Bare Metal \n \n **Locations:** Region B, Classic Infrastructure data center 1  \n \n Region C, Classic Infrastructure data center 1 | Private backbone | Transit gateway |
 | Cloud-to-intranet (Dev/Test) | Virtual Server (VPC) \n \n **Location:** VPC 1, Zone 1, Subnet 1 | On-Premise network | Public internet | VPN gateway with VPN Connection |
 | Cloud-to-intranet (Production) | Virtual Server (VPC) \n \n **Location:** VPC 1, Zone 1, Subnet 1 | On-Premise network | Private backbone | Direct Link |
-{: caption="Table 1. Details about VPC network flows and connections" caption-side="bottom"}
+{: caption="Details about VPC network flows and connections" caption-side="bottom"}

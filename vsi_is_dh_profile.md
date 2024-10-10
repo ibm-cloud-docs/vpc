@@ -2,7 +2,7 @@
 copyright:
   years: 2020, 2024
 
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-10"
 
 keywords: dedicated host profiles, balanced, compute, memory, ultra high memory, generation 2, gen 2
 
@@ -36,7 +36,7 @@ The following profile families are available:
 | [Memory](#memory-dh-pr) | Best for memory intensive processes, such as memory caching, intensive database applications, or in-memory analytics workloads. Memory profiles are offered with and without instance storage. |
 |[Very High Memory with instance storage](#vhm-is-dh-pr) | Best for OLAP workloads and SAP-related services, such as SAP NetWeaver. The Very High Memory profile offers 1 vCPU to 14 GiB of RAM memory ratio. This profile is hosted exclusively on the Intel® Xeon® Platinum Cascade Lake server, and includes instance storage for temporary swap space or cache. |
 |[Ultra High Memory with instance storage](#uhm-is-dh-pr) | Best for in-memory OLTP databases, such as SAP. The Ultra High Memory profile offers the highest vCPU to memory ratios with 1 vCPU to 28 GiB of RAM. This profile is hosted exclusively on the Intel® Xeon® Platinum Cascade Lake server and includes instance storage for temporary swap space or cache|
-{: caption="Table 1. Dedicated host family selections" caption-side="bottom"}
+{: caption="Dedicated host family selections" caption-side="bottom"}
 
 Profiles with AMD-manufactured processors are available in the Toronto region.
 {: preview}
@@ -62,7 +62,7 @@ The following Balanced profiles are available for dedicated hosts.
 |---------|---------|---------|---------| ---------|
 | bx2-host-152x608 | 152 | 76 | 608 | - |
 | bx2d-host-152x608 | 152 | 76 | 608 | 5700 GB |
-{: caption="Table 2. Intel x86-64 balanced bx2 profile options for dedicated hosts" caption-side="bottom"}
+{: caption="Intel x86-64 balanced bx2 profile options for dedicated hosts" caption-side="bottom"}
 {: #dh-balanced-intel-x86-64-bx2d}
 {: tab-title="bx2"}
 {: tab-group="DH Balanced"}
@@ -72,7 +72,7 @@ The following Balanced profiles are available for dedicated hosts.
 | Dedicated host profile | vCPU | GiB RAM |
 |---------|---------|---------|
 | bx2a-host-228x912 | 228 | 912 |
-{: caption="Table 2. AMD x86-64 balanced profile for dedicated hosts" caption-side="bottom"}
+{: caption="AMD x86-64 balanced profile for dedicated hosts" caption-side="bottom"}
 {: #dh-balanced-amd-x86-64-bx2a}
 {: tab-title="bx2a"}
 {: tab-group="DH Balanced"}
@@ -82,7 +82,7 @@ The following Balanced profiles are available for dedicated hosts.
 | Dedicated host profile | vCPU | Cores | GiB RAM | Instance storage |
 |---------|---------|---------|---------| ---------|
 | bx3d-host-176x880 | 176 | 88 | 880 | 2x3.2 Tb |
-{: caption="Table 2. Intel Balanced bx3d profile options for dedicated hosts" caption-side="bottom"}
+{: caption="Intel Balanced bx3d profile options for dedicated hosts" caption-side="bottom"}
 {: #dh-balanced-intel-x86-64-bx3d}
 {: tab-title="bx3d"}
 {: tab-group="DH Balanced"}
@@ -116,7 +116,7 @@ The following Compute profiles are available for dedicated hosts.
 |---------|---------|---------|---------| ---------|
 | cx2-host-152x304 | 152 | 76 | 304 | - |
 | cx2d-host-152x304 | 152 | 76 | 304 | 5700 GB |
-{: caption="Table 3. Intel x86-64 Compute profiles for dedicated hosts" caption-side="bottom"}
+{: caption="Intel x86-64 Compute profiles for dedicated hosts" caption-side="bottom"}
 {: #dh-compute-intel-x86-64-cx2d}
 {: tab-title="cx2"}
 {: tab-group="DH Compute"}
@@ -126,7 +126,7 @@ The following Compute profiles are available for dedicated hosts.
 | Dedicated host profile | vCPU | Cores | GiB RAM | Instance storage |
 |---------|---------|---------|---------| ---------|
 | cx3d-host-176x880 | 176 | 88 | 440 | 2x3.2 Tb |
-{: caption="Table 3. Intel x86-64 Compute cx3d profile for dedicated hosts" caption-side="bottom"}
+{: caption="Intel x86-64 Compute cx3d profile for dedicated hosts" caption-side="bottom"}
 {: #dh-compute-intel-x86-64-cx3d}
 {: tab-title="cx3d"}
 {: tab-group="DH Compute"}
@@ -160,7 +160,7 @@ The following Memory profiles are available for dedicated hosts.
 |---------|---------|---------|---------| ---------|
 | mx2-host-152x1216 | 152 | 76 | 1216 | - |
 | mx2d-host-152x1216 | 152 | 76 | 1216 | 5700 GB |
-{: caption="Table 4. Intel x86-64 memory mx2 profile options for dedicated hosts" caption-side="bottom"}
+{: caption="Intel x86-64 memory mx2 profile options for dedicated hosts" caption-side="bottom"}
 {: #dh-memory-intel-x86-64-mx2d}
 {: tab-title="mx2"}
 {: tab-group="DH Memory"}
@@ -170,7 +170,7 @@ The following Memory profiles are available for dedicated hosts.
 | Dedicated host profile | vCPU | Cores | GiB RAM | Instance storage |
 |---------|---------|---------|---------| ---------|
 | mx3d-host-176x1760 | 176 | 88 | 1760 | 2x3.2 Tb |
-{: caption="Table 4. Intel x86-64 Memory mx3d profile for dedicated hosts" caption-side="bottom"}
+{: caption="Intel x86-64 Memory mx3d profile for dedicated hosts" caption-side="bottom"}
 {: #dh-memory-intel-x86-64-mx3d}
 {: tab-title="mx3d"}
 {: tab-group="DH Memory"}
@@ -201,7 +201,7 @@ The following Very High Memory profile is available for dedicated hosts.
 | Dedicated host profile | vCPU | Cores | GiB RAM | Instance storage |
 |---------|---------|---------|---------|---------|
 | vx2d-host-176x2464 | 176 | 88 | 2464 | 5280 GB |
-{: caption="Table 5. Intel x86-64 very high memory profiles for dedicated hosts" caption-side="bottom"}
+{: caption="Intel x86-64 very high memory profiles for dedicated hosts" caption-side="bottom"}
 {: #dh-vhmemory-intel-x86-64-vx2d}
 {: tab-title="vx2d"}
 {: tab-group="DH Very High Memory"}
@@ -211,7 +211,7 @@ The following Very High Memory profile is available for dedicated hosts.
 | Dedicated host profile | vCPU | Cores | GiB RAM | Instance storage |
 |---------|---------|---------|---------|---------|
 | vx3d-host-176x2816 | 176 | 88 | 2816| 2x2860 GB |
-{: caption="Table 5. Intel x86-64 very high memory profiles for dedicated hosts" caption-side="bottom"}
+{: caption="Intel x86-64 very high memory profiles for dedicated hosts" caption-side="bottom"}
 {: #dh-vhmemory-intel-x86-64-vx3d}
 {: tab-title="vx3d"}
 {: tab-group="DH Very High Memory"}
@@ -238,7 +238,7 @@ The following Ultra High Memory profile is available for dedicated hosts.
 | Dedicated host profile | vCPU | Cores | GiB RAM | Instance storage |
 |---------|---------|---------|---------|---------|
 | ux2d-host-200x5600 | 200 | 100 | 5600 | 6000 GB |
-{: caption="Table 6. Intel x86-64 ultra high memory profile for dedicated hosts" caption-side="bottom"}
+{: caption="Intel x86-64 ultra high memory profile for dedicated hosts" caption-side="bottom"}
 {: #dh-uhmemory-intel-x86-64-ux2d}
 {: tab-title="Intel x86-64"}
 {: tab-group="DH Ultra High Memory"}
@@ -264,7 +264,7 @@ The following example describes the individual parts that make up a dedicated ho
 | Family | Architecture | Generation | Specialty | Offering | vCPU | RAM |
 | ------ | ------------ | ---------- | ----------| -------- | ---- | --- |
 | b      | x            | 2         | d-        | host-    | 152x | 608  |
-{: caption="Table 7. Individual parts that comprise the dedicated host profile" caption-side="bottom"}
+{: caption="Individual parts that comprise the dedicated host profile" caption-side="bottom"}
 
 
 The first character represents the profile family. Different profile families have different ratios of CPU to memory, which is designed for different workloads.

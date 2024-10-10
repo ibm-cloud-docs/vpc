@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-10"
 
 keywords:
 
@@ -133,7 +133,7 @@ For example, you can configure the following inbound rules:
 | 1 | Allow | TCP | Any IP, ports 80 - 80 |Any IP, any port|
 | 2 | Allow | ALL | `10.10.20.0/24`, any port |Any IP, any port|
 | 3 | Deny| ALL | Any IP, any port |Any IP, any port|
-{: caption="Table 1. Information for configuring inbound rules." caption-side="bottom"}
+{: caption="Information for configuring inbound rules." caption-side="bottom"}
 
 Then, configure the following outbound rules:
 
@@ -146,4 +146,4 @@ Then, configure the following outbound rules:
 | 1 | Allow | TCP | Any IP, any port |Any IP, ports 80 - 80  |
 | 2 | Allow | ALL | Any IP, any port | `10.10.20.0/24`, any port |
 | 3 | Deny| ALL | Any IP, any port |Any IP, any port|
-{: caption="Table 2. Information for configuring outbound rules." caption-side="bottom"}
+{: caption="Information for configuring outbound rules." caption-side="bottom"}

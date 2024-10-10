@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-10"
 
 keywords: dedicated host instance, instance on vpc dedicated host, create instance on dedicated host
 
@@ -66,7 +66,7 @@ Gather the following information:
 | Zone                  | `ibmcloud is zones`             |
 | Dedicated host        | `ibmcloud is dedicated-hosts`   |
 | Dedicated group       | `ibmcloud is dedicated-host-groups`|
-{: caption="Table 1. Required instance details" caption-side="bottom"}
+{: caption="Required instance details" caption-side="bottom"}
 
 The profile family and class must match for the dedicated host and instances that are provisioned on the host. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles).
 {: important}

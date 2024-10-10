@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-10"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, view backup lists,
 
@@ -43,7 +43,7 @@ From the backup policy details page, you can list all backup jobs for that polic
    | Job completed | Date and time of when the job was finished. |
    | Snapshot      | The snapshot (backup) that was created when the backup job finishes. Click the name to see the details in the side panel. |
    | Source        | The source can be the source volume from which the first snapshot was taken, or the source instance of the snapshot consistency group that the backup is a member of. |
-   {: caption="Table 1. Information provided by the list of backup jobs for the backup policy" caption-side="bottom"}
+   {: caption="Information provided by the list of backup jobs for the backup policy" caption-side="bottom"}
 
 ### View snapshots that were created by a backup job in the console
 {: #backup-view-snap-backup-ui}
@@ -57,7 +57,7 @@ From the list of backup jobs, click the Actions icon ![Actions icon](../icons/ac
 | Size     | Size in GBs of the snapshot, it is inherited from the source volume. |
 | Source   | This field shows the source volume   from which the snapshot was taken. If the source volume was deleted, the name appears without a link. |
 | Bootable | It indicates whether the snapshot was created from a boot volume. |
-{: caption="Table 2. Snapshot details side panel" caption-side="bottom"}
+{: caption="Snapshot details side panel" caption-side="bottom"}
 
 ## View backup jobs from the CLI
 {: #backup-view-jobs-cli}

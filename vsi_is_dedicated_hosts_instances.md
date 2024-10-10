@@ -69,7 +69,7 @@ To create a dedicated host:
 | Instance placement | Select whether you want to enable the placement of instances on this dedicated host. The default value of instance placement is set to *On*. If you set the instance placement value to *Off*, no instances can be created on this dedicated host until the value is changed to *On*.|
 | Profile | Click **Change profile** to select a profile that defines the vCPU and memory for the dedicated host. On the dedicated host profile page, you can select the architecture to use for your dedicated host; x86 architecture is selected by default. The profile family that you select for the dedicated host determines the profile family that must be used when you provision virtual server instances on the host. If you choose a memory profile for your dedicated host, all instances that are provisioned on the host must also be created with a memory profile. If you choose an [instance storage](/docs/vpc?topic=vpc-instance-storage) profile for the dedicated host (a profile that includes *d* in the prefix, such as *mx2d*), all instances that are provisioned on the dedicated host must be provisioned with an instance storage profile in the corresponding family. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles).  |
 | Dedicated group | Select the dedicated group where you want this dedicated host created. Or you can [create a new dedicated group](#creating-dedicated-groups). |
-{: caption="Table 1. Dedicated host provisioning selections" caption-side="bottom"}
+{: caption="Dedicated host provisioning selections" caption-side="bottom"}
 
 ### Creating dedicated groups
 {: #creating-dedicated-groups}
@@ -84,7 +84,7 @@ If you don't have a dedicated group, or if you want to create a new dedicated gr
 |-------|-------|
 | Name | Specify a unique resource name within the region for your dedicated group. |
 | Resource group | Select the resource group that contains the account resources and users that you want to be able to access the group. For more information about resource groups, see [Managing resource groups](/docs/account?topic=account-rgs).  |
-{: caption="Table 2. Dedicated group creation selections" caption-side="bottom"}
+{: caption="Dedicated group creation selections" caption-side="bottom"}
 
 ## Creating dedicated hosts and groups by using the CLI
 {: #creating-dedicated-host-CLI}
@@ -114,7 +114,7 @@ Gather the following required information:
 | **Family**                | The profile family that you want to assign to the group, such as Memory, Balanced, or Compute. |
 | **Class**                 | The profile class that you want to assign to the group, such as mx2. |
 | **Name**                  | Unique name for your new group. |
-{: caption="Table 1. Required host group details" caption-side="bottom"}
+{: caption="Required host group details" caption-side="bottom"}
 
 Use the following commands to determine the required information for creating a new group.
 

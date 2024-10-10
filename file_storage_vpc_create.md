@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-09-26"
+lastupdated: "2024-10-10"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -56,7 +56,7 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
    |  | Security group: Access to the file share is based on [security group](/docs/vpc?topic=vpc-using-security-groups#sg-getting-started) rules. This option can be used to restrict access to specific virtual server instances. You can also use this option if you want to mount the file share to a virtual server instance in another zone. This option is recommended as you have more control over who can access the data that is stored on the file share. When, you choose this type of access, you can also specify the allowed transit encryption modes. |
    |  | Virtual private cloud: Access to the file share is granted to any virtual server instance in the same region. Cross-zone mounting and encryption in transit are not supported. |
    | Allowed transit encryption modes| As the share owner, you can specify how you want clients within your account and authorized accounts to connect to your file share. You can select *none* if you do not want them to use encryption in transit, and *user-managed* if you want them to use encryption in transit. If you select both, then the transit encryption type of the first mount target decides the transit encryption types of all future mount targets within the account. |
-   {: caption="Table 1. Values for creating a file share" caption-side="top"}
+   {: caption="Values for creating a file share" caption-side="top"}
 
    
 
@@ -81,7 +81,7 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
    | Encryption service instance | If you provisioned multiple KMS instances in your account, select the one that includes the root key that you want to use for customer-managed encryption. |
    | Key name | Select the root key within the KMS instance that you want to use for encrypting the share. |
    | Key ID | The field shows the key ID that is associated with the data encryption key that you selected. |
-   {: caption="Table 2. Values for customer-managed encryption for file shares." caption-side="bottom"}
+   {: caption="Values for customer-managed encryption for file shares." caption-side="bottom"}
 
 1. When all the required information is entered, click **Create file share**. You return to the {{site.data.keyword.filestorage_vpc_short}} page, where a message indicates that the file share is provisioning. When the transaction completes, the share status changes to **Active**.
    
@@ -140,7 +140,7 @@ Before you run the `ibmcloud is share-create` command, you can gather informatio
 | Subnets             | `ibmcloud is subnets`                      | List all subnets.                        |
 | Reserved IP addresses | `ibmcloud is subnet-reserved-ips`   | List all reserved IP addresses in the subnet. |
 | Security Groups     | `ibmcloud is security-groups`              | List all security groups.                |    
-{: caption="Table 1. Details for creating file shares." caption-side="top"}
+{: caption="Details for creating file shares." caption-side="top"}
 
 ### Creating a file share without a mount target from the CLI
 {: #fs-create-share-cli}
@@ -795,7 +795,7 @@ Table 1 shows UID and GID values that you can set and values that are reserved.
 | GID 0 | Reserved for root. |
 | GID 1–99 | Reserved for the system and application use. |
 | GID 100+ | Allocated for the user’s group. |
-{: caption="Table 1. Unix/Linux&reg; supplemental ID values." caption-side="top"}
+{: caption="Unix/Linux&reg; supplemental ID values." caption-side="top"}
 
 To set supplemental IDs when you create a share, make a `POST /shares` call and specify the `initial_owner` property with the supplemental IDs. See the following example.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-09-24"
+lastupdated: "2024-10-10"
 
 keywords:
 
@@ -113,7 +113,7 @@ From the list of {{site.data.keyword.block_storage_is_short}} snapshots, you can
     | IOPS | For IOPS tiers, specify an IOPS tier profile. For custom IOPS, select a range. |
     | Size | Enter a volume size that is allowed by the profile. |
     | **Encryption** | Inherited from the snapshot.|
-    {: caption="Table 1. Create volume options." caption-side="bottom"}
+    {: caption="Create volume options." caption-side="bottom"}
 
 6. When finished, click **Save**. The new volume is created.
 

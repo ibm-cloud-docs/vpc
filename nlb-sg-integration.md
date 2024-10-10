@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-10"
 
 keywords:
 
@@ -41,14 +41,14 @@ It is common to allow inbound traffic from all sources to the listener port on a
 | Protocol | Source Type | Source | Value |
 |-----------|------|------|-------|
 | TCP| IP Address | `0.0.0.0/0` | `Listener port` |
-{: caption="Table 1. Configuration information for inbound rules of public load balancers" caption-side="bottom"}
+{: caption="Configuration information for inbound rules of public load balancers" caption-side="bottom"}
 
 However, if you need to restrict inbound traffic, you can specify a source CIDR, such as `209.173.53.167/20`. This allows all public IP addresses within the IP range to reach the public load balancer. For example:
 
 | Protocol | Source Type | Source | Value |
 |-----------|------|------|-------|
 | TCP| IP Address | `209.173.53.167/20` | `Listener port` |
-{: caption="Table 2. Configuration information for inbound rules of public load balancers from a specific CIDR" caption-side="bottom"}
+{: caption="Configuration information for inbound rules of public load balancers from a specific CIDR" caption-side="bottom"}
 
 #### Outbound rules
 {: #nlb-outbound-rules}
@@ -59,7 +59,7 @@ Ensure that your targets are in a security group and configured as the destinati
 |-----------|------|------|-------|
 | TCP | Security group |  `target` | `target port` |
 | TCP | Security group |  `target` | `Health check port` |
-{: caption="Table 3. Configuration information for outbound rules of load balancers" caption-side="bottom"}
+{: caption="Configuration information for outbound rules of load balancers" caption-side="bottom"}
 
 You can configure the outbound rules to be more permissive than shown (for example, you can allow all traffic to any destination). However, this is not recommended for security reasons.
 {: note}
@@ -73,7 +73,7 @@ You can configure the outbound rules to be more permissive than shown (for examp
 | Protocol | Source type | Source | Value |
 |-----------|------|------|-------|
 | TCP| IP address | `Subnet CIDR or VPC security group` | `Listener port` |
-{: caption="Table 4. Configuration information for inbound rules for private load balancers" caption-side="bottom"}
+{: caption="Configuration information for inbound rules for private load balancers" caption-side="bottom"}
 
 It's a common practice to limit the inbound rules for a private load balancer to your own workload. Ensure that you specify the source from a specific subnet CIDR, or a security group that the source devices belong to. Using a specific CIDR, or nested security group, is preferred; however, individual IP addresses also work.
 
@@ -87,7 +87,7 @@ A nested security group is an option only when clients are in the same VPC. If t
 |-----------|------|------|-------|
 | TCP | Security group |  `Target security group` | `Target port` |
 | TCP | Security group |  `Target security group` | `Health check port`(if different from the target port) |
-{: caption="Table 5. Configuration information for outbound rules for private load balancers" caption-side="bottom"}
+{: caption="Configuration information for outbound rules for private load balancers" caption-side="bottom"}
 
 Ensure that your targets are in a security group and configured as the destination in your outbound rules. Using a nested security group enables your NLB to allow only outbound traffic to the target and health check ports. Using a nested security group enables your NLB to allow only outbound traffic to the target and health check ports.
 
@@ -137,7 +137,7 @@ For example, configure the following inbound rules, which allow all traffic on p
 | Protocol | Source type | Source | Value |
 |-----------|------|------|-------|
 | TCP| Any | `0.0.0.0/0` | Port 80 |
-{: caption="Table 6. Example configuration information for inbound rules" caption-side="bottom"}
+{: caption="Example configuration information for inbound rules" caption-side="bottom"}
 
 Then, configure outbound rules that allow TCP traffic to your target:
 
@@ -145,7 +145,7 @@ Then, configure outbound rules that allow TCP traffic to your target:
 |-----------|------|------|-------|
 | TCP| Any | `10.11.12.13/32` (Target IP address) | `80` (Target port) |
 | TCP| Any | `10.11.12.14/32` (Target IP address) | `80` (Target health check port) |
-{: caption="Table 7. Example configuration information for outbound rules" caption-side="bottom"}
+{: caption="Example configuration information for outbound rules" caption-side="bottom"}
 
 ### Procedure: Attaching security groups during NLB creation
 {: #create-nlb-with-security-groups}

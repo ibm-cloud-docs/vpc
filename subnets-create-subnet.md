@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-10"
 
 keywords:
 
@@ -160,7 +160,7 @@ Follow these instructions to create a subnet in your VPC by using the API:
 |**resource_group**  \n ResourceGroupIdentityById | The resource group to use. If unspecified, the account’s [default resource group](/apidocs/resource-manager#introduction) is used.|
 |**routing_table**  \n string | The routing table to use for this subnet. If unspecified, the default routing table for the VPC is used. The routing table properties `route_direct_link_ingress`, `route_internet_ingress`, `route_transit_gateway_ingress`, and `route_vpc_zone_ingress` must be `false`.  \n One of: `RoutingTableIdentityById`, `RoutingTableIdentityByCRN`, `RoutingTableIdentityByHref`|
 |**SubnetByTotalCount**  \n int 64  \n or   \n **SubnetByCIDR**  \n string|For `SubnetByTotalCount`, specify the total number of IPv4 addresses required. For `SubnetByCIDR`, specify the IPv4 range of the subnet, expressed in CIDR format. Both options require a `zone` that the subnet will reside in.
-{: caption="Table 1. Parameters for creating a subnet" caption-side="bottom"}
+{: caption="Parameters for creating a subnet" caption-side="bottom"}
 
 When all the variables are initiated, submit the request.
 
@@ -201,14 +201,14 @@ The following response shows after you initiate the request:
 |**vpc**  \n Always included  \n VPCReference|The VPC this subnet resides in.
 |**zone**  \n Always included  \n ZoneReference|The zone this subnet resides in.
 |**public_gateway**  \n PublicGatewayReference |The public gateway to use for internet-bound traffic for this subnet.|
-{: caption="Table 2. Initiate response create example" caption-side="bottom"}
+{: caption="Initiate response create example" caption-side="bottom"}
 
 |Status Code||
 |--|--|
 |**201**| The subnet was created successfully.|
 |**400**| An invalid subnet prototype object was provided.|
 |**409**| The subnet prototype object conflicts with another subnet in the VPC, or specifies a CIDR block outside of the VPC's address prefixes.|
-{: caption="Table 3. Create status codes" caption-side="bottom"}
+{: caption="Create status codes" caption-side="bottom"}
 
 For more information (including Java, Node, Python and Go examples), see "Create a subnet" in the [VPC API reference](/apidocs/vpc/latest#create-subnet).
 {: note}
@@ -272,7 +272,7 @@ Follow these instructions to retrieve a subnet in your VPC by using the API:
 |**id**  \n Required  \n string |The subnet identifier.  \n **Possible values:**  1 ≤ length ≤ 64, Value must match regular expression `^[-0-9a-z_]+$`
 |**version**  \n Required  \n string | Requests the version of the API as of a date in the format `YYYY-MM-DD`. Any date up to the current date may be provided. Specify the current date to request the latest version.  \n **Possible values:** Value must match regular expression  `^[0-9]{4}-[0-9]{2}-[0-9]{2}$`|
 |**generation**  \n Required  \n int32 |The infrastructure generation.  \n **Allowable values:** `2`|
-{: caption="Table 4. Parameters for retrieving a subnet" caption-side="bottom"}
+{: caption="Parameters for retrieving a subnet" caption-side="bottom"}
 
 1. When all variables are initiated, run the command.
 
@@ -305,13 +305,13 @@ The following response shows after you initiate the request:
 |**vpc**  \n Always included  \n VPCReference|The VPC this subnet resides in.
 |**zone**  \n Always included  \n ZoneReference|The zone this subnet resides in.
 |**public_gateway**  \n PublicGatewayReference |The public gateway to use for internet-bound traffic for this subnet.|
-{: caption="Table 5. Initiate response retrieve example" caption-side="bottom"}
+{: caption="Initiate response retrieve example" caption-side="bottom"}
 
 |Status Code||
 |--|--|
 |**200**| The subnet was retrieved successfully.|
 |**404**| A subnet with the specified identifier could not be found.|
-{: caption="Table 6. Retrieve status codes" caption-side="bottom"}
+{: caption="Retrieve status codes" caption-side="bottom"}
 
 For more information (including Java, Node, Python and Go examples), see "Retrieve a subnet" in the [VPC API reference](/apidocs/vpc/latest#get-subnet).
 {: note}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-06-20"
+lastupdated: "2024-10-10"
 
 keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, layer 7, compression
 subcollection: vpc
@@ -84,7 +84,7 @@ The following timeout values are used by an ALB. Currently, only the client-side
 | Server-side connection attempt    | The maximum time window that the load balancer can use to establish TCP connection with the back-end server. If the connection attempt is unsuccessful, the load balancer tries the next available server, according to the load-balancing method configured. | 5 seconds   |
 | Client-side idle connection  | The maximum idle time after which the load balancer brings down the client-side connection, if the client failed to close its connection properly.| 50 seconds (default) to 2 hours  |
 | Server-side idle connection | The maximum idle time (with back-end protocol configuration of TCP) after which the load balancer closes the server-side connection. With the back-end protocol configuration of HTTP, if the load balancer fails to receive a response to its HTTP request within the idle timeout window, it returns an error message to the end client.                                | 50 seconds (default) to 2 hours |
-{: caption="Table 1. Application load balancer timeout values" caption-side="bottom"}
+{: caption="Application load balancer timeout values" caption-side="bottom"}
 
 ## Preserving end-client IP address (HTTP/HTTPS only)
 {: #preserving-end-client-ip-address}

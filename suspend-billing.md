@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-07-08"
+lastupdated: "2024-10-10"
 
 keywords: pricing, billing, data, instance, VSI, suspend 
 
@@ -35,7 +35,7 @@ Review the following table for details on how suspended billing impacts various 
 | Operating system licenses     |          X        |                  |
 | Floating IPs, Load balancers, or other attached networking offerings |                   |         X        |
 | Storage                       |                   |         X        |
-{: caption="Table 7. Resource billing details" caption-side="bottom"}
+{: caption="Resource billing details" caption-side="bottom"}
 
 Usage times are calculated per second, for both the in use time and suspended time of your virtual server instance. Even if you never initiate the suspend billing feature by powering off your instance, the billing is calculated per second of the instance's lifecycle. No minimum usage requirement exists for an instance. 
 {: note}
@@ -76,4 +76,3 @@ You can use the [Activity Tracker](/docs/vpc?topic=vpc-at_events) to check the s
 {: #suspend-billing-limitations}
 
 Suspended virtual servers continue to count toward your account-wide device quota.
-

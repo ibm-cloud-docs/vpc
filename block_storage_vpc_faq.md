@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-09-24"
+lastupdated: "2024-10-10"
 
 keywords: faqs, Block Storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
@@ -87,7 +87,7 @@ The following table shows the same number of bytes expressed in decimal and bina
 |         2,000,000 MB |         1,907,348 MiB |
 |             2,000 GB |             1,862 GiB |
 |                 2 TB |              1.81 TiB |
-{: caption="Table 1. Decimal vs Binary units" caption-side="bottom"}
+{: caption="Decimal vs Binary units" caption-side="bottom"}
 
 The storage system uses base-2 units for volume allocation. So if your volume is provisioned as 4,000 GB, that's really 4,000 GiB or 4,294,967,296,000 bytes of storage space. The provisioned volume size is larger than 4 TB. However, your operating system might display the storage size as 3.9 T because it uses base-2 conversion and the T stands for TiB, not TB.
 

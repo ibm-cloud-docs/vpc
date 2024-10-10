@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-09-11"
+lastupdated: "2024-10-10"
 
 keywords: IAM access for vpc infrastructure services, permissions for vpc infrastructure services, identity and access management for vpc infrastructure services, roles for vpc infrastructure services, actions for vpc infrastructure services, assigning access for vpc infrastructure services
 
@@ -43,7 +43,7 @@ Review the following tables that outline what types of tasks each role allows wh
 | Administrator          | You can perform all platform actions based on the resource this role is assigned, including assigning access policies to other users.|
 {: row-headers}
 {: class="simple-tab-table"}
-{: caption="Table 2. IAM VPC Infrastructure Services platform roles" caption-side="bottom"}
+{: caption="IAM VPC Infrastructure Services platform roles" caption-side="bottom"}
 {: #iamrolesplatformvpcinfrastructureservices}
 {: tab-title="VPC Infrastructure Services Platform roles"}
 {: tab-group="IAMVPC}
@@ -60,7 +60,7 @@ Review the following tables that outline what types of tasks each role allows wh
 | Console Administrator | You can access the virtual server instance console. This role provides only console access and must be combined with another role that has operator access to the virtual server, such as Operator, Editor, or Administrator. |
 {: row-headers}
 {: class="simple-tab-table"}
-{: caption="Table 2. IAM VPC Infrastructure service access roles" caption-side="bottom"}
+{: caption="IAM VPC Infrastructure service access roles" caption-side="bottom"}
 {: #iamrolesvpcinfrastructureservice}
 {: tab-title="VPC Infrastructure Service roles"}
 {: tab-group="IAMVPC"}
@@ -156,7 +156,7 @@ For step-by-step instructions for assigning, removing, and reviewing access, see
 | Bare Metal Console Admin | `crn:v1:bluemix:public:iam::::serviceRole:BareMetalConsoleAdmin` |
 | IP Spoofing Operator | `crn:v1:bluemix:public:iam::::serviceRole:IPSpoofingOperator` |
 | Console Administrator | `crn:v1:bluemix:public:iam::::serviceRole:VirtualServerConsoleAdmin` |
-{: caption="Table 2. VPC Infrastructure Services role ID values for API use" caption-side="bottom"}
+{: caption="VPC Infrastructure Services role ID values for API use" caption-side="bottom"}
 
 The following example is for assigning the `Viewer` role for `VPC Infrastructure Services`:
 

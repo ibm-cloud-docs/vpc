@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-09-26"
+lastupdated: "2024-10-10"
 
 keywords: file share, file storage, sysdig, platform metrics
 
@@ -128,7 +128,7 @@ The following metrics help track the IO activity and throughput that is handled 
 | ibm_is_share_capacity_total   | Total allocated capacity|
 | ibm_is_share_capacity_used    | Current used capacity| 
 | ibm_is_share_mount_targets_count | Number of Share mount targets |
-{: caption="Table 1. Information about share metrics." caption-side="bottom"}
+{: caption="Information about share metrics." caption-side="bottom"}
 
 ### Example of file share metrics
 {: #sysdig-metrics-examples}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-07-23"
+lastupdated: "2024-10-10"
 
 keywords: custom routes
 
@@ -83,7 +83,7 @@ For route priority limitations, see [Limitations and guidelines](/docs/vpc?topic
 
 In the past, address prefixes within the root address prefix of the VPC were advertised to the Direct Link and Transit Gateway. However, you could not advertise your address prefixes outside the root address prefix of the VPC. Route advertisement adds this capability. For example, Figure 1 advertises the route `0.0.0.0/0` in all zones to a zone-specific next hop.
 
-![Edge proxy firewall use case](images/advertise-routes.png){: caption="Figure 1. Advertising routes" caption-side="bottom}
+![Edge proxy firewall use case](images/advertise-routes.png){: caption="Advertising routes" caption-side="bottom}
 
 For more information, see [Creating a routing table](/docs/vpc?topic=vpc-create-vpc-routing-table&interface=ui) and [Updating a routing table](/docs/vpc?topic=vpc-update-vpc-routing-table&interface=ui).
 
@@ -110,14 +110,14 @@ The following use cases illustrate different routing scenarios.
 ### Use case 1: Edge proxy firewall
 {: #edge-proxy-firewall-use-case}
 
-![Edge proxy firewall use case](images/cr_use_case_1.png){: caption="Figure 2. Edge proxy firewall use case" caption-side="bottom}
+![Edge proxy firewall use case](images/cr_use_case_1.png){: caption="Edge proxy firewall use case" caption-side="bottom}
 
 | Destination | Action | Next hop | Location|
 |-------------|--------|----------|---------|
 | `10.10.0.0/16` | Delegate |  | Dallas DC 1|
 | `10.11.0.0/16` | Delegate |  | Dallas DC 1|
 | `0.0.0.0/0` | Deliver | `10.10.1.5` | Dallas DC 1|
-{: caption="Table 1. Edge proxy firewall egress routing table" caption-side="bottom"}
+{: caption="Edge proxy firewall egress routing table" caption-side="bottom"}
 
 #### Objective: Edge proxy firewall
 {: #objective-edge-proxy-firewall}
@@ -143,7 +143,7 @@ This use case uses the following functions of Edge proxy firewalls:
 ### Use case 2: Public load balancer
 {: #public-load-balancer-use-case}
 
-![Public load balancer use case](images/cr_use_case_2.png){: caption="Figure 3. Public load balancer use case" caption-side="bottom}
+![Public load balancer use case](images/cr_use_case_2.png){: caption="Public load balancer use case" caption-side="bottom}
 
 | Destination | Action | Next hop | Location|
 |-------------|--------|----------|---------|
@@ -152,7 +152,7 @@ This use case uses the following functions of Edge proxy firewalls:
 | `166.26.0.0/16` * | Delegate |  | Dallas DC 1|
 | `166.8.0.0/14` * | Delegate |  | Dallas DC 1|
 | `0.0.0.0/0` | Deliver | `10.10.1.5` | Dallas DC 1|
-{: caption="Table 2. Public load balancer Web egress routing table" caption-side="bottom"}
+{: caption="Public load balancer Web egress routing table" caption-side="bottom"}
 
 #### Objective: public load balancer
 {: #objective-public-load-balancer}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-06-14"
+lastupdated: "2024-10-10"
 
 subcollection: vpc
 
@@ -37,7 +37,7 @@ The following operating systems are available as stock images when you create a 
 | SUSE Linux Enterprise Server for SAP 12.x, 15.x | x86-64 |
 | Ubuntu 20.04.x, 22.04.x, 24.04.x | x86-64 |
 | Windows 2016, 2019, 2022 | x86-64 |
-{: caption="Table 1. Supported x86_64 stock image operating systems" caption-side="top"}
+{: caption="Supported x86_64 stock image operating systems" caption-side="top"}
 
 ### Supported x86_64 virtual server operating system bundle stock image
 {: #x86-supported-os-bundle-image}
@@ -45,7 +45,7 @@ The following operating systems are available as stock images when you create a 
 | Image | Architectures |
 |---------|---------|
 | Windows Server 2019 Standard Edition with SQL Server 2019 Web Edition | x86-64
-{: caption="Table 2. Supported x86_64 virtual server operating system bundle stock image" caption-side="bottom"}
+{: caption="Supported x86_64 virtual server operating system bundle stock image" caption-side="bottom"}
 
 For more information about images for IBM Z (s390x processor architecture), see [s390x virtual server images](/docs/vpc?topic=vpc-vsabout-images).
 
@@ -109,5 +109,3 @@ After you choose a profile, it's time to plan for and create an instance.
 * [Planning for instances](/docs/vpc?topic=vpc-vsi_best_practices)
 * [Creating an instance by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers)
 * [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli)
-
-

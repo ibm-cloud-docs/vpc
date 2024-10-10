@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-10-08"
+lastupdated: "2024-10-10"
 
 keywords: Block Storage, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, bandwidth
 
@@ -129,7 +129,7 @@ In the first example, the combined provisioned value equals 4,324 Mbps, which is
 | `volume-b`| 15,000 | 1,966 Mbps |  45% | 275 Mbps |
 | `volume-c`|  9,000 | 1,179 Mbps |  27% | 166 Mbps |
 | All data volumes | N/A | 4,324 Mbps | 100% | 607 Mbps |
-{: caption="Table 1. Volume bandwidth allocation with 3 data volumes." caption-side="bottom"}
+{: caption="Volume bandwidth allocation with 3 data volumes." caption-side="bottom"}
 
 In the second example, the cx3d-8x20 instance's total volume bandwidth is 4 Gbps (4,000 Mbps). The available bandwidth that can be divided among the data volumes is 3607 Mbps. If you attach _`volume-a`_ and _`volume-b`_, both of which have the same 5 IOPS/GB volume profile, their combined maximum throughput limit is 3145 Mbps. That value is less than the available 3607 Mbps, which means that the volume with more capacity (_`volume-b`_) is allocated 1966 Mbps and the volume with less capacity (_`volume-a`_) is allocated 1179 Mbps. That's their provisioned throughput limit, and that's the most bandwidth that can be allocated to them, even if more bandwidth is available.
 
@@ -138,7 +138,7 @@ In the second example, the cx3d-8x20 instance's total volume bandwidth is 4 Gbps
 | `volume-a`|  9,000 | 1,179 Mbps |  37.5% | 1,179 Mbps  |
 | `volume-b`| 15,000 | 1,966 Mbps |  62.5% | 1,966 Mbps  |
 | All data volumes | N/A |  3,145 Mbps | 100% | 3,145 Mbps[^ttext1] |
-{: caption="Table 2. Volume bandwidth allocation with 2 data volumes." caption-side="bottom"}
+{: caption="Volume bandwidth allocation with 2 data volumes." caption-side="bottom"}
 
 [^ttext1]: The data volume's allocated bandwidth values equal their provisioned throughput limits. The available instance volume bandwidth is 3,607 MBps, which is more than the sum of the provisioned throughput limit of the data volumes.
 
@@ -150,7 +150,7 @@ When you attach _`volume-c`_ the bandwidth allocation changes. The combined prov
 | `volume-b`| 15,000 | 1,966 Mbps |  45% | 1,640 Mbps |
 | `volume-c`|  9,000 | 1,179 Mbps |  27% | 983.5 Mbps |
 | All data volumes | N/A |4,324 Mbps | 100% | 3,607 Mbps |
-{: caption="Table 3. Volume bandwidth allocation with 3 data volumes." caption-side="bottom"}
+{: caption="Volume bandwidth allocation with 3 data volumes." caption-side="bottom"}
 
 If you provision and attach a 4th data volume with the general-purpose profile and capacity of 2,000 GB, the bandwidth allocation changes again. Table 4 shows the 4 attached volumes with their provisioned throughput limits in the 3rd column.
 
@@ -161,7 +161,7 @@ If you provision and attach a 4th data volume with the general-purpose profile a
 | `volume-c`|  9,000 | 1,179 Mbps |  23% |   832 Mbps |
 | `volume-d`|  6,000 |   786 Mbps |  15% |   555 Mbps |
 | All data volumes |N/A | 4,324 Mbps | 100% | 3,607 Mbps |
-{: caption="Table 4. Volume bandwidth allocation with 4 data volumes." caption-side="bottom"}
+{: caption="Volume bandwidth allocation with 4 data volumes." caption-side="bottom"}
 
 The volume bandwidth that is available to the instance is always apportioned on a per volume basis. The bandwidth is assigned per volume, not shared between volumes. In the examples where 3 or 4 data volumes are attached, the allocated bandwidth is less than the volume's own throughput limit. While the volume is provisioned to be able to handle more, it can use only the bandwidth that was allocated to it. It cannot use any bandwidth that is allocated to, but not used by another volume.
 

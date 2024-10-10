@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-10"
 
 keywords: virtual private endpoints, view details, VPE, endpoint gateway
 subcollection: vpc
@@ -46,7 +46,7 @@ Descriptions of the fields for the virtual endpoint gateway details page are:
 | Service instance name | The service instance name of the service target for this endpoint gateway. |
 | Service endpoint | The fully qualified domain name for the target service. |
 | Target CRN | The service instance's target CRN value. |
-{: caption="Table 1. Details about your endpoint gateway" caption-side="bottom"}
+{: caption="Details about your endpoint gateway" caption-side="bottom"}
 
 From the Attached resources section, you can select to view either Reserved IP or Security groups. Click **Manage attached resources** to switch to the Attached resources view.
 
@@ -60,7 +60,7 @@ The Reserved IPs table shows all bound, reserved IPs to this endpoint gateway. D
 | IP address | The IP address value of the reserved IP. Click to copy it. |
 | Auto delete | Move the **Auto Delete** switch to enable or disable deletion for the reserved IP. If it is enabled (green), this reserved IP is deleted automatically when the target is deleted. |
 | Actions | Click the Actions menu ![Actions menu](images/overflow.png) to display a menu of context-specific actions that you can take. There are 4 actions in the menu (Rename, Release, Unbind and Copy UUID for this reserved IP). |
-{: caption="Table 2. Details about your endpoint gateway bound reserved IPs" caption-side="bottom"}
+{: caption="Details about your endpoint gateway bound reserved IPs" caption-side="bottom"}
 
 Scroll to the Security groups section to view attached security groups. You can click **Attach** to attach a security group, or click the Actions menu ![Actions menu](images/overflow.png) to edit rules, or detach a security group.
 

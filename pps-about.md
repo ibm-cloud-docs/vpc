@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-10-04"
+lastupdated: "2024-10-10"
 
 keywords:
 
@@ -65,7 +65,7 @@ Review the available platform and service roles and the actions mapped to each t
 | Operator | As an operator you can view the properties of private path service gateways but you cannot modify them. |
 | Viewer | As a viewer you can view the properties of private path service gateway service instances, but you cannot modify them. |
 {: row-headers}
-{: caption="Table 118. Platform roles - Private Path Service for VPC" caption-side="top"}
+{: caption="Platform roles - Private Path Service for VPC" caption-side="top"}
 {: tab-title="Platform roles"}
 {: tab-group="is.private-path-service-gateway"}
 {: class="simple-tab-table"}
@@ -88,7 +88,7 @@ Review the available platform and service roles and the actions mapped to each t
 | `is.private-path-service-gateway.endpoint-gateway-binding.manage` | Manage Endpoint Gateway Binding | Administrator, Editor, Operator |
 | `is.private-path-service-gateway.private-path-service-gateway.publish` | Publish Private Path service | Administrator, Editor |
 | `is.private-path-service-gateway.private-path-service-gateway.unpublish` | Unpublish Private Path service | Administrator, Editor |
-{: caption="Table 118. Service actions - Private Path Service for VPC" caption-side="top"}
+{: caption="Service actions - Private Path Service for VPC" caption-side="top"}
 {: tab-title="Actions"}
 {: tab-group="is.private-path-service-gateway"}
 {: class="simple-tab-table"}
@@ -107,7 +107,7 @@ Figure 1 illustrates how to establish a Private Path service. Establishing a Pri
 
 First, a Consumer's application connects to a VPE gateway in the Consumer's VPC. Then, the VPE gateway connects to the Private Path NLB in the Provider's VPC. In turn, the Private Path NLB connects to the Provider's service. The Provider's service then responds to the Consumer's request through Direct Server Return (DSR). This Private Path service activity is completely contained in a single region (US South) in an IBM Cloud private network.
 
-![A Private Path exposing a service to a customer](images/private_path_use_case_1.svg "A Private Path exposing a service to a customer"){: caption="Figure 1. A Private Path exposing a service to a customer without using public internet" caption-side="bottom"}
+![A Private Path exposing a service to a customer](images/private_path_use_case_1.svg "A Private Path exposing a service to a customer"){: caption="A Private Path exposing a service to a customer without using public internet" caption-side="bottom"}
 
 ### Use case 2: Connecting a service to multiple Consumers
 {: #pps-use-case-2}
@@ -116,7 +116,7 @@ Figure 2 illustrates how to establish a Private Path service with connections to
 
 First, a Consumer's application connects to a VPE gateway in the Consumer's VPCs. Then, the VPE gateway connects to the Private Path NLB in the Provider's VPC. In turn, the Private Path NLB connects to the Provider's service. The Provider's service then responds to the Consumer's request through DSR. This Private Path service activity is completely contained in a single region (US South) in an IBM Cloud private network.
 
-![A Private Path exposing a service to multiple customers](images/private_path_detailed_2.svg "A Private Path exposing a service to multiple customers"){: caption="Figure 2. A Private Path exposing a service to multiple customers without using public internet" caption-side="bottom"}
+![A Private Path exposing a service to multiple customers](images/private_path_detailed_2.svg "A Private Path exposing a service to multiple customers"){: caption="A Private Path exposing a service to multiple customers without using public internet" caption-side="bottom"}
 
 ### Use case 3: Connecting a service to a customer within your VPC
 {: #pps-use-case-3}
@@ -125,7 +125,7 @@ Figure 3 illustrates how to establish a Private Path service with connections to
 
 First, a Consumer's application connects to the Consumer's VPE gateway within the Provider's VPC. Then, the VPE gateway connects to the Private Path NLB in the Provider's VPC. In turn, the Private Path NLB connects to the Provider's service. The Provider's service then responds to the Consumer's request through DSR. This Private Path service activity is completely contained in a single region (US South) in an IBM Cloud private network.
 
-![A Private Path exposing a service to a customer within the same VPC](images/private_path_detailed_3.svg "A Private Path exposing a service to a customer within the same VPC"){: caption="Figure 3. A Private Path exposing a service to a customer within the same VPC without using public internet" caption-side="bottom"}
+![A Private Path exposing a service to a customer within the same VPC](images/private_path_detailed_3.svg "A Private Path exposing a service to a customer within the same VPC"){: caption="A Private Path exposing a service to a customer within the same VPC without using public internet" caption-side="bottom"}
 
 ### Use case 4: Enable an IBM Cloud service to connect to a customer's VPC
 {: #pps-use-case-4}
@@ -134,7 +134,7 @@ Private Path allows connection between an IBM Cloud service like IBM Cloud Code 
 
 Figure 4 illustrates how to establish a Private Path service with connections to the VPE gateway of a Code Engine application and your VPC. First, the Code Engine application connects to the VPE gateway within the Code Engine's VPC. Then, the VPE gateway connects to the Private Path NLB and Provider's account in the Provider's VPC. In turn, the Private Path NLB connects to the Provider's application. The Provider's application then responds to the Consumer's request through DSR. This Private Path service activity is completely contained in a single region (US South) in an IBM Cloud private network.
 
-![Use Code Engine and Private Path to deploy complex architecture with dynamic and static scaling needs](images/private_path_detailed_4.svg "Use Code Engine and Private Path to deploy complex architecture with dynamic and static scaling needs"){: caption="Figure 4. Use Code Engine and Private Path to deploy complex architecture with dynamic and static scaling needs" caption-side="bottom"}
+![Use Code Engine and Private Path to deploy complex architecture with dynamic and static scaling needs](images/private_path_detailed_4.svg "Use Code Engine and Private Path to deploy complex architecture with dynamic and static scaling needs"){: caption="Use Code Engine and Private Path to deploy complex architecture with dynamic and static scaling needs" caption-side="bottom"}
 
 ## Related links
 {: #pps-related-links}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-06-25"
+lastupdated: "2024-10-10"
 
 keywords: bare metal server network, bare metal network, nics, pci, vlan, network overview
 
@@ -34,7 +34,7 @@ You can create two types of network interfaces on a bare metal server:
 |-----|-----|
 | PCI (peripheral component interconnect) | A physical network interface. |
 | VLAN (virtual LAN) interface | A virtual network interface that is associated with a PCI interface through the VLAN ID. The VLAN interface automatically tags traffic that is routed through it with the VLAN ID. Inbound traffic that is tagged with a VLAN ID is directed to the appropriate VLAN interface. |
-{: caption="Table 1. Types of network interfaces for bare metal servers" caption-side="bottom"}
+{: caption="Types of network interfaces for bare metal servers" caption-side="bottom"}
 
 ### PCI and VLAN interface characteristics
 {: #bare-metal-servers-interface-characteristics}
@@ -94,7 +94,7 @@ The following table describes the mapping of network concepts between Bare Metal
 | PCI interface | Uplink of the bare metal server on a standard vSwitch or distributed vSwitch. |
 | VLAN interface | Virtual network adapter of the VMKernel or virtual machine |
 | VLAN ID | VLAN ID for port group |
-{: caption="Table 2. Mapping of network concepts between Bare Metal Servers for VPC and VMware vShpere" caption-side="bottom"}
+{: caption="Mapping of network concepts between Bare Metal Servers for VPC and VMware vShpere" caption-side="bottom"}
 
 The PCI interface of the bare metal server maps to the Uplink in vSphere. When you provision a bare metal server, a primary PCI interface is created by default. This primary PCI interface automatically becomes the bare metal server’s uplink on `vSwitch0`. Its IP address is also used by the `vmk0` adapter in the **Management network** port group on `vSwitch0`. The VLAN ID of the **Management network** port group is automatically set to '0'.
 

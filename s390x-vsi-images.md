@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-11"
+lastupdated: "2024-10-10"
 
 keywords: image, stock image, linuxone image, hpcr, container runtime, virtual private cloud, virtual server, generation 2, gen 2
 
@@ -43,7 +43,7 @@ You can choose a profile based on your requirements. You can choose from balance
 | Ubuntu 22.04.x, 20.04.x | s390x |
 | SUSE Linux Enterprise server (SLES) 15 SP3 | s390x |
 | IBM z/OS ({{site.data.keyword.waziaas_full_notm}}) | s390x |
-{: caption="Table 1. Supported s390x stock image operating systems" caption-side="bottom"}
+{: caption="Supported s390x stock image operating systems" caption-side="bottom"}
 
 The {{site.data.keyword.waziaas_short}} z/OS dev and test stock image is available in the US South (Dallas), Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), United Kingdom (London), Spain (Madrid), US East (Washington DC), and US South (Dallas) regions. For more information, see [{{site.data.keyword.waziaas_full_notm}} documentation](https://www.ibm.com/docs/en/wazi-aas/1.0.0){: external}.
 {: note}

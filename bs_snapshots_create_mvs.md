@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-22"
+lastupdated: "2024-10-10"
 
 keywords: consistency groups, Block Storage snapshots, multi-volume snapshot, instance snapshot,
 
@@ -47,7 +47,7 @@ In the console, you can create a consistency group snapshot of {{site.data.keywo
    | Tags           | Specify any user tags that you want to identify this resource. |
    | Access management tags | Specify any [access management tags](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#storage-add-access-mgt-tags) for this resource. |
    | Volumes        | Select the volumes that you want to include in the group from the list. |
-   {: caption="Table 1. Selections for creating a snapshot" caption-side="bottom"}
+   {: caption="Selections for creating a snapshot" caption-side="bottom"}
 
 1. Click **Create**. You're returned to the screen that you started from. Messages are displayed while the snapshots and the consistency group are being created and when they are ready. The snapshots and the consistency group are displayed on the Block Storage snapshots for VPC page, on their respective tabs. For more information, see [View snapshot details in the UI](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=ui#snapshots-vpc-view-snapshot-ui).
 

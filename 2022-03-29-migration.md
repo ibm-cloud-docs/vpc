@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-17"
+lastupdated: "2024-10-10"
 
 keywords:
 
@@ -250,7 +250,7 @@ The following table lists the operations in which the `primary_ipv4_address` cha
 | `GET`    | `/instances/{instance_id}/network_interfaces/{network_interface_id}/floating_ips/{id}`      |                                                   | `.target` |
 | `PUT`    | `/instances/{instance_id}/network_interfaces/{network_interface_id}/floating_ips/{id}`      |                                                   | `.target` |
 | `GET`    | `/vpcs/{id}/default_security_group`                                                         |                                                   | `.network_interfaces[]` |
-{: caption="Table 1. List of operations that have changed properties." caption-side="bottom"}
+{: caption="List of operations that have changed properties." caption-side="bottom"}
 
 ### Security group associations
 {: #sg-assoc-changes}
@@ -264,4 +264,4 @@ The following table lists the methods or properties that were removed as part of
 | `DELETE` | ~~`/security_groups/{security_group_id}/network_interfaces/{id}`~~                          |                                                   | |
 | `GET`    | ~~`/security_groups/{security_group_id}/network_interfaces/{id}`~~                          |                                                   | |
 | `PUT`    | ~~`/security_groups/{security_group_id}/network_interfaces/{id}`~~                          |                                                   | |
-{: caption="Table 2. List of methods or properties that have been removed." caption-side="bottom"}
+{: caption="List of methods or properties that have been removed." caption-side="bottom"}

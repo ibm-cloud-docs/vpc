@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-10"
 
 keywords: backup planning, restore volume, restore data
 
@@ -47,7 +47,7 @@ Consider the following prerequisites before you set up the VPC Backup Service.
 | Volume restore performance | Review these [performance considerations](/docs/vpc?topic=vpc-baas-vpc-restore#baas-performance-considerations) when you restore a volume from a backup snapshot. You might also experience different regional performance when you restore a volume. \n Evaluate when to enable [fast restore clones](/docs/vpc?topic=vpc-backup-service-about#backup-service-fastrestore). Fast restore snapshots reduce latency by restoring a volume from a snapshot clone. The new volume data is immediately restored. |
 | Instance provisioning performance | Review these performance considerations when you decide on [provisioning an instance from a bootable snapshot](/docs/vpc?topic=vpc-baas-vpc-restore#baas-boot-perf). |
 | Billing | Think about the number of backup snapshots that you want to take and other billing considerations as the number of backup snapshots grows. The fast restore feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots. When you choose to create cross-regional copies, you are also charged for data transfer and storage capacity that is used in the other region. For more information, see the [FAQs](/docs/vpc?topic=vpc-backup-service-vpc-faq&interface=ui#faq-baas-pricing). |
-{: caption="Table 1. Checklist for planning backup policies" caption-side="bottom"}
+{: caption="Checklist for planning backup policies" caption-side="bottom"}
 
 ## Next steps
 {: #baas-planning-next-steps}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-09-27"
+lastupdated: "2024-10-10"
 
 keywords: Block Storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
@@ -33,7 +33,7 @@ The following table shows the available storage profiles with their different pr
 | tiered       | `5iops-tier`      |    10 -  9,600 |  5        | 3,000 - 48,000 |  768 |
 | tiered       | `10iops-tier`     |    10 -  4,800 | 10        | 3,000 - 48,000 | 1024 | 
 | custom       | `custom`          |    10 - 16,000 | 10 - 100  | 100 - 48,000[^ttext3] | 1024 |
-{: caption="Table 1. Block Storage profiles and performance levels." caption-side="bottom"}
+{: caption="Block Storage profiles and performance levels." caption-side="bottom"}
 
 [^ttext1]: Nominal IOPS values are based on 16k I/O size.
 [^ttext2]: Max throughput is determined by the number of IOPS multiplied by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers. The throughput multiplier for the 10 IOPS/GB  tier and the custom profile is 256 KB. The higher the IOPS that you specify, the higher the throughput limit becomes.
@@ -57,7 +57,7 @@ When you create your storage volume, you can select from three predefined IOPS t
 | `general-purpose` - Workloads that host small databases for web applications or store virtual machine disk images for a hypervisor. |  10 - 16,000 | 3 IOPS/GB  | 3,000	- 48,000 | 16  |
 | `5iops-tier` - High I/O intensity workloads - Workloads characterized by a large percentage of active data, such as transactional and other performance-sensitive databases.|  10 - 9,600 | 5 IOPS/GB | 3,000 - 48,000 | 16  |
 | `10iops-tier` - Demanding storage workloads - Data intensive workloads created by NoSQL databases, data processing for video, machine learning, and analytics.| 10 - 4,800 | 10 IOPS/GB | 3,000 - 48,000 | 256  | 
-{: caption="Table 2. IOPS tier profiles and performance levels for each tier" caption-side="bottom"}
+{: caption="IOPS tier profiles and performance levels for each tier" caption-side="bottom"}
 
 Max IOPS for all volume profiles from the _tiered_ family starts at 3,000 IOPS. Max IOPS then increases, based on the storage tier and volume size, up to the Max IOPS in Table 2. While you can't customize the IOPS value of a volume with a tiered profile, you can change the volume to another tiered profile and adjust the IOPS that way.
 
@@ -80,7 +80,7 @@ The following table shows the available IOPS ranges based on volume capacity for
 |                   | 4,000 - 7,999       | 300 - 40,000  |                       256 |
 |                   | 8,000 - 9,999       | 500 - 48,000  |                       256 |
 |                   | 10,000 - 16,000     | 1,000 - 48,000|                       256 |
-{: caption="Table 3. Available IOPS based on volume size" caption-side="bottom"}
+{: caption="Available IOPS based on volume size" caption-side="bottom"}
 
 If your application needs more IOPS and throughput, you can increase the volume size and specify a new IOPS value in a higher range. Capacity and IOPS can be modified only when the volume is attached to a running instance.
 {: tip}
@@ -102,7 +102,7 @@ Similarly, volume profiles provide a range of capacity and performance for secon
 | 3 IOPS/GB       | [Balanced](/docs/vpc?topic=vpc-profiles#balanced) for common workloads.      |
 | 5 IOPS/GB       | [Compute](/docs/vpc?topic=vpc-profiles#compute) for intensive CPU demands.   |
 | 10 IOPS/GB      | [Memory](/docs/vpc?topic=vpc-profiles#memory) for memory-intensive workloads.|
-{: caption="Table 4. Relationship of Block Storage volume profiles to virtual server instance profiles" caption-side="bottom"}
+{: caption="Relationship of Block Storage volume profiles to virtual server instance profiles" caption-side="bottom"}
 
 
 

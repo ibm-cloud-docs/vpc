@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-06-24"
+lastupdated: "2024-10-10"
 
 keywords: floating ip, about, public gateway
 
@@ -36,7 +36,7 @@ Table 1 summarizes the differences between the options:
 | ---- | ---- |
 | Instances can initiate connections to the internet, but they can't receive connections from the internet.| Instances can initiate or receive connections to or from the internet |
 | Provides connectivity for an entire subnet | Provides connectivity for a single instance |
-{: caption="Table 1. External connectivity options" caption-side="bottom"}
+{: caption="External connectivity options" caption-side="bottom"}
 
 For secure external connectivity, use the VPN service to connect your VPC to another network. For more information about VPNs, see [Using VPN with your VPC](/docs/vpc?topic=vpc-using-vpn).
 {: tip}
@@ -55,7 +55,7 @@ The following diagram demonstrates the difference in applying external connectiv
 
 External service 1 and External service 2 (logging) receive outbound traffic from Virtual server instance 1 and Virtual server instance 2 through a single Public gateway connection. Floating IP address 1, which is associated with this public gateway connection, allows the Virtual server instances to access External service 1 by IP address through a firewall. The External customer sends and receives traffic to and from Virtual server instance 3 through floating IP address 2:
 
- ![Examples of external connectivity](images/public-gateway.svg "Examples of external connectivity"){: caption="Figure 1. Examples of external connectivity" caption-side="bottom}
+ ![Examples of external connectivity](images/public-gateway.svg "Examples of external connectivity"){: caption="Examples of external connectivity" caption-side="bottom}
  
 ## Floating IP known issues
 {: #fip-known-issues}
@@ -67,4 +67,3 @@ The floating IP associated with a bare metal network interface is not available 
 **Workarounds:**
 - Wait for the bare metal server network interfaces to be `available` before listing the floating IP addresses on the interfaces.
 - [List all floating IPs](/apidocs/vpc#list-floating-ips) to view those associated with bare metal server interfaces that are not yet `available`.
-

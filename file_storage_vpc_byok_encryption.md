@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-09-26"
+lastupdated: "2024-10-10"
 
 keywords: file share, customer-managed encryption, encryption, byok, KMS, Key Protect, Hyper Protect Crypto Services,
 
@@ -51,7 +51,7 @@ Follow this procedure to specify customer-managed encryption when you create a f
    |  | Security group: Access to the file share is based on [security group](/docs/vpc?topic=vpc-using-security-groups#sg-getting-started) rules. This option can be used to restrict access to specific virtual server instances. You can also use this option if you want to mount the file share to a virtual server instance in another zone. This option is recommended as you have more control over who can access the data that is stored on the file share. When, you choose this type of access, you can also specify the allowed transit encryption modes. |
    |  | Virtual private cloud: Access to the file share is granted to any virtual server instance in the same region. Cross-zone mounting and encryption in transit are not supported. |
    | Allowed transit encryption modes| As the share owner, you can specify how you want clients within your account and authorized accounts to connect to your file share. You can select *none* if you do not want them to use encryption in transit, and *user-managed* if you want them to use encryption in transit. If you select both, then the transit encryption type of the first mount target decides the transit encryption types of all future mount targets within the account. |
-   {: caption="Table 1. Values for creating a file share and mount target." caption-side="bottom"}
+   {: caption="Values for creating a file share and mount target." caption-side="bottom"}
 
 1. The creation of mount targets is optional. You can skip this step if you do not want to create a mount target now. Otherwise, click **Create**. You can create one mount target per VPC per file share. 
 
@@ -69,7 +69,7 @@ Follow this procedure to specify customer-managed encryption when you create a f
      | Auto-release | Releases the IP address when you delete the mount target. Enabled by default. |
      | **Security groups** | The [security group](/docs/vpc?topic=vpc-using-security-groups#sg-getting-started) for the VPC is selected by default, or select from the list. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all virtual server instances on which you want to mount the file share. |
      | **Encryption in transit** | Disabled by default, click the toggle to enable. For more information about this feature, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit). |
-     {: caption="Table 2. Values for creating a mount target." caption-side="top"}
+     {: caption="Values for creating a mount target." caption-side="top"}
 
    - If you selected VPC as the access mode, provide a name for the mount target and select the VPC where the file share is to be used in.
 
@@ -81,7 +81,7 @@ Follow this procedure to specify customer-managed encryption when you create a f
    | Encryption service instance | If you provisioned multiple KMS instances in your account, select the one that includes the root key that you want to use for customer-managed encryption. |
    | Key name | Select the root key within the KMS instance that you want to use for encrypting the share. |
    | Key ID | The field shows the key ID that is associated with the data encryption key that you selected. |
-   {: caption="Table 3. Values for customer-managed encryption for file shares." caption-side="bottom"}
+   {: caption="Values for customer-managed encryption for file shares." caption-side="bottom"}
 
 1. When all the required information is entered, click **Create file share**. You return to the {{site.data.keyword.filestorage_vpc_short}} page, where a message indicates that the file share is provisioning. When the transaction completes, the share status changes to **Active**.
 

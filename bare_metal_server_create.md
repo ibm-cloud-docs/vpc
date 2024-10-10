@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-10"
 
 keywords: creating bare metal servers
 
@@ -47,7 +47,7 @@ Use the following steps to create a bare metal server by using the {{site.data.k
 | Virtual private cloud | Specify the VPC where you want to create your server. You can use the default VPC, another existing VPC, or you can create a new VPC. |
 | Network bandwidth | If you provision a Sapphire Rapids server, select the network bandwidth to allocate to your server. You can also [adjust network bandwidth after provisioning](/docs/vpc?topic=vpc-managing-bare-metal-servers&interface=ui#viewing-bare-metal-server-ui) a Sapphire Rapids server. |
 | Network interfaces | By default the bare metal server is created with a single primary network interface. You can click the pencil icon to edit the details of the network interface. For example, the subnet or security group that's associated with the interface. To include extra secondary network interfaces, click **New interface**.  \n - For x86 architecture, you can create and assign up to eight PCI network interfaces and up to 20 PCI + VLAN network interfaces for each server. For more information about advanced networking configurations, see [Managing network interfaces for a bare metal server](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers).  \n  \n With the virtual network interface feature, you can select the type of network interface that you want to use. You can select the new option **Network attachment with a virtual network interface** or the older option **Instance network interface**. Whichever type of network interface option that you select when you provision, the bare metal server persists through the lifecycle of the bare metal server. You can click **Attach** to create a network attachment with an existing virtual network interface. For more information, see [About virtual network interfaces](/docs/vpc?topic=vpc-vni-about).|
-{: caption="Table 1. Bare metal server provisioning selections" caption-side="bottom"}
+{: caption="Bare metal server provisioning selections" caption-side="bottom"}
 
 Adjustable network bandwidth for Sapphire Rapids bare metal servers is only available in US South (Dallas).
 {: preview}
@@ -58,7 +58,7 @@ Adjustable network bandwidth for Sapphire Rapids bare metal servers is only avai
 | Trusted Platform Module (TPM) | Click the toggle to enable Trusted Platform Module capabilities. Then, select the mode that you want to use. For more information, see [Secure boot with Trusted Platform Module (TPM)](/docs/vpc?topic=vpc-secure-boot-tpm&interface=ui). |
 | Secure boot | Click the toggle to enable secure boot. For more information, see [Secure boot with Trusted Platform Module (TPM)](/docs/vpc?topic=vpc-secure-boot-tpm&interface=ui). |
 | Add to reservation (beta) | If you have an active reservation, click the toggle to add the server to that reservation. For more information about reservations, see [About Reservations for VPC](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc). |
-{: caption="Table 2. Bare metal server advanced options" caption-side="bottom"}
+{: caption="Bare metal server advanced options" caption-side="bottom"}
 
 
 
@@ -94,7 +94,7 @@ Before you use the API to create bare metal server, see the following table for 
 | Security groups (optional) | [List all security groups](/apidocs/vpc/latest#list-security-groups) |
 | Profile | [List all bare metal server profiles](/apidocs/vpc/latest#list-bare-metal-server-profiles) |
 | Zone | [List all regions](/apidocs/vpc/latest#list-regions)  \n [List all zones in a region](/apidocs/vpc/latest#list-region-zones) |
-{: caption="Table 2. Information that you need to create a bare metal server by using the API" caption-side="bottom"}
+{: caption="Information that you need to create a bare metal server by using the API" caption-side="bottom"}
 
 ### Creating a bare metal server
 {: #api-request-create-bare-metal-server}
@@ -346,7 +346,7 @@ Before you can use the CLI to create bare metal server, you need to gather the i
 | Security groups (optional) | [List all security groups](/docs/vpc?topic=vpc-vpc-reference#security-groups-list) |
 | Profile | [List all bare metal server profiles](/docs/vpc?topic=vpc-vpc-reference#bare-metal-server-profiles-list) |
 | Zone | [List all regions](/docs/vpc?topic=vpc-vpc-reference#regions)  \n List all zones in a region](/docs/vpc?topic=vpc-vpc-reference#zones) |
-{: caption="Table 3. Information that you need to create a bare metal server by using the CLI" caption-side="bottom"}
+{: caption="Information that you need to create a bare metal server by using the CLI" caption-side="bottom"}
 
 ### Creating a bare metal server
 {: #cli-command-create-bare-metal-server}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-10"
 
 keywords:
 
@@ -66,7 +66,7 @@ Gather the following required instance template details.
 | Image | `ibmcloud is image` | [List all images](/docs/vpc?topic=vpc-vpc-reference#images-list)|
 | Keys | `ibmcloud is keys` | [List all keys](/docs/vpc?topic=vpc-vpc-reference#keys) |
 | Placement groups | `ibmcloud is placement-groups` | [List all placement groups](/docs/vpc?topic=vpc-vpc-reference#placement-groups-list) |
-{: caption="Table 1. Required instance template details" caption-side="bottom"}
+{: caption="Required instance template details" caption-side="bottom"}
 
 Use the following commands to determine the required information for creating an instance template.
 
@@ -330,7 +330,7 @@ Gather the following required instance template details by making the following 
 | Image                 | `GET /images`                   | [List all images](/apidocs/vpc/latest#list-images) |
 | Key                   | `GET /keys`                     | [List all keys](/apidocs/vpc/latest#list-keys) |
 | Placement groups      | `GET /placement_groups`         | [List all placement groups](/apidocs/vpc/latest#list-placement-groups) |
-{: caption="Table 2. Required API instance template detals" caption-side="bottom"}
+{: caption="Required API instance template detals" caption-side="bottom"}
 
 Use the following commands to determine the required information for creating a new instance template.
 
@@ -484,7 +484,7 @@ Gather the following required Terraform instance template details.
 | Zone                  | `ibm_is_zone` | [ibm_is_zone](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_zone){: external} |
 | Keys | `ibm_is_ssh_keys` | [ibm_is_ssh_keys](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_ssh_keys){: external} |
 | Placement groups | `ibm_is_placement_groups` | [ibm_is_placement_groups](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_placement_groups){: external} |
-{: caption="Table 1. Required Terraform instance template details" caption-side="bottom"}
+{: caption="Required Terraform instance template details" caption-side="bottom"}
 
 Use the following guide to determine the required information for creating a new instance template.
 

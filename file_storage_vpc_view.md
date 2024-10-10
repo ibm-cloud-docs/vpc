@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-09-26"
+lastupdated: "2024-10-10"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -41,7 +41,7 @@ You can view all file shares, their bindings and mount targets in the UI, retrie
 | Replication role | Relationship to the source file share. "Replica of" indicates that the file share a replica of the source share, which is linked. "Source of" indicates that the share the source of the replica, which is linked. "None" indicates that the file share does not replicate with another share. |
 | Cross-account role | The values in this column can be _None_, _Origin share_, or _Accessor share_. If the value is _None_, the share is not shared with another account or external service. If the value is _Origin share_, the share is shared with another account or external service and is bound to an accessor share in the other account. If the value is _Accessor share_, then this share is bound to an origin share with the purpose of accessing the origin share's data.|
 | Encryption type | It shows the encryption type of the file share, either provider-managed or customer-managed. [Customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption) uses your own root keys to protect your data. The UI also identifies the key management service (KMS), either {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. |
-{: caption="Table 1. File shares list page." caption-side="bottom"}
+{: caption="File shares list page." caption-side="bottom"}
 
 You can access the Actions menu by clicking ![Actions icon](../icons/action-menu-icon.svg "Actions"). The Actions menu has options for managing the file share, depending on its state. For a file share in a _stable_ state, you can rename the share, edit IOPS, copy the share's CRN, create a replica, or delete a file share. **Delete** and **Create replica** are disabled if you set up replication to a replica file share already. For more information, see [Creating replica file shares](/docs/vpc?topic=vpc-file-storage-create-replication&interface=ui).
 
@@ -101,7 +101,7 @@ You can access the Actions menu by clicking ![Actions icon](../icons/action-menu
      | File share Name | Click the file share name to see its details. |
      | Location | It displays the zone information of the file share. |
      | Status   | It displays the lifecycle status of the file share. The [status](/docs/vpc?topic=vpc-fs-vpc-monitoring&interface=ui#file-share-statuses) `Stable` is expected.|
-     {: caption="Table 2. File shares details page" caption-side="bottom"}
+     {: caption="File shares details page" caption-side="bottom"}
      
    - **Monitoring** - [New]{: tag-new} On the Monitoring tab, you can see three graphs for share usage, total throughput, and total IOPS. These graphs are available to you at no cost, even without an {{site.data.keyword.mon_full_notm}} instance. You can customize the date range to view data over time.
 

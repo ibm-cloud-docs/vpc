@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-07-31"
+lastupdated: "2024-10-10"
 
 keywords: bulk provision instances, vsis, virtual server instance, bulk provision with instance group
 
@@ -42,7 +42,7 @@ Gather the following information before you run the `ibmcloud is instance-group-
 | Instance template | ID of the instance template that you want to use. You can list templates with the `ibmcloud is instance-templates` command.   |
 | Subnets | Comma-separated IDs of subnets that you want to use from the `ibmcloud is subnets` command. |
 | Membership count | Number of instances that you want to provision in the instance group. |
-{: caption="Table 1. Required instance group details" caption-side="bottom"}
+{: caption="Required instance group details" caption-side="bottom"}
 
 After you collect these values, use them to run the `instance-group-create` command. In addition, you must specify a name for the instance group.
 
@@ -99,6 +99,6 @@ After your instance group is created with the number of instances you need, you 
 | [`ibmcloud is instance-group-membership-delete`](/docs/vpc?topic=vpc-vpc-reference#instance-group-membership-delete) | Delete membership for an instance group. |
 | [`ibmcloud is instance-group-memberships`](/docs/vpc?topic=vpc-vpc-reference#instance-group-memberships-list) | List all members for an instance group. |
 | [`ibmcloud is instance-group-memberships-delete`](/docs/vpc?topic=vpc-vpc-reference#instance-group-memberships-delete) | Delete all memberships for an instance group. |
-{: caption="Table 2. CLI commands for managing instance groups" caption-side="top"}
+{: caption="CLI commands for managing instance groups" caption-side="top"}
 
 Optionally, you can set auto scaling policies for your instance group to dynamically add or remove virtual server instances from your group. For more information, see [Creating an instance group for auto scaling](/docs/vpc?topic=vpc-creating-auto-scale-instance-group).

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2023-12-14"
+lastupdated: "2024-10-10"
 
 keywords:
 
@@ -32,7 +32,7 @@ Consider the following prerequisites before you set up data encryption for your 
 |__ For customer-managed encryption, consider importing or creating multiple root keys and [rotating your keys](/docs/vpc?topic=vpc-vpc-key-rotation) for greater security.|
 |__ Make sure you have a unique name for your virtual server instances, volumes, and file shares. For example, if you have a method for naming volumes with customer-managed encryption, it's much easier to filter and search for them later.|
 |__ Determine how long you want to retain the resource and whether you might want to [make the data inaccessible](/docs/vpc?topic=vpc-vpc-encryption-managing#instance-byok-inaccessible-data) for any reason.|
-{: caption="Table 1. Checklist for planning data encryption" caption-side="top"}
+{: caption="Checklist for planning data encryption" caption-side="top"}
 
 ## Prerequisites for setting up customer-managed encryption
 {: #byok-encryption-prereqs}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-09-24"
+lastupdated: "2024-10-10"
 
 keywords: snapshots, Block Storage snapshots, manage snapshots, fast restore clone, backup snapshot, remote copy, cross-regional copy
 
@@ -1029,7 +1029,7 @@ Table 2 describes the snapshot states in the snapshot lifecycle. You can see the
 | Updating | You changed something about the snapshot and it is being updated. |
 | Deleting | The snapshot is being deleted. |
 | Deleted | The snapshot was deleted and is not available to restore volumes. |
-{: caption="Table 2. Snapshot lifecycle states" caption-side="bottom"}
+{: caption="Snapshot lifecycle states" caption-side="bottom"}
 
 ## Managing security and compliance
 {: #snapshots-vpc-manage-security}

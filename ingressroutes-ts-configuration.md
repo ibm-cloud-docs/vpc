@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2022
-lastupdated: "2022-10-03"
+lastupdated: "2024-10-10"
 
 keywords:
 
@@ -32,11 +32,11 @@ Make sure that your routing table and route are configured properly.
 
 Ensure that the routing table **Traffic type** is `Ingress` and **Ingress properties** is set to `Public internet`. The following diagram shows this route configuration in the IBM Cloud console.
 
-![Routing table traffic type and ingress property options](images/ts-pi-config.svg "Routing table traffic type and ingress property options"){: caption="Figure 1. Routing table traffic type and ingress property options" caption-side="bottom"}
+![Routing table traffic type and ingress property options](images/ts-pi-config.svg "Routing table traffic type and ingress property options"){: caption="Routing table traffic type and ingress property options" caption-side="bottom"}
 
 The custom route **Destination** CIDR matches the public IP of the destination floating IP. The route's **Action** is `Deliver` and the **Next hop** IP matches the virtual server instance's next hop private IP. The following diagram shows this route configuration.
 
-![Route action and next hop IP options](images/ts-pi-config-2.svg "Route action and next hop IP options"){: caption="Figure 2. Route action and next hop IP options" caption-side="bottom"}
+![Route action and next hop IP options](images/ts-pi-config-2.svg "Route action and next hop IP options"){: caption="Route action and next hop IP options" caption-side="bottom"}
 
 Ensure that the routing table and route API settings are configured properly.
 

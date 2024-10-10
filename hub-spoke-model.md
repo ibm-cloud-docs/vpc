@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-07-08"
+lastupdated: "2024-10-10"
 
 keywords:
 
@@ -71,7 +71,7 @@ Figure 1 shows how the customer can use DNS sharing to simplify their deployment
 - Consolidate all DNS into a single custom resolver to manage access for all VPEs from both the DNS hub VPC and the application VPCs. The high availability of the custom resolver can be achieved by specifying resolver appliances in different locations. This custom resolver can also be used to configure on-prem connection rules.
 - Continue to deploy their applications within the application VPCs.
 
-![Hub and spoke model use case](images/hub-spoke-use-case1.png){: caption="Figure 1. Use case" caption-side="bottom"}
+![Hub and spoke model use case](images/hub-spoke-use-case1.png){: caption="Use case" caption-side="bottom"}
 
 To achieve this architecture with DNS sharing enabled for VPE gateways, you can follow these steps to configure your hub and DNS-shared VPCs.
 

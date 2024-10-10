@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-02-06"
+lastupdated: "2024-10-10"
 
 keywords: IPv4, ranges, subnets, CIDR, rfc 1918
 
@@ -37,4 +37,4 @@ Table 1 lists the number of available addresses in a subnet, based on its specif
 |      /26        |          59         |
 |      /27        |          27         |
 |      /28        |          11         |
-{: caption="Table 1. Available addresses in a subnet" caption-side="bottom"}
+{: caption="Available addresses in a subnet" caption-side="bottom"}

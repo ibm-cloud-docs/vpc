@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-09-10"
+lastupdated: "2024-10-10"
 
 keywords: application load balancer, datapath logging
 
@@ -71,7 +71,7 @@ The datapath log is a JSON string, containing the following fields:
 | MESSAGE | string | Description about the log file. |
 | logSourceCRN | string | Where the log file is saved in the {{site.data.keyword.la_short}} instance of the account indicated in the CRN. |
 | saveServiceCopy | bool | Indicates whether to save a log in the {{site.data.keyword.la_short}} STS; the default value is `false`. |
-{: caption="Table 1. Datapath log fields" caption-side="bottom}
+{: caption="Datapath log fields" caption-side="bottom}
 
 The following is an example of the JSON schema of a datapath log:
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-07-08"
+lastupdated: "2024-10-10"
 
 keywords:
 
@@ -52,7 +52,7 @@ Creating a VPC automatically creates a default network ACL. You can modify the d
 
 In the example that follows, you create two ACLs and associate them with two subnets by using the command-line interface (CLI). Figure 1 shows what the scenario looks like.
 
-![Figure showing an example ACL scenario](images/vpc-acls.svg){: caption="Figure 1. ACL with two subnets" caption-side="bottom"}
+![Figure showing an example ACL scenario](images/vpc-acls.svg){: caption="ACL with two subnets" caption-side="bottom"}
 
 As Figure 1 illustrates, you have two web servers that deal with requests from the internet and two back-end servers that you want to hide from the public. In this example, you place the servers into two separate subnets, `10.10.10.0/24` and `10.10.20.0/24`, and you need to allow the web servers to exchange data with the back-end servers. Also, you want to allow limited outbound traffic from the back-end servers.
 
@@ -77,7 +77,7 @@ As a best practice, give fine-grained rules a higher priority than coarse-graine
 | Outbound | Allow | 0.0.0.0/0 | 0.0.0.0/0 | TCP|443 | Allow HTTPS traffic to the internet|
 | Outbound | Allow| 0.0.0.0/0 | 10.10.20.0/24 |All| All| Allow all outbound traffic to the subnet `10.10.20.0/24` where the back-end servers are placed|
 | Outbound | Deny| 0.0.0.0/0 | 0.0.0.0/0|All| All| Deny all other traffic outbound|
-{: caption="Table 1. Example rules for ACL-1" caption-side="bottom"}
+{: caption="Example rules for ACL-1" caption-side="bottom"}
 
 #### ACL-2 example rules
 {: #acl2-example-rules}
@@ -90,7 +90,7 @@ As a best practice, give fine-grained rules a higher priority than coarse-graine
 | Outbound | Allow | 0.0.0.0/0 | 0.0.0.0/0 | TCP| 443 | Allow HTTPS traffic to the internet|
 | Outbound | Allow| 0.0.0.0/0 | `10.10.10.0/24` |All| All| Allow all outbound traffic to the subnet `10.10.10.0/24` where the web servers are placed|
 | Outbound | Deny| 0.0.0.0/0 | 0.0.0.0/0|All| All| Deny all other traffic outbound|
-{: caption="Table 2. Example rules for ACL-2" caption-side="bottom"}
+{: caption="Example rules for ACL-2" caption-side="bottom"}
 
 This example illustrates general cases only. In your scenarios, you might want to have more granular control over the traffic:
 

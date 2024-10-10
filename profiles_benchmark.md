@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2022, 2023
-lastupdated: "2024-06-20"
+lastupdated: "2024-10-10"
 
 keywords: benchmark, benchmark scores
 
@@ -47,7 +47,7 @@ You can provision virtual servers on Compute hosts with Broadwell, Skylake, or C
 | cx2-32x64 | Cascade Lake | 2593.938 | 32 | 491829.84 | 2.61 | 2270 |
 | cx2-48x96 | Cascade Lake | 2593.948 | 48 | 740440.18 | 2.35 | 1720 |
 {: class="simple-tab-table"}
-{: caption="Table 1. Linux benchmark for Compute profile family" caption-side="bottom"}
+{: caption="Linux benchmark for Compute profile family" caption-side="bottom"}
 {: #linux-instance-profiles}
 {: tab-title="Linux"}
 {: tab-group="instance-profiles-benchmark"}
@@ -73,7 +73,7 @@ You can provision virtual servers on Compute hosts with Broadwell, Skylake, or C
 | cx2-32x64 | Cascade Lake | 2594 | 32 | 495187.22 | 2.49 | 2000 |
 | cx2-48x96 | Cascade Lake | 2594 | 48 | 735378.48 | 1.75 | 1990 |
 {: class="simple-tab-table"}
-{: caption="Table 1. Windows benchmark for Compute profile family" caption-side="bottom"}
+{: caption="Windows benchmark for Compute profile family" caption-side="bottom"}
 {: #windows-instance-profiles}
 {: tab-title="Windows"}
 {: tab-group="instance-profiles-benchmark"}

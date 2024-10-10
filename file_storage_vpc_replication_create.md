@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-09-26"
+lastupdated: "2024-10-10"
 
 keywords: file share, file storage, source volume, replica share, 
 
@@ -59,7 +59,7 @@ On the File share replica create page, review the source file share details, and
      | Reserving method | You can have the file service select an IP address for you. The reserved IP becomes visible after the mount target is created. Or, specify your own IP. |
      | Auto-release | Releases the IP address when you delete the mount target. Enabled by default. |
      | **Security groups** | The [default security group](/docs/vpc?topic=vpc-updating-the-default-security-group) for the VPC is selected. You can use it or select another security group from the list. |
-     {: caption="Table 2. Values for creating a mount target." caption-side="top"}
+     {: caption="Values for creating a mount target." caption-side="top"}
 
    - If you selected VPC as the access mode, provide a name for the mount target and select a VPC from the list. This mount target can be used to mount the file share on any virtual server instance of the selected VPC in the same zone as the file share. Cross-zone mounting is not supported.
 
@@ -81,7 +81,7 @@ On the File share replica create page, review the source file share details, and
    | Encryption service instance | If you provisioned multiple KMS instances in your account, select the one that includes the root key that you want to use for customer-managed encryption. Ensure that [service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth) between the file service and the target KMS are in place. |
    | Key name | Select the root key within the KMS instance that you want to use for encrypting the share. |
    | Key ID | The field shows the key ID that is associated with the data encryption key that you selected. |
-   {: caption="Table 2. Values for customer-managed encryption for file shares." caption-side="bottom"}
+   {: caption="Values for customer-managed encryption for file shares." caption-side="bottom"}
 
 1. In the side panel, review your estimated cost, and apply a discount code, if you have one.
 1. Click **Create file share**.

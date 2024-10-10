@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-18"
+lastupdated: "2024-10-10"
 
 keywords: context-based restrictions for VPC Infrastructure Services
 
@@ -81,7 +81,7 @@ the **Authorizations** tab.
 | Virtual Server Instances                | * [Auto scale](/docs/vpc?topic=vpc-creating-auto-scale-instance-group)                                                                                                                                                                                                 | VPC Infrastructure Services (`is`) |
 | Various VPC Infrastructure Services - Block Storage Volume, Security Groups, Subnets | * [IBM Kubernetes Service](/docs/containers) | IBM Kubernetes Service (`containers-kubernetes`) |
 | Secrets Manager                         | * [Client-to-site VPN](/docs/vpc?topic=vpc-vpn-client-to-site-overview) \n * [Load balancers](/docs/vpc?topic=vpc-nlb-vs-elb)  | VPC Infrastructure Services (`is`) |
-{: caption="Table 1. Service references needed for context-based restrictions" caption-side="bottom"}
+{: caption="Service references needed for context-based restrictions" caption-side="bottom"}
 
 ### Creating network zones by using the API
 {: #network-zone-api}

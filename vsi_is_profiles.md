@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-10-09"
+lastupdated: "2024-10-10"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -34,7 +34,7 @@ The following profile families are available when you provision a virtual server
 | [GPU](#gpu) | GPU enabled profiles provide on-demand access to NVIDIA V100 and A100 GPUs to accelerate AI, high-performance computing, data science, and graphics workloads.|
 | [Storage Optimized](#storageopt) | Storage Optimized profiles offer temporary SSD instance storage disks at a ratio of 1 vCPU to 300 GB instance storage with a smaller price point per GB. These profiles are designed for storage-dense workloads and offer `virtio` interface type for attached disks. |
 | [Confidential Compute](#confidential-computing-profiles) | Confidential Compute-supported profiles use processor reserved memory called EPC (Enclave Page Cache) to encrypt application data. Processor reserved memory EPC maintains confidentiality and integrity. |
-{: caption="Table 2. Virtual server family selections" caption-side="bottom"}
+{: caption="Virtual server family selections" caption-side="bottom"}
 
 2nd generation profiles with instance storage and 2nd generation profiles with 64 or more vCPUs are deployed exclusively on the Intel&reg;'s second-generation quad processor Xeon&reg; Platinum 8260 Cascade Lake with 96 cores that are running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz or Intel&reg;'s quad processor Xeon&reg; Gold 6248 Cascade Lake with 80 cores that are running at a base speed of 2.5 GHz and an all-core turbo frequency of 3.1 GHz.
 {: note}
@@ -67,7 +67,7 @@ The following table shows all balance profiles that are available for x86-64.
 | bx3d-96x480 | 96 / 48 | 2 | 480 | 192 | 2x1560 |
 | bx3d-128x640 | 128 / 64 | 2 | 640 | 200 | 2x2080 |
 | bx3d-176x880 | 176 / 88 | 2 | 880 | 200 | 2x2860 |
-{: caption="Table 3. Balanced bx3d beta profile options for Intel x86-64 instances" caption-side="bottom"}
+{: caption="Balanced bx3d beta profile options for Intel x86-64 instances" caption-side="bottom"}
 {: #balanced-intel-x86-64-spr}
 {: tab-title="bx3d"}
 {: tab-group="Balanced"}
@@ -104,7 +104,7 @@ The following table shows all balance profiles that are available for x86-64.
 | bx2a-96x384 | 96 / 48 | 384 | 80 | - |
 | bx2a-128x512 | 128 / 64 | 512 | 80 | - |
 | bx2a-228x912 | 228 / 114 | 912 | 80 | - |
-{: caption="Table 3. Balance profiles options for Intel x86-64 instances" caption-side="bottom"}
+{: caption="Balance profiles options for Intel x86-64 instances" caption-side="bottom"}
 {: #balanced-intel-x86-64}
 {: tab-title="bx2"}
 {: tab-group="Balanced"}
@@ -137,7 +137,7 @@ The following table shows all compute profiles that are available for x86-64.
 | cx3d-96x240 | 96 / 48 | 2 | 240 | 192 | 2x1560 |
 | cx3d-128x320 | 128 / 64  | 2 | 320 | 200 | 2x2080 |
 | cx3d-176x440 | 176 / 88 | 2 | 440 | 200 | 2x2860 |
-{: caption="Table 4. Compute profile options for x86-64 instances" caption-side="bottom"}
+{: caption="Compute profile options for x86-64 instances" caption-side="bottom"}
 {: #compute-intel-x86-64}
 {: tab-title="cx3d"}
 {: tab-group="Compute"}
@@ -164,7 +164,7 @@ The following table shows all compute profiles that are available for x86-64.
 | cx2d-96x192 | 96 / 48 | 192 | 80 | 2x1800 |
 | cx2-128x256 | 128 / 64 | 256 | 80 | - |
 | cx2d-128x256 | 128 / 64 | 256 | 80 | 2x2400 |
-{: caption="Table 4. Compute profile options for x86-64 instances" caption-side="bottom"}
+{: caption="Compute profile options for x86-64 instances" caption-side="bottom"}
 {: #compute-intel-x86-64b}
 {: tab-title="cx2"}
 {: tab-group="Compute"}
@@ -192,7 +192,7 @@ Memory profiles with the mx2d prefix are available in the US South (Dallas), US 
 | mx3d-96x960 | 96 / 48 | 2 | 960 | 192 | 2x1560 |
 | mx3d-128x1280 | 128 / 64 | 2 | 1280 | 200 | 2x2080 |
 | mx3d-176x1760 | 176 / 88 | 2 | 1760 | 200 | 2x2860 |
-{: caption="Table 5. Memory mx3d Beta profile options for x86-64 instances " caption-side="bottom"}
+{: caption="Memory mx3d Beta profile options for x86-64 instances " caption-side="bottom"}
 {: #memory-intel-x86-64}
 {: tab-title="mx3d"}
 {: tab-group="Memory"}
@@ -219,7 +219,7 @@ Memory profiles with the mx2d prefix are available in the US South (Dallas), US 
 | mx2d-96x768| 96 / 48 | 768 | 80 | 2x1800 |
 | mx2-128x1024| 128 / 64 | 1024 | 80 | - |
 | mx2d-128x1024| 128 / 64 | 1024 | 80 | 2x2400 |
-{: caption="Table 5. Memory mx2 profile options for x86-64 instances " caption-side="bottom"}
+{: caption="Memory mx2 profile options for x86-64 instances " caption-side="bottom"}
 {: #memory-intel-x86-64b}
 {: tab-title="mx2"}
 {: tab-group="Memory"}
@@ -251,7 +251,7 @@ The 3rd generation profile with the vx3d prefix is a beta feature that is availa
 | vx3d-96x1536 | 96 | 48 | 1536 | 200 | 2x1560 |
 | vx3d-128x2048 | 128 | 64 | 2048 | 200 | 2x2080 |
 | vx3d-176x2816| 176 | 88 | 2816 | 200 | 2x2860 |
-{: caption="Table 6. Very High Memory profiles options for x86-64 instances" caption-side="bottom"}
+{: caption="Very High Memory profiles options for x86-64 instances" caption-side="bottom"}
 {: #vhmemory-intel-x86-64}
 {: tab-title="vx3d"}
 {: tab-group="Very High Memory"}
@@ -268,7 +268,7 @@ The 3rd generation profile with the vx3d prefix is a beta feature that is availa
 | vx2d-88x1232 | 88 | 44 | 1232 | 80 | 2x1320 |
 | vx2d-144x2016 | 144 | 72 | 2016 | 80 | 2x2160 |
 | vx2d-176x2464 | 176 | 88 | 2464 | 80 | 2x2640 |
-{: caption="Table 6. Very High Memory profiles options for x86-64 instances" caption-side="bottom"}
+{: caption="Very High Memory profiles options for x86-64 instances" caption-side="bottom"}
 {: #vhmemory-intel-x86-64b}
 {: tab-title="vx2d"}
 {: tab-group="Very High Memory"}
@@ -293,7 +293,7 @@ The following Ultra High Memory profiles are available for x86-64 processors:
 | ux2d-72x2016 | 72 / 36 |  2016 | 80 | 2x1080 |
 | ux2d-100x2800 | 100 / 50 | 2800 | 80 | 2x1500 |
 | ux2d-200x5600 | 200 / 100 | 5600 | 80 | 2x3000 |
-{: caption="Table 7. Ultra High Memory profiles options for x86-64 instances" caption-side="bottom"}
+{: caption="Ultra High Memory profiles options for x86-64 instances" caption-side="bottom"}
 {: #uhmemory-intel-x86-64}
 {: tab-title="ux2d"}
 {: tab-group="Ultra High Memory"}
@@ -321,7 +321,7 @@ See [Download drivers](https://www.nvidia.com/en-us/drivers/) to review the most
 | gx3-24x120x1l40s | 24 / 12 | 120 | l40s / 1 | 50 | - |
 | gx3-48x240x2l40s | 48 / 24 | 240 | l40s / 2  | 100 | - |
 | gx3d-160x1792x8h100 | 160 / 80 | 1792 | h100 / 8 | 200 | 8x7680 |
-{: caption="Table 8. GPU gx3 24 GB profile options for Intel x86-64 instances" caption-side="bottom"}
+{: caption="GPU gx3 24 GB profile options for Intel x86-64 instances" caption-side="bottom"}
 {: #gpu-intel-x86-64}
 {: tab-title="gx3"}
 {: tab-group="GPU"}
@@ -335,7 +335,7 @@ See [Download drivers](https://www.nvidia.com/en-us/drivers/) to review the most
 | gx2-16x128x2v100 | 16 / 8 | 128 | v100 / 2 | 32 | - |
 | gx2-32x256x2v100 | 32 / 16 | 256 | v100 / 2 | 64 | - |
 | gx2-80x1280x8a100 | 80 / 40 | 1280 | a100 / 8  | 200 | 4x3200 |
-{: caption="Table 8. GPU gx2 16 GB profile options for Intel x86-64 instances" caption-side="bottom"}
+{: caption="GPU gx2 16 GB profile options for Intel x86-64 instances" caption-side="bottom"}
 {: #gpu-intel-x86-64b}
 {: tab-title="gx2"}
 {: tab-group="GPU"}
@@ -374,7 +374,7 @@ The following Storage Optimized profiles are available for x86-64 processors:
 | ox2-64x512   | 64   | 32 | 512   | 80    | 6x3200  | virtio_blk   |
 | ox2-96x768   | 96   | 48 | 768   | 80    | 9x3200  | virtio_blk   |
 | ox2-128x1024 | 128  | 64 | 1024  | 80    | 12x3200 | virtio_blk   |
-{: caption="Table 8. Storage Optimized profiles options for x86-64 instances" caption-side="bottom"}
+{: caption="Storage Optimized profiles options for x86-64 instances" caption-side="bottom"}
 {: #storageopt-intel-x86-64}
 {: tab-title="ox2"}
 {: tab-group="Storage Optimized"}
@@ -401,7 +401,7 @@ For more information about confidential computing, see [Confidential computing f
 | bx3dc-48x240 | 48 / 24 | 240 | 96 | 96 | 2x780 |
 | bx3dc-64x320 | 64 / 32 | 320 | 128 | 128 | 2x1024 |
 | bx3dc-96x480 | 96 / 48 | 480 | 192 | 480 | 2x1560 |
-{: caption="Table 9. Balanced profile options for confidential computing compatible virtual server instances" caption-side="bottom"}
+{: caption="Balanced profile options for confidential computing compatible virtual server instances" caption-side="bottom"}
 {: #balanced-cc-x86-64}
 {: tab-title="bx3"}
 {: tab-group="Confidential compute"}
@@ -420,7 +420,7 @@ For more information about confidential computing, see [Confidential computing f
 | cx3dc-64x160 | 64 / 32 | 160 | 64 | 128 | 2x1024 |
 | cx3dc-96x240 | 96 / 48 | 240 | 96 | 192 | 2x1560 |
 | cx3dc-128x320 | 128 / 64 | 320| 128 | 200 | 2x2860|
-{: caption="Table 9. Compute profile options for confidential computing compatible virtual server instances" caption-side="bottom"}
+{: caption="Compute profile options for confidential computing compatible virtual server instances" caption-side="bottom"}
 {: #compute-cc-x86-64}
 {: tab-title="cx3"}
 {: tab-group="Confidential compute"}

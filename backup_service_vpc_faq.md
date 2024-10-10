@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-10"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, faqs
 
@@ -170,7 +170,7 @@ For locations that don't currently support {{site.data.keyword.en_short}}, the n
 | Osaka (`jp-osa`)      | Sydney (`au-syd`)    |
 | Tokyo (`jp-tok`)      | Sydney (`au-syd`)    |
 | Sydney (`au-syd`)     | Sydney (`au-syd`)    |
- {: caption="Table 1. Backup regions and {{site.data.keyword.en_short}} destinations" caption-side="bottom"}
+ {: caption="Backup regions and {{site.data.keyword.en_short}} destinations" caption-side="bottom"}
 
 ## Why am I receiving some notifications but not all?
 {: faq}

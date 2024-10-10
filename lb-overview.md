@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-07-16"
+lastupdated: "2024-10-10"
 
 keywords: listener, pool, round-robin, weighted, layer 7, datapath logging, http2, websocket
 
@@ -30,7 +30,7 @@ As discussed in the [Load balancers for VPC overview](/docs/vpc?topic=vpc-nlb-vs
 | Accessible on internet? |  Yes, with a fully qualified domain name (FQDN) | No, internal clients only, on same region and VPC |
 | Accepts all traffic? | Yes | Yes  \n (The restriction to accept traffic only from the RFC-1918 address space has been removed) |
 | How is domain name registered? | Public IP addresses | Private IP addresses |
-{: caption="Table 1. Comparison of public and private load balancers" caption-side="bottom"}
+{: caption="Comparison of public and private load balancers" caption-side="bottom"}
 
 ### Public application load balancer
 {: #public-load-balancer}
@@ -118,7 +118,7 @@ Property  | Description
 Listener | The HTTPS listener to which a request redirects.
 HTTP status code | Status code of the response returned by the application load balancer. The acceptable values are: `301`, `302`, `303`, `307`, or `308`.
 URI | The relative URI to which a request redirects. This is an optional property.
-{: caption="Table 2. HTTPS redirect listener properties" caption-side="bottom"}
+{: caption="HTTPS redirect listener properties" caption-side="bottom"}
 
 ## Elasticity
 {: #alb-elasticity}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-03-20"
+lastupdated: "2024-10-10"
 
 keywords: vpn, health
 
@@ -22,7 +22,7 @@ Identifies the health of VPN gateways, provides reasons for failure, and suggest
 | `cannot_create_vpc_route` | `VPN gateway cannot create the route (check for conflict and over_quota).` | This issue is commonly caused by a stale route in the routing table. This error occurs if a route exists with the destination in the remote CIDR of the VPN gateway connection, but the creator is not the VPN gateway. To resolve this issue, delete the conflicting VPC route.  \n  \n Keep in mind that there are a maximum of 15 advertised routes in a VPC. If `over_quota` occurs, the VPN server fails with this reason code while creating an advertised route. To resolve this issue, delete any unnecessary advertised routes by switching the `Advertise to` option to `Off` in the routing table. |
 | `cannot_reserve_ip_address` | `IP address exhaustion (release addresses on the VPN's subnet).` | No IP addresses are available in the subnet to allocate. Release addresses on the VPN gateway's subnet by deleting associated resources, such as servers, load balancers, or endpoint gateways. |
 | `internal_error` | `Internal error (contact IBM support).` | Contact IBM Support to analyze and resolve internal errors. |
-{: caption="Table 1. VPN gateway health reasons" caption-side="bottom"}
+{: caption="VPN gateway health reasons" caption-side="bottom"}
 
 ## Diagnosing VPN gateway connection health
 {: #vpn-connection-health}
@@ -38,4 +38,4 @@ Identifies the health of VPN gateway connections, provides reasons for being dow
 | `ipsec_policy_mismatch` | `None of the proposed IPsec crypto suites was acceptable (check the IPsec policies on both sides of the VPN).` |  This error is commonly caused by mismatched IPsec policies on both sides of the VPN. Compare the IPsec policies on both sides of the VPN and make sure that they match. |
 | `peer_not_responding` | `No response from peer (check network ACL configuration, peer availability, and on-premises firewall configuration).` |  There is no response from the peer. Check the network ACL configuration, peer availability, and on-premises firewall configuration. |
 | `internal_error` | `Internal error. Contact IBM Support.` |  Contact IBM Support to analyze and resolve internal errors. |
-{: caption="Table 2. VPN gateway connection status reasons" caption-side="bottom"}
+{: caption="VPN gateway connection status reasons" caption-side="bottom"}
