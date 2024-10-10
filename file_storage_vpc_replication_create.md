@@ -314,7 +314,7 @@ curl -X POST\
 ### Creating a replica for an existing file share with the API
 {: #fs-create-share-replica-api}
 
-To add replication to an existing file share, you need to create a replica share in a different zone of your region. In the `POST /shares` request, specify the replica share's name and profile, and specify the `source_share` by either its name, ID, or CRN. Other required properties are the `zone`, and `replication_cron_spec`, which provides the replication schedule.
+To add replication to an existing file share, you need to create a replica share in a different zone of your region. In the `POST /shares` request, specify the replica share's name and profile, and specify the `source_share` by either its name, ID, or CRN. Other required properties are the `zone`, and `replication_cron_spec`, which provides the replication schedule. 
 
 The following example shows an API request that creates a replica share in the `us-south-1` zone. In this example, the source share resides in another `us-south` zone and is identified by its ID.
 
