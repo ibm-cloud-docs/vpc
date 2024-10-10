@@ -224,18 +224,18 @@ For more information about restoring root keys in a KMS instance, see the follow
    * [{{site.data.keyword.keymanagementserviceshort}} - Restoring keys](/docs/key-protect?topic=key-protect-restore-keys)
    * [{{site.data.keyword.hscrypto}} - Restoring keys](/docs/hs-crypto?topic=hs-crypto-restore-keys)
 
-### Manage root keys in the UI
+### Manage root keys in the console
 {: #byok-ui-root-key}
 {: ui}
 
-You can use the UI to disable, enable, delete, or restore your root keys. Table 5 describes each action and links to detailed steps for {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.hscrypto}}. For more information about the relationship of user actions and key states, see [Root key states and user actions](#byok-root-key-states).
+You can use the UI to disable, enable, delete, or restore your root keys. The following table describes each action and links to detailed steps for {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.hscrypto}}. For more information about the relationship of user actions and key states, see [Root key states and user actions](#byok-root-key-states).
 
 | User action | {{site.data.keyword.keymanagementserviceshort}} UI procedure | {{site.data.keyword.hscrypto}} UI procedure |
 |-------------|--------------------------|-------------------|
 | Disable key | [Disabling a root key](/docs/key-protect?topic=key-protect-disable-keys&interface=ui#disable-ui). | [Disabling a root key](/docs/hs-crypto?topic=hs-crypto-disable-keys&interface=ui#disable-ui). |
 | Enable key | [Enabling a root key](/docs/key-protect?topic=key-protect-disable-keys&interface=ui#enable-ui). | [Enabling a root key](/docs/hs-crypto?topic=hs-crypto-disable-keys&interface=ui#enable-ui). |
 | Delete key | [Deleting keys in the console (single authorization)](/docs/key-protect?topic=key-protect-delete-keys&interface=ui). | [Deleting keys with the GUI (single authorization)](/docs/hs-crypto?topic=hs-crypto-delete-keys&interface=ui#delete-keys-gui). |
-| | [Deleting a key with dual authorization](/docs/key-protect?topic=key-protect-delete-dual-auth-keys&interface=api#delete-dual-auth-keys-api). | [Authorize deletion for a key with the GUI (dual authorization)](/docs/hs-crypto?topic=hs-crypto-delete-dual-auth-keys&interface=ui#set-key-deletion-console). |
+| | [Deleting keys that have a dual auth policy](/docs/key-protect?topic=key-protect-manage-dual-auth&interface=ui#delete-dual-auth-keys). | [Authorize deletion for a key with the GUI (dual authorization)](/docs/hs-crypto?topic=hs-crypto-delete-dual-auth-keys&interface=ui#set-key-deletion-console). |
 | Restore key | [Restoring a deleted key with the console](/docs/key-protect?topic=key-protect-restore-keys&interface=ui#restore-ui). | [Restoring a deleted key with the GUI](/docs/hs-crypto?topic=hs-crypto-restore-keys&interface=ui#restore-keys-ui). |
 {: caption="UI procedures for managing root keys" caption-side="bottom"}
 
@@ -253,7 +253,7 @@ Because deleting a root key makes all resources that are protected by it unusabl
 | Disable key | [Disabling a root key](/docs/key-protect?topic=key-protect-disable-keys&interface=api#disable-api) | [Disabling a root key](/docs/hs-crypto?topic=hs-crypto-disable-keys&interface=api#disable-api) |
 | Enable key | [Enabling a disabled root key](/docs/key-protect?topic=key-protect-disable-keys&interface=api#enable-api) | [Enabling a disabled root key](/docs/hs-crypto?topic=hs-crypto-disable-keys&interface=api#enable-api) |
 | Delete key | [Deleting keys with the API (single authorization)](/docs/key-protect?topic=key-protect-delete-keys&interface=api#delete-keys-api) | [Deleting keys with the API (single authorization)](/docs/hs-crypto?topic=hs-crypto-delete-keys&interface=api#delete-keys-api) |
-| | [Authorize deletion for a key with the API (dual authorization)](/docs/key-protect?topic=key-protect-delete-dual-auth-keys&interface=api#delete-dual-auth-keys-key-api) | [Authorize deletion for a key with the API (dual authorization)](/docs/hs-crypto?topic=hs-crypto-delete-dual-auth-keys&interface=api#set-key-deletion-api) |
+| | [Deleting keys that have a dual auth policy)](/docs/key-protect?topic=key-protect-manage-dual-auth&interface=api#delete-dual-auth-keys) | [Authorize deletion for a key with the API (dual authorization)](/docs/hs-crypto?topic=hs-crypto-delete-dual-auth-keys&interface=api#set-key-deletion-api) |
 | Restore key | [Restoring a deleted key with the API](/docs/key-protect?topic=key-protect-restore-keys&interface=api#restore-api) | [Restoring a deleted key with the API](/docs/hs-crypto?topic=hs-crypto-restore-keys&interface=api#restore-keys-api) |
 {: caption="API procedures for managing root keys" caption-side="bottom"}
 

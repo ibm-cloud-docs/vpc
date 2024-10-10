@@ -42,7 +42,7 @@ A [region](#x2091391){: term} is an abstraction of the geographic area in which 
 ### Zones
 {: #networking-terms-zones}
 
-Each [zone](#x2070723){: term} is assigned a default address prefix, which specifies the address range in which subnets can be created. If the default address scheme does not suit your requirements, such as if you want to bring your own public IPv4 address range, you can customize the address prefixes. The mapping of logical zone names to the physical zones is relative to the account, so the default address prefix range for a zone may differ across accounts. For more information, see [IBM Cloud locations for resource deployment](/docs/overview?topic=overview-locations#zone-mapping).
+Each zone is assigned a default address prefix, which specifies the address range in which subnets can be created. If the default address scheme does not suit your requirements, such as if you want to bring your own public IPv4 address range, you can customize the address prefixes. The mapping of logical zone names to the physical zones is relative to the account, so the default address prefix range for a zone may differ across accounts. For more information, see [IBM Cloud locations for resource deployment](/docs/overview?topic=overview-locations#zone-mapping).
 
 ## Characteristics of subnets in the VPC
 {: #subnets-in-the-vpc}

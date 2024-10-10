@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-09-30"
+lastupdated: "2024-10-10"
 
 keywords:
 
@@ -81,7 +81,7 @@ To create a Private Path service with the {{site.data.keyword.cloud_notm}} conso
     * **Name**: Enter a unique identifier for the Private Path service, such as `my-privatepath-service`.
     * **Resource group**: Select a resource group, if necessary.
     * **Tags**: Optionally, add any relevant tags to help group your Private Path services.
-    * **Access management tags**: Optionally, add access management tags to resources to help organize access control relationships. The only supported format for access management tags is `key:value`. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial){: external}. {: #private-path-nlb-steps}
+    * **Access management tags**: Optionally, add access management tags to resources to help organize access control relationships. The only supported format for access management tags is `key:value`. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial){: external}.
     * **Virtual private cloud**: Select the VPC where you want the Private Path service created.
 1. In the Private Path network load balancer section, select a Private Path NLB for the Private Path service, or click **Create +** to create one. To create a Private Path NLB, follow these steps:
 

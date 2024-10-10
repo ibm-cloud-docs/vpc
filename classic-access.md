@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2018, 2024
-lastupdated: "2024-10-04"
+lastupdated: "2024-10-10"
 
 keywords: classic, access, classic access, VRF, peering
 
@@ -31,7 +31,7 @@ For virtual server instances and bare metal instances on the classic infrastruct
 ## Prerequisites
 {: #vpc-prerequisites}
 
-Your classic account must be enabled for Virtual Router Forwarding (VRF). If your account is not VRF-enabled, see [Converting to VRF](/docs/account?topic=account-vrf-service-endpoint#vrf) to learn more about the conversion process.
+Your classic account must be enabled for Virtual Router Forwarding (VRF). If your account is not VRF-enabled, see [Enabling VRF and service endpoints](/docs/account?topic=account-vrf-service-endpoint) to learn more about the conversion process.
 
 All subnets in a classic access VPC are shared into the classic infrastructure VRF, which uses IP addresses in the `10.0.0.0/8` space. To avoid IP address conflicts, don't use IP addresses in the `10.0.0.0/14`, `10.200.0.0/14`, `10.198.0.0/15`, and `10.254.0.0/16` blocks in your classic access VPC. Also, don't use addresses from your classic infrastructure subnets. To view the list of your classic infrastructure subnets, see [View all Subnets](/docs/subnets?topic=subnets-view-all-subnets).
 {: important}

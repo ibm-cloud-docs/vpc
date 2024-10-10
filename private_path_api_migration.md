@@ -19,9 +19,6 @@ As described in the [VPC API](/apidocs/vpc/latest) reference [versioning](/apido
 
 Before you adopt the beta release version `2024-09-17` or later, review the changes described in this migration guidance that might require you to update your client.
 
-Also before you proceed, familiarize yourself with another incompatible change introduced in beta API version `2024-09-17` for [updating volumes and volume profiles](/docs/vpc?topic=vpc-2024-09-17-migration-volumes).
-{: important}
-
 ## Changed private path service gateway publish and unpublish methods
 {: #changed-private-path-service-gateway-publish-and-unpublish-methods-beta}
 

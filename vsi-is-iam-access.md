@@ -77,7 +77,7 @@ The following links take you directly to the specific infrastructure service on 
 - [Load Balancer for VPC](/docs/account?topic=account-iam-service-roles-actions#is.load-balancer-roles)
 - [Network ACL](/docs/account?topic=account-iam-service-roles-actions#is.network-acl-roles)
 - [Public Gateway](/docs/account?topic=account-iam-service-roles-actions#is.public-gateway-roles)
-- [Routing tables](/docs/account?topic=account-iam-service-roles-actions&q=virtual+private+cloud&tags=account#is.vpc-roles) (See Virtual Private Cloud section > Actions tab)
+- [Routing tables](/docs/account?topic=account-iam-service-roles-actions#is.vpc-roles) (See Virtual Private Cloud section > Actions tab)
 - [Security Group for VPC](/docs/account?topic=account-iam-service-roles-actions#is.security-group-roles)
 - [Subnet](/docs/account?topic=account-iam-service-roles-actions#is.subnet-roles)
 - [Virtual Private Cloud](/docs/account?topic=account-iam-service-roles-actions#is.vpc-roles)

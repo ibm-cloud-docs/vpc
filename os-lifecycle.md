@@ -138,7 +138,7 @@ The following table describes the end of support date and license model for Ubun
 | Ubuntu 16.04 minimal | 01 April 2021  | Free |
 {: caption="Lifecycle for Ubuntu operating systems" caption-side="bottom"}
 
-[^tabletext]: [Out of standard support. Upgrade to Ubuntu Pro.](https://ubuntu.com/18-04/ibm){: external}
+[^tabletext]: Out of standard support. [Upgrade to Ubuntu Pro.](https://ubuntu.com/18-04/ibm){: external}
 
 ## Windows Server
 {: #windows-server}
