@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-07-16"
+lastupdated: "2024-10-10"
 
 keywords:
 
@@ -81,7 +81,7 @@ The following table provides a comparison of the types of load balancers.
 | Power Systems Virtual Server instances connected over Direct Link | Yes (No support for instance groups) | No | No |
 | Port range | No | Public only [^footnote2] | Yes |
 | Scalable to many machines | Yes | No | Yes |
-{: caption="Table 1. Comparison of private path network, network and application load balancers" caption-side="bottom"}
+{: caption="Comparison of private path network, network and application load balancers" caption-side="bottom"}
 
 [^footnote1]: NLBs can accept members across all three availability zones, but the NLB itself resides in one specific zone. NLB with routing mode does not support multi-zone support.
 

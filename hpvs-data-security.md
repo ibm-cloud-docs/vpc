@@ -42,7 +42,7 @@ The following table is a summary of the seeds. The third seed is the one provide
 |seed1|Deployer persona|`env` - `volumes` section of the contract|Required|
 |seed2|Workload persona|`workload` - `volumes` section of the contract|Required|
 |seed3|Hyper Protect Crypto Services|Hyper Protect Crypto Services generates the third seed and wraps it with the CRK only if `kms` details are provided in the contract. This is done by Hyper Protect Virtual Servers calling a wrap API. The wrapped seed is stored in the metadata partition of the data volume.|Optional|
-{: caption="Table 1. Seeds that are used to generate the LUKS encryption passphrase" caption-side="top"}
+{: caption="Seeds that are used to generate the LUKS encryption passphrase" caption-side="top"}
 
 ![LUKS passphrase generation](images/hpvs-luks.svg "LUKS passphrase generation"){: caption="LUKS passphrase generation" caption-side="bottom"}
 
@@ -74,7 +74,7 @@ Whether you can enable the feature depends on the history of the Hyper Protect V
 |2|Has an encrypted seed|Has `kms` details (one entry)|LUKS encrypted|The instance calls Hyper Protect Crypto Services to unwrap the encrypted seed and opens the LUKS layer on the data partition.|
 |2|Has an encrypted seed|Has `kms` details (multiple entries)| |The instance calls Hyper Protect Crypto Services to unwrap the encrypted seed with the first `kms` entry. If it fails, it uses the next entry. When it succeeds, it uses the first configuration to rewrap the seed. If all the entries don't work, the instance shuts down.|
 |2|Has an encrypted seed|No `kms` details| |The instance shuts down. You need to provide `kms` details in the contract.|
-{: caption="Table 1. Scenarios" caption-side="top"}
+{: caption="Scenarios" caption-side="top"}
 
 Check logs in Log Analysis if your instance shuts down.
 {: note}

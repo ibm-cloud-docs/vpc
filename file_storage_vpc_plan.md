@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-09-24"
+lastupdated: "2024-10-10"
 
 keywords: file share, file storage, requirements, planning, encryption, share size, capacity, performance profile, IOPS, 
 
@@ -37,7 +37,7 @@ Consider the following prerequisites before you set up {{site.data.keyword.files
 |__ You can also choose to [encrypt data in transit](/docs/vpc?topic=vpc-file-storage-vpc-eit). This feature can decrease performance for increased security. The impact depends on the workload characteristics. Workloads that perform synchronous writes or bypass VSI caching, such as databases, might have a substantial performance impact when EIT is enabled.|
 |__ Choose between the UI, CLI, API, or Terraform for creating and managing your file shares. |
 |__ Review pricing information in the console. For more information, see the [FAQs](/docs/vpc?topic=vpc-file-storage-vpc-faqs#faq-fs-pricing). |
-{: caption="Table 1. Checklist for planning file shares" caption-side="bottom"}
+{: caption="Checklist for planning file shares" caption-side="bottom"}
 
 ## Next Steps
 {: #file-storage-vpc-planning-next-steps}

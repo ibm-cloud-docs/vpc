@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2024-03-07"
+  years: 2023, 2024
+lastupdated: "2024-10-10"
 
 keywords: vpn, health
 
@@ -24,7 +24,7 @@ Identifies the health of VPN servers, provides reasons for failure, and suggests
 | `cannot_create_vpc_route`                |  `VPN cannot create route (check for conflict and over_quota).`  |  This issue is commonly caused by a stale route in the routing table. This error occurs if a route exists with the destination in the subrange of the VPN server's IP pools, but the creator is not the VPN server. For example, you encounter this issue if the VPN server's client IPv4 address pool is `192.168.0.0/16`, a route exists with destination `192.168.0.0/17` in the VPC routing table, and the route creator is not the VPN server. To resolve this issue, delete the conflicting VPC route.  \n  \n Keep in mind that there are a maximum of 15 advertised routes in a VPC. If `over_quota` occurs, the VPN server fails with this reason code while creating an advertised route. To resolve this issue, delete any unnecessary advertised routes by switching the `Advertise to` option to `Off` in the routing table. |
 | `cannot_reserve_ip_address`              | `IP address exhaustion (release addresses on the VPN's subnet).`                                                                             | This issue commonly occurs if an IP address isn't available on the VPN server's subnet. Release associated resources, such as instances, load balancers, or VPN servers on the subnet.       |
 | `internal_error` | `Internal error (contact IBM support).` | Contact IBM Support to analyze and resolve internal errors. |
-{: caption="Table 1. VPN server health diagnostics" caption-side="bottom"}
+{: caption="VPN server health diagnostics" caption-side="bottom"}
 
 ## Diagnosing VPN server route health
 {: #vpn-server-route-health}
@@ -34,4 +34,4 @@ Identifies the health of VPN server routes, provides reasons for failure, and su
 | Code | Message  | Information |
 | ---- | ------------ | ---------------- |
 | `internal_error` | `Internal error. Contact IBM Support.` | Contact IBM Support to analyze and resolve internal errors. |
-{: caption="Table 2. VPN server route health" caption-side="bottom"}
+{: caption="VPN server route health" caption-side="bottom"}

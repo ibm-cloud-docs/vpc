@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-06-24"
+lastupdated: "2024-10-10"
 
 keywords: security, groups, encryption, traffic, rules, subnet, instance, firewall, encryption
 
@@ -32,7 +32,7 @@ Security groups and access control lists (ACLs) provide ways to control the traf
 If you are configuring a VPC with [{{site.data.keyword.cis_full_notm}}({{site.data.keyword.cis_short_notm}})](/docs/cis?topic=cis-iam-and-cis), you can prevent DDoS attacks by allowing traffic only through {{site.data.keyword.cis_short_notm}} (allowlist) in your VPC. Set your Network ACL and security groups to allowlist {{site.data.keyword.cis_short_notm}} traffic.
 {: tip}
 
-![Figure showing how a VPC can be subdivided with subnets](images/vpc-connectivity-and-security.svg "Figure showing how a VPC can be subdivided with subnets"){: caption="Figure 1. IBM VPC connectivity and security" caption-side="bottom"}
+![Figure showing how a VPC can be subdivided with subnets](images/vpc-connectivity-and-security.svg "Figure showing how a VPC can be subdivided with subnets"){: caption="IBM VPC connectivity and security" caption-side="bottom"}
 
 ## Definitions
 {: #definitions}
@@ -63,7 +63,7 @@ Table 1 summarizes some key differences between security groups and ACLs.
 | Supported rules | Uses allow rules only | Uses allow and deny rules|
 | How rules are applied | All rules are considered | Rules are processed in sequence |
 | Relationship to the associated resource | An instance can be associated with multiple security groups| Multiple subnets can be associated with the same ACL|
-{: caption="Table 1. Differences between security groups and ACLs" caption-side="bottom"}
+{: caption="Differences between security groups and ACLs" caption-side="bottom"}
 
 ### End-to-end encryption
 {: #end-to-end-encryption}
@@ -72,4 +72,3 @@ Although {{site.data.keyword.vpc_short}} doesn't provide end-to-end encryption, 
 
 If your application requires end-to-end encryption, then it is *your* responsibility to ensure that your connection is encrypted end-to-end.
 {: important}
-

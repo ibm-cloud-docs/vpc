@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-02-21"
+lastupdated: "2024-10-10"
 
 keywords:
 
@@ -91,7 +91,7 @@ You can use the metadata service in two ways:
 
 Figure 1 illustrates these scenarios.
 
-![Figure showing the instance metadata user workflows.](/images/metadata-service-user-workflow.png "Figure showing the instance metadata user workflows."){: caption="Figure 1. User scenarios for the instance metadata service" caption-side="bottom"}
+![Figure showing the instance metadata user workflows.](/images/metadata-service-user-workflow.png "Figure showing the instance metadata user workflows."){: caption="User scenarios for the instance metadata service" caption-side="bottom"}
 
 ## Data security
 {: #imd-security}

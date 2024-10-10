@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-08-12"
+lastupdated: "2024-10-10"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -102,7 +102,7 @@ From the list of {{site.data.keyword.block_storage_is_short}} snapshots, you can
    | - IOPS | For IOPS tiers, specify a profile from the tiered family. For custom IOPS, select a range. |
    | - Size | Enter a volume size allowed by the profile. The default is the minimum provisioning size based on the snapshot. |
    | **Encryption** | Inherited from the snapshot. If the encryption is provider-managed, you can change it to customer-managed encryption and select either {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. If the encryption is already customer-managed, you can choose a different key management service but you can't change to provider-managed encryption. |
-   {: caption="Table 1. Create {{site.data.keyword.block_storage_is_short}} volume options." caption-side="bottom"}
+   {: caption="Create {{site.data.keyword.block_storage_is_short}} volume options." caption-side="bottom"}
 
 5. When you're finished, click **Save**. The new volume is created.
 

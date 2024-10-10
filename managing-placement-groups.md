@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-10"
 
 keywords: virtual private cloud, private cloud network, placement group, placement group strategy, host spread, power spread, generation 2, gen 2
 
@@ -36,7 +36,7 @@ To complete management tasks on your placement groups, complete the following st
 | Create | Create a placement group |
 | Delete | If you no longer need the placement group, you can delete it to permanently remove it from your account. Before you can delete the placement group, you must first delete any virtual server instances that are assigned to the placement group.|
 | Rename | Update the placement group name with a new name. |
-{: caption="Table 1. Actions available for placement groups" caption-side="bottom"}
+{: caption="Actions available for placement groups" caption-side="bottom"}
 
 The VPC must exist before you create a placement group. If the VPC is not created first, you receive an error when you create the placement group and the placement group is not created.
 {: important}
@@ -58,7 +58,7 @@ Use the following steps to create a placement group:
 | Region | The region of the placement group. |
 | User tags | Keywords that are used for profile management. |
 | Placement strategy | Host spread - All provisioned instances are placed on separate hosts that might be in the same rack.  \n \n Power spread - All provisioned instances are placed on different racks with separate power and network supplies. Each rack also contains dual power supplies from different sources.|
-{: caption="Table 2. Fields required to create a placement group" caption-side="bottom"}
+{: caption="Fields required to create a placement group" caption-side="bottom"}
 
 ## Creating a placement group from the CLI
 {: #creating-placement-group-CLI}
@@ -90,7 +90,7 @@ Gather the following required information:
 | **Name** | The placement group name |
 | **Resource group ID** | The ID of the resource group |
 | **Resource group name** | The name of the resource group |
-{: caption="Table 3. Information required to create a placement group using the CLI" caption-side="bottom"}
+{: caption="Information required to create a placement group using the CLI" caption-side="bottom"}
 
 ## Creating the placement group from the CLI
 {: #creating-placement-group-cli-a}

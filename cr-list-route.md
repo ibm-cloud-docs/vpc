@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-07-19"
+lastupdated: "2024-10-10"
 
 keywords: custom routes
 
@@ -38,7 +38,7 @@ Descriptions of these columns are as follows:
 | Action | Values are: \n * **Deliver** - Routes the packet to the next hop target. You can add multiple routes with the same address prefix. The virtual router performs equal-cost, multi-path routing (ECMP) by using the different next hop IP addresses. \n * **Drop** - Drops the packet. \n * **Delegate** - Routes the packet by using the system routing table.[^fn1] |
 | Next hop | The IP address of the next hop to which to route packets. |
 | Route origin | Origin of the route. |
-{: caption="Table 1. Destination routes details" caption-side="bottom"}
+{: caption="Destination routes details" caption-side="bottom"}
 
 [^fn1]: A system routing table is maintained for each VPC. A VPC can have a presence in multiple zones, and the VPC's system routing table is different in each zone. It is used for routing traffic when no matching route is found in the custom routing table that is associated with the subnet of which the traffic is egressing.
 

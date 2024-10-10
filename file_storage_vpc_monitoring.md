@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-09-30"
+lastupdated: "2024-10-10"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -41,7 +41,7 @@ Table 1 shows the lifecycle statuses that the file share can have.
 | `suspended` | The file share violates {{site.data.keyword.cloud}}’s [Acceptable Use Policy](https://www.ibm.com/services/us/imc/html/aup1.html). A suspended file share cannot be updated or deleted.|
 | `updating`  | The file share capacity or IOPS is being updated.|
 | `waiting`   |  |
-{: caption="Table 1. File Storage lifecycle states" caption-side="bottom"}
+{: caption="File Storage lifecycle states" caption-side="bottom"}
 
 ## File share replication status
 {: #file-share-replication-status}
@@ -64,7 +64,7 @@ Table 2 shows all the replication status that the file shares can have.
 | `initializing`    | This share is initializing replication. |
 | `none`            | This share is not participating in replication. |
 | `split_pending`   | This share is performing a replication split. |
-{: caption="Table 2. File Storage replication status" caption-side="bottom"}
+{: caption="File Storage replication status" caption-side="bottom"}
 
 ## Replication sync health
 {: #fs-repl-synchealth}

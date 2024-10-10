@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-10"
 
 keywords: backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -36,7 +36,7 @@ The following table lists the IBM Cloud Backup for VPC events.
 | Volume backup job retention failure \n - `service-to-service-policy-missing` \n - `snapshot-bad-state` \n - `snapshot-in-pending-state` | These events are created when a backup job can't delete a backup snapshot due to missing authorization, or because the snapshot was in `pending` or `bad` state. For more information, see [snapshot lifecycle states](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-status), and [service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth).  |
 | Instance backup job creation failure \n - `service-to-service-policy-missing` \n - `snapshot_consistency_group-quota-reached` \n - `snapshot_consistency_group-bad-state` \n - `snapshot_consistency_group-source-volume-busy` \n - `snapshot_consistency_group-volume-too-large` \n - `snapshot_consistency_group-volume-unavailable`  \n - `snapshot_consistency_group-encryption-key-invalid` | These events are created when a backup job can't create the snapshots of a consistency group due to various reasons. For example, missing authorization, unavailability of the instance that the volumes are attached to, inaccessible encryption key, or service limits for size of the volume or number of snapshots are reached. For more information, see [snapshot lifecycle states](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-status), and [service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth). |
 | Instance backup job retention failure \n - `service-to-service-policy-missing` \n - `snapshot_consistency_group-bad-state` \n - `snapshot-consistency-group-in-pending-state` |  These events are created when a backup job can't delete the backup snapshots that are part of a consistency group due to missing authorization, or the snapshots are in `pending` state. For more information, see [snapshot lifecycle states](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-status), and [service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth). |
-{: caption="Table 1. Actions that generate event notifications" caption-side="bottom"}
+{: caption="Actions that generate event notifications" caption-side="bottom"}
 
 When you see these alerts, you can use the [API](/docs/vpc?topic=vpc-backup-view-policy-jobs&interface=api#backup-view-jobs-details-api) or [CLI](/docs/vpc?topic=vpc-backup-view-policy-jobs&interface=cli#backup-view-jobs-details-cli) to confirm the reason for the failed status.
 

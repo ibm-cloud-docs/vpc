@@ -45,7 +45,7 @@ You can manage an image by using the {{site.data.keyword.cloud_notm}} console.
 | View checksum | View the checksum for the custom image. |
 | Schedule lifecycle | Opens the **Schedule image lifecycle** panel. You can make an immediate status change or schedule a statue change for a future date and time. You can schedule a single status change or schedule the complete lifecycle of the images. The image statuses are:  \n  \n * `available`: The image can be used to create an instance.  \n  \n * `deprecated`: The image is still available to use to provision and instance. Using the `deprecated` status can discourage use of the image before the status changes to `obsolete`.  \n * `obsolete`: The image is not available to use to provision an instancce.  \n  \n * Schedule complete lifecycle: You can schedule both the `deprecated` and `obsolete` status changes at the same time.  \n  \n You can move back and forth between the three statuses. Only the statuses you can change to are displayed. You can schedule status changes by using calendar date and time or number of days. The obsolescence dates must always be after the deprecation date.|
 | Delete | Delete the custom image.  \n  \n  If you want to delete a custom image in a private catalog, see [Deleting a custom image in a private catalog](/docs/vpc?topic=vpc-custom-image-cloud-private-catalog&interface=ui#deleting-private-catalog-custom-image-vpc). |
-{: caption="Table 1. Custom image actions" caption-side="bottom"}
+{: caption="Custom image actions" caption-side="bottom"}
 
 ## Listing custom images by using the CLI
 {: #custom-images-list-cli}

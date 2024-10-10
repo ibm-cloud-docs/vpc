@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-10"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -44,7 +44,7 @@ Table 1 describes the information on the Backup policy list page. The default re
 | Tags for target resources | Tags for target volumes  that you are backing up. |
 | Last run time (local) | The most recent time a job ran for the backup policy. If the field is blank, the volumes don't have matching tags for a job to run. |
 | Created date (local) | Date and time of when the backup was created. |
-{: caption="Table 1. Backup policy list view" caption-side="bottom"}
+{: caption="Backup policy list view" caption-side="bottom"}
 
 [^Note1]: For the backup operation to be successful, the tagged volumes must be attached to running virtual server instances. Unattached volumes are not backed up even if they have the right tags.
 
@@ -75,7 +75,7 @@ You can view details of a backup policy by using the UI.
    | Last backup job | It shows the date and time when the last backup job ran. Backup jobs create or delete backup snapshots based on the plan frequency and retention settings. To see which type of job ran last, click **view**. |
    | Enterprise account CRN | This value is only shown when the backup policy is an enterprise-wide policy. It is the Cloud Resource Name of the Enterprise that created the policy.|
    | Health | The current health state of the policy. For more information, see the [FAQs](/docs/vpc?topic=vpc-backup-service-enterprise-faq&interface=terraform#faq-baas-ee-5).|
-   {: caption="Table 2. Backup policy details" caption-side="bottom"}
+   {: caption="Backup policy details" caption-side="bottom"}
 
    The Plans card shows the plan name, retention policy, and plan status. Optionally, you can click **Create** to add more plans for an existing policy.
 
@@ -84,7 +84,7 @@ You can view details of a backup policy by using the UI.
    | Plan name | Unique name for the plan. Expand to see plan details, such as frequency, tags that are associated with this plan, and whether fast restore and remote copies are enabled. |
    | Retention | Period that you set for the plan to be in effect, for example, 30 days. |
    | Status | Plan status. Shows `enabled` for an active plan. |
-   {: caption="Table 3. Backup policy details" caption-side="bottom"}
+   {: caption="Backup policy details" caption-side="bottom"}
 
    By clicking the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Actions"), you can display a menu of context-specific actions. You can change the name and other plan details such as retention, tags, fast restore, and remote copies. For more information, see [Edit or delete a backup plan in the console](/docs/vpc?topic=vpc-backup-service-manage&interface=ui).
 
@@ -109,7 +109,7 @@ You can use this list of {{site.data.keyword.block_storage_is_short}} volumes, o
      | Status | Status of the volume. |
      | Size | Size of the volume in GBs.|
      | Encryption | [IBM-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-provider-managed-encryption) or [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption). |
-     {: caption="Table 4. List of {{site.data.keyword.block_storage_is_short}} volumes for the backup policy" caption-side="top"}
+     {: caption="List of {{site.data.keyword.block_storage_is_short}} volumes for the backup policy" caption-side="top"}
 
      You can add other volumes to this policy by clicking **Add volumes**. The informational side panel provides a list of tags for target resources that you can apply to the volume, and a link to the [list of {{site.data.keyword.block_storage_is_short}} volumes](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#viewvols-ui). You must apply at least one of the policy's tags for target resources to the volume. |
 
@@ -121,7 +121,7 @@ You can use this list of {{site.data.keyword.block_storage_is_short}} volumes, o
       | Status | Status of the volume. |
       | Virtual private cloud | The name of the VPC that the virtual server instance is in. Click it to go to the details page of the VPC. |
       | Profile| The Compute profile of the virtual server instance. |
-      {: caption="Table 5. List of virtual server instances." caption-side="top"}
+      {: caption="List of virtual server instances." caption-side="top"}
 
        Click **Add virtual server instance** to add the attached volumes of a virtual server instance to this policy. The informational side panel provides a list of tags for target resources that you can apply to the virtual server instance. It also contains a link to the list of virtual server instances of your account. You must apply at least one of the policy's tags for target resources to the volume.
 

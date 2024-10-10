@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-10-09"
+lastupdated: "2024-10-10"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -111,7 +111,7 @@ When you create the mount target with a virtual network interface, its IP addres
 
 When the mount target is attached and the share is mounted, the virtual network interface performs security group policy check to ensure that only authorized virtual server instances can communicate with the share.
 
-![File share mount target](images/vni-fs-arch.svg "File share with a mount target"){: caption="Figure 1. Diagram of a file share mount target connected to a virtual network interface" caption-side="bottom"}
+![File share mount target](images/vni-fs-arch.svg "File share with a mount target"){: caption="Diagram of a file share mount target connected to a virtual network interface" caption-side="bottom"}
 
 For greater security, [enable encryption in transit](/docs/vpc?topic=vpc-file-storage-vpc-eit) for your file share mount targets.
 

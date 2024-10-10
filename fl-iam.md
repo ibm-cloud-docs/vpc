@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-06-20"
+lastupdated: "2024-10-10"
 
 keywords: flow logs, IAM
 
@@ -33,7 +33,7 @@ For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?t
 | Editor | Read, operate, update, create, delete, and list flow log collectors |
 | Operator | Operate and list flow log collectors |
 | Viewer | Read flow log collectors |
-{: caption="Table 1. IAM user roles and actions" caption-side="bottom"}
+{: caption="IAM user roles and actions" caption-side="bottom"}
 
 For more information about assigning user roles in the console, see [Managing access to resources](/docs/account?topic=account-assign-access-resources).
 
@@ -48,7 +48,7 @@ In addition, you also require the following actions and operations that are not 
 | Operator on Subnet     | Create flow log collector with Subnet scope    |
 | Operator on VPC    | Create flow log collector with VPC scope    |
 | Operator on virtual server instance | Create flow log collector with Instance or Interface scope  |
-{: caption="Table 2. Additional IAM user roles and actions" caption-side="bottom"}
+{: caption="Additional IAM user roles and actions" caption-side="bottom"}
 
 Operator roles in the following table are required only if the target scope is being changed.
 {: important}
@@ -59,7 +59,7 @@ Operator roles in the following table are required only if the target scope is b
 | Operator on Subnet     | (To Subnet scope)           |
 | Operator on VPC        | (To VPC scope)              |
 | Operator on virtual server instance | (To Instance or Interface scope) |
-{: caption="Table 3. IAM roles only if the target scope is being changed" caption-side="bottom"}
+{: caption="IAM roles only if the target scope is being changed" caption-side="bottom"}
 
 Each aggregator creates a separate stream of data to {{site.data.keyword.cos_short}}. Since you can create a flow log collector that associates data that is captured from multiple interface IDs with a single {{site.data.keyword.cos_short}} bucket, each bucket needs a folder structure for holding data.
 {: note}

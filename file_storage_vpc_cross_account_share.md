@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-10"
 
 keywords: file share, file storage, accessor share, cross-account share
 
@@ -52,7 +52,7 @@ In the {{site.data.keyword.cloud_notm}} console, you can create an accessor shar
    |-------|-------|
    | Accessor share name  | Specify a meaningful name for your accessor share. The file share name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. You can later edit the name if you want.
    | Remote share CRN | Enter the CRN of the origin file share.|
-   {: caption="Table 1. Values for creating a file share" caption-side="top"}
+   {: caption="Values for creating a file share" caption-side="top"}
 
 1. You return to the {{site.data.keyword.filestorage_vpc_short}} page, where a message indicates that the file share is provisioning. When the transaction completes, the share status changes to **Active**.
 

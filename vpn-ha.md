@@ -2,7 +2,7 @@
 
 copyright:
   years:  2022, 2024
-lastupdated: "2024-09-24"
+lastupdated: "2024-10-10"
 
 keywords: VPN, vpn gateways, HA, High availability, Redundancy
 
@@ -20,7 +20,7 @@ subcollection: vpc
 
 A VPN gateway consists of two back-end instances in the same zone for high availability. The VPN service monitors the back-end instances and fails over when the back-end instance is down. VPN routine maintenance is performed with rolling upgrade of the two back-end instances. During the maintenance, you might see a VPN private IP address change. The VPN public IP addresses are not impacted and your VPN connections are switched over to the available instance automatically.
 
-![VPN gateway HA in single zone](images/vpn-gateway-ha.png "VPN gateway HA in single zone"){: caption="Figure 1. VPN gateway HA in single zone" caption-side="bottom"}
+![VPN gateway HA in single zone](images/vpn-gateway-ha.png "VPN gateway HA in single zone"){: caption="VPN gateway HA in single zone" caption-side="bottom"}
 
 ## VPN gateway high availability in a Multizone region
 {: #vpn-gateway-ha-in-multiple-zones}
@@ -29,4 +29,4 @@ When a network outage occurs in a [zone](#x2070723){: term}, you might lose netw
 
 Figure 2 describes how to spread your workload in [multizone regions](#x9774820){: term}. Each VPN gateway in the zone is to be used to access only the VPC network in the same zone.
 
-![VPN gateway HA in multiple zones](images/vpn-gateway-ha-in-multiple-zones.png "VPN gateway HA in multiple zones"){: caption="Figure 2. VPN gateway HA in multiple zones" caption-side="bottom"}
+![VPN gateway HA in multiple zones](images/vpn-gateway-ha-in-multiple-zones.png "VPN gateway HA in multiple zones"){: caption="VPN gateway HA in multiple zones" caption-side="bottom"}

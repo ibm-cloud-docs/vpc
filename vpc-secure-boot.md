@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-08-26"
+lastupdated: "2024-10-10"
 
 keywords: secure boot, tpm, Trusted Platform Module
 
@@ -36,7 +36,7 @@ The following images are available when you provision a server with secure boot.
 | Ubuntu 18.04, 20.04, 22.04 | x86-64 |
 | VMWare ESXi 7 | x86-64 |
 | Windows 2016, 2019, 2022 | x86-64 |
-{: caption="Table 1. Supported operating systems for secure boot" caption-side='top"}
+{: caption="Supported operating systems for secure boot" caption-side='top"}
 
 ## Limitations
 {: #secure-boot-tpm-limitations}

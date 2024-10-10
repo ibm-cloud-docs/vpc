@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-22"
+lastupdated: "2024-10-10"
 
 keywords:
 
@@ -77,7 +77,7 @@ The IAM token is obtained by exchanging the instance identity access token that 
 | 4    | VPC instance | VPC API | Make an API request to the metadata token service and get an [instance identity access token](/docs/vpc?topic=vpc-imd-configure-service#imd-get-token). |
 | 5    | VPC instance | Metadata service API |  Make an API request to [generate an IAM token from the instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-token-exchange). The IAM token allows access to all IAM-enabled services. |
 | 6    | VPC instance | IAM-enabled service | Pass the IAM token to call an IAM-enabled service API. The required access rights to the service exist in the trusted profile. |
-{: caption="Table 1. Procedure for using a trusted profile" caption-side="bottom"}
+{: caption="Procedure for using a trusted profile" caption-side="bottom"}
 
 For more information, see the IAM documentation on [setting up trusted profiles](/docs/account?topic=account-create-trusted-profile).
 

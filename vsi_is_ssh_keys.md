@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-10"
 
 keywords:
 
@@ -45,7 +45,7 @@ When you provision a virtual server, you can create a new SSH key, select from a
    | ----------------- | --------------------------- |
    | Rename | After you update an existing SSH key, the key is renamed immediately. |
    | Delete | After you remove an SSH key, it can no longer be used when you provision an instance or when you perform an OS reload on an existing instance. However, the key is still available on any instances that you previously provisioned with it, and you can use it to log in. |
-   {: caption="Table 1. SSH key actions" caption-side="bottom"}
+   {: caption="SSH key actions" caption-side="bottom"}
 
    You are shown a list of the available regions for your specific resource group.
    {: note}
@@ -66,7 +66,7 @@ Make sure that the {{site.data.keyword.cloud_notm}} CLI `vpc-infrastructure` plu
 | List keys.        | [`ibmcloud is keys`](/docs/vpc?topic=vpc-vpc-reference&interface=cli#keys-list) | You can view all of your existing SSH keys. |
 | Update key.       | [`ibmcloud is key-update`](/docs/vpc?topic=vpc-vpc-reference&interface=cli#key-update) | After you update an existing key, the key is renamed immediately. |
 | Delete key.       | [`ibmcloud is key-delete`](/docs/vpc?topic=vpc-vpc-reference&interface=cli#key-delete) | After you remove an SSH key, it can no longer be used when you provision an instance or when you perform an OS reload on an existing instance. However, the key is still available on any instances that you previously provisioned with it, and you can use it to log in. |
-{: caption="Table 1. SSH key actions" caption-side="bottom"}
+{: caption="SSH key actions" caption-side="bottom"}
 
 ## Managing SSH keys by using the API
 {: #managing-ssh-keys-by-using-the-api}
@@ -198,7 +198,7 @@ Use the following steps to create a new SSH key. You can create only RSH SSH key
    | Tags | You can assign a user tag to the SSH key so that you can easily filter a list of SSH keys. For more information, see [Working with tags](/docs/account?topic=account-tag&interface=ui).|
    | Access management tags | Access management tags help you apply flexible access policies on specific resources. For more information, see the [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial) UI tutorial. |
    | SSH key type | The default value is `rsa`.You can generate new RSA key pairs using the UI. Pre-existing RSA and Ed25519 SSH keys can be uploaded. Ed25519 can be used only if the operating system supports this key type. Ed25519 can't be used with Windows or VMware images. |
-   {: caption="Table 1. Creating an SSH key for VPC selections" caption-side="bottom"}
+   {: caption="Creating an SSH key for VPC selections" caption-side="bottom"}
 
 1. Select **Generate a key pair for me**.
 1. Optionally, click **Get sample API call** to get an API code with all your SSH key information that you can copy.
@@ -224,7 +224,7 @@ Use the following steps to import an SSH key from a local file.
    | Tags | You can assign a user tag to the SSH key so that you can easily filter a list of SSH keys. For more information, see [Working with tags](/docs/account?topic=account-tag&interface=ui).|
    | Access management tags | Access management tags help you apply flexible access policies on specific resources. For more information, see the [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial) UI tutorial. |
    | SSH key type | Select a key type for the SSH key. The default value is `rsa`. The `ed25519` SSH key type can be used only to create instances if the operating system supports this key type. This key type can't be used with Windows or VMware images. |
-   {: caption="Table 1. Creating an SSH key for VPC selections" caption-side="bottom"}
+   {: caption="Creating an SSH key for VPC selections" caption-side="bottom"}
 
 1. Select **Provide existing public key**.
 1. Click **Upload public key**.

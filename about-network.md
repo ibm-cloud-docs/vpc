@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-09-10"
+lastupdated: "2024-10-10"
 
 keywords: secure, region, zone, subnet, public gateway, floating IP, NAT
 subcollection: vpc
@@ -26,7 +26,7 @@ Subnets in your VPC can connect to the public internet through an optional publi
 
 Subnets within the VPC offer private connectivity; they can talk to each other over a private link through the implicit router. Setting up routes is not necessary. Figure 1 shows how you can subdivide a virtual private cloud with subnets and each subnet can reach the public internet.
 
-![Figure showing how a VPC can be subdivided with subnets](images/vpc-experience-simple.svg "Figure showing how a VPC can be subdivided with subnets"){: caption="Figure 1. IBM VPC connectivity and security" caption-side="bottom"}
+![Figure showing how a VPC can be subdivided with subnets](images/vpc-experience-simple.svg "Figure showing how a VPC can be subdivided with subnets"){: caption="IBM VPC connectivity and security" caption-side="bottom"}
 
 
 ## Terminology
@@ -71,7 +71,7 @@ Table 1 summarizes the differences between the options:
 | ---- | ---- |
 | Instances can initiate connections to the internet, but they can't receive connections from the internet.| Instances can initiate or receive connections to or from the internet |
 | Provides connectivity for an entire subnet | Provides connectivity for a single instance |
-{: caption="Table 1. External connectivity options" caption-side="bottom"}
+{: caption="External connectivity options" caption-side="bottom"}
 
 For secure external connectivity, use the VPN service to connect your VPC to another network. For more information about VPNs, see [Using VPN with your VPC](/docs/vpc?topic=vpc-using-vpn).
 
@@ -89,7 +89,7 @@ The following figure summarizes the current scope of gateway services.
 | Instances can have outbound-only access to the internet. | Allow inbound connectivity from the internet to a Private IP. | Provide restricted inbound access from the internet to instances or subnets. | Site-to-site VPN handles customers of any size, and single or multiple locations. |
 | Entire subnets share the outbound public endpoint. | Provides limited access to a single private server. | Restrict access inbound from internet, based on service, protocol, or port. | High throughput (up to 10 Gbps) provides customers the ability to transfer large data files securely and quickly. |
 | Protects instances; Cannot initiate access to instances through the public endpoint. | DNAT service can be scaled up or down, based on requirements. | Stateless ACLs allow for granular control of traffic. | Create secure connections with industry standard encryption. |
-{: caption="Table 2. Current scope of gateway services" caption-side="bottom"}
+{: caption="Current scope of gateway services" caption-side="bottom"}
 
 You can create only one public gateway per zone. However, that public gateway can be attached to multiple subnets in the zone.
 {: tip}

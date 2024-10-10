@@ -81,7 +81,7 @@ When you create the image, the API `status_reasons` parameter indicates `image_r
 | 50 GB |  50 min |
 | 75 GB | 1 hr 15 min |
 | 100 GB | 1 hr 40 min |
-{: caption="Table 4. Estimated wait time for image creation" caption-side="bottom"}
+{: caption="Estimated wait time for image creation" caption-side="bottom"}
 
 The time for the job to start is about 30 seconds. This time does not reflect traffic in the queue, which can increase the estimate. Most jobs start within 5 - 10 minutes. If it takes longer, [cancel the image creation](#ifv-delete-queued).
 {: note}

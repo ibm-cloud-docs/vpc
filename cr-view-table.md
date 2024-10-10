@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-09-30"
+lastupdated: "2024-10-10"
 
 keywords: custom routes
 
@@ -40,7 +40,7 @@ Field descriptions are as follows.
 | Routes | The number of destination routes. |
 | Default | Indicates whether the routing table is the default routing table. |
 | Attached subnets | In the Traffic section, view the number of attached subnets. Click the Subnets tab to see subnet details. |
-{: caption="Table 1. Routing table details and Traffic" caption-side="bottom"}
+{: caption="Routing table details and Traffic" caption-side="bottom"}
 
 In the Routes section, you can view the routes associated with this routing table.
 

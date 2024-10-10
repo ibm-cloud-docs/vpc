@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-08-14"
+lastupdated: "2024-10-10"
 
 keywords:
 
@@ -69,7 +69,7 @@ The following table provides some examples of how application I/O size and provi
 | 32 (typical for SQL Server) | 500 | 16 |
 | 64 | 250 | 16 |
 | 128 | 128 | 16 |
-{: caption="Table 1. Examples of how application I/O size and IOPS affect the throughput" caption-side="top"}
+{: caption="Examples of how application I/O size and IOPS affect the throughput" caption-side="top"}
 
 In these examples, your performance caps are 1000 IOPS or 16 MBps throughput. You can achieve maximum IOPS when you use smaller I/O sizes, but throughput is less than what the volume can handle. The following example shows how throughput decreases for smaller average I/O sizes, when max IOPS is maintained.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-07-11"
+lastupdated: "2024-10-10"
 
 keywords: instance backup, veeam, veeam license, order license, virtual private cloud
 
@@ -77,7 +77,7 @@ Destination | Choose _Local_ and input the location of the secondary volume to b
 Advanced | Select any options that you want. This example uses the default options.
 Schedule | Input the time schedule for the backup job to run.
 Summary | Select _start job now_ (if wanted) and then select _Finish_.
-{: caption="Table 1. Veeam Agent for Linux menu panes and values" caption-side="top"}
+{: caption="Veeam Agent for Linux menu panes and values" caption-side="top"}
 
 The backup runs at the scheduled time.
 {: note}

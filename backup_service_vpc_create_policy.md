@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-22"
+lastupdated: "2024-10-10"
 
 keywords: Backup, backup snapshot, create backups, backup service, backup plan, backup policy, restore, restore volume, restore data, restore share
 
@@ -61,7 +61,7 @@ Use the following steps to create a backup policy by using the UI.
    | **Tags for target resources** | Specify the user tags to apply to your target resources (volumes, virtual server instances) in your selected region. If multiple resources use the same tag, backups are created for all tagged resources. If a resource has multiple tags, it needs to match only one tag that is associated with the backup policy. After the backup policy is created, existing resources with any of the tags for target resources are automatically associated. |
    | **Scope**    | This option is applicable only to Enterprise accounts. As an Enterprise account administrator, you can specify whether the backup policy applies to the Enterprise account alone or the Enterprise account and all of its subaccounts. Check the box to enable the policy for all accounts of the Enterprise. |
    | **Plan**     | Click **Create** to create backup plan for this policy. In the side panel, specify the plan details. When finished, click **Create**. The page refreshes with a summary of the plan details. You can create up to four backup plans. All apply to the volumes with tags that match the backup policy. \n For more information about options, see the next section. |
-   {: caption="Table 1. Backup policy provisioning selections" caption-side="bottom"}
+   {: caption="Backup policy provisioning selections" caption-side="bottom"}
 
 1. Click **Create backup policy**. The order summary side panel shows the backup policy and all plans that were created for it.
 

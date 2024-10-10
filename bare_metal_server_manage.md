@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-10"
 
 keywords: bare metal servers, managing, operation, manage bare metal server, manage bare metal, manage server, restart bare metal, stop bare metal, delete bare metal, reboot bare metal, restart server, stop server, delete server
 
@@ -28,7 +28,7 @@ You can perform the following actions by using the UI, CLI, and API.
 | Reboot | Immediately powers off a running server and then powers it back on. |
 | Reinitialize | You can reinitialize the server only if the server is stopped. Or, you can reinitialize if the server status is `failed` and the lifecycle state has a status reason of `cannot_reinitialize`. When the bare metal server is reinitialized, the contents of the boot disk are wiped and the specified operating system is installed. The server retains the same physical node, interfaces, IP addresses, and resource IDs. Data on secondary drives is preserved. |
 | Delete | To delete a server, the server must be powered off. If the server has a floating IP address, the floating IP address must be unassociated or released before the server is deleted. The delete action permanently removes a server and its connected vNIC, boot volume, and data from your account. |
-{: caption="Table 1. Actions available for bare metal servers" caption-side="bottom"}
+{: caption="Actions available for bare metal servers" caption-side="bottom"}
 
 To manage your bare metal servers, you need an IAM role that includes the following actions. For more information, see [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started).
 

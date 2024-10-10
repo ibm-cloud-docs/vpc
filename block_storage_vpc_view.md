@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-09-24"
+lastupdated: "2024-10-10"
 
 keywords:
 
@@ -43,7 +43,7 @@ By default, {{site.data.keyword.block_storage_is_short}} volumes display for all
 | Encryption | Encryption with IBM-managed keys is enabled by default on all volumes. You can also use your own root keys in a {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} instance to protect your data. For more information, see [Creating {{site.data.keyword.block_storage_is_short}} volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption). |
 | Tags | Number of user tags that are applied to the volume. Click the number in this column to view or edit the tags in the new window. If no tags were applied to the volume, click **Add tags** and add them in the new window. User tags can associate the volume with a [backup policy](/docs/vpc?topic=vpc-backup-service-about) for creating backups of the volume. For more information, see [Adding user tags that are associated with a backup policy to a volume in the UI](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#add-user-tags-volumes-ui).
 | Actions | Click the  **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions") to display a menu of context-specific actions you can take. For example, an available, unattached volume would have menu options for attaching to an instance, renaming, and deleting the volume. An attached volume would allow for unattaching the volume from an instance and creating an [image from the volume](/docs/vpc?topic=vpc-image-from-volume-vpc).|
-{: caption="Table 1. Details about all volumes" caption-side="bottom"}
+{: caption="Details about all volumes" caption-side="bottom"}
 
 By default, 10 volumes are shown in the list of all {{site.data.keyword.block_storage_is_short}} volumes. Change this default by clicking the Page Control down arrow and increase the list to 20 or 50 volumes. Use the Page Control arrows after the list to go to the following page or return to the current page.
 
@@ -59,7 +59,7 @@ Actions menu selections change, depending on whether the volume is a boot volume
 | | Delete. | [Delete](/docs/vpc?topic=vpc-managing-block-storage#delete) the volume. You must first detach the volume from an instance before you attempt to delete it. |
 | Unattached (-) | Attach to an instance. | [Attach](/docs/vpc?topic=vpc-attaching-block-storage) the volume to an available virtual server instance. |
 | | Delete. | Delete the unattached volume. |
-{: caption="Table 2. Actions menu options for volumes." caption-side="bottom"}
+{: caption="Actions menu options for volumes." caption-side="bottom"}
 
 ### Viewing details about a {{site.data.keyword.block_storage_is_short}} volume
 {: #view-vol-details-ui}
@@ -96,7 +96,7 @@ The {{site.data.keyword.block_storage_is_short}} volumes details page shows volu
 | Name | Click the name of the virtual server instance to see instance details. |
 | Auto delete | When _enabled_, the volume is automatically deleted when you delete the instance. Click the toggle to enable automatic deletion. |
 | **Backup policies** | Shows backup policies that are associated with this volume. To associate backup policies, you can add a backup policy's tags for target resources to this volume. Click **Apply** to select a backup policy, then apply its tags for the target resource to the volume. |
-{: caption="Table 3. Volume details" caption-side="bottom"}
+{: caption="Volume details" caption-side="bottom"}
 
 Table 4 shows Actions menu options from the volume details page.
 
@@ -107,7 +107,7 @@ Table 4 shows Actions menu options from the volume details page.
 | Expand volume | [Increase the size](/docs/vpc?topic=vpc-about-increasing-volume-capacity) of a data volume in GBs. |
 | Edit IOPS profile | For data volumes that are attached to a virtual server instance, increase or decrease IOPS by [editing the IOPS profile](/docs/vpc?topic=vpc-adjusting-volume-iops). |
 | Delete | [Delete](/docs/vpc?topic=vpc-managing-block-storage#delete) the volume. You must first detach the volume from an instance before you attempt to delete it. |
-{: caption="Table 4. Actions menu options one the volume details page." caption-side="bottom"}
+{: caption="Actions menu options one the volume details page." caption-side="bottom"}
 
 ### Viewing attached {{site.data.keyword.block_storage_is_short}} volume details in instance details
 {: #view-vol-details-instance-ui}
@@ -153,7 +153,7 @@ View all backup policies associated with a {{site.data.keyword.block_storage_is_
 | Policy name | Click the policy name to go to that backup policy. |
 | Status | [Status of the backup policy](/docs/vpc?topic=vpc-backup-vpc-monitoring&interface=ui). |
 | Last run time | The last scheduled run of the backup policy that created a backup. |
-{: caption="Table 5. Backup policies associated with a {{site.data.keyword.block_storage_is_short}} volume." caption-side="bottom"}
+{: caption="Backup policies associated with a {{site.data.keyword.block_storage_is_short}} volume." caption-side="bottom"}
 
 ## Viewing {{site.data.keyword.block_storage_is_short}} volumes from the CLI
 {: #viewing-block-storage-cli}

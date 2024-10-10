@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2024-09-10"
+lastupdated: "2024-10-10"
 
 keywords: disaster recovery for VPC, failover for VPC, BC for VPC, DR for VPC, business continuity for VPC, disaster recovery for VPC
 
@@ -34,7 +34,7 @@ IBM Cloud VPC provides mechanisms to protect your data and restore service funct
 |---|---|
 |  RPO | VPN for VPC (site-to-site): 24 hours |
 |  RTO | VPN for VPC (site-to-site): 5 hours  |
-{: caption="Table 1. RPO and RTO for IBM Cloud VPC services" caption-side="bottom"}
+{: caption="RPO and RTO for IBM Cloud VPC services" caption-side="bottom"}
 
 ## Locations
 {: #ha-locations}

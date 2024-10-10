@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2024-08-21"
+lastupdated: "2024-10-10"
 
 keywords: CSE, endpoint, service, DNS, resolver, mirror, object, storage, bandwidth, charges
 
@@ -31,7 +31,7 @@ Use one of the following public endpoints to connect to the VPC infrastructure A
 | Canada (Toronto) | `ca-tor` | `https://ca-tor.iaas.cloud.ibm.com`   | `https://ca-tor.private.iaas.cloud.ibm.com` |
 {: class="simple-tab-table"}
 {: tab-title="Americas"}
-{: caption="Table 1. VPC API Regional Endpoints for North and South America" caption-side="bottom"}
+{: caption="VPC API Regional Endpoints for North and South America" caption-side="bottom"}
 {: summary="This table displays the VPC API Regional Endpoints."}
 {: tab-group="vpc-api-endpoints"}
 {: #vpc-americas-endpoints}
@@ -43,7 +43,7 @@ Use one of the following public endpoints to connect to the VPC infrastructure A
 | Spain (Madrid) | `eu-es` | `https://eu-es.iaas.cloud.ibm.com` | `https://eu-es.private.iaas.cloud.ibm.com` |
 {: class="simple-tab-table"}
 {: tab-title="Europe"}
-{: caption="Table 1. VPC API Regional Endpoints for Europe" caption-side="bottom"}
+{: caption="VPC API Regional Endpoints for Europe" caption-side="bottom"}
 {: summary="This table displays the VPC API Regional Endpoints."}
 {: tab-group="vpc-api-endpoints"}
 {: #vpc-europe-endpoints}
@@ -58,7 +58,7 @@ For x86-64 dedicated host profiles, the Madrid region only supports dedicated ho
 | Australia (Sydney) | `au-syd` | `https://au-syd.iaas.cloud.ibm.com`   | `https://au-syd.private.iaas.cloud.ibm.com` |
 {: class="simple-tab-table"}
 {: tab-title="Asia Pacific"}
-{: caption="Table 1. VPC API Regional Endpoints for Asia Pacific" caption-side="bottom"}
+{: caption="VPC API Regional Endpoints for Asia Pacific" caption-side="bottom"}
 {: summary="This table displays the VPC API Regional Endpoints."}
 {: tab-group="vpc-api-endpoints"}
 {: #vpc-asia-pacific-endpoints}
@@ -98,7 +98,7 @@ The following ports must be open to allow ADN network traffic to flow for the fo
 | UDP      | 53          | DNS         |
 | TCP      | 80          | HTTP      |
 | TCP      | 443         | HTTPS       |
-{: caption="Table 2. Ports required for network traffic" caption-side="bottom"}
+{: caption="Ports required for network traffic" caption-side="bottom"}
 
 For Linux virtual machines, open port `8443` to `161.26.0.0/16`.
 {: note}

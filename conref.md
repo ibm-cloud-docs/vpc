@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2024
-lastupdated: "2024-08-22"
+lastupdated: "2024-10-10"
 
 keywords:
 
@@ -72,7 +72,7 @@ When you want to delete an {{site.data.keyword.vpc_short}} custom image that is 
 | Add to dedicated host | You can add the virtual server instance to a dedicated host, creating the instance in a single-tenant space. To provision a dedicated instance, you must have a dedicated host available or [create one](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances).  |
 | Add to placement group | You can select a placement group for the instance. To enable placement groups, click the toggle. Then, select or create a placement group for the instance. If you add a placement group, the instance is placed according to the placement group strategy. For more information, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc). |
 | Host failure auto restart | This setting is enabled by default. To disable host failure auto restart, click the toggle. For more information, see [Host failure recovery policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=ui). |
-{: caption="Table 1. Instance template selections" caption-side="bottom"}
+{: caption="Instance template selections" caption-side="bottom"}
 {: #create-instance-template-table}
 
 # Content references for VPC resource attributes
@@ -103,5 +103,5 @@ When you want to delete an {{site.data.keyword.vpc_short}} custom image that is 
 | Virtual Private Cloud |  `vpcId: <vpc-id>`  |
 | Virtual Server for VPC | `instanceId: <instance-id>` |
 | {{site.data.keyword.vpn_vpc_short}} | `vpnGatewayID: <vpn-gateway-id>` |
-{: caption="Table 1. VPC resource attributes" caption-side="bottom"}
+{: caption="VPC resource attributes" caption-side="bottom"}
 {: #vpc-resource-attributes-table}

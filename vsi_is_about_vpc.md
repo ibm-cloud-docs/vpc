@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-10-09"
+lastupdated: "2024-10-10"
 
 keywords: virtual server instances, VSI, compute, virtual machines, planning, best practices, instances, virtual servers, virtual server instance, Virtual servers for VPC, gen 2, generation 2, infrastructure, infrastructure as a service, IaaS, vsi
 
@@ -34,7 +34,7 @@ To review and start deploying compute resources, see the following topics:
 |[Virtual Servers for VPC profiles](/docs/vpc?topic=vpc-profiles#profiles) | IBM Cloud Virtual Servers for VPC provide the advanced security of a private cloud with the agility and ease of a public cloud. Virtual servers for VPC offer the best network performance (up to 80 Gbps), best security, and fastest provisioning times.|
 |[Dedicated hosts for VPC](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances) | With dedicated host availability, you can choose to create a single-tenancy environment where you can provision virtual server instances according to your needs.|
 |[Virtual Servers for Classic](/docs/virtual-servers?topic=virtual-servers-getting-started-tutorial)| When you create an x86-based virtual server in classic infrastructure, you have several options. You can choose between a public (multi-tenancy) environment or a dedicated (single-tenancy) environment. Then, depending on the chosen environment, you select hourly, monthly, or transient virtual servers. For public virtual servers, you also choose to use either SAN-based storage or local storage. |
-{: caption="Table 1. Deployment options" caption-side="bottom"}
+{: caption="Deployment options" caption-side="bottom"}
 
 To compare all virtual compute options, see [IBM Cloud Virtual Server for VPC - Compute features](https://www.ibm.com/products/virtual-servers/features){: external}.
 
@@ -50,4 +50,4 @@ To continue by creating virtual servers for VPC, see the following topics:
 |[Creating virtual server instances by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli)| Provision public instances with various options by using the command-line interface. |
 | [Creating an instance by using the API](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=api#create-instance-api-tutorial) | Provision public instances with various options by using the API. |
 |[Creating instances on dedicated hosts](/docs/vpc?topic=vpc-creating-instance-on-dh)| Provision instances on a dedicated host or group. |
-{: caption="Table 2. Links to provisioning instructions" caption-side="bottom"}
+{: caption="Links to provisioning instructions" caption-side="bottom"}

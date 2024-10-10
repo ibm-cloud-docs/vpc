@@ -24,7 +24,7 @@ After you provision your reservation, you can manage the reservation with the fo
 | Retrieve a reservation | Retrieve a reservation as specified by its identifier in the URL. |
 | Update a reservation | Update the reservation with new information. |
 | Activate a reservation | Activate an `inactive` reservation. |
-{: caption="Table 1. Actions for managing reservations for virtual servers" caption-side="bottom"}
+{: caption="Actions for managing reservations for virtual servers" caption-side="bottom"}
 
 ## Before you begin
 {: #before-you-begin-managing-reserved-vpc}

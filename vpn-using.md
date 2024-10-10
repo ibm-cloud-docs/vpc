@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-07-10"
+lastupdated: "2024-10-10"
 
 keywords: VPN, VPN gateways, encryption, IKE, IPsec, gateway, auto-negotiation, Diffie-Hellman, dead peer detection, PFS
 
@@ -99,7 +99,7 @@ You can use the following encryption, authentication, and Diffie-Hellman Group o
 | 1   | aes128 | sha256 | 14-24, 31 |
 | 2   | aes192 | sha384 | 14-24, 31 |
 | 3   | aes256 | sha512 | 14-24, 31 |
-{: caption="Table 1. Encryption, authentication, and DH group options for IPsec auto-negotiation Phase 1" caption-side="bottom"}
+{: caption="Encryption, authentication, and DH group options for IPsec auto-negotiation Phase 1" caption-side="bottom"}
 
 ### IPsec auto-negotiation (Phase 2)
 {: #ipsec-auto-negotiation-phase-2}
@@ -114,14 +114,14 @@ By default, PFS is disabled for IBM Cloud VPN for VPC. Some vendors require PFS 
 | 1  | aes128      | sha256   | Disabled  |
 | 2  | aes192      | sha384   | Disabled  |
 | 3  | aes256      | sha512   | Disabled  |
-{: caption="Table 2. Encryption and authentication options for IPsec auto-negotiation Phase 2" caption-side="bottom"}
+{: caption="Encryption and authentication options for IPsec auto-negotiation Phase 2" caption-side="bottom"}
 
 |    | Encryption | Authentication | DH group |
 |----|------------|----------------|----------|
 | 1  | aes128gcm16 | Disabled | Disabled  |
 | 2  | aes192gcm16 | Disabled | Disabled  |
 | 3  | aes256gcm16 | Disabled | Disabled  |
-{: caption="Table 3. Combined-mode encryption options for IPsec auto-negotiation Phase 2" caption-side="bottom"}
+{: caption="Combined-mode encryption options for IPsec auto-negotiation Phase 2" caption-side="bottom"}
 
 ## {{site.data.keyword.vpn_vpc_short}} use cases
 {: #vpn-use-cases}

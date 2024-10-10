@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-10"
 
 keywords:
 
@@ -77,7 +77,7 @@ Root keys move to various states as a result of the actions that you take, and d
 | File shares | _stable_ | Data on the file share is accessible but you can't create a file Share with that key. |
 | Instance |  _available_ | Instance workloads continue to run with an _available_ status in the CLI and API, and with a _running_ status in the UI. If you stop instances, they can't restart. |
 {: class="simple-tab-table"}
-{: caption="Table 1. Disable root key" caption-side="bottom"}
+{: caption="Disable root key" caption-side="bottom"}
 {: #keystatetable1}
 {: tab-title="Disable root key"}
 {: tab-group="Key-state-impact"}
@@ -92,7 +92,7 @@ Root keys move to various states as a result of the actions that you take, and d
 | Snapshot | _stable_ | The snapshot can be used to restore a volume. |
 | File share | _stable_ | File share is available. You can add or remove mount targets. You can write and read data. |
 | Instance | _available_ | Instances can be restarted. |
-{: caption="Table 2. Enable root key" caption-side="bottom"}
+{: caption="Enable root key" caption-side="bottom"}
 {: #keystatetable2}
 {: tab-title="Enable root key"}
 {: tab-group="Key-state-impact"}
@@ -108,7 +108,7 @@ Root keys move to various states as a result of the actions that you take, and d
 | Snapshot | _unusable_ | The snapshot is inaccessible and can't be used to restore a volume. |
 | File share | _suspended_ | The File Storage system is offline and data cannot be accessed. |
 | Instance | _unusable_ | Instances with a deleted boot volume that were automatically stopped cannot restart. |
-{: caption="Table 3. Delete root key" caption-side="bottom"}
+{: caption="Delete root key" caption-side="bottom"}
 {: #keystatetable3}
 {: tab-title="Delete root key"}
 {: tab-group="Key-state-impact"}
@@ -124,7 +124,7 @@ Root keys move to various states as a result of the actions that you take, and d
 | Snapshot | _stable_ | Snapshot that were encrypted with this root key can be used to restore a volume. |
 | File shares | _stable_ | File share data is available. |
 | Instance | _available_ | Instances can be restarted. |
-{: caption="Table 4. Restore root key" caption-side="bottom"}
+{: caption="Restore root key" caption-side="bottom"}
 {: #keystatetable4}
 {: tab-title="Restore root key"}
 {: tab-group="Key-state-impact"}
@@ -237,7 +237,7 @@ You can use the UI to disable, enable, delete, or restore your root keys. Table 
 | Delete key | [Deleting keys in the console (single authorization)](/docs/key-protect?topic=key-protect-delete-keys&interface=ui). | [Deleting keys with the GUI (single authorization)](/docs/hs-crypto?topic=hs-crypto-delete-keys&interface=ui#delete-keys-gui). |
 | | [Deleting a key with dual authorization](/docs/key-protect?topic=key-protect-delete-dual-auth-keys&interface=api#delete-dual-auth-keys-api). | [Authorize deletion for a key with the GUI (dual authorization)](/docs/hs-crypto?topic=hs-crypto-delete-dual-auth-keys&interface=ui#set-key-deletion-console). |
 | Restore key | [Restoring a deleted key with the console](/docs/key-protect?topic=key-protect-restore-keys&interface=ui#restore-ui). | [Restoring a deleted key with the GUI](/docs/hs-crypto?topic=hs-crypto-restore-keys&interface=ui#restore-keys-ui). |
-{: caption="Table 5. UI procedures for managing root keys" caption-side="bottom"}
+{: caption="UI procedures for managing root keys" caption-side="bottom"}
 
 ### Manage root keys with the API
 {: #byok-api-root-key}
@@ -255,7 +255,7 @@ Because deleting a root key makes all resources that are protected by it unusabl
 | Delete key | [Deleting keys with the API (single authorization)](/docs/key-protect?topic=key-protect-delete-keys&interface=api#delete-keys-api) | [Deleting keys with the API (single authorization)](/docs/hs-crypto?topic=hs-crypto-delete-keys&interface=api#delete-keys-api) |
 | | [Authorize deletion for a key with the API (dual authorization)](/docs/key-protect?topic=key-protect-delete-dual-auth-keys&interface=api#delete-dual-auth-keys-key-api) | [Authorize deletion for a key with the API (dual authorization)](/docs/hs-crypto?topic=hs-crypto-delete-dual-auth-keys&interface=api#set-key-deletion-api) |
 | Restore key | [Restoring a deleted key with the API](/docs/key-protect?topic=key-protect-restore-keys&interface=api#restore-api) | [Restoring a deleted key with the API](/docs/hs-crypto?topic=hs-crypto-restore-keys&interface=api#restore-keys-api) |
-{: caption="Table 6. API procedures for managing root keys" caption-side="bottom"}
+{: caption="API procedures for managing root keys" caption-side="bottom"}
 
 ### Removing service authorization to a root key
 {: #instance-byok-inaccessible-data}

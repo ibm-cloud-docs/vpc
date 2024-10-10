@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2023-12-11"
+lastupdated: "2024-10-10"
 
 keywords: Block Storage, boot volume, data volume, status, health state, monitoring, performance 
 
@@ -34,7 +34,7 @@ To see these metrics in the UI, do the following.
 3. Click the **Monitoring** tab and scroll to the **Volume** metrics.
 4. Select a volume. The read and write metrics are displayed. Figure 1 shows this view.
 
-![Figure showing volume metrics.](/images/volume-read-write-metrics.png "Figure showing volume read/write metrics."){: caption="Figure 1. Read/write metrics for {{site.data.keyword.block_storage_is_short}} volumes." caption-side="bottom"}
+![Figure showing volume metrics.](/images/volume-read-write-metrics.png "Figure showing volume read/write metrics."){: caption="Read/write metrics for {{site.data.keyword.block_storage_is_short}} volumes." caption-side="bottom"}
 
 ## Block Storage volume status
 {: #block-storage-vpc-status}
@@ -49,7 +49,7 @@ The following table shows the statuses that you might see when you create, view,
 | Pending deletion | A volume is being deleted. When you're unsure if the volume is deleted, verify this state. Attempting to delete a volume again while in this state results in a conflict error. | Inapplicable |
 | Updating | A volume's capacity is [expanding](/docs/vpc?topic=vpc-expanding-block-storage-volumes) or volume IOPS being [adjusted](/docs/vpc?topic=vpc-adjusting-volume-iops). | OK |
 | Unusable | A volume is unusable because the customer root key (CRK) was [deleted](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-delete-root-keys) or [disabled](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-disable-root-keys). | Inapplicable |
-{: caption="Table 1. Block Storage statuses" caption-side="bottom"}
+{: caption="Block Storage statuses" caption-side="bottom"}
 
 ## Block Storage volume health states
 {: #block-storage-vpc-health-states}
@@ -62,7 +62,7 @@ Volume health states correspond with volume statuses. Table 2 describes the heal
 | Degraded | A volume is experiencing degraded performance for any of the following reasons: \n  - Volume data is being restored (hydrated) and the volume shows as degraded until hydration is completed. \n - Volume initialization from a snapshot failed, and the volume hydration failed. \n - Volume hydration is not started. \n - Volume hydration is paused. \n - The snapshot is in an unusable state. |
 | Inapplicable | The volume is being created. The volume creation failed. The volume is pending, pending deletion, or unusable. No health reasons are reported. |
 | Faulted | The volume is unreachable, inoperative, or entirely incapacitated. |
-{: caption="Table 2. Block Storage health states and reasons" caption-side="bottom"}
+{: caption="Block Storage health states and reasons" caption-side="bottom"}
 
 For more information about the health states and reason codes in the API, see the [API reference](/apidocs/vpc/latest#create-volume) for creating, listing, and updating volumes.
 

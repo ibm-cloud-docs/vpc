@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-09-10"
+lastupdated: "2024-10-10"
 
 keywords: region, zone, deploy, datacenter, data, center, federated, CLI, API, account, failover, disaster, recovery, DR, data center
 
@@ -30,7 +30,7 @@ Virtual Private Cloud is available in the following {{site.data.keyword.cloud}} 
 | Canada (Toronto) | ca-tor | `ca-tor.iaas.cloud.ibm.com` |
 {: class="simple-tab-table"}
 {: tab-title="Americas"}
-{: caption="Table 1. IBM Cloud regions for North and South America" caption-side="bottom"}
+{: caption="IBM Cloud regions for North and South America" caption-side="bottom"}
 {: summary="This table displays the IBM Cloud regions and is organized by geographical location. Click on the tab for the geographical location you are interested in. You then see all the IBM Cloud regions for that geographical location."}
 {: tab-group="vpc-regions-api-endpoint"}
 {: #vpc-north-america-regions}
@@ -42,7 +42,7 @@ Virtual Private Cloud is available in the following {{site.data.keyword.cloud}} 
 | Spain (Madrid) | eu-es | `eu-es.iaas.cloud.ibm.com` |
 {: class="simple-tab-table"}
 {: tab-title="Europe"}
-{: caption="Table 1. IBM Cloud regions for Europe" caption-side="bottom"}
+{: caption="IBM Cloud regions for Europe" caption-side="bottom"}
 {: summary="This table displays the IBM Cloud regions and is organized by geographical location. Click on the tab for the geographical location you are interested in. You then see all the IBM Cloud regions for that geographical location."}
 {: tab-group="vpc-regions-api-endpoint"}
 {: #vpc-europe-regions}
@@ -57,7 +57,7 @@ For x86-64 dedicated host profiles, the Madrid region only supports dedicated ho
 | Australia (Sydney) | au-syd | `au-syd.iaas.cloud.ibm.com` |
 {: class="simple-tab-table"}
 {: tab-title="Asia Pacific"}
-{: caption="Table 1. IBM Cloud regions for Asia Pacific" caption-side="bottom"}
+{: caption="IBM Cloud regions for Asia Pacific" caption-side="bottom"}
 {: summary="This table displays the IBM Cloud regions and is organized by geographical location. Click on the tab for the geographical location you are interested in. You then see all the IBM Cloud regions for that geographical location."}
 {: tab-group="vpc-regions-api-endpoint"}
 {: #vpc-asia-pacific-regions}

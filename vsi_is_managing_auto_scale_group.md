@@ -77,7 +77,7 @@ To change an instance group from using static membership to dynamic scaling, com
 |-------|-------|
 | Metric type | Select the metric type that you want to associate with a target utilization value to use for adding or removing instances from your group. You can choose one of these metrics: CPU utilization (%), RAM utilization (%), Network in (Mbps), Network out (Mbps). You can define more than one target scaling policy, but only one policy for each metric type. |
 | Average target utilization | Specify the average utilization for the metric that you select. This target value defines when the instance group manager needs to scale up instances or scale down instances in your group. At the end of each aggregation window, the instance group manager adds the current utilization of each instance and divides it by this target utilization value to determine the membership count. |
-{: caption="Table 1. Target policies selections" caption-side="bottom"}
+{: caption="Target policies selections" caption-side="bottom"}
 
 ### Creating target scaling policies
 {: #creating-target-policies}
@@ -93,7 +93,7 @@ To add scaling policies, complete the following steps. You can define more than 
 |-------|-------|
 | Metric type | Select the metric type that you want to associate with a target utilization value to use for adding or removing instances from your group. You can choose one of these metrics: CPU utilization (%), RAM utilization (%), Network in (Mbps), Network out (Mbps). You can define more than one target scaling policy, but only one policy for each type of metric. |
 | Average target utilization | Specify the average utilization for the metric that you select. This target value defines when the instance group manager needs to scale up instances or scale down instances in your group. At the end of each aggregation window, the instance group manager adds the current utilization of each instance and divides it by this target utilization value to determine the membership count. |
-{: caption="Table 2. Target policies selections" caption-side="bottom"}
+{: caption="Target policies selections" caption-side="bottom"}
 
 For existing target scaling policies, you can edit them by using the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit").
 {: tip}

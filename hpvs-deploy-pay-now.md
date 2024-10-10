@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-10"
 
 keywords: confidential computing, secure execution, hyper protect virtual server for vpc, terraform, tutorial, financial transaction
 
@@ -24,7 +24,7 @@ Confidential Computing is the protection of data-in-use through a hardware-based
 
 You can provision {{site.data.keyword.hpvs}} with the advantage of [IBM Secure Execution for Linux](https://www.ibm.com/docs/en/linux-on-systems?topic=linux-introducing-secure-execution){: external} on IBM Cloud Virtual Private Cloud (VPC) or On-Premises. In this tutorial, we use Hyper Protect Virtual Servers for VPC.
 
-![Data in financial transactions are protected by Confidential Computing on Hyper Protect Virtual Server for VPC.](images/paynow-code-pattern.svg "Data in financial transactions are protected by Confidential Computing on Hyper Protect Virtual Server for VPC."){: caption="Figure 1. Data in financial transactions are protected by Confidential Computing on Hyper Protect Virtual Server for VPC" caption-side="bottom"}
+![Data in financial transactions are protected by Confidential Computing on Hyper Protect Virtual Server for VPC.](images/paynow-code-pattern.svg "Data in financial transactions are protected by Confidential Computing on Hyper Protect Virtual Server for VPC."){: caption="Data in financial transactions are protected by Confidential Computing on Hyper Protect Virtual Server for VPC" caption-side="bottom"}
 
 ## Before you begin
 {: #hpvs-ftcc-before-you-begin}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-08-26"
+lastupdated: "2024-10-10"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
 
@@ -95,7 +95,7 @@ You can attach up to 50 virtual server instances to a back-end pool. Traffic is 
 
 Figure 1 shows the VPC representation of a typical network load balancer setup. The NLB is provisioned on a VPC subnet. To configure the network data path on the NLB, a listener, a pool, and at least one member must be created. A _listener_ is the front-end port that the NLB is listening on for customer requests. These requests are forwarded to the targets in the pool that is associated with the listener. A _pool_ is a group of targets that are used to distribute the network requests coming into the NLB for a specific listener. A _member_ is a back-end server with a specified port that is configured to listen for requests.
 
-![Network load balancer work flow](images/nlb-workflow-customer-view.svg "Network load balancer work flow"){: caption="Figure 1. Network load balancer work flow" caption-side="bottom"}
+![Network load balancer work flow](images/nlb-workflow-customer-view.svg "Network load balancer work flow"){: caption="Network load balancer work flow" caption-side="bottom"}
 
 ## Layer 4 load balancing
 {: #nlb-layer4}
@@ -111,7 +111,7 @@ A public NLB supports Direct Server Return (DSR). Application load balancers do 
 
 Figure 2 illustrates how a public NLB works. The Consumer registers the load balancer’s IP address with DNS using the load balancer’s FQDN. The Consumer optionally queries the DNS server. DNS responds with the load balancer’s IP address. The Consumer sends a TCP request to the load balancer for data, and the load balancer forwards the request to a back-end target. The target generates a response and the response is sent directly to the Consumer with DSR.
 
-![Public load balancer](images/lb_use_case_1.svg "Public load balancer"){: caption="Figure 2. Public load balancer" caption-side="bottom"}
+![Public load balancer](images/lb_use_case_1.svg "Public load balancer"){: caption="Public load balancer" caption-side="bottom"}
 
 ## Use case 2: Private network load balancer
 {: #nlb-use-case-2}
@@ -123,7 +123,7 @@ For private load balancers, you must have a dedicated subnet with no custom rout
 
 Figure 3 illustrates how a private NLB works. The Consumer queries DNS for the load balancer’s IP address using the load balancer’s FQDN. The Consumer optionally queries the DNS server. DNS responds with the load balancer’s IP address. The Consumer sends a TCP request to the load balancer for data through a direct link or transit gateway, and the load balancer forwards the request to a back-end target. The target generates a response and the response is sent directly to the Consumer using DSR.
 
-![Private load balancer](images/lb_use_case_2.svg "Private load balancer"){: caption="Figure 3. Private load balancer" caption-side="bottom"}
+![Private load balancer](images/lb_use_case_2.svg "Private load balancer"){: caption="Private load balancer" caption-side="bottom"}
 
 ## Use case 3: Private network load balancer with routing mode enabled
 {: #nlb-use-case-3}
@@ -133,7 +133,7 @@ NLBs with `route_mode` set to `true` are private load balancers that support
 
 Figure 4 illustrates how a private NLB with routing mode works. The Consumer queries DNS for the load balancer’s IP address using the load balancer’s FQDN. The Consumer optionally queries the DNS server. DNS responds with the load balancer’s IP address. The Consumer sends a TCP request to the load balancer for data through a direct link or transit gateway. The load balancer forwards the request to VNF devices then to back-end targets. Typically, targets are in a separate VPC. The target generates a response and that response is sent back to the NLB, then again to VNF devices before returning to the client.
 
-![Private load balancer with routing mode enabled](images/lb_use_case_3.svg "Private load balancer with routing mode enabled"){: caption="Figure 4. Private load balancer with route mode enabled" caption-side="bottom"}
+![Private load balancer with routing mode enabled](images/lb_use_case_3.svg "Private load balancer with routing mode enabled"){: caption="Private load balancer with route mode enabled" caption-side="bottom"}
 
 ## Use case 4: Private Path network load balancer
 {: #nlb-use-case-4}
@@ -150,7 +150,7 @@ You can only use Private Path NLBs with a Private Path service. For more informa
 
 Figure 5 illustrates how a Private Path NLB works to support a Private Path service. The Private Path NLB registers with the DNS server. The Consumer optionally queries the DNS server. The Consumer then sends a TCP request for data to the Private Path NLB through a VPE gateway, and the Private Path NLB forwards the request to the targets. In turn, the targets generate a response, and that response is sent to the client through DSR.
 
-![Private path network load balancer](images/lb_use_case_4.svg "Private path network balancer"){: caption="Figure 5. Public load balancer" caption-side="bottom"}
+![Private path network load balancer](images/lb_use_case_4.svg "Private path network balancer"){: caption="Public load balancer" caption-side="bottom"}
 
 ## Use case 5: Multi-zone, high availability using a network load balancer
 {: #nlb-use-case-5}
@@ -161,7 +161,7 @@ You might want to leverage the high throughput performance (and low latency) the
 
 You can use this deployment scenario to obtain high availability and ensure workloads are available across multiple availability zones in case there is a load balancer failure. If a failure condition happens to a load balancer in one availability zone, then the GLB no longer sends traffic to that availability zone. For example, if a failure happens in availability zone 1, the GLB sends traffic to availability zone 2 or availability zone 3. Examples scenarios can include a large of failures, everything from a single NLB, all the way to an entire availability zone.
 
-![Multi-zone public network load balancer](images/lb_use_case_5.svg){: caption="Figure 6. Multi-zone network load balancer" caption-side="bottom}
+![Multi-zone public network load balancer](images/lb_use_case_5.svg){: caption="Multi-zone network load balancer" caption-side="bottom}
 
 ## Related links
 {: #nlb-permissions-related-links}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-10"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, Block Storage snapshots
 
@@ -46,7 +46,7 @@ Table 1 describes the information for all snapshots that is shown on the list of
 | Snapshot copies | Number of copies that a snapshot has in other regions. |
 | Created date | The local date and time when the snapshot was created. |
 | Consistency group | This field shows the name of the consistency group if the snapshot is a member of a snapshot set.|
-{: caption="Table 1. List of all snapshots" caption-side="bottom"}
+{: caption="List of all snapshots" caption-side="bottom"}
 
 Click the settings icon ![Settings icon](../icons/settings.svg "Settings") to display optional fields that you can add to the table.
 
@@ -57,7 +57,7 @@ Click the settings icon ![Settings icon](../icons/settings.svg "Settings") to di
 | Resource group |The resource group that the snapshot belongs to.|
 | Bootable | Yes or No. It shows whether the snapshot was taken of a boot volume or a data volume. |
 | Created by | It shows whether the snapshot was created by the user or a [backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-concepts). |
-{: caption="Table 2. List of optional informational fields for all snapshots" caption-side="bottom"}
+{: caption="List of optional informational fields for all snapshots" caption-side="bottom"}
 
 By clicking the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Actions"), you can display a menu of context-specific actions.
    - Rename 
@@ -94,7 +94,7 @@ The snapshot details panel shows the information that is described in the follow
 | Encryption | Provider-managed or customer-managed encryption. For customer-managed encryption, the KMS instance, root key name, and root key ID are shown. |
 | Fast restore panel | Use [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_fast_restore) to create a volume from this snapshot that is fully provisioned. Click **Edit** to [enable or disable fast restore](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-edit-fast-restore) in a zone. |
 | Consistency group panel | It displays information about the consistency group that the snapshot is a member of. Click **Create virtual server** to restore volumes from the consistency group. |
-{: caption="Table 3. Snapshot details" caption-side="bottom"}
+{: caption="Snapshot details" caption-side="bottom"}
 
 By clicking the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Actions"), you can display a menu of context-specific actions.
    - [Create a volume from the snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui)
@@ -120,7 +120,7 @@ The following table describes the information for all consistency groups in the 
 | Source VSI | It shows the virtual server instance that contains the source volumes of the snapshots in the consistency group. Click the name of the virtual server instance to see its details. |
 | Snapshot members | Number of snapshots that are members of the group. |
 | Created date | The local date and time when the snapshot was created. |
-{: caption="Table 4. List of all consistency groups" caption-side="bottom"}
+{: caption="List of all consistency groups" caption-side="bottom"}
 
 Click the settings icon ![Settings icon](../icons/settings.svg "Settings") to display optional fields that you can add to the table.
 
@@ -129,7 +129,7 @@ Click the settings icon ![Settings icon](../icons/settings.svg "Settings") to di
 | Created by | It shows whether the snapshot set was created by the user or a [backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-concepts). |
 | Resource group | The resource group that the consistency group belongs to.|
 | Created by | It shows whether the snapshot was created by the user or a [backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-concepts). |
-{: caption="Table 5. List of optional informational fields for all snapshots" caption-side="bottom"}
+{: caption="List of optional informational fields for all snapshots" caption-side="bottom"}
 
 By clicking the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Actions"), you can display a menu of context-specific actions.
    - Rename
@@ -155,7 +155,7 @@ The overview section provides details about the consistency group and the virtua
 | Created date | It shows the date when the consistency group was created.  |
 | Delete snapshot members | It shows whether the snapshots are deleted or kept when the consistency group is deleted. Click the toggle to change the status. |
 | Region| The VPC region that the consistency group was created in.|
-{: caption="Table 6. Consistency group overview." caption-side="bottom"}
+{: caption="Consistency group overview." caption-side="bottom"}
 
 For more information, see [Managing snapshot consistency groups](/docs/vpc?topic=vpc-snapshots-vpc-manage-consistency-groups).
 
@@ -169,7 +169,7 @@ The second panel contains information about the virtual server instance that the
 | Image  | Information about the operating system image. |
 | Resource group  | The resource group that the virtual server instance belongs to.  |
 | Tags  | The user-defined tags that are used for the virtual server instance.  |
-{: caption="Table 7. Virtual server instance overview." caption-side="bottom"}
+{: caption="Virtual server instance overview." caption-side="bottom"}
 
 The Snapshots list displays the snapshots within the consistency group and provides the same information and actions as described in [Table 1](#snapshots-vpc-view-list-ui).
 

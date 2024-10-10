@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-06-14"
+lastupdated: "2024-10-10"
 
 keywords:
 
@@ -24,14 +24,14 @@ In today's fast-paced economy, companies rely on data in their decision-making. 
 | 5 IOPS per GB tier| It is designed for high I/O intensity workloads that are characterized by a large percentage of active data, such as transactional and other performance-sensitive databases. |  99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption, Customer-managed encryption |
 | 10 IOPS per GB tier| It is designed for demanding storage workloads such as data-intensive workloads created by NoSQL databases, data processing for video, machine learning, and analytics. |  99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption, Customer-managed encryption |
 | Custom | Customers can specify a capacity between 10 - 16000 MB with IOPS ranging 100 - 48000. | 99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption, Customer-managed encryption |
-{: caption="Table 1. {{site.data.keyword.block_storage_is_short}} Storage durability and availability chart." caption-side="bottom"}
+{: caption="{{site.data.keyword.block_storage_is_short}} Storage durability and availability chart." caption-side="bottom"}
 
 {{site.data.keyword.block_storage_is_short}} volumes are double-encrypted at rest. The double-encryption includes the underlying volume that holds the customer volumes, and the customer volume. The customer volumes are encrypted by using provider-managed encryption or customer-managed encryption keys. 
 
 | {{site.data.keyword.filestorage_vpc_short}} Storage type | Use Case | Durability | Availability | Encryption |
 |--------------|----------|------------|--------------|------------|
 | `dp2` | The most flexible share profile option. Customers can specify capacity between 10 - 32000 MB with IOPS ranging 100 - 96000. | 99.999999999% \n (11 9's) | 99.999% \n (5 9's) | Provider-managed AES-256 encryption, Customer-managed encryption |
-{: caption="Table 2. {{site.data.keyword.filestorage_vpc_short}} Storage durability and availability chart." caption-side="bottom"}
+{: caption="{{site.data.keyword.filestorage_vpc_short}} Storage durability and availability chart." caption-side="bottom"}
 
 {{site.data.keyword.filestorage_vpc_short}} shares are encrypted by using provider-managed encryption or customer-managed encryption keys.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-10"
 
 keywords: host failure recovery, recovery
 
@@ -29,7 +29,7 @@ The default setting for the host failure policy of an instance is 'restart'. Th
 |---------|---------|
 | restart | The instance is automatically restarted on another compute host |
 | stop | The instance will not be restarted on another compute host |
-{: caption="Table 1. Host failure recovery policies" caption-side="bottom"}
+{: caption="Host failure recovery policies" caption-side="bottom"}
 
 ### Restart
 {: #restart}
@@ -68,7 +68,7 @@ For more information, see [Creating virtual server instances by using the CLI](/
 |---------|---------|
 | restart | '--host-failure-policy restart' |
 | stop | '--host-failure-policy stop' |
-{: caption="Table 2. Recovery policy attributes" caption-side="bottom"}
+{: caption="Recovery policy attributes" caption-side="bottom"}
 
 ### Create an instance with host failure policy
 {: #create-instance-policy}
@@ -154,7 +154,7 @@ During instance [create](/apidocs/vpc/latest#create-instance) or [update](/apido
 |---------|---------|
 | restart | 'restart' |
 | stop | 'stop' |
-{: caption="Table 2. Recovery policy API " caption-side="bottom"}
+{: caption="Recovery policy API " caption-side="bottom"}
 
 For more information, see [Create an instance](/apidocs/vpc/latest#create-instance) and [Managing virtual server instances](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=api).
 

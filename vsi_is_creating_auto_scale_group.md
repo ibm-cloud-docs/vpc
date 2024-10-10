@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-10"
 
 keywords: auto scale, autoscale, virtual server instance, creating, UI, console, instance group
 
@@ -42,7 +42,7 @@ If Acme Web Retailer has four virtual server instances that are running when the
 
 Based on this calculation, the instance group manager rounds **4.29** up to **5** and provisions another instance. Now Acme Web Retailer has a total of five instances and maintains their specified average CPU utilization across the instances in the group.
 
-![Image showing an instance that is being added to an instance group](images/VPC_Autoscaling_Docs.png "Image showing an instance that is being added to an instance group after computation"){: caption="Figure 1. Auto scale instance group adds new instance" caption-side="bottom"}
+![Image showing an instance that is being added to an instance group](images/VPC_Autoscaling_Docs.png "Image showing an instance that is being added to an instance group after computation"){: caption="Auto scale instance group adds new instance" caption-side="bottom"}
 
 When an instance group scales up to create an instance, a subnet is selected randomly from the subnets that are defined for the instance group. When an instance group scales down to remove instances, it uses a first in first out (FIFO) strategy. The oldest instances are deleted first. If at any time an instance in the instance group fails, it is replaced with a new instance.
 
@@ -128,7 +128,7 @@ Not all network load balancer offerings support integration with instance groups
 | Instance group size | For a static group, enter the number of instances that you want to constantly have in this instance group. For a dynamic group, enter the minimum and maximum number of instances for your group. The number of instances scale automatically within that range based on the target metrics that you define. |
 | Aggregation window (seconds) | For a dynamic group, this value determines the time period that the instance group manager monitors each instance and determines the average utilization. |
 | Cooldown period (seconds) | For a dynamic group, the cooldown period is the time in seconds to pause further scaling actions after scaling takes place. |
-{: caption="Table 2. Instance group selections" caption-side="bottom"}
+{: caption="Instance group selections" caption-side="bottom"}
 
 ### Creating scaling policies
 {: #creating-scaling-policies}
@@ -141,7 +141,7 @@ To add scaling policies, complete the following fields on the **New instance gro
 |-------|-------|
 | Metric type | Select the metric type that you want to associate with a target utilization value to use for adding or removing instances from your group. You can choose one of these metrics: CPU utilization (%), RAM utilization (%), Network in (Mbps), Network out (Mbps). You can define more than one target metric policy, but only one policy for each type of metric. |
 | Average target utilization | Specify the average utilization that you want to achieve for the metric that you select. This target value defines when the instance group manager needs to scale up instances or scale down instances in your group. At the end of each aggregation window, the instance group manager adds the current utilization of each instance and divides it by this target utilization value to determine the membership count. |
-{: caption="Table 3. Scaling policies selections" caption-side="bottom"}
+{: caption="Scaling policies selections" caption-side="bottom"}
 
 ## Setting up auto scale with the CLI
 {: #setting-up-autoscale-cli}
@@ -183,7 +183,7 @@ Gather the following required instance template details.
 | Profile | `ibmcloud is instance-profiles` |
 | Subnet | `ibmcloud is subnets` |
 | Image | `ibmcloud is images` |
-{: caption="Table 1. Required instance template details" caption-side="bottom"}
+{: caption="Required instance template details" caption-side="bottom"}
 
 Use the following commands to determine the required information for creating a new instance template.
 
@@ -418,7 +418,7 @@ Gather the following information.
 | Instance template | ID of the instance template that you created in the previous task |
 | Subnet IDs | Comma-separated IDs of subnets that you must select from the `ibmcloud is subnets` command in the previous task |
 | --membership-count | Number of members in the instance group |
-{: caption="Table 2. Required instance group details" caption-side="bottom"}
+{: caption="Required instance group details" caption-side="bottom"}
 
 After you know these values, use them to run the `instance-group-create` command. In addition to the information that you gathered, you must specify a name for the instance group.
 
@@ -474,7 +474,7 @@ Gather the following information.
 | --------------------------------- | -------------------------------- |
 | INSTANCE_GROUP | ID of the instance group you created in the previous task |
 | --max-members | The maximum number of members in a managed instance group; range 1 - 100 |
-{: caption="Table 3. Required instance group manager details" caption-side="bottom"}
+{: caption="Required instance group manager details" caption-side="bottom"}
 
 After you know these values, use them to run the `instance-group-manager-create` command.
 
@@ -523,7 +523,7 @@ Gather the following information.
 | MANAGER | ID of the manager |
 | --metric-type | The type of metric to be evaluated:  cpu (utilization percent), memory (utilization percent), network_in (Mbps), network_out (Mbps) |
 | --metric-value | The metric target value to be evaluated |
-{: caption="Table 4. Required instance group manager policy details" caption-side="bottom"}
+{: caption="Required instance group manager policy details" caption-side="bottom"}
 
 Use the following commands to determine the required information for creating a new instance template.
 

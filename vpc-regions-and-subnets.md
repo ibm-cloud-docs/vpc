@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, [{CURRENT_YEAR}]
-lastupdated: "[{LAST_UPDATED_DATE}]"
+  years: 2019, 2024
+lastupdated: "2024-10-10"
 
 keywords: address prefixes, regions, subnets, zones, IP, ranges, CIDR
 
@@ -55,7 +55,7 @@ Toronto       |`ca-tor-3`     | `10.249.128.0/18`
 Sao Paulo     |`br-sao-1`     | `10.250.0.0/18`
 Sao Paulo     |`br-sao-2`     | `10.250.64.0/18`
 Sao Paulo     |`br-sao-3`     | `10.250.128.0/18`
-{: caption="Table 1. Address prefixes assigned to a zone in a region" caption-side="bottom"}
+{: caption="Address prefixes assigned to a zone in a region" caption-side="bottom"}
 
 For x86-64 dedicated host profiles, the Madrid region only supports dedicated host profiles with instance storage. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui).
 {: important}

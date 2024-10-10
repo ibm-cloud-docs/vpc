@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-10"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance, instances, virtual servers, creating virtual servers, virtual server instances, virtual machines, Virtual Servers for VPC, compute, vsi, vpc, creating, UI, console
 
@@ -75,7 +75,7 @@ Complete the following actions to import your custom image in the UI.
 | Tags | Custom image |
 | Region | Dallas 2 |
 | Source | Virtual server instance boot volume (default) |
-{: caption="Table 1. Custom image provision user interface fields" caption-side="bottom"}
+{: caption="Custom image provision user interface fields" caption-side="bottom"}
 
 ### Create an image from a virtual server instance boot volume
 {: #import-custom-boot-image-vsi}
@@ -109,7 +109,7 @@ You can create virtual server instances in your {{site.data.keyword.vpc_short}} 
    | SSH key | An existing SSH key \n For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
    | Data volumes | You can add one or more secondary data volumes to be included when you provision the instance. To add volumes, click **Create** in the Data volumes section of the page. \n For more information about provisioning the volume, see [Create and attach a Block Storage volume when you create an instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi). |
    | Networking | Select your pre-existing VPC |
-   {: caption="Table 2. Instance provisioning selections" caption-side="bottom"}
+   {: caption="Instance provisioning selections" caption-side="bottom"}
 
 3. Click **Create virtual server instance** when you are ready to provision.
 

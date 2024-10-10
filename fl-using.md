@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-09-16"
+lastupdated: "2024-10-10"
 
 keywords: flow logs, getting started
 
@@ -50,7 +50,7 @@ You can set the granularity of a flow log collector for the following target sco
 | Subnet | Collects data for all network interfaces on a specific subnet. |
 | Instance | Collects data for all network interfaces on a specific virtual server. |
 | Interface | Collects data for a specific network interface on a specific virtual server. |
-{: caption="Table 1. Flow log target scopes" caption-side="bottom}
+{: caption="Flow log target scopes" caption-side="bottom}
 
 During each collector upload interval, there are two flow logs (ingress and egress) per network interface that are written to the designated {{site.data.keyword.cos_short}} bucket.
 {: note}
@@ -93,7 +93,7 @@ The following diagram shows possible ways that you can configure flow log collec
 * The **Subnet** flow log collector (green) is also an umbrella collector, but for a specific subnet within a VPC. Any instances in this subnet, or in the future within this subnet, flow into Bucket-C.
 * The **Instance** flow log collector (red) is used when you need even finer granularity. For example, suppose that Instance-5 was using Bucket-E and you are trying to troubleshoot a connectivity issue on a specific instance. You can narrow down your troubleshooting by creating a flow log collector just for that instance, sending all its traffic to a separate bucket for a certain amount of time.
 
-   ![Finest granularity wins example](images/fl-granularity.png "Finest granularity wins example"){: caption="Figure 1. Finest granularity wins example" caption-side="bottom}
+   ![Finest granularity wins example](images/fl-granularity.png "Finest granularity wins example"){: caption="Finest granularity wins example" caption-side="bottom}
 
 ### Use case 2: Troubleshooting security groups and network ACLs
 {: #troubleshooting-perf-problems-example}
@@ -108,14 +108,14 @@ Scenario:
 4. When virtual server instance 31 receives the request, it generates a reply and tries to send it. Unfortunately, the response cannot be returned and your connection hangs on Subnet 2 until it times out.
 5. Flow logs show that the request was sent and that it was accepted on virtual server instance 31. Flow logs show that the response traffic was rejected.
 
-![Troubleshooting security groups and network ACLs](images/fl-sc-acls.png "Troubleshooting security groups and network ACLs"){: caption="Figure 2. Troubleshooting security groups and network ACLs" caption-side="bottom}
+![Troubleshooting security groups and network ACLs](images/fl-sc-acls.png "Troubleshooting security groups and network ACLs"){: caption="Troubleshooting security groups and network ACLs" caption-side="bottom}
 
 ### Use case 3: Detecting port vulnerabilities
 {: #detect-port-vulnerabilities-example}
 
 Consider a scenario where an attacker initiates connections to different TCP ports. In turn, these connections are blocked by the security group filter. Flow logs collect all the flows that were rejected by the security group and reports them to {{site.data.keyword.cos_full}}.
 
-![Example of detecting port vulnerabilities](images/fl-attack.png "Example of detecting port vulnerabilities"){: caption="Figure 3. Example of detecting port vulnerabilities" caption-side="bottom}
+![Example of detecting port vulnerabilities](images/fl-attack.png "Example of detecting port vulnerabilities"){: caption="Example of detecting port vulnerabilities" caption-side="bottom}
 
 ## Related links
 {: #fl-related-links}

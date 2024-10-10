@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2024
-lastupdated: "2024-08-06"
+lastupdated: "2024-10-10"
 
 subcollection: vpc
 
@@ -27,6 +27,6 @@ See the following information to understand the status of your reservation.
 | `allocated` | The total capacity of the reservation is ready for use. |
 | `degraded` | Capacity in the reservation is allocated, but some of the capacity is not available. |
 | `unallocated` | Capacity in the reservation isn't allocated and isn't available to use. |
-{: caption="Table 1. Reservation status messages" caption-side="top"}
+{: caption="Reservation status messages" caption-side="top"}
 
 If you need more help, contact [support](/docs/vpc?topic=vpc-getting-help-and-support-for-vpc).

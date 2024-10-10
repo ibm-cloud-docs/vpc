@@ -54,7 +54,7 @@ You can specify the following configurations for PCI and VLAN interfaces. For VL
 | VLAN ID (VLAN interface only) | You must specify the VLAN ID tag to use for all traffic on this VLAN interface. The VLAN ID range is between 1 and 4094. |
 | Associated PCI interface (VLAN interface only) | If more than one PCI interfaces are created on the bare metal server, you must select a PCI interface to associate to this VLAN interface. Make sure that you associate the VLAN interfaces with the same VLAN ID that is on a bare metal server with one subnet. You can't create two VLAN interfaces with the same ID in two subnets. However, you can associate VLAN interfaces with different VLAN ID with one subnet. |
 | Allowed VLANs (PCI interface only) | Specify the VLAN IDs of the VLAN interfaces that can use the PCI interface. The VLAN ID range is between 1 and 4094. |
-{: caption="Table 1. Bare metal server network interface configurations" caption-side="bottom"}
+{: caption="Bare metal server network interface configurations" caption-side="bottom"}
 
 
 ## Creating a network interface
@@ -94,7 +94,7 @@ You can create a virtual network interface without attaching it to a target. The
 Virtual network interfaces can be attached to new bare metal server instances, and cannot be added to existing bare metal server instances with child network interfaces.
 {: note}
 
-![Bare metal server network attachment](images/vni-bm-arch.svg "Bare metal server with a network attachment"){: caption="Figure 1. Diagram of a bare metal server with a network attachment connected to a virtual network interface" caption-side="bottom"}
+![Bare metal server network attachment](images/vni-bm-arch.svg "Bare metal server with a network attachment"){: caption="Diagram of a bare metal server with a network attachment connected to a virtual network interface" caption-side="bottom"}
 
 1. In the {{site.data.keyword.cloud_notm}} console, go to **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Compute > Bare metal servers**.
 1. Click **Create** to begin creating a bare metal server capable of using a virtual network interface.

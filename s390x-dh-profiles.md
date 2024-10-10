@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-10"
 
 keywords: dedicated host profiles, s390x
 
@@ -27,7 +27,7 @@ The following profile families are available:
 | Families | Description |
 | -------- | ----------- |
 | [Memory](#s390x-dh-memory) | Best for memory intensive processes, such as memory caching, intensive database applications, or in-memory analytics workloads. Memory profiles offer vCPU to memory ratios with 1 vCPU to 8 GiB of RAM. Memory profiles are offered with and without instance storage. |
-{: caption="Table 1. Dedicated host family selections" caption-side="bottom"}
+{: caption="Dedicated host family selections" caption-side="bottom"}
 {: #dh-memory-s390x}
 
 
@@ -41,7 +41,7 @@ The following Memory profile is available for dedicated hosts.
 | Dedicated host profile | vCPU | GiB RAM | Instance storage |
 |---------|---------|---------| ---------|
 | mz2-host-40x320 | 40 | 320 | - |
-{: caption="Table 2. s390x memory profile options for dedicated hosts" caption-side="bottom"}
+{: caption="s390x memory profile options for dedicated hosts" caption-side="bottom"}
 
 Dedicated hosts have a network performance cap of 80 Gbps. Instances that are created on the host share bandwidth across the instances.
 {: note}
@@ -59,7 +59,7 @@ The following example describes the individual parts that make up a dedicated ho
 | Family | Architecture | Generation | Specialty | Offering | vCPU | RAM |
 | ------ | ------------ | ---------- | ----------| -------- | ---- | --- |
 | m      | z            | 2         | -        | host-    | 40x | 320  |
-{: caption="Table 3. Individual parts that comprise the dedicated host profile" caption-side="bottom"}
+{: caption="Individual parts that comprise the dedicated host profile" caption-side="bottom"}
 
 The first character represents the profile family. Different profile families have different ratios of CPU to memory, which is designed for different workloads.
 - "b": balanced family, 1:4 ratio

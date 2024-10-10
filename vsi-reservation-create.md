@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-10-08"
+lastupdated: "2024-10-10"
 
 subcollection: vpc
 
@@ -45,7 +45,7 @@ In the {{site.data.keyword.cloud_notm}}, complete the following steps to provisi
    | Term length             | Choose either a 1 or 3-year term length. |
    | Server profile          | Select a [profile](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc#reserved-virtual-servers-vpc-supported-profiles) for your reservation. Keep the following rules in mind when you reserve capacity.  \n You can't change profiles after your reservation is created.  \n You can't combine different profile sizes.  \n Your reserved virtual servers must all have the same size (all resources must be identical). |
    | Advanced options | Toggle **Auto renew** to **On** if you want to continue your reservation after your selected term length completes.|
-   {: caption="Table 1. Reservation UI provisioning selections" caption-side="top"}
+   {: caption="Reservation UI provisioning selections" caption-side="top"}
 
 4. Click **Create a reservation**.
 
@@ -108,7 +108,7 @@ Gather the following information by using the associated commands.
 | Server profile          |  Keep the following rules in mind when you provision a reservation.  \n - You can't change profiles after your reservation is created.  \n - You can't combine different profile sizes.  \n - Your reserved virtual servers must all have the same size (all resources must be identical). |
 | Zone               | Select the specific location for your workload. Locations are composed of regions; each region is a separate geographic area. Keep in mind that you can't select individual locations for each virtual server that you provision within this reserved capacity. Your selection is the location for all virtual server instances that you provision within this reservation. |
 | Name                    | The name for your reservation. |
-{: caption="Table 2. Required reservation details for the CLI" captin-side="bottom"}
+{: caption="Required reservation details for the CLI" captin-side="bottom"}
 
 ## Provisioning a reservation by using the CLI
 {: #provision-reserved-capacity-cli-vpc}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-07-10"
+lastupdated: "2024-10-10"
 
 keywords: instance backup, veeam, replication software
 
@@ -73,7 +73,7 @@ Objects | Choose _Add_ and then select _Device_. Add the device path for each vo
 Storage | Choose the backup repository where you want the backup to be stored.
 Guest Processing | Select any options that you want.
 Schedule | Choose the preferred time schedule, and then select _Finish_ to complete the job creation.
-{: caption="Table 1. Creating volume backup job menu panes and values" caption-side="bottom"}
+{: caption="Creating volume backup job menu panes and values" caption-side="bottom"}
 
 The backup job runs at the scheduled time.  On the initial run, the Veeam Agent for Linux is installed and configured on the CentOS instance for VPC. The selected volumes are then backed up to the Veeam backup repository.
 {: note}

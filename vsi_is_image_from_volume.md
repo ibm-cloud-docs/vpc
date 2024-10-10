@@ -38,7 +38,7 @@ With {{site.data.keyword.iamshort}} (IAM), you can securely authenticate users f
 | Delete image                       | is.image.image.delete       | Administrator, Editor| `DELETE /images` |
 | Schedule deprecation               | is.image.image.deprecate    | Administrator, Editor| `POST /images` with `deprecation_at` value specified| 
 | Schedule obsolescence              | is.image.image.obsolete     | Administrator, Editor | `POST /images` with `obsolescence_at` value specified|
-{: caption="Table 1. IAM user permissions" caption-side="bottom"}
+{: caption="IAM user permissions" caption-side="bottom"}
 
 ## Volume requirements
 {: #ifv-requirements}

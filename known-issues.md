@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-08-16"
+lastupdated: "2024-10-10"
 
 keywords:
 
@@ -79,7 +79,7 @@ Because all bare metal profiles are VMware&reg; certified, the `supported_image_
 | `GET /subnets/{subnet-id}/network_acl` | VPC Viewer | is.vpc.vpc.read |
 | `PUT /subnets/{subnet-id}/network_acl` | VPC Viewer | is.vpc.vpc.read |
 | `PATCH /floating_ips/{id}` | Subnet Operator | is.subnet.subnet.operate |
-{: caption="Table 1. API additional authorization requirements" caption-side="bottom"}
+{: caption="API additional authorization requirements" caption-side="bottom"}
 
 ## Storage known issues
 {: #storage-vpc-known-issues}

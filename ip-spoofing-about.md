@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2024-07-10"
+lastupdated: "2024-10-10"
 
 keywords: anti-spoofing, source destination check, ip spoofing
 
@@ -25,9 +25,9 @@ Traffic can be dropped at two points in the check:
 
 - Outgoing traffic is checked to verify that the content comes from the selected network interface address. Traffic from the selected network interface is dropped if its source address does not match the selected network interface address.
 
-![Figure showing unsuccessful traffic flow to and from a virtual server instance](images/as-deny.svg "Figure showing unsuccessful traffic flow to and from a virtual server instance"){: caption="Figure 1. Unsuccessful IP spoofing check" caption-side="bottom"}
+![Figure showing unsuccessful traffic flow to and from a virtual server instance](images/as-deny.svg "Figure showing unsuccessful traffic flow to and from a virtual server instance"){: caption="Unsuccessful IP spoofing check" caption-side="bottom"}
 
-![Figure showing successful traffic flow to and from a virtual server instance](images/as-allow.svg "Figure showing successful traffic flow to and from a virtual server instance"){: caption="Figure 2. Successful IP spoofing check" caption-side="bottom"}
+![Figure showing successful traffic flow to and from a virtual server instance](images/as-allow.svg "Figure showing successful traffic flow to and from a virtual server instance"){: caption="Successful IP spoofing check" caption-side="bottom"}
 
 Only operators with **IP Spoofing Operator** Identity and Access Management (IAM) privileges can enable or disable the IP spoofing check on the interfaces within a VPC. Ingress and egress IP Spoofing checks are enabled by default.
 

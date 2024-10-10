@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-09-24"
+lastupdated: "2024-10-10"
 
 keywords: confidential computing, secure execution, logging for hyper protect virtual server for vpc
 
@@ -44,7 +44,10 @@ Access to {{site.data.keyword.logs_full_notm}} instances for users in vpc accoun
 
  - Cloud Logs
   
-To add relevant roles for these policies, refer to [Managing IAM access for {{site.data.keyword.logs_routing_full_notm}}](https://cloud.ibm.com/docs/logs-router?topic=logs-router-iam&interface=api).
+
+
+To add relevant roles for these policies, refer to [Managing IAM access for IBM Cloud Logs](https://cloud.ibm.com/docs/cloud-logs?topic=cloud-logs-iam-assign-access&interface=ui)
+
 
 
 ### Provisioning an ICL instance

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-09-04"
+lastupdated: "2024-10-10"
 
 keywords: peering, interconnectivity, interconnect
 
@@ -54,7 +54,7 @@ IBM has the following offerings that can help you interconnect a VPC with an on-
 | `10.111.0.0/24` | from VPC Z through Transit Gateway (global) |
 | `13.111.0.0/24` | from VPC Z through Transit Gateway (global) |
 {: class="simple-tab-table"}
-{: caption="Table 1. VPC A Networks" caption-side="bottom"}
+{: caption="VPC A Networks" caption-side="bottom"}
 {: #simpletabtable1}
 {: tab-title="VPC A Networks"}
 {: tab-group="connect-simple"}
@@ -65,7 +65,7 @@ IBM has the following offerings that can help you interconnect a VPC with an on-
 | `13.101.0.0/24` | from VPC B subnet |
 | `10.100.0.0/24` | from VPC A through Transit Gateway (local) |
 | `13.100.0.0/24` | from VPC A through Transit Gateway (local) |
-{: caption="Table 2. VPC B Networks" caption-side="bottom"}
+{: caption="VPC B Networks" caption-side="bottom"}
 {: #simpletabtable2}
 {: tab-title="VPC B Networks"}
 {: tab-group="connect-simple"}
@@ -78,7 +78,7 @@ IBM has the following offerings that can help you interconnect a VPC with an on-
 | `10.100.0.0/24` | from VPC A through Transit Gateway (global) |
 | `13.100.0.0/24` | from VPC A through Transit Gateway (global) |
 {: class="simple-tab-table"}
-{: caption="Table 3. VPC Z Networks" caption-side="bottom"}
+{: caption="VPC Z Networks" caption-side="bottom"}
 {: #simpletabtable3}
 {: tab-title="VPC Z Networks"}
 {: tab-group="connect-simple"}
@@ -127,7 +127,7 @@ Using IANA ranges works only with custom routes having the `Delegate-VPC` action
 | `172.16.0.0/12` | from an Enterprise through Direct Link |
 | `13.0.0.0/8` | from an Enterprise through Direct Link |
 {: class="simple-tab-table"}
-{: caption="Table 4. VPC A Networks" caption-side="bottom"}
+{: caption="VPC A Networks" caption-side="bottom"}
 {: #simpletabtable4}
 {: tab-title="VPC A Networks"}
 {: tab-group="connect-simple2"}
@@ -141,7 +141,7 @@ Using IANA ranges works only with custom routes having the `Delegate-VPC` action
 | `10.0.0.0/8` | from an Enterprise through Direct Link |
 | `172.16.0.0/12` | from an Enterprise through Direct Link  |
 | `13.0.0.0/8` | from an Enterprise through Direct Link  |
-{: caption="Table 5. VPC B Networks" caption-side="bottom"}
+{: caption="VPC B Networks" caption-side="bottom"}
 {: #simpletabtable5}
 {: tab-title="VPC B Networks"}
 {: tab-group="connect-simple2"}
@@ -153,7 +153,7 @@ Using IANA ranges works only with custom routes having the `Delegate-VPC` action
 | `13.0.0.0/8` | `Delegate-VPC` | - | us-south-2 |
 | `13.0.0.0/8` | `Delegate-VPC` | - | us-south-3 |
 {: class="simple-tab-table"}
-{: caption="Table 6. VPC A Default (Egress) Routing Table" caption-side="bottom"}
+{: caption="VPC A Default (Egress) Routing Table" caption-side="bottom"}
 {: #simpletabtable6}
 {: tab-title="VPC A Default (Egress) Routing Table"}
 {: tab-group="connect-simple3"}
@@ -163,7 +163,7 @@ Using IANA ranges works only with custom routes having the `Delegate-VPC` action
 | `13.0.0.0/8` | `Delegate-VPC` | - | us-south-1 |
 | `13.0.0.0/8` | `Delegate-VPC` | - | us-south-2 |
 | `13.0.0.0/8` | `Delegate-VPC` | - | us-south-3 |
-{: caption="Table 7. VPC B Default (Egress) Routing Table" caption-side="bottom"}
+{: caption="VPC B Default (Egress) Routing Table" caption-side="bottom"}
 {: #simpletabtable7}
 {: tab-title="VPC B Default (Egress) Routing Table"}
 {: tab-group="connect-simple3"}
@@ -183,7 +183,7 @@ Using IANA ranges works only with custom routes having the `Delegate-VPC` action
 | `10.111.0.0/24` | from VPC Z through Transit Gateway (global)  |
 | `13.111.0.0/24` | from VPC Z through Transit Gateway  (global) |
 {: class="simple-tab-table"}
-{: caption="Table 8. VPC A Networks" caption-side="bottom"}
+{: caption="VPC A Networks" caption-side="bottom"}
 {: #simpletabtable8}
 {: tab-title="VPC A Networks"}
 {: tab-group="connect-simple4"}
@@ -194,7 +194,7 @@ Using IANA ranges works only with custom routes having the `Delegate-VPC` action
 | `13.101.0.0/24` | from VPC B subnet |
 | `10.100.0.0/24` | from VPC A through Transit Gateway (local) |
 | `13.100.0.0/24` | from VPC A through Transit Gateway (local) |
-{: caption="Table 9. VPC B Networks" caption-side="bottom"}
+{: caption="VPC B Networks" caption-side="bottom"}
 {: #simpletabtable9}
 {: tab-title="VPC B Networks"}
 {: tab-group="connect-simple4"}
@@ -206,7 +206,7 @@ Using IANA ranges works only with custom routes having the `Delegate-VPC` action
 | `13.111.0.0/24` | from VPC Z subnet |
 | `10.100.0.0/24` | from VPC A through Transit Gateway (global) |
 | `13.100.0.0/24` | from VPC A through Transit Gateway (global) |
-{: caption="Table 10. VPC Z Networks" caption-side="bottom"}
+{: caption="VPC Z Networks" caption-side="bottom"}
 {: #simpletabtable10}
 {: tab-title="VPC Z Networks"}
 {: tab-group="connect-simple4"}
@@ -218,7 +218,7 @@ Using IANA ranges works only with custom routes having the `Delegate-VPC` action
 | `13.0.0.0/8` | `Delegate-VPC` | - | us-south-2 |
 | `13.0.0.0/8` | `Delegate-VPC` | - | us-south-3 |
 {: class="simple-tab-table"}
-{: caption="Table 11. VPC A Default (Egress) Routing Table" caption-side="bottom"}
+{: caption="VPC A Default (Egress) Routing Table" caption-side="bottom"}
 {: #simpletabtable11}
 {: tab-title="VPC A Default (Egress) Routing Table"}
 {: tab-group="connect-simple5"}
@@ -229,7 +229,7 @@ Using IANA ranges works only with custom routes having the `Delegate-VPC` action
 | `13.0.0.0/8` | `Delegate-VPC` | - | us-south-2 |
 | `13.0.0.0/8` | `Delegate-VPC` | - | us-south-3 |
 {: class="simple-tab-table"}
-{: caption="Table 12. VPC B Default (Egress) Routing Table" caption-side="bottom"}
+{: caption="VPC B Default (Egress) Routing Table" caption-side="bottom"}
 {: #simpletabtable12}
 {: tab-title="VPC B Default (Egress) Routing Table"}
 {: tab-group="connect-simple5"}
@@ -239,7 +239,7 @@ Using IANA ranges works only with custom routes having the `Delegate-VPC` action
 | `13.0.0.0/8` | `Delegate-VPC` | - | us-east-1 |
 | `13.0.0.0/8` | `Delegate-VPC` | - | us-east-2 |
 | `13.0.0.0/8` | `Delegate-VPC` | - | us-east-3 |
-{: caption="Table 13. VPC Z Default (Egress) Routing Table" caption-side="bottom"}
+{: caption="VPC Z Default (Egress) Routing Table" caption-side="bottom"}
 {: #simpletabtable13}
 {: tab-title="VPC Z Default (Egress) Routing Table"}
 {: tab-group="connect-simple5"}
@@ -255,7 +255,7 @@ Using IANA ranges works only with custom routes having the `Delegate-VPC` action
 | `10.100.0.0/24` | from VPC A subnet |
 | `13.100.0.0/24` | from VPC A subnet |
 | `13.111.0.0/24` | from Classic through Transit Gateway |
-{: caption="Table 14. VPC B Networks" caption-side="bottom"}
+{: caption="VPC B Networks" caption-side="bottom"}
 {: #simpletabtable14}
 {: tab-title="VPC A Networks"}
 {: tab-group="connect-simple6"}
@@ -266,7 +266,7 @@ Using IANA ranges works only with custom routes having the `Delegate-VPC` action
 | `13.0.0.0/8` | `Delegate-VPC` | - | us-south-1 |
 | `13.0.0.0/8` | `Delegate-VPC` | - | us-south-2 |
 | `13.0.0.0/8` | `Delegate-VPC` | - | us-south-3 |
-{: caption="Table 15. VPC A Default (Egress) Routing Table" caption-side="bottom"}
+{: caption="VPC A Default (Egress) Routing Table" caption-side="bottom"}
 {: #simpletabtable15}
 {: tab-title="VPC A Default (Egress) Routing Table"}
 {: tab-group="connect-simple7"}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-06-20"
+lastupdated: "2024-10-10"
 
 keywords: vpe, acls, virtual private endpoints, endpoint gateways
 
@@ -60,4 +60,4 @@ For example, configure the following inbound rule, which allows all traffic on p
 | Protocol | Source type | Source | Value |
 |-----------|------|------|-------|
 | TCP | Any | `0.0.0.0/0` | Port 80 |
-{: caption="Table 1. Example configuration information for inbound rules" caption-side="bottom"}
+{: caption="Example configuration information for inbound rules" caption-side="bottom"}

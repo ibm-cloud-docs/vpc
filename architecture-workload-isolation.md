@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-07-08"
+lastupdated: "2024-10-10"
 
 keywords: public isolation for VPC, compute isolation for VPC, VPC architecture, workload isolation in VPC
 
@@ -26,7 +26,7 @@ To understand the isolation aspects of your workloads and data, the diagram show
 For more information about network traffic isolation, see [VPC behind the curtain](/docs/vpc?topic=vpc-vpc-behind-the-curtain).
 {: note}
 
-![VPC Components](images/vpc-isolation-architecture-updated.png "VPC components"){: caption="Figure 1. Fundamental VPC components" caption-side="bottom"}
+![VPC Components](images/vpc-isolation-architecture-updated.png "VPC components"){: caption="Fundamental VPC components" caption-side="bottom"}
 
 | Component | Description
 | :---: | --- |
@@ -38,7 +38,7 @@ For more information about network traffic isolation, see [VPC behind the curtai
 | VPC control plane data store | Your VPC resources are persisted in a data store that is replicated across all zones in the region. This store contains metadata about these resources only, and does not contain your data. For example, this store contains information about each VPC Image resource, such as its name, CRN, and creation date. However, it does not contain the image data itself, which is hosted on the storage devices. All communication between control plane services and the control plane data store is secure and encrypted. |
 | Block Storage | Each zone of each region contains a set of replicated storage devices, which host the data for your VPC volumes. Your data is always encrypted at rest, and is isolated to your account. In addition, you can use [Customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about) and your own root keys for end-to-end encryption of your boot and data volumes. Regional buckets use {{site.data.keyword.keymanagementserviceshort}} for data encryption at rest. Storage data flows between storage devices and hypervisor nodes only, and does not flow to control nodes.|
 | Snapshots | Snapshots that you create of your volumes are stored in {{site.data.keyword.cos_full}} and available for regional restoration. Your snapshots are protected by using {{site.data.keyword.keymanagementserviceshort}} for data encryption at rest. Snapshot data flows between {{site.data.keyword.cos_short}} and hypervisor nodes only, and does not flow to control nodes. |
-{: caption="Table 1. VPC components" caption-side="bottom"}
+{: caption="VPC components" caption-side="bottom"}
 
 ## VPC dependencies
 {: #vpc_workload-isolation}
@@ -90,11 +90,11 @@ The following table lists the main dependencies of the VPC service and the purpo
 | Pulsar | Notifies of encryption key changes at IBM {{site.data.keyword.keymanagementserviceshort}} or Hyper Protect Crypto Services that affect volumes, instances, or images in VPC. |
 | New Relic | Stores a set of metrics events that are used by IBM's internal infrastructure team. |
 | LaunchDarkly | Manages the rollout of new features in VPC Infrastructure Services. LaunchDarkly provides feature flags that are used to control the visibility and availability of a feature to a selected user base. |
-{: caption="Table 2. VPC dependencies" caption-side="bottom"}
+{: caption="VPC dependencies" caption-side="bottom"}
 
 The following diagram depicts and classifies the dependencies of the VPC service:
 
-![VPC Dependency Diagram](images/vpc-dependencies-architecture.svg "VPC dependency diagram"){: caption="Figure 2. VPC dependencies" caption-side="bottom"}
+![VPC Dependency Diagram](images/vpc-dependencies-architecture.svg "VPC dependency diagram"){: caption="VPC dependencies" caption-side="bottom"}
 
 For purposes of classification, a dependency is considered "hard" if a failure can impact the
 availability of some of or all of the VPC service. For example, failure of the Red Hat Licensing Service prevents activation of compute instances that are provisioned with {{site.data.keyword.cloud_notm}}-provided Red Hat Enterprise Linux images in that region.

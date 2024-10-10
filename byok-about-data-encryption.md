@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-09-26"
+lastupdated: "2024-10-10"
 
 keywords:
 
@@ -134,7 +134,7 @@ Table 1 describes these services:
 |-----|-----|-----|
 | [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial) | FIPS 140-2 _Level 3_ compliance | With A multi-tenant KMS, you can import or create your root keys and securely manage them.  |
 | [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started) | FIPS 140-2 _Level 4_ compliance | The highest level of security. A single-tenant KMS and [hardware security module (HSM)](#x6704988){: term} that is controlled by you. Import or create your root keys and securely manage them. Create an HSM master key to encrypt the content of key storage, including root keys. Only you have access to your keys and data. |
-{: caption="Table 1. Available key management service options" caption-side="bottom"}
+{: caption="Available key management service options" caption-side="bottom"}
 
 You might see {{site.data.keyword.keymanagementserviceshort}} being described as _BYOK_, "bring your own key" and {{site.data.keyword.hscrypto}} as _KYOK_, or "keep your own key". {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.hscrypto}} are similar services.
 {: note}
@@ -144,7 +144,7 @@ You might see {{site.data.keyword.keymanagementserviceshort}} being described as
 
 Root keys serve as key-wrapping keys and are an important part of envelope encryption. With envelope encryption, root keys encrypt LUKS passphrases (also called _key encryption keys_) which, in turn, secure _data encryption keys_ (DEKs) that encrypt your data on the virtual disk. Figure 1 illustrates this process.
 
-![Figure showing envelope encryption.](/images/envelope-encryption.png "Contextual view of envelope encryption"){: caption="Figure 1. Contextual view of envelope encryption" caption-side="bottom"}
+![Figure showing envelope encryption.](/images/envelope-encryption.png "Contextual view of envelope encryption"){: caption="Contextual view of envelope encryption" caption-side="bottom"}
 
 Both {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.hscrypto}} provide envelope encryption. Root keys in {{site.data.keyword.hscrypto}} service instances are also protected by a hardware security module (HSM) master key. The KMS stores your key and makes it available during volume and custom image encryption. You also manage your keys in the KMS.
 
@@ -189,11 +189,11 @@ You can specify customer-managed encryption when you create {{site.data.keyword.
 
 Figure 1 shows the procedure for creating a data volume with customer-managed encryption during instance provisioning. The volume is automatically attached to the instance.
 
-![Figure shows the procedure for creating an instance with a customer-managed encrypted volume.](/images/vpc_flowchart_instances_color.svg "Figure shows the procedure for creating an instance with a customer-managed encrypted volume"){: caption="Figure 1. Creating an instance with a customer-managed encrypted volume." caption-side="bottom"}
+![Figure shows the procedure for creating an instance with a customer-managed encrypted volume.](/images/vpc_flowchart_instances_color.svg "Figure shows the procedure for creating an instance with a customer-managed encrypted volume"){: caption="Creating an instance with a customer-managed encrypted volume." caption-side="bottom"}
 
 Figure 2 shows the procedure for creating a stand-alone volume and attaching it to an instance later.
 
-![Figure shows the procedure for creating {{site.data.keyword.block_storage_is_short}} volumes with customer-managed encryption.](/images/vpc_flowchart_volumes_color.svg "Figure shows the procedure for creating {{site.data.keyword.block_storage_is_short}} volumes with customer-managed encryption"){: caption="Figure 2. Creating a {{site.data.keyword.block_storage_is_short}} volume with customer-managed encryption." caption-side="bottom"}
+![Figure shows the procedure for creating {{site.data.keyword.block_storage_is_short}} volumes with customer-managed encryption.](/images/vpc_flowchart_volumes_color.svg "Figure shows the procedure for creating {{site.data.keyword.block_storage_is_short}} volumes with customer-managed encryption"){: caption="Creating a {{site.data.keyword.block_storage_is_short}} volume with customer-managed encryption." caption-side="bottom"}
 
 ### About encrypted custom images
 {: #byok-about-encrypted-images}
@@ -224,7 +224,7 @@ For more information about creating custom images, see [Creating an encrypted cu
 
 Figure 3 shows the procedure for encrypting custom images with your own encryption keys.
 
-![Figure shows the procedure for creating encrypted custom images.](/images/vpc-flowchart-encrypted-images-color.svg "Figure shows the procedure for creating encrypted custom images."){: caption="Figure 3. Creating custom images with customer-managed encryption." caption-side="bottom"}
+![Figure shows the procedure for creating encrypted custom images.](/images/vpc-flowchart-encrypted-images-color.svg "Figure shows the procedure for creating encrypted custom images."){: caption="Creating custom images with customer-managed encryption." caption-side="bottom"}
 
 ## Next Steps
 {: #byok-about-next-steps}

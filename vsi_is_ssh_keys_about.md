@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-10"
 
 keywords: ssh public keys, OpenSSH, add ssh key, ssh key, manage ssh key, generate ssh key, locate ssh key
 
@@ -193,7 +193,7 @@ Use the following steps to create an SSH key. You can create only an RSA SSH key
    | Tags | You can assign a user tag to the SSH key so that you can easily filter a list of SSH keys. For more information, see [Working with tags](/docs/account?topic=account-tag&interface=ui).|
    | Access management tags | Access management tags help you apply flexible access policies on specific resources. For more information, see the [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial) UI tutorial. |
    | SSH key type | The default value is `rsa`. You can generate new RSA key pairs in the UI. Pre-existing RSA and ED25519 SSH keys can be uploaded. ED25519 can be used only if the operating system supports this key type. ED25519 can't be used with Windows or VMware images. |
-   {: caption="Table 1. Creating an SSH key for VPC selections" caption-side="bottom"}
+   {: caption="Creating an SSH key for VPC selections" caption-side="bottom"}
 
 1. Select **Generate a key pair for me**.
 1. Optionally, click **Get sample API call** to get an API code with all your SSH key information that you can copy.
@@ -218,7 +218,7 @@ Use the following steps to import an SSH key from a local file.
    | Resource group | Select a resource group for the SSH key. |
    | Tags | You can assign a user tag to the SSH key so that you can easily filter a list of SSH keys. For more information, see [Working with tags](/docs/account?topic=account-tag&interface=ui).|
    | Access management tags | Access management tags help you apply flexible access policies on specific resources. For more information, see the [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial) UI tutorial. |
-   {: caption="Table 1. Creating an SSH key for VPC selections" caption-side="bottom"}
+   {: caption="Creating an SSH key for VPC selections" caption-side="bottom"}
 
 1. Select **Provide existing public key**.
 1. Click **Upload public key**.

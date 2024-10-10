@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-09-24"
+lastupdated: "2024-10-10"
 
 keywords: file storage, file share, performance, IOPS, block size, capacity, range
 
@@ -34,7 +34,7 @@ Table 1 shows the dp2 profile performance levels compared to the earlier profile
 | `tiered` | `tier-5iops`    |     5 IOPS/GB |   3,000-48,000 |            768 MB/s |  10-9,600 GB | 
 | `tiered` | `tier-10iops`   |    10 IOPS/GB |   3,000-48,000 |           1024 MB/s |  10-4,800 GB | 
 | `custom` | `custom`        | 1-100 IOPS/GB |   3,000-48,000 |           1024 MB/s | 10-16,000 GB | 
-{: caption="Table 1. Comparison of file share profiles and performance levels." caption-side="top"}
+{: caption="Comparison of file share profiles and performance levels." caption-side="top"}
 
 [^tabletext1]: IOPS values are based on 16k I/O size.
 [^tabletext2]: Baseline throughput is determined by the number of IOPS multiplied by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB or custom IOPS tiers. The higher the IOPS that you specify, the higher the throughput. Maximum throughput is 1024 MBps.
@@ -60,7 +60,7 @@ Table 2 shows the available IOPS ranges, based on share size.
 | 4,000 - 7,999   | 300 - 40,000 |
 | 8,000 - 15,999  | 500 - 64,000 | 
 | 16,000 - 32,000  | 2,000 - 96,000^1^|
-{: caption="Table 2. dp2 file share profile IOPS and capacity ranges." caption-side="top"}
+{: caption="dp2 file share profile IOPS and capacity ranges." caption-side="top"}
 
 ^1^ For the 96,000 IOPS to be realized, a single file share must be accessed by multiple virtual server instances. A single file share that is accessed by one client is limited to 48,000 IOPS.
 
@@ -80,7 +80,7 @@ Existing file shares can be based on IOPS tiers that you selected when you creat
 | 3 IOPS/GB | General-purpose workloads  | 10-32,000 | 48,000-96,000¹ |
 | 5 IOPS/GB | High I/O intensity workloads | 10-9,600 | 48,000 |
 | 10 IOPS/GB | Demanding storage workloads | 10-4,800 | 48,000 |
-{: caption="Table 3. IOPS tier profiles and performance levels for each tier" caption-side="bottom"}
+{: caption="IOPS tier profiles and performance levels for each tier" caption-side="bottom"}
 
 ¹For the 96,000 IOPS to be realized, a single file share must be accessed by multiple virtual server instances. A single file share that is accessed by only one client is limited to 48,000 IOPS.
 
@@ -106,7 +106,7 @@ Table 4 shows the available IOPS ranges based on file share size.
 | 4,000 - 7,999 | 300 - 40,000 |
 | 8,000 - 9,999 | 500 - 48,000 |
 | 10,000 - 16,000 | 1,000 - 48,000 |
-{: caption="Table 4. Available IOPS based on file share size." caption-side="bottom"}
+{: caption="Available IOPS based on file share size." caption-side="bottom"}
 
 The total maximum IOPS is rounded up to the next multiple of 10 when the IOPS calculation results in IOPS less than or equal to 48,000 IOPS.
 {: note}
@@ -226,7 +226,7 @@ Table 5 provides some examples of how block size and IOPS affect the throughput,
 | 128 | 128 | 16 |
 | 512 | 32 | 16 |
 | 1,024 | 16 | 16 |
-{: caption="Table 5. How block size and IOPS affect throughput." caption-side="bottom"}
+{: caption="How block size and IOPS affect throughput." caption-side="bottom"}
 
 ^1^ If your cap is 1000 IOPS or 16 KB block size, the throughput caps at whatever limit is reached first.
 

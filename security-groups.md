@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-10"
 
 keywords:
 
@@ -115,7 +115,7 @@ The following diagram illustrates the potential customization options when you c
 
 If the User decides to assign the new resource to a new security group, the new security group is automatically assigned the default security group rule. Then the User can choose to take no further action, or choose to customize rules to create a custom security group rule for their new security group. These new rules also apply to the new resource created and assigned to the new security group:
 
-![Security group and security group rule customization options when creating a new resource](images/sg-customization-options.svg "Security group and security group rule customization options when creating a new resource"){: caption="Figure 2. Security group and security group rule customization options when creating a new resource" caption-side="bottom"}
+![Security group and security group rule customization options when creating a new resource](images/sg-customization-options.svg "Security group and security group rule customization options when creating a new resource"){: caption="Security group and security group rule customization options when creating a new resource" caption-side="bottom"}
 
 ### Use case 3: Allow traffic between members of a security group
 {: #sg-use-case-3}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-09-16"
+lastupdated: "2024-10-10"
 
 keywords: flow logs, viewing objects, analyze
 
@@ -110,7 +110,7 @@ The object header fields that are specified in the following table are written t
 | `state`                  | string |  Indicates the operational state of the flow log collector. `OK` means that data is being collected and shipped without any errors. `skip data` indicates data that was lost during this collection interval (for example, because of high rate of rejected SYN packets). |
 | `number_of_flow_logs`    | uin32  | The number of elements in a `flow_logs` array. Since this number is highly variable, it's useful as a quick reference of the number of flow logs contained in a single {{site.data.keyword.cos_short}} object, without needing to download the object first. |
 | `flow_logs`              | array of JSON objects | This can be an empty array, which indicates `no traffic`.|
-{: caption="Table 1. Flow logs object header fields (per {{site.data.keyword.cos_short}} object)" caption-side="bottom"}
+{: caption="Flow logs object header fields (per {{site.data.keyword.cos_short}} object)" caption-side="bottom"}
 
 ### Flow log fields
 {: #flow-log-fields}
@@ -138,7 +138,7 @@ The object header fields that are specified in the following table are written t
 | `cumulative_packets_from_initiator` | uint64 | The count of packets since the connection was initiated, from Initiator to Target. |
 | `cumulative_bytes_from_target` | uint64 | The count of bytes since the connection was initiated, from Target to Initiator. |
 | `cumulative_packets_from_target` | uint64 | The count of packets since the connection was initiated, from Target to Initiator. |
-{: caption="Table 2. Flow log fields" caption-side="bottom"}
+{: caption="Flow log fields" caption-side="bottom"}
 
 In most cases, you can find the direction field by comparing the vNIC’s private IP with the source and destination IPs. However, the field is convenient for queries.
 {: note}

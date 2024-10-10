@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-10"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -38,7 +38,7 @@ Table 1 shows the lifecycle statuses that the backup policy can have.
 | `Pending` | A policy and a plan are being created. |
 | `Deleting`| A policy and a plan are being deleted. |
 | `Deleted` | A policy and a plan no longer exist. |
-{: caption="Table 1. Backup policy statuses." caption-side="bottom"}
+{: caption="Backup policy statuses." caption-side="bottom"}
 
 ## Backup policy health states
 {: #backup-policy-health-states}
@@ -60,7 +60,7 @@ Table 2 shows all the health states that the backup policies can have.
 |`degraded`    | Experiencing compromised performance, capacity, or connectivity. |
 |`faulted`     | Unreachable, inoperative, or otherwise entirely incapacitated. |
 |`inapplicable`| The health state does not apply because of the current lifecycle state. A resource with a lifecycle state of `failed` or `deleting` also has a health state of `inapplicable`. A `pending` resource can also have this state.|
-{: caption="Table 2. Backup policy health states." caption-side="bottom"}
+{: caption="Backup policy health states." caption-side="bottom"}
 
 ## Reviewing backup jobs
 {: #backup-jobs-manage}

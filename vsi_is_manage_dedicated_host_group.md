@@ -37,7 +37,7 @@ To complete management tasks on your dedicated hosts, complete the following ste
 | Disable placement | Temporarily prevent new virtual server instances from being provisioned on this host. No instances can be created on the host until placement is enabled again. You must disable placement before you can delete a dedicated host. |
 | Enable placement | Indicate that new virtual server instances can be provisioned on this host. If placement has been disabled, it must be enabled before instances can be created on the host. |
 | Delete | If you no longer need the dedicated host, you can delete it to permanently remove it from your account. Before you can delete the dedicated host, you must first delete any virtual server instances on the host. (Click the name of the dedicated host to access the Host detail page which displays instances on the host.) Then, you must disable the placement of any new virtual server instances on the dedicated host. This prevents any new instances from being created before you can delete the dedicated host. If the dedicated host is in a failed state, you can proceed directly with the delete action. |
-{: caption="Table 1. Actions available for dedicated hosts" caption-side="bottom"}
+{: caption="Actions available for dedicated hosts" caption-side="bottom"}
 
 ## Viewing dedicated host details
 {: #viewing-host-details}
@@ -63,7 +63,7 @@ To complete management tasks on your dedicated groups, complete the following st
 | New instance | Create a virtual server instance in this dedicated group. The virtual server instance is provisioned on any dedicated host in the group that has space available. |
 | New dedicated host | Create a dedicated host within this dedicated group.|
 | Delete | If you no longer need the dedicated group, you can delete it to permanently remove it from your account. Before you can delete the dedicated group, you must first delete all dedicated hosts and virtual server instances within the group. |
-{: caption="Table 2. Actions available for dedicated groups" caption-side="bottom"}
+{: caption="Actions available for dedicated groups" caption-side="bottom"}
 
 ## Viewing dedicated group details
 {: #viewing-group-details}
