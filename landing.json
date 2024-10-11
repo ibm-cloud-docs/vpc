@@ -1,7 +1,7 @@
 
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2024-10-09",
+    "lastupdated": "2024-10-11",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
@@ -32,6 +32,11 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
+          "date": "08 October 2024",
+          "title": "GPU H100 profile now available in Dallas (us-south) and Frankfurt (eu-de) regions (select availability)",
+          "description": "The GPU H100 profile is now available in the Dallas (us-south) and Frankfurt (eu-de) regions, in addition to London (eu-gb), Sydney (au-syd), Toronto (ca-tor), Madrid (eu-es), Washington DC (us-east), Tokyo (jp-tok), and Sao Paulo (br-sao) regions. The GPU H100 profile is available on the latest generation GPU-enabled infrastructure for running machine learning (ML) and deep learning (DL) frameworks in support of AI initiatives. When you use the H100 virtual server profile, it runs on an NVIDIA Hopper-based HGX server and is the sole tenant running on the host."
+        },
+        {
           "date": "30 September 2024",
           "title": "Tagging VPC routing tables",
           "description": "VPC routing tables now support a cloud resource name (CRN) as an identifier when creating and updating routing tables. When reassigning the routing table for a subnet, the new routing table for the subnet can now optionally be specified by its CRN."
@@ -40,11 +45,6 @@
           "date": "25 September 2024",
           "title": "IBM Hyper Protect Container Runtime image ibm-hyper-protect-container-runtime-1-0-s390x-19 updates",
           "description": "For the IBM Hyper Protect Container Runtime image version ibm-hyper-protect-container-runtime-1-0-s390x-19, new certificates are available."
-        },
-        {
-          "date": "24 September 2024",
-          "title": "Block Storage for VPC snapshots for cross-account restore",
-          "description": "You can now share a snapshot with another account and allow the other account to create volumes with the snapshot. To do so, you must set up cross-account authorization in Cloud Identity and Access Management, and share the CRN of the snapshot with the other account. The other account's authorized storage administrator can use the CRN to create a volume in the console, from the CLI, with the API, or Terraform."
         }
       ]
     }
