@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-10-11"
 
 keywords: snapshots, Block Storage snapshots, manage snapshots, fast restore clone, backup snapshot, remote copy, cross-regional copy
 
@@ -478,7 +478,7 @@ curl -X DELETE \
 Use the following steps to create cross-regional copies of snapshots from the Snapshots for VPC list or from the snapshot details page.
 
 1. In the console, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage snapshots**.
-2. In the list of snapshots, find the snapshot that you want to duplicate in another region.
+2. In the list of snapshots, find the snapshot that you want to duplicate in another region. 
 3. click the Actions menu (![Actions menu](images/overflow.png)) and select **Copy snapshot**.
 4. Select the region where you want to create the copy.
 
@@ -487,7 +487,7 @@ Use the following steps to create cross-regional copies of snapshots from the Sn
 
 5. Click **Create**.
 
-Alternatively, click the snapshot's name to view its details. You can either access the **Cop Snapshot** option from the **Actions** menu or you can scroll to the remote copies card and click **Create copy**. The same provisioning panel opens where you can make the region selection.
+Alternatively, click the snapshot's name to view its details. You can either access the **Copy Snapshot** option from the **Actions** menu or you can scroll to the remote copies card and click **Create copy**. The same provisioning panel opens where you can make the region selection.
 
 ## Deleting remote region copy in the console
 {: #napshots-remote-copy-delete-ui}
@@ -506,7 +506,7 @@ Use the following steps to delete a remote region copy in the console.
 {: #snapshots-remote-copy-create-cli}
 {: cli}
 
-You can create a cross-regional copy of a snapshot by using the `snapshot-create` command with the `--source-snapshot-crn` option and the source snapshot CRN, which creates a snapshot in the target region by using the CRN of a snapshot from the source region. The created snapshot uses the customer-defined encryption key if the CRN of an encryption key was also specified.
+You can create a cross-regional copy of a snapshot by using the `snapshot-create` command with the `--source-snapshot-crn` option and the source snapshot CRN, which creates a snapshot in the target region by using the CRN of a snapshot from the source region. The created snapshot uses the customer-defined encryption key if the CRN of an encryption key was also specified. 
 
 ```sh
 ibmcloud is snapshot-create --name my-cli-snapshot-crc --source-snapshot-crn crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot:r006-b9590a48-63a3-445e-b819-3f2c0b82daf8
@@ -629,7 +629,7 @@ A successful response looks like the following example:
     	   "name": "us-south",
     	   "hfef": "https://us-east.iaas.cloud.ibm.com/v1/regions/us-south"
     	}
-    }
+    },
     "href": "https://us-south.iaas.cloud.ibm.com/v1/images/r006-32045dc2-b463-4cda-b424-bc3dcf51dfbb",
     "id": "r006-32045dc2-b463-4cda-b424-bc3dcf51dfbb",
     "name": "ibm-ubuntu-20-04-minimal-amd64-1"
@@ -641,11 +641,11 @@ A successful response looks like the following example:
     	   "name": "us-south",
     	   "hfef": "https://us-east.iaas.cloud.ibm.com/v1/regions/us-south"
     	}
-    }
+    },
     "href": "https://us-south.iaas.cloud.ibm.com/v1/snapshots/r006-511a798c-5816-4082-8ecb-554a440f83de",
     "id": "r006-511a798c-5816-4082-8ecb-554a440f83de",
     "name": "my-snapshot-data"
-  }
+  },
   "source_volume": {
     "crn": "crn:[...]",
     "remote": {
@@ -657,7 +657,7 @@ A successful response looks like the following example:
     "href": "https://us-south.iaas.cloud.ibm.com/v1/volumes/r006-411a798c-5816-4082-8ecb-554a440f83de",
     "id": "r006-411a798c-5816-4082-8ecb-554a440f83de",
     "name": "my-instance-data"
-  }
+  },
   "user_tags": []
 }
 ```

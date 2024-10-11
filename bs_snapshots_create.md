@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-10-11"
 
 keywords: snapshots, Block Storage, snapshot clone, remote copy, fast restore, Block Storage snapshot, cross-regional snapshot
 
@@ -87,13 +87,14 @@ The fast restore feature is billed at an extra hourly rate for each zone that it
 In the previous section, you saw how to create a cross-regional snapshot copy when you take a new snapshot in the UI. You can also create cross-regional copies of existing snapshots.
 
 1. In the console, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage snapshots**.
-2. From the list of snapshots, click the Actions menu (![Actions menu](images/overflow.png)) and select **Copy snapshot**.
-3. Select the region where you want to create the copy.
+1. In the list of snapshots, locate that snapshot that you want to copy. 
+1. Click the Actions menu (![Actions menu](images/overflow.png)) and select **Copy snapshot**.
+1. Select the region where you want to create the copy.
 
    You can have only one copy per region. You can't create a copy in the local (source) region.
    {: restriction}
 
-4. Click **Create**.
+1. Click **Create**.
 
 ## Creating a snapshot from the CLI
 {: #snapshots-vpc-create-cli}
@@ -642,7 +643,7 @@ resource "ibm_is_snapshot" "snapshot" {
 ```
 {: codeblock}
 
-For more information about the arguments and attributes, see [ibm_is_snapshot](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_snapshot){: external}.
+For more information about the arguments and attributes, see [ibm_is_snapshot](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_snapshot){: external}. 
 
 ## Next steps
 {: #bs_snapshots_create_next_steps}
