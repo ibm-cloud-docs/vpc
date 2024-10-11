@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-02-20"
+lastupdated: "2024-10-11"
 
 keywords: vnc console, serial console, virtual server instance
 
@@ -67,7 +67,7 @@ The console can be opened by using any of the [supported browsers](/docs/overvie
     * For Windows images, obtain the password following [Connecting to Windows instances](/docs/vpc?topic=vpc-vsi_is_connecting_windows).
 
     * For z/OS images, obtain the password following [Connecting to z/OS instances](/docs/vpc?topic=vpc-vsi_is_connecting_zos).
-    
+
 For the serial console, you can configure `getty` to log in automatically without a password by using the `-a root` flag.
 {: tip}
 
@@ -181,6 +181,6 @@ When you are finished with the console, you can disconnect from it by closing th
    Some operating systems have a flashing cursor on the console, for example, Ubuntu 18.04. When you use the VNC console to access instances that use such operating systems, the flashing cursor causes the console session to remain active after it idles for 10 minutes. The console session will still close after 60 minutes regardless of activity.
    {: note}
 
-2. The console disconnects if the instance is powered off. You can't reestablish the connection until the instance starts again.
-3. Restart, reset, or any other operation that doesn't result in rescheduling of the instance maintains the console connection.
-4. The number of active VNC consoles per instance is limited to two. The number of active serial consoles per instance is limited to one.
+1. The console disconnects if the instance is powered off. You can't reestablish the connection until the instance starts again.
+1. Restart, reset, or any other operation that doesn't result in rescheduling of the instance maintains the console connection.
+1. The number of active VNC consoles per instance is limited to two. The number of active serial consoles per instance is limited to one.
