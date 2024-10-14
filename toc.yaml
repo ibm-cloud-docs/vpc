@@ -520,6 +520,11 @@ toc:
                 - nlb-monitoring-metrics.md
                 - nlb-privatelb.md
                 - nlb-limitations.md
+            - topicgroup:
+                label: Network load balancer hazardous change remediation
+                topics:
+                - topic: nlb-revised-nlb-capabilities.md
+                  navtitle: Prepare your automation for revised network load balancer capabilities
         - topicgroup:
             label: Flow logs
             topics:
