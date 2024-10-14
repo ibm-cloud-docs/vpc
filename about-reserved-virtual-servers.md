@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-10-14"
 
 keywords:
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # About Reservations for VPC
 {: #about-reserved-virtual-servers-vpc}
 
-{{site.data.keyword.cloud}} Reservations are a great option when you want significant cost savings and guaranteed resources for future deployments. You can choose a 1 or 3-year term, server quantity, specific profile, and provision those servers when needed.
+{{site.data.keyword.cloud}} Reservations are a great option when you want significant cost savings and dedicated resources for future deployments. You can choose a 1 or 3-year term, server quantity, specific profile, and provision those servers when needed.
 {: shortdesc}
 
 Reservations offer many advantages, including the following benefits:
@@ -24,7 +24,7 @@ Reservations offer many advantages, including the following benefits:
 | ----- | ----- |
 | Cost savings | Save up to 60% by choosing a 1 or 3-year term compared to on-demand virtual server billing cycles. |
 |  |  Save up to 55% by choosing a 1 or 3-year term compared to on-demand bare metal server billing cycles. |
-| Guaranteed capacity | Your servers are there when you need them. {{site.data.keyword.cloud}} Reservations are guaranteed capacity within the zone of your choice for the life of your committed term. |
+| Dedicated capacity | Your servers are there when you need them. {{site.data.keyword.cloud}} Reservations provide dedicated capacity within the zone of your choice for the life of your committed term. |
 | Predictable management | Accurately plan for the future and define your budgeting roadmap with reserved capacity for 1-year or 3-year terms. Your reserved pricing is a fixed discount rate that is applied to the corresponding virtual server profile on-demand rates that are listed in the {{site.data.keyword.cloud}} portal. |
 | Flexibility in deployment | Convert any existing on-demand virtual server to {{site.data.keyword.cloud}} Reservation billing. Attach or detach any compatible virtual server to your reservation. |
 {: caption="Benefits of IBM Cloud Reservations" caption-side="top"}
@@ -63,22 +63,6 @@ Reserved bare metal servers are a beta feature that is available for evaluation 
 {: beta}
 
 All [Gen 2 and Gen 3 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui#bare-metal-servers-profile-list) are available when you provision a reservation in an available MZR.
-
-## Limitations
-{: #limitations-reserved-virtual-servers-vpc}
-
-Consider the following limitations before you provision a reservation and provision a virtual server within that reservation.
-
-* You can't resize a server that's in a reservation.
-* Reservations comply with the VPC quotas and service limits. For more information, see [Quotas and service limits](/docs/vpc?topic=vpc-quotas).
-* SGX isn't supported.
-* Reservations aren't compatible with container services. For more information, see [Using reservations to reduce classic worker node costs](/docs/containers?topic=containers-reservations).
-* A virtual server reservation can be used only for {{site.data.keyword.cloud}} Virtual Servers for VPC resources.
-* A bare metal server reservation can be used only for {{site.data.keyword.cloud}} Bare Metal Servers for VPC resources.
-
-Reservations don't have a resource quota. But, bare metal server reservations share your account's bare metal server quota. So, bare metal server reservations are limited by your [Bare metal server quota](/docs/vpc?topic=vpc-quotas#vsi-quotas). Keep in mind that bare metal servers that are attached to a reservation do not count toward your quota consumption.
-{: note}
-
 
 
 ### Bandwidth speed billing for a reservation
