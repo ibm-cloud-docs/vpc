@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-10-11"
+lastupdated: "2024-10-15"
 
 subcollection: vpc
 
@@ -170,3 +170,44 @@ For troubleshooting information about z/OS virtual server instances, see [{{site
 {: troubleshoot}
 
 If the [x86 instance profile](/docs/vpc?topic=vpc-profiles) that you used to provision your virtual server includes 17 or more vCPUs, you can now add more than 5 network interfaces. To take advantage of the ability to add more network interfaces to a virtual server that existed before the network interface limit increased, you must first stop a running virtual server and then start it again. For more information about multiple network interfaces, see [Managing network interfaces](/docs/vpc?topic=vpc-using-instance-vnics).
+
+## How can I use Linux SysRq key to troubleshoot a Linux virtual server instance from the serial console?
+{: #linux-vsi-serial-console}
+{: troubleshoot}
+
+An unresponsive Linux virtual server instance can occur for various reasons, such as system crashes, deadlock situations, or kernel-related issues. When the virtual server is unresponsive, standard troubleshooting methods (such as SSH or direct access) might not work. In these cases, the serial console remains accessible, which enables administrators to interact with the server at a smaller level by using the Linux System Request (SysRq) key.
+{: tsSymptoms}
+
+System failures, kernel panics, or unresponsive processes can cause a Linux server to become unavailable through regular processes. These issues might arise from software bugs, hardware faults, or misconfigured system parameters. The SysRq key provides low-level access to the Linux kernel and bypasses higher-level processes that are frozen or unresponsive. This mechanism is built into the Linux kernel as a failsafe to help users perform critical system actions, such as rebooting the server or dumping diagnostic information, even when other input methods are unavailable. It offers a direct method to control the server and obtain system-level insights when regular access methods fail.
+{: tsCauses}
+
+To troubleshoot and resolve the issue by using the SysRq key from the serial console, follow these steps:
+{: tsResolve}
+
+1. Access the virtual server instance by connecting to a serial console. For more information, see [Accessing virtual server instances by using VNC or serial consoles](/docs/vpc?topic=vpc-vsi_is_connecting_console&interface=ui).
+1. Enable SysRq commands. If the SysRq commands are already enabled, you can skip this step. To enable the SysRq commands, set the kernel.sysrq parameter.
+
+   ```sh
+   echo 1 > /proc/sys/kernel/sysrq
+   ```
+   {: pre}
+
+1. Send a SysRq command from the serial console. The following example starts a kernel crash dump (kdump).
+  
+   1. Press the **Enter** key.
+   1. Press `~B` (tilde key followed by uppercase B key).
+   1. Press `c` (lowercase c) starts a kernel crash dump (kdump).
+
+   Example:
+
+   ```screen
+   ENTER + ~ + B + c
+   ```
+   {: pre}
+
+   To trigger a crash dump, make sure that the `crashkernel` is configured on the Linux virtual server instance. For instructions, see the [Kernel crash dump mechanism](https://ubuntu.com/server/docs/kernel-crash-dump).
+
+1. Analyze diagnostic output. For example, the previous SysRq kernel crash dump generates crucial diagnostic data that you can analyze. By sending relevant SysRq commands, you can collect valuable diagnostic data for troubleshooting and regaining control of the system.
+
+For a list of SYSRQ command keys, press **Enter** followed by `~Bh` (tilde, uppercase B, lowercase h). For more details about these keys, see [Linux Magic System Request Key Hacks - What are the ‘command’ keys?](https://docs.kernel.org/admin-guide/sysrq.html){: external}
+{: note}

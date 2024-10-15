@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-10-11"
+lastupdated: "2024-10-15"
 
 keywords: vnc console, serial console, virtual server instance
 
@@ -184,3 +184,4 @@ When you are finished with the console, you can disconnect from it by closing th
 1. The console disconnects if the instance is powered off. You can't reestablish the connection until the instance starts again.
 1. Restart, reset, or any other operation that doesn't result in rescheduling of the instance maintains the console connection.
 1. The number of active VNC consoles per instance is limited to two. The number of active serial consoles per instance is limited to one.
+1. For information on troubleshooting a Linux virtual server instance using the serial console, see [How can I use Linux SysRq key to troubleshoot a Linux virtual server instance from the serial console?](/docs/vpc?topic=vpc-troubleshooting-your-virtual-servers-for-vpc#linux-vsi-serial-console).
