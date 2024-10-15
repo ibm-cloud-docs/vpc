@@ -305,6 +305,22 @@ toc:
             - vsi_is_getting_started_vpc_catalog_images.md
             - vsi_is_private_catalog_custom_images.md
         - topicgroup:
+            label: Cluster networks
+            topics:
+            - cn-about.md
+            - cn-planning.md
+            - cn-h100-profile.md
+            - cn-create.md
+            - topicgroup:
+                label: Managing cluster networks
+                topics:
+                - cn-create-subnet.md
+                - cn-create-interface.md
+                - cn-attach-interface.md
+                - cn-view-details.md
+                - cn-delete.md
+            - cn-limitations-known-issues.md
+        - topicgroup:
             label: Subnets
             topics:
             - subnets-about.md
@@ -774,6 +790,7 @@ toc:
                 - backup_service_vpc_faq.md
                 - backup_service_vpc_enterprise_faq.md
                 - file_storage_vpc_faqs.md
+            - cn-faq.md
             - fl-faq.md
             - topicgroup:
                 label: FAQs for load balancers
