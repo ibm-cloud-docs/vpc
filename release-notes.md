@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-10-15"
 
 keywords:
 
@@ -26,6 +26,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
   
 ## October 2024
 {: #vpc-oct24}
+
+### 15 October 2024
+{: #vpc-oct1524}
+{: release-note}
+  
+Linux SysRq key now available to troubleshoot Linux virtual server instance
+:   When a Linux virtual server instance becomes unresponsive, you can now use Linux SysRQ key to troubleshoot the virtual server from the serial console. For more information, see [How can I use Linux SysRq key to troubleshoot a Linux virtual server instance from the serial console?](/docs/vpc?topic=vpc-troubleshooting-your-virtual-servers-for-vpc&interface=cli#linux-vsi-serial-console).
 
 ### 08 October 2024
 {: #vpc-oct0824}
