@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-07-17"
+lastupdated: "2024-10-15"
 
 keywords:
 
@@ -52,6 +52,8 @@ To add a VPN connection to an existing VPN gateway, follow these steps:
       * The length of the string must be 6 - 128 characters.
       * Cannot start with `0x` or `0s`.
 
+   * **Distribute traffic (Route-based VPN only)** - Enable to distribute traffic between the `Up` tunnels of the VPN gateway connection when a VPC route's next hop is the VPN connection. If this checkbox is not selected,  the VPN gateway uses the tunnel with the small public IP as the primary egress path, and only when the primary egress path is disabled, does traffic go through the secondary path. For more information, see [Use case 4: Distributing traffic for a route-based VPN](/docs/vpc?topic=vpc-using-vpn&interface=ui#use-case-4-vpn).
+
    * **Local IBM CIDRs (Policy-based VPN only)** - Specify one or more CIDRs in the VPC that you want to connect through the VPN tunnel.
    * **Peer CIDRs (Policy-based VPN only)** - Specify one or more CIDRs in the other network that you want to connect through the VPN tunnel. Subnet range overlap between local and peer subnets is not allowed.
 
@@ -91,7 +93,7 @@ To create a VPN connection from the CLI, enter the following command:
 ```sh
 ibmcloud is vpn-gateway-connection-create CONNECTION_NAME VPN_GATEWAY PEER PRESHARED_KEY
 [--vpc VPC] [--admin-state-up true | false] [--dead-peer-detection-action restart | clear | hold | none]
-
+[--distribute-traffic true | false]
 [--dead-peer-detection-interval INTERVAL] [--dead-peer-detection-timeout TIMEOUT] [--ike-policy IKE_POLICY_ID]
 [--ipsec-policy IPSEC_POLICY_ID] [--peer-cidr CIDR1 --peer-cidr CIDR2 ... --local-cidr CIDR1 --local-cidr CIDR2 ...]
 [[--local-ike-identity-type fqdn | hostname | ipv4_address | key_id --local-ike-identity-value VALUE] |
@@ -130,6 +132,9 @@ Where:
 
 `--dead-peer-detection-timeout`
     :  The dead peer detection timeout in seconds (default: `10`).
+
+`--distribute-traffic`
+    :  Set to `true` to distribute traffic between the `Up` tunnels of the VPN gateway connection when a VPC route's next hop is the VPN connection.This can be either `true` or `false`. For more information, see [Distributing traffic for a route-based VPN](/docs/vpc?topic=vpc-using-vpn&interface=terraform#use-case-4-vpn).
 
 `--ike-policy`
     : The ID of the IKE policy.
@@ -177,7 +182,8 @@ Where:
 - Create a VPN connection for a specific gateway ID with its required configuration values:
    `ibmcloud is vpn-gateway-connection-create my-connection fee82deba12e4c0fb69c3b09d1f12345 169.21.50.5 lkj14b1oi0alcniejkso --local-cidr 10.240.0.0/24 --peer-cidr 192.168.1.0/24`
 
-
+- Create a VPN connection for a route-based VPN gateway with the [distribute traffic feature](/docs/vpc?topic=vpc-using-vpn&interface=terraform#use-case-4-vpn) enabled:
+   `ibmcloud is vpn-gateway-connection-create CONNECTION_NAME VPN_GATEWAY PEER PRESHARED_KEY --distribute-traffic true`
 
 - Create a VPN connection with the same core parameters and specified DPD configurations:
    `ibmcloud is vpn-gateway-connection-create my-connection fee82deba12e4c0fb69c3b09d1f12345 169.21.50.5 lkj14b1oi0alcniejkso --local-cidr 10.240.0.0/24 --peer-cidr 192.168.1.0/24 --dead-peer-detection-action clear --dead-peer-detection-interval 33 --dead-peer-detection-timeout 100`
@@ -374,6 +380,8 @@ To create a VPN connection with the API, follow these steps:
          },
          "ipsec_policy": {
              "id": "'$ipsecPolicyId'"
+         },
+         "distribute_traffic":true
      }'
    ```
    {: codeblock}
@@ -517,7 +525,19 @@ resource "ibm_is_vpn_gateway_connection" "is_vpn_gateway_connection" {
 ```
 {: codeblock}
 
+The following Terraform example creates a VPN connection for a route-based VPN gateway with the [distribute traffic feature](/docs/vpc?topic=vpc-using-vpn&interface=terraform#use-case-4-vpn) enabled:
 
+```terraform
+
+resource "ibm_is_vpn_gateway_connection" "test_VPNGatewayConnection1" {
+    name = "example-vpn-gateway-connection"
+    vpn_gateway = "${ibm_is_vpn_gateway.example.id}"
+    peer_address = "${ibm_is_vpn_gateway.example.public_ip_address}"
+    preshared_key = "VPNDemoPassword"
+    distribute-traffic = true
+}
+```
+{: codeblock}
 
 The following Terraform example creates a VPN connection using advanced configuration options:
 

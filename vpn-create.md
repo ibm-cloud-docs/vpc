@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-10-02"
+lastupdated: "2024-10-15"
 
 keywords:
 subcollection: vpc
@@ -59,6 +59,8 @@ To create a VPN gateway by using the UI:
         * Can be a combination of digits, lower or uppercase characters, or the following special characters: `- + & ! @ # $ % ^ * ( ) . , :`
         * The length of the string must be 6 - 128 characters.
         * Cannot start with `0x` or `0s`.
+
+    * **Distribute traffic (Route-based VPN only)** - Enable to distribute traffic between the `Up` tunnels of the VPN gateway connection when a VPC route's next hop is the VPN connection. If this checkbox is not selected, the VPN gateway uses the tunnel with the small public IP as the primary egress path, and only when the primary egress path is disabled, does traffic go through the secondary path. For more information, see [Use case 4: Distributing traffic for a route-based VPN](/docs/vpc?topic=vpc-using-vpn&interface=ui#use-case-4-vpn).
     * **Local subnets (Policy-based VPN only)** - Specify one or more subnets in the VPC that you want to connect through the VPN tunnel.
     * **Peer subnets (Policy-based VPN only)** - Specify one or more subnets in the other network that you want to connect through the VPN tunnel.
 
