@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-10-15"
 
 keywords:
 
@@ -82,6 +82,7 @@ Use the following steps to create a virtual server instance.
    | | You can select the encryption type. Provider-managed encryption is enabled by default on all volumes. You can also choose to create an envelop encryption with your own root keys that are created and maintained in Key Management Services. |
    | |You can select the [Storage profile](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui) that best suits your needs for capacity and IOPS. For more information, see [Create and attach a Block Storage volume when you create an instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi).|
    | Virtual private cloud | Specify the IBM Cloud VPC where you want to create your instance. You can use the default VPC, another existing VPC, or you can create a VPC. To create a VPC, click **New VPC**. |
+   | Add to cluster network [Beta]{: tag-blue} | If you select the H100 GPU profile, `gx3d-160x1792x8h100`, you see the option to **Add to cluster network**. You can set **Add to cluster network** to on to enable the virtual server to access the power of a high-performance network that supports Remote Direct Memory Access (RDMA). When **Add to cluster network** is set to on and a cluster network is available, the {{site.data.keyword.cloud_notm}} console includes default selections for configuring the virtual server for the cluster network. If no cluster network is available, you can click **Create cluster network**. When a cluster network is selected, only the VPC where the cluster network is provisioned displays in the **Virtual private cloud** drop-down menu. For more information, see [About cluster networks](/docs/vpc?topic=vpc-about-cluster-network&interface=ui). |
    | Network interfaces | By default the virtual server instance is created with a single primary network interface. You can click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to edit the details of the network interface, for example, the subnet or security group that's associated with the interface. To include extra secondary network interfaces, click **Create**. You can create and assign up to 15 network interfaces for your virtual server instance, depending on the vCPU count that is included in the instance profile. For more information, see [About network interfaces](/docs/vpc?topic=vpc-using-instance-vnics#about-network-interfaces). \n With the virtual network interface feature, you can select the type of network interface that you want to use. You can select the new option **Network attachment with a virtual network interface** or the legacy option **Instance network interface**. Whichever type of network interface option that you select when you provision the virtual server persists through the lifecycle of the virtual server. You can click **Attach** to create a network attachment with an existing virtual network interface. For more information, see [About virtual network interfaces](/docs/vpc?topic=vpc-vni-about). |
    {: caption="Selections to complete instance provisioning" caption-side="bottom"}
 
