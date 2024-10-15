@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-10-15"
 
 keywords: VPN, VPN gateways, encryption, IKE, IPsec, gateway, auto-negotiation, Diffie-Hellman, dead peer detection, PFS
 
@@ -150,7 +150,26 @@ The following use case illustrates a customer that has one VPC in IBM Cloud and 
 
 ![VPN advanced configuration with FQDN](images/vpn-advanced-configuration.png){: caption="VPN advanced configuration with FQDN" caption-side="bottom"}
 
+### Use case 4: Distributing traffic for a route-based VPN
+{: #use-case-4-vpn}
 
+A route-based VPN has 2 tunnels active in the backend. When both VPN tunnels are up, only 1 tunnel is used to route the VPN traffic over the tunnel.
+
+The VPN uses the tunnel with the small public IP as the primary egress path. When the primary egress path is disabled, traffic flows through the secondary path. The reason for using only one tunnel to route the traffic is to avoid the asymmetric routing problem. The following diagram depicts the default configuration. When you create a route with destination `10.1.0.0/24` and the next hop is the VPN connection, if both `tunnel 1` and `tunnel 2` are up, the private IP `10.254.0.2` of the VPN appliance is returned for route creation.
+
+Protocol state filtering on a virtual network interface provides options to address the asymmetric routing problem. For more information, see [Protocol state filtering mode](/docs/vpc?topic=vpc-vni-about&interface=ui#protocol-state-filtering).
+{: note}
+
+![Distributed traffic disabled: ](images/vpn-distribute-traffic-disabled.svg){: caption="Distributed traffic feature is disabled" caption-side="bottom"}
+
+When creating connections for a route-based VPN, you can now enable the distribution of traffic between the `Up` tunnels of the VPN gateway connection when a VPC route's next hop is the VPN connection. To accomplish this active/active redundancy mode, you must enable the "distribute traffic" feature when [creating](/docs/vpc?topic=vpc-vpn-create-gateway&interface=ui) or [adding connections to a VPN gateway](/docs/vpc?topic=vpc-vpn-adding-connections&interface=ui).
+
+As shown in the following diagram, the traffic egress is routed to the 2 tunnels dynamically. When the tunnels are `Up`, the private IP addresses `10.254.0.2` and `10.254.0.3` are returned and the VPC network service creates 2 routes. Because these routes have the same priority, traffic flows to `tunnel 1` and `tunnel 2` dynamically.
+
+![Distributed traffic enabled: active-active VPN route](images/vpn-distribute-traffic-enabled.svg){: caption="Distributed traffic feature is enabled" caption-side="bottom"}
+
+To use this feature, the on-premise device should support asymmetric routing to get higher network performance. Also, keep in mind that not all on-premises VPN gateways support this use case. For example, if the VPN traffic egress and ingress are from different tunnels, the traffic might be blocked by on-premise VPN devices or firewalls.
+{: note}
 
 ## Related links
 {: #vpn-related-links}
