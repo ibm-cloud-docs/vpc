@@ -725,6 +725,58 @@ Use the following steps to create a virtual server instance from a bootable volu
 
 You can create a boot volume from a bootable [snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-restore-concepts) and use that for your image. When you run the `ibmcloud is instance-create` command, specify the `source_snapshot` subproperty in the boot volume JSON and the ID, name, or CRN [New]{: tag-new} of a bootable snapshot. For an example, see [Create a boot volume from a snapshot for a new instance from the CLI](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=cli#snapshots-vpc-restore-boot-CLI).
 
+### Create an instance with confidential compute and secure boot
+{: #create-instance-confidential-compute-secure-boot-cli}
+{: cli}
+
+After you know the needed values, use them to run the `ibmcloud is instance-create` command. You also need to specify a unique name for the instance.
+
+For `confidential-compute-mode`, you need to specify either `sgx` or `disabled` the option. The default value is `disabled`. For `enable-secure-boot`, you need to specify either `true` or `false`. The default value is `false`.
+
+Use the following steps to create a basic virtual server instance that enables confidential compute and secure boot.
+
+Create an instance using the following command.
+
+```sh
+   ibmcloud is instance-create \
+       INSTANCE_NAME \
+       VPC \
+       ZONE_NAME \
+       PROFILE_NAME \
+       SUBNET \
+       --image IMAGE \
+       --confidential-compute-mode sgx \
+       --enable-secure-boot true \
+       --keys KEYS \
+   ```
+   {: pre}
+
+For example, the following `instance-create` command uses the sample values that are found in the [Gathering information](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli#gather-info-to-create-virtual-servers-cli) section.
+
+```sh
+   ibmcloud is instance-create \
+       my-instance \
+       r006-35b9cf35-616e-462e-a145-cf8db4062fcf \
+       us-south-2 \
+       bx2-2x8 \
+       0717-198db988-3b9b-4cfa-9dec-0206420d37d0 \
+       --image r006-f83ce520-00b5-40c5-9938-a5c82a273f91 \
+       --confidential-compute-mode sgx \
+       --enable-secure-boot true \
+       --keys r006-89ec781c-9630-4f76-b9c4-a7d204828d61 \
+   ```
+   {: pre}
+
+   Where the following argument and option values are used
+
+      * INSTANCE_NAME: `my-instance`
+      * VPC: `r006-35b9cf35-616e-462e-a145-cf8db4062fcf`
+      * ZONE_NAME: `us-south-2`
+      * PROFILE_NAME: `bx2-2x8`
+      * SUBNET: `0717-198db988-3b9b-4cfa-9dec-0206420d37d0`
+      * IMAGE: Debian 11 image `r006-f83ce520-00b5-40c5-9938-a5c82a273f91`
+      * KEYS: `r006-89ec781c-9630-4f76-b9c4-a7d204828d61`
+
 ## Next steps after an instance is created from the CLI
 {: #next-step-after-creating-virtual-servers-cli}
 {: cli}
