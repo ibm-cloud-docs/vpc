@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-10-16"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -422,7 +422,7 @@ For more information, see the api spec for [IAM Policy Management](/apidocs/iam-
 
 To allow an Enterprise administrator to manage backups centrally, the subaccounts must provide authorization for the Backup service of the Enterprise account to interact with the resources of the child accounts.
 
-1. Make an API request to the [Enterprise Management API](https://cloud.ibm.com/apidocs/enterprise-apis/enterprise#list-enterprises) to get the account ID of the parent enterprise account.
+1. Make an API request to the [Enterprise Management API](/apidocs/enterprise-apis/enterprise#list-enterprises) to get the account ID of the parent enterprise account.
 
    ```sh
    curl -X GET "https://enterprise.cloud.ibm.com/v1/enterprises" -H 

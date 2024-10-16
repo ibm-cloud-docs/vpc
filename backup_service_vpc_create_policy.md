@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-10-16"
 
 keywords: Backup, backup snapshot, create backups, backup service, backup plan, backup policy, restore, restore volume, restore data, restore share
 
@@ -545,7 +545,7 @@ The cross-regional copy feature is not applicable for multi-volume backups.
 
 You can programmatically create a backup policy by calling the `/backup_policies` method in the [VPC API](/apidocs/vpc/latest#create-backup-policy){: external} as shown in the following sample requests. A `POST /backup_policies` request creates a backup policy with tags that you provide to identify {{site.data.keyword.block_storage_is_short}} volume resources that are to be backed up. The backup policy accepts a backup plan, where you define backup schedules and deletion rules.
 
-If you are an Enterprise account administrator who wants to create a backup policy and plan for your enterprise account and child accounts, you need to fetch your enterprise account CRN. Make an API request to the [Enterprise Management API](https://cloud.ibm.com/apidocs/enterprise-apis/enterprise#list-enterprises) like the following example.
+If you are an Enterprise account administrator who wants to create a backup policy and plan for your enterprise account and child accounts, you need to fetch your enterprise account CRN. Make an API request to the [Enterprise Management API](/apidocs/enterprise-apis/enterprise#list-enterprises) like the following example.
 
 ```sh
 curl -X GET "https://enterprise.cloud.ibm.com/v1/accounts/$ACCOUNT_ID" -H "Authorization: Bearer <IAM_Token>" -H 'Content-Type: application/json'

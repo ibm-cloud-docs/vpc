@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-09-24"
+lastupdated: "2024-10-16"
 
 keywords: file share, file storage, replication, replica, size increase, capacity, encryption, BYOK, security group
 
