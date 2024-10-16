@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-10-01"
+lastupdated: "2024-10-15"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -53,6 +53,14 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 15 October 2024
+{: #15-october-2024}
+
+### For all version dates
+{: #15-october-2024-all-version-dates}
+
+**Distributing traffic across tunnels of route-based VPN gateway connections.** You can now distribute traffic across tunnels with a `status` of `up` in a route-based VPN gateway connection. When [creating](/apidocs/vpc/latest#create-vpn-gateway-connection) or [updating](/apidocs/vpc/latest#update-vpn-gateway-connection) a route-based VPN gateway connection, set the `distribute_traffic` property to `true` (default is `false`). Existing connections will have the `distribute_traffic` property set to `false`. The `distribute_traffic` property is now included in the `VPNGatewayConnection` schema used in responses, for example when [retrieving a VPN gateway connection](/apidocs/vpc/latest#get-vpn-gateway-connection). For more information, see [Distributing traffic for a route-based VPN](/docs/vpc?topic=vpc-using-vpn#use-case-4-vpn).
 
 ## 1 October 2024
 {: #1-october-2024}
