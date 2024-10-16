@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-10-08"
+lastupdated: "2024-10-16"
 
 keywords: virtual private endpoints, endpoint gateway, VPE services
 subcollection: vpc
@@ -41,7 +41,6 @@ The following IBM Cloud services are enabled for Virtual Private Endpoints (VPE)
 {: shortdesc}
 
 * {{site.data.keyword.appconfig_short}} ([Endpoint URLs](/apidocs/app-configuration#endpoint-url))
-* {{site.data.keyword.logs_full_notm}} ([Instructions](/docs/cloud-logs?topic=cloud-logs-vpe-connection&interface=cli))
 * Catalog Management ([Endpoint URLs](/apidocs/resource-catalog/private-catalog#endpoint-url))
 * Cloud Object Storage ([Instructions](/docs/cloud-object-storage?topic=cloud-object-storage-vpes))
 * Code Engine ([Instructions](/docs/codeengine?topic=codeengine-vpe))
@@ -62,6 +61,7 @@ The following IBM Cloud services are enabled for Virtual Private Endpoints (VPE)
 * IAM Access Groups ([Endpoint URLs](/apidocs/iam-access-groups#endpoint-urls))
 * IAM Identity Services ([Endpoint URLs](/apidocs/iam-identity-token-api#endpoints))
 * IAM Policy Management ([Endpoint URLs](/apidocs/iam-policy-management#endpoint-urls))
+* {{site.data.keyword.logs_full_notm}} ([Instructions](/docs/cloud-logs?topic=cloud-logs-vpe-connection&interface=cli))
 * Key Protect ([Instructions](/docs/key-protect?topic=key-protect-virtual-private-endpoints))
 * Network Time Protocol
 * Resource Controller ([Endpoint URLs](/apidocs/resource-controller/resource-controller#endpoint-url))
