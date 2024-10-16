@@ -484,6 +484,28 @@ ibmcloud is instance-update INSTANCE --total-volume-bandwidth VALUE --host-failu
 ```
 {: pre}
 
+## Setting the confidential compute value from the CLI
+{: #set-confidential-compute-cli}
+{: cli}
+
+You can update an instance and change the `confidential-compute-mode` by using the command-line interface (CLI). Use the ibmcloud `instance-update` command. for INSTANCE, specify the ID or name of the instance and set the `--confidential-compute-mode` property to `sgx`.
+
+```sh
+ibmcloud is instance-update INSTANCE --confidential-compute-mode sgx
+```
+{: pre}
+
+## Setting the secure boot value from the CLI
+{: #set-secure-boot-cli}
+{: cli}
+
+You can update an instance and change the `enable-secure-boot` by using the command-line interface (CLI). Use the ibmcloud `instance-update` command. for INSTANCE, specify the ID or name of the instance and set the `--enable-secure-boot` property to `true`.
+
+```sh
+ibmcloud is instance-update INSTANCE --enable-secure-boot true
+```
+{: pre}
+
 ## Setting the host failure recovery policy with the API
 {: #set-policy-api}
 {: api}
