@@ -35,6 +35,9 @@ Review the following checklist items and record your answers. Provide this infor
 - **Of the secondary volumes, how many secondary volumes do you need and of what capacity?**
     >*"75% of the secondary volumes are under 250 GB and 25% are up to 16,000 GB."*
 
+- **What is the performance level that you require for the new volumes? Provide the name of the volume profile or custom IOPS value.**
+    >*"We plan to provision the smaller, 250-GB volumes with general-purpose (3 IOPS/GB) profile, and the large, 16-TB volumes with the custom profile and 48,000 IOPS."*
+
 - **How many total volumes use customer-managed encryption?**
     >*"100 volumes (or 50%) are to use customer-managed encryption".*
 

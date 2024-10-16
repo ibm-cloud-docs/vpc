@@ -650,6 +650,7 @@ toc:
                 - file_storage_vpc_byok_encryption.md
                 - file_storage_vpc_byok_multitenant_encryption.md
                 - file_storage_vpc_cross_account_share.md
+                - file_storage_vpc_manage_storage_limits.md
             - topicgroup:
                 label: Mounting file shares
                 topics:
