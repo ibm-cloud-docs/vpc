@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-10-16"
 
 keywords:
 
@@ -179,7 +179,7 @@ Bare metal profiles are dedicated servers that provide physical cores. vCPU meas
 
 See the following table to see what Generation 3 (x3 and x3d) bare metal profiles are available by region.
 
-| Profile |  us-south-1 | us-south-2 | us-south-3 |
+| Profile |  us-south-dal10-a | us-south-dal12-a | us-south-dal13-a |
 | ------- | ----------- | ---------- | ---------- |
 | mx3-metal-16x128   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | cx3-metal-48x128   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
@@ -214,7 +214,7 @@ See the following table to see what Generation 3 (x3 and x3d) bare metal profile
 
 See the following table to see what Generation 2 (x2 and x2d) bare metal profiles are available by region.
 
-| Profile |  us-south-1 | us-south-2 | us-south-3 | us-east-1 | us-east-2 | ca-tor-2 | ca-tor-3 |
+| Profile |  us-south-dal10-a | us-south-dal12-a | us-south-dal13-a | us-east-wdc04-a | us-east-wdc06-a | ca-tor-tor04-a | ca-tor-tor05-a |
 | ------- | ----------- | ---------- | ---------- | --------- | -------- | -------- | -------- |
 | cx2-metal-96x192   | ![Checkmark icon](../icons/checkmark-icon.svg) | |
 | cx2d-metal-96x192  | ![Checkmark icon](../icons/checkmark-icon.svg) | | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |  |
@@ -230,7 +230,7 @@ See the following table to see what Generation 2 (x2 and x2d) bare metal profile
 {: class="simple-tab-table"}
 {: summary="Use the buttons before the table to change the context of the table. The column headers identify the hardware class."}
 
-| Profile | eu-de-1 | eu-de-2 | eu-es-1 | eu-es-3 | eu-gb-1 |
+| Profile | eu-de-fra02-a | eu-de-fra04-a | eu-es-mad02-a | eu-es-mad05-a | eu-gb-lon04-a |
 | ------- | ----------- | ---------- | ---------- | ---------- | ---------- |
 | cx2-metal-96x192    | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |  ![Checkmark icon](../icons/checkmark-icon.svg) |
 | cx2d-metal-96x192   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | | ![Checkmark icon](../icons/checkmark-icon.svg) |
@@ -246,7 +246,7 @@ See the following table to see what Generation 2 (x2 and x2d) bare metal profile
 {: class="simple-tab-table"}
 {: summary="Use the buttons before the table to change the context of the table. The column headers identify the hardware class."}
 
-| Profile | jp-tok-2 | jp-tok-3 |
+| Profile | jp-tok-tok04-a | jp-tok-tok05-a |
 | ------- | ----------- | ----------- |
 | cx2-metal-96x192    |  |  |
 | cx2d-metal-96x192   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
