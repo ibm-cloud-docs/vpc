@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-10-16"
+lastupdated: "2024-10-17"
 
 keywords: view instance details, restart virtual server, stop, details, delete
 
@@ -487,6 +487,11 @@ ibmcloud is instance-update INSTANCE --total-volume-bandwidth VALUE --host-failu
 ## Setting the confidential compute value from the CLI
 {: #set-confidential-compute-cli}
 {: cli}
+
+[Select availability]{: tag-green}
+
+Confidential computing with Intel SGX for VPC is available only in the US-South (Dallas) region.
+{: note}
 
 You can update an instance and change the `confidential-compute-mode` by using the command-line interface (CLI). Use the ibmcloud `instance-update` command. for INSTANCE, specify the ID or name of the instance and set the `--confidential-compute-mode` property to `sgx`.
 
