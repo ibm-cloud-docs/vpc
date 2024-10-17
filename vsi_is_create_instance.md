@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-10-16"
+lastupdated: "2024-10-17"
 
 keywords:
 
@@ -728,6 +728,11 @@ You can create a boot volume from a bootable [snapshot](/docs/vpc?topic=vpc-snap
 ### Create an instance with confidential compute and secure boot
 {: #create-instance-confidential-compute-secure-boot-cli}
 {: cli}
+
+[Select availability]{: tag-green}
+
+Confidential computing with Intel SGX for VPC is available only in the US-South (Dallas) region.
+{: note}
 
 After you know the needed values, use them to run the `ibmcloud is instance-create` command. You also need to specify a unique name for the instance.
 
