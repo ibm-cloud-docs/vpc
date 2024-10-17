@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-09-30"
+lastupdated: "2024-10-17"
 
 keywords:
 
@@ -153,11 +153,9 @@ To publish a Private Path service with the API, follow these steps:
    * To publish your Private Path service:
 
       ```sh
-      curl -X PATCH -sH "Authorization:${iam_token}" \
-      "$vpc_api_endpoint/v1/private_path_service_gateways/$ppsgId?version=$api_version&generation=2" \
-      -d {
-         "published": true
-       }'
+      curl -X POST -sH "Authorization:${iam_token}" \
+      "$vpc_api_endpoint/v1/private_path_service_gateways/$ppsgId/publish?version=$api_version&generation=2" \
+      -d {}'
       ```
       {: codeblock}
 
