@@ -60,10 +60,10 @@ To network boot a bare metal server from the API, use the following information 
 
 For the image, you must specify the ID of a stock image that has the `user_data_format` property that is set to `ipxe` in the region where you want to create the server and provide the appropriate user data. For more information, see [Creating Bare Metal Servers on VPC](/docs/vpc?topic=vpc-creating-bare-metal-servers&interface=api) and [User data](/docs/vpc?topic=vpc-user-data).
 
-## Example of using the Fedora installer to network boot a bare metal server
-{: #generic-os-network-boot-fedora-installer}
+## Example of using the CentOS installer to network boot a bare metal server
+{: #generic-os-network-boot-centos-installer}
 
-This example is just one example of how to network boot an operating system. In this example, a bare metal server is created which boots to the Fedora installer. You provide the script as the user data when you create the server.
+This example is just one example of how to network boot an operating system. In this example, a bare metal server is created which boots to the Centos installer. You provide the script as the user data when you create the server.
 
 ```screen
 #!ipxe
@@ -72,11 +72,11 @@ dhcp
 ntp pool.ntp.org
 
 # Set source URI
-set mirror http://download.fedoraproject.org/pub/fedora/linux/releases/40
+set mirror http://mirror.stream.centos.org/9-stream
 
 # Detect CPU architecture and calculate repository URI
 cpuid --ext 29 && set arch x86_64 || set arch i386
-set repo ${mirror}/Everything/${arch}/os
+set repo ${mirror}/BaseOS/${arch}/os
 
 # Start installer
 kernel ${repo}/images/pxeboot/vmlinuz initrd=initrd.img inst.repo=${repo}
