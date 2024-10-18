@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-10-15"
+lastupdated: "2024-10-18"
 
 keywords:
 
@@ -26,6 +26,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
   
 ## October 2024
 {: #vpc-oct24}
+
+### 18 October 2024
+{: #vpc-oct1824}
+{: release-note}
+
+Deploy a route-based VPN in active/active mode 
+:   When creating connections for a route-based VPN, you can now enable the distribution of traffic between the `Up` tunnels of the VPN gateway connection when a VPC route's next hop is the VPN connection. To accomplish this, you must enable the "distribute traffic" feature when [creating](/docs/vpc?topic=vpc-vpn-create-gateway&interface=ui) or [adding a connection](/docs/vpc?topic=vpc-vpn-adding-connections&interface=ui) to a route-based VPN gateway. For more information, see the [Distributing traffic for a route-based VPN](/docs/vpc?topic=vpc-using-vpn&interface=ui#use-case-4-vpn) use case. 
 
 ### 15 October 2024
 {: #vpc-oct1524}
@@ -214,6 +221,16 @@ IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1
    - [Attestation certificate](/docs/vpc?topic=vpc-about-attestation)
    - [Encryption certificate](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_encrypt)
    - [Intermediate certificate](/docs/vpc?topic=vpc-cert_validate#download_cert)
+
+## October 2024
+{: #vpc-oct24} 
+
+### 18 October 2024
+{: #vpc-oct1824}
+{: release-note}
+ 
+Deploy a route-based VPN in active/active mode 
+:   When creating connections for a route-based VPN, you can now enable the distribution of traffic between the `Up` tunnels of the VPN gateway connection when a VPC route's next hop is the VPN connection. To accomplish this, you must enable the "distribute traffic" feature when [creating](/docs/vpc?topic=vpc-vpn-create-gateway&interface=ui) or [adding a connection](/docs/vpc?topic=vpc-vpn-adding-connections&interface=ui) to a route-based VPN gateway. For more information, see the [Distributing traffic for a route-based VPN](/docs/vpc?topic=vpc-using-vpn&interface=ui#use-case-4-vpn) use case. 
 
 ## June 2024
 {: #vpc-jun24}
