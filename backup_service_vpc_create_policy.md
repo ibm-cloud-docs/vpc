@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-10-16"
+lastupdated: "2024-10-18"
 
 keywords: Backup, backup snapshot, create backups, backup service, backup plan, backup policy, restore, restore volume, restore data, restore share
 
@@ -57,7 +57,7 @@ Use the following steps to create a backup policy by using the UI.
    | - Name       | Provide a unique name for your backup policy that easily identifies the policy. Standard naming conventions apply to policies, plans, and backups. For example, see the [naming conventions for Snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-naming). |
    | - Resource group | Optionally, specify a resource group for your policy. It can't be changed after you enter it. \n For more information, see [best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup). |
    | - Resource tags  | Optional tags to help you group and manage your backup policy. Consider writing tags as key:value pairs. For more information, see [Working with tags](/docs/account?topic=account-tag&interface=ui).|
-   | **Target resource type**  | Choose between individual storage volumes, or multiple volumes that are attached to the same virtual server instance. \n When you choose to create a policy to back up volumes that are attached to the same virtual server instance you can choose to include the boot volume, too. |
+   | **Target resource type**  | Choose between Individual block volumes, or multiple volumes that are attached to the same virtual server instance. \n When you choose to create a policy to back up volumes that are attached to the same virtual server instance you can choose to include the boot volume, too. |
    | **Tags for target resources** | Specify the user tags to apply to your target resources (volumes, virtual server instances) in your selected region. If multiple resources use the same tag, backups are created for all tagged resources. If a resource has multiple tags, it needs to match only one tag that is associated with the backup policy. After the backup policy is created, existing resources with any of the tags for target resources are automatically associated. |
    | **Scope**    | This option is applicable only to Enterprise accounts. As an Enterprise account administrator, you can specify whether the backup policy applies to the Enterprise account alone or the Enterprise account and all of its subaccounts. Check the box to enable the policy for all accounts of the Enterprise. |
    | **Plan**     | Click **Create** to create backup plan for this policy. In the side panel, specify the plan details. When finished, click **Create**. The page refreshes with a summary of the plan details. You can create up to four backup plans. All apply to the volumes with tags that match the backup policy. \n For more information about options, see the next section. |
@@ -102,20 +102,18 @@ You can schedule backups in your plan on a daily, weekly, or monthly basis by us
    * **Fast snapshot restore** - When you enable this feature, you must specify the zone or zones where you want [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_fast_restore) enabled. You can also specify the maximum number of fast restore snapshots that you want to retain. The fast restore feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots
 
    * **Tagging**, specify more tags that apply to the backup when the plan runs.
-      * Select the box to copy all tags from the source volume to all backups.
+      * Select the box to copy all tags from the source resource to all backups.
       * Under **Tags for backups**, you can manually add any extra plan tags in this field.
 
-1. If you're creating a backup plan for multi-volume backups, you can click Apply changes and move to the next step. If you're creating a backup plan for individual volumes, you can click **Next** to proceed to configure remote copies, which are an optional part of the plan.
+1. If you're creating a backup plan for multi-volume backups, you can click **Create** and return to the backup policy page. If you're creating a backup plan for individual volumes, you can click **Next** to proceed to configure remote copies, which are an optional part of the plan.
    1. To create cross-regional copies of your backup, select the geography and regions where you want to have a copy. Remember, you can have only one copy per region.
    1. Click the toggle to enable remote copy in the selected region.
    1. If the source snapshot is encrypted by using a customer-managed key, you must select the encryption service instance and provide the key name. If you prefer, you can create a service instance or encryption key by following the links.
       * {{site.data.keyword.keymanagementserviceshort}} - it can be used when the original back is encrypted by using the {{site.data.keyword.keymanagementserviceshort}} service.
       * {{site.data.keyword.hscrypto}} - it can be used when the original back is encrypted by using the {{site.data.keyword.hscrypto}} service.
-
-   Tags are automatically copied over from the parent backup.
-   {: note}
-
-1. Click **Apply changes** to save the new plan. The list of plans is updated in the policy details page. If you want to make any changes, click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") for that plan. If you want to delete the plan, click the delete icon.
+   1. Click **Apply changes** to save the new plan. The list of plans is updated in the policy details page. 
+   
+1. If you want to make any changes, click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") for that plan. If you want to delete the plan, click the delete icon.
 
 ### Estimating your expected usage and costs
 {: #backup-cost-estimator-ui}

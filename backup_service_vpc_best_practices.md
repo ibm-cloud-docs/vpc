@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-09"
+lastupdated: "2024-10-18"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -60,23 +60,23 @@ To ensure that you're using the VPC Backup Service most effectively and economic
 
 Apply best practices when you create a backup strategy. The following example illustrates how you might set up a backup solution.
 
-Assume you have 10 volumes that are spread across different departments. Some volumes contain time-critical information that you need to back up hourly. Other volumes contain archived information that doesn't change much, so you'd prefer to back them up weekly. You can create four backup plans per policy. Your solution might look like this:
+Assume you have 10 volumes that are spread across different departments. Some volumes contain time-critical information that you need to back up hourly. Other volumes contain archived information that doesn't change much, so you'd prefer to back them up weekly. You can create four backup plans per policy.
 
 Create a backup policy with an hourly backup plan for the time-critical volumes:
 
-* When you create the policy, create a tag for the target volumes (for example, `hourly-finance`). Provide a policy name that reflects the interval and type of data. It can help organize policies in the list and the volumes that are associated with them.
+   * When you create the policy, create a tag for the target volumes (for example, `finance:hourly`). Provide a policy name that reflects the interval and type of data. It can help organize policies in the list and the resources that are associated with them.
 
-* Add the new tags to your volumes - Specify tags in **Apply tags to target resources** in the console or specify them in the CLI or API. It ensures that all volumes that you want to back up hourly are included by the hourly backup policy.
+   * Add the new tags to your volumes - Specify tags in **Apply tags to target resources** in the console or specify them in the CLI or API. It ensures that all volumes that you want to back up hourly are included by the hourly backup policy.
 
-* If your volume already contains tags: verify that another backup policy isn't already backing up the volume. If that's the case, remove the extra tag from the volume so that it is not backed up twice, and incurring extra costs.
+   * If your volume already contains tags, verify that another backup policy isn't already backing up the volume. If that's the case, remove the extra tag from the volume so that it is not backed up twice, and incurring extra costs.
 
-* Set a retention period that does not exceed the total backup limitation of 10 TB. For hourly backups, you might need a shorter retention period than daily or weekly backups.
+   * Set a retention period that does not exceed the total backup limitation of 10 TB. For hourly backups, you might need a shorter retention period than daily or weekly backups.
 
 Create a weekly backup plan for archived data:
 
-* Create another plan and define the backup frequency as 7 days. Assess the amount of data that is in the volume, and anticipated changes. The limit is 10 TB for all backups of the volume.
+   * Create another plan and define the backup frequency as 7 days. Assess the amount of data that is in the volume, and anticipated changes. The limit is 10 TB for all backups of the volume.
 
-* Set a longer retention period to have multiple copies of your archive volume. For weekly backups, you might want to retain the backups for a month.
+   * Set a longer retention period to have multiple copies of your archive volume. For weekly backups, you might want to retain the backups for a month.
 
 If you specify both age and the number of backups in your retention policy, age takes priority in determining when to delete a snapshot. The count applies only if the oldest snapshot is within the age range.
 

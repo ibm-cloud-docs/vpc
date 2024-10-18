@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-22"
+lastupdated: "2024-10-18"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -42,7 +42,7 @@ From the Backup policy details page, you can edit the tags for your target resou
 
 2. For **Tags for target resources**, click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit").
 
-3. In the new window, enter a user tag name. For existing {{site.data.keyword.block_storage_is_short}} volumes with user tags, enter the tag name exactly as it appears in the volume. You can also add a user tag here and then go back and add it to a volume. You need only one tag to create a backup.
+3. In the new window, enter a user tag name. For existing block volumes with user tags, enter the tag name exactly as it appears in the volume. You can also add a user tag here and then go back and add it to a volume. You need only one tag to create a backup.
 
 4. Click **Next**.
 
