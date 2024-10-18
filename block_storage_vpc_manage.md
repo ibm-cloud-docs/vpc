@@ -41,7 +41,7 @@ You can detach a {{site.data.keyword.block_storage_is_short}} volume that is att
 To detach a volume, complete the following steps.
 
 1. Go to the list of all {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage volumes**.
-1. Locate the volume and then, click the **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions") to open a list of options.
+1. Locate the volume and click the **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions") to open a list of options.
 1. From the options menu, click **Detach from instance**.
 1. Confirm by clicking **Detach instance** in the open window.
 
@@ -72,7 +72,7 @@ A {{site.data.keyword.block_storage_is_short}} data volume is attached by defaul
 1. Select an available virtual server instance.
 1. Confirm your selection.
 
-### Renaming a {{site.data.keyword.block_storage_is_short}} volume
+### Updating the name of a {{site.data.keyword.block_storage_is_short}} volume
 {: #rename}
 
 You can change the name of an existing volume to make it more meaningful.
@@ -93,9 +93,9 @@ Add user tags to {{site.data.keyword.block_storage_is_short}} from the list of v
 1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage volumes**.
 2. Locate the volume from the list that you want to add user tags.
 3. In the **tags** column, click **Add tags**.
-4. In the Add tags menu, enter the user tags that you want to apply to this volume. Tags display as you type.
+4. Enter the user tags that you want to apply to this volume. Tags display as you type.
 
-   You can also add **access management tags** to a volume from the Add tags menu. For more information about creating and adding access management tags, see [Apply access management tags to a volume](#storage-add-access-mgt-tags).
+   You can also add **access management tags** to a volume. For more information about creating and adding access management tags, see [Apply access management tags to a volume](#storage-add-access-mgt-tags).
    {: note}
 
 5. When you're done adding tags, click **Save**. When you refresh the screen, the list of {{site.data.keyword.block_storage_is_short}} shows the number of tags that are added in the **Tags** column.
@@ -104,7 +104,7 @@ You can also add tags from the volume details page. To do so, follow these steps
 
 1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes.
 2. On the volume details, click **Add tags** next to the volume name.
-3. In the Add tags menu, enter the user tags that you want to apply to this volume. When finished, click **Save**.
+3. Enter the user tags that you want to apply to this volume. When finished, click **Save**.
 
 ### Adding user tags that are associated with a backup policy to a volume in the console
 {: #apply-tags-volumes-ui}
@@ -337,6 +337,7 @@ A successful response looks like the following example.
 ### Adding user tags to a {{site.data.keyword.block_storage_is_short}} volume with the API
 {: #add-user-tags-volumes-api}
 
+To add user tags to a volume, you first make a `GET /volumes/{volume_id}` call and copy the hash string from `Etag` property in the response header. You then use the hash string when you specify `If-Match` in a `PATCH /volumes/{volume_id}` request to create new user tags.
 
 To apply tags to a {{site.data.keyword.block_storage_is_short}} volume, follow these steps:
 
@@ -491,12 +492,57 @@ curl -X DELETE "$vpc_api_endpoint/v1/instances/$instance_id/volume_attachments/$
 
 Verify that the volume is detached from the instance by making a `GET /instances/{instance_id}` call.
 
-### Applying user tags that are associated with a backup policy to a volume with the API
-{: #block-storage-add-tags-api}
+## Managing {{site.data.keyword.block_storage_is_short}} with Terraform
+{: #managing-block-storage-terraform}
+{: terraform}
 
-To add user tags to a volume, you first make a `GET /volumes/{volume_id}` call and copy the hash string from `Etag` property in the response header. You then use the hash string when you specify `If-Match` in a `PATCH /volumes/{volume_id}` request to create new user tags.
+Manage your {{site.data.keyword.block_storage_is_short}} as a code with Terraform. 
 
-For more information, see [Applying tags to volumes](/docs/vpc?topic=vpc-backup-use-policies&interface=api#backup-apply-tags-volumes-api) in the VPC backup service documentation.
+To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
+{: requirement}
+
+VPC infrastructure services use a specific regional endpoint, which targets to `us-south` by default. If your VPC is created in another region, make sure to target the appropriate region in the provider block in the `provider.tf` file.
+
+See the following example of targeting a region other than the default `us-south`.
+
+```terraform
+provider "ibm" {
+  region = "eu-de"
+}
+```
+{: screen}
+
+To create and manage volumes, the `ibm_is_volume` resource is used. You can change various attributes of a volume, for example its name, tags, capacity, IOPS. However, some changes force the creation of a new resource. Such changes are the ones that affect zone, resource group, resource controller, and encryption key attributes. For more information about the arguments and attributes, see [ibm_is_volume](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_volume){: external}.
+
+### Updating the name of a volume with Terraform
+{: #update-vol-name-terraform}
+
+To change the name of a volume, use the `ibm_is_volume` resource. The following example specifies the volume `r010-bdb8fc70-8afb-4622-826a-d65a9fc477a4` and its new name as `my-new-name-volume`. When applied, the volume is renamed.
+
+```terraform
+resource "ibm_is_volume" "example" {
+  name    = "my-new-name-volume"
+  id      = "r010-bdb8fc70-8afb-4622-826a-d65a9fc477a4"
+  profile = "10iops-tier"
+  zone    = "us-south-1"
+}
+```
+{: codeblock}
+
+### Applying tags to volumes with Terraform
+{: #block-storage-add-tags-terraform}
+
+To apply user tags to a volume, use the `ibm_is_volume` resource. The following example specifies the volume `my-new-volume` and the tag `dev:test` to be attached to the volume. When applied, the tag is added to the volume.
+
+```terraform
+resource "ibm_is_volume" "example" {
+  name    = "my-new-volume"
+  profile = "10iops-tier"
+  zone    = "us-south-1"
+  tags    = ["dev:test"]
+}
+```
+{: codeblock}
 
 ## Applying access management tags to a {{site.data.keyword.block_storage_is_short}} volume
 {: #storage-add-access-mgt-tags}
@@ -532,7 +578,7 @@ Add an access management tag to an existing volume or when you [create a volume]
 1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage volumes**.
 2. Locate the volume from the list.
 3. In the **tags** column, click **Add tags**.
-4. In the Add tags menu, enter the access management tags in the access management tag field. Tags that you created display as you type.
+4. Enter the access management tags in the access management tag field. Tags that you created display as you type.
 5. Click **Save**.
 
 ### Step 3 - Assigning access and users
@@ -556,6 +602,13 @@ When you delete a {{site.data.keyword.block_storage_is_short}} volume, that data
 IBM guarantees that data deleted cannot be accessed and that deleted data is eventually overwritten and eradicated. Further, when you delete a {{site.data.keyword.block_storage_is_short}} volume, those blocks must be overwritten before that {{site.data.keyword.block_storage_is_short}} is made available again, either to you or to another customer.
 
 Further, when IBM decommissions a physical drive, the drive is destroyed before disposal. Decommissioned drives are unusable and any data on them is inaccessible.
+
+### Sanitizing your data before you delete a volume
+{: #block-storage-sanitization}
+
+When you delete a {{site.data.keyword.block_storage_is_short}} volume, IBM guarantees that your data is inaccessible on the physical disk and is eventually [eradicated](#block-storage-data-eradication). If you have extra compliance requirements such as NIST 800-88 Guidelines for Media Sanitization, you must perform data sanitation procedures before you delete your volumes. For more information, see the [NIST 800-88 Guidelines for Media Sanitation](https://csrc.nist.gov/pubs/sp/800/88/r1/final){: external}.
+
+Sanitizing and deleting the volume means your data can't be restored.
 
 ### Deleting a {{site.data.keyword.block_storage_is_short}} data volume in the console
 {: #delete}
@@ -634,12 +687,19 @@ curl -X DELETE "$vpc_api_endpoint/v1/volumes/$volume_id?version=2022-04-22&gener
 
 To verify that the volume is deleted, list the volumes by making a `GET /volumes` call.
 
-### Sanitizing your data before you delete a volume
-{: #block-storage-sanitization}
+### Deleting a {{site.data.keyword.block_storage_is_short}} volume with Terraform
+{: #delete-vol-terraform}
+{: help}
+{: support}
 
-When you delete a {{site.data.keyword.block_storage_is_short}} volume, IBM guarantees that your data is inaccessible on the physical disk and is eventually [eradicated](#block-storage-data-eradication). If you have extra compliance requirements such as NIST 800-88 Guidelines for Media Sanitization, you must perform data sanitation procedures before you delete your volumes. For more information, see the [NIST 800-88 Guidelines for Media Sanitation](https://csrc.nist.gov/pubs/sp/800/88/r1/final){: external}.
+Use the `terraform destroy` command to conveniently destroy a remote object such as a block volume. The following example shows the syntax for deleting a volume. Substitute the actual ID of the volume in for `ibm_is_volume.example.id`.
 
-Sanitizing and deleting the volume means your data can't be restored.
+```terraform
+terraform destroy --target ibm_is_volume.example.id
+```
+{: codeblock}
+
+For more information, see [terraform destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy){: external}.
 
 ## Next steps
 {: #next-step-managing-block-storage}
