@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-09-25"
+lastupdated: "2024-10-17"
 
 keywords: private path
 
@@ -184,7 +184,23 @@ The following example shows how to use the API to delete an account policy.
       ```
       {: codeblock}
 
+## Updating and deleting an account policy with Terraform
+{: #pps-update-delete-policy-terraform}
+{: terraform}
 
+Terraform will support this feature after it reaches General Availability (GA) and is officially released.
+{: note}
+
+The following example updates or deletes an account policy's access to a Private Path network by using Terraform:
+
+```terraform
+resource "ibm_is_private_path_service_gateway_account_policy" "ppsgAccountPolicy" {
+    private_path_service_gateway = ibm_is_private_path_service_gateway.ppsg.id
+    access_policy = "permit"    ## modified to deny   
+    account = "7f75c7b025e54bc5635f754b2f888665"
+}
+```
+{: codeblock}
 
 ## Related links
 {: #pps-update-policies-related-links}
