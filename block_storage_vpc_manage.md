@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-09-24"
+lastupdated: "2024-10-18"
 
 keywords:
 
@@ -15,19 +15,20 @@ subcollection: vpc
 # Managing {{site.data.keyword.block_storage_is_short}} volumes
 {: #managing-block-storage}
 
-You can manage your {{site.data.keyword.block_storage_is_full}} in the UI, from the CLI, or with the API. You can detach a volume from a virtual server instance or transfer a volume from one instance to another. You can attach a previously attached volume or rename a volume. You can set automatic volume deletion or manually delete a volume. You can assign access to a volume, and you can access volume read/write metrics for monitoring performance. Apply user tags that are associated with a backup policy to a volume to create automated backups.
+You can manage your {{site.data.keyword.block_storage_is_full}} in the console, from the CLI, or with the API. You can detach a volume from a virtual server instance or transfer a volume from one instance to another. You can attach a previously attached volume or rename a volume. You can set automatic volume deletion or manually delete a volume. You can assign access to a volume, and you can access volume read/write metrics for monitoring performance. Apply user tags that are associated with a backup policy to a volume to create automated backups.
 {: shortdesc}
 
-## Managing {{site.data.keyword.block_storage_is_short}} in the UI
+## Managing {{site.data.keyword.block_storage_is_short}} in the console
 {: #manage-block-storage-vol-UI}
 {: ui}
 
-Use the console to manage your {{site.data.keyword.block_storage_is_short}} volumes. In the console, you can complete the following actions.
+Use the UI to manage your {{site.data.keyword.block_storage_is_short}} volumes. In the console, you can complete the following actions.
 
 * Detach a volume from a virtual server instance.
 * Transfer a volume from one instance to another.
 * Attach a previously attached {{site.data.keyword.block_storage_is_short}} data volume.
 * Rename a {{site.data.keyword.block_storage_is_short}} volume.
+* Add user tags to a {{site.data.keyword.block_storage_is_short}} volume.
 * Delete a {{site.data.keyword.block_storage_is_short}} data volume.
 
 ### Detaching a {{site.data.keyword.block_storage_is_short}} volume from a virtual server instance
@@ -84,8 +85,7 @@ You can change the name of an existing volume to make it more meaningful.
 
 1. Confirm your edit.
 
-
-### Adding user tags to a {{site.data.keyword.block_storage_is_short}} volume
+### Adding user tags to a {{site.data.keyword.block_storage_is_short}} volume in the console
 {: #add-user-tags-volumes-ui}
 
 Add user tags to {{site.data.keyword.block_storage_is_short}} from the list of volumes or the volumes details page.
@@ -106,7 +106,7 @@ You can also add tags from the volume details page. To do so, follow these steps
 2. On the volume details, click **Add tags** next to the volume name.
 3. In the Add tags menu, enter the user tags that you want to apply to this volume. When finished, click **Save**.
 
-### Adding user tags that are associated with a backup policy to a volume in the UI
+### Adding user tags that are associated with a backup policy to a volume in the console
 {: #apply-tags-volumes-ui}
 
 You can add user tags that are associated with a backup policy to a {{site.data.keyword.block_storage_is_short}} volume. Backup policies schedule automatic creation of backup snapshots. When one volume tag matches a backup policy tag for target resources, it triggers a backup of the volume contents. A backup policy defines a backup plan that schedules when backup snapshots are taken.
@@ -177,6 +177,48 @@ Adjustable Capacity States             attached
 Adjustable IOPS States                 
 Busy                                   false
 Tags                                   -
+```
+{: screen}
+
+### Adding user tags to a {{site.data.keyword.block_storage_is_short}} volume in from the CLI
+{: #add-user-tags-volumes-cli}
+
+Issue the `ibmcloud is volume-update VOLUME` command with the `--tags` option to update the user tags of a volume. The volume argument can be defined by either the volume ID or the volume name.
+
+Use the same option to add tags to a volume when you create a volume by using `ibmcloud is volume-create`.
+{: tip}
+
+The following example adds user tags `env:test` and `bkp:test` to a volume identified by ID. The output shows information such as name, status, capacity, performance profile, and location. The updated tags appear at the end of the response.
+
+```sh
+cloudshell:~$ ibmcloud is volume-update r010-bdb8fc70-8afb-4622-826a-d65a9fc477a4 --tags env:test,bkp:test,bcp:test
+Updating volume r010-bdb8fc70-8afb-4622-826a-d65a9fc477a4 under account Test Account as user test.user@ibm.com...
+                                          
+ID                                     r010-bdb8fc70-8afb-4622-826a-d65a9fc477a4   
+Name                                   my-bootable-snapshot-restore-21   
+CRN                                    crn:v1:bluemix:public:is:eu-de-2:a/a1234567::volume:r010-bdb8fc70-8afb-4622-826a-d65a9fc477a4   
+Status                                 available   
+Capacity                               100   
+IOPS                                   3000   
+Bandwidth(Mbps)                        393   
+Profile                                general-purpose   
+Encryption key                         -   
+Encryption                             provider_managed   
+Resource group                         defaults   
+Created                                2023-02-23T18:52:00+00:00   
+Zone                                   eu-de-2   
+Health State                           ok   
+Volume Attachment Instance Reference   -   
+Source snapshot                        ID                                          Name      
+                                       r138-92c3efcb-4588-4c9c-828b-c52836629954   my-bootable-snapshot      
+                                          
+Operating system                       CentOS 7.x - Minimal Install (amd64)   
+Source image                           ID                                          Name      
+                                       r010-067bd38b-7ddd-49d9-a7f3-6e0a798e0554   ibm-centos-7-9-minimal-amd64-5      
+                                          
+Active                                 false   
+Busy                                   false   
+Tags                                   env:test,bkp:test,bcp:test
 ```
 {: screen}
 
@@ -292,6 +334,103 @@ A successful response looks like the following example.
 ```
 {: screen}
 
+### Adding user tags to a {{site.data.keyword.block_storage_is_short}} volume with the API
+{: #add-user-tags-volumes-api}
+
+
+To apply tags to a {{site.data.keyword.block_storage_is_short}} volume, follow these steps:
+
+1. Make a `GET /volumes/{volume_id}` call and copy the hash string from the `Etag` property in the response header. You need to use the hash string when you specify `If-Match` in the `PATCH /volumes/{volume_id}` request to create user tags for the volume in step 2. To generate the response header information, make an API call similar to the following example:
+
+   ```curl
+   curl -sSL -D GET\
+   "https://us-south.iaas.cloud.ibm.com/v1/volumes/{volume_id}?version=2022-04-25&generation=2"\
+   -H "Authorization: Bearer $TOKEN" -o /dev/null
+   ```
+   {: pre}
+
+   In the response header, you see something like this:
+
+   ```json
+   HTTP/2 200
+   date: Tue, 28 Apr 2022 17:48:03 GMT
+   content-type: application/json; charset=utf-8
+   content-length: 1049
+   cf-ray: 69903d250c4966ef-DFW
+   cache-control: max-age=0, no-cache, no-store, must-revalidate
+   expires: -1
+   strict-transport-security: max-age=31536000; includeSubDomains
+   cf-cache-status: DYNAMIC
+   expect-ct: max-age=604800, report-uri="[uri...]"
+   pragma: no-cache
+   x-content-type-options: nosniff
+   x-request-id: 1fbe2384-6828-4503-ae7d-050426d1b11b
+   x-xss-protection: 1; mode=block
+   server: cloudflare
+   etag: W/xxxyyyzzz123
+   ```
+   {: codeblock}
+
+2. Make a `PATCH /volumes/{volume_id}` request. Specify the _Etag-hash-string_ for the `If-Match` property in the header. Specify the user tag in the `user_tags` property.
+
+   You can also add tags when you make a `POST /volumes` call to create a volume and specify the `user_tags` property.
+   {: tip}
+
+   This example updates the volume by specifying user tags `env:test` and `env:prod`. The value that you obtained from the `Etag` parameter is specified in the `If-Match` header in the call.
+
+   ```curl
+   curl -X PATCH\
+   "$vpc_api_endpoint/v1/volumes/50fda9c3-eecd-4152-b473-a98018ccfb10?version=2022-04-25&generation=2"\
+      -H "Authorization: Bearer"\
+      -H "If-Match: <_Etag-hash-string_>"\
+      -d `{
+         "user_tags": [
+            "env:test",
+            "env:prod"
+         ]
+      }'
+   ```
+   {: codeblock}
+
+   The response shows the tags that were added to the volume:
+
+   ```json
+   {
+      "id":"50fda9c3-eecd-4152-b473-a98018ccfb10",
+        "crn": "crn:[...]",
+      "name":"my-volume-update1",
+      "href":"https://us-south.iaas.cloud.ibm/v1/volumes/50fda9c3-eecd-4152-b473-a98018ccfb10",
+      "capacity":50,
+      "iops":100,
+      "encryption":"provider_managed",
+      "status":"pending",
+      "zone":{
+         "name":"us-south-1",
+         "href":"https://us-south.iaas.cloud.ibm/v1/regions/us-south/zones/us-south-1"
+      },
+         "profile":{
+         "name":"custom",
+         "href":"https://us-south.iaas.cloud.ibm/v1/volume/profiles/custom"
+      },
+      "resource_group":{
+         "id":"4bbce614c13444cd8fc5e7e878ef8e21",
+         "href":"https://resource-controller.cloud.ibm.com/v2/resource_groups/4bbce614c13444cd8fc5e7e878ef8e21",
+         "name":"Default"
+      },
+      "volume_attachments":[],
+      "created_at":"2022-04-28T17:46:17.000Z",
+      "status_reasons":[],
+      "active":false,
+      "busy":false,
+      "bandwidth":128,
+      "user_tags":[
+        "env:test",
+         "env:prod"
+      ]
+   }
+   ```
+   {: codeblock}
+
 ### Updating a volume attachment with the API
 {: #update-vol-attachment-api}
 
@@ -369,7 +508,7 @@ Access management tags are not used by [backup policies](/docs/vpc?topic=vpc-bac
 
 Each resource can have up to 1000 user tags, and no more than 250 access tags. However, only 100 tags can be attached or detached in the same operation.
 
-### Step 1 - Creating an IAM access management tag in the UI
+### Step 1 - Creating an IAM access management tag in the console
 {: #storage-create-access-mgt-tag-ui}
 {: ui}
 
@@ -418,7 +557,7 @@ IBM guarantees that data deleted cannot be accessed and that deleted data is eve
 
 Further, when IBM decommissions a physical drive, the drive is destroyed before disposal. Decommissioned drives are unusable and any data on them is inaccessible.
 
-### Deleting a {{site.data.keyword.block_storage_is_short}} data volume in the UI
+### Deleting a {{site.data.keyword.block_storage_is_short}} data volume in the console
 {: #delete}
 {: ui}
 {: help}
