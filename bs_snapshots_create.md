@@ -643,7 +643,10 @@ resource "ibm_is_snapshot" "snapshot" {
 ```
 {: codeblock}
 
-For more information about the arguments and attributes, see [ibm_is_snapshot](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_snapshot){: external}. 
+For more information about the arguments and attributes, see [ibm_is_snapshot](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_snapshot){: external}.
+
+The source snapshot must be in Stable status for the copy to be created successfully.
+{: important}
 
 ## Next steps
 {: #bs_snapshots_create_next_steps}
