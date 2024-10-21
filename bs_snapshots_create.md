@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-10-11"
+lastupdated: "2024-10-21"
 
 keywords: snapshots, Block Storage, snapshot clone, remote copy, fast restore, Block Storage snapshot, cross-regional snapshot
 
@@ -87,7 +87,7 @@ The fast restore feature is billed at an extra hourly rate for each zone that it
 In the previous section, you saw how to create a cross-regional snapshot copy when you take a new snapshot in the UI. You can also create cross-regional copies of existing snapshots.
 
 1. In the console, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage snapshots**.
-1. In the list of snapshots, locate that snapshot that you want to copy. 
+1. In the list of snapshots, locate that snapshot that you want to copy. Make sure the snapshot is in Stable status.
 1. Click the Actions menu (![Actions menu](images/overflow.png)) and select **Copy snapshot**.
 1. Select the region where you want to create the copy.
 
@@ -247,7 +247,7 @@ The fast restore feature is billed at an extra hourly rate for each zone that it
 
 To create a copy of a snapshot in another region, run the `ibmcloud is snapshot-create` command with the `--source-snapshot-crn` option and the source snapshot CRN. 
 
-If the source snapshot is not encrypted with a customer key, the encryption of the copy remains provider-managed. If the source snapshot is protected by a customer-managed key, you need to specify the customer-managed key that you want to use to encrypt the new copy.
+If the source snapshot is not encrypted with a customer key, the encryption of the copy remains provider-managed. If the source snapshot is protected by a customer-managed key, you need to specify the customer-managed key that you want to use to encrypt the new copy. The source snapshot must be in Stable status for the copy to be created successfully.
 {: important}
 
 The following example creates a snapshot in the target region (`us-south`) by using the CRN of a snapshot from the source region (`us-east`).
@@ -474,7 +474,7 @@ When you create a snapshot, you can also copy the snapshot to another region. By
 
 Make a `POST /snapshots` request to create a snapshot copy in the target region, specify the name and CRN of the source snapshot. In the following example, the target region is us-east and the source region is us-south. The `name` and `source_snapshot` subproperties are required. The `resource_group` is optional. The `encryption_key` subproperty is required when the source snapshot is encrypted with a customer-managed key.
 
-If the source snapshot is not encrypted with a customer key, the encryption of the copy remains provider-managed. If the source snapshot is protected by a customer-managed key, you must specify the customer-managed key that you want to use to encrypt the new copy.
+If the source snapshot is not encrypted with a customer key, the encryption of the copy remains provider-managed. If the source snapshot is protected by a customer-managed key, you must specify the customer-managed key that you want to use to encrypt the new copy. The source snapshot must be in Stable status for the copy to be created successfully.
 {: important}
 
 ```sh

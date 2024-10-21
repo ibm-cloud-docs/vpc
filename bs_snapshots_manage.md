@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-10-11"
+lastupdated: "2024-10-21"
 
 keywords: snapshots, Block Storage snapshots, manage snapshots, fast restore clone, backup snapshot, remote copy, cross-regional copy
 
@@ -478,7 +478,7 @@ curl -X DELETE \
 Use the following steps to create cross-regional copies of snapshots from the Snapshots for VPC list or from the snapshot details page.
 
 1. In the console, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage snapshots**.
-2. In the list of snapshots, find the snapshot that you want to duplicate in another region. 
+2. In the list of snapshots, find the snapshot that you want to duplicate in another region.  Make sure the snapshot is in Stable status.
 3. click the Actions menu (![Actions menu](images/overflow.png)) and select **Copy snapshot**.
 4. Select the region where you want to create the copy.
 
@@ -506,7 +506,7 @@ Use the following steps to delete a remote region copy in the console.
 {: #snapshots-remote-copy-create-cli}
 {: cli}
 
-You can create a cross-regional copy of a snapshot by using the `snapshot-create` command with the `--source-snapshot-crn` option and the source snapshot CRN, which creates a snapshot in the target region by using the CRN of a snapshot from the source region. The created snapshot uses the customer-defined encryption key if the CRN of an encryption key was also specified. 
+You can create a cross-regional copy of a snapshot by using the `snapshot-create` command with the `--source-snapshot-crn` option and the source snapshot CRN, which creates a snapshot in the target region by using the CRN of a snapshot from the source region. The created snapshot uses the customer-defined encryption key if the CRN of an encryption key was also specified.  The source snapshot must in Stable status for the copy to be created successfully.
 
 ```sh
 ibmcloud is snapshot-create --name my-cli-snapshot-crc --source-snapshot-crn crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot:r006-b9590a48-63a3-445e-b819-3f2c0b82daf8
@@ -571,7 +571,7 @@ For more information about available command options, see [`ibmcloud is snapshot
 {: #snapshots-remote-copy-create-api}
 {: api}
 
-You can create a cross-regional copy of a snapshot by making an API call in the target region. See the following example, where the target region is us-east and the original snapshot is in us-south.
+You can create a cross-regional copy of a snapshot by making an API call in the target region. Specify the CRN of the source snapshot to create a copy in the target region. The created snapshot uses the customer-defined encryption key if the CRN of an encryption key was also specified. The source snapshot must in Stable status for the copy to be created successfully. See the following example, where the target region is us-east and the original snapshot is in us-south.
 
 ```curl
 POST https://us-east.iaas.cloud.ibm.com/v1/snapshots
@@ -678,7 +678,7 @@ curl -X DELETE https://us-east.iaas.cloud.ibm.com/v1/snapshots/{id}
 {: #snapshots-remote-copy-create-terraform}
 {: terraform}
 
-To create a copy of the snapshot in a remote region, use the `ibm_is_snapshot` resource. The following example creates a copy in the target region by using the ID of the source snapshot. The copy is going to be encrypted by the encryption key that is specified by its CRN.
+To create a copy of the snapshot in a remote region, use the `ibm_is_snapshot` resource. The source snapshot must in Stable status for the copy to be created successfully. The created snapshot uses the customer-defined encryption key if the CRN of an encryption key was also specified. The following example creates a copy in the target region by using the ID of the source snapshot. The copy is going to be encrypted by the encryption key that is specified by its CRN.
 
 ```terraform
 resource "ibm_is_snapshot" "snapshot" {

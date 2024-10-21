@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-10-11"
+lastupdated: "2024-10-21"
 
 keywords: snapshots, Block Storage, volumes, cross-regional snapshot, restore volume, copy snapshot
 
@@ -67,7 +67,7 @@ For more information, see [Restoring a volume with the fast restore feature](/do
 
 You can copy a snapshot from one region to another region, and later use that snapshot to restore a volume in the new region. This feature can be used in disaster recovery scenarios when you need to start your virtual server instance and data volumes in a different region. Or you can use the remote copy to create storage volumes in a new region to expand your VPC.
 
-When you choose to create a cross-regional copy of a snapshot, you need to specify a single snapshot to be copied to the target region. The snapshot is created as normal, and stored in your regional {{site.data.keyword.cos_short}}. A copy of the snapshot is created in the {{site.data.keyword.cos_short}} bucket in the target region.
+When you choose to create a cross-regional copy of a snapshot, you need to specify a single snapshot to be copied to the target region. The snapshot is created as normal, and stored in your regional {{site.data.keyword.cos_short}}. When the snapshot is stable, a copy of the snapshot is created in the {{site.data.keyword.cos_short}} bucket in the target region.
 
 If the source snapshot is not encrypted with a customer key, the encryption of the copy remains provider-managed. If the source snapshot is protected by a customer-managed key, you must specify the customer-managed key that you want to use to encrypt the new copy.
 
