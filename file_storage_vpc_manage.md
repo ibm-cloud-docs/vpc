@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-09-26"
+lastupdated: "2024-10-21"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -1020,14 +1020,33 @@ To modify existing user tags that are added to a file share, you first make a `G
    ```
    {: codeblock}
 
+### Adding or modify file share user tags with Terraform
+{: #fs-add-tags-terraform}
+{: terraform}
+
+To apply user tags to a file share, use the `ibm_is_share` resource to create an argument in your `main.tf` file. The following example specifies the share `my-new-share` and the tag `dev:test` to be attached to the share. When applied, the tag is added to the share.
+
+```terraform
+resource "ibm_is_share" "example" {
+  name    = "my-new-share"
+  size    = 200
+  iops    = 5000
+  profile = "dp2"
+  zone    = "us-south-2"
+  tags    = ["dev:test"]
+}
+```
+{: codeblock}
+
 ## Adding access management tags to a file share
 {: #fs-add-access-mgt-tags}
 {: ui}
 
 Access management tags are metadata that you can add to your file shares to help organize access control resource relationships. You first create the tag and then add it to an existing file share or when you create a file share. You can apply the same access management tag to multiple file shares. You can assign access to the tag in {{site.data.keyword.iamshort}} (IAM). Optionally, you can create an IAM access group and manage users.
 
-### Step 1 - Creating an access management tag in IAM
-{: #fs-create-access-mgt-tag}
+### Step 1 - Creating an access management tag in IAM in the console
+{: #fs-create-access-mgt-tag-ui}
+{: ui}
 
 In the console:
 
@@ -1035,9 +1054,38 @@ In the console:
 2. Click the **Access management tags** tab. Add a tag name in the field. Access management tags require a `key:value` format.
 3. Click **Create Tags**.
 
-From the [Global Search and Tagging API](/docs/account?topic=account-tag&interface=api#create-access-api):
+### Step 1 - Creating an IAM access management tag from the CLI
+{: #fs-create-access-mgt-tag-cli}
+{: cli}
 
-Make a `POST/ tags` call to [create an access management tag](/apidocs/tagging#create-tag) and specify the tag in the `tag_names` property. For an example, see [Creating access management tags with the API](/docs/account?topic=account-tag&interface=api#create-access-api).
+From the command line, enter the `ibmcloud resource tag-create` command to create an access management tag in your account. The following example creates a tag that is called `project:myproject`:
+
+    ```sh
+    ibmcloud resource tag-create --tag-names project:myproject
+    ```
+    {: codeblock}
+
+For more information, see the [`ibmcloud resource` command reference](/docs/cli?topic=cli-ibmcloud_commands_resource).
+
+### Step 1 - Creating an IAM access management tag with the API
+{: #fs-create-access-mgt-tag-api}
+{: api}
+
+With the [Global Search and Tagging API](/docs/account?topic=account-tag&interface=api#create-access-api), make a `POST/ tags` request to [create an access management tag](/apidocs/tagging#create-tag). Specify the tag in the `tag_names` property. For an example, see [Creating access management tags by using the API](/docs/account?topic=account-tag&interface=api#create-access-api).
+
+### Step 1 - Creating an IAM access management tag with Terraform
+{: #fs-create-access-mgt-tag-terraform}
+{: terraform}
+
+Create an argument in your `main.tf` file. The following example creates the access management tag `ibm_tag` that is added to the `ibm` resource for the resource ID `ibm_is_share.example.crn`.
+
+   ```terraform
+   resource "ibm_resource" "ibm" {
+   resource_id = ibm_is_share.example.crn
+   tags        = [ "ibm_tag" ]
+   }
+   ```
+    {: codeblock}
 
 ### Step 2 - Adding an access management tag to a file share
 {: #fs-add-access-mgt-tag}
