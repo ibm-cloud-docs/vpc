@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-10-18"
+lastupdated: "2024-10-21"
 
 keywords:
 
@@ -564,11 +564,38 @@ In the console, complete the following steps.
 2. Click the **Access management tags** tab. Add a tag name in the field. Access management tags require a `key:value` format.
 3. Click **Create Tags**.
 
+### Step 1 - Creating an IAM access management tag from the cli
+{: #storage-create-access-mgt-tag-cli}
+{: cli}
+
+From the command line, enter the `ibmcloud resource tag-create` command to create an access management tag in your account. The following example creates a tag that is called `project:myproject`:
+
+    ```sh
+    ibmcloud resource tag-create --tag-names project:myproject
+    ```
+    {: codeblock}
+
+For more information, see the [`ibmcloud resource` command reference](/docs/cli?topic=cli-ibmcloud_commands_resource).
+
 ### Step 1 - Creating an IAM access management tag with the API
 {: #storage-create-access-mgt-tag-api}
 {: api}
 
 With the [Global Search and Tagging API](/docs/account?topic=account-tag&interface=api#create-access-api), make a `POST/ tags` call to [create an access management tag](/apidocs/tagging#create-tag). Specify the tag in the `tag_names` property. For an example, see [Creating access management tags by using the API](/docs/account?topic=account-tag&interface=api#create-access-api).
+
+### Step 1 - Creating an IAM access management tag with Terraform
+{: #storage-create-access-mgt-tag-terraform}
+{: terraform}
+
+Create an argument in your `main.tf` file. The following example creates the access management tag `ibm_tag` that is added to the `ibm` resource for the resource ID `ibm_is_volume.example.crn`.
+
+   ```terraform
+   resource "ibm_resource" "ibm" {
+   resource_id = ibm_is_volume.example.crn
+   tags        = [ "ibm_tag" ]
+   }
+   ```
+    {: codeblock}
 
 ### Step 2 - Adding an access management tag to a volume
 {: #storage-add-access-mgt-tag}
