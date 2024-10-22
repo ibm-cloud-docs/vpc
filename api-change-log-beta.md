@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-10-15"
+lastupdated: "2024-10-22"
 
 keywords: api, change log, beta
 
@@ -25,6 +25,20 @@ There are no backward-compatibility guarantees as a feature progresses through i
 {: important}
 
 To review the change log of generally available API features, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log).
+
+### For all version dates
+{: #22-october-2024-all-version-dates-beta}
+
+**Reservation automatic attachment support.** Accounts that have been granted special approval to preview this feature can now [automatically attach](/docs/vpc?topic=vpc-automatic-reservation-vpc) a reservation when [creating an instance](/apidocs/vpc-beta/latest#create-instance) or [creating a bare metal server](/apidocs/vpc-beta/latest#create-bare-metal-server). Additionally, when [updating an instance](/apidocs/vpc-beta/latest#update-instance) or [updating a bare metal server](apidocs/vpc-beta/latest#update-bare-metal-server), you can change the `reservation_affinity.policy` to `automatic` for the instance or bare metal server to automatically attach to available reserved capacity.
+
+When [creating a reservation](/apidocs/vpc-beta/latest#create-reservation), you can now specify an `affinity_policy` of `restricted` to prevent the policy from being used for automatic attachments. Similarly, while a reservation's `status` is `inactive`, you can [update a reservation](/apidocs/vpc-beta/latest#update-reservation) to be restricted.
+
+For more information, see [Automatic attachments for reservations](/docs/vpc?topic=vpc-automatic-reservation-vpc).
+
+### For version `2024-10-22` or later
+{: #22-october-2024-all-version-dates-beta}
+
+When using a `version` query parameter of `2024-10-22` or later, the `reservation_affinity.policy` defaults to `automatic` when [creating a reservation](/apidocs/vpc-beta/latest#create-reservation). Similarly, when using a `version` query parameter of `2024-10-22` or later, the `reservation_affinity.policy` defaults to `automatic` when [creating an instance](/apidocs/vpc-beta/latest#create-instance) or [creating a bare metal server](/apidocs/vpc-beta/latest#create-bare-metal-server). The behavior remains unchanged when using a `version` query parameter of `2024-10-21` or earlier.
 
 ## 15 October 2024
 {: #15-october-2024-beta}
