@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-09-24"
+lastupdated: "2024-10-22"
 
 keywords:
 
@@ -101,7 +101,7 @@ For more information about data encryption, see [About data encryption for VPC](
 ## Block Storage Snapshots for VPC
 {: #vpc-storage-snapshots}
 
-Block Storage Snapshots for VPC are point-in-time copies of your {{site.data.keyword.block_storage_is_short}} boot or data volumes. To protect your data in the unlikely event of a zone or region failure, consider Block Storage Snapshots for VPC. By scheduling snapshots at regular intervals, data can be replicated either to another zone in the same region, or cross-region, so that a copy is available in another region. Snapshots can also be cached for fast restore. With fast restore, you can achieve a recovery time objective that is faster than restoring from a regular snapshot. [New]{: tag-new} Snapshots can be shared with other accounts to create volumes in their VPCs. For more information about Block Storage Snapshots for VPC, see [About Block Storage Snapshots for VPC](/docs/vpc?topic=vpc-snapshots-vpc-about) and [Planning snapshots](/docs/vpc?topic=vpc-snapshots-vpc-planning).
+Block Storage Snapshots for VPC are point-in-time copies of your {{site.data.keyword.block_storage_is_short}} boot or data volumes. To protect your data in the unlikely event of a zone or region failure, consider Block Storage Snapshots for VPC. By scheduling snapshots at regular intervals, data can be replicated either to another zone in the same region, or cross-region, so that a copy is available in another region. Snapshots can also be cached for fast restore. With fast restore, you can achieve a recovery time objective that is faster than restoring from a regular snapshot. Snapshots can be shared with other accounts to create volumes in their VPCs. For more information about Block Storage Snapshots for VPC, see [About Block Storage Snapshots for VPC](/docs/vpc?topic=vpc-snapshots-vpc-about) and [Planning snapshots](/docs/vpc?topic=vpc-snapshots-vpc-planning).
 
 ## Tags for {{site.data.keyword.block_storage_is_short}} volumes
 {: #storage-about-tags}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-09-24"
+lastupdated: "2024-10-22"
 
 keywords: vpc Block Storage, provision Block Storage for vpc, bootable snapshots, create volume from snapshot, fast restore
 
@@ -122,7 +122,7 @@ You can restore a boot volume from a "bootable" snapshot. The boot volume is res
 1. Specify the location of the volume, volume name, optional resource group and tags.
 1. In the **Optional configurations** section, click **Import from snapshot**. Select one of the following options
    - Click **Import existing snapshot** to see the list of available snapshots. All snapshots that are presented are in a _stable_ state. By default, the **Nonbootable** tab is selected that lists all data volume snapshots. To restore a boot volume, click the **Bootable** tab. **Attach volume to new virtual server instance** is selected by default. The boot volume is restored when the instance is created.
-   - [New]{: tag-new} Click **Import snapshot by CRN** and provide the CRN of the snapshot that you want to use.
+   - Click **Import snapshot by CRN** and provide the CRN of the snapshot that you want to use.
 1. Click **Save**. Information about the snapshot is shown on the volume provisioning page, including the name, its size, the date when it was created, its source volume, and whether it is a bootable snapshot. Bootable snapshot information includes the operating system and image. The encryption is inherited from the snapshot and shown in the encryption section.
 1. Click **Create block storage volume**.
 
@@ -241,7 +241,7 @@ Tags                                   -
 ### Creating a stand-alone {{site.data.keyword.block_storage_is_short}} volume from a snapshot from the CLI
 {: #create-vol-from-snapshot-cli}
 
-Run the `ibmcloud is volume-create` command and specify the `--snapshot` option with the name, ID, or CRN [New]{: tag-new} of the snapshot you're using to create the new volume. The volume is unattached, as indicated by the attachment state in the response.
+Run the `ibmcloud is volume-create` command and specify the `--snapshot` option with the name, ID, or CRN of the snapshot you're using to create the new volume. The volume is unattached, as indicated by the attachment state in the response.
 
 This example creates the new volume from a snapshot that is specified by name.
 
@@ -754,7 +754,7 @@ resource "ibm_is_instance" "example" {
 ```
 {: codeblock}
 
-[New]{: tag-new} If you want to restore a volume from a snapshot of another account, you can use the `source_snapshot_crn` argument to identify the snapshot by its CRN, instead of its ID.
+If you want to restore a volume from a snapshot of another account, you can use the `source_snapshot_crn` argument to identify the snapshot by its CRN, instead of its ID.
 
 For more information about the arguments and attributes, see [ibm_is_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance){: external}.
 

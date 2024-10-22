@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-09-24"
+lastupdated: "2024-10-22"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -51,8 +51,6 @@ For more information about authorizations, see [Using authorizations to grant ac
 ## Creating service-to-service authorization for cross-account restore in the console
 {: #block-s2s-auth-xaccountrestore-ui}
 {: ui}
-
-[New]{: tag-new}
 
 The following steps authorize the Block Storage service of one account to use a snapshot that is created by another account to restore volumes. The steps need to be performed by the account that owns the snapshot that is to be shared. The receiving account must ensure that their admin user has the `SnapshotRemoteAccountRestorer` role in IAM before they start a volume restoration with the CRN of the shared snapshot.
 
@@ -153,8 +151,6 @@ Run the `ibmcloud iam authorization-policy-create` command to create authorizati
 {: #block-s2s-auth-xaccountrestore-cli}
 {: cli}
 
-[New]{: tag-new}
-
 Run the `ibmcloud iam authorization-policy-create` command to authorize the Block Storage service of one account to use a snapshot that was created by another account to restore volumes. This command needs to be issued by the account that owns the snapshot that is to be shared. The receiving account must ensure that their admin user has the `SnapshotRemoteAccountRestorer` role in IAM before they start a volume restoration with the CRN of the shared snapshot.
 
 1. Create a JSON file with the following information for the authorization policies in your local Documents folder.
@@ -239,8 +235,6 @@ The cross-account authorization is one-way and specific to key and service. When
 ## Creating service-to-service authorization for cross-account restore with the API
 {: #block-s2s-auth-xaccountrestore-api}
 {: api}
-
-[New]{: tag-new}
 
 The following API request authorizes the Block Storage service of one account to use a snapshot that was created by another account to restore volumes. This call needs to be issued by the account that owns the snapshot that is to be shared. The receiving account must ensure that their admin user has the `SnapshotRemoteAccountRestorer` role in IAM before they start a volume restoration with the CRN of the shared snapshot.
 
@@ -345,8 +339,6 @@ For more information about the arguments and attributes, see the [Terraform docu
 ## Creating service-to-service authorization for cross-account restore Terraform
 {: #block-s2s-auth-xaccountrestore-terraform}
 {: terraform}
-
-[New]{: tag-new}
 
 1. Configure the two IBM accounts for IBM provider. See the example in the [previous section](#block-s2s-xaccount-encryption-terraform).
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-10-22"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -91,8 +91,6 @@ You can use {{site.data.keyword.atracker_full}} to configure how to route auditi
 {: #fs-event-la-logs}
 
 After you provision {{site.data.keyword.logs_routing_full_notm}} to add log management capabilities to your {{site.data.keyword.cloud}} architecture, you can enable platform logs to view and analyze logs of the {{site.data.keyword.filestorage_vpc_short}} service. When replication occurs, the file service generates a `regional-file.00002I` log message, which includes information about when the replication occurred, and how much data was transferred. For more information, see [Logging for VPC](/docs/vpc?topic=vpc-logging#logging-file-share-replication).
-
-[New]{: tag-new}
 
 ## Monitoring metrics
 {: #fs-sysdig-mon}

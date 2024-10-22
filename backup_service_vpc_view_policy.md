@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-10-22"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -804,4 +804,4 @@ You can do the following actions.
 * [Apply tags to your resources for backups](/docs/vpc?topic=vpc-backup-use-policies).
 * [Manage your backup policies and plans](/docs/vpc?topic=vpc-backup-service-manage).
 * [Restore a volume from a backup snapshot](/docs/vpc?topic=vpc-baas-vpc-restore).
-* [New]{: tag-new}[Enabling event notifications for Backup for VPC](/docs/vpc?topic=vpc-event-notifications-events).
+* [Enabling event notifications for Backup for VPC](/docs/vpc?topic=vpc-event-notifications-events).

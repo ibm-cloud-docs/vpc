@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-10-21"
+lastupdated: "2024-10-22"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -1130,8 +1130,6 @@ Mounting is a process by which a server's operating system makes files and direc
 
 ## Monitoring file shares
 {: #fs-manage-monitor}
-
-[New]{: tag-new}
 
 You can check the status and health states of your file share by using the console, the CLI, or the API. You can monitor the total throughput, the total IOPS, the number of mount targets, and capacity usage of your share over time in the {{site.data.keyword.cloud_notm}} console. You can use {{site.data.keyword.atracker_full}} to configure how to route auditing events for file shares. You can also configure {{site.data.keyword.logs_routing_full_notm}} for handling logs. For more information, see [Monitoring file share health states, lifecycle status, and events](/docs/vpc?topic=vpc-fs-vpc-monitoring).
 

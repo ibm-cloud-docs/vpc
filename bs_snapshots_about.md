@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-10-21"
+lastupdated: "2024-10-22"
 
 keywords: snapshots, Block Storage, volumes, cross-regional snapshot, restore volume, copy snapshot
 
@@ -43,7 +43,7 @@ The cost for snapshots is calculated based on GB capacity that is stored per mon
 
 With {{site.data.keyword.iamlong}}, you can set up resource groups in your account to provide user-access to your snapshots. Your IAM role determines whether you can create and manage snapshots. For more information, see [IAM roles for creating and managing snapshots](/docs/account?topic=account-iam-service-roles-actions#is.snapshot-roles).
 
-[New]{: tag-new}You can share a snapshot with another account and allow the other account to create volumes with that snapshot. To do so, set up [cross-account authorization](/docs/vpc?topic=vpc-block-s2s-auth&interface=ui#block-s2s-auth-xaccountrestore-ui) with the *Snapshot Remote Account Restorer* role, and share the CRN of the snapshot with the other account. The other account's user with *Snapshot Remote Account Restorer* role can use the CRN to create a volume in the console, from the CLI, with the API, or Terraform.
+You can share a snapshot with another account and allow the other account to create volumes with that snapshot. To do so, set up [cross-account authorization](/docs/vpc?topic=vpc-block-s2s-auth&interface=ui#block-s2s-auth-xaccountrestore-ui) with the *Snapshot Remote Account Restorer* role, and share the CRN of the snapshot with the other account. The other account's user with *Snapshot Remote Account Restorer* role can use the CRN to create a volume in the console, from the CLI, with the API, or Terraform.
 
 Before you take a snapshot, make sure that all cached data is present on disk, especially when you're taking snapshots of instances with Windows and Linux&reg; operating systems. For example, on Linux operating systems, run the `sync` command to force an immediate write of all cached data to disk.
 {: note}
@@ -115,8 +115,6 @@ When you restore volumes from snapshots in a consistency group, you can select s
 {: #snapshots-vpc-iam}
 
 Snapshots require IAM permissions for role-based access control. You need the right platform role to create and manager with snapshots in your own account, and the correct service roles to use a snapshot for restore data from another account. 
-
-[New]{: tag-new}
 
 When you share a snapshot with another account, you must assign the *Snapshot Remote Account Restorer* role to the other account's user to allow them access to the snapshot. They must also have the *Restore Volume From Remote Account Snapshot* role in their account to create a volume with the CRN of the remote snapshot in the console.{: ui}
 

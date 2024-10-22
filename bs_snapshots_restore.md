@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-10-22"
 
 keywords:
 
@@ -33,7 +33,7 @@ You can restore a volume in a different region by using a cross-regional copy of
 
 You can also choose to restore a volume by using a fast restore snapshot clone. For more information about fast restore, see the [FAQs](/docs/vpc?topic=vpc-snapshots-vpc-faqs&interface=ui#faq-snapshot-fr).
 
-[New]{: tag-new} If you plan to use a snapshot from another account, make sure that the right [IAM authorizations](/docs/vpc?topic=vpc-block-s2s-auth&interface=ui#block-s2s-auth-xaccountrestore-ui) and [IAM roles](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#snapshots-vpc-iam) are in place. Contact the snapshot's owner for the CRN of the snapshot.
+If you plan to use a snapshot from another account, make sure that the right [IAM authorizations](/docs/vpc?topic=vpc-block-s2s-auth&interface=ui#block-s2s-auth-xaccountrestore-ui) and [IAM roles](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#snapshots-vpc-iam) are in place. Contact the snapshot's owner for the CRN of the snapshot.
 {: important}
 
 You can restore volumes at various stages of the VPC lifecycle.
@@ -312,7 +312,7 @@ Use this option when you're not sure which virtual server instance you want to a
 
 Run the `ibmcloud is volume-create` command and specify the `snapshot` parameter and name or ID of the snapshot. Run the `ibmcloud is volume-create` command and specify the `snapshot` parameter and the name, ID, or CRN of the snapshot. For more information, see [Create a stand-alone {{site.data.keyword.block_storage_is_short}} volume from a snapshot](/docs/vpc?topic=vpc-creating-block-storage&interface=cli#create-vol-from-snapshot-cli).
 
-[New]{: tag-new} The following example creates a stand-alone data volume by using the CRN of a snapshot from another account.
+The following example creates a stand-alone data volume by using the CRN of a snapshot from another account.
 
 ```sh
 $ ibmcloud is volume-create my-new-volume general-purpose us-east-1 --snapshot crn:v1:bluemix:public:is:eu-east-1:a/a7654321::snapshot:r014-4463eb2c-4913-43b1-b9bf-62a94f74c146
@@ -480,7 +480,7 @@ curl -X POST \
 ```
 {: codeblock}
 
-[New]{: tag-new} If you want to restore a volume from a snapshot of another account, you can use the _CRN_ to identify the snapshot by its CRN, instead of its ID.
+If you want to restore a volume from a snapshot of another account, you can use the _CRN_ to identify the snapshot by its CRN, instead of its ID.
 
 ## Restoring a volume from a snapshot with Terraform
 {: #snapshots-vpc-restore-terraform}
@@ -562,7 +562,7 @@ resource "ibm_is_volume" "storage" {
 ```
 {: codeblock}
 
-[New]{: tag-new} If you want to restore a volume from a snapshot of another account, you can use the `source_snapshot_crn` argument to identify the snapshot by its CRN.
+If you want to restore a volume from a snapshot of another account, you can use the `source_snapshot_crn` argument to identify the snapshot by its CRN.
 
 For more information about the arguments and attributes, see [ibm_is_volume](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_volume){: external}.
 

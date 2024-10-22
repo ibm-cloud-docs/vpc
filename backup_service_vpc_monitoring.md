@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-10-22"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -74,7 +74,5 @@ When a backup is created, an event is triggered in the Activity Tracker for the 
 
 ## Event notifications
 {: #backup-event-notifications}
-
-[New]{: tag-new}[Backup Event Notification]{: tag-teal}
 
 By setting up {{site.data.keyword.en_full}}, you can send notifications of events in IBM Cloud Backup for VPC to other users by using email, SMS, or other supported delivery channels. Additionally, you might want to send these notifications of events to other applications to build logic by using event-driven programming with webhooks, for example. For more information, see [Enabling event notifications for Backup for VPC](/docs/vpc?topic=vpc-event-notifications-events).
