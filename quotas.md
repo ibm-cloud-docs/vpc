@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-10-22"
 
 keywords:
 
@@ -151,6 +151,19 @@ The beta release of IBM Cloud Private Path is available only to allowlisted user
 | Members | 150 per pool |
 {: caption="Quotas for Private Path load balancers" caption-side="bottom"}
 
+
+### Cluster networks
+{: #cluster-networks-quotas}
+
+Contact your IBM Support representative if you are interested in getting early access to this offering. It is currently available for early access users of the `gx3d-160x1792x8h100` [virtual server instance profiles](/docs/vpc?topic=vpc-profiles#gpu) in the `us-east` region.
+{: beta}
+
+| Resource | Quota |
+|--------|-----|
+| Maximum number of cluster networks per account per region | 5 (limited to 10) |
+| Maximum number of cluster network subnets per cluster network | 32 (limited to 64) |
+| Maximum number of cluster network subnet reserved IPs per account | 20000 (limited to 100000) |
+{: caption="Quotas for cluster networks" caption-side="bottom"}
 
 ### Routing tables and routes
 {: #routing-tables-routes-quotas}

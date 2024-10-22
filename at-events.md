@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-10-22"
 
 keywords:
 
@@ -132,7 +132,41 @@ The following tables list the actions that are related to network resources and 
 | network-acl  | is.network-acl.rule.read | One or more network ACL rules was retrieved |
 {: caption="Actions that generate events for Network ACL" caption-side="bottom"}
 
+### Cluster network events
+{: #events-cluster-network}
 
+Contact your IBM Support representative if you are interested in getting early access to this offering. It is currently available for early access users of the `gx3d-160x1792x8h100` [virtual server instance profiles](/docs/vpc?topic=vpc-profiles#gpu) in the `us-east` region.
+{: beta}
+
+|Resource|Action|Description|
+|---|---|---|
+| cluster-networks | `is.cluster-network.cluster-network.create` | Cluster network was created |
+| cluster-networks | `is.cluster-network.cluster-network.delete` | Cluster network was deleted |
+| cluster-networks | `is.cluster-network.cluster-network.list` | Lists cluster networks |
+| cluster-networks | `is.cluster-network.cluster-network.read` | Gets details of a cluster network |
+| cluster-networks | `is.cluster-network.cluster-network.update` | Cluster network was updated |
+| cluster-networks | `is.cluster-network.interface.attach`| Cluster network interface was attached |
+| cluster-networks | `is.cluster-network.interface.create` | Cluster network interface was created |
+| cluster-networks | `is.cluster-network.interface.delete` | Cluster network interface was deleted |
+| cluster-networks | `is.cluster-network.interface.detach` | Cluster network interface was detached |
+| cluster-networks | `is.cluster-network.interface.list` | Lists cluster network interfaces |
+| cluster-networks | `is.cluster-network.interface.read` | Gets details of a cluster network interface |
+| cluster-networks | `is.cluster-network.interface.update` | Cluster network interface was updated |
+| cluster-networks | `is.cluster-network.profile.list` | Lists cluster network profiles |
+| cluster-networks | `is.cluster-network.profile.read` | Gets details of cluster network profiles |
+| cluster-networks | `is.cluster-network.subnet.create` | Cluster network subnet was created |
+| cluster-networks | `is.cluster-network.subnet.delete` | Cluster network subnet was deleted |
+| cluster-networks | `is.cluster-network.subnet.list` | Lists cluster network subnets |
+| cluster-networks | `is.cluster-network.subnet.read` | Gets details of a cluster network subnet |
+| cluster-networks | `is.cluster-network.subnet.update` | Cluster network subnet was updated |
+| cluster-networks  | `is.cluster-network.subnet-reserved-ip.attach` | Reserved IP was attached to a subnet |
+| cluster-networks  | `is.cluster-network.subnet-reserved-ip.create` | Subnet reserved IP was created |
+| cluster-networks | `is.cluster-network.subnet-reserved-ip.delete` | Subnet reserved IP was deleted |
+| cluster-networks | `is.cluster-network.subnet-reserved-ip.detach` | Reserved IP was attached to a subnet |
+| cluster-networks | `is.cluster-network.subnet-reserved-ip.list` | Lists subnet reserved IPs |
+| cluster-networks | `is.cluster-network.subnet-reserved-ip.read` | Gets details of a subnet reserved IP |
+| cluster-networks | `is.cluster-network.subnet-reserved-ip.update` | Subnet reserved IP was updated |
+{: caption="Actions that generate events for Network ACL" caption-side="bottom"}
 
 ### DNS resolution binding events
 {: #events-dns-resolution-bindings}
