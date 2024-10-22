@@ -106,6 +106,7 @@ toc:
            label: Reservations
            topics:
            - about-reserved-virtual-servers.md
+           - reservations-auto-attachments.md
        - topicgroup:
            label: Storage
            topics:
