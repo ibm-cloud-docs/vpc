@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-10-03"
+lastupdated: "2024-10-21"
 
 keywords:
 
@@ -35,4 +35,5 @@ To complete the connection to your service, you must communicate the following i
 * Your contact information
 * A URL to access the service, if necessary
 * Any necessary port information that you might need to communicate
-* [Video that demonstrates how to set up a VPE gateway](https://www.kaltura.com/p/1773841/sp/177384100/embedIframeJs/uiconf_id/27941801/partner_id/1773841?iframeembed=true&entry_id=1_65e0wq3e){: external}
+
+![Creating a Virtual Private Endpoint Gateway to acces a Private Path service](https://www.kaltura.com/p/1773841/sp/177384100/embedIframeJs/uiconf_id/27941801/partner_id/1773841?iframeembed=true&entry_id=1_65e0wq3e){: video output="iframe" data-script="none" id="mediacenterplayer" frameborder="0" width="560" height="315" allowfullscreen webkitallowfullscreen mozAllowFullScreen}

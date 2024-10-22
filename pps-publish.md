@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-10-17"
+lastupdated: "2024-10-21"
 
 keywords:
 
@@ -85,12 +85,12 @@ To publish a Private Path service from the CLI, follow these steps:
 1. Enter the following command:
 
 ```sh
+export IBMCLOUD_IS_FEATURE_PRIVATE_PATH_SERVICE_GATEWAY_BETA_AMENDMENT=true
 ibmcloud is private-path-service-gateway-update PRIVATE_PATH_SERVICE_GATEWAY
-    [--name NEW_NAME]
     [--default-access-policy | deny | permit | review]
     [--load-balancer LOAD_BALANCER]
-    [--published]
     [--zonal-affinity false | true]
+    [--name NEW_NAME]
     [--output JSON] [-q, --quiet]
 ```
 {: pre}
@@ -108,9 +108,6 @@ Where:
 
 `--load-balancer`
 :   Indicates ID or name of load balancer for this Private Path service.
-
-`--published`
-:   Indicates the availability of this Private Path service. If passed, value is set to true (any account can request access to this Private Path service).
 
 `--zonal-affinity`
 :   Indicates whether this Private Path service has zonal affinity. One of: `false`, `true`.
