@@ -21,11 +21,7 @@ Choosing the optimal Block Storage volume size and performance level for your wo
 ## Capacity
 {: #block-storage-vpc-capacity}
 
-{{site.data.keyword.block_storage_is_short}} offers a range of storage capacities to meet your requirements.
-
-Based on the [storage profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers) that you chose for your data volume, you can specify 10-16,000 GB of capacity in 1 GB increments.
-
-Boot volumes are 100 GB by default. If you provision an instance from a custom image, you can specify a boot volume capacity up to 250 GB.
+{{site.data.keyword.block_storage_is_short}} offers a range of storage capacities to meet your requirements. Based on the [storage profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers) that you chose for your data volume, you can specify 10-16,000 GB of capacity in 1 GB increments. Boot volumes are 100 GB by default. If you provision an instance from a custom image, you can specify a boot volume capacity up to 250 GB.
 
 
 
