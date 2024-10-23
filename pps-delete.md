@@ -63,9 +63,11 @@ To update the target service of a Private Path provider service the {{site.data.
 
 To delete a Private Path service in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
-1. Revoke accounts associated with any active VPE gateways. To learn more, see [Updating and deleting an account policy](/docs/vpc?topic=vpc-pps-update-account&interface=ui){: external}.
-1. Customer gets notified that their account is denied.
-1. VPE gateway goes to `failed` state.
+1. Revoke accounts associated with any active VPE gateways. For more information, see [Updating and deleting an account policy](/docs/vpc?topic=vpc-pps-update-account&interface=ui){: external}.
+
+   Customer gets notified that their account is denied and the VPE gateway changes to `failed` state.
+   {: note}
+
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 1. Select the Menu icon ![navigation menu](../icons/icon_hamburger.svg), then click **Infrastructure**.
 1. Click **Private Path services** in the Network section.
