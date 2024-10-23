@@ -165,12 +165,11 @@ To maintain minimal access to the cluster network, you must:
 * Ensure that there is a tight security group for the VPC Virtual Network Interfaces (VNIs) on each instance that has access to the cluster network.
    * Make sure to carefully guard inbound TCP requests and consider guarding outbound TCP requests. For more information, see [Setting up a security group for your resource](/docs/vpc?topic=vpc-configuring-the-security-group&interface=cli).
    * Ensure that the subnets attached to your cluster network enabled instances have appropriate network ACLs.
-   * Configure your IAM policies for cluster network permissions. For more information, see [Cluster network IAM permissions](/docs/account?topic=account-iam-service-roles-actions#is.cluster-network-roles).
+   * Configure your IAM policies for cluster network permissions.
 
 ## Related links
 {: #related-links-cluster-network}
 
-* [IAM permissions](/docs/account?topic=account-iam-service-roles-actions#is.cluster-network-roles)
 * [Quotas and service limits](/docs/vpc?topic=vpc-quotas&q=service+limits&tags=vpc#cluster-networks-quotas)
 * [AT events](/docs/vpc?topic=vpc-at_events&q=tracker&tags=vpc#events-cluster-network)
 * [FAQs](/docs/vpc?topic=vpc-faqs-cluster-network)
