@@ -170,6 +170,23 @@ resource "ibm_is_private_path_service_gateway_operations" "publish" {
 ```
 {: codeblock}
 
+## Unpublishing a Private Path service with Terraform
+{: #unpublishing-private-path-service-terraform}
+{: terraform}
+
+Terraform will support this feature after it reaches General Availability (GA) and is officially released.
+{: note}
+
+The following example unpublishes a Private Path network by using Terraform:
+
+```terraform
+resource "ibm_is_private_path_service_gateway_operations" "publish" {
+  published = false
+  private_path_service_gateway = ibm_is_private_path_service_gateway.ppsg.id
+}
+```
+{: codeblock}
+
 ## Next steps
 {: #pps-next-steps-after-activation}
 
