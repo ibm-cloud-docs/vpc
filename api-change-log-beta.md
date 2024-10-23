@@ -26,6 +26,9 @@ There are no backward-compatibility guarantees as a feature progresses through i
 
 To review the change log of generally available API features, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log).
 
+## 22 October 2024
+{: #22-october-2024-beta}
+
 ### For all version dates
 {: #22-october-2024-all-version-dates-beta}
 
