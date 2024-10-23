@@ -15,15 +15,8 @@ subcollection: vpc
 # Adjusting IOPS of a {{site.data.keyword.block_storage_is_short}} volume
 {: #adjusting-volume-iops}
 
-For {{site.data.keyword.block_storage_is_full}} volumes that are attached to a virtual server instance, you can increase or decrease IOPS to meet your performance needs. Adjust IOPS by specifying a different profile from the tiered family or a different IOPS value within a custom IOPS band. The IOPS adjustment causes no outage or lack of access to the storage.
+For {{site.data.keyword.block_storage_is_full}} volumes that are attached to a running virtual server instance, you can increase or decrease IOPS to meet your performance needs. Adjust IOPS by specifying a different profile from the tiered family or a different IOPS value within a custom IOPS band. You can use the UI, the CLI, the API, or Terraform to adjust IOPS. You can adjust the volume's IOPS multiple times up to its maximum limit or reduce IOPS to its minimum limit. The IOPS adjustment causes no outage or lack of access to the storage.
 {: shortdesc}
-
-Billing for an updated volume is automatically updated. The prorated difference of the new price is added to the current billing cycle. The new full amount is then billed in the next billing cycle.
-
-## Adjustable IOPS concepts
-{: #adjustable-iops-concepts}
-
-You can adjust IOPS for your {{site.data.keyword.block_storage_is_short}} data volumes that are attached to a running virtual server instance to tailor performance to meet your requirements.
 
 For example, you might find that an application scaled such that a lower-tier storage profile is now a performance bottleneck. Instead of ordering a new volume and migrating your data, you can change the performance characteristics of the existing volume by increasing IOPS in the next performance tier.
 
@@ -35,15 +28,15 @@ With this feature, you can:
 * Adjust IOPS within a [custom IOPS](/docs/vpc?topic=vpc-block-storage-profiles&interface=api#custom) band.
 * Adjust IOPS without having to detach the volume from the virtual server instance.
 
-The degree to which IOPS can be increased is determined by the maximum that is allowed by the volume's [tiered profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers). You can adjust IOPS for an IOPS tier based on volume size or select the next profile that allows for increased performance.
+The degree to which IOPS can be increased is determined by the maximum that is allowed by the volume's profile. 
 
-If you use a [custom volume profile](/docs/vpc?topic=vpc-block-storage-profiles#custom), you can increase IOPS by specifying the next IOPS custom band. For example, for a volume 10 - 39 GB, you can increase custom IOPS to 1,000 IOPS by specifying a custom IOPS value. The IOPS range within a custom band is based on the volume size. If you later [increase the size of a volume](/docs/vpc?topic=vpc-expanding-block-storage-volumes), you can increase the IOPS again.
+- [Tiered profiles](/docs/vpc?topic=vpc-block-storage-profiles#tiers): you can adjust IOPS for an IOPS tier based on volume size or select the next profile that allows for increased performance.
 
-To adjust a volume's IOPS, the volume must be in an _available_ state and the instance must be running. Your user authorization is verified before IOPS is adjusted.
+- [Custom volume profile](/docs/vpc?topic=vpc-block-storage-profiles#custom): you can increase IOPS by specifying the next IOPS custom band. For example, for a volume 10 - 39 GB, you can increase custom IOPS to 1,000 IOPS. The IOPS range within a custom band is based on the volume size. If you later [increase the size of a volume](/docs/vpc?topic=vpc-expanding-block-storage-volumes), you can increase the IOPS again.
 
-You can use the UI, the CLI, the API, or Terraform to adjust IOPS. You can adjust the volume's IOPS multiple times up to its maximum limit or reduce IOPS to its minimum limit.
+You can monitor the progress of your volume's IOPS change from the UI or CLI. You can also check the [Activity tracking events](/docs/vpc?topic=vpc-at_events) to verify that the IOPS were adjusted.
 
-You can monitor the progress of your volume's IOPS change from the UI or CLI. You can also use the [Activity Tracker](/docs/vpc?topic=vpc-at_events) to verify that the IOPS were adjusted.
+Billing for an updated volume is automatically updated. The prorated difference of the new price is added to the current billing cycle. The new full amount is then billed in the next billing cycle.
 
 ## Limitations
 {: #adjustable-iops-limitations-block}
@@ -78,10 +71,10 @@ Follow these steps to adjust IOPS by selecting a new IOPS tier or custom IOPS ba
    The volume that you select must be attached to a virtual server instance. In the list of volumes, its attachment type is _data_.
    {: note}
 
-   Alternatively, go to a virtual server instance with an attached volume that you want to adjust IOPS and select it from the list of attached volumes.
+   Alternatively, go to the virtual server instance's details page and select the data volume that you want to adjust from the list of attached volumes.
    {: tip}
 
-1. On the volume details page, locate **Profile** and click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") or use the **Actions** menu and select **Edit IOPS profile**. Volumes must be attached to a virtual server instance for these actions.
+1. On the volume details page, locate **Profile** and click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") or use the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions"), and select **Edit IOPS profile**. Volumes must be attached to a virtual server instance for these actions.
 1. In the side panel, adjust IOPS as follows:
    * For an IOPS tier, select a different tier from the menu. For example, you might have a 3 IOPS/GB general-purpose profile you're increasing to a 5 IOPS/GB profile.
    * For a Custom IOPS, the current IOPS value is shown and volume size. Enter a new IOPS value in the range specified for that custom band.
