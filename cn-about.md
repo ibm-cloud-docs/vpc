@@ -174,4 +174,3 @@ To maintain minimal access to the cluster network, you must:
 * [Quotas and service limits](/docs/vpc?topic=vpc-quotas&q=service+limits&tags=vpc#cluster-networks-quotas)
 * [AT events](/docs/vpc?topic=vpc-at_events&q=tracker&tags=vpc#events-cluster-network)
 * [FAQs](/docs/vpc?topic=vpc-faqs-cluster-network)
-* [Troubleshooting](/docs/vpc?topic=vpc-troubleshoot-cn-1)
