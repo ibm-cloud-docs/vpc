@@ -2,7 +2,7 @@
 
 copyright:
   years:  2021, 2024
-lastupdated: "2024-07-17"
+lastupdated: "2024-10-23"
 
 keywords: IBM Cloud monitoring, platform metrics, metrics, vpc metrics, vpc monitoring metrics, Quota metrics, quota dashboard
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # VPC resource quota overview metrics definitions for quota dashboard
 {: #vpc-quota-metrics}
 
-Some VPC resources have quotas. The following metrics definitions explain the consumption numbers that are related to the quotas with the associated limit that you see when you use the [quota dashboard](/account/quotas){: external}.
+Some VPC resources have quotas. The following metrics definitions explain the consumption numbers that are related to the quotas with the associated limit that you see when you use the [quota dashboard](/account/resource-quotas){: external}.
 
 ## Quota metrics available by resource type
 {: #metrics-by-plan}
@@ -38,6 +38,9 @@ Resources that offer quota metrics, detailed in Table 1.
 | `reserved-ip` | `reserved-ip` | {region} | {account ID} |
 | `network-acl` | `network-acl` | {region} | {VPC ID} |
 | `network-acl` | `network-acl-rule` | {region} | {network ACL ID} |
+| [Beta]{: tag-purple} `cluster-network` | `cluster_networks` | {region} | {account ID} |
+| [Beta]{: tag-purple} `cluster-network` | `cluster_network_subnets` | {region} | {Cluster Network ID} |
+| [Beta]{: tag-purple} `cluster-network` | `cluster_network_subnet_reserved_ips` | {region} | {account ID} |
 {: caption="Table 1: Services offering quota metrics" caption-side="top"}
 
 ### Resource quota consumption
