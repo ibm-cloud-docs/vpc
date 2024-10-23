@@ -125,6 +125,63 @@ Where:
 - Publish and rename a Private Path service:
    `ibmcloud is private-path-service-gateway-update cli-ppsg-2 --name cli-ppsg-0 --default-access-policy review --load-balancer my-cli-nlb-1 --zonal-affinity false --published`
 
+## Publishing a Private Path service from the CLI
+{: #pps-cli-publish-private-path-service}
+{: cli}
+
+The following example shows how to use the CLI to publish a Private Path service.
+
+Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli){: external}.
+
+You must first export the feature flag to use the CLI for Private Path beta release offerings.
+{: important}
+
+To export the feature flag, enter the following commands:
+
+```sh
+export IBMCLOUD_IS_FEATURE_PRIVATE_PATH_SERVICE_GATEWAY=true
+export IBMCLOUD_IS_FEATURE_PP_NLB_SUPPORT=true
+```
+{: pre}
+
+To publish a Private Path service from the CLI, follow these steps:
+
+1. Enter the following command:
+
+```sh
+export IBMCLOUD_IS_FEATURE_PRIVATE_PATH_SERVICE_GATEWAY_BETA_AMENDMENT=false
+ibmcloud is private-path-service-gateway-update PRIVATE_PATH_SERVICE_GATEWAY
+    [--default-access-policy | deny | permit | review]
+    [--load-balancer LOAD_BALANCER]
+    [--zonal-affinity false | true]
+    [--name NEW_NAME]
+    [--output JSON] [-q, --quiet]
+```
+{: pre}
+
+Where:
+
+`PRIVATE_PATH_SERVICE_GATEWAY`
+:   Indicates ID or name of the Private Path service.
+
+`--name`
+:   Indicates name of the Private Path service.
+
+`--default-access-policy`
+:   Indicates the policy to use for bindings from accounts without an explicit account policy. One of: `deny`, `permit`, `review`. (default: `deny`).
+
+`--load-balancer`
+:   Indicates ID or name of load balancer for this Private Path service.
+
+`--zonal-affinity`
+:   Indicates whether this Private Path service has zonal affinity. One of: `false`, `true`.
+
+`--output`
+:   Indicates output format, only JSON is supported. One of: `JSON`.
+
+`-q, --quiet`
+:   Suppresses verbose output.
+
 ## Publishing a Private Path service with the API
 {: #pps-api-publishing-private-path-service}
 {: api}
@@ -149,6 +206,34 @@ To publish a Private Path service with the API, follow these steps:
       ```sh
       curl -X POST -sH "Authorization:${iam_token}" \
       "$vpc_api_endpoint/v1/private_path_service_gateways/$ppsgId/publish?version=$api_version&generation=2" \
+      -d {}'
+      ```
+      {: codeblock}
+
+## Unpublishing a Private Path service with the API
+{: #pps-api-unpublishing-private-path-service}
+{: api}
+
+To unpublish a Private Path service with the API, follow these steps:
+
+1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
+1. Store the following values in variables to be used in the API command:
+
+   * `ppsgId` - Get your Private Path service and then populate the variable:
+
+      ```sh
+      export ppsgId=<your_ppsg_id>
+      ```
+      {: pre}
+
+
+1. When all variables are initiated, do one of the following:
+
+   * To unpublish your Private Path service:
+
+      ```sh
+      curl -X POST -sH "Authorization:${iam_token}" \
+      "$vpc_api_endpoint/v1/private_path_service_gateways/$ppsgId/unpublish?version=$api_version&generation=2" \
       -d {}'
       ```
       {: codeblock}
