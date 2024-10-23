@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-10-23"
 
 keywords: Block Storage, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, bandwidth
 
@@ -51,8 +51,8 @@ The provisioned throughput limit is determined by the total number of IOPS multi
 See the following examples:
 - When you provision a stand-alone volume with 1,800 GB capacity and the 5 IOPS/GB volume profile, it can handle 9,000 IOPS, which means a maximum throughput limit of 1,179 Mbps. In the later example and tables, this volume is called _`volume-a`_.
 - When you provision a stand-alone volume with 3000 GB capacity and the 5 IOPS/GB volume profile, it can handle 15,000 IOPS, which means a maximum throughput limit of 1,966 Mbps. In the later example and tables, this volume is called _`volume-b`_.
-- When you provision a stand-alone volume with 3000 GB capacity and the general-purpose volume profile, it can handle 9,000 IOPS, which means a maximum throughput limit of 1,179 Mbps. In the later example and tables, this volume is called _volume c_.
-- When you provision a stand-alone volume with 2000 GB capacity and the general-purpose volume profile, it can handle 6,000 IOPS, which means a maximum throughput limit of 786 Mbps. In the later example and tables, this volume is called _volume_d_.
+- When you provision a stand-alone volume with 3000 GB capacity and the general-purpose volume profile, it can handle 9,000 IOPS, which means a maximum throughput limit of 1,179 Mbps. In the later example and tables, this volume is called _`volume-c`_.
+- When you provision a stand-alone volume with 2000 GB capacity and the general-purpose volume profile, it can handle 6,000 IOPS, which means a maximum throughput limit of 786 Mbps. In the later example and tables, this volume is called _`volume_d`_.
 
 Where can you see what bandwidth or throughput limit is assigned to your volume? In the UI, the volume bandwidth can be seen as **Throughput** on the overview tab of the Block Storage volume details page.{: ui}
 

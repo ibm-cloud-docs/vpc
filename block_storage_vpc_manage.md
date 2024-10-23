@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-10-21"
+lastupdated: "2024-10-23"
 
 keywords:
 
@@ -22,13 +22,15 @@ You can manage your {{site.data.keyword.block_storage_is_full}} in the console, 
 {: #manage-block-storage-vol-UI}
 {: ui}
 
-Use the UI to manage your {{site.data.keyword.block_storage_is_short}} volumes. In the console, you can complete the following actions.
+Use the UI to manage your {{site.data.keyword.block_storage_is_short}} volumes. In the console, you can complete the following actions:
 
 * Detach a volume from a virtual server instance.
 * Transfer a volume from one instance to another.
 * Attach a previously attached {{site.data.keyword.block_storage_is_short}} data volume.
 * Rename a {{site.data.keyword.block_storage_is_short}} volume.
 * Add user tags to a {{site.data.keyword.block_storage_is_short}} volume.
+* Adjust the IOPS of a data volume. For more information, see [Adjusting IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops).
+* Increase the capacity of a volume. For more information, see [Increasing capacity of a data volume](/docs/vpc?topic=vpc-expanding-block-storage-volumes) and [Increasing capacity of a boot volume](/docs/vpc?topic=vpc-resize-boot-volumes). 
 * Delete a {{site.data.keyword.block_storage_is_short}} data volume.
 
 ### Detaching a {{site.data.keyword.block_storage_is_short}} volume from a virtual server instance
@@ -128,7 +130,15 @@ For more information about creating backups, see [Creating a backup policy](/doc
 {: #managing-block-storage-cli}
 {: cli}
 
-Manage your {{site.data.keyword.block_storage_is_short}} from the command-line interface (CLI). You can update a volume name, update a volume attachment, detach a volume, and delete a volume.
+Manage your {{site.data.keyword.block_storage_is_short}} from the command-line interface (CLI). From the CLI, you can: 
+
+* Rename a {{site.data.keyword.block_storage_is_short}} volume.
+* Add user tags to a {{site.data.keyword.block_storage_is_short}} volume.
+* Update the volume attachment.
+* Detach a volume from a virtual server instance.
+* Adjust the IOPS of a data volume. For more information, see [Adjusting IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops).
+* Increase the capacity of a volume. For more information, see [Increasing capacity of a data volume](/docs/vpc?topic=vpc-expanding-block-storage-volumes) and [Increasing capacity of a boot volume](/docs/vpc?topic=vpc-resize-boot-volumes). 
+* Delete a {{site.data.keyword.block_storage_is_short}} data volume.
 
 Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 {: requirement}
@@ -283,7 +293,15 @@ For more information about available command options, see [`ibmcloud is instance
 {: #managing-block-storage-api}
 {: api}
 
-Manage your {{site.data.keyword.block_storage_is_short}}programmatically by making calls to the [VPC REST APIs](/apidocs/vpc). You can update a volume name, update a volume attachment, detach a volume, and delete a volume.
+Manage your {{site.data.keyword.block_storage_is_short}} programmatically by making requests to the [VPC REST APIs](/apidocs/vpc). With the API, you can:
+
+* Rename a {{site.data.keyword.block_storage_is_short}} volume.
+* Add user tags to a {{site.data.keyword.block_storage_is_short}} volume.
+* Update the volume attachment.
+* Detach a volume from a virtual server instance.
+* Adjust the IOPS of a data volume. For more information, see [Adjusting IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops).
+* Increase the capacity of a volume. For more information, see [Increasing capacity of a data volume](/docs/vpc?topic=vpc-expanding-block-storage-volumes) and [Increasing capacity of a boot volume](/docs/vpc?topic=vpc-resize-boot-volumes). 
+* Delete a {{site.data.keyword.block_storage_is_short}} data volume.
 
 ### Updating the name of a volume with the API
 {: #update-vol-name-api}
@@ -496,7 +514,13 @@ Verify that the volume is detached from the instance by making a `GET /instances
 {: #managing-block-storage-terraform}
 {: terraform}
 
-Manage your {{site.data.keyword.block_storage_is_short}} as a code with Terraform. 
+Manage your {{site.data.keyword.block_storage_is_short}} as a code with Terraform. With the Terraform, you can:
+
+* Rename a {{site.data.keyword.block_storage_is_short}} volume.
+* Add user tags to a {{site.data.keyword.block_storage_is_short}} volume.
+* Adjust the IOPS of a data volume. For more information, see [Adjusting IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops).
+* Increase the capacity of a volume. For more information, see [Increasing capacity of a data volume](/docs/vpc?topic=vpc-expanding-block-storage-volumes) and [Increasing capacity of a boot volume](/docs/vpc?topic=vpc-resize-boot-volumes). 
+* Delete a {{site.data.keyword.block_storage_is_short}} data volume.
 
 To use Terraform, download the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in. For more information, see [Getting started with Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started).
 {: requirement}
@@ -731,6 +755,6 @@ For more information, see [terraform destroy](https://developer.hashicorp.com/te
 ## Next steps
 {: #next-step-managing-block-storage}
 
-You can [create more volumes](/docs/vpc?topic=vpc-creating-block-storage).
+You can [create more volumes](/docs/vpc?topic=vpc-creating-block-storage), or [monitor your volumes' health states, volume status, and metrics](/docs/vpc?topic=vpc-block-storage-vpc-monitoring).
 
 For issues with existing {{site.data.keyword.block_storage_is_short}} volumes, you might be able to troubleshoot and fix the problems yourself. For more information, see [troubleshooting {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-troubleshooting-block-storage).
