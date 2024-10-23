@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-09-24"
+lastupdated: "2024-10-23"
 
 keywords: Block Storage for VPC, boot volume, data volume, volume, data storage, virtual server instance, instance, adjustable volume, iops
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Adjusting IOPS of a {{site.data.keyword.block_storage_is_short}} volume
 {: #adjusting-volume-iops}
 
-For {{site.data.keyword.block_storage_is_full}} volumes that are attached to a virtual server instance, you can increase or decrease IOPS to meet your performance needs. Adjust IOPS by specifying a different profile from the tiered famil or a different IOPS value within a custom IOPS band. The IOPS adjustment causes no outage or lack of access to the storage.
+For {{site.data.keyword.block_storage_is_full}} volumes that are attached to a virtual server instance, you can increase or decrease IOPS to meet your performance needs. Adjust IOPS by specifying a different profile from the tiered family or a different IOPS value within a custom IOPS band. The IOPS adjustment causes no outage or lack of access to the storage.
 {: shortdesc}
 
 Billing for an updated volume is automatically updated. The prorated difference of the new price is added to the current billing cycle. The new full amount is then billed in the next billing cycle.
@@ -56,8 +56,10 @@ The following limitations apply to this release.
 * Primary boot volume IOPS cannot be adjusted.
 * To adjust IOPS, the volume must be attached to a virtual server instance that is powered on and _running_.
 * To adjust IOPS, the volume must be in an _available_ state.
+* When a volume is in transition, the volume remains in an _updating_ state until you reattach it to a running instance. For example, if the volume is detached while IOPS adjustment is in progress, the IOPS expansion resumes and completes only after the volume is reattached.
+* When you delete an instance, volumes that are marked for auto-deletion are not deleted while the IOPS adjustment is underway.
 
-### Volume and IOPS limitations
+### Limitations related to volume profiles
 {: #exp-vol-IOPS-limitations}
 
 * For a volume that was created with a [profile from the tiered family](/docs/vpc?topic=vpc-block-storage-profiles#tiers), select a different profile for the volume size to increase or decrease IOPS. If the volume size exceeds the maximum of the new tiered profile, you can't change the profile.
@@ -65,13 +67,7 @@ The following limitations apply to this release.
 * Custom IOPS can be adjusted multiple times until the maximum or minimum limit is reached.
 * The maximum IOPS for a volume with a profile within the _tiered_ or _custom_ volume profile families is [48,000 IOPS](/docs/vpc?topic=vpc-block-storage-profiles#tiers).
 
-### Other limitations
-{: #exp-vols-additional-limitations}
-
-* When a volume is in transition, the volume remains in an _updating_ state until you reattach it to a running instance. For example, if the volume is detached while IOPS adjustment is in progress, the IOPS expansion resumes and completes only after the volume is reattached.
-* When you delete an instance, volumes that are marked for auto-deletion are not deleted while the IOPS adjustment is underway.
-
-## Adjust IOPS in the UI
+## Adjust IOPS in the console
 {: #adjust-vpc-iops-ui-block}
 {: ui}
 
