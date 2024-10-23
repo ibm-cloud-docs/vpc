@@ -75,9 +75,6 @@ A cluster network enhances the efficiency and speed of data transfer within a ne
 ## Cluster network IAM roles and actions
 {: #is.cluster-network-roles}
 
-Contact your IBM Support representative if you are interested in getting early access to this offering. It is currently available for early access users of the `gx3d-160x1792x8h100` [virtual server instance profiles](/docs/vpc?topic=vpc-profiles#gpu) in the `us-east` region.
-{: beta}
-
 It is important to understand how to effectively assign access for users to work with products and take specific account management actions within your account to follow the principle of least privilege and minimize the number of policies that you have to manage. The following tables provide information about the access roles and the actions mapped to each by the {{site.data.keyword.cloud}} services.
 {: shortdesc}
 
