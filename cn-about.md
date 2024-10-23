@@ -71,8 +71,8 @@ A cluster network enhances the efficiency and speed of data transfer within a ne
 
    Advanced users might want to preallocate IP addresses or interfaces, however, it is recommended that you create IPs or interfaces when creating an instance.
    {: note}
-   
-## Cluster Network
+
+## Cluster network IAM roles and actions
 {: #is.cluster-network-roles}
 
 Contact your IBM Support representative if you are interested in getting early access to this offering. It is currently available for early access users of the `gx3d-160x1792x8h100` [virtual server instance profiles](/docs/vpc?topic=vpc-profiles#gpu) in the `us-east` region.
