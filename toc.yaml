@@ -774,7 +774,7 @@ toc:
             - hpvs-terraform.md
         - link:
             label: Exporter tool
-            href: https://github.com/l2fprod/vpc-diagram-exporter
+            href: https://github.com/l2fprod/vpc-diagram-exporter   
     - navgroup:
         id: help
         topics:
