@@ -52,7 +52,7 @@ The following limitations apply to this release.
 * When a volume is in transition, the volume remains in an _updating_ state until you reattach it to a running instance. For example, if the volume is detached while IOPS adjustment is in progress, the IOPS expansion resumes and completes only after the volume is reattached.
 * When you delete an instance, volumes that are marked for auto-deletion are not deleted while the IOPS adjustment is underway.
 
-### Limitations related to volume profiles
+### Limitations that are related to volume profiles
 {: #exp-vol-IOPS-limitations}
 
 * For a volume that was created with a [profile from the tiered family](/docs/vpc?topic=vpc-block-storage-profiles#tiers), select a different profile for the volume size to increase or decrease IOPS. If the volume size exceeds the maximum of the new tiered profile, you can't change the profile.
@@ -105,7 +105,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 ### Adjust IOPS for a custom profile
 {: #adjust-iops-cli-block}
 
-From the CLI, use the `ibmcloud is volume-update` command with the `--iops` option to indicate the new IOPS size for a custom profile. The IOPS that you choose must be within the range for the size of the volume. For more information, see [custom volume profile](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#custom).
+From the CLI, use the `ibmcloud is volume-update` command with the `--iops` option to indicate the new IOPS size for a custom profile. The IOPS that you choose must be within the range for the size of the volume. For more information, see the [custom volume profile](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#custom).
 
 ```sh
 ibmcloud is volume-update VOLUME_ID --iops IOPS
