@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-24"
 
 keywords:
 
@@ -77,7 +77,7 @@ To create a VPC and subnet follow these steps:
 1. Select a resource group for the VPC. Use resource groups to organize your account resources for access control and billing purposes. For more information, see [Best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup).
 1. _Optional:_ Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
 1. The create VPC process assigns a default ACL. Later in this tutorial, you can configure rules for the ACL.
-1. Select whether the default security group allows inbound SSH and ping traffic to virtual server instances in this VPC. We can configure more rules for the default security group later.
+1. Select whether the default security group allows inbound SSH and ping traffic to virtual server instances in this VPC. By default the **Allow SSH** and **Allow ping** options for the default security group are not selected. We can configure more rules for the default security group later.
 1. _Optional:_ Select whether you want to enable your VPC to access classic infrastructure resources. For more information, see [Setting up access to classic infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure).
 
     You can enable a VPC for classic access only while you're creating the VPC. In addition, you can have only one classic access VPC in your account at any time.

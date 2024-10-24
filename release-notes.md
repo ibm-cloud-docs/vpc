@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-10-18"
+lastupdated: "2024-10-24"
 
 keywords:
 
@@ -26,6 +26,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
   
 ## October 2024
 {: #vpc-oct24}
+
+### 24 October 2024
+{: #vpc-oct2424}
+{: release-note}
+
+Allow SSH and Allow ping are not selected by default when creating a VPC in {{site.data.keyword.cloud_notm}} console 
+:   When you create a virtual private cloud by using {{site.data.keyword.cloud_notm}} console, the default security group settings for **Allow SSH** and **Allow ping** are now not selected by default, ensuring the most secure option by default. During VPC creation, you can select **Allow SSH** and **Allow ping** as needed for your VPC configuration. For more information see, [Creating a VPC and subnet](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console&interface=ui#creating-a-vpc-and-subnet). 
 
 ### 18 October 2024
 {: #vpc-oct1824}
