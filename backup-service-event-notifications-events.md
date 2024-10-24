@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-10-24"
 
 keywords: backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -23,7 +23,7 @@ To send information to {{site.data.keyword.en_short}}, you must connect your IBM
 ## How events are collected and sent by IBM Cloud Backup for VPC
 {: #event-notifications-how}
 
-Backup jobs fulfill 2 types of tasks. One task is responsible for taking the backup snapshots as scheduled, the other task manages the existing backups and applies the retention rule on the backups. If a backup job fails, IBM Cloud Backup for VPC communicates with a connected {{site.data.keyword.en_short}} instance to forward a notification to a [supported destination](/docs/event-notifications?topic=event-notifications-supported-destinations).
+Backup jobs fulfill 2 types of tasks. One task is responsible for taking the backup snapshots as scheduled, the other task manages the existing backups and applies the retention rule on the backups. If a backup job fails, IBM Cloud Backup for VPC communicates with a connected {{site.data.keyword.en_short}} instance to forward a notification to a [supported destination](/docs/event-notifications?topic=event-notifications-en-destination).
 
 ## Events for IBM Cloud Backup for VPC
 {: #event-notifications-list}
@@ -131,7 +131,7 @@ For more information, see [Working with Terraform in Event Notifications](/docs/
 
 After you enable notifications for IBM Cloud Backup for VPC, create topics and subscriptions in {{site.data.keyword.en_short}} so that alerts can be forwarded and delivered to your selected destinations.
 
-For a complete list of supported destinations, see the [{{site.data.keyword.en_short}} documentation](/docs/event-notifications?topic=event-notifications-supported-destinations).
+For a complete list of supported destinations, see the [{{site.data.keyword.en_short}} documentation](/docs/event-notifications?topic=event-notifications-en-destination).
 {: tip}
 
 ### Email notifications

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-10-24"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, faqs
 
@@ -99,7 +99,7 @@ ibmcloud enterprise show
 ### Obtain enterprise CRN in the UI
 {: #faq-baas-ee-5-ui}
 
-In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the enterprise dashboard. From there, you can view the enterprise details, accounts, users, and billing information. For more information, see [What is an enterprise](/docs/secure-enterprise?topic=secure-enterprise-what-is-enterprise).
+In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the enterprise dashboard. From there, you can view the enterprise details, accounts, users, and billing information. For more information, see [What is an enterprise](/docs/enterprise-management?topic=enterprise-management-what-is-enterprise).
 
 ### Obtain enterprise CRN from the CLI
 {: #faq-baas-ee-5-cli}
@@ -111,7 +111,7 @@ Run the following command to see the enterprise account name, ID, and CRN.
    ```
    {: pre}
 
-For more information, see the CLI reference for [ibmcloud enterprise show](/docs/secure-enterprise?topic=secure-enterprise-ibmcloud_enterprise#ibmcloud_enterprise_show).
+For more information, see the CLI reference for [ibmcloud enterprise show](/docs/enterprise-management?topic=enterprise-management-ibmcloud_enterprise#ibmcloud_enterprise_show).
 
 ### Obtain enterprise CRN with the API
 {: #faq-baas-ee-5-api}

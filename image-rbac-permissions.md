@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-10-24"
 
 keywords: custom image, creating a custom image, migrating a custom image, rbac, permissions, granular, granular permissions, rbac role-based access control
 
@@ -34,7 +34,7 @@ To create a new Resource group, follow these steps:
 ## Adding role based access control to the Resource group
 {: #addRBAC-UI}
 
-[Create an access group](/docs/account?topic=account-access-getstarted#create-access-group) within the resource group that gives privileges to create images in your resource group.
+[Create an access group](/docs/account?topic=account-account-getting-started#account-gs-accessgroups) within the resource group that gives privileges to create images in your resource group.
 
 1.	Go to **Manage > Access (IAM)> Access Groups** and click **Create**.
 2.	Enter the name and description for your access group and click **Create**.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-10-15"
+lastupdated: "2024-10-24"
 
 keywords:
 
@@ -27,7 +27,7 @@ Cluster networks allow you to interconnect and define sets of performance criter
 * Review [Planning considerations](/docs/vpc?topic=vpc-planning-cluster-network&interface=ui) and [Known issues and limitations](/docs/vpc?topic=vpc-limitations-cluster-network&interface=ui).
 * Ensure that you have an existing VPC in a region that has capacity for NVIDIA H100 profiles with clustering support.
 
-   Currently, the only supported zone is `us-east-wdc07-a`. For more information about zones, see [zone mapping](https://test.cloud.ibm.com/docs-draft/overview?topic=overview-locations1#zone-mapping).
+   Currently, the only supported zone is `us-east-wdc07-a`. For more information about zones, see [zone mapping](/docs/overview?topic=overview-locations1#zone-mapping).
    {: note}
    
 You can create a cluster network with the UI, API, CLI, and Terraform.

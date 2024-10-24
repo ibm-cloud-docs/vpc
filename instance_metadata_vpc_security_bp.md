@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-05-09"
+lastupdated: "2024-10-24"
 
 keywords:
 
@@ -63,7 +63,7 @@ sudo iptables --append OUTPUT --proto tcp --destination 169.254.169.254 --match 
 
 Limit trusted profiles that you create for compute resource identities. Optionally, don't assign a compute resource identity to an instance.
 
-When you [remove trusted profiles](/docs/account?topic=account-trusted-profile-remove), compute resources and federated users are unlinked from the profile, and can no longer apply the trusted profile identity.
+When you [remove trusted profiles](/docs/account?topic=account-trusted-profile-update&interface=ui#remove-tp-console){: ui}[remove trusted profiles](/docs/account?topic=account-trusted-profile-update&interface=cli#remove-tp-cli){: cli}[remove trusted profiles](/docs/account?topic=account-trusted-profile-update&interface=api#remove-tp-api){: api}, compute resources and federated users are unlinked from the profile, and can no longer apply the trusted profile identity.
 
 You can also update existing trusted profiles by redefining the trust relationship, assigning access policies, and updating session limits. For more information, see [Updating trusted profiles](/docs/account?topic=account-trusted-profile-update).
 

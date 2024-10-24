@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-10-24"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -126,7 +126,7 @@ You can [view backup job status](/docs/vpc?topic=vpc-backup-view-policy-jobs) wh
 
 As an enterprise account administrator, you can manage backup plans and policies collectively across the child accounts under the enterprise account. Enterprise account users can see all the backup policies that were created by the Enterprise account. The Enterprise account user can see all the backup jobs that are initiated by the enterprise backup policy, even if the jobs run in the child accounts.
 
-Users within each account in the enterprise can create, use, and collaborate on resources just as you can in a stand-alone account. For more information, see [Working with resources in an enterprise](/docs/secure-enterprise?topic=secure-enterprise-enterprise-best-practices#child-resources-enterprise).
+Users within each account in the enterprise can create, use, and collaborate on resources just as you can in a stand-alone account. For more information, see [Working with resources in an enterprise](/docs/enterprise-management?topic=enterprise-management-enterprise-best-practices#child-resources-enterprise).
 
 While the Enterprise administrator sees the references of all the backup snapshots that are created by their policy, the child accounts see only the backups that are created in their account.
 
