@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-09-30"
+lastupdated: "2024-10-24"
 
 keywords: custom routes
 
@@ -31,7 +31,7 @@ You can create a routing table for an {{site.data.keyword.cloud_notm}} service b
 
 To create a routing table in the UI, follow these steps:
 
-1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, Select the menu icon ![Navigation menu](images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appears.
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, Select the menu icon ![Navigation menu](images/menu_icon.png), then click **Infrastructure > Network > Routing tables**  in the Network section. The Routing tables for VPC page appears.
 1. Click **Create** in the upper right of the page.
 1. In the Routing table for VPC provisioning page, complete the following information:
 

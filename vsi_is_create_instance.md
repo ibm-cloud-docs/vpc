@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-10-22"
+lastupdated: "2024-10-24"
 
 keywords:
 
@@ -725,8 +725,8 @@ Use the following steps to create a virtual server instance from a bootable volu
 
 You can create a boot volume from a bootable [snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-restore-concepts) and use that for your image. When you run the `ibmcloud is instance-create` command, specify the `source_snapshot` subproperty in the boot volume JSON and the ID, name, or CRN of a bootable snapshot. For an example, see [Create a boot volume from a snapshot for a new instance from the CLI](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=cli#snapshots-vpc-restore-boot-CLI).
 
-### Create an instance with confidential compute and secure boot
-{: #create-instance-confidential-compute-secure-boot-cli}
+### Create an instance with confidential compute
+{: #create-instance-confidential-compute-cli}
 {: cli}
 
 [Select availability]{: tag-green}
@@ -736,9 +736,9 @@ Confidential computing with Intel SGX for VPC is available only in the US-South 
 
 After you know the needed values, use them to run the `ibmcloud is instance-create` command. You also need to specify a unique name for the instance.
 
-For `confidential-compute-mode`, you need to specify either `sgx` or `disabled` the option. The default value is `disabled`. For `enable-secure-boot`, you need to specify either `true` or `false`. The default value is `false`.
+For `confidential-compute-mode`, you need to specify either `sgx` or `disabled` the option. The default value is `disabled`.
 
-Use the following steps to create a basic virtual server instance that enables confidential compute and secure boot.
+Use the following steps to create a basic virtual server instance that enables confidential compute.
 
 Create an instance using the following command.
 
@@ -751,7 +751,6 @@ Create an instance using the following command.
        SUBNET \
        --image IMAGE \
        --confidential-compute-mode sgx \
-       --enable-secure-boot true \
        --keys KEYS \
    ```
    {: pre}
@@ -767,6 +766,60 @@ For example, the following `instance-create` command uses the sample values that
        0717-198db988-3b9b-4cfa-9dec-0206420d37d0 \
        --image r006-f83ce520-00b5-40c5-9938-a5c82a273f91 \
        --confidential-compute-mode sgx \
+       --keys r006-89ec781c-9630-4f76-b9c4-a7d204828d61 \
+   ```
+   {: pre}
+
+   Where the following argument and option values are used
+
+      * INSTANCE_NAME: `my-instance`
+      * VPC: `r006-35b9cf35-616e-462e-a145-cf8db4062fcf`
+      * ZONE_NAME: `us-south-2`
+      * PROFILE_NAME: `bx2-2x8`
+      * SUBNET: `0717-198db988-3b9b-4cfa-9dec-0206420d37d0`
+      * IMAGE: Debian 11 image `r006-f83ce520-00b5-40c5-9938-a5c82a273f91`
+      * KEYS: `r006-89ec781c-9630-4f76-b9c4-a7d204828d61`
+
+### Create an instance with secure boot
+{: #create-instance-secure-boot-cli}
+{: cli}
+
+[Select availability]{: tag-green}
+
+Confidential computing with Intel SGX for VPC is available only in the Dallas (us-south) and Frankfurt (eu-de) regions.
+{: note}
+
+After you know the needed values, use them to run the `ibmcloud is instance-create` command. You also need to specify a unique name for the instance.
+
+For `enable-secure-boot`, you need to specify either `true` or `false`. The default value is `false`.
+
+Use the following steps to create a basic virtual server instance that enables secure boot.
+
+Create an instance using the following command.
+
+```sh
+   ibmcloud is instance-create \
+       INSTANCE_NAME \
+       VPC \
+       ZONE_NAME \
+       PROFILE_NAME \
+       SUBNET \
+       --image IMAGE \
+       --enable-secure-boot true \
+       --keys KEYS \
+   ```
+   {: pre}
+
+For example, the following `instance-create` command uses the sample values that are found in the [Gathering information](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli#gather-info-to-create-virtual-servers-cli) section.
+
+```sh
+   ibmcloud is instance-create \
+       my-instance \
+       r006-35b9cf35-616e-462e-a145-cf8db4062fcf \
+       us-south-2 \
+       bx2-2x8 \
+       0717-198db988-3b9b-4cfa-9dec-0206420d37d0 \
+       --image r006-f83ce520-00b5-40c5-9938-a5c82a273f91 \
        --enable-secure-boot true \
        --keys r006-89ec781c-9630-4f76-b9c4-a7d204828d61 \
    ```
@@ -1034,7 +1087,81 @@ curl -X POST \
 ```
 {: codeblock}
 
-For more information about restoring a volume with the API, see [Restore a volume from a snapshot with the API](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=api#snapshots-vpc-restore-API).
+For more information about restoring a volume with the API, see [Restore a volume from a snapshot with the API](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=api#snapshots-vpc-restore-API).<staging>
+
+### Creating an instance with confidential compute
+{: #create-instance-confidential-compute-api}
+{: api}
+
+[Select availability]{: tag-green}
+
+Confidential computing with Intel SGX for VPC is available only in the Dallas (us-south) and Frankfurt (eu-de) regions.
+{: note}
+
+To provision an instance with confidential compute, add the `confidential_compute_mode` property and set it to `sgx`.
+
+ ```bash
+    curl -X POST "$vpc_api_endpoint/v1/instances?version=$api_version&generation=2" \
+      -H "Authorization:$iam_token" \
+      -d '{
+            "name": "my-instance",
+            "zone": {
+              "name": "us-south-3"
+            },
+            "vpc": {
+              "id": "'$vpc'"
+            },
+            "primary_network_interface": {
+              "subnet": {
+                "id": "'$subnet'"
+              }
+            },
+            "keys":[{"id": "'$key'"}],
+            "profile": {
+              "name": "'$profile_name'"
+             },
+            "image": {
+              "id": "'$image_id'"
+             },
+             "confidential_compute_mode": "sgx",
+            }'
+ ```
+ {: pre}</staging><staging>
+
+ ### Creating an instance with secure boot
+{: #create-instance-secure-boot-api}
+{: api}
+
+To provision an instance with secure boot, add the `enable_secure_boot` property and set it to `true`.
+
+ ```bash
+    curl -X POST "$vpc_api_endpoint/v1/instances?version=$api_version&generation=2" \
+      -H "Authorization:$iam_token" \
+      -d '{
+            "name": "my-instance",
+            "zone": {
+              "name": "us-south-3"
+            },
+            "vpc": {
+              "id": "'$vpc'"
+            },
+            "primary_network_interface": {
+              "subnet": {
+                "id": "'$subnet'"
+              }
+            },
+            "keys":[{"id": "'$key'"}],
+            "profile": {
+              "name": "'$profile_name'"
+             },
+            "image": {
+              "id": "'$image_id'"
+             },
+             "enable_secure_boot": "true",
+            }'
+ ```
+ {: pre}</staging>
+
 
 ## Creating virtual server instances by using Terraform
 {: #create-instance-terraform}

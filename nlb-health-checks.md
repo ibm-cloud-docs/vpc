@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2022-12-12"
+  years: 2020, 2024
+lastupdated: "2024-10-24"
 
 keywords: network load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network
 
@@ -21,7 +21,7 @@ The {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) conducts pe
 You can configure health checks when [creating a network load balancer](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer), or later with the following procedure:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-2. Select the Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **VPC Infrastructure > Load balancers**.
+2. Select the Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **Infrastructure > Network > Load balancers**.
 3. Click the NLB you want to change.
 4. On the network load balancer details page, click the back-end pools tab then select the pool that you want to edit.
 5. Select the new options for your health checks. You have the following options:

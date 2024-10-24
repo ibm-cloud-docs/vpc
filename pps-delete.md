@@ -42,7 +42,7 @@ If you’re updating the actual target service without changing the load balance
 To update the target service of a Private Path provider service the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the Menu icon ![Menu icon](images/menu_icon.png), then click **VPC Infrastructure > Load balancers**.
+1. Select the Menu icon ![Menu icon](images/menu_icon.png), then click **Infrastructure > Network > Load balancers**.
 1. Select the region of your load balancer.
 1. Select the load balancer that you want to update.
 1. Select **Back-end pools** > **Create pool +** to create a new pool of servers for your updated service.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-09-30"
+lastupdated: "2024-10-24"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
 
@@ -41,7 +41,7 @@ Review the following requirements to ensure that your Private Path NLB is proper
 To create and configure {{site.data.keyword.nlb_full}} in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the Menu icon ![Menu icon](images/menu_icon.png), then click **VPC Infrastructure > Load balancers**.
+1. Select the Menu icon ![Menu icon](images/menu_icon.png), then click **Infrastructure > Network > Load balancers**.
 1. Click **Create +** in the upper right of the page.
 1. For Load balancer type, select the **Network Load Balancer (NLB)** tile.
 1. In the Location section, edit the following fields, if necessary.
@@ -80,7 +80,7 @@ To create and configure {{site.data.keyword.nlb_full}} in the {{site.data.keywor
    * **Subnet**: Choose a subnet.
    * From the list of servers, select the servers that you want to attach to the back-end pool. Ensure that you specify valid values for each server port.
 
-      You can attach up to 50 virtual server instances to a back-end pool, though your Private Path load balancer provides regional availability and is resilient to zone failure even if a single subnet is selected. 
+      You can attach up to 50 virtual server instances to a back-end pool, though your Private Path load balancer provides regional availability and is resilient to zone failure even if a single subnet is selected.
       {: note}
 
 You do not need to create multiple Private Path load balancers or specify more than a single subnet to ensure resiliency to zone failure. Your subnet selection only impacts the IP-addresses associated with the load balancer.

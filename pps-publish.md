@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-10-23"
+lastupdated: "2024-10-24"
 
 keywords:
 
@@ -81,13 +81,10 @@ To publish a Private Path service from the CLI, follow these steps:
 1. Enter the following command:
 
 ```sh
-export IBMCLOUD_IS_FEATURE_PRIVATE_PATH_SERVICE_GATEWAY_BETA_AMENDMENT=true
 ibmcloud is private-path-service-gateway-update PRIVATE_PATH_SERVICE_GATEWAY
-    [--default-access-policy | deny | permit | review]
-    [--load-balancer LOAD_BALANCER]
-    [--zonal-affinity false | true]
-    [--name NEW_NAME]
-    [--output JSON] [-q, --quiet]
+    [--output JSON] 
+    [-f, --force] 
+    [-q, --quiet]
 ```
 {: pre}
 
@@ -95,18 +92,6 @@ Where:
 
 `PRIVATE_PATH_SERVICE_GATEWAY`
 :   Indicates ID or name of the Private Path service.
-
-`--name`
-:   Indicates name of the Private Path service.
-
-`--default-access-policy`
-:   Indicates the policy to use for bindings from accounts without an explicit account policy. One of: `deny`, `permit`, `review`. (default: `deny`).
-
-`--load-balancer`
-:   Indicates ID or name of load balancer for this Private Path service.
-
-`--zonal-affinity`
-:   Indicates whether this Private Path service has zonal affinity. One of: `false`, `true`.
 
 `--output`
 :   Indicates output format, only JSON is supported. One of: `JSON`.
@@ -119,10 +104,8 @@ Where:
 {: cli}
 
 - Publish a Private Path service:
-   `ibmcloud is private-path-service-gateway-update r006-2e671f14-19fc-4089-9ad3-973176711259 --name cli-ppsg-2 --default-access-policy deny --load-balancer r006-d-740be75d-be41-48bd-b6e4-89946ddcac4a --zonal-affinity false --published`
-
-- Publish and rename a Private Path service:
-   `ibmcloud is private-path-service-gateway-update cli-ppsg-2 --name cli-ppsg-0 --default-access-policy review --load-balancer my-cli-nlb-1 --zonal-affinity false --published`
+   `ibmcloud is ppsgp r134-01cd30f7-e6f2-432f-9520-76247b1fbbe1`
+   `ibmcloud is private-path-service-gateway-publish cli-ppsg-0`
 
 ## Unpublishing a Private Path service from the CLI
 {: #pps-cli-unpublish-private-path-service}
@@ -148,13 +131,10 @@ To unpublish a Private Path service from the CLI, follow these steps:
 1. Enter the following command:
 
 ```sh
-export IBMCLOUD_IS_FEATURE_PRIVATE_PATH_SERVICE_GATEWAY_BETA_AMENDMENT=false
-ibmcloud is private-path-service-gateway-update PRIVATE_PATH_SERVICE_GATEWAY
-    [--default-access-policy | deny | permit | review]
-    [--load-balancer LOAD_BALANCER]
-    [--zonal-affinity false | true]
-    [--name NEW_NAME]
-    [--output JSON] [-q, --quiet]
+ibmcloud is private-path-service-gateway-unpublish PRIVATE_PATH_SERVICE_GATEWAY
+    [--output JSON] 
+    [-f, --force] 
+    [-q, --quiet]
 ```
 {: pre}
 
@@ -162,18 +142,6 @@ Where:
 
 `PRIVATE_PATH_SERVICE_GATEWAY`
 :   Indicates ID or name of the Private Path service.
-
-`--name`
-:   Indicates name of the Private Path service.
-
-`--default-access-policy`
-:   Indicates the policy to use for bindings from accounts without an explicit account policy. One of: `deny`, `permit`, `review`. (default: `deny`).
-
-`--load-balancer`
-:   Indicates ID or name of load balancer for this Private Path service.
-
-`--zonal-affinity`
-:   Indicates whether this Private Path service has zonal affinity. One of: `false`, `true`.
 
 `--output`
 :   Indicates output format, only JSON is supported. One of: `JSON`.
@@ -236,6 +204,14 @@ To unpublish a Private Path service with the API, follow these steps:
       -d {}'
       ```
       {: codeblock}
+
+### Command examples
+{: #cli-cmd-examples-unpublish-private-path-service}
+{: cli}
+
+- Publish a Private Path service:
+   `ibmcloud is ppsgunp r134-01cd30f7-e6f2-432f-9520-76247b1fbbe1`
+   `ibmcloud is private-path-service-gateway-unpublish cli-ppsg-0`
 
 ## Publishing a Private Path service with Terraform
 {: #publishing-private-path-service-terraform}

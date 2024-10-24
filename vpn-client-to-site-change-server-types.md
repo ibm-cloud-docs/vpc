@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-24"
 
 keywords: upgrading VPN, VPN server types
 
@@ -27,7 +27,7 @@ To change the VPN server type, follow these steps:
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 1. Select the **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg), then click > **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **VPNs** in the Network section.
 
-    If starting from the VPC Infrastructure menu, click **VPNs** in the Network section to open the VPNs for VPC page.
+    If starting from the Infrastructure menu, click **VPNs** in the Network section to open the VPNs for VPC page.
     {: tip}
 
 1. From the **VPNs for VPC** page, click the **Client-to-site servers** tab. Then, click the name of the VPN server that you want to modify.

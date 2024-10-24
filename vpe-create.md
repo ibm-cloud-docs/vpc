@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-09-18"
+lastupdated: "2024-10-24"
 
 keywords: virtual private endpoints, VPE, endpoint gateway
 
@@ -39,7 +39,7 @@ Before creating an endpoint gateway, ensure that you review [Planning for virtua
 
 To create an endpoint gateway in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
-1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the Menu icon ![Menu icon](images/menu_icon.png), then click **VPC Infrastructure > Virtual private endpoint gateways** in the Network section. The Virtual private endpoint gateways for VPC page appears.
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the Menu icon ![Menu icon](images/menu_icon.png), then click **Infrastructure > Network > Virtual private endpoint gateways** in the Network section. The Virtual private endpoint gateways for VPC page appears.
 1. Click **Create** to go to the provisioning page.
 1. In the Details section, enter values for the following fields:
    * **Name** - Type a unique name for your endpoint gateway.
@@ -63,8 +63,8 @@ To create an endpoint gateway in the {{site.data.keyword.cloud_notm}} console, f
    * For IBM Cloud services, select an available IBM Cloud service offering from the menu, then select its region. A region is pre-selected to optimize performance.
    * (Private Path beta only) For non-IBM Cloud services, enter the cloud resource name (CRN) of the Private Path service (obtained from your service provider).
 
-Your connection request is sent to the service provider for review. 
-      
+Your connection request is sent to the service provider for review.
+
 The review might be automated based on the provider's chosen account policy, or it could take days if the provider has chosen to manually review their requests. If your request is permitted, you will receive notification and can then access the service. If your request is denied, contact the service provider.
 {: note}
 
@@ -120,40 +120,40 @@ To create an endpoint gateway from the CLI, follow these steps:
 
    Where:
 
-   `--target-type`: 
+   `--target-type`:
    :   Indicates the type of target for this endpoint gateway, and one of the following: `private_path_service_gateway`, `provider_cloud_service`, or `provider_infrastructure_service`.
- 
-   `--vpc`: 
+
+   `--vpc`:
    :   Indicates ID or name of the VPC.
- 
-   `--target`: 
+
+   `--target`:
    :   Indicates the name of the provider infrastructure service or the CRN for a provider cloud service instance. You can use the command `ibmcloud is endpoint-gateway-targets` to list the provider cloud and infrastructure services that are qualified to be set as the endpoint gateway target.
 
    You can use the command `ibmcloud is endpoint-gateway-targets` to list the provider cloud and infrastructure services that are qualified to be set as the endpoint gateway target.
    {: tip}
 
-   `--name`: 
+   `--name`:
    :   Indicates the new name of the endpoint gateway.
-   
+
    `--reserved-ip-id`:
    :   Indicates the ID of the reserved IP to be bound to the endpoint gateway.
-   
-   `-new-reserved-ip`: 
+
+   `-new-reserved-ip`:
    :   Indicates the new reserved IP configuration in JSON format or a JSON file, `RESERVED_IP_JSON|@RESERVED_IP_JSON_FILE`.
-   
-   `-security-group`: 
+
+   `-security-group`:
    :   Indicates the ID of the security group.
 
     If you do not specify `-security-group`, the VPC default security group is bound to the endpoint gateway.
     {: note}
 
-   `--resource-group-id`: 
+   `--resource-group-id`:
    :   Indicates the ID of the resource group. This option is mutually exclusive with `--resource-group-name`.
 
-   `--resource-group-name`: 
+   `--resource-group-name`:
    :   Indicates the name of the resource group. This option is mutually exclusive with `--resource-group-id`.
 
-   `--output`: 
+   `--output`:
    :   Indicates the output format. Only JSON is supported.
 
    `-q, --quiet`:

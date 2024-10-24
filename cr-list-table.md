@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-07-23"
+lastupdated: "2024-10-24"
 
 keywords: custom routes
 
@@ -24,7 +24,7 @@ You can list routing tables for a VPC by using the UI, CLI, API, or Terraform.
 
 To list the routing tables for a VPC in the UI, follow these steps:
 
-1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, Select the Menu icon ![Navigation Menu](images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appears.
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, Select the Menu icon ![Navigation Menu](images/menu_icon.png), then click **Infrastructure > Network > Routing tables**  in the Network section. The Routing tables for VPC page appears.
 1. From the Virtual private cloud drop-down list, select the VPC that you want to list routing tables for.
 
    Column descriptions are as follows:
@@ -32,9 +32,9 @@ To list the routing tables for a VPC in the UI, follow these steps:
    * **Name** - Indicates the name of the routing table. Click this link to see the details of the routing table. You can also edit and change this name.
 
       The `VPC default tag` specifies the default routing table of the specified VPC.
-      
+
    * **Status** - Indicates the status of the routing table.
-   * **Accepts routes from** - Specifies whether traffic is accepted from a VPN server or VPN gateway.    
+   * **Accepts routes from** - Specifies whether traffic is accepted from a VPN server or VPN gateway.
    * **Traffic source** - Specifies the source of traffic (for example, a **Direct link** or **VPC zone**).
    * **Routes** - States the number of routes that are attached to the routing table.
    * **Attached subnets** - Indicates the number of subnets that are attached to the routing table.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-10-24"
 
 keywords: custom routes
 
@@ -24,7 +24,7 @@ You can list the routes of a VPC routing table by using the UI, CLI, API, or Ter
 
 To list the routes of a VPC routing table in the UI, follow these steps:
 
-1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, Select the menu icon ![Navigation menu](images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appears.
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, Select the menu icon ![Navigation menu](images/menu_icon.png), then click **Infrastructure > Network > Routing tables**  in the Network section. The Routing tables for VPC page appears.
 1. Click the routing table name or number of routes that are associated with the routing table. The Routing table details page appears, listing the routes associated with the routing table.
 
 Descriptions of these columns are as follows:
