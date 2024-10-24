@@ -36,14 +36,14 @@ To publish a Private Path service in the {{site.data.keyword.cloud_notm}} consol
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 1. Select the Menu icon ![Menu icon](images/menu_icon.png), then click **Infrastructure > Network > Private Path services**.
-1. Locate the name of your new Private Path service in the table, and click the name to view the Private Path service details page. 
+1. Locate the name of your new Private Path service in the table, and click the name to view the Private Path service details page.
 1. Click **Publish** in the Actions menu ![Actions menu](images/overflow.png).
 
    The Publication column in the Private Path services for VPC table changes to `Published`.
 
 The Private Path service is now exposed for other accounts to connect to the service through Virtual Private Endpoint (VPE) gateways.
 
-After publishing, the Private Path service name is visible to customers connecting to the Private Path service. 
+After publishing, the Private Path service name is visible to customers connecting to the Private Path service.
 
 ## Unpublishing a Private Path service in the UI
 {: #pps-ui-deactivating-private-path-service}
@@ -124,11 +124,11 @@ Where:
 - Publish and rename a Private Path service:
    `ibmcloud is private-path-service-gateway-update cli-ppsg-2 --name cli-ppsg-0 --default-access-policy review --load-balancer my-cli-nlb-1 --zonal-affinity false --published`
 
-## Publishing a Private Path service from the CLI
-{: #pps-cli-publish-private-path-service}
+## Unpublishing a Private Path service from the CLI
+{: #pps-cli-unpublish-private-path-service}
 {: cli}
 
-The following example shows how to use the CLI to publish a Private Path service.
+The following example shows how to use the CLI to unpublish a Private Path service.
 
 Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli){: external}.
 
@@ -143,7 +143,7 @@ export IBMCLOUD_IS_FEATURE_PP_NLB_SUPPORT=true
 ```
 {: pre}
 
-To publish a Private Path service from the CLI, follow these steps:
+To unpublish a Private Path service from the CLI, follow these steps:
 
 1. Enter the following command:
 
