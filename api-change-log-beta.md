@@ -39,7 +39,7 @@ When [creating a reservation](/apidocs/vpc-beta/latest#create-reservation), you 
 For more information, see [Automatic attachments for reservations](/docs/vpc?topic=vpc-automatic-reservation-vpc).
 
 ### For version `2024-10-22` or later
-{: #22-october-2024-all-version-dates-beta}
+{: #version-2024-10-22-beta}
 
 When using a `version` query parameter of `2024-10-22` or later, the `reservation_affinity.policy` defaults to `automatic` when [creating a reservation](/apidocs/vpc-beta/latest#create-reservation). Similarly, when using a `version` query parameter of `2024-10-22` or later, the `reservation_affinity.policy` defaults to `automatic` when [creating an instance](/apidocs/vpc-beta/latest#create-instance) or [creating a bare metal server](/apidocs/vpc-beta/latest#create-bare-metal-server). The behavior remains unchanged when using a `version` query parameter of `2024-10-21` or earlier.
 
