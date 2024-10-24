@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-10-17"
+lastupdated: "2024-10-24"
 
 keywords: view instance details, restart virtual server, stop, details, delete
 
@@ -484,16 +484,22 @@ ibmcloud is instance-update INSTANCE --total-volume-bandwidth VALUE --host-failu
 ```
 {: pre}
 
+## Setting the host failure recovery policy with the API
+{: #set-policy-api}
+{: api}
+
+During an instance [update](/apidocs/vpc/latest#update-instance), the `host_failure` subproperty can be used to set the host failure `availability_policy` of the virtual server instance.
+
 ## Setting the confidential compute value from the CLI
 {: #set-confidential-compute-cli}
 {: cli}
 
 [Select availability]{: tag-green}
 
-Confidential computing with Intel SGX for VPC is available only in the US-South (Dallas) region.
+Confidential computing with Intel SGX for VPC is available only in the Dallas (us-south) and Frankfurt (eu-de) regions.
 {: note}
 
-You can update an instance and change the `confidential-compute-mode` by using the command-line interface (CLI). Use the ibmcloud `instance-update` command. for INSTANCE, specify the ID or name of the instance and set the `--confidential-compute-mode` property to `sgx`.
+You can update an instance and change the `confidential-compute-mode` by using the command-line interface (CLI). Use the `ibmcloud is instance-update` command. For INSTANCE, specify the ID or name of the instance and set the `--confidential-compute-mode` property to `sgx`.
 
 ```sh
 ibmcloud is instance-update INSTANCE --confidential-compute-mode sgx
@@ -504,18 +510,12 @@ ibmcloud is instance-update INSTANCE --confidential-compute-mode sgx
 {: #set-secure-boot-cli}
 {: cli}
 
-You can update an instance and change the `enable-secure-boot` by using the command-line interface (CLI). Use the ibmcloud `instance-update` command. for INSTANCE, specify the ID or name of the instance and set the `--enable-secure-boot` property to `true`.
+You can update an instance and change the `enable-secure-boot` by using the command-line interface (CLI). Use the `ibmcloud is instance-update` command. For INSTANCE, specify the ID or name of the instance and set the `--enable-secure-boot` property to `true`.
 
 ```sh
 ibmcloud is instance-update INSTANCE --enable-secure-boot true
 ```
 {: pre}
-
-## Setting the host failure recovery policy with the API
-{: #set-policy-api}
-{: api}
-
-During an instance [update](/apidocs/vpc/latest#update-instance), the `host_failure` subproperty can be used to set the host failure `availability_policy` of the virtual server instance.
 
 ## Detaching a server from a reservation in the console
 {: #removing-adding-server-reserved-capacity-ui-vpc}
