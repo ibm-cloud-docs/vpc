@@ -1126,7 +1126,7 @@ To provision an instance with confidential compute, add the `confidential_comput
              "confidential_compute_mode": "sgx",
             }'
  ```
- {: pre}
+ {: pre}</staging><staging>
 
  ### Creating an instance with secure boot
 {: #create-instance-secure-boot-api}
