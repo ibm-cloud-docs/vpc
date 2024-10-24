@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-10-24"
 
 keywords:
 
@@ -197,4 +197,4 @@ curl -X DELETE "$vpc_api_endpoint/v1/security_groups/$sg?version=$api_version&ge
 ```
 {: pre}
 
-For more information about setting up your security group with the API, see [Security groups](https://cloud.ibm.com/apidocs/vpc/latest#list-security-groups){: external}.
+For more information about setting up your security group with the API, see [Security groups](/apidocs/vpc/latest#list-security-groups){: external}.

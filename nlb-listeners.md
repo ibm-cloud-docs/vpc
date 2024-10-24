@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2022-12-12"
+  years: 2020, 2024
+lastupdated: "2024-10-24"
 
 keywords: network load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network
 
@@ -21,7 +21,7 @@ You can configure listeners when [creating a network load balancer](/docs/vpc?to
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 
-2. Select the Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **VPC Infrastructure > Load balancers**.
+2. Select the Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **Infrastructure > Network > Load balancers**.
 
 3. Click the NLB that you want to change.
 

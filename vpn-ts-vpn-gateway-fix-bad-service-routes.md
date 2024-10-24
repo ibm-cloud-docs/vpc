@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-12-18"
+  years: 2023, 2024
+lastupdated: "2024-10-24"
 
 keywords: virtual private network, VPN, VPN gateway, troubleshooting
 
@@ -32,7 +32,7 @@ Follow these steps to fix the service routes:
 {: tsResolve}
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg), then click **VPC Infrastructure > Routing tables** in the Network section.
+1. Select the **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg), then click **Infrastructure > Network > Routing tables** in the Network section.
 1. Select your VPC from the VPC drop-down menu.
 1. Click the routing table to open its details page, then click **Edit**.
 1. Clear the **VPN gateway** checkbox in the Accepts routes from (optional) section and click **Save**. Service routes propagated by the VPN gateway are removed.
