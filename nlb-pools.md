@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-10-24"
+lastupdated: "2024-10-25"
 
 keywords: network load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network
 
@@ -21,7 +21,7 @@ The {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) pool is a g
 You can configure pools when [creating a network load balancer](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer), or later with the following procedure:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **Infrastructure > Network > Load balancers**.
+1. Select the **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **Infrastructure > Network > Load balancers**.
 1. Click the network load balancer that you want to change.
 1. On the network load balancer's details page, click the back-end pools tab and select the pool that you want to edit.
 1. Select the options for your pool:

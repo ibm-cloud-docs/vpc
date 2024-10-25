@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-10-25"
 
 keywords:
 
@@ -30,7 +30,7 @@ Before you begin, ensure that you have created a VPC and subnet.
 To configure an ACL in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. Go to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} and log in to your account.
-1. Click the **Navigation menu** ![menu icon](../../icons/icon_hamburger.svg)  > **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Access control lists** in the Network section.
+1. Select the **Navigation Menu** ![menu icon](../../icons/icon_hamburger.svg), then click **Infrastructure > Network > Access control lists**.
 1. Click **Create +**.
 1. Select the **Edit location** icon ![Edit location icon](../icons/edit-tagging.svg "Edit location") and enter values for the following fields:
 
@@ -49,7 +49,7 @@ To configure an ACL in the {{site.data.keyword.cloud_notm}} console, follow thes
    * **Access management tags** - Add access management tags to help organize access control relationships. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
    * **VPC** - Select a VPC. You can use the default VPC for this public gateway, or select from the list (if defined). For more information, see [Getting started with Virtual Private Cloud](/docs/vpc?topic=vpc-getting-started&interface=ui).
 
-1. Under Rules, click the **Create +** button to configure inbound and outbound rules that define what traffic is allowed in or out of the subnet. For each rule, specify the following information:
+1. Under Rules, click **Create +** to configure inbound and outbound rules that define what traffic is allowed in or out of the subnet. For each rule, specify the following information:
       * Select whether to allow or deny the specified traffic.
       * Select the protocol to which the rule applies.
       * For the source and destination of the rule, specify the IP range and ports for which the rule applies. For example, if you want all inbound traffic to be allowed to the IP range `192.168.0.0/24` in your subnet, specify **Any** as the source and `192.168.0.0/24` as the destination. However, if you want to allow inbound traffic only from `169.168.0.0/24` to your entire subnet, specify `169.168.0.0/24` as the source and **Any** as the destination for the rule.

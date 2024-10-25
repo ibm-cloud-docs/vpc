@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-25"
 
 keywords:
 
@@ -25,7 +25,7 @@ If you need to make changes to a virtual network interface, you can update it by
 To update an existing virtual network interface, follow these steps.
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** icon ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Virtual network interfaces**.
+1. Select the **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click **Infrastructure > Network > Virtual network interfaces**.
 1. Click the name of the virtual network interface in the Virtual network interfaces for VPC table.
 1. In the Overview view of the Details page, you can click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to edit the name of the virtual network interface.
 1. Select the switch for Infrastructure NAT to the wanted state.

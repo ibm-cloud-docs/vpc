@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-10-17"
+lastupdated: "2024-10-25"
 
 keywords: private path
 
@@ -31,8 +31,7 @@ You can update or delete a Private Path service account policy at any time using
 To update an account policy in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the Menu icon ![Menu icon](images/menu_icon.png), then click **Infrastructure**.
-1. Click **Private Path services** in the Network section.
+1. Select the **Navigation Menu** ![Menu icon](images/menu_icon.png), then click **Infrastructure > Network > Private Path services**.
 1. Click the name of the Private Path service that includes the account policy that you want to update.
 1. On the Private Path service's Details page, click the Policies tab.
 1. Locate the account with the policy that you want to update, then click the Edit ![Edit icon](images/edit.png) or Delete ![Delete icon](images/delete.png) icon.
@@ -196,7 +195,7 @@ The following example updates or deletes an account policy's access to a Private
 ```terraform
 resource "ibm_is_private_path_service_gateway_account_policy" "ppsgAccountPolicy" {
     private_path_service_gateway = ibm_is_private_path_service_gateway.ppsg.id
-    access_policy = "permit"    ## modified to deny   
+    access_policy = "permit"    ## modified to deny
     account = "7f75c7b025e54bc5635f754b2f888665"
 }
 ```

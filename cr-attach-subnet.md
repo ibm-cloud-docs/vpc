@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-10-24"
+lastupdated: "2024-10-25"
 
 keywords: custom routes
 
@@ -27,7 +27,7 @@ You can attach a subnet to a routing table, or reassign a routing table to a par
 
 To attach a routing table to a subnet in the UI, follow these steps:
 
-1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the menu icon ![Navigation menu](images/menu_icon.png), then click **Infrastructure > Network > Routing tables** in the Network section. The Routing tables for VPC page appears.
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation Menu** ![Navigation menu](images/menu_icon.png), then click **Infrastructure > Network > Routing tables**. The Routing tables for VPC page appears.
 1. Click the name of the routing table in which you want to view subnet details. Alternatively, you can click the number of attached subnets.
 1. From the Subnets tab, click **Attach subnet**. The Attach subnets to routing table side panel appears.
 1. Select a subnet from the drop-down list. The current routing table, IP range, and location of the subnet shows.
