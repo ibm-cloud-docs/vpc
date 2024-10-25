@@ -1128,7 +1128,7 @@ To provision an instance with confidential compute, add the `confidential_comput
  ```
  {: pre}
 
- ### Creating an instance with secure boot
+### Creating an instance with secure boot
 {: #create-instance-secure-boot-api}
 {: api}
 
