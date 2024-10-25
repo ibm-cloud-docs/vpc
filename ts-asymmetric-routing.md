@@ -1,8 +1,9 @@
+
 ---
 
 copyright:
-  years: 2023, [{CURRENT_YEAR}]
-lastupdated: "[{LAST_UPDATED_DATE}]"
+  years: 2023, 2024
+lastupdated: "2024-10-25"
 
 keywords: asymmetric routing, troubleshooting
 
