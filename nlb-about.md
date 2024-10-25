@@ -90,6 +90,11 @@ Front-end listeners are application ports for load balancers to receive incoming
 
 You can attach up to 50 virtual server instances to a back-end pool. Traffic is sent to each instance on its specified data port. This data port does not need to be the same as the front-end listener port.
 
+## Maximum connections
+{: #nlb-maximum-connections}
+
+There is no defined number of default connections or maximum connections for a network load balancer. The total number of concurrent connections depends on factors, such as allocated resources and network throughput.
+
 ## VPC representation of a network load balancer
 {: #vpc-nlb-representation}
 
