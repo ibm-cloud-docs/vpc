@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-24"
 
 keywords:
 
@@ -57,7 +57,7 @@ The floating IP associated with a bare metal network interface is not available 
 
 To create a reserved IP, follow these steps:
 
-1. From the IBM Cloud menu, select **Infrastructure** > **Subnets**.
+1. From the IBM Cloud menu, select **Infrastructure** > **Network** > **Subnets**.
 1. Select an existing subnet, or create a new one.
 1. Click the Reserved IPs tab.
 1. Click **Create +**.

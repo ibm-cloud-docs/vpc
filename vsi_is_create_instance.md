@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-10-24"
+lastupdated: "2024-10-25"
 
 keywords:
 
@@ -1087,7 +1087,7 @@ curl -X POST \
 ```
 {: codeblock}
 
-For more information about restoring a volume with the API, see [Restore a volume from a snapshot with the API](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=api#snapshots-vpc-restore-API).<staging>
+For more information about restoring a volume with the API, see [Restore a volume from a snapshot with the API](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=api#snapshots-vpc-restore-API).
 
 ### Creating an instance with confidential compute
 {: #create-instance-confidential-compute-api}
@@ -1126,7 +1126,7 @@ To provision an instance with confidential compute, add the `confidential_comput
              "confidential_compute_mode": "sgx",
             }'
  ```
- {: pre}</staging><staging>
+ {: pre}
 
  ### Creating an instance with secure boot
 {: #create-instance-secure-boot-api}
@@ -1160,8 +1160,7 @@ To provision an instance with secure boot, add the `enable_secure_boot` property
              "enable_secure_boot": "true",
             }'
  ```
- {: pre}</staging>
-
+ {: pre}
 
 ## Creating virtual server instances by using Terraform
 {: #create-instance-terraform}

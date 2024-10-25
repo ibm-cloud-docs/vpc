@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-24"
 
 subcollection: vpc
 
@@ -24,7 +24,7 @@ The beta release of IBM Cloud Private Path services is only available to allowli
 
 Private Path services and Virtual Private Endpoint (VPE) gateways are free services. A Private Path network load balancer is charged per hour and per gigabyte of traffic. To estimate the cost of a load balancer, use the cost estimator on the provisioning page (either when you create a Private Path network load balancer during [Private Path service creation](/infrastructure/provision/privatePathService), or from the [Load balancers page](/infrastructure/network/loadBalancers)).
 
-For example, from the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) and select **VPC Infrastructure > Private Path services**. Then, click **Create** to open the provisioning page.
+For example, from the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) and select **Infrastructure > Network > Private Path services**. Then, click **Create** to open the provisioning page.
 
 ## Related links
 {: #faq-related-links-private-path}
