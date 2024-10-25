@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-10-15"
+lastupdated: "2024-10-25"
 
 keywords:
 
@@ -35,7 +35,7 @@ You can create a cluster network subnet with the UI, CLI, API, or Terraform.
 To create a subnet within a network cluster in the UI, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg), then click > **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Cluster networks**.
+1. Select the **Navigation Menu** ![menu icon](../../icons/icon_hamburger.svg), then click  **Infrastructure > Network > Cluster networks**.
 1. On the Cluster networks for VPC page, click the link of the cluster network name where you want to create a subnet. The Overview page displays.
 1. Click the Subnets tab to show the Cluster network subnets table, then click **Create +**.
 1. Complete the information in the Create subnet side panel, then click **Create**.

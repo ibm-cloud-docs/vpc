@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-25"
 
 keywords: virtual private endpoints, list, VPE, endpoint gateway
 
@@ -24,7 +24,7 @@ You can list all virtual private endpoint gateways in the region by using the UI
 
 To list all endpoint gateways by using the {{site.data.keyword.cloud_notm}} console:
 
-From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation Menu** icon ![menu icon](images/menu_icon.png), then click > **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **Virtual private endpoint gateways** in the Network section.
+From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **Navigation Menu** ![menu icon](images/menu_icon.png), then click **Infrastructure > Network > Virtual private endpoint gateways**.
 
 The Virtual private endpoint gateways for VPC page appears. Use this table to view endpoint gateways in the region.
 

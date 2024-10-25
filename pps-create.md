@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-10-25"
 
 keywords:
 
@@ -43,13 +43,13 @@ You can create an {{site.data.keyword.cloud}} Private Path service using the UI,
 
 When creating a Private Path service, you are required to prove that you own the _service-endpoints_ (DNS FQDNs) you provide. This is done to prevent DNS hijacking and FQDN conflicts. Ownership is verified by creating a TXT record for each FQDN (service endpoint) with specific contents. You must create the TXT records in a public DNS. The public DNS is only consulted when the Private Path service is created. After a Private Path service is created, only a private DNS is used in the data path  (never a public DNS).
 
-The required `TXT` record must start with a `ibm-domain-verification=` prefix. Validation is successful if the prefix is followed by a value that matches the `SHA-256` hash of the account ID associated with the user creating the Private Path service. An example TXT record to add: 
-`ibm-domain-verification=252cfc164d3600a79007f25312a6a924288cfc6dbcaeec838ca9048cde664acb` 
- 
+The required `TXT` record must start with a `ibm-domain-verification=` prefix. Validation is successful if the prefix is followed by a value that matches the `SHA-256` hash of the account ID associated with the user creating the Private Path service. An example TXT record to add:
+`ibm-domain-verification=252cfc164d3600a79007f25312a6a924288cfc6dbcaeec838ca9048cde664acb`
+
 The details of how to go about adding a TXT record to your FQDN differs depending on the public DNS service you use. It is recommended that you consult your DNS service provider for details.
 
 If multiple service endpoints are specified for a Private Path service, the ownership validation must be successful for all of them.
-  
+
 The following is a list of top-level domains that you can use to bypass domain name ownership validation:
 - `.intranet`
 - `.internal`
@@ -59,7 +59,7 @@ The following is a list of top-level domains that you can use to bypass domain n
 - `.lan`
 {: important}
 
-Wildcard (&#42;) domains are supported. For example, a Private Path service with `"service_endpoints": ["*.service.com"]` will include all of its subdomains, such as `api1.service.com` and `api2.service.com`. 
+Wildcard (&#42;) domains are supported. For example, a Private Path service with `"service_endpoints": ["*.service.com"]` will include all of its subdomains, such as `api1.service.com` and `api2.service.com`.
 
 The DNS ownership validation is successful when the wildcard domain contains the valid `TXT` record. In this example, to pass the validation, you can add the valid `TXT` record to `service.com`.
 
@@ -70,8 +70,7 @@ The DNS ownership validation is successful when the wildcard domain contains the
 To create a Private Path service with the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the Menu icon ![Menu icon](images/menu_icon.png), then click **Infrastructure**.
-1. Click **Private Path services** in the Network section.
+1. Select the **Navigation Menu** ![Menu icon](images/menu_icon.png), then click **Infrastructure > Network > Private Path services**.
 1. Click **Create +**.
 1. Review the checklist for important information.
 1. In the Location section, ensure that the following fields are correct. If not, click the Edit icon ![Edit icon](images/edit.png) to update.
@@ -126,7 +125,7 @@ To create a Private Path service with the {{site.data.keyword.cloud_notm}} conso
 1. In the Service endpoint section, click ***Create +**. Provide a name for the service endpoint where you want to connect your Private Path service. Click **Add +**. Then, select to enable or disable zonal affinity for the service endpoints. When zonal affinity is enabled, the endpoint maintains persistence to the zone after the connection is created.
 1. In the Account policies section:
    * The default policy is set to review and triage each incoming connection request. You can change the default policy to permit or deny all requests without review.
-   * To establish account policies that are different than the default policy, click **Create +**. Provide the account ID of the account for which you want to set up a policy. For the Account policy option, select Review, Permit, or Deny. 
+   * To establish account policies that are different than the default policy, click **Create +**. Provide the account ID of the account for which you want to set up a policy. For the Account policy option, select Review, Permit, or Deny.
 
    Individual account policies take precedence over the default policy.
    {: tip}

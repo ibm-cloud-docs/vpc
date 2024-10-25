@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2022
 
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-25"
 
 keywords:
 
@@ -37,8 +37,7 @@ Inbound rules to allow pinging and SSH are not automatically added to the defaul
 {: ui}
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
-1. Select the Menu icon ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure**.
-1. Click **Security groups**.
+1. Select the **Navigation Menu** ![Menu icon](../icons/icon_hamburger.svg), then click **Infrastructure > Network > Security groups**.
 1. In the Security groups list, click the name of the default security group that you want to update.
 1. On the default security group's details page, click the **Rules** tab.
 1. Modify the rules as necessary:

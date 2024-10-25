@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-25"
 
 keywords:
 
@@ -42,7 +42,7 @@ You can set the DNS resolver type with the UI, CLI, API, or Terraform.
 To set the DNS resolver type on a DNS-shared VPC, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the **Navigation Menu** icon ![menu icon](../../icons/icon_hamburger.svg), then click > **Infrastructure** ![VPC icon](../../icons/vpc.svg) > **VPCs**.
+1. Select the **Navigation Menu** ![menu icon](../../icons/icon_hamburger.svg), then click  **Infrastructure > Network > VPCs**.
 1. Click the DNS-shared VPC whose DNS resolver type you want to set.
 1. Scroll to the Optional DNS settings section, then expand the DNS resolver settings and click **Edit**.
 1. In the Edit DNS resolver settings side panel, disable the DNS hub.

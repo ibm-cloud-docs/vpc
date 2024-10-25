@@ -33,8 +33,7 @@ You can verify connectivity to a Private Path service by using SSH to log into a
 To verify connectivity to a Private Path service from the IBM Cloud console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the Menu icon ![Menu icon](images/menu_icon.png), then click **Infrastructure**.
-1. Click **Private Path services** in the Network section.
+1. Select the **Navigation Menu** ![Menu icon](images/menu_icon.png), then click **Infrastructure > Network > Private Path services**.
 1. Locate your new Private Path in the table and click the name of the service to show its Details page.
 1. Copy the CRN to your clipboard.
 1. Click the **Infrastructure** breadcrumb at the top of the page, then click **Virtual private endpoint gateways** in the Network section.
@@ -44,7 +43,7 @@ To verify connectivity to a Private Path service from the IBM Cloud console, fol
 
    * If your default policy is set to **Permit all requests**, your request shows in the **Permitted** view.
    * If your default policy is set to **Review all requests**, your request shows in the **Requests to review** view. Permit your connection request.
-   
+
 1. Connect to your service.
 
 ## Verifying connectivity to a Private Path service from the CLI

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-10-24"
+lastupdated: "2024-10-25"
 
 keywords:
 
@@ -250,7 +250,7 @@ Create a public gateway and connect your virtual server instance if you want mul
 
 To create a public gateway:
 1. Go to the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the menu icon ![Menu icon](./images/menu_icon.png), then click **Infrastructure** > **Network** > **Public gateways**. The Public gateways for VPC dashboard appear.
+1. Select the **Navigation Menu** ![Menu icon](./images/menu_icon.png), then click **Infrastructure** > **Network** > **Public gateways**. The Public gateways for VPC dashboard appear.
 1. Click **Create** to go to the **Create public gateway** menu.
 
 A public gateway provides virtual server instances only outbound connectivity, whereas a floating IP address provides virtual server instances outbound and inbound connectivity. A floating IP address exposes a service on the internet to inbound activity.
