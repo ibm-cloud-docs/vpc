@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-10-24"
+lastupdated: "2024-10-25"
 
 keywords: view instance details, restart virtual server, stop, details, delete
 
@@ -506,6 +506,24 @@ ibmcloud is instance-update INSTANCE --confidential-compute-mode sgx
 ```
 {: pre}
 
+## Setting the confidential compute value from the API
+{: #set-confidential-compute-API}
+{: API}
+
+[Select availability]{: tag-green}
+
+Confidential computing with Intel SGX for VPC is available only in the Dallas (us-south) and Frankfurt (eu-de) regions.
+{: note}
+
+You can update a virtual server instance and change the `confidential_compute_mode` property by using the API. Use the ibmcloud `update-instance` command. Make a `PATCH /instances` request and specify a new value for the `confidential_compute_mode` property. To enable confidential computing, change this value to `sgx`.
+
+```sh
+curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id?version=2024-10-17&generation=2" -H "Authorization: Bearer $iam_token" -d '{"confidential_compute_mode": "sgx"}'
+```
+{: pre}
+
+For more information, see the [update an instance action](/apidocs/vpc/latest#update-instance) in the {{site.data.keyword.vsi_is_short}} API.
+
 ## Setting the secure boot value from the CLI
 {: #set-secure-boot-cli}
 {: cli}
@@ -516,6 +534,19 @@ You can update an instance and change the `enable-secure-boot` by using the comm
 ibmcloud is instance-update INSTANCE --enable-secure-boot true
 ```
 {: pre}
+
+## Setting the secure boot value from the API
+{: #set-secure-boot-API}
+{: api}
+
+You can update a virtual server instance and change the `enable_secure_boot` property by using the API. Use the `update-instance` command. Make a `PATCH /instances` request and specify a new value for the `enable_secure_boot` property. To enable confidential secure boot, change this value to `true`.
+
+```sh
+curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id?version=2024-10-17&generation=2" -H "Authorization: Bearer $iam_token" -d '{"enable_secure_boot": "true"}'
+```
+{: pre}
+
+For more information, see the [update an instance action](/apidocs/vpc/latest#update-instance) in the {{site.data.keyword.vsi_is_short}} API.
 
 ## Detaching a server from a reservation in the console
 {: #removing-adding-server-reserved-capacity-ui-vpc}
