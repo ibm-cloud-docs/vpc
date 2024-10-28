@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-10-28"
 
 keywords: listener, pool, round-robin, weighted, layer 7, datapath logging, http2, websocket
 
@@ -222,6 +222,13 @@ Figure 1 illustrates the deployment architecture for the ALB.
 
 In this diagram, "Client Resources" represents the resources (VPCs and subnets, for instance) that belong to the client ecosystem.
 {: note}
+
+## High Availability and Application Load Balancers
+{: #ha-and-alb}
+
+To ensure that High Availability (HA) works with your ALB, you should attach three subnets from different zones to the ALB and deploy appliances across these zones. To do this, you will choose your subnets during the ALB creation process. You may select two subnets in different zones (such as, `us-south-1` and `us-south-2`). Doing so creates the ALB's IPs (such as the appliance IPs) in two different subnets. 
+
+You can also do this with already existing ALBs. Go to the **Attached Resources** section on your load balancer details page. From the **Subnet** section, click **Edit subnets**. You can now attach additional subnets. Once you do, the ALB will go into the “Migrating” state. When the migration completes, you will get a new IP for the appliance from the subnet you just attached. You now have two IPs from different subnets in different Zones.
 
 ## Related links
 {: #permissions-related-links-alb}
