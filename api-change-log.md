@@ -38,6 +38,10 @@ SDK changes are based on API changes. For more information about the latest chan
 ## Upcoming changes
 {: #upcoming-changes}
 
+**Deprecated `classic_access` for VPCs.** When [creating a VPC](/apidocs/vpc/latest#create-vpc), the `classic_access` property is now deprecated. Instead, use a [Transit Gateway](/docs/transit-gateway) to connect VPCs to Classic Infrastructure.
+
+In an upcoming release, unless your account has been granted approval, you will no longer be able to create a new VPC with `classic_access` set to `true`. To prepare for this change, update your workflows to use Transit Gateways instead of the `classic_access` property.
+
 **`InstanceTemplate` response schema change.** In an upcoming release, future methods of creating instances, and therefore creating instance templates, may not require a primary network interface. To accommodate this, the `primary_network_interface` property is now optional in the instance template response model. 
 
 At this time, all instances, and therefore all instance templates, continue to require that a primary network interface be specified. Therefore, existing instance templates are unaffected. Additionally, new instance templates will continue to include a primary network interface until further notice. However, to ensure your clients will not be affected in the future, verify that they are tolerant of the `primary_network_interface` property not being included when consuming `InstanceTemplate` responses.
