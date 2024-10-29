@@ -56,6 +56,14 @@ To prepare for this change, verify that your client checks that the `volume` pro
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
 
+## 29 October 2024
+{: #29-october-2024}
+
+### For all version dates
+{: #29-october-2024-all-version-dates}
+
+**File share replication frequency increase.** When [creating](/apidocs/vpc/latest#create-share) or [updating](/apidocs/vpc/latest#update-share) a replication file share, you can now set the replication schedule as often as every 15 minutes by setting the `replication_cron_spec` property. The previous minimum threshold was 1 hour. For more information, see [About file share replication](/docs/vpc?topic=vpc-file-storage-replication).
+
 ## 15 October 2024
 {: #15-october-2024}
 
