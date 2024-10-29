@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-10-18"
+lastupdated: "2024-10-29"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Best practices for backups
 {: #backups-vpc-best-practices}
 
-To ensure that you're using the VPC Backup Service most effectively and economically, consider the following suggestions.
+To help ensure that you're using the VPC Backup Service most effectively and economically, consider the following suggestions.
 {: shortdesc}
 
 ## General best practices
@@ -33,7 +33,7 @@ To ensure that you're using the VPC Backup Service most effectively and economic
 
 * If you have volumes in different regions, create separate backup policies for each region. You're limited to 10 backup policies per account in a region.
 
-* Ensure that the block storage resources that you tagged for backups are attached to a running virtual server instance. You can't back up detached volumes.
+* Confirm that the block storage resources that you tagged for backups are attached to a running virtual server instance. You can't back up detached volumes.
 
 * Provide a unique name for your backup policy. If you have a convention for naming volumes, you might name a backup policy by using a similar convention. Backups that are created by a policy can also follow the convention. As the number of backups grow, a good naming convention can make them more identifiable.
 
