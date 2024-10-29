@@ -579,11 +579,11 @@ toc:
                label: Getting started with IBM Cloud DNS Services
                href: /dns-svcs/dns-svcs-getting-started
         - topicgroup:
-            label: Block Storage
+            label: Block storage
             topics:
             - block_storage_vpc_s2s_auth.md
             - topicgroup:
-                label: Creating Block Storage volumes
+                label: Creating block storage volumes
                 topics:
                 - block_storage_vpc_create.md
                 - block_storage_vpc_byok_encryption.md
@@ -592,7 +592,7 @@ toc:
             - block_storage_vpc_use_volume_lin.md
             - block_storage_vpc_use_volume_win.md
             - topicgroup:
-                label: Managing Block Storage volumes
+                label: Managing block storage volumes
                 topics:
                 - block_storage_vpc_view.md
                 - block_storage_vpc_manage.md
@@ -601,7 +601,7 @@ toc:
                 - block_storage_vpc_adjustable_iops.md
                 - block_storage_vpc_monitoring.md
         - topicgroup:
-            label: Block Storage Snapshots
+            label: Block storage snapshots
             topics:
             - bs_snapshots_planning.md
             - topicgroup:
@@ -640,7 +640,7 @@ toc:
                 - backup-service-event-notifications-events.md
             - backup_service_vpc_restore.md
         - topicgroup:
-            label: File Storage
+            label: File storage
             topics:
             - file_storage_vpc_plan.md
             - file_storage_vpc_s2s_auth.md

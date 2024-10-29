@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-10-15"
+lastupdated: "2024-10-29"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -51,8 +51,6 @@ To prepare for this change, verify that your client checks that the `volume` pro
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
-
-**Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
 
 ## 15 October 2024
 {: #15-october-2024}
