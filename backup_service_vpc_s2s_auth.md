@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-10-16"
+lastupdated: "2024-10-29"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -43,7 +43,7 @@ If you set up service authorizations incorrectly, the backup service cannot crea
 
 To create a service-to-service authorization policy, follow this procedure:
 
-1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage > Access (IAM)**. The **Manage access and users** page is displayed.
+1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage > Access (IAM)**.
 1. From the side panel, select **Authorizations**.
 1. On the **Manage authorizations** page, click **Create**. 
 1. In the **Source** section, select the **Source account**. As you're setting up authorization for the Backup service in your account, select **This account**. Click **Next**.
@@ -77,7 +77,7 @@ To create a service-to-service authorization policy, follow this procedure:
 
 To allow an Enterprise administrator to manage backups centrally, the subaccounts must provide authorization for the Backup service of the Enterprise account to interact with the resources of the child accounts. 
 
-1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage > Access (IAM)**. The **Manage access and users** page is displayed.
+1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage > Access (IAM)**.
 1. From the side panel, select **Authorizations**.
 1. On the **Manage authorizations** page, click **Create**. 
 1. In the **Source** section, select the **Source account**. As you're setting up authorization for the Backup service of the enterprise account, select **Specific account**, and enter the Enterprise account's ID. Click **Next**.
@@ -111,9 +111,9 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
 {: #backup-s2s-auth-procedure-en-ui}
 {: ui}
 
-[New]{: tag-new} To create a service-to-service authorization policy for {{site.data.keyword.en_short}}, follow this procedure:
+To create a service-to-service authorization policy for {{site.data.keyword.en_short}}, follow this procedure:
 
-1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage > Access (IAM)**. The **Manage access and users** page is displayed.
+1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage > Access (IAM)**.
 1. From the side panel, select **Authorizations**.
 1. On the **Manage authorizations** page, click **Create**. 
 1. In the **Source** section, select the **Source account**. As you're setting up authorization for the Backup service in your account, select **This account**. Click **Next**.
@@ -278,7 +278,7 @@ For more information about all of the parameters that are available for this com
 {: #backup-s2s-auth-procedure-en-cli}
 {: cli}
 
-[New]{: tag-new} To create a service-to-service authorization policy for {{site.data.keyword.en_short}}, use the `authorization-policy-create` command.
+To create a service-to-service authorization policy for {{site.data.keyword.en_short}}, use the `authorization-policy-create` command.
 
 ```sh
 ibmcloud iam authorization-policy-create is event-notification EventSourceManager --source-resource-type backup-policy --target-resource-instance $en-instance-ID
@@ -561,7 +561,7 @@ For more information, see the api spec for [IAM Policy Management](/apidocs/iam-
 {: #backup-s2s-auth-procedure-en-api}
 {: api}
 
-[New]{: tag-new} To create a service-to-service authorization policy for {{site.data.keyword.en_short}}, make an API request to grant`is.backup-policy` (source) access to `event-notification` (target) with the `EventSourceManager` role.
+To create a service-to-service authorization policy for {{site.data.keyword.en_short}}, make an API request to grant`is.backup-policy` (source) access to `event-notification` (target) with the `EventSourceManager` role.
 
 ```sh
 curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H 
@@ -589,8 +589,6 @@ curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H
 ```
 {: pre}
 
-
-
 ## Creating authorization policies with Terraform
 {: #backup-s2s-auth-procedure-terraform}
 {: terraform}
@@ -599,8 +597,6 @@ curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H
 {: #backup-s2s-auth-procedure-terraform-account}
 
 Create an authorization policy between services by using the `ibm_iam_authorization_policy` resource argument in your `main.tf` file.
-
-
 
 ```terraform
 resource "ibm_iam_authorization_policy" "policy1" {
@@ -735,7 +731,7 @@ For more information about the arguments and attributes, see the [Terraform docu
 {: #backup-s2s-auth-procedure-en-terraform}
 {: terraform}
 
-[New]{: tag-new} To create a service-to-service authorization policy for {{site.data.keyword.en_short}}, use the `ibm_iam_authorization_policy` resource argument in your `main.tf` file.
+To create a service-to-service authorization policy for {{site.data.keyword.en_short}}, use the `ibm_iam_authorization_policy` resource argument in your `main.tf` file.
 
 ```terraform 
 resource "ibm_iam_authorization_policy" "en-policy" {
@@ -750,7 +746,6 @@ resource "ibm_iam_authorization_policy" "en-policy" {
 {: codeblock}
 
 For more information about the arguments and attributes, see the [Terraform documentation for authorization resources](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/iam_authorization_policy){: external}.
-
 
 ## Next Steps
 {: #backup-s2s-next-steps}

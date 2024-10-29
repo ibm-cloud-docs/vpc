@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-10-22"
+lastupdated: "2024-10-29"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -33,7 +33,7 @@ For more information about authorizations, see [Using authorizations to grant ac
 {: #block-s2s-auth-encryption-ui}
 {: ui}
 
-1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage > Access (IAM)**. The **Manage access and users** page is displayed.
+1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage > Access (IAM)**.
 1. From the side panel, select **Authorizations**.
 1. On the **Manage authorizations** page, click **Create**. 
 1. In the **Source** section, select the **Source account**. 
