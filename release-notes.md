@@ -31,6 +31,9 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-oct2924}
 {: release-note}
 
+File share replication enhancement
+:   You can now schedule to replicate your data between your source and replica file shares as often as every 15 minutes. This feature is available in the console, from the CLI, or with the API.
+
 Hyper Protect Secure Build
 :   The `workload` section of the Hyper Protect Secure Build is updated based on the IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-18`. For more information, see [Configuring and using Hyper Protect Secure Build in {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-about-hpsb#hpvs_hpsb). Clone the latest Secure-Build-Cli to create a Hyper Protect Secure Build server.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-10-22"
+lastupdated: "2024-10-29"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup, 
 
@@ -67,7 +67,7 @@ By using this service, you can:
 * Start with a smaller file share and expand the capacity later when you need more storage.
 * Mount file shares on Red Hat, CentOS, or Ubuntu Linux distributions. Windows OS is not supported.
 * Share file shares with other accounts or services.
-* Create read-only replicas of your file shares in another zone within your VPC, or another zone in a different region if you have multiple VPCs in the same geography. The replica is updated regularly based on the replication schedule that you specify. You can fail over to the replica and make it active if an outage occurs at the primary site.
+* Create read-only replicas of your file shares in another zone within your VPC, or another zone in a different region if you have multiple VPCs in the same geography. The replica is updated regularly based on the replication schedule that you specify. You can schedule to replicate your data as often as every 15 minutes. You can fail over to the replica and make it active if an outage occurs at the primary site.
 
 For more information, see [About {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-file-storage-vpc-about).
 

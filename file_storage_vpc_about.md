@@ -162,7 +162,7 @@ Sharing a file share with other accounts or services is not supported for file s
 ## File share replication and failover
 {: #fs-repl-failover-overview}
 
-You can create read-only replicas of your file shares in another zone within your VPC, or another zone in a different region if you have multiple VPCs in the same geography. The replica is updated regularly based on the replication schedule that you specify. Using replication is a good way to recover from incidents at the primary site when data becomes inaccessible or applications fail. [Failover](/docs/vpc?topic=vpc-file-storage-failover) to the replica share makes it the new, writeable primary share. For more information, see [About file share replication](/docs/vpc?topic=vpc-file-storage-replication).
+You can create read-only replicas of your file shares in another zone within your VPC, or another zone in a different region if you have multiple VPCs in the same geography. The replica is updated regularly based on the replication schedule that you specify. You can schedule to replicate your data as often as every 15 minutes. Using replication is a good way to recover from incidents at the primary site when data becomes inaccessible or applications fail. [Failover](/docs/vpc?topic=vpc-file-storage-failover) to the replica share makes it the new, writeable primary share. For more information, see [About file share replication](/docs/vpc?topic=vpc-file-storage-replication).
 
 For cross-region replication, you must configure [service to service authorizations](/docs/vpc?topic=vpc-file-s2s-auth) before you create your replica file share.
 {: requirement}

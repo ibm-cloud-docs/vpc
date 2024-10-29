@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-10-29"
 
 keywords: file share, file storage, source volume, replica share, 
 
@@ -68,7 +68,7 @@ On the File share replica create page, review the source file share details, and
    * For daily replication, specify the starting time in hours and minutes in Coordinated Universal Time. Enter a value between 00:00 and 23:59. For your convenience, the Coordinated Universal Time value is converted into your local time.
    * For weekly replication, specify the days of the week you want replication to run and the start time in Coordinated Universal Time. Enter a value between 00:00 and 23:59.
    * For monthly replication, choose a Day 1 - 28. For the start time, enter a value between 00:00 and 23:59.
-   * If you specify a `cron-spec` expression, replications must be scheduled not less than 1 hour. Enter the replication frequency in `cron-spec` format: minute, hour, day, month, and weekday. For example, to replicate every day at 5:30 PM you need to enter `30 17 * * *`.
+   * If you specify a `cron-spec` expression, replications must be scheduled not less than 15 minutes. Enter the replication frequency in `cron-spec` format: minute, hour, day, month, and weekday. For example, to replicate every day at 5:30 PM you need to enter `30 17 * * *`.
 
 1. Encryption
    * **Encryption in transit** is disabled by default, you can click the toggle to enable. For more information about this feature, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit). |
@@ -100,7 +100,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 ### Creating a file share with a replica from the CLI
 {: #fs-create-new-share-replica-cli}
 
-When you use the `ibmcloud is share-create` command to create your share, you can create a replica share at the same time by specifying values for the options `--replica-share-name`, `--replica-share-profile`, `--replica-share-cron-spec`,`--replica-share-zone`. For more information about the command options, see [`ibmcloud is share-create`](/docs/vpc?topic=vpc-vpc-reference#share-create).
+When you use the `ibmcloud is share-create` command to create your share, you can create a replica share at the same time by specifying values for the options `--replica-share-name`, `--replica-share-profile`, `--replica-share-cron-spec`,`--replica-share-zone`. The cron-spec specifies the replication frequency, and you can schedule to replicate your data as often as 15 minutes. For more information about the command options, see [`ibmcloud is share-create`](/docs/vpc?topic=vpc-vpc-reference#share-create).
 
 In the following example, a share `my-source-file-share` is created in `us-south-2` with a replica file share `my-replica-file-share` in `us-south-1`. In this example, only one mount target is created for the source file share, but you can also create the mount target for the replica share by using the same JSON syntax with the `--replica-share-mount-targets` option.
 
@@ -314,7 +314,7 @@ curl -X POST\
 ### Creating a replica for an existing file share with the API
 {: #fs-create-share-replica-api}
 
-To add replication to an existing file share, you need to create a replica share in a different zone of your region. In the `POST /shares` request, specify the replica share's name and profile, and specify the `source_share` by either its name, ID, or CRN. Other required properties are the `zone`, and `replication_cron_spec`, which provides the replication schedule. 
+To add replication to an existing file share, you need to create a replica share in a different zone of your region. In the `POST /shares` request, specify the replica share's name and profile, and specify the `source_share` by either its name, ID, or CRN. Other required properties are the `zone`, and `replication_cron_spec`, which provides the replication schedule. You can schedule to replicate your data as often as 15 minutes.
 
 The following example shows an API request that creates a replica share in the `us-south-1` zone. In this example, the source share resides in another `us-south` zone and is identified by its ID.
 
