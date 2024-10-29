@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-01-04"
+lastupdated: "2024-10-29"
 
 keywords: troubleshooting, file storage for vpc, CBR errors
 
@@ -62,7 +62,7 @@ An error occurs after you set up CBR by [creating a network zone](/docs/vpc?topi
 ```
 {: screen}
 
-This error requires that you contact [IBM support](/docs/get-support?topic=get-support-open-case). Provide the error logs for their reference.
+This error requires that you contact [IBM support](/docs/account?topic=account-open-case). Provide the error logs for their reference.
 {: tsResolve}
 
 ## Bulk migration of file share profiles is not supported

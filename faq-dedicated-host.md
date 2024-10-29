@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2024-06-20"
+lastupdated: "2024-10-29"
 
 subcollection: vpc
 
@@ -34,7 +34,7 @@ When you create a dedicated host, you are billed by the usage of the host on an 
 
 When you provision dedicated hosts, the vCPU associated with your dedicated hosts counts toward the total vCPU for virtual
 server instances per region. The standard quota for virtual servers vCPU is 200. The dedicated host profile uses 152 vCPUs.
-To increase your vCPU quota, [contact Support](/docs/get-support?topic=get-support-using-avatar). For more information, see [Quotas](/docs/vpc?topic=vpc-quotas#vpcquotas).
+To increase your vCPU quota, [contact Support](/docs/account?topic=account-using-avatar). For more information, see [Quotas](/docs/vpc?topic=vpc-quotas#vpcquotas).
 
 ## What are the advantages of provisioning instances on a dedicated group versus a dedicated host?
 {: #faq-dedicated-host-3}
@@ -56,4 +56,4 @@ In case of a hardware failure, the dedicated host and the instances that are run
 
 If a host hardware failure occurs, the instances that you initially provisioned to a dedicate host group might be migrated to another existing dedicated host in the group if capacity is available.
 
-For more information, see [Viewing notifications](/docs/get-support?topic=get-support-viewing-notifications) and [Host failure recovery policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=ui).
+For more information, see [Viewing notifications](/docs/account?topic=account-viewing-cloud-status#viewing-notifications) and [Host failure recovery policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=ui).

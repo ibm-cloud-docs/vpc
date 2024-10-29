@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-10-29"
 
 keywords: responsibilities, ha, high availability, disaster recovery
 
@@ -92,7 +92,7 @@ Security and regulation compliance includes tasks such as security control imple
 |----------|-----------------------|-----------------------|
 | Compliance | {{site.data.keyword.IBM_notm}} maintains controls commensurate to current industry compliance standards. {{site.data.keyword.IBM_notm}} also maintains General Data Protection Regulation (GDPR) readiness for customer compliance. See [Understanding IBM Cloud compliance](/docs/overview?topic=overview-compliance) for details. | The Customer is responsible for ensuring their own compliance with various laws and regulations, including the European Union General Data Protection Regulation. |
 | Security features | {{site.data.keyword.IBM_notm}} enables security features, such as encrypted disks. | The Customer uses the provided security features, such as restricting user access to the appropriate resources and resource groups. |
-| Vulnerabilities | {{site.data.keyword.IBM_notm}} continuously monitors stock images to detect vulnerability and security compliance issues. | The Customer is responsible for their education on possible vulnerabilities and security issues through security bulletins that describe actions to remediate any vulnerabilities. A Customer can use the [IBM Cloud status](/docs/get-support?topic=get-support-viewing-cloud-status) website to find announcements and security bulletin notifications about key events that affect the IBM Cloud platform, infrastructure, and major services. |
+| Vulnerabilities | {{site.data.keyword.IBM_notm}} continuously monitors stock images to detect vulnerability and security compliance issues. | The Customer is responsible for their education on possible vulnerabilities and security issues through security bulletins that describe actions to remediate any vulnerabilities. A Customer can use the [IBM Cloud status](/docs/account?topic=account-viewing-cloud-status) website to find announcements and security bulletin notifications about key events that affect the IBM Cloud platform, infrastructure, and major services. |
 | Audit records | {{site.data.keyword.IBM_notm}} provides audit records of the VPC resource lifecycle through {{site.data.keyword.at_full_notm}}. | The Customer uses {{site.data.keyword.at_full_notm}} tooling to monitor audit records. |
 | Security groups and ACLs | {{site.data.keyword.IBM_notm}} provides the ability to restrict access to virtual server instances by using security groups and networks ACLs. | The Customer uses security groups and network ACLs to secure their virtual server instances, such as restricting what IP addresses can SSH into the instance. |
 | Public Network Access | {{site.data.keyword.IBM_notm}} provides options to use a public gateway or floating IP addresses. | The Customer chooses how to connect their workload to the public internet, if applicable, either through a public gateway or floating IP. |

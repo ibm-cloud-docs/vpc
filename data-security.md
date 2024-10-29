@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-07-11"
+lastupdated: "2024-10-29"
 
 keywords: data encryption, data storage, bring your own keys, BYOK, key management, key encryption, personal data, data deletion, data security
 
@@ -137,5 +137,5 @@ To delete all persisted data that {{site.data.keyword.vpc_short}} stores, choose
 Removing your personal and sensitive information requires all of your {{site.data.keyword.vpc_short}} resources to be deleted as well. Make sure that you back up your data before you proceed.
 {: note}
 
-* Open an {{site.data.keyword.cloud_notm}} support case. Contact IBM Support to remove your personal and sensitive information from {{site.data.keyword.vpc_short}}. For more information, see [Using the Support Center](/docs/get-support?topic=get-support-using-avatar).
+* Open an {{site.data.keyword.cloud_notm}} support case. Contact IBM Support to remove your personal and sensitive information from {{site.data.keyword.vpc_short}}. For more information, see [Using the Support Center](/docs/account?topic=account-using-avatar).
 * End your {{site.data.keyword.cloud_notm}} subscription. After you end your {{site.data.keyword.cloud_notm}} subscription, {{site.data.keyword.vpc_short}} deletes all service resources that you created, which includes all persisted data that is associated with those resources.

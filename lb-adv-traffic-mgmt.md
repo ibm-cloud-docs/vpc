@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-10-29"
 
 keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, layer 7, compression
 subcollection: vpc
@@ -101,7 +101,7 @@ An ALB preserves the original protocol that is used by the client for front-end 
 
 Private load balancer enforcement prevents public load balancers from being created. This ensures only non-internet clients, or clients from within your network environment, can access your load balancers. When enabled, a restriction is placed on your account to prevent the creation of floating IPs on all ALBs.
 
-To implement private load balancer enforcement, open an [IBM Support case](/docs/get-support?topic=get-support-using-avatar) and reference your need to alter your account to restrict the creation of floating IPs. After IBM processes the change, you will no longer be able to create public load balancers.
+To implement private load balancer enforcement, open an [IBM Support case](/docs/account?topic=account-using-avatar) and reference your need to alter your account to restrict the creation of floating IPs. After IBM processes the change, you will no longer be able to create public load balancers.
 
 Private load balancer enforcement applies for all regions when enabled.
 {: note}

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-03-25"
+lastupdated: "2024-10-29"
 
 keywords: health status reasons, instance health status, virtual server health status,
 
@@ -22,6 +22,6 @@ A reservation that experiences a loss of capacity reports a _capacity status_ of
 
 An active reservation that loses capacity after attaining full capacity reports a _capacity status_ of `degraded`.
 
-You are not billed for any lost capacity. The reservation details show the amount of capacity that is allocated to the reservation. You are not billed for any amount of allocated capacity that is less than the total of your requested capacity. When capacity becomes available, the system replenishes any lost capacity. At which time, the reservation capacity status is "allocated". Billing resumes for that portion of lost capacity. If you need more help, [contact support](/docs/get-support?topic=get-support-using-avatar).
+You are not billed for any lost capacity. The reservation details show the amount of capacity that is allocated to the reservation. You are not billed for any amount of allocated capacity that is less than the total of your requested capacity. When capacity becomes available, the system replenishes any lost capacity. At which time, the reservation capacity status is "allocated". Billing resumes for that portion of lost capacity. If you need more help, [contact support](/docs/account?topic=account-using-avatar).
 
 For more information about managing a reservation, see [Managing a reservation for VPC](/docs/vpc?topic=vpc-managing-reserved-capacity-vpc) and [Deleting a reservation](/docs/vpc?topic=vpc-reserved-capacity-cancel-reservation).

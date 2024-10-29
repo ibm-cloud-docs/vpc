@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, [{CURRENT_YEAR}]
-lastupdated: "[{LAST_UPDATED_DATE}]"
+  years: 2020, 2024
+lastupdated: "2024-10-29"
 
 keywords: troubleshooting bare metal servers, hardware issues, firmware
 
@@ -24,7 +24,7 @@ The following topics cover common difficulties that you might encounter, and off
 {: troubleshoot}
 {: support}
 
-If your bare metal server experiences a hardware issue, you can request support by creating a support case. For more information, see [Creating support cases](/docs/get-support?topic=get-support-open-case).
+If your bare metal server experiences a hardware issue, you can request support by creating a support case. For more information, see [Creating support cases](/docs/account?topic=account-open-case).
 
 After the operation team receives the case, the server goes into a maintenance state.
 
@@ -49,4 +49,4 @@ If your custom image fails to boot, open the console and debug the operating sys
 * An unsigned operating system. Disable secure boot and try starting the system again.
 * UEFI boot not support. Verify that the image has an EFI disk partition with an EFI boot loader.
 
-If you need more help, you can request support by creating a support case. For more information, see [Creating support cases](/docs/get-support?topic=get-support-open-case).
+If you need more help, you can request support by creating a support case. For more information, see [Creating support cases](/docs/account?topic=account-open-case).

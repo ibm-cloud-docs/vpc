@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-10-18"
+lastupdated: "2024-10-29"
 
 keywords: backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -20,7 +20,7 @@ Apply backup policies by adding user tags to new or existing volumes. When these
 
 Up to 100 tags can be attached or detached in the same operation. Keeping the number of tags low can make it easier to track their usage and your backups.
 
-1. [Create a backup policy and plan](/docs/vpc?topic=vpc-create-backup-policy-and-plan).
+1. [Create a backup policy and plan](/docs/vpc?topic=vpc-create-backup-policy-and-plan), and specify the tags for the target resources.
 1. Find the resources that you want to back up.
 1. Apply backup policy tags to your target [volumes](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#add-user-tags-volumes-ui), or [virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#creating-virtual-servers-ui) in the console.{: ui}
 1. Apply backup policy tags to your target [volumes](/docs/vpc?topic=vpc-managing-block-storage&interface=cli#add-user-tags-volumes-cli), or [virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli#creating-virtual-servers-cli)  from the CLI.{: cli}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-07-22"
+lastupdated: "2024-10-29"
 
 keywords:
 
@@ -568,7 +568,7 @@ subnet="0738-35fb0489-7105-41b9-99de-033fae723006"
 ```
 {: pre}
 
-To provision resources in your subnet, the subnet must be in the `Ready` status. Query the subnet resource and make sure that the status is `Ready` before you continue. If the status is `failed`, contact [support](/docs/get-support?topic=get-support-using-avatar) with the details. You can attempt to continue by trying to provision another subnet.
+To provision resources in your subnet, the subnet must be in the `Ready` status. Query the subnet resource and make sure that the status is `Ready` before you continue. If the status is `failed`, contact [support](/docs/account?topic=account-using-avatar) with the details. You can attempt to continue by trying to provision another subnet.
 
 ```bash
 curl -X GET "$vpc_api_endpoint/v1/subnets/$subnet?version=$api_version&generation=2" \

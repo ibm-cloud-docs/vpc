@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-10-15"
+lastupdated: "2024-10-29"
 
 subcollection: vpc
 
@@ -161,7 +161,7 @@ ssh-keyscan -t rsa [sFTP] >> ~/.ssh/known_hosts
 ```
 {: pre}
 
-If you need more help, you can open a [support case](/docs/get-support?topic=get-support-using-avatar).
+If you need more help, you can open a [support case](/docs/account?topic=account-using-avatar).
 
 For troubleshooting information about z/OS virtual server instances, see [{{site.data.keyword.waziaas_full_notm}} documentation](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=known-limitations){: external}.
 

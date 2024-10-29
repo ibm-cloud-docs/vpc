@@ -32,7 +32,7 @@ Use the following steps to delete an inactive or expired reservation.
 Virtual servers that are attached to a reservation are charged the on-demand rates when the reservation is deleted.
 {: important}
 
-Reservations can be deleted for cases such as degraded capacity. All deletion requests are reviewed on a case-by-case basis. To delete an active reservation, [contact support](/docs/get-support?topic=get-support-using-avatar).
+Reservations can be deleted for cases such as degraded capacity. All deletion requests are reviewed on a case-by-case basis. To delete an active reservation, [contact support](/docs/account?topic=account-using-avatar).
 
 ## Deleting an inactive or expired reservation with the CLI
 {: #reservation-delete-cli}

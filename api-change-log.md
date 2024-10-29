@@ -1064,7 +1064,7 @@ Additional API restrictions are enforced after an HTTPS redirect is configured:
 
 **Load balancers.** For requests using a `version` query parameter of `2021-06-08` or later, you can now use pagination when [listing all load balancers](/apidocs/vpc/latest#list-load-balancers) in the region. Requests using a `version` query parameter of `2021-06-07` or earlier remain unpaginated, but may time out if you have many load balancers.
 
-If you expect to use many load balancers at once, migrate your applications to the paginated API to improve responsiveness and reliability. Contact [IBM support](/docs/get-support?topic=get-support-using-avatar) if you need help migrating your existing client applications.
+If you expect to use many load balancers at once, migrate your applications to the paginated API to improve responsiveness and reliability. Contact [IBM support](/docs/account?topic=account-using-avatar) if you need help migrating your existing client applications.
 
 ## 25 May 2021
 {: #25-may-2021}

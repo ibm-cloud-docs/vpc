@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-07-02"
+lastupdated: "2024-10-29"
 
 keywords:
 
@@ -31,7 +31,7 @@ The following lists contain known limitations for {{site.data.keyword.cloud}} {{
    * The only supported back-end targets are Virtual Network Function (VNF) instances. When APIs are used, the listener `port_min` and `port_max` is to be set to `1` and `65535` respectively; `port` is to be left empty.
    * Only one listener is supported.
    * The NLB and the VNF back-end targets must be in the same subnet.
-* The default load balancer quota is 50 per region. To increase the number, you must [create a support case](/docs/get-support?topic=get-support-open-case).
+* The default load balancer quota is 50 per region. To increase the number, you must [create a support case](/docs/account?topic=account-open-case).
 * When you create a listener for a network load balancer, you can specify a `protocol` of `tcp` or `udp`. However, each listener in the network load balancer must have a unique `port`.
 * [Private NLB]{: tag-blue} The NLB service might add rules to custom routing tables to ensure service availability for some failure conditions. As a result, if the client is outside the zone and/or VPC of the NLB, you must add an ingress custom routing table to the VPC where the NLB resides with the proper traffic source selected.
 * [Private NLB]{: tag-blue} Depending on the location of the clients, you must ensure that ingress routing tables exist (as described in Table 1).

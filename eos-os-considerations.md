@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-10-24"
+lastupdated: "2024-10-29"
 
 keywords:
 
@@ -137,4 +137,4 @@ To migrate workloads from CentOS, you can switch to a compatible OS distribution
 {: #troubleshooting-upgrading-your-os-vpc}
 
 If you encounter problems after your OS is upgrade is complete, open a support case. IBM Support investigates each issue on a
-case-by-case basis. You can open a support case in the customer portal. For more information about support, see [Using the Support Center](/docs/get-support?topic=get-support-using-avatar).
+case-by-case basis. You can open a support case in the customer portal. For more information about support, see [Using the Support Center](/docs/account?topic=account-using-avatar).
