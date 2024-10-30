@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2024
-lastupdated: "2024-10-29"
+lastupdated: "2024-10-30"
 
 keywords:
 
@@ -45,3 +45,6 @@ When you create a new compute resource that is configured for automatic attachme
 The same dynamic quota calculation applies to new automatic reservations. Typically, the full quantity of the automatic reservation counts against your account quota. However, if you have automatic compute resources that match the reservation, they are considered. Then, the difference of the reservation and the number of resources are deducted from your account quota.
 
 ## Default behavior
+{: #ar-default-behavior}
+
+TBD
