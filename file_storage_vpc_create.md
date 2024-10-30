@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-10-30"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -134,12 +134,12 @@ Before you run the `ibmcloud is share-create` command, you can gather informatio
 | Details             |  Listing options                           | What it provides                         |
 |---------------------|--------------------------------------------|------------------------------------------|
 | File shares         | `ibmcloud is shares`                       | List all shares in a region.             |
-| File share details  | `ibmcloud is share SHARE_ID`               | Review details of a share.               |
+| File share details  | `ibmcloud is share SHARE_ID`               | Review details of a share.               |   
 | File share profiles | `ibmcloud is share-profiles` | List all file share profiles in a region. Only `dp2` can be used to create file shares.|
 | Mount targets       | `ibmcloud is share-mount-targets SHARE_ID` | List all mount targets for a file share. |
 | Subnets             | `ibmcloud is subnets`                      | List all subnets.                        |
 | Reserved IP addresses | `ibmcloud is subnet-reserved-ips`   | List all reserved IP addresses in the subnet. |
-| Security Groups     | `ibmcloud is security-groups`              | List all security groups.                |    
+| Security Groups     | `ibmcloud is security-groups`              | List all security groups.                | 
 {: caption="Details for creating file shares." caption-side="top"}
 
 ### Creating a file share without a mount target from the CLI

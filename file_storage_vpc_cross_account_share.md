@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-10-30"
 
 keywords: file share, file storage, accessor share, cross-account share
 
@@ -109,7 +109,7 @@ Replication status reasons       Status code   Status message
 {: screen}
 
 The accessor share inherits the following characteristics from its origin share: profile, size, encryption type both at rest and in-transit. If you try to use this command with the property `--origin-share` with other properties such as `--iops`, `--profile`, and `--replica-share`, the request fails.
-{: note}
+{: important}
 
 For more information about the command options, see [`ibmcloud is share-create`](/docs/vpc?topic=vpc-vpc-reference#share-create).
 
@@ -152,11 +152,6 @@ For more information about the command options, see [`ibmcloud is share-mount-ta
 You can create an accessor share with one or more mount targets in one step by using the `ibmcloud is share-create` command. You need to provide the zone name, and the CRN of the origin share. The accessor share inherits the profile, size, encryption type both at rest and in-transit from the origin share. You can also specify a name, user tags, and even the initial owner UID. To create the mount target, you need to provide the mount target information in JSON format.
 
 The following example shows how to create an accessor share with mount target.
-
-```sh
-TBD
-```
-{: screen}
 
 ```sh
 $ ibmcloud is share-create --name my-new-accessor-share --origin-share crn:v1:bluemix:public:is:us-south-2:a/7654321::share:r006-d73v40a6-e08f-4d07-99e1-d28cbf2188ed --mount-targets '
@@ -260,7 +255,6 @@ A successful response looks like the following example.
 ```
 {: screen}
 
-
 ### Creating a mount target for a file share with the API
 {: #fs-create-accessor-mount-target-api}
 
@@ -308,10 +302,19 @@ provider "ibm" {
 To create an accessor share, use the `ibm_is_share` resource. The accessor share inherits the following characteristics from its origin share: profile, size, encryption type both at rest and in-transit.
 
 ```terraform
-resource "ibm_is_share" "accessor_share_example" {
-  name    = "my-new-share"
-  zone    = "us-south-2"
-  TBD
+resource "ibm_is_share" "example-origin" {
+  allowed_transit_encryption_modes = ["user_managed", "none"]
+  access_control_mode = "security_group"
+  name    = "my-share"
+  size    = 200
+  profile = "dp2"
+  zone    = "au-syd-2"
+}
+resource "ibm_is_share" "example-accessor" {
+  origin_share {
+    crn   = ibm_is_share.example-origin.crn
+  }     
+  name  = "my-accessor-share-1"
 }
 ```
 {: codeblock}
@@ -351,7 +354,9 @@ You don't have to create the file share and the mount target separately. To crea
 resource "ibm_is_share" "share4" {
    zone    = "us-south-2"
    name    = "my-share4"
-   TBD
+   origin_share {
+    id    = ibm_is_share.example-origin.id
+  } 
    access_control_mode = "security_group"
    mount_target {
        name = "target"
