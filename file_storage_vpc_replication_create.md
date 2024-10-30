@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-10-29"
+lastupdated: "2024-10-30"
 
 keywords: file share, file storage, source volume, replica share, 
 
@@ -112,7 +112,8 @@ ID                           r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a
 Name                         my-source-file-share   
 CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a   
 Lifecycle state              pending
-Access control mode          security_group   
+Access control mode          security_group 
+Accessor binding role        none   
 Zone                         us-south-2   
 Profile                      dp2   
 Size(GB)                     1500   
@@ -165,7 +166,8 @@ Replication status reasons   Status code   Status message
    Name                         my-file-share   
    CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
    Lifecycle state              stable   
-   Access control mode          security_group   
+   Access control mode          security_group  
+   Accessor binding role        none  
    Zone                         us-south-2   
    Profile                      dp2   
    Size(GB)                     1000   

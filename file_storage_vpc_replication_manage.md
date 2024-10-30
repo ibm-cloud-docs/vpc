@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-08-14"
+lastupdated: "2024-10-30"
 
 keywords: VPC File Storage, file for VPC, NSF, replica, file share, replication, schedule
 
@@ -173,6 +173,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
    Lifecycle state              stable   
    Access control mode          security_group   
+   Accessor binding role        none 
    Zone                         us-south-2   
    Profile                      dp2   
    Size(GB)                     1500   

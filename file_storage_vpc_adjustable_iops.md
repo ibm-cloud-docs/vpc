@@ -121,6 +121,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
    Lifecycle state              stable   
    Access control mode          security_group   
+   Accessor binding role        none   
    Zone                         us-south-2   
    Profile                      dp2   
    Size(GB)                     1000   
@@ -151,6 +152,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
    Lifecycle state              updating   
    Access control mode          security_group   
+   Accessor binding role        none   
    Zone                         us-south-2   
    Profile                      dp2   
    Size(GB)                     1000   
@@ -186,26 +188,24 @@ The following example changes a 3 IOPS/GB profile to a 5 IOPS/GB profile. In thi
 ibmcloud is share-update my-file-share --profile tier-5iops
 Updating file share my-file-share under account VPC1 as user user@mycompany.com...
 
-ID                   ba7c7c8a-c111-4f54-a7fe-bb6d3d66eb2a
-Name                 my-file-share
-CRN                  crn:v1:bluemix:public:is:us-south-1:a/a1234567::share:ba7c7c8a-c111-4f54-a7fe-bb6d3d66eb2a
-Lifecycle state      updating
-Access control mode  security_group   
-Zone                 us-south-1
-Profile              tier-5iops
-Size(GB)             100
-IOPS                 3000
-Encryption           provider_managed
-Mount targets        ID                          Name   VPC ID   VPC Name
-                     No mounted targets found.
+ID                    ba7c7c8a-c111-4f54-a7fe-bb6d3d66eb2a
+Name                  my-file-share
+CRN                   crn:v1:bluemix:public:is:us-south-1:a/a1234567::share:ba7c7c8a-c111-4f54-a7fe-bb6d3d66eb2a
+Lifecycle state       updating
+Access control mode   security_group   
+Accessor binding role none   
+Zone                  us-south-1
+Profile               tier-5iops
+Size(GB)              100
+IOPS                  3000
+Encryption            provider_managed
+Mount targets         ID                          Name   VPC ID   VPC Name
+                      No mounted targets found.
 
-Resource group       ID                                     Name
-                     7f1645c5-8afa-4a7e-860d-3df563e0aa8d   Default
+Resource group        ID                                     Name
+                      7f1645c5-8afa-4a7e-860d-3df563e0aa8d   Default
 
-Created              2023-02-26T20:01:18+05:30
-Last sync at         2023-02-26T05:53:28+05:53
-Latest job           Job status   Job status reasons
-                     succeeded    -
+Created               2023-02-26T20:01:18+05:30
 ```
 {: codeblock}                  
 

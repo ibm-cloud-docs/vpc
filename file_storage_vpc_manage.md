@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-10-22"
+lastupdated: "2024-10-30"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -816,6 +816,7 @@ You can add and remove tags when you update a file share with the `ibmcloud is s
    CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6
    Lifecycle state              stable
    Access control mode          security_group
+   Accessor binding role        none 
    Zone                         us-south-2
    Profile                      dp2
    Size(GB)                     1000
@@ -846,6 +847,7 @@ You can add and remove tags when you update a file share with the `ibmcloud is s
    CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6
    Lifecycle state              stable
    Access control mode          security_group
+   Accessor binding role        none 
    Zone                         us-south-2
    Profile                      dp2
    Size(GB)                     1500

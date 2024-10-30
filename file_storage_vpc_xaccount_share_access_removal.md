@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-07-29"
+lastupdated: "2024-10-30"
 
 keywords: file share, file storage, virtual network interface, accessor share, de-auth
 
@@ -37,7 +37,7 @@ You can delete a share binding by using the `is share-binding-delete` command. S
 {: cli}
 
 ```sh
-CLI is share-binding-delete TBD
+ibmcloud is share-accessor-binding-delete SHARE ACCESSOR_BINDING
 ```
 {: pre}
 {: cli}
@@ -47,16 +47,6 @@ You can programmatically delete a share binding by calling the `/shares` method 
 
 ```sh
 curl -X DELETE "$vpc_api_endpoint/v1/shares/v1/shares/$share_id/bindings/$binding_id?version=2024-06-21&generation=2"
-```
-{: pre}
-{: api}
-
-A successful response looks like the following example.
-{: api}
-
-
-```json
-TBD
 ```
 {: pre}
 {: api}

@@ -156,6 +156,7 @@ Name                         my-file-share
 CRN                          crn:v1:bluemix:public:is:us-south-2:a/1234567::share:r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
 Lifecycle state              pending   
 Access control mode          security_group   
+Accessor binding role        none 
 Zone                         us-south-2   
 Profile                      dp2   
 Size(GB)                     1000   

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-10-30"
 
 keywords: file share, file storage, increase capacity, expand capacity, expand share size, file share size
 
@@ -116,6 +116,7 @@ To increase the capacity of a file share from the CLI, use the `share-update` co
    CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
    Lifecycle state              stable   
    Access control mode          security_group   
+   Accessor binding role        none   
    Zone                         us-south-2   
    Profile                      dp2   
    Size(GB)                     1000   
@@ -144,7 +145,8 @@ To increase the capacity of a file share from the CLI, use the `share-update` co
    Name                         my-file-share   
    CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
    Lifecycle state              updating   
-   Access control mode          security_group   
+   Access control mode          security_group  
+   Accessor binding role        none  
    Zone                         us-south-2   
    Profile                      dp2   
    Size(GB)                     1500   
@@ -169,6 +171,7 @@ To increase the capacity of a file share from the CLI, use the `share-update` co
                              -             -      
    ```
    {: screen}
+
 
 For more information about the command options, see [`ibmcloud is share-update my-file-share`](/docs/vpc?topic=vpc-vpc-reference#share-update).
 

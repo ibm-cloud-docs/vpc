@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-10-30"
 
 keywords: file share, customer-managed encryption, encryption, byok, KMS, Key Protect, Hyper Protect Crypto Services,
 
@@ -140,6 +140,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
       CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-d44298fe-aced-4f55-a690-8a3830e9fd90   
       Lifecycle state              pending   
       Access control mode          security_group   
+      Accessor binding role        none 
       Zone                         us-south-2   
       Profile                      dp2   
       Size(GB)                     500   
@@ -179,6 +180,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
       CRN                          crn:v1:bluemix:public::is:us-south-2:a/a1234567::share:r006-f6bf049e-f46c-4160-b548-4a36d27256ac   
       Lifecycle state              pending   
       Access control mode          security_group   
+      Accessor binding role        none 
       Zone                         us-south-2   
       Profile                      dp2   
       Size(GB)                     500   
