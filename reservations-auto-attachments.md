@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2024
-lastupdated: "2024-10-29"
+lastupdated: "2024-10-30"
 
 keywords:
 
@@ -43,5 +43,3 @@ Reservations count against the appropriate quota for the resource type. So bare 
 When you create a new compute resource that is configured for automatic attachment, space is dynamically determined in an existing, matching reservation and counts the quota. So if no capacity is available in a matching automatic reservation, compute resources count against your quota. If capacity is available in a matching automatic reservation, then the new resource isn't counted against your quota.
 
 The same dynamic quota calculation applies to new automatic reservations. Typically, the full quantity of the automatic reservation counts against your account quota. However, if you have automatic compute resources that match the reservation, they are considered. Then, the difference of the reservation and the number of resources are deducted from your account quota.
-
-## Default behavior
