@@ -58,8 +58,8 @@ Review the following planning considerations before creating a cluster network.
 ## Advanced considerations for large-scale enterprises
 {: #cn-advanced-considerations}
 
-   * If you are working in a large-scale IP range, ensure that the statically-configured IPs do not conflict. It is recommended that you let the VPC dynamically set the IP addresses on your cluster vNICs. This way, you can be assured the IPs will not conflict with any of the VPC default address prefixes. If you are connecting formerly isolated networks and the networks have VPC prefixes and classic infrastructure subnets that overlap, this can cause networking issues. If traffic does not appear to be routing to the correct network, this could be the issue.
-   * If your cluster attached instances need to access services on IP ranges that may overlap with your cluster network's IP ranges, special routing rules must be taken into consideration. Ensure that within your cluster network, you choose an IP range that will be unique from any other services that your cluster-attached instances may want to access on the IBM Cloud network. 
-
 You can only apply these advanced considerations through the API and CLI. 
 {: note}
+
+   * If you are working in a large-scale IP range, ensure that the statically-configured IPs do not conflict. It is recommended that you let the VPC dynamically set the IP addresses on your cluster vNICs. This way, you can be assured the IPs will not conflict with any of the VPC default address prefixes. If you are connecting formerly isolated networks and the networks have VPC prefixes and classic infrastructure subnets that overlap, this can cause networking issues. If traffic does not appear to be routing to the correct network, this could be the issue.
+   * If your cluster attached instances need to access services on IP ranges that may overlap with your cluster network's IP ranges, special routing rules must be taken into consideration. Ensure that within your cluster network, you choose an IP range that will be unique from any other services that your cluster-attached instances may want to access on the IBM Cloud network. 
