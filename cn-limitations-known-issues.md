@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-10-15"
+lastupdated: "2024-10-31"
 
 keywords:
 
@@ -31,17 +31,17 @@ Before you create a cluster network, review the following known issues and limit
 
 - Cluster network attachments can only be set when the instance is stopped or created.
 - Cluster network traffic is isolated and cannot be routed outside. Any access to a cluster network must be through an attached instance. As a result, without connectivity between the cluster network and the VPC network, the following resources cannot connect with cluster networks:
+   - Endpoint gateways
+   - Floating IPs
+   - Load balancers
+   - Private Path services
    - Public gateways
    - VPNs
-   - Load balancers
-   - Floating IPs
-   - Endpoint gateways
-   - Private Path services
 
 - Services that are not supported:
    * Flow logs
-   * Security groups
+   * Network ACLs
    * Routing tables
    * Secondary IPs
-   * Network ACLs
+   * Security groups
    * Service gateway

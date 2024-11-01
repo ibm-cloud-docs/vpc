@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-10-22"
+lastupdated: "2024-10-31"
 
 keywords:
 
@@ -148,7 +148,7 @@ The beta release of IBM Cloud Private Path is available only to allowlisted user
 | Load balancers | 50 per region |
 | Listeners | 10 per load balancer |
 | Pools | 10 per load balancer |
-| Members | 150 per pool |
+| Members | 50 per pool |
 {: caption="Quotas for Private Path load balancers" caption-side="bottom"}
 
 
