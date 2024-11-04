@@ -148,4 +148,4 @@ These links provide additional information about Private Path services for VPC:
 * [IAM permissions](/docs/account?topic=account-iam-service-roles-actions#is.load-balancer-roles)
 * [Activity Tracker events](/docs/vpc?topic=vpc-at_events#events-private-path-service-events)
 * [Quotas and service limits](/docs/vpc?topic=vpc-quotas)
-* [Private Path Solution tutorial](/docs/solution-tutorials?topic=solution-tutorials-vpc-pps-basics)
+* [Private Path solution tutorial](/docs/solution-tutorials?topic=solution-tutorials-vpc-pps-basics)
