@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-10-15"
+lastupdated: "2024-11-04"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, accelerated, h100, l4, l40s
 
@@ -185,10 +185,11 @@ Regions:
 ### Instance profiles
 {: #l4-vsi-profiles}
 
-| Instance profile  | vCPUs / Cores | Memory (GiB) | Bandwidth Cap (Gbps) | Accelerators           |
-| ----------------- | ------------- | ------------ | -------------------- | ---------------------- |
-| gx3-24x120x1l40s  | 24 / 12       | 120          | 50                   | 1x NVIDIA L40s (48 GB) |
-| gx3-48x240x-2l40s | 48 / 24       | 240          | 100                  | 2x NVIDIA L40s (48 GB) |
+|                | vCPUs / Cores | Memory (GiB) | Bandwidth Cap (Gbps) | Accelerators         |
+| -------------- | ------------- | ------------ | -------------------- | -------------------- |
+| gx3-16x80x1l4  | 16 / 8        | 80           | 32                   | 1x NVIDIA L4 (24 GB) |
+| gx3-32x160x2l4 | 32 / 16       | 160          | 64                   | 2x NVIDIA L4 (24 GB) |
+| gx3-64x320x4l4 | 64 / 32       | 320          | 128                  | 4x NVIDIA L4 (24 GB) |
 {: caption="Accelerated l4 profile options" caption-side="bottom"}
 
 ### Limits
@@ -272,8 +273,8 @@ Regions:
 
 | Instance profile  | vCPUs / Cores | Memory (GiB) | Bandwidth Cap (Gbps) | Accelerators           |
 | ----------------- | ------------- | ------------ | -------------------- | ---------------------- |
-| gx3-24x120x1l40s  | 24 / 12       | 120          | 50                   | 1x NVIDIA L40s (48 GB) |
-| gx3-48x240x-2l40s | 48 / 24       | 240          | 100                  | 2x NVIDIA L40s (48 GB) |
+| gx3-24x120x1l40s  | 24 / 12       | 120          | 48                   | 1x NVIDIA L40s (48 GB) |
+| gx3-48x240x-2l40s | 48 / 24       | 240          | 96                   | 2x NVIDIA L40s (48 GB) |
 {: caption="Accelerated L40s profile options" caption-side="bottom"}
 
 ### Limits
@@ -288,5 +289,3 @@ attached. This limit is based on the size of the instance.
 | 17-48           | 15          | 10        |
 | 49+             | 15          | 15        |
 {: caption="Accelerated L40s limits for vCPU, maximum volumes, and maximum network interfaces" caption-side="bottom"}
-
-
