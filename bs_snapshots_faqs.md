@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-04-19"
+lastupdated: "2024-11-05"
 
 keywords: Block Storage, snapshots, cross-regional copy, fast restore, backup, restore volume
 
@@ -100,7 +100,7 @@ Snapshots have their own lifecycle, independent of the {{site.data.keyword.block
 {: faq}
 {: #faq-snapshot-pricing}
 
-The cost for snapshots is calculated based on GB capacity that is stored per month, unless the duration is less than one month. Because the snapshot space is based on the capacity that was provisioned for the original volume, the snapshot capacity does not vary. Deleting snapshots reduces cost, so keep fewer snapshots to keep the cost down. For more information about billing and usage, see [How you're charged](/docs/billing-usage?topic=billing-usage-charges).
+The cost for snapshots is calculated based on GB capacity that is stored per month, unless the duration is less than one month. Because the snapshot space is based on the capacity that was provisioned for the original volume, the snapshot capacity does not vary. Deleting snapshots reduces cost, so keep fewer snapshots to keep the cost down. For more information about billing and usage, see [How you're charged](/docs/account?topic=account-charges).
 
 Creating consistency group snapshots does not incur extra charges other than the cost associated with the size of the member snapshots.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-10-30"
+lastupdated: "2024-11-05"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -85,7 +85,7 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
 
 1. When all the required information is entered, click **Create file share**. You return to the {{site.data.keyword.filestorage_vpc_short}} page, where a message indicates that the file share is provisioning. When the transaction completes, the share status changes to **Active**.
    
-If you're not ready to order yet or just looking for pricing information, you can add the information that you see in the side panel to an Estimate. For more information about how this feature works, see [Estimating your costs](/docs/billing-usage?topic=billing-usage-cost).    
+If you're not ready to order yet or just looking for pricing information, you can add the information that you see in the side panel to an Estimate. For more information about how this feature works, see [Estimating your costs](/docs/account?topic=account-cost).    
 {: tip}
 
 ### Creating a mount target in the UI

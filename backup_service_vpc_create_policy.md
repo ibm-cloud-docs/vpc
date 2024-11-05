@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-10-18"
+lastupdated: "2024-11-05"
 
 keywords: Backup, backup snapshot, create backups, backup service, backup plan, backup policy, restore, restore volume, restore data, restore share
 
@@ -65,7 +65,7 @@ Use the following steps to create a backup policy by using the UI.
 
 1. Click **Create backup policy**. The order summary side panel shows the backup policy and all plans that were created for it.
 
-If you're not ready to order yet or just looking for pricing information, you can add the information that you see in the side panel to an Estimate. For more information, see [Estimating your costs](/docs/billing-usage?topic=billing-usage-cost).
+If you're not ready to order yet or just looking for pricing information, you can add the information that you see in the side panel to an Estimate. For more information, see [Estimating your costs](/docs/account?topic=account-cost).
 {: tip}
 
 ### Creating a backup plan in the console

@@ -33,7 +33,7 @@ When you provision a dedicated host, the host is owned and managed by {{site.dat
 
 To create a dedicated host and associated dedicated host group you must have a minimum role of Editor assigned in IBM {{site.data.keyword.iamshort}} (IAM) access policies. Within VPC Infrastructure Services access, Dedicated Host for VPC access is given as a set of permissions, including access to dedicated hosts, dedicated host groups, and to provision instances on dedicated hosts. If you want to assign granular access for users to a specific resource, such as a dedicated host group, you can create a separate [resource group](/docs/account?topic=account-rgs) for that resource with a separate access policy and minimum access role assigned.  For more information about dedicated host permissions, see [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started&interface=ui).
 
-You can also view usage information for your dedicated hosts including estimated charges and resources that are used. For more information, see [Viewing your usage](/docs/billing-usage?topic=billing-usage-viewingusage).
+You can also view usage information for your dedicated hosts including estimated charges and resources that are used. For more information, see [Viewing your usage](/docs/account?topic=account-viewingusage).
 
 ## Dedicated host groups
 {: #dedicated-groups}

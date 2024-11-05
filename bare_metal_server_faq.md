@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, [{CURRENT_YEAR}]
-lastupdated: "[{LAST_UPDATED_DATE}]"
+  years: 2021, 2024
+lastupdated: "2024-11-05"
 
 subcollection: vpc
 
@@ -135,4 +135,4 @@ To view your account invoices, follow these steps.
 
 Each account receives a single bill. If you need separate billing for different sets of resources, then you need to create multiple accounts.
 
-For more information about invoices, see [Viewing your invoices](/docs/billing-usage?topic=billing-usage-managing-invoices).
+For more information about invoices, see [Viewing your invoices](/docs/account?topic=account-managing-invoices).
