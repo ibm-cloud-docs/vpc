@@ -217,7 +217,7 @@ For more information about the command options, see [`ibmcloud is share-update m
 
 You can adjust IOPS for existing data file shares by calling the Virtual Private Cloud (VPC) API.
 
-### Adjusting IOPS for a Custom or dp2 profile
+### Adjusting IOPS for the dp2 or the custom profile
 {: #adjust-iops-api-file}
 
 Make a `PATCH /shares` request and specify the `iops` property to adjust the IOPS within the allowable range for a custom pr dp2 profile.
@@ -225,7 +225,7 @@ Make a `PATCH /shares` request and specify the `iops` property to adjust the IOP
 You can't update the name of the file share and adjust IOPS in the same `PATCH /shares` request. Make two `PATCH /shares` requests.
 {: note}
 
-The following example shows an increase of 100 IOPS to 3,000 IOPS for a 100 GB file share based on a 100 - 499 custom profile. The IOPS range for this custom band is 100 - 6,000 IOPS.
+The following example shows an increase of 100 IOPS to 3,000 IOPS for a 100 GB file share based on a 100 - 499 custom profile. The IOPS range for this custom band is 100 - 6,000 IOPS. For more information about available IOPS ranges, see [File storage profile overview](/docs/vpc?topic=vpc-file-storage-profiles&interface=api).
 
 ```sh
 curl -X PATCH \
@@ -237,7 +237,7 @@ curl -X PATCH \
 ```
 {: codeblock}
 
-The file share status shows `updating` while the IOPS is being adjusted. The current IOPS is shown until you restart the instance. In the following example, IOPS is adjusted 100 - 3000 for the 3 IOPS/GB profile.
+The file share status shows `updating` while the IOPS is being adjusted. The current IOPS is shown until you restart the instance. In the following example, IOPS value is adjusted from 100.
 
 ```json
 {

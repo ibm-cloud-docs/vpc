@@ -37,7 +37,7 @@ Yes.
 {: faq}
 {: #faq-fs-os}
 
-No, file shares can be mounted only on Linux operating systems or a z/OS-based {{site.data.keyword.cloud}} Compute Instance that support NFS file shares. For more information, see the topics about mounting file shares on [Red Hat](/docs/vpc?topic=vpc-file-storage-vpc-mount-RHEL), [CentOS](/docs/vpc?topic=vpc-file-storage-mount-centos), and [Ubuntu](/docs/vpc?topic=vpc-file-storage-vpc-mount-ubuntu) Linux distributions, or [z/OS](/docs/vpc?topic=vpc-file-storage-vpc-mount-zos) systems. Mounting file shares on Windows servers is not supported.
+No, file shares can be mounted only on Linux operating systems or a z/OS-based {{site.data.keyword.cloud}} Compute Instance that support NFS file shares. For more information, see the topics about mounting file shares on [Red Hat](/docs/vpc?topic=vpc-file-storage-mount-RHEL), [CentOS](/docs/vpc?topic=vpc-file-storage-mount-centos), and [Ubuntu](/docs/vpc?topic=vpc-file-storage-mount-ubuntu) Linux distributions, or [z/OS](/docs/vpc?topic=vpc-file-storage-mount-zos) systems. Mounting file shares on Windows servers is not supported.
 
 ### What is the minimum NFS version supported?
 {: faq}
@@ -69,7 +69,7 @@ You also incur charges when you [replicate data](/docs/vpc?topic=vpc-file-storag
 
 In the console, go to the [File storage share for VPC provisioning page](/infrastructure/provision/fileShare) and click the **Pricing** tab. On the **Pricing** tab, you can view details of the pricing plan based on the selected Geography, Region, and Currency. You can also switch between Hourly and Monthly rates.
 
-You can programmatically retrieve the pricing information by calling the [Global Catalog API](/apidocs/resource-catalog/global-catalog#get-pricing). For more information, see [Getting pricing by using the Global Catalog API](/docs/account?topic=account-getting-pricing-api).
+You can programmatically retrieve the pricing information by calling the [Global Catalog API](/apidocs/resource-catalog/global-catalog#get-pricing). For more information, see [Getting dynamic pricing](/docs/account?topic=account-getting-pricing-api).
 
 ## File share management questions
 {: #file-storage-vpc-management-questions}

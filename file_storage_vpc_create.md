@@ -973,10 +973,10 @@ Cross-zone mounting and encryption in transit are not supported for this type of
 
 Mount your file shares. Mounting is a process by which a server's operating system makes files and directories on the storage device available for users to access through the server's file system. For more information, see the following topics:
 * [IBM Cloud File Share Mount Helper utility](/docs/vpc?topic=vpc-fs-mount-helper-utility)
-* [Mounting file shares on Red Hat Linux](/docs/vpc?topic=vpc-file-storage-vpc-mount-RHEL).
+* [Mounting file shares on Red Hat Linux](/docs/vpc?topic=vpc-file-storage-mount-RHEL).
 * [Mounting file shares in CentOS](/docs/vpc?topic=vpc-file-storage-mount-centos).
-* [Mounting file shares on Ubuntu](/docs/vpc?topic=vpc-file-storage-vpc-mount-ubuntu).
-* [Mounting file shares on z/OS](/docs/vpc?topic=vpc-file-storage-vpc-mount-zos)
+* [Mounting file shares on Ubuntu](/docs/vpc?topic=vpc-file-storage-mount-ubuntu).
+* [Mounting file shares on z/OS](/docs/vpc?topic=vpc-file-storage-mount-zos)
 
 Manage your file shares and data. For more information, see the following topics:
 * [Viewing file shares and mount targets](/docs/vpc?topic=vpc-file-storage-view).

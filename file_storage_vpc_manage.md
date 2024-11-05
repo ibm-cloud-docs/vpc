@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-10-30"
+lastupdated: "2024-11-05"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -365,15 +365,11 @@ File share my-file-share-8 is deleted.
 
 For more information about the command options, see [`ibmcloud is share-delete`](/docs/vpc?topic=vpc-vpc-reference#share-delete).
 
-
-
 ### Update allowed transit encryption modes from the CLI
 {: #fs-update-transit-encryption-cli}
 
-The owner of share can change the allowed transit encryption modes type to `user_managed,none`,`user_managed` or `none`. However, before this property can be changed, all bindings and [mount targets must be deleted](#delete-mount-target-cli). Deleting the bindings severs the network path between origin file share and accessor share, and puts the mount target that is attached to the accessor share in a failed state. For more information, see [Removing access to a file share from other accounts](/docs/vpc?topic=vpc-file-storage-accessor-delete&interface=cli).
+The owner of the share can change the allowed transit encryption modes type to `user_managed,none`,`user_managed` or `none`. However, before this property can be changed, all bindings and [mount targets must be deleted](#delete-mount-target-cli). Deleting the bindings severs the network path between origin file share and accessor share, and puts the mount target that is attached to the accessor share in a failed state. For more information, see [Removing access to a file share from other accounts](/docs/vpc?topic=vpc-file-storage-accessor-delete&interface=cli).
 {: important}
-
-Example command to update the encryption policy TBD.
 
 ```sh
 $ ibmcloud is share-update my-origin-share --allowed-transit-encryption-modes user_managed
@@ -404,7 +400,6 @@ Replication role                 none
 Replication status               none
 Replication status reasons       Status code   Status message
                                  -             -
-TBD
 ```
 {: screen}
 
@@ -573,9 +568,9 @@ curl -X DELETE \
 ```
 {: pre}
 
-A successful response has a confirmation of acceptance for deletion and a response that contains the target information. Status of mount target shows _deleting_ while the deletion is underway.
+A successful response has a confirmation of acceptance for deletion and a response that contains the target information. 
 
-The following example is the response to a delete request of a mount target where `access_control_mode` is `security_group`. The response shows the security group and subnet. You can also see the specifics of the reserved IP address that was used for the virtual network interface of the mount target in the `primary_ip` section. By default the virtual network interface is deleted along with the mount target when the mount target is deleted.
+The following example shows a mount target where `access_control_mode` is `security_group`. The response shows the security group and subnet. You can see the specifics of the reserved IP address that was used for the virtual network interface of the mount target in the `primary_ip` section. By default the virtual network interface is deleted along with the mount target when the mount target is deleted. Status of mount target shows _deleting_ while the deletion is underway.
 
 ```json
 {
@@ -648,9 +643,7 @@ curl -X DELETE \
 ```
 {: codeblock}
 
-A successful response confirms acceptance for deletion and shows file share information. The status of file share is updated to _pending_deletion_.
-
-Example:
+A successful response confirms acceptance for deletion and shows file share information. The status of file share is updated to _pending_deletion_. See the following example:
 
 ```json
 {
@@ -1125,10 +1118,10 @@ Revoking access to a file share is a 2-step process.
 
 Mounting is a process by which a server's operating system makes files and directories on the storage device available for users to access through the server's file system. To mount a file share to a virtual server instance, [locate the mount path information](/docs/vpc?topic=vpc-file-storage-view). The mount path is created when you create a mount target for the file share. See the following information for mounting on a few Linux operating systems. Other Linux distributions follow similar procedures.
 
-* [Mounting file shares on Red Hat Linux](/docs/vpc?topic=vpc-file-storage-vpc-mount-RHEL).
+* [Mounting file shares on Red Hat Linux](/docs/vpc?topic=vpc-file-storage-mount-RHEL).
 * [Mounting file shares in CentOS](/docs/vpc?topic=vpc-file-storage-mount-centos).
-* [Mounting file shares on Ubuntu](/docs/vpc?topic=vpc-file-storage-vpc-mount-ubuntu).
-* [Mounting file shares on z/OS](/docs/vpc?topic=vpc-file-storage-vpc-mount-zos)
+* [Mounting file shares on Ubuntu](/docs/vpc?topic=vpc-file-storage-mount-ubuntu).
+* [Mounting file shares on z/OS](/docs/vpc?topic=vpc-file-storage-mount-zos)
 
 ## Monitoring file shares
 {: #fs-manage-monitor}

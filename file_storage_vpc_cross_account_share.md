@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-10-30"
+lastupdated: "2024-11-05"
 
 keywords: file share, file storage, accessor share, cross-account share
 
@@ -26,7 +26,7 @@ After the authorization is set in place and roles are assigned, you can create a
 
 As the accessor, you can't edit the properties of the origin share, and you can't delete the origin share. The accessors can mount the share by creating an accessor share and a mount target to the accessor share. Then, you can access and use the data of the origin share in your own VPCs.
 
-## Transit Encryption Policy
+## Transit encryption policy
 {: #file-storage-transit-encryption-policy}
 
 The share owner has the right to enforce the use of encryption in transit when the accessor accesses the file share data. The share owner can set the allowed transit encryption modes to allow either `user_managed` or `none`, or both. When the `allowed transit encryption modes` of the origin share is set to `user_managed`, the share accessor accounts must create all their mount targets with `user_managed` transit encryption. If the accessor account has more than one mount targets, these mount targets must have the same type of encryption in transit.
@@ -382,7 +382,7 @@ For more information about the arguments and attributes, see [ibm_is_share](http
 
 Mount your file shares. Mounting is a process by which a server's operating system makes files and directories on the storage device available for users to access through the server's file system. For more information, see the following topics:
 * [IBM Cloud File Share Mount Helper utility](/docs/vpc?topic=vpc-fs-mount-helper-utility)
-* [Mounting file shares on Red Hat Linux](/docs/vpc?topic=vpc-file-storage-vpc-mount-RHEL).
+* [Mounting file shares on Red Hat Linux](/docs/vpc?topic=vpc-file-storage-mount-RHEL).
 * [Mounting file shares in CentOS](/docs/vpc?topic=vpc-file-storage-mount-centos).
-* [Mounting file shares on Ubuntu](/docs/vpc?topic=vpc-file-storage-vpc-mount-ubuntu).
-* [Mounting file shares on z/OS](/docs/vpc?topic=vpc-file-storage-vpc-mount-zos)
+* [Mounting file shares on Ubuntu](/docs/vpc?topic=vpc-file-storage-mount-ubuntu).
+* [Mounting file shares on z/OS](/docs/vpc?topic=vpc-file-storage-mount-zos)

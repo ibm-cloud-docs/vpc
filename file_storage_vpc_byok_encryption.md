@@ -23,9 +23,12 @@ For more information, see [Protecting data with envelope encryption](/docs/key-p
 ## Before you begin
 {: #custom-managed-vol-prereqs-file}
 
-To create file shares with customer-managed encryption, you must first provision a key management service (KMS), and create or import your customer root key (CRK). You can choose between [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial) and [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started). 
+To create file shares with customer-managed encryption, you must have your own customer root key. You can provision a key management service (KMS), and create or import your customer root key (CRK). You can choose between [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial) and [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started). Then, [create a service-to-service authorization](/docs/vpc?topic=vpc-file-s2s-aut) between {{site.data.keyword.filestorage_vpc_short}} and the KMS instance that you created.
 
-You must also [create a service-to-service authorization](/docs/vpc?topic=vpc-file-s2s-auth) between {{site.data.keyword.filestorage_vpc_short}} and the KMS instance that you created.
+It's also possible to use a customer root key from another account. In {{site.data.keyword.cloud_notm}}, the KMS can be either located in the same or in another account as the service that is using an encryption key. This deployment pattern allows enterprises to centrally manage encryption keys for all corporate accounts. For more information, see [Encryption key management](/docs/solution-tutorials?topic=solution-tutorials-resource-sharing#resource-sharing-security-kms).
+
+Configure all required [service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth&interface=ui#file-s2s-auth-encryption-ui){: ui}[service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth&interface=cli#file-s2s-auth-encryption-cli){: cli}[service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth&interface=api#file-s2s-auth-encryption-api){: api}[service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth&interface=terraform#file-s2s-auth-encryption-terraform){: terraform} between File Storage for VPC (source service) and the KMS instance (target service) that holds the customer root key. If you're provisioning volumes with a CRK of another account, contact that account's administrator to set up the authorization and for the CRN of the root key that is being shared.
+{: requirement}
 
 ## Creating file shares with customer-managed encryption in the UI
 {: #fs-byok-encryption-ui}
@@ -73,15 +76,11 @@ Follow this procedure to specify customer-managed encryption when you create a f
 
    - If you selected VPC as the access mode, provide a name for the mount target and select the VPC where the file share is to be used in.
 
-1. Update the fields in the **Encryption** section.By default, all file shares are encrypted by IBM-managed keys. You can also choose to create an envelop-encryption for your shares with your own keys. If you want to use your own keys, select one of the [key management services](/docs/vpc?topic=vpc-vpc-encryption-about#kms-for-byok).
-
-   | Field | Value |
-   |------|------|
-   | Encryption | To use customer-managed encryption, select either {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. The key management service (KMS) instance includes the root key that is imported to or created in that KMS instance. |
-   | Encryption service instance | If you provisioned multiple KMS instances in your account, select the one that includes the root key that you want to use for customer-managed encryption. |
-   | Key name | Select the root key within the KMS instance that you want to use for encrypting the share. |
-   | Key ID | The field shows the key ID that is associated with the data encryption key that you selected. |
-   {: caption="Values for customer-managed encryption for file shares." caption-side="bottom"}
+1. Update the fields in the **Encryption at rest** section. 
+   1. Select the encryption type. By default, all file shares are encrypted by IBM-managed keys. You can also choose to create an envelop-encryption for your shares with your own keys. If you want to use your own keys, select one of the [key management services](/docs/vpc?topic=vpc-vpc-encryption-about#kms-for-byok): {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}.
+   1. Specify the key by locating it by the instance or by its CRN.
+      - If you chose to locae by instance, choose an instance from the Encryption service instead field's menu. Then, select the Key name from the list.
+      - If you chose to locate by CRN, enter the CRN value. Use this option when you want to use a CRN of a key from another account, as you won't see that key listed in the instance selector.
 
 1. When all the required information is entered, click **Create file share**. You return to the {{site.data.keyword.filestorage_vpc_short}} page, where a message indicates that the file share is provisioning. When the transaction completes, the share status changes to **Active**.
 
@@ -127,6 +126,9 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
       2fb8d675-bde3-4780-b127-3d0b413631c1   my-file-key   crn:v1:bluemix:public:kms:us-south:a/a1234567:22e573bd-c02c-4d7f-81e2-2aa867da176d:key:2fb8d675-bde3-4780-b127-3d0b413631c1
       ```
       {: screen}
+
+   If you plan to use the encryption key of another account, the previous steps have to be performed on the other account. You can't list the resources of another account even if you are authorized to use them.
+   {: note}
 
 1. Specify the `ibmcloud is share-create` command with the `--encryption-key` option to create a file share with customer-managed encryption. The `encryption_key` option must be followed by a valid CRN for the root key in the key management service. If you want to enable encryption in transit, too, specify that in the mount target JSON. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all virtual server instances on which you want to mount the file share.
 
@@ -218,83 +220,48 @@ For more information about the command options, see [`ibmcloud is share-create`]
 
 You can create file shares with customer-managed encryption by calling the [Virtual Private Cloud (VPC) API](/apidocs/vpc).
 
-Make a `POST /shares` request and specify the `encryption_key` parameter to identify your customer root key (CRK). It is shown in the example as `crn:[...key:...]`.
-
-You can also specify the CRN of a root key from a different account in the `POST /shares` call. For more information, see [About cross-account key access and use](/docs/vpc?topic=vpc-file-storage-byok-cross-acct&interface=ui#byok-cross-acct-about).
-{: note}
+Make a `POST /shares` request and specify the `encryption_key` parameter to identify your customer root key (CRK). It is shown in the example as `crn:[...key:...]`. 
 
 You must provide the `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/apidocs/vpc/latest#api-generation-parameter).
 {: requirement}
 
 The following example creates a file share with a mount target, and specifies the CRN of the root key for customer-managed encryption.
 
-   ```sh
-   curl -X POST \
-   "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2" -H "Authorization: $iam_token" \
-   -d '{
-        "encryption_key": {"crn":"crn:[...key:...]"},
-        "iops": 1000,
-        "name": "my-encrypted-share",
-        "profile": {"name": "tier-5iops"},
-        "resource_group": {"id": "678523bcbe2b4eada913d32640909956"},
-        "size": 100,
-        "mount_targets": [{
-            "name": "my-share-target",
-            "subnet": {"id": "7ec86020-1c6e-4889-b3f0-a15f2e50f87e"}
-            }],
-        "zone": {"name": "us-south-2"}
-       }'
-   ```
-   {: pre}
-
-A successful response looks like the following example.
-
-   ```json
-   {
-     "created_at": "2023-08-08T22:58:49.000Z",
-     "crn": "crn:[...]",
-     "encryption": "customer_managed",
-     "encryption_key": {"crn": "crn:[...key:...]"},
-     "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/a0c07083-f411-446c-9316-7b08d6448c86",
-     "id": "a0c07083-f411-446c-9316-7b08d6448c86",
-     "iops": 1000,
-     "lifecycle_state": "pending",
+```sh
+curl -X POST \
+"$vpc_api_endpoint/v1/shares?version=2024-11-05&generation=2" -H "Authorization: $iam_token" \
+-d '{
      "name": "my-encrypted-share",
-     "profile": {
-       "href": "https://us-south.iaas.cloud.ibm.com/v1/share/profiles/tier-5iops",
-       "name": "tier-5iops",
-       "resource_type": "share_profile"
-     },
-     "resource_group": {
-       "crn": "crn:[...]",
-       "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/678523bcbe2b4eada913d32640909956",
-       "id": "678523bcbe2b4eada913d32640909956",
-       "name": "Default"
-     },
-     "resource_type": "share",
-     "size": 100,
      "mount_targets": [
-       {
-         "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/a0c07083-f411-446c-9316-7b08d6448c86/mount_targets/   1b5571cb-536d-48d0-8452-81c05c6f7b80",
-         "id": "1b5571cb-536d-48d0-8452-81c05c6f7b80",
-         "name": "my-share-target",
-         "resource_type": "share_target",
-         "vpc": {
-           "crn": "crn:[...]",
-           "href": "https://us-south.iaas.cloud.ibm.com/v1/vpcs/12bb28fc-856d-4902-813b-dc065d1ed084",
-           "id": "12bb28fc-856d-4902-813b-dc065d1ed084",
-           "name": "my-vpc",
-           "resource_type": "vpc"
+         {
+           "name": "docs-mount-1",
+           "virtual_network_interface": {
+             "name": "my-virtual-network-interface-1",
+             "allow_ip_spoofing": false,
+             "auto_delete": true,
+             "enable_infrastructure_nat": true,
+             "primary_ip": {"auto_delete": true},
+             "subnet": {"id": "0727-267015ac-7b12-4f62-bda9-52fcb9483fc4"},
+             "ips": [],
+             "security_groups": [{"id": "r006-bf9475c2-6846-4c39-b392-587643b2e2f8"}],
+             "protocol_state_filtering_mode": "auto"
+          },
+          "transit_encryption": "none"
          }
-       }
-     ],
-     "zone": {
-       "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-2",
-       "name": "us-south-2"
-     }
-   }
-   ```
-   {: screen}
+       ],
+     "profile": {"name": "dp2"},
+     "size": 100,
+     "zone": {"name": "us-south-2"},
+     "iops": 3000,
+     "allowed_transit_encryption_modes": ["none","user_managed"],
+     "encryption_key": {"crn": "crn:v1:bluemix:public:kms:eu-de:a/a1234567:key:1b5902d3-6a25-4ea5-a493-707c49ccb415"},
+     "resource_group": {"id": "db00a952a88945a987b7be1980fdae8e"},
+     "access_control_mode": "security_group"
+   }'
+```
+{: pre}
+
+You can also specify the CRN of a root key from a different account in the `POST /shares` call. If you want to do that, contact the other account's administrator to ensure that the service-to-service authorizations are in place and to get the CRN of the enncryption key.
 
 ## Creating file shares with customer-managed encryption with Terraform
 {: #fs-byok-terraform}

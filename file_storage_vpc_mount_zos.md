@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2023-12-12"
+lastupdated: "2024-11-05"
 
 keywords: file share, file storage, mount helper, mount target, mount path, secure connection
 
@@ -13,7 +13,7 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # Mounting file shares on z/OS
-{: #file-storage-vpc-mount-zos}
+{: #file-storage-mount-zos}
 
 Use these instructions to connect a z/OS-based {{site.data.keyword.cloud}} Compute Instance to a Network File System (NFS) file share.
 {: shortdesc}

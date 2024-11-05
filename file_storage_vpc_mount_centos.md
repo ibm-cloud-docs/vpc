@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2023-12-12"
+lastupdated: "2024-11-05"
 
 keywords: file share, file storage, mount helper, mount target, mount path, secure connection, NFS
 
@@ -35,7 +35,7 @@ Use these instructions to connect a CentOS Linux&reg;-based {{site.data.keyword.
 ## Mounting the file share on CentOS
 {: #fs-mount-CentOS}
 
-Mount a file share on a CentOS host by following these steps. The examples are based on CentOS 8. The steps are similar to the ones that are described on [Mounting file shares on Red Hat Enterprise Linux&reg;](/docs/vpc?topic=vpc-file-storage-vpc-mount-RHEL).
+Mount a file share on a CentOS host by following these steps. The examples are based on CentOS 8. The steps are similar to the ones that are described on [Mounting file shares on Red Hat Enterprise Linux&reg;](/docs/vpc?topic=vpc-file-storage-mount-RHEL).
 
 [SSH into the Compute instance](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#next-steps-after-creating-virtual-servers-ui) where you want to mount the file share, then continue with these steps:
 

@@ -228,8 +228,8 @@ When the file share expansion completes, the new value displays, and the status 
   "lifecycle_state": "stable",
   "name": "share-name1",
   "profile": {
-    "href": "$vpc_api_endpoint/v1/share/profiles/tier5iops",
-    "name": "tier-5iops",
+    "href": "$vpc_api_endpoint/v1/share/profiles/dp2",
+    "name": "dp2",
     "resource_type": "share_profile"
   },
   "resource_group": {
@@ -271,6 +271,6 @@ For more information about the arguments and attributes, see [ibm_is_share](http
 
 Mount and use your file shares:
 
-* [Mounting file shares on Red Hat Linux](/docs/vpc?topic=vpc-file-storage-vpc-mount-RHEL)
+* [Mounting file shares on Red Hat Linux](/docs/vpc?topic=vpc-file-storage-mount-RHEL)
 * [Mounting file shares in CentOS](/docs/vpc?topic=vpc-file-storage-mount-centos)
-* [Mounting file shares on Ubuntu](/docs/vpc?topic=vpc-file-storage-vpc-mount-ubuntu)
+* [Mounting file shares on Ubuntu](/docs/vpc?topic=vpc-file-storage-mount-ubuntu)

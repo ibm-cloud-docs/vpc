@@ -62,7 +62,7 @@ You can use the Cost estimator ![Cost estimator icon](../icons/calculator.svg "C
 
 In the console, go to the [Block storage volume for VPC provisioning page](/infrastructure/provision/storage) and click the **Pricing** tab. On the **Pricing** tab, you can view details of the pricing plan for each volume profile based on the selected Geography, Region, and Currency. You can also switch between Hourly and Monthly rates.
 
-You can programmatically retrieve the pricing information by calling the [Global Catalog API](/apidocs/resource-catalog/global-catalog#get-pricing). For more information, see [Getting pricing by using the Global Catalog API](/docs/account?topic=account-getting-pricing-api).
+You can programmatically retrieve the pricing information by calling the [Global Catalog API](/apidocs/resource-catalog/global-catalog#get-pricing). For more information, see [Getting dynamic pricing](/docs/account?topic=account-getting-pricing-api).
 
 ### Is storage capacity measured in GB or GiB?
 {: faq}

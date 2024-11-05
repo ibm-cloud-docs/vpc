@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2023-12-12"
+lastupdated: "2024-11-05"
 
 keywords: file share, file storage, mount helper, mount target, mount path, secure connection, NFS
 
@@ -13,7 +13,7 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # Mounting file shares on Red Hat Linux
-{: #file-storage-vpc-mount-RHEL}
+{: #file-storage-mount-RHEL}
 
 Use these instructions to connect a Red Hat Enterprise Linux&reg;-based {{site.data.keyword.cloud}} Compute Instance to a Network File System (NFS) file share.
 {: shortdesc}

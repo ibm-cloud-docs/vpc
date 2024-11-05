@@ -173,6 +173,40 @@ Roles:                     Authorization Delegator, Reader
 
 For more information about all of the parameters that are available for this command, see [ibmcloud iam authorization-policy-create](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_authorization_policy_create).
 
+## Creating service-to-service authorization for cross-account encryption from the CLI
+{: #file-s2s-xaccount-encryption-cli}
+{: cli}
+
+Run the `ibmcloud iam authorization-policy-create` command to create authorization policies for the File service to interact with one or both Key Management Services ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}). The source service is `is` with the `--source-resource-type share` and the target service is either `kms` or `hs-crypto`. The role that you need to assign is `Reader`. The following example creates an authorization policy between the File service and {{site.data.keyword.keymanagementserviceshort}}.
+
+1. Create a JSON file with the following information for the authorization policies in your local Documents folder.
+   ```json
+   '{
+      "description":"Reader and Delegator role for HPCS service instance",
+      "resources": [{"attributes": [
+            {"name": "KeyOwnerAccountID","value": "a/a1234567","operator": "stringEquals"},
+            {"name":"Hyper-Protect-Crypto-Services","operator":"stringEquals","value":"hs-crypto"}]}],   
+      "roles": [
+         {"role_id":"crn:v1:bluemix:public:iam::::role:AuthorizationDelegator"},
+         {"role_id":"crn:v1:bluemix:public:iam::::serviceRole:Reader"}],
+      "subjects": [
+         {"name": "serviceName","value": "is"},
+            {"name": "resourceType","value": "share"},
+            {"name": "KeyUserAccountID","value": "a/a7654321>"}],
+      "type":"authorization"
+   }'
+   ```
+   {: codeblock}
+
+1. Then, run the following CLI command with the JSON file to create the authorization policy.
+   ```sh
+   ibmcloud iam authorization-policy-create --file ~/Documents/policy.json
+   ```
+   {: pre}
+   
+   The cross-account authorization is one-way and specific to key and service. When Account A authorizes their key to be used by Account B's file service, Account B can use Account A's CRK to encrypt Account B's shares. However, Account A cannot use Account B's root keys to encrypt Account A's shares.
+   {: note}
+
 ## Creating service-to-service authorization for cross-region replication from the CLI
 {: #file-s2s-auth-replication-cli}
 {: cli}
@@ -261,6 +295,33 @@ Make a request to the [IAM Policy Management API](/apidocs/iam-policy-management
 
 * To create an authorization policy for {{site.data.keyword.hscrypto}}, replace `kms` with `hs-crypto` in the previous example.
 
+## Creating service-to-service authorization for cross-account encryption with the API
+{: #file-s2s-xaccount-encryption-api}
+{: api}
+
+As the owner of the encryption key, make a request to the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy) to create the service-to-service authorization for the {{site.data.keyword.filestorage_vpc_short}} service of the source account to access the key management service of your account (target).
+
+```json
+curl -X "POST" "https://iam.cloud.ibm.com/v1/policies" \
+     -H "Authorization: <Auth Token>" \
+     -H 'Content-Type: application/json' \
+     -d '{
+      "description":"Reader and Delegator role for HPCS service instance",
+      "resources": [{"attributes": [
+            {"name": "KeyOwnerAccountID","value": "a/a1234567","operator": "stringEquals"},
+            {"name":"Hyper-Protect-Crypto-Services","operator":"stringEquals","value":"hs-crypto"}]}],   
+      "roles": [
+         {"role_id":"crn:v1:bluemix:public:iam::::role:AuthorizationDelegator"},
+         {"role_id":"crn:v1:bluemix:public:iam::::serviceRole:Reader"}],
+      "subjects": [
+         {"name": "serviceName","value": "is"},
+            {"name": "resourceType","value": "share"},
+            {"name": "KeyUserAccountID","value": "a/a7654321>"}],
+      "type":"authorization"
+   }'
+```
+{: screen}
+
 ## Creating service-to-service authorization for cross-region replication with the API
 {: #file-s2s-auth-replication-api}
 {: api}
@@ -341,6 +402,86 @@ resource "ibm_iam_authorization_policy" "mypolicy4HPCS" {
 {: codeblock}
 
 For more information about the arguments and attributes, see the [Terraform documentation for authorization resources](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/iam_authorization_policy){: external}.
+
+## Creating service-to-service authorization for cross-account encryption with Terraform
+{: #file-s2s-xaccount-encryption-terraform}
+{: terraform}
+
+1. Terraform supports configuring two different accounts for IBM provider. The provider without an alias is considered the default provider. See the following example, where two IBM accounts are specified, and the second is given the alias `team_account`. That configuration is referred to as `ibm.team_account` later. 
+
+   ```terraform 
+   terraform {
+     required_providers {
+       ibm = {
+         source = "IBM-Cloud/ibm"
+         version = ">= 1.12.0"
+       }
+     }
+   }
+
+   provider "ibm" {
+     ibmcloud_api_key = var.ibmcloud_api_key
+     region           = var.region
+     ibmcloud_timeout = var.ibmcloud_timeout
+   }
+
+   provider "ibm" {
+     alias = "team_account"
+     ibmcloud_api_key = var.ibmcloud_api_key_second_account
+     region           = var.region
+     ibmcloud_timeout = var.ibmcloud_timeout
+   } 
+   ```
+   {: screen}
+
+   For more information about the arguments and attributes, see [IBM Cloud provider](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs#example-usage-of-provider){: external}.
+
+1. To create the IAM authorization between the file share service from one account to the key management service in another account, use the resource `ibm_iam_authorization_policy`. The following example creates an authorization between the file service of one account and the {{site.data.keyword.hscrypto}} service of another account.
+
+   ```terraform
+   resource "ibm_iam_authorization_policy" "policy1" {
+    subject_attributes {
+      name  = "accountId"
+      value = data.ibm_iam_account_settings.iam.account_id
+    }
+    subject_attributes {
+      name  = "serviceName"
+      value = "is"
+    }
+    subject_attributes {
+      name  = "resourceType"
+      value = "share"
+    }
+    resource_attributes {
+      name  = "accountId"
+      value = data.ibm_iam_account_settings.iam.ibm.team_account_id
+    }
+    resource_attributes {
+      name  = "Hyper-Protect-Crypto-Services"
+      operator = "stringEquals"
+      value = "hs-crypto"
+    }
+    roles   = ["Reader"]
+    }
+   ```
+   {: codeblock}
+
+   The following example creates an authorization between the file service of one account and the {{site.data.keyword.keymanagementserviceshort}}  service of another account.
+
+   ```Terraform
+   resource "ibm_iam_authorization_policy" "policy" {
+       source_service_name = "is"
+       source_resource_type = "share"
+       source_service_account = "<fileshare-account-id>"
+       target_service_name = "kms"   
+       target_resource_instance_id = ibm_kms_key.key.instance_id
+       roles               = ["Reader"]
+       description         = "Authorization Policy" 
+   }
+   ```
+   {: screen}
+
+   This terraform resource must also include the provider alias (in our example, `ibm.team_account`) with the account `ibmcloud_api_key` where the encryption key is stored.
 
 ## Creating service-to-service authorization for cross-region replication with Terraform
 {: #file-s2s-auth-replication-terraform}
