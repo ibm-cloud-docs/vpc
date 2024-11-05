@@ -366,9 +366,28 @@ A good way to learn more about the API is to click **Get sample API call** on th
 ### Creating a file share with the API
 {: #fs-create-file-share-api}
 
-Make a `POST /shares` request to create a file share. Specify the size of the file share, a name, the IOPS profile, and zone.
+Make a `POST /shares` request to create a file share. Specify the size of the file share, a name, the IOPS profile, and zone. If you want to be able to create a file share with granular access authorization, specify `security_group` as the access mode. 
 
-The following example shows a request to create a 4800 GB file share with a 10 IOPS/GB profile. It specifies the access control mode `vpc`, which enables all clients in each mount target's VPC to have access to this file share.
+```sh
+curl -X POST \
+"$vpc_api_endpoint/v1/shares?version=2024-05-06&generation=2"\
+-H "Authorization: $iam_token" \
+-d '{
+    "access_control_mode": "security-group",
+    "allowed_transit_encryption_modes": ["none", "user-managed"],
+    "size": 4800,
+    "iops": 3000,
+    "name": "myshare-1",
+    "profile": {"name": "dp2"},
+    "zone": {"name": "us-south-1"}
+}
+```
+{: codeblock}
+
+Make sure that when you create the mount target, you also specify a virtual network interface that is a member of the security group that your virtual server instance belongs to.
+{: important}
+
+The following example shows a request to create a 4800 GB file share. It specifies the access control mode `vpc`, which enables all clients in each mount target's VPC to have access to this file share. This option is less secure, and does not support newer features.
 
 ```sh
 curl -X POST \
@@ -427,28 +446,10 @@ A successful response looks like the following example.
 ```
 {: codeblock}
 
-If you want to be able to create a file share with a more granular access authorization, you can specify `security_group` as the access mode when you create your API request. Make sure that when you create the mount target, you also specify a virtual network interface that is a member of the security group that your virtual server instances.
-
-```sh
-curl -X POST \
-"$vpc_api_endpoint/v1/shares?version=2024-05-06&generation=2"\
--H "Authorization: $iam_token" \
--d '{
-    "access_control_mode": "security-group",
-    "allowed_transit_encryption_modes": ["none", "user-managed"],
-    "size": 4800,
-    "iops": 3000,
-    "name": "myshare-1",
-    "profile": {"name": "dp2"},
-    "zone": {"name": "us-south-1"}
-}
-```
-{: codeblock}
-
 ### Creating a mount target for a file share with the API
 {: #fs-create-mount-target-api}
 
-This request creates or adds a mount target to an existing file share. In this example, the `vpc` property is specified because the file share's access control mode is `vpc`. Data encryption in transit is not enabled.
+This request creates or adds a mount target to an existing file share. In this example, the `vpc` property is specified because the file share's access control mode is `vpc`. Data encryption in transit can not be enabled.
 
 Access control modes of the mount target and the share must match. Both must be either `vpc` or `security_group`. When you create a mount target with `security_group` access mode, pay attention to the share's `allowed_transit_encryption_modes`. The `transit_encryption` value must reflect what is allowed for the share.
 {: important}
@@ -515,7 +516,7 @@ This example adds a mount target to an existing file share, which is identified 
 
 The following example request creates a file share that has the VPC-wide access mode and a mount target that can be used by every virtual server instance in the specified VPC. It also adds [user tags](/docs/vpc?topic=vpc-file-storage-managing&interface=api#fs-add-user-tags) to the share. 
 
-Access to the mount target is VPC wide; all instances in the VPC have access to this file share. Cross-zone mounting and data encryption in transit is not supported.
+Access to the mount target is VPC wide; all instances in the VPC have access to this file share. Newer features such as cross-zone mounting and data encryption in transit are not supported.
 
 ```sh
 curl -X POST \
@@ -541,7 +542,6 @@ curl -X POST \
     ],
     "resource_group": {},
     "zone": {"name": "us-south-1"}
-    
   }'
 ```
 {: pre}
@@ -602,13 +602,11 @@ A successful response looks like the following example.
 ### Creating a file share and mount target by specifying a subnet
 {: #fs-create-file-share-subnet-vni-api}
 
-To create the mount target with the network interface at the same time that the file share is created, make a `POST /shares` request and specify a subnet. Specifying the `subnet` property is required when you're not specifying a [virtual network interface](#fs-create-file-share-vni-api).
+The default access control mode for file shares is `security_group`. It's more secure than the vpc-wide options and supports newer featues. To create the mount target with the network interface at the same time that the file share is created, make a `POST /shares` request and specify a subnet. Specifying the `subnet` property is required when you're not specifying a [virtual network interface](#fs-create-file-share-vni-api).
 
-The default access control mode for file shares is `security_group`. The following example creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target with a reserved IP address and applies the rules of the selected security group. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all virtual server instances on which you want to mount the file share. 
+The following example creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target with a reserved IP address and applies the rules of the selected security group. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all virtual server instances on which you want to mount the file share. 
 
 In this example, the mount target section specifies a subnet ID. The system picks a reserved IP from that subnet for the [virtual network interface](/docs/vpc?topic=vpc-vni-about) when the mount target is created. 
-
-When the `transit_encryption` property is set to `user_managed`, encryption in transit with an instance identity certificate is enabled. The default is none, which disables encryption in transit. However, if the `allowed_transit_encryption_modes` is specified as `user-managed`, then the mount target must have `user_managed` as the value of `transit_encryption`.
 
 ```json
 curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2"\
@@ -626,6 +624,8 @@ curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2"\
 }'
 ```
 {: codeblock}
+
+When the `transit_encryption` property is set to `user_managed`, encryption in transit with an instance identity certificate is enabled. The default value for the `transit_encryption` property is `none`, which disables encryption in transit. However, if the `allowed_transit_encryption_modes` is specified as `user-managed`, then the mount target must have `user_managed` as the value of `transit_encryption`.
 
 A successful response looks like the following example.
 
@@ -750,9 +750,10 @@ The following response shows that access control mode is `security_group`, which
 ### Creating a file share and mount target by specifying a virtual network interface
 {: #fs-create-file-share-vni-api}
 
-This operation requires that you have already [created a virtual network interface](/docs/vpc?topic=vpc-vni-create&interface=api) and that the virtual network interface is not currently attached to another resource.
+To perform this operation, you must already have a [virtual network interface](/docs/vpc?topic=vpc-vni-create&interface=api) and that virtual network interface must not be attached to another resource.
+{: requirement}
 
-Make a `POST /shares` request and create a mount target with a virtual network interface. Specify the identity of an unattached virtual network interface in the mount target's `virtual_network_interface` property.
+Make a `POST /shares` request and create a mount target with a virtual network interface. Specify the ID of an unattached virtual network interface in the mount target's `virtual_network_interface` property.
 
 ```json
 curl -X POST "$vpc_api_endpoint/v1/shares?version=2023-08-08&generation=2" \

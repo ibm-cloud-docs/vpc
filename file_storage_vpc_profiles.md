@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-10-22"
+lastupdated: "2024-11-05"
 
 keywords: file storage, file share, performance, IOPS, block size, capacity, range
 
@@ -59,10 +59,10 @@ Table 2 shows the available IOPS ranges, based on share size.
 | 2,000 - 3,999   | 200 - 40,000 |
 | 4,000 - 7,999   | 300 - 40,000 |
 | 8,000 - 15,999  | 500 - 64,000 | 
-| 16,000 - 32,000  | 2,000 - 96,000^1^|
+| 16,000 - 32,000  | 2,000 - 96,000¹|
 {: caption="dp2 file share profile IOPS and capacity ranges." caption-side="top"}
 
-^1^ For the 96,000 IOPS to be realized, a single file share must be accessed by multiple virtual server instances. A single file share that is accessed by one client is limited to 48,000 IOPS.
+¹ For the 96,000 IOPS to be realized, a single file share must be accessed by multiple virtual server instances. A single file share that is accessed by one client is limited to 48,000 IOPS.
 
 ## Previous version file storage profiles
 {: #fs-v2-profiles}
@@ -82,7 +82,7 @@ Existing file shares can be based on IOPS tiers that you selected when you creat
 | 10 IOPS/GB | Demanding storage workloads | 10-4,800 | 48,000 |
 {: caption="IOPS tier profiles and performance levels for each tier" caption-side="bottom"}
 
-¹For the 96,000 IOPS to be realized, a single file share must be accessed by multiple virtual server instances. A single file share that is accessed by only one client is limited to 48,000 IOPS.
+¹ For the 96,000 IOPS to be realized, a single file share must be accessed by multiple virtual server instances. A single file share that is accessed by only one client is limited to 48,000 IOPS.
 
 The total maximum IOPS is rounded up to the next multiple of 10 when the IOPS calculation results in IOPS less than or equal to 48,000 IOPS. The total maximum IOPS is rounded up to the next multiple of 100 for IOPS calculations that result in IOPS greater than 48,000 IOPS up to 96,000 IOPS.
 {: note}
@@ -218,8 +218,8 @@ Table 5 provides some examples of how block size and IOPS affect the throughput,
 
 | Block Size (KB) | IOPS | Throughput (MBps) |
 |-----------------|------|-------------------|
-| 4 | 1,000 | 4^1^|
-| 8 | 1,000 | 8^1^|
+| 4 | 1,000 | 4¹|
+| 8 | 1,000 | 8¹|
 | 16 | 1,000 | 16 |
 | 32 | 500 | 16 |
 | 64 | 250 | 16 |
@@ -228,7 +228,7 @@ Table 5 provides some examples of how block size and IOPS affect the throughput,
 | 1,024 | 16 | 16 |
 {: caption="How block size and IOPS affect throughput." caption-side="bottom"}
 
-^1^ If your cap is 1000 IOPS or 16 KB block size, the throughput caps at whatever limit is reached first.
+¹ If your cap is 1000 IOPS or 16 KB block size, the throughput caps at whatever limit is reached first.
 
 Maximum IOPS can still be obtained when you use smaller block sizes, but throughput is less. The following example shows how throughput decreases for smaller block sizes, when max IOPS is maintained.
 
