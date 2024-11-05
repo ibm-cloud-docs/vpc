@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-11-05"
 
 keywords: consistency groups, Block Storage snapshots, multi-volume snapshot, instance snapshot,
 
@@ -33,7 +33,7 @@ Before you start, gather the following information:
 
 In the console, you can create a consistency group snapshot of {{site.data.keyword.block_storage_is_short}} volumes that are attached to a running virtual server instance.
 
-1. Click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> VPC Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage snapshots**.
+1. Click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage snapshots**.
 1. From the list of consistency groups that is initially empty, click **Create**.
 1. Enter the required information to define your snapshot group and select the virtual server instance that has the volumes that you want to include in your snapshot consistency group.
 
