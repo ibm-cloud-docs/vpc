@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-10-30"
+lastupdated: "2024-11-05"
 
 keywords: file share, customer-managed encryption, encryption, byok, KMS, Key Protect, Hyper Protect Crypto Services,
 
@@ -13,7 +13,7 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # Creating file shares with customer-managed encryption
-{: #file-storage-vpc-encryption}
+{: #file-storage-byok-encryption}
 
 By default, {{site.data.keyword.filestorage_vpc_short}} shares are encrypted with IBM-managed encryption. You can also create an envelop-encryption for your file shares by using one of the supported key management services to create or import your own root keys. You can't change the encryption type after the file share is created.
 {: shortdesc}
@@ -220,7 +220,7 @@ You can create file shares with customer-managed encryption by calling the [Virt
 
 Make a `POST /shares` request and specify the `encryption_key` parameter to identify your customer root key (CRK). It is shown in the example as `crn:[...key:...]`.
 
-You can also specify the CRN of a root key from a different account in the `POST /shares` call. For more information, see [About cross-account key access and use](/docs/vpc?topic=vpc-vpc-byok-cross-acct-key-file&interface=ui#byok-cross-acct-about).
+You can also specify the CRN of a root key from a different account in the `POST /shares` call. For more information, see [About cross-account key access and use](/docs/vpc?topic=vpc-file-storage-byok-cross-acct&interface=ui#byok-cross-acct-about).
 {: note}
 
 You must provide the `generation` parameter and specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API reference](/apidocs/vpc/latest#api-generation-parameter).

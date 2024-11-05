@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-10-30"
+lastupdated: "2024-11-05"
 
 keywords: file share, file storage, IOPS, performance needs, adjust IOPS
 
@@ -13,7 +13,7 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # Adjusting file share IOPS
-{: #adjusting-share-iops}
+{: #file-storage-adjusting-iops}
 
 For {{site.data.keyword.filestorage_vpc_short}} file shares, you can increase or decrease IOPS to meet your performance needs. Adjust IOPS by specifying a different IOPS tier profile (IOPS are adjusted within the selected profile), custom profile, or dp2 profile. The process of adjusting the IOPS causes no outage or lack of access to the storage.
 {: shortdesc}

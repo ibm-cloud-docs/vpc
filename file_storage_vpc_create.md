@@ -337,7 +337,7 @@ Replication status reasons   Status code   Status message
 
 By default, {{site.data.keyword.filestorage_vpc_short}} shares are encrypted with IBM-managed encryption. However, you can also create an envelop-encryption for your file shares by using one of the supported key management services to create or import your own root keys. For more information, see [Protecting data with envelope encryption](/docs/key-protect?topic=key-protect-envelope-encryption)
 
-For more information about how to create a file share with customer-managed encryption, see [Creating file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption&interface=cli#fs-byok-cli).
+For more information about how to create a file share with customer-managed encryption, see [Creating file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-byok-encryption&interface=cli#fs-byok-cli).
 
 ### Creating a file share with a replica in another zone from the CLI
 {: #fs-create-share-with-replica-cli}

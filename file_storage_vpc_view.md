@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-10-30"
+lastupdated: "2024-11-05"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -40,7 +40,7 @@ You can view all file shares, their bindings and mount targets in the UI, retrie
 | IOPS profile| It shows the performance profile that is associated with the file share.|
 | Replication role | Relationship to the source file share. "Replica of" indicates that the file share a replica of the source share, which is linked. "Source of" indicates that the share the source of the replica, which is linked. "None" indicates that the file share does not replicate with another share. |
 | Cross-account role | The values in this column can be _None_, _Origin share_, or _Accessor share_. If the value is _None_, the share is not shared with another account or external service. If the value is _Origin share_, the share is shared with another account or external service and is bound to an accessor share in the other account. If the value is _Accessor share_, then this share is bound to an origin share with the purpose of accessing the origin share's data.|
-| Encryption type | It shows the encryption type of the file share, either provider-managed or customer-managed. [Customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption) uses your own root keys to protect your data. The UI also identifies the key management service (KMS), either {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. |
+| Encryption type | It shows the encryption type of the file share, either provider-managed or customer-managed. [Customer-managed encryption](/docs/vpc?topic=vpc-file-storage-byok-encryption) uses your own root keys to protect your data. The UI also identifies the key management service (KMS), either {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. |
 {: caption="File shares list page." caption-side="bottom"}
 
 You can access the Actions menu by clicking ![Actions icon](../icons/action-menu-icon.svg "Actions"). The Actions menu has options for managing the file share, depending on its state. For a file share in a _stable_ state, you can rename the share, edit IOPS, copy the share's CRN, create a replica, or delete a file share. **Delete** and **Create replica** are disabled if you set up replication to a replica file share already. For more information, see [Creating replica file shares](/docs/vpc?topic=vpc-file-storage-create-replication&interface=ui).
@@ -63,7 +63,7 @@ You can access the Actions menu by clicking ![Actions icon](../icons/action-menu
      | Max IOPS | Maximum IOPS for the IOPS tier, custom, or dp2 [profile](/docs/vpc?topic=vpc-file-storage-profiles) associated with the file share. |
      | Resource group | Resource groups associated with the file share in your account. |
      | Replication role | Source file share or replica. |
-     | Encryption | Specifies provider-managed or [customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption). |
+     | Encryption | Specifies provider-managed or [customer-managed encryption](/docs/vpc?topic=vpc-file-storage-byok-encryption). |
      | Encryption instance | For customer-managed encryption, link to the {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} instance. |
      | Key ID |  Copiable customer root key ID. |
      | ID | For customer-managed encryption, the UUID generated when you created the file share. |

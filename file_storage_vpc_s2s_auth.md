@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-10-29"
+lastupdated: "2024-11-05"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -453,5 +453,5 @@ For more information about the arguments and attributes, see the [Terraform docu
 ## Next Steps
 {: #file-s2s-next-steps}
 
-- [Create file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption).
+- [Create file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-byok-encryption).
 - [Create cross-region replica shares](/docs/vpc?topic=vpc-file-storage-create-replication).

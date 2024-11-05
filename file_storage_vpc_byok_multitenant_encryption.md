@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-08-08"
+lastupdated: "2024-11-05"
 
 keywords:
 
@@ -13,7 +13,7 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # Cross-account encryption for file storage resources
-{: #vpc-byok-cross-acct-key-file}
+{: #file-storage-byok-cross-acct}
 
 {{site.data.keyword.filestorage_vpc_short}} supports cross-account customer-managed encryption. {{site.data.keyword.vpc_full}} customers can authorize access to a customer root key (CRK) for users of another account. Then, those users can use the CRK to encrypt a new file share in their own account.
 {: shortdesc} 
@@ -123,7 +123,7 @@ For more information, see [Using authorizations to grant access between services
 
 Before you can create an encrypted file share, you must authorize the file service to access the key management service. From {{site.data.keyword.iamshort}} (IAM), authorize access between Cloud File Storage (source service) and {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} (target service). Specify reader access for the role. For more information, see [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-planning&interface=api#byok-encryption-prereqs).
 
-After the IAM authorizations are set, use the VPC API to [create a file share](/docs/vpc?topic=vpc-file-storage-vpc-encryption&interface=api#fs-byok-api) with the root key that is owned by the other account. The API calls are the same as when you create an encrypted file share with a root key from your own KMS instance. When you make the `POST /shares` call, specify the CRN of the root key from the other account in the `encryption_key` property.
+After the IAM authorizations are set, use the VPC API to [create a file share](/docs/vpc?topic=vpc-file-storage-byok-encryption&interface=api#fs-byok-api) with the root key that is owned by the other account. The API calls are the same as when you create an encrypted file share with a root key from your own KMS instance. When you make the `POST /shares` call, specify the CRN of the root key from the other account in the `encryption_key` property.
 
 See the following example.
 

@@ -57,7 +57,7 @@ For more information about who to contact, see [Getting help and support](/docs/
 
 Cost for {{site.data.keyword.filestorage_vpc_short}} is calculated based on the GiB capacity that is stored per month, unless the duration is less than one month. The share exists on the account until you delete the share or you reach the end of a billing cycle, whichever comes first.
 
-Pricing is also affected when you [expand share capacity](/docs/vpc?topic=vpc-file-storage-expand-capacity) or [adjust IOPS](/docs/vpc?topic=vpc-adjusting-share-iops). For example, expanding volume capacity increases costs, and decreasing the IOPS value decreases the monthly and hourly rate. Billing for an updated volume is automatically updated to add the prorated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.
+Pricing is also affected when you [expand share capacity](/docs/vpc?topic=vpc-file-storage-expand-capacity) or [adjust IOPS](/docs/vpc?topic=vpc-file-storage-adjusting-iops). For example, expanding volume capacity increases costs, and decreasing the IOPS value decreases the monthly and hourly rate. Billing for an updated volume is automatically updated to add the prorated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.
 
 You can use the Cost estimator ![Cost estimator icon](../icons/calculator.svg "Cost estimator") in {{site.data.keyword.cloud_notm}} console to see how changes in capacity and IOPS affect the cost. For more information, see [Estimating your costs](/docs/account?topic=account-cost).
 
@@ -198,7 +198,7 @@ If your file share was created before 18 June 2024, its allowed transit encrypti
 {: faq}
 {: #faq-fs-perf-2}
 
-Yes, you can increase or decrease IOPS for file shares based on an **IOPS tier**, **custom**, or **dp2** profile. Adjusting IOPS depends on the file share size. Adjusting the IOPS causes no outage or lack of access to the storage. Pricing is adjusted with your selection. For more information, see [Adjusting file share IOPS](/docs/vpc?topic=vpc-adjusting-share-iops&interface=ui).
+Yes, you can increase or decrease IOPS for file shares based on an **IOPS tier**, **custom**, or **dp2** profile. Adjusting IOPS depends on the file share size. Adjusting the IOPS causes no outage or lack of access to the storage. Pricing is adjusted with your selection. For more information, see [Adjusting file share IOPS](/docs/vpc?topic=vpc-file-storage-adjusting-iops&interface=ui).
 
 ### Can I change a file share profile?
 {: faq}
@@ -217,7 +217,7 @@ You can't use the UI, CLI, or API to update multiple file shares in a single ope
 {: #faq-fs-sec-1}
 {: support}
 
-All data is encrypted at rest by default with IBM-managed encryption. You can also encrypt your file shares with your own root key, which gives your more control over your data security. For example, you can rotate, suspend, delete, and restore your root keys. For more information, see [Creating file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption).
+All data is encrypted at rest by default with IBM-managed encryption. You can also encrypt your file shares with your own root key, which gives your more control over your data security. For example, you can rotate, suspend, delete, and restore your root keys. For more information, see [Creating file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-byok-encryption).
 
 You can also enable secure end-to-end encryption of your file share data by setting up data encryption in transit. When encryption in transit is enabled, you can establish an encrypted mount connection between the virtual server instance and storage system by using the Internet Security Protocol (IPsec) security profile. For more information, see [Enabling file share encryption in transit secure connections](/docs/vpc?topic=vpc-file-storage-vpc-eit).
 
@@ -231,7 +231,7 @@ Yes. You can specify the security group access control mode to restrict mounting
 {: faq}
 {: #faq-fs-sec-3}
 
-By default, your file share data is protected at rest with IBM-managed encryption. You can also bring your own keys to the {{site.data.keyword.cloud}} and use them to encrypt your file shares. For more information, see [Creating file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption). By using the API, you can link a primary account that holds a root key to a secondary account, then use that key to encrypt new file shares in the secondary account. For more information, see [Cross-account encryption for multitenant storage resources](/docs/vpc?topic=vpc-getting-started).
+By default, your file share data is protected at rest with IBM-managed encryption. You can also bring your own keys to the {{site.data.keyword.cloud}} and use them to encrypt your file shares. For more information, see [Creating file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-byok-encryption). By using the API, you can link a primary account that holds a root key to a secondary account, then use that key to encrypt new file shares in the secondary account. For more information, see [Cross-account encryption for multitenant storage resources](/docs/vpc?topic=vpc-getting-started).
 
 ### Is my data protected during transit?
 {: faq}

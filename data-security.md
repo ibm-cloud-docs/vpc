@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-10-29"
+lastupdated: "2024-11-05"
 
 keywords: data encryption, data storage, bring your own keys, BYOK, key management, key encryption, personal data, data deletion, data security
 
@@ -82,7 +82,7 @@ Custom images are encrypted by your own LUKS passphrase you create by using QEMU
 
 See the following procedure for creating Block Storage boot and data volumes with customer-managed encryption
 * [Creating Block Storage volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption)
-* [Creating File Storage shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption)
+* [Creating File Storage shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-byok-encryption)
 
 ### Working with customer-managed keys for VPC
 {: #working-with-keys}

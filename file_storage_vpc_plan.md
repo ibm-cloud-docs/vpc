@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-11-05"
 
 keywords: file share, file storage, requirements, planning, encryption, share size, capacity, performance profile, IOPS, 
 
@@ -33,7 +33,7 @@ Consider the following prerequisites before you set up {{site.data.keyword.files
 |__ Estimate the size of the file share that you require for your current needs. File share sizes can range between 10 - 32,000 GB. You can later [increase the size of the file share](/docs/vpc?topic=vpc-file-storage-expand-capacity), depending on what the file share profile allows. |
 |__ Decide whether to [set up replication](/docs/vpc?topic=vpc-file-storage-replication). The replica file share is in a different zone from the primary file share. Replication is a good way to recover from events and protect against prolonged outages because it provides a read-only copy of the share in a different zone of your geography (Americas, Europe, Asia Pacific). You can fail over to the replica site if the primary site becomes unavailable or compromised. |
 |__ Make sure that you have a unique name for your file share that easily identifies the file share as your list of shares grows. Associate it with a resource group in your IBM Cloud customer account. |
-|__ Think about which encryption type suits your needs the best. By default, your file shares are encrypted with IBM-managed encryption. For greater control, consider the use of customer-managed encryption. Your data can be protected at rest with your own root keys. For more information about this option, see [Creating file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption). |
+|__ Think about which encryption type suits your needs the best. By default, your file shares are encrypted with IBM-managed encryption. For greater control, consider the use of customer-managed encryption. Your data can be protected at rest with your own root keys. For more information about this option, see [Creating file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-byok-encryption). |
 |__ You can also choose to [encrypt data in transit](/docs/vpc?topic=vpc-file-storage-vpc-eit). This feature can decrease performance for increased security. The impact depends on the workload characteristics. Workloads that perform synchronous writes or bypass VSI caching, such as databases, might have a substantial performance impact when EIT is enabled.|
 |__ Choose between the UI, CLI, API, or Terraform for creating and managing your file shares. |
 |__ Review pricing information in the console. For more information, see the [FAQs](/docs/vpc?topic=vpc-file-storage-vpc-faqs#faq-fs-pricing). |

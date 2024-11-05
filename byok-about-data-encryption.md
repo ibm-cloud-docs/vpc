@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-11-05"
 
 keywords:
 
@@ -49,7 +49,7 @@ Customer-managed encryption is available for custom images, boot volumes, data v
 - Data in the instance's boot volume is encrypted by using the [custom image encryption](#byok-about-encrypted-images). You can also encrypt the boot volume with a different root key.
 - [Data volumes](/docs/vpc?topic=vpc-block-storage-about#secondary-data-volumes) can be encrypted by using their own root keys when you provision a virtual server instance or when you create a stand-alone volume. Or, you can use the same root key that you specified for the boot volume.
 - Snapshots that are taken of a source volume inherit the encryption from the volume. 
-- [File shares](/docs/vpc?topic=vpc-file-storage-vpc-encryption) provide a customer-managed encryption option similar to {{site.data.keyword.block_storage_is_short}} volumes.
+- [File shares](/docs/vpc?topic=vpc-file-storage-byok-encryption) provide a customer-managed encryption option similar to {{site.data.keyword.block_storage_is_short}} volumes.
 
 ### Advantages of customer-managed encryption
 {: #byok-advantages}
@@ -232,4 +232,4 @@ Figure 3 shows the procedure for encrypting custom images with your own encrypti
 * [Review the checklist](/docs/vpc?topic=vpc-vpc-encryption-planning#planning-for-data-encryption) for planning data encryption and complete the [prerequisites](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-encryption-prereqs).
 * [Create virtual server instances with customer-managed encryption volumes](/docs/vpc?topic=vpc-block-storage-vpc-encryption).
 * [Create a {{site.data.keyword.block_storage_is_short}} volume with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption).
-* [Create file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption).
+* [Create file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-byok-encryption).

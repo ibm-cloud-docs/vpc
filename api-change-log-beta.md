@@ -330,7 +330,7 @@ This feature is now generally available. The `catalog_offering.published` proper
 ### For all version dates
 {: #12-july-2022-all-version-dates-beta}
 
-**File storage cross-account encryption.**  Accounts that have been granted special approval to preview this feature can now use cross-account customer-managed encryption keys (CRKs) when [creating a file share](/apidocs/vpc-beta/initial#create-share) with [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption). With this feature, the CRK account owner [invites you](/docs/account?topic=account-iamuserinv&interface=api) and sets the IAM delegated policy to the CRKs. Afterward, specify your IAM token to create a file share with an `encryption_key` CRN from the CRK account. For more information, see [Cross-account encryption for file storage resources](/docs/vpc?topic=vpc-vpc-byok-cross-acct-key-file&interface=api).
+**File storage cross-account encryption.**  Accounts that have been granted special approval to preview this feature can now use cross-account customer-managed encryption keys (CRKs) when [creating a file share](/apidocs/vpc-beta/initial#create-share) with [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption). With this feature, the CRK account owner [invites you](/docs/account?topic=account-iamuserinv&interface=api) and sets the IAM delegated policy to the CRKs. Afterward, specify your IAM token to create a file share with an `encryption_key` CRN from the CRK account. For more information, see [Cross-account encryption for file storage resources](/docs/vpc?topic=vpc-file-storage-byok-cross-acct&interface=api).
 
 This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#8-august-2023).
 
@@ -356,7 +356,7 @@ The following updates have been made since the [24 August 2021 beta release](#24
 
 **File storage adjustable IOPS.** Accounts that have been granted special approval to preview this feature can now [update the IOPS of an existing file share](/apidocs/vpc-beta/initial#update-share). For a file share using a `custom` profile, specify the `iops` property. For a file share using a profile in the `tiered` profile family, specify another tier within the `tiered` family, which will set the `iops` based on the share's size.
 
-You can also change a share between the `tiered` and `custom` profile families so long as the requested `iops` and `size` are supported by the requested profile. For more information about file share profiles, see [File Storage for VPC profiles](/docs/vpc?topic=vpc-file-storage-profiles). For more information about adjusting IOPS with a profile, or changing between `tiered` and `custom` profiles, see [Adjusting file share IOPS](/docs/vpc?topic=vpc-adjusting-share-iops&interface=api).
+You can also change a share between the `tiered` and `custom` profile families so long as the requested `iops` and `size` are supported by the requested profile. For more information about file share profiles, see [File Storage for VPC profiles](/docs/vpc?topic=vpc-file-storage-profiles). For more information about adjusting IOPS with a profile, or changing between `tiered` and `custom` profiles, see [Adjusting file share IOPS](/docs/vpc?topic=vpc-file-storage-adjusting-iops&interface=api).
 
 This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#8-august-2023).
 
@@ -433,7 +433,7 @@ This feature is now generally available. See the [VPC API change log](/docs/vpc?
 ### For all version dates
 {: #23-november-2021-all-version-dates-beta}
 
-**Customer-managed encryption for file shares.** Accounts that have been granted special approval to preview this feature can now use customer-managed encryption, also called Bring Your Own Key (BYOK), to [create a file share](/apidocs/vpc-beta/initial#create-share) that is encrypted using your root key. Specify the new `encryption_key` property and `crn` sub-property of the root key that you either imported to {{site.data.keyword.cloud_notm}} or created in Key Protect or Hyper Protect Crypto Services (HPCS). For more information, see [Creating file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption&interface=api).
+**Customer-managed encryption for file shares.** Accounts that have been granted special approval to preview this feature can now use customer-managed encryption, also called Bring Your Own Key (BYOK), to [create a file share](/apidocs/vpc-beta/initial#create-share) that is encrypted using your root key. Specify the new `encryption_key` property and `crn` sub-property of the root key that you either imported to {{site.data.keyword.cloud_notm}} or created in Key Protect or Hyper Protect Crypto Services (HPCS). For more information, see [Creating file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-byok-encryption&interface=api).
 
 You can also use the API to rotate the root keys that are protecting your file shares. See [Key rotation for VPC resources](/docs/vpc?topic=vpc-vpc-key-rotation&interface=api#vpc-key-rotation-api-procedure) for details.
 {: tip}

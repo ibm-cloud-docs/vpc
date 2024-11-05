@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-10-30"
+lastupdated: "2024-11-05"
 
 keywords: file share, file storage, increase capacity, expand capacity, expand share size, file share size
 
@@ -56,7 +56,7 @@ The following limitations apply to this release.
     * File shares can expand multiple times until maximum capacity is reached.
 * IOPS increase to the maximum allowed by the profile.
 * You can't independently modify IOPS for a file share that was created from an IOPS tier profile. IOPS is adjusted when you expand capacity.
-* When you expand a file share that was created from a custom or dp2 profile, the capacity is increased, but the IOPS remains the same unless you choose to [adjust the IOPS](/docs/vpc?topic=vpc-adjusting-share-iops).
+* When you expand a file share that was created from a custom or dp2 profile, the capacity is increased, but the IOPS remains the same unless you choose to [adjust the IOPS](/docs/vpc?topic=vpc-file-storage-adjusting-iops).
 * The maximum IOPS for a file share is capped at 48,000 IOPS if it is accessed by a single host. For a file share that is accessed by multiple hosts, IOPS can reach up to 96,000 IOPS.
 * After a file share is expanded, you can't reduce its size.
 
