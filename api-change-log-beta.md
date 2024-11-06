@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-10-22"
+lastupdated: "2024-11-05"
 
 keywords: api, change log, beta
 
@@ -81,19 +81,25 @@ This release introduces the following updates for accounts that have been grante
 ### For version `2024-09-17` or later
 {: #version-2024-09-17-beta}
 
+Private Path service gateways is now available for accounts with special approval to preview this feature. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#1-october-2024).
+
+Support for beta API versions earlier than `2024-09-17` was removed on 5 November 2024.
+{: attention}
+
 **Publishing or unpublishing changes for private path service gateways.** When using a version query parameter of `2024-09-17` or later to [update a private path service gateway](/apidocs/vpc-beta/latest#update-private-path-service-gateway), the `published` property is no longer supported. `published` is now read only and defaults to `false` when a private path service gateway is first [created](/apidocs/vpc-beta/latest#create-private-path-service-gateway), indicating that access is restricted to the account that created this private path service gateway. New methods must be used to [publish](/apidocs/vpc-beta/latest#publish-private-path-service-gateway) or [unpublish](/apidocs/vpc-beta/latest#unpublish-private-path-service-gateway) a private path service gateway. 
 
 **HTTP status code changes for private path service gateway methods.** When using a version query parameter of `2024-09-17` or later to [permit](/apidocs/vpc-beta/latest#permit-private-path-service-gateway-endpoint-gatew) or [deny](/apidocs/vpc-beta/latest#deny-private-path-service-gateway-endpoint-gateway) an endpoint gateway binding for a private path service gateway, [revoke access](/apidocs/vpc-beta/latest#revoke-account-for-private-path-service-gateway) to a private path service gateway for an account, or [delete](/apidocs/vpc-beta/latest#delete-private-path-service-gateway) a private path service gateway, the response code is changed from `200` to `204` for successful operations. A response code of `200` will continue to be returned for these API requests when using a version query parameter of `2024-09-16` and earlier.
 
 **Private path service gateway property name change.** When using a version query parameter of `2024-09-17` or later to [create](/apidocs/vpc-beta/latest#create-private-path-service-gateway) or [update](/apidocs/vpc-beta/latest#update-private-path-service-gateway) a private path service gateway, the `endpoint_gateways_count` property is renamed to `endpoint_gateway_count`. The `endpoint_gateways_count` property name will continue to be returned when using a version query parameter of `2024-09-16` and earlier.
 
-See [Updating to the `2024-09-17` version (Private Path service gateway)](/docs/vpc?topic=vpc-2024-09-17-migration-private-path-service-gateway) for guidance on migrating. See also [creating private path service gateways](/docs/vpc?topic=vpc-private-path-service-about&interface=api). 
+This feature is now generally available. See "Block storage schema enhancements for adjustable capacity and IOPS" in the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#24-september-2024).
+
+Support for beta API versions earlier than `2024-09-17` was removed on 5 November 2024.
+{: attention}
 
 **Revised block storage capabilities.** When making API requests using a `version`  query parameter of `2024-09-17` or later, the volume profile `unattached_capacity_update_supported` property has been changed to `adjustable_capacity_states`, and the volume profile `unattached_iops_update_supported` property has been changed to `adjustable_iops_states`. This change applies when [listing](/apidocs/vpc-beta/latest#list-volume-profiles) or [retrieving](/apidocs/vpc-beta/latest#get-volume-profile) a volume profile.
 
 Similarly, when making API requests using a `version` query parameter of `2024-09-17` or later, the volume `unattached_capacity_update_supported` property has been changed to `adjustable_capacity_states`, and the volume `unattached_iops_update_supported` property has been changed to `adjustable_iops_states`. This change applies when [creating](/apidocs/vpc-beta/latest#create-volume) or [updating](/apidocs/vpc-beta/latest#update-volume) a volume, [listing volumes](/apidocs/vpc-beta/latest#list-volumes), or [retrieving a volume](/apidocs/vpc-beta/latest#get-volume).
-
-See [Updating to the `2024-09-17` version (volumes and volume profiles)](/docs/vpc?topic=vpc-2024-09-17-migration-volumes) for guidance on migrating.
 
 ## 27 August 2024
 {: #27-august-2024-beta}
@@ -199,7 +205,9 @@ To update the `enable_secure_boot` and `confidential_compute_mode` properties, t
 ### For version `2023-08-08` or later
 {: #version-2023-08-08-beta}
 
-Support for API beta version `2023-08-08` was removed on 22 September 2023. This feature is now generally available. See [About file share replication](/docs/vpc?topic=vpc-file-storage-replication).
+This feature is now generally available. See [About file share replication](/docs/vpc?topic=vpc-file-storage-replication).
+
+Support for beta API versions earlier than `2023-08-08` was removed on 22 September 2023.
 {: attention}
 
 This release introduced the following behavior changes for users with accounts that have access to file shares.
@@ -214,7 +222,9 @@ This release introduced the following behavior changes for users with accounts t
 ### For version 2023-07-11 or later
 {: #version-2023-07-11-beta}
 
-Support for API beta version `2023-07-11` was removed on 25 August 2023. This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#8-august-2023).
+This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#8-august-2023).
+
+Support for beta API versions earlier than `2023-07-11` was removed on 25 August 2023.
 {: attention}
 
 **Data encryption in transit for file shares.** For users with accounts that have access to file shares, you can now enable secure end-to-end encryption of your data in transit between the file share and the authorized client.
@@ -248,7 +258,9 @@ This feature is now generally available. Support for property names `deprecated_
 ### For version `2023-05-30` or later
 {: #version-2023-05-30-beta}
 
-Support for API beta version `2023-05-30` was removed on 14 July 2023, and the `targets` property was removed. This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#8-august-2023).
+This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#8-august-2023).
+
+Support for beta API beta versions earlier than `2023-05-30` was removed on 14 July 2023, and the `targets` property was removed.
 {: attention}
 
 This release introduced the following features for users with accounts that have access to file shares.
