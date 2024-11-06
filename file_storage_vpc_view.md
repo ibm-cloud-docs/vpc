@@ -52,7 +52,7 @@ You can access the Actions menu by clicking ![Actions icon](../icons/action-menu
 
 2. Click the name of a file share to see the details page. The editable name and status of the file share is shown. If you applied user or access management tags to the file share, they are listed next to the status. Click **Add tags** to apply new [tags](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-about-fs-tags) to the share.
 
-3. The details page has two tabs. The **Overview** tab is displayed by default. 
+3. The details page several tabs. The **Overview** tab is displayed by default. 
    - **Overview** - The following table describes the information that is available for your file share.
 
      | Field | Value |
@@ -71,7 +71,7 @@ You can access the Actions menu by clicking ![Actions icon](../icons/action-menu
      | Created | Date the file share was created. |
      | Mount target access mode   | Access to the file share is granted by either a security group within a subnet or to any virtual server instance in the VPC. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to switch access modes. Security group access is available only to file shares created with the [`dp2` profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile). For more information, see the [Mount target access modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-mount-access-mode). |
      | CRN | Copiable cloud resource name. |
-     | Allowed encryption in transit modes| This value shows whether encryption in transit is required when clients access the file share. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change the allowed values.|   
+     | Allowed encryption in transit modes| This value shows whether encryption in transit is required when clients access the file share. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change the allowed values.| 
      | **Profile, size, and IOPS**| |
      | Size | File share capacity in GB. |
      | IOPS tier | IOPS [profile](/docs/vpc?topic=vpc-file-storage-profiles) that defines the file share performance. In most cases, the dp2 profile is shown. |

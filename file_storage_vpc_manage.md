@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-11-05"
+lastupdated: "2024-11-06"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -316,8 +316,6 @@ Before you delete a file share, make sure that it is [unmounted](#fs-mount-unmou
    ```
    {: screen}
 
-
-
 #### Deleting share bindings of a file share from the CLI
 {: #delete-bindings-cli}
 
@@ -331,7 +329,6 @@ OK
 Binding r-006-c2e53b1b-3b15-4792-8d96-c9c035fd65c3 is deleted.
 ```
 {: screen}
-
 
 #### Deleting a mount target of a file share from the CLI
 {: #delete-mount-target-cli}
