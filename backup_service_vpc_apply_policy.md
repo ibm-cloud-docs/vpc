@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-10-29"
+lastupdated: "2024-11-06"
 
 keywords: backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Applying backup policies to resources with tags
+# Applying backup policies to resources
 {: #backup-use-policies}
 
 Apply backup policies by adding user tags to new or existing volumes. When these tags match a backup policy tag, a backup is created.
