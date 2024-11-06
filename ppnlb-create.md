@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-10-25"
+lastupdated: "2024-11-06"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
 
@@ -42,7 +42,7 @@ To create and configure {{site.data.keyword.nlb_full}} in the {{site.data.keywor
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 1. Select the **Navigation Menu** ![Menu icon](images/menu_icon.png), then click **Infrastructure > Network > Load balancers**.
-1. Click **Create +** in the upper right of the page.
+1. Click **Create** in the upper right of the page.
 1. For Load balancer type, select the **Network Load Balancer (NLB)** tile.
 1. In the Location section, edit the following fields, if necessary.
    * **Geography**: The geography where you want to create the load balancer.

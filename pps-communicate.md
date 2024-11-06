@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-10-21"
+lastupdated: "2024-11-06"
 
 keywords:
 
@@ -22,7 +22,7 @@ To complete the connection to your service, you must communicate the following i
 
 * Your Private Path service’s cloud resource name (CRN)
 
-   Open the Private Path details page of your [Private Path service](/infrastructure/network/privatePathServices){: external} to locate its CRN. Click the ![Copy to clipboard icon](../../icons/copy.svg) to copy and paste the CRN in your communication to consumers (for example, `crn:v1:public:is:us-south:a/efe5afc483594adaa8325e2b4d1290df::private-path-service-gateway:r006-5fc6b76d-0ff3-46d1-8e39-c0ac0a38a27b`).
+   Open the Private Path details page of your [Private Path service](/infrastructure/network/privatePathServices){: external} to locate its CRN. Click the Copy to clipboard icon to copy and paste the CRN in your communication to consumers.
 
 * Instructions on creating a Virtual Private Endpoint (VPE) gateway
 

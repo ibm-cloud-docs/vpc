@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-05-25"
+  years: 2020, 2024
+lastupdated: "2024-11-06"
 
 keywords: is.flow-log-collector.00002E
 
@@ -37,7 +37,7 @@ Check for a defined authorization between the flow log collector and the {{site.
 
 To define an authorization, follow these steps:
 
-1. In the {{site.data.keyword.cloud_notm}} console, click **Manage** &gt; **Access (IAM)**.
+1. In the {{site.data.keyword.cloud_notm}} console, click **Manage** > **Access (IAM)**.
 1. Select **Authorizations** from the navigation pane.
 1. Click **Create**.
 1. For **Source service**:

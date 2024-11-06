@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-10-25"
+lastupdated: "2024-11-06"
 
 keywords:
 
@@ -71,7 +71,7 @@ To create a Private Path service with the {{site.data.keyword.cloud_notm}} conso
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 1. Select the **Navigation Menu** ![Menu icon](images/menu_icon.png), then click **Infrastructure > Network > Private Path services**.
-1. Click **Create +**.
+1. Click **Create**.
 1. Review the checklist for important information.
 1. In the Location section, ensure that the following fields are correct. If not, click the Edit icon ![Edit icon](images/edit.png) to update.
     * **Geography**: The general area where you want to create the Private Path service.
@@ -82,7 +82,7 @@ To create a Private Path service with the {{site.data.keyword.cloud_notm}} conso
     * **Tags**: Optionally, add any relevant tags to help group your Private Path services.
     * **Access management tags**: Optionally, add access management tags to resources to help organize access control relationships. The only supported format for access management tags is `key:value`. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial){: external}.
     * **Virtual private cloud**: Select the VPC where you want the Private Path service created.
-1. In the Private Path network load balancer section, select a Private Path NLB for the Private Path service, or click **Create +** to create one. To create a Private Path NLB, follow these steps:
+1. In the Private Path network load balancer section, select a Private Path NLB for the Private Path service, or click **Create** to create one. To create a Private Path NLB, follow these steps:
 
    Click **Next** to go to the next step, or use the navigation menu on the left to go back to a specific section.
    {: note}
@@ -122,10 +122,10 @@ To create a Private Path service with the {{site.data.keyword.cloud_notm}} conso
       It takes several minutes for your Private Path NLB to be created. When the load balancer is created, its status changes from **Creating** to **Active** in the table.
       {: note}
 
-1. In the Service endpoint section, click ***Create +**. Provide a name for the service endpoint where you want to connect your Private Path service. Click **Add +**. Then, select to enable or disable zonal affinity for the service endpoints. When zonal affinity is enabled, the endpoint maintains persistence to the zone after the connection is created.
+1. In the Service endpoint section, click **Create**. Provide a name for the service endpoint where you want to connect your Private Path service. Click **Add +**. Then, select to enable or disable zonal affinity for the service endpoints. When zonal affinity is enabled, the endpoint maintains persistence to the zone after the connection is created.
 1. In the Account policies section:
    * The default policy is set to review and triage each incoming connection request. You can change the default policy to permit or deny all requests without review.
-   * To establish account policies that are different than the default policy, click **Create +**. Provide the account ID of the account for which you want to set up a policy. For the Account policy option, select Review, Permit, or Deny.
+   * To establish account policies that are different than the default policy, click **Create**. Provide the account ID of the account for which you want to set up a policy. For the Account policy option, select Review, Permit, or Deny.
 
    Individual account policies take precedence over the default policy.
    {: tip}

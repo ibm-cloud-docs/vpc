@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-05-25"
+  years: 2020, 2024
+lastupdated: "2024-11-06"
 
 keywords: is.flow-log-collector.00003E
 
@@ -42,7 +42,7 @@ Follow these steps to resolve this issue:
 
 1. Check to make sure that you defined an authorization between the flow log collector and the {{site.data.keyword.cos_full_notm}} bucket so that the flow log collector can publish data. To define an authorization, use the following steps:
 
-   * In the {{site.data.keyword.cloud_notm}} console, click **Manage** &gt; **Access (IAM)**.
+   * In the {{site.data.keyword.cloud_notm}} console, click **Manage** > **Access (IAM)**.
    * Select **Authorizations** from the navigation pane.
    * Click **Create**.
    * For **Source service**:
