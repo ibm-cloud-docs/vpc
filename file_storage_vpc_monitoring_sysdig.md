@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-10-22"
+lastupdated: "2024-11-06"
 
 keywords: file share, file storage, sysdig, platform metrics
 
@@ -154,17 +154,17 @@ Each metric is composed of the following metadata types:
 * **Value type** -  The file share metrics are displayed as integer and floating point numbers.
 * **Segment** - How you want {{site.data.keyword.mon_full_notm}} to divide and display the monitoring metrics.
 
-| Metric name                  | Metric Type  | Metric value type |
-|------------------------------|--------------|-------------------|
-| ibm_is_share_throughput_read | Gauge        |Floating point     | 
-| ibm_is_share_throughput_write| Gauge        |Floating point     | 
-| ibm_is_share_throughput_max  | Gauge        |Floating point     | 
-| ibm_is_share_iops_read       | Gauge        |Integer            | 
-| ibm_is_share_iops_write      | Gauge        |Integer            | 
-| ibm_is_share_iops_max        | Gauge        |Integer            | 
-| ibm_is_share_capacity_total  | Gauge        |Floating point     | 
-| ibm_is_share_capacity_used   | Gauge        |Floating point     | 
-| ibm_is_share_mount_targets_count | Gauge    |Integer            | 
+| Metric name                           | Metric Type  | Metric value type |
+|---------------------------------------|--------------|-------------------|
+| ibm_is_share_throughput_read          | Gauge        |Floating point     | 
+| ibm_is_share_throughput_write         | Gauge        |Floating point     | 
+| ibm_is_share_throughput_max           | Gauge        |Floating point     | 
+| ibm_is_share_iops_read                | Gauge        |Integer            | 
+| ibm_is_share_iops_write               | Gauge        |Integer            | 
+| ibm_is_share_iops_max                 | Gauge        |Integer            | 
+| ibm_is_share_capacity_total           | Gauge        |Floating point     | 
+| ibm_is_share_capacity_used            | Gauge        |Floating point     | 
+| ibm_is_share_mount_targets_count      | Gauge        |Integer            |
 {: caption="Table 2: Available metrics" caption-side="bottom"}
 
 ## Attributes for segmentation
