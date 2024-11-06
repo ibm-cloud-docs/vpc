@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-10-21"
+lastupdated: "2024-11-06"
 
 keywords:
 
@@ -15,14 +15,11 @@ subcollection: vpc
 # Communicating connection information to consumers
 {: #pps-ui-communicate}
 
-The beta release of IBM Cloud Private Path services is only available to allowlisted users. Contact your IBM Support representative if you are interested in getting early access to this beta offering.
-{: beta}
-
 To complete the connection to your service, you must communicate the following information to your consumers:
 
 * Your Private Path service’s cloud resource name (CRN)
 
-   Open the Private Path details page of your [Private Path service](/infrastructure/network/privatePathServices){: external} to locate its CRN. Click the ![Copy to clipboard icon](../../icons/copy.svg) to copy and paste the CRN in your communication to consumers (for example, `crn:v1:public:is:us-south:a/efe5afc483594adaa8325e2b4d1290df::private-path-service-gateway:r006-5fc6b76d-0ff3-46d1-8e39-c0ac0a38a27b`).
+   Open the Private Path details page of your [Private Path service](/infrastructure/network/privatePathServices){: external} to locate its CRN. Click the Copy to clipboard icon to copy and paste the CRN in your communication to consumers.
 
 * Instructions on creating a Virtual Private Endpoint (VPE) gateway
 

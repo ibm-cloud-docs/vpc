@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-10-25"
+lastupdated: "2024-11-06"
 
 keywords:
 
@@ -14,9 +14,6 @@ subcollection: vpc
 
 # Publishing and Unpublishing a Private Path service
 {: #pps-activating}
-
-The beta release of IBM Cloud Private Path services is only available to allowlisted users. Contact your IBM Support representative if you are interested in getting early access to this beta offering.
-{: beta}
 
 After you verify a successful [connection to your Private Path service](/docs/vpc?topic=vpc-pps-verify), you must publish your service for deployment to consumers.
 {: shortdesc}

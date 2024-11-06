@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-11-04"
+lastupdated: "2024-11-06"
 
 keywords:
 
@@ -14,9 +14,6 @@ subcollection: vpc
 
 # About Private Path services
 {: #private-path-service-intro}
-
-The beta release of IBM Cloud Private Path services is only available to allowlisted users. Contact your IBM Support representative if you are interested in getting early access to this beta offering.
-{: beta}
 
 Private Path services provide private connectivity for {{site.data.keyword.cloud_notm}} and third-party services. A Private Path service requires a Private Path network load balancer to deploy a service on IBM Cloud and a Virtual Private Endpoint (VPE) gateway for consumers to connect to the service. Traffic stays on the IBM backbone without traversing the internet.
 {: shortdesc}
@@ -129,7 +126,7 @@ First, a Consumer's application connects to the Consumer's VPE gateway within th
 
 ![A Private Path exposing a service to a customer within the same VPC](images/private_path_detailed_3.svg "A Private Path exposing a service to a customer within the same VPC"){: caption="A Private Path exposing a service to a customer within the same VPC without using public internet" caption-side="bottom"}
 
-## Use case 4: Enabling an IBM Cloud service to connect to a customer's VPC
+### Use case 4: Enabling an IBM Cloud service to connect to a customer's VPC
 {: #pps-use-case-4}
 
 Private Path allows connection between an IBM Cloud service like IBM Cloud Code Engine and your VPC without compromising security or putting your VPC at risk. Code Engine is a multi-tenant compute service that runs source-code or containerized workloads. Its dynamic scaling capabilities allow your apps to automatically scale up and down, even to zero, based on incoming requests. With it’s pay-per-use model, Code Engine only charges for the compute capacity you actually use. For more information, see [IBM Cloud Code Engine](https://www.ibm.com/products/code-engine){: external}.

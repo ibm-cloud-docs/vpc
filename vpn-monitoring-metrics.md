@@ -2,7 +2,7 @@
 
 copyright:
   years:  2020, 2024
-lastupdated: "2024-09-23"
+lastupdated: "2024-11-06"
 
 keywords:
 
@@ -247,7 +247,7 @@ To receive monitoring metrics, you must set up your {{site.data.keyword.mon_full
 
 To receive monitoring metrics, use the following steps:
 
-1. Navigate to the [metrics monitoring portal](/observe/monitoring){: external} and click **Options** &gt; **Create**.
+1. Navigate to the [metrics monitoring portal](/observe/monitoring){: external} and click **Options** > **Create**.
 
 2. Select a region for your {{site.data.keyword.mon_full_notm}} instance.
 

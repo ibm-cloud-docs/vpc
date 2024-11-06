@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-09-18"
+lastupdated: "2024-11-06"
 
 keywords:
 
@@ -17,9 +17,6 @@ content-type: troubleshoot
 # Why am I receiving an authorization error when creating a Private Path network load balancer?
 {: #auth-errors}
 {: troubleshoot}
-
-The beta release of IBM Cloud Private Path services is only available to allowlisted users. Contact your IBM Support representative if you are interested in getting early access to this beta offering.
-{: beta}
 
 If you receive an authorization error when creating a Private Path network load balancer, most likely your account ID is not onboarded.
 

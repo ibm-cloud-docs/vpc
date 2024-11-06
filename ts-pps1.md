@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-09-18"
+lastupdated: "2024-11-06"
 
 keywords:
 
@@ -18,9 +18,6 @@ content-type: troubleshoot
 {: #troubleshoot-pps-1}
 {: troubleshoot}
 {: support}
-
-The beta release of IBM Cloud Private Path services is only available to allowlisted users. Contact your IBM Support representative if you are interested in getting early access to this beta offering.
-{: beta}
 
 As a service provider, you created a Private Path service so that consumers can privately connect to a service or application. However, even though your consumers were given the correct cloud resource name (CRN), they cannot access your service. The problem can be found in either the VPE gateway, or on the Private Path network load balancer side of the service.
 {: shortdesc}

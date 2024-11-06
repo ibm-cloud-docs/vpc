@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-10-25"
+lastupdated: "2024-11-06"
 
 keywords: virtual private endpoints, VPE, endpoint gateway
 
@@ -15,9 +15,6 @@ subcollection: vpc
 {: #ordering-endpoint-gateway}
 {: help}
 {: support}
-
-The beta release of IBM Cloud Private Path services is only available to allowlisted users. Contact your IBM Support representative if you are interested in getting early access to this beta offering.
-{: beta}
 
 You can create an endpoint gateway for an {{site.data.keyword.cloud}} or third-party service or application (Private Path beta) that you want to access on your private VPC network. You can use the UI, CLI, API, or Terraform.
 {: shortdesc}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-11-05"
+lastupdated: "2024-11-06"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -349,7 +349,7 @@ curl -X GET "$vpc_api_endpoint/v1/shares?version=2023-07-18?limit=50&generation=
 ```
 {: pre}
 
-A successful response looks like the following example. In the example, the `limit` query parameter specifies a limit of 50 file shares, all though there is only one in the response. The `access_control_mode` property value is `vpc`, which means that the file share can be mounted on all virtual server instances in a VPC.
+A successful response looks like the following example. In the example, the `limit` query parameter specifies a limit of 50 file shares, although the example response contains only one. The `access_control_mode` property value is `vpc`, which means that the file share can be mounted on all virtual server instances in a VPC.
 
 ```json
 {
@@ -419,7 +419,7 @@ curl -X GET \
 ```
 {: pre}
 
-A successful response looks like the following example. In this example, the share was created based on a `dp2` profile. The `access_ control_mode` property value is `security_group`, which means that access to the share is determined by the rules of a security group.
+A successful response looks like the following example. In this example, the share was created with the `dp2` profile. The `access_ control_mode` property value is `security_group`, which means that access to the share is determined by the rules of a security group.
 
 ```json
 {

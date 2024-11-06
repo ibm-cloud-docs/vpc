@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-10-16"
+lastupdated: "2024-11-06"
 
 keywords: virtual private endpoints, endpoint gateway, VPE services
 subcollection: vpc
@@ -15,9 +15,6 @@ subcollection: vpc
 {: #vpe-supported-services}
 
 You can create a Virtual Private Endpoint (VPE) gateway to connect to an IBM Cloud service, or an IBM service or third-party application (Private Path beta) that is hosted outside of IBM Cloud.
-
-The beta release of IBM Cloud Private Path services is only available to allowlisted users. Contact your IBM Support representative if you are interested in getting early access to this beta offering.
-{: beta}
 
 Here are your two choices:
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-10-29"
+lastupdated: "2024-11-06"
 
 keywords:
 
@@ -51,9 +51,6 @@ The following lists contain known limitations for {{site.data.keyword.cloud}} {{
 
 ## Known limitations for {{site.data.keyword.cloud}} Private Path network load balancers
 {: #limitations-private-path-network-load-balancers}
-
-The beta release of IBM Cloud Private Path services is only available to allowlisted users. Contact your IBM Support representative if you are interested in getting early access to this beta offering.
-{: beta}
 
 * Access to a Virtual Private Endpoint gateway associated with Private Path Network load balancer from Direct Link or Transit Gateway is not supported.
 * A workaround is to access an ALB that has the VPE as a member. Contact IBM Support for assistance with the details.

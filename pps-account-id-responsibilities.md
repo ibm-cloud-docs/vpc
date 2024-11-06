@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-01-02"
+lastupdated: "2024-11-06"
 
 keywords:
 
@@ -14,9 +14,6 @@ subcollection: vpc
 
 # Responsibilities for managing consumer account IDs
 {: #pps-consumer-account-id-responsibilities}
-
-The beta release of IBM Cloud Private Path services is only available to allowlisted users. Contact your IBM Support representative if you are interested in getting early access to this beta offering.
-{: beta}
 
 As a service provider, you are responsible for managing your consumer account IDs. Currently, tracking or validating account IDs is not supported. The responsibility of managing, approving, and revoking consumer account IDs lies entirely with you as the service provider.
 {: attention}

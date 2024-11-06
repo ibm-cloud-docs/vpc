@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-09-18"
+lastupdated: "2024-11-06"
 
 keywords:
 
@@ -18,9 +18,6 @@ content-type: troubleshoot
 {: #troubleshoot-pps-3}
 {: troubleshoot}
 {: support}
-
-The beta release of IBM Cloud Private Path services is only available to allowlisted users. Contact your IBM Support representative if you are interested in getting early access to this beta offering.
-{: beta}
 
 As a service provider, you want to migrate to a newer version of your target service without disrupting connectivity for your current customers.
 {: shortdesc}

@@ -15,9 +15,6 @@ subcollection: vpc
 # Updating and deleting a Private Path service
 {: #pps-ui-updating-deleting}
 
-The beta release of IBM Cloud Private Path services is only available to allowlisted users. Contact your IBM Support representative if you are interested in getting early access to this beta offering.
-{: beta}
-
 You can migrate to a newer version of Private Path service without deleting or disrupting the service you provide to your current customers. You can delete a Private Path service using the UI, CLI, or API.
 {: shortdesc}
 

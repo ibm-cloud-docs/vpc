@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-06-25"
+lastupdated: "2024-11-06"
 
 keywords: load balancer, network, faqs
 
@@ -100,9 +100,6 @@ Make sure that the security group rules that are attached to your load balancer 
 
 ## FAQs for Private Path network load balancers
 {: #ppnlb-faqs}
-
-The beta release of IBM Cloud Private Path services is only available to allowlisted users. Contact your IBM Support representative if you are interested in getting early access to this beta offering.
-{: beta}
 
 You might encounter the following FAQs when you use IBM Cloud Private Path NLBs.
 

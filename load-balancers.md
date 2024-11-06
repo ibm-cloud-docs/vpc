@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-11-06"
 
 keywords:
 
@@ -47,9 +47,6 @@ Use Figure 1 to help you (the User) choose the right load balancer for your requ
 
 ### Private Path network load balancers
 {: #load-balancer-pplb}
-
-The beta release of IBM Cloud Private Path services is only available to allowlisted users. Contact your IBM Support representative if you are interested in getting early access to this beta offering.
-{: beta}
 
 Private Path NLBs are required when service consumer and service provider reside an different VPCs and there is a need to keep network traffic on a private path that never intersects with the public internet. These load balancers offer a high level of fault tolerance including resilience to a zone failure, and are highly scalable (millions of requests/second) and performant.
 {: important}
