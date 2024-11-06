@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-10-17"
+lastupdated: "2024-11-06"
 
 keywords:
 
@@ -14,9 +14,6 @@ subcollection: vpc
 
 # Private Path service limitations
 {: #ppsg-limitations}
-
-The beta release of IBM Cloud Private Path services is only available to allowlisted users. Contact your IBM Support representative if you are interested in getting early access to this beta offering.
-{: beta}
 
 * Private Path service supports providers and consumers in the same region. Currently, Private Path service does not support providers and consumers in different regions.
 * Providers may not update service endpoints once the Private Path service is created. If they want to change endpoints, they must create a new Private Path service.

@@ -15,9 +15,6 @@ subcollection: vpc
 # Verifying connectivity to a Private Path service
 {: #pps-verify}
 
-The beta release of IBM Cloud Private Path services is only available to allowlisted users. Contact your IBM Support representative if you are interested in getting early access to this beta offering.
-{: beta}
-
 After you create a Private Path service, the service's status is `Stable`. At this time, it's a good idea to test the connection to your service by creating a VPE gateway with the cloud resource name (CRN) associated with your Private Path service.
 {: shortdesc}
 

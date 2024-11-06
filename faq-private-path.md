@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-10-24"
+lastupdated: "2024-11-06"
 
 subcollection: vpc
 
@@ -13,9 +13,6 @@ subcollection: vpc
 
 # FAQs for Private Path services
 {: #faqs-private-path}
-
-The beta release of IBM Cloud Private Path services is only available to allowlisted users. Contact your IBM Support representative if you are interested in getting early access to this beta offering.
-{: beta}
 
 ## Where do I find cost estimates for a Private Path service?
 {: #pricing-private-path}

@@ -15,9 +15,6 @@ subcollection: vpc
 # Communicating connection information to consumers
 {: #pps-ui-communicate}
 
-The beta release of IBM Cloud Private Path services is only available to allowlisted users. Contact your IBM Support representative if you are interested in getting early access to this beta offering.
-{: beta}
-
 To complete the connection to your service, you must communicate the following information to your consumers:
 
 * Your Private Path service’s cloud resource name (CRN)

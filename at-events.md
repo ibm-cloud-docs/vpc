@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-10-22"
+lastupdated: "2024-11-06"
 
 keywords:
 
@@ -260,9 +260,6 @@ The following table lists the actions that are related to load balancers and the
 
 ### Private Path service events
 {: #events-private-path-service-events}
-
-The beta release of IBM Cloud Private Path services is only available to allowlisted users. Contact your IBM Support representative if you are interested in getting early access to this beta offering.
-{: beta}
 
 | Resource  | Action  | Description  |
 |:----------------|:-----------------------|:-----------------------|
