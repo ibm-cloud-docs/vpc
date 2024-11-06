@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-08-26"
+lastupdated: "2024-11-06"
 
 keywords: sgx, intel sgx, software guard extension, confidential computing, attestation, DCAP, data center attestation primitives
 
@@ -20,7 +20,7 @@ subcollection: vpc
 Attestation is a process that validates that a runtime environment is instantiated in an encrypted SGX enclave on a system with a known security configuration. Intel SGX DCAP facilitates Attestation.
 {: shortdesc}
 
-Confidential computing with Intel SGX for VPC is available in the US-South/Dallas region.
+Confidential computing is only available with select profiles. For more information, see [SGX-compatible profiles](/docs/vpc?topic=vpc-about-sgx-vpc&interface=ui#compatible-profiles-confidential-computing-vpc-sgx).
 {: note}
 
 Intel SGX helps protect data in use through application isolation technology. By protecting the integrity and confidentiality of selected code and data, developers can partition their application into hardened enclaves or trusted execution modules to help increase application security.

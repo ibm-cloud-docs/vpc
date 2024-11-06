@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-08-26"
+lastupdated: "2024-11-06"
 
 keywords: sgx, intel sgx, software guard extension, confidential computing, trusted execution environment, TEE, data protection
 
@@ -21,7 +21,7 @@ subcollection: vpc
 Confidential computing with Intel&reg; Software Guard Extensions (SGX) protects your data through hardware-based server security by using isolated memory regions that are known as encrypted enclaves. This hardware-based computation helps protect your data from disclosure or modification. Which means that your sensitive data is encrypted while it is in virtual server instance memory by allowing applications to run in private memory space. To use SGX, you must install the SGX drivers and platform software on SGX-capable worker nodes. Then, design your app to run in an SGX environment. For more information about SGX, see [Intel Software Guard Extensions](https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/overview.html).
 {: shortdesc}
 
-Confidential computing with Intel SGX for VPC is available only in the US-South (Dallas) region.
+Confidential computing is only available with select profiles. For more information, see [SGX-compatible profiles](/docs/vpc?topic=vpc-about-sgx-vpc&interface=ui#compatible-profiles-confidential-computing-vpc-sgx).
 {: note}
 
 ## Confidential computing
@@ -69,7 +69,7 @@ For Gen3 profiles, you can enable and disable secure boot. But when you toggle b
 SGX profiles might experience slightly longer start times, approximately in the range of 180-240 seconds, depending on profile EPC size.
 {: note}
 
-For more information about profiles, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles).
+For more information about the profiles, see [x86-64 instance profiles - Confidential computing profiles](/docs/vpc?topic=vpc-profiles&interface=ui#confidential-computing-profiles).
 
 ## Limitations
 {: #limitations-confidential-computing-vpc-sgx}
