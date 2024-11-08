@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-10-23"
+lastupdated: "2024-11-08"
 
 keywords:
 
@@ -54,6 +54,7 @@ A cluster network enhances the efficiency and speed of data transfer within a ne
 
 1. [Create a cluster network](/docs/vpc?topic=vpc-create-cluster-network&interface=ui). Currently, only the [NVIDIA H100 cluster profile](/docs/vpc?topic=vpc-profiles&interface=ui#gpu) is supported.
 1. [Create cluster network subnets](/docs/vpc?topic=vpc-create-cluster-network-subnet&interface=ui) (8, 16, or 32) as child objects on the cluster network.
+   
    If creating a cluster network in the UI, you can create cluster network subnets at the same time.  It is recommended to select 8 subnets, but select use cases utilize a larger number of subnets.
    {: tip}
 
