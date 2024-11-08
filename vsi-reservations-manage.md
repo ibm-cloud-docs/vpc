@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2018, 2024
+  years: 2023, 2024
 lastupdated: "2024-03-25"
 
 subcollection: vpc
@@ -39,7 +39,7 @@ If you are not the account administrator, your user account must include the **M
 
 You can use the UI to manage your reservation and the serversnthat are attached.
 
-### Attach a virtual server instance to your reservation with the UI
+### Attaching a virtual server instance to your reservation with the UI
 {: #attach-vsi-reservation-ui-vpc}
 {: ui}
 
@@ -48,7 +48,7 @@ You can attach a virtual server to a reservation.
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click **Navigation Menu** icon ![the menu icon ](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../../icons/vpc.svg) **> Reservations**.
 1. Select a reservation in the Reservation details page.
 1. From the virtual servers list, click **Actions** > **Attach**.
-1. Select the server you want to attach to the reservation and click **Attach**.
+1. Select the server that you want to attach to the reservation and click **Attach**.
 
 ### Detaching a server from reservation with the UI
 {: #removing-adding-server-reservation-ui-vpc}
@@ -60,10 +60,26 @@ You can detach a virtual server from your reservation.
 1. From your virtual server list or in the Reservation details page, click the server that you want to detach and then click **Actions** > **Detach**.
 1. To confirm, click **Detach**.
 
-If the instance is stopped and started, even though pointing to an expired reservation, it will be allowed to start and will be billed at pay-go prices.
+If the instance is stopped and started, even though pointing to an expired reservation, it is allowed to start and is billed at pay-go prices.
 {: note}
 
-### Delete a reservation with the UI
+### Special considerations for deleting a reservation
+{: #special-considerations-deleting-reservation-vpc}
+
+You can delete an `inactive` reservation and you can patch the following fields.
+
+   * affinity_policy
+   * capacity.total
+   * committed_use.expiration_policy
+   * committed_use.term
+   * name
+   * profile
+
+If you want to change any other fields, you need to delete the reservation and re-create it.
+
+However, after a reservation is activated and is `active`, many aspects of the reservation are permanent for the lifetime of the reservation. Make sure that you review the reservation before you active it to make sure that the configuration is correct. The only fields that can be patched for an `active` reservation are `name` and `committed_use.expiration_policy`.
+
+### Deleting a reservation with the UI
 {: #deleting-reservation-ui-vpc}
 {: ui}
 
@@ -98,13 +114,13 @@ Successfully activated reservation.
 ```
 {: screen}
 
-Where the following argument and option values are used.
+Where the following argument and option values are used
 
 * RESERVATION: ID or name of the reservation.
 * --output: Specify output format, only JSON is supported. One of: JSON.
 * -q, --quiet: Suppress verbose output
 
-### Get instance with reservation
+### Getting an instance with reservation
 {: #create-reservation-cli-vpc}
 {: cli}
 
@@ -139,7 +155,7 @@ Capacity          Allocated   Available   Total   Used   Status
 ```
 {: screen}
 
-### Delete a reservation
+### Deleting a reservation
 {: #delete-reservation-cli-vpc}
 {: cli}
 
@@ -161,7 +177,7 @@ Reservation e9e537f0-59f5-4759-b06e-86bb5cd4068e is deleted.
 ```
 {: screen}
 
-Where the following argument and option values are used.
+Where the following argument and option values are used
 
 * RESERVATION1: ID or name of the reservation.
 * RESERVATION2: ID or name of the reservation.
@@ -169,7 +185,7 @@ Where the following argument and option values are used.
 * --output: Specify output format, only JSON is supported. One of: JSON.
 * -q, --quiet: Suppress verbose output.
 
-### List all reservations
+### Listing all reservations
 {: #list-all-reservation-cli-vpc}
 {: cli}
 
@@ -192,7 +208,7 @@ ID                                          Name               Status    Reserve
 ```
 {: screen}
 
-### Retrieve a reservation
+### Retrieving a reservation
 {: #retrieve-reservation-cli-vpc}
 {: cli}
 
@@ -227,11 +243,11 @@ Capacity          Allocated   Available   Total   Used   Status
 ```
 {: screen}
 
-### Update a reservation
+### Updating a reservation
 {: #update-reservation-cli-vpc}
 {: cli}
 
-You update a specific {{site.data.keyword.vpc_short}} reservation in your region by using the command-line interface (CLI). To update a specific reservation by using the CLI, use the `ibmcloud is reservation-update` command. You must specify the name or ID of the specific reservation by using the `RESERVATION_NAME` for the specific reservation you want to update. Use the `NEW_NAME` variable in the `--name` option to rename the reservation.
+You can update a specific {{site.data.keyword.vpc_short}} reservation in your region by using the command-line interface (CLI). To update a specific reservation by using the CLI, use the `ibmcloud is reservation-update` command. You must specify the name or ID of the specific reservation by using the `RESERVATION_NAME` for the specific reservation you want to update. Use the `NEW_NAME` variable in the `--name` option to rename the reservation.
 
 ```sh
 ibmcloud is reservation-update RESERVATION_NAME [--name NEW_NAME]
@@ -262,18 +278,18 @@ Capacity          Allocated   Available   Total   Used   Status
 ```
 {: screen}
 
-Where the following argument and option values are used.
+Where the following argument and option values are used
 
 * --name: New name for the reservation.
 * --capacity: The capacity configuration for this reservation.
 * --term: Term of the reservation. One of: one_year, three_year.
-* --profile: The name of the profile to be used for this reservation.
+* --profile: The name of the profile to use for this reservation.
 * --profile-resource-type: The resource type of the profile. One of: instance_profile.
-* --expiration-policy: The policy to apply when the committed use term expires. One of: release, renew.
+* --expiration-policy: The policy that applies when the committed use term expires. One of: release, renew.
 * --output: Specify output format, only JSON is supported. One of: JSON.
 * -q, --quiet: Suppress verbose output.
 
-### List instance profiles with reservation terms
+### Listing instance profiles with reservation terms
 {: #list-instance-profiles-with-reservation-terms-cli-vpc}
 
 You can list instance profiles with reservation terms in your region by using the command-line interface (CLI). To list instance profiles with reservation terms by using the CLI, use the `ibmcloud is instance-profiles` command.
@@ -298,10 +314,10 @@ bx3d-2x10          intel               amd64          balanced           2      
 ```
 {: screen}
 
-### List instances with a reservation
+### Listing instances with a reservation
 {: #list-instances-with-reservation-cli-vpc}
 
-You can list instances with reservation terms in your region by using the command-line interface (CLI). To list instances with a reservation terms by using the CLI, use the `ibmcloud is instances` command. You must specify the name or ID of the specific instane by using the `INSTANCE_NAME` for the specific instances that you want to list.
+You can list instances with reservation terms in your region by using the command-line interface (CLI). To list instances with a reservation terms by using the CLI, use the `ibmcloud is instances` command. You must specify the name or ID of the specific instance by using the `INSTANCE_NAME` for the specific instances that you want to list.
 
 ```sh
 ibmcloud is instances
@@ -364,7 +380,7 @@ Health State                          ok
 ```
 {: screen}
 
-### Get instance profiles with reservation terms
+### Getting instance profiles with reservation terms
 {: #get-reservation-profile-with-reservation-terms-cli-vpc}
 
 You can get instance profiles with reservation terms in your region by using the command-line interface (CLI). To get instance profiles with reservation terms by using the CLI, use the `ibmcloud is instance-profile` command.
@@ -393,7 +409,7 @@ bx3d-2x10          intel               amd64          balanced           2      
 {: #managing-reservation-api-vpc}
 {: api}
 
-To manage a reservation using the application programming interface (API), you need an IAM role that includes the following actions. For more information, see [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started).
+To manage a reservation by using the application programming interface (API), you need an IAM role that includes the following actions. For more information, see [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started).
 
    - is.reservation.reservation.list
    - is.reservation.reservation.read
@@ -402,7 +418,7 @@ To manage a reservation using the application programming interface (API), you n
    - is.reservation.reservation.read
    - is.reservation.reservation.update
 
-### List all reservations
+### Listing all reservations
 {: #list-reservation-api-vpc}
 {: api}
 
@@ -415,7 +431,7 @@ curl -X GET "$vpc_api_endpoint/v1/reservations?version=2024-01-27&generation=2" 
 ```
 {: pre}
 
-The reservations are sorted first by their `create_at` property value. The newest reservations are listed first. If reservations have identical `created_at` property values, they are then sorted by their `name` property values. The list of reservations defaults to 50 reservations, but you can increase this up to 100.
+The reservations are sorted first by their `create_at` property value. The newest reservations are listed first. If reservations have identical `created_at` property values, they are then sorted by their `name` property values. The list of reservations defaults to 50 reservations, but you can increase this amount up to 100.
 
 You can filter the list further with the following property values.
 
@@ -423,33 +439,33 @@ You can filter the list further with the following property values.
 * `resource_group.id`
 * `zone.name`
 
-### Delete a reservation
+### Deleting a reservation
 {: #delete-reservation-api-vpc}
 {: api}
 
 You can delete an {{site.data.keyword.vpc_short}} reservation in your region by using the application programming interface (API). To delete a reservation by using the API, use [Delete a reservation](/apidocs/vpc/latest#delete-reservation).
 
-Specify a `DELETE /reservation` request delete a reservation. See the following example.
+Specify a `DELETE /reservation` request to delete a reservation. See the following example.
 
 ```sh
 curl -X DELETE "$vpc_api_endpoint/v1/reservations/$id?version=2024-01-27&generation=2" - H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
-### Retrieve reservations
+### Retrieving a reservation
 {: #retrieve-reservation-api-vpc}
 {: api}
 
 You can retrieve a specific {{site.data.keyword.vpc_short}} reservation in your region by using the application programming interface (API). To retrieve a specific reservation by using the API, use [Retrieve a reservation](/apidocs/vpc/latest#get-reservation).
 
-Specify a `GET /reservation/{id}` request retrieve a specific reservation where `id` is the reservation identifier of the reservation you are retrieving. The identifier is in the URL. See the following example.
+Specify a `GET /reservation/{id}` request to retrieve a specific reservation where `id` is the reservation identifier of the reservation you are retrieving. The identifier is in the URL. See the following example.
 
 ```sh
 curl -X GET "$vpc_api_endpoint/v1/reservations/$id?version=2024-01-27&generation=2" - H "Authorization: Bearer $iam_token"
 ```
 {: pre}
 
-### Update a reservation
+### Updating a reservation
 {: #update-reservation-api-vpc}
 {: api}
 
@@ -466,11 +482,11 @@ curl -X PATCH "$vpc_api_endpoint/v1/reservations/$id?version=2024-01-27&generati
 ```
 {: pre}
 
-### Activate a reservation
+### Activating a reservation
 {: #activate-reservation-api-vpc}
 {: api}
 
-You can activate a specific {{site.data.keyword.vpc_short}} reservations in your region by using the application programming interface (API). To activate a specific reservation by using the API, use [Activiate a reservation](/apidocs/vpc/latest#activate-reservation).
+You can activate a specific {{site.data.keyword.vpc_short}} reservation in your region by using the application programming interface (API). To activate a specific reservation by using the API, use [Activate a reservation](/apidocs/vpc/latest#activate-reservation).
 
 Specify a `POST /reservations/{id}/activate` request to update a specific reservation where `id` is the reservation identifier of the reservation you are retrieving. The identifier is in the URL. See the following example.
 

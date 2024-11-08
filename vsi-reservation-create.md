@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-11-06"
+lastupdated: "2024-11-08"
 
 subcollection: vpc
 
@@ -22,6 +22,8 @@ You can provision a reservation through the UI, CLI, or API.
 Make sure that your account has the required user permissions. Your account must be assigned the `Administrator` or `Editor` role for the VPC Infrastructure Services service and Reservations for VPC resource type. You need one of these user permissions to create a reservation. Extra roles are available.
 
 For more information about managing IAM access, see [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started).
+
+When you create a reservation, the reservation resource is created, but it isn't provisioned or usable. The state of the reservation is `inactive`. To provision the reservation, you need to active it. When active, the state of the reservation is `active`.
 
 ## Provisioning a reservation with the UI
 {: #provisioning-reserved-capacity-ui-vpc}

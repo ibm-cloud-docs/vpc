@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-11-06"
+lastupdated: "2024-11-08"
 
 keywords:
 
@@ -54,7 +54,6 @@ The following is a list of top-level domains that you can use to bypass domain n
 - `.corp`
 - `.home`
 - `.lan`
-{: important}
 
 Wildcard (&#42;) domains are supported. For example, a Private Path service with `"service_endpoints": ["*.service.com"]` will include all of its subdomains, such as `api1.service.com` and `api2.service.com`.
 
