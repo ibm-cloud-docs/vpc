@@ -41,6 +41,7 @@ Flexibility and control
 A cluster network enhances the efficiency and speed of data transfer within a networked group of systems, making it an essential component for high-performance computing tasks. Follow these general steps to create a simple cluster network for AI training:
 
 1. Review [planning considerations for cluster networks](/docs/vpc?topic=vpc-planning-cluster-network) and be aware of any [known issues and limitations](/docs/vpc?topic=vpc-limitations-cluster-network).
+1. Increase your [storage quota](/docs/vpc?topic=vpc-quotas&interface=ui#cluster-networks-quotas), if necessary, by opening an [IBM Support case](/docs/account?topic=account-open-case&interface=ui).
 1. Ensure that you have an existing VPC in a region that has capacity for NVIDIA H100 profiles with clustering support.
 
    Currently, the only supported zone is `us-east-wdc07-a`. For more information about zones, see [zone mapping per account](/docs/overview?topic=overview-locations#zone-mapping).
