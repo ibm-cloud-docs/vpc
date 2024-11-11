@@ -23,14 +23,7 @@ After you create an instance, you can attach it to a cluster network instance su
 
 Review [Planning considerations](/docs/vpc?topic=vpc-planning-cluster-network&interface=ui) and [Known issues and limitations](/docs/vpc?topic=vpc-limitations-cluster-network&interface=ui).
 
-You can attach cluster network interfaces to an instance with the UI, CLI, API, or Terraform.
-
-## Attaching cluster network interfaces to an instance in the UI
-{: #attach-interfaces-cluster-network-ui}
-{: ui}
- 
-Currently, the UI does not support this feature for beta.
-{: note}
+You can attach cluster network interfaces to an instance with the CLI, API, or Terraform.
 
 ## Attaching cluster network interfaces to an instance in the CLI
 {: #attach-interfaces-cluster-network-cli}
