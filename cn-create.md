@@ -162,7 +162,7 @@ To create a cluster network with the API, follow these steps:
    ```
    {: codeblock}
 
-   To view the complete set of cluster network APIs, see the [VPC API reference](/apidocs/vpc-beta/latest#list-cluster-network-profiles).
+   To view the complete set of cluster network APIs, see the [VPC API reference](/apidocs/vpc/latest#list-cluster-network-profiles).
 
 ## Creating a cluster network interface with Terraform
 {: #ccreate-cluster-network-terraform}
