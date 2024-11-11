@@ -39,13 +39,6 @@ To attach interfaces to an instance in the CLI, follow these steps:
     ```
     {: pre}
 
-1. Enable the following feature flag:
-
-   ```sh
-   export IBMCLOUD_IS_FEATURE_CLUSTER_NETWORK=true
-   ```
-   {: pre}
-
 1. To attach an interface to an instance, enter the following command:
 
    ```bash

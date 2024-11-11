@@ -51,13 +51,6 @@ To delete a cluster network in the CLI, follow these steps:
     ```
     {: pre}
 
-1. Enable the following feature flag:
-
-   ```sh
-   export IBMCLOUD_IS_FEATURE_CLUSTER_NETWORK=true
-   ```
-   {: pre}
-
 1. To delete one or more cluster networks, enter the following command:
 
    ```bash

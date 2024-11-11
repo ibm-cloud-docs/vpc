@@ -59,13 +59,6 @@ To create a cluster network subnet in the CLI, follow these steps:
     ```
     {: pre}
 
-1. Enable the following feature flag:
-
-   ```sh
-   export IBMCLOUD_IS_FEATURE_CLUSTER_NETWORK=true
-   ```
-   {: pre}
-
 1. To create a cluster network subnet, enter the following command:
 
    ```bash
