@@ -35,30 +35,6 @@ You must use the same VPC region for both your load balancer and Private Path se
 
 You can create an {{site.data.keyword.cloud}} Private Path service using the UI, CLI, API, or Terraform.
 
-### Register and verify ownership of service endpoints (FQDNs)
-{: #pps-domain-register-verify}
-
-When creating a Private Path service, you are required to prove that you own the _service-endpoints_ (DNS FQDNs) you provide. This is done to prevent DNS hijacking and FQDN conflicts. Ownership is verified by creating a TXT record for each FQDN (service endpoint) with specific contents. You must create the TXT records in a public DNS. The public DNS is only consulted when the Private Path service is created. After a Private Path service is created, only a private DNS is used in the data path  (never a public DNS).
-
-The required `TXT` record must start with a `ibm-domain-verification=` prefix. Validation is successful if the prefix is followed by a value that matches the `SHA-256` hash of the account ID associated with the user creating the Private Path service. An example TXT record to add:
-`ibm-domain-verification=252cfc164d3600a79007f25312a6a924288cfc6dbcaeec838ca9048cde664acb`
-
-The details of how to go about adding a TXT record to your FQDN differs depending on the public DNS service you use. It is recommended that you consult your DNS service provider for details.
-
-If multiple service endpoints are specified for a Private Path service, the ownership validation must be successful for all of them.
-
-The following is a list of top-level domains that you can use to bypass domain name ownership validation:
-- `.intranet`
-- `.internal`
-- `.private`
-- `.corp`
-- `.home`
-- `.lan`
-
-Wildcard (&#42;) domains are supported. For example, a Private Path service with `"service_endpoints": ["*.service.com"]` will include all of its subdomains, such as `api1.service.com` and `api2.service.com`.
-
-The DNS ownership validation is successful when the wildcard domain contains the valid `TXT` record. In this example, to pass the validation, you can add the valid `TXT` record to `service.com`.
-
 ## Creating a Private Path service in the UI
 {: #pps-ui-creating-private-path-service}
 {: ui}
@@ -118,7 +94,8 @@ To create a Private Path service with the {{site.data.keyword.cloud_notm}} conso
       It takes several minutes for your Private Path NLB to be created. When the load balancer is created, its status changes from **Creating** to **Active** in the table.
       {: note}
 
-1. In the Service endpoint section, click **Create**. Provide a name for the service endpoint where you want to connect your Private Path service. Click **Add +**. Then, select to enable or disable zonal affinity for the service endpoints. When zonal affinity is enabled, the endpoint maintains persistence to the zone after the connection is created.
+1. In the Service endpoint section, click **Create**. Provide a name for the service endpoint where you want to connect your Private Path service. Click **Add +**. Validate the FQDN. For more information, see [Register and verify ownership of service endpoints (FQDNs)](/docs/vpc?topic=vpc-private-path-service-about&interface=ui#pps-domain-register-verify).
+1. Select to enable or disable zonal affinity for the service endpoints. When zonal affinity is enabled, the endpoint maintains persistence to the zone after the connection is created.
 1. In the Account policies section:
    * The default policy is set to review and triage each incoming connection request. You can change the default policy to permit or deny all requests without review.
    * To establish account policies that are different than the default policy, click **Create**. Provide the account ID of the account for which you want to set up a policy. For the Account policy option, select Review, Permit, or Deny.
@@ -256,6 +233,30 @@ resource "ibm_is_private_path_service_gateway" "ppsg" {
 }
 ```
 {: codeblock}
+
+## Register and verify ownership of service endpoints (FQDNs)
+{: #pps-domain-register-verify}
+
+When creating a Private Path service, you are required to prove that you own the _service-endpoints_ (DNS FQDNs) you provide. This is done to prevent DNS hijacking and FQDN conflicts. Ownership is verified by creating a TXT record for each FQDN (service endpoint) with specific contents. You must create the TXT records in a public DNS. The public DNS is only consulted when the Private Path service is created. After a Private Path service is created, only a private DNS is used in the data path  (never a public DNS).
+
+The required `TXT` record must start with a `ibm-domain-verification=` prefix. Validation is successful if the prefix is followed by a value that matches the `SHA-256` hash of the account ID associated with the user creating the Private Path service. An example TXT record to add:
+`ibm-domain-verification=252cfc164d3600a79007f25312a6a924288cfc6dbcaeec838ca9048cde664acb`
+
+The details of how to go about adding a TXT record to your FQDN differs depending on the public DNS service you use. It is recommended that you consult your DNS service provider for details.
+
+If multiple service endpoints are specified for a Private Path service, the ownership validation must be successful for all of them.
+
+The following is a list of top-level domains that you can use to bypass domain name ownership validation:
+- `.intranet`
+- `.internal`
+- `.private`
+- `.corp`
+- `.home`
+- `.lan`
+
+Wildcard (&#42;) domains are supported. For example, a Private Path service with `"service_endpoints": ["*.service.com"]` will include all of its subdomains, such as `api1.service.com` and `api2.service.com`.
+
+The DNS ownership validation is successful when the wildcard domain contains the valid `TXT` record. In this example, to pass the validation, you can add the valid `TXT` record to `service.com`.
 
 ## Next steps
 {: #pps-next-steps}

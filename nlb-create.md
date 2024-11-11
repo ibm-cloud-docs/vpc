@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-10-25"
+lastupdated: "2024-11-08"
 
 keywords: network load balancer, public, listener, pool, round-robin
 
@@ -92,8 +92,6 @@ To create and configure a network load balancer in the {{site.data.keyword.cloud
 
       You can attach server instances after you create your back-end pool.
       {: note}
-
-    
 
      Although the load balancer stops sending connections to unhealthy instances, the load balancer continues monitoring the health of these instances and resumes their use if they're found healthy again (that is, if they successfully pass two consecutive health check attempts).
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-11-06"
+lastupdated: "2024-11-08"
 
 keywords:
 
@@ -140,9 +140,9 @@ Figure 4 illustrates how to establish a Private Path service with connections to
 
 These links provide additional information about Private Path services for VPC:
 
-* [Private Path services CLI reference](/docs/vpc?topic=vpc-vpc-reference)
-* [Private Path services API reference (Beta)](/apidocs/vpc-beta)
-* [IAM permissions](/docs/account?topic=account-iam-service-roles-actions#is.load-balancer-roles)
-* [Activity Tracker events](/docs/vpc?topic=vpc-at_events#events-private-path-service-events)
-* [Quotas and service limits](/docs/vpc?topic=vpc-quotas)
-* [Private Path solution tutorial](/docs/solution-tutorials?topic=solution-tutorials-vpc-pps-basics)
+* [Private Path services CLI reference](/docs/vpc?topic=vpc-vpc-reference){: external}
+* [Private Path services API reference](/apidocs/vpc/latest#list-private-path-service-gateways){: external}
+* [IAM permissions](/docs/account?topic=account-iam-service-roles-actions#is.load-balancer-roles){: external}
+* [Activity Tracker events](/docs/vpc?topic=vpc-at_events#events-private-path-service-events){: external}
+* [Quotas and service limits](/docs/vpc?topic=vpc-quotas){: external}
+* [Private Path solution tutorial](/docs/solution-tutorials?topic=solution-tutorials-vpc-pps-basics){: external}
