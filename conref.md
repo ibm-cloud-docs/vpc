@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-11-11"
 
 keywords:
 
@@ -84,6 +84,7 @@ When you want to delete an {{site.data.keyword.vpc_short}} custom image that is 
 | Backup service | `backupPolicyId: <backup-policy-id>`|
 | Block Storage for VPC | `volumeId: <volume-id>` |
 | Bare metal server | `bareMetalServerId: <bare-metal-server-id>` |
+| Cluster networks for VPC | `clusterNetworkId: <cluster-network-id>` |
 | Dedicated Host for VPC | `dedicatedHostId:<dedicated-host-id>` |
 | File Storage | `shareId: <share-id>` |
 | Floating IP for VPC | `floatingIpId: <fip-id>` |
@@ -92,6 +93,7 @@ When you want to delete an {{site.data.keyword.vpc_short}} custom image that is 
 | Load Balancer for VPC | `loadBalancerId: <load-balancer-id>` |
 | Network ACL | `networkAclId: <nacl-id>` |
 | Placement Group for VPC | `placementGroupId: <placement-group-id>` |
+| Private Path services for VPC | `privatePathServiceGatewayId: <private-path-service-gateway-id>` |
 | Public Gateway for VPC | `publicGatewayId: <pgw-id>` |
 | Reservations for VPC | `reservationId: <reservation-id>` |
 | Security Group for VPC | `securityGroupId: <default-sec-grp-id>` |
