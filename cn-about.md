@@ -32,9 +32,6 @@ Specialized technologies
 High-performance computing
 :   Suited for demanding applications, such as artificial intelligence (AI) training or complex simulations, where high bandwidth and low latency is critical.
 
-Use cases
-:   Used in scenarios, such as scientific simulations, large-scale machine learning training, and other data-intensive applications where efficient and rapid data processing is critical.
-
 Flexibility and control
 : Is a supplemental network to the existing VPC network. The cluster network attachments are separate from the VPC networks, allowing for users to mix their high speed RDMA networks along side their VPC networks.
 
