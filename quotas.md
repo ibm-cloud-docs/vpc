@@ -140,9 +140,6 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 
 
 
-The beta release of IBM Cloud Private Path is available only to allowlisted users. Contact your IBM Support representative if you are interested in getting early access to this beta offering.
-{: beta}
-
 | Resource | Quota |
 |--------|-----|
 | Load balancers | 50 per region |
