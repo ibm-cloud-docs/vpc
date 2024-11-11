@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-08"
+lastupdated: "2024-11-11"
 
 keywords:
 
@@ -127,11 +127,6 @@ Review the available platform and service roles and the actions mapped to each t
 {: class="simple-tab-table"}
 {: summary="Use the tab buttons to change the context of the table. This table provides the available actions for the service, descriptions of each, and the roles that each action are mapped to."}
 {: #actions-table105}
-
-### Next step
-{: #next-step-cluster-networks}
-
-After you set up your cluster network, [create a virtual server instance](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui) and attach it to the cluster network. You can also pre-create interface objects on the cluster network, or do this when you provision your instance.
 
 ## Cluster network use cases
 {: #use-cases-cluster-network}
