@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-10-15"
+lastupdated: "2024-11-11"
 
 keywords:
 
@@ -14,9 +14,6 @@ subcollection: vpc
 
 # Deleting a cluster network
 {: #delete-cluster-network}
-
-Contact your IBM Support representative if you are interested in getting early access to this offering. It is currently available for early access users of the `gx3d-160x1792x8h100` [virtual server instance profiles](/docs/vpc?topic=vpc-profiles#gpu) in the `us-east` region.
-{: beta}
 
 You can delete a cluster network interface after all instances attached to it are deleted.
 {: shortdesc}

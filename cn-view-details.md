@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-10-15"
+lastupdated: "2024-11-11"
 
 keywords:
 
@@ -14,9 +14,6 @@ subcollection: vpc
 
 # Viewing details of a cluster network
 {: #view-details-cluster-network}
-
-Contact your IBM Support representative if you are interested in getting early access to this offering. It is currently available for early access users of the `gx3d-160x1792x8h100` [virtual server instance profiles](/docs/vpc?topic=vpc-profiles#gpu) in the `us-east` region.
-{: beta}
 
 View details of your cluster network, such as its name, creation date, and CRN. You can also manage and create subnets and interfaces within the cluster network. For example, you can specify the subnet CIDR and define reserved IP addresses.
 {: shortdesc}

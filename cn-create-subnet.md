@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-10-25"
+lastupdated: "2024-11-11"
 
 keywords:
 
@@ -14,9 +14,6 @@ subcollection: vpc
 
 # Creating a cluster network subnet
 {: #create-cluster-network-subnet}
-
-Contact your IBM Support representative if you are interested in getting early access to this offering. It is currently available for early access users of the `gx3d-160x1792x8h100` [virtual server instance profiles](/docs/vpc?topic=vpc-profiles#gpu) in the `us-east` region.
-{: beta}
 
 A cluster network subnet is a subnet within a cluster network. While it resembles a VPC subnet, it offers fewer features. However, it does let you define the subnet CIDR and configure reserved IPs for the cluster network subnet. These reserved IPs include addresses you specify and come with an auto-delete function similar to that of VPC subnet reserved IPs.
 {: shortdesc}

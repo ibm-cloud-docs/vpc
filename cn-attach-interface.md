@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-10-15"
+lastupdated: "2024-11-11"
 
 keywords:
 
@@ -14,9 +14,6 @@ subcollection: vpc
 
 # Attaching cluster network interfaces to an instance
 {: #attach-interfaces-cluster-network}
-
-Contact your IBM Support representative if you are interested in getting early access to this offering. It is currently available for early access users of the `gx3d-160x1792x8h100` [virtual server instance profiles](/docs/vpc?topic=vpc-profiles#gpu) in the `us-east` region.
-{: beta}
 
 After you create an instance, you can attach it to a cluster network instance subnet. Alternatively, you can plan out your network by creating your interfaces up front before attaching your instances.  
 {: shortdesc} 
