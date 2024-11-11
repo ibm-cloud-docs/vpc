@@ -41,7 +41,7 @@ To update the target service of a Private Path provider service the {{site.data.
 1. Select the **Navigation Menu** ![Menu icon](images/menu_icon.png), then click **Infrastructure > Network > Load balancers**.
 1. Select the region of your load balancer.
 1. Select the load balancer that you want to update.
-1. Select **Back-end pools** > **Create pool +** to create a new pool of servers for your updated service.
+1. Select **Back-end pools** > **Create pool** to create a new pool of servers for your updated service.
 1. Select the new options for your pool. You have the following options:
 
    * **Pool Name**: The name for your pool. Ideally, a name that describes the function that is performed by this pool.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-06"
+lastupdated: "2024-11-11"
 
 keywords: private path
 
@@ -33,7 +33,7 @@ To create a Private Path service policy in the {{site.data.keyword.cloud_notm}} 
 1. Select the **Navigation Menu** ![Menu icon](images/menu_icon.png), then click **Infrastructure > Network > Private Path services**.
 1. Click the name of the Private Path service where you want to add an account policy.
 1. On the Private Path service's Details page, click the Account policies tab.
-1. In the Account policies table, click **Create policy +**.
+1. In the Account policies table, click **Create policy**.
 1. In the Create policy window that appears, enter the following information:
 
     * Account ID - Enter the account ID for which you are creating an account policy.
