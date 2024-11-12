@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-11"
+lastupdated: "2024-11-12"
 
 keywords:
 
@@ -65,7 +65,7 @@ A cluster network enhances the efficiency and speed of data transfer within a ne
       - Enable clustering.
       - Add attachments (8, 16, or 32) that correspond with your cluster subnets.
 
-   Advanced users might want to preallocate IP addresses or interfaces, however, it is recommended that you create IPs or interfaces when creating an instance.
+   Advanced users might want to preallocate IP addresses or interfaces. However, it is recommended that you create IPs or interfaces when creating an instance.
    {: note}
 
 ## Cluster network IAM roles and actions
@@ -141,7 +141,7 @@ First, make sure that you have a cluster network set up with cluster network sub
 {: #cn-secure-cluster-network}
 {: #cn-use-case-b}
 
-The cluster network is isolated to a separate network domain than the VPC cloud network. The cluster network isolation domain allows the user to be secure without needing to utilize security groups, Network ACLs, or routing tables.Communication within the cluster network only occurs between devices directly connected to the cluster network.
+The cluster network is isolated to a separate network domain than the VPC cloud network. The cluster network isolation domain allows the user to be secure without needing to utilize security groups, Network ACLs, or routing tables. Communication within the cluster network only occurs between devices directly connected to the cluster network.
 
 Resources that are connected to the cluster network also must connect at least one VPC network. The VPC network supports all of the IBM Cloud network use cases of a standard VPC resources - Floating IPs, Public Gateways, Transit Gateway, and more. As such, it's recommended that the user review their security policies of the Virtual Network Interfaces attached to resources on the cluster network.
 

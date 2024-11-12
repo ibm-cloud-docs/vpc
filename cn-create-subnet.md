@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-11"
+lastupdated: "2024-11-12"
 
 keywords:
 
@@ -120,7 +120,7 @@ To create a cluster network subnet with the API, follow these steps:
 1. When all variables are initiated, run the following command to create the cluster network subnet:
 
    ```sh
-   curl -X POST "$vpc_api_endpoint/v1/cluster_networks/$cluster_network_id/subnets?version=$tomorrow&generation=2&maturity=development" -H "Authorization: Bearer $iam_token" -d '{
+   curl -X POST "$vpc_api_endpoint/v1/cluster_networks/$cluster_network_id/subnets?version=$today&generation=2" -H "Authorization: Bearer $iam_token" -d '{
          "name": "my-cluster-network-subnet",
          "total_ipv4_address_count": 2048
        }'
