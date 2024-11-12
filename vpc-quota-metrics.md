@@ -2,7 +2,7 @@
 
 copyright:
   years:  2021, 2024
-lastupdated: "2024-10-23"
+lastupdated: "2024-11-12"
 
 keywords: IBM Cloud monitoring, platform metrics, metrics, vpc metrics, vpc monitoring metrics, Quota metrics, quota dashboard
 
@@ -38,9 +38,9 @@ Resources that offer quota metrics, detailed in Table 1.
 | `reserved-ip` | `reserved-ip` | {region} | {account ID} |
 | `network-acl` | `network-acl` | {region} | {VPC ID} |
 | `network-acl` | `network-acl-rule` | {region} | {network ACL ID} |
-| [Beta]{: tag-purple} `cluster-network` | `cluster_networks` | {region} | {account ID} |
-| [Beta]{: tag-purple} `cluster-network` | `cluster_network_subnets` | {region} | {Cluster Network ID} |
-| [Beta]{: tag-purple} `cluster-network` | `cluster_network_subnet_reserved_ips` | {region} | {account ID} |
+| [Select availability]{: tag-green} `cluster-network` | `cluster_networks` | {region} | {account ID} |
+| [Select availability]{: tag-green} `cluster-network` | `cluster_network_subnets` | {region} | {Cluster Network ID} |
+| [Select availability]{: tag-green} `cluster-network` | `cluster_network_subnet_reserved_ips` | {region} | {account ID} |
 {: caption="Table 1: Services offering quota metrics" caption-side="top"}
 
 ### Resource quota consumption
