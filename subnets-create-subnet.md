@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-10-25"
+lastupdated: "2024-11-12"
 
 keywords:
 
@@ -122,7 +122,7 @@ Where:
 :    The ID or name of the public gateway.
 
 `--rt`
-:    The ID or name of the routing table. 
+:    The ID or name of the routing table. This option also supports the cloud resource name (CRN) of the routing table.
 
 `--resource-group-id`
 :    The ID of the resource group. This ID is mutually exclusive with `--resource-group-name`.
