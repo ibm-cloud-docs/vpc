@@ -47,51 +47,6 @@ As a service provider, follow these steps to get started:
    * Set the default policy for when an account doesn’t have a specific policy that is assigned to it. The default policy (**Review**) allows you to permit or deny each request, whereas **Permit** and **Deny** automate the process for connection requests without specific account policies.
    * Create account policies for specific account IDs now or later. These policies determine what action to take when the provider receives a request from a specific account, and take precedence over the default policy.
 
-## Private Path IAM roles and actions
-{: #private-path-iam-service-roles-actions}
-
-It is important to understand how to effectively assign access for users to work with products and take specific account management actions within your account to follow the principle of least privilege and minimize the number of policies that you have to manage. The following tables provide information about the access roles and the actions mapped to each by the {{site.data.keyword.cloud}} services.
-{: shortdesc}
-
-Review the available platform and service roles and the actions mapped to each to help you assign access. If you're using the CLI or API to assign access, use `is.private-path-service-gateway` for the service name.
-
-| Role | Description |
-| ----- | :----- |
-| Administrator | As an administrator you can create, delete, update and view private path service gateway service instances, and assign access policies to other users. |
-| Editor | As an editor you can create, delete, update and view private path service gateway service instance. |
-| Operator | As an operator you can view the properties of private path service gateways but you cannot modify them. |
-| Viewer | As a viewer you can view the properties of private path service gateway service instances, but you cannot modify them. |
-{: row-headers}
-{: caption="Platform roles - Private Path Service for VPC" caption-side="top"}
-{: tab-title="Platform roles"}
-{: tab-group="is.private-path-service-gateway"}
-{: class="simple-tab-table"}
-{: summary="Use the tab buttons to change the context of the table. This table has row and column headers. The row headers provide the platform role name and the column headers identify the specific information available about each role."}
-{: #platform-roles-table118}
-
-| Action | Description | Roles |
-| ----- | :----- | :----- |
-| `is.private-path-service-gateway.private-path-service-gateway.read` | View Private Path services | Administrator, Editor, Operator, Viewer |
-| `is.private-path-service-gateway.private-path-service-gateway.list` | List Private Path services | Administrator, Editor, Operator, Viewer |
-| `is.private-path-service-gateway.private-path-service-gateway.create` | Create Private Path service | Administrator, Editor |
-| `is.private-path-service-gateway.private-path-service-gateway.delete` | Delete Private Path service | Administrator, Editor |
-| `is.private-path-service-gateway.private-path-service-gateway.update` | Update Private Path service | Administrator, Editor |
-| `is.private-path-service-gateway.private-path-service-gateway.operate` | Operate Private Path service | Administrator, Editor, Operator |
-| `is.private-path-service-gateway.account-policy.read` | Get Private Path Service Gateway Account Policy | Viewer |
-| `is.private-path-service-gateway.account-policy.list` | List Account Policies | Viewer |
-| `is.private-path-service-gateway.account-policy.manage` | Manage Account Policy | Administrator, Editor, Operator |
-| `is.private-path-service-gateway.endpoint-gateway-binding.list` | List Endpoint Gateway Bindings | Administrator, Editor, Operator, Viewer |
-| `is.private-path-service-gateway.endpoint-gateway-binding.read` | View Endpoint Gateway Binding | Administrator, Editor, Operator, Viewer |
-| `is.private-path-service-gateway.endpoint-gateway-binding.manage` | Manage Endpoint Gateway Binding | Administrator, Editor, Operator |
-| `is.private-path-service-gateway.private-path-service-gateway.publish` | Publish Private Path service | Administrator, Editor |
-| `is.private-path-service-gateway.private-path-service-gateway.unpublish` | Unpublish Private Path service | Administrator, Editor |
-{: caption="Service actions - Private Path Service for VPC" caption-side="top"}
-{: tab-title="Actions"}
-{: tab-group="is.private-path-service-gateway"}
-{: class="simple-tab-table"}
-{: summary="Use the tab buttons to change the context of the table. This table provides the available actions for the service, descriptions of each, and the roles that each action are mapped to."}
-{: #actions-table118}
-
 ## Private Path service use cases
 {: #pps-use-cases}
 

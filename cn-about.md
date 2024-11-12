@@ -68,61 +68,6 @@ A cluster network enhances the efficiency and speed of data transfer within a ne
    Advanced users might want to preallocate IP addresses or interfaces. However, it is recommended that you create IPs or interfaces when creating an instance.
    {: note}
 
-## Cluster network IAM roles and actions
-{: #is.cluster-network-roles}
-
-It is important to understand how to effectively assign access for users to work with products and take specific account management actions within your account to follow the principle of least privilege and minimize the number of policies that you have to manage. The following tables provide information about the access roles and the actions mapped to each by the {{site.data.keyword.cloud}} services.
-{: shortdesc}
-
-Review the available platform and service roles and the actions mapped to each to help you assign access. If you're using the CLI or API to assign access, use `is.cluster-network` for the service name.
-
-| Role | Description |
-| ----- | :----- |
-| Administrator | As an administrator, you can perform all platform actions based on the resource this role is being assigned, including assigning access policies to other users. |
-| Editor | As an editor, you can perform all platform actions except for managing the account and assigning access policies. |
-| Operator | As an operator, you can perform platform actions required to configure and operate service instances, such as viewing a service's dashboard. |
-| Viewer | As a viewer, you can view service instances, but you can't modify them. |
-{: row-headers}
-{: caption="Platform roles - Cluster Network" caption-side="top"}
-{: tab-title="Platform roles"}
-{: tab-group="is.cluster-network"}
-{: class="simple-tab-table"}
-{: summary="Use the tab buttons to change the context of the table. This table has row and column headers. The row headers provide the platform role name and the column headers identify the specific information available about each role."}
-{: #platform-roles-table105}
-
-| Action | Description | Roles |
-| ----- | :----- | :----- |
-| `is.cluster-network.cluster-network.create` | Create Cluster Network | Administrator, Editor |
-| `is.cluster-network.cluster-network.read` | Read Cluster Network | Administrator, Editor, Operator, Viewer |
-| `is.cluster-network.cluster-network.list` | List Cluster Networks | Administrator, Editor, Operator, Viewer |
-| `is.cluster-network.cluster-network.update` | Update Cluster Network | Administrator, Editor |
-| `is.cluster-network.cluster-network.delete` | Delete Cluster Network | Administrator, Editor |
-| `is.cluster-network.profile.read` | Read Cluster Network Profile | Administrator, Editor, Operator, Viewer |
-| `is.cluster-network.profile.list` | List Cluster Network Profiles | Administrator, Editor, Operator, Viewer |
-| `is.cluster-network.interface.create` | Create Cluster Network Interface | Administrator, Editor |
-| `is.cluster-network.interface.read` | Read Cluster Network Interface | Administrator, Editor, Operator, Viewer |
-| `is.cluster-network.interface.list` | List Cluster Network Interface | Administrator, Editor, Operator, Viewer |
-| `is.cluster-network.interface.update` | Update Cluster Network Interface | Administrator, Editor |
-| `is.cluster-network.interface.delete` | Delete Cluster Network Interface | Administrator, Editor |
-| `is.cluster-network.subnet.create` | Create Cluster Network Subnet | Administrator, Editor |
-| `is.cluster-network.subnet.read` | Read Cluster Network Subnet | Administrator, Editor, Operator, Viewer |
-| `is.cluster-network.subnet.list` | List Cluster Network Subnets | Administrator, Editor, Operator, Viewer |
-| `is.cluster-network.subnet.update` | Update Cluster Network Subnet | Administrator, Editor |
-| `is.cluster-network.subnet.delete` | Delete Cluster Network Subnet | Administrator, Editor |
-| `is.cluster-network.subnet-reserved-ip.create` | Create Cluster Network Subnet Reserved IP | Administrator, Editor |
-| `is.cluster-network.subnet-reserved-ip.read` | Read Cluster Network Subnet Reserved IP | Administrator, Editor, Operator, Viewer |
-| `is.cluster-network.subnet-reserved-ip.list` | List Cluster Network Subnet Reserved IPs | Administrator, Editor, Operator, Viewer |
-| `is.cluster-network.subnet-reserved-ip.update` | Update Cluster Network Subnet Reserved IP | Administrator, Editor |
-| `is.cluster-network.subnet-reserved-ip.delete` | Delete Cluster Network Subnet Reserved IP | Administrator, Editor |
-| `is.cluster-network.subnet.operate` | Operate the cluster network subnet | Administrator, Editor, Operator |
-| `is.cluster-network.interface.operate` | Operate Cluster Network Interface | Administrator, Editor, Operator |
-{: caption="Service actions - Cluster Network" caption-side="top"}
-{: tab-title="Actions"}
-{: tab-group="is.cluster-network"}
-{: class="simple-tab-table"}
-{: summary="Use the tab buttons to change the context of the table. This table provides the available actions for the service, descriptions of each, and the roles that each action are mapped to."}
-{: #actions-table105}
-
 ## Cluster network use cases
 {: #use-cases-cluster-network}
 
@@ -158,8 +103,9 @@ To maintain minimal access to the cluster network, you must:
 ## Related links
 {: #related-links-cluster-network}
 
-* [Quotas and service limits](/docs/vpc?topic=vpc-quotas&q=service+limits&tags=vpc#cluster-networks-quotas)
+* [Quotas and service limits](/docs/vpc?topic=vpc-quotas&q=service+limits&tags=vpc#cluster-networks-quotas){: external}
+* [IAM permissions](/docs/vpc?topic=vpc-about-cluster-network#is.cluster-network-roles){: external}
 * [AT events](/docs/vpc?topic=vpc-at_events&q=tracker&tags=vpc#events-cluster-network)
-* [FAQs](/docs/vpc?topic=vpc-faqs-cluster-network)
-* [NVIDIA H100 cluster network profile](/docs/vpc?topic=vpc-cluster-network-h100-profile&interface=cli)
-* [GPU profile information](/docs/vpc?topic=vpc-profiles#gpu)
+* [FAQs](/docs/vpc?topic=vpc-faqs-cluster-network){: external}
+* [NVIDIA H100 cluster network profile](/docs/vpc?topic=vpc-cluster-network-h100-profile&interface=cli){: external}
+* [GPU profile information](/docs/vpc?topic=vpc-profiles#gpu){: external}
