@@ -90,7 +90,7 @@ export NCCL_TOPO_FILE=<path-to-xml-topology-file> #Sample file provided below, v
 ```
 {: codeblock}
 
-NCCL can determine the optimal paths between system components, including GPU's and NIC's, by referencing VSI-provided PCI topology information. If you want to provide a topology file using the `NCCL_TOPO_FILE` environment variable, a tested topology file for an H100 VSI with eight cluster subnets is provided below.
+NCCL can determine the optimal paths between system components, including GPU's and NIC's, by referencing VSI-provided PCI topology information. If you want to provide a topology file using the `NCCL_TOPO_FILE` environment variable, the following topology file has been tested for an H100 VSI with eight cluster subnets.
 {: note}
 
 ```
