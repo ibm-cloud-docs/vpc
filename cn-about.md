@@ -41,7 +41,8 @@ Flexibility and control
 A cluster network enhances the efficiency and speed of data transfer within a networked group of systems, making it an essential component for high-performance computing tasks. Follow these general steps to create a simple cluster network for AI training:
 
 1. Review [planning considerations for cluster networks](/docs/vpc?topic=vpc-planning-cluster-network) and be aware of any [known issues and limitations](/docs/vpc?topic=vpc-limitations-cluster-network).
-1. Increase your [storage quota](/docs/vpc?topic=vpc-quotas&interface=ui#cluster-networks-quotas), if necessary, by opening an [IBM Support case](/docs/account?topic=account-open-case&interface=ui).
+1. Determine the total resources required for your cluster by multiplying the number of instances you intend to create by the resources defined in the corresponding [instance profile](/docs/vpc?topic=vpc-profiles&interface=ui#gpu).
+1. Check the calculated total resources required for your cluster against the [default quotas](/docs/vpc?topic=vpc-quotas&q=service+limits&tags=vpc#cluster-networks-quotas) to determine if a quota increase is necessary.
 1. Ensure that you have an existing VPC in a region that has capacity for NVIDIA H100 profiles with clustering support.
 
    Currently, the only supported zone is `us-east-wdc07-a`. For more information about zones, see [zone mapping per account](/docs/overview?topic=overview-locations#zone-mapping).
@@ -51,10 +52,10 @@ A cluster network enhances the efficiency and speed of data transfer within a ne
 1. [Create cluster network subnets](/docs/vpc?topic=vpc-create-cluster-network-subnet&interface=ui) (8, 16, or 32) as child objects on the cluster network.
    
    If creating a cluster network in the UI, you can create cluster network subnets at the same time. While it is recommended that you use 8 subnets, certain scenarios will utilize a larger number of subnets.
-   {: tip}
+   {: note}
 
    Subnets within the H100 cluster network type are routable to each other. However, the cluster network is not routable externally.
-   {: note}
+   {: tip}
 
 1. Do one of the following:
 
@@ -104,7 +105,7 @@ To maintain minimal access to the cluster network, you must:
 {: #related-links-cluster-network}
 
 * [Quotas and service limits](/docs/vpc?topic=vpc-quotas&q=service+limits&tags=vpc#cluster-networks-quotas){: external}
-* [IAM permissions](/docs/vpc?topic=vpc-about-cluster-network#is.cluster-network-roles){: external}
+* [IAM permissions](/docs/account?topic=account-iam-service-roles-actions#is.cluster-network-roles){: external}
 * [AT events](/docs/vpc?topic=vpc-at_events&q=tracker&tags=vpc#events-cluster-network)
 * [FAQs](/docs/vpc?topic=vpc-faqs-cluster-network){: external}
 * [NVIDIA H100 cluster network profile](/docs/vpc?topic=vpc-cluster-network-h100-profile&interface=cli){: external}

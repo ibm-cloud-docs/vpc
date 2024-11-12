@@ -21,7 +21,7 @@ Review the following planning considerations before creating a cluster network.
 ## Considerations for cluster subnets
 {: #cn-considerations-cluster-subnets}
 
-* Instance profiles have a recommended number of cluster subnets. To identify {{site.data.keyword.cloud}}'s recommendation for cluster subnets for a given instance type:
+* Instance profiles have a recommended number of cluster subnets. The {{site.data.keyword.cloud}} recommendation for cluster subnets for a given instance type is:
 
    | Instance Profile Type | Recommended Cluster Subnets to Cluster vNICs |
    | --------------------- | -------------------------------------------- |

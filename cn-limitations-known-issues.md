@@ -18,7 +18,7 @@ subcollection: vpc
 Before you create a cluster network, review the following known issues and limitations.
 {: shortdesc}
 
-## Known issue
+## Known issues
 {: #known-issues-cluster-networks}
 
 - The new instance profiles are expected to take about 20 minutes to start.
@@ -30,12 +30,13 @@ Before you create a cluster network, review the following known issues and limit
 
 - Cluster network attachments can only be set when the instance is stopped or created.
 - Cluster network traffic is isolated and cannot be routed outside. Any access to a cluster network must be through an attached instance. As a result, without connectivity between the cluster network and the VPC network, the following resources cannot connect with cluster networks:
-   - [Endpoint gateways](/docs/vpc?topic=vpc-about-vpe&interface=ui)
    - [Floating IPs](/docs/vpc?topic=vpc-fip-about&interface=ui)
    - [Load balancers](/docs/vpc?topic=vpc-nlb-vs-elb&interface=ui)
    - [Private Path services](/docs/vpc?topic=vpc-private-path-service-intro&interface=ui)
    - [Public gateways](/docs/vpc?topic=vpc-about-public-gateways&interface=ui)
+   - [Virtual Private Endpoint gateways](/docs/vpc?topic=vpc-about-vpe&interface=ui)
    - [VPNs](/docs/vpc?topic=vpc-vpn-overview&interface=ui)
+
 
 - Services that are not supported:
    * [Flow logs](/docs/vpc?topic=vpc-flow-logs&interface=ui)

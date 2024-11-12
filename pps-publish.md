@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Publishing and Unpublishing a Private Path service
+# Publishing and unpublishing a Private Path service
 {: #pps-activating}
 
 After you verify a successful [connection to your Private Path service](/docs/vpc?topic=vpc-pps-verify), you must publish your service for deployment to consumers.
@@ -52,7 +52,7 @@ To unpublish a Private Path service in the {{site.data.keyword.cloud_notm}} cons
 1. Select the **Navigation Menu** ![Menu icon](images/menu_icon.png), then click  **Infrastructure > Network > Private Path services**.
 1. In the Private Path services for VPC table, locate the Private Path that you want to unpublish, then click the name of that Private Path service.
 1. On the Private Path service details page, click the **Actions** menu, then click **Unpublish**.
-1. Confirm that you want to unpublish your Private Path.
+1. Confirm that you want to unpublish your Private Path service.
 
 ## Publishing a Private Path service from the CLI
 {: #pps-cli-publish-private-path-service}

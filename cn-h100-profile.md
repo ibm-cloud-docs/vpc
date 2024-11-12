@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-11"
+lastupdated: "2024-11-12"
 
 keywords: cluster profiles, cluster network, cluster-network, cluster network profile, cluster network profiles, gpu, nvidia, h100, rdma, roce, accelerated, rocev2, accelerated network
 
@@ -63,3 +63,29 @@ The cluster network H100 profile has the following capabilities and restrictions
 - Reserved IPs: Yes
 - Secondary IPs: No
 - VPN: No
+
+## Tested NICL configuration
+{: #performance-recs}
+
+The following information provides tested NCCL tunings for an H100 VM profile with an 8-subnet cluster network. All testing was done on NCCL version 2.22.3. For more information, refer to the [NVIDIA Documentation](https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/overview.html).
+
+```ssh
+export NCCL_IB_PCI_RELAXED_ORDERING=2
+export NCCL_IB_QPS_PER_CONNECTION=16
+export NCCL_IB_ADAPTIVE_ROUTING=1
+export NCCL_IB_TIMEOUT=22
+export NCCL_IB_RETRY_CNT=10
+export NCCL_CHECKS_DISABLE=1
+export NCCL_CHECK_POINTERS=0
+export NCCL_CROSS_NIC=2
+export NCCL_ASYNC_ERROR_HANDLING=1
+export TORCH_NCCL_ASYNC_ERROR_HANDLING=1
+export NCCL_SOCKET_NTHREADS=4
+export NCCL_NSOCKS_PERTHREAD=4
+export NCCL_IB_HCA=mlx5_0,mlx5_1,mlx5_2,mlx5_3,mlx5_4,mlx5_5,mlx5_6,mlx5_7 # valid for an 8-subnet cluster network
+export NCCL_TOPO_FILE=<path-to-xml-topology-file> #Sample file provided below, valid for gx3d-160x1792x8h100 profile VSI, with an 8-subnet cluster network
+```
+{: codeblock}
+
+NCCL can determine the optimal paths between system components, including GPU's and NIC's, by referencing VSI-provided PCI topology information. If you want to provide a topology file using the `NCCL_TOPO_FILE` environment variable, a tested topology file for an H100 VSI with eight cluster subnets is provided at <hyperlink>.
+{: note}
