@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-11"
+lastupdated: "2024-11-12"
 
 keywords:
 
@@ -17,14 +17,6 @@ subcollection: vpc
 
 Review the following planning considerations before creating a cluster network.
 {: shortdesc}
-
-## Compute quota considerations
-{: #cn-considerations-quotas}
-
-* Ensure that you have a sufficient [compute quota](/docs/vpc?topic=vpc-quotas&interface=ui) to support the resources you will deploy in to your cluster network. Typically, these instances require a quota increase prior to provisioning.
-
-   Currently, NVIDIA H100 is the only instance profile that you can select. For more information about this profile, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui).
-   {: note}
 
 ## Considerations for cluster subnets
 {: #cn-considerations-cluster-subnets}
