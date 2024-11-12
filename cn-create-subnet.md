@@ -15,6 +15,9 @@ subcollection: vpc
 # Creating a cluster network subnet
 {: #create-cluster-network-subnet}
 
+Cluster Networks for VPC is available for select customers only. Contact IBM Support if you are interested in using this functionality.
+{: preview}
+
 A cluster network subnet is a subnet within a cluster network. While it resembles a VPC subnet, it offers fewer features. However, it does let you define the subnet CIDR and configure reserved IPs for the cluster network subnet. These reserved IPs include addresses you specify and come with an auto-delete function similar to that of VPC subnet reserved IPs.
 {: shortdesc}
 
@@ -52,6 +55,13 @@ The cluster network subnet is requested for use.
 To create a cluster network subnet in the CLI, follow these steps:
 
 1. [Set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
+1. Enable the following feature flag:
+
+   ```sh
+   export IBMCLOUD_IS_FEATURE_CLUSTER_NETWORK=true
+   ```
+   {: pre}
+   
 1. Log in to your account with the CLI. After you enter the password, the system prompts for the account and region that you want to use:
 
     ```sh
@@ -128,23 +138,3 @@ To create a cluster network subnet with the API, follow these steps:
    {: codeblock}
 
 To view the complete set of cluster network APIs, see the [VPC API reference](/apidocs/vpc-scoped?code=go#list-cluster-network-profiles).
-
-## Creating a cluster network subnet with Terraform
-{: #create-cluster-network-subnet-terraform}
-{: terraform}
-
-Terraform will support this feature after it reaches General Availability (GA) and is officially released.
-{: note}
-
-The following example provisions a cluster network subnet by using Terraform:
-
-```terraform
-resource "ibm_is_cluster_network_subnet" "is_cluster_network_subnet_instance" {
-  cluster_network_id        = var.is_cluster_network_subnet_cluster_network_id
-  ip_version                = var.is_cluster_network_subnet_ip_version
-  name                      = var.is_cluster_network_subnet_name
-  total_ipv4_address_count  = var.is_cluster_network_subnet_total_ipv4_address_count
-  // ipv4_cidr_block = var.is_cluster_network_subnet_ipv4_cidr_block #conflicts with total_ipv4_address_count
-}
-```
-{: codeblock}

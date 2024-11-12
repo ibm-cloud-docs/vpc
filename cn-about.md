@@ -15,6 +15,9 @@ subcollection: vpc
 # About cluster networks
 {: #about-cluster-network}
 
+Cluster Networks for VPC is available for select customers only. Contact IBM Support if you are interested in using this functionality.
+{: preview}
+
 A cluster network is a software-defined network within a Virtual Private Cloud (VPC) used to connect multiple computing systems or nodes in a way that optimizes performance and communication between them. These networks are designed to support tasks that require high-speed data transfer and low latency, such as high-performance computing (HPC) and large-scale data processing. Ideal for large-scale AI training use cases, cluster networks also allow you to define sets of performance criteria for a given group of interconnected systems.
 {: shortdesc}
 
@@ -41,7 +44,8 @@ Flexibility and control
 A cluster network enhances the efficiency and speed of data transfer within a networked group of systems, making it an essential component for high-performance computing tasks. Follow these general steps to create a simple cluster network for AI training:
 
 1. Review [planning considerations for cluster networks](/docs/vpc?topic=vpc-planning-cluster-network) and be aware of any [known issues and limitations](/docs/vpc?topic=vpc-limitations-cluster-network).
-1. Increase your [storage quota](/docs/vpc?topic=vpc-quotas&interface=ui#cluster-networks-quotas), if necessary, by opening an [IBM Support case](/docs/account?topic=account-open-case&interface=ui).
+1. Determine the total resources required for your cluster by multiplying the number of instances you intend to create by the resources defined in the corresponding [instance profile](/docs/vpc?topic=vpc-profiles&interface=ui#gpu).
+1. Check the calculated total resources required for your cluster against the [default quotas](/docs/vpc?topic=vpc-quotas&q=service+limits&tags=vpc#cluster-networks-quotas) to determine if a quota increase is necessary.
 1. Ensure that you have an existing VPC in a region that has capacity for NVIDIA H100 profiles with clustering support.
 
    Currently, the only supported zone is `us-east-wdc07-a`. For more information about zones, see [zone mapping per account](/docs/overview?topic=overview-locations#zone-mapping).
@@ -51,10 +55,10 @@ A cluster network enhances the efficiency and speed of data transfer within a ne
 1. [Create cluster network subnets](/docs/vpc?topic=vpc-create-cluster-network-subnet&interface=ui) (8, 16, or 32) as child objects on the cluster network.
    
    If creating a cluster network in the UI, you can create cluster network subnets at the same time. While it is recommended that you use 8 subnets, certain scenarios will utilize a larger number of subnets.
-   {: tip}
+   {: note}
 
    Subnets within the H100 cluster network type are routable to each other. However, the cluster network is not routable externally.
-   {: note}
+   {: tip}
 
 1. Do one of the following:
 
@@ -67,61 +71,6 @@ A cluster network enhances the efficiency and speed of data transfer within a ne
 
    Advanced users might want to preallocate IP addresses or interfaces. However, it is recommended that you create IPs or interfaces when creating an instance.
    {: note}
-
-## Cluster network IAM roles and actions
-{: #is.cluster-network-roles}
-
-It is important to understand how to effectively assign access for users to work with products and take specific account management actions within your account to follow the principle of least privilege and minimize the number of policies that you have to manage. The following tables provide information about the access roles and the actions mapped to each by the {{site.data.keyword.cloud}} services.
-{: shortdesc}
-
-Review the available platform and service roles and the actions mapped to each to help you assign access. If you're using the CLI or API to assign access, use `is.cluster-network` for the service name.
-
-| Role | Description |
-| ----- | :----- |
-| Administrator | As an administrator, you can perform all platform actions based on the resource this role is being assigned, including assigning access policies to other users. |
-| Editor | As an editor, you can perform all platform actions except for managing the account and assigning access policies. |
-| Operator | As an operator, you can perform platform actions required to configure and operate service instances, such as viewing a service's dashboard. |
-| Viewer | As a viewer, you can view service instances, but you can't modify them. |
-{: row-headers}
-{: caption="Platform roles - Cluster Network" caption-side="top"}
-{: tab-title="Platform roles"}
-{: tab-group="is.cluster-network"}
-{: class="simple-tab-table"}
-{: summary="Use the tab buttons to change the context of the table. This table has row and column headers. The row headers provide the platform role name and the column headers identify the specific information available about each role."}
-{: #platform-roles-table105}
-
-| Action | Description | Roles |
-| ----- | :----- | :----- |
-| `is.cluster-network.cluster-network.create` | Create Cluster Network | Administrator, Editor |
-| `is.cluster-network.cluster-network.read` | Read Cluster Network | Administrator, Editor, Operator, Viewer |
-| `is.cluster-network.cluster-network.list` | List Cluster Networks | Administrator, Editor, Operator, Viewer |
-| `is.cluster-network.cluster-network.update` | Update Cluster Network | Administrator, Editor |
-| `is.cluster-network.cluster-network.delete` | Delete Cluster Network | Administrator, Editor |
-| `is.cluster-network.profile.read` | Read Cluster Network Profile | Administrator, Editor, Operator, Viewer |
-| `is.cluster-network.profile.list` | List Cluster Network Profiles | Administrator, Editor, Operator, Viewer |
-| `is.cluster-network.interface.create` | Create Cluster Network Interface | Administrator, Editor |
-| `is.cluster-network.interface.read` | Read Cluster Network Interface | Administrator, Editor, Operator, Viewer |
-| `is.cluster-network.interface.list` | List Cluster Network Interface | Administrator, Editor, Operator, Viewer |
-| `is.cluster-network.interface.update` | Update Cluster Network Interface | Administrator, Editor |
-| `is.cluster-network.interface.delete` | Delete Cluster Network Interface | Administrator, Editor |
-| `is.cluster-network.subnet.create` | Create Cluster Network Subnet | Administrator, Editor |
-| `is.cluster-network.subnet.read` | Read Cluster Network Subnet | Administrator, Editor, Operator, Viewer |
-| `is.cluster-network.subnet.list` | List Cluster Network Subnets | Administrator, Editor, Operator, Viewer |
-| `is.cluster-network.subnet.update` | Update Cluster Network Subnet | Administrator, Editor |
-| `is.cluster-network.subnet.delete` | Delete Cluster Network Subnet | Administrator, Editor |
-| `is.cluster-network.subnet-reserved-ip.create` | Create Cluster Network Subnet Reserved IP | Administrator, Editor |
-| `is.cluster-network.subnet-reserved-ip.read` | Read Cluster Network Subnet Reserved IP | Administrator, Editor, Operator, Viewer |
-| `is.cluster-network.subnet-reserved-ip.list` | List Cluster Network Subnet Reserved IPs | Administrator, Editor, Operator, Viewer |
-| `is.cluster-network.subnet-reserved-ip.update` | Update Cluster Network Subnet Reserved IP | Administrator, Editor |
-| `is.cluster-network.subnet-reserved-ip.delete` | Delete Cluster Network Subnet Reserved IP | Administrator, Editor |
-| `is.cluster-network.subnet.operate` | Operate the cluster network subnet | Administrator, Editor, Operator |
-| `is.cluster-network.interface.operate` | Operate Cluster Network Interface | Administrator, Editor, Operator |
-{: caption="Service actions - Cluster Network" caption-side="top"}
-{: tab-title="Actions"}
-{: tab-group="is.cluster-network"}
-{: class="simple-tab-table"}
-{: summary="Use the tab buttons to change the context of the table. This table provides the available actions for the service, descriptions of each, and the roles that each action are mapped to."}
-{: #actions-table105}
 
 ## Cluster network use cases
 {: #use-cases-cluster-network}
@@ -159,6 +108,7 @@ To maintain minimal access to the cluster network, you must:
 {: #related-links-cluster-network}
 
 * [Quotas and service limits](/docs/vpc?topic=vpc-quotas&q=service+limits&tags=vpc#cluster-networks-quotas)
+* [IAM permissions](/docs/account?topic=account-iam-service-roles-actions#is.cluster-network-roles)
 * [AT events](/docs/vpc?topic=vpc-at_events&q=tracker&tags=vpc#events-cluster-network)
 * [FAQs](/docs/vpc?topic=vpc-faqs-cluster-network)
 * [NVIDIA H100 cluster network profile](/docs/vpc?topic=vpc-cluster-network-h100-profile&interface=cli)

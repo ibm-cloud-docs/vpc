@@ -15,9 +15,10 @@ subcollection: vpc
 # Creating a Private Path network load balancer
 {: #ppnlb-ui-creating-private-path-network-load-balancer}
 
-You can use a Private Path network load balancer (NLB) only with a Private Path service. Create the Private Path NLB from the [Load Balancers for VPC page](/infrastructure/provision/loadBalancer){: external} or as part of the Private Path service provisioning process.
+You can use a Private Path network load balancer (NLB) only with a Private Path service. Create the Private Path NLB from the [Load Balancers for VPC page](/infrastructure/provision/loadBalancer) or as part of the Private Path service provisioning process. You can create a Private Path network load balancer using the UI, CLI, API, or Terraform.
+{: shortdesc}
 
-Private Path allows service providers to enable and manage private connectivity for the consumers of their hosted service. The Private Path service requires a Private Path NLB to establish a secure connection with each consumer's Virtual Private Endpoint (VPE) gateway. For more information, see [About Private Path services](/docs/vpc?topic=vpc-private-path-service-intro){: external}.
+Private Path allows service providers to enable and manage private connectivity for the consumers of their hosted service. The Private Path service requires a Private Path NLB to establish a secure connection with each consumer's Virtual Private Endpoint (VPE) gateway. For more information, see [About Private Path services](/docs/vpc?topic=vpc-private-path-service-intro).
 
 Private Path NLBs support the port range feature. Currently, all VPEs connected to a Private Path NLB can connect to any port in the range. For more information, see [Setting public network load balancer port ranges](/docs/vpc?topic=vpc-nlb-port-ranges&interface=ui).
 {: note}
@@ -31,13 +32,15 @@ Review the following requirements to ensure that your Private Path NLB is proper
 - Create your virtual server instances prior to creating a Private Path NLB. This ensures that it is fully operational.
 - Make sure you have at least one subnet in your selected VPC.
 
+You can create a Private Path network load balancer using the UI, CLI, API, or Terraform.
+
 ## Creating a Private Path network load balancer in the UI
 {: #ppnlb-ui}
 {: ui}
 
 To create and configure {{site.data.keyword.nlb_full}} in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
-1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
+1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login) and log in to your account.
 1. Select the **Navigation Menu** ![Menu icon](images/menu_icon.png), then click **Infrastructure > Network > Load balancers**.
 1. Click **Create** in the upper right of the page.
 1. For Load balancer type, select the **Network Load Balancer (NLB)** tile.
@@ -98,7 +101,7 @@ The following example illustrates creating a Private Path NLB with the CLI. In t
 
 To create a Private Path NLB from the CLI, follow these steps:
 
-1. Set up your [CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli){: external}.
+1. Set up your [CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 1. Log in to your account with the CLI. After you enter the password, the system prompts you to choose which account and region that you want to use:
 
@@ -259,12 +262,12 @@ To create a Private Path NLB from the CLI, follow these steps:
 
 The following example illustrates creating a Private Path NLB with the API. The NLB detailed here is in front of two VPC virtual server instances (`192.168.100.5` and `192.168.100.6`) running a web application that listens on port `80`. It has a front-end listener, which allows secure access to the web application by using HTTPS.
 
-This example skips the [prerequisite steps](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli){: external} for using the API to provision a VPC, subnets, and instances.
+This example skips the [prerequisite steps](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli) for using the API to provision a VPC, subnets, and instances.
 {: note}
 
 To create a Private Path NLB with the API, follow these steps:
 
-1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli){: external}.
+1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 1. Store the following values in variables to be used in the API command:
 
@@ -538,9 +541,6 @@ To create a Private Path NLB with the API, follow these steps:
 ## Creating a Private Path network load balancer with Terraform
 {: #creating-private-path-network-load-balancer-terraform}
 {: terraform}
-
-Terraform will support this feature after it reaches General Availability (GA) and is officially released.
-{: note}
 
 The following example creates a Private Path network load balancer by using Terraform:
 

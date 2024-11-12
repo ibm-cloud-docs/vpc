@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-11"
+lastupdated: "2024-11-12"
 
 keywords:
 
@@ -15,21 +15,16 @@ subcollection: vpc
 # Planning considerations for cluster networks
 {: #planning-cluster-network}
 
+Cluster Networks for VPC is available for select customers only. Contact IBM Support if you are interested in using this functionality.
+{: preview}
+
 Review the following planning considerations before creating a cluster network.
 {: shortdesc}
-
-## Compute quota considerations
-{: #cn-considerations-quotas}
-
-* Ensure that you have a sufficient [compute quota](/docs/vpc?topic=vpc-quotas&interface=ui) to support the resources you will deploy in to your cluster network. Typically, these instances require a quota increase prior to provisioning.
-
-   Currently, NVIDIA H100 is the only instance profile that you can select. For more information about this profile, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui).
-   {: note}
 
 ## Considerations for cluster subnets
 {: #cn-considerations-cluster-subnets}
 
-* Instance profiles have a recommended number of cluster subnets. To identify {{site.data.keyword.cloud}}'s recommendation for cluster subnets for a given instance type:
+* Instance profiles have a recommended number of cluster subnets. The {{site.data.keyword.cloud}} recommendation for cluster subnets for a given instance type is:
 
    | Instance Profile Type | Recommended Cluster Subnets to Cluster vNICs |
    | --------------------- | -------------------------------------------- |

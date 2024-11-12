@@ -29,10 +29,10 @@ You can choose from three options when working with connection requests:
 
 * **Revoke** - Removes all existing connections from this account ID. If an account policy exists for this account ID, its status is updated to **Deny**; if one does not exist, a **Deny** policy is created for this account ID.
 
-If you don't want to review every connection request, you can streamline the process by changing the default policy or creating account-specific policies. For more information, see [About account policies](/docs/vpc?topic=vpc-pps-about-account-policies){: external}.
+If you don't want to review every connection request, you can streamline the process by changing the default policy or creating account-specific policies. For more information, see [About account policies](/docs/vpc?topic=vpc-pps-about-account-policies).
 {: fast-path}
 
-As the service provider, you can review and triage (permit, deny, or revoke) connection requests to your service using the UI, CLI, or API.
+As the service provider, you can review and triage (permit, deny, or revoke) connection requests to your service using the UI, CLI, API, or Terraform.
 
 ## Reviewing connection requests in the UI
 {: #pps-ui-review-requests}
@@ -40,7 +40,7 @@ As the service provider, you can review and triage (permit, deny, or revoke) con
 
 To triage incoming connection requests in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
-1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
+1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login) and log in to your account.
 1. Select the **Navigation Menu** ![Menu icon](images/menu_icon.png), then click **Infrastructure > Network > Private Path services**.
 1. In the Private Path services for VPC table, click the name of a Private Path service to show its details page.
 1. Scroll to the **Connections** section to review connection requests. Click the Actions menu ![Actions menu](images/overflow.png) and select an option to permit, deny, or revoke the connection request. After you select an option, you are prompted to confirm your choice, and optionally create an account policy for the account ID.
@@ -56,7 +56,7 @@ Connection requests expire after 30 days.
 
 The following examples show how to use the CLI to permit or deny an account-specific connection request.
 
-Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli){: external}.
+Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 ### Permitting connection requests from the CLI
 {: #pps-cli-permit-consumer-request}
@@ -144,7 +144,7 @@ Where:
 
 To triage incoming connection requests with the API, follow these steps:
 
-1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli){: external}.
+1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 1. Store the following values in variables to be used in the API command:
 
    * `ppsgId` - Get your Private Path service and then populate the variable:
@@ -219,9 +219,6 @@ If `set_account_policy` is set to `true`:
 ## Reviewing connection requests with Terraform
 {: #review-pps-consumer-request-terraform}
 {: terraform}
-
-Terraform will support this feature after it reaches General Availability (GA) and is officially released.
-{: note}
 
 The following example permits an endpoint gateway binding to a Private Path network by using Terraform:
 

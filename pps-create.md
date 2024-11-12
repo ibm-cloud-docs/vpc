@@ -18,7 +18,7 @@ subcollection: vpc
 As a service provider, you are responsible for managing your consumer account IDs. Currently, tracking or validating account IDs is not supported. For more information, see [Responsibilities for managing consumer account IDs](/docs/vpc?topic=vpc-pps-consumer-account-id-responsibilities&interface=ui).
 {: attention}
 
-Private Path services for VPC enable service providers to create and manage private connectivity for hosted IBM Cloud and third-party services and applications.
+Private Path services for VPC enable service providers to create and manage private connectivity for hosted IBM Cloud and third-party services and applications. You can create a Private Path service using the UI, CLI, API, or Terraform.
 {: shortdesc}
 
 ## Before you begin
@@ -26,12 +26,17 @@ Private Path services for VPC enable service providers to create and manage priv
 
 Before you create a Private Path service, review the following prerequisites:
 
-* Review [Private Path service limitations](/docs/vpc?topic=vpc-ppsg-limitations&interface=ui){: external} for known limitations.
-* Make sure that you have a VPC and at least one subnet in the selected VPC. [Learn more](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console){: external}.
-* Create a Private Path network load balancer. You can create your load balancer while provisioning your Private Path service here, or you can use the [Load balancer for VPC](/infrastructure/provision/loadBalancer){: external} console.
+* Review [Private Path service limitations](/docs/vpc?topic=vpc-ppsg-limitations&interface=ui) for known limitations.
+* Make sure that you have a VPC and at least one subnet in the selected VPC. [Learn more](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
+* Create a Private Path network load balancer. You can create your load balancer while provisioning your Private Path service here, or you can use the [Load balancer for VPC](/infrastructure/provision/loadBalancer) console.
 
 You must use the same VPC region for both your load balancer and Private Path service.
 {: important}
+
+You will be asked to choose a DNS FQDN for your service that will be used by clients. This domain will be configured in consumer private DNS but you will be expected to prove ownership of the FQDN in public DNS and this will require you to take some steps your DNS provider. For more information see [here](/docs/vpc?topic=vpc-private-path-service-about&interface=ui#pps-domain-register-verify). 
+
+Note: You can opt out of this if you are willing to use one of limited predefine set of domains.
+{: note}
 
 You can create an {{site.data.keyword.cloud}} Private Path service using the UI, CLI, API, or Terraform.
 
@@ -41,7 +46,7 @@ You can create an {{site.data.keyword.cloud}} Private Path service using the UI,
 
 To create a Private Path service with the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
-1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
+1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login) and log in to your account.
 1. Select the **Navigation Menu** ![Menu icon](images/menu_icon.png), then click **Infrastructure > Network > Private Path services**.
 1. Click **Create**.
 1. Review the checklist for important information.
@@ -52,7 +57,7 @@ To create a Private Path service with the {{site.data.keyword.cloud_notm}} conso
     * **Name**: Enter a unique identifier for the Private Path service, such as `my-privatepath-service`.
     * **Resource group**: Select a resource group, if necessary.
     * **Tags**: Optionally, add any relevant tags to help group your Private Path services.
-    * **Access management tags**: Optionally, add access management tags to resources to help organize access control relationships. The only supported format for access management tags is `key:value`. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial){: external}.
+    * **Access management tags**: Optionally, add access management tags to resources to help organize access control relationships. The only supported format for access management tags is `key:value`. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
     * **Virtual private cloud**: Select the VPC where you want the Private Path service created.
 1. In the Private Path network load balancer section, select a Private Path NLB for the Private Path service, or click **Create** to create one. To create a Private Path NLB, follow these steps:
 
@@ -63,7 +68,7 @@ To create a Private Path service with the {{site.data.keyword.cloud_notm}} conso
        * **Name**: Enter a unique identifier for the Private Path NLB, such as `my-privatepath-service`.
        * **Resource group**: Select a resource group for the Private Path NLB.
        * **Tags**: Optionally, add any relevant tags to help group your Private Path NLBs.
-       * **Access management tags**: Optionally, add access management tags to resources to help organize access control relationships. The only supported format for access management tags is `key:value`. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial){: external}. {: #private-path-nlb-steps}
+       * **Access management tags**: Optionally, add access management tags to resources to help organize access control relationships. The only supported format for access management tags is `key:value`. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial). {: #private-path-nlb-steps}
        * **Subnet**: Select the subnet where you want the Private Path NLB created.
    1. In the Create back-end pool section:
        * **Name**: Enter a unique identifier for the Private Path NLB, such as `my-ppnlb`.
@@ -113,7 +118,7 @@ To create a Private Path service with the {{site.data.keyword.cloud_notm}} conso
 
 The following example shows how to use the CLI to create a Private Path service.
 
-Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli){: external}.
+Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 To create a Private Path service from the CLI, follow these steps:
 
@@ -170,7 +175,7 @@ Where:
 To create a Private Path service with the API, follow these steps:
 
 
-1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli){: external}.
+1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 1. Store the following values in variables to be used in the API command:
 
    * `loadBalancerId` - First, get your load balancer and then populate the variable:
@@ -203,9 +208,6 @@ To create a Private Path service with the API, follow these steps:
 ## Creating a Private Path service with Terraform
 {: #creating-private-path-service-terraform}
 {: terraform}
-
-Terraform will support this feature after it reaches General Availability (GA) and is officially released.
-{: note}
 
 The following example provisions a Private Path network by using Terraform:
 
@@ -247,7 +249,7 @@ The DNS ownership validation is successful when the wildcard domain contains the
 ## Next steps
 {: #pps-next-steps}
 
-1. [Verify connectivity to your Private Path service](/docs/vpc?topic=vpc-pps-verify&interface=ui){: external}
-1. [Publish your Private Path service](/docs/vpc?topic=vpc-pps-activating&interface=ui){: external}
-1. [Communicate connection information to consumers](/docs/vpc?topic=vpc-pps-ui-communicate&interface=ui){: external}
-1. [Review connection requests](/docs/vpc?topic=vpc-pps-ui-reviewing&interface=ui) and [Create account policies](/docs/vpc?topic=vpc-pps-create-account-policy&interface=ui){: external}
+1. [Verify connectivity to your Private Path service](/docs/vpc?topic=vpc-pps-verify&interface=ui)
+1. [Publish your Private Path service](/docs/vpc?topic=vpc-pps-activating&interface=ui)
+1. [Communicate connection information to consumers](/docs/vpc?topic=vpc-pps-ui-communicate&interface=ui)
+1. [Review connection requests](/docs/vpc?topic=vpc-pps-ui-reviewing&interface=ui) and [Create account policies](/docs/vpc?topic=vpc-pps-create-account-policy&interface=ui)
