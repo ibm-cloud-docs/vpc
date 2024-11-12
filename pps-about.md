@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-11-08"
+lastupdated: "2024-11-12"
 
 keywords:
 
@@ -71,12 +71,12 @@ Review the available platform and service roles and the actions mapped to each t
 
 | Action | Description | Roles |
 | ----- | :----- | :----- |
-| `is.private-path-service-gateway.private-path-service-gateway.read` | [BETA] View Private Path services | Administrator, Editor, Operator, Viewer |
-| `is.private-path-service-gateway.private-path-service-gateway.list` | [BETA] List Private Path services | Administrator, Editor, Operator, Viewer |
-| `is.private-path-service-gateway.private-path-service-gateway.create` | [BETA] Create Private Path service | Administrator, Editor |
-| `is.private-path-service-gateway.private-path-service-gateway.delete` | [BETA] Delete Private Path service | Administrator, Editor |
-| `is.private-path-service-gateway.private-path-service-gateway.update` | [BETA] Update Private Path service | Administrator, Editor |
-| `is.private-path-service-gateway.private-path-service-gateway.operate` | [BETA] Operate Private Path service | Administrator, Editor, Operator |
+| `is.private-path-service-gateway.private-path-service-gateway.read` | View Private Path services | Administrator, Editor, Operator, Viewer |
+| `is.private-path-service-gateway.private-path-service-gateway.list` | List Private Path services | Administrator, Editor, Operator, Viewer |
+| `is.private-path-service-gateway.private-path-service-gateway.create` | Create Private Path service | Administrator, Editor |
+| `is.private-path-service-gateway.private-path-service-gateway.delete` | Delete Private Path service | Administrator, Editor |
+| `is.private-path-service-gateway.private-path-service-gateway.update` | Update Private Path service | Administrator, Editor |
+| `is.private-path-service-gateway.private-path-service-gateway.operate` | Operate Private Path service | Administrator, Editor, Operator |
 | `is.private-path-service-gateway.account-policy.read` | Get Private Path Service Gateway Account Policy | Viewer |
 | `is.private-path-service-gateway.account-policy.list` | List Account Policies | Viewer |
 | `is.private-path-service-gateway.account-policy.manage` | Manage Account Policy | Administrator, Editor, Operator |

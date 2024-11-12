@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-11-11"
+lastupdated: "2024-11-12"
 
 keywords:
 
@@ -111,23 +111,9 @@ To create a Private Path service with the {{site.data.keyword.cloud_notm}} conso
 {: #pps-cli-creating-private-path-service}
 {: cli}
 
-Beta participants must export a feature flag to use the CLI. Contact your IBM Support representative to obtain.
-{: attention}
-
 The following example shows how to use the CLI to create a Private Path service.
 
 Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli){: external}.
-
-You must export the feature flag for Private Path service and Private Path network load balancer related commands to run successfully.
-{: important}
-
-To export the feature flag, enter the following commands:
-
-```sh
-export IBMCLOUD_IS_FEATURE_PRIVATE_PATH_SERVICE_GATEWAY=true
-export IBMCLOUD_IS_FEATURE_PP_NLB_SUPPORT=true
-```
-{: pre}
 
 To create a Private Path service from the CLI, follow these steps:
 

@@ -74,17 +74,6 @@ To delete a Private Path service in the {{site.data.keyword.cloud_notm}} console
 
 The following example shows how to update a Private Path provider service from the CLI.
 
-You must first export the feature flag to use the CLI for Private Path beta release offerings.
-{: important}
-
-To export the feature flag, enter the following commands:
-
-```sh
-export IBMCLOUD_IS_FEATURE_PRIVATE_PATH_SERVICE_GATEWAY=true
-export IBMCLOUD_IS_FEATURE_PP_NLB_SUPPORT=true
-```
-{: pre}
-
 To update a Private Path service from the CLI, follow these steps:
 
 1. Enter the following command:
@@ -137,17 +126,6 @@ Where:
 The following example shows how to use the CLI to delete a Private Path service.
 
 Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli){: external}.
-
-You must first export the feature flag to use the CLI for Private Path beta release offerings.
-{: important}
-
-To export the feature flag, enter the following commands:
-
-```sh
-export IBMCLOUD_IS_FEATURE_PRIVATE_PATH_SERVICE_GATEWAY=true
-export IBMCLOUD_IS_FEATURE_PP_NLB_SUPPORT=true
-```
-{: pre}
 
 To delete a Private Path service from the CLI, follow these steps:
 

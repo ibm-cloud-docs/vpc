@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-11-11"
+lastupdated: "2024-11-12"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
 
@@ -94,21 +94,7 @@ To create and configure {{site.data.keyword.nlb_full}} in the {{site.data.keywor
 {: #ppnlb-cli-creating-network-load-balancer}
 {: cli}
 
-Beta participants must export a feature flag to use the CLI. Contact your IBM Support representative to obtain.
-{: attention}
-
 The following example illustrates creating a Private Path NLB with the CLI. In this example, the Private Path NLB is in front of one VPC virtual server instance (ID `0716_6acdd058-4607-4463-af08-d4999d983945`) running a TCP server that listens on port `9090`. The load balancer has a front-end listener, which allows secure access to the TCP server.
-
-You must export the feature flag for Private Path service and Private Path network load balancer related commands to run successfully.
-{: important}
-
-To export the feature flag, enter the following commands:
-
-```sh
-export IBMCLOUD_IS_FEATURE_PRIVATE_PATH_SERVICE_GATEWAY=true
-export IBMCLOUD_IS_FEATURE_PP_NLB_SUPPORT=true
-```
-{: pre}
 
 To create a Private Path NLB from the CLI, follow these steps:
 

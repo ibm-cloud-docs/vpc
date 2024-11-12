@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-11-11"
+lastupdated: "2024-11-12"
 
 keywords:
 
@@ -137,8 +137,6 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 
 ### Private Path network load balancers
 {: #ppnlb-quotas}
-
-
 
 | Resource | Quota |
 |--------|-----|
