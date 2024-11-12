@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-11"
+lastupdated: "2024-11-12"
 
 keywords:
 
@@ -22,6 +22,8 @@ Before you create a cluster network, review the following known issues and limit
 {: #known-issues-cluster-networks}
 
 - The new instance profiles are expected to take about 20 minutes to start.
+- When [creating an instance](/apidocs/vpc/latest#create-instance) using the API, the `instance.create` Activity Tracker event will be missing if you specify the `cluster_network_attachments` property. If you want to avoid this, you can [create instance cluster network attachments](/apidocs/vpc/latest#create-instance-cluster-network-attachment) separately.
+- If a cluster network reserved IP's `auto_delete` property is set to `false`, and it is attached to a cluster network interface, any attempt to delete the cluster network will result in it being stuck in a `deleting` state. To avoid this, before you delete the cluster network itself, first delete the cluster network interfaces, then delete the cluster network reserved IPs. You can also avoid this scenario by [updating cluster network reserved IPs](/apidocs/vpc/latest#update-cluster-network-reserved-ip) and setting the `auto_delete` property to `true`.
 
 ## Limitations
 {: #limitations-cluster-networks}
