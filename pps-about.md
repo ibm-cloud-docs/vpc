@@ -142,7 +142,7 @@ These links provide additional information about Private Path services for VPC:
 
 * [Private Path services CLI reference](/docs/vpc?topic=vpc-vpc-reference){: external}
 * [Private Path services API reference](/apidocs/vpc/latest#list-private-path-service-gateways){: external}
-* [IAM permissions](/docs/account?topic=account-iam-service-roles-actions#is.load-balancer-roles){: external}
+* [IAM permissions](/docs/account?topic=account-iam-service-roles-actions#is.private-path-service-gateway-roles){: external}
 * [Activity Tracker events](/docs/vpc?topic=vpc-at_events#events-private-path-service-events){: external}
 * [Quotas and service limits](/docs/vpc?topic=vpc-quotas){: external}
 * [Private Path solution tutorial](/docs/solution-tutorials?topic=solution-tutorials-vpc-pps-basics){: external}
