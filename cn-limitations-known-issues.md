@@ -15,6 +15,9 @@ subcollection: vpc
 # Known issues and limitations for cluster networks
 {: #limitations-cluster-network}
 
+Cluster Networks for VPC is available for select customers only. Contact IBM Support if you are interested in using this functionality.
+{: preview}
+
 Before you create a cluster network, review the following known issues and limitations.
 {: shortdesc}
 

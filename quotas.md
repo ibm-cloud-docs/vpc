@@ -150,11 +150,14 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 ### Cluster networks
 {: #cluster-networks-quotas}
 
+Cluster Networks for VPC is available for select customers only. Contact IBM Support if you are interested in using this functionality.
+{: preview}
+
 | Resource | Quota |
 |--------|-----|
-| Maximum number of cluster networks per account per region | 5 (limited to 10) |
-| Maximum number of cluster network subnets per cluster network | 32 (limited to 64) |
-| Maximum number of cluster network subnet reserved IPs per account | 20000 (limited to 100000) |
+| Maximum number of cluster networks per account per region | 5 |
+| Maximum number of cluster network subnets per cluster network | 32 |
+| Maximum number of cluster network subnet reserved IPs per account | 5000 |
 {: caption="Quotas for cluster networks" caption-side="bottom"}
 
 ### Routing tables and routes

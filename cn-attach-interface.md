@@ -15,6 +15,9 @@ subcollection: vpc
 # Attaching cluster network interfaces to an instance
 {: #attach-interfaces-cluster-network}
 
+Cluster Networks for VPC is available for select customers only. Contact IBM Support if you are interested in using this functionality.
+{: preview}
+
 After you create an instance, you can attach it to a cluster network instance subnet. Alternatively, you can plan out your network by creating your interfaces up front before attaching your instances.  
 {: shortdesc} 
 
@@ -32,6 +35,13 @@ You can attach cluster network interfaces to an instance with the CLI, API, or T
 To attach interfaces to an instance in the CLI, follow these steps:
 
 1. [Set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
+1. Enable the following feature flag:
+
+   ```sh
+   export IBMCLOUD_IS_FEATURE_CLUSTER_NETWORK=true
+   ```
+   {: pre}
+   
 1. Log in to your account with the CLI. After you enter the password, the system prompts for the account and region that you want to use:
 
     ```sh
@@ -107,34 +117,3 @@ To attach cluster network interfaces to an instance with the API, follow these s
    {: codeblock}
 
 To view the complete set of cluster network APIs, see the [VPC API reference](/apidocs/vpc-scoped?code=go#list-cluster-network-profiles).
-
-## Attaching cluster network interfaces to an instance with Terraform
-{: #attach-interfaces-cluster-network-terraform}
-{: terraform}
-
-Terraform will support this feature after it reaches General Availability (GA) and is officially released.
-{: note}
-
-The following example provisions an instance cluster network attachment by using Terraform:
-
-```terraform
-resource "ibm_is_instance_cluster_network_attachment" "is_instance_cluster_network_attachment_instance" {
-  instance = var.is_instance_cluster_network_attachment_instance_id
-  before {
-    # href = "https://us-south.iaas.cloud.ibm.com/v1/instances/5dd61d72-acaa-47c2-a336-3d849660d010/cluster_network_attachments/0767-fb880975-db45-4459-8548-64e3995ac213" // conflicts with id
-    id = "0767-fb880975-db45-4459-8548-64e3995ac213"
-  }
-  cluster_network_interface {
-    # id              = var.is_cluster_network_interface_id // conflicts with other properties
-    auto_delete     = var.is_cluster_auto_delete
-    name            = var.is_cluster_name
-    subnet          = var.is_cluster_subnet_id
-    primary_ip {
-      address = "192.168.3.4"
-      name    = "my-cluster-subnet-reserved-ip-1"
-    }
-  }
-  name = var.is_instance_cluster_network_attachment_name
-}
-```
-{: codeblock}

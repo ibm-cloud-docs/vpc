@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-11"
+lastupdated: "2024-11-12"
 
 subcollection: vpc
 
@@ -13,6 +13,9 @@ subcollection: vpc
 
 # FAQs for cluster networks
 {: #faqs-cluster-network}
+
+Cluster Networks for VPC is available for select customers only. Contact IBM Support if you are interested in using this functionality.
+{: preview}
 
 This section contains answers to some frequently asked questions about {{site.data.keyword.cloud}} cluster networks.
 {: shortdesc}
