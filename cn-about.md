@@ -161,4 +161,5 @@ To maintain minimal access to the cluster network, you must:
 * [Quotas and service limits](/docs/vpc?topic=vpc-quotas&q=service+limits&tags=vpc#cluster-networks-quotas)
 * [AT events](/docs/vpc?topic=vpc-at_events&q=tracker&tags=vpc#events-cluster-network)
 * [FAQs](/docs/vpc?topic=vpc-faqs-cluster-network)
-* [Virtual server instance profiles](/docs/vpc?topic=vpc-profiles#gpu)
+* [NVIDIA H100 cluster network profile](/docs/vpc?topic=vpc-cluster-network-h100-profile&interface=cli)
+* [GPU profile information](/docs/vpc?topic=vpc-profiles#gpu)
