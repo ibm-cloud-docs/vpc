@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-06"
+lastupdated: "2024-11-12"
 
 keywords: private path
 
@@ -44,17 +44,6 @@ To update an account policy in the {{site.data.keyword.cloud_notm}} console, fol
 The following examples show how to use the CLI to update and delete an account policy.
 
 Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli){: external}.
-
-You must first export the feature flag to use the CLI for Private Path beta release offerings.
-{: important}
-
-To export the feature flag, enter the following commands:
-
-```sh
-export IBMCLOUD_IS_FEATURE_PRIVATE_PATH_SERVICE_GATEWAY=true
-export IBMCLOUD_IS_FEATURE_PP_NLB_SUPPORT=true
-```
-{: pre}
 
 ### Updating an account policy from the CLI
 {: #pps-cli-howto-update-account-policy}

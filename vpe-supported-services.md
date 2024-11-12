@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-11-06"
+lastupdated: "2024-11-12"
 
 keywords: virtual private endpoints, endpoint gateway, VPE services
 subcollection: vpc
@@ -14,7 +14,7 @@ subcollection: vpc
 # Connecting to a service
 {: #vpe-supported-services}
 
-You can create a Virtual Private Endpoint (VPE) gateway to connect to an IBM Cloud service, or an IBM service or third-party application (Private Path beta) that is hosted outside of IBM Cloud.
+You can create a Virtual Private Endpoint (VPE) gateway to connect to an IBM Cloud service, or an IBM service or third-party application that is hosted outside of IBM Cloud.
 
 Here are your two choices:
 
@@ -23,7 +23,7 @@ Here are your two choices:
    Select this option to connect to an IBM Cloud service. When configuring a VPE gateway, you are shown a customized list of common services and any services that were provisioned
 with your account. See [VPE-enabled services](/docs/vpc?topic=vpc-vpe-supported-services#vpe-enabled-supported-services) for a complete list of IBM Cloud services that are enabled for VPE gateway connectivity.
 
-* **Non-IBM Cloud service** (Private Path beta only)
+* **Non-IBM Cloud service**
 
    Select this option if you received connection information from a provider of a service or application that includes a cloud resource name (CRN) to a Private Path service. A Private Path service is what your provider sets up to create a connection to their service or application over the IBM Cloud private network.
 

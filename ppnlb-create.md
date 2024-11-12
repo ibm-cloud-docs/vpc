@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-11-08"
+lastupdated: "2024-11-12"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
 
@@ -52,7 +52,7 @@ To create and configure {{site.data.keyword.nlb_full}} in the {{site.data.keywor
    * **Virtual private cloud**: Select the VPC where you want to deploy the load balancer.
    * **Subnet**: Select a subnet.
    * **Type**: Select **Private Path**.
-1. In the Back-end pools section, click **Create pool +**, specify the following information, then click **Create**. You can create one or more pools.
+1. In the Back-end pools section, click **Create pool**, specify the following information, then click **Create**. You can create one or more pools.
    * Type a unique name for the pool, such as `private-path-pool`.
    * Select a protocol for your instances in this pool. The protocol of the pool must match the protocol of its associated listener. For example, if the listener is TCP, the protocol of the pool must be TCP.
    * Select the method, which is the load-balancing algorithm, from the following options.
@@ -72,7 +72,7 @@ To create and configure {{site.data.keyword.nlb_full}} in the {{site.data.keywor
      If instances in the pool are unhealthy and you believe that your application is working correctly, double check the health protocol and health path values. Also, check any security groups that are attached to the instances to ensure that the rules allow traffic between the load balancer and the instances.
      {: tip}
 
-1. You can attach virtual server instances to your back-end pool now, or after you create your Private Path NLB. Click **Attach server +** on the table row of your back-end pool, specify the following information, then click **Attach**.
+1. You can attach virtual server instances to your back-end pool now, or after you create your Private Path NLB. Click **Attach server** on the table row of your back-end pool, specify the following information, then click **Attach**.
 
    * **Subnet**: Choose a subnet.
    * From the list of servers, select the servers that you want to attach to the back-end pool. Ensure that you specify valid values for each server port.
@@ -94,21 +94,7 @@ To create and configure {{site.data.keyword.nlb_full}} in the {{site.data.keywor
 {: #ppnlb-cli-creating-network-load-balancer}
 {: cli}
 
-Beta participants must export a feature flag to use the CLI. Contact your IBM Support representative to obtain.
-{: attention}
-
 The following example illustrates creating a Private Path NLB with the CLI. In this example, the Private Path NLB is in front of one VPC virtual server instance (ID `0716_6acdd058-4607-4463-af08-d4999d983945`) running a TCP server that listens on port `9090`. The load balancer has a front-end listener, which allows secure access to the TCP server.
-
-You must export the feature flag for Private Path service and Private Path network load balancer related commands to run successfully.
-{: important}
-
-To export the feature flag, enter the following commands:
-
-```sh
-export IBMCLOUD_IS_FEATURE_PRIVATE_PATH_SERVICE_GATEWAY=true
-export IBMCLOUD_IS_FEATURE_PP_NLB_SUPPORT=true
-```
-{: pre}
 
 To create a Private Path NLB from the CLI, follow these steps:
 

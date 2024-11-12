@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-10-15"
+lastupdated: "2024-11-12"
 
 keywords:
 
@@ -15,9 +15,6 @@ subcollection: vpc
 # Attaching cluster network interfaces to an instance
 {: #attach-interfaces-cluster-network}
 
-Contact your IBM Support representative if you are interested in getting early access to this offering. It is currently available for early access users of the `gx3d-160x1792x8h100` [virtual server instance profiles](/docs/vpc?topic=vpc-profiles#gpu) in the `us-east` region.
-{: beta}
-
 After you create an instance, you can attach it to a cluster network instance subnet. Alternatively, you can plan out your network by creating your interfaces up front before attaching your instances.  
 {: shortdesc} 
 
@@ -26,14 +23,7 @@ After you create an instance, you can attach it to a cluster network instance su
 
 Review [Planning considerations](/docs/vpc?topic=vpc-planning-cluster-network&interface=ui) and [Known issues and limitations](/docs/vpc?topic=vpc-limitations-cluster-network&interface=ui).
 
-You can attach cluster network interfaces to an instance with the UI, CLI, API, or Terraform.
-
-## Attaching cluster network interfaces to an instance in the UI
-{: #attach-interfaces-cluster-network-ui}
-{: ui}
- 
-Currently, the UI does not support this feature for beta.
-{: note}
+You can attach cluster network interfaces to an instance with the CLI, API, or Terraform.
 
 ## Attaching cluster network interfaces to an instance in the CLI
 {: #attach-interfaces-cluster-network-cli}
@@ -48,13 +38,6 @@ To attach interfaces to an instance in the CLI, follow these steps:
     ibmcloud login --sso
     ```
     {: pre}
-
-1. Enable the following feature flag:
-
-   ```sh
-   export IBMCLOUD_IS_FEATURE_CLUSTER_NETWORK=true
-   ```
-   {: pre}
 
 1. To attach an interface to an instance, enter the following command:
 
@@ -114,10 +97,10 @@ To attach cluster network interfaces to an instance with the API, follow these s
 1. When all variables are initiated, enter the following command to attach the cluster network interface to the instance:
 
    ```sh
-   curl -X POST "$vpc_api_endpoint/v1/instances/$instance_id/cluster_network_attachments?version=$tomorrow&generation=2&maturity=development" -H "Authorization: Bearer $iam_token" -d '{
+   curl -X POST "$vpc_api_endpoint/v1/instances/$instance_id/cluster_network_attachments?version=$today&generation=2" -H "Authorization: Bearer $iam_token" -d '{
      "name": "my-cluster-network-attachment",
      "cluster_network_interface": {
-       "id": "cluster_network_interface_id"
+       "id": "$cluster_network_interface_id"
      }
    }'
    ```

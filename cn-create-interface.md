@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-10-25"
+lastupdated: "2024-11-12"
 
 keywords:
 
@@ -14,9 +14,6 @@ subcollection: vpc
 
 # Creating a cluster network interface
 {: #create-cluster-network-interface}
-
-Contact your IBM Support representative if you are interested in getting early access to this offering. It is currently available for early access users of the `gx3d-160x1792x8h100` [virtual server instance profiles](/docs/vpc?topic=vpc-profiles#gpu) in the `us-east` region.
-{: beta}
 
 You can create a cluster network interface either during the creation of a cluster network, or after the network has been provisioned.
 {: shortdesc}
@@ -62,13 +59,6 @@ To create a cluster network interface in the CLI, follow these steps:
     ```
     {: pre}
 
-1. Enable the following feature flag:
-
-   ```sh
-   export IBMCLOUD_IS_FEATURE_CLUSTER_NETWORK=true
-   ```
-   {: pre}
-
 1. To create a cluster network interface, enter the following command:
 
    ```bash
@@ -111,7 +101,8 @@ To create a cluster network interface in the CLI, follow these steps:
 ### Command examples
 {: #command-examples-create-cluster-network-interface}
 
-[NEED COMMAND EXAMPLES]{: tag-red}
+* `ibmcloud is cluster-network-interface-create my-cluster-network --name my-cluster-network-interface --subnet my-cluster-network-subnet --rip-name my-cluster-network-interface-reserved-ip` - Create reserved IP as part of interface creation
+* `ibmcloud is cluster-network-interface-create my-cluster-network --name my-cluster-network-interface --rip my-cluster-network-interface-reserved-ip` - Use existing cluster network subnet reserved IP
 
 ### Related commands
 {: #related-commands-cluster-network-interface}
@@ -136,7 +127,7 @@ To create a cluster network interface with the API, follow these steps:
 1. When all variables are initiated, run the following command to create a cluster network interface:
 
    ```sh
-   curl -X POST "$vpc_api_endpoint/v1/cluster_networks/$cluster_network_id/interfaces?version=$tomorrow&generation=2&maturity=development" -H "Authorization: Bearer $iam_token" -d '{
+   curl -X POST "$vpc_api_endpoint/v1/cluster_networks/$cluster_network_id/interfaces?version=$today&generation=2" -H "Authorization: Bearer $iam_token" -d '{
          "name": "my-cluster-network-interface",
          "subnet": {
              "id": "0767-7931845c-65c4-4b0a-80cd-7d9c1a6d7930"

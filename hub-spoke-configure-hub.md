@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-10-25"
+lastupdated: "2024-11-12"
 
 keywords:
 
@@ -98,7 +98,7 @@ To enable a VPC as a DNS hub with the API, follow these steps:
    ```
    {: codeblock}
 
-For more information, reference the [Create a VPC](/apidocs/vpc-beta#create-vpc) API.
+For more information, reference the [Create a VPC](/apidocs/vpc#create-vpc) API.
 
 Sample output:
 

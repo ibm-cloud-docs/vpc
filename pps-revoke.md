@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-06"
+lastupdated: "2024-11-12"
 
 keywords:
 
@@ -41,17 +41,6 @@ To Revoke an account's access to a Private Path service in the {{site.data.keywo
 The following example shows how to use the CLI to revoke an account's access to a Private Path service.
 
 Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli){: external}.
-
-You must first export the feature flag to use the CLI for Private Path beta release offerings.
-{: important}
-
-To export the feature flag, enter the following commands:
-
-```sh
-export IBMCLOUD_IS_FEATURE_PRIVATE_PATH_SERVICE_GATEWAY=true
-export IBMCLOUD_IS_FEATURE_PP_NLB_SUPPORT=true
-```
-{: pre}
 
 To delete a Private Path service from the CLI, follow these steps:
 

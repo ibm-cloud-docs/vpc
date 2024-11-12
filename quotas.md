@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-10-31"
+lastupdated: "2024-11-12"
 
 keywords:
 
@@ -138,11 +138,6 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 ### Private Path network load balancers
 {: #ppnlb-quotas}
 
-
-
-The beta release of IBM Cloud Private Path is available only to allowlisted users. Contact your IBM Support representative if you are interested in getting early access to this beta offering.
-{: beta}
-
 | Resource | Quota |
 |--------|-----|
 | Load balancers | 50 per region |
@@ -154,9 +149,6 @@ The beta release of IBM Cloud Private Path is available only to allowlisted user
 
 ### Cluster networks
 {: #cluster-networks-quotas}
-
-Contact your IBM Support representative if you are interested in getting early access to this offering. It is currently available for early access users of the `gx3d-160x1792x8h100` [virtual server instance profiles](/docs/vpc?topic=vpc-profiles#gpu) in the `us-east` region.
-{: beta}
 
 | Resource | Quota |
 |--------|-----|

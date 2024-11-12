@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-03-25"
+lastupdated: "2024-11-11"
 
 subcollection: vpc
 
@@ -77,7 +77,7 @@ You can delete an `inactive` reservation and you can patch the following fields.
 
 If you want to change any other fields, you need to delete the reservation and re-create it.
 
-However, after a reservation is activated and is `active`, many aspects of the reservation are permanent for the lifetime of the reservation. Make sure that you review the reservation before you active it to make sure that the configuration is correct. The only fields that can be patched for an `active` reservation are `name` and `committed_use.expiration_policy`.
+However, after a reservation is activated and is `active`, many aspects of the reservation are permanent for the lifetime of the reservation. Make sure that you review the reservation before you activate it to make sure that the configuration is correct. The only fields that can be patched for an `active` reservation are `name` and `committed_use.expiration_policy`.
 
 ### Deleting a reservation with the UI
 {: #deleting-reservation-ui-vpc}

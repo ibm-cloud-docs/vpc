@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-11"
+lastupdated: "2024-11-12"
 
 keywords:
 
@@ -14,9 +14,6 @@ subcollection: vpc
 
 # About cluster networks
 {: #about-cluster-network}
-
-Contact your IBM Support representative if you are interested in getting early access to this offering. It is currently available for early access users of the `gx3d-160x1792x8h100` [virtual server instance profiles](/docs/vpc?topic=vpc-profiles#gpu) in the `us-east` region.
-{: beta}
 
 A cluster network is a software-defined network within a Virtual Private Cloud (VPC) used to connect multiple computing systems or nodes in a way that optimizes performance and communication between them. These networks are designed to support tasks that require high-speed data transfer and low latency, such as high-performance computing (HPC) and large-scale data processing. Ideal for large-scale AI training use cases, cluster networks also allow you to define sets of performance criteria for a given group of interconnected systems.
 {: shortdesc}
@@ -35,9 +32,6 @@ Specialized technologies
 High-performance computing
 :   Suited for demanding applications, such as artificial intelligence (AI) training or complex simulations, where high bandwidth and low latency is critical.
 
-Use cases
-:   Used in scenarios, such as scientific simulations, large-scale machine learning training, and other data-intensive applications where efficient and rapid data processing is critical.
-
 Flexibility and control
 : Is a supplemental network to the existing VPC network. The cluster network attachments are separate from the VPC networks, allowing for users to mix their high speed RDMA networks along side their VPC networks.
 
@@ -47,6 +41,7 @@ Flexibility and control
 A cluster network enhances the efficiency and speed of data transfer within a networked group of systems, making it an essential component for high-performance computing tasks. Follow these general steps to create a simple cluster network for AI training:
 
 1. Review [planning considerations for cluster networks](/docs/vpc?topic=vpc-planning-cluster-network) and be aware of any [known issues and limitations](/docs/vpc?topic=vpc-limitations-cluster-network).
+1. Increase your [storage quota](/docs/vpc?topic=vpc-quotas&interface=ui#cluster-networks-quotas), if necessary, by opening an [IBM Support case](/docs/account?topic=account-open-case&interface=ui).
 1. Ensure that you have an existing VPC in a region that has capacity for NVIDIA H100 profiles with clustering support.
 
    Currently, the only supported zone is `us-east-wdc07-a`. For more information about zones, see [zone mapping per account](/docs/overview?topic=overview-locations#zone-mapping).
@@ -70,7 +65,7 @@ A cluster network enhances the efficiency and speed of data transfer within a ne
       - Enable clustering.
       - Add attachments (8, 16, or 32) that correspond with your cluster subnets.
 
-   Advanced users might want to preallocate IP addresses or interfaces, however, it is recommended that you create IPs or interfaces when creating an instance.
+   Advanced users might want to preallocate IP addresses or interfaces. However, it is recommended that you create IPs or interfaces when creating an instance.
    {: note}
 
 ## Cluster network IAM roles and actions
@@ -146,7 +141,7 @@ First, make sure that you have a cluster network set up with cluster network sub
 {: #cn-secure-cluster-network}
 {: #cn-use-case-b}
 
-The cluster network is isolated to a separate network domain than the VPC cloud network. The cluster network isolation domain allows the user to be secure without needing to utilize security groups, Network ACLs, or routing tables.Communication within the cluster network only occurs between devices directly connected to the cluster network.
+The cluster network is isolated to a separate network domain than the VPC cloud network. The cluster network isolation domain allows the user to be secure without needing to utilize security groups, Network ACLs, or routing tables. Communication within the cluster network only occurs between devices directly connected to the cluster network.
 
 Resources that are connected to the cluster network also must connect at least one VPC network. The VPC network supports all of the IBM Cloud network use cases of a standard VPC resources - Floating IPs, Public Gateways, Transit Gateway, and more. As such, it's recommended that the user review their security policies of the Virtual Network Interfaces attached to resources on the cluster network.
 
@@ -166,3 +161,5 @@ To maintain minimal access to the cluster network, you must:
 * [Quotas and service limits](/docs/vpc?topic=vpc-quotas&q=service+limits&tags=vpc#cluster-networks-quotas)
 * [AT events](/docs/vpc?topic=vpc-at_events&q=tracker&tags=vpc#events-cluster-network)
 * [FAQs](/docs/vpc?topic=vpc-faqs-cluster-network)
+* [NVIDIA H100 cluster network profile](/docs/vpc?topic=vpc-cluster-network-h100-profile&interface=cli)
+* [GPU profile information](/docs/vpc?topic=vpc-profiles#gpu)

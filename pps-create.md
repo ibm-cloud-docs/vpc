@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-11-08"
+lastupdated: "2024-11-12"
 
 keywords:
 
@@ -94,7 +94,7 @@ To create a Private Path service with the {{site.data.keyword.cloud_notm}} conso
       It takes several minutes for your Private Path NLB to be created. When the load balancer is created, its status changes from **Creating** to **Active** in the table.
       {: note}
 
-1. In the Service endpoint section, click **Create**. Provide a name for the service endpoint where you want to connect your Private Path service. Click **Add +**. Validate the FQDN. For more information, see [Register and verify ownership of service endpoints (FQDNs)](/docs/vpc?topic=vpc-private-path-service-about&interface=ui#pps-domain-register-verify).
+1. In the Service endpoint section, click **Create**. Provide a name for the service endpoint where you want to connect your Private Path service. Then, validate ownership of the FQDN domain name and click **Add**. For more information, see [Register and verify ownership of service endpoints (FQDNs)](/docs/vpc?topic=vpc-private-path-service-about&interface=ui#pps-domain-register-verify).
 1. Select to enable or disable zonal affinity for the service endpoints. When zonal affinity is enabled, the endpoint maintains persistence to the zone after the connection is created.
 1. In the Account policies section:
    * The default policy is set to review and triage each incoming connection request. You can change the default policy to permit or deny all requests without review.
@@ -111,23 +111,9 @@ To create a Private Path service with the {{site.data.keyword.cloud_notm}} conso
 {: #pps-cli-creating-private-path-service}
 {: cli}
 
-Beta participants must export a feature flag to use the CLI. Contact your IBM Support representative to obtain.
-{: attention}
-
 The following example shows how to use the CLI to create a Private Path service.
 
 Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli){: external}.
-
-You must export the feature flag for Private Path service and Private Path network load balancer related commands to run successfully.
-{: important}
-
-To export the feature flag, enter the following commands:
-
-```sh
-export IBMCLOUD_IS_FEATURE_PRIVATE_PATH_SERVICE_GATEWAY=true
-export IBMCLOUD_IS_FEATURE_PP_NLB_SUPPORT=true
-```
-{: pre}
 
 To create a Private Path service from the CLI, follow these steps:
 

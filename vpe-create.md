@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-11-06"
+lastupdated: "2024-11-12"
 
 keywords: virtual private endpoints, VPE, endpoint gateway
 
@@ -16,7 +16,7 @@ subcollection: vpc
 {: help}
 {: support}
 
-You can create an endpoint gateway for an {{site.data.keyword.cloud}} or third-party service or application (Private Path beta) that you want to access on your private VPC network. You can use the UI, CLI, API, or Terraform.
+You can create an endpoint gateway for an {{site.data.keyword.cloud}} or third-party service or application that you want to access on your private VPC network. You can use the UI, CLI, API, or Terraform.
 {: shortdesc}
 
 ## Before you begin
@@ -58,7 +58,7 @@ To create an endpoint gateway in the {{site.data.keyword.cloud_notm}} console, f
 1. In the **Request connection to a service** section, select either an {{site.data.keyword.cloud_notm}} or non-{{site.data.keyword.cloud_notm}} service to access using this endpoint gateway.
 
    * For IBM Cloud services, select an available IBM Cloud service offering from the menu, then select its region. A region is pre-selected to optimize performance.
-   * (Private Path beta only) For non-IBM Cloud services, enter the cloud resource name (CRN) of the Private Path service (obtained from your service provider).
+   * For non-IBM Cloud services, enter the cloud resource name (CRN) of the Private Path service (obtained from your service provider).
 
 Your connection request is sent to the service provider for review.
 
@@ -108,7 +108,7 @@ To create an endpoint gateway from the CLI, follow these steps:
    `--target`
    :   Indicates the name, or CRN, of a provider cloud service instance.
 
-1. Create an endpoint gateway by attaching the target type for a Private Path service (Private Path beta release only - requires a feature flag):
+1. Create an endpoint gateway by attaching the target type for a Private Path service:
 
    ```sh
    ibmcloud is endpoint-gateway-create (--target-type private_path_service_gateway | provider_cloud_service | provider_infrastructure_service) --target TARGET [--vpc VPC] [--name NAME] [--rip RIP --subnet SUBNET | (--new-reserved-ip NEW_RESERVED_IP1 --new-reserved-ip NEW_RESERVED_IP2 ...)] [--sg SG] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name  RESOURCE_GROUP_NAME] [--output JSON] [-q, --quiet]

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-10-25"
+lastupdated: "2024-11-12"
 
 keywords:
 
@@ -14,9 +14,6 @@ subcollection: vpc
 
 # Creating a cluster network subnet
 {: #create-cluster-network-subnet}
-
-Contact your IBM Support representative if you are interested in getting early access to this offering. It is currently available for early access users of the `gx3d-160x1792x8h100` [virtual server instance profiles](/docs/vpc?topic=vpc-profiles#gpu) in the `us-east` region.
-{: beta}
 
 A cluster network subnet is a subnet within a cluster network. While it resembles a VPC subnet, it offers fewer features. However, it does let you define the subnet CIDR and configure reserved IPs for the cluster network subnet. These reserved IPs include addresses you specify and come with an auto-delete function similar to that of VPC subnet reserved IPs.
 {: shortdesc}
@@ -61,13 +58,6 @@ To create a cluster network subnet in the CLI, follow these steps:
     ibmcloud login --sso
     ```
     {: pre}
-
-1. Enable the following feature flag:
-
-   ```sh
-   export IBMCLOUD_IS_FEATURE_CLUSTER_NETWORK=true
-   ```
-   {: pre}
 
 1. To create a cluster network subnet, enter the following command:
 
@@ -130,7 +120,7 @@ To create a cluster network subnet with the API, follow these steps:
 1. When all variables are initiated, run the following command to create the cluster network subnet:
 
    ```sh
-   curl -X POST "$vpc_api_endpoint/v1/cluster_networks/$cluster_network_id/subnets?version=$tomorrow&generation=2&maturity=development" -H "Authorization: Bearer $iam_token" -d '{
+   curl -X POST "$vpc_api_endpoint/v1/cluster_networks/$cluster_network_id/subnets?version=$today&generation=2" -H "Authorization: Bearer $iam_token" -d '{
          "name": "my-cluster-network-subnet",
          "total_ipv4_address_count": 2048
        }'

@@ -72,6 +72,7 @@ The following links take you directly to the specific infrastructure service on 
 ## Network IAM roles and actions
 {: #network-iam-roles-actions}
 
+- [Cluster Networks for VPC](/docs/vpc?topic=vpc-about-cluster-network#is.cluster-network-roles)
 - [Floating IP for VPC](/docs/account?topic=account-iam-service-roles-actions#is.floating-ip-roles)
 - [Flow Logs for VPC](/docs/account?topic=account-iam-service-roles-actions#is.flow-log-collector-roles)
 - [Load Balancer for VPC](/docs/account?topic=account-iam-service-roles-actions#is.load-balancer-roles)

@@ -41,7 +41,7 @@ To update the target service of a Private Path provider service the {{site.data.
 1. Select the **Navigation Menu** ![Menu icon](images/menu_icon.png), then click **Infrastructure > Network > Load balancers**.
 1. Select the region of your load balancer.
 1. Select the load balancer that you want to update.
-1. Select **Back-end pools** > **Create pool +** to create a new pool of servers for your updated service.
+1. Select **Back-end pools** > **Create pool** to create a new pool of servers for your updated service.
 1. Select the new options for your pool. You have the following options:
 
    * **Pool Name**: The name for your pool. Ideally, a name that describes the function that is performed by this pool.
@@ -73,17 +73,6 @@ To delete a Private Path service in the {{site.data.keyword.cloud_notm}} console
 {: cli}
 
 The following example shows how to update a Private Path provider service from the CLI.
-
-You must first export the feature flag to use the CLI for Private Path beta release offerings.
-{: important}
-
-To export the feature flag, enter the following commands:
-
-```sh
-export IBMCLOUD_IS_FEATURE_PRIVATE_PATH_SERVICE_GATEWAY=true
-export IBMCLOUD_IS_FEATURE_PP_NLB_SUPPORT=true
-```
-{: pre}
 
 To update a Private Path service from the CLI, follow these steps:
 
@@ -137,17 +126,6 @@ Where:
 The following example shows how to use the CLI to delete a Private Path service.
 
 Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli){: external}.
-
-You must first export the feature flag to use the CLI for Private Path beta release offerings.
-{: important}
-
-To export the feature flag, enter the following commands:
-
-```sh
-export IBMCLOUD_IS_FEATURE_PRIVATE_PATH_SERVICE_GATEWAY=true
-export IBMCLOUD_IS_FEATURE_PP_NLB_SUPPORT=true
-```
-{: pre}
 
 To delete a Private Path service from the CLI, follow these steps:
 
