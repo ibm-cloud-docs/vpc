@@ -38,7 +38,7 @@ You can create a cluster network with the UI, API, CLI, and Terraform.
 
 To create a cluster network in the UI, follow these steps:
 
-1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
+1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login) and log in to your account.
 1. Select the **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click  **Infrastructure** ![VPC icon](../../icons/vpc.svg)  > **Cluster networks**.
 1. On the Cluster networks for VPC page, click **Create +**.
 1. In the Location section, edit the following fields, if necessary.

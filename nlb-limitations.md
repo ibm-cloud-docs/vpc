@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-11-06"
+lastupdated: "2024-11-12"
 
 keywords:
 
@@ -69,7 +69,7 @@ The following lists contain known limitations for {{site.data.keyword.cloud}} {{
    * Pools in load balancer: `10` (can be increased)
    * Listeners in load balancer: `10` (can be increased)
 
-### Related links
+### Related link
 {: #nlb-limitations-related-links}
 
 [Private Path service limitations](/docs/vpc?topic=vpc-ppsg-limitations)

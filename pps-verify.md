@@ -29,12 +29,12 @@ You can verify connectivity to a Private Path service by using SSH to log into a
 
 To verify connectivity to a Private Path service from the IBM Cloud console, follow these steps:
 
-1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
+1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login) and log in to your account.
 1. Select the **Navigation Menu** ![Menu icon](images/menu_icon.png), then click **Infrastructure > Network > Private Path services**.
 1. Locate your new Private Path in the table and click the name of the service to show its Details page.
 1. Copy the CRN to your clipboard.
-1. Click the **Infrastructure** breadcrumb at the top of the page, then click **Virtual private endpoint gateways** in the Network section.
-1. Create a VPE gateway to connect to your Private Path service using your Private Path CRN. For instructions, see [Creating a VPE gateway](/docs/vpc?topic=vpc-ordering-endpoint-gateway){: external}.
+1. Click **Infrastructure**, then click **Virtual private endpoint gateways** in the Network section.
+1. Create a VPE gateway to connect to your Private Path service using your Private Path CRN. For instructions, see [Creating a VPE gateway](/docs/vpc?topic=vpc-ordering-endpoint-gateway).
 1. Navigate back to the Private Path services for VPC list page and click the name of your Private Path service in the table.
 1. In the Connections section:
 
@@ -49,11 +49,11 @@ To verify connectivity to a Private Path service from the IBM Cloud console, fol
 
 The following example shows how to use the CLI to verify connectivity to a Private Path service.
 
-Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli){: external}.
+Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 To verify connectivity to a Private Path service from the CLI, follow these steps:
 
-1. Create a VPE gateway to connect to your Private Path service using your Private Path CRN. For instructions, see [Creating a VPE gateway from the CLI](/docs/vpc?topic=vpc-ordering-endpoint-gateway&interface=cli){: external}.
+1. Create a VPE gateway to connect to your Private Path service using your Private Path CRN. For instructions, see [Creating a VPE gateway from the CLI](/docs/vpc?topic=vpc-ordering-endpoint-gateway&interface=cli).
 1. Connect to your service.
 
 ## Verifying connectivity to a Private Path service with the API
@@ -62,7 +62,7 @@ To verify connectivity to a Private Path service from the CLI, follow these step
 
 To verify connectivity to a Private Path service with the API, follow these steps:
 
-1. Follow [these instructions](/docs/vpc?topic=vpc-ordering-endpoint-gateway&interface=api){: external} to create a VPE with `TargetCrn` specified with your Private Path service CRN.
+1. Follow [these instructions](/docs/vpc?topic=vpc-ordering-endpoint-gateway&interface=api)to create a VPE with `TargetCrn` specified with your Private Path service CRN.
 1. Ensure that at least one of your load balancer's members health is shown as `ok`.
 1. From a VSI in the same VPE's VPC, initiate a request to the VPE's `private IP` or `service_endpoint` and expect to get a reply. For example, SSH into a VSI in the same VPE's VPC with image `ibm-ubuntu-18-04-6-minimal-s390x-3`. Then run this command:
 
@@ -76,9 +76,6 @@ To verify connectivity to a Private Path service with the API, follow these step
 ## Verifying connectivity to a Private Path service with Terraform
 {: #verifying-private-path-service-terraform}
 {: terraform}
-
-Terraform will support this feature after it reaches General Availability (GA) and is officially released.
-{: note}
 
 The following example verifies connectivity to a Private Path network by using Terraform:
 

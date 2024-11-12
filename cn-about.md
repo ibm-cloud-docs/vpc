@@ -107,9 +107,9 @@ To maintain minimal access to the cluster network, you must:
 ## Related links
 {: #related-links-cluster-network}
 
-* [Quotas and service limits](/docs/vpc?topic=vpc-quotas&q=service+limits&tags=vpc#cluster-networks-quotas){: external}
-* [IAM permissions](/docs/account?topic=account-iam-service-roles-actions#is.cluster-network-roles){: external}
+* [Quotas and service limits](/docs/vpc?topic=vpc-quotas&q=service+limits&tags=vpc#cluster-networks-quotas)
+* [IAM permissions](/docs/account?topic=account-iam-service-roles-actions#is.cluster-network-roles)
 * [AT events](/docs/vpc?topic=vpc-at_events&q=tracker&tags=vpc#events-cluster-network)
-* [FAQs](/docs/vpc?topic=vpc-faqs-cluster-network){: external}
-* [NVIDIA H100 cluster network profile](/docs/vpc?topic=vpc-cluster-network-h100-profile&interface=cli){: external}
-* [GPU profile information](/docs/vpc?topic=vpc-profiles#gpu){: external}
+* [FAQs](/docs/vpc?topic=vpc-faqs-cluster-network)
+* [NVIDIA H100 cluster network profile](/docs/vpc?topic=vpc-cluster-network-h100-profile&interface=cli)
+* [GPU profile information](/docs/vpc?topic=vpc-profiles#gpu)

@@ -34,7 +34,7 @@ You can delete a cluster network with the UI, CLI, API, or Terraform.
 
 To delete a cluster network in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
-1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
+1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login) and log in to your account.
 1. Select the **Navigation Menu** ![Navigation Menu icon](../../icons/icon_hamburger.svg), then click  **Infrastructure** ![VPC icon](../../icons/vpc.svg)  > **Cluster networks**.
 1. In the Cluster networks for VPC table, locate the cluster network interface that you want to delete, then click **Delete** in the Actions menu ![Actions menu](images/overflow.png).
 

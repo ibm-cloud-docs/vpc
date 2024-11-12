@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-06"
+lastupdated: "2024-11-12"
 
 subcollection: vpc
 
@@ -23,7 +23,7 @@ Private Path services and Virtual Private Endpoint (VPE) gateways are free servi
 
 For example, from the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) and select **Infrastructure > Network > Private Path services**. Then, click **Create** to open the provisioning page.
 
-## Related links
+## Related link
 {: #faq-related-links-private-path}
 
-* [Why can't consumers connect to my Private Path service](/docs/vpc?topic=vpc-troubleshoot-pps-1)
+[Why can't consumers connect to my Private Path service](/docs/vpc?topic=vpc-troubleshoot-pps-1)

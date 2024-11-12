@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-06"
+lastupdated: "2024-11-12"
 
 keywords:
 
@@ -14,12 +14,6 @@ subcollection: vpc
 
 # Responsibilities for managing consumer account IDs
 {: #pps-consumer-account-id-responsibilities}
-
-As a service provider, you are responsible for managing your consumer account IDs. Currently, tracking or validating account IDs is not supported. The responsibility of managing, approving, and revoking consumer account IDs lies entirely with you as the service provider.
-{: attention}
-
-## Responsibilities
-{: #pps-consumer-responsibilities}
 
 The following are your responsibilities as a Private Path service provider when managing consumer account IDs:
 

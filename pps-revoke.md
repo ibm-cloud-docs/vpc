@@ -18,7 +18,7 @@ subcollection: vpc
 As a service provider, you are responsible for managing your consumer account IDs. Currently, tracking or validating account IDs is not supported. For more information, see [Responsibilities for managing consumer account IDs](/docs/vpc?topic=vpc-pps-consumer-account-id-responsibilities&interface=ui).
 {: attention}
 
-You can revoke an account's access to a Private Path service using the UI, CLI, or API.
+You can revoke an account's access to a Private Path service using the UI, CLI, API, or Terraform.
 {: shortdesc}
 
 ## Revoking an account's access to a Private Path service in the UI
@@ -40,7 +40,7 @@ To Revoke an account's access to a Private Path service in the {{site.data.keywo
 
 The following example shows how to use the CLI to revoke an account's access to a Private Path service.
 
-Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli){: external}.
+Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 To delete a Private Path service from the CLI, follow these steps:
 
@@ -84,7 +84,7 @@ Where:
 
 To revoke access to a Private Path service for an account, follow these steps:
 
-1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup){: external}.
+1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
 1. Store the following values in variables to be used in the API command:
 
    * `ppsgId` - Get your Private Path service and then populate the variable:
@@ -117,9 +117,6 @@ To revoke access to a Private Path service for an account, follow these steps:
 ## Revoking an account's access a Private Path service with Terraform
 {: #pps-revoke-account-access-terraform}
 {: terraform}
-
-Terraform will support this feature after it reaches General Availability (GA) and is officially released.
-{: note}
 
 The following example revokes an account's access to a Private Path network by using Terraform:
 

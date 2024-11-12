@@ -18,7 +18,7 @@ subcollection: vpc
 As a service provider, you are responsible for managing your consumer account IDs. Currently, tracking or validating account IDs is not supported. For more information, see [Responsibilities for managing consumer account IDs](/docs/vpc?topic=vpc-pps-consumer-account-id-responsibilities&interface=ui).
 {: attention}
 
-You can update or delete a Private Path service account policy at any time using the UI, CLI, or API.
+You can update or delete a Private Path service account policy at any time using the UI, CLI, API, or Terraform.
 {: shortdesc}
 
 ## Updating and deleting an account policy in the UI
@@ -31,7 +31,7 @@ To update an account policy in the {{site.data.keyword.cloud_notm}} console, fol
 1. Select the **Navigation Menu** ![Menu icon](images/menu_icon.png), then click **Infrastructure > Network > Private Path services**.
 1. Click the name of the Private Path service that includes the account policy that you want to update.
 1. On the Private Path service's Details page, click the Policies tab.
-1. Locate the account with the policy that you want to update, then click the Edit ![Edit icon](images/edit.png) or Delete ![Delete icon](images/delete.png) icon.
+1. Locate the account with the policy that you want to update, then click Edit or Delete.
 
    In the Edit policy panel, you can update the policy name and the request policy (**Review**, **Permit**, or **Deny**).
 
@@ -43,7 +43,7 @@ To update an account policy in the {{site.data.keyword.cloud_notm}} console, fol
 
 The following examples show how to use the CLI to update and delete an account policy.
 
-Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli){: external}.
+Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 ### Updating an account policy from the CLI
 {: #pps-cli-howto-update-account-policy}
@@ -132,7 +132,7 @@ Where:
 
 To update an account policy with the API, follow these steps:
 
-1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup){: external}.
+1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
 1. Store the following values in variables to be used in the API command:
 
    * `ppsgId` - Get your Private Path service and then populate the variable:
@@ -172,9 +172,6 @@ The following example shows how to use the API to delete an account policy.
 ## Updating and deleting an account policy with Terraform
 {: #pps-update-delete-policy-terraform}
 {: terraform}
-
-Terraform will support this feature after it reaches General Availability (GA) and is officially released.
-{: note}
 
 The following example updates or deletes an account policy's access to a Private Path network by using Terraform:
 
