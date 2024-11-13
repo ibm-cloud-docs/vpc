@@ -29,6 +29,7 @@ Before you create a Private Path service, review the following prerequisites:
 * Review [Private Path service limitations](/docs/vpc?topic=vpc-ppsg-limitations&interface=ui) for known limitations.
 * Make sure that you have a VPC and at least one subnet in the selected VPC. [Learn more](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
 * Create a Private Path network load balancer. You can create your load balancer while provisioning your Private Path service here, or you can use the [Load balancer for VPC](/infrastructure/provision/loadBalancer) console.
+
    You must use the same VPC region for both your load balancer and Private Path service.
    {: important}
 
