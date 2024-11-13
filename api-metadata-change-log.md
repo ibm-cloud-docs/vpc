@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-06-04"
+lastupdated: "2024-11-12"
 
 keywords: api, change log, metadata, new features, restrictions, migration, versioned change
 
@@ -27,6 +27,14 @@ Some changes, such as new response properties or new optional request parameters
 - Follow HTTP redirect rules for any `3xx` HTTP status code
 - Consume only the resources and properties your application needs to function
 - Avoid depending on behavior that is not explicitly documented
+
+## 12 November 2024
+{: #12-november-2024-metadata}
+
+### For all version dates
+{: #12-november-2024-all-version-dates-metadata}
+
+**Instance cluster network attachments.** If a virtual server instance has cluster network attachments, [retrieving the instance](/apidocs/vpc-metadata#get-instance) now includes a `cluster_network_attachments` property in the response. Additionally, you can [retrieve an instance cluster network attachment](/apidocs/vpc/latest#get-instance-cluster-network-attachment) for additional details on the instance's cluster network attachments. For more information, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#12-november-2024).
 
 ## 4 June 2024
 {: #4-june-2024-metadata}

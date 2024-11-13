@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-10-29"
+lastupdated: "2024-11-12"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -56,6 +56,46 @@ To prepare for this change, verify that your client checks that the `volume` pro
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
 
+## 12 November 2024
+{: #12-november-2024}
+
+### For all version dates
+{: #12-november-2024-all-version-dates}
+
+This release introduces the following updates for accounts that have been granted special approval to preview and use these features. Although usage of these features is restricted, changes to schemas (such as new properties) will be visible to all accounts.
+
+**NVIDIA Hopper HGX H100 instance profiles.** When [creating an instance](/apidocs/vpc/latest#create-instance), a new `gx3d-160x1792x8h100` instance profile is available in select zones. This profile provides 8 NVIDIA H100 GPUs that are tuned for AI workloads, such as inferencing, fine tuning, and large-scale training. For details, see [Accelerated profile family - Gen 3](/docs/vpc?topic=vpc-accelerated-profile-family#hopper-hgx-profiles).
+
+**Cluster networks.** Cluster networks provide high-bandwidth, low-latency networking for workloads such as AI training and large-scale simulations. You can now [create cluster networks](/apidocs/vpc/latest#create-cluster-network) using a [cluster network profile](/apidocs/vpc/latest#get-cluster-network-profile), which defines the cluster network performance characteristics and capabilities. The [H100 cluster network profile](/docs/vpc?topic=vpc-profiles&interface=api#gpu) is the first cluster network profile being introduced. It provides a specialized network that implements the RoCEv2 protocol to enable remote direct memory access for your workloads that are running on the `gx3d-160x1792x8h100` instance profile.
+
+When [creating an instance](/apidocs/vpc/latest#create-instance) using a supported cluster profile, you can specify the new `cluster_network_attachments` property to connect the virtual server instance to your cluster network. Alternatively, you can [create cluster network attachments](/apidocs/vpc/latest#create-cluster-network-attachment) on an existing instance that is in a `stopping` or `stopped` state. Additionally, when [creating an instance template](/apidocs/vpc/latest#create-instance-template) you can specify `cluster_network_attachments`.
+
+**Instance profile schema changes.** When [retrieving](/apidocs/vpc/latest#get-instance-profile) and [listing](/apidocs/vpc/latest#list-instance-profiles) instance profiles, the response includes the following new properties:
+
+- `cluster_network_attachment_count` specifies the number of cluster network attachments supported for that instance profile.
+- `supported_cluster_network_profiles` indicates the cluster network profiles that are supported for that instance profile.
+
+Learn [about cluster networks](/docs/vpc?topic=vpc-about-cluster-network), cluster network subnets, cluster network interfaces, and explore the new [API methods](/apidocs/vpc/latest#list-cluster-networks). See also [Known issues and limitations for cluster networks](/docs/vpc?topic=vpc-limitations-cluster-network) for information about Activity Tracker events and setting a cluster network reserved IP's `auto_delete` property.
+
+**Private Path network load balancers.** You can now create a [Private Path network load balancer](/docs/vpc?topic=vpc-ppnlb-ui-creating-private-path-network-load-balancer&interface=api) to enable and manage private connectivity for consumers of a hosted service. When [creating a load balancer](/apidocs/vpc/latest#create-load-balancer), you can specify the new `is_private_path` property value as `true` to create a Private Path network load balancer.
+
+**Load balancer schema enhancements for Private Path network load balancers.** The Private Path network load balancer includes a new load balancer profile `network-private-path`, along with the following new load balancer and load balancer profile properties:
+
+- `source_ip_session_persistence_supported` indicates whether a load balancer supports source IP session persistence. Source IP session persistence is not supported by Private Path network load balancers.
+- `availability` indicates the availability of a load balancer. Load balancers with `subnet` availability remain available if at least one of its subnets is in a zone that's available. Load balancers with `region` availability remain available if at least one zone in the region is available. Private Path network load balancers have `region` availability. Other load balancers have `subnet` availability.
+
+The `value` for load balancer profiles properties `route_mode_supported`, `security_groups_supported`, `udp_supported`, and `logging_supported` is set to `false` for Private Path load balancers. Additionally, Private Path load balancers do not support setting or updating the `dns` property, because Private Path network load balancers are accessed using endpoint gateways where DNS is configured.
+
+**Private Path service gateways.** You can now [create](/apidocs/vpc/latest#create-private-path-service-gateway) a Private Path service gateway to provide cross-account connectivity to the Private Path network load balancers that front your [services](/docs/vpc?topic=vpc-private-path-service-about&interface=api). Consumers access your services by targeting their endpoint gateways at your Private Path service gateways. You can also [update](/apidocs/vpc/latest#update-private-path-service-gateway), [publish](/apidocs/vpc/latest#publish-private-path-service-gateway), [unpublish](/apidocs/vpc/latest#unpublish-private-path-service-gateway) and [delete](/apidocs/vpc/latest#delete-private-path-service-gateway) Private Path service gateways. Private Path service gateways also have two child resources:
+
+- [Account policies](/apidocs/vpc/latest#list-private-path-service-gateway-account-policies) provide per-account access policies that supersede the Private Path service gateway's default access policy. You can [create](/apidocs/vpc/latest#create-private-path-service-gateway-account-policy), [update](/apidocs/vpc/latest#update-private-path-service-gateway-account-policy), and [delete](/apidocs/vpc/latest#delete-private-path-service-gateway-account-policy) policies to `permit`, `deny`, or manually `review` requests from any account. You can also [revoke](/apidocs/vpc/latest#revoke-account-for-private-path-service-gateway) current and future access for an account. For more information, see [About account policies](/docs/vpc?topic=vpc-pps-about-account-policies).
+
+- [Endpoint gateway bindings](/apidocs/vpc/latest#list-private-path-service-gateway-endpoint-gateway) are created for each endpoint gateway targeting the Private Path service gateway. The access policy for the endpoint gateway's account is applied to all new endpoint gateway bindings. If an account policy doesn't exist, the Private Path service gateway's `default_access_policy` is used. If the resulting policy is `review`, you must explicitly [permit](/apidocs/vpc/latest#permit-private-path-service-gateway-endpoint-gatew) or [deny](/apidocs/vpc/latest#deny-private-path-service-gateway-endpoint-gateway) the request, and optionally set a new policy for future requests from the account.
+
+Learn about [Creating Private Path service gateways](/docs/vpc?topic=vpc-private-path-service-intro&interface=ui), and explore the new [API methods](/apidocs/vpc/latest#list-private-path-service-gateways).
+
+**Load balancer PUT response code change.** When [replacing load balancer pool members](/apidocs/vpc/latest#replace-load-balancer-pool-members), the response will now return an HTTP status code of `200` on success, instead of `202`. This change applies to all API versions.
+
 ## 29 October 2024
 {: #29-october-2024}
 
@@ -94,6 +134,8 @@ The `value` for load balancer profiles properties `route_mode_supported`, `secur
 - [Endpoint gateway bindings](/apidocs/vpc/latest#list-private-path-service-gateway-endpoint-gateway) are created for each endpoint gateway targeting the Private Path service gateway. The access policy for the endpoint gateway's account is applied to all new endpoint gateway bindings. If an account policy doesn't exist, the Private Path service gateway's `default_access_policy` is used. If the resulting policy is `review`, you must explicitly [permit](/apidocs/vpc/latest#permit-private-path-service-gateway-endpoint-gatew) or [deny](/apidocs/vpc/latest#deny-private-path-service-gateway-endpoint-gateway) the request, and optionally set a new policy for future requests from the account.
 
 Learn about [Creating Private Path service gateways](/docs/vpc?topic=vpc-private-path-service-intro&interface=ui), and explore the new [API methods](/apidocs/vpc/latest#list-private-path-service-gateways).
+
+This feature is now generally available. See the "Private Path network load balancer" announcement on [12 November 2024](#12-november-2024).
 
 **CRNs for VPC routing tables.** VPC routing tables now support the `crn` property as an identifier. As a result, the `RoutingTable`, `RoutingTableReference` and `RoutingTableIdentity` schemas now include a `crn` property. All operations that use these schemas have been updated. For operations where the response contains a routing table or a reference to a routing table, for example [creating a routing table](/apidocs/vpc/latest#create-vpc-routing-table), [retrieving a routing table](/apidocs/vpc/latest#get-vpc-routing-table) or [retrieving a VPC's default routing table](/apidocs/vpc/latest#get-vpc-default-routing-table), the `crn` property is now included. When [replacing the routing table for a subnet](/apidocs/vpc/latest#replace-subnet-routing-table), for example, you can now optionally specify the routing table by its `crn` property.
 

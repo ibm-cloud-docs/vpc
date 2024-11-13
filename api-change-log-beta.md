@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-11-05"
+lastupdated: "2024-11-12"
 
 keywords: api, change log, beta
 
@@ -63,6 +63,8 @@ When [creating an instance](/apidocs/vpc-beta/latest#create-instance) using a su
 - `supported_cluster_network_profiles` indicates the cluster network profiles that are supported for that instance profile.
 
 Learn [about cluster networks](/docs/vpc?topic=vpc-about-cluster-network), cluster network subnets, cluster network interfaces, and explore the new [API methods](/apidocs/vpc-beta/latest#list-cluster-networks).
+
+This feature is now available for accounts that have been granted special approval to preview and use this feature. Although usage is restricted, changes to schemas (such as new properties) will be visible to all accounts. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#12-november-2024).
 
 ## 17 September 2024
 {: #17-september-2024-beta}
