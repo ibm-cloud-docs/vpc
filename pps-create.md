@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-11-12"
+lastupdated: "2024-11-13"
 
 keywords:
 
@@ -29,14 +29,13 @@ Before you create a Private Path service, review the following prerequisites:
 * Review [Private Path service limitations](/docs/vpc?topic=vpc-ppsg-limitations&interface=ui) for known limitations.
 * Make sure that you have a VPC and at least one subnet in the selected VPC. [Learn more](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
 * Create a Private Path network load balancer. You can create your load balancer while provisioning your Private Path service here, or you can use the [Load balancer for VPC](/infrastructure/provision/loadBalancer) console.
+   You must use the same VPC region for both your load balancer and Private Path service.
+   {: important}
 
-You must use the same VPC region for both your load balancer and Private Path service.
-{: important}
+* You will be asked to choose a DNS FQDN for your service that will be used by clients. This domain will be configured in consumer private DNS but you will be expected to prove ownership of the FQDN in public DNS and this will require you to take some steps your DNS provider. For more information see [here](/docs/vpc?topic=vpc-private-path-service-about&interface=ui#pps-domain-register-verify). 
 
-You will be asked to choose a DNS FQDN for your service that will be used by clients. This domain will be configured in consumer private DNS but you will be expected to prove ownership of the FQDN in public DNS and this will require you to take some steps your DNS provider. For more information see [here](/docs/vpc?topic=vpc-private-path-service-about&interface=ui#pps-domain-register-verify). 
-
-Note: You can opt out of this if you are willing to use one of limited predefine set of domains.
-{: note}
+   You can opt out of this if you are willing to use one of limited predefine set of domains.
+   {: note}
 
 You can create an {{site.data.keyword.cloud}} Private Path service using the UI, CLI, API, or Terraform.
 
