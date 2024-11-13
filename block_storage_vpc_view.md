@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-10-23"
+lastupdated: "2024-11-13"
 
 keywords:
 
@@ -399,7 +399,6 @@ A successful response looks like the following example. This example shows three
 ```
 {: codeblock}
 
-
 ### Viewing volume details with the API
 {: #viewvol-details-api}
 
@@ -467,7 +466,7 @@ A successful response provides details of the volume, including capacity and IOP
 ### Extra properties for boot volumes
 {: #viewvol-boot}
 
-When you request to view details of boot volumes, two extra properties are returned in a `GET /volumes` and `GET /volumes/{id}` response.
+When you request to view details of boot volumes, a couple of extra properties are returned in a `GET /volumes` and `GET /volumes/{id}` response.
 
 * The `active` property indicates whether the virtual server instance to which a volume is attached is running or stopped. When `active = true`, the instance is running and operations that require a running instance such as creating an [image from that boot volume](/docs/vpc?topic=vpc-create-ifv#image-from-volume-vpc-api) also work.
 
