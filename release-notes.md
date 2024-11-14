@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-11-05"
+lastupdated: "2024-11-14"
 
 keywords:
 
@@ -23,6 +23,22 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 For more information about changes to the {{site.data.keyword.vpc_short}} API, see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command-line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
+
+## November 2024
+{: #vpc-nov24}
+
+### 12 November 2024
+{: #vpc-nov1224}
+{: release-note}
+
+Private Path services for VPC
+: Private Path services are now generally available. Private Path services provide targeted and directional connectivity between VPCs and accounts, allowing only consumers to initiate connections to the provider's service endpoint. Explicit authorization gives providers full control of who can access their services.
+A Private Path service requires a Private Path network load balancer to deploy a service on IBM Cloud, as well as a Virtual Private Endpoint (VPE) gateway for consumers to connect to the service. To get started, providers can create a [Private Path service](/docs/vpc?topic=vpc-private-path-service-about&interface=ui).
+For more information, see the [Private Path solution guide](/docs/private-path?topic=private-path-overview).
+{: note}
+
+Cluster networks for VPC (select availability)
+:   Cluster Networks for VPC is now selectively available for select customers. Contact IBM Support if you are interested in using this functionality. Cluster networks provide high-bandwidth, low-latency networking for workloads such as AI training and large-scale simulations. You can now [create cluster networks](/docs/vpc?topic=vpc-create-cluster-network&interface=ui) using a cluster network profile, which defines the cluster network performance characteristics and capabilities. The [H100 cluster network profile](/docs/vpc?topic=vpc-profiles&interface=api#gpu) is the first cluster network profile being introduced. It provides a specialized network that implements the RoCEv2 protocol to enable remote direct memory access for your workloads that are running on the `gx3d-160x1792x8h100` instance profile. For more information, see [About cluster networks](/docs/vpc?topic=vpc-about-cluster-network&interface=ui).
   
 ## October 2024
 {: #vpc-oct24}
