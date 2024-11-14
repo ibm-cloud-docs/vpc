@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-12"
+lastupdated: "2024-11-13"
 
 keywords:
 
@@ -141,9 +141,7 @@ To publish a Private Path service with the API, follow these steps:
       {: pre}
 
 
-1. When all variables are initiated, do one of the following:
-
-   * To publish your Private Path service:
+1. When all variables are initiated, publish your Private Path service:
 
       ```sh
       curl -X POST -sH "Authorization:${iam_token}" \
@@ -169,9 +167,7 @@ To unpublish a Private Path service with the API, follow these steps:
       {: pre}
 
 
-1. When all variables are initiated, do one of the following:
-
-   * To unpublish your Private Path service:
+1. When all variables are initiated, unpublish your Private Path service:
 
       ```sh
       curl -X POST -sH "Authorization:${iam_token}" \

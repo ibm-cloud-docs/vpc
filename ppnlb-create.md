@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-11-12"
+lastupdated: "2024-11-14"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
 
@@ -240,7 +240,7 @@ To create a Private Path NLB from the CLI, follow these steps:
    Subnets            ID                                          Name
                       0896-b1f24514-89dc-4afd-b0e2-5489a43cf45c   nlb
 
-   Public IPs         150.238.50.78, 150.238.54.95
+   Public IPs         
    Private IPs        10.240.0.58, 10.240.0.59
    Provision status   active
    Operating status   online

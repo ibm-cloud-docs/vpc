@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-12"
+lastupdated: "2024-11-13"
 
 keywords: cluster profiles, cluster network, cluster-network, cluster network profile, cluster network profiles, gpu, nvidia, h100, rdma, roce, accelerated, rocev2, accelerated network
 
@@ -67,7 +67,7 @@ The cluster network H100 profile has the following capabilities and restrictions
 - Secondary IPs: No
 - VPN: No
 
-## Tested NICL configuration
+## Tested NCCL configuration
 {: #performance-recs}
 
 The following information provides tested NCCL tunings for an H100 VM profile with an 8-subnet cluster network. All testing was done on NCCL version 2.22.3. For more information, refer to the [NVIDIA Documentation](https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/overview.html).

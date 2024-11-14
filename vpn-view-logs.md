@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-11-06"
+lastupdated: "2024-11-14"
 
 keywords:
 
@@ -14,7 +14,10 @@ subcollection: vpc
 
 # Using {{site.data.keyword.la_full_notm}} to view VPN logs
 {: #using-log-analysis-to-view-vpn-logs}
-{: ui}
+{: ui} 
+
+As of 28 March 2024, the {{site.data.keyword.la_full_notm}} service is deprecated and will no longer be supported as of 30 March 2025. Customers need to migrate to {{site.data.keyword.logs_full_notm}} before 30 March 2025. During the migration period, customers can use {{site.data.keyword.la_full_notm}} along with {{site.data.keyword.logs_full_notm}}. Logging is the same for both services. For information about migrating from {{site.data.keyword.la_full_notm}} to {{site.data.keyword.logs_full_notm}} and running the services in parallel, see [migration planning](/docs/cloud-logs?topic=cloud-logs-migration-intro).
+{: deprecated} 
 
 You can use {{site.data.keyword.la_full}} to view application and connection logs from your IBM Cloud VPN for VPC.
 {: shortdesc}

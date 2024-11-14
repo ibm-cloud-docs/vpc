@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-11-11"
+lastupdated: "2024-11-13"
 
 keywords:
 
@@ -263,12 +263,12 @@ The following table lists the actions that are related to load balancers and the
 | private-path-service-gateway | is.private-path-service-gateway.private-path-service-gateway.read | One or more Private Path service gateway was retrieved |
 | private-path-service-gateway | is.private-path-service-gateway.private-path-service-gateway.list | Private Path service gateway was listed |
 | private-path-service-gateway | is.private-path-service-gateway.private-path-service-gateway.update | Private Path service gateway was updated |
-| private-path-service-gateway | is.private-path-service-gateway.private-path-service-gateway.create  /n is.private-path-service-gateway.load-balancer.attach  /n is.load-balancer.private-path-service-gateway.attach | Private Path service gateway was created |
-| private-path-service-gateway | is.private-path-service-gateway.private-path-service-gateway.delete  /n is.private-path-service-gateway.load-balancer.detach  /n is.load-balancer.private-path-service-gateway.detach | Private Path service gateway was deleted |
+| private-path-service-gateway | is.private-path-service-gateway.private-path-service-gateway.create /n is.private-path-service-gateway.load-balancer.attach /n is.load-balancer.private-path-service-gateway.attach | Private Path service gateway was created |
+| private-path-service-gateway | is.private-path-service-gateway.private-path-service-gateway.delete /n is.private-path-service-gateway.load-balancer.detach /n is.load-balancer.private-path-service-gateway.detach | Private Path service gateway was deleted |
 | private-path-service-gateway | is.private-path-service-gateway.private-path-service-gateway.publish | Private Path service gateway was published |
-| private-path-service-gateway | is.private-path-service-gateway.load-balancer.detach  /n is.is.load-balancer.private-path-service-gateway.detach | Private Path service gateway load balancer was deleted |
-| private-path-service-gateway | is.private-path-service-gateway.load-balancer.attach  /n is.load-balancer.private-path-service-gateway.attach | Private Path service gateway load balancer was attached |
-| private-path-service-gateway | is.private-path-service-gateway.private-path-service-gateway.revoke-account  /n is.private-path-service-gateway.endpoint-gateway-binding.deny | Private Path service gateway account was revoked |
+| private-path-service-gateway | is.private-path-service-gateway.load-balancer.detach /n is.is.load-balancer.private-path-service-gateway.detach | Private Path service gateway load balancer was deleted |
+| private-path-service-gateway | is.private-path-service-gateway.load-balancer.attach /n is.load-balancer.private-path-service-gateway.attach | Private Path service gateway load balancer was attached |
+| private-path-service-gateway | is.private-path-service-gateway.private-path-service-gateway.revoke-account /n is.private-path-service-gateway.endpoint-gateway-binding.deny | Private Path service gateway account was revoked |
 | private-path-service-gateway | is.private-path-service-gateway.endpoint-gateway-binding.read | Private Path service gateway consumer connection request was retrieved |
 | private-path-service-gateway | is.private-path-service-gateway.endpoint-gateway-binding.list | Private Path service gateway consumer connection requests were listed |
 | private-path-service-gateway | is.private-path-service-gateway.endpoint-gateway-binding.permit | Private Path service gateway consumer connection request was permitted |

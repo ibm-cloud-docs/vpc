@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-04"
+lastupdated: "2024-11-14"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, accelerated, h100, l4, l40s
 
@@ -77,6 +77,7 @@ For more information about regions and universal zones, see [Regions](/docs/over
 - Live migration: No
 - Instance storage: Yes
 - NVLink: Yes (900 GB/s)
+- [NVIDIA GPUDirect Capable](https://developer.nvidia.com/gpudirect): Yes
 - Cluster network capable: Yes (limited regions)
    - Bandwidth: 3.2 Tbps (8x 400 Gbps)
    - Type: Dedicated

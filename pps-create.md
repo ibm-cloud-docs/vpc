@@ -29,10 +29,11 @@ Before you create a Private Path service, review the following prerequisites:
 * Review [Private Path service limitations](/docs/vpc?topic=vpc-ppsg-limitations&interface=ui) for known limitations.
 * Make sure that you have a VPC and at least one subnet in the selected VPC. [Learn more](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
 * Create a Private Path network load balancer. You can create your load balancer while provisioning your Private Path service here, or you can use the [Load balancer for VPC](/infrastructure/provision/loadBalancer) console.
+
    You must use the same VPC region for both your load balancer and Private Path service.
    {: important}
 
-* You will be asked to choose a DNS FQDN for your service that will be used by clients. This domain will be configured in consumer private DNS but you will be expected to prove ownership of the FQDN in public DNS and this will require you to take some steps your DNS provider. For more information see [here](/docs/vpc?topic=vpc-private-path-service-about&interface=ui#pps-domain-register-verify). 
+* You will be asked to choose a DNS FQDN for your service that will be used by clients. This domain will be configured in consumer private DNS but you will be expected to prove ownership of the FQDN in public DNS and this will require you to take some steps your DNS provider. For more information see [Registering and verifying ownership of service endpoints (FQDNs)](/docs/vpc?topic=vpc-private-path-service-about&interface=ui#pps-domain-register-verify). 
 
    You can opt out of this if you are willing to use one of limited predefine set of domains.
    {: note}
@@ -221,7 +222,7 @@ resource "ibm_is_private_path_service_gateway" "ppsg" {
 ```
 {: codeblock}
 
-## Register and verify ownership of service endpoints (FQDNs)
+## Registering and verifying ownership of service endpoints (FQDNs)
 {: #pps-domain-register-verify}
 
 When creating a Private Path service, you are required to prove that you own the _service-endpoints_ (DNS FQDNs) you provide. This is done to prevent DNS hijacking and FQDN conflicts. Ownership is verified by creating a TXT record for each FQDN (service endpoint) with specific contents. You must create the TXT records in a public DNS. The public DNS is only consulted when the Private Path service is created. After a Private Path service is created, only a private DNS is used in the data path  (never a public DNS).

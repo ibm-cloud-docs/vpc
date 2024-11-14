@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-10-22"
+lastupdated: "2024-11-14"
 
 keywords: Block Storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
@@ -208,7 +208,7 @@ curl -X GET "https://us-south.iaas.cloud.ibm.com/v1/volume/profiles/10iops-tier?
 ```
 {: pre}
 
-A successful response looks like the following example.   
+A successful response looks like the following example.
 
 ```json
    {
@@ -244,8 +244,6 @@ A successful response looks like the following example.
 }
 ```
 {: screen}
-
-
 
 For more information about this method, see the API reference for [listing all volume profiles](/apidocs/vpc/latest#list-volume-profiles) and [retrieving a volume profile](/apidocs/vpc/latest#get-volume-profile).
 
