@@ -27,6 +27,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## November 2024
 {: #vpc-nov24}
 
+
+
 ### 12 November 2024
 {: #vpc-nov1224}
 {: release-note}
@@ -39,7 +41,7 @@ For more information, see the [Private Path solution guide](/docs/private-path?t
 
 Cluster networks for VPC (select availability)
 :   Cluster Networks for VPC is now selectively available for select customers. Contact IBM Support if you are interested in using this functionality. Cluster networks provide high-bandwidth, low-latency networking for workloads such as AI training and large-scale simulations. You can now [create cluster networks](/docs/vpc?topic=vpc-create-cluster-network&interface=ui) using a cluster network profile, which defines the cluster network performance characteristics and capabilities. The [H100 cluster network profile](/docs/vpc?topic=vpc-profiles&interface=api#gpu) is the first cluster network profile being introduced. It provides a specialized network that implements the RoCEv2 protocol to enable remote direct memory access for your workloads that are running on the `gx3d-160x1792x8h100` instance profile. For more information, see [About cluster networks](/docs/vpc?topic=vpc-about-cluster-network&interface=ui).
-  
+
 ## October 2024
 {: #vpc-oct24}
 
@@ -57,20 +59,20 @@ Hyper Protect Secure Build
 {: #vpc-oct2424}
 {: release-note}
 
-Allow SSH and Allow ping are not selected by default when creating a VPC in {{site.data.keyword.cloud_notm}} console 
-:   When you create a virtual private cloud by using {{site.data.keyword.cloud_notm}} console, the default security group settings for **Allow SSH** and **Allow ping** are now not selected by default, ensuring the most secure option by default. During VPC creation, you can select **Allow SSH** and **Allow ping** as needed for your VPC configuration. For more information see, [Creating a VPC and subnet](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console&interface=ui#creating-a-vpc-and-subnet). 
+Allow SSH and Allow ping are not selected by default when creating a VPC in {{site.data.keyword.cloud_notm}} console
+:   When you create a virtual private cloud by using {{site.data.keyword.cloud_notm}} console, the default security group settings for **Allow SSH** and **Allow ping** are now not selected by default, ensuring the most secure option by default. During VPC creation, you can select **Allow SSH** and **Allow ping** as needed for your VPC configuration. For more information see, [Creating a VPC and subnet](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console&interface=ui#creating-a-vpc-and-subnet).
 
 ### 18 October 2024
 {: #vpc-oct1824}
 {: release-note}
 
-Deploy a route-based VPN in active/active mode 
-:   When creating connections for a route-based VPN, you can now enable the distribution of traffic between the `Up` tunnels of the VPN gateway connection when a VPC route's next hop is the VPN connection. To accomplish this, you must enable the "distribute traffic" feature when [creating](/docs/vpc?topic=vpc-vpn-create-gateway&interface=ui) or [adding a connection](/docs/vpc?topic=vpc-vpn-adding-connections&interface=ui) to a route-based VPN gateway. For more information, see the [Distributing traffic for a route-based VPN](/docs/vpc?topic=vpc-using-vpn&interface=ui#use-case-4-vpn) use case. 
+Deploy a route-based VPN in active/active mode
+:   When creating connections for a route-based VPN, you can now enable the distribution of traffic between the `Up` tunnels of the VPN gateway connection when a VPC route's next hop is the VPN connection. To accomplish this, you must enable the "distribute traffic" feature when [creating](/docs/vpc?topic=vpc-vpn-create-gateway&interface=ui) or [adding a connection](/docs/vpc?topic=vpc-vpn-adding-connections&interface=ui) to a route-based VPN gateway. For more information, see the [Distributing traffic for a route-based VPN](/docs/vpc?topic=vpc-using-vpn&interface=ui#use-case-4-vpn) use case.
 
 ### 15 October 2024
 {: #vpc-oct1524}
 {: release-note}
-  
+
 Linux SysRq key now available to troubleshoot Linux virtual server instance
 :   When a Linux virtual server instance becomes unresponsive, you can now use Linux SysRQ key to troubleshoot the virtual server from the serial console. For more information, see [How can I use Linux SysRq key to troubleshoot a Linux virtual server instance from the serial console?](/docs/vpc?topic=vpc-troubleshooting-your-virtual-servers-for-vpc&interface=cli#linux-vsi-serial-console).
 
@@ -79,7 +81,7 @@ Linux SysRq key now available to troubleshoot Linux virtual server instance
 {: release-note}
 
 GPU H100 profile now available in Dallas (`us-south`) and Frankfurt (`eu-de`) regions (select availability)
-:   The GPU H100 profile is now available in the Dallas (`us-south`) and Frankfurt (`eu-de`) regions, in addition to London (`eu-gb`), Sydney (`au-syd`), Toronto (`ca-tor`), Madrid (`eu-es`), Washington DC (`us-east`), Tokyo (`jp-tok`), and Sao Paulo (`br-sao`) regions. The GPU H100 profile is available on the latest generation GPU-enabled infrastructure for running machine learning (ML) and deep learning (DL) frameworks in support of AI initiatives. When you use the H100 virtual server profile, it runs on an [NVIDIA Hopper-based HGX](https://www.nvidia.com/en-us/data-center/hgx/){: external} server and is the sole tenant running on the host. For more information about the `gx3d-160x1792x8h100` profile, see [GPU](/docs/vpc?topic=vpc-profiles&interface=ui#gpu) profiles.   
+:   The GPU H100 profile is now available in the Dallas (`us-south`) and Frankfurt (`eu-de`) regions, in addition to London (`eu-gb`), Sydney (`au-syd`), Toronto (`ca-tor`), Madrid (`eu-es`), Washington DC (`us-east`), Tokyo (`jp-tok`), and Sao Paulo (`br-sao`) regions. The GPU H100 profile is available on the latest generation GPU-enabled infrastructure for running machine learning (ML) and deep learning (DL) frameworks in support of AI initiatives. When you use the H100 virtual server profile, it runs on an [NVIDIA Hopper-based HGX](https://www.nvidia.com/en-us/data-center/hgx/){: external} server and is the sole tenant running on the host. For more information about the `gx3d-160x1792x8h100` profile, see [GPU](/docs/vpc?topic=vpc-profiles&interface=ui#gpu) profiles.
 
 ## September 2024
 {: #vpc-sept24}
