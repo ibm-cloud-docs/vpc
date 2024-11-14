@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-10-22"
+lastupdated: "2024-11-14"
 
 keywords: Block Storage profiles, Block Storage for VPC, IOPS tiers, custom IOPS, storage performance
 
@@ -189,7 +189,6 @@ $vpc_api_endpoint/v1/volume/profiles?$api_version&generation=2 \
 {: pre}
 
 Before 24 September 2024, the API response included the fields `name`, `href`, `family`. Now the response is enhanced to include the following fields:
-
 - `boot_capacity` denotes the capacity values that are permissible for boot volumes for each profile. The returned value is a range with minimum and maximum values that are specified for each profile.
    - For `custom` and `tiered` profiles, the range is 10 GB - 250 GB.
 - `capacity` denotes the capacity values that are permissible for data volumes for each profile. The returned value is a range with minimum and maximum values that are specified for each profile.
@@ -208,7 +207,7 @@ curl -X GET "https://us-south.iaas.cloud.ibm.com/v1/volume/profiles/10iops-tier?
 ```
 {: pre}
 
-A successful response looks like the following example.   
+A successful response looks like the following example.
 
 ```json
    {
@@ -239,13 +238,17 @@ A successful response looks like the following example.
   },
   "adjustable_iops_states": {
     "type": "fixed",
-    "value": ""
+    "value": "",
+  },
+  "bandwidth": {
+    "max": 8192,
+    "min": 1000,
+    "step": 1,
+    "type": "dependent_range"
   }
 }
 ```
 {: screen}
-
-
 
 For more information about this method, see the API reference for [listing all volume profiles](/apidocs/vpc/latest#list-volume-profiles) and [retrieving a volume profile](/apidocs/vpc/latest#get-volume-profile).
 
