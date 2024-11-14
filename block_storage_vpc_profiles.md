@@ -240,8 +240,8 @@ A successful response looks like the following example.
   },
   "adjustable_iops_states": {
     "type": "fixed",
-    "value": "",
-  },
+    "value": ""
+  }
 }
 ```
 {: screen}
