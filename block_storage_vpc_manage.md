@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-11-13"
+lastupdated: "2024-11-14"
 
 keywords:
 
@@ -30,7 +30,7 @@ Use the UI to manage your {{site.data.keyword.block_storage_is_short}} volumes. 
 * Rename a {{site.data.keyword.block_storage_is_short}} volume.
 * Add user tags to a {{site.data.keyword.block_storage_is_short}} volume.
 * Adjust the IOPS of a data volume. For more information, see [Adjusting IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops).
-* Increase the capacity of a volume. For more information, see [Increasing capacity of a data volume](/docs/vpc?topic=vpc-expanding-block-storage-volumes) and [Increasing capacity of a boot volume](/docs/vpc?topic=vpc-resize-boot-volumes). 
+* Increase the capacity of a volume. For more information, see [Increasing capacity of a data volume](/docs/vpc?topic=vpc-expanding-block-storage-volumes) and [Increasing capacity of a boot volume](/docs/vpc?topic=vpc-resize-boot-volumes).  
 * Delete a {{site.data.keyword.block_storage_is_short}} data volume.
 
 ### Detaching a {{site.data.keyword.block_storage_is_short}} volume from a virtual server instance
