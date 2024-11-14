@@ -189,6 +189,8 @@ $vpc_api_endpoint/v1/volume/profiles?$api_version&generation=2 \
 {: pre}
 
 Before 24 September 2024, the API response included the fields `name`, `href`, `family`. Now the response is enhanced to include the following fields:
+
+
 - `boot_capacity` denotes the capacity values that are permissible for boot volumes for each profile. The returned value is a range with minimum and maximum values that are specified for each profile.
    - For `custom` and `tiered` profiles, the range is 10 GB - 250 GB.
 - `capacity` denotes the capacity values that are permissible for data volumes for each profile. The returned value is a range with minimum and maximum values that are specified for each profile.
@@ -240,12 +242,6 @@ A successful response looks like the following example.
     "type": "fixed",
     "value": "",
   },
-  "bandwidth": {
-    "max": 8192,
-    "min": 1000,
-    "step": 1,
-    "type": "dependent_range"
-  }
 }
 ```
 {: screen}
