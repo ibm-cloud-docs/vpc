@@ -41,18 +41,21 @@ Complete the following steps to create an authorization for the Image Service fo
 
 1. From the [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com){: external} menu bar, click **Manage > Access (IAM)**, and select **Authorizations**.
 2. On the Manage authorizations page, click **Create**.
-3. Make your selection for the **Source account**. By default **This account** is selected.
-4. Select a source service for the authorization. Specify **VPC Infrastructure Services** as the source service.
-    1. For **How do you want to scope the access?**, select **Resources based on selected attributes**.
-    2. For **Add attributes**, select **Resource type**.
-    3. For **Resource type**, select **Image Service for VPC**.
-5. For the Target service, select **Cloud Object Storage**. For **How do you want to scope the access?**, you can use the default selection **All resources**.
+3. Make your selection for the **Source account**. By default **This account** is selected. Click **Next**. 
+4. Select a source service for the authorization. Specify **VPC Infrastructure Services** as the source service. Click **Next**.
+5. For Resources, make your selection for how you want to scope the access. 
+    1. Select **Specific resources**.
+    2. For Specific resources, select **Resource type** and **Image service for VPC**.
+    3. Click **Next**.
+6. For the Target service, select **Cloud Object Storage**. Click **Next**.
+7. For Resources, specify how you want to scope the access. You can use the default selection **All resources**. Click **Next**.
 
     If you want to scope the access to a specific resource within {{site.data.keyword.cos_full_notm}}, you can select **Resources based on selected attributes**. Then make selections to narrow the access according to your preferences.
     {: tip}
 
-7. For the service access roles, select **Reader** and **Writer**.
-8. Click **Authorize**.
+9. For Roles, select both service access roles, **Reader** and **Writer**.
+10. Click **Review** to ensure your selections look correct.
+11. Click **Authorize**.
 
 For more information, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth#serviceauth).
 
