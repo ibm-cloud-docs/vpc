@@ -4,7 +4,7 @@ copyright:
 
   years: 2022, 2024
 
-lastupdated: "2024-10-10"
+lastupdated: "2024-11-15"
 
 keywords: operating system end of support (eos)
 
@@ -69,7 +69,7 @@ The version of Fedora&reg; CoreOS is updated regularly, with the previous releas
 ## Red Hat Enterprise Linux (RHEL)
 {: #rhel}
 
-The following table describes the end of support date and license model for Red Hat&reg; Enterprise Linux&reg; operating systems. This guest OS is a paid operating system. For more information, see [Red Hat Enterprise Linux](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux){: external}.
+The following table describes the end of support date and license model for Red Hat&reg; Enterprise Linux&reg; operating systems. This guest OS is a paid operating system. For more information, see [Red Hat Enterprise Linux](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux){: external}. For more information about support for Red Hat, see [FAQs about Red Hat and IBM Cloud® infrastructure](/docs/cloud-infrastructure?topic=cloud-infrastructure-faqs-for-red-hat-ibm-cloud).
 
 | Operating system | End of support | License model |
 |-----------------|----------------|---------------|
@@ -143,7 +143,7 @@ The following table describes the end of support date and license model for Ubun
 ## Windows Server
 {: #windows-server}
 
-The following table describes the end of support date and license model for Windows Server operating systems. This guest OS is a paid operating system. For more information, see [Microsoft Windows Server](https://www.microsoft.com/en-us/windows-server){: external}.
+The following table describes the end of support date and license model for Windows Server operating systems. This guest OS is a paid operating system. For more information, see [Microsoft Windows Server](https://www.microsoft.com/en-us/windows-server){: external}. For more information about support for Microsoft, see [FAQs about Microsoft and IBM Cloud® infrastructure](/docs/cloud-infrastructure?topic=cloud-infrastructure-faqs-for-microsoft-software-ibm-cloud).
 
 | Operating system | End of support | License model |
 |-----------------|----------------|---------------|
