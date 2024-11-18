@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-11-14"
+lastupdated: "2024-11-18"
 
 keywords:
 
@@ -27,7 +27,14 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## November 2024
 {: #vpc-nov24}
 
+### 18 November 2024
+{: #vpc-nov1524}
 
+Reservations for Bare Metal Servers for VPC (GA)
+:   Reservations for Bare Metal Servers for VPC is now generally available. A reservation is a great option if you want guaranteed resources for future deployments and cost savings. You can choose between either a 1 or 3-year contract term for your reservation. For more information about reservations, see [About Reservations for VPC](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc).
+
+Automatic attachments for Reservations (GA)
+:   Automatic attachments for Reservations are now generally available. You can use automatic attachments to automatically attachment resources to a reservation. For more information, see [Automatic attachments for Reservations](/docs/vpc?topic=vpc-automatic-reservation-vpc).
 
 ### 12 November 2024
 {: #vpc-nov1224}
