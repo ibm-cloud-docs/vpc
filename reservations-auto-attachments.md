@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2024
-lastupdated: "2024-10-30"
+lastupdated: "2024-11-18"
 
 keywords:
 
@@ -12,11 +12,8 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Automatic attachments for reservations (beta)
+# Automatic attachments for reservations
 {: #automatic-reservation-vpc}
-
-Automatic attachments for reservations is a beta feature that is available for evaluation and testing purposes.
-{: beta}
 
 If a bare metal or virtual server is configured to enable automatic attachments, the system attempts to automatically attach the resource to a reservation in the same account that allows automatic attachments. The reservation must be configured to support automatic attachments and must contain matching properties (account, profile, zone) with available capacity.
 {: shortdesc}
