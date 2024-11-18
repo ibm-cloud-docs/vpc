@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-10-14"
+lastupdated: "2024-11-18"
 
 keywords:
 
@@ -56,11 +56,8 @@ The following virtual server profiles are available in specific MZRs.
 
 For more information about profiles, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles).
 
-## Supported bare metal server profiles (beta)
+## Supported bare metal server profiles
 {: #reserved-bare-metal-servers-vpc-supported-profiles}
-
-Reserved bare metal servers are a beta feature that is available for evaluation and testing purposes.
-{: beta}
 
 All [Gen 2 and Gen 3 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui#bare-metal-servers-profile-list) are available when you provision a reservation in an available MZR.
 
