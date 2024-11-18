@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-11-08"
+lastupdated: "2024-11-18"
 
 subcollection: vpc
 
@@ -63,12 +63,9 @@ You can attach existing virtual servers to your reservation. Keep in mind that a
 1. From your virtual server list, click **Attach**.
 2. Select the reservation to attach the server to and click **Attach**.
 
-## Attaching an existing bare metal server to a reservation with the UI (beta)
+## Attaching an existing bare metal server to a reservation with the UI
 {: #attach-bare-metal-server-ui-vpc}
 {: ui}
-
-Reserved bare metal servers are a beta feature that is available for evaluation and testing purposes.
-{: beta}
 
 You can attach an existing bare metal server to your reservation. Keep in mind that all existing bare metal servers that are attached to a reservation must be the same profile, size, and location.
 
@@ -182,12 +179,9 @@ ibmcloud is instance-update <instance-name> -reservation-affinity-policy manual 
 ```
 {: pre}
 
-### Attaching an existing bare metal server to a reservation with the CLI (beta)
+### Attaching an existing bare metal server to a reservation with the CLI
 {: #attach-bare-metal-server-cli-vpc}
 {: cli}
-
-Reserved bare metal servers are a beta feature that is available for evaluation and testing purposes.
-{: beta}
 
 You can attach an existing bare metal server to a reservation by using the CLI. To create a reserved reservation by using the CLI, use the `ibmcloud is bare-metal-server-update` command.
 

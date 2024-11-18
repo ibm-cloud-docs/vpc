@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-10-24"
+lastupdated: "2024-11-18"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -56,7 +56,7 @@ As an enterprise account administrator, you can view and manage the backup polic
 ### Comparison of backups and snapshots
 {: #baas-comparison}
 
-Backups are in effect, backup snapshots. In the console, backups appear in the list of {{site.data.keyword.block_storage_is_short}} snapshots. Backups are identified by how they were created, in this case, by backup policy. These terms are used interchangeably in the documentation, depending on the context.
+Backups are in effect backup snapshots. In the console, backups appear in the list of {{site.data.keyword.block_storage_is_short}} snapshots. Backups are identified by how they were created, in this case, by backup policy. These terms are used interchangeably in the documentation, depending on the context.
 
 The snapshots service is used to create backups, similarities and differences exist between backups and snapshots. Table 1 compares backups to snapshots.
 
