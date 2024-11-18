@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-11-08"
+lastupdated: "2024-11-18"
 
 subcollection: vpc
 
@@ -66,9 +66,6 @@ You can attach existing virtual servers to your reservation. Keep in mind that a
 ## Attaching an existing bare metal server to a reservation with the UI (beta)
 {: #attach-bare-metal-server-ui-vpc}
 {: ui}
-
-Reserved bare metal servers are a beta feature that is available for evaluation and testing purposes.
-{: beta}
 
 You can attach an existing bare metal server to your reservation. Keep in mind that all existing bare metal servers that are attached to a reservation must be the same profile, size, and location.
 
