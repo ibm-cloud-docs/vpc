@@ -4,7 +4,7 @@ copyright:
 
   years: 2022, 2024
 
-lastupdated: "2024-11-15"
+lastupdated: "2024-11-19"
 
 keywords: operating system end of support (eos)
 
@@ -114,12 +114,17 @@ The following table describes the end of support date and license model for SUSE
 
 | Operating system | End of support | License model |
 |-----------------|----------------|---------------|
+| SLES 15 SP6 | 31 December 2025 | Pay-as-you-Go |
+| SLES 15 SP5 | 31 December 2024 | Pay-as-you-Go |
 | SLES 15 SP4 | 31 December 2023 | Pay-as-you-Go |
 | SLES 15 SP3 | 31 December 2022 | Pay-as-you-Go |
+| SLES 12 SP5 | 31 October 2024 |  Pay-as-you-Go |
+| SLES 15 SP6 (SAP HANA and SAP applications) | 31 December 2028 | Pay-as-you-Go |
+| SLES 15 SP5 (SAP HANA and SAP applications) | 31 December 2027 | Pay-as-you-Go |
+| SLES 15 SP4 (SAP HANA and SAP applications) | 31 December 2026 | Pay-as-you-Go |
 | SLES 15 SP3 (SAP HANA and SAP applications) | 31 December 2025 | Pay-as-you-Go |
 | SLES 15 SP2 (SAP HANA and SAP applications) | 31 December 2024 | Pay-as-you-Go  |
 | SLES 15 SP1 (SAP HANA and SAP applications) | 31 January 2024 | Pay-as-you-Go  |
-| SLES 12 SP5 | 31 October 2024 |  Pay-as-you-Go  |
 | SLES 12 SP5 (SAP HANA and SAP applications) | 31 October 2024 |  Pay-as-you-Go  |
 | SLES 12 SP4 (SAP HANA and SAP applications) | 30 June 2023 | Pay-as-you-Go  |
 {: caption="Lifecycle for SUSE Linux Enterprise Server (SLES) operating systems" caption-side="bottom"}
