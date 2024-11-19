@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-11-12"
+lastupdated: "2024-11-19"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -55,6 +55,31 @@ To prepare for this change, verify that your client checks that the `volume` pro
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
+
+## 19 November 2024
+{: #19-november-2024}
+
+### For all version dates
+{: #19-november-2024-all-version-dates}
+
+**Reservations for bare metal servers.** You can now purchase a [capacity reservation](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc&interface=ui) for a specified bare metal server profile in a specified zone. Reservations provide resources for future deployments and cost savings over the life of the term within the availability zone of your choice.
+
+When [creating](/apidocs/vpc/latest#create-reservation) or [updating](/apidocs/vpc/latest#update-reservation) a reservation, specify the `capacity.total` and `committed_use.term` properties to use for this reservation. Optionally specify the `committed_use.expiration_policy` property to apply when the committed use term expires (default: `release`). Specify the `profile.name` and `profile.resource_type` properties of the profile, and the `zone` property to use for this reservation. After you confirm the reservation is configured the way you want it, you must [activate the reservation](/apidocs/vpc/latest#activate-reservation). The reservation cannot be deleted until the committed use term expires. To provision a bare metal server using a reservation's capacity, specify the reservation using the `reservation_affinity.pool` property when [creating the bare metal server](/apidocs/vpc/latest#create-bare-metal-server). You can also [update a bare metal server](/apidocs/vpc/latest#update-bare-metal-server) that's been provisioned to associate it with a reservation.
+
+When [retrieving a bare metal server](/apidocs/vpc/latest#get-bare-metal-server), the new `reservation_affinity` property indicates the reservation affinity policy in effect for the bare metal server. The new `health_state` property indicates the bare metal server's overall health state, while an accompanying `health_reasons` property indicates the reason for any unhealthy health states, such as a failed reservation.
+
+For more information, see [Provisioning reserved capacity for VPC](/docs/vpc?topic=vpc-provisioning-reserved-capacity-vpc&interface=api).
+
+**Reservation automatic attachment support.** You can now [automatically attach](/docs/vpc?topic=vpc-automatic-reservation-vpc) a reservation when [creating an instance](/apidocs/vpc/latest#create-instance) or [creating a bare metal server](/apidocs/vpc/latest#create-bare-metal-server). Additionally, when [updating an instance](/apidocs/vpc/latest#update-instance) or [updating a bare metal server](/apidocs/vpc/latest#update-bare-metal-server), you can change the `reservation_affinity.policy` to `automatic` for the instance or bare metal server to automatically attach to available reserved capacity.
+
+When [creating a reservation](/apidocs/vpc/latest#create-reservation), you can now specify an `affinity_policy` of `restricted` to prevent the policy from being used for automatic attachments. Similarly, while a reservation's `status` is `inactive`, you can [update a reservation](/apidocs/vpc/latest#update-reservation) to be restricted.
+
+For more information, see [Automatic attachments for reservations](/docs/vpc?topic=vpc-automatic-reservation-vpc).
+
+### For version `2024-11-19` or later
+{: #version-2024-11-19}
+
+**Reservation affinity policy default.** When using a `version` query parameter of `2024-11-19` or later, the `reservation_affinity.policy` defaults to `automatic` when [creating a reservation](/apidocs/vpc/2024-11-19#create-reservation). Similarly, when using a `version` query parameter of `2024-11-19` or later, the `reservation_affinity.policy` defaults to `automatic` when [creating an instance](/apidocs/vpc/2024-11-19#create-instance) or [creating a bare metal server](/apidocs/vpc/2024-11-19#create-bare-metal-server). The behavior remains unchanged when using a `version` query parameter of `2024-11-18` or earlier.
 
 ## 12 November 2024
 {: #12-november-2024}

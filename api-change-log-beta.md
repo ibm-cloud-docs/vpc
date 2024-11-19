@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-11-12"
+lastupdated: "2024-11-19"
 
 keywords: api, change log, beta
 
@@ -32,6 +32,8 @@ To review the change log of generally available API features, see the [VPC API c
 ### For all version dates
 {: #22-october-2024-all-version-dates-beta}
 
+Reservation automatic attachment support is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#19-november-2024).
+
 **Reservation automatic attachment support.** Accounts that have been granted special approval to preview this feature can now [automatically attach](/docs/vpc?topic=vpc-automatic-reservation-vpc) a reservation when [creating an instance](/apidocs/vpc-beta/latest#create-instance) or [creating a bare metal server](/apidocs/vpc-beta/latest#create-bare-metal-server). Additionally, when [updating an instance](/apidocs/vpc-beta/latest#update-instance) or [updating a bare metal server](/apidocs/vpc-beta/latest#update-bare-metal-server), you can change the `reservation_affinity.policy` to `automatic` for the instance or bare metal server to automatically attach to available reserved capacity.
 
 When [creating a reservation](/apidocs/vpc-beta/latest#create-reservation), you can now specify an `affinity_policy` of `restricted` to prevent the policy from being used for automatic attachments. Similarly, while a reservation's `status` is `inactive`, you can [update a reservation](/apidocs/vpc-beta/latest#update-reservation) to be restricted.
@@ -41,7 +43,9 @@ For more information, see [Automatic attachments for reservations](/docs/vpc?top
 ### For version `2024-10-22` or later
 {: #version-2024-10-22-beta}
 
-When using a `version` query parameter of `2024-10-22` or later, the `reservation_affinity.policy` defaults to `automatic` when [creating a reservation](/apidocs/vpc-beta/latest#create-reservation). Similarly, when using a `version` query parameter of `2024-10-22` or later, the `reservation_affinity.policy` defaults to `automatic` when [creating an instance](/apidocs/vpc-beta/latest#create-instance) or [creating a bare metal server](/apidocs/vpc-beta/latest#create-bare-metal-server). The behavior remains unchanged when using a `version` query parameter of `2024-10-21` or earlier.
+Reservation affinity policy default is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#19-november-2024).
+
+**Reservation affinity policy default.** When using a `version` query parameter of `2024-10-22` or later, the `reservation_affinity.policy` defaults to `automatic` when [creating a reservation](/apidocs/vpc-beta/latest#create-reservation). Similarly, when using a `version` query parameter of `2024-10-22` or later, the `reservation_affinity.policy` defaults to `automatic` when [creating an instance](/apidocs/vpc-beta/latest#create-instance) or [creating a bare metal server](/apidocs/vpc-beta/latest#create-bare-metal-server). The behavior remains unchanged when using a `version` query parameter of `2024-10-21` or earlier.
 
 ## 15 October 2024
 {: #15-october-2024-beta}
@@ -109,7 +113,9 @@ Similarly, when making API requests using a `version` query parameter of `2024-0
 ### For all version dates
 {: #27-august-2024-all-version-dates-beta}
 
-**Reservations for Bare Metal Servers for VPC.** Accounts that have been granted special approval to preview this feature can now purchase a [capacity reservation](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc&interface=ui) for a specified bare metal server profile in a specified zone. Reservations provide resources for future deployments and cost savings over the life of the term within the availability zone of your choice.
+Reservations for bare metal servers is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#19-november-2024).
+
+**Reservations for bare metal servers.** Accounts that have been granted special approval to preview this feature can now purchase a [capacity reservation](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc&interface=ui) for a specified bare metal server profile in a specified zone. Reservations provide resources for future deployments and cost savings over the life of the term within the availability zone of your choice.
 
 When [creating](/apidocs/vpc-beta/initial#create-reservation) or [updating](/apidocs/vpc-beta/initial#update-reservation) a reservation, specify the `capacity.total` and `committed_use.term` properties to use for this reservation. Optionally specify the `committed_use.expiration_policy` property to apply when the committed use term expires (default: `release`). Specify the `profile.name` and `profile.resource_type` properties of the profile, and the `zone` property to use for this reservation. After you confirm the reservation is configured the way you want it, you must [activate the reservation](/apidocs/vpc-beta/initial#activate-reservation). The reservation cannot be deleted until the committed use term expires. To provision a bare metal server using a reservation's capacity, specify the reservation using the `reservation_affinity.pool` property when [creating the bare metal server](/apidocs/vpc-beta/initial#create-bare-metal-server). You can also [update a bare metal server](/apidocs/vpc-beta/initial#update-bare-metal-server) that's been provisioned to associate it with a reservation.
 
