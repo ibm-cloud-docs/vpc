@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-13"
+lastupdated: "2024-11-20"
 
 keywords: cluster profiles, cluster network, cluster-network, cluster network profile, cluster network profiles, gpu, nvidia, h100, rdma, roce, accelerated, rocev2, accelerated network
 
@@ -72,7 +72,7 @@ The cluster network H100 profile has the following capabilities and restrictions
 
 The following information provides tested NCCL tunings for an H100 VM profile with an 8-subnet cluster network. All testing was done on NCCL version 2.22.3. For more information, refer to the [NVIDIA Documentation](https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/overview.html).
 
-```ssh
+```sh
 export NCCL_IB_PCI_RELAXED_ORDERING=2
 export NCCL_IB_QPS_PER_CONNECTION=16
 export NCCL_IB_ADAPTIVE_ROUTING=1
@@ -93,7 +93,7 @@ export NCCL_TOPO_FILE=<path-to-xml-topology-file> #Sample file provided below, v
 NCCL can determine the optimal paths between system components, including GPU's and NIC's, by referencing VSI-provided PCI topology information. If you want to provide a topology file using the `NCCL_TOPO_FILE` environment variable, the following topology file has been tested for an H100 VSI with eight cluster subnets.
 {: note}
 
-```
+```json
 <system version="1">
   <cpu host_hash="0xa5f31daa95182da8" numaid="0" affinity="00000000,00000000,0000ffff,ffffffff,ffffffff" arch="x86_64" vendor="GenuineIntel" familyid="6" modelid="143">
     <pci busid="0000:a1:00.0" class="0x060400" vendor="0x104c" device="0x8232" subsystem_vendor="0x0000" subsystem_device="0x0000" link_speed="2.5 GT/s PCIe" link_width="1">
