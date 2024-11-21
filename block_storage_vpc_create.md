@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-11-05"
+lastupdated: "2024-11-21"
 
 keywords: vpc Block Storage, provision Block Storage for vpc, bootable snapshots, create volume from snapshot, fast restore
 
@@ -296,6 +296,7 @@ Created           2023-05-05T07:42:33+05:30
 {: screen}
 
 For more information, see [ibmcloud is instance-volume-attachment-add](/docs/vpc?topic=vpc-vpc-reference&interface=cli#instance-volume-attachment-add) in the CLI reference.
+
 
 ### Creating an instance and adding user tags to volumes from the CLI
 {: #create-instance-vol-cli}
