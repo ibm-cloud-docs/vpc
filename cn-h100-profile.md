@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-20"
+lastupdated: "2024-11-21"
 
 keywords: cluster profiles, cluster network, cluster-network, cluster network profile, cluster network profiles, gpu, nvidia, h100, rdma, roce, accelerated, rocev2, accelerated network
 
@@ -90,7 +90,7 @@ export NCCL_TOPO_FILE=<path-to-xml-topology-file> #Sample file provided below, v
 ```
 {: codeblock}
 
-NCCL can determine the optimal paths between system components, including GPU's and NIC's, by referencing VSI-provided PCI topology information. If you want to provide a topology file using the `NCCL_TOPO_FILE` environment variable, the following topology file has been tested for an H100 VSI with eight cluster subnets.
+NCCL can determine the optimal paths between system components, including GPU's and NIC's, by referencing VSI-provided PCI topology information. This [topology file](https://cloud.ibm.com/media/docs/downloads/vpc/topo.xml){: external} has been tested for an H100 VSI with eight cluster subnets, and can be used if you want to provide a topology file using the `NCCL_TOPO_FILE` environment variable.
 {: note}
 
 ```json
