@@ -29,6 +29,7 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ### 18 November 2024
 {: #vpc-nov1824}
+{: release-note}
 
 Reservations for Bare Metal Servers for VPC (GA)
 :   Reservations for Bare Metal Servers for VPC is now generally available. A reservation is a great option if you want guaranteed resources for future deployments and cost savings. You can choose between either a 1 or 3-year contract term for your reservation. For more information about reservations, see [About Reservations for VPC](/docs/vpc?topic=vpc-about-reserved-virtual-servers-vpc).
