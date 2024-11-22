@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-11-12"
+lastupdated: "2024-11-22"
 
 keywords: virtual private endpoints, VPE, endpoint gateway
 
@@ -135,10 +135,10 @@ To create an endpoint gateway from the CLI, follow these steps:
    `--reserved-ip-id`:
    :   Indicates the ID of the reserved IP to be bound to the endpoint gateway.
 
-   `-new-reserved-ip`:
+   `--new-reserved-ip`:
    :   Indicates the new reserved IP configuration in JSON format or a JSON file, `RESERVED_IP_JSON|@RESERVED_IP_JSON_FILE`.
 
-   `-security-group`:
+   `--security-group`:
    :   Indicates the ID of the security group.
 
     If you do not specify `-security-group`, the VPC default security group is bound to the endpoint gateway.
