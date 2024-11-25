@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-11-06"
+lastupdated: "2024-11-25"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -309,7 +309,7 @@ The GPU profile family includes `-v100`, `-a100`, `-l4`, and `-l40S` and `-h100`
 - [Select availability]{: tag-green} GPU `-a100` profiles includes 8 NVIDIA A100 NVlink 80 GB GPUs. The a100 offering is available to select customers. This GPU profile supports only Linux OS images Ubuntu or RHEL.
 - GPU `-l4` profiles include NVIDIA L4 24 GB GPUs.
 - GPU `-l40S` profiles include NVIDIA L40S 48 GB GPUs.
-- [Select availability]{: tag-green} GPU `-h100` profiles include [NVIDIA H100](https://www.nvidia.com/en-us/data-center/hgx/){: external} 80 GB GPUs. The system is an HGX design. The H100 offering is available in the following regions and zones: London (eu-gb-2), Sydney (au-syd-2), Toronto (ca-tor-3), Madrid (eu-es-3), Washington DC (us-east-3), Tokyo (jp-tok-3), Sao Paulo (br-sao-1), Dallas (us-south-1), and Frankfurt (eu-de-2).   
+- [Select availability]{: tag-green} GPU `-h100` profiles include [NVIDIA H100](https://www.nvidia.com/en-us/data-center/hgx/){: external} 80 GB GPUs. The system is an HGX design. The H100 offering is available in the following regions and zones: London (eu-gb-2), Sydney (au-syd-2), Toronto (ca-tor-3), Madrid (eu-es-3), Washington DC (us-east-3), Tokyo (jp-tok-3), Sao Paulo (br-sao-1), Dallas (us-south-1), and Frankfurt (eu-de-2).
 
 See [Download drivers](https://www.nvidia.com/en-us/drivers/) to review the most current versions that are supported. NVIDIA GPU drivers must be installed separately.
 
@@ -404,7 +404,7 @@ For more information about confidential computing, see [Confidential computing f
 | bx3dc-48x240 | 48 / 24 | 240 | 96 | 96 | 2x780 |
 | bx3dc-64x320 | 64 / 32 | 320 | 128 | 128 | 2x1024 |
 | bx3dc-96x480 | 96 / 48 | 480 | 192 | 480 | 2x1560 |
-{: caption="Balanced profile options for confidential computing compatible virtual server instances" caption-side="bottom"}
+{: caption="Table 9. Balanced profile options for confidential computing compatible virtual server instances" caption-side="bottom"}
 {: #balanced-cc-x86-64}
 {: tab-title="bx3"}
 {: tab-group="Confidential compute"}
@@ -423,7 +423,7 @@ For more information about confidential computing, see [Confidential computing f
 | cx3dc-64x160 | 64 / 32 | 160 | 64 | 128 | 2x1024 |
 | cx3dc-96x240 | 96 / 48 | 240 | 96 | 192 | 2x1560 |
 | cx3dc-128x320 | 128 / 64 | 320| 128 | 200 | 2x2860|
-{: caption="Compute profile options for confidential computing compatible virtual server instances" caption-side="bottom"}
+{: caption="Table 9. Compute profile options for confidential computing compatible virtual server instances" caption-side="bottom"}
 {: #compute-cc-x86-64}
 {: tab-title="cx3"}
 {: tab-group="Confidential compute"}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-10-10"
+lastupdated: "2024-11-25"
 
 keywords:
 
@@ -171,7 +171,7 @@ mokutil --sb-state
 ```
 {: codeblock}
 
-For more information about secure boot, see [Confidential computing with secure boot for Virtual Servers for VPC](/docs/vpc?topic=vpc-confidential-computing-with-secure-boot-vpc).
+For more information about secure boot, see [Secure boot for Virtual Servers for VPC](/docs/vpc?topic=vpc-confidential-computing-with-secure-boot-vpc).
 
 ## z/OS Wazi aaS custom images
 {: #custom-image-zos}
