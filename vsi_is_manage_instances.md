@@ -511,7 +511,7 @@ ibmcloud is instance-update INSTANCE --confidential-compute-mode sgx
 
 ## Setting the confidential compute value from the API
 {: #set-confidential-compute-API}
-{: API}
+{: api}
 
 [Select availability]{: tag-green}
 
