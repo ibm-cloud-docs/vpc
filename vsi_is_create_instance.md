@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-11-13"
+lastupdated: "2024-11-25"
 
 keywords:
 
@@ -56,10 +56,10 @@ Use the following steps to create a virtual server instance.
    | Profile |  The profile families are Balanced, Compute, Memory, Ultra High Memory, Very High Memory, GPU, and Confidential Compute. For more information, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles). When you create an {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} instance, make sure that you select secure execution-enabled profiles, otherwise provisioning fails. For more information, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles). \n \n Some profiles might not be available because the number of network interfaces in the virtual server exceed profile limits. You can remove network interfaces to select from more profiles. For more information, see [Resizing a virtual server](/docs/vpc?topic=vpc-resizing-an-instance). |
    | Advanced security selections |  |
    | Secure boot | Click the toggle to enable secure boot. Secure boot is available with only compatible profiles. For more information about secure boot, see [Secure boot for Virtual Servers for VPC](/docs/vpc?topic=vpc-confidential-computing-with-secure-boot-vpc).|
-   | Confidential computing - SGX [Select availability]{: tag-green} | Confidential computing with Intel® Software Guard Extensions (SGX) protects your data through hardware-based server security by using isolated memory regions that are known as encrypted enclaves. SGX is available with only compatible profiles. For more information about confidential computing, see [Confidential computing with Intel Software Guard Extensions (SGX) for Virtual Servers for VPC](/docs/vpc?topic=vpc-about-sgx-vpc). |
-   {: caption="Profile selections" caption-side="bottom"}
+   | Confidential computing SGX or TDX [Select availability]{: tag-green} | Select SGX or TDX for your confidential computing. Confidential computing with Intel® Software Guard Extensions (SGX) protects your data through hardware-based server security by using isolated memory regions that are known as encrypted enclaves. SGX is available with only compatible profiles. For more information about confidential computing, see [Confidential computing with Intel Software Guard Extensions (SGX) for Virtual Servers for VPC](/docs/vpc?topic=vpc-about-sgx-vpc). |
+   {: caption="Table 3. Profile selections" caption-side="bottom"}
 
-   Secure boot and confidential computing are available with balanced and compute profiles. For more information, see [SGX-compatible profiles](/docs/vpc?topic=vpc-about-sgx-vpc#compatible-profiles-confidential-computing-vpc-sgx).
+   Secure boot and confidential computing are available with select balanced and compute profiles. For more information, see [SGX-compatible profiles](/docs/vpc?topic=vpc-about-sgx-vpc#compatible-profiles-confidential-computing-vpc-sgx).
    {: important}
 
 4. Complete SSH keys, storage, and networking details by specifying the information in Table 4.
@@ -736,7 +736,9 @@ Confidential computing with Intel SGX for VPC is available only in the US-South 
 
 After you know the needed values, use them to run the `ibmcloud is instance-create` command. You also need to specify a unique name for the instance.
 
-For `confidential-compute-mode`, you need to specify either `sgx` or `disabled` the option. The default value is `disabled`.
+For `confidential-compute-mode`, you need to specify either `sgx` or `disabled` for the option. The default value is `disabled`.
+
+
 
 Use the following steps to create a basic virtual server instance that enables confidential compute.
 
@@ -1099,6 +1101,8 @@ Confidential computing with Intel SGX for VPC is available only in the Dallas (u
 {: note}
 
 To provision an instance with confidential compute, add the `confidential_compute_mode` property and set it to `sgx`.
+
+
 
  ```bash
     curl -X POST "$vpc_api_endpoint/v1/instances?version=$api_version&generation=2" \

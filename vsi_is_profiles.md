@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-11-06"
+lastupdated: "2024-11-25"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -309,7 +309,7 @@ The GPU profile family includes `-v100`, `-a100`, `-l4`, and `-l40S` and `-h100`
 - [Select availability]{: tag-green} GPU `-a100` profiles includes 8 NVIDIA A100 NVlink 80 GB GPUs. The a100 offering is available to select customers. This GPU profile supports only Linux OS images Ubuntu or RHEL.
 - GPU `-l4` profiles include NVIDIA L4 24 GB GPUs.
 - GPU `-l40S` profiles include NVIDIA L40S 48 GB GPUs.
-- [Select availability]{: tag-green} GPU `-h100` profiles include [NVIDIA H100](https://www.nvidia.com/en-us/data-center/hgx/){: external} 80 GB GPUs. The system is an HGX design. The H100 offering is available in the following regions and zones: London (eu-gb-2), Sydney (au-syd-2), Toronto (ca-tor-3), Madrid (eu-es-3), Washington DC (us-east-3), Tokyo (jp-tok-3), Sao Paulo (br-sao-1), Dallas (us-south-1), and Frankfurt (eu-de-2).   
+- [Select availability]{: tag-green} GPU `-h100` profiles include [NVIDIA H100](https://www.nvidia.com/en-us/data-center/hgx/){: external} 80 GB GPUs. The system is an HGX design. The H100 offering is available in the following regions and zones: London (eu-gb-2), Sydney (au-syd-2), Toronto (ca-tor-3), Madrid (eu-es-3), Washington DC (us-east-3), Tokyo (jp-tok-3), Sao Paulo (br-sao-1), Dallas (us-south-1), and Frankfurt (eu-de-2).
 
 See [Download drivers](https://www.nvidia.com/en-us/drivers/) to review the most current versions that are supported. NVIDIA GPU drivers must be installed separately.
 
@@ -404,7 +404,7 @@ For more information about confidential computing, see [Confidential computing f
 | bx3dc-48x240 | 48 / 24 | 240 | 96 | 96 | 2x780 |
 | bx3dc-64x320 | 64 / 32 | 320 | 128 | 128 | 2x1024 |
 | bx3dc-96x480 | 96 / 48 | 480 | 192 | 480 | 2x1560 |
-{: caption="Balanced profile options for confidential computing compatible virtual server instances" caption-side="bottom"}
+{: caption="Table 9. Balanced profile options for confidential computing compatible virtual server instances" caption-side="bottom"}
 {: #balanced-cc-x86-64}
 {: tab-title="bx3"}
 {: tab-group="Confidential compute"}
@@ -423,12 +423,61 @@ For more information about confidential computing, see [Confidential computing f
 | cx3dc-64x160 | 64 / 32 | 160 | 64 | 128 | 2x1024 |
 | cx3dc-96x240 | 96 / 48 | 240 | 96 | 192 | 2x1560 |
 | cx3dc-128x320 | 128 / 64 | 320| 128 | 200 | 2x2860|
-{: caption="Compute profile options for confidential computing compatible virtual server instances" caption-side="bottom"}
+{: caption="Table 9. Compute profile options for confidential computing compatible virtual server instances" caption-side="bottom"}
 {: #compute-cc-x86-64}
 {: tab-title="cx3"}
 {: tab-group="Confidential compute"}
 {: class="simple-tab-table"}
 {: summary="Compute cx3 profile options for confidential compute compatible virtual server instances."}
+
+## Confidential computing profiles
+{: #confidential-computing-profiles}
+
+[Select availability]{: tag-green}
+
+Confidential computing with Intel SGX for VPC is available only in the Dallas (us-south) and Frankfurt (eu-de) regions. Confidential computing with Intet TDX for VPC is available only in the Washington DC (us-east) region.
+{: preview}
+
+The following profiles support Confidential computing with Intel Software Guard Extensions (SGX), Confidential computing with Intel Trusted Domain Extension (TDX), and secure boot.
+
+For more information about confidential computing, see [Confidential computing for x86 Virtual Servers for VPC](/docs/vpc?topic=vpc-about-sgx-vpc).
+
+| Instance profile | vCPU / Cores | GiB RAM | EPC (SGX-only) capacity (GiB)  | Bandwidth cap (Gbps) | Instance storage (GB) |
+| ---------------- | ---- | ------- | ------------------------- |------- | ------------------------- |
+| bx3dc-2x10 | 2 / 1 | 10 | 4 | 4 | 1x65 |
+| bx3dc-4x20 | 4 / 2 | 20 | 8 | 8 | 1x130 |
+| bx3dc-8x40 | 8 / 4 | 40 | 16 | 16 | 1x260 |
+| bx3dc-16x80 | 16 / 8 | 80 | 32 | 32 | 1x520 |
+| bx3dc-24x120 | 24 / 12 | 120 | 48 | 48 | 1x780 |
+| bx3dc-32x160 | 32 / 16 | 160 | 64 | 64 | 2x520 |
+| bx3dc-48x240 | 48 / 24 | 240 | 96 | 96 | 2x780 |
+| bx3dc-64x320 | 64 / 32 | 320 | 128 | 128 | 2x1024 |
+| bx3dc-96x480 | 96 / 48 | 480 | 192 | 480 | 2x1560 |
+{: caption="Balanced profile options for confidential computing compatible virtual server instances" caption-side="bottom"}
+{: #balanced-cc-x86-64}
+{: tab-title="bx3dc"}
+{: tab-group="Confidential compute"}
+{: class="simple-tab-table"}
+{: summary="Balanced bx3dc profiles for confidential compute compatible virtual server instances."}
+
+| Instance profile | vCPU / Cores | GiB RAM | EPC (SGX-only) capacity (GiB)  | Bandwidth cap (Gbps) | Instance storage (GB) |
+| ---------------- | ---- | ------- | ------------------------- |------- | ------------------------- |
+| cx3dc-2x5 | 2 / 1 | 5 | 2 | 4 | 1x65 |
+| cx3dc-4x10 | 4 / 2 | 10 | 4 | 8 | 1x130 |
+| cx3dc-8x20 | 8 / 4 | 20 | 8 | 16 | 1x260 |
+| cx3dc-16x40 | 16 / 8 | 40 | 16 | 32 | 1x520 |
+| cx3dc-24x60 | 24 / 12 | 60 | 24 | 48 | 1x780 |
+| cx3dc-32x80 | 32 / 16 | 80 | 32 | 64 | 2x520 |
+| cx3dc-48x120 | 48 / 24 | 120 | 48 | 96 | 2x780 |
+| cx3dc-64x160 | 64 / 32 | 160 | 64 | 128 | 2x1024 |
+| cx3dc-96x240 | 96 / 48 | 240 | 96 | 192 | 2x1560 |
+| cx3dc-128x320 | 128 / 64 | 320| 128 | 200 | 2x2860|
+{: caption="Compute profile options for confidential computing compatible virtual server instances" caption-side="bottom"}
+{: #compute-cc-x86-64}
+{: tab-title="cx3dc"}
+{: tab-group="Confidential compute"}
+{: class="simple-tab-table"}
+{: summary="Compute cx3dc profile options for confidential compute compatible virtual server instances."}
 
 ## Bandwidth allocation
 {: #bandwidth-allocation}
