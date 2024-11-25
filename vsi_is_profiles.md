@@ -430,55 +430,6 @@ For more information about confidential computing, see [Confidential computing f
 {: class="simple-tab-table"}
 {: summary="Compute cx3 profile options for confidential compute compatible virtual server instances."}
 
-## Confidential computing profiles
-{: #confidential-computing-profiles}
-
-[Select availability]{: tag-green}
-
-Confidential computing with Intel SGX for VPC is available only in the Dallas (us-south) and Frankfurt (eu-de) regions. Confidential computing with Intet TDX for VPC is available only in the Washington DC (us-east) region.
-{: preview}
-
-The following profiles support Confidential computing with Intel Software Guard Extensions (SGX), Confidential computing with Intel Trusted Domain Extension (TDX), and secure boot.
-
-For more information about confidential computing, see [Confidential computing for x86 Virtual Servers for VPC](/docs/vpc?topic=vpc-about-sgx-vpc).
-
-| Instance profile | vCPU / Cores | GiB RAM | EPC (SGX-only) capacity (GiB)  | Bandwidth cap (Gbps) | Instance storage (GB) |
-| ---------------- | ---- | ------- | ------------------------- |------- | ------------------------- |
-| bx3dc-2x10 | 2 / 1 | 10 | 4 | 4 | 1x65 |
-| bx3dc-4x20 | 4 / 2 | 20 | 8 | 8 | 1x130 |
-| bx3dc-8x40 | 8 / 4 | 40 | 16 | 16 | 1x260 |
-| bx3dc-16x80 | 16 / 8 | 80 | 32 | 32 | 1x520 |
-| bx3dc-24x120 | 24 / 12 | 120 | 48 | 48 | 1x780 |
-| bx3dc-32x160 | 32 / 16 | 160 | 64 | 64 | 2x520 |
-| bx3dc-48x240 | 48 / 24 | 240 | 96 | 96 | 2x780 |
-| bx3dc-64x320 | 64 / 32 | 320 | 128 | 128 | 2x1024 |
-| bx3dc-96x480 | 96 / 48 | 480 | 192 | 480 | 2x1560 |
-{: caption="Balanced profile options for confidential computing compatible virtual server instances" caption-side="bottom"}
-{: #balanced-cc-x86-64}
-{: tab-title="bx3dc"}
-{: tab-group="Confidential compute"}
-{: class="simple-tab-table"}
-{: summary="Balanced bx3dc profiles for confidential compute compatible virtual server instances."}
-
-| Instance profile | vCPU / Cores | GiB RAM | EPC (SGX-only) capacity (GiB)  | Bandwidth cap (Gbps) | Instance storage (GB) |
-| ---------------- | ---- | ------- | ------------------------- |------- | ------------------------- |
-| cx3dc-2x5 | 2 / 1 | 5 | 2 | 4 | 1x65 |
-| cx3dc-4x10 | 4 / 2 | 10 | 4 | 8 | 1x130 |
-| cx3dc-8x20 | 8 / 4 | 20 | 8 | 16 | 1x260 |
-| cx3dc-16x40 | 16 / 8 | 40 | 16 | 32 | 1x520 |
-| cx3dc-24x60 | 24 / 12 | 60 | 24 | 48 | 1x780 |
-| cx3dc-32x80 | 32 / 16 | 80 | 32 | 64 | 2x520 |
-| cx3dc-48x120 | 48 / 24 | 120 | 48 | 96 | 2x780 |
-| cx3dc-64x160 | 64 / 32 | 160 | 64 | 128 | 2x1024 |
-| cx3dc-96x240 | 96 / 48 | 240 | 96 | 192 | 2x1560 |
-| cx3dc-128x320 | 128 / 64 | 320| 128 | 200 | 2x2860|
-{: caption="Compute profile options for confidential computing compatible virtual server instances" caption-side="bottom"}
-{: #compute-cc-x86-64}
-{: tab-title="cx3dc"}
-{: tab-group="Confidential compute"}
-{: class="simple-tab-table"}
-{: summary="Compute cx3dc profile options for confidential compute compatible virtual server instances."}
-
 ## Bandwidth allocation
 {: #bandwidth-allocation}
 
