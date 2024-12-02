@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-11-05"
+lastupdated: "2024-12-02"
 
 keywords: snapshots, Block Storage, snapshot clone, remote copy, fast restore, Block Storage snapshot, cross-regional snapshot
 
@@ -321,16 +321,9 @@ curl -X POST \
 -H "Authorization: $iam_token" \
 -d '{
       "name": "boot-snapshot-1",
-      "source_volume": {
-        "id": "8948ad59-bc0f-7510-812f-5dc64f59fab8"
-      },
-      "resource_group": {
-        "id": "a342dbfb-3ea7-48d1-96e8-2825ec5feab4"
-      },
-      "user_tags": [
-         "env:test",
-         "env:prod"
-      ]
+      "source_volume": {"id": "8948ad59-bc0f-7510-812f-5dc64f59fab8"},
+      "resource_group": {"id": "a342dbfb-3ea7-48d1-96e8-2825ec5feab4"},
+      "user_tags": ["env:test","env:prod"]
     }'
 ```
 {: codeblock}
@@ -410,23 +403,11 @@ curl -X POST \
 "$vpc_api_endpoint/v1/snapshots?version=2022-12-18\&generation=2" \
 -H "Authorization: $iam_token" \
 -d '{
-    "clones": [
-      {
-        "zone": {
-            "name": "us-south-2"
-        }
-      }
-    ],
+    "clones": [{"zone": {"name": "us-south-2"}}],
     "name": "my-snapshot-1",
-    "source_volume": {
-        "id": "1a6b7274-678d-4dfb-8981-c71dd9d4daa5"
-    "resource_group": {
-        "id": "a342dbfb-3ea7-48d1-96e8-2825ec5feab4"
-    },
-      "user_tags": [
-         "env:test",
-         "env:prod"
-    ]
+    "source_volume": {"id": "1a6b7274-678d-4dfb-8981-c71dd9d4daa5"},
+    "resource_group": {"id": "a342dbfb-3ea7-48d1-96e8-2825ec5feab4"},
+    "user_tags": ["env:test","env:prod"]
     }
   }'
 ```
@@ -444,7 +425,7 @@ A successful response indicates that the clone was created in the specified zone
 			"created_at": "2022-12-18T14:58:32Z",
 			"zone": {
 				"name": "us-south-2",
-				"href": "https:ibm.com/v1/regions/us-south/zones/us-south-1",
+				"href": "https:ibm.com/v1/regions/us-south/zones/us-south-2",
 				"resource_type": "zone"
 			}
 		}

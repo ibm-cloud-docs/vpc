@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-11-05"
+lastupdated: "2024-12-02"
 
 keywords: Block Storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -179,14 +179,10 @@ curl -X POST "$vpc_api_endpoint/v1/instances?version=2022-02-01&generation=2"\
              "crn": "crn:[...]"
            },
            "name": "my-boot-volume",
-           "profile": {
-            "name": "general-purpose"
-           }
+           "profile": {"name": "general-purpose"}
          }
        },
-      "image": {
-          "id": "9aaf3bcb-dcd7-4de7-bb60-24e39ff9d366"
-       },
+      "image": {"id": "9aaf3bcb-dcd7-4de7-bb60-24e39ff9d366"},
        .
        .
        .

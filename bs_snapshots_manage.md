@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-10-22"
+lastupdated: "2024-12-02"
 
 keywords: snapshots, Block Storage snapshots, manage snapshots, fast restore clone, backup snapshot, remote copy, cross-regional copy
 
@@ -398,25 +398,12 @@ curl -X POST \
 "$vpc_api_endpoint/v1/snapshots?version=2022-12-12&generation=2" \
 -H "Authorization: $iam_token" \
 -d '{
-    "clones": [
-        {
-        "zone": {
-            "name": "us-south-1"
-        }
-        }
-    ],
+    "clones": [{"zone": {"name": "us-south-1"}}],
     "name": "my-snapshot2",
-    "resource_group": {
-        "id": "a342dbfb-3ea7-48d1-96e8-2825ec5feab4"
-    },
-    "source_volume": {
-        "id": "8948ad59-bc0f-7510-812f-5dc64f59fab8"
-    },
-    "user_tags": [
-        "env:test",
-        "env:prod"
-    ]
-}'
+    "resource_group": {"id": "a342dbfb-3ea7-48d1-96e8-2825ec5feab4"},
+    "source_volume": {"id": "8948ad59-bc0f-7510-812f-5dc64f59fab8"},
+    "user_tags": ["env:test","env:prod"]
+   }'
 ```
 {: codeblock}
 
@@ -439,7 +426,7 @@ A successful response looks like the following example.
   "encryption": "user_managed",
   "encryption_key": {
     "crn": "crn:[...]"
-  },
+  }
 }
 ```
 {: codeblock}
@@ -909,10 +896,10 @@ For more information about the arguments and attributes, see [ibm_is_volume](htt
 
 When you initiate activity on a snapshot, specific Activity tracking events are generated. These activities include creating, listing, modifying, and deleting snapshots. For more information about the Activity tracking events, see [Snapshots events](/docs/vpc?topic=vpc-at_events#events-snapshots).
 
-### Activity Tracker JSON examples for snapshot events
+### Activity tracking snapshot event examples in JSON format
 {: #snapshots-vpc-at-event-examples}
 
-The following example shows the JSON output of an Activity Tracker event that was generated after you successfully created a snapshot. The name that you gave the snapshot appears in the response message and reason code `Created`.
+The following example shows the JSON output of an activity tracking event that was generated after you successfully created a snapshot. The name that you gave the snapshot appears in the response message and reason code `Created`.
 
 ```json
 {

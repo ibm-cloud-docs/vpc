@@ -55,7 +55,7 @@ The API (or CLI) is useful for determining the interface type that is used for a
   "disks": [
     {
       "created_at": "2022-04-19T17:13:28Z",
-      "href": "https://sample-region.iaasdev.cloud.ibm.com/v1/instances/vsi_aba03916-8804-46ae-9275-b7dc196e94b3/disks/c4e4d137-a44f-47b8-beb0-a22dc8f8c6ea",
+      "href": "https://sample-region.iaas.cloud.ibm.com/v1/instances/vsi_aba03916-8804-46ae-9275-b7dc196e94b3/disks/c4e4d137-a44f-47b8-beb0-a22dc8f8c6ea",
       "id": "c4e4d137-a44f-47b8-beb0-a22dc8f8c6ea",
       "interface_type": "virtio_blk",
       "name": "babbling-drove-grove-catnap",

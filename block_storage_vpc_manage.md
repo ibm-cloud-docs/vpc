@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-11-14"
+lastupdated: "2024-12-02"
 
 keywords:
 
@@ -442,10 +442,7 @@ To apply tags to a {{site.data.keyword.block_storage_is_short}} volume, follow t
       "active":false,
       "busy":false,
       "bandwidth":128,
-      "user_tags":[
-        "env:test",
-         "env:prod"
-      ]
+      "user_tags":["env:test","env:prod"]
    }
    ```
    {: codeblock}
