@@ -34,7 +34,7 @@ Some changes, such as new response properties or new optional request parameters
 ### For all version dates
 {: #12-november-2024-all-version-dates-metadata}
 
-**Instance cluster network attachments.** If a virtual server instance has cluster network attachments, [retrieving the instance](/apidocs/vpc-metadata#get-instance) now includes a `cluster_network_attachments` property in the response. Additionally, you can [retrieve an instance cluster network attachment](/apidocs/vpc/latest#get-instance-cluster-network-attachment) for additional details on the instance's cluster network attachments. For more information, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#12-november-2024).
+**Instance cluster network attachments.** If a virtual server instance has cluster network attachments, [retrieving the instance](/apidocs/vpc-metadata#get-instance) now includes a `cluster_network_attachments` property in the response. Additionally, you can [retrieve an instance cluster network attachment](/apidocs/vpc-metadata#get-instance-cluster-network-attachment) for additional details on the instance's cluster network attachments. For more information, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#12-november-2024).
 
 ## 4 June 2024
 {: #4-june-2024-metadata}
