@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-07-08"
+lastupdated: "2024-12-03"
 
 keywords:
 
@@ -59,4 +59,4 @@ You should be aware of the following issues with VPN server configurations:
 * VPN servers support client idle timeout. By default, a VPN client connection disconnects after 10 minutes without active traffic. You can edit the timeout to add your required value.
 * Enable full-tunnel mode on VPN servers. Full-tunnel mode is more secure and preferred, especially if connecting from an untrusted network. In full-tunnel mode, all traffic from a VPN client is routed to the VPN server.
 * Configure the transport protocol and VPN ports. In some cases, you might not want to leave well-known ports, such as TCP/443, open. Edit this option to use a non-default transport protocol and VPN ports.
-* Configure IBM Log Analysis and Activity Tracker to receive and analyze VPN server logs. For more information, see [Using IBM Log Analysis to view VPN server logs](/docs/vpc?topic=vpc-client-vpn-log-analysis-c2s) and [Activity Tracker events](/docs/vpc?topic=vpc-at_events&interface=ui#events-vpn-server).
+* Configure Activity Tracker to receive and analyze VPN server logs. For more information, see [Activity Tracker events](/docs/vpc?topic=vpc-at_events&interface=ui#events-vpn-server).

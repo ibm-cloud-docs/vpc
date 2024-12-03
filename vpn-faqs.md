@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2023
-lastupdated: "2023-03-06"
+  years: 2020, 2024
+lastupdated: "2024-12-03"
 
 keywords: virtual private network, faq, faqs, frequently asked questions, vpn, vpn gateway
 
@@ -109,12 +109,6 @@ No. To set up a VPN gateway in your classic environment, you must use an [IPsec 
 {: faq}
 
 If you use IKEv1, rekey collision deletes the IKE/IPsec security association (SA). To re-create the IKE/IPsec SA, set the connection admin state to `down` and then `up` again. You can use IKEv2 to minimize rekey collisions.
-
-## Is it possible to view logs from the VPN gateway for debugging purposes?
-{: #faq-vpn-15}
-{: faq}
-
-Yes. You can find more information in [Using IBM Log Analysis to view VPN logs](/docs/vpc?topic=vpc-using-log-analysis-to-view-vpn-logs).
 
 ## How can I send all traffic from the VPC side to the on-premises side in a policy-based VPN?
 {: #faq-vpn-16}
