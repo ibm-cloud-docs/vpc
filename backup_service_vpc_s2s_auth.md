@@ -234,7 +234,7 @@ For more information about all of the parameters that are available for this com
 ### Creating cross-account authorization for backups managed by the Enterprise
 {: #backup-s2s-auth-procedure-cli-enterprise}
 
-Enterprise account admins can [create and assign authorization policy templates](/docs/enterprise-management?topic=enterprise-management-authorization-policy-template-create&interface=cli) to the child accounts to manage authorizations centrally. To create an authorization policy template that can be used to enable cross-region replication for all child accounts of the Enterprise, complete the following steps.
+Enterprise account admins can [create and assign authorization policy templates](/docs/enterprise-management?topic=enterprise-management-authorization-policy-template-create&interface=cli) to the child accounts to manage authorizations centrally. To create an authorization policy template that can be used to enable backup policies for all child accounts of the Enterprise, complete the following steps.
 
 1. To get the enterprise root account ID, you can run the following command.
 
@@ -340,7 +340,7 @@ ibmcloud enterprise show
 
 1. Repeat for all the JSON files. When you're done, the templates are ready to be assigned to child accounts.
 
-For more information about all of the parameters that are available for this command, see [ibmcloud iam authorization-policy-template-create](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_authorization_policy_template_create).
+For more information about all of the parameters that are available for this command, see [ibmcloud iam authorization-policy-template-create](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_access_policy_template_create).
 
 ### Creating authorization for {{site.data.keyword.en_short}}
 {: #backup-s2s-auth-procedure-en-cli}
@@ -485,7 +485,7 @@ curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H
 
 For more information, see the api spec for [IAM Policy Management](/apidocs/iam-policy-management#create-policy).
 
-### Creating cross-account authorization for volume backups managed by the Enterprise
+### Creating cross-account authorization for volume backups managed by the Enterprise from the child account
 {: #backup-s2s-auth-procedure-api-enterprise}
 
 To allow an Enterprise administrator to manage backups centrally, the subaccounts must provide authorization for the Backup service of the Enterprise account to interact with the resources of the child accounts.
