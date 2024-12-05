@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-11-05"
+lastupdated: "2024-12-05"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -29,7 +29,7 @@ For cross-region replication, you need to establish service-to-service authoriza
 
 For more information about authorizations, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth).
 
-## Creating service-to-service authorization for customer-managed encryption in the UI
+## Creating authorization for customer-managed encryption in the UI
 {: #file-s2s-auth-encryption-ui}
 {: ui}
 
@@ -51,7 +51,7 @@ For more information about authorizations, see [Using authorizations to grant ac
 1. Click **Review** and inspect your choices.
 1. Click **Authorize**.
 
-## Creating service-to-service authorization for cross-region replication in the UI
+## Creating authorization for cross-region replication in the UI
 {: #file-s2s-auth-replication-ui}
 {: ui}
 
@@ -75,7 +75,7 @@ For more information about authorizations, see [Using authorizations to grant ac
 1. Click **Review** and inspect your choices.
 1. Click **Authorize**.
 
-## Creating service-to-service authorization for cross-account access in the UI
+## Creating authorization for cross-account access in the UI
 {: #file-s2s-auth-xaccount-ui}
 {: ui}
 
@@ -104,7 +104,7 @@ For more information about authorizations, see [Using authorizations to grant ac
 1. Click **Review** and inspect your choices.
 1. Click **Authorize**.
 
-## Creating service-to-service authorization for Watson Studio in the UI
+## Creating authorization for Watson Studio in the UI
 {: #file-s2s-auth-watsonstudio-ui}
 {: ui}
 
@@ -133,7 +133,7 @@ For more information about authorizations, see [Using authorizations to grant ac
 1. Click **Review** and inspect your choices.
 1. Click **Authorize**.
 
-## Creating service-to-service authorization for customer-managed encryption from the CLI
+## Creating  authorization for customer-managed encryption from the CLI
 {: #file-s2s-auth-encryption-cli}
 {: cli}
 
@@ -173,7 +173,7 @@ Roles:                     Authorization Delegator, Reader
 
 For more information about all of the parameters that are available for this command, see [ibmcloud iam authorization-policy-create](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_authorization_policy_create).
 
-## Creating service-to-service authorization for cross-account encryption from the CLI
+## Creating authorization for cross-account encryption from the CLI
 {: #file-s2s-xaccount-encryption-cli}
 {: cli}
 
@@ -207,7 +207,7 @@ Run the `ibmcloud iam authorization-policy-create` command to create authorizati
    The cross-account authorization is one-way and specific to key and service. When Account A authorizes their key to be used by Account B's file service, Account B can use Account A's CRK to encrypt Account B's shares. However, Account A cannot use Account B's root keys to encrypt Account A's shares.
    {: note}
 
-## Creating service-to-service authorization for cross-region replication from the CLI
+## Creating authorization for cross-region replication from the CLI
 {: #file-s2s-auth-replication-cli}
 {: cli}
 
@@ -239,7 +239,7 @@ Roles:                     Editor
 
 For more information about all of the parameters that are available for this command, see [ibmcloud iam authorization-policy-create](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_authorization_policy_create).
 
-## Creating service-to-service authorization for cross-account access from the CLI
+## Creating authorization for cross-account access from the CLI
 {: #file-s2s-auth-xaccount-cli}
 {: cli}
 
@@ -271,7 +271,7 @@ As the share owner, create a JSON file and use it with the `ibmcloud iam authori
    ```
    {: pre}
 
-## Creating service-to-service authorization for customer-managed encryption with the API
+## Creating authorization for customer-managed encryption with the API
 {: #file-s2s-auth-encryption-api}
 {: api}
 
@@ -295,7 +295,7 @@ Make a request to the [IAM Policy Management API](/apidocs/iam-policy-management
 
 * To create an authorization policy for {{site.data.keyword.hscrypto}}, replace `kms` with `hs-crypto` in the previous example.
 
-## Creating service-to-service authorization for cross-account encryption with the API
+## Creating authorization for cross-account encryption with the API
 {: #file-s2s-xaccount-encryption-api}
 {: api}
 
@@ -322,7 +322,7 @@ curl -X "POST" "https://iam.cloud.ibm.com/v1/policies" \
 ```
 {: screen}
 
-## Creating service-to-service authorization for cross-region replication with the API
+## Creating authorization for cross-region replication with the API
 {: #file-s2s-auth-replication-api}
 {: api}
 
@@ -346,7 +346,7 @@ Make a request to the [IAM Policy Management API](/apidocs/iam-policy-management
 
 For more information, see the api spec for [IAM Policy Management](/apidocs/iam-policy-management#create-policy).
 
-## Creating service-to-service authorization for cross-account access with the API
+## Creating authorization for cross-account access with the API
 {: #file-s2s-auth-xaccount-api}
 {: api}
 
@@ -373,7 +373,7 @@ curl -X "POST" "https://iam.cloud.ibm.com/v1/policies" \
 ```
 {: screen}
 
-## Creating service-to-service authorization for customer-managed encryption with Terraform
+## Creating authorization for customer-managed encryption with Terraform
 {: #file-s2s-auth-encryption-terraform}
 {: terraform}
 
@@ -403,7 +403,7 @@ resource "ibm_iam_authorization_policy" "mypolicy4HPCS" {
 
 For more information about the arguments and attributes, see the [Terraform documentation for authorization resources](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/iam_authorization_policy){: external}.
 
-## Creating service-to-service authorization for cross-account encryption with Terraform
+## Creating authorization for cross-account encryption with Terraform
 {: #file-s2s-xaccount-encryption-terraform}
 {: terraform}
 
@@ -483,7 +483,7 @@ For more information about the arguments and attributes, see the [Terraform docu
 
    This terraform resource must also include the provider alias (in our example, `ibm.team_account`) with the account `ibmcloud_api_key` where the encryption key is stored.
 
-## Creating service-to-service authorization for cross-region replication with Terraform
+## Creating authorization for cross-region replication with Terraform
 {: #file-s2s-auth-replication-terraform}
 {: terraform}
 
@@ -502,7 +502,7 @@ resource "ibm_iam_authorization_policy" "mypolicy" {
 
 For more information about the arguments and attributes, see the [Terraform documentation for authorization resources](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/iam_authorization_policy){: external}.
 
-## Creating service-to-service authorization for cross-account access with Terraform
+## Creating authorization for cross-account access with Terraform
 {: #file-s2s-auth-xaccount-terraform}
 {: terraform}
 

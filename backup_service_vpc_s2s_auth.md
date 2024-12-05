@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-10-29"
+lastupdated: "2024-12-05"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -38,7 +38,7 @@ If you set up service authorizations incorrectly, the backup service cannot crea
 {: #backup-s2s-auth-procedure-ui}
 {: ui}
 
-### Enabling service-to-service authorization for volume backups at the account level
+### Creating authorization for volume backups at the account level
 {: #backup-s2s-auth-procedure-ui-account}
 
 To create a service-to-service authorization policy, follow this procedure:
@@ -63,19 +63,19 @@ To create a service-to-service authorization policy, follow this procedure:
    | IBM Cloud Backup for VPC       | Block Storage for VPC           | Operator |
    | IBM Cloud Backup for VPC       | Block Storage Snapshots for VPC | Editor   |
    | IBM Cloud Backup for VPC       | Multi Volume Snapshots for VPC  | Editor   |
-   | IBM Cloud Backup for VPC       | Virtual Server for VPC          | Operator | 
+   | IBM Cloud Backup for VPC       | Virtual Server for VPC          | Operator |
    {: caption="Service-to-service authorizations" caption-side="bottom"}
 
 1. Click **Next**.
-1. Select the role. See Table 1 for the appropriate role.
+1. Select the role. See the table for the appropriate role.
 1. Click **Review** and inspect your choices.
 1. Click **Authorize**.
 1. When you are returned to the **Manage authorizations** page, click **Create** again and follow the same steps to set up authorizations for the remaining services.
 
-### Creating cross-account authorization for volume backups for the Enterprise
+### Creating cross-account authorization for backups managed by the Enterprise account from the child account
 {: #backup-s2s-auth-procedure-ui-enterprise}
 
-To allow an Enterprise administrator to manage backups centrally, the subaccounts must provide authorization for the Backup service of the Enterprise account to interact with the resources of the child accounts. 
+To allow an Enterprise administrator to manage backups centrally, the subaccounts must provide authorization for the Backup service of the Enterprise account to interact with the resources of the child accounts. The following steps can be followed by the child account administrator to create the authorizations in their account locally.
 
 1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage > Access (IAM)**.
 1. From the side panel, select **Authorizations**.
@@ -90,7 +90,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
 1. For the target service, select **VPC Infrastructure Services** from the list. 
    1. Select the scope by clicking **Specific resources**.
    1. Click **Select an attribute**.
-   1. Click **Resource type**. Select one of the services in Table 2. You need to create authorization for all of them.
+   1. Click **Resource type**. Select one of the services in Table 2.
 
    | Source service - resource type | Target service - resource type  | Dependent service user role |
    |--------------------------------|---------------------------------|-----------|
@@ -107,7 +107,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
 1. Click **Authorize**.
 1. When you are returned to the **Manage authorizations** page, click **Create** again and follow the same steps to set up authorizations for the remaining services.
 
-### Enabling service-to-service authorization for {{site.data.keyword.en_short}}
+### Creating authorization for {{site.data.keyword.en_short}}
 {: #backup-s2s-auth-procedure-en-ui}
 {: ui}
 
@@ -136,7 +136,7 @@ To create a service-to-service authorization policy for {{site.data.keyword.en_s
 {: #backup-s2s-auth-procedure-cli}
 {: cli}
 
-### Enabling service-to-service authorization for volume backups at the account level
+### Creating authorization for volume backups at the account level
 {: #backup-s2s-auth-procedure-cli-account}
 
 To use Backup for VPC in your account to create policies, plans and run backup jobs for block storage volumes, create the following service-to-service authorizations:
@@ -229,52 +229,120 @@ To use Backup for VPC in your account to create policies, plans and run backup j
    ```
    {: pre}
 
+For more information about all of the parameters that are available for this command, see [ibmcloud iam authorization-policy-create](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_authorization_policy_create). 
 
-
-For more information about all of the parameters that are available for this command, see [ibmcloud iam authorization-policy-create](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_authorization_policy_create).
-
-### Creating cross-account authorization for volume backups for the Enterprise
+### Creating cross-account authorization for backups managed by the Enterprise
 {: #backup-s2s-auth-procedure-cli-enterprise}
 
-To allow an Enterprise administrator to manage backups centrally, the subaccounts must provide authorization for the Backup service of the Enterprise account to interact with the resources of the child accounts. 
+Enterprise account admins can [create and assign authorization policy templates](/docs/enterprise-management?topic=enterprise-management-authorization-policy-template-create&interface=cli) to the child accounts to manage authorizations centrally. To create an authorization policy template that can be used to enable cross-region replication for all child accounts of the Enterprise, complete the following steps.
 
-Run the `ibmcloud iam authorization-policy-create` command with one of the following options: `--source-service-account`, `--source-service-instance-name`, or `--source-service-instance-id` to identify the enterprise account as the source. To get the enterprise account ID, you can run the following command.
+1. To get the enterprise root account ID, you can run the following command.
 
 ```sh
 ibmcloud enterprise show
 ```
 {: pre}
 
-Then, use the account ID to authorize the Enterprise account's backup service instance to interact with the child account's backup, snapshot, volume, and instance services.
+1. Create the JSON files that provide the definition of the authorization policy template. For more information about the attributes that you can use in your JSON file, see the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy-template).
 
-```sh
-ibmcloud iam authorization-policy-create is is Editor --source-resource-type backup-policy --target-resource-type backup-policy --source-service-account ACCOUNT_ID
-```
-{: pre}
+* Instance service:
+     ```json
+     {
+          "name": "Centralized authorization for Backup service to work with Instances",
+          "description": "Grant Operator Role for the Backup service to work with Instances",
+          "account_id": "ENTERPRISE_ROOT_ACCOUNT_ID",
+          "policy": {
+            "type": "authorization",
+            "description": "Grant Operator on VPC Instances",
+            "control": {
+                "grant": {"roles": [{"role_id":"crn:v1:bluemix:public:iam::::role:Operator"}]}},
+            "subjects": [{"attributes": [
+                {"name":"serviceName","value":"is"},
+                {"name":"resourceType","value":"backup-policy"}]}],
+            "resource": [{"attributes": [
+                  {"name":"serviceName","operator":"stringEquals","value":"is"},
+                  {"name":"instanceId","operator":"stringEquals","value":"*"}]}]}
+     }
+     ```
+     {: codeblock}
 
-```sh
-ibmcloud iam authorization-policy-create is is Editor --source-resource-type backup-policy --target-resource-type snapshot --source-service-account ACCOUNT_ID
-```
-{: pre}
+   * Block Storage volume service:
+     ```json
+     {
+          "name": "Centralized authorization for Backup service to work with Block Storage service",
+          "description": "Grant Operator Role for the Backup service to work with Block Storage volumes",
+          "account_id": "ENTERPRISE_ROOT_ACCOUNT_ID",
+          "policy": {
+            "type": "authorization",
+            "description": "Grant Operator on Block Storage for VPC volumes",
+            "control": {
+                "grant": {"roles": [{"role_id":"crn:v1:bluemix:public:iam::::role:Operator"}]}},
+            "subjects": [{"attributes": [
+                {"name":"serviceName","value":"is"},
+                {"name":"resourceType","value":"backup-policy"}]}],
+            "resource": [{"attributes": [
+                  {"name":"serviceName","operator":"stringEquals","value":"is"},
+                  {"name":"volumeId","operator":"stringEquals","value":"*"}]}]}
+     }
+     ```
+     {: codeblock}
 
-```sh
-ibmcloud iam authorization-policy-create is is Editor --source-resource-type backup-policy --target-resource-type volume --source-service-account ACCOUNT_ID
-```
-{: pre}
+   * Block Storage snapshot service:
+  
+     ```json
+     {
+          "name": "Centralized authorization for Backup service to work with Block Storage snapshots",
+          "description": "Grant Editor Role for the Backup service to work with Block Storage snapshots",
+          "account_id": "ENTERPRISE_ROOT_ACCOUNT_ID",
+          "policy": {
+            "type": "authorization",
+            "description": "Grant Editor on Block Storage for VPC snapshots",
+            "control": {
+                "grant": {"roles": [{"role_id":"crn:v1:bluemix:public:iam::::role:Editor"}]}},
+            "subjects": [{"attributes": [
+                {"name":"serviceName","value":"is"},
+                {"name":"resourceType","value":"backup-policy"}]}],
+            "resource": [{"attributes": [
+                  {"name":"serviceName","operator":"stringEquals","value":"is"},
+                  {"name":"snapshotId","operator":"stringEquals","value":"*"}]}]}
+     }
+     ```
+     {: codeblock}
 
-```sh
-ibmcloud iam authorization-policy-create is is Editor --source-resource-type backup-policy --target-resource-type snapshot-consistency-group --source-service-account ACCOUNT_ID
-```
-{: pre}
+   * Snapshot consistency group:
 
-```sh
-ibmcloud iam authorization-policy-create is is Editor --source-resource-type backup-policy --target-resource-type instance --source-service-account ACCOUNT_ID
-```
-{: pre}
+    ```json
+     {
+          "name": "Centralized authorization for Backup service to work with snapshot consistency groups",
+          "description": "Grant Editor Role for the Backup service to work with snapshot consistency groups",
+          "account_id": "ENTERPRISE_ROOT_ACCOUNT_ID",
+          "policy": {
+            "type": "authorization",
+            "description": "Grant Editor on snapshot consistency groups",
+            "control": {
+                "grant": {"roles": [{"role_id":"crn:v1:bluemix:public:iam::::role:Editor"}]}},
+            "subjects": [{"attributes": [
+                {"name":"serviceName","value":"is"},
+                {"name":"resourceType","value":"backup-policy"}]}],
+            "resource": [{"attributes": [
+                  {"name":"serviceName","operator":"stringEquals","value":"is"},
+                  {"name":"snapshotConsistencyGroupId","operator":"stringEquals","value":"*"}]}]}
+     }
+     ```
+     {: codeblock}
 
-For more information about all of the parameters that are available for this command, see [ibmcloud iam authorization-policy-create](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_authorization_policy_create).
+1. Run the `authorization-policy-template-create` command with the JSON file as shown in the following sample request:
 
-### Enabling service-to-service authorization for {{site.data.keyword.en_short}}
+   ```sh
+   ibmcloud iam authorization-policy-template-create --file /path/to/vpc-share-authorization-template.json
+   ```
+   {: pre}
+
+1. Repeat for all the JSON files. When you're done, the templates are ready to be assigned to child accounts.
+
+For more information about all of the parameters that are available for this command, see [ibmcloud iam authorization-policy-template-create](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_authorization_policy_template_create).
+
+### Creating authorization for {{site.data.keyword.en_short}}
 {: #backup-s2s-auth-procedure-en-cli}
 {: cli}
 
@@ -291,7 +359,7 @@ For more information about all of the parameters that are available for this com
 {: #backup-s2s-auth-procedure-api}
 {: api}
 
-### Enabling service-to-service authorization for volume backups at the account level
+### Creating authorization for volume backups at the account level
 {: #backup-s2s-auth-procedure-api-account}
 
 To use Backup for VPC in your account to create policies, plans and run backup jobs for block storage volumes, create the following service-to-service authorizations:
@@ -417,7 +485,7 @@ curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H
 
 For more information, see the api spec for [IAM Policy Management](/apidocs/iam-policy-management#create-policy).
 
-### Creating cross-account authorization for volume backups for the Enterprise
+### Creating cross-account authorization for volume backups managed by the Enterprise
 {: #backup-s2s-auth-procedure-api-enterprise}
 
 To allow an Enterprise administrator to manage backups centrally, the subaccounts must provide authorization for the Backup service of the Enterprise account to interact with the resources of the child accounts.
@@ -557,7 +625,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
       
 For more information, see the api spec for [IAM Policy Management](/apidocs/iam-policy-management#create-policy).
 
-### Enabling service-to-service authorization for {{site.data.keyword.en_short}}
+### Creating authorization for {{site.data.keyword.en_short}}
 {: #backup-s2s-auth-procedure-en-api}
 {: api}
 
@@ -593,7 +661,7 @@ curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H
 {: #backup-s2s-auth-procedure-terraform}
 {: terraform}
 
-### Enabling service-to-service authorization for volume backups at the account level
+### Creating authorization for volume backups at the account level
 {: #backup-s2s-auth-procedure-terraform-account}
 
 Create an authorization policy between services by using the `ibm_iam_authorization_policy` resource argument in your `main.tf` file.
@@ -727,7 +795,7 @@ resource "ibm_iam_authorization_policy" "policy4" {
 
 For more information about the arguments and attributes, see the [Terraform documentation for authorization resources](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/iam_authorization_policy){: external}.
 
-### Enabling service-to-service authorization for {{site.data.keyword.en_short}}
+### Creating authorization for {{site.data.keyword.en_short}}
 {: #backup-s2s-auth-procedure-en-terraform}
 {: terraform}
 
