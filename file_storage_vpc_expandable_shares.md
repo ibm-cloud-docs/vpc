@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-11-05"
+lastupdated: "2024-12-06"
 
 keywords: file share, file storage, increase capacity, expand capacity, expand share size, file share size
 
@@ -171,7 +171,6 @@ To increase the capacity of a file share from the CLI, use the `share-update` co
                              -             -      
    ```
    {: screen}
-
 
 For more information about the command options, see [`ibmcloud is share-update my-file-share`](/docs/vpc?topic=vpc-vpc-reference#share-update).
 
