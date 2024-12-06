@@ -29,11 +29,18 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-dec0624}
 {: release-note}
 
-Updated `workload` section for Hyper Protect Secure Build
-:   The `workload` section for Hyper Protect Secure Build is updated based on the IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-15`. For more information, see [Configuring and using Hyper Protect Secure Build in {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-about-hpsb#hpvs_hpsb).
+IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-20` updates
+:   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-20`, new certificates are available.
+   - [Attestation certificate](/docs/vpc?topic=vpc-about-attestation)
+   - [Encryption certificate](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_encrypt)
+   - [Intermediate certificate](/docs/vpc?topic=vpc-cert_validate#download_cert)
 
-Support for base64 format
-:  The syslog certificates and the key can be given in base64 format. For more information, see [Syslog](/docs/vpc?topic=servers-logging-hyper-protect-virtual#syslog).
+Base 64 support for rsyslog configuration
+:  The syslog certificates and the key can be given in base64 format. 
+For more information, see [Syslog](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc#syslog).
+
+Updated `workload` section for Hyper Protect Secure Build
+:   The `workload` section for Hyper Protect Secure Build is updated based on the IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-20`. For more information, see [Configuring and using Hyper Protect Secure Build in {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-about-hpsb#hpvs_hpsb).
 
 
 ## November 2024
