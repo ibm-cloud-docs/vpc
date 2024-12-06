@@ -46,7 +46,7 @@ Use the following procedure to validate the attestation record and hashes:
     | Image version| Certificate link | Expiry date |
 
     | -------- | ----------- | ----------- | 
-    | `ibm-hyper-protect-container-runtime-1-0-s390x-20` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-20-attestation.crt){: external} | 20 September 2025 |
+    | `ibm-hyper-protect-container-runtime-1-0-s390x-20` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-20-attestation.crt){: external} | 20 November 2025 |
     | `ibm-hyper-protect-container-runtime-1-0-s390x-19` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-19-attestation.crt){: external} | 19 September 2025 |
     | `ibm-hyper-protect-container-runtime-1-0-s390x-18` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-18-attestation.crt){: external} | 01 August 2025 |
     | `ibm-hyper-protect-container-runtime-1-0-s390x-17` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-17-attestation.crt){: external} | 04 July 2025 |
