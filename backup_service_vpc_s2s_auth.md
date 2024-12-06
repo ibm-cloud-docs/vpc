@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-12-05"
+lastupdated: "2024-12-06"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -231,7 +231,7 @@ To use Backup for VPC in your account to create policies, plans and run backup j
 
 For more information about all of the parameters that are available for this command, see [ibmcloud iam authorization-policy-create](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_authorization_policy_create). 
 
-### Creating cross-account authorization for backups managed by the Enterprise
+### Creating cross-account authorization templates for backups managed by the Enterprise
 {: #backup-s2s-auth-procedure-cli-enterprise}
 
 Enterprise account admins can [create and assign authorization policy templates](/docs/enterprise-management?topic=enterprise-management-authorization-policy-template-create&interface=cli) to the child accounts to manage authorizations centrally. To create an authorization policy template that can be used to enable backup policies for all child accounts of the Enterprise, complete the following steps.
