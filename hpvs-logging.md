@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-12-06"
+lastupdated: "2024-12-10"
 
 keywords: confidential computing, secure execution, logging for hyper protect virtual server for vpc
 
@@ -122,7 +122,6 @@ For more information, see [Managing {{site.data.keyword.logs_full_notm}} logging
 {: #syslog}
 
 You can also configure logging with a generic [syslog backend](https://datatracker.ietf.org/doc/html/rfc5424) such as an [rsyslog](https://www.rsyslog.com/) server or a [Logstash](https://www.elastic.co/logstash/) server. The {{site.data.keyword.hpvs}} for VPC instance uses TLS with [mutual authentication](https://en.wikipedia.org/wiki/Mutual_authentication) to connect to the logging backend. Find the following pieces of information to configure logging:
-
 
 - Syslog hostname 
 - [optional] port and it defaults to 514
@@ -345,7 +344,6 @@ For example:
    "cert": LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNZVENDQVVtZ0F3SUJBZ0lCQVRBTkJna3Foa2lHOXcwQkFRc0ZBREJBTVFzd0NRWURWUVFHRXdKVlV6RVkKTUJZR0ExVUVDZ3dQVW5ONWMyeHZaeUJVWlhOMElFTkJNUmN3RlFZRFZRUUREQTVqWVM1bGVHRnRjR3hsTG05eQpaekFlRncweU1qRXdNVEl4TmpFMU1qZGFGdzB6TWpFd01Ea3hOakUxTWpkYU1Cb3hHREFXQmdOVkJBTVREMFJGClUwdFVUMUF0T0RsTE9Fd3lSREJaTUJNR0J5cUdTTTQ5QWdFR0NDcUdTTTQ5QXdFSEEwSUFCRnc0QWFhQ1hESE8Ka0hGVTBJNHM3RUYweFQvYk1aZTUxbGFCVDcyL1VPcm9aVEZncEtFSDJWTzdQampQU3dZUDdCL1JreWhlUm1acwp0V0ZnK09qV3NFK2pWekJWTUE4R0ExVWRFd0VCL3dRRk1BTUJBUUF3RGdZRFZSMFBBUUgvQkFRREFnR0lNQllHCkExVWRKUUVCL3dRTU1Bb0dDQ3NHQVFVRkJ3TUJNQm9HQTFVZEVRUVRNQkdDRDBSRlUwdFVUMUF0T0RsTE9Fd3kKUkRBTkJna3Foa2lHOXcwQkFRc0ZBereojoQU9DQVFFQXRLYzViN2wxNWY4Z1hKZXA2SjRvS2dLWWI0YTlJeWZNMnNGUgppYmprMmFKSkExYkJzMkRNbHZNbTlhVHFVNStFeURSUDNEVEd3bG8vNUlKYmVQV290Y2pwN21reklyN3lhcFlTCld5SVRtMnhQZTdQd2MxVk5GNWhmQ2NsSTI1OEFPbW1ZQUxDZWx0YmJCQUd1WDRrMzZSWlF6YjRIK3BkVmI2NXAKTkxLYVYvaGtxUy9DZ1AwbkdXWEc1UExCeFJ3dTN5Y0hXeFgzRTdGc1JXMUsxZC9oczdrMHdoaE1adndZSHZnegpYVWZ0Q2RrYkp0R3l0YlNxa2NvcjVtZDRSbTBuelpPdVVaY1phVTRXUnNLc0ZUY2lsZ1VlOVlYZkFUNUdpZ3lqClllRGJZTXhQWWFSS1QzR01ybUowOW9rY0VIaTdqRjNhWVoxU2s4b2c0VEJWV2YvYlpBPT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQ==,
    "key": LS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0tCk1JR0hBZ0VBTUJNR0J5cUdTTTQ5QWdFR0NDcUdTTTQ5QXdFSEJHMHdhd0lCQVFRZ1NQTkc0Z0U0TVREQm5lMXIKa0VPQldFM0NGa0NuS2lXVXQ5T3FTcVJHa3ZTaFJBTkNBQVJjT0FHbWdsd3h6cEJ4Vk5DT0xPeEJkTVUvMnpHWkdfkdAp1ZFpXZ1UrOXYxRHE2R1V4WUtTaEI5bFR1ejQ0ejBzR0Qrd2YwWk1vWGtabWJMVmhZUGpvMXJCUAotLS0tLUVORCBQUklWQVRFIEtFWS0tLS0t
 ```
-
 {: codeblock}
 
 #### Server setup
