@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-10-25"
+lastupdated: "2024-12-10"
 
 keywords: custom routes
 
@@ -60,13 +60,7 @@ To create a routing table in the UI, follow these steps:
 Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
 
 To create a routing table from the CLI, run the following command:
-
-To see advertised custom routes options in the CLI, you must first export a feature flag:
-
-```sh
-export IBMCLOUD_IS_FEATURE_ADVERTISE_CUSTOM_ROUTES=true
-```
-
+ 
 ```sh
 ibmcloud is vpc-routing-table-create VPC [--name NAME] [--direct-link-ingress false | true] [--internet-ingress, --internet false | true] [--transit-gateway-ingress false | true] [--vpc-zone-ingress false | true] [--accept-routes-from-resource-type-filters, --ar-rtf vpn_server | vpn_gateway] [--advertise-routes-to direct_link | transit_gateway | direct_link, transit_gateway] [--output JSON] [-q, --quiet]
 ```

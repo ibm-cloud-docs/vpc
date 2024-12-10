@@ -63,13 +63,7 @@ To create a cluster network in the UI, follow these steps:
 
 To create a cluster network from the CLI, follow these steps:
 
-1. [Set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
-1. Enable the following feature flag:
-
-   ```sh
-   export IBMCLOUD_IS_FEATURE_CLUSTER_NETWORK=true
-   ```
-   {: pre}
+1. [Set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli). 
    
 1. Log in to your account with the CLI. After you enter the password, the system prompts for the account and region that you want to use:
 
@@ -123,16 +117,7 @@ To create a cluster network from the CLI, follow these steps:
 * `ibmcloud is cluster-network-create --vpc my-vpc --zone us-south-1 --profile profile-name`
 * `ibmcloud is cluster-network-create --vpc my-vpc --zone us-south-1 --profile profile-name --name my-cl-net`
 * `ibmcloud is cluster-network-create --vpc my-vpc --zone us-south-1 --profile profile-name --name my-cl-net --subnet-prefixes-cidr 10.0.0.24/24 --output JSON`
-
-### Related commands
-{: #related-commands-cluster-network-interface-create}
-
-* [Create a cluster network subnet](/docs/vpc?topic=vpc-create-cluster-network-subnet&interface=cli)
-* [Creating a cluster network interface](/docs/vpc?topic=vpc-create-cluster-network-interface&interface=cli)
-* [View details of a cluster network](/docs/vpc?topic=vpc-view-details-cluster-network&interface=cli)
-* [Delete a cluster network](/docs/vpc?topic=vpc-delete-cluster-network&interface=cli)
-* [Attaching cluster network interfaces to an instance](/docs/vpc?topic=vpc-attach-interfaces-cluster-network&interface=cli)
-
+ 
 ## Creating a cluster network with the API
 {: #cn-api-create}
 {: api}

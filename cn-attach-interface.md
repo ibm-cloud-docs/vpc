@@ -31,13 +31,7 @@ You can attach cluster network interfaces to an instance with the CLI, API, or T
 
 To attach interfaces to an instance in the CLI, follow these steps:
 
-1. [Set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
-1. Enable the following feature flag:
-
-   ```sh
-   export IBMCLOUD_IS_FEATURE_CLUSTER_NETWORK=true
-   ```
-   {: pre}
+1. [Set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli). 
    
 1. Log in to your account with the CLI. After you enter the password, the system prompts for the account and region that you want to use:
 
@@ -80,15 +74,6 @@ To create instance `my-ins-2` with a cluster network attachments JSON file:
 ibmcloud is instance-create my-ins-2 deceiving-strode-dimly-undesirable us-south-2 hx3d-160x1002x8h100 test-subnet --image ibm-ubuntu-20-04-6-minimal-amd64-5 --cluster-network-attachments @~/cnac.json
 ```
 {: codeblock}
-
-### Related commands
-{: #related-commands-attachments}
-
-* [Creating a cluster network](/docs/vpc?topic=vpc-create-cluster-network&interface=cli)
-* [Create a cluster network subnet](/docs/vpc?topic=vpc-create-cluster-network-subnet&interface=cli)
-* [Creating a cluster network interface](/docs/vpc?topic=vpc-create-cluster-network-interface&interface=cli)
-* [View details of a cluster network](/docs/vpc?topic=vpc-view-details-cluster-network&interface=cli)
-* [Delete a cluster network](/docs/vpc?topic=vpc-delete-cluster-network&interface=cli)
 
 ## Attaching cluster network interfaces to an instance with the API
 {: #attach-interfaces-cluster-network-api}

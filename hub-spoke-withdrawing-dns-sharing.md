@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-10-25"
+lastupdated: "2024-12-10"
 
 keywords:
 
@@ -57,13 +57,7 @@ To disconnect DNS sharing to a DNS hub VPC with the CLI, follow these steps:
     ```sh
     ibmcloud login --sso
     ```
-    {: pre}
-
-1. Enable the following feature flag:
-
-   ```sh
-   export IBMCLOUD_IS_FEATURE_VPC_DNS_SHARING=true
-   ```
+    {: pre} 
 
 1. To disconnect DNS sharing to a DNS hub VPC, enter the following command:
 

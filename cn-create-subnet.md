@@ -51,13 +51,7 @@ The cluster network subnet is requested for use.
 
 To create a cluster network subnet in the CLI, follow these steps:
 
-1. [Set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
-1. Enable the following feature flag:
-
-   ```sh
-   export IBMCLOUD_IS_FEATURE_CLUSTER_NETWORK=true
-   ```
-   {: pre}
+1. [Set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli). 
    
 1. Log in to your account with the CLI. After you enter the password, the system prompts for the account and region that you want to use:
 
@@ -101,17 +95,7 @@ To create a cluster network subnet with name `cli-cn-sub-1` for cluster network 
 ```sh
 ibmcloud is cluster-network-subnet-create cli-cn-1 --name cli-cn-sub-1 --total-ipv4-address-count 32
 ```
-{: codeblock}
-
-### Related commands
-{: #related-commands-cluster-network-subnets}
-
-[WHEN AVAILABLE WILL LINK TO COMMAND REFERENCE]{: tag-red}
-
-* List all cluster network subnets
-* View details of a cluster network subnet
-* Update a cluster network subnet
-* Delete one or more cluster network subnets
+{: codeblock} 
 
 ## Creating a cluster network subnet with the API
 {: #create-cluster-network-subnet-api}

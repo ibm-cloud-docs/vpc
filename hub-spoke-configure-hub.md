@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-11-12"
+lastupdated: "2024-12-10"
 
 keywords:
 
@@ -51,14 +51,7 @@ To enable a VPC as a DNS hub with the CLI, follow these steps:
     ibmcloud login --sso
     ```
     {: pre}
-
-1. Enable the following feature flag:
-
-   ```sh
-   export IBMCLOUD_IS_FEATURE_VPC_DNS_SHARING=true
-   ```
-   {: pre}
-
+ 
 1. Enable a DNS hub for the VPC and specify the resolver type:
 
    ```bash
