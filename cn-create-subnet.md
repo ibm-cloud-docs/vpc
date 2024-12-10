@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-12"
+lastupdated: "2024-12-10"
 
 keywords:
 
@@ -14,9 +14,6 @@ subcollection: vpc
 
 # Creating a cluster network subnet
 {: #create-cluster-network-subnet}
-
-Cluster Networks for VPC is available for select customers only. Contact IBM Support if you are interested in using this functionality.
-{: preview}
 
 A cluster network subnet is a subnet within a cluster network. While it resembles a VPC subnet, it offers fewer features. However, it does let you define the subnet CIDR and configure reserved IPs for the cluster network subnet. These reserved IPs include addresses you specify and come with an auto-delete function similar to that of VPC subnet reserved IPs.
 {: shortdesc}
@@ -138,3 +135,20 @@ To create a cluster network subnet with the API, follow these steps:
    {: codeblock}
 
 To view the complete set of cluster network APIs, see the [VPC API reference](/apidocs/vpc-scoped?code=go#list-cluster-network-profiles).
+
+## Creating a cluster network subnet with Terraform
+{: #create-cluster-network-subnet-terraform}
+{: terraform}
+
+The following example provisions a cluster network subnet by using Terraform:
+
+```terraform
+resource "ibm_is_cluster_network_subnet" "is_cluster_network_subnet_instance" {
+  cluster_network_id        = var.is_cluster_network_subnet_cluster_network_id
+  ip_version                = var.is_cluster_network_subnet_ip_version
+  name                      = var.is_cluster_network_subnet_name
+  total_ipv4_address_count  = var.is_cluster_network_subnet_total_ipv4_address_count
+  // ipv4_cidr_block = var.is_cluster_network_subnet_ipv4_cidr_block #conflicts with total_ipv4_address_count
+}
+```
+{: codeblock}

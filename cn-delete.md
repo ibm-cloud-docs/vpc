@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-12"
+lastupdated: "2024-12-10"
 
 keywords:
 
@@ -14,9 +14,6 @@ subcollection: vpc
 
 # Deleting a cluster network
 {: #delete-cluster-network}
-
-Cluster Networks for VPC is available for select customers only. Contact IBM Support if you are interested in using this functionality.
-{: preview}
 
 You can delete a cluster network interface after all instances attached to it are deleted.
 {: shortdesc}
@@ -120,3 +117,31 @@ To delete a cluster network with the API, follow these steps:
    {: codeblock}
 
 To view the complete set of cluster network APIs, see the [VPC API reference](/apidocs/vpc-scoped?code=go#list-cluster-network-profiles).
+
+## Deleting a cluster network with Terraform
+{: #delete-cluster-network-terraform}
+{: terraform}
+
+Use the `terraform destroy` command to delete a cluster network. The following example deletes `ibm_is_cluster_network`.
+
+```terraform
+terraform destroy --target ibm_is_cluster_network
+```
+{: codeblock}
+
+You can also delete a resource that was created with a .tf file. For example, if you created a cluster with the following .tf file (`terraform apply -auto-approve`), you can delete it using `terraform destroy auto-approve`.
+
+```terraform
+// Provision is_cluster_network resource instance
+resource "ibm_is_cluster_network" "is_cluster_network_instance" {
+  name            = var.is_cluster_network_name  // change to update
+  profile         = "h100"
+  resource_group  = "fee82deba12e4c0fb69c3b09d1f12345"
+  subnet_prefixes {
+    cidr = "10.0.0.0/24"
+  }
+  vpc             = "r006-4727d842-f94f-4a2d-824a-9bc9b02c523b"
+  zone            = "us-south-1"
+}
+```
+{: codeblock}

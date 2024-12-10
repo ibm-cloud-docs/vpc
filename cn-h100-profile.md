@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-21"
+lastupdated: "2024-12-10"
 
 keywords: cluster profiles, cluster network, cluster-network, cluster network profile, cluster network profiles, gpu, nvidia, h100, rdma, roce, accelerated, rocev2, accelerated network
 
@@ -14,9 +14,6 @@ subcollection: vpc
 
 # NVIDIA H100 cluster network profile
 {: #cluster-network-h100-profile}
-
-Cluster Networks for VPC is available for select customers only. Contact IBM Support if you are interested in using this functionality.
-{: preview}
 
 The H100 cluster network profile provides isolated networks for [Hopper HGX H100 instances](/docs/vpc?topic=vpc-accelerated-profile-family#hopper-hgx-profiles) running workloads that require high-bandwidth, low-latency interconnectivity, such as AI training and large-scale simulations.
 {: shortdesc}
