@@ -250,7 +250,7 @@ ibmcloud enterprise show
 1. Create the JSON files that provide the definition of the authorization policy template. For more information about the attributes that you can use in your JSON file, see the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy-template).
 
 * Instance service:
-     ```json 
+     ```json
      {
       "name": "Centralized authorization for Backup service to work with Instances",
       "description": "Grant Operator Role for the Backup service to work with Instances",
