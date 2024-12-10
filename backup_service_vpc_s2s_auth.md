@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-12-06"
+lastupdated: "2024-12-10"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -151,7 +151,7 @@ To use Backup for VPC in your account to create policies, plans and run backup j
      ```json
      {
        "type":"authorization",
-       "subjects": [
+       "subject": {
            {"attributes": [
                 {"name":"accountId","value":"ACCOUNT_ID"},
                 {"name":"serviceName","value":"is"},
@@ -170,7 +170,7 @@ To use Backup for VPC in your account to create policies, plans and run backup j
      ```json
      {
        "type":"authorization",
-       "subjects": [
+       "subject": {
            {"attributes": [
                 {"name":"accountId","value":"ACCOUNT_ID"},
                 {"name":"serviceName","value":"is"},
@@ -189,7 +189,7 @@ To use Backup for VPC in your account to create policies, plans and run backup j
      ```json
      {
        "type":"authorization",
-       "subjects": [
+       "subject": {
            {"attributes": [
                 {"name":"accountId","value":"ACCOUNT_ID"},
                 {"name":"serviceName","value":"is"},
@@ -208,7 +208,7 @@ To use Backup for VPC in your account to create policies, plans and run backup j
     ```json
       {
        "type":"authorization",
-       "subjects": [
+       "subject": {
            {"attributes": [
                 {"name":"accountId","value":"ACCOUNT_ID"},
                 {"name":"serviceName","value":"is"},
@@ -252,17 +252,26 @@ ibmcloud enterprise show
           "description": "Grant Operator Role for the Backup service to work with Instances",
           "account_id": "ENTERPRISE_ROOT_ACCOUNT_ID",
           "policy": {
-            "type": "authorization",
-            "description": "Grant Operator on VPC Instances",
-            "control": {
-                "grant": {"roles": [{"role_id":"crn:v1:bluemix:public:iam::::role:Operator"}]}},
-            "subjects": [{"attributes": [
-                {"name":"serviceName","value":"is"},
-                {"name":"resourceType","value":"backup-policy"}]}],
-            "resource": [{"attributes": [
-                  {"name":"serviceName","operator":"stringEquals","value":"is"},
-                  {"name":"instanceId","operator":"stringEquals","value":"*"}]}]}
-     }
+        "type": "authorization",
+        "description": "Grant Operator on VPC Instances",
+        "control":{
+            "grant":
+            {"roles":[{"role_id": "crn:v1:bluemix:public:iam::::role:Operator"}]}
+        },
+        "subject":{
+            "attributes":
+            [
+                {"key": "serviceName","operator": "stringEquals","value": "is"},
+                {"key": "resourceType","operator": "stringEquals","value": "backup-policy"}
+            ]},
+        "resource":{
+            "attributes":
+            [
+                {"key": "serviceName","operator": "stringEquals","value": "is"},
+                {"key": "instanceId","operator": "stringExists","value": true}
+            ]}
+          }
+     }    
      ```
      {: codeblock}
 
@@ -276,13 +285,20 @@ ibmcloud enterprise show
             "type": "authorization",
             "description": "Grant Operator on Block Storage for VPC volumes",
             "control": {
-                "grant": {"roles": [{"role_id":"crn:v1:bluemix:public:iam::::role:Operator"}]}},
-            "subjects": [{"attributes": [
+                "grant": {
+                  "roles": [{"role_id":"crn:v1:bluemix:public:iam::::role:Operator"}]}
+            },
+            "subject": {
+              "attributes": [
                 {"name":"serviceName","value":"is"},
-                {"name":"resourceType","value":"backup-policy"}]}],
-            "resource": [{"attributes": [
+                {"name":"resourceType","value":"backup-policy"}]
+            },
+            "resource": {
+              "attributes": [
                   {"name":"serviceName","operator":"stringEquals","value":"is"},
-                  {"name":"volumeId","operator":"stringEquals","value":"*"}]}]}
+                  {"name":"volumeId","operator": "stringExists","value": true}]
+            }
+          }
      }
      ```
      {: codeblock}
@@ -298,13 +314,19 @@ ibmcloud enterprise show
             "type": "authorization",
             "description": "Grant Editor on Block Storage for VPC snapshots",
             "control": {
-                "grant": {"roles": [{"role_id":"crn:v1:bluemix:public:iam::::role:Editor"}]}},
-            "subjects": [{"attributes": [
+                "grant": {
+                  "roles": [{"role_id":"crn:v1:bluemix:public:iam::::role:Editor"}]}
+            },
+            "subject": {
+              "attributes": [
                 {"name":"serviceName","value":"is"},
-                {"name":"resourceType","value":"backup-policy"}]}],
-            "resource": [{"attributes": [
+                {"name":"resourceType","value":"backup-policy"}]
+            },
+            "resource": {
+              "attributes": [
                   {"name":"serviceName","operator":"stringEquals","value":"is"},
-                  {"name":"snapshotId","operator":"stringEquals","value":"*"}]}]}
+                  {"name":"snapshotId","operator":"stringExists","value":"*"}]
+            }}
      }
      ```
      {: codeblock}
@@ -320,13 +342,19 @@ ibmcloud enterprise show
             "type": "authorization",
             "description": "Grant Editor on snapshot consistency groups",
             "control": {
-                "grant": {"roles": [{"role_id":"crn:v1:bluemix:public:iam::::role:Editor"}]}},
-            "subjects": [{"attributes": [
+                "grant": {"roles": [{"role_id":"crn:v1:bluemix:public:iam::::role:Editor"}]}
+            },
+            "subject": {
+              "attributes": [
                 {"name":"serviceName","value":"is"},
-                {"name":"resourceType","value":"backup-policy"}]}],
-            "resource": [{"attributes": [
+                {"name":"resourceType","value":"backup-policy"}]
+            },
+            "resource": {
+              "attributes": [
                   {"name":"serviceName","operator":"stringEquals","value":"is"},
-                  {"name":"snapshotConsistencyGroupId","operator":"stringEquals","value":"*"}]}]}
+                  {"name":"snapshotConsistencyGroupId","operator":"stringExists","value":"*"}]
+            }
+         }
      }
      ```
      {: codeblock}
@@ -388,7 +416,7 @@ curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H
   "roles":[
     {"role_id":"crn:v1:bluemix:public:iam::::role:Operator"}
    ],
-   "resources":[
+   "resource":[
     {"attributes":[
       {"name":"accountId","value":"$ACCOUNT_ID"},
       {"name":"serviceName","operator":"stringEquals","value":"is"},
@@ -415,7 +443,7 @@ curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H
    "roles":[
     {"role_id":"crn:v1:bluemix:public:iam::::role:Operator"}
     ],
-   "resources":[
+   "resource":[
     {"attributes": [
       {"name":"accountId","value":"$ACCOUNT_ID"},
       {"name":"serviceName","operator":"stringEquals","value":"is.volume"},
@@ -444,7 +472,7 @@ curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H
    "roles":[
     {"role_id":"crn:v1:bluemix:public:iam::::role:Editor"}
    ],
-   "resources":[
+   "resource":[
     {"attributes": [
       {"name":"accountId","value":"$ACCOUNT_ID"},
       {"name":"serviceName","operator":"stringEquals","value":"is"},
@@ -472,7 +500,7 @@ curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H
   "roles":[
     {"role_id":"crn:v1:bluemix:public:iam::::role:Editor"}
    ],
-   "resources":[
+   "resource":[
     {"attributes":[
       {"name":"accountId","value":"$ACCOUNT_ID"},
       {"name":"serviceName","operator":"stringEquals","value":"is"},
@@ -520,7 +548,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
      "roles":[
        {"role_id":"crn:v1:bluemix:public:iam::::role:Editor"}
      ],
-     "resources":[
+     "resource":[
        {"attributes":[
           {"name":"accountId","value":"$SUB_ACCOUNT_ID","operator":"stringEquals"},
           {"name":"serviceName","operator":"stringEquals","value":"is"},
@@ -551,7 +579,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
      "roles":[
        {"role_id" "crn:v1:bluemix:public:iam::::role:Operator"}
       ],
-     "resources":[
+     "resource":[
        {"attributes": [
           {"name":"accountId","value":"$SUB_ACCOUNT_ID"},
           {"name":"serviceName","operator":"stringEquals","value":"is.volume"},
@@ -582,7 +610,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
       "roles":[
          {"role_id":"crn:v1:bluemix:public:iam::::role:Editor"}
        ],
-      "resources":[
+      "resource":[
          {"attributes": [
           {"name":"accountId","value":"$SUB_ACCOUNT_ID"},
           {"name":"serviceName","operator":"stringEquals","value":"is"},
@@ -612,7 +640,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
      "roles":[
        {"role_id" "crn:v1:bluemix:public:iam::::role:Operator"}
       ],
-     "resources":[
+     "resource":[
        {"attributes": [
           {"name":"accountId","value":"$SUB_ACCOUNT_ID"},
           {"name":"serviceName","operator":"stringEquals","value":"is.volume"},
@@ -647,7 +675,7 @@ curl -X POST 'https://iam.cloud.ibm.com/v1/policies' -H
   "roles":[
        {"role_id" "crn:v1:bluemix:public:iam::::role:EventSourceManager"}
   ],
-  "resources":[
+  "resource":[
        {"attributes": [
           {"name":"serviceName","operator":"stringEquals","value":"event-notification"},
           {"name":"instanceId","operator":"stringEquals", "value":"<en-instance-ID>"}]
