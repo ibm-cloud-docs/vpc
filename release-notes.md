@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-12-06"
+lastupdated: "2024-12-10"
 
 keywords:
 
@@ -24,6 +24,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} API, s
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command-line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
 
+## December 2024
+{: #vpc-dec24}
 
 ### 06 December 2024
 {: #vpc-dec0624}
@@ -41,7 +43,6 @@ For more information, see [Syslog](/docs/vpc?topic=vpc-logging-for-hyper-protect
 
 Updated `workload` section for Hyper Protect Secure Build
 :   The `workload` section for Hyper Protect Secure Build is updated based on the IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-20`. For more information, see [Configuring and using Hyper Protect Secure Build in {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-about-hpsb#hpvs_hpsb).
-
 
 ## November 2024
 {: #vpc-nov24}
