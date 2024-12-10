@@ -45,7 +45,7 @@ The console can be opened by using any of the [supported browsers](/docs/overvie
     1. Scroll to the **Create policy** section.
     1. In the **Service** section, select _VPC Infrastructure services_. Then, click **Next**.
     1. In the **Resources** section, select _All resources_.
-    1. In the **Roles and actions, select the following Service access:
+    1. In the **Roles and actions** section, select the following Service access:
        - Console Administrator
     1. Then, select one of the following Platform accesses:
        - Operator
