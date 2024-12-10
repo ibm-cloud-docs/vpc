@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-10-18"
+lastupdated: "2024-12-10"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -115,7 +115,7 @@ Plans                   ID                                          Name        
                         r138-6f4f08ba-e0bb-470f-bbfb-f3a22aebbfa9   my-policy-plan-c   backup_policy_plan
 
 Backup tags             dev:test
-Backup resource type    volume
+Match resource type    volume
 Resource group          defaults
 Created at              2023-02-21T22:42:10+00:00
 ```
@@ -135,7 +135,7 @@ Plans                  ID                                          Name         
                        r006-0741b600-e8d5-41b4-88a7-c19b6fbf89ca   scope-plan-2   backup_policy_plan
 
 Backup tags            dev:test
-Backup resource type   volume
+Match resource type   volume
 Resource group         ID                                 Name
                        e579217258f74f42974e6ec4da287fc5   Default
 
@@ -175,7 +175,7 @@ Plans                   ID                                          Name        
                         r138-6f4f08ba-e0bb-470f-bbfb-f3a22aebbfa9   my-policy-plan-c   backup_policy_plan
 
 Backup tags             dev:env,bck:test
-Backup resource type    volume
+Match resource type    volume
 Resource group          ID                                 Name
                         11caaa983d9c4beb82690daab08717e9   Default
 

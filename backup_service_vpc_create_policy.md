@@ -179,7 +179,7 @@ Status                 pending
 Plans                  ID   Name   Resource type
 
 Backup tags            dev:test
-Backup resource type   volume
+Match resource type   volume
 Resource group         ID                                 Name
                        11caaa983d9c4beb82690daab08717e9   Default
 
@@ -209,7 +209,7 @@ Status                 pending
 Plans                  ID   Name   Resource type
 
 Backup tags            dev:test
-Backup resource type   volume
+Match resource type   volume
 Resource group         ID                                 Name
                        e579217258f74f42974e6ec4da287fc5   Default
 
