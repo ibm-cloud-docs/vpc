@@ -248,29 +248,29 @@ ibmcloud enterprise show
 * Instance service:
      ```json
      {
-          "name": "Centralized authorization for Backup service to work with Instances",
-          "description": "Grant Operator Role for the Backup service to work with Instances",
-          "account_id": "ENTERPRISE_ROOT_ACCOUNT_ID",
-          "policy": {
-        "type": "authorization",
-        "description": "Grant Operator on VPC Instances",
-        "control":{
+       "name": "Centralized authorization for Backup service to work with Instances",
+       "description": "Grant Operator Role for the Backup service to work with Instances",
+       "account_id": "ENTERPRISE_ROOT_ACCOUNT_ID",
+       "policy": {
+         "type": "authorization",
+         "description": "Grant Operator on VPC Instances",
+         "control":{
             "grant":
             {"roles":[{"role_id": "crn:v1:bluemix:public:iam::::role:Operator"}]}
-        },
-        "subject":{
+         },
+         "subject":{
             "attributes":
             [
                 {"key": "serviceName","operator": "stringEquals","value": "is"},
                 {"key": "resourceType","operator": "stringEquals","value": "backup-policy"}
             ]},
-        "resource":{
+         "resource":{
             "attributes":
             [
                 {"key": "serviceName","operator": "stringEquals","value": "is"},
-                {"key": "instanceId","operator": "stringExists","value": true}
-            ]}
-          }
+                {"key": "instanceId","operator":"stringExists","value":"true"}]
+            }
+        }
      }    
      ```
      {: codeblock}
@@ -296,7 +296,7 @@ ibmcloud enterprise show
             "resource": {
               "attributes": [
                   {"name":"serviceName","operator":"stringEquals","value":"is"},
-                  {"name":"volumeId","operator": "stringExists","value": true}]
+                  {"name":"volumeId","operator":"stringExists","value":"true"}]
             }
           }
      }
@@ -325,7 +325,7 @@ ibmcloud enterprise show
             "resource": {
               "attributes": [
                   {"name":"serviceName","operator":"stringEquals","value":"is"},
-                  {"name":"snapshotId","operator":"stringExists","value":"*"}]
+                  {"name":"snapshotId""operator":"stringExists","value":"true"}]
             }}
      }
      ```
@@ -352,7 +352,7 @@ ibmcloud enterprise show
             "resource": {
               "attributes": [
                   {"name":"serviceName","operator":"stringEquals","value":"is"},
-                  {"name":"snapshotConsistencyGroupId","operator":"stringExists","value":"*"}]
+                  {"name":"snapshotConsistencyGroupId","operator":"stringExists","value":"true"}]
             }
          }
      }
