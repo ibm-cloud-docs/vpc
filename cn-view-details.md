@@ -91,16 +91,7 @@ To view cluster network `my-cl-net-2` by ID:
 ibmcloud is cl-net 7208-353ec740-c1b1-4778-b7a1-8c77a365e435
 ```
 {: codeblock}
-
-### Related commands
-{: #related-commands-cluster-network-interface-details}
-
-* [Creating a cluster network](/docs/vpc?topic=vpc-create-cluster-network&interface=cli)
-* [Create a cluster network subnet](/docs/vpc?topic=vpc-create-cluster-network-subnet&interface=cli)
-* [Creating a cluster network interface](/docs/vpc?topic=vpc-create-cluster-network-interface&interface=cli)
-* [Delete a cluster network](/docs/vpc?topic=vpc-delete-cluster-network&interface=cli)
-* [Attaching cluster network interfaces to an instance](/docs/vpc?topic=vpc-attach-interfaces-cluster-network&interface=cli)
-
+ 
 ## Viewing details of a cluster network with the API
 {: #view-details-cluster-network-api}
 {: api}

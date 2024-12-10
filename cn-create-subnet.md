@@ -101,17 +101,7 @@ To create a cluster network subnet with name `cli-cn-sub-1` for cluster network 
 ```sh
 ibmcloud is cluster-network-subnet-create cli-cn-1 --name cli-cn-sub-1 --total-ipv4-address-count 32
 ```
-{: codeblock}
-
-### Related commands
-{: #related-commands-cluster-network-subnets}
-
-[WHEN AVAILABLE WILL LINK TO COMMAND REFERENCE]{: tag-red}
-
-* List all cluster network subnets
-* View details of a cluster network subnet
-* Update a cluster network subnet
-* Delete one or more cluster network subnets
+{: codeblock} 
 
 ## Creating a cluster network subnet with the API
 {: #create-cluster-network-subnet-api}

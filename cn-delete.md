@@ -88,16 +88,7 @@ To delete cluster network `cli-cn-1`. You are prompted for confirmation. This ac
 ibmcloud is cluster-network-delete cli-cn-1
 ```
 {: codeblock}
-
-### Related commands
-{: #related-commands-cluster-network-interface-delete}
-
-* [Creating a cluster network](/docs/vpc?topic=vpc-create-cluster-network&interface=cli)
-* [Create a cluster network subnet](/docs/vpc?topic=vpc-create-cluster-network-subnet&interface=cli)
-* [Creating a cluster network interface](/docs/vpc?topic=vpc-create-cluster-network-interface&interface=cli)
-* [View details of a cluster network](/docs/vpc?topic=vpc-view-details-cluster-network&interface=cli)
-* [Attaching cluster network interfaces to an instance](/docs/vpc?topic=vpc-attach-interfaces-cluster-network&interface=cli)
-
+ 
 ## Deleting a cluster network with the API
 {: #delete-cluster-network-api}
 {: api}

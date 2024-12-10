@@ -81,15 +81,6 @@ ibmcloud is instance-create my-ins-2 deceiving-strode-dimly-undesirable us-south
 ```
 {: codeblock}
 
-### Related commands
-{: #related-commands-attachments}
-
-* [Creating a cluster network](/docs/vpc?topic=vpc-create-cluster-network&interface=cli)
-* [Create a cluster network subnet](/docs/vpc?topic=vpc-create-cluster-network-subnet&interface=cli)
-* [Creating a cluster network interface](/docs/vpc?topic=vpc-create-cluster-network-interface&interface=cli)
-* [View details of a cluster network](/docs/vpc?topic=vpc-view-details-cluster-network&interface=cli)
-* [Delete a cluster network](/docs/vpc?topic=vpc-delete-cluster-network&interface=cli)
-
 ## Attaching cluster network interfaces to an instance with the API
 {: #attach-interfaces-cluster-network-api}
 {: api}
