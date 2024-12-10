@@ -709,7 +709,7 @@ The encryption and attestation certificates are signed by the IBM intermediate c
 
    | Image version| Certificate link | Encryption cert expiry date | Deprecation date | Obsolete Date |
    | -------- | ----------- | ----------- | ----------- | ----------- |
-   | `ibm-hyper-protect-container-runtime-1-0-s390x-20` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-19-encrypt.crt){: external} | 02 September 2025 |   |   |
+   | `ibm-hyper-protect-container-runtime-1-0-s390x-20` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-20-encrypt.crt){: external} | 02 September 2025 |   |   |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-19` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-19-encrypt.crt){: external} | 02 September 2025 |   |   |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-18` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-18-encrypt.crt){: external} | 04 July 2025 |   |   |
    | `ibm-hyper-protect-container-runtime-1-0-s390x-17` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-17-encrypt.crt){: external} | 04 July 2025 |   |   |
