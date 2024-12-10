@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-09-26"
+lastupdated: "2024-12-10"
 
 keywords: file share, file storage, replication, replica, 
 
@@ -36,7 +36,7 @@ When you create your replica file share in another zone of the same region, the 
 
 When you replicate your file share to another region, the replica must match the type of encryption that the source share has. However, it does not inherit the encryption from the source. In other words, if the source share is encrypted with provider-managed keys, the replica must have provider-managed encryption, too. If the source share is encrypted with a customer-managed key, the replica must be encrypted with a customer-managed key as well. However, it does not have to be the same key. When you create the replica, provide the CRN of the key that you want to use.
 
-Based on the replication schedule, the service pulls data from the source file share to the replica file share. You can choose how often you want to sync changes from the source share to the replica. You can specify an hourly, daily, weekly, or monthly replication schedule. Replications must be scheduled at least 1 hour apart. 
+Based on the replication schedule, the service pulls data from the source file share to the replica file share. You can choose how often you want to sync changes from the source share to the replica. You can specify an hourly, daily, weekly, or monthly replication schedule. Replications must be scheduled at least 15 minutes apart.
 
 When you replicate across regions, the data is crossing VPC boundaries. Both VPCs and file shares must belong to the same account, and you need to [establish service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth) between the file services of the two regions. The data is encrypted in transit while it's moving between file shares. Charges for data transfer between the two file shares are calculated with a flat rate in GB increments. The charges are based on the amount of data that was transferred during the entire billing period.
 
