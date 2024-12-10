@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-20"
+lastupdated: "2024-12-10"
 
 keywords:
 
@@ -39,4 +39,4 @@ Review the following planning considerations before creating a cluster network.
 
 * Start by setting up your cluster network and subnets, then define instance templates to scale your training cluster with the desired number of nodes. For more information, see [Getting started with cluster networks](/docs/vpc?topic=vpc-about-cluster-network#cluster-network-getting-started).
    * You can [create an instance template](/docs/vpc?topic=vpc-create-instance-template&interface=ui) to define instance details for provisioning one or more virtual servers. When you create your instance template, you can use it to provision single virtual server instances, or to provision multiple instances at the same time as part of an instance group.
-   * Optionally, when you provision an instance, you can include the cluster network configuration within the instance provision request.
+   * Optionally, when you provision an instance, you can include the cluster network configuration within the instance provision request.   

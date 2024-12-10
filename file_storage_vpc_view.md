@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-12-06"
+lastupdated: "2024-12-09"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -202,7 +202,7 @@ Replication status reasons       Status code   Status message
 Source share                     ID                                          Name                   Resource type      
                                  r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a   my-source-file-share   share         
 ```
-{: screen}  
+{: screen}   
 
 You can use the name of the source share to retrieve its details. See the following example.
 
