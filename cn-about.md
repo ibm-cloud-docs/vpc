@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-12"
+lastupdated: "2024-12-10"
 
 keywords:
 
@@ -14,9 +14,6 @@ subcollection: vpc
 
 # About cluster networks
 {: #about-cluster-network}
-
-Cluster Networks for VPC is available for select customers only. Contact IBM Support if you are interested in using this functionality.
-{: preview}
 
 A cluster network is a software-defined network within a Virtual Private Cloud (VPC) used to connect multiple computing systems or nodes in a way that optimizes performance and communication between them. These networks are designed to support tasks that require high-speed data transfer and low latency, such as high-performance computing (HPC) and large-scale data processing. Ideal for large-scale AI training use cases, cluster networks also allow you to define sets of performance criteria for a given group of interconnected systems.
 {: shortdesc}

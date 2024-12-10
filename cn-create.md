@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-12"
+lastupdated: "2024-12-10"
 
 keywords:
 
@@ -14,9 +14,6 @@ subcollection: vpc
 
 # Creating a cluster network
 {: #create-cluster-network}
-
-Cluster Networks for VPC is available for select customers only. Contact IBM Support if you are interested in using this functionality.
-{: preview}
 
 Cluster networks allow you to interconnect and define sets of performance criteria for multiple virtual networks. These networks are designed to support tasks that require high-speed data transfer and low latency, such as high-performance computing (HPC) and large-scale data processing.
 {: shortdesc}
@@ -166,3 +163,23 @@ To create a cluster network with the API, follow these steps:
    {: codeblock}
 
    To view the complete set of cluster network APIs, see the [VPC API reference](/apidocs/vpc/latest#list-cluster-network-profiles).
+
+## Creating a cluster network interface with Terraform
+{: #ccreate-cluster-network-terraform}
+{: terraform}
+
+The following example provisions a cluster network instance by using Terraform:
+
+```terraform
+resource "ibm_is_cluster_network" "is_cluster_network_instance" {
+  name            = var.is_cluster_network_name  // change to update
+  profile         = "h100"
+  resource_group  = "fee82deba12e4c0fb69c3b09d1f12345"
+  subnet_prefixes {
+    cidr = "10.0.0.0/24"
+  }
+  vpc             = "r006-4727d842-f94f-4a2d-824a-9bc9b02c523b"
+  zone            = "us-south-1"
+}
+```
+{: codeblock}

@@ -15,9 +15,6 @@ subcollection: vpc
 # Planning considerations for cluster networks
 {: #planning-cluster-network}
 
-Cluster Networks for VPC is available for select customers only. Contact IBM Support if you are interested in using this functionality.
-{: preview}
-
 Review the following planning considerations before creating a cluster network.
 {: shortdesc}
 

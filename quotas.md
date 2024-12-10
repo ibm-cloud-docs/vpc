@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-11-12"
+lastupdated: "2024-12-10"
 
 keywords:
 
@@ -149,9 +149,6 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 
 ### Cluster networks
 {: #cluster-networks-quotas}
-
-Cluster Networks for VPC is available for select customers only. Contact IBM Support if you are interested in using this functionality.
-{: preview}
 
 | Resource | Quota |
 |--------|-----|

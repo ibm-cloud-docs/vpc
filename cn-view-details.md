@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-12"
+lastupdated: "2024-12-10"
 
 keywords:
 
@@ -14,9 +14,6 @@ subcollection: vpc
 
 # Viewing details of a cluster network
 {: #view-details-cluster-network}
-
-Cluster Networks for VPC is available for select customers only. Contact IBM Support if you are interested in using this functionality.
-{: preview}
 
 View details of your cluster network, such as its name, creation date, and CRN. You can also manage and create subnets and interfaces within the cluster network. For example, you can specify the subnet CIDR and define reserved IP addresses.
 {: shortdesc}

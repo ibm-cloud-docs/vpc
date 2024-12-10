@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-12"
+lastupdated: "2024-12-10"
 
 keywords:
 
@@ -14,9 +14,6 @@ subcollection: vpc
 
 # Creating a cluster network interface
 {: #create-cluster-network-interface}
-
-Cluster Networks for VPC is available for select customers only. Contact IBM Support if you are interested in using this functionality.
-{: preview}
 
 You can create a cluster network interface either during the creation of a cluster network, or after the network has been provisioned.
 {: shortdesc}
@@ -147,3 +144,22 @@ To create a cluster network interface with the API, follow these steps:
    {: codeblock}
 
 To view the complete set of cluster network APIs, see the [VPC API reference](/apidocs/vpc-scoped?code=go#list-cluster-network-profiles).
+
+## Creating a cluster network interface with Terraform
+{: #create-cluster-network-interface-terraform}
+{: terraform}
+
+The following example provisions a cluster network interface by using Terraform:
+
+```terraform
+resource "ibm_is_cluster_network_interface" "is_cluster_network_interface_instance" {
+  cluster_network_id            = var.is_cluster_network_interface_cluster_network_id
+  name                          = var.is_cluster_network_interface_name
+  primary_ip {
+    address = "10.1.0.6"
+    name    = "my-cluster-network-subnet-reserved-ip"
+  }
+  subnet = "0767-7931845c-65c4-4b0a-80cd-7d9c1a6d7930"
+}
+```
+{: codeblock}
