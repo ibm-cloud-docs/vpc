@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2024
-lastupdated: "2024-10-25"
+lastupdated: "2024-12-10"
 
 keywords: custom routes
 
@@ -79,9 +79,7 @@ Where:
 `ibmcloud is vpc-routing-table-route-update 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3 72b27b5c-f4b0-48bb-b954-5becc7c1d456 72b27b5c-f4b0-48bb-b954-5becc7c1d4ef --name my-vpc-route --priority 1`
 
 `ibmcloud is vpc-routing-table-route-update 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3 72b27b5c-f4b0-48bb-b954-5becc7c1d456 72b27b5c-f4b0-48bb-b954-5becc7c1d4ef --name my-vpc-route --next-hop 10.0.0.2`
-
-To see advertise custom routes options in CLI, we need to export a feature flag: `export IBMCLOUD_IS_FEATURE_ADVERTISE_CUSTOM_ROUTES=true`
-
+ 
 `ibmcloud is vpc-routing-table-update 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3 72b27b5c-f4b0-48bb-b954-5becc7d1d2d3 -—advertise_routes_to direct_link --direct-link-ingress true -—output JSON`
 
 `ibmcloud is vpc-routing-table-update my-vpc my-vpc-routing-table -—advertise-routes-to transit_gateway  -—transit-gateway-ingress true --output JSON`

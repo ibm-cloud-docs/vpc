@@ -31,13 +31,7 @@ You can attach cluster network interfaces to an instance with the CLI, API, or T
 
 To attach interfaces to an instance in the CLI, follow these steps:
 
-1. [Set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
-1. Enable the following feature flag:
-
-   ```sh
-   export IBMCLOUD_IS_FEATURE_CLUSTER_NETWORK=true
-   ```
-   {: pre}
+1. [Set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli). 
    
 1. Log in to your account with the CLI. After you enter the password, the system prompts for the account and region that you want to use:
 

@@ -42,13 +42,7 @@ To view details of a cluster network interface in the {{site.data.keyword.cloud_
 
 To view the details of a cluster network in the CLI, follow these steps:
 
-1. [Set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli).
-1. Enable the following feature flag:
-
-   ```sh
-   export IBMCLOUD_IS_FEATURE_CLUSTER_NETWORK=true
-   ```
-   {: pre}
+1. [Set up your CLI environment](/docs/vpc?topic=vpc-set-up-environment&interface=cli). 
    
 1. Log in to your account with the CLI. After you enter the password, the system prompts for the account and region that you want to use:
 
