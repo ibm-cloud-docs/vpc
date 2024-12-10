@@ -37,3 +37,18 @@ Review the following planning considerations before creating a cluster network.
 * Start by setting up your cluster network and subnets, then define instance templates to scale your training cluster with the desired number of nodes. For more information, see [Getting started with cluster networks](/docs/vpc?topic=vpc-about-cluster-network#cluster-network-getting-started).
    * You can [create an instance template](/docs/vpc?topic=vpc-create-instance-template&interface=ui) to define instance details for provisioning one or more virtual servers. When you create your instance template, you can use it to provision single virtual server instances, or to provision multiple instances at the same time as part of an instance group.
    * Optionally, when you provision an instance, you can include the cluster network configuration within the instance provision request.
+
+## Considerations for IP address ranges (prefixes)
+{: #cn-considerations-static-IP-address}
+
+You can only apply the following considerations through the API and CLI.
+{: note}
+
+
+   * Cluster networks are isolated from the VPC network. You are allowed to specify cluster nework `subnet_prefixes` that overlap with the VPC's [default](/docs/vpc?topic=vpc-configuring-address-prefixes) or [custom](/docs/vpc?topic=vpc-vpc-addressing-plan-design) address prefixes. However, this may result in instances having two network interfaces (one on the VPC network, and one on the cluster network) with the same IP address. In such a scenario you must be careful to isolate the network interfaces in the guest operating system. For example, Linux guests can use [network namespaces](https://www.man7.org/linux/man-pages/man8/ip-netns.8.html).
+
+   * The default `subnet_prefixes` for cluster networks (`["cidr": "10.0.0.0/9"]`) do not overlap with the [default address prefixes for VPCs](/docs/vpc?topic=vpc-configuring-address-prefixes). To simplify the guest operating system configurations, either use the defaults, or plan your custom address ranges to avoid overlap.
+   * If you need to plan for statically-configured IP addresses, especially for a large number (such as 1000), it’s important to approach the task methodically. First, you should determine the total number of required IP addresses. Then consider how these addresses will be assigned to various instances. To manage this efficiently, implement a clear naming scheme that helps you organize and connect the IP addresses to their respective instances. For example, you might use a naming convention that reflects the function or location of each instance, making it easier to identify and manage them.
+   * When statically configuring IP addresses for network interfaces in a guest OS:
+      * Ensure that the IP addresses for cluster network interfaces are in the address range of one of the `subnet_prefixes` in the cluster network. Cluster network interfaces with an IP address outside the address range of one of the `subnet_prefixes` will not receive packets.
+      * If a statically configured IP address does not match the cluster network interface's primary reserved IP or one of its secondary reserved IPs, you must create a VPC routing table route to redirect traffic for the statically configured IP to one of the reserved IPs. Additionally, you must set `allow_ip_spoofing` to `true` on the associated cluster network interface to allow outbound packets with the statically configured IP as the source address.
