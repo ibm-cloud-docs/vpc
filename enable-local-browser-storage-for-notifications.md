@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-06-14"
+lastupdated: "2024-12-11"
 
 keywords:
 
@@ -27,6 +27,8 @@ Chrome and Chromium treat cookies and local storage as the same thing. To check 
 
 
 
+
+
 ## Safari
 {: #local-storage-safari}
 
@@ -45,5 +47,3 @@ To enable cookies and local storage with Edge, see [Temporarily allowing cookies
 {: #local-storage-firefox}
 
 Firefox treats cookies and local storage as the same thing. To check and adjust these settings, see [Managing local site storage settings in Firefox](https://support.mozilla.org/en-US/products/firefox).
-
-

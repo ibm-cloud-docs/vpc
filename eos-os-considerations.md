@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-10-29"
+lastupdated: "2024-12-11"
 
 keywords:
 
@@ -88,14 +88,28 @@ If you choose to continue with an EOS OS, consider the following information:
 - Support isn't available for performance or operational issues on the server with an EOS OS.
    - Vendor support is unavailable for an EOS OS.
    - EOS operating systems are not supported by {{site.data.keyword.Bluemix_notm}} Technical Support.
+ 
+## End of Support (EOS) announcements
+{: #bm-classic-eos-announcements}
 
-## Debian 10
+End of Support (EOS) is the last date that {{site.data.keyword.cloud}} delivers standard support for a version or release of a product. The end of support date is aligned to the vendor and community support dates. The EOS date is also the effective date that the product ceases to exist (is deprecated) and can no longer be ordered or purchased.
+
+### SUSE Linux Enterprise Server (SLES) 12 
+{: #sles-12-eos-bm-clasic}
+
+SUSE Linux Enterprise Server (SLES) 12 EOS date is 31 October 2024. After deprecation, clients can't download the software.
+
+Clients are encouraged to upgrade to the most recent version for continued support. If an upgrade isn't possible, SUSE Long-Term Support Service (LTSS) is available that offers extended security updates and bug fixes for three more years. LTSS requires an extra monthly fee per instance.
+
+For more information about upgrading, see [SUSE documentation](https://documentation.suse.com/sles/15-SP6/single-html/SLES-upgrade/#sec-upgrade-paths-supported){: external} or contact [IBM support](/docs/account?topic=account-using-avatar).
+
+### Debian 10
 {: #debian-ten-eos-vpc}
 
 Debian 10 EOS date is 30 June 2024. Support for this software discontinues on 30 June 2024. After deprecation, clients can't download the software. For existing customers, upgrade to the latest version.
 For more information, see the [Debian documentation](https://www.debian.org/releases/bookworm/amd64/release-notes/ch-upgrading.en.html){: external}.
 
-## Red Hat Enterprise Linux 7
+### Red Hat Enterprise Linux 7
 {: #upgrading-rhel-7-os-vpc}
 
 Red Hat Enterprise Linux 7 EOS date is 30 June 2024. Support for this software discontinues on 30 June 2024. After deprecation, clients can't download the software.
@@ -104,7 +118,7 @@ If you decide to upgrade with the in-place method on Red Hat OS, open a case wit
 
 For existing customers, upgrade to the latest version. For more information, see the [Red Hat Enterprise Linux documentation](https://access.redhat.com/support/policy/updates/errata).
 
-## Windows 2012 and Windows 2012 R2 EOS
+### Windows 2012 and Windows 2012 R2 EOS
 {: #upgrading-windows-2012-os}
 
 Windows Server 2012 and Windows Server 2012 R2 EOS date is 10 October 2023. For more information, see [Overview of Windows Server upgrades
@@ -118,7 +132,7 @@ No additional licensing costs are incurred to move to a newer software version w
 
 
 
-## CentOS 7 and CentOS Stream 8
+### CentOS 7 and CentOS Stream 8
 {: #upgrading-centos-7}
 
 CentOS 7 EOS date is 30 June 2024. Support for this software discontinues on 30 June 2024. After deprecation, clients can't download the software.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-14"
+lastupdated: "2024-12-11"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, accelerated, h100, l4, l40s
 
@@ -26,7 +26,7 @@ The Hopper-based Accelerated virtual server profiles are built atop NVIDIA H100 
 accelerators are tuned for AI workloads, including inferencing, fine-tuning, and large-scale
 training. The solution is paired with the 4th Generation Intel® Xeon® Scalable processors.
 
-[Select availability]{: tag-green} This solution also runs with {{site.data.keyword.cloud}} cluster networks. The cluster network implementation for the
+This solution also runs with {{site.data.keyword.cloud}} cluster networks. The cluster network implementation for the
 Hopper generation of accelerators runs atop eight accelerated NICs, providing a total aggregate
 cluster throughput of 3.2 Tbps. The solution also provides RoCEv2 to support RDMA-based workloads. For more information, see [About cluster networks](/docs/vpc?topic=vpc-about-cluster-network).
 

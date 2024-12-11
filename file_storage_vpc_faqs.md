@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-11-05"
+lastupdated: "2024-12-11"
 
 keywords: file share, file storage, replication, replica, size increase, capacity, encryption, BYOK, security group
 
@@ -208,6 +208,32 @@ Yes, you can use the UI, CLI, or API to update a file share profile. You can cha
 
 You can't use the UI, CLI, or API to update multiple file shares in a single operation. For more on this issue, see [troubleshooting {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-troubleshooting-file-storage).
 {: note}
+
+## How many files and directories are allowed for specific file share? What is the maximum number of inodes of a shre?
+{: #maxfilevolume}
+{: faq}
+{: support}
+
+The number of files a file share can contain is determined by how many inodes it has. An inode is a data structure that contains information about files. File shares have both private and public inodes. Public inodes are used for files that are visible to you and private inodes are used for files that are used internally by the storage system. You can expect to have an inode for every 32 KB of share capacity. The maximum number of files setting is 2 billion. However, this maximum value can be configured only with file shares of 7.8 TB or larger. Any volume of 9,000 GB or larger reaches the maximum limit at 2,040,109,451 inodes.
+
+| Volume Size | Inodes |
+|------------:|-------:|
+| 20 GB    | 4,980,731 |
+| 40 GB    | 9,961,461 |
+| 80 GB   | 19,922,935 |
+| 100 GB  | 24,903,679 |
+| 250 GB  | 62,259,189 |
+| 500 GB | 124,518,391 |
+| 1,000 GB| 249,036,795 |
+| 2,000 GB| 498,073,589 |
+| 3,000 GB| 747,110,397 |
+| 4,000 GB| 996,147,191 |
+| 8,000 GB| 1,992,294,395 |
+| 12,000 GB| 2,040,109,451 |
+| 16,000 GB| 2,040,109,451 |
+{: row-headers}
+{: caption="The table shows the maximum number of inodes that are allowed based on the volume size." caption-side="bottom"}
+{: summary="Table 1 shows the maximum number of inodes that are allowed based on the volume size. Volume sizes are in the first column. The numbers of inodes (files and directories) are in the second column."}
 
 ## Data security and encryption questions
 {: #file-storage-vpc-security-questions}
