@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-12-10"
+lastupdated: "2024-12-11"
 
 keywords: confidential computing, secure execution, hpcr, contract, customization, env, workload, encryption, attestation, validating
 
@@ -27,7 +27,7 @@ Download the following certificates:
 
     | Image version| Certificate link | Expiry date |
     | -------- | ----------- | ----------- |
-    | `ibm-hyper-protect-container-runtime-1-0-s390x20` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-20-intermediate.crt){: external} | 01 September 2026 |
+    | `ibm-hyper-protect-container-runtime-1-0-s390x-20` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-20-intermediate.crt){: external} | 01 September 2026 |
     | `ibm-hyper-protect-container-runtime-1-0-s390x-19` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-19-intermediate.crt){: external} | 01 September 2026 |
     | `ibm-hyper-protect-container-runtime-1-0-s390x-18` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-18-intermediate.crt){: external} | 03 June 2026 |
     | `ibm-hyper-protect-container-runtime-1-0-s390x-17` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-17-intermediate.crt){: external} | 03 June 2026 |
