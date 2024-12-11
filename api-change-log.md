@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-11-19"
+lastupdated: "2024-12-10"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -55,6 +55,25 @@ To prepare for this change, verify that your client checks that the `volume` pro
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
+
+## 10 December 2024
+{: #10-december-2024}
+
+### For all version dates
+{: #10-december-2024-all-version-dates}
+
+**NVIDIA Hopper HGX H100 instance profiles.** When [creating an instance](/apidocs/vpc/latest#create-instance), a new `gx3d-160x1792x8h100` instance profile is available in select zones. This profile provides 8 NVIDIA H100 GPUs that are tuned for AI workloads, such as inferencing, fine tuning, and large-scale training. For details, see [Accelerated profile family - Gen 3](/docs/vpc?topic=vpc-accelerated-profile-family#hopper-hgx-profiles).
+
+**Cluster networks.** Cluster networks provide high-bandwidth, low-latency networking for workloads such as AI training and large-scale simulations. You can now [create cluster networks](/apidocs/vpc/latest#create-cluster-network) using a [cluster network profile](/apidocs/vpc/latest#get-cluster-network-profile), which defines the cluster network performance characteristics and capabilities. The [H100 cluster network profile](/docs/vpc?topic=vpc-profiles&interface=api#gpu) is the first cluster network profile being introduced. It provides a specialized network that implements the RoCEv2 protocol to enable remote direct memory access for your workloads that are running on the `gx3d-160x1792x8h100` instance profile.
+
+When [creating an instance](/apidocs/vpc/latest#create-instance) using a supported cluster profile, you can specify the new `cluster_network_attachments` property to connect the virtual server instance to your cluster network. Alternatively, you can [create cluster network attachments](/apidocs/vpc/latest#create-cluster-network-attachment) on an existing instance that is in a `stopping` or `stopped` state. Additionally, when [creating an instance template](/apidocs/vpc/latest#create-instance-template) you can specify `cluster_network_attachments`.
+
+**Instance profile schema changes.** When [retrieving](/apidocs/vpc/latest#get-instance-profile) and [listing](/apidocs/vpc/latest#list-instance-profiles) instance profiles, the response includes the following new properties:
+
+- `cluster_network_attachment_count` specifies the number of cluster network attachments supported for that instance profile.
+- `supported_cluster_network_profiles` indicates the cluster network profiles that are supported for that instance profile.
+
+Learn [about cluster networks](/docs/vpc?topic=vpc-about-cluster-network), cluster network subnets, cluster network interfaces, and explore the new [API methods](/apidocs/vpc/latest#list-cluster-networks). See also [Known issues and limitations for cluster networks](/docs/vpc?topic=vpc-limitations-cluster-network) for information about Activity Tracker events.
 
 ## 19 November 2024
 {: #19-november-2024}
@@ -120,6 +139,8 @@ When [creating an instance](/apidocs/vpc/latest#create-instance) using a support
 - `supported_cluster_network_profiles` indicates the cluster network profiles that are supported for that instance profile.
 
 Learn [about cluster networks](/docs/vpc?topic=vpc-about-cluster-network), cluster network subnets, cluster network interfaces, and explore the new [API methods](/apidocs/vpc/latest#list-cluster-networks). See also [Known issues and limitations for cluster networks](/docs/vpc?topic=vpc-limitations-cluster-network) for information about Activity Tracker events and setting a cluster network reserved IP's `auto_delete` property.
+
+The H100 profiles and cluster networks features are now generally available. See the announcement on [10 December 2024](#10-december-2024).
 
 ## 29 October 2024
 {: #29-october-2024}

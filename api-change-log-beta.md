@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-11-19"
+lastupdated: "2024-12-10"
 
 keywords: api, change log, beta
 
@@ -68,7 +68,7 @@ When [creating an instance](/apidocs/vpc-beta/latest#create-instance) using a su
 
 Learn [about cluster networks](/docs/vpc?topic=vpc-about-cluster-network), cluster network subnets, cluster network interfaces, and explore the new [API methods](/apidocs/vpc-beta/latest#list-cluster-networks).
 
-This feature is now available for accounts that have been granted special approval to preview and use this feature. Although usage is restricted, changes to schemas (such as new properties) will be visible to all accounts. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#12-november-2024).
+This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#10-december-2024).
 
 ## 17 September 2024
 {: #17-september-2024-beta}
