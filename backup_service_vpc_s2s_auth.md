@@ -107,6 +107,46 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
 1. Click **Authorize**.
 1. When you are returned to the **Manage authorizations** page, click **Create** again and follow the same steps to set up authorizations for the remaining services.
 
+### Creating cross-account authorization templates for backups managed by the Enterprise
+{: #backup-s2s-auth-template-ui-enterprise}
+
+By using [authorization templates](/docs/enterprise-management?topic=enterprise-management-authorization-policy-template-create&interface=ui), the Enterprise account administrator can create an authorization policy that can be assigned to the child accounts and implement the authorization in the assigned accounts without logging into the child accounts individually.
+
+1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage > Access (IAM) > Enterprise > Templates** .
+1. Select **Authorizations** and click **Create**.
+1. Enter a name and description for the authorization template that describes its purpose for enterprise users.
+1. Enter a description for the enterprise-managed authorization policy that describes its purpose for child account users.
+1. Click **Create**.
+
+Next, complete the following steps to build the authorization rules:
+
+1. Go to **Authorization** to specify the details of the authorization policy.
+1. Select the account from which the source service requests access to another service. Select **Assigned account(s)**, so when you assign the authorization template to a child account, the source account is populated to the same account as the child account, which holds the resource being accessed.
+1. Next, select the source service and resources. 
+   1. Select **VPC Infrastructure Services** from the list. Click **Next**.
+   1. Select the scope by clicking **Specific resources**.
+   1. Click **Select an attribute**. 
+   1. From the list, select **Resource type**. 
+   1. In the next field, select **IBM Cloud Backup for VPC**.
+1. For the target service, select **VPC Infrastructure Services** from the list. 
+   1. Select the scope by clicking **Specific resources**.
+   1. Click **Select an attribute**.
+   1. From the list, select **Resource type**. Select one of the services in the following table. You need to create authorization for all of them.
+
+   | Source service - resource type | Target service - resource type  | Dependent service user role |
+   |--------------------------------|---------------------------------|-----------|
+   | IBM Cloud Backup for VPC       | Block Storage for VPC           | Operator  |
+   | IBM Cloud Backup for VPC       | Block Storage Snapshots for VPC | Editor    |
+   | IBM Cloud Backup for VPC       | Multi Volume Snapshots for VPC  | Editor    |
+   | IBM Cloud Backup for VPC       | Virtual Server for VPC          | Operator  | 
+   | IBM Cloud Backup for VPC       | IBM Cloud Backup for VPC        | Editor    |
+   {: caption="Service-to-service authorizations for the Enterprise" caption-side="bottom"}
+
+1. Click **Next**.
+1. Select the role. See the table for the appropriate role.
+1. Click **Review** and inspect your choices. Then, click **Save**.
+1. The template is now ready for you to commit and assign to child accounts. Repeat the steps to create authorization templates for all of the services.
+
 ### Creating authorization for {{site.data.keyword.en_short}}
 {: #backup-s2s-auth-procedure-en-ui}
 {: ui}
