@@ -306,7 +306,7 @@ The following Ultra High Memory profiles are available for x86-64 processors:
 The GPU profile family includes `-v100`, `-a100`, `-l4`, and `-l40S` and `-h100` profiles. The GPU profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage).
 
 - GPU `-v100` profiles include 1 or 2 NVIDIA V100 PCIe 16 GB GPUs. All OS images are supported on these GPU profiles.
-- GPU `-a100` profiles includes 8 NVIDIA A100 NVlink 80 GB GPUs. The a100 offering is available to select customers. This GPU profile supports only Linux OS images Ubuntu or RHEL.
+- [Select availability]{: tag-green} GPU `-a100` profiles includes 8 NVIDIA A100 NVlink 80 GB GPUs. The a100 offering is available to select customers. This GPU profile supports only Linux OS images Ubuntu or RHEL.
 - GPU `-l4` profiles include NVIDIA L4 24 GB GPUs.
 - GPU `-l40S` profiles include NVIDIA L40S 48 GB GPUs.
 - GPU `-h100` profiles include [NVIDIA H100](https://www.nvidia.com/en-us/data-center/hgx/){: external} 80 GB GPUs. The system is an HGX design. The H100 offering is available in the following regions and zones: London (eu-gb-2), Sydney (au-syd-2), Toronto (ca-tor-3), Madrid (eu-es-3), Washington DC (us-east-3), Tokyo (jp-tok-3), Sao Paulo (br-sao-1), Dallas (us-south-1), and Frankfurt (eu-de-2).
