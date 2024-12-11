@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-10-29"
+lastupdated: "2024-12-11"
 
 subcollection: vpc
 
@@ -84,7 +84,7 @@ Your REHL virtual server instance was unregistered from the capsule server. To r
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 argumentsFound=false
 FILE_DIR=/var/lib/cloud/instance/scripts/vendor
-file=$(grep -src -r -w 'REDHAT_CAPSULE_SERVER\|OS_INSTALL_CODE' $FILE_DIR | awk -F: '$2 == 6 {print $1}')
+file=$(grep -src -r -w 'REDHAT_CAPSULE_SERVER\|OS_INSTALL_CODE' $FILE_DIR | awk -F: '$2 != 0 {print $1}')
 echo "Processing $file..."
 if [ -f  "$file" ]; then
     capsule="$(grep "REDHAT_CAPSULE_SERVER=" $file | cut -d\" -f2)"
