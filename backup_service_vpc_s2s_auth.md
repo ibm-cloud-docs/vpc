@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-12-10"
+lastupdated: "2024-12-11"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -234,6 +234,155 @@ To use Backup for VPC in your account to create policies, plans and run backup j
    {: pre}
 
 For more information about all of the parameters that are available for this command, see [ibmcloud iam authorization-policy-create](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_authorization_policy_create). 
+
+### Creating cross-account authorization templates for backups managed by the Enterprise
+{: #backup-s2s-auth-procedure-cli-enterprise}
+
+Enterprise account admins can [create and assign authorization policy templates](/docs/enterprise-management?topic=enterprise-management-authorization-policy-template-create&interface=cli) to the child accounts to manage authorizations centrally. To create an authorization policy template that can be used to enable backup policies for all child accounts of the Enterprise, complete the following steps.
+
+1. To get the enterprise root account ID, you can run the following command.
+
+```sh
+ibmcloud enterprise show
+```
+{: pre}
+
+1. Create the JSON files that provide the definition of the authorization policy template. For more information about the attributes that you can use in your JSON file, see the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy-template).
+
+* Instance service:
+     ```json
+     {
+      "name": "Centralized authorization for Backup service to work with Instances",
+      "description": "Grant Operator Role for the Backup service to work with Instances",
+      "account_id": "ENTERPRISE_ROOT_ACCOUNT_ID",
+      "policy":{
+        "type": "authorization",
+        "description": "Grant Operator on VPC Instances",
+        "control":{
+            "grant":{
+              "roles":[
+                {"role_id": "crn:v1:bluemix:public:iam::::role:Operator"}]
+              }},
+        "subject":{
+            "attributes":[
+                {"key": "serviceName", "operator": "stringEquals", "value": "is"},
+                {"key": "resourceType", "operator": "stringEquals", "value": "backup-policy"}
+              ]},
+        "resource":{
+            "attributes":[
+                {"key": "serviceName", "operator": "stringEquals", "value": "is"},
+                {"key": "instanceId", "operator": "stringExists", "value": true}
+              ]}}
+     }
+     ```
+     {: codeblock}
+
+   * Block Storage volume service:
+     ```json
+     {
+          "name": "Centralized authorization for Backup service to work with Block Storage service",
+          "description": "Grant Operator Role for the Backup service to work with Block Storage volumes",
+          "account_id": "ENTERPRISE_ROOT_ACCOUNT_ID",
+          "policy":{
+            "type": "authorization",
+            "description": "Grant Operator on Block Storage for VPC volumes",
+            "control": {
+                "grant": {
+                  "roles": [
+                    {"role_id": "crn:v1:bluemix:public:iam::::role:Operator"}]
+                }},
+            "subject": {
+              "attributes": [
+                {"key": "serviceName", "value": "is"},
+                {"key": "resourceType", "value": "backup-policy"}
+                ]},
+            "resource": {
+              "attributes": [
+                 {"key": "serviceName", "operator": "stringEquals", "value": "is"},
+                 {"key": "volumeId", "operator": "stringExists", "value": "true"}
+                ]}}
+     }
+     ```
+     {: codeblock}
+
+   * Block Storage snapshot service:
+  
+     ```json
+     {
+          "name": "Centralized authorization for Backup service to work with Block Storage snapshots",
+          "description": "Grant Editor Role for the Backup service to work with Block Storage snapshots",
+          "account_id": "ENTERPRISE_ROOT_ACCOUNT_ID",
+          "policy": {
+            "type": "authorization",
+            "description": "Grant Editor on Block Storage for VPC snapshots",
+            "control": {
+                "grant": {
+                  "roles": [
+                    {"role_id": "crn:v1:bluemix:public:iam::::role:Editor"}]
+                }},
+            "subject": {
+              "attributes": [
+                {"key": "serviceName", "value": "is"},
+                {"key": "resourceType", "value": "backup-policy"}
+                ]},
+            "resource": {
+              "attributes": [
+                {"key": "serviceName", "operator": "stringEquals", "value": "is"},
+                {"key": "snapshotId", "operator": "stringExists", "value": "true"}
+                ]}}
+     }
+     ```
+     {: codeblock}
+
+   * Snapshot consistency group:
+
+    ```json
+     {
+          "name": "Centralized authorization for Backup service to work with snapshot consistency groups",
+          "description": "Grant Editor Role for the Backup service to work with snapshot consistency groups",
+          "account_id": "ENTERPRISE_ROOT_ACCOUNT_ID",
+          "policy": {
+            "type": "authorization",
+            "description": "Grant Editor on snapshot consistency groups",
+            "control": {
+                "grant": {
+                  "roles": [
+                    {"role_id": "crn:v1:bluemix:public:iam::::role:Editor"}]
+                }},
+            "subject": {
+              "attributes": [
+                {"key": "serviceName", "value": "is"},
+                {"key": "resourceType", "value": "backup-policy"}
+                ]},
+            "resource": {
+              "attributes": [
+                {"key": "serviceName", "operator": "stringEquals", "value": "is"},
+                {"key": "snapshotConsistencyGroupId", "operator": "stringExists", "value": "true"}
+                ]}}
+     }
+     ```
+     {: codeblock}
+
+1. Run the `authorization-policy-template-create` command with the JSON file as shown in the following sample request:
+
+   ```sh
+   ibmcloud iam authorization-policy-template-create --file /path/to/vpc-share-authorization-template.json
+   ```
+   {: pre}
+
+1. Repeat for all the JSON files. When you're done, the templates are ready to be committed and assigned to child accounts.
+1. Run the following commands to commit the template version and assign the template to the target accounts.
+   ```sh
+   ibmcloud iam authorization-policy-template-version-commit (TEMPLATE_ID | TEMPLATE_NAME) TEMPLATE_VERSION [-q, --quiet]
+   ```
+   {: pre}
+
+   ```sh
+   ibmcloud iam authorization-policy-assignment-create (TEMPLATE_ID | TEMPLATE_NAME) TEMPLATE_VERSION --target-type TYPE --target TARGET [-q, --quiet] [-o, --output FORMAT]
+   ```
+   {: pre}
+
+For more information about all of the parameters that are available for this command, see [ibmcloud iam authorization-policy-template-create](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_access_policy_template_create).
 
 ### Creating authorization for {{site.data.keyword.en_short}}
 {: #backup-s2s-auth-procedure-en-cli}
@@ -517,6 +666,186 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
    {: pre}
       
 For more information, see the api spec for [IAM Policy Management](/apidocs/iam-policy-management#create-policy).
+
+### Creating cross-account authorization templates for backups managed by the Enterprise
+{: #backup-s2s-auth-template-api-enterprise}
+
+Enterprise account admins can programmatically [create and assign authorization policy templates](/apidocs/iam-policy-management#create-policy-template) to the child accounts to manage authorizations centrally. To create an authorization policy template that can be used to enable backup policies for all child accounts of the Enterprise, complete the following steps.
+
+1. Make an API request to the [Enterprise Management API](/apidocs/enterprise-apis/enterprise#list-enterprises) to get the account ID of the parent enterprise account.
+
+   ```sh
+   curl -X GET `https://enterprise.cloud.ibm.com/v1/enterprises`
+   -H "Authorization: Bearer <IAM_Token>" 
+   -H 'Content-Type: application/json'
+   ```
+   {: pre}
+
+1. Then, make the requests to the [IAM Policy Management API](/apidocs/iam-policy-management#create-policy-template) to create the service-to-service authorizations for the `is.backup-policy` of the Enterprise account to interact with the assigned child account's `is.backup`, `is.snapshot`, `is.volume`, `is.snapshot-consistency-group`, and `is.instance` services.
+
+   * Authorize `is.backup-policy` (source) to interact with `is.backup-policy` (target) with the _editor_ role.
+
+   ```json
+   curl -X POST 'https://iam.cloud.ibm.com/v1/policy_templates' 
+   -H 'Authorization: Bearer $TOKEN' 
+   -H 'Content-Type: application/json' 
+   -d '{
+      "name": "Centralized authorization for Backup service to work with Instances",
+      "description": "Grant Operator Role for the Backup service to work with Instances",
+      "account_id": "ENTERPRISE_ROOT_ACCOUNT_ID",
+      "policy":{
+        "type": "authorization",
+        "description": "Grant Operator on VPC Instances",
+        "control":{
+            "grant":{
+              "roles":[
+                {"role_id": "crn:v1:bluemix:public:iam::::role:Operator"}]
+              }},
+        "subject":{
+            "attributes":[
+                {"key": "serviceName", "operator": "stringEquals", "value": "is"},
+                {"key": "resourceType", "operator": "stringEquals", "value": "backup-policy"}
+              ]},
+        "resource":{
+            "attributes":[
+                {"key": "serviceName", "operator": "stringEquals", "value": "is"},
+                {"key": "instanceId", "operator": "stringExists", "value": true}
+              ]}}
+     }
+   ```
+   {: pre} 
+
+   * Authorize `is.backup-policy` (source) to interact with `is.volume` (target) with the _operator_ role.
+
+   ```json
+   curl -X POST 'https://iam.cloud.ibm.com/v1/policy_templates' 
+   -H 'Authorization: Bearer $TOKEN' 
+   -H 'Content-Type: application/json' 
+   -d '{
+          "name": "Centralized authorization for Backup service to work with Block Storage service",
+          "description": "Grant Operator Role for the Backup service to work with Block Storage volumes",
+          "account_id": "ENTERPRISE_ROOT_ACCOUNT_ID",
+          "policy":{
+            "type": "authorization",
+            "description": "Grant Operator on Block Storage for VPC volumes",
+            "control": {
+                "grant": {
+                  "roles": [
+                    {"role_id": "crn:v1:bluemix:public:iam::::role:Operator"}]
+                }},
+            "subject": {
+              "attributes": [
+                {"key": "serviceName", "value": "is"},
+                {"key": "resourceType", "value": "backup-policy"}
+                ]},
+            "resource": {
+              "attributes": [
+                 {"key": "serviceName", "operator": "stringEquals", "value": "is"},
+                 {"key": "volumeId", "operator": "stringExists", "value": "true"}
+                ]}}
+     }'
+   ```
+   {: pre}
+
+   * Authorize `is.backup-policy` (source) to interact with `is.snapshot` (target) with the _editor_ role.
+
+   ```json
+   curl -X POST 'https://iam.cloud.ibm.com/v1/policy_templates' 
+   -H 'Authorization: Bearer $TOKEN' 
+   -H 'Content-Type: application/json' 
+   -d '{
+          "name": "Centralized authorization for Backup service to work with Block Storage snapshots",
+          "description": "Grant Editor Role for the Backup service to work with Block Storage snapshots",
+          "account_id": "ENTERPRISE_ROOT_ACCOUNT_ID",
+          "policy": {
+            "type": "authorization",
+            "description": "Grant Editor on Block Storage for VPC snapshots",
+            "control": {
+                "grant": {
+                  "roles": [
+                    {"role_id": "crn:v1:bluemix:public:iam::::role:Editor"}]
+                }},
+            "subject": {
+              "attributes": [
+                {"key": "serviceName", "value": "is"},
+                {"key": "resourceType", "value": "backup-policy"}
+                ]},
+            "resource": {
+              "attributes": [
+                {"key": "serviceName", "operator": "stringEquals", "value": "is"},
+                {"key": "snapshotId", "operator": "stringExists", "value": "true"}
+                ]}}
+     }'
+    ```
+    {: pre}
+
+   * Authorize `is.backup-policy` (source) to interact with `is.instance` (target) with the _operator_ role.
+  
+   ```json
+   curl -X POST 'https://iam.cloud.ibm.com/v1/policy_templates' 
+   -H 'Authorization: Bearer $TOKEN' 
+   -H 'Content-Type: application/json' 
+   -d '{
+      "name": "Centralized authorization for Backup service to work with Instances",
+      "description": "Grant Operator Role for the Backup service to work with Instances",
+      "account_id": "ENTERPRISE_ROOT_ACCOUNT_ID",
+      "policy":{
+        "type": "authorization",
+        "description": "Grant Operator on VPC Instances",
+        "control":{
+            "grant":{
+              "roles":[
+                {"role_id": "crn:v1:bluemix:public:iam::::role:Operator"}]
+              }},
+        "subject":{
+            "attributes":[
+                {"key": "serviceName", "operator": "stringEquals", "value": "is"},
+                {"key": "resourceType", "operator": "stringEquals", "value": "backup-policy"}
+              ]},
+        "resource":{
+            "attributes":[
+                {"key": "serviceName", "operator": "stringEquals", "value": "is"},
+                {"key": "instanceId", "operator": "stringExists", "value": true}
+              ]}}
+     }`
+   ```
+   {: pre}
+
+   * Authorize `is.backup-policy` (source) to interact with `is.snapshotConsistencyGroup` (target) with the _editor_ role.
+   
+   ```json
+   curl -X POST 'https://iam.cloud.ibm.com/v1/policy_templates' 
+   -H 'Authorization: Bearer $TOKEN' 
+   -H 'Content-Type: application/json' 
+   -d '{
+          "name": "Centralized authorization for Backup service to work with snapshot consistency groups",
+          "description": "Grant Editor Role for the Backup service to work with snapshot consistency groups",
+          "account_id": "ENTERPRISE_ROOT_ACCOUNT_ID",
+          "policy": {
+            "type": "authorization",
+            "description": "Grant Editor on snapshot consistency groups",
+            "control": {
+                "grant": {
+                  "roles": [
+                    {"role_id": "crn:v1:bluemix:public:iam::::role:Editor"}]
+                }},
+            "subject": {
+              "attributes": [
+                {"key": "serviceName", "value": "is"},
+                {"key": "resourceType", "value": "backup-policy"}
+                ]},
+            "resource": {
+              "attributes": [
+                {"key": "serviceName", "operator": "stringEquals", "value": "is"},
+                {"key": "snapshotConsistencyGroupId", "operator": "stringExists", "value": "true"}
+                ]}}
+     }`
+   ```
+   {: pre}
+
+1. After you created the authorization templates, you must [commit](/apidocs/iam-policy-management#commit-policy-template) and [assign](/apidocs/iam-policy-management#create-policy-template-assignment) them to the accounts.   
+      
+For more information, see the api spec for [IAM Policy Management](/apidocs/iam-policy-management#create-policy-template).
 
 ### Creating authorization for {{site.data.keyword.en_short}}
 {: #backup-s2s-auth-procedure-en-api}
