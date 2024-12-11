@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-12-10"
+lastupdated: "2024-12-11"
 
 keywords:
 
@@ -26,6 +26,12 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## December 2024
 {: #vpc-dec24}
+
+### 10 December 2024
+{: #vpc-dec1024}
+
+Cluster networks for VPC (GA)
+:   Cluster Networks for VPC is now generally available. Cluster networks provide high-bandwidth, low-latency networking for workloads such as AI training and large-scale simulations. Review [Planning considerations for cluster networks](/docs/vpc?topic=vpc-planning-cluster-network&interface=ui) before you [create a cluster network](/docs/vpc?topic=vpc-create-cluster-network&interface=ui). Cluster network profiles define the cluster network performance characteristics and capabilities. Learn more about the [H100 cluster network profile](/docs/vpc?topic=vpc-profiles&interface=api#gpu), the first cluster network profile being introduced. It provides a specialized network that implements the RoCEv2 protocol to enable remote direct memory access for your workloads that are running on the `gx3d-160x1792x8h100` instance profile. For more information, see [About cluster networks](/docs/vpc?topic=vpc-about-cluster-network&interface=ui).
 
 ### 06 December 2024
 {: #vpc-dec0624}
