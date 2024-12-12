@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-12-11"
+lastupdated: "2024-12-12"
 
 keywords:
 
@@ -97,9 +97,7 @@ End of Support (EOS) is the last date that {{site.data.keyword.cloud}} delivers 
 ### SUSE Linux Enterprise Server (SLES) 12 
 {: #sles-12-eos-bm-clasic}
 
-SUSE Linux Enterprise Server (SLES) 12 EOS date is 31 October 2024. After deprecation, clients can't download the software.
-
-Clients are encouraged to upgrade to the most recent version for continued support. If an upgrade isn't possible, SUSE Long-Term Support Service (LTSS) is available that offers extended security updates and bug fixes for three more years. LTSS requires an extra monthly fee per instance.
+SUSE Linux Enterprise Server (SLES) 12 EOS date is 31 October 2024. After deprecation, clients can't download the software. Clients are encouraged to upgrade to the most recent version for continued support. 
 
 For more information about upgrading, see [SUSE documentation](https://documentation.suse.com/sles/15-SP6/single-html/SLES-upgrade/#sec-upgrade-paths-supported){: external} or contact [IBM support](/docs/account?topic=account-using-avatar).
 
