@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-12-11"
+lastupdated: "2024-12-13"
 
 keywords: confidential computing, secure execution, hpcr, contract, customization, env, workload, encryption, attestation, validating
 
@@ -34,7 +34,7 @@ Download the following certificates:
     | `ibm-hyper-protect-container-runtime-1-0-s390x-16` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-16-intermediate.crt){: external} | 03 June 2026 |
     | `ibm-hyper-protect-container-runtime-1-0-s390x-15` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-15-intermediate.crt){: external} | 02 October 2025 |
     | `ibm-hyper-protect-container-runtime-1-0-s390x-14` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-14-intermediate.crt){: external} | 02 October 2025 |
-    | `ibm-hyper-protect-container-runtime-1-0-s390x-13` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-13-attestation.crt){: external} | 02 November 2024 |
+    | `ibm-hyper-protect-container-runtime-1-0-s390x-13` | [certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-13-intermediate.crt){: external} | 02 October 2025 |
     {: caption="Intermediate certificate expiry dates" caption-side="bottom"}
 
 * Ensure to use the certificates corresponding to the hyper protect container runtime image for contract encryption and attestation.
@@ -88,7 +88,7 @@ Complete the following steps on an Ubuntu system to validate the encryption cert
       ```
       {: pre}
 
-4. Verify the host key document issuer. Compare the output of the following two commands. The output should match.
+4. Verify the certificates issuer. Compare the output of the following two commands. The output should match.
    ```sh
    openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-20-encrypt.crt  -issuer -noout
    openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-20-intermediate.crt -subject -noout
@@ -150,7 +150,7 @@ Complete the following steps on an Ubuntu system to validate the attestation cer
       ```
       {: pre}
 
-4. Verify the host key document issuer. Compare the output of the following two commands. The output should match.
+4. Verify the certificates issuer. Compare the output of the following two commands. The output should match.
    ```sh
    openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-20-attestation.crt -issuer -noout
    openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-20-intermediate.crt -subject -noout
