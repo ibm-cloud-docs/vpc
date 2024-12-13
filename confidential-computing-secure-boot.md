@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-09-20"
+lastupdated: "2024-12-13"
 
 keywords: secure boot, secure boot for virtual servers
 
@@ -36,6 +36,9 @@ All major OS distributions provide signed boot loaders, signed kernels, and sign
 {: note}
 
 When you use a custom kernel or custom kernel modules, you must sign it with your own certificate and make that certificate known to the firmware or Machine Owner Key (MOK). You can use the mokutil utility to help manage Linux keys, but changes to the MOK keys must be confirmed directly from the console at boot time. Therefore, only a user that is present at the console can confirm user-generated keys that are used for signing custom kernel and custom kernel modules.
+
+After the virtual server instance is stopped and then restarted, the MOK disappears. You must reinstall the MOK after every stop and start of the virtual server instance.
+{: important}
 
 ## Limitations
 {: #confidential-computing-secure-boot-limitations-vpc}
