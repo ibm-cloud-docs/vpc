@@ -2,9 +2,9 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-06-14"
+lastupdated: "2024-12-13"
 
-keywords: Getting started with Virtual Private Cloud (VPC), VPC, vpc, virtual private cloud, IBM Cloud, Virtual Private Cloud, getting started, permissions, infrastructure, iaas, IaaS, Infrastructure as a Service, SSH key, CLI, API, console, public gateway, floating IP, IP ranges, BYoIP, generation 2, gen 2, gen2, virtual servers, virtual server instances, instances. vsi, virtual machines, server, get started
+keywords: vpc, virtual private cloud
 
 subcollection: vpc
 
@@ -70,4 +70,3 @@ For a general overview of the VPC infrastructure and related compute, networking
 * [About storage for VPC](/docs/vpc?topic=vpc-block-storage-about)
 * [Understanding IaaS basics](/docs/cloud-infrastructure?topic=cloud-infrastructure-getting-started-tutorial)
 * [IBM Cloud monitoring services](/docs/cloud-infrastructure?topic=cloud-infrastructure-monitoring-iaas)
-
