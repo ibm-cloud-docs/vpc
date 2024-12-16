@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-10-24"
+lastupdated: "2024-12-16"
 
 keywords: backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -51,7 +51,8 @@ If an IAM authorization between IBM Cloud Backup for VPC and {{site.data.keyword
 
 Before you can enable notifications for IBM Cloud Backup for VPC, be sure that you have an [{{site.data.keyword.en_short}} service instance](/catalog/services/event-notifications){: external} that is in the same account as your IBM Cloud Backup for VPC instance. 
 
-Then, you can use the **Actions > Event notifications** section in the IBM Cloud Backup policy details page to connect the services.{: ui} 
+Then, you can use the **Actions > Event notifications** section in the IBM Cloud Backup policy details page to connect the services.{: ui}
+
 Then, you can connect to {{site.data.keyword.en_short}} programmatically by calling the Event Notification API.{: api}
 
 ### Connecting to {{site.data.keyword.en_short}} in the console
@@ -80,7 +81,6 @@ ibmcloud event-notifications sources-create --instance-id INSTANCE-ID --name NAM
 {: pre}
 
 For more information, see the [Event Notification CLI reference](/docs/event-notifications?topic=event-notifications-event-notifications-cli#en-cli-source-create-command){: external}.
-
 
 ### Connecting to {{site.data.keyword.en_short}} with the API
 {: #event-notifications-enable-api}
