@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-12-02"
+lastupdated: "2024-12-16"
 
 keywords:
 
@@ -117,7 +117,7 @@ From the [volume details](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui
 
 1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage volumes**.
 2. Locate the volume that you want and click the name link.
-3. From the {{site.data.keyword.block_storage_is_short}}details page, click the **Backup policies** tab.
+3. From the {{site.data.keyword.block_storage_is_short}} details page, click the **Backup policies** tab.
 4. Click **Attach**.
 5. In the side panel, select a backup policy from the list of available policies, and then select the policy tags to apply to the volume. You can also view the plan details that can help you decide whether to use that policy.
 6. Click **Apply policy and tags**. The backup policy shows in the list of backup policies that are associated with the volume.
