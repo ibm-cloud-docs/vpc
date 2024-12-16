@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-11-13"
+lastupdated: "2024-12-16"
 
 keywords:
 
@@ -138,7 +138,7 @@ You can see details for a snapshot, create a snapshot, and manage snapshots from
 ### Viewing all backup policies associated with a volume
 {: #view-backup-policies-for-volume}
 
-View all backup policies associated with a {{site.data.keyword.block_storage_is_short}} volume. All policies that have the user tag that is applied to this volume are listed. To add volumes to a policy, add user tags to the volume that are in the backup policy's tags for target resources. When you remove tags from a volume that are in a backup policy, the volume is no longer be backed up.
+View all backup policies associated with a {{site.data.keyword.block_storage_is_short}} volume. All policies that have the user tag that is applied to this volume are listed. To add volumes to a policy, [add user tags to the volume](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#add-user-tags-volumes-ui) that are in the backup policy's tags for target resources. When you remove tags from a volume that are in a backup policy, the volume is no longer be backed up.
 
 1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Storage > Block Storage volumes**.
 
@@ -154,6 +154,8 @@ View all backup policies associated with a {{site.data.keyword.block_storage_is_
 | Status | [Status of the backup policy](/docs/vpc?topic=vpc-backup-vpc-monitoring&interface=ui). |
 | Last run time | The last scheduled run of the backup policy that created a backup. |
 {: caption="Backup policies associated with a {{site.data.keyword.block_storage_is_short}} volume." caption-side="bottom"}
+
+For more information, see [Applying backup policies to resources](/docs/vpc?topic=vpc-backup-use-policies&interface=ui).
 
 ## Viewing {{site.data.keyword.block_storage_is_short}} volumes from the CLI
 {: #viewing-block-storage-cli}
