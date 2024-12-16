@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-06-20"
+lastupdated: "2024-12-16"
 
 keywords:  network, VPN, VPN gateways, encryption
 
@@ -38,6 +38,9 @@ For troubleshooting purposes, you can select or deselect **VPN gateway** to chec
 
 ## VPN for VPC migration to advertise routes
 {: #migrate-to-advertise-routes-s2s}
+
+Currently, only policy-based VPNs support Transit Gateway route advertisement. Route-based VPNs do not support Transit Gateway route advertisement at this time.
+{: important}
 
 With Transit Gateway route advertisement support beginning 3 May 2024, existing policy-based VPN gateway customers who use address prefixes can choose from the following options:
 
