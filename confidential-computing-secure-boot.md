@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-12-13"
+lastupdated: "2024-12-18"
 
 keywords: secure boot, secure boot for virtual servers
 
@@ -30,14 +30,13 @@ Keep the following information in mind when you use secure boot.
 
 * GPT-partitioned disk
 
-   The secure boot feature requires a GUID Partitioning Table (GPT) which replaces the old partitioning schema Master Boot Record (MBR). A GPT partitioning schema is required for booting the image in UEFI mode. Otherwise, the image boots in BIOS (Basic Input Output System) mode.
+   The secure boot feature requires a GUID Partitioning Table (GPT) that replaces the old partitioning schema Master Boot Record (MBR). A GPT partitioning schema is required to boot the image in UEFI mode. Otherwise, the image boots in BIOS (Basic Input Output System) mode.
 
 All major OS distributions provide signed boot loaders, signed kernels, and signed kernel modules that are required for secure boot to succeed when the two requirements are fulfilled.
-{: note}
 
-When you use a custom kernel or custom kernel modules, you must sign it with your own certificate and make that certificate known to the firmware or Machine Owner Key (MOK). You can use the mokutil utility to help manage Linux keys, but changes to the MOK keys must be confirmed directly from the console at boot time. Therefore, only a user that is present at the console can confirm user-generated keys that are used for signing custom kernel and custom kernel modules.
+When you use a custom kernel or a custom kernel module, you must sign it with your own certificate and make that certificate known to the firmware or Machine Owner Key (MOK). You can use the mokutil utility to help manage Linux keys, but changes to the MOK keys must be confirmed directly from the console at boot time. Therefore, only a user that is present at the console can confirm user-generated keys that are used for signing custom kernel and custom kernel modules.
 
-After the virtual server instance is stopped and then restarted, the MOK disappears. You must reinstall the MOK after every stop and start of the virtual server instance.
+After the virtual server is stopped and restarted, the MOK disappears. You must reinstall the MOK after every stop and start of a virtual server.
 {: important}
 
 ## Limitations
@@ -45,12 +44,12 @@ After the virtual server instance is stopped and then restarted, the MOK disappe
 
 Keep the following limitations in mind when you use secure boot.
 
-* Secure boot is available on only third-generation Sapphire Rapids-based virtual servers with the exception of the following profiles.
+* Secure boot is available on only third-generation Sapphire Rapids-based virtual servers except the following profiles.
    - mx3d-128x1280
    - mx3d-176x1760
    - bx3d-176x880
 
-If you resize a virtual server that is secure boot-enabled to a profile that is secure boot-disabled (and vice-versa), the topology of PCIe devices changes. Depending on the operating system, this topology change can rename devices and realign PCI address. The I/O performance can also change.{: note}
+If you resize a virtual server that has secure boot-enabled to a profile that is secure boot-disabled (and vice-versa), the topology of PCIe devices changes. Depending on the operating system, this topology change can rename devices and realign the PCI address. The I/O performance can also change.
 
 Secure boot does not provide protection in the following circumstances.
 
@@ -58,4 +57,4 @@ Secure boot does not provide protection in the following circumstances.
 * Physical hardware attacks
 * Malicious system administrators
 
-A secure boot-enabled virtual server instance fails to boot if any software component that is in the boot path is not signed or if signed certificates are not loaded. Even if the deployment is successful, if it isn't signed, the instance can't boot. Or, you can't log in or receive a ping from the instance. Keep in mind that you aren't notified about boot failure. You need to use the console logs to verify boot success and to help identify the cause of any boot failures.
+A secure boot-enabled virtual server fails to boot if any software component that is in the boot path is not signed or if signed certificates are not loaded. Even if the deployment is successful, if it isn't signed, the instance can't boot. Which means that you can't log in or receive a ping from the virtual server. Keep in mind that you aren't notified about boot failure. You need to use the console logs to verify boot success and to help identify the cause of any boot failures.
