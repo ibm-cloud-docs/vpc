@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-12-13"
+lastupdated: "2024-12-17"
 
 keywords:
 
@@ -34,7 +34,7 @@ Known issues might change over time, so check back occasionally.
 ### Custom images in a private catalog known issue
 {: #custom-images-private-catalog-known-issues}
 
-**Issue:** If you imported one or more images into a virtual server image for VPC catalog product offering version and you edit that version, an additional version ending in "draft" is created. You can't provision an instance from this draft version. Draft versions might appear on the Virtual server instance creation page in the UI or in the output of the CLI command `ibmcloud is catalog-image-offering`.
+**Issue:** If you imported one or more images into a virtual server image for VPC catalog product offering version and you edit that version, an extra version ending in "draft" is created. You can't provision an instance from this draft version. Draft versions might appear on the Virtual server instance creation page in the UI or in the output of the CLI command `ibmcloud is catalog-image-offering`.
 
 ## Bare metal servers known issues and limitations
 {: #bare-metal-servers-known-issues-limitations}
@@ -42,7 +42,7 @@ Known issues might change over time, so check back occasionally.
 ### iPXE network boot known timing issue
 {: #ipxe-network-boot-known-issue}
 
-**Issue:** When you use the iPXE network boot on a Bare Metal Server on VPC, the network configuration might still be processing when the iPXE script starts running. When this issue occurs, the DHCP command might fail or you might seem a timeout error. A fix for this issue is planned.
+**Issue:** When you use the iPXE network boot on a Bare Metal Server on VPC, the network configuration process might still be incomplete when the iPXE script starts running. When this issue occurs, the DHCP command might fail or you might seem a timeout error. A fix for this issue is planned.
 
 **Workaround:** From the VNC console, manually run the iPXE commands. Or, add the following to your iPXE script instead of the DHCP command.
 
@@ -62,23 +62,23 @@ Known issues might change over time, so check back occasionally.
 Because all bare metal profiles are VMware&reg; certified, the `supported_image_flags` image property and `required_image_flags` profile property that expressed this ability during the beta period are discontinued. These properties might still be visible to API and CLI consumers, but they aren't supported and must not be used. These properties will be removed entirely in a future release.
 {: note}
 
-## Additional authorizations beyond those defined in the API specification
+## Extra authorizations beyond the authorizations defined in the API specification
 {: #api-spec-auth-known-issue}
 
 **Issue:** Some API implementations required authorizations that are different from the authorizations requirements that are defined in the [API specification](/apidocs/vpc/latest). The following table lists such APIs and the extra permissions that are required in addition to what is already defined in the specification. This table is updated as these issues are resolved.
 
 | API | Additional access requirements | Action name|
 | ----------- | ---------------------------------- | -----------------------------------------|
-| `PATCH /instances/{instance-id}`  | Dedicated Host Operator, Dedicated Host Group Operator | is.dedicated-host.dedicated-host-group.operate (conditional) \n is.dedicated-host.dedicated-host.operate (conditional) |
-| `POST /instances` | Subnet Editor| is.subnet.subnet.update (conditional) |
-| `POST /instances/{instance-id}/actions` | Instance Editor | is.instance.instance.update |
-| `POST /instances/{instance-id}/volume/_attachments` | Instance Editor | is.instance.instance.update |
-| `DELETE /instances/{instance-id}/volume_attachments/{vol-attach-id}` | Instance Editor | is.instance.instance.update |
-| `GET /network_acls/{nacl-id}` | VPC Viewer | is.vpc.vpc.read |
-| `POST /network_acls/{nacl-id}/rules` | VPC Viewer | is.vpc.vpc.read |
-| `GET /subnets/{subnet-id}/network_acl` | VPC Viewer | is.vpc.vpc.read |
-| `PUT /subnets/{subnet-id}/network_acl` | VPC Viewer | is.vpc.vpc.read |
-| `PATCH /floating_ips/{id}` | Subnet Operator | is.subnet.subnet.operate |
+| `PATCH /instances/{instance-id}`  | Dedicated Host Operator, Dedicated Host Group Operator | `is.dedicated-host.dedicated-host-group.operate` (conditional) \n `is.dedicated-host.dedicated-host.operate` (conditional) |
+| `POST /instances` | Subnet Editor| `is.subnet.subnet.update` (conditional) |
+| `POST /instances/{instance-id}/actions` | Instance Editor | `is.instance.instance.update` |
+| `POST /instances/{instance-id}/volume/_attachments` | Instance Editor | `is.instance.instance.update` |
+| `DELETE /instances/{instance-id}/volume_attachments/{vol-attach-id}` | Instance Editor | `is.instance.instance.update` |
+| `GET /network_acls/{nacl-id}` | VPC Viewer | `is.vpc.vpc.read` |
+| `POST /network_acls/{nacl-id}/rules` | VPC Viewer | `is.vpc.vpc.read` |
+| `GET /subnets/{subnet-id}/network_acl` | VPC Viewer | `is.vpc.vpc.read` |
+| `PUT /subnets/{subnet-id}/network_acl` | VPC Viewer | `is.vpc.vpc.read` |
+| `PATCH /floating_ips/{id}` | Subnet Operator | `is.subnet.subnet.operate` |
 {: caption="API additional authorization requirements" caption-side="bottom"}
 
 ## Storage known issues
@@ -95,3 +95,33 @@ Because all bare metal profiles are VMware&reg; certified, the `supported_image_
 {: #volumes-catalog-managed-known-issue}
 
 **Issue:** When you retrieve a volume or snapshot that was originally provisioned as a boot volume in an instance with a [billed catalog offering](/docs/vpc?topic=vpc-getting-started-images-on-vpc-catalog&interface=ui#images-on-vpc-catalog-images) and without a billing plan, the response does not include the `catalog_offering` property.
+
+### File share replication snapshots
+{: #replicationsnapshots}
+
+When replication occurs between the source share and its replica, the system creates temporary snapshots in the `.snapshot` directory to support the data synchronization. These system-managed snapshots are named by using the word "replication" and the associated creation timestamp rather than a fingerprint. These snapshots are automatically released and deleted when they are no longer needed. These snapshots are not visible in the console, in the CLI or API responses.
+
+### File share snapshots are not visible in UI, CLI, or API responses for Accessor shares
+{: #filesnapshotsonaccessorshare}
+
+Users of Accessor shares have access to all the data of the source share, which includes of the snapshots of the file share. Although users of an Accessor share can't see the file share snapshots of the source share in the console, in the CLI or API responses, they can access the snapshots in the `.snapshot` directory of the Accessor share.
+
+### File share snapshot directory visible property in API response
+{: #snapshotdirectoryvisibleAPI}
+
+The property `snapshot_directory_visible` is included in the API response for the methods that are listing, creating, deleting, retrieving, or updating a file share. This field is not recommended for use, and it is planned to be removed.
+
+### Replicated snapshots do not inherit names from the source snapshots
+{: #missingsnapshotnames}
+
+If a source share with snapshots is replicated, the corresponding replica share snapshots are created with system-generated names, rather than inheriting the source share snapshot names. Since replicated snapshots share the source's fingerprint ID, you can use the fingerprint to correlate the snapshots.
+
+### The `source_snapshot` property is not copied to the replica share
+{: #source-snapshot-not-in-replica}
+
+The `source_snapshot` property is present in the API response when a share is created by using a snapshot. However, when the share is replicated, this property is not copied to the replica.
+
+### Backup plan ID property in API response
+{: #backup-policy-plan-fs}
+
+When details of a snapshot are retrieved, the API response shows the property name `backup_plan_id` instead of `backup_policy_plan`. A fix for this issue is planned.

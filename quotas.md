@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-12-10"
+lastupdated: "2024-12-17"
 
 keywords:
 
@@ -203,6 +203,8 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 | File shares | 300 file shares per account, across all VPCs |
 | Mount targets | 256 per file share per account per zone |
 | Accessor share bindings | A file share can have maximum of 100 accessor bindings.|
+| Snapshots and backup snapshots | Up to 750 per share in a region. [New]{: tag-new}|
+| Snapshots and backup snapshots | The total snapshot size that is allocated to a file can't exceed 8 times the size of the share. [New]{: tag-new}|
 {: caption="Quotas for file shares" caption-side="bottom"}
 
 #### Share mount targets

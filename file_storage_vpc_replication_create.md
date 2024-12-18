@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-11-05"
+lastupdated: "2024-12-17"
 
 keywords: file share, file storage, source volume, replica share, 
 
@@ -112,8 +112,8 @@ ID                           r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a
 Name                         my-source-file-share   
 CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a   
 Lifecycle state              pending
-Access control mode          security_group 
-Accessor binding role        none   
+Access control mode          security_group  
+Accessor binding role        none  
 Zone                         us-south-2   
 Profile                      dp2   
 Size(GB)                     1500   
@@ -166,12 +166,13 @@ Replication status reasons   Status code   Status message
    Name                         my-file-share   
    CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
    Lifecycle state              stable   
-   Access control mode          security_group  
-   Accessor binding role        none  
+   Access control mode          security_group   
+   Accessor binding role        none 
    Zone                         us-south-2   
    Profile                      dp2   
    Size(GB)                     1000   
-   IOPS                         1000   
+   IOPS                         1000  
+   User Tags                    docs:test 
    Encryption                   provider_managed   
    Mount Targets                ID                                          Name      
                                 r006-dd497561-c7c9-4dfb-af0a-c84eeee78b61   my-cli-share-mount-target-1      
@@ -183,7 +184,9 @@ Replication status reasons   Status code   Status message
    Replication role             none   
    Replication status           none   
    Replication status reasons   Status code   Status message      
-                                -             -      
+                                -             -     
+   Snapshot count               0
+   Snapshot size                0  
    ```
    {: screen}
 
@@ -204,31 +207,34 @@ Replication status reasons   Status code   Status message
    Profile                          dp2   
    Size(GB)                         1000   
    IOPS                             100   
+   User Tags                        docs:test 
    Encryption                       provider_managed   
    Mount Targets                    ID                          Name      
                                     No mounted targets found.      
                                 
-   Resource group                  ID                                 Name      
-                                   db8e8d865a83e0aae03f25a492c5b39e   Default      
+   Resource group                   ID                                 Name      
+                                    db8e8d865a83e0aae03f25a492c5b39e   Default      
                                 
-   Created                         2024-06-25T15:13:18+00:00   
-   Latest job                      Job status   Job status reasons      
-                                   running      -      
+   Created                          2024-06-25T15:13:18+00:00   
+   Latest job                       Job status   Job status reasons      
+                                    running      -      
                                 
-   Replication cron spec           10 05 * * *   
-   Replication role                replica   
-   Replication status              initializing   
-   Replication status reasons      Status code   Status message      
-                                   -             -      
+   Replication cron spec            10 05 * * *   
+   Replication role                 replica   
+   Replication status               initializing   
+   Replication status reasons       Status code   Status message      
+                                    -             -      
                                 
-   Source share                    ID                                          Name            Resource type      
-                                   r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   my-file-share   share 
+   Source share                     ID                                          Name            Resource type      
+                                    r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   my-file-share   share 
+   Snapshot count                   0
+   Snapshot size                    0                                  
    ```
    {: screen}
 
 When you create a replica of a file share in another region, you must use the CRN of the source file share. If the source file share has `user_managed` encryption, you must provide the `encryption_key`. The `encryption_key` value must not be specified otherwise. See the following example.
 
-```sh
+   ```sh
    ibmcloud is share-cross-regional-replica-create --name my-replica-share --zone us-east-1 --profile dp2 --replication-cron-spec '5 * * * *' --source-share crn:v1:bluemix:public:is:us-south-1:a/a1234567::share:r006-d8c8821c-a227-451d-a9ed-0c0cd2358829 --encryption-key crn:v1:bluemix:public:kms:us-south:a/a1234567:1be45161-6dae-44ca-b248-837f98004057:key:3dd21cc5-cc20-4f7c-bc62-8ec9a8a3d1bd
    Creating replica file share my-cross-regional-replica-share under account Test Account as user test.user@ibm.com...
                                 
@@ -263,6 +269,8 @@ When you create a replica of a file share in another region, you must use the CR
                                 
    Source share                     ID                                          Name       Resource type  Remote
                                     r006-d8c8821c-a227-451d-a9ed-0c0cd2358829   my-share   share          us-south
+   Snapshot count                   0
+   Snapshot size                    0
    ```
    {: screen}
 

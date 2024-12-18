@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-12-11"
+lastupdated: "2024-12-17"
 
 keywords:
 
@@ -26,6 +26,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## December 2024
 {: #vpc-dec24}
+
+### 17 December 2024
+{: #vpc-dec1724}
+{: release-note}
+
+File share snapshots
+:   Snapshots are point-in-time copies of your file share. The file share snapshots can be used to restore individual files, or create other file shares in the same zone with the data that's captured by the snapshot. You can create snapshots manually in the console or from the CLI, and programmatically with the API. You can also schedule the snapshots to be created automatically at regular intervals by using the Backup for VPC service. For more information, see [About {{site.data.keyword.filestorage_vpc_short}} snapshots](/docs/vpc?topic=vpc-fs-snapshots-about).
 
 ### 10 December 2024
 {: #vpc-dec1024}

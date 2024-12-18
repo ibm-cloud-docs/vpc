@@ -130,6 +130,7 @@ toc:
                topics:
                - file_storage_vpc_about.md
                - file_storage_vpc_profiles.md
+           - fs_snapshots_about.md
            - vsi_instance_storage.md
        - release-notes.md
     - navgroup:
@@ -677,6 +678,14 @@ toc:
                 - file_storage_vpc_replication_manage.md
                 - file_storage_vpc_replication_failover.md
         - topicgroup:
+            label: File storage snapshots
+            topics:
+            - fs_snapshots_planning.md
+            - fs_snapshots_create.md
+            - fs_snapshots_view.md
+            - fs_snapshots_manage.md
+            - fs_snapshots_restore.md
+        - topicgroup:
             label: Auto scale
             topics:
             - vsi_is_creating_auto_scale_group.md
@@ -796,6 +805,7 @@ toc:
                 - backup_service_vpc_faq.md
                 - backup_service_vpc_enterprise_faq.md
                 - file_storage_vpc_faqs.md
+                - fs_snapshots_faqs.md
             - cn-faq.md
             - fl-faq.md
             - topicgroup:
@@ -838,6 +848,7 @@ toc:
                 - bs_snapshots_troubleshooting.md
                 - backup_service_vpc_troubleshoot.md
                 - file_storage_vpc_troubleshoot.md
+                - fs_snapshots_troubleshooting.md
             - topicgroup:
                 label: Troubleshooting custom images
                 topics:

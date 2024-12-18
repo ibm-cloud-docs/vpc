@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-11-06"
+lastupdated: "2024-12-17"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, faqs
 
@@ -22,37 +22,40 @@ The following questions pertain to the VPC Backup service. If you have other que
 {: faq}
 {: #faq-baas-concepts}
 
-With the VPC backup service, you can create backup policies for your {{site.data.keyword.block_storage_is_short}} volumes. A backup policy contains a backup plan, where you set a scheduled backup of your data. You can create up to four backup plans per policy. When a backup is triggered, it creates a snapshot of the volume contents. You can also set a retention period for your backups so that the oldest ones are deleted either by date or total count. For more information, see [Backup service concepts](/docs/vpc?topic=vpc-backup-service-about#backup-service-concepts).
+With the VPC backup service, you can create backup policies for your {{site.data.keyword.block_storage_is_short}} volumes and {{site.data.keyword.filestorage_vpc_short}} shares. A backup policy contains a backup plan, where you set a scheduled backup of your data. You can create up to four backup plans per policy. When a backup is triggered, it creates a snapshot of the volume or share contents. You can also set a retention period for your backups so that the oldest ones are deleted either by date or total count. For more information, see [Backup service concepts](/docs/vpc?topic=vpc-backup-service-about#backup-service-concepts).
 
 ## How do I set up the backup service?
 {: faq}
 {: #faq-baas-setup}
 
-Before you can create backup policies, you need to grant [service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth&interface=api), and specify user roles for the backup service. Then, you add user tags for new or existing resources (individual Block Storage volumes, or virtual server instances) that you associate with a backup policy. Finally, you create backup policies and plans to schedule automatic backups. For more information, see [Creating a backup policy](/docs/vpc?topic=vpc-create-backup-policy-and-plan&interface=ui).
+Before you can create backup policies, you need to grant [service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth&interface=api), and specify user roles for the backup service. Then, you add user tags for new or existing resources (individual Block Storage volumes, or virtual server instances or file shares) that you associate with a backup policy. Finally, you create backup policies and plans to schedule automatic backups. For more information, see [Creating a backup policy](/docs/vpc?topic=vpc-create-backup-policy-and-plan&interface=ui).
 
 ## How does the backup service work?
 {: faq}
 {: #faq-baas-function}
 
-You can add [user tags](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-about-tags) to your volumes, or virtual server instances, and specify the same tags in a backup policy. When the tags match, a backup is triggered based on the backup plan schedule. You can [view backup jobs](/docs/vpc?topic=vpc-backup-view-policy-jobs) to see the progress of the operation. The Snapshot for VPC service is used to create the backup. The entire contents of the volume are copied and retained for the number of days or total number of backups that are specified in the backup plan. When the retention period is reached, the older backups are deleted. 
+You can add [user tags](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-about-tags) to your volumes, shares, or virtual server instances, and specify the same tags in a backup policy. When the tags match, a backup is triggered based on the backup plan schedule. You can [view backup jobs](/docs/vpc?topic=vpc-backup-view-policy-jobs) to see the progress of the operation. The Snapshot for VPC service is used to create the backup. The entire contents of the volume or share are copied and retained for the number of days or total number of backups that are specified in the backup plan. When the retention period is reached, the older backups are deleted. 
 
 ## What resources are backed up?
 {: faq}
 {: #faq-baas-resources}
 
-{{site.data.keyword.block_storage_is_short}} data and boot volumes with user tags that match the tags in a [backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-policies) are backed up. You can also tag virtual server instances, in that case, the attached Block Storage volumes are backed up as a consistency group.
+{{site.data.keyword.block_storage_is_short}} data and boot volumes with user tags that match the tags in a [backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-policies) are backed up. You can also tag virtual server instances, in that case, the attached Block Storage volumes are backed up as a consistency group. Similarly, you can tag and backup file shares.
 
-## How do I enable my volumes to be backed up?
+You can't take a backup snapshot of a replica share. When you create a backup snapshot of the origin share, then that backup snapshot is copied to the replica at the next replication cycle. 
+{: note}
+
+## How do I enable my volumes or shares to be backed up?
 {: faq}
 {: #faq-baas-enable}
 
-Enabling your backups is a two-part process. First, you [specify user tags](/docs/vpc?topic=vpc-backup-use-policies) on the resources (Block Storage volumes, or virtual server instances) that you want to back up. You then [create a backup policy](/docs/vpc?topic=vpc-create-backup-policy-and-plan) and specify these tags, which identify the resources that you're backing up. Within a policy, you create a [backup plan](/docs/vpc?topic=vpc-create-backup-policy-and-plan&interface=ui#backup-plan-ui) to schedule backups of these resources. You can schedule backups to be taken every daily, weekly, or monthly.
+Enabling your backups is a two-part process. First, you [specify user tags](/docs/vpc?topic=vpc-backup-use-policies) on the resources (Block Storage volumes, File storage shares, or virtual server instances) that you want to back up. You then [create a backup policy](/docs/vpc?topic=vpc-create-backup-policy-and-plan) and specify these tags, which identify the resources that you're backing up. Within a policy, you create a [backup plan](/docs/vpc?topic=vpc-create-backup-policy-and-plan&interface=ui#backup-plan-ui) to schedule backups of these resources. You can schedule backups to be taken every daily, weekly, or monthly.
 
 ## How many backups can I create?
 {: faq}
 {: #faq-baas-total}
 
-You can create up to 750 backups per volume. Consider how your billing changes when you increase the number of snapshots that you take and retain.
+You can create up to 750 backups per volume or share. Consider how your billing changes when you increase the number of snapshots that you take and retain.
 
 ## What are backup policy jobs?
 {: faq}
@@ -78,13 +81,19 @@ You can also specify the number of backups to retain, up to 750 per volume, afte
 {: faq}
 {: #faq-baas-limitations}
 
-Yes. You can create 10 backup policies per account and up to 750 backups of a volume. For other limitations of this release, see [Limitations in this release](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-limitations).
+Yes. You can create 10 backup policies per account and up to 750 backups of a volume or a file share. For other limitations of this release, see [Limitations in this release](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-limitations).
 
 ## How do I create a volume from a backup?
 {: faq}
 {: #faq-baas-restore}
 
 Restoring data from a backup snapshot creates a volume with data from the snapshot. You can restore data from a backup by using the UI, the CLI, or the API. You can restore boot and data volumes during instance creation, when you modify an existing instance, or when you provision a stand-alone volume. When you restore data from a backup snapshot, the data is pulled from an {{site.data.keyword.cos_short}} bucket. For best performance, you can enable backup snapshots for fast restore. By using the fast restore feature, you can restore a volume that is fully provisioned when the volume is created. When you use fast restore, the data is pulled from a cached backup snapshot in another zone of your VPC. For more information, see [About restoring from a backup snapshot](/docs/vpc?topic=vpc-baas-vpc-restore).
+
+## Can I restore file shares from a backup?
+{: faq}
+{: #faq-share-restore}
+
+You can create shares by using backup snapshots, and you can retrieve single files from a file share snapshot. For more information, see [Restoring data from file share snapshot](/docs/vpc?topic=vpc-fs-snapshots-restore&interface=ui).
 
 ## Am I charged for usage?
 {: faq}
@@ -106,7 +115,7 @@ Using the [backup service](/docs/vpc?topic=vpc-backup-service-about), you can re
 
 You can also create copies of your volume backup snapshot in other regions. However, the backup service does not provide continual backup with automatic failover. Restoring a volume from a backup or snapshot is a manual operation that takes time. If you require a higher level of service for automatic disaster recovery, see IBM's [Cloud disaster recovery solutions](https://www.ibm.com/cloud/disaster-recovery).
 
-
+Backups of a file share are automatically replicated to the other zone if the file share has a replica. You can't create independent copies of file share backups in another region.
 
 ## How many copies of my backup can I create in other regions?
 {: faq}
@@ -114,7 +123,7 @@ You can also create copies of your volume backup snapshot in other regions. Howe
 
 You can copy a backup snapshot of a Block storage volume from one region to another region, and later use that snapshot to restore a volume in the new region. Only one copy of the backup snapshot can exist in each region. You can't create a copy of the backup snapshot in the source (local) region.
 
-
+You can't create independent copies of file share backups in another region because file share snapshots and backups are tied to their source shares.
 
 ## What is a consistency group for backups?
 {: faq}

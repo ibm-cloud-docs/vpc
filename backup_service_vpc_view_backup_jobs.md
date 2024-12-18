@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-12-10"
+lastupdated: "2024-12-17"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, view backup lists,
 
@@ -42,7 +42,7 @@ From the backup policy details page, you can list all backup jobs for that polic
    | Job started   | Date and time of when the job began. |
    | Job completed | Date and time of when the job was finished. |
    | Snapshot      | The snapshot (backup) that was created when the backup job finishes. Click the name to see the details in the side panel. |
-   | Source        | The source can be the source volume from which the first snapshot was taken, or the source instance of the snapshot consistency group that the backup is a member of. |
+   | Source        | The source can be the source volume or share from which the first snapshot was taken, or the source instance of the snapshot consistency group that the backup is a member of. |
    {: caption="Information provided by the list of backup jobs for the backup policy" caption-side="bottom"}
 
 ### View snapshots that were created by a backup job in the console
@@ -55,7 +55,7 @@ From the list of backup jobs, click the Actions icon ![Actions icon](../icons/ac
 | Name     | The name of the backup policy that created the snapshot. You can change the backup policy settings by clicking the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit"). For more information, see [Managing backup policies](/docs/vpc?topic=vpc-backup-service-manage). |
 | Status   | The status of the snapshot, such as _Stable_. For a list of snapshot statuses, see [Snapshot statuses](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-status). |
 | Size     | Size in GBs of the snapshot, it is inherited from the source volume. |
-| Source   | This field shows the source volume   from which the snapshot was taken. If the source volume was deleted, the name appears without a link. |
+| Source   | This field shows the source volume or share from which the snapshot was taken. If the source volume was deleted, the name appears without a link. |
 | Bootable | It indicates whether the snapshot was created from a boot volume. |
 {: caption="Snapshot details side panel" caption-side="bottom"}
 
@@ -87,6 +87,19 @@ r138-f800fe99-455f-4b30-95ad-98293eb3b3e2   true          15                  20
 r138-60497743-43b4-4e7d-a221-0f6927653c6b   true          15                  2024-01-17T10:06:37+00:00   2024-01-17T10:06:19+00:00   creation   succeeded   
 r138-3fe98f73-56ee-425b-842f-2a4b2a967241   true          15                  2024-01-16T10:12:59+00:00   2024-01-16T10:06:22+00:00   deletion   succeeded   
 r138-bd881c52-4f2e-4644-8072-fadcd6c8d3df   true          15                  2024-01-16T10:06:38+00:00   2024-01-16T10:06:21+00:00   creation   succeeded 
+```
+{: screen}
+
+```sh
+cloudshell:~$ ibmcloud is backup-policy-jobs new-policy-23
+Listing jobs of backup policy new-policy-23 under account Test Account as user test.user@ibm.com...
+ID                                          Auto delete   Auto delete after   Completed at                Created at                  Job type   Status     Match resource type   
+r138-4611c14d-69bd-4522-bc5f-4d3352df9b7b   true          15                  2024-02-06T01:47:39+00:00   2024-02-06T01:45:25+00:00   deletion   succeeded  volume 
+r138-58a33e41-472f-431c-8c74-5270ac3e48fd   true          15                  2024-01-23T01:48:07+00:00   2024-01-23T01:45:25+00:00   deletion   succeeded  volume 
+r138-f800fe99-455f-4b30-95ad-98293eb3b3e2   true          15                  2024-01-17T10:13:13+00:00   2024-01-17T10:06:21+00:00   deletion   succeeded  volume 
+r138-60497743-43b4-4e7d-a221-0f6927653c6b   true          15                  2024-01-17T10:06:37+00:00   2024-01-17T10:06:19+00:00   creation   succeeded  volume 
+r138-3fe98f73-56ee-425b-842f-2a4b2a967241   true          15                  2024-01-16T10:12:59+00:00   2024-01-16T10:06:22+00:00   deletion   succeeded  volume 
+r138-bd881c52-4f2e-4644-8072-fadcd6c8d3df   true          15                  2024-01-16T10:06:38+00:00   2024-01-16T10:06:21+00:00   creation   succeeded  volume
 ```
 {: screen}
 
@@ -167,6 +180,19 @@ cloudshell:~$ ibmcloud is backup-policy-jobs r006-0723c648-9a47-4d51-b1ba-349e21
         ]
     }
   ]  
+```
+{: screen}
+
+In the third example, the backup policy is identified with its name. The Match resource type column shows that these backup jobs were creating snapshots of file shares.
+
+```sh
+ibmcloud is backup-policy-jobs my-files-daily
+Listing jobs of backup policy my-files-daily under account Test Account as user test.user@ibm.com...
+ID                                          Auto delete   Auto delete after   Completed at                Created at                  Job type   Status      Match resource type   
+r134-4574ede8-f502-40db-827a-0d65b6039e20   true          30                  2024-11-27T19:20:22+05:30   2024-11-27T19:20:18+05:30   creation   succeeded   share   
+r134-6a508a4c-67fd-4745-98ab-50447d09d974   true          30                  2024-11-28T19:20:22+05:30   2024-11-28T19:20:18+05:30   creation   succeeded   share   
+r134-b072e083-972a-406c-b38c-c2f4ded6180c   true          30                  2024-11-29T19:20:21+05:30   2024-11-29T19:20:17+05:30   creation   succeeded   share   
+r134-967a8568-b538-409f-a96b-3c66985b677b   true          30                  2024-11-30T19:20:22+05:30   2024-11-30T19:20:17+05:30   creation   succeeded   share   
 ```
 {: screen}
 
@@ -428,7 +454,7 @@ When you view details of a backup job from the CLI or by making a `GET /backup_p
 * `snapshot_encryption_key_invalid` - The code indicates that the system cannot create a snapshot because the encryption key could not be validated. The reason for this error can be that either the key information you provided is incorrect or the service-to-service authorization was revoked.
 * `snapshot_pending` - The code indicates that a backup snapshot could not be deleted because that is in the `pending` [snapshot lifecycle state](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-status).
 * `snapshot_volume_limit` - The code indicates that a backup snapshot could not be created because the [snapshot limit](/docs/vpc?topic=vpc-snapshots-vpc-faqs&interface=ui#faq-snapshot-3) for the source volume is reached.
-* `source_volume_busy`: This code indicates that a backup snapshot could not be created because the source volume is performing operations that must be serialized. Such operations include increasing the capacity, adjusting IOPS, or a snapshot being created.
+* `source_volume_busy`: This code indicates that a backup snapshot could not be created because the source volume is performing operations that must be serialized. Such operations include increasing the capacity, adjusting IOPS, or the creation of a snapshot.
 * `source_volume_too_large` - The code indicates that a backup snapshot could not be created because the source volume exceeds the [maximum supported size](/docs/vpc?topic=vpc-snapshots-vpc-faqs&interface=ui#faq-snapshot-4).
 * `source_unavailable` - The code indicates that a backup snapshot could not be created because the source volume could not be found. Make sure that the volume is attached to a running instance.
 
@@ -440,4 +466,5 @@ For more information, see [Troubleshooting Backup for VPC](/docs/vpc?topic=vpc-b
 * [Apply tags to your resources for backups](/docs/vpc?topic=vpc-backup-use-policies).
 * [Create more backup policies](/docs/vpc?topic=vpc-create-backup-policy-and-plan&interface=ui).
 * [Restore a volume from a backup snapshot](/docs/vpc?topic=vpc-baas-vpc-restore).
+* [Restore data from a file share snapshot](/docs/vpc?topic=vpc-fs-snapshots-restore) [New]{: tag-new}
 * [Enabling event notifications for Backup for VPC](/docs/vpc?topic=vpc-event-notifications-events).

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-11-18"
+lastupdated: "2024-12-17"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup, 
 
@@ -71,12 +71,25 @@ By using this service, you can:
 
 For more information, see [About {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-file-storage-vpc-about).
 
+## {{site.data.keyword.filestorage_vpc_short}} snapshots
+{: #vpc-fs-snapshots-overview}
+
+[New]{: tag-new}
+
+{{site.data.keyword.filestorage_vpc_short}} snapshots is a zonal offering. A snapshot is a point-in-time copy of your file share that you create manually in the console, from the CLI, with the API, or Terraform. The initial snapshot is a full copy of the share. Subsequent snapshots of the same share are incremental; only those changes are captured that occurred since the last snapshot was taken. Snapshots inherit encryption from the source share.
+
+You can create, list, view details, and manage snapshots in the UI, from the CLI, and with the API or Terraform. You can use the snapshot to create another file share or to retrieve previous versions of files that are stored in the share.
+
+Snapshots are tied to their source share. If you delete the original share and the snapshot is also deleted. However, you cannot delete a snapshot that is being used to hydrate a newly restored file.
+
+For more information, see [About {{site.data.keyword.filestorage_vpc_short}} snapshots](/docs/vpc?topic=vpc-fs-snapshots-about).
+
 ## Backup for VPC
 {: #vpc-backup-serv-overview}
 
-The {{site.data.keyword.cloud}} provides the means to create backup copies of your block storage volumes  automatically. You can create a backup policy with one or more plans, and associate tags to the policy in the UI, from the CLI, with the API or Terraform. 
+The {{site.data.keyword.cloud}} provides the means to create backup copies of your block storage volumes and file shares automatically. You can create a backup policy with one or more plans, and associate tags to the policy in the UI, from the CLI, with the API or Terraform. 
 
-The user-defined tags can be added to block storage volumes. When tags match, the backup policy is applied to the resources, and backup copies of the data are created based on the backup plan. You can set your own retention schedule to automatically delete older backups. This way, you can control how much space is used and how long backups are retained. By using Backup for VPC service, you can prevent data loss, manage risk, and improve data compliance.
+The user-defined tags can be added to block storage volumes, file shares, and virtual server instances. When tags match, the backup policy is applied to the resources, and backup copies of the data are created based on the backup plan. You can set your own retention schedule to automatically delete older backups. This way, you can control how much space is used and how long backups are retained. By using Backup for VPC service, you can prevent data loss, manage risk, and improve data compliance.
 
 Backup jobs that create or delete backup snapshots run according to the backup plan and the retention policy. You can view the status of the backup jobs in the console, from the CLI, with the API, or Terraform. If a job fails, the health status code shows the reason for the failure. You can also set up a connection to {{site.data.keyword.en_short}} and receive notifications to your preferred destinations.
 
@@ -95,5 +108,6 @@ Data that is stored on instance storage is tied directly to the instance lifecyc
 * [Create block storage volumes](/docs/vpc?topic=vpc-creating-block-storage).
 * [Create {{site.data.keyword.block_storage_is_short}} snapshots](/docs/vpc?topic=vpc-snapshots-vpc-create).
 * [Create file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create).
+* [Create {{site.data.keyword.filestorage_vpc_short}} snapshots](/docs/vpc?topic=vpc-fs-snapshots-create).[New]{: tag-new}
 * [Manage instance storage](/docs/vpc?topic=vpc-instance-storage-provisioning).
 * [Create backup policies](/docs/vpc?topic=vpc-create-backup-policy-and-plan).

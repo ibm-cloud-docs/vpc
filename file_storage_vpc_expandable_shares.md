@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-12-09"
+lastupdated: "2024-12-17"
 
 keywords: file share, file storage, increase capacity, expand capacity, expand share size, file share size
 
@@ -106,8 +106,8 @@ To increase the capacity of a file share from the CLI, use the `share-update` co
    {: screen}
 
 1. View the details of the file share that you want to modify with the `ibmcloud is share` command.
-   
-   ```sh
+
+  ```sh
    $ ibmcloud is share my-file-share
    Getting file share my-file-share under account Test Account as user test.user@ibm.com...
                                 
@@ -120,7 +120,8 @@ To increase the capacity of a file share from the CLI, use the `share-update` co
    Zone                         us-south-2   
    Profile                      dp2   
    Size(GB)                     1000   
-   IOPS                         1000   
+   IOPS                         1000
+   User Tags                    docs:test
    Encryption                   provider_managed   
    Mount Targets                ID                                          Name      
                                 r006-dd497561-c7c9-4dfb-af0a-c84eeee78b61   my-cli-share-mount-target-1      
@@ -133,6 +134,8 @@ To increase the capacity of a file share from the CLI, use the `share-update` co
    Replication status           none   
    Replication status reasons   Status code   Status message      
                                 -             -      
+   Snapshot count               0
+   Snapshot size                0                 
    ```
    {: screen}
 
@@ -168,10 +171,11 @@ To increase the capacity of a file share from the CLI, use the `share-update` co
    Replication role             source   
    Replication status           active   
    Replication status reasons   Status code   Status message      
-                             -             -      
+                                -             -      
+   Snapshot count               0
+   Snapshot size                0 
    ```
    {: screen}
-
 
 For more information about the command options, see [`ibmcloud is share-update my-file-share`](/docs/vpc?topic=vpc-vpc-reference#share-update).
 
@@ -200,7 +204,7 @@ The file share status shows `updating` while the capacity is increased. The curr
   "created_at": "2023-08-08T23:31:59Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
-  "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63",
+  "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63",
   "id": "199d78ec-b971-4a5c-a904-8f37ae710c63",
   "iops": 12500,
   "lifecycle_state": "updating",
@@ -222,13 +226,13 @@ When the file share expansion completes, the new value displays, and the status 
   "created_at": "2023-08-08T23:31:59Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
-  "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63",
+  "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63",
   "id": "199d78ec-b971-4a5c-a904-8f37ae710c63",
   "iops": 12500,
   "lifecycle_state": "stable",
   "name": "share-name1",
   "profile": {
-    "href": "$vpc_api_endpoint/v1/share/profiles/dp2",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/share/profiles/dp2",
     "name": "dp2",
     "resource_type": "share_profile"
   },

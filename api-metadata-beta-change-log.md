@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2023-07-11"
+lastupdated: "2024-12-17"
 
 keywords: api, change log, beta, metadata
 
@@ -25,6 +25,14 @@ There are no backward-compatibility guarantees as a feature progresses through i
 {: important}
 
 To review the change log of generally available metadata API features, see the [VPC Instance Metadata API change log](/docs/vpc?topic=vpc-metadata-api-change-log).
+
+## 17 December 2024
+{: #17-december-2024-metadata-beta}
+
+### For all version dates
+{: #17-december-2024-all-version-dates-metadata-beta}
+
+**Enhanced confidential computing capabilities.** If [Intel&reg; Trust Domain Extensions](/docs/vpc?topic=vpc-about-tdx-vpc) are enabled on an instance or instance template, you can view the `confidential_compute_mode` property new value `tdx`, which indicates that confidential compute mode is enabled for this virtual server instance. For more information, see the [Beta VPC API change log](/docs/vpc?topic=vpc-api-change-log#17-december-2024-beta).
 
 ## 11 July 2023
 {: #11-july-2023-metadata-beta}

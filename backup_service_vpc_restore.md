@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-11-05"
+lastupdated: "2024-12-17"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -62,7 +62,7 @@ You can restore a volume from a backup snapshot in the following ways.
 
 - When you [provision an instance](#baas-vpc-restore-vol-ui), specify a snapshot of a boot or data volume. Data volumes are automatically attached to the instance as auxiliary storage. Use the restored boot volume to start the new instance.
 - From a snapshot of a [previously created volume](#baas-vpc-create-from-vol-ui). The created volume from snapshot is automatically attached to the instance as auxiliary storage.
-- From the [list of {{site.data.keyword.block_storage_is_short}} snapshots](#baas-vpc-restore-snaphot-list-ui) or [snapshot details page](#baas-vpc-restore-vol-details-ui).
+- From the [list of {{site.data.keyword.block_storage_is_short}} snapshots](#baas-vpc-restore-snaphot-list-ui), or [snapshot details page](#baas-vpc-restore-vol-details-ui).
 - When you [create a stand-alone {{site.data.keyword.block_storage_is_short}} volume](/docs/vpc?topic=vpc-creating-block-storage&interface=ui#create-standalone-vol-from-snapshot), you can attach the volume to an instance later.
 
 ### Creating a volume from the list of snapshots
@@ -98,7 +98,7 @@ From the list of {{site.data.keyword.block_storage_is_short}} snapshots, you can
    | - Resource group | Use default or select from the list of available groups. |
    | - Zone | Inherited from the snapshot. |
    | - Auto-delete | Inherited from the snapshot. |
-   | **Profile** | Defaults to the snapshot's IOPS tier or custom profile. You can change the profile. |
+   | **Profile** | It defaults to the snapshot's IOPS tier or custom profile. You can change the profile. |
    | - IOPS | For IOPS tiers, specify a profile from the tiered family. For custom IOPS, select a range. |
    | - Size | Enter a volume size allowed by the profile. The default is the minimum provisioning size based on the snapshot. |
    | **Encryption** | Inherited from the snapshot. If the encryption is provider-managed, you can change it to customer-managed encryption and select either {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. If the encryption is already customer-managed, you can choose a different key management service but you can't change to provider-managed encryption. |

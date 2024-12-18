@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-12-10"
+lastupdated: "2024-12-17"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -42,7 +42,7 @@ From the Backup policy details page, you can edit the tags for your target resou
 
 2. For **Tags for target resources**, click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit").
 
-3. In the new window, enter a user tag name. For existing block volumes with user tags, enter the tag name exactly as it appears in the volume. You can also add a user tag here and then go back and add it to a volume. You need only one tag to create a backup.
+3. In the new window, enter a user tag name. For existing block volumes or file shares with user tags, enter the tag name exactly as it appears in the volume or share. You can also add a user tag here and then go back and add it to a volume or share. You need only one tag to create a backup.
 
 4. Click **Next**.
 
@@ -64,7 +64,7 @@ After you provisioned a backup policy and created a backup plan, you can edit th
 
 1. From the [backup plan details](/docs/vpc?topic=vpc-backup-view-policies&interface=ui#backup-view-policy) page, expand the Actions menu for the plan.
 
-2. Select **Edit**. The plan details appear in the side panel. You can modify the same information that you specified when you created the plan, such as the name and backup frequency. For individual volume backups, you can enable or disable fast restore, or change which regions fast restore is available in. You can also enable or disable the creation and retention of copies in other regions. Fast restore and cross-region copy features are not supported for multi-volume backups.
+2. Select **Edit**. The plan details appear in the side panel. You can modify the same information that you specified when you created the plan, such as the name and backup frequency. For individual volume backups, you can enable or disable fast restore, or change which regions fast restore is available in. You can also enable or disable the creation and retention of copies in other regions. Fast restore and cross-region copy features are not supported for multi-volume or file share backups.
 
 3. Confirm your selections when you're finished.
 
@@ -319,7 +319,7 @@ Resource type        backup_policy_plan
 
 For more information about available command options, see [`ibmcloud is backup-policy-plan-update`](/docs/cli?topic=cli-vpc-reference#backup-policy-plan-update){: external}.
 
-Fast restore and cross-region copy features are not supported for multi-volume backups.
+Fast restore and cross-region copy features are not supported for multi-volume or file share backups.
 {: note}
 
 ## Managing backup policies and plans with the API
@@ -513,7 +513,7 @@ A successful response shows that the remote region policy is created.
 ```
 {: codeblock}
 
-Fast restore and cross-region copy features are not supported for multi-volume backups.
+Fast restore and cross-region copy features are not supported for multi-volume or file share backups.
 {: note}
 
 ## Managing backup policies and plans with Terraform
@@ -582,7 +582,7 @@ resource "ibm_is_backup_policy_plan" "example" {
 
 For more information about the arguments and attributes, see [ibm_is_backup_policy_plan](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_backup_policy_plan){: external}.
 
-Fast restore and cross-region copy features are not supported for multi-volume backups.
+Fast restore and cross-region copy features are not supported for multi-volume or file share backups.
 {: note}
 
 ## Backup policy deletion overview
@@ -757,3 +757,4 @@ You can do the following actions.
 * [Apply tags to your resources for backups.](/docs/vpc?topic=vpc-backup-use-policies)
 * [Create more backup policies.](/docs/vpc?topic=vpc-create-backup-policy-and-plan&interface=ui)
 * [Restore a volume from a backup snapshot.](/docs/vpc?topic=vpc-baas-vpc-restore)
+* [Restore data from file share snapshot](/docs/vpc?topic=vpc-fs-snapshots-restore&interface=ui)

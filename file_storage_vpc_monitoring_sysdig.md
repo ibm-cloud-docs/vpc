@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-11-06"
+lastupdated: "2024-12-17"
 
 keywords: file share, file storage, sysdig, platform metrics
 
@@ -91,6 +91,7 @@ When you launch the file share dashboard, you can see graphs that show the follo
 - Share usage: available capacity, used capacity, total capacity
 - Throughput: read, write, and maximum throughput
 - IOPS: read, write, maximum
+- Snapshot space: available and used capacity for snapshots. [New]{: tag-new}
 
 The displayed metrics contain a timestamp in UNIX epoch time and the metric value for the time intervals that end at that timestamp. You can specify different scopes, and the time interval over which to report the metrics. The following time intervals are supported in the {{site.data.keyword.mon_full_notm}} dashboard:
 
@@ -104,7 +105,7 @@ The displayed metrics contain a timestamp in UNIX epoch time and the metric valu
 
 However, the system queries file share information hourly. Therefore, selecting an interval that is less than 1 hour is not recommended.
 
-When you create a file share, the data for the new share can take up to an hour or an hour and 15 minutes to appear in the dashboard. Changes in usage and share characteristics, such as an increase in capacity or a change in IOPS, can take from 15 to 30 minutes to be reflected in the graphs.
+When you create a file share, the data for the new share can take up to an hour or an hour and 15 minutes to appear in the dashboard. Changes in usage and share characteristics, such as an increase in capacity or a change in IOPS, can take from 15 to 30 minutes to be reflected in the graphs. Changes in snapshot space (adding or deleting snapshots) is reflected within 15 minutes.
 {: note}
 
 You can also create custom dashboards through the web UI or programmatically. You can back up and restore dashboards by using Python scripts or the {{site.data.keyword.mon_full_notm}} REST API. You can also copy and share dashboards through the web UI.
@@ -126,6 +127,8 @@ The following metrics help track the IO activity and throughput that is handled 
 | ibm_is_share_capacity_total   | Total allocated capacity|
 | ibm_is_share_capacity_used    | Current used capacity| 
 | ibm_is_share_mount_targets_count | Number of Share mount targets |
+| ibm_is_share_snapshot_capacity_used [New]{: tag-new} | Current capacity used by snapshots |
+| ibm_is_share_snapshot_capacity_total [New]{: tag-new} | Available capacity for snapshots. |
 {: caption="Information about share metrics." caption-side="bottom"}
 
 ### Example of file share metrics
@@ -141,6 +144,8 @@ ibm_is_share_iops_max{ibm_ctype="public", ibm_is_generation="2", ibm_location="u
 ibm_is_share_capacity_total{ibm_ctype="public", ibm_is_generation="2", ibm_location="us-south-1", ibm_resource="032ab79f-f2f8-4e1b-a676-d0c3faf9659a", ibm_resource_type="share", ibm_scope="7e11faa285f74ed19cc89f5d6fecb212", ibm_service_name="is", ibm_is_resource_name="test-share-1"}
 ibm_is_share_capacity_used{ibm_ctype="public", ibm_is_generation="2", ibm_location="us-south-1", ibm_resource="032ab79f-f2f8-4e1b-a676-d0c3faf9659a", ibm_resource_type="share", ibm_scope="7e11faa285f74ed19cc89f5d6fecb212", ibm_service_name="is", ibm_is_resource_name="test-share-1"}
 ibm_is_share_mount_targets_count_count{ibm_ctype="public", ibm_is_generation="2", ibm_location="us-south-1", ibm_resource="032ab79f-f2f8-4e1b-a676-d0c3faf9659a", ibm_resource_type="share", ibm_scope="7e11faa285f74ed19cc89f5d6fecb212", ibm_service_name="is", ibm_is_resource_name="test-share-1"}
+ibm_is_share_snapshot_capacity_used{ibm_ctype="public", ibm_is_generation="2", ibm_location="us-south-1", ibm_resource="032ab79f-f2f8-4e1b-a676-d0c3faf9659a", ibm_resource_type="share", ibm_scope="7e11faa285f74ed19cc89f5d6fecb212", ibm_service_name="is", ibm_is_resource_name="test-share-1"}
+ibm_is_share_snapshot_capacity_total{ibm_ctype="public", ibm_is_generation="2", ibm_location="us-south-1", ibm_resource="032ab79f-f2f8-4e1b-a676-d0c3faf9659a", ibm_resource_type="share", ibm_scope="7e11faa285f74ed19cc89f5d6fecb212", ibm_service_name="is", ibm_is_resource_name="test-share-1"}
 ```
 {: screen}
 
@@ -165,6 +170,8 @@ Each metric is composed of the following metadata types:
 | ibm_is_share_capacity_total           | Gauge        |Floating point     | 
 | ibm_is_share_capacity_used            | Gauge        |Floating point     | 
 | ibm_is_share_mount_targets_count      | Gauge        |Integer            |
+| ibm_is_share_snapshot_capacity_used [New]{: tag-new} | Gauge  |Floating point |
+| ibm_is_share_snapshot_capacity_total [New]{: tag-new}| Gauge  |Floating point |
 {: caption="Table 2: Available metrics" caption-side="bottom"}
 
 ## Attributes for segmentation

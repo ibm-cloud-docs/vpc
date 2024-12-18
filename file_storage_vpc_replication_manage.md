@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-12-02"
+lastupdated: "2024-12-17"
 
 keywords: VPC File Storage, file for VPC, NSF, replica, file share, replication, schedule
 
@@ -163,7 +163,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    {: screen}
 
 1. View the details of the file share that you want to modify with the `ibmcloud is share` command.
-   
+
    ```sh
    $ ibmcloud is share my-file-share
    Getting file share my-file-share under account Test Account as user test.user@ibm.com...
@@ -196,6 +196,8 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    Replication status           active   
    Replication status reasons   Status code   Status message      
                                 -             -      
+   Snapshot count               0
+   Snapshot size                0                             
    ```
    {: screen}
 

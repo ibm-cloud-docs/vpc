@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-12-10"
+lastupdated: "2024-12-17"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -40,8 +40,8 @@ Table 1 describes the information on the Backup policy list page. The default re
 |-------|-------|
 | Name | Click the name of a policy to see its details. |
 | Status | The status of the policy, such as _Stable_. For more information about policy statuses, see [Backup policy statuses](/docs/vpc?topic=vpc-backup-vpc-monitoring). |
-| Applied resources | Number of resources ({{site.data.keyword.block_storage_is_short}} volumes, or virtual server instances) that are tagged to be backed up by the policy [^Note1]. The number is a link that takes you to a list of resources that apply for the policy. |
-| Tags for target resources | Tags for target volumes  that you are backing up. |
+| Applied resources | Number of resources ({{site.data.keyword.block_storage_is_short}} volumes, {{site.data.keyword.filestorage_vpc_short}} shares, or virtual server instances) that are tagged to be backed up by the policy [^Note1]. The number is a link that takes you to a list of resources that apply for the policy. |
+| Tags for target resources | Tags for target volumes or shares that you are backing up. |
 | Last run time (local) | The most recent time a job ran for the backup policy. If the field is blank, the volumes don't have matching tags for a job to run. |
 | Created date (local) | Date and time of when the backup was created. |
 {: caption="Backup policy list view" caption-side="bottom"}
@@ -69,7 +69,7 @@ You can view details of a backup policy by using the UI.
    | Location | Policies for the selected region. |
    | Created date | The date the policy was created. |
    | CRN | Cloud resource name of the policy. |
-   | Applied resources | The number of volumes that are covered by the policy. This list includes volumes that were created by users for the account. If the policy is an enterprise-wide policy, the list shows volumes of the enterprise account, and not the volumes of its child accounts. |
+   | Applied resources | The number of volumes that are covered by the policy. This list includes volumes and shares that were created by users for the account. If the policy is an enterprise-wide policy, the list shows volumes of the enterprise account, and not the volumes of its child accounts. |
    | Tags for target resources | This field shows the user tags that can trigger the creation of a backup when they are applied to a resource. \n - You can click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to add more tags. For more information, see [Edit tags for target resources](/docs/vpc?topic=vpc-backup-service-manage&interface=ui#backup-edit-tags). \n - See also [Applying backup policies to resources by using tags](/docs/vpc?topic=vpc-backup-use-policies). |
    | Target resource type  | The backup policy can apply to individual block **volumes** or a consistency group of block volumes of **instances**. |
    | Last backup job | It shows the date and time when the last backup job ran. Backup jobs create or delete backup snapshots based on the plan frequency and retention settings. To see which type of job ran last, click **view**. |
@@ -93,7 +93,7 @@ You can view details of a backup policy by using the UI.
 
 View the list of resources that are backed up by the policy. For a resource to be backed up by a policy, the resource must be tagged with at least one of the policy’s tags for the target resources.
 
-You can use this list of {{site.data.keyword.block_storage_is_short}} volumes, or virtual server instances to verify that the backup policies are correctly applied.
+You can use this list of {{site.data.keyword.block_storage_is_short}} volumes, {{site.data.keyword.filestorage_vpc_short}} shares, or virtual server instances to verify that the backup policies are correctly applied.
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, click the **Navigation menu** icon ![menu icon](../icons/icon_hamburger.svg) **> Infrastructure** ![VPC icon](../icons/vpc.svg) **> Backup policies**.
 
@@ -126,6 +126,15 @@ You can use this list of {{site.data.keyword.block_storage_is_short}} volumes, o
        Click **Add virtual server instance** to add the attached volumes of a virtual server instance to this policy. The informational side panel provides a list of tags for target resources that you can apply to the virtual server instance. It also contains a link to the list of virtual server instances of your account. You must apply at least one of the policy's tags for target resources to the volume.
 
    
+   - If the policy is for file shares, a list of the shares that are backed up by this policy is shown. Information about the shares includes their names, status, volume sizes, and encryption types. [New]{: tag-new}
+
+     | Field | Description |
+     |-------|-------------|
+     | Name | Name of the share. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to edit. |
+     | Status | Status of the share. |
+     | Size | Size of the share in GBs.|
+     | Encryption | [IBM-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-provider-managed-encryption) or [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption). |
+     {: caption="List of {{site.data.keyword.filestorage_vpc_short}} shares for the backup policy" caption-side="top"}
 
 ## Viewing backup policies from the CLI
 {: #backup-view-cli}

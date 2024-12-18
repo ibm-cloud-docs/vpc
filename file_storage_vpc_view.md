@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-12-09"
+lastupdated: "2024-12-17"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -71,7 +71,9 @@ You can access the Actions menu by clicking ![Actions icon](../icons/action-menu
      | Created | Date the file share was created. |
      | Mount target access mode   | Access to the file share is granted by either a security group within a subnet or to any virtual server instance in the VPC. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to switch access modes. Security group access is available only to file shares created with the [`dp2` profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile). For more information, see the [Mount target access modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-mount-access-mode). |
      | CRN | Copiable cloud resource name. |
-     | Allowed encryption in transit modes| This value shows whether encryption in transit is required when clients access the file share. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change the allowed values.| 
+     | Allowed encryption in transit modes| This value shows whether encryption in transit is required when clients access the file share. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change the allowed values.|
+     | Snapshot count [New]{: tag-new} | This value indicates the number of snapshots that were taken of the file share. |
+     | Size of changed data in all the snapshots [New]{: tag-new} | It represents the billable volume of data across all the snapshots. |
      | **Profile, size, and IOPS**| |
      | Size | File share capacity in GB. |
      | IOPS tier | IOPS [profile](/docs/vpc?topic=vpc-file-storage-profiles) that defines the file share performance. In most cases, the dp2 profile is shown. |
@@ -102,6 +104,10 @@ You can access the Actions menu by clicking ![Actions icon](../icons/action-menu
      | Location | It displays the zone information of the file share. |
      | Status   | It displays the lifecycle status of the file share. The [status](/docs/vpc?topic=vpc-fs-vpc-monitoring&interface=ui#file-share-statuses) `Stable` is expected.|
      {: caption="File shares details page" caption-side="bottom"}
+
+   -  **Snapshots** [New]{: tag-new} - On the Snapshots tab you can find a summary that's related to all the snapshots and the list of the snapshots that were taken of the file share.
+      - Snapshot summary provides information such as the number of snapshots, the overall data volume captured in the snapshots, and the replication role.
+      - Snapshots list shows the snapshots that were taken of the file share. You can see the name, size of the file share when the snapshot was taken, and status of the snapshot. You can click **Create** to capture a new snapshot. Click the **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions") to reveal the Actions menu. The Actions menu has 2 options: Restore, and Delete.
      
    - **Monitoring** - On the Monitoring tab, you can see three graphs for share usage, total throughput, and total IOPS. These graphs are available to you at no cost, even without an {{site.data.keyword.mon_full_notm}} instance. You can customize the date range to view data over time.
 
@@ -200,9 +206,11 @@ Replication status reasons       Status code   Status message
                                  -             -      
                                 
 Source share                     ID                                          Name                   Resource type      
-                                 r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a   my-source-file-share   share         
+                                 r006-e4acfa9b-88b0-4f90-9320-537e6fa3482a   my-source-file-share   share    
+Snapshot count                   0
+Snapshot size                    0                                       
 ```
-{: screen}   
+{: screen}
 
 You can use the name of the source share to retrieve its details. See the following example.
 
@@ -240,6 +248,8 @@ Replication role                 source
 Replication status               active   
 Replication status reasons       Status code   Status message      
                                  -             -
+Snapshot count                   0
+Snapshot size                    0 
 ```
 {: screen}
 
@@ -464,6 +474,8 @@ A successful response looks like the following example. In this example, the sha
   },
   "resource_type": "share",
   "size": 4800,
+  "snapshot_count": 10, 
+  "snapshot_size": 10,
   "user_tags": [],
   "zone": {
     "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-1",
@@ -761,6 +773,8 @@ A successful response provides details of the source file share. Notice that the
     },
     "resource_type": "share",
     "size": 4800,
+    "snapshot_count": 10, 
+    "snapshot_size": 10,
     "user_tags": [],
     "zone": {
       "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-1",

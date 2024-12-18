@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-11-06"
+lastupdated: "2024-12-17"
 
 keywords: file share, customer-managed encryption, encryption, byok, KMS, Key Protect, Hyper Protect Crypto Services,
 
@@ -133,7 +133,8 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 1. Specify the `ibmcloud is share-create` command with the `--encryption-key` option to create a file share with customer-managed encryption. The `encryption_key` option must be followed by a valid CRN for the root key in the key management service. If you want to enable encryption in transit, too, specify that in the mount target JSON. The security groups that you associate with a mount target must allow inbound access for the TCP protocol on the NFS port from all virtual server instances on which you want to mount the file share.
 
    - The following example creates a file share with customer-managed encryption, security group access mode, and a mount target with a virtual network interface. Encryption in transit is not enabled.
-      ```sh
+
+       ```sh
       $ ibmcloud is share-create --name my-encrypted-file-share --zone us-south-2 --profile dp2 --size 500 --iops 2000  --user-tags env:dev --encryption_key crn:v1:bluemix:public:kms:us-south:a/a1234567:key:2fb8d675-bde3-4780-b127-3d0b413631c1 --mount-targets '[{"name":"my-new-mount-target","virtual_network_interface": {"name":"my-vni-2","subnet": {"id":"r006-298acd6c-e71e-4204-a04f-fe4a4dd89805"},"security_groups":[{"id":"r006-7f369ca2-ca49-4053-b007-5cab79b9873b"}]}}]'
       Creating file share my-encrypted-file-share under account Test Account as user test.user@ibm.com...
                                 
@@ -141,8 +142,8 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
       Name                         my-encrypted-file-share   
       CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-d44298fe-aced-4f55-a690-8a3830e9fd90   
       Lifecycle state              pending   
-      Access control mode          security_group   
-      Accessor binding role        none 
+      Access control mode          security_group  
+      Accessor binding role        none  
       Zone                         us-south-2   
       Profile                      dp2   
       Size(GB)                     500   
@@ -160,7 +161,10 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
       Replication role             none   
       Replication status           none   
       Replication status reasons   Status code   Status message      
-                                   -             -  
+                                   -             -      
+      Snapshot count               10
+      Snapshot size                10
+      User tags                                  
       ```
       {: screen}
 
@@ -173,6 +177,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
       {: screen}
 
    - The following example creates a file share with customer-managed encryption, security group access mode, and a mount target with a virtual network interface, and encryption-in-transit enabled.
+
       ```sh
       $ ibmcloud is share-create --name my-encrypted-eit-file-share --zone us-south-2 --profile dp2 --size 500 --iops 2000  --user-tags env:dev --encryption_key crn:v1:bluemix:public::kms:us-south:a/a1234567:key:2fb8d675-bde3-4780-b127-3d0b413631c1 --mount-targets '[{"name":"my-new-mount-target","transit_encryption": "user_managed","virtual_network_interface": {"name":"my-vni-3","subnet": {"id":"r006-298acd6c-e71e-4204-a04f-fe4a4dd89805"},"security_groups":[{"id":"r006-7f369ca2-ca49-4053-b007-5cab79b9873b"}]}}]'
       Creating file share my-encrypted-eit-file-share under account Test Account as user test.user@ibm.com...
@@ -201,6 +206,8 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
       Replication status           none   
       Replication status reasons   Status code   Status message      
                                    -             -      
+      Snapshot count               0
+      Snapshot size                0                              
       ```
       {: screen}
 

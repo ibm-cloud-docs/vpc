@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-11-06"
+lastupdated: "2024-12-17"
 
 keywords: file share, file storage, IOPS, performance needs, adjust IOPS
 
@@ -116,7 +116,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    {: screen}
 
 1. View the details of the file share that you want to modify with the `ibmcloud is share` command.
-   
+
    ```sh
    $ ibmcloud is share my-file-share
    Getting file share my-file-share under account Test Account as user test.user@ibm.com...
@@ -131,6 +131,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    Profile                      dp2   
    Size(GB)                     1000   
    IOPS                         1000   
+   User Tags                    docs:test
    Encryption                   provider_managed   
    Mount Targets                ID                                          Name      
                                 r006-dd497561-c7c9-4dfb-af0a-c84eeee78b61   my-cli-share-mount-target-1      
@@ -143,11 +144,13 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    Replication status           none   
    Replication status reasons   Status code   Status message      
                                 -             -      
+   Snapshot count               0
+   Snapshot size                0                                            
    ```
    {: screen}
 
 1. Use the `ibmcloud is share-update` command to increase or decrease the IOPS of your file share.
-   
+
    ```sh
    $ ibmcloud is share-update my-file-share --iops 2000
    Updating file share my-file-share under account Test Account as user test.user@ibm.com...
@@ -156,12 +159,13 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    Name                         my-file-share   
    CRN                          crn:v1:bluemix:public:is:us-south-2:a/a1234567::share:r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6   
    Lifecycle state              updating   
-   Access control mode          security_group   
-   Accessor binding role        none   
+   Access control mode          security_group  
+   Accessor binding role        none    
    Zone                         us-south-2   
    Profile                      dp2   
    Size(GB)                     1000   
    IOPS                         2000   
+   User Tags                    docs:test
    Encryption                   provider_managed   
    Mount Targets                ID                                          Name      
                                 r006-dd497561-c7c9-4dfb-af0a-c84eeee78b61   my-cli-share-mount-target-1      
@@ -174,6 +178,8 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
    Replication status           none   
    Replication status reasons   Status code   Status message      
                                 -             -      
+   Snapshot count               0
+   Snapshot size                0              
    ```
    {: screen}
 
@@ -193,26 +199,29 @@ The following example changes a 3 IOPS/GB profile to a 5 IOPS/GB profile. In thi
 ibmcloud is share-update my-file-share --profile tier-5iops
 Updating file share my-file-share under account VPC1 as user user@mycompany.com...
 
-ID                    ba7c7c8a-c111-4f54-a7fe-bb6d3d66eb2a
-Name                  my-file-share
-CRN                   crn:v1:bluemix:public:is:us-south-1:a/a1234567::share:ba7c7c8a-c111-4f54-a7fe-bb6d3d66eb2a
-Lifecycle state       updating
-Access control mode   security_group   
-Accessor binding role none   
-Zone                  us-south-1
-Profile               tier-5iops
-Size(GB)              100
-IOPS                  3000
-Encryption            provider_managed
-Mount targets         ID                          Name   VPC ID   VPC Name
-                      No mounted targets found.
+ID                           ba7c7c8a-c111-4f54-a7fe-bb6d3d66eb2a
+Name                         my-file-share
+CRN                          crn:v1:bluemix:public:is:us-south-1:a/a1234567::share:ba7c7c8a-c111-4f54-a7fe-bb6d3d66eb2a
+Lifecycle state              updating
+Access control mode          security_group   
+Accessor binding role        none 
+Zone                         us-south-1
+Profile                      tier-5iops
+Size(GB)                     100
+IOPS                         3000
+User Tags                    docs:test
+Encryption                   provider_managed
+Mount targets                ID                          Name   VPC ID   VPC Name
+                             No mount targets found.
 
-Resource group        ID                                     Name
-                      7f1645c5-8afa-4a7e-860d-3df563e0aa8d   Default
+Resource group               ID                                     Name
+                             7f1645c5-8afa-4a7e-860d-3df563e0aa8d   Default
 
-Created               2023-02-26T20:01:18+05:30
+Created                      2023-02-26T20:01:18+05:30
+Snapshot count               0
+Snapshot size                0        
 ```
-{: codeblock}                  
+{: screen}               
 
 For more information about the command options, see [`ibmcloud is share-update my-file-share`](/docs/vpc?topic=vpc-vpc-reference#share-update).
 
@@ -280,6 +289,8 @@ When the IOPS expansion completes, restart the instance. The new value is displa
     "name": "custom",
     "resource_type": "share_profile"
   },
+  "access_control_mode": "security-group",
+  "allowed_transit_encryption_modes": ["none", "user-managed"],
   "replication_role": "none",
   "replication_status": "none",
   "replication_status_reasons": [],
@@ -306,6 +317,8 @@ When the IOPS expansion completes, restart the instance. The new value is displa
       }
     }
   ],
+  "snapshot_count": 10, 
+  "snapshot_size": 10,
   "user_tags": [],
   "zone": {
     "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-1",

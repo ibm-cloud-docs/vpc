@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-12-10"
+lastupdated: "2024-12-17"
 
 keywords: api, change log, beta
 
@@ -25,6 +25,14 @@ There are no backward-compatibility guarantees as a feature progresses through i
 {: important}
 
 To review the change log of generally available API features, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log).
+
+## 17 December 2024
+{: #17-december-2024-beta}
+
+### For all version dates
+{: #17-december-2024-all-version-dates-beta}
+
+**Enhanced confidential computing capabilities.** Accounts that have been granted special approval to preview this feature can now enable [Intel&reg; Trust Domain Extensions (TDX)](/docs/vpc?topic=vpc-about-tdx-vpc). [Instance profiles](/apidocs/vpc-beta#list-instance-profiles) that support TDX will have `tdx` included in their `confidential_compute_modes.values` property. To use TDX, you can specify that profile along with the `confidential_compute_mode` value of `tdx` when [creating](/apidocs/vpc-beta#create-instance) or [updating](/apidocs/vpc-beta#update-instance) an instance, or when [creating](/apidocs/vpc-beta#create-instance-template) an instance template. For more information, see [Confidential computing with Intel Trust Domain Extensions (TDX) for Virtual Servers for VPC](/docs/vpc?topic=vpc-about-tdx-vpc).
 
 ## 22 October 2024
 {: #22-october-2024-beta}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-10-29"
+lastupdated: "2024-12-17"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -25,7 +25,7 @@ To help ensure that you're using the VPC Backup Service most effectively and eco
 
 * Keep costs down by retaining backups for only while you need them to prevent data loss. Plan timely backups to restore data that might be deleted or corrupted. Think about the type of events that might happen. Ask how much data you can afford to lose. The answers can help you decide on a backup interval and retention policy.
 
-* Ask how quickly you need to recover the data. Create a volume from a backup and test the failover to get an idea of the time it can take.
+* Ask how quickly you need to recover the data. Create a volume or share from a backup and test the failover to get an idea of the time it can take.
 
 * For best performance, stagger your backup jobs by creating backup plans with different intervals. You can have up to four different backup plans per backup policy.
 
@@ -35,20 +35,25 @@ To help ensure that you're using the VPC Backup Service most effectively and eco
 
 * Confirm that the block storage resources that you tagged for backups are attached to a running virtual server instance. You can't back up detached volumes.
 
-* Provide a unique name for your backup policy. If you have a convention for naming volumes, you might name a backup policy by using a similar convention. Backups that are created by a policy can also follow the convention. As the number of backups grow, a good naming convention can make them more identifiable.
+* Provide a unique name for your backup policy. If you have a convention for naming volumes, you might name a backup policy by using a similar convention. Backups that are created by a policy can also follow the convention. As the number of backups grows, a good naming convention can make them more identifiable.
 
 * Consistency group backups: Creating crash-consistent snapshots of multiple volumes that are attached to the same virtual server instance leads to a short-lived I/O suspension that can last from a few milliseconds to a few seconds. The duration depends on the number and size of volumes that are connected to your virtual server instance. It is recommended to run your automated backup-policy during off-peak hours to minimize any impact on performance.
+
+* [New]{: tag-new} Backup schedules for file shares can be set up only on the source side of a replication pair. When you choose to failover operations to the replica share, the source and replica shares switch roles. After a failover is performed, backup policies need to be removed from what was previously the source and applied to the current source share.
+
+Albeit you cannot schedule the creation of snapshots for a replica share, your replica shares can still have snapshots. When you create a backup snapshot of the source share, then that backup snapshot is copied to the replica at the next replication cycle. 
+{: note}
 
 ## Best practices for user actions
 {: #baas-user-actions-bp}
 
 * Organize tags that you apply to resources and specify in backup policies. Ensure that multiple policies aren't using the same tags for target resources because that might trigger duplicate backups. You need only one tag to match to trigger a backup.
 
-* Determine what tags are already assigned to a resource (volumes, or virtual server instances). If a resource has multiple tags, make sure that the tags are not triggering duplicate backups for multiple policies.
+* Determine what tags are already assigned to a resource (volumes, shares, or virtual server instances). If a resource has multiple tags, make sure that the tags are not triggering duplicate backups for multiple policies.
 
-* Decide how you prefer to add tags. You can create tags for target resources in your backup policy first and then apply them to the volumes, or virtual server instances. Or, you can specify tags that are applied to the resource already in the backup policy. If you choose to use existing tags, be aware that the same tags might be attached to other resources that you might not want to back up from this policy.
+* Decide how you prefer to add tags. You can create tags for target resources in your backup policy first and then apply them to the volumes, shares, or virtual server instances. Or, you can specify tags that are applied to the resource already in the backup policy. If you choose to use existing tags, be aware that the same tags might be attached to other resources that you might not want to back up from this policy.
 
-* Decide whether creating one or multiple backup plans suits your needs. For example, multiple plans can trigger backups at different intervals. You might want to back up some volumes monthly, others more frequently in a daily or weekly plan.
+* Decide whether creating one or multiple backup plans suits your needs. For example, multiple plans can trigger backups at different intervals. You might want to back up some volumes or shares monthly, others more frequently in a daily or weekly plan.
 
 ## Administrator best practices
 {: #baas-admin-bp}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2024
-lastupdated: "2024-11-15"
+lastupdated: "2024-12-17"
 
 keywords: file share, file storage, rename share, increase size, adjust IOPS, mount target
 
@@ -24,7 +24,7 @@ Manage the file shares that you created. You can rename a file share. You can in
 ## Differences in handling normal file shares and accessor shares
 {: #file-storage-manage-shares-comparison}
 
-The following sections contain instructions to modify and update various properties of file shares and mount targets. Due to the nature of the accessor shares, some properties (for example, file share profile, access control mode or allowed transit encryption modes) cannot be changed. Those properties are inherited from the origin share. For the accessor share properties that can be modified, the steps are the same as for updating a normal share.
+The following sections contain instructions to modify and update various properties of file shares and mount targets. Due to the nature of the accessor shares, some properties (for example, file share profile, access control mode or allowed transit encryption modes) cannot be changed. Those properties are inherited from the origin share. For the accessor share properties that can be modified, the steps are the same as for updating a normal share. While it is not possible to create a snapshot of an accessor share, if the origin share has snapshots, you can access the snapshots in the `.snapshot` directory. This directory is read only.
 
 ## Managing file shares, accessor share bindings, and mount targets in the UI
 {: #file-storage-manage-ui}
@@ -40,7 +40,10 @@ In the console, you can:
 * [Delete a file share](#delete-file-share-ui).
 * [Add user tags to file shares](#fs-add-user-tags).
 
-In the console, you can manage normal file shares and accessor shares. Only the share owner can modify properties like access control mode, IOPS, and profile. The accessor account cannot edit the origin share, and can modify a smaller set of properties of the accessor share. 
+In the console, you can manage normal file shares and accessor shares. Only the share owner can modify properties like access control mode, IOPS, and profile. The accessor account cannot edit the origin share, and can modify a smaller set of properties of the accessor share.
+
+Snapshots are supported only for shares that have security group as their access control mode. You can't change access control mode to VPC unless all the snapshots of the share are deleted.
+{: note} 
 
 ### Renaming a file share in the UI
 {: #rename-file-share-ui}
@@ -89,6 +92,9 @@ The owner of share can change the allowed transit encryption modes. However, bef
 
 Before you delete a file share, make sure that it is [unmounted](#fs-mount-unmount-vsi) from all virtual server instances and that all mount targets that belong to the file share are [deleted](#delete-mount-target-ui). If your file share is shared with another account, delete the accessor bindings before you delete the share. Also, if the file share has a replica file share, you must remove the replication relationship. For more information, see [Remove the replication relationship in the UI](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=ui#fs-remove-replication-ui).
 
+If the file share has snapshots, those snapshots are deleted along with the file share.
+{: note}
+
 #### Deleting share bindings of a file share in the UI
 {: #delete-bindings-ui}
 
@@ -123,7 +129,10 @@ By using the CLI, you can:
 * [Update allowed transit encryption modes](#fs-update-transit-encryption-cli) (not applicable for accessor share).
 * [Delete mount target of a file share](#delete-mount-target-cli).
 * [Delete a file share](#delete-file-share-cli).
-* [Add user tags to file shares](#fs-add-user-tags). 
+* [Add user tags to file shares](#fs-add-user-tags).
+
+Snapshots are supported only for shares that have security group as their access control mode. You can't change access control mode to VPC unless all the snapshots of the share are deleted.
+{: note}
 
 ### Renaming a file share from the CLI
 {: #rename-file-share-cli}
@@ -362,6 +371,9 @@ File share my-file-share-8 is deleted.
 
 For more information about the command options, see [`ibmcloud is share-delete`](/docs/vpc?topic=vpc-vpc-reference#share-delete).
 
+If the file share has snapshots, those snapshots are deleted along with the file share.
+{: note}
+
 ### Update allowed transit encryption modes from the CLI
 {: #fs-update-transit-encryption-cli}
 
@@ -414,7 +426,10 @@ By using the API, you can:
 * [Delete a file share](#delete-file-share-api).
 * [Manage user tags for file shares](#fs-add-user-tags).
 
-To see information about the {{site.data.keyword.filestorage_vpc_short}} API methods, see the following section in the [API reference](/apidocs/vpc/latest#list-share-profiles). 
+To see information about the {{site.data.keyword.filestorage_vpc_short}} API methods, see the following section in the [API reference](/apidocs/vpc/latest#list-share-profiles).
+
+Snapshots are supported only for shares that have security group as their access control mode. You can't change access control mode to VPC unless all the snapshots of the share are deleted.
+{: note}
 
 ### Renaming a file share with the API
 {: #rename-file-share-api}
@@ -437,13 +452,13 @@ A successful response looks like the following example.
   "created_at": "2023-07-17T23:31:59Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
-  "href": "$vpc_api_endpoint/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8",
+  "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8",
   "id": "0995b8c6-c323-4e59-9ea9-fa14dd66bba8",
   "iops": 3000,
   "lifecycle_state": "stable",
   "name": "share-renamed1",
   "profile": {
-    "href": "$vpc_api_endpoint/v1/share/profiles/tier-10iops",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/share/profiles/tier-10iops",
     "name": "tier-10iops",
     "resource_type": "share_profile"
   },
@@ -457,7 +472,7 @@ A successful response looks like the following example.
   "size": 100,
   "mount_targets": [],
   "zone": {
-    "href": "$vpc_api_endpoint/v1/regions/us-south/zones/us-south-1",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-1",
     "name": "us-south-1"
   }
 }
@@ -485,7 +500,7 @@ A successful response looks like the following example.
 {
   "access_control_mode": "vpc",
   "created_at": "2023-07-18T23:31:59Z",
-  "href": "$vpc_api_endpoint/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8/mount_targets/9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
+  "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8/mount_targets/9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "id": "9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "lifecycle_state": "stable",
   "mount_path": "domain.com:/vol_xyz_2891fd0a_64ea_4deb_9ed5_1159e37cb5aa",
@@ -494,7 +509,7 @@ A successful response looks like the following example.
   "transit_encryption": "none",
   "vpc": {
     "crn": "crn:[...]",
-    "href": "$vpc_api_endpoint/v1/vpcs8c95b3c1-fe3c-45c-97a6-e43d14088287",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/vpcs8c95b3c1-fe3c-45c-97a6-e43d14088287",
     "id": "82a7b841-9586-43b4-85dc-c0ab5e8b1c7a",
     "name": "vpc-name1",
     "resource_type": "vpc"
@@ -572,7 +587,7 @@ The following example shows a mount target where `access_control_mode` is `secur
 {
   "access_control_mode": "security_group",
   "created_at": "2022-08-08T01:59:46.000Z",
-  "href": "$vpc_api_endpoint/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8/mount_targets/9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
+  "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8/mount_targets/9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "id": "9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "lifecycle_reasons": [],
   "lifecycle_state": "deleting",
@@ -580,7 +595,7 @@ The following example shows a mount target where `access_control_mode` is `secur
   "name": "target-name1",
   "primary_ip": {
     "address": "10.10.12.64",
-    "href": "$vpc_api_endpoint/v1/subnets/2302-ea5fe79f-52c3-4f05-86ae-9540a10489f5/reserved_ips/0716-6fd4925d-7774-4e87-829e-7e5765d454ad",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/subnets/2302-ea5fe79f-52c3-4f05-86ae-9540a10489f5/reserved_ips/0716-6fd4925d-7774-4e87-829e-7e5765d454ad",
     "id": "0716-6fd4925d-7774-4e87-829e-7e5765d454ad",
     "name": "my-reserved-ip",
     "resource_type": "subnet_reserved_ip"
@@ -612,7 +627,7 @@ The following example shows a mount target where `access_control_mode` is `secur
   },
   "vpc": {
   "crn": "crn:[...]",
-  "href": "$vpc_api_endpoint/v1/vpcs/8c95b3c1-fe3c-45c-97a6-e43d14088287",
+  "href": "https://us-south.iaas.cloud.ibm.com/v1/vpcs/8c95b3c1-fe3c-45c-97a6-e43d14088287",
   "id": "82a7b841-9586-43b4-85dc-c0ab5e8b1c7a",
   "name": "vpc-name1",
   "resource_type": "vpc"
@@ -647,13 +662,13 @@ A successful response confirms acceptance for deletion and shows file share info
   "created_at": "2022-08-08T23:31:59Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
-  "href": "$vpc_api_endpoint/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8",
+  "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8",
   "id": "0995b8c6-c323-4e59-9ea9-fa14dd66bba8",
   "iops": 3000,
   "lifecycle_state": "pending_deletion",
   "name": "share-name1",
   "profile": {
-    "href": "$vpc_api_endpoint/v1/share/profiles/tier-10iops",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/share/profiles/tier-10iops",
     "name": "tier-10iops",
     "resource_type": "share_profile"
   },
@@ -665,16 +680,19 @@ A successful response confirms acceptance for deletion and shows file share info
   },
   "resource_type": "share",
   "size": 100,
+  "snapshot_count": 10, 
+  "snapshot_size": 10,
+  "user_tags": [],
   "mount_targets": [],
   "zone": {
-    "href": "$vpc_api_endpoint/v1/regions/us-south/zones/us-south-1",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-1",
     "name": "us-south-1"
   }
 }
 ```
 {: codeblock}
 
-The file share is deleted in the background. Confirm the deletion by trying to view the mount target information. If you get a `404 Not Found` error, the mount target is successfully deleted.
+The file share is deleted in the background. Confirm the deletion by trying to view the mount target information. If you get a `404 Not Found` error, the mount target is successfully deleted. If the file share has snapshots, those snapshots are deleted along with the file share.
 
 A `DELETE /shares/$share_id` call can optionally include an `If-Match` header that specifies an `ETag` hash string. Make a `GET /shares/{share_id}` call and copy the `ETag` hash string from the response header. For more information, see [User tags for file shares](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-about-user-tags).
 {: note}
@@ -743,6 +761,8 @@ Use the `terraform destroy` command to conveniently destroy a remote object such
 terraform destroy --target ibm_is_share.example.id
 ```
 {: codeblock}
+
+If the file share has snapshots, those snapshots are deleted along with the file share.
 
 For more information, see [terraform destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy){: external}.
 
@@ -827,8 +847,10 @@ You can add and remove tags when you update a file share with the `ibmcloud is s
 
 1. Use the `ibmcloud is share-update` command with the `--user-tags` option to add a tag to the file share. If the file share had tags previously, they are overwritten by the tags that are specified in the command.
 
+The following example adds two user tags to the file share.
+
    ```sh
-   ibmcloud is share-update my-file-share --user-tags env:dev
+   ibmcloud is share-update my-file-share --user-tags daily-backup-plan,docs:test
    Updating file share my-file-share under account Test Account as user test.user@ibm.com...
 
    ID                           r006-b696742a-92ee-4f6a-bfd7-921d6ddf8fa6
@@ -841,7 +863,7 @@ You can add and remove tags when you update a file share with the `ibmcloud is s
    Profile                      dp2
    Size(GB)                     1500
    IOPS                         2000
-   User Tags                    env:dev
+   User Tags                    daily-backup-plan,docs:test
    Encryption                   provider_managed
    Mount Targets                ID                                          Name
                                 r006-dd497561-c7c9-4dfb-af0a-c84eeee78b61   my-cli-share-mount-target-1
@@ -854,6 +876,8 @@ You can add and remove tags when you update a file share with the `ibmcloud is s
    Replication status           none
    Replication status reasons   Status code   Status message
                                 -             -
+   Snapshot count               0
+   Snapshot size                0                             
    ```
    {: screen}
 

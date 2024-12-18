@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-11-13"
+lastupdated: "2024-12-17"
 
 keywords:
 
@@ -759,7 +759,7 @@ The following table lists the actions that are related to volume resources and t
 An event does not contain a volume name if no information is available at the time of the event. For example, when you make a request to create a volume but do not provide a volume name, the information is not available and does not appear in the event.
 {: note}
 
-### Block storage snapshots events
+### Block storage snapshot events
 {: #events-snapshots}
 
 The following table lists the actions that are related to snapshots resources and the generation of events.
@@ -767,7 +767,7 @@ The following table lists the actions that are related to snapshots resources an
 | Resource  | Action  | Description  |
 |:----------------|:-----------------------|:-----------------------|
 | snapshot  | is.snapshot.snapshot.create  | Snapshot creation process started |
-| snapshot  | is.snapshot.snapshot.capture    | Volume data was captured  |
+| snapshot  | is.snapshot.snapshot.capture | Volume data was captured  |
 | snapshot  | is.snapshot.snapshot.update  | Snapshot was updated  |
 | snapshot  | is.snapshot.snapshot.delete  | Snapshot was deleted  |
 | snapshot  | is.snapshot.snapshot.read    | One or more snapshots were retrieved  |
@@ -819,7 +819,21 @@ The following table lists the actions that are related to file share resources a
 | share mount targets | is.share.mount-target.delete| Mount target for a file share was deleted  |
 {: caption="Actions that generate events for file storage resources" caption-side="bottom"}
 
+### File storage snapshot events
+{: #events-fs-snapshots}
 
+| Resource | Action | Description |
+|:---------|:-------|:------------|
+| share/snapshot    | is.share.snapshot.create | Snapshot creation of a file share is pending. |
+| share/snapshot    | is.share.snapshot.create | Snapshot of a file share was created.  |
+| share/snapshot    | is.share.snapshot.create | Snapshot creation of a file share failed. |
+| share/snapshot    | is.share.snapshot.read   | One snapshot of a file share was retrieved. |
+| share/snapshot    | is.share.snapshot.list   | A list of all snapshots for a file share was retrieved. |
+| share/snapshot    | is.share.snapshot.update | A snapshot of a file share was modified. |
+| share/snapshot    | is.share.snapshot.delete | The deletion of snapshot of a file share is pending.|
+| share/snapshot    | is.share.snapshot.delete | A snapshot of a file share was deleted. |
+| share/snapshot    | is.share.snapshot.delete | A snapshot deletion for a file share failed. |
+{: caption="Actions that generate events for file share snapshots resources" caption-side="bottom"}
 
 ### Backup service events
 {: #events-backup-service}

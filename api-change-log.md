@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-12-10"
+lastupdated: "2024-12-17"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -55,6 +55,20 @@ To prepare for this change, verify that your client checks that the `volume` pro
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
+
+## 17 December 2024
+{: #17-december-2024}
+
+### For all version dates
+{: #17-december-2024-all-version-dates}
+
+**File share snapshots.** You can now [create a snapshot for a file share](/apidocs/vpc/latest#create-share-snapshot), a point-in-time copy of your file share data that is directly tied to the lifecycle of the file share. The initial snapshot that you take is a full backup of the share. Subsequent snapshots of the same share are incremental, capturing only the changes that occurred after the last snapshot was taken. [Deleting a file share](/apidocs/vpc/latest#delete-share) deletes all of the snapshots associated with that file share. You can also [update a share snapshot](/apidocs/vpc/latest#update-share-snapshot) to change its user tags, and you can [delete a share snapshot](/apidocs/vpc/latest#delete-share-snapshot), when it's no longer needed.
+
+When you [create a share](/apidocs/vpc/latest#create-share), you can now specify the `source_snapshot` property to create the new share with the data from that snapshot. When you [create a replica file share](/docs/vpc?topic=vpc-file-storage-create-replication&interface=api), snapshots of the source file share are automatically copied to the replica, and as snapshots are created and deleted on the source, corresponding snapshots will be created and deleted on the replica.
+
+For more information, see [About File Storage for VPC snapshots](/docs/vpc?topic=vpc-fs-snapshots-about&interface=api). See also [Storage known issues](/docs/vpc?topic=vpc-known-issues#storage-vpc-known-issues).
+
+**File share snapshot automation.** You can now automate the creation of file share snapshots by applying backup policies to file shares. When [creating a backup policy](/apidocs/vpc/latest#create-backup-policy) specify the `match_resource_type` property value as `share` to target file shares. File shares that have both a matching type and a matching user tag are subject to the backup policy. For more information, see [Backup service concepts](/docs/vpc?topic=vpc-backup-service-about&interface=api#backup-service-concepts).
 
 ## 10 December 2024
 {: #10-december-2024}

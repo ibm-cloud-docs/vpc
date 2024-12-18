@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-12-11"
+lastupdated: "2024-12-17"
 
 keywords: file share, file storage, accessor share, cross-account share
 
@@ -24,7 +24,7 @@ As a storage administrator who manages multiple accounts, you can share an NFS f
 
 After the authorization is set in place and roles are assigned, you can create an accessor share that is bound to the origin share. The accessor share inherits the profile, size, encryption type both at rest and in-transit from the origin share. The origin share's account can see the IDs of the accounts who can mount the shared NFS share.
 
-As the accessor, you can't edit the properties of the origin share, and you can't delete the origin share. The accessors can mount the share by creating an accessor share and a mount target to the accessor share. Then, you can access and use the data of the origin share in your own VPCs.
+As the accessor, you can't edit the properties of the origin share, and you can't delete the origin share. The accessors can mount the share by creating an accessor share and a mount target to the accessor share. Then, you can access and use the data of the origin share, including the snapshots that might be present.
 
 ## Transit encryption policy
 {: #file-storage-transit-encryption-policy}
@@ -72,7 +72,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 You can use the `ibmcloud is share-create` command to provision a file share in your selected zone with the CRN of the origin share.
 
 ```sh
-ibmcloud is share-create --name my-accessor-share --origin-share CRN                          
+ibmcloud is share-create --name my-accessor-share --origin-share CRN
 ```
 {: pre}
 
@@ -104,7 +104,10 @@ Created                          2024-06-25T22:15:15+00:00
 Replication role                 none   
 Replication status               none   
 Replication status reasons       Status code   Status message      
-                                 -             -                              
+                                 -             -   
+Snapshot count                   0
+Snapshot size                    0
+User tags                                                                         
 ```
 {: screen}
 
@@ -140,7 +143,10 @@ Virtual network interface   ID                                          Name
                                
 Lifecycle state             pending   
 Mount path                  -   
-Transit Encryption          none   
+Transit Encryption          none  
+Snapshot count              0
+Snapshot size               0
+User tags       
 ```
 {: screen}
 
@@ -184,7 +190,9 @@ Created                         2024-06-25T00:30:11+00:00
 Replication role                none   
 Replication status              none   
 Replication status reasons      Status code   Status message      
-                                -             -      
+                                -             -     
+Snapshot count                  0
+Snapshot size                   0                         
 ```
 {: screen}
 
@@ -220,6 +228,8 @@ curl -X POST \
 
 A successful response looks like the following example.
 
+[New]{: tag-new}
+
 ```json
   {
   "access_control_mode": "security-group",
@@ -248,6 +258,8 @@ A successful response looks like the following example.
     },
   "resource_type": "share",
   "size": 4800,
+  "snapshot_count": 10, 
+  "snapshot_size": 10,
   "user_tags": ["string"],
   "zone": {
     "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-1",
@@ -387,3 +399,6 @@ Mount your file shares. Mounting is a process by which a server's operating syst
 * [Mounting file shares in CentOS](/docs/vpc?topic=vpc-file-storage-mount-centos).
 * [Mounting file shares on Ubuntu](/docs/vpc?topic=vpc-file-storage-mount-ubuntu).
 * [Mounting file shares on z/OS](/docs/vpc?topic=vpc-file-storage-mount-zos)
+
+Creating snapshots of an Accessor share is not supported. However, if the origin share has snapshots, you can access those snapshots in the `.snapshot` directory. For more information, see [Restoring files from a snapshot](/docs/vpc?topic=vpc-fs-snapshots-restore&interface=ui#fs-snapshots-restore-single-file).
+{: note}
