@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2020, 2024
+  years: 2020, 2025
 lastupdated: "2024-03-18"
 
 keywords: auto scale, autoscale, UI, console

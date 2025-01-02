@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2018, 2024
+  years: 2018, 2025
 lastupdated: "2024-02-20"
 
 keywords: connecting, linux

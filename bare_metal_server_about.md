@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2021, 2024
+  years: 2021, 2025
 lastupdated: "2024-04-17"
 
 keywords: bare metal servers, baremetal, what is bare metal, about bare metal, bare metal features, bare metal benefits

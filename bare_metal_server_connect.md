@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2021, 2024
+  years: 2021, 2025
 lastupdated: "2024-04-24"
 
 keywords: bare metal server connect esxi, connect to esxi, connect to esxi, bare metal connect esxi, bare metal esxi, windows serial console, connect to windows console, connect to windows serial console, serial console, connect to serial console

@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2019, 2024
+  years: 2019, 2025
 lastupdated: "2024-02-22"
 
 keywords: creating an encrypted custom image, qcow2

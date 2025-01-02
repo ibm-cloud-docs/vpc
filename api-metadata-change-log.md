@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2019, 2024
+  years: 2019, 2025
 lastupdated: "2024-11-12"
 
 keywords: api, change log, metadata, new features, restrictions, migration, versioned change

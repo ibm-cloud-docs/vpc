@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2021, 2024
+  years: 2021, 2025
 lastupdated: "2024-02-22"
 
 keywords: planning bare metal servers

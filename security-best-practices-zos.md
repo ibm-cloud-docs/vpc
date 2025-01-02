@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-07-18"
+  years: 2022, 2025
+lastupdated: "2025-01-02"
 
 keywords: zos, security, virtual server instance
 
@@ -39,7 +39,7 @@ For this release, you need to follow the security best practices for your z/OS v
 
 * For more information about various security topics, see the following references:
 
-    * [What is zero trust?](https://www.ibm.com/topics/zero-trust){: external}
+    * [What is zero trust?](https://www.ibm.com/think/topics/zero-trust){: external}
 
     * [NIST Special Publication Security & Privacy Controls for Information Systems & Organizations](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf){: external}
 

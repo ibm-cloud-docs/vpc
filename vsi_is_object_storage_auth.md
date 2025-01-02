@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2019, 2024
+  years: 2019, 2025
 lastupdated: "2024-02-22"
 
 keywords: create authorization for {{site.data.keyword.cos_full_notm}}, import image to vpc infrastructure, migrate virtual server, migrate instance

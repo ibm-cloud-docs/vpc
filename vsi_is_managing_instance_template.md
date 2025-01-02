@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2020, 2024
+  years: 2020, 2025
 lastupdated: "2024-03-05"
 
 keywords: manage instance template, auto scale, UI, console, edit instance template, duplicate instance template, delete instance template
