@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024, 2024
-lastupdated: "2024-10-10"
+   years: 2024, 2025
+lastupdated: "2025-01-02"
 
 subcollection: vpc
 

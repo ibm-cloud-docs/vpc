@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-12-17"
+  years: 2024, 2025
+lastupdated: "2025-01-02"
 
 keywords: file share, file storage, accessor share, cross-account share
 
@@ -227,8 +227,6 @@ curl -X POST \
 {: pre}
 
 A successful response looks like the following example.
-
-[New]{: tag-new}
 
 ```json
   {
