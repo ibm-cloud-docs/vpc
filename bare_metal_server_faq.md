@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-11-05"
+  years: 2021, 2025
+lastupdated: "2025-01-03"
 
 subcollection: vpc
 
@@ -28,7 +28,7 @@ Compared to the classic bare metal infrastructure, Bare Metal Servers for VPC pr
 Keep in mind that Bare Metal Servers for VPC is less customizable than classic bare metal servers.
 
 For more information about the differences between the Classic infrastructure and VPC, see [
-Comparing IBM Cloud Classic and VPC infrastructure environments](/docs/cloud-infrastructure?topic=cloud-infrastructure-compare-infrastructure). 
+Comparing IBM Cloud Classic and VPC infrastructure environments](/docs/infrastructure-hub?topic=infrastructure-hub-compare-infrastructure). 
 
 ## What operating systems are supported?
 {: #faq-bare-metal-1}

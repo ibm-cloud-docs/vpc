@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-12-13"
+  years: 2018, 2025
+lastupdated: "2025-01-03"
 
 keywords: vpc, virtual private cloud
 
@@ -68,5 +68,5 @@ For a general overview of the VPC infrastructure and related compute, networking
 * [About networking for VPC](/docs/vpc?topic=vpc-about-networking-for-vpc)
 * [About virtual server instances for VPC](/docs/vpc?topic=vpc-about-advanced-virtual-servers)
 * [About storage for VPC](/docs/vpc?topic=vpc-block-storage-about)
-* [Understanding IaaS basics](/docs/cloud-infrastructure?topic=cloud-infrastructure-getting-started-tutorial)
-* [IBM Cloud monitoring services](/docs/cloud-infrastructure?topic=cloud-infrastructure-monitoring-iaas)
+* [Understanding IaaS basics](/docs/infrastructure-hub?topic=infrastructure-hub-getting-started-tutorial)
+* [IBM Cloud monitoring services](/docs/monitoring?topic=monitoring-getting-started)

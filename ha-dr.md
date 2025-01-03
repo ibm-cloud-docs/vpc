@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-09-10"
+lastupdated: "2025-01-03"
 
 keywords: high availability, disaster recovery, SLA, placement group
 
@@ -19,13 +19,13 @@ All {{site.data.keyword.cloud}} general availability (GA) services have a Servic
 {{site.data.keyword.vpc_short}} is offered in Dallas, Toronto, Frankfurt, London, Madrid, Tokyo, Osaka, Sydney, Washington DC, and São Paulo. Each location has three different zones for redundancy.
 {: shortdesc}
 
-See [ensure zero downtime](/docs/overview?topic=overview-zero-downtime#zero-downtime) to learn more about the high
+See [ensure zero downtime](/docs/resiliency?topic=resiliency-ha-redundancy#zero-downtime) to learn more about the high
 availability and disaster recovery standards in {{site.data.keyword.cloud_notm}}. For more information about high
 availability and disaster recovery for {{site.data.keyword.vpc_short}}, see
 [Your responsibilities by using Virtual Private Cloud](/docs/vpc?topic=vpc-responsibilities-vpc). You can
 also find information about [Service Level Agreements](/docs/overview?topic=overview-slas).
 
-For examples of deploying a highly available web application, see [Building a highly available 3-tier web application in VPC](/docs/ha-infrastructure?topic=ha-infrastructure-ha-3-tier).
+For an example of deploying a highly available web application, see [Web app multi-zone resiliency](/docs/pattern-vpc-vsi-multizone-resiliency?topic=pattern-vpc-vsi-multizone-resiliency-overview).
 
 For more information about how you can use Veeam software to back up your storage data on a virtual server instance, see
 [About Veeam](/docs/vpc?topic=vpc-about-veeam).

@@ -33,4 +33,4 @@ The restart command works only if the windows `cloudbase-init` service allows fo
 For more information about enabling serial console for Windows, see the following links.
 
 * [Boot Parameters to Enable EMS Redirection](https://learn.microsoft.com/en-us/windows-hardware/drivers/devtest/boot-parameters-to-enable-ems-redirection){: external}
-* [Using the Serial Console on Windows IaaS VMs](https://techcommunity.microsoft.com/t5/itops-talk-blog/using-the-serial-console-on-windows-iaas-vms/ba-p/2272295)
+* [Using the Serial Console on Windows IaaS VMs](https://techcommunity.microsoft.com/blog/itopstalkblog/using-the-serial-console-on-windows-iaas-vms/2272295)

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-11-22"
+  years: 2022, 2025
+lastupdated: "2025-01-03"
 
 keywords:
 
@@ -57,7 +57,7 @@ The following procedure uses [OpenVPN easy-rsa](https://github.com/OpenVPN/easy-
    ```
    {: pre}
 
-   Check that the CA certificate is generated at path `./pki/ca.crt`. As described [in the next section](#Importing-VPN-server-certificates-into-Secrets-Manager), when importing the server or client certificates into Secrets Manager, the certificate used to sign other certificates will be required as the intermediate certificate.
+   Check that the CA certificate is generated at path `./pki/ca.crt`. As described [in the next section](#import-vpn-server-certificates-sm), when importing the server or client certificates into Secrets Manager, the certificate used to sign other certificates will be required as the intermediate certificate.
 
 1. Generate a VPN server certificate:
 

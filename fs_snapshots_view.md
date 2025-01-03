@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-12-17"
+  years: 2024, 2025
+lastupdated: "2025-01-03"
 
 keywords: view snapshots, view snapshot, viewing snapshots, see snapshots, File storage snapshots
 
@@ -51,7 +51,6 @@ In the console, you can view a list of all snapshots that belong to a file share
     {: caption="Summary of the Snapshots tab." caption-side="bottom"}
 
    By clicking the Actions icon ![Actions icon](../icons/action-menu-icon.svg "Actions"), you can display a menu of context-specific actions.
-   - [Rename](/docs/vpc?topic=vpc-fs-snapshots-manage&interface=ui#fs-snapshots-rename-ui).
    - [Delete](/docs/vpc?topic=vpc-fs-snapshots-manage#fs-snapshots-delete-snapshot-ui). 
    - [Restore](/docs/vpc?topic=vpc-fs-snapshots-restore).
 
@@ -70,7 +69,7 @@ The following table describes the information that can be viewed on the Snapshot
 
 | Field | Description |
 |-------|-------------|
-| Name  | The name of the snapshot, which you can change by clicking the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit"). For more information, see [Naming snapshots](/docs/vpc?topic=vpc-fs-snapshots-manage&interface=ui#fs-snapshots-naming). |
+| Name  | The name of the snapshot, which you can change by clicking the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit"). For more information, see [Naming snapshots](/docs/vpc?topic=vpc-fs-snapshots-planning&interface=ui#fs-snapshots-naming). |
 | ID | Copiable UUID of the snapshot. |
 | CRN | Copiable CRN of the snapshot. |
 | Resource group | Resource group defined when you set up your VPC. |

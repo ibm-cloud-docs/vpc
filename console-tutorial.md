@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-10-25"
+  years: 2018, 2025
+lastupdated: "2025-01-03"
 
 keywords:
 
@@ -301,7 +301,7 @@ To monitor your instance, follow these steps:
 1. Click the name of your instance.
 1. Click **Monitoring** in the navigation pane.
 
-Because the monitoring data is stored in {{site.data.keyword.mon_full_notm}}, you must be authenticated to an instance of {{site.data.keyword.mon_full_notm}} in your account. For more information, see [IBM Cloud Monitoring](/docs/cloud-infrastructure?topic=cloud-infrastructure-monitoring-iaas).
+Because the monitoring data is stored in {{site.data.keyword.mon_full_notm}}, you must be authenticated to an instance of {{site.data.keyword.mon_full_notm}} in your account. For more information, see [IBM Cloud Monitoring](/docs/monitoring?topic=monitoring-getting-started).
 {: important}
 
 ## Creating a load balancer (optional)

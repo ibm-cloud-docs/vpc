@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-10-29"
+  years: 2018, 2025
+lastupdated: "2025-01-03"
 
 keywords:
 
@@ -981,7 +981,7 @@ To connect to a Windows image, log in using its decrypted password. For instruct
 ### Monitoring your instance
 {: #monitoring-your-instance-api-tutorial}
 
-You can monitor the CPU, volume, memory, and network usage of your instance over time in the {{site.data.keyword.cloud_notm}} console. Because the monitoring data is stored in {{site.data.keyword.mon_full_notm}}, you must be authenticated to an {{site.data.keyword.mon_full_notm}} instance in your account. For more information, see [IBM Cloud Monitoring](/docs/cloud-infrastructure?topic=cloud-infrastructure-monitoring-iaas).
+You can monitor the CPU, volume, memory, and network usage of your instance over time in the {{site.data.keyword.cloud_notm}} console. Because the monitoring data is stored in {{site.data.keyword.mon_full_notm}}, you must be authenticated to an {{site.data.keyword.mon_full_notm}} instance in your account. For more information, see [IBM Cloud Monitoring](/docs/monitoring?topic=monitoring-getting-started).
 
 ### (Optional): Deleting the resources
 {: #delete-resources-api-tutorial}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-10-09"
+  years: 2023, 2025
+lastupdated: "2025-01-03"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -57,7 +57,7 @@ If you want to connect a file share to instances that are running in different V
 The {{site.data.keyword.cloud}} file service provides a [Mount Helper utility](/docs/vpc?topic=vpc-fs-mount-helper-utility) to automate the following tasks that are performed on the virtual server instance.
 {: fast-path}
 
-1. When you configure the virtual server instance to access the file share, you must configure [IPsec Transport Mode](https://docs.strongswan.org/docs/6.0/howtos/ipsecProtocol.html#_ipsec_transport_mode){: external} for the mount target address. [Install](https://docs.strongswan.org/docs/5.9/install/install.html){: external} and configure the strongSwan client.
+1. When you configure the virtual server instance to access the file share, you must configure [IPsec Transport Mode](https://docs.strongswan.org/docs/latest/howtos/ipsecProtocol.html#_ipsec_transport_mode){: external} for the mount target address. [Install](https://docs.strongswan.org/docs/5.9/install/install.html){: external} and configure the strongSwan client.
 2. Obtain the X.509 certificates that are needed for authentication. The same certificates cannot be used across multiple regions.
    1. The following command generates a *Certificate Signing Request* (CSR) and *RSA Key Pair* by using openssl.
       ```sh

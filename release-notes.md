@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-12-17"
+  years: 2019, 2025
+lastupdated: "2025-01-03"
 
 keywords:
 
@@ -2627,7 +2627,7 @@ Documentation correction
 {: release-note}
 
 Load balancer for VPC update
-:   Access load balancer monitoring metrics (throughput, active connections, connection rate) using [IBM Cloud Monitoring](/docs/cloud-infrastructure?topic=cloud-infrastructure-monitoring-iaas).
+:   Access load balancer monitoring metrics (throughput, active connections, connection rate) using [IBM Cloud Monitoring](/docs/monitoring?topic=monitoring-getting-started).
 
    The following cipher suites are supported for load balancer HTTPS listeners:
 
