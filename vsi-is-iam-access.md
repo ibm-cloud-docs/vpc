@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-11-11"
+  years: 2017, 2025
+lastupdated: "2025-01-06"
 
 keywords: IAM access for vpc infrastructure services, permissions for vpc infrastructure services, identity and access management for vpc infrastructure services, roles for vpc infrastructure services, actions for vpc infrastructure services, assigning access for vpc infrastructure services
 
@@ -72,12 +72,12 @@ The following links take you directly to the specific infrastructure service on 
 ## Network IAM roles and actions
 {: #network-iam-roles-actions}
 
-- [Cluster Networks for VPC](/docs/vpc?topic=vpc-about-cluster-network#is.cluster-network-roles)
+- [Cluster Networks for VPC](/docs/account?topic=account-iam-service-roles-actions#is.cluster-network-roles)
 - [Floating IP for VPC](/docs/account?topic=account-iam-service-roles-actions#is.floating-ip-roles)
 - [Flow Logs for VPC](/docs/account?topic=account-iam-service-roles-actions#is.flow-log-collector-roles)
 - [Load Balancer for VPC](/docs/account?topic=account-iam-service-roles-actions#is.load-balancer-roles)
 - [Network ACL](/docs/account?topic=account-iam-service-roles-actions#is.network-acl-roles)
-- [Private Path services](/docs/vpc?topic=vpc-private-path-service-intro#private-path-iam-service-roles-actions)
+- [Private Path services](/docs/account?topic=account-iam-service-roles-actions#is.private-path-service-gateway-roles)
 - [Public Gateway](/docs/account?topic=account-iam-service-roles-actions#is.public-gateway-roles)
 - [Routing tables](/docs/account?topic=account-iam-service-roles-actions#is.vpc-roles) (See Virtual Private Cloud section > Actions tab)
 - [Security Group for VPC](/docs/account?topic=account-iam-service-roles-actions#is.security-group-roles)
