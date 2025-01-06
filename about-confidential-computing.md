@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-09-24"
+  years: 2022, 2025
+lastupdated: "2025-01-06"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -15,14 +15,14 @@ subcollection: vpc
 # Confidential computing with LinuxONE
 {: #about-se}
 
-Confidential computing is enabled on LinuxONE (s390x processor architecture) by using the [IBM Secure Execution for Linux](https://www.ibm.com/docs/en/linux-on-systems?topic=management-secure-execution){: external} technology. This technology is part of the hardware of IBM z15, z16 (z15, z16) and IBM LinuxONE III generation systems. With IBM Secure Execution for Linux, you can securely deploy workloads in the cloud. It helps ensure the integrity and confidentiality of boot images, and server authenticity. Applications are isolated from the operating system, thus providing more privacy and security for the workload.
+Confidential computing is enabled on LinuxONE (s390x processor architecture) by using the [IBM Secure Execution for Linux](https://www.ibm.com/docs/en/linux-on-systems?topic=management-secure-execution){: external} technology. This technology is part of the hardware of IBM z15, z16 (z15, z16), and IBM LinuxONE III generation systems. With IBM Secure Execution for Linux, you can securely deploy workloads in the cloud. It helps ensure the integrity and confidentiality of boot images, and server authenticity. Applications are isolated from the operating system, thus providing more privacy and security for the workload.
 {: shortdesc}
 
 By using IBM Secure Execution for Linux, you can create encrypted Linux images that can run on a public, private, or hybrid cloud with their in-use memory protected. The workload or data is protected from external and insider threats.
 
-A new operating system that uses the IBM Secure Execution for Linux technology is now available as **IBM Hyper Protect**. The associated image that is used to create the instance is called the [IBM Hyper Protect Container Runtime (HPCR) image](/docs/vpc?topic=vpc-vsabout-images#hyper-protect-runtime). A virtual server instance that's provisioned by using this image is called as an **{{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for VPC** (Virtual Private Cloud) instance.
+A new operating system that uses the IBM Secure Execution for Linux technology is now available as **IBM Hyper Protect**. The associated image that is used to create the instance is called the [IBM Hyper Protect Container Runtime (HPCR) image](/docs/vpc?topic=vpc-vsabout-images#hyper-protect-runtime). A virtual server instance that's provisioned by using this image is called an **{{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for VPC** (Virtual Private Cloud) instance.
 
-For a technical deep dive into the IBM Hyper Protect Platform, see the white paper [The Second Generation of IBM Hyper Protect Platform](https://www.ibm.com/downloads/cas/GPVMWPM3){: external}.
+For a technical deep dive into the IBM Hyper Protect Platform, see the white paper [The Second Generation of IBM Hyper Protect Platform](https://www.ibm.com/downloads/documents/us-en/107a02e95c48f700){: external}.
 
 Check out the [tutorial](/docs/vpc?topic=vpc-financial-transaction-confidential-computing-on-hyper-protect-virtual-server-for-vpc) and the [video](https://mediacenter.ibm.com/media/Confidential+Computing+for+a+financial+transaction+using+Hyper+Protect+Virtual+Server+for+VPC/1_vv3j2oo6){: external} on Confidential Computing for a financial transaction by using Hyper Protect Virtual Server for VPC. You can learn about how to protect Personally Identifiable Information and credit card information that is entered into web forms by using Confidential Computing on Hyper Protect Virtual Server for VPC.
 
@@ -47,11 +47,11 @@ The {{site.data.keyword.hpvs}} for VPC takes advantage of the IBM Secure Executi
 
 - Malware protections
 
-   {{site.data.keyword.hpvs}} for VPC uses Secure Build to set up a verification process to ensure that only authorized code is running in an application. It deploys only container versions that are validated at deployment through explicit [digest or are signed](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_images) and may be pulled from a [private Container Registry with authentication](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_auths) only.
+   {{site.data.keyword.hpvs}} for VPC uses Secure Build to set up a verification process to ensure that only authorized code is running in an application. It deploys only container versions that are validated at deployment through explicit [digest or are signed](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_images), and it can be pulled only from a [private Container Registry with authentication](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_auths).
 
 - Bring your own OCI image and use managed Container Runtime service
 
-   Use any [open-container initiative (OCI)](https://opencontainers.org/){: external} image and gain the benefits of a confidential computing solution for extra levels of protection. Ensure through a [signed contract](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_sign), that only a given combination of your workload and environment is deployed.
+   Use any [open-container initiative (OCI)](https://opencontainers.org/){: external} image and gain the benefits of a confidential computing solution for extra levels of protection. Ensure through a [signed contract](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_sign), that only a specific combination of your workload and environment is deployed.
 
 
 - Built on the Virtual Private Cloud (VPC) infrastructure for extra network security
@@ -69,7 +69,7 @@ It's important to read the following information and complete the required prepa
 
 - [Planning](/docs/vpc?topic=vpc-vsi_best_practices)
 
-   Consider aspects including profiles and operating system images. To create a Hyper Protect Virtual Servers for VPC instance with a stock image, choose the [IBM Hyper Protect Container Runtime image](/docs/vpc?topic=vpc-vsabout-images#hyper-protect-runtime).
+   Consider aspects such as profiles and operating system images. To create a Hyper Protect Virtual Servers for VPC instance with a stock image, choose the [IBM Hyper Protect Container Runtime image](/docs/vpc?topic=vpc-vsabout-images#hyper-protect-runtime).
 
 - Choose to build your own image with {{site.data.keyword.hpvs}}
 
@@ -99,7 +99,7 @@ It's important to read the following information and complete the required prepa
 
 - Data volume
 
-   Currently, the instance supports only one data volume that is [encrypted by default with the seed or passphrase that you provide](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_volumes), which helps ensure that your workload data is protected. Even though you can add multiple data volumes, they're ignored and only one of them is encrypted. It's recommended that you attach one data volume to the instance during instance creation so that data from the container is stored in the data volume. It's also recommended that you take a snapshot of the data volume so that you can revert to it in case you face any issues in the future.
+   Currently, the instance supports only one data volume that is [encrypted by default with the seed or passphrase that you provide](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_volumes), which helps ensure that your workload data is protected. Even though you can add multiple data volumes, they're ignored and only one of them is encrypted. It is recommended that you attach one data volume to the instance during instance creation so that data from the container is stored in the data volume. It is also recommended that you take a snapshot of the data volume so that you can revert to it in case you face any issues in the future.
 
    Starting from the HPCR image version `ibm-hyper-protect-container-runtime-1-0-s390x-9`, for new {{site.data.keyword.hpvs}} for VPC instances, the data volume is partitioned into two parts. The first partition (100Mib) is reserved for internal metadata; the second partition remains as the data volume for workload. Only new volumes are partitioned, and you can't use the partitioned volume with an older version of the HPCR image. Provisioning with an existing encrypted volume also works. The difference is that the existing volume does not get partitioned, and you can also go back to an older image with this volume.
 
@@ -121,7 +121,7 @@ See the [troubleshooting documentation](/docs/vpc?topic=vpc-hyper-protect-virtua
 
 You can use [Terraform](/docs/vpc?topic=vpc-terraform-for-hyper-protect-virtual-servers-for-vpc) to automate operations with {{site.data.keyword.hpvs}} for VPC.
 
-You can use your {{site.data.keyword.hpvs}} for VPC instance in **private-only** network configurations, in which the VPC doesn't have a public gateway, and the virtual server instance doesn't have a floating IP. You can connect to private endpoints of other services, including Container Registry and [IBM Log Analysis](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc). The prerequisite is to have a DNS server attached to your virtual server instance. You don't need to do any additional configurations.
+You can use your {{site.data.keyword.hpvs}} for VPC instance in **private-only** network configurations, in which the VPC doesn't have a public gateway, and the virtual server instance doesn't have a floating IP. You can connect to private endpoints of other services, including Container Registry and [IBM Log Analysis](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc). The prerequisite is to have a DNS server that is attached to your virtual server instance. You don't need to do any additional configurations.
 
 
 ## Recovering or upgrading a {{site.data.keyword.hpvs}} for VPC instance by using {{site.data.keyword.vpc_short}} Snapshots.
