@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Importing and exporting your custom image into {{site.data.keyword.vpc_short}}
+# Importing and exporting your custom image with {{site.data.keyword.vpc_short}}
 {: #custom-image-using-COS}
 
 After your custom image is created and stored on {{site.data.keyword.cos_full_notm}}, you must import that custom image directly to {{site.data.keyword.vpc_short}}. This requirement includes any custom images that you plan to import into a private catalog. The custom images must be imported into {{site.data.keyword.vpc_short}} first and then imported into the private catalog.
