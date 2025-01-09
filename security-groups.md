@@ -31,8 +31,6 @@ When you create a resource that uses a security group and don't specify a securi
 
 Updating the rules for the _default_ security group is a separate process from updating the default security group. If you edit the rules of the default security group, those edited rules then apply to all current and future servers in the group. For more information, see [Updating default security group rules](/docs/vpc?topic=vpc-updating-the-default-security-group#updating-the-default-security-group).
 
-Security groups cannot be nested within each other, but security groups can point to other security groups as reference. A reference security group could be used to attach a group of IP ranges to a specific security group rule. 
-
 A security group can’t reference another security group in a different zone in the same region.
 {: reminder}
 
