@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-11-21"
+  years: 2021, 2025
+lastupdated: "2025-01-09"
 
 keywords:
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # x86-64 bare metal server profiles
 {: #bare-metal-servers-profile}
 
-When you create a bare metal server, you can select from a profile family that best fits your needs. A profile provides a different combination of hardware configurations that include the number of vCPUs, amount of RAM, and local storage size. The attributes define the size and capabilities of the bare metal server that you provision.
+When you create a bare metal server, you can select from a profile family that best fits your needs. A profile provides a different combination of hardware configurations that include the number of vCPUs, amount of RAM, bandwidth speed, and local storage size. The attributes define the size and capabilities of the bare metal server that you provision.
 {: shortdesc}
 
 Sapphire Rapids (x3 and x3d) profiles are only available in Dallas (us-south) and Frankfurt (eu-de).
@@ -34,13 +34,13 @@ Profiles are grouped by the _vCPUs:Memory_ ratio across all the VPC compute offe
 | Very High Memory | 1:16 | Best for running small to medium in-memory databases and OLAP workloads, such as SAP BW/4 HANA. |
 {: caption="Profile families" caption-side="bottom"}
 
-Very High Memory profiles are available for customers with special approval. Contact your IBM Sales representative if you are interested in getting access.
+Very High Memory profiles for Gen2 (x2) are available for customers with special approval. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 ## Profile configurations
 {: #bare-metal-servers-profile-list}
 
-Profiles contained either the Cascade Lake current generation of Cascade Lake processors (x2 and x2d) or the Sapphire Rapids processors (x3 and x3d). See the following tables to see the available profile configurations.
+Multiple profile generations are available with Intel Cascade Lake processors (x2) or Intel Sapphire Rapids processors (x3). See the following tables to see the available profile configurations.
 
 | Name | vCPU | Memory (GiB) | Local storage (GB) | Total network bandwidth (Gbps) |
 |---------|---------|---------|---------|---------|
@@ -90,11 +90,11 @@ The 960 GB of available local storage is composed of 2 960 GB SSDs in RAID1 for 
 
 | Name | vCPU | Memory (GiB) | Local storage (GB) | Total network bandwidth (Gbps) |
 |---------|---------|---------|---------|---------|
-| bx3-metal-48x256 | 48 | 256 | 480 | 100 |
-| bx3d-metal-48x256 | 48 | 256 | 480 GB boot  \n 30.72 TB secondary storage (allocation of 4 x 7680) | 100 |
-| bx3-metal-64x256 | 64 | 256 | 480 | 100 |
-| bx3d-metal-64x256 | 64 | 256 | 480 GB boot  \n 30.72 TB secondary storage (allocation of 4 x 7680) | 100 |
-| bx3d-metal-192x1024 | 192 | 1024 | 480 GB boot  \n 61.44 TB secondary storage (allocation of 8 x 7680) | 100 |
+| bx3-metal-48x256 | 48 | 256 | 480 | 200 |
+| bx3d-metal-48x256 | 48 | 256 | 480 GB boot  \n 30.72 TB secondary storage (allocation of 4 x 7680) | 200 |
+| bx3-metal-64x256 | 64 | 256 | 480 | 200 |
+| bx3d-metal-64x256 | 64 | 256 | 480 GB boot  \n 30.72 TB secondary storage (allocation of 4 x 7680) | 200 |
+| bx3d-metal-192x1024 | 192 | 1024 | 480 GB boot  \n 61.44 TB secondary storage (allocation of 8 x 7680) | 200 |
 {: caption="Profile families for x3 and x3d" caption-side='top"}
 {: #bare-metal-balanced-profiles-x3}
 {: tab-title="Balanced profiles for x3 and x3d"}
@@ -104,10 +104,10 @@ The 960 GB of available local storage is composed of 2 960 GB SSDs in RAID1 for 
 
 | Name | vCPU | Memory (GiB) | Local storage (GB) | Total network bandwidth (Gbps) |
 |---------|---------|---------|---------|---------|
-| cx3-metal-48x128 | 48 | 128 | 480 | 100 |
-| cx3d-metal-48x128 | 48 | 128 | 480 GB boot  \n 30.72 TB secondary storage (allocation of 4 x 7680) | 100 |
-| cx3-metal-64x128 | 64 | 128 | 480 | 100 |
-| cx3d-metal-64x128 | 64 | 128 | 480 GB boot  \n 30.72 TB secondary storage (allocation of 4 x 7680) | 100 |
+| cx3-metal-48x128 | 48 | 128 | 480 | 200 |
+| cx3d-metal-48x128 | 48 | 128 | 480 GB boot  \n 30.72 TB secondary storage (allocation of 4 x 7680) | 200 |
+| cx3-metal-64x128 | 64 | 128 | 480 | 200 |
+| cx3d-metal-64x128 | 64 | 128 | 480 GB boot  \n 30.72 TB secondary storage (allocation of 4 x 7680) | 200 |
 {: caption="Profile families for x3 and x3d" caption-side='top"}
 {: #bare-metal-compute-profiles-x3}
 {: tab-title="Compute profiles for x3 and x3d"}
@@ -117,14 +117,14 @@ The 960 GB of available local storage is composed of 2 960 GB SSDs in RAID1 for 
 
 | Name | vCPU | Memory (GiB) | Local storage (GB) | Total network bandwidth (Gbps) |
 |---------|---------|---------|---------|---------|
-| mx3-metal-16x128 | 16 | 128 | 480 | 100 |
-| mx3d-metal-16x128 | 16 | 128 | 480 GB boot  \n 30.72 TB secondary storage (allocation of 4 x 7680) | 100 |
-| mx3-metal-48x512 | 48 | 512 | 480 | 100 |
-| mx3d-metal-48x512 | 48 | 512 | 480 GB boot  \n 30.72 TB secondary storage (allocation of 4 x 7680) | 100 |
-| mx3-metal-64x512 | 64 | 512 | 480 | 100 |
-| mx3d-metal-64x512 | 64 | 512 | 480 GB boot  \n 30.72 TB secondary storage (allocation of 4 x 7680) | 100 |
-| mx3d-metal-96x1024 | 96 | 1024 | 480, 8x7600 | 100 |
-| mx3d-metal-128x1024 | 128 | 1024 | 480 GB boot  \n 61.44 TB secondary storage (allocation of 8 x 7680) | 100 |
+| mx3-metal-16x128 | 16 | 128 | 480 | 200 |
+| mx3d-metal-16x128 | 16 | 128 | 480 GB boot  \n 30.72 TB secondary storage (allocation of 4 x 7680) | 200 |
+| mx3-metal-48x512 | 48 | 512 | 480 | 200 |
+| mx3d-metal-48x512 | 48 | 512 | 480 GB boot  \n 30.72 TB secondary storage (allocation of 4 x 7680) | 200 |
+| mx3-metal-64x512 | 64 | 512 | 480 | 200 |
+| mx3d-metal-64x512 | 64 | 512 | 480 GB boot  \n 30.72 TB secondary storage (allocation of 4 x 7680) | 200 |
+| mx3d-metal-96x1024 | 96 | 1024 | 480, 8x7600 | 200 |
+| mx3d-metal-128x1024 | 128 | 1024 | 480 GB boot  \n 61.44 TB secondary storage (allocation of 8 x 7680) | 200 |
 {: caption="Profile families for x3 and x3d" caption-side='top"}
 {: #bare-metal-memory-profiles-mx3d}
 {: tab-title="Memory profiles for x3 and x3d"}
@@ -134,8 +134,8 @@ The 960 GB of available local storage is composed of 2 960 GB SSDs in RAID1 for 
 
 | Name | vCPU | Memory (GiB) | Local storage (GB)  | Total network bandwidth (Gbps) |
 |---------|---------|---------|---------|---------|
-| vx3-metal-16x256 | 16 | 256 | 480	| 100 |
-| vx3d-metal-16x256 | 16 | 256 | 480 GB boot  \n 30.72 TB secondary storage (allocation of 4 x 7680) | 100 |
+| vx3-metal-16x256 | 16 | 256 | 480	| 200 |
+| vx3d-metal-16x256 | 16 | 256 | 480 GB boot  \n 30.72 TB secondary storage (allocation of 4 x 7680) | 200 |
 {: caption="Profile families for x3 and x3d" caption-side='top"}
 {: #bare-metal-memory-profiles-vx3d}
 {: tab-title="Very High Memory profiles for for x3 and x3d"}
@@ -145,8 +145,8 @@ The 960 GB of available local storage is composed of 2 960 GB SSDs in RAID1 for 
 
 | Name | vCPU | Memory (GiB) | Local storage (GB) | Total network bandwidth (Gbps) |
 |---------|---------|---------|---------|---------|
-| ux3-metal-16x512 | 16 | 512 | 480 | 100 |
-| ux3d-metal-16x512 | 16 | 512 | 480 GB boot  \n 30.72 TB secondary storage (allocation of 4 x 7680) | 100 |
+| ux3-metal-16x512 | 16 | 512 | 480 | 200 |
+| ux3d-metal-16x512 | 16 | 512 | 480 GB boot  \n 30.72 TB secondary storage (allocation of 4 x 7680) | 200 |
 {: caption="Profile families for x3 and x3d" caption-side="top"}
 {: #bare-metal-uhmemory-profiles-x3}
 {: tab-title="Ultra High Memory profiles for x3 and x3d"}
@@ -164,9 +164,9 @@ The following information describes the naming rule of the profiles.
 
 * _b_ represents _Balanced_ family profile - _c_ represents the _Compute_ family profile - _m_ represents the _Memory_ family profile - _v_ represents the _Very High Memory_ family profile.
 * _x_ represents the _x86_64_ CPU architecture.
-* _2_ represents the current generation of processors (Cascade Lake).
-* _3_ represents Sapphire Rapids processors.
-* _d_ represents support for _NVMe U.2_ SSDs.
+* _2_ represents previous generation Intel Cascade Lake processors.
+* _3_ represents current generation Intel Sapphire Rapids processors.
+* _d_ represents support for additional local storage.
 * "metal" denotes that the profile is a bare metal server.
 * The last position that contains numbers shows the amount of vCPUs and the amount of memory (GB). For example, _96x384_ means that this profile has 96 vCPUs and 384 GiB of memory.
 
@@ -174,10 +174,10 @@ Using “bx2d-metal-96x384” as an example, it's a _Balanced_ bare metal profil
 
 Bare metal profiles are dedicated servers that provide physical cores. vCPU measurements are used in profile naming only. vCPU to physical cores are a 2:1 ratio (e.g 96 vCPU = 48 physical cores).
 
-## Generation 3 (x3 and x3d) bare metal profiles availability by region
+## Generation 3 (x3) bare metal profiles availability by region
 {: #bare-metal-profile-availability-by-region-gen3}
 
-See the following table to see what Generation 3 (x3 and x3d) bare metal profiles are available by region.
+See the following table to see what Generation 3 (x3) bare metal profiles are available by region.
 
 | Profile |  us-south-dal10-a | us-south-dal12-a | us-south-dal13-a |
 | ------- | ----------- | ---------- | ---------- |
@@ -239,10 +239,10 @@ See the following table to see what Generation 3 (x3 and x3d) bare metal profile
 {: class="simple-tab-table"}
 {: summary="Use the buttons before the table to change the context of the table. The column headers identify the hardware class."}
 
-## Generation 2 (x2 and x2d) bare metal profiles availability by region
+## Generation 2 (x2) bare metal profiles availability by region
 {: #bare-metal-profile-availability-by-region}
 
-See the following table to see what Generation 2 (x2 and x2d) bare metal profiles are available by region.
+See the following table to see what Generation 2 (x2) bare metal profiles are available by region.
 
 | Profile |  us-south-dal10-a | us-south-dal12-a | us-south-dal13-a | us-east-wdc04-a | us-east-wdc06-a | ca-tor-tor04-a | ca-tor-tor05-a |
 | ------- | ----------- | ---------- | ---------- | --------- | -------- | -------- | -------- |
