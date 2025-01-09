@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-10-25"
+  years: 2024, 2025
+lastupdated: "2025-01-09"
 
 keywords:
 
@@ -53,7 +53,7 @@ However, if you need to restrict inbound traffic, you can specify a source CIDR,
 #### Outbound rules
 {: #nlb-outbound-rules}
 
-Ensure that your targets are in a security group and configured as the destination in the outbound rules. Using a nested security group allows your NLB to allow only outbound traffic to the target and health check ports.
+Ensure that your targets are in a security group and configured as the destination in the outbound rules. For more information, see [About security groups](/docs/vpc?topic=vpc-using-security-groups).
 
 | Protocol | Destination type | Destination | Value |
 |-----------|------|------|-------|
@@ -75,10 +75,7 @@ You can configure the outbound rules to be more permissive than shown (for examp
 | TCP| IP address | `Subnet CIDR or VPC security group` | `Listener port` |
 {: caption="Configuration information for inbound rules for private load balancers" caption-side="bottom"}
 
-It's a common practice to limit the inbound rules for a private load balancer to your own workload. Ensure that you specify the source from a specific subnet CIDR, or a security group that the source devices belong to. Using a specific CIDR, or nested security group, is preferred; however, individual IP addresses also work.
-
-A nested security group is an option only when clients are in the same VPC. If the clients are in a different VPC (or on-prem and connected to the load balancer’s VPC through Transit Gateway or Direct Link) you must identify the clients using IP addresses or CIDRs.
-{: note}
+It's a common practice to limit the inbound rules for a private load balancer to your own workload. Ensure that you specify the source from a specific subnet CIDR, or a security group that the source devices belong to. Using a specific CIDR is preferred; however, individual IP addresses also work. For more information, see [About security groups](/docs/vpc?topic=vpc-using-security-groups).
 
 #### Outbound rules
 {: #nlb-outbound-rules-private}
@@ -89,7 +86,7 @@ A nested security group is an option only when clients are in the same VPC. If t
 | TCP | Security group |  `Target security group` | `Health check port`(if different from the target port) |
 {: caption="Configuration information for outbound rules for private load balancers" caption-side="bottom"}
 
-Ensure that your targets are in a security group and configured as the destination in your outbound rules. Using a nested security group enables your NLB to allow only outbound traffic to the target and health check ports. Using a nested security group enables your NLB to allow only outbound traffic to the target and health check ports.
+Ensure that your targets are in a security group and configured as the destination in your outbound rules. For more information, see [About security groups](/docs/vpc?topic=vpc-using-security-groups).
 
 In addition, your targets must have connectivity to the DNS resolver in order to resolve your load balancer's name. This is because load balancers are accessed through their DNS name.
 
