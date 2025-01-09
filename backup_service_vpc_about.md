@@ -1,8 +1,8 @@
 ---
 
 copyright:
- years: 2022, 2024
-lastupdated: "2024-12-17"
+ years: 2022, 2025
+lastupdated: "2025-01-09"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -114,7 +114,7 @@ In a backup plan, you schedule the frequency of your backups. When you create a 
 In a backup plan, you schedule the frequency of your backups. When you create a plan with [Terraform](/docs/vpc?topic=vpc-create-backup-policy-and-plan&interface=terraform), you can use a `cron` expression to specify the frequency.
 {: terraform}
 
-You can specify the retention period or the total number of backups before the oldest is deleted. The interval for creating a backup and its retention period can be the same or they can be different. The default retention period is 30 days. You can also set the total number of backups to retain up to 750 per volume. When that number is exceeded, the oldest backups are deleted.
+You can specify the retention period or the total number of backups before the oldest is deleted. The interval for creating a backup and its retention period can be the same or they can be different. The default retention period is 30 days, but you can set the retention period value anywhere between 1 and 1000 days. You can also set the total number of backups to retain up to 750 per volume. When that number is exceeded, the oldest backups are deleted.
 
 If you specify both the age and the number of backups, age takes priority in determining when to delete a snapshot. The count applies only if the oldest snapshot is within the age range.
 

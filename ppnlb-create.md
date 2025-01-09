@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-11-14"
+  years: 2022, 2025
+lastupdated: "2025-01-08"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
 
@@ -149,7 +149,7 @@ To create a Private Path NLB from the CLI, follow these steps:
 1. Create a pool:
 
    ```sh
-   ibmcloud is load-balancer-pool-create nlb-pool r006-99b5ab45-6357-42db-8b32-5d2c8aa62776  weighted_round_robin tcp 10
+   ibmcloud is load-balancer-pool-create my-pool2 my-nlb round_robin tcp 20 2 5 udp
    ```
    {: pre}
 
@@ -200,7 +200,7 @@ To create a Private Path NLB from the CLI, follow these steps:
 1. Create a listener:
 
    ```sh
-   ibmcloud is load-balancer-listener-create r006-99b5ab45-6357-42db-8b32-5d2c8aa62776 7070 tcp --default-pool r006-3b66d605-6aa5-4166-9f66-b16054da3cb0
+   ibmcloud is load-balancer-listener-create my-lb --port 443 --protocol tcp --default-pool my-pool
    ```
    {: pre}
 

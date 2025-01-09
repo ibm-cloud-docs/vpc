@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-24"
+  years: 2020, 2025
+lastupdated: "2025-01-08"
 
 keywords: custom routes
 
@@ -149,7 +149,7 @@ This use case uses the following functions of Edge proxy firewalls:
 |-------------|--------|----------|---------|
 | `10.10.0.0/16` | Delegate |  | Dallas DC 1|
 | `10.11.0.0/16` | Delegate |  | Dallas DC 1|
-| `166.26.0.0/16` * | Delegate |  | Dallas DC 1|
+| `161.26.0.0/16` * | Delegate |  | Dallas DC 1|
 | `166.8.0.0/14` * | Delegate |  | Dallas DC 1|
 | `0.0.0.0/0` | Deliver | `10.10.1.5` | Dallas DC 1|
 {: caption="Public load balancer Web egress routing table" caption-side="bottom"}

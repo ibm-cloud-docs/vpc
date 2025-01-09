@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-12-17"
+  years: 2022, 2025
+lastupdated: "2025-01-09"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, faqs
 
@@ -73,7 +73,7 @@ Tags for snapshots are inherited from the source volume. When you restore a volu
 {: faq}
 {: #faq-baas-retention}
 
-You can specify that backups be kept 1 - 30 days (default). The retention period can't be shorter than the backup frequency or it returns an error.
+You can specify that backups be kept 1 - 1000 days, the default is 30. The retention period can't be shorter than the backup frequency or it returns an error.
 
 You can also specify the number of backups to retain, up to 750 per volume, after which the oldest backups are deleted.
 

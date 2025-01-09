@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-12-23"
+  years: 2023, 2025
+lastupdated: "2025-01-08"
 
 keywords:
 
@@ -86,7 +86,7 @@ First, a Consumer's application connects to the Consumer's VPE gateway within th
 
 Private Path allows connection between an IBM Cloud service like IBM Cloud Code Engine and your VPC without compromising security or putting your VPC at risk. Code Engine is a multi-tenant compute service that runs source-code or containerized workloads. Its dynamic scaling capabilities allow your apps to automatically scale up and down, even to zero, based on incoming requests. With it’s pay-per-use model, Code Engine only charges for the compute capacity you actually use. For more information, see [IBM Cloud Code Engine](https://www.ibm.com/products/code-engine).
 
-Figure 4 illustrates how to establish a Private Path service with connections to the VPE gateway of a Code Engine application and your VPC. First, the Code Engine application connects to the VPE gateway within the Code Engine's VPC. Then, the VPE gateway connects to the Private Path NLB in the Consumer's VPC. In turn, the Private Path NLB connects to the Consumer's application. The Consumer's application then responds to the request. This Private Path service activity is completely contained in a single region (US South) in an IBM Cloud private network.
+Figure 4 illustrates how to establish a Private Path service with connections to the VPE gateway of a Code Engine application and your VPC. First, the Code Engine application connects to the VPE gateway within the Code Engine's VPC. Then, the VPE gateway connects to the Private Path NLB in the Provider's VPC. In turn, the Private Path NLB connects to the Provider's application. The Provider's application then responds to the request. This Private Path service activity is completely contained in a single region (US South) in an IBM Cloud private network.
 
 ![Use Code Engine and Private Path to deploy complex architecture with dynamic and static scaling needs](images/private_path_detailed_4.svg "Use Code Engine and Private Path to deploy complex architecture with dynamic and static scaling needs"){: caption="Use Code Engine and Private Path to deploy complex architecture with dynamic and static scaling needs" caption-side="bottom"}  
 

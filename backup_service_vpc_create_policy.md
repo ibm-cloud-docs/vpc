@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-12-17"
+  years: 2022, 2025
+lastupdated: "2025-01-09"
 
 keywords: Backup, backup snapshot, create backups, backup service, backup plan, backup policy, restore, restore volume, restore data, restore share
 
@@ -92,7 +92,7 @@ You can schedule backups in your plan on a daily, weekly, or monthly basis by us
 
 1. Specify a **Retention type** for the backups. You can specify how long to keep them by the number of days and the total number to retain.
 
-   * For **Age**, specify the number of days that you want to retain the backups. A default value for the maximum number of days to keep a backup is not provided.
+   * For **Age**, specify the number of days that you want to retain the backups in the range of 1 to 1000. 
    * For **Count**, provide the number of backups that you want to keep.
 
    To keep costs down, set a retention period or snapshots count adequate to your needs. For example, setting "7" for **Age** retains a week's worth of backups.

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-12-17"
+  years: 2022, 2025
+lastupdated: "2025-01-09"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -65,7 +65,7 @@ Albeit you cannot schedule the creation of snapshots for a replica share, your r
 
 Apply best practices when you create a backup strategy. The following example illustrates how you might set up a backup solution.
 
-Assume you have 10 volumes that are spread across different departments. Some volumes contain time-critical information that you need to back up hourly. Other volumes contain archived information that doesn't change much, so you'd prefer to back them up weekly. You can create four backup plans per policy.
+Assume that you have 10 volumes that are spread across different departments. Some volumes contain time-critical information that you need to back up hourly. Other volumes contain archived information that doesn't change much, so you'd prefer to back them up weekly. You can create four backup plans per policy.
 
 Create a backup policy with an hourly backup plan for the time-critical volumes:
 
@@ -75,7 +75,7 @@ Create a backup policy with an hourly backup plan for the time-critical volumes:
 
    * If your volume already contains tags, verify that another backup policy isn't already backing up the volume. If that's the case, remove the extra tag from the volume so that it is not backed up twice, and incurring extra costs.
 
-   * Set a retention period that does not exceed the total backup limitation of 10 TB. For hourly backups, you might need a shorter retention period than daily or weekly backups.
+   * Set a retention period that does not exceed 1000 days, and does not result in the total volume of backups over 10 TB. For hourly backups, you might need a shorter retention period than daily or weekly backups.
 
 Create a weekly backup plan for archived data:
 
@@ -85,7 +85,7 @@ Create a weekly backup plan for archived data:
 
 If you specify both age and the number of backups in your retention policy, age takes priority in determining when to delete a snapshot. The count applies only if the oldest snapshot is within the age range.
 
-For example, when you create the weekly plan and specify the retention period as 365 days, you can also specify the maximum count of 8. In this scenario, you're going to get a maximum of 8 backups in the chain, with the oldest being 8 weeks old. Alternatively, if you specify 30 days as your retention period and set the number of maximum backups to 8, by the time the 5th backup is taken, the first one is going to be deleted as it is outside of the 30-day retention period.
+For example, when you create the weekly plan and specify the retention period as 365 days, you can also specify the maximum count of 8. In this scenario, you're going to get a maximum of 8 backups in the chain, with the oldest being 8 weeks old. Alternatively, you can specify 30 days as your retention period and set the number of maximum backups to 8. Then, by the time the 5th backup is created, the first backup is going to be deleted as it is outside of the 30-day retention period.
 
 ## Next Steps
 {: #baas-bp-next-steps}
