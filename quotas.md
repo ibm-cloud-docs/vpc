@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-12-17"
+  years: 2018, 2025
+lastupdated: "2025-01-09"
 
 keywords:
 
@@ -190,7 +190,7 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 {: #block-storage-quotas}
 
 | Resource | Quota |
-|--------|-----|
+|----------|-------|
 | Boot and secondary volumes | 300 total VPC volumes per region. |
 | Snapshots and backup snapshots | Up to 750 per volume in a region. |
 {: caption="Quotas for Block Storage volumes and snapshots" caption-side="bottom"}
@@ -199,18 +199,29 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 {: #file-storage-quotas}
 
 | Resource | Quota |
-|--------|-----|
+|----------|-------|
 | File shares | 300 file shares per account, across all VPCs |
 | Mount targets | 256 per file share per account per zone |
 | Accessor share bindings | A file share can have maximum of 100 accessor bindings.|
-| Snapshots and backup snapshots | Up to 750 per share in a region. [New]{: tag-new}|
-| Snapshots and backup snapshots | The total snapshot size that is allocated to a file can't exceed 8 times the size of the share. [New]{: tag-new}|
+| Snapshots and backup snapshots | Up to 750 per share in a region.|
+| Snapshots and backup snapshots | The total snapshot size that is allocated to a file can't exceed 8 times the size of the share.|
 {: caption="Quotas for file shares" caption-side="bottom"}
 
 #### Share mount targets
 {: #smt}
 
 10 per file share
+
+### Backup policies and plans
+{: #backup-quotas}
+
+| Resource | Quota |
+|----------|-------|
+| Backup policies |  You can create up to 10 backup policies per region. |
+| File shares | The cumulative size of all backups for a share can't exceed 100 TB. |
+| Block volumes | The cumulative size of all backups for a volume can't exceed 10 TB. |
+| Retention period | You can keep your backup snapshots for up to 1000 days. |
+{: caption="Quotas for file shares" caption-side="bottom"}
 
 ### Placement groups
 {: #placement-group-quotas}
