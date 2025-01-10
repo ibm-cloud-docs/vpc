@@ -33,7 +33,8 @@ Flow log collector attributes shown in the table are as follows:
 * **Target** - The specified resource the collector logs traffic for.
 * **Target type** - The type of target (for example, VPC, Subject, Instance).* 
 * **Object Storage Bucket** - The selected {{site.data.keyword.cos_full_notm}} bucket where the system saves flow log files.
-* **Resource group** - Resource group associated with this flow log.  
+* **Resource group** - Resource group associated with this flow log.
+* **Created date (Local)** - Date created, specified in your local browser time zone. 
 
 ##  Listing flow log collectors from the CLI
 {: #fl-list-cli}
