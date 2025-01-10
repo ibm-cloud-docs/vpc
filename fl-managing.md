@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-25"
+  years: 2020, 2025
+lastupdated: "2025-01-10"
 
 keywords:
 
@@ -16,7 +16,7 @@ subcollection: vpc
 
 You can list your flow log collectors by using the UI, the CLI, or the API.
 
-## Using the UI
+##  Listing flow log collectors in the UI
 {: #fl-list-ui}
 {: ui}
 
@@ -27,21 +27,15 @@ To list your flow log collectors by using the IBM Cloud console:
 
 Flow log collector attributes shown in the table are as follows:
 
+* **Name** - The flow log name.
 * **Status** - The status of the flow log collector (Example: Stable, Failed, Pending).
 * **Active** - On/Off flag for the flow log. If Active, the flow log collector is set to write log files. If Suspended, the collector is deactivated and not writing log files.
-* **Name** - The flow log name.
 * **Target** - The specified resource the collector logs traffic for.
-* **Date Created** - The date the flow log collector was provisioned.
+* **Target type** - The type of target (for example, VPC, Subject, Instance).* 
 * **Object Storage Bucket** - The selected {{site.data.keyword.cos_full_notm}} bucket where the system saves flow log files.
+* **Resource group** - Resource group associated with this flow log.  
 
-Notice that the page includes tabbed views, which show flow log collectors that were created with that target type.
-
-* **VPC** - Shows flow log collectors that are attached directly to a VPC.
-* **Subnet** - Shows flow log collectors that are attached directly to a subnet within the specified VPC.
-* **Instance** - Shows all flow log collectors that are attached directly to a virtual server instance within the specified VPC.
-* **Interface** - Shows all flow log collectors that are attached directly to a network interface of a virtual server instance within the specified VPC.
-
-## Using the CLI
+##  Listing flow log collectors from the CLI
 {: #fl-list-cli}
 {: cli}
 
@@ -60,7 +54,7 @@ Where:
 - **--resource-group-name** is the name of the resource group. This option is mutually exclusive with **--resource-group-id**.
 - **--json** formats the output in JSON.
 
-## Using the API
+## Listing flow log collectors with the API
 {: #fl-list-api}
 {: api}
 
