@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2025-01-06"
+lastupdated: "2025-01-10"
 
 subcollection: vpc
 
@@ -56,4 +56,4 @@ In case of a hardware failure, the dedicated host and the instances that are run
 
 If a host hardware failure occurs, the instances that you initially provisioned to a dedicate host group might be migrated to another existing dedicated host in the group if capacity is available.
 
-For more information, see [Viewing notifications](docs/account?topic=account-viewing-cloud-status#view-notifications) and [Host failure recovery policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=ui).
+For more information, see [Viewing notifications](/docs/account?topic=account-viewing-cloud-status#view-notifications) and [Host failure recovery policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=ui).
