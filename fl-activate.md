@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-06-20"
+  years: 2019, 2025
+lastupdated: "2025-01-10"
 
 keywords: flow logs, activate, deactivate, suspend, resume
 
@@ -23,11 +23,15 @@ After you create a flow log collector, its default state is `Active`.
 {: #fl-managing-ui}
 {: ui}
 
-To suspend an `Active` flow log collector, click the Actions menu ![Actions menu](images/overflow.png) and select **Suspend**.
+To suspend an `Active` flow log collector, click the Actions menu ![Actions menu](images/overflow.png) and select **Suspend**. 
 
-Suspending the flow log stops the flow log from writing to the {{site.data.keyword.cos_full}} bucket.
+Suspending the flow log stops the flow log from writing to the {{site.data.keyword.cos_full}} bucket.   
+{: note}
 
-To resume a suspended flow log, select **Resume** from the Actions menu ![Actions menu](images/overflow.png).
+To resume a suspended flow log, select **Resume** from the Actions menu ![Actions menu](images/overflow.png). 
+
+Alternatively, you can suspend and resume a flow log collector from the flow log's details page using the **Active**/**Inactive** switch. 
+{: tip}
 
 ## Suspending and resuming a flow log collector from the CLI
 {: #fl-managing-cli}
