@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-11-13"
+  years: 2024, 2025
+lastupdated: "2025-01-11"
 
 keywords:
 
@@ -67,7 +67,7 @@ To publish a Private Path service from the CLI, follow these steps:
 1. Enter the following command:
 
 ```sh
-ibmcloud is private-path-service-gateway-update PRIVATE_PATH_SERVICE_GATEWAY
+ibmcloud is private-path-service-gateway-publish PRIVATE_PATH_SERVICE_GATEWAY
     [--output JSON]
     [-f, --force]
     [-q, --quiet]
