@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-12-17"
+  years: 2021, 2025
+lastupdated: "2025-01-13"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -42,11 +42,9 @@ You can [increase the file share size](/docs/vpc?topic=vpc-file-storage-expand-c
 
 When you create a file share in your availability zone, you use the **dp2** profile to specify the total IOPS for the file share based on the share size.
 
-If you have existing file shares that are based on either the IOPS tier profiles or custom IOPS profile; you can update those shares to use the **dp2** profile. You can also change back to an earlier profile. However, you cannot use the earlier profiles when you provision a file share.
+If you have existing file shares that are based on either the IOPS tier profiles or custom IOPS profile; you can update those shares to use the **dp2** profile.
 
-All profiles are backed by solid-state drives (SSDs).
-
-For more information, see [{{site.data.keyword.filestorage_vpc_short}} profiles](/docs/vpc?topic=vpc-file-storage-profiles).
+All profiles are backed by solid-state drives (SSDs). For more information, see [{{site.data.keyword.filestorage_vpc_short}} profiles](/docs/vpc?topic=vpc-file-storage-profiles).
 
 ## Encryption at rest
 {: #FS-encryption}
