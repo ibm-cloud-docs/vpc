@@ -41,14 +41,3 @@ In the event of a network outage in a specific [zone](#x2070723){: term}, you ma
 The following diagram illustrates how to distribute your workload across [multizone regions](#x9774820){: term}. ach VPN gateway is dedicated to providing access to the VPC network within the same zone, ensuring resilience and minimizing the impact of localized outages.
 
 ![VPN gateway HA in multiple zones](images/vpn-gateway-ha-in-multiple-zones.png "VPN gateway HA in multiple zones"){: caption="VPN gateway HA in multiple zones" caption-side="bottom"}
-
-### High availability features
-{: #ha-features-vpn}
-
-VPN for VPC supports the following high availability features: 
-
-| Feature | Description | Consideration |
-| -------------- | -------------- | -------------- |
-| HA Feature | Description of HA feature | Consideration information for service name |
-| HA Feature | Description of HA feature | Consideration information for service name |
-{: caption="HA features for VPN for VPC" caption-side="bottom"}
