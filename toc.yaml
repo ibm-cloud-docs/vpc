@@ -79,7 +79,6 @@ toc:
                topics:
                - vpc-secure-boot.md
                - confidential-computing-secure-boot.md
-               - STAGING-sgx-dcap-attestation.md
            - topicgroup:
                label: Confidential computing with SGX for VPC
                topics:
