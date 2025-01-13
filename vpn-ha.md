@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years:  2022, 2024
-lastupdated: "2024-10-10"
+  years:  2022, 2025
+lastupdated: "2025-01-13"
 
 keywords: VPN, vpn gateways, HA, High availability, Redundancy
 
@@ -12,21 +12,43 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# VPN gateway high availability
+# Understanding high availability for VPN for VPC
 {: #vpn-ha}
 
-## VPN gateway high availability in a single-zone
+[High availability](#x2284708){: term} (HA) is the ability for a service to remain operational and accessible in the presence of unexpected failures. 
+
+VPN for VPC is a regional service and you can find the available region and data center locations in the [Service and infrastructure availability by location](/docs/overview?topic=overview-services_region) documentation. As a regional service, VPN for VPC fulfills the defined [Service Level Objectives (SLO)](/docs/resiliency?topic=resiliency-slo) with the Standard plan. The SLO is not a warranty and IBM will not issue credits for failure to meet an objective.
+
+## High availability architecture
+{: #ha-architecture-vpn}
+
+This section provides an overview of the high availability architecture for a VPN gateway, starting with a depiction of a single-zone configuration followed by a discussion of a multi-zone region setup for enhanced redundancy and fault tolerance.
+
+### VPN gateway high availability in a single-zone
 {: #vpn-ha-in-single-zone}
 
-A VPN gateway consists of two back-end instances in the same zone for high availability. The VPN service monitors the back-end instances and fails over when the back-end instance is down. VPN routine maintenance is performed with rolling upgrade of the two back-end instances. During the maintenance, you might see a VPN private IP address change. The VPN public IP addresses are not impacted and your VPN connections are switched over to the available instance automatically.
+A VPN gateway is composed of two back-end instances within the same zone to ensure high availability. The VPN service continuously monitors these instances and automatically fails over to the other instance in the event of a failure. Routine maintenance of the VPN is conducted through rolling upgrades of the two back-end instances. During maintenance, the VPN’s private IP address may change, but the public IP addresses remain unaffected, and your VPN connections will automatically switch to the available instance.
 
 ![VPN gateway HA in single zone](images/vpn-gateway-ha.png "VPN gateway HA in single zone"){: caption="VPN gateway HA in single zone" caption-side="bottom"}
 
-## VPN gateway high availability in a Multizone region
+### VPN gateway high availability in a multizone region
 {: #vpn-gateway-ha-in-multiple-zones}
 
-When a network outage occurs in a [zone](#x2070723){: term}, you might lose network access to all resources, including the VPN gateway in that zone. It is recommended to spread your workload across zones with a VPN gateway in each zone, and load-balance between zones to achieve high availability.
+When a network outage occurs in a [zone](#x2070723){: term},
 
-Figure 2 describes how to spread your workload in [multizone regions](#x9774820){: term}. Each VPN gateway in the zone is to be used to access only the VPC network in the same zone.
+In the event of a network outage in a specific [zone](#x2070723){: term}, you may lose network access to all resources within that zone, including the VPN gateway. To ensure high availability, it is recommended to distribute your workload across multiple zones, with a VPN gateway in each zone, and implement load balancing between zones.
+
+The following diagram illustrates how to distribute your workload across [multizone regions](#x9774820){: term}. ach VPN gateway is dedicated to providing access to the VPC network within the same zone, ensuring resilience and minimizing the impact of localized outages.
 
 ![VPN gateway HA in multiple zones](images/vpn-gateway-ha-in-multiple-zones.png "VPN gateway HA in multiple zones"){: caption="VPN gateway HA in multiple zones" caption-side="bottom"}
+
+### High availability features
+{: #ha-features-vpn}
+
+VPN for VPC supports the following high availability features: 
+
+| Feature | Description | Consideration |
+| -------------- | -------------- | -------------- |
+| HA Feature | Description of HA feature | Consideration information for service name |
+| HA Feature | Description of HA feature | Consideration information for service name |
+{: caption="HA features for VPN for VPC" caption-side="bottom"}
