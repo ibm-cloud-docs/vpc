@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-12-10"
+  years: 2019, 2025
+lastupdated: "2025-01-14"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -386,10 +386,10 @@ The following Storage Optimized profiles are available for x86-64 processors:
 
 [Select availability]{: tag-green}
 
-The following profiles support Confidential computing with Intel Software Guard Extensions (SGX) and secure boot.
+Confidential computing with Intel SGX for VPC is available only in the Dallas (us-south) and Frankfurt (eu-de) regions. Confidential computing with Intel TDX for VPC is available only in the Washington DC (us-east) region.
+{: preview}
 
-The confidential computing profiles are available only in the Dallas (us-south) and Frankfurt (eu-de) regions.
-{: note}
+The following profiles support Confidential computing with Intel Software Guard Extensions (SGX), Confidential computing with Intel Trusted Domain Extension (TDX), and secure boot.
 
 For more information about confidential computing, see [Confidential computing for x86 Virtual Servers for VPC](/docs/vpc?topic=vpc-about-sgx-vpc).
 

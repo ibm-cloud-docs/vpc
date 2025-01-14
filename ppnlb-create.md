@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-01-08"
+lastupdated: "2025-01-14"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports
 
@@ -113,7 +113,7 @@ To create a Private Path NLB from the CLI, follow these steps:
 1. Create a Private Path NLB:
 
    ```sh
-   ibmcloud is load-balancer-create ppnlb-test private-path --subnet 0896-b1f24514-89dc-4afd-b0e2-5489a43cf45c --family network
+   ibmcloud is load-balancer-create ppnlb-test private-path --subnet cli-subnet-1 --family network
    ```
    {: pre}
 
@@ -122,137 +122,156 @@ To create a Private Path NLB from the CLI, follow these steps:
    ```sh
    Creating load balancer ppnlb-test in resource group under account IBM Cloud Network Services as user test@ibm.com...
 
-    ID                 r006-99b5ab45-6357-42db-8b32-5d2c8aa62776
+    ID                 
     Name               ppnlb-test
-    CRN                crn:v1:public:is:us-south-1:a/6266f0fbb7df487d8438b9b31d24cd96::load-balancer:r006-99b5ab45-6357-42db-8b32-5d2c8aa62776
+    CRN                
     Family             Network
-    Host name          99b5ab45-us-south.lb.test.appdomain.cloud
+    Host name         
     Subnets            ID                                          Name
-                       0896-b1f24514-89dc-4afd-b0e2-5489a43cf45c   ppnlb
+                                                                   cli-subnet-2
 
     Public IPs
-    Private IPs
+    Reserved IPs         ID                                          Address        Subnet    
+
     Provision status   create_pending
     Operating status   offline
     Is public          false
+    Is private path    true   
     Listeners
-    Pools              ID   Name
-
+    Pools              ID                                 Name
+                                                          my-pool
     Resource group     ID                                 Name
-                       3021f90279574ce287dd5fba82c08899   Default
+                                                          Default
 
-    Created            2020-08-27T14:34:34.732-05:00
-   ```
-   {: screen}
+    Created            2025-01-10T15:07:53+05:30  
+    Availability                 region   
+    Instance Group Supported     false   
+    SourceIP Session Supported   false   
+    Security groups supported    false   
+    UDP Supported                false   
+    Access mode                  private_path 
+    ```
+    {: screen}
 
 
 1. Create a pool:
 
    ```sh
-   ibmcloud is load-balancer-pool-create my-pool2 my-nlb round_robin tcp 20 2 5 udp
+   ibmcloud is load-balancer-pool-create my-pool pp-nlb-test round_robin tcp 20 2 5 http
    ```
    {: pre}
 
    Sample output:
 
    ```sh
-   Creating pool nlb-pool of load balancer r006-99b5ab45-6357-42db-8b32-5d2c8aa62776  under account IBM Cloud Network Services as user test@ibm.com...
+   Creating pool my-pool of load balancer my-pool under account IBM Cloud Network Services as user test@ibm.com...
 
-   ID                         r006-3b66d605-6aa5-4166-9f66-b16054da3cb0
-   Name                       nlb-pool
+   ID                         
+   Name                       my-pool
    Protocol                   tcp
-   Algorithm                  weighted_round_robin
+   Algorithm                  round_robin
    Instance group             ID   Name
                               -    -
-
+   Proxy protocol        disabled
    Health monitor             Type   Port   Health monitor URL   Delay   Retries   Timeout
-                              http   8080   /                    10      2         5
+                              http   -      /                    20      2         5
 
-   Session persistence type   source_ip
+   Session persistence type   Type   Cookie name
+                              -      -
+   
    Members
-   Provision status           active
-   Created                    2020-08-27T14:45:42.038-05:00
+   Provision status           create_pending
+   Created                    2025-01-10T20:44:57+05:30
    ```
    {: screen}
 
 1. Create a member:
 
    ```sh
-   ibmcloud is load-balancer-pool-member-create r006-99b5ab45-6357-42db-8b32-5d2c8aa62776 r006-3b66d605-6aa5-4166-9f66-b16054da3cb0 9090 0716_6acdd058-4607-4463-af08-d4999d983945 --weight 70
+   ibmcloud is load-balancer-pool-member-create test-ppnlb-1 test 3000 my-instance   
    ```
    {: pre}
 
    Sample output:
 
    ```sh
-   Creating member of pool r006-3b66d605-6aa5-4166-9f66-b16054da3cb0 under account IBM Cloud Network Services as user test@ibm.com...
+   Creating member of pool test under account IBM Cloud Network Services as user test@ibm.com...
 
-   ID                 r006-61f8b000-a90d-4abe-909e-c507dffec565
-   Port               9090
-   Target             0716_6acdd058-4607-4463-af08-d4999d983945
-   Weight             70
-   Health             unknown
-   Created            2020-08-27T14:59:55.446-05:00
-   Provision status   create_pending
+   ID                 test
+   Port               3000   
+   Target             10.240.66.14   
+   Weight             50   
+   Health             unknown   
+   Created            0001-01-01T05:53:28+05:53   
+   Provision status   create_pending 
    ```
    {: screen}
 
 1. Create a listener:
 
    ```sh
-   ibmcloud is load-balancer-listener-create my-lb --port 443 --protocol tcp --default-pool my-pool
+   ibmcloud is load-balancer-listener-create ppnlb-test --port-min 443 --protocol tcp      
    ```
    {: pre}
 
    Sample output:
 
    ```sh
-   Creating listener of load balancer r006-99b5ab45-6357-42db-8b32-5d2c8aa62776 under account IBM Cloud Network Services as user test@ibm.com...
+   Creating listener of load balancer ppnlb-test under account IBM Cloud Network Services as user test@ibm.com...
 
-   ID                     r006-2847a948-f9b6-4fc1-91c6-f1c49dac3eba
-   Certificate instance   -
-   Connection limit       -
-   Port                   7070
-   Protocol               tcp
-   Default pool           r006-3b66d605-6aa5-4166-9f66-b16054da3cb0
-   Provision status       create_pending
-   Created                2020-08-27T15:16:08.643-05:00
+   ID                     
+   Certificate instance      -
+   Connection limit          -
+   Ports                     443
+   Idle connection timeout   -   
+   Protocol                  tcp
+   Default pool              -
+   Accept proxy protocol     false   
+   Provision status          create_pending
+   Created                   2025-01-10T21:02:37+05:30
    ```
    {: screen}
 
 1. Get details about your load balancer:
 
    ```sh
-   ibmcloud is load-balancer r006-99b5ab45-6357-42db-8b32-5d2c8aa62776
+   ibmcloud is load-balancer ppnlb-test
    ```
    {: pre}
 
    Sample output:
 
    ```sh
-   Getting load balancer r006-99b5ab45-6357-42db-8b32-5d2c8aa62776 under account IBM Cloud Network Services as user test@ibm.com...
+   Getting load balancer ppnlb-test under account IBM Cloud Network Services as user test@ibm.com...
 
-   ID                 r006-99b5ab45-6357-42db-8b32-5d2c8aa62776
-   Name               nlb-test
-   CRN                crn:v1:public:is:us-south-1:a/6266f0fbb7df487d8438b9b31d24cd96::load-balancer:r006-99b5ab45-6357-42db-8b32-5d2c8aa62776
+   ID                 
+   Name               ppnlb-test
+   CRN                
    Family             Network
-   Host name          99b5ab45-us-south.lb.test.appdomain.cloud
+   Host name      
    Subnets            ID                                          Name
-                      0896-b1f24514-89dc-4afd-b0e2-5489a43cf45c   nlb
+                                                                  nlb
 
    Public IPs         
-   Private IPs        10.240.0.58, 10.240.0.59
+   Reserved IPs       ID                                          Address        Subnet     
    Provision status   active
    Operating status   online
    Is public          false
-   Listeners          r006-2847a948-f9b6-4fc1-91c6-f1c49dac3eba
+   Is private path    true   
+   Listeners        
    Pools              ID                                          Name
-                      r006-3b66d605-6aa5-4166-9f66-b16054da3cb0   ppnlb-pool
+                                                                  my-pool
 
    Resource group     ID                                 Name
-                      3021f90279574ce287dd5fba82c08899   Default
+                                                         Default
 
-   Created            2020-08-27T14:34:34.732-05:00
+   Created                      2025-01-10T15:07:53+05:30   
+   Availability                 region   
+   Instance Group Supported     false   
+   SourceIP Session Supported   false   
+   Security groups supported    false   
+   UDP Supported                false   
+   Access mode                  private_path 
    ```
    {: screen}
 

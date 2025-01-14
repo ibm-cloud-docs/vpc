@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-12-17"
+  years: 2021, 2025
+lastupdated: "2025-01-14"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -45,7 +45,7 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
 
    | Field | Value |
    |-------|-------|
-   | **Location** | Choose the geography, region, and zone where you want to create the file share. Location information is inherited from the VPC, for example, North America, Dallas, Dallas 2. |
+   | **Location** | Choose the geography, region, and zone where you want to create the file share. Location information can be inherited from the VPC, for example, North America, Dallas (us-south), us-south-2. |
    | **Details** | |
    | Name  | Specify a meaningful name for your file share. The file share name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. You can later edit the name if you want.
    | Resource Group | Use the default resource group or specify a [Resource group](/docs/vpc?topic=vpc-iam-getting-started&interface=ui#iam-resource-groups). Resource groups help organize your account resources for access control and billing purposes. |
@@ -54,7 +54,7 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
    | Profile | All file shares are created with the dp2 profile. For more information, see [file Storage profiles](/docs/vpc?topic=vpc-file-storage-profiles). \n Select the size and IOPS for your file share. You can increase the capacity later, and you can also adjust the IOPS as needed. |
    | Mount target access mode  | Select how you want to manage access to this file share: |
    |  | Security group: Access to the file share is based on [security group](/docs/vpc?topic=vpc-using-security-groups#sg-getting-started) rules. This option can be used to restrict access to specific virtual server instances. You can also use this option if you want to mount the file share to a virtual server instance in another zone. This option is recommended as you have more control over who can access the data that is stored on the file share. When you choose this type of access, you can also specify the allowed transit encryption modes. |
-   |  | Virtual private cloud: Access to the file share is granted to any virtual server instance in the same region. Cross-zone mounting and encryption in transit are not supported. |
+   |  | Virtual private cloud: Access to the file share is granted to any virtual server instance in the same region. Cross-zone mounting, encryption in transit, cross-zone mounting, and snapshots are not supported when this access mode is selected.  |
    | Allowed transit encryption modes| As the share owner, you can specify how you want clients within your account and authorized accounts to connect to your file share. You can select *none* if you do not want them to use encryption in transit, and *user-managed* if you want them to use encryption in transit. If you select both, then the transit encryption type of the first mount target decides the transit encryption types of all future mount targets within the account. |
    {: caption="Values for creating a file share" caption-side="top"}
 
@@ -62,7 +62,7 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share wit
 
    - If you selected security group as the access mode, enter the information as described in the Table 2. This action creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target that identifies the file share with a reserved IP address and applies the rules of the selected Security group. This mount target supports encryption-in-transit and cross-zone mounting.
       1. Provide a mount target name. The name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. You can later edit the name if you want.
-      2. Select an available VPC. The list includes only those VPCs with a subnet in the selected zone. The zone selection is inherited from the file share (for example, Dallas 2).
+      2. Select an available VPC. The list includes only those VPCs with a subnet in the selected location. The location selection is inherited from the file share (for example, us-south-2).
       3. A default virtual network interface is generated. You can customize it by clicking the Edit icon ![Edit icon](/images/edit.png). You can change the name or subnet if you have multiple subnets in the zone.
       4. Click **Next**.
       5. **Encryption in transit** is disabled by default, click the toggle to enable. For more information about this feature, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit). 
@@ -102,8 +102,8 @@ If you're not ready to order yet or just looking for pricing information, you ca
 
    - If the share has security group access mode, enter the following information. This action creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target that identifies the file share with a reserved IP address and applies the rules of the selected [security group](/docs/vpc?topic=vpc-using-security-groups#sg-getting-started). This mount target supports encryption-in-transit and cross-zone mounting.
      1. Provide a mount target name. The name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. You can later edit the name if you want.
-     2. Select an available VPC. The list includes only those VPCs with a subnet in the selected zone. The zone selection is inherited from the file share (for example, Dallas 2).
-     3. A default virtual network interface is generated. You can customize it by clicking the Edit icon ![Edit icon](/images/edit.png). You can change the name or subnet if you have multiple subnets in the zone.
+     2. Select an available VPC. The list includes only those VPCs with a subnet in the selected location. The location selection is inherited from the file share (for example, us-south-2).
+     3. A default virtual network interface is generated. You can customize it by clicking the Edit icon ![Edit icon](/images/edit.png). You can change the name or subnet if you have multiple subnets in the location.
      4. Click **Next**.
      5. **Encryption in transit** is disabled by default, click the toggle to enable. For more information about this feature, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit). 
      6. Then, click **Next**. 
