@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-11-06"
+  years: 2023, 2025
+lastupdated: "2025-01-14"
 
 keywords: sgx, intel sgx, software guard extension, confidential computing, trusted execution environment, TEE, data protection
 
@@ -13,40 +13,47 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Confidential computing with Intel Software Guard Extensions (SGX) for Virtual Servers for VPC
+# Confidential computing for x86 Virtual Servers for VPC
 {: #about-sgx-vpc}
 
 [Select availability]{: tag-green}
 
-Confidential computing with Intel&reg; Software Guard Extensions (SGX) protects your data through hardware-based server security by using isolated memory regions that are known as encrypted enclaves. This hardware-based computation helps protect your data from disclosure or modification. Which means that your sensitive data is encrypted while it is in virtual server instance memory by allowing applications to run in private memory space. To use SGX, you must install the SGX drivers and platform software on SGX-capable worker nodes. Then, design your app to run in an SGX environment. For more information about SGX, see [Intel Software Guard Extensions](https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/overview.html).
+Confidential computing is a new technology that offers technical assurances that customer workloads and data are confidential and protected from everyone including the Cloud Service Provider(CSP).
 {: shortdesc}
 
-Confidential computing is only available with select profiles. For more information, see [SGX-compatible profiles](/docs/vpc?topic=vpc-about-sgx-vpc&interface=ui#compatible-profiles-confidential-computing-vpc-sgx).
-{: note}
+Confidential computing with Intel SGX for VPC is available only in the Dallas (us-south) and Frankfurt (eu-de) regions. Confidential computing with Intel TDX for VPC is available for select customers. Contact IBM Sales if you are interested in being allowlisted and using this offering.  Confidential computing with Intel TDX for VPC is available only in the Washington DC (us-east) region. Confidential computing is only available with select profiles. For more information, see [SGX-compatible profiles](/docs/vpc?topic=vpc-about-sgx-vpc&interface=ui#compatible-profiles-confidential-computing-vpc-sgx).
+{: preview}
 
-## Confidential computing
+## Confidential computing with Intel Trusted Domain Extension (TDX)
+{: #confidential-computing-vpc-tdx}
+
+ Confidential computing with Intel Trust Domain Extensions(TDX) offers confidentiality to virtual machines by providing CPU enhancements that are leveraged by the firmware and hardware to provide confidentiality and integrity. Everything within these virtual machine is confidential and can't be eavesdropped. Also, everything within these virtual machine is integrity protected and can't be tampered. For more information about TDX, see [Intel Trust Domain Extensions](https://www.intel.com/content/www/us/en/developer/tools/trust-domain-extensions/overview.html){: external}.
+
+## Confidential computing with Intel Software Guard Extensions (SGX)
 {: #confidential-computing-vpc-sgx}
 
-When you use confidential computing with SGX, your data is protected through the entire compute lifecycle. Which means that your data is accessible only to authorized code and is invisible to anyone or anything else, including the operating system and even {{site.data.keyword.cloud}}.
+Confidential computing with Intel&reg; Software Guard Extensions (SGX) protects your data through hardware-based server security by using isolated memory regions that are known as encrypted enclaves. This hardware-based computation helps protect your data from disclosure or modification. Which means that your sensitive data is encrypted while it is in virtual server instance memory by allowing applications to run in private memory space. To use SGX, you must install the platform software on SGX-capable worker nodes. Then, design your app to run in an SGX environment. While your sensitive data is inside an encrypted enclave, your data is split into trusted and untrusted parts. While the trusted parts are used in the encrypted enclave, the CPU denies all other access to the enclave regardless of access privileges. The data is guarded from internal and external threats and can't be stolen or sabottaged.
 
-### SGX is a trusted execution environment (TEE)
+When you use confidential computing with SGX, your data is protected through the entire compute lifecycle. Which means that your data is accessible only to authorized code and is invisible to anyone or anything else, including the operating system and {{site.data.keyword.cloud}}.
+
+### SGX and TDX are trusted execution environments (TEE)
 {: #tee-sgx-vpc}
 
-SGX uses a trusted execution environment (TEE). TEE is a secure area of the main processor that provides a higher level of data security for trusted data and applications.
+Both SGX and TDX use a trusted execution environment (TEE). TEE is a secure area of the main processor that provides a higher level of data security for trusted data and applications.
 
-A TEE sets up an isolated, secure area of the main processor on a device that is dedicated to processing and storing sensitive data. The secure environment is protected from unauthorized access - even if the operating system is compromised. While your sensitive data is inside an encrypted enclave, your data is split into trusted and untrusted parts. The trusted parts are used in the encrypted enclave while the CPU denies all other access to the enclave regardless of access privileges. The data is inaccessible to internal and external threats and can't be removed or modified.
+A TEE sets up an isolated, secure area of the main processor on a device that is dedicated to processing and storing sensitive data. The secure environment is protected from unauthorized access - even if the system software is compromised.
 
-So, all Intel SGXs are TEEs, but not all TEEs are Intel SGXs.
+So, all Intel SGXs and TDxs are TEEs, but not all TEEs are Intel SGXs or TDXs.
 
-### Attestation
+## Attestation
 {: #attestation-sgx-vpc}
 
-When you develop a confidential computing application, you must design it so you can segment the information that needs encryption. At run time, the segmented information is kept confidential through attestation. When a request for information from the segmented code or app data is received, the encrypted enclave verifies that the request comes from the part of the application that exists outside of the enclave within the same application before it shares any information. Through the attestation process, information is kept confidential and data leakage is prevented. For more information about attestation with Intel SGX, see [Attestation with Intel SGX and Data Center Attestation Primitives (DCAP)](/docs/vpc?topic=vpc-about-attestation-sgx-dcap-vpc).
+When you develop a confidential computing SGX application, you must design it so you can segment the information that needs confidentiality. At run time, the segmented information is kept in encrypted enclaves. The confidential information is loaded into the encrypted enclaves, only after the encrypted enclaves proves its authenticity through a process called attestation. For more information about attestation with Intel SGX and TDX, see [Attestation with Intel SGX or TDX and Data Center Attestation Primitives (DCAP)](/docs/vpc?topic=vpc-about-attestation-sgx-dcap-vpc).
 
-### Confidential computing with SGX use cases
+## Confidential computing with SGX and TDX use cases
 {: #scenarios-sgx-vpc}
 
-The following are some of the use cases for confidential computing with SGX.
+The following are some of the use cases for confidential computing with SGX and TDX.
 
 * **Confidentiality and Privacy of Workloads and Applications** within a Confidential Computing environment make sure that data privacy and security applications are always protected.
 
@@ -56,7 +63,7 @@ The following are some of the use cases for confidential computing with SGX.
 
 * **Digital Assets** is the trusted platform for digital custody solutions, for storing and transferring high-value digital assets in highly secure wallets, reliable at scale.
 
-## SGX-compatible profiles
+## SGX and TDX compatible profiles
 {: #compatible-profiles-confidential-computing-vpc-sgx}
 
 The following profiles support SGX.
@@ -64,25 +71,43 @@ The following profiles support SGX.
 * All Balanced _bx3dc_ profiles
 * All Compute _cx3dc_ profiles
 
-For Gen3 profiles, you can enable and disable secure boot. But when you toggle between enable and disable the machine type changes. So, make sure that you create a snapshot before you change this setting.
+The following profiles support TDX.
 
-SGX profiles might experience slightly longer start times, approximately in the range of 180-240 seconds, depending on profile EPC size.
+* All Balanced _bx3dc_ profiles with less than 160GB memory
+* All Compute _cx3dc_ profiles with less than 160GB memory
+
+For these Gen3 profiles, secure-boot is enabled by default and can't be disabled.
+
+SGX and TDX profiles might experience slightly longer start times, approximately in the range of 180-240 seconds, depending on profile memory size.
 {: note}
 
-For more information about the profiles, see [x86-64 instance profiles - Confidential computing profiles](/docs/vpc?topic=vpc-profiles&interface=ui#confidential-computing-profiles).
+For more information about profiles, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles).
 
 ## Limitations
 {: #limitations-confidential-computing-vpc-sgx}
 
-Keep the following limitations in mind if you want to use SGX.
+Keep the following limitations in mind if you want to use SGX or TDX.
 
 * Available on only third-generation Sapphire Rapids-based virtual servers.
 * SGX doesn't protect against side-channel attacks.
-* Only the following images support SGX. Keep in mind that images with kernel versions 5.11 and prior don't support SGX.
-   - Red Hat 8.6, 8.8, 9.0, 9.2
-   - Ubuntu 20.04, 22.04
-   - CentOS Stream 8, 9
-   - Rocky Linux 8.8, 9.2
-   - SLES 15 SP4, SP5
-
-If you resize a virtual server that is secure boot-enabled to a profile that is secure boot-disabled (and vice-versa), the topology of PCIe devices change. Depending on the operating system, this topology change can rename devices. The I/O performance can also change.
+* Only the following images support SGX and TDX. Keep in mind that images with kernel versions 5.11 and earlier don't support SGX and images with kernel version 6.5 and earlier don't support TDX.
+  
+   - SGX
+      - Red Hat 8.6, 8.8, 9.0, 9.2
+      - Ubuntu 20.04, 22.04
+      - CentOS Stream 8, 9
+      - Rocky Linux 8.8, 9.2
+      - SLES 15 SP4, SP5
+   - TDX
+      - Ubuntu 24.04
+      - Red Hat 9.4
+      - CentOS Stream 9
+      - Rocky Linux 9.2, 9.4
+      - SLES 15.6
+      
+* TDX limitations
+   - When you reboot a TDX-enabled virtual server, the virtual server shuts down. The virtual server must be restarted by using the UI or CLI.
+   - Avoid rebooting the TDX-enabled virtual server from the UI or CLI because it might cause the virtual server to continually reboot. Instead, stop and then restart the virtual server.
+   - If the virtual server is continuously rebooting, force a stop of the virtual server and then start it.
+   - Except for Ubuntu 24.04, all TDX-supported images enter a stop state the first time you create a virtual server. In this case, restart the virtual server.
+   - Quotes generation is only supported by using the Linux virtual socket (vsock) interface.
