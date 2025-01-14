@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-01-13"
+lastupdated: "2025-01-14"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -79,7 +79,7 @@ When you create or update a mount target, you can specify the manner in which yo
 
 * Use the **security groups access** mode to authorize access to the file share for a specific virtual server instance or instances within a subnet. This option is available to newer file shares based on the `dp2` profile. Communication between an authorized virtual server instance and the file share can optionally be IPsec encapsulated. For more information, see [Encryption in Transit](#fs-eit). Cross-zone mounting is also supported.
 
-* Use the **VPC access** mode to allow access to the file share to a bare metal server or any virtual server instances in the same zone of a VPC. This option is available for all [file share profiles](/docs/vpc?topic=vpc-file-storage-profiles). Cross-zone mounting and encryption of data in transit are not supported for shares with VPC access mode. Snapshots are also not supported for shares with VPC access mode.
+* Use the **VPC access** mode to allow access to the file share to a bare metal server or any virtual server instances in the same zone of a VPC. This option is available for all [file share profiles](/docs/vpc?topic=vpc-file-storage-profiles). Cross-zone mounting and encryption of data in transit are not supported for shares with VPC access mode. Snapshots are also not supported for shares with VPC access mode. 
 
 ### Granular authorization
 {: #fs-mount-granular-auth}
@@ -155,7 +155,7 @@ Cross-account [service-to-service authorization](/docs/vpc?topic=vpc-file-s2s-au
 
 For more information about sharing and mounting a file share from another {{site.data.keyword.cloud}} account or VPC, see [Sharing and mounting a file share from another account](/docs/vpc?topic=vpc-file-storage-accessor-create&interface=ui).
 
-Sharing a file share with other accounts or services is not supported for file shares with VPC-wide access mode.
+Sharing a file share with other accounts or services is not supported for file shares with VPC-wide access mode
 
 ## File share replication and failover
 {: #fs-repl-failover-overview}
@@ -243,7 +243,7 @@ After you provision {{site.data.keyword.la_full}} to add log management capabili
 
 The following limitations apply to this release of {{site.data.keyword.filestorage_vpc_short}}.
 
-* Previous profiles are not supported when you provision a new file share, which is based on the `dp2` profile. However, earlier version file shares can continue to use existing profiles.
+* Previous profiles are not supported when you provision a file share. New file shares must use the `dp2` profile. However, earlier version file shares can continue to use their profiles.
 * Restricting file share access to specific virtual server instances and data encryption in transit is available only for shares that are based on the `dp2` profile.
 * Windows operating systems are not supported.
 * The minimum capacity is 10 GB per file share.
