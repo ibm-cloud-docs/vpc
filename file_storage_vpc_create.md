@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-01-13"
+lastupdated: "2025-01-14"
 
 keywords: file share, file storage, virtual network interface, encryption in transit, profiles, 
 
@@ -144,7 +144,7 @@ Before you run the `ibmcloud is share-create` command, you can gather informatio
 ### Creating a file share without a mount target from the CLI
 {: #fs-create-share-cli}
 
-You can use the `ibmcloud is share-create` command to provision a  file share in your selected zone with the `dp2` profile, with your specific capacity and IOPS values. The following example shows how to create 1000-GB file share with 1000 IOPS in the us-south-2 zone. This file share is created with the default security group access mode and with provider-managed encryption.
+You can use the `ibmcloud is share-create` command to provision a file share in your selected zone with the `dp2` profile, with your specific capacity and IOPS values. The following example shows how to create 1000-GB file share with 1000 IOPS in the us-south-2 zone. This file share is created with the default security group access mode and with provider-managed encryption.
 
 ```sh
 $ ibmcloud is share-create --name my-file-share --zone us-south-2 --profile dp2 --size 1000 --iops 1000
