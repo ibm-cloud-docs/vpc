@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-01-13"
+lastupdated: "2025-01-14"
 
 keywords:
 
@@ -30,6 +30,8 @@ When you create a resource that uses a security group and don't specify a securi
 {: note}
  
 Updating the rules for the _default_ security group is a separate process from updating the default security group. If you edit the rules of the default security group, those edited rules then apply to all current and future servers in the group. For more information, see [Updating default security group rules](/docs/vpc?topic=vpc-updating-the-default-security-group#updating-the-default-security-group).
+
+You cannot nest security groups within one another, but you can reference remote security groups. Referencing remote security groups allows you to select IPs from the list of targets attached to the security group.
 
 A security group can’t reference another security group in a different zone in the same region.
 {: reminder}
