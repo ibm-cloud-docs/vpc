@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-09-23"
+  years: 2022, 2025
+lastupdated: "2025-01-15"
 
 keywords:
 
@@ -42,13 +42,13 @@ Before you start deploying VNF, meet the following requirements:
 
 Currently, the following IBM Cloud VNF catalog offerings are available:
 
-* [Check Point Security Gateway](/catalog){: external}
-* [Fortinet FortiGate Firewall A/P HA](/catalog/content/ibm-fortigate-AP-HA-terraform-deploy-5dd3e4ba-c94b-43ab-b416-c1c313479cec-global){: external}
-* [Fortinet FortiGate Next-Generation Firewall - Single VM](/catalog/content/ibm-fortigate-terraform-deploy-1f878ca9-069f-42ca-9ed9-5b461d4d5231-global){: external}
-* [F5 Big-IP](/catalog/content/ibmcloud_schematics_bigip_multinic_declared-1.0-d33f1544-e938-478a-b0dd-d883370f08d0-global){: external}
-* [IaaS Security Management](/catalog){: external}
-* [Juniper vSRX](/catalog){: external}
-* [Palo Alto VM-Series](/catalog/content/ibmcloud-vmseries-1.9-6470816d-562d-4627-86a5-fe3ad4e94b30-global){: external}
+* [Check Point Security Gateway - CloudGuard Network Security Firewall with Threat Prevention](/catalog/content/check-point-cloudguard-network-security-firewall-with-threat-prevention-1f1f50fe-e41d-4715-9ba6-02d37d76596c-global)
+* [Fortinet FortiGate Firewall A/P HA](/catalog/content/ibm-fortigate-AP-HA-terraform-deploy-5dd3e4ba-c94b-43ab-b416-c1c313479cec-global)
+* [Fortinet FortiGate Next-Generation Firewall - Single VM](/catalog/content/ibm-fortigate-terraform-deploy-1f878ca9-069f-42ca-9ed9-5b461d4d5231-global)
+* [F5 Big-IP](/catalog/content/ibmcloud_schematics_bigip_multinic_declared-1.0-d33f1544-e938-478a-b0dd-d883370f08d0-global)
+* [IaaS Security Management - CloudGuard Network Security Management](/catalog/content/check-point-cloudguard-network-security-management-3eea6646-9edc-4602-ac31-87fb61c37d24-global)
+* [Juniper vSRX](/catalog/content/jnpr-nextgen-fw-vsrx-74b4b3ba-2a05-460d-afba-98e4d012f53a-global?catalog_query=aHR0cHM6Ly9jbG91ZC5pYm0uY29tL2NhdGFsb2c%2Fc2VhcmNoPXZTUlgjc2VhcmNoX3Jlc3VsdHM%3D)
+* [Palo Alto VM-Series](/catalog/content/ibmcloud-vmseries-1.9-6470816d-562d-4627-86a5-fe3ad4e94b30-global)
 
 ## Next step
 {: #next-step-create-nlb}

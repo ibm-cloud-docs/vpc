@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-10"
+  years: 2020, 2025
+lastupdated: "2025-01-15"
 
 keywords: public isolation for VPC, compute isolation for VPC, VPC architecture, workload isolation in VPC
 
@@ -100,7 +100,7 @@ For purposes of classification, a dependency is considered "hard" if a failure c
 availability of some of or all of the VPC service. For example, failure of the Red Hat Licensing Service prevents activation of compute instances that are provisioned with {{site.data.keyword.cloud_notm}}-provided Red Hat Enterprise Linux images in that region.
 
 The data that you provide to the VPC service in your region is exchanged only with logging and
-data services in the same region. Data backups are stored in {{site.data.keyword.cloud_notm}} Object Storage in the same region.
+data services in the same region. Data backups are stored in {{site.data.keyword.cloud_notm}} Object Storage in the same region. 
 
 ## Working with Approved Scanning Vendors (ASVs)
 {: #approved-scanning-vendors}
