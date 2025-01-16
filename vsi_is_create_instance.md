@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-01-14"
+lastupdated: "2025-01-16"
 
 keywords:
 
@@ -56,7 +56,7 @@ Use the following steps to create a virtual server instance.
    | Profile |  The profile families are Balanced, Compute, Memory, Ultra High Memory, Very High Memory, GPU, and Confidential Compute. For more information, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles). When you create an {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} instance, make sure that you select secure execution-enabled profiles, otherwise provisioning fails. For more information, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles). \n \n Some profiles might not be available because the number of network interfaces in the virtual server exceed profile limits. You can remove network interfaces to select from more profiles. For more information, see [Resizing a virtual server](/docs/vpc?topic=vpc-resizing-an-instance). |
    | Advanced security selections |  |
    | Secure boot | Click the toggle to enable secure boot. Secure boot is available with only compatible profiles. For more information about secure boot, see [Secure boot for Virtual Servers for VPC](/docs/vpc?topic=vpc-confidential-computing-with-secure-boot-vpc).|
-  | Confidential computing [Select availability]{: tag-green} | Confidential computing with Intel® Software Guard Extensions (SGX) and confidential computing with Intel Trusted Domain Extension (TDX) protects your data through hardware-based server security by using isolated memory regions that are known as encrypted enclaves. Both SGX and TDX are available with only compatible profiles. For more information about confidential computing, see [Confidential computing for x86 Virtual Servers for VPC](/docs/vpc?topic=vpc-about-sgx-vpc). |
+   | Confidential computing [Select availability]{: tag-green} | Confidential computing with Intel® Software Guard Extensions (SGX) and confidential computing with Intel Trusted Domain Extension (TDX) protects your data through hardware-based server security by using isolated memory regions that are known as encrypted enclaves. Both SGX and TDX are available with only compatible profiles. For more information about confidential computing, see [Confidential computing for x86 Virtual Servers for VPC](/docs/vpc?topic=vpc-about-sgx-vpc). |
    {: caption="Table 3. Profile selections" caption-side="bottom"}
 
    Secure boot and confidential computing are available with select balanced and compute profiles. For more information, see [SGX-compatible profiles](/docs/vpc?topic=vpc-about-sgx-vpc#compatible-profiles-confidential-computing-vpc-sgx).

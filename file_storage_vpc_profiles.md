@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-01-13"
+lastupdated: "2025-01-16"
 
 keywords: file storage, file share, performance, IOPS, block size, capacity, range
 
@@ -25,11 +25,11 @@ When you [create a file share](/docs/vpc?topic=vpc-file-storage-create), you sel
 
 File shares that were created during the beta and limited availability phases with either the [IOPS tier](#fs-tiers) profiles or [custom IOPS](#fs-custom) profiles can continue to operate based on these profiles. You can also update these file shares to use the `dp2` profile or switch to another previous generation profile. However, you cannot use the previous profiles when you create a file share, and only the file shares with the `dp2` profile can use new features like encryption-in-transit, cross-zone mounting, cross-account sharing, and snapshots.
 
-Table 1 shows the dp2 profile performance levels compared to the earlier profiles.
+The following table shows the characteristics and performance levels of the available profiles.
 
 | Family   | Profile         | IOPS[^tabletext1] | IOPS per share | Max throughput[^tabletext2]  | Share size   |
 |----------|-----------------|--------------:|---------------:|---------------------|-------------:|
-| `defined_performance`|`dp2`| 1-100 IOPS/GB |     100-96,000 |           1024 MB/s | 10-32,000 GB | 
+| `defined_performance`|`dp2`| 1-100 IOPS/GB |     100-96,000 |           1024 MB/s | 10-32,000 GB |
 | `tiered` | `tier-3iops`    |     3 IOPS/GB |   3,000-96,000 |            670 MB/s | 10-32,000 GB | 
 | `tiered` | `tier-5iops`    |     5 IOPS/GB |   3,000-48,000 |            768 MB/s |  10-9,600 GB | 
 | `tiered` | `tier-10iops`   |    10 IOPS/GB |   3,000-48,000 |           1024 MB/s |  10-4,800 GB | 
@@ -44,7 +44,7 @@ The application I/O size directly impacts storage performance. If the applicatio
 ## Defined performance profile
 {: #dp2-profile}
 
-With the `dp2` profile, you can specify the total IOPS for the file share within the range for a specific file share size, 10 GB (default minimum) to 32,000 GB. You can provision shares with IOPS performance from 100 IOPS (the default minimum) to 96,000 IOPS, based on share size. The `dp2` profile is based on a I/O size of 256 KB. Maximum throughput is 1024 MB/s.
+With the `dp2` profile, you can specify the total IOPS for the file share within the range for a specific file share size, 10 GB (default minimum) to 32,000 GB. You can provision shares with IOPS performance from 100 IOPS (the default minimum) to 96,000 IOPS, based on share size. The `dp2` profile is based on an I/O size of 256 KB. Maximum throughput is 1024 MB/s.
 
 Table 2 shows the available IOPS ranges, based on share size.
 
@@ -67,7 +67,7 @@ Table 2 shows the available IOPS ranges, based on share size.
 ## Previous version file storage profiles
 {: #fs-v2-profiles}
 
-This section is about the previous generation of file share profiles (general purpose, 5-iops, 10-iops, or custom) that were used in the Beta release. New file shares can be provisioned with only the dp2 profile. To access the latest features, you must change the IOPS profile of your share to dp2.
+In the following section, you can find information about the file share profiles (general purpose, 5-iops, 10-iops, or custom) that were used in the Beta release. New file shares can be provisioned with only the defined performance profile. To access the newest features, you must change the IOPS profile of your share to dp2.
 {: deprecated}
 
 ### IOPS tiers
@@ -90,7 +90,7 @@ The total maximum IOPS is rounded up to the next multiple of 10 when the IOPS ca
 ### Custom share profile
 {: #fs-custom}
 
-Custom IOPS profile specifies the total IOPS for the file share within the range for its size. File shares that use a custom IOPS profile can have an IOPS performance level in the range of 100-48000 IOPS.
+The Custom IOPS profile specifies the total IOPS for the file share within the range for its size. File shares that use a custom IOPS profile can have an IOPS performance level in the range of 100-48000 IOPS.
 
 Table 4 shows the available IOPS ranges based on file share size.
 
