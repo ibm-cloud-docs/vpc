@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-01-09"
+lastupdated: "2025-01-16"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, faqs
 
@@ -143,7 +143,7 @@ If you modify the value of the backup consistency group's `delete_snapshots_on_d
 {: faq}
 {: #faq-baas-cg-restore}
 
-Restoring a virtual server instance directly from snapshot consistency group identifier is not supported. However, you can restore a virtual server instance by restoring all of its boot and data volumes from the snapshots that are part of a consistency group. Virtual server instance configuration is not part of the backup, and you must manually or programmatically configure the instance in the console, from the CLI, with the API, or Terraform. For more information, see [Creating volumes for a virtual server instance from a consistency group](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-restore-cr-details-ui).
+Restoring a virtual server instance directly from a snapshot consistency group identifier is not supported. However, you can restore a virtual server instance by restoring all of its boot and data volumes from the snapshots that are part of a consistency group. Virtual server instance configuration is not part of the backup, and you must manually or programmatically configure the instance in the console, from the CLI, with the API, or Terraform. For more information, see [Creating volumes for a virtual server instance from a consistency group](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-restore-cr-details-ui).
 
 ## Can I enable event notifications for Backup for VPC?
 {: faq}
@@ -163,7 +163,8 @@ You need to create a service-to-service authorization between the Backup for VPC
 {: faq}
 {: #faq-baas-en-location}
 
-{{site.data.keyword.en_short}} are supported in Dallas (`us-south`), London (`eu-gb`), Frankfurt (`eu-de`), Sydney (`au-syd`), and Madrid (`eu-es`). For more information, see [Getting started with {{site.data.keyword.en_short}}](/docs/event-notifications?topic=event-notifications-getting-started). 
+{{site.data.keyword.en_short}} are supported in Dallas (`us-south`), London (`eu-gb`), Frankfurt (`eu-de`), Sydney (`au-syd`), Madrid (`eu-es`), Toronto (`ca-tor`), Osaka (`jp-osa`) and 
+Tokyo (`jp-tok`). For more information, see [Getting started with {{site.data.keyword.en_short}}](/docs/event-notifications?topic=event-notifications-getting-started). 
 
 For locations that don't currently support {{site.data.keyword.en_short}}, the notifications can be routed to another region. For more details, see the following table.
 
@@ -171,13 +172,13 @@ For locations that don't currently support {{site.data.keyword.en_short}}, the n
 |-----------------------|-------------------------------------------------|
 | Dallas (`us-south`)   | Dallas (`us-south`)  |
 | Washington (`us-east`)| Dallas (`us-south`)  |
-| Toronto (`ca-tor`)    | Dallas (`us-south`)  |
 | Sao Paulo (`br-sao`)  | Dallas (`us-south`)  |
+| Toronto (`ca-tor`)    | Toronto (`ca-tor`)   |
 | Frankfurt (`eu-de`)   | Frankfurt (`eu-de`)  |
 | Madrid (`eu-es`)      | Madrid (`eu-es`)     |
 | London (`eu-gb`)      | London (`eu-gb`)     |
-| Osaka (`jp-osa`)      | Sydney (`au-syd`)    |
-| Tokyo (`jp-tok`)      | Sydney (`au-syd`)    |
+| Osaka (`jp-osa`)      | Osaka (`jp-osa`)     |
+| Tokyo (`jp-tok`)      | Tokyo (`jp-tok`)     |
 | Sydney (`au-syd`)     | Sydney (`au-syd`)    |
  {: caption="Backup regions and {{site.data.keyword.en_short}} destinations" caption-side="bottom"}
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-12-17"
+  years: 2022, 2025
+lastupdated: "2025-01-16"
 
 keywords: file share, file storage, source volume, replica share, 
 
@@ -22,7 +22,7 @@ The following table shows which metro regions can replicate with each other with
 
 | Americas | Europe  | Asia  |
 |----------|---------|-------|
-| - Dallas, TX / `us-south` \n - Sao Paulo / `br-sao` \n - Toronto / `ca-tor` \n - Washington, DC / `us-east` |  - Frankfurt / `eu-de` \n - London / `eu-gb` \n - Madrid / `eu-es` | - Tokyo / `jp-tok` \n - Osaka/ `jp-osa` \n - Sydney / `au-syd` |
+| - Dallas, TX / `us-south` \n - Sao Paulo / `br-sao` \n - Toronto / `ca-tor` \n - Washington, DC / `us-east` |  - Frankfurt / `eu-de` \n - London / `eu-gb` \n - Madrid / `eu-es`| - Osaka/ `jp-osa` \n - Sydney / `au-syd`\n - Tokyo / `jp-tok` |
 {: caption="Table 1 - This table shows the metro regions that can replicate with each other in each geography. Every geography is a separate column." caption-side="bottom"}
 
 The specified source file share must not have another replica already, and must not be a replica of another share.
@@ -46,7 +46,7 @@ On the File share replica create page, review the source file share details, and
 1. Profile - The `dp2` profile is preselected, even if the source file share is based on a profile from a previous release. Specify the maximum value for IOPS. It determines the performance that you get on the replica after you [perform a failover](/docs/vpc?topic=vpc-file-storage-failover).
 1. Mount Targets - Optionally, create a mount target for the replica share. You can skip this step if you do not want to create a mount target now. Otherwise, click **Create**. You can create one mount target per VPC per file share. Depending on the [mount target access mode](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-mount-access-mode) of the share, the **Create mount target** form looks different.
 
-   - If you selected security group as the access mode, enter the information as described in the Table 2. This action creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target that identifies the file share with a reserved IP address and applies the rules of the selected Security group. This mount target supports encryption-in-transit and cross-zone mounting.
+   - If you selected security group as the access mode, enter the information as described in Table 2. This action creates and attaches a [virtual network interface](/docs/vpc?topic=vpc-vni-about) to your mount target that identifies the file share with a reserved IP address and applies the rules of the selected Security group. This mount target supports encryption-in-transit and cross-zone mounting.
 
      | Field | Value |
      |-------|-------|
@@ -71,8 +71,8 @@ On the File share replica create page, review the source file share details, and
    * If you specify a `cron-spec` expression, replications must be scheduled not less than 15 minutes. Enter the replication frequency in `cron-spec` format: minute, hour, day, month, and weekday. For example, to replicate every day at 5:30 PM you need to enter `30 17 * * *`.
 
 1. Encryption
-   * **Encryption in transit** is disabled by default, you can click the toggle to enable. For more information about this feature, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit). |
-   * When you replicate to another zone of the same region, the encryption is inherited from the primary share. If you specified customer-managed encryption, the key management system is shown along with the root key. You can't encrypt a replica share with a different key.
+   * **Encryption in transit** is disabled by default, you can click the toggle to enable it. For more information about this feature, see [Encryption in transit - Securing mount connections between file share and host](/docs/vpc?topic=vpc-file-storage-vpc-eit). |
+   * When you replicate to another zone of the same region, the encryption is inherited from the primary share. If you selected customer-managed encryption, the key management system is shown along with the root key. You can't encrypt a replica share with a different key.
    * When you replicate to another region, the encryption type (provider-managed vs customer-managed) of the replica must match the source share. However, it is not inherited from the source, and you must select a Customer Root Key for your replica if the source share is protected by customer-managed encryption.
   
    | Field | Value |
@@ -93,7 +93,7 @@ If you're not ready to order yet or just looking for pricing information, you ca
 {: #fs-create-replica-cli}
 {: cli}
 
-You can use the CLI to create a file share with a replica share in another zone or region, or to create a replica share for an existing file share.
+You can use the CLI to create a file share with a replica share in another zone, or region, or to create a replica share for an existing file share.
 
 Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 
