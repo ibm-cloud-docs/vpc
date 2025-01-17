@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-12-17"
+  years: 2022, 2025
+lastupdated: "2025-01-17"
 
 keywords: file share, file storage, replication, replica, 
 
@@ -38,7 +38,7 @@ When you replicate your file share to another region, the replica must match the
 
 Based on the replication schedule, the service pulls data from the source file share to the replica file share. You can choose how often you want to sync changes from the source share to the replica. You can specify an hourly, daily, weekly, or monthly replication schedule. Replications must be scheduled at least 15 minutes apart.
 
-[New]{: tag-new} While you can't create snapshots of a replica share manually or programmatically, the snapshots of the origin share are copied to the replica share at the next scheduled sync. If a source share with snapshots is replicated, the corresponding replica share snapshots are created with system-generated names, rather than inheriting the source share snapshot names. Since replicated snapshots share the source's fingerprint ID, you can use the fingerprint to correlate the snapshots.
+ While you can't create snapshots of a replica share manually or programmatically, the snapshots of the origin share are copied to the replica share at the next scheduled sync. If a source share with snapshots is replicated, the corresponding replica share snapshots are created with system-generated names, rather than inheriting the source share snapshot names. Since replicated snapshots share the source's fingerprint ID, you can use the fingerprint to correlate the snapshots.
 
 When you replicate across regions, the data is crossing VPC boundaries. Both VPCs and file shares must belong to the same account, and you need to [establish service-to-service authorizations](/docs/vpc?topic=vpc-file-s2s-auth) between the file services of the two regions. The data is encrypted in transit while it's moving between file shares. Charges for data transfer between the two file shares are calculated with a flat rate in GB increments. The charges are based on the amount of data that was transferred during the entire billing period.
 

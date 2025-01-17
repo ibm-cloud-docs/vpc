@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-12-17"
+  years: 2024, 2025
+lastupdated: "2025-01-17"
 
 keywords: File storage for VPC, file share snapshots, file share restore
 
@@ -17,7 +17,7 @@ content-type: troubleshoot
 # Troubleshooting {{site.data.keyword.filestorage_vpc_short}} snapshots
 {: #fs-snapshots-troubleshooting}
 
-[New]{: tag-new}
+
 
 When you create or manage Snapshots for VPC, you might encounter issues. Often, you can recover by following a few steps. Issues, symptoms, likely causes, and resolutions are described in the following sections.
 {: shortdesc}

@@ -2,7 +2,7 @@
 
 copyright:
  years: 2022, 2025
-lastupdated: "2025-01-09"
+lastupdated: "2025-01-17"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -43,18 +43,18 @@ When the backup is triggered at the scheduled interval, a backup copy is created
 
 Backup jobs that create or delete backup snapshots run according to the backup plan and the retention policy. You can [view the status of the backup jobs](/docs/vpc?topic=vpc-backup-view-policy-jobs) in the console, from the CLI, with the API, or Terraform. If a job fails, the health status code shows the reason for the failure. You can also set up a connection to {{site.data.keyword.en_short}} and receive notifications to your preferred destinations.
 
-Block storage backups, like block storage snapshots, have a lifecycle that is independent from the source {{site.data.keyword.block_storage_is_short}} volume. [New]{: tag-new} File storage backups, like file share snapshots, coexist with their parent file shares and their lifecycles are tied together. If a file share is deleted, its snapshots and backups are automatically deleted, too.
+Block storage backups, like block storage snapshots, have a lifecycle that is independent from the source {{site.data.keyword.block_storage_is_short}} volume.  File storage backups, like file share snapshots, coexist with their parent file shares and their lifecycles are tied together. If a file share is deleted, its snapshots and backups are automatically deleted, too.
 
 You can copy a Block storage backup snapshot from one region to another region, and later use that snapshot to restore a volume in the new region. The [cross-regional copy](#backup-service-crc) can be used in disaster recovery scenarios when you need to turn on your virtual server instance and data volumes in a different region. The remote copy can be created automatically as part of a backup plan, or manually later.
 
-[New]{: tag-new}
+
 When the backup of a file share is triggered at the scheduled interval, a point-in-time snapshot is taken of your share. When the first backup snapshot is taken, the entire contents of the share are copied and retained in the same location as the share. Subsequent backups of the same volume capture the changes that occurred since the previous backup. You can take up to 750 backups of a share. If a file share has a replica in another zone, its backups are automatically copied to the replica location. However, file share backups cannot be independently copied to other zones or regions. For more information, see [About {{site.data.keyword.filestorage_vpc_short}} snapshots](/docs/vpc?topic=vpc-fs-snapshots-about).  
 
 You can [restore](#backup-service-restore-concepts) data from a backup snapshot to a new, fully provisioned volume. If the backup is of a boot volume, you can use it to provision a new instance. However, when you provision an instance by restoring a boot volume from a bootable backup snapshot, you can expect degraded performance in the beginning. During the restoration process, the data is copied from {{site.data.keyword.cos_full}} to {{site.data.keyword.block_storage_is_short}}, and thus the provisioned IOPS cannot be fully realized until that process finishes.
 
 With the fast restore feature, you can cache snapshots in a specified zone of your choosing. This way, volumes can be restored from snapshots nearly immediately and the new volumes operate with full IOPS instantly. The fast restore feature can achieve a [recovery time objective](#x3167918){: term} (RTO) quicker than restoring from a regular backup snapshot. When you opt for fast restore, your existing regional plan is adjusted, including billing. The fast restore feature is billed at an extra hourly rate for each zone that it is enabled in regardless of the size of the snapshot. Maintaining fast restore clones is considerably more costly than keeping regular snapshots. The fast restore feature is supported only for individual volume backups, not for consistency group backups.
 
-[New]{: tag-new}
+
 You can also restore data from a backup snapshot of a file share. You can either create a file share or perform a single-file restoration by accessing the backup snapshot directly through the mount target. A new share that is created from a backup is fully available for read and write operations immediately. 
 
 As an enterprise account administrator, you can view and manage the backup policies and plans for the subaccounts for compliance reporting and billing from one place. For more information, see the [Scope of backup policy](#backup-service-about-scope) section.
@@ -165,7 +165,7 @@ The restored volume has the same capacity and volume profile as the original vol
 
 Restoring a virtual server instance directly from snapshot consistency group identifier is not supported. However, you can restore a virtual server instance by restoring all of its boot and data volumes from the snapshots that are part of a consistency group.
 
-[New]{: tag-new}
+
 
 File share backups can be used to create new shares, too. Because the snapshot is colocated with the file share, the performance of the new share is not impacted during initialization. However, for the same reason, file share backups can't be copied to another region or zone by themselves to create new shares. For more information, see [Restoring a share from a snapshot](/docs/vpc?topic=vpc-fs-snapshots-restore). 
 
@@ -201,7 +201,7 @@ For more information, see the [best practices for assigning access](/docs/accoun
 ## Service-to-service authorizations
 {: #baas-s2s-auth}
 
-Specific IAM user roles are required to grant service-to-service authorizations. Service-to-service authorizations between the Backup service and Cloud Block Storage, Snapshots for VPC, and Virtual server for VPC are needed so the backup service can detect volume tags and create snapshots. [New]{: tag-new} If you want to create automated snapshots of your file shares, set up service-to-service authorizations between the Backup service and Cloud File Storage service. For more information, see [Establishing service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth). 
+Specific IAM user roles are required to grant service-to-service authorizations. Service-to-service authorizations between the Backup service and Cloud Block Storage, Snapshots for VPC, and Virtual server for VPC are needed so the backup service can detect volume tags and create snapshots.  If you want to create automated snapshots of your file shares, set up service-to-service authorizations between the Backup service and Cloud File Storage service. For more information, see [Establishing service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth). 
 
 ## Limitations in this release
 {: #backup-service-limitations}
@@ -210,12 +210,12 @@ This release has the following limitations.
 
 * You can create up to 10 backup policies per account.
 * You can take a total of 750 backups per volume based on your backup policy, in your account and region. If you exceed this limit, no further backups are taken.
-* You can take a total of 750 backups per file share. [New]{: tag-new}
+* You can take a total of 750 backups per file share. 
 * The first backup and the entire volume backup cannot exceed 10 TB.
 * You can't take a backup of a detached volume.
 * You can't create a copy of a backup snapshot in the source (local) region. 
 * You can create a copy of a block storage backup in another region. However, only one copy of the backup snapshot can exist in each region.
-* You can't create a copy of a file storage backup in another region. File share snapshots and backups are tied to their source shares. If the share is deleted, the backups are deleted as well. [New]{: tag-new}
+* You can't create a copy of a file storage backup in another region. File share snapshots and backups are tied to their source shares. If the share is deleted, the backups are deleted as well. 
 * The fast restore feature is not supported for multi-volume backups of consistency groups, or for file share backups.
 * Consistency groups consist of the attached Block Storage volumes of virtual server instances, such as boot and data volumes. Instance storage volumes and virtual server instance configuration are not included.
 

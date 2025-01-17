@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-12-17"
+  years: 2021, 2025
+lastupdated: "2025-01-17"
 
 keywords: file share, file storage, sysdig, platform metrics
 
@@ -91,7 +91,7 @@ When you launch the file share dashboard, you can see graphs that show the follo
 - Share usage: available capacity, used capacity, total capacity
 - Throughput: read, write, and maximum throughput
 - IOPS: read, write, maximum
-- Snapshot space: available and used capacity for snapshots. [New]{: tag-new}
+- Snapshot space: available and used capacity for snapshots. 
 
 The displayed metrics contain a timestamp in UNIX epoch time and the metric value for the time intervals that end at that timestamp. You can specify different scopes, and the time interval over which to report the metrics. The following time intervals are supported in the {{site.data.keyword.mon_full_notm}} dashboard:
 
@@ -127,8 +127,8 @@ The following metrics help track the IO activity and throughput that is handled 
 | ibm_is_share_capacity_total   | Total allocated capacity|
 | ibm_is_share_capacity_used    | Current used capacity| 
 | ibm_is_share_mount_targets_count | Number of Share mount targets |
-| ibm_is_share_snapshot_capacity_used [New]{: tag-new} | Current capacity used by snapshots |
-| ibm_is_share_snapshot_capacity_total [New]{: tag-new} | Available capacity for snapshots. |
+| ibm_is_share_snapshot_capacity_used  | Current capacity used by snapshots |
+| ibm_is_share_snapshot_capacity_total  | Available capacity for snapshots. |
 {: caption="Information about share metrics." caption-side="bottom"}
 
 ### Example of file share metrics
@@ -170,8 +170,8 @@ Each metric is composed of the following metadata types:
 | ibm_is_share_capacity_total           | Gauge        |Floating point     | 
 | ibm_is_share_capacity_used            | Gauge        |Floating point     | 
 | ibm_is_share_mount_targets_count      | Gauge        |Integer            |
-| ibm_is_share_snapshot_capacity_used [New]{: tag-new} | Gauge  |Floating point |
-| ibm_is_share_snapshot_capacity_total [New]{: tag-new}| Gauge  |Floating point |
+| ibm_is_share_snapshot_capacity_used  | Gauge  |Floating point |
+| ibm_is_share_snapshot_capacity_total | Gauge  |Floating point |
 {: caption="Table 2: Available metrics" caption-side="bottom"}
 
 ## Attributes for segmentation

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-01-14"
+lastupdated: "2025-01-17"
 
 keywords: file share, mount target, virtual network interface, customer-managed encryption, encryption at rest, encryption in transit, file storage, share,
 
@@ -184,7 +184,7 @@ You can create new user tags or add existing tags when you provision a new file 
 
 User tags are uniquely identified by a Cloud Resource Name (CRN) identifier. When you create a user tag, you provide a unique name within your billing account. You can define user tags in label or key-value format. Behind the scenes, the file service sends and receives tags directly to the GhoST service. GhoST stores its key attributes and the array of tags. GhoST also stores user resource information, so you can view, tag, and search for resources that you own.
 
-[New]{: tag-new} User tags can also be used by [backup policies](/docs/vpc?topic=vpc-backup-service-about) to create snapshots of the share automatically.
+ User tags can also be used by [backup policies](/docs/vpc?topic=vpc-backup-service-about) to create snapshots of the share automatically.
 
 For more information, see [Add user tags to file shares](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-add-user-tags) and [Working with tags](/docs/account?topic=account-tag&interface=ui).
 
@@ -195,7 +195,7 @@ Access management tags help organize access control by creating flexible resourc
 
 You can create access management tags and then apply them to new or existing file shares and replica file shares. Use the IAM UI or the Global Search and Tagging API to create the access management tag. Then, from the VPC UI or API, add the tags to a file share. After the tags are added, you can manage access to them using the IAM policies. For more information, see [Add access management tags to a file share](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-add-access-mgt-tags).
 
-[New]{: tag-new}
+
 
 ## File share snapshots
 {: #fs-about-snapshots}

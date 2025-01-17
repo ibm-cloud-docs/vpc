@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-12-17"
+  years: 2022, 2025
+lastupdated: "2025-01-17"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -75,7 +75,7 @@ To create a service-to-service authorization policy, follow this procedure:
 ### Creating authorization for file share backups at the account level
 {: #backup-s2s-auth-procedure-fs-ui}
 
-[New]{: tag-new}
+
 
 To create a service-to-service authorization policy, follow this procedure:
 
@@ -125,7 +125,7 @@ To allow an Enterprise administrator to manage backups centrally, the subaccount
    | IBM Cloud Backup for VPC       | Multi Volume Snapshots for VPC  | Editor    |
    | IBM Cloud Backup for VPC       | Virtual Server for VPC          | Operator  | 
    | IBM Cloud Backup for VPC       | IBM Cloud Backup for VPC        | Editor    |
-   | IBM Cloud Backup for VPC       | [New]{: tag-new} File Storage for VPC | Editor, Operator, Share Snapshot Operator|
+   | IBM Cloud Backup for VPC       |  File Storage for VPC | Editor, Operator, Share Snapshot Operator|
    {: caption="Service-to-service authorizations for the Enterprise" caption-side="bottom"}
 
 1. Click **Next**.
@@ -167,7 +167,7 @@ Next, complete the following steps to build the authorization rules:
    | IBM Cloud Backup for VPC       | Multi Volume Snapshots for VPC  | Editor    |
    | IBM Cloud Backup for VPC       | Virtual Server for VPC          | Operator  | 
    | IBM Cloud Backup for VPC       | IBM Cloud Backup for VPC        | Editor    |
-   | IBM Cloud Backup for VPC       | [New]{: tag-new} File Storage for VPC | Editor, Operator, Share Snapshot Operator|
+   | IBM Cloud Backup for VPC       |  File Storage for VPC | Editor, Operator, Share Snapshot Operator|
    {: caption="Service-to-service authorizations for the Enterprise" caption-side="bottom"}
 
 1. Click **Next**.
@@ -307,7 +307,7 @@ For more information about all of the parameters that are available for this com
 {: #backup-s2s-auth-procedure-fs-cli}
 {: cli}
 
-[New]{: tag-new}
+
 
 To create a service-to-service authorization policy for {{site.data.keyword.filestorage_vpc_short}} share backups, use the `authorization-policy-create` command.
 
@@ -446,7 +446,7 @@ ibmcloud enterprise show
      ```
      {: codeblock}
 
-   * File shares: [New]{: tag-new}
+   * File shares: 
 
    ```json
      {
@@ -784,7 +784,7 @@ For more information, see the api spec for [IAM Policy Management](/apidocs/iam-
 {: #backup-s2s-auth-procedure-fs-api}
 {: api}
 
-[New]{: tag-new}
+
 
 To use Backup for VPC in your account to create policies, plans and run backup jobs for file shares, make the following request to create the required service-to-service authorization.
 
@@ -1203,7 +1203,7 @@ For more information about the arguments and attributes, see the [Terraform docu
 ### Creating authorization for file share backups
 {: #backup-s2s-auth-procedure-fs-terraform}
 
-[New]{: tag-new}
+
 
 Create an authorization policy between services by using the `ibm_iam_authorization_policy` resource argument in your `main.tf` file.
 

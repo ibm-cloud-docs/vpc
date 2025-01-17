@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-01-09"
+lastupdated: "2025-01-17"
 
 keywords: Backup, backup snapshot, create backups, backup service, backup plan, backup policy, restore, restore volume, restore data, restore share
 
@@ -286,7 +286,7 @@ For more information about available command options, see [`ibmcloud is backup-p
 ### Creating a backup policy for file shares from the CLI
 {: #backup-create-policy-noplan-share}
 
-[New]{: tag-new}
+
 
 Run the `ibmcloud is backup-policy-create` command to create a backup policy without a backup plan. Use the options `--match-resource-type`, `--match-tags`, and `--name` to give your policy a name and identify the tag that you want to use for your target resources. After the policy is created, you can [add backup plans](#backup-create-plan-cli) to it later on.
 
@@ -893,7 +893,7 @@ A successful response looks like the following example.
 ### Creating a backup policy and plan for a file share
 {: #backup-policy-create-api-share}
 
-[New]{: tag-new}
+
 
 Make a `POST /backup_policies` request to create a backup policy. The value of `match_resource_type` is `share`. The `match_user_tags` property identifies the backup tags on the file share resources and associates them with this policy and plan.
 
@@ -1154,7 +1154,7 @@ For more information about the arguments and attributes, see [ibm_is_backup_poli
 ### Creating a backup policy for file shares with Terraform
 {: #backup-policy-create-share-terraform}
 
-[New]{: tag-new}
+
 
 To create a backup policy, use the `ibm_is_backup_policy` resource. The following example defines a backup policy with the name `my-backup-policy-v3`. And the new policy applies to the file shares that are tagged with the `dev:test` tag.
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-12-17"
+  years: 2024, 2025
+lastupdated: "2025-01-17"
 
 keywords:
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Planning {{site.data.keyword.filestorage_vpc_short}} snapshots
 {: #fs-snapshots-planning}
 
-[New]{: tag-new}
+
 
 When you plan a snapshot strategy for your {{site.data.keyword.filestorage_vpc_short}} shares, you might find this checklist helpful.
 {: shortdesc}

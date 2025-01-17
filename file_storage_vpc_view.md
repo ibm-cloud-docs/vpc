@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-12-17"
+  years: 2022, 2025
+lastupdated: "2025-01-17"
 
 keywords: file storage, file share, view share details, mount targets, view targets, view share
 
@@ -72,8 +72,8 @@ You can access the Actions menu by clicking ![Actions icon](../icons/action-menu
      | Mount target access mode   | Access to the file share is granted by either a security group within a subnet or to any virtual server instance in the VPC. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to switch access modes. Security group access is available only to file shares created with the [`dp2` profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile). For more information, see the [Mount target access modes](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=api#fs-mount-access-mode). |
      | CRN | Copiable cloud resource name. |
      | Allowed encryption in transit modes| This value shows whether encryption in transit is required when clients access the file share. Click the **Edit icon** ![Edit icon](../icons/edit-tagging.svg "Edit") to change the allowed values.|
-     | Snapshot count [New]{: tag-new} | This value indicates the number of snapshots that were taken of the file share. |
-     | Size of changed data in all the snapshots [New]{: tag-new} | It represents the billable volume of data across all the snapshots. |
+     | Snapshot count  | This value indicates the number of snapshots that were taken of the file share. |
+     | Size of changed data in all the snapshots  | It represents the billable volume of data across all the snapshots. |
      | **Profile, size, and IOPS**| |
      | Size | File share capacity in GB. |
      | IOPS tier | IOPS [profile](/docs/vpc?topic=vpc-file-storage-profiles) that defines the file share performance. In most cases, the dp2 profile is shown. |
@@ -105,7 +105,7 @@ You can access the Actions menu by clicking ![Actions icon](../icons/action-menu
      | Status   | It displays the lifecycle status of the file share. The [status](/docs/vpc?topic=vpc-fs-vpc-monitoring&interface=ui#file-share-statuses) `Stable` is expected.|
      {: caption="File shares details page" caption-side="bottom"}
 
-   -  **Snapshots** [New]{: tag-new} - On the Snapshots tab you can find a summary that's related to all the snapshots and the list of the snapshots that were taken of the file share.
+   -  **Snapshots**  - On the Snapshots tab you can find a summary that's related to all the snapshots and the list of the snapshots that were taken of the file share.
       - Snapshot summary provides information such as the number of snapshots, the overall data volume captured in the snapshots, and the replication role.
       - Snapshots list shows the snapshots that were taken of the file share. You can see the name, size of the file share when the snapshot was taken, and status of the snapshot. You can click **Create** to capture a new snapshot. Click the **Actions** icon ![Actions icon](../icons/action-menu-icon.svg "Actions") to reveal the Actions menu. The Actions menu has 2 options: Restore, and Delete.
      

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-12-17"
+  years: 2022, 2025
+lastupdated: "2025-01-17"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup, 
 
@@ -74,7 +74,7 @@ For more information, see [About {{site.data.keyword.filestorage_vpc_short}}](/d
 ## {{site.data.keyword.filestorage_vpc_short}} snapshots
 {: #vpc-fs-snapshots-overview}
 
-[New]{: tag-new}
+
 
 {{site.data.keyword.filestorage_vpc_short}} snapshots is a zonal offering. A snapshot is a point-in-time copy of your file share that you create manually in the console, from the CLI, with the API, or Terraform. The initial snapshot is a full copy of the share. Subsequent snapshots of the same share are incremental; only those changes are captured that occurred since the last snapshot was taken. Snapshots inherit encryption from the source share.
 
@@ -108,6 +108,6 @@ Data that is stored on instance storage is tied directly to the instance lifecyc
 * [Create block storage volumes](/docs/vpc?topic=vpc-creating-block-storage).
 * [Create {{site.data.keyword.block_storage_is_short}} snapshots](/docs/vpc?topic=vpc-snapshots-vpc-create).
 * [Create file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create).
-* [Create {{site.data.keyword.filestorage_vpc_short}} snapshots](/docs/vpc?topic=vpc-fs-snapshots-create).[New]{: tag-new}
+* [Create {{site.data.keyword.filestorage_vpc_short}} snapshots](/docs/vpc?topic=vpc-fs-snapshots-create).
 * [Manage instance storage](/docs/vpc?topic=vpc-instance-storage-provisioning).
 * [Create backup policies](/docs/vpc?topic=vpc-create-backup-policy-and-plan).

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-12-17"
+  years: 2024, 2025
+lastupdated: "2025-01-17"
 
 keywords: File Storage, snapshots, cross-regional copy, fast restore, backup, restore share
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # FAQs for {{site.data.keyword.filestorage_vpc_short}} snapshots
 {: #fs-snapshots-faqs}
 
-[New]{: tag-new}
+
 
 The following questions often arise about the {{site.data.keyword.filestorage_vpc_short}} snapshots offering. If you have other questions you'd like to see answered here, provide feedback by using the **Open doc issue** or **Edit topic** links at the end of the topic.
 {: shortdesc}

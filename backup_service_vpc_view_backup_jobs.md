@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-12-17"
+  years: 2022, 2025
+lastupdated: "2025-01-17"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, view backup lists,
 
@@ -466,5 +466,5 @@ For more information, see [Troubleshooting Backup for VPC](/docs/vpc?topic=vpc-b
 * [Apply tags to your resources for backups](/docs/vpc?topic=vpc-backup-use-policies).
 * [Create more backup policies](/docs/vpc?topic=vpc-create-backup-policy-and-plan&interface=ui).
 * [Restore a volume from a backup snapshot](/docs/vpc?topic=vpc-baas-vpc-restore).
-* [Restore data from a file share snapshot](/docs/vpc?topic=vpc-fs-snapshots-restore) [New]{: tag-new}
+* [Restore data from a file share snapshot](/docs/vpc?topic=vpc-fs-snapshots-restore) 
 * [Enabling event notifications for Backup for VPC](/docs/vpc?topic=vpc-event-notifications-events).

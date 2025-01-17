@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-12-17"
+  years: 2022, 2025
+lastupdated: "2025-01-17"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -126,7 +126,7 @@ You can use this list of {{site.data.keyword.block_storage_is_short}} volumes, {
        Click **Add virtual server instance** to add the attached volumes of a virtual server instance to this policy. The informational side panel provides a list of tags for target resources that you can apply to the virtual server instance. It also contains a link to the list of virtual server instances of your account. You must apply at least one of the policy's tags for target resources to the volume.
 
    
-   - If the policy is for file shares, a list of the shares that are backed up by this policy is shown. Information about the shares includes their names, status, volume sizes, and encryption types. [New]{: tag-new}
+   - If the policy is for file shares, a list of the shares that are backed up by this policy is shown. Information about the shares includes their names, status, volume sizes, and encryption types. 
 
      | Field | Description |
      |-------|-------------|

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-12-17"
+  years: 2024, 2025
+lastupdated: "2025-01-17"
 
 keywords: snapshots, File storage snapshots, manage snapshots, fast restore clone, backup snapshot, remote copy, cross-regional copy
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Managing {{site.data.keyword.filestorage_vpc_short}} snapshots
 {: #fs-snapshots-manage}
 
-[New]{: tag-new}
+
 
 You can manage existing snapshots in the console, from the CLI, with the API or Terraform. You can update the user tags of the snapshots, and delete snapshots that you no longer need to free up space for new snapshots.
 {: shortdesc}

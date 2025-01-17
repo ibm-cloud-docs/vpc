@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-01-09"
+lastupdated: "2025-01-17"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -39,7 +39,7 @@ To help ensure that you're using the VPC Backup Service most effectively and eco
 
 * Consistency group backups: Creating crash-consistent snapshots of multiple volumes that are attached to the same virtual server instance leads to a short-lived I/O suspension that can last from a few milliseconds to a few seconds. The duration depends on the number and size of volumes that are connected to your virtual server instance. It is recommended to run your automated backup-policy during off-peak hours to minimize any impact on performance.
 
-* [New]{: tag-new} Backup schedules for file shares can be set up only on the source side of a replication pair. When you choose to failover operations to the replica share, the source and replica shares switch roles. After a failover is performed, backup policies need to be removed from what was previously the source and applied to the current source share.
+*  Backup schedules for file shares can be set up only on the source side of a replication pair. When you choose to failover operations to the replica share, the source and replica shares switch roles. After a failover is performed, backup policies need to be removed from what was previously the source and applied to the current source share.
 
 Albeit you cannot schedule the creation of snapshots for a replica share, your replica shares can still have snapshots. When you create a backup snapshot of the source share, then that backup snapshot is copied to the replica at the next replication cycle. 
 {: note}

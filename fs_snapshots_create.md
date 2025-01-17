@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-12-17"
+  years: 2024, 2025
+lastupdated: "2025-01-17"
 
 keywords: snapshots, File Storage, snapshot clone, remote copy, fast restore, File Storage snapshot, cross-regional snapshot
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Creating {{site.data.keyword.filestorage_vpc_short}} snapshots
 {: #fs-snapshots-create}
 
-[New]{: tag-new}
+
 
 You can create a snapshot of a {{site.data.keyword.filestorage_vpc_short}} share in the console, from the CLI, with the API, or Terraform. Snapshots capture the data on the share at a specific data and time. Snapshots can be used later to retrieve old versions of files or to create new shares with the data of the snapshot.
 {: shortdesc}
