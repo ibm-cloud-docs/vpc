@@ -25,7 +25,7 @@ availability and disaster recovery for {{site.data.keyword.vpc_short}}, see
 [Your responsibilities by using Virtual Private Cloud](/docs/vpc?topic=vpc-responsibilities-vpc). You can
 also find information about [Service Level Agreements](/docs/overview?topic=overview-slas).
 
-For an example of deploying a highly available web application, see [Web app multi-zone resiliency](/docs/pattern-vpc-vsi-multizone-resiliency?topic=pattern-vpc-vsi-multizone-resiliency-overview).
+For an example of deploying a highly available web application, see [web app multi-zone resiliency](/docs/pattern-vpc-vsi-multizone-resiliency?topic=pattern-vpc-vsi-multizone-resiliency-overview).
 
 For more information about how you can use Veeam software to back up your storage data on a virtual server instance, see
 [About Veeam](/docs/vpc?topic=vpc-about-veeam).
