@@ -23,7 +23,7 @@ When you provision {{site.data.keyword.filestorage_vpc_short}} file shares by us
 
 When you [create a file share](/docs/vpc?topic=vpc-file-storage-create), you select the share size and IOPS performance that is available, based on a file storage profile. Currently, all file shares are created based on the high-performance [dp2](#dp2-profile) profile.
 
-File shares that were created during the beta and limited availability phases with either the [IOPS tier](#fs-tiers) profiles or [custom IOPS](#fs-custom) profiles can continue to operate based on these profiles. You can also update these file shares to use the `dp2` profile or switch to another previous generation profile. However, you cannot use the previous profiles when you create a file share, and only the file shares with the `dp2` profile can use new features like encryption-in-transit, cross-zone mounting, cross-account sharing, and snapshots.
+File shares that were created during the beta and limited availability phases with either one of the [tiered](#fs-tiers) or [custom](#fs-custom) profiles can continue to operate based on these profiles. You can also update these file shares to use the `dp2` profile or switch to another previous generation profile. However, you cannot use the previous profiles when you create a file share, and only the file shares with the `dp2` profile can use new features like encryption-in-transit, cross-zone mounting, cross-account sharing, and snapshots.
 
 The following table shows the characteristics and performance levels of the available profiles.
 
@@ -64,7 +64,7 @@ Table 2 shows the available IOPS ranges, based on share size.
 
 ¹ For the 96,000 IOPS to be realized, a single file share must be accessed by multiple virtual server instances. A single file share that is accessed by one client is limited to 48,000 IOPS.
 
-## Previous version file storage profiles
+## Tiered and custom file storage profiles
 {: #fs-v2-profiles}
 
 In the following section, you can find information about the file share profiles (general purpose, 5-iops, 10-iops, or custom) that were used in the Beta release. New file shares can be provisioned with only the defined performance profile. To access the newest features, you must change the IOPS profile of your share to dp2.
