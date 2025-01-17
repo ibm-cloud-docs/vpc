@@ -30,7 +30,7 @@ You can create a replica share in another zone of the same region. You can also 
 | Americas | Europe  | Asia  |
 |----------|---------|-------|
 | - Dallas, TX / `us-south` \n - Sao Paulo / `br-sao` \n - Toronto / `ca-tor` \n - Washington, DC / `us-east` |  - Frankfurt / `eu-de` \n - London / `eu-gb` \n - Madrid / `eu-es` | - Tokyo / `jp-tok` \n - Osaka/ `jp-osa` \n - Sydney / `au-syd` |
-{: caption="Table 1 - This table shows the metro regions that can replicate with each other in each geography. Every geography is a separate column." caption-side="bottom"}
+{: caption="This table shows the metro regions that can replicate with each other in each geography. Every geography is a separate column." caption-side="bottom"}
 
 When you create your replica file share in another zone of the same region, the replica share inherits the encryption type and key from the source file share. The encryption can't be changed.
 

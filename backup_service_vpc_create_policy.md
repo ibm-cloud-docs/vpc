@@ -1154,8 +1154,6 @@ For more information about the arguments and attributes, see [ibm_is_backup_poli
 ### Creating a backup policy for file shares with Terraform
 {: #backup-policy-create-share-terraform}
 
-
-
 To create a backup policy, use the `ibm_is_backup_policy` resource. The following example defines a backup policy with the name `my-backup-policy-v3`. And the new policy applies to the file shares that are tagged with the `dev:test` tag.
 
 ```terraform

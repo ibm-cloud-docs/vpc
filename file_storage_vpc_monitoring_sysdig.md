@@ -172,7 +172,7 @@ Each metric is composed of the following metadata types:
 | ibm_is_share_mount_targets_count      | Gauge        |Integer            |
 | ibm_is_share_snapshot_capacity_used  | Gauge  |Floating point |
 | ibm_is_share_snapshot_capacity_total | Gauge  |Floating point |
-{: caption="Table 2: Available metrics" caption-side="bottom"}
+{: caption="Available metrics" caption-side="bottom"}
 
 ## Attributes for segmentation
 {: #sysdig-attributes}
@@ -192,7 +192,7 @@ The following attributes are available for segmenting the file share metrics.
 | `Resource type`| `ibm_resource_type` | Type of resource that is measured by the service. |
 | `Scope`        | `ibm_scope`    | Scope of the account, organization, or space GUID that is associated with this metric. |
 | `Service name` | `ibm_service_name` | Name of the service that is generating this metric. |
-{: caption="Table 3: Global attributes" caption-side="bottom"}
+{: caption="Global attributes" caption-side="bottom"}
 
 ### Other attributes
 {: #sysdig-attributes-add}

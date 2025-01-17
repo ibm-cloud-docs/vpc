@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-01-16"
+lastupdated: "2025-01-17"
 
 keywords: file share, file storage, source volume, replica share, 
 
@@ -23,7 +23,7 @@ The following table shows which metro regions can replicate with each other with
 | Americas | Europe  | Asia  |
 |----------|---------|-------|
 | - Dallas, TX / `us-south` \n - Sao Paulo / `br-sao` \n - Toronto / `ca-tor` \n - Washington, DC / `us-east` |  - Frankfurt / `eu-de` \n - London / `eu-gb` \n - Madrid / `eu-es`| - Osaka/ `jp-osa` \n - Sydney / `au-syd`\n - Tokyo / `jp-tok` |
-{: caption="Table 1 - This table shows the metro regions that can replicate with each other in each geography. Every geography is a separate column." caption-side="bottom"}
+{: caption="This table shows the metro regions that can replicate with each other in each geography. Every geography is a separate column." caption-side="bottom"}
 
 The specified source file share must not have another replica already, and must not be a replica of another share.
 {: requirement}

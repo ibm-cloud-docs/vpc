@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-09-27"
+  years: 2023, 2025
+lastupdated: "2025-01-17"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -50,7 +50,7 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
    | CENTOS_7     | RHEL_8_6     | SAP_SLES_15_SP4_HANA         |
    | DEBIAN_10    | RHEL_9       | SAP_SLES_15_SP4_APPLICATIONS |
    | ROCKYLINUX_8 |              | |
-   {: caption="Table 1 - This table shows the supported host OS distributions." caption-side="bottom"}
+   {: caption="This table shows the supported host OS distributions." caption-side="bottom"}
 
 * Installing the Mount Helper on Red Hat Enterprise Linux CoreOS is not supported.
    
@@ -98,7 +98,7 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
    | Japan (Tokyo) / `jp-tok`          | `tok` |   
    | US East (Washington, DC) / `us-east`| `wdc` |
    | US South (Dallas, TX) / `us-south`  | `dal` |
-   {: caption="Table 2 - This table shows the region values that the script accepts." caption-side="bottom"}
+   {: caption="This table shows the region values that the script accepts." caption-side="bottom"}
 
 1. Optional - Every installation image is accompanied by a file that contains the checksum value for the image file. For example, the image file ibmshare-0.0.1.tar.gz is accompanied by the ibmshare-0.0.1.tar.gz.sha256 file that contains the checksum value. To verify the integrity of the downloaded package, use the following commands.
    ```sh
