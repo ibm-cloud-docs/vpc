@@ -460,9 +460,9 @@ When you view details of a backup job from the CLI or by making a [`GET /backup_
 * `source_volume_too_large` - The code indicates that a backup snapshot could not be created because the source volume exceeds the [maximum supported size](/docs/vpc?topic=vpc-snapshots-vpc-faqs&interface=ui#faq-snapshot-4).
 * `snapshot_rate_too_high` - The rate of backups for the resource is too high, the backup job cannot create the backup snapshot before a new snapshot is due. The second snapshot fails because the first snapshot is still being processed.
 * `source_volume_unavailable` - The code indicates that a backup snapshot could not be created because the source volume could not be found. Make sure that the volume is attached to a running instance.
-* `snapshot_source_unavailable` - The source data is not available. This error might occur  because the source is still being created.
+* `snapshot_source_unavailable` - The source data is not available. This error might occur because the source is still being created.
 
-For more information, see [Troubleshooting Backup for VPC](/docs/vpc?topic=vpc-baas-troubleshoot).
+For more information, see [troubleshooting Backup for VPC](/docs/vpc?topic=vpc-baas-troubleshoot).
 
 ## Next steps
 {: #backup-jobs-next-steps}
