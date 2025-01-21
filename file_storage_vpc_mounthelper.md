@@ -93,10 +93,10 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
    | Brazil (Sao Paulo) / `br-sao`     | `sao` |
    | Canada (Toronto) / `ca-tor`       | `tor` |
    | Germany (Frankfurt) / `eu-de`     | `fra` | 
-   | United Kingdom (London) / `eu-gb` | `lon` | 
-   | Spain (Madrid) / `eu-mad`         | `mad` |
    | Japan (Osaka)/ `jp-osa`           | `osa` | 
    | Japan (Tokyo) / `jp-tok`          | `tok` |   
+   | Spain (Madrid) / `eu-mad`         | `mad` |
+   | United Kingdom (London) / `eu-gb` | `lon` | 
    | US East (Washington, DC) / `us-east`| `wdc` |
    | US South (Dallas, TX) / `us-south`  | `dal` |
    {: caption="This table shows the region values that the script accepts." caption-side="bottom"}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-01-17"
+lastupdated: "2025-01-21"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, view backup lists,
 
@@ -448,15 +448,19 @@ For more information about the arguments and attributes, see [ibm_is_backup_poli
 ## Backup job statuses and reason codes
 {: #backup-jobs-status}
 
-When you view details of a backup job from the CLI or by making a `GET /backup_policies/{backup_policy_id}/jobs/{backup_job_id}` request to the API, the `status` property indicates whether the job `failed`, is `running`, or `succeeded`. The CLI and API responses also provide status reasons with the following codes:
+When you view details of a backup job from the CLI or by making a [`GET /backup_policies/{backup_policy_id}/jobs/{backup_job_id}`](/apidocs/vpc/latest#get-backup-policy-job) request to the API, the `status` property indicates whether the job `failed`, is `running`, or `succeeded`. The CLI and API responses also provide status reasons with the following codes:
 
 * `internal_error` - The code indicates an internal error. Contact IBM support if you see this code.
 * `snapshot_encryption_key_invalid` - The code indicates that the system cannot create a snapshot because the encryption key could not be validated. The reason for this error can be that either the key information you provided is incorrect or the service-to-service authorization was revoked.
 * `snapshot_pending` - The code indicates that a backup snapshot could not be deleted because that is in the `pending` [snapshot lifecycle state](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-status).
 * `snapshot_volume_limit` - The code indicates that a backup snapshot could not be created because the [snapshot limit](/docs/vpc?topic=vpc-snapshots-vpc-faqs&interface=ui#faq-snapshot-3) for the source volume is reached.
+* `snapshot_share_limit`: The maximum number of snapshots on this file share is reached.
+* `snapshot_source_unsupported`: The source file share's access control mode does not support backups and snapshots.
 * `source_volume_busy`: This code indicates that a backup snapshot could not be created because the source volume is performing operations that must be serialized. Such operations include increasing the capacity, adjusting IOPS, or the creation of a snapshot.
 * `source_volume_too_large` - The code indicates that a backup snapshot could not be created because the source volume exceeds the [maximum supported size](/docs/vpc?topic=vpc-snapshots-vpc-faqs&interface=ui#faq-snapshot-4).
-* `source_unavailable` - The code indicates that a backup snapshot could not be created because the source volume could not be found. Make sure that the volume is attached to a running instance.
+* `snapshot_rate_too_high` - The rate of backups for the resource is too high, the backup job cannot create the backup snapshot before a new snapshot is due. The second snapshot fails because the first snapshot is still being processed.
+* `source_volume_unavailable` - The code indicates that a backup snapshot could not be created because the source volume could not be found. Make sure that the volume is attached to a running instance.
+* `snapshot_source_unavailable` - The source data is not available. This error might occur  because the source is still being created.
 
 For more information, see [Troubleshooting Backup for VPC](/docs/vpc?topic=vpc-baas-troubleshoot).
 
