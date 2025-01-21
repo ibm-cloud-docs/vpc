@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-12-11"
+  years: 2024, 2025
+lastupdated: "2025-01-18"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, accelerated, h100, l4, l40s
 
@@ -22,7 +22,7 @@ The accelerated family of profiles provides on-demand, cost-effective access to 
 ## NVIDIA Hopper HGX instance profiles
 {: #hopper-hgx-profiles}
 
-The Hopper-based Accelerated virtual server profiles are built atop NVIDIA H100 accelerators. These
+The Hopper-based Accelerated virtual server profiles are built atop NVIDIA H100  accelerators. These
 accelerators are tuned for AI workloads, including inferencing, fine-tuning, and large-scale
 training. The solution is paired with the 4th Generation Intel® Xeon® Scalable processors.
 
@@ -48,6 +48,9 @@ cluster throughput of 3.2 Tbps. The solution also provides RoCEv2 to support RDM
 ### Availability
 {: #hopper-hgx-availability}
 
+#### NVIDIA H100 SXM5 (80 GB)
+{: #hopper-hgx-availability-H100}
+
 Status: Select Availability
 
 | Region                    | Universal zone    | Cluster network |
@@ -65,6 +68,8 @@ Status: Select Availability
 {: caption="Table 1. Supported regions and zones" caption-side="bottom"}
 
 For more information about regions and universal zones, see [Regions](/docs/overview?topic=overview-locations#regions). 
+
+ 
 
 ### Capabilities
 {: #hopper-hgx-capabilities}

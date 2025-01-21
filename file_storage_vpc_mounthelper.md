@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-01-17"
+lastupdated: "2025-01-21"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -94,6 +94,7 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
    | Canada (Toronto) / `ca-tor`       | `tor` |
    | Germany (Frankfurt) / `eu-de`     | `fra` | 
    | United Kingdom (London) / `eu-gb` | `lon` | 
+   | Spain (Madrid) / `eu-mad`         | `mad` |
    | Japan (Osaka)/ `jp-osa`           | `osa` | 
    | Japan (Tokyo) / `jp-tok`          | `tok` |   
    | US East (Washington, DC) / `us-east`| `wdc` |
