@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-12-02"
+  years: 2021, 2025
+lastupdated: "2025-01-22"
 
 keywords: snapshots, Block Storage, snapshot clone, remote copy, fast restore, Block Storage snapshot, cross-regional snapshot
 
@@ -393,14 +393,14 @@ A successful response looks like the following example. The snapshot lifecycle s
 ## Creating a snapshot and a fast restore snapshot clone with the API
 {: #snapshots-vpc-create-snaphot-clone-api}
 {: api}
-
+ 
 When you create a snapshot, you can also create a fast restore snapshot clone in another zone. By cloning a snapshot and keeping it in another zone, you can later use the fast restore feature to quickly provision a new volume with data from a snapshot. For more information, see [Snapshots fast restore feature](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=api#snapshots_vpc_fast_restore).
 
 Make a `POST/snapshots` request to create a snapshot of a boot or data volume and specify the `clones` property. Indicate a different zone or zones in your region from the zone in which you're creating the snapshot. In the following example, a clone is created in us-south-2, specified by name.
 
 ```sh
 curl -X POST \
-"$vpc_api_endpoint/v1/snapshots?version=2022-12-18\&generation=2" \
+"$vpc_api_endpoint/v1/snapshots?version=2022-12-18&generation=2" \
 -H "Authorization: $iam_token" \
 -d '{
     "clones": [{"zone": {"name": "us-south-2"}}],
@@ -460,7 +460,7 @@ If the source snapshot is not encrypted with a customer key, the encryption of t
 
 ```sh
 curl -X POST \
-"$vpc_api_endpoint/v1/snapshots?version=2023-05-10\&generation=2" \
+"$vpc_api_endpoint/v1/snapshots?version=2023-05-10&generation=2" \
 -H "Authorization: $iam_token" \
 -d '{
      "name": "my-snapshot",    // required

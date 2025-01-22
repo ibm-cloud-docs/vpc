@@ -341,7 +341,7 @@ A successful response looks like the following example. This example shows three
     "href": "https://us-south.iaas.cloud.ibm.com/v1/volumes/r006-b5f15a27-ee2b-4d49-9344-9f3c17d42903",
     "id": "r006-b5f15a27-ee2b-4d49-9344-9f3c17d42903",
     "iops": 3000,
-    "name": "storage-sre-test-boot-1711989834000",
+    "name": "my-vsi--boot-volume-1711989834000",
     "operating_system": {
       "architecture": "amd64",
       "dedicated_host_only": false,
@@ -390,7 +390,7 @@ A successful response looks like the following example. This example shows three
                 "crn": "crn:v1:bluemix:public:is:us-south-1:a/a1234567::instance:0717_70aa00c6-65c9-4523-8a43-893c6fa0d87d",
                 "href": "https://us-south.iaas.cloud.ibm.com/v1/instances/0717_70aa00c6-65c9-4523-8a43-893c6fa0d87d",
                 "id": "0717_70aa00c6-65c9-4523-8a43-893c6fa0d87d",
-                "name": "storage-sre-test",
+                "name": "my-vsi-test",
                 "resource_type": null
             },
             "name": "perfectly-parting-humble-skewer",
@@ -417,7 +417,7 @@ A successful response looks like the following example. This example shows three
     "href": "https://us-south.iaas.cloud.ibm.com/v1/volumes/r006-ed2b09db-36da-4cd1-b862-fed933465fcc",
     "id": "r006-ed2b09db-36da-4cd1-b862-fed933465fcc",
     "iops": 3000,
-    "name": "snapshot-100",
+    "name": "my-other-data-volume",
     "profile": {
         "href": "https://us-south.iaas.cloud.ibm.com/v1/volume/profiles/general-purpose",
         "name": "general-purpose"
