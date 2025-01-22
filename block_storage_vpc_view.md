@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-12-16"
+  years: 2019, 2025
+lastupdated: "2025-01-22"
 
 keywords:
 
@@ -278,126 +278,168 @@ curl -X GET "$vpc_api_endpoint/v1/volumes?version=2022-12-09&generation=2" \
 A successful response looks like the following example. This example shows three data volumes. The first in the list is attached to an instance.
 
 ```json
-{
-  "first": {
-    "href": "https://us-south.iaas.cloud.ibm.com/v1/volumes?limit=50"
-  },
-  "limit": 50,
-  "volumes": [
-    {
-      "active": true,
-      "bandwidth": 128,
-      "busy": false,
-      "capacity": 100,
-      "created_at": "2022-12-09T06:26:17Z",
-      "crn": "crn:[...]",
-      "encryption": "provider_managed",
-      "health_reasons": [],
-      "health_state": "ok",
-      "href": "https://us-south.iaas.cloud.ibm.com/v1/volumes/ccbe6fe1-5680-4865-94d3-687076a38293",
-      "id": "ccbe6fe1-5680-4865-94d3-687076a38293",
-      "iops": 1000,
-      "name": "my-volume-1",
-      "profile": {
+[   
+  {
+    "active": false,
+    "adjustable_iops_supported": false,
+    "attachment_state": "unattached",
+    "bandwidth": 393,
+    "busy": false,
+    "capacity": 100,
+    "created_at": "2025-01-22T00:54:01.000Z",
+    "crn": "crn:v1:bluemix:public:is:us-south-2:a/a1234567::volume:r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34",
+    "encryption": "provider_managed",
+    "health_reasons": [],
+    "health_state": "ok",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/volumes/r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34",
+    "id": "r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34",
+    "iops": 3000,
+    "name": "my-data-volume",
+    "profile": {
         "href": "https://us-south.iaas.cloud.ibm.com/v1/volume/profiles/general-purpose",
         "name": "general-purpose"
-      },
-      "resource_group": {
-        "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/4bbce614c13444cd8fc5e7e878ef8e21",
-        "id": "4bbce614c13444cd8fc5e7e878ef8e21",
-        "name": "Default"
-      },
-      "status": "available",
-      "status_reasons": [],
-      "user_tags": [],
-      "volume_attachments": [
-        {
-          "delete_volume_on_instance_delete": true,
-          "href": "https://us-south.iaas.cloud.ibm.com/v1/instances/33bd5872-7034-462b-9f3e-d400c49d347a/volume_attachments/b31c1a5a-122a-4e32-a10b-f2c31271de85",
-          "id": "b31c1a5a-122a-4e32-a10b-f2c31271de85",
-          "instance": {
-            "crn": "crn:[...]",
-            "href": "https://us-south.iaas.cloud.ibm.com/v1/instances/33bd5872-7034-462b-9f3e-d400c49d347a",
-            "id": "33bd5872-7034-462b-9f3e-d400c49d347a",
-            "name": "instance-1",
-            "resource_type": "instance"
-          },
-          "name": "volume-attachment-1",
-          "type": "data"
-        }
-      ],
-      "zone": {
+    },
+    "resource_group": {
+        "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/6edefe513d934fdd872e78ee6a8e73ef",
+        "id": "6edefe513d934fdd872e78ee6a8e73ef",
+        "name": "defaults"
+    },
+    "source_snapshot": {
+        "crn": "crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot:r006-8428038a-a399-4894-8c84-c8d7a4a75fae",
+        "href": "https://us-south.iaas.cloud.ibm.com/v1/snapshots/r006-8428038a-a399-4894-8c84-c8d7a4a75fae",
+        "id": "r006-8428038a-a399-4894-8c84-c8d7a4a75fae",
+        "name": "wdc-fst-rstore-c6a092f34118-4505",
+        "resource_type": "snapshot"
+    },
+    "status": "available",
+    "status_reasons": [],
+    "adjustable_capacity_states": [
+        "attached"
+    ],
+    "user_tags": [
+        "env:prod",
+        "env:test"
+    ],
+    "volume_attachments": [],
+    "zone": {
         "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-2",
         "name": "us-south-2"
-      }
-    },
-    {
-      "active": false,
-      "bandwidth": 128,
-      "busy": false,
-      "capacity": 100,
-      "created_at": "2022-12-08T16:46:54Z",
-      "crn": "crn:[...]",
-      "encryption": "provider_managed",
-      "health_reasons": [],
-      "health_state": "ok",
-      "href": "https://us-south.iaas.cloud.ibm.com/v1/volumes/9de3e18c-cec9-4cac-a64a-0bdfab21e9d4",
-      "id": "9de3e18c-cec9-4cac-a64a-0bdfab21e9d4",
-      "iops": 1000,
-      "name": "volume-2",
-      "profile": {
-        "href": "https://us-south.iaas.cloud.ibm.com/v1/volume/profiles/general-purpose",
-        "name": "general-purpose"
-      },
-      "resource_group": {
-        "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/4bbce614c13444cd8fc5e7e878ef8e21",
-        "id": "4bbce614c13444cd8fc5e7e878ef8e21",
-        "name": "Default"
-      },
-      "status": "available",
-      "status_reasons": [],
-      "user_tags": [],
-      "volume_attachments": [],
-      "zone": {
-        "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-2",
-        "name": "us-south-2"
-      }
-    },
-    {
-      "active": false,
-      "bandwidth": 128,
-      "busy": false,
-      "capacity": 100,
-      "created_at": "2022-12-08T02:22:43Z",
-      "crn": "crn:[...]",
-      "encryption": "provider_managed",
-      "health_reasons": [],
-      "health_state": "ok",
-      "href": "https://us-south.iaas.cloud.ibm.com/v1/volumes/89ba05e9-6e35-4964-9747-7ae3f9b30303",
-      "id": "89ba05e9-6e35-4964-9747-7ae3f9b30303",
-      "iops": 1000,
-      "name": "volume-3",
-      "profile": {
-        "href": "https://us-south.iaas.cloud.ibm.com/v1/volume/profiles/5iops-tier",
-        "name": "5iops-tier"
-      },
-      "resource_group": {
-        "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/4bbce614c13444cd8fc5e7e878ef8e21",
-        "id": "4bbce614c13444cd8fc5e7e878ef8e21",
-        "name": "Default"
-      },
-      "status": "available",
-      "status_reasons": [],
-      "user_tags": [],
-      "volume_attachments": [],
-      "zone": {
-        "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-2",
-        "name": "us-south-2",
-        "resource_type": "zone"
-      }
     }
-  ]
-}
+  },
+  {
+    "active": false,
+    "adjustable_iops_supported": false,
+    "attachment_state": "attached",
+    "bandwidth": 393,
+    "busy": false,
+    "capacity": 100,
+    "created_at": "2024-04-01T16:48:16.000Z",
+    "crn": "crn:v1:bluemix:public:is:us-south-1:a/a1234567::volume:r006-b5f15a27-ee2b-4d49-9344-9f3c17d42903",
+    "encryption": "provider_managed",
+    "health_reasons": [],
+    "health_state": "ok",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/volumes/r006-b5f15a27-ee2b-4d49-9344-9f3c17d42903",
+    "id": "r006-b5f15a27-ee2b-4d49-9344-9f3c17d42903",
+    "iops": 3000,
+    "name": "storage-sre-test-boot-1711989834000",
+    "operating_system": {
+      "architecture": "amd64",
+      "dedicated_host_only": false,
+      "display_name": "Ubuntu Linux&reg; 20.04 LTS Focal Fossa Minimal Install (amd64)",
+      "family": "Ubuntu Linux",
+      "gpu_supported": [],
+      "href": "https://us-south.iaas.cloud.ibm.com/v1/operating_systems/ubuntu-20-04-amd64",
+      "name": "ubuntu-20-04-amd64",
+      "resource_type": "operating_system",
+      "vendor": "Canonical",
+      "version": "20.04 LTS Focal Fossa Minimal Install"
+    },
+    "profile": {
+        "href": "https://us-south.iaas.cloud.ibm.com/v1/volume/profiles/general-purpose",
+        "name": "general-purpose"
+    },
+    "resource_group": {
+        "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/6edefe513d934fdd872e78ee6a8e73ef",
+        "id": "6edefe513d934fdd872e78ee6a8e73ef",
+        "name": "defaults"
+    },
+    "source_image": {
+        "crn": "crn:v1:bluemix:public:is:us-south:a/811f8abfbd32425597dc7ba40da98fa6::image:r006-0e578411-53ab-44ba-a0f8-d003d0011993",
+        "href": "https://us-south.iaas.cloud.ibm.com/v1/images/r006-0e578411-53ab-44ba-a0f8-d003d0011993",
+        "id": "r006-0e578411-53ab-44ba-a0f8-d003d0011993",
+        "name": "ibm-redhat-8-6-minimal-amd64-7",
+        "resource_type": "image"
+    },
+    "status": "available",
+    "status_reasons": [],
+    "adjustable_capacity_states": [
+        "attached"
+    ],
+    "user_tags": [
+        "backup-policy-tag"
+    ],
+    "volume_attachments": [
+        {
+            "delete_volume_on_instance_delete": true,
+            "device": {
+                "id": ""
+            },
+            "href": "https://us-south.iaas.cloud.ibm.com/v1/instances/0717_70aa00c6-65c9-4523-8a43-893c6fa0d87d/volume_attachments/0717-0fbaf561-6390-48a4-bb28-240b20ded36e",
+            "id": "0717-0fbaf561-6390-48a4-bb28-240b20ded36e",
+            "instance": {
+                "crn": "crn:v1:bluemix:public:is:us-south-1:a/a1234567::instance:0717_70aa00c6-65c9-4523-8a43-893c6fa0d87d",
+                "href": "https://us-south.iaas.cloud.ibm.com/v1/instances/0717_70aa00c6-65c9-4523-8a43-893c6fa0d87d",
+                "id": "0717_70aa00c6-65c9-4523-8a43-893c6fa0d87d",
+                "name": "storage-sre-test",
+                "resource_type": null
+            },
+            "name": "perfectly-parting-humble-skewer",
+            "type": "boot"
+        }
+    ],
+    "zone": {
+        "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-1",
+        "name": "us-south-1"
+    }
+  },
+  {
+    "active": false,
+    "adjustable_iops_supported": false,
+    "attachment_state": "unattached",
+    "bandwidth": 393,
+    "busy": false,
+    "capacity": 10,
+    "created_at": "2021-09-10T15:56:30.000Z",
+    "crn": "crn:v1:bluemix:public:is:us-south-3:a/a1234567::volume:r006-ed2b09db-36da-4cd1-b862-fed933465fcc",
+    "encryption": "provider_managed",
+    "health_reasons": [],
+    "health_state": "ok",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/volumes/r006-ed2b09db-36da-4cd1-b862-fed933465fcc",
+    "id": "r006-ed2b09db-36da-4cd1-b862-fed933465fcc",
+    "iops": 3000,
+    "name": "snapshot-100",
+    "profile": {
+        "href": "https://us-south.iaas.cloud.ibm.com/v1/volume/profiles/general-purpose",
+        "name": "general-purpose"
+    },
+    "resource_group": {
+        "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/6edefe513d934fdd872e78ee6a8e73ef",
+        "id": "6edefe513d934fdd872e78ee6a8e73ef",
+        "name": "defaults"
+    },
+    "status": "available",
+    "status_reasons": [],
+    "adjustable_capacity_states": [
+        "attached"
+    ],
+    "user_tags": [],
+    "volume_attachments": [],
+    "zone": {
+        "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-3",
+        "name": "us-south-3"
+    }
+  } 
+]
 ```
 {: codeblock}
 

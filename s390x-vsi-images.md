@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-10-10"
+  years: 2022, 2025
+lastupdated: "2025-01-22"
 
 keywords: image, stock image, linuxone image, hpcr, container runtime, virtual private cloud, virtual server, generation 2, gen 2
 
@@ -41,7 +41,7 @@ You can choose a profile based on your requirements. You can choose from balance
 | Image | Architectures |
 |---------|---------|
 | Ubuntu 22.04.x, 20.04.x | s390x |
-| SUSE Linux Enterprise server (SLES) 15 SP3 | s390x |
+| SUSE Linux Enterprise server (SLES) 15 SP6 | s390x |
 | IBM z/OS ({{site.data.keyword.waziaas_full_notm}}) | s390x |
 {: caption="Supported s390x stock image operating systems" caption-side="bottom"}
 

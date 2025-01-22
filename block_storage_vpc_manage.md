@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-12-16"
+  years: 2019, 2025
+lastupdated: "2025-01-22"
 
 keywords:
 
@@ -164,29 +164,32 @@ ibmcloud is volume-update VOLUME_ID [--name NEW_NAME] [--json]
 See the following example.
 
 ```sh
-$ ibmcloud is volume-update r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac --name demo-volume-update
-Updating volume 933c8781-f7f5-4a8f-8a2d-3bfc711788ee under account Test Account as test.user@ibm.com...
-ID                                     r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac
-Name                                   demo-volume-update
-CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a1234567::volume:r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac
-Status                                 available
-Attachment state                       unattached
-Capacity                               100
-IOPS                                   3000
-Bandwidth(Mbps)                        393
-Profile                                general-purpose
-Encryption key                         -
-Encryption                             provider_managed
-Resource group                         defaults
-Created                                2023-06-29T16:14:59+00:00
-Zone                                   us-east-1
-Health State                           ok
-Volume Attachment Instance Reference   -
-Active                                 false
-Adjustable Capacity States             attached 
-Adjustable IOPS States                 
-Busy                                   false
-Tags                                   -
+ibmcloud is volume-update r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34 --name my-data-volume
+Updating volume r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34 under account Test Account as user test.user@ibm.com...
+                                          
+ID                                     r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34   
+Name                                   my-data-volume   
+CRN                                    crn:v1:bluemix:public:is:us-south-2:a/a1234567::volume:r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34   
+Status                                 available   
+Attachment state                       unattached   
+Capacity                               100   
+IOPS                                   3000   
+Bandwidth(Mbps)                        393   
+Profile                                general-purpose   
+Encryption key                         -   
+Encryption                             provider_managed   
+Resource group                         defaults   
+Created                                2025-01-22T00:54:01+00:00   
+Zone                                   us-south-2   
+Health State                              
+Volume Attachment Instance Reference   -   
+Source snapshot                        ID                                          Name      
+                                       r006-8428038a-a399-4894-8c84-c8d7a4a75fae   wdc-fst-rstore-c6a092f34118-4505      
+                                          
+Active                                 false   
+Adjustable IOPS                        false   
+Busy                                   false   
+Tags                                      
 ```
 {: screen}
 
@@ -201,13 +204,14 @@ Use the same option to add tags to a volume when you create a volume by using `i
 The following example adds user tags `env:test` and `bkp:test` to a volume identified by ID. The output shows information such as name, status, capacity, performance profile, and location. The updated tags appear at the end of the response.
 
 ```sh
-cloudshell:~$ ibmcloud is volume-update r010-bdb8fc70-8afb-4622-826a-d65a9fc477a4 --tags env:test,bkp:test,bcp:test
-Updating volume r010-bdb8fc70-8afb-4622-826a-d65a9fc477a4 under account Test Account as user test.user@ibm.com...
+ibmcloud is volume-update r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34 --tags dev:test
+Updating volume r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34 under account Test Account as user test.user@ibm.com...
                                           
-ID                                     r010-bdb8fc70-8afb-4622-826a-d65a9fc477a4   
-Name                                   my-bootable-snapshot-restore-21   
-CRN                                    crn:v1:bluemix:public:is:eu-de-2:a/a1234567::volume:r010-bdb8fc70-8afb-4622-826a-d65a9fc477a4   
+ID                                     r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34   
+Name                                   my-data-volume   
+CRN                                    crn:v1:bluemix:public:is:us-south-2:a/a1234567::volume:r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34   
 Status                                 available   
+Attachment state                       unattached   
 Capacity                               100   
 IOPS                                   3000   
 Bandwidth(Mbps)                        393   
@@ -215,20 +219,17 @@ Profile                                general-purpose
 Encryption key                         -   
 Encryption                             provider_managed   
 Resource group                         defaults   
-Created                                2023-02-23T18:52:00+00:00   
-Zone                                   eu-de-2   
-Health State                           ok   
+Created                                2025-01-22T00:54:01+00:00   
+Zone                                   us-south-2   
+Health State                              
 Volume Attachment Instance Reference   -   
 Source snapshot                        ID                                          Name      
-                                       r138-92c3efcb-4588-4c9c-828b-c52836629954   my-bootable-snapshot      
-                                          
-Operating system                       CentOS 7.x - Minimal Install (amd64)   
-Source image                           ID                                          Name      
-                                       r010-067bd38b-7ddd-49d9-a7f3-6e0a798e0554   ibm-centos-7-9-minimal-amd64-5      
+                                       r006-8428038a-a399-4894-8c84-c8d7a4a75fae   wdc-fst-rstore-c6a092f34118-4505      
                                           
 Active                                 false   
+Adjustable IOPS                        false   
 Busy                                   false   
-Tags                                   env:test,bkp:test,bcp:test
+Tags                                   dev:test   
 ```
 {: screen}
 
@@ -399,7 +400,7 @@ To apply tags to a {{site.data.keyword.block_storage_is_short}} volume, follow t
 
    ```curl
    curl -X PATCH\
-   "$vpc_api_endpoint/v1/volumes/50fda9c3-eecd-4152-b473-a98018ccfb10?version=2022-04-25&generation=2"\
+   "$vpc_api_endpoint/v1/volumes/r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34?version=2025-01-21&generation=2"\
       -H "Authorization: Bearer"\
       -H "If-Match: <_Etag-hash-string_>"\
       -d `{
@@ -415,34 +416,51 @@ To apply tags to a {{site.data.keyword.block_storage_is_short}} volume, follow t
 
    ```json
    {
-      "id":"50fda9c3-eecd-4152-b473-a98018ccfb10",
-        "crn": "crn:[...]",
-      "name":"my-volume-update1",
-      "href":"https://us-south.iaas.cloud.ibm/v1/volumes/50fda9c3-eecd-4152-b473-a98018ccfb10",
-      "capacity":50,
-      "iops":100,
-      "encryption":"provider_managed",
-      "status":"pending",
-      "zone":{
-         "name":"us-south-1",
-         "href":"https://us-south.iaas.cloud.ibm/v1/regions/us-south/zones/us-south-1"
-      },
-         "profile":{
-         "name":"custom",
-         "href":"https://us-south.iaas.cloud.ibm/v1/volume/profiles/custom"
-      },
-      "resource_group":{
-         "id":"4bbce614c13444cd8fc5e7e878ef8e21",
-         "href":"https://resource-controller.cloud.ibm.com/v2/resource_groups/4bbce614c13444cd8fc5e7e878ef8e21",
-         "name":"Default"
-      },
-      "volume_attachments":[],
-      "created_at":"2022-04-28T17:46:17.000Z",
-      "status_reasons":[],
-      "active":false,
-      "busy":false,
-      "bandwidth":128,
-      "user_tags":["env:test","env:prod"]
+    "active": false,
+    "adjustable_iops_supported": false,
+    "attachment_state": "unattached",
+    "bandwidth": 393,
+    "busy": false,
+    "capacity": 100,
+    "created_at": "2025-01-22T00:54:01.000Z",
+    "crn": "crn:v1:bluemix:public:is:us-south-2:a/a1234567::volume:r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34",
+    "encryption": "provider_managed",
+    "health_reasons": [],
+    "health_state": "",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/volumes/r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34",
+    "id": "r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34",
+    "iops": 3000,
+    "name": "my-data-volume",
+    "profile": {
+        "href": "https://us-south.iaas.cloud.ibm.com/v1/volume/profiles/general-purpose",
+        "name": "general-purpose"
+    },
+    "resource_group": {
+        "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/6edefe513d934fdd872e78ee6a8e73ef",
+        "id": "6edefe513d934fdd872e78ee6a8e73ef",
+        "name": "defaults"
+    },
+    "source_snapshot": {
+        "crn": "crn:v1:bluemix:public:is:us-south:a/a1234567::snapshot:r006-8428038a-a399-4894-8c84-c8d7a4a75fae",
+        "href": "https://us-south.iaas.cloud.ibm.com/v1/snapshots/r006-8428038a-a399-4894-8c84-c8d7a4a75fae",
+        "id": "r006-8428038a-a399-4894-8c84-c8d7a4a75fae",
+        "name": "wdc-fst-rstore-c6a092f34118-4505",
+        "resource_type": "snapshot"
+    },
+    "status": "available",
+    "status_reasons": [],
+    "adjustable_capacity_states": [
+        "attached"
+    ],
+    "user_tags": [
+        "env:test",
+        "env:prod"
+    ],
+    "volume_attachments": [],
+    "zone": {
+        "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-2",
+        "name": "us-south-2"
+    }
    }
    ```
    {: codeblock}
