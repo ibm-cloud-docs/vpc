@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-10-24"
+  years: 2021, 2025
+lastupdated: "2025-01-22"
 
 keywords:
 
@@ -95,7 +95,7 @@ Before you begin, [set up your CLI environment](/docs/vpc?topic=vpc-set-up-envir
 To reserve a VPC private IP address using the CLI, run the following command:
 
 ```sh
-ibmcloud is subnet-reserved-ip-create SUBNET [--vpc VPC] [--name NAME] [--auto-delete true | false] [--target TARGET] [--output JSON] [-q, --quiet]
+ibmcloud is subnet-reserved-ip-create SUBNET [--vpc VPC] [--name NAME] [--address IPADDRESS] [--auto-delete true | false] [--target TARGET] [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
