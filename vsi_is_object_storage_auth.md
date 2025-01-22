@@ -194,6 +194,24 @@ curl --location --request POST 'https://iam.cloud.ibm.com/v1/policies' \
 ```
 {: codeblock}
 
+### Granting access with Terraform
+{: #custom-image-service-authorization-tf}
+{: terraform}
+
+To create a service-to-service authorization policy for {{site.data.keyword.cos_full_notm}}, use the `ibm_iam_authorization_policy` resource argument in your `main.tf` file.
+
+```terraform
+resource "ibm_iam_authorization_policy" "policy" {
+  source_service_name  = "is"
+  source_resource_type = "image"
+  target_service_name  = "cloud-object-storage"
+  roles                = ["Reader","Writer"]
+  description          = "Authorization Policy"
+}
+```
+{: codeblock}
+
+For more information about the arguments and attributes, see the [Terraform documentation for authorization resources](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/iam_authorization_policy){: external}.
 
 ## Next steps
 {: #next-grant-icos-auth}
