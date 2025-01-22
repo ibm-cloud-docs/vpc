@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2024
-lastupdated: "2024-11-05"
+  years: 2021, 2025
+lastupdated: "2025-01-21"
 
 keywords:
 
@@ -216,7 +216,7 @@ Run the `ibmcloud is instance-create` command with the `source_snapshot` propert
 See the following example.
 
 ```sh
-bmcloud is instance-create my-instance-restore1 ea002578-ff10-41fe-9652-e63f7e0e3cba us-south-1 bx2-2x8 ba11a6f2-6c17-4fee-a4b5-5c016fe64376 --boot-volume
+ibmcloud is instance-create my-instance-restore1 ea002578-ff10-41fe-9652-e63f7e0e3cba us-south-1 bx2-2x8 ba11a6f2-6c17-4fee-a4b5-5c016fe64376 --boot-volume
 '{
    "name":"boot-from-snapshot1",
    "volume":{
@@ -361,41 +361,72 @@ See the following example.
 
 ```sh
 curl -X POST \
-"$vpc_api_endpoint/v1/instances?version=2023-03-07&generation=2" \
+"$vpc_api_endpoint/v1/instances?version=2025-01-21&generation=2" \
 -H "Authorization: $iam_token" \
 -H "Content-Type: application/json" \
 -d '{
-      "name": "my-server-name",
-      "zone": {
-         "name": "us-south-1"
-      },
-      "vpc": {
-         "id": "4d27c489-8ad7-3c18-cbf4-2103d9f8da93"
-      },
-      "profile": {
-         "name": "cx2-2x4"
-      },
-      "primary_network_interface": {
-        "name": "region1example-net1",
-        "subnet": {
-           "id": ""
-        }
-      },
-      "boot_volume_attachment": {
-        "delete_volume_on_instance_delete": true,
-        "volume": {
-            "profile": {
-                "name": "general-purpose"
-            },
-            "source_snapshot": {
-                "id": "eb373975-4171-4d91-81d2-c49efb033753"
-            }
-        }
-     },
-    "resource_group": {
-        "id": "2fab2c7f-c09d-4c64-baf7-1453b7461493"
+  "zone": {
+    "name": "us-south-2"
+  },
+  "resource_group": {
+    "id": "6edefe513d934fdd872e78ee6a8e73ef"
+  },
+  "name": "my-virtual-server-instance",
+  "vpc": {
+    "id": "r006-01030e3c-2663-4f7d-ac55-651929dafe37"
+  },
+  "user_data": "",
+  "profile": {
+    "name": "bx2-2x8"
+  },
+  "keys": [
+    {
+      "id": "r006-d17665a1-1359-4cc1-b983-735754a1e908"
     }
+  ],
+  "volume_attachments": [],
+  "boot_volume_attachment": {
+    "volume": {
+      "name": "my-virtual-server-instance-boot-1737500760000",
+      "capacity": 100,
+      "profile": {
+        "name": "general-purpose"
+      },
+      "source_snapshot": {
+        "id": "r006-daefc524-2643-4444-a22d-7c38144cc529"
+      }
+    },
+    "delete_volume_on_instance_delete": true
+  },
+  "metadata_service": {
+    "enabled": false
+  },
+  "primary_network_attachment": {
+    "name": "eth0",
+    "virtual_network_interface": {
+      "allow_ip_spoofing": false,
+      "auto_delete": true,
+      "enable_infrastructure_nat": true,
+      "primary_ip": {
+        "auto_delete": true
+      },
+      "subnet": {
+        "id": "0727-f24237f5-bdf0-4b94-ab4c-167a44b8bcb5"
+      },
+      "security_groups": [
+        {
+          "id": "r006-f380e7ba-b671-4232-9492-ecf59a0e6e1e"
+        }
+      ],
+      "protocol_state_filtering_mode": "auto"
+    }
+  },
+  "network_attachments": [],
+  "reservation_affinity": {
+    "policy": "automatic"
+  }
 }'
+
 ```
 {: codeblock}
 

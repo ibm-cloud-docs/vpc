@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-12-17"
+  years: 2022, 2025
+lastupdated: "2025-01-21"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -49,7 +49,8 @@ The backup failed, as indicated in the backup job details. When you make a `GET 
 Look at the `reason_codes` property in the response. It might be an internal error or the [snapshot limit](/docs/vpc?topic=vpc-snapshots-vpc-faqs&interface=ui#faq-snapshot-3) is reached.
 {: tsCauses}
 
-Contact IBM support if you see an internal error. If the backup snapshot limit is reached, delete the oldest snapshots so new ones can be created. You can create up to 100 backup snapshots of a volume.
+- If you see an internal error, contact IBM support. 
+- If the backup snapshot limit is reached, delete the oldest snapshots so new ones can be created. You can create up to 100 backup snapshots of a volume.
 {: tsResolve}
 
 ## Backup policy is not created due to incorrect authorizations
