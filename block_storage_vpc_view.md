@@ -270,7 +270,7 @@ Before you begin, make sure that you [set up your API environment](/docs/vpc?top
 Make a `GET /volumes` call to list summary information about all volumes. See the following example.
 
 ```sh
-curl -X GET "$vpc_api_endpoint/v1/volumes?version=2022-12-09&generation=2" \
+curl -X GET "$vpc_api_endpoint/v1/volumes?version=2025-01-212&generation=2" \
 -H "Authorization: $iam_token"
 ```
 {: pre}
@@ -449,7 +449,7 @@ A successful response looks like the following example. This example shows three
 Make a `GET /volumes/{id}` call to see details of a volume. See the following example.
 
 ```sh
-curl -X GET "$vpc_api_endpoint/v1/volumes/$volume_id?version=2022-12-09&generation=2" \
+curl -X GET "$vpc_api_endpoint/v1/volumes/$volume_id?version=2025-01-21&generation=2" \
 -H "Authorization: $iam_token"
 ```
 {: pre}
@@ -510,9 +510,9 @@ A successful response provides details of the volume, including capacity and IOP
 ### Extra properties for boot volumes
 {: #viewvol-boot}
 
-When you request to view details of boot volumes, a couple of extra properties are returned in a `GET /volumes` and `GET /volumes/{id}` response.
+When you request to view details of boot volumes, a couple of extra properties are returned in the response for `GET /volumes` and `GET /volumes/{id}` requests.
 
-* The `active` property indicates whether the virtual server instance to which a volume is attached is running or stopped. When `active = true`, the instance is running and operations that require a running instance such as creating an [image from that boot volume](/docs/vpc?topic=vpc-create-ifv#image-from-volume-vpc-api) also work.
+* The `active` property indicates whether the virtual server instance to which a volume is attached is running or stopped. When `active = true`, the instance is running and operations that require a running instance such as creating an [image from the boot volume](/docs/vpc?topic=vpc-create-ifv#image-from-volume-vpc-api) also work.
 
 * The `busy` property indicates whether this volume is performing an operation that must be serialized. If an operation requires serialization, the operation fails unless this property is `false`.
 
