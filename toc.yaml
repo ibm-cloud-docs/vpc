@@ -116,7 +116,7 @@ toc:
                topics:
                - bare_metal_server_storage.md
            - topicgroup:
-               label: Block Storage
+               label: Block storage
                topics:
                - block_storage_vpc_about.md
                - block_storage_vpc_capacity_performance.md
@@ -124,13 +124,13 @@ toc:
                - block_storage_vpc_bandwidth.md
                - block_storage_vpc_expand_vol_about.md
            - bs_snapshots_about.md
-           - backup_service_vpc_about.md
            - topicgroup:
-               label: File Storage
+               label: File storage
                topics:
                - file_storage_vpc_about.md
                - file_storage_vpc_profiles.md
            - fs_snapshots_about.md
+           - backup_service_vpc_about.md
            - vsi_instance_storage.md
        - release-notes.md
     - navgroup:
