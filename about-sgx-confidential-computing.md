@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-01-14"
+lastupdated: "2025-01-23"
 
 keywords: sgx, intel sgx, software guard extension, confidential computing, trusted execution environment, TEE, data protection
 
@@ -107,7 +107,3 @@ Keep the following limitations in mind if you want to use SGX or TDX.
       
 * TDX limitations
    - When you reboot a TDX-enabled virtual server, the virtual server shuts down. The virtual server must be restarted by using the UI or CLI.
-   - Avoid rebooting the TDX-enabled virtual server from the UI or CLI because it might cause the virtual server to continually reboot. Instead, stop and then restart the virtual server.
-   - If the virtual server is continuously rebooting, force a stop of the virtual server and then start it.
-   - Except for Ubuntu 24.04, all TDX-supported images enter a stop state the first time you create a virtual server. In this case, restart the virtual server.
-   - Quotes generation is only supported by using the Linux virtual socket (vsock) interface.
