@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, [{CURRENT_YEAR}]
-lastupdated: "[{LAST_UPDATED_DATE}]"
+  years: 2021, 2025
+lastupdated: "2025-01-23"
 
 keywords: api, errors, error codes, status codes, metadata, http status codes
 

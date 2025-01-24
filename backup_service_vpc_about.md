@@ -2,7 +2,7 @@
 
 copyright:
  years: 2022, 2025
-lastupdated: "2025-01-17"
+lastupdated: "2025-01-23"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -162,8 +162,6 @@ The restored volume has the same capacity and volume profile as the original vol
 
 Restoring a virtual server instance directly from snapshot consistency group identifier is not supported. However, you can restore a virtual server instance by restoring all of its boot and data volumes from the snapshots that are part of a consistency group.
 
-
-
 File share backups can be used to create new shares, too. Because the snapshot is colocated with the file share, the performance of the new share is not impacted during initialization. However, for the same reason, file share backups can't be copied to another region or zone by themselves to create new shares. For more information, see [Restoring a share from a snapshot](/docs/vpc?topic=vpc-fs-snapshots-restore). 
 
 ### Restore a volume by using fast restore
@@ -200,7 +198,7 @@ For more information, see the [best practices for assigning access](/docs/accoun
 
 Specific IAM user roles are required to grant service-to-service authorizations. Service-to-service authorizations between the Backup service and Cloud Block Storage, Snapshots for VPC, and Virtual server for VPC are needed so the backup service can detect volume tags and create snapshots.  If you want to create automated snapshots of your file shares, set up service-to-service authorizations between the Backup service and Cloud File Storage service. For more information, see [Establishing service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth). 
 
-## Limitations in this release
+## Limitations
 {: #backup-service-limitations}
 
 This release has the following limitations.

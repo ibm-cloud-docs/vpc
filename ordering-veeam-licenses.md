@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, [{CURRENT_YEAR}]
-lastupdated: "[{LAST_UPDATED_DATE}]"
+  years: 2020, 2025
+lastupdated: "2025-01-23"
 
 keywords: Veeam license, order license, virtual private cloud, instance backup
 
