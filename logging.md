@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2025
-lastupdated: "2025-01-16"
+lastupdated: "2025-01-24"
 
 keywords: flow logs, ordering, logging, log analysis
 

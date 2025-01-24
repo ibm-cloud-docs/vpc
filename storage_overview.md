@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-01-17"
+lastupdated: "2025-01-24"
 
 keywords: block storage for VPC, File Storage for VPC, Snapshots for VPC, Backup for VPC, block storage, file storage, snapshots, backup, 
 
@@ -74,8 +74,6 @@ For more information, see [About {{site.data.keyword.filestorage_vpc_short}}](/d
 ## {{site.data.keyword.filestorage_vpc_short}} snapshots
 {: #vpc-fs-snapshots-overview}
 
-
-
 {{site.data.keyword.filestorage_vpc_short}} snapshots is a zonal offering. A snapshot is a point-in-time copy of your file share that you create manually in the console, from the CLI, with the API, or Terraform. The initial snapshot is a full copy of the share. Subsequent snapshots of the same share are incremental; only those changes are captured that occurred since the last snapshot was taken. Snapshots inherit encryption from the source share.
 
 You can create, list, view details, and manage snapshots in the UI, from the CLI, and with the API or Terraform. You can use the snapshot to create another file share or to retrieve previous versions of files that are stored in the share.
@@ -101,6 +99,11 @@ For more information, see [About Backup for VPC](/docs/vpc?topic=vpc-backup-serv
 Instance storage is allocated from one or more local SSDs on the server that is hosting the instance. An instance storage disk provides fast, affordable, temporary storage to improve the performance of cloud native workloads with scratch space, caching buffers, or a place for replicated data.
 
 Data that is stored on instance storage is tied directly to the instance lifecycle and is only held temporarily. The instance storage disk is automatically created and destroyed with the instance. However, instance storage data is not lost when an instance is rebooted. For more information, see [About instance storage](/docs/vpc?topic=vpc-instance-storage).
+
+## Storage for bare metal servers
+{: #vpc-baremetal-storage-overview}
+
+All profiles of {{site.data.keyword.bm_is_short}} provide one 0.96 TB SATA M.2 mirrored SSD as the boot disk. Profile `bx2d-metal-96x384` provides an extra set of NVMe (Non-Volatile Memory Express) U.2 solid-state drives (SSD) as secondary local storage. For more information, see [Storage overview for Bare Metal Servers for VPC](/docs/vpc?topic=vpc-bare-metal-servers-storage).
 
 ## Next steps
 {: #vpc-storage-next-steps}
