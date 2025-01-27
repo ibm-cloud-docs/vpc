@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-11-21"
+  years: 2019, 2025
+lastupdated: "2025-01-27"
 
 keywords: vpc Block Storage, provision Block Storage for vpc, bootable snapshots, create volume from snapshot, fast restore
 
@@ -163,9 +163,9 @@ ibmcloud is volume-create VOLUME_NAME PROFILE_NAME ZONE_NAME [--capacity CAPACIT
 
 See the following example.
 
-```bash
+```sh
 $ ibmcloud is volume-create demovolume1 custom us-east-1 --capacity 500 --iops 3000 --tags env:test,env:prod
-Creating volume demovolume1 in resource group Default under account VPC 01 as user rtuser1@mycompany.com...
+Creating volume demovolume1 in resource group Default under account Test Account as user test.user@ibm.com...
 
 ID                                     r014-e45f9c8c-4655-4a3e-9d90-70c2d64d1746   
 Name                                   demovolume1   

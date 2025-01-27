@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-01-22"
+lastupdated: "2025-01-27"
 
 keywords:
 
@@ -362,7 +362,7 @@ To apply tags to a {{site.data.keyword.block_storage_is_short}} volume, follow t
 
 1. Make a `GET /volumes/{volume_id}` call and copy the hash string from the `Etag` property in the response header. You need to use the hash string when you specify `If-Match` in the `PATCH /volumes/{volume_id}` request to create user tags for the volume in step 2. To generate the response header information, make an API call similar to the following example:
 
-   ```curl
+   ```sh
    curl -sSL -D GET\
    "https://us-south.iaas.cloud.ibm.com/v1/volumes/{volume_id}?version=2022-04-25&generation=2"\
    -H "Authorization: Bearer $TOKEN" -o /dev/null
@@ -398,7 +398,7 @@ To apply tags to a {{site.data.keyword.block_storage_is_short}} volume, follow t
 
    This example updates the volume by specifying user tags `env:test` and `env:prod`. The value that you obtained from the `Etag` parameter is specified in the `If-Match` header in the call.
 
-   ```curl
+   ```sh
    curl -X PATCH\
    "$vpc_api_endpoint/v1/volumes/r006-5ed4006b-3dac-4c95-8eeb-4aa9a85cbd34?version=2025-01-21&generation=2"\
       -H "Authorization: Bearer"\

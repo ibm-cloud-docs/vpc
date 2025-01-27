@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-10-10"
+  years: 2022, 2025
+lastupdated: "2025-01-27"
 
 keywords:
 
@@ -91,8 +91,8 @@ Default trusted profiles cannot be changed on existing instances. A default trus
 
 2. Create the instance and specify a default trusted profile while you provision the instance. With the VPC API, set the `auto_link` property to `true` to automatically link the trusted profile to the instance. Specify the trusted profile ID or the CRN of the trusted profile. For example:
 
-    ```curl
-    curl -X POST "$vpc_api_endpoint/v1/instances?version=2022-01-11&generation=2" -H "Authorization: $iam_token"
+    ```sh
+    curl -X POST "$vpc_api_endpoint/v1/instances?version=2024-11-12&generation=2" -H "Authorization: $iam_token"
     -d '{
         "default_trusted_profile": {
            "auto_link": true,
@@ -126,7 +126,7 @@ Default trusted profiles cannot be changed on existing instances. A default trus
    6. Make an API request to the metadata token service to retrieve an instance identity access token. Specify how long the token is valid, for example 3600 seconds (1 hour). In this example, the command is run through the `jq` parser to format the JSON response. You can choose the parser that you prefer.
 
       ```json
-      instance_identity_token=`curl -X PUT "http://169.254.169.254/instance_identity/v1/token?version=2021-12-12"\
+      instance_identity_token=`curl -X PUT "http://api.metadata.cloud.ibm.com/instance_identity/v1/token?version=2024-11-12"\
         -H "Metadata-Flavor: ibm"\
         -H "Accept: application/json"\
         -d '{
@@ -139,8 +139,8 @@ Default trusted profiles cannot be changed on existing instances. A default trus
 
    7. You can now make a request to the metadata service. The first call is to get the initialization information:
 
-       ```curl
-       curl -X GET "http://169.254.169.254/metadata/v1/instance/initialization?version=2021-12-12"\
+       ```sh
+       curl -X GET "http://api.metadata.cloud.ibm.com/metadata/v1/instance/initialization?version=2024-11-12"\
           -H "Accept: application/json"\
           -H "Authorization: Bearer $instance_identity_token"
           | jq -r

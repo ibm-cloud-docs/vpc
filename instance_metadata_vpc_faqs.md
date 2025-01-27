@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-02-26"
+  years: 2022, 2025
+lastupdated: "2025-01-27"
 
 subcollection: vpc
 
@@ -61,7 +61,7 @@ You can also generate an IAM token from the instance identity access token, and 
 ## How do I get metadata for booting up a new instance?
 {: #faq-rdms-5}
 
-Make a `GET "http://169.254.169.254/metadata/v1/instance/initialization"` request to retrieve initialization information for the instance. For more information about instance initialization, see [Retrieve instance metadata from your running virtual server instance](/docs/vpc?topic=vpc-imd-get-metadata#imd-retrieve-instance-data). For an end-to-end procedure, see [Accessing metadata from an instance](/docs/vpc?topic=vpc-imd-access-instance-metadata).
+Make a `GET "http://api.metadata.cloud.ibm.com/metadata/v1/instance/initialization"` request to retrieve initialization information for the instance. For more information about instance initialization, see [Retrieve instance metadata from your running virtual server instance](/docs/vpc?topic=vpc-imd-get-metadata#imd-retrieve-instance-data). For an end-to-end procedure, see [Accessing metadata from an instance](/docs/vpc?topic=vpc-imd-access-instance-metadata).
 
 ## How secure is the metadata service? Are there any extra security measures that I need to take?
 {: #faq-rdms-7}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-01-24"
+lastupdated: "2025-01-27"
 
 keywords: snapshots, Block Storage snapshots, manage snapshots, fast restore clone, backup snapshot, remote copy, cross-regional copy
 
@@ -548,7 +548,7 @@ For more information about available command options, see [`ibmcloud is snapshot
 
 You can create a cross-regional copy of a snapshot by making an API call in the target region. Specify the CRN of the source snapshot to create a copy in the target region. The created snapshot uses the customer-defined encryption key if the CRN of an encryption key was also specified. The source snapshot must in Stable status for the copy to be created successfully. See the following example, where the target region is us-east and the original snapshot is in us-south.
 
-```curl
+```sh
 POST https://us-east.iaas.cloud.ibm.com/v1/snapshots
 {
      "name": "my-snapshot",    // required

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-09-23"
+  years: 2022, 2025
+lastupdated: "2025-01-27"
 
 keywords:
 
@@ -50,7 +50,7 @@ The example uses `jq` as a parser, a third-party tool licensed under the [MIT li
 {: note}
 
 ```json
-instance_identity_token=`curl -X PUT "https://api.metadata.cloud.ibm.com/instance_identity/v1/token?version=2022-08-08"\
+instance_identity_token=`curl -X PUT "https://api.metadata.cloud.ibm.com/instance_identity/v1/token?version=2024-11-12"\
   -H "Metadata-Flavor: ibm"\
   -d '{
         "expires_in": 3600
@@ -63,8 +63,8 @@ The following JSON response shows the instance identity access token character s
 ```json
 {
   "access_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6IlZTSS1DUl91cy1lYXN0X2I5...",
-  "created_at": "2022-08-08T11:08:39.363Z",
-  "expires_at": "2022-08-08T11:13:39.363Z",
+  "created_at": "2024-11-12T11:08:39.363Z",
+  "expires_at": "2024-11-12T11:13:39.363Z",
   "expires_in": 3600
 }
 ```
@@ -84,7 +84,7 @@ The IAM API used to pass the instance identity access token and generate an IAM 
 Example request:
 
 ```json
-iam_token=`curl -X POST "$vpc_metadata_api_endpoint/instance_identity/v1/iam_token?version=2022-08-08"\
+iam_token=`curl -X POST "$vpc_metadata_api_endpoint/instance_identity/v1/iam_token?version=2024-11-12"\
    -H "Authorization: Bearer $instance_identity_token"\
    -d '{
        "trusted_profile": {
@@ -99,8 +99,8 @@ The JSON response shows the IAM token.
 ```json
 {
   "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aGVfYmVzdCI6I8...",
-  "created_at": "2022-08-08T14:10:15Z",
-  "expires_at": "2022-08-08T15:10:15Z",
+  "created_at": "2024-11-12T14:10:15Z",
+  "expires_at": "2024-11-12T15:10:15Z",
   "expires_in": 3600
 }
 ```
@@ -133,7 +133,7 @@ You can obtain the certificate signing requests (CSRs) from the open-source comm
 Then, you can make the API request to the Metadata service. See the following example. The `csr` value is required, the `expires_in` value is optional. The default value for expiration is 3600, which equals 1 hour.
 
 ```sh
-curl -X POST "$vpc_metadata_api_endpoint/instance_identity/v1/certificates?version=2023-08-15" \
+curl -X POST "$vpc_metadata_api_endpoint/instance_identity/v1/certificates?version=2024-11-12" \
  -H "Authorization: Bearer $instance_identity_token" \
  -d '{ "csr": "-----BEGIN CERTIFICATE REQUEST-----\nMIICnTCCAYUCAQAwWDELMAkGA1UEBhMCVVMxEjAQBgNVBAgMCU1pbm5lc290YTES\nMBAGA1UEBwwJUm9jaGVzdGVyMSEwHwYDVQQKDBhJbnRlcm5ldCBXaWRnaXRzIFB0\neSBMdGQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCYBvW12cKEkRUu\nyPScs7Xjwu/m+W8pZSQf9wrBa7DBVLFCdh440xOuSnIbsm+BNgYz4wL6/8la+N/K\nff06CdEwy9HLhPYc2z62tECxOBhI1G9gnsRUwb6WHNY71VulZs+37/9Mgd/eQy2n\nKHULNEU7sjNpLYoguKX8GRV3etKDp3tlFQmB6cNGOAgB3aQDmhdAh7K6oftesm0R\n8C7nmFA4SSjaI+855JxoxadlB2cCA5boaQ2gNO6YhYbtuTrMicQb0MTlZmacqzqP\nAxXWD3yFmAuUCpa2tBFBsavSW/kc52m4ldcO60U6hARvOxcXDqrbwu8r1ieY+tcZ\ncqjjBi99AgMBAAGgADANBgkqhkiG9w0BAQsFAAOCAQEAgAqWjtH3yAsX8QfTa9Pv\n3kktYFQKFsBzntmFDdIrOkeGayWRCuSG06f3sHWH0RuGkpq1x/4bedjcyyNVSna7\nxYX6kPOQX5iqf9pISD7A0XIkfS6XAos7gOh/jadjtxSwPCkuztSqIPKObH9OClAE\nU1fYDEtZCaZxsUdLwWJwOzbsivT97g1UVnbJAEzAJrqyaV4cUbv/w/slytHF+GAg\nNoUvPD8NGOQ+VzuI2oQuK515cyHO1SXrJyvkEVwRVVr3SoasqqWIQRrIv6zgzgik\nLN+uQxpzL1EeTB8qKy7xjymo2y1PbmaZzVNQNaBnxJfLE522pfW69evBRJ1qhrby\nTQ==\n-----END CERTIFICATE REQUEST-----\n"}'
 ```
@@ -147,8 +147,8 @@ A successful response returns the new certificate with information such as its I
     "-----BEGIN CERTIFICATE-----\nMIIDmTCCAoECFDGlhn2VlwNEQymsNpyt9rOiiiWDMA0GCSqGSIb3DQEBCwUAMIGJ\nMQswCQYDVQQGEwJVUzESMBAGA1UECAwJTWlubmVzb3RhMRIwEAYDVQQHDAlSb2No\nZXN0ZXIxDDAKBgNVBAoMA0lCTTEeMBwGA1UECwwVVmlydHVhbCBQcml2YXRlIENs\nb3VkMSQwIgYDVQQDDBtWUEMgRXhhbXBsZSBJbnRlcm1lZGlhdGUgQ0EwHhcNMjIx\nMTAxMTM1MDE0WhcNMjIxMTAxMTQyMDE0WjCBhzELMAkGA1UEBhMCVVMxEjAQBgNV\nBAgMCU1pbm5lc290YTESMBAGA1UEBwwJUm9jaGVzdGVyMQwwCgYDVQQKDANJQk0x\nHjAcBgNVBAsMFVZpcnR1YWwgUHJpdmF0ZSBDbG91ZDEiMCAGA1UEAwwZRXhhbXBs\nZSBTaGFyZSBDZXJ0aWZpY2F0ZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoC\nggEBAM6JytY3R4zWo3zzw/dM9ldUw8TIDQ9dNt+0sm3bFHHlAXaSKvmI+Ls/uQoh\n9VPpRLTx+WyljnKNnkXC6BQOzlugjAfi8hE2f5CC0A0m58XcBiZqH5BwTeLI4vVZ\nO9pLySckkEtHcmFE4h70KS5+1jDApeOTTS6EJsQcal/AAVYg7PDyXr1jE2HTKxnt\nlXopB/+bvWmBQ2k50Km0h0D1n0Ipoqqwb1wwWCrzQ2ds2XNKCUGkCgN6buFiF2nN\nLYS1tsIaw6OsTx+VheNGlYdlOhMUVypCok9JQ85P4NU47O6YgITX1V63ewZBnn5p\napywqdg8K2X2YgU/tLdpl5Jz2ysCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEABuOX\npxGbBQPdG3VGkNCYScZUcxocqmx4mCegBFfv4PjWU2+eG+3JikB3YWwqD11hixQm\n5Qwge/zMXzuKPs5D4yyblpDJlq5Iz/0VMjEl2paCHg9nm5Z3QaSydFH3SCGwfvld\nRn9ib6DSw4a58hmqON+CiWUSSibQy46gUsqVvYhq2lJimejTAN2DlePY2su1xvNV\nAdmDjmvO7j7YV/eWk6r7OgcqtVaAovN3okaybwxf8sLAFxLzp/aUaqXL10qJ/ISz\nVL+UHN7t5WzjHdh2OjDXwz0BOyhdbjyNX8ptKd+E0O21PsFFe8ErfShDh00g/ERP\nzXuEUsCxzTyWRTm8GA==\n-----END CERTIFICATE-----\n",
     "-----BEGIN CERTIFICATE-----\nMIIEADCCAuigAwIBAgIUDzQruKqvBY7+CS6DL0u93Na6cLMwDQYJKoZIhvcNAQEL\nBQAwgYExCzAJBgNVBAYTAlVTMRIwEAYDVQQIDAlNaW5uZXNvdGExEjAQBgNVBAcM\nCVJvY2hlc3RlcjEMMAoGA1UECgwDSUJNMR4wHAYDVQQLDBVWaXJ0dWFsIFByaXZh\ndGUgQ2xvdWQxHDAaBgNVBAMME1ZQQyBFeGFtcGxlIFJvb3QgQ0EwHhcNMjIxMTAx\nMDM0OTI5WhcNMjcxMDMxMDM0OTI5WjCBiTELMAkGA1UEBhMCVVMxEjAQBgNVBAgM\nCU1pbm5lc290YTESMBAGA1UEBwwJUm9jaGVzdGVyMQwwCgYDVQQKDANJQk0xHjAc\nBgNVBAsMFVZpcnR1YWwgUHJpdmF0ZSBDbG91ZDEkMCIGA1UEAwwbVlBDIEV4YW1w\nbGUgSW50ZXJtZWRpYXRlIENBMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKC\nAQEAxjvxOtSFKsJKl4teBLgkX4+myxhClz2Qmg5MnNQ+oyhyNrpYvjG3+O+DrSUK\nKTXzmWSkKU/6BKmHQPNdpd4ymbb0cG7wmpcU3YjjrSNFgd/o3CEK9M7+ofIuQtTX\nXNUQWX5rb3wBqEA1TWazVTZpphhhcGQ8u03VTKvoF4S2DI6L3brDJJ0w1DM9Isaa\nB2mS64VYMIj3jLry39ryGEoYq1a0tC4C9fET3V5NmUnIRNqVDnGGkYBy/57VRACU\nXxXcQuW6eoPYGk6Ho3eKly34eilF2n9xD/bB41R4NzaxO/0lHq+caI5r1WlnTXtF\nE8wLpFoYMkuC0qiKBesyuyef2QIDAQABo2YwZDAdBgNVHQ4EFgQU2MIYc9g4Z7Kj\n79u2HPGYyTk5QHwwHwYDVR0jBBgwFoAUVnTLKJHyjHUcRp22jx+d3uGqnrwwEgYD\nVR0TAQH/BAgwBgEB/wIBADAOBgNVHQ8BAf8EBAMCAYYwDQYJKoZIhvcNAQELBQAD\nggEBADhOBfnBEaWVWCsZo3UR7UlP5/8i3mRgyFt4YkICPMacy2IcnDw8aoyjTO5b\n4BLO4J1m4AmcJnDJcFIEKLBSNbzsiDdP2rWIAAJKO4gKxdTArIuLgq7zrR74j46L\nn6IFwumKQRw0diGYD6wWIo/f9kGy1NQ46igmRYrEfzA5HWitEpF0mu6lz8mZ8m9s\na6CTEqwLFhP+qOcWtpGjNTa+OHENAmmAR4mR4Os4MsBBnb4RA//S/4suW419Cz8N\n1/Ul7KduYRKpRMSiS9YWbCvC5WiEvOvfp8Z4ecXlC+ohU5MLuCRPfP+blBvxNx2O\nsLotlbzDpim/gYiJCHgW3POlsLE=\n-----END CERTIFICATE-----\n"
   ],
-  "created_at": "2023-08-15T13:50:14Z",
-  "expires_at": "2023-08-15T14:50:14Z",
+  "created_at": "2024-11-12T13:50:14Z",
+  "expires_at": "2024-11-12T14:50:14Z",
   "expires_in": 3600,
   "id": "9fd84246-7df4-4667-94e4-8ecde51d5ac5"
 }
@@ -317,8 +317,8 @@ You can enable the service by specifying the `metadata_service` parameter and se
 
 This example shows enabling the metadata service at instance creation:
 
-```curl
-curl -X POST "$vpc_api_endpoint/v1/instances?version=2022-08-08&generation=2"\
+```sh
+curl -X POST "$vpc_api_endpoint/v1/instances?version=2024-11-12&generation=2"\
 -H "Authorization: Bearer $iam_token"\
 -d '{
       "image": {
@@ -349,8 +349,8 @@ To enable or disable the service from an existing instance, make a `PATCH /insta
 
 This example call shows enabling the metadata service for an instance:
 
-```curl
-curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id?version=2022-08-08&generation=2"\
+```sh
+curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id?version=2024-11-12&generation=2"\
     -H "Authorization: Bearer $iam_token"\
     -d '{
           "metadata_service": {
@@ -369,8 +369,8 @@ When you create an instance template, you can set this value by making a `POST /
 
 For example,
 
-```curl
-curl -X POST "$vpc_api_endpoint/v1/instance/templates?version=2022-08-08&generation=2"\
+```sh
+curl -X POST "$vpc_api_endpoint/v1/instance/templates?version=2024-11-12&generation=2"\
     -H "Authorization: Bearer $iam_token"\
     -d '{
          "image": {

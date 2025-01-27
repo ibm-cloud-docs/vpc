@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-10-10"
+  years: 2022, 2025
+lastupdated: "2025-01-27"
 
 keywords:
 
@@ -65,7 +65,7 @@ The example uses `jq` as a parser, a third-party tool licensed under the [MIT li
 {: note}
 
 ```json
-instance_identity_token=`curl -X PUT "http://api.metadata.cloud.ibm.com/instance_identity/v1/token?version=2022-08-08"\
+instance_identity_token=`curl -X PUT "http://api.metadata.cloud.ibm.com/instance_identity/v1/token?version=2024-11-12"\
   -H "Metadata-Flavor: ibm"\
   -d '{
         "expires_in": 3600
@@ -100,7 +100,7 @@ The IAM API used to pass the instance identity access token and generate an IAM 
 Example request:
 
 ```json
-iam_token=`curl -X POST "http://api.metadata.cloud.ibm.com/instance_identity/v1/iam_token?version=2022-08-08"\
+iam_token=`curl -X POST "http://api.metadata.cloud.ibm.com/instance_identity/v1/iam_token?version=2024-11-12"\
    -H "Authorization: Bearer $instance_identity_token"\
    -d '{
        "trusted_profile": {
@@ -138,7 +138,7 @@ Use the instance metadata service to get metadata about the instance, initializa
 ### Retrieve instance initialization information
 {: #imd-retrieve-initialization-data}
 
-Make a `GET "http://169.254.169.254/metadata/v1/instance/initialization"` call to retrieve initialization information for the instance.
+Make a `GET "http://api.metadata.cloud.ibm.com/metadata/v1/instance/initialization"` call to retrieve initialization information for the instance.
 
 This request:
 
@@ -151,8 +151,8 @@ You're making an unsecured request that is then secured by a proxy. The proxy in
 
 In the example, the return value of the cURL command is the user data, which is extracted by `jq` and placed in the `user_data` environment variable.
 
-```curl
-curl -X GET "http://169.254.169.254/metadata/v1/instance/initialization?version=2021-10-12"\
+```sh
+curl -X GET "http://api.metadata.cloud.ibm.com/metadata/v1/instance/initialization?version=2024-11-12"\
   -H "Accept: application/json"\
   -H "Authorization: Bearer $access_token" | jq -r
 ```
@@ -179,11 +179,11 @@ The response lists public SSH keys that were used at instance initialization and
 ### Retrieve instance information
 {: #imd-retrieve-instance}
 
-Make a `GET "http://169.254.169.254/metadata/v1/instance"` call to retrieve detailed information about the instance. To tailor information for specific instance details, such as network interfaces, see [Extra instance metadata endpoints](#imd-additional-inst-metadata).
+Make a `GET "http://api.metadata.cloud.ibm.com/metadata/v1/instance"` call to retrieve detailed information about the instance. To tailor information for specific instance details, such as network interfaces, see [Extra instance metadata endpoints](#imd-additional-inst-metadata).
 
 
-```curl
-curl -X GET "http://169.254.169.254/metadata/v1/instance?version=2021-10-12"\
+```sh
+curl -X GET "http://api.metadata.cloud.ibm.com/metadata/v1/instance?version=2024-11-12"\
   -H "Accept:application/json"\
   -H "Authorization: Bearer $access_token"
 ```
@@ -298,11 +298,10 @@ For more information about these APIs, including required parameters and example
 ## Retrieve metadata about SSH keys
 {: #imd-retrieve-key-data}
 
-Make a `GET "http://169.254.169.254/metadata/v1/keys"` call to retrieve information about all SSH keys configured for the instance.
-The output is parsed by `jq`.
+Make a `GET "http://api.metadata.cloud.ibm.com/metadata/v1/keys"` call to retrieve information about all SSH keys configured for the instance. The output is parsed by `jq`.
 
-```curl
-curl -X GET "http://169.254.169.254/metadata/v1/keys?version=2021-10-12"\
+```sh
+curl -X GET "http://api.metadata.cloud.ibm.com/metadata/v1/keys?version=2024-11-12"\
   -H "Accept:application/json"\
   -H "Authorization: Bearer $access_token" | jq -r
 ```
@@ -329,18 +328,18 @@ Example output shows one SSH key.
 ```
 {: codeblock}
 
-If you have more than one SSH key, you can make a `GET "http://169.254.169.254/metadata/v1/keys/{id}"` call and provide the SSH key ID.
+If you have more than one SSH key, you can make a `GET "http://api.metadata.cloud.ibm.com/metadata/v1/keys/{id}"` call and provide the SSH key ID.
 
 ## Retrieve metadata about placement groups
 {: #imd-retrieve-pg-data}
 
-Make a `GET "http://169.254.169.254/metadata/v1/placement_groups"` call to retrieve information about placement groups configured for the instance. In the example, the return value of the cURL command is a list of placement groups, beginning with the first and up to 50. The output is parsed by `jq`.
+Make a `GET "http://api.metadata.cloud.ibm.com/metadata/v1/placement_groups"` call to retrieve information about placement groups configured for the instance. In the example, the return value of the cURL command is a list of placement groups, beginning with the first and up to 50. The output is parsed by `jq`.
 
-```curl
-curl -X GET "http://169.254.169.254/metadata/v1/placement_groups?version=2021-10-12"\
+```sh
+curl -X GET "http://api.metadata.cloud.ibm.com/metadata/v1/placement_groups?version=2024-11-12"\
   -H "Accept:application/json"\
   -H "Authorization: Bearer $access_token"\
-  --data-urlencode "version=2021-10-12"\
+  --data-urlencode "version=2024-11-12"\
   -d '{
         "start": "first",
         "limit": 50
@@ -372,7 +371,7 @@ Example return:
 ```
 {: codeblock}
 
-You can also specify details for a single placement group that is used by the instance by making a `GET "http://169.254.169.254/metadata/v1/placement_groups/{id}"` call and providing the placement group ID.
+You can also specify details for a single placement group that is used by the instance by making a `GET "http://api.metadata.cloud.ibm.com/metadata/v1/placement_groups/{id}"` call and providing the placement group ID.
 
 ## Next steps
 {: #imd-next-steps-md}

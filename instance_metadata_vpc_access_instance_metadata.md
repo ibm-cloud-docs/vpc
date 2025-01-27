@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2024-10-10"
+lastupdated: "2025-01-27"
 
 keywords:
 
@@ -68,7 +68,7 @@ Table 1 describes the steps that are involved in accessing instance metadata. Th
 6. Make an API call to the metadata token service to retrieve an instance identity access token. Specify how long the token is valid, for example 3600 seconds (1 hour). In this example, the command is run through the `jq` parser to format the JSON response. You can choose the parser that you prefer.
 
    ```json
-   export instance_identity_token=`curl -X PUT "http://169.254.169.254/instance_identity/v1/token?version=2022-03-01"\
+   export instance_identity_token=`curl -X PUT "http://api.metadata.cloud.ibm.com/instance_identity/v1/token?version=2024-11-12"\
      -H "Metadata-Flavor: ibm"\
      -H "Accept: application/json"\
      -d '{
@@ -81,8 +81,8 @@ Table 1 describes the steps that are involved in accessing instance metadata. Th
 
 7. You can now make an API call to the metadata service. The first call is for the initialization information:
 
-   ```curl
-   curl -X GET "http://169.254.169.254/metadata/v1/instance/initialization?version=2022-03-01"\
+   ```sh
+   curl -X GET "http://api.metadata.cloud.ibm.com/metadata/v1/instance/initialization?version=2024-11-12"\
       -H "Accept: application/json"\
       -H "Authorization: Bearer $instance_identity_token"\
       | jq -r
@@ -93,8 +93,8 @@ Table 1 describes the steps that are involved in accessing instance metadata. Th
 
 8. Access metadata about the instance, such as volume attachments, dedicated hosts, memory, vCPUs, and so on.
 
-   ```curl
-   curl -X GET "http://169.254.169.254/metadata/v1/instance?version=2022-03-01"\
+   ```sh
+   curl -X GET "http://api.metadata.cloud.ibm.com/metadata/v1/instance?version=2024-11-12"\
       -H "Accept: application/json"\
       -H "Authorization: Bearer $instance_identity_token"\
       | jq -r
