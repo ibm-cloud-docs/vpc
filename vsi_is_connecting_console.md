@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-12-10"
+  years: 2020, 2025
+lastupdated: "2025-01-28"
 
 keywords: vnc console, serial console, virtual server instance
 
@@ -18,7 +18,7 @@ subcollection: vpc
 You can access your IBM Cloud virtual server instance by connecting to a VNC or serial console by using the IBM Cloud UI, API requests, or IBM Cloud Command Line Interface (CLI). The console service is a quick-and-easy way for you to interact with the instance without using a Secure Shell.
 {: shortdesc}
 
-_For z/OS virtual server instances only:_ Connecting a z/OS virtual server instance to a VNC console is not supported.
+For z/OS virtual server and virtual server instances using TDX confidential computing only: Connecting a z/OS or TDX confidential computing virtual server instance to a VNC console is not supported.
 {: note}
 
 It applies to situations where a boot failure or kernel crash occurred, especially when you use a custom image. When these situations happen, you can use the console service to examine the issue.
