@@ -126,6 +126,8 @@ You can restore a boot volume from a "bootable" snapshot. The boot volume is res
 1. Click **Save**. Information about the snapshot is shown on the volume provisioning page, including the name, its size, the date when it was created, its source volume, and whether it is a bootable snapshot. Bootable snapshot information includes the operating system and image. The encryption is inherited from the snapshot and shown in the encryption section.
 1. Click **Create block storage volume**.
 
+When you refresh the {{site.data.keyword.block_storage_is_short}} volumes page, the new volume appears at the beginning of the list of volumes. If the volume was created successfully, it shows a status of Available. For stand-alone volumes, the Attachment Type column is blank (-). The **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions") at the end of a table row provides a link for [attaching a {{site.data.keyword.block_storage_is_short}} volume to an instance](/docs/vpc?topic=vpc-attaching-block-storage&interface=ui#attach).
+
 ## Creating {{site.data.keyword.block_storage_is_short}} volumes from the CLI
 {: #creating-block-storage-cli}
 {: cli}
@@ -644,7 +646,7 @@ A successful response looks like the following example.
 
 For more information about volume creation with the API, see [Creating Block Storage volumes](/docs/vpc?topic=vpc-creating-block-storage&interface=api#creating-block-storage-api) and the API reference for [creating a volume](/apidocs/vpc/latest#create-volume).
 
-### Creating a data volume from a snapshot of an unattached volume with the API
+### Creating a data volume from a snapshot with the API
 {: #block-storage-create-vol-snapshot-api}
 
 You can specify a snapshot ID, name, or CRN in a `POST /volumes` call to create a stand-alone data volume. 
@@ -783,8 +785,6 @@ For more information about the arguments and attributes, see [ibm_is_instance_vo
 
 ## Next steps
 {: #next-step-creating-block-storage-vpc}
-
-When you refresh the {{site.data.keyword.block_storage_is_short}} volumes page, the new volume appears at the beginning of the list of volumes. If the volume was created successfully, it shows a status of Available. For stand-alone volumes, the Attachment Type column is blank (-). The **Actions** menu ![Actions icon](../icons/action-menu-icon.svg "Actions") at the end of a table row provides a link for [attaching a {{site.data.keyword.block_storage_is_short}} volume to an instance](/docs/vpc?topic=vpc-attaching-block-storage&interface=ui#attach).
 
 You can continue creating more {{site.data.keyword.block_storage_is_short}} volumes or manage existing volumes.
 

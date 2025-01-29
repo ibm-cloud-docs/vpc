@@ -18,14 +18,14 @@ subcollection: vpc
 Restoring data from a snapshot creates a new, fully provisioned volume that you can use to start an instance or attach as auxiliary storage. You can restore boot and data volumes during instance creation or when you modify an existing instance. You can also create a stand-alone data volume from a snapshot. Volumes can be restored from snapshots that were created manually or by a backup policy. You can restore volumes from fast restore clones and cross-regional copies of snapshots, too. You can create volumes from snapshots in the UI, from the CLI, with the API, or Terraform.
 {: shortdesc}
 
-## About restoring a volume from a snapshot
+## About restoring a volume from a snapshot 
 {: #snapshots-vpc-restore-concepts}
 
 Restoring a volume from a snapshot creates a boot or data volume, depending on whether the snapshot is bootable or nonbootable.
 
-* Restoring from a **bootable** snapshot creates a boot volume that you can use to start a virtual server instance. The boot volume uses a general-purpose profile and is limited to 250 GB.
+   * Restoring from a **bootable** snapshot creates a boot volume that you can use to start a virtual server instance. The boot volume uses a general-purpose profile and is limited to 250 GB.
 
-* A new data volume that was created from **nonbootable** snapshot inherits its properties from the original volume, such as [profile](/docs/vpc?topic=vpc-block-storage-profiles), capacity, data, and metadata. If the source volume used [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption), the volume inherits that encryption with the original customer root key (CRK). However, you can specify a larger volume size, different profile, and a different CRK if you prefer.
+   * A new data volume that was created from **nonbootable** snapshot inherits its properties from the original volume, such as [profile](/docs/vpc?topic=vpc-block-storage-profiles), capacity, data, and metadata. If the source volume used [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption), the volume inherits that encryption with the original customer root key (CRK). However, you can specify a larger volume size, a different profile, and a different CRK if you prefer.
 
 You can restore volumes from a manually created snapshot or from a snapshot that was created by a backup policy. This type of snapshot is called a backup. For more information, see [Restoring a volume from a backup snapshot](/docs/vpc?topic=vpc-baas-vpc-restore).
 
@@ -34,13 +34,12 @@ You can restore a volume in a different region by using a cross-regional copy of
 You can also choose to restore a volume by using a fast restore snapshot clone. For more information about fast restore, see the [FAQs](/docs/vpc?topic=vpc-snapshots-vpc-faqs&interface=ui#faq-snapshot-fr).
 
 If you plan to use a snapshot from another account, make sure that the right [IAM authorizations](/docs/vpc?topic=vpc-block-s2s-auth&interface=ui#block-s2s-auth-xaccountrestore-ui) and [IAM roles](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#snapshots-vpc-iam) are in place. Contact the snapshot's owner for the CRN of the snapshot.
-{: important}
 
 You can restore volumes at various stages of the VPC lifecycle.
 
-* When you provision a virtual server instance, you can specify a snapshot of a boot or a snapshot of data volume. The restored boot volume is used to start the new instance. Restored data volumes are automatically attached to the instance as auxiliary storage.
-* When you want to add a new auxiliary storage to your existing instance, you can restore a data volume from a nonbootable snapshot.
-* When you create an unattached (stand-alone) {{site.data.keyword.block_storage_is_short}} volume from a snapshot, you can still attach the volume to an instance later.
+   * When you provision a virtual server instance, you can specify a snapshot of a boot or a snapshot of data volume. The restored boot volume is used to start the new instance. Restored data volumes are automatically attached to the instance as auxiliary storage.
+   * When you want to add a new auxiliary storage to your existing instance, you can restore a data volume from a nonbootable snapshot.
+   * When you create an unattached (stand-alone) {{site.data.keyword.block_storage_is_short}} volume from a snapshot, you can still attach the volume to an instance later.
 
 Restoring an instance directly from snapshot consistency group identifier is not supported. However, you can restore a virtual server instance by restoring all of its boot and data volumes from the snapshots that are part of a consistency group.
 
@@ -346,7 +345,7 @@ For more information about available command options, see [`ibmcloud is volume-c
 {: #snapshots-vpc-restore-API}
 {: api}
 
-You can programmatically restore a volume during instance provisioning by calling the `/instances` method in the [VPC API](/apidocs/vpc/latest#create-instance){: external} as shown in the following sample request. You can also create a stand-alone volume by calling the `/volumes` method in the [VPC API](/apidocs/vpc/latest#create-volume).
+You can programmatically restore a volume during instance provisioning by calling the `/instances` method in the [VPC API](/apidocs/vpc/latest#create-instance){: external} as shown in the following sample request. You can also create a stand-alone volume by calling the `/volumes` method in the [VPC API](/apidocs/vpc/latest#create-volume){: external}.
 
 Before you begin, gather information about the snapshot or snapshots that you want to use to restore a volume or volumes.
    - If you want to restore a volume from a single snapshot, locate the snapshot first and view its details. You can use the API to [list all the snapshots of an account in a region](/apidocs/vpc/latest#list-snapshots){: external} and select from the list. Then, [retrieve the snapshot](/apidocs/vpc/latest#get-snapshot){: external} details. If you want to restore a volume from a snapshot of another account, contact the snapshot's owner for the CRN of the snapshot.
