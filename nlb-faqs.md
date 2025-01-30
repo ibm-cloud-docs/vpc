@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-11-06"
+  years: 2019, 2025
+lastupdated: "2025-01-29"
 
 keywords: load balancer, network, faqs
 
@@ -36,7 +36,7 @@ The auto-assigned DNS name for the load balancer is not customizable. However, y
 {: #how-are-dns-names-for-my-load-balancer-registered}
 {: faq}
 
-The load balancer service automatically assigns DNS hostnames for your load balancers in the common DNS zone `lb.appdomain.cloud`. For maximum portability, these DNS names are registered publicly, even for private load balancers. The hostname has a portion of the randomly generated load balancer ID and does not expose any identifying information. Private load balancer names can be resolved publicly, but the addresses they resolve to are not routable from the internet, and can be reached only from inside your own private network environment.
+An NLB automatically assigns DNS hostnames for your load balancers in the common DNS zone `lb.appdomain.cloud`. For maximum portability, these DNS names are registered publicly, even for private load balancers. The hostname has a portion of the randomly generated load balancer ID and does not expose any identifying information. Private load balancer names can be resolved publicly, but the addresses they resolve to are not routable from the internet, and can be reached only from inside your own private network environment.
 
 ### Do NLBs support layer-7 switching?
 {: #does-the-network-load-balancer-support-layer-7-switching}

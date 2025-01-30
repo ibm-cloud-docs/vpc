@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-09-23"
+  years: 2020, 2025
+lastupdated: "2025-01-29"
 
 keywords: network load balancer, public, listener, pool, round-robin
 
@@ -535,16 +535,21 @@ To create a network load balancer with routing mode with the API, follow these s
 ## Next steps
 {: #nob-vnf-nextsteps}
 
-After the NLB with routing mode is in an active state, follow these steps to finalize its creation:
+After the NLB with routing mode is in an active state, follow these steps to finalize your NLB configuration:
 
 1. Gather the following information:
-   * Your subnet CIDR.
-   * In the load balancer response, you will find a list of private IPs. Make note of the first one.
+   * Your subnet CIDRs (subnets where your workload VSIs reside, whick will be the IPs to use as destination IPs).
+   * In the load balancer response, you will find two private IP listeds. Make note of the first one.
 
       You can generate this response by performing step 4 of either the [CLI](/docs/vpc?topic=vpc-nlb-vnf&interface=cli#nlb-vnf-cli) or [API](/docs/vpc?topic=vpc-nlb-vnf&interface=api) procedures.
+
+      The first IP listed is the primary IP, and the second is the secondary, for backup purposes. Both are listed so that in the future if a failover occurs, you will know both the active and passive IPs.
+      {: tip}
 
    * Your back-end workload subnet CIDR.
 
 1. Configure your custom routes as follows:
    * For all traffic destined for the back-end customer workload subnet, set the next hop to the NLB private IP.
    * For all traffic destined for the client subnet, set the next hop to the NLB private IP.
+  
+1. VNF instances (VNIs) must reside on the same subnet with the NLB, and must be added as a member to your pool.

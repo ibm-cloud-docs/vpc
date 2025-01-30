@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-01-17"
+lastupdated: "2025-01-29"
 
 keywords: file storage, file share, performance, IOPS, block size, capacity, range
 
@@ -23,28 +23,28 @@ When you provision {{site.data.keyword.filestorage_vpc_short}} file shares by us
 
 When you [create a file share](/docs/vpc?topic=vpc-file-storage-create), you select the share size and IOPS performance that is available, based on a file storage profile. Currently, all file shares are created based on the high-performance [dp2](#dp2-profile) profile.
 
-File shares that were created during the beta and limited availability phases with either one of the [tiered](#fs-tiers) or [custom](#fs-custom) profiles can continue to operate based on these profiles. You can also update these file shares to use the `dp2` profile or switch to another previous generation profile. However, you cannot use the previous profiles when you create a file share, and only the file shares with the `dp2` profile can use new features like encryption-in-transit, cross-zone mounting, cross-account sharing, and snapshots.
+File shares that were created during the beta and limited availability phases with either one of the [tiered](#fs-tiers) profiles or the [custom](#fs-custom) profile can continue to operate based on these profiles. You can also update these file shares to use the `dp2` profile or switch to another previous generation profile. However, you cannot use the previous profiles when you create a file share, and only the file shares with the `dp2` profile can use new features like encryption-in-transit, cross-zone mounting, cross-account sharing, and snapshots.
 
 The following table shows the characteristics and performance levels of the available profiles.
 
 | Family   | Profile         | IOPS[^tabletext1] | IOPS per share | Max throughput[^tabletext2]  | Share size   |
 |----------|-----------------|--------------:|---------------:|---------------------|-------------:|
-| `defined_performance`|`dp2`| 1-100 IOPS/GB |     100-96,000 |           1024 MB/s | 10-32,000 GB |
-| `tiered` | `tier-3iops`    |     3 IOPS/GB |   3,000-96,000 |            670 MB/s | 10-32,000 GB | 
-| `tiered` | `tier-5iops`    |     5 IOPS/GB |   3,000-48,000 |            768 MB/s |  10-9,600 GB | 
-| `tiered` | `tier-10iops`   |    10 IOPS/GB |   3,000-48,000 |           1024 MB/s |  10-4,800 GB | 
-| `custom` | `custom`        | 1-100 IOPS/GB |   3,000-48,000 |           1024 MB/s | 10-16,000 GB | 
+| `defined_performance`|`dp2`| 1-100 IOPS/GB |     100-96,000 |  1024 MBps (8192 Mbps) | 10-32,000 GB |
+| `tiered` | `tier-3iops`    |     3 IOPS/GB |   3,000-96,000 |  670 MBps (5360 Mbps) | 10-32,000 GB | 
+| `tiered` | `tier-5iops`    |     5 IOPS/GB |   3,000-48,000 |  768 MBps (6144 Mbps) |  10-9,600 GB | 
+| `tiered` | `tier-10iops`   |    10 IOPS/GB |   3,000-48,000 |  1024 MBps (8192 Mbps)|  10-4,800 GB | 
+| `custom` | `custom`        | 1-100 IOPS/GB |   3,000-48,000 |  1024 MBps (8192 Mbps) | 10-16,000 GB | 
 {: caption="Comparison of file share profiles and performance levels." caption-side="top"}
 
 [^tabletext1]: IOPS values are based on 16k I/O size.
-[^tabletext2]: Baseline throughput is determined by the number of IOPS multiplied by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB or custom IOPS tiers. The higher the IOPS that you specify, the higher the throughput. Maximum throughput is 1024 MB/s.
+[^tabletext2]: Baseline throughput is determined by the number of IOPS multiplied by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB or custom IOPS tiers. The higher the IOPS that you specify, the higher the throughput. Maximum throughput is 1024 MBps.
 
 The application I/O size directly impacts storage performance. If the application I/O size is smaller than the throughput multiplier that is used by the profile to calculate the bandwidth, the IOPS limit is reached before the throughput limit. Conversely, if the application I/O size is larger, the throughput limit is reached before the IOPS limit.
 
 ## Defined performance profile
 {: #dp2-profile}
 
-With the `dp2` profile, you can specify the total IOPS for the file share within the range for a specific file share size, 10 GB (default minimum) to 32,000 GB. You can provision shares with IOPS performance from 100 IOPS (the default minimum) to 96,000 IOPS, based on share size. The `dp2` profile is based on an I/O size of 256 KB. Maximum throughput is 1024 MB/s.
+With the `dp2` profile, you can specify the total IOPS for the file share within the range for a specific file share size, 10 GB (default minimum) to 32,000 GB. You can provision shares with IOPS performance from 100 IOPS (the default minimum) to 96,000 IOPS, based on share size. The `dp2` profile is based on an I/O size of 256 KB. Maximum throughput is 1024 MBps (8192 Mbps).
 
 Table 2 shows the available IOPS ranges, based on share size.
 
@@ -210,13 +210,13 @@ IOPS values are based on a 16 KB block size for all profiles, with a 50-50 read/
 
 Maximum throughput for a file share is calculated by taking the file share's IOPS and multiplying it by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB, custom IOPS, and `dp2` tiers.
 
-The higher the IOPS that you specify, the higher the throughput. Maximum throughput is 1024 MB/s.
+The higher the IOPS that you specify, the higher the throughput. Maximum throughput is 1024 MBps.
 
 The application I/O size directly impacts storage performance. If the application I/O size is smaller than the throughput multiplier that is used by the profile to calculate the bandwidth, the IOPS limit is reached before the throughput limit. Conversely, if the application I/O size is larger, the throughput limit is reached before the IOPS limit.
 
-Table 5 provides some examples of how block size and IOPS affect the throughput, calculated average I/O block size x IOPS = Throughput in MB/s.
+Table 5 provides some examples of how block size and IOPS affect the throughput, calculated average I/O block size x IOPS = Throughput in MBps.
 
-| Block Size (KB) | IOPS | Throughput (MB/s) |
+| Block Size (KB) | IOPS | Throughput (MBps) |
 |-----------------|------|-------------------|
 | 4 | 1,000 | 4¹|
 | 8 | 1,000 | 8¹|
@@ -232,9 +232,9 @@ Table 5 provides some examples of how block size and IOPS affect the throughput,
 
 Maximum IOPS can still be obtained when you use smaller block sizes, but throughput is less. The following example shows how throughput decreases for smaller block sizes, when max IOPS is maintained.
 
-* 16 KB * 6000 IOPS == ~94 MB/s
-* 8 KB * 6000 IOPS == ~47 MB/s
-* 4 KB * 6000 IOPS == ~23 MB/s
+* 16 KB * 6000 IOPS == ~94 MBps
+* 8 KB * 6000 IOPS == ~47 MBps
+* 4 KB * 6000 IOPS == ~23 MBps
 
 ## Next steps
 {: #fs-next-steps}

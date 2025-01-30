@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-10-28"
+  years: 2018, 2025
+lastupdated: "2025-01-29"
 
 keywords: listener, pool, round-robin, weighted, layer 7, datapath logging, http2, websocket
 
@@ -35,7 +35,7 @@ As discussed in the [Load balancers for VPC overview](/docs/vpc?topic=vpc-nlb-vs
 ### Public application load balancer
 {: #public-load-balancer}
 
-A public application load balancer service instance is assigned a publicly accessible fully qualified domain name (FQDN), which you must use to access your applications that are hosted behind the load balancer. This domain name can be registered with one or more public IP addresses.
+A public application load balancer instance is assigned a publicly accessible fully qualified domain name (FQDN), which you must use to access your applications that are hosted behind the load balancer. This domain name can be registered with one or more public IP addresses.
 
 Over time, the number and value of these public IP addresses might change due to maintenance and scaling activities. The back-end virtual server instances hosting your application must run in the same region and under the same VPC.
 
@@ -47,7 +47,7 @@ Use the assigned FQDN to send traffic to the public application load balancer to
 
 A private application load balancer is accessible through your private subnets that you configured to create the load balancer.
 
-Similar to a public application load balancer, your private application load balancer service instance is assigned an FQDN. However, this domain name is registered with one or more private IP addresses.
+Similar to a public application load balancer, your private application load balancer instance is assigned an FQDN. However, this domain name is registered with one or more private IP addresses.
 
 {{site.data.keyword.cloud_notm}} operations might change the number and value of your assigned private IP addresses over time, based on maintenance and scaling activities. The back-end virtual server instances hosting your application must run in the same region, and under the same VPC.
 
@@ -128,7 +128,7 @@ The application load balancer scales out by adding compute resources when load i
 ## SSL offloading and required authorizations
 {: #ssl-offloading-and-required-authorizations}
 
-Secure Sockets Layer (SSL) offloading allows the application load balancer service to terminate all incoming HTTPS connections.
+Secure Sockets Layer (SSL) offloading allows the application load balancer to terminate all incoming HTTPS connections.
 
 When an HTTPS listener is configured with an HTTP pool, the HTTPS request is terminated at the front-end and the load balancer establishes a plain-text HTTP communication with the back-end server instance. With this technique, CPU-intensive SSL handshakes and encryption or decryption tasks are shifted away from the back-end server instances, allowing them to use all their CPU cycles for processing application traffic.
 
@@ -171,7 +171,7 @@ To find a certificate's CRN, follow these steps:
 ## End-to-end SSL encryption
 {: #end-to-end-ssl-encryption}
 
-Configuring an HTTPS listener with an HTTPS pool enables end-to-end SSL encryption. The application load balancer service terminates the incoming HTTPS request at the front-end listener and establishes an HTTPS connection with the back-end instances. End-to-end encryption allows all traffic going through the load balancer to the back-end members to be encrypted over HTTPS.
+Configuring an HTTPS listener with an HTTPS pool enables end-to-end SSL encryption. The ALB terminates the incoming HTTPS request at the front-end listener and establishes an HTTPS connection with the back-end instances. End-to-end encryption allows all traffic going through the load balancer to the back-end members to be encrypted over HTTPS.
 
 To configure end-to-end SSL encryption:
 

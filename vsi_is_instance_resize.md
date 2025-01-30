@@ -49,15 +49,15 @@ When you stop a virtual server instance with an instance storage profile, that s
 
 Attached data volumes remain intact and are attached in the resized instance.
 
-When you resize an instance to a smaller profile (one with fewer vCPUs), it might be necessary to adjust the instance’s storage bandwidth allocation. To successfully resize, the instance’s storage bandwidth must be at least 500 Mb/s less than the preallocated bandwidth in the target profile.
+When you resize an instance to a smaller profile (one with fewer vCPUs), it might be necessary to adjust the instance’s storage bandwidth allocation. To successfully resize, the instance’s storage bandwidth must be at least 500 MBps less than the preallocated bandwidth in the target profile.
 
 For example,
 
-   * Current profile: mx2-8x64 (total bandwidth: 16000 Mb/s, 12000 Mb/s network, 4000 Mb/s storage)
+   * Current profile: mx2-8x64 (total bandwidth: 16000 MBps, 12000 MBps network, 4000 MBps storage)
     (Assume that the instance is using default network and storage bandwidth allocation.)
-   * Target profile: bx2-2x8 (total bandwidth: 4000 Mb/s, 3000 Mb/s network, 1000 Mb/s storage)
+   * Target profile: bx2-2x8 (total bandwidth: 4000 MBps, 3000 MBps network, 1000 MBps storage)
 
-   The resize operation fails because the current amount of storage bandwidth (4000 Mb/s) is not at least 500 Mb/s less than the target profile’s total bandwidth (4000 Mb/s). To successfully resize, you must adjust the instance’s storage bandwidth amount to 3500 Mb/s or less before you attempt the resize operation.
+   The resize operation fails because the current amount of storage bandwidth (4000 MBps) is not at least 500 MBps less than the target profile’s total bandwidth (4000 MBps). To successfully resize, you must adjust the instance’s storage bandwidth amount to 3500 MBps or less before you attempt the resize operation.
 
 ## Resizing instances that are associated with instance templates and instance groups
 {: #resizing-instance-templates-groups}

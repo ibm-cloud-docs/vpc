@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-10-25"
+  years: 2022, 2025
+lastupdated: "2025-01-29"
 
 keywords:
 
@@ -20,7 +20,7 @@ subcollection: vpc
 
 {{site.data.keyword.cloud_notm}} DNS Services provides private DNS to VPC users. Private DNS zones are resolvable only on {{site.data.keyword.cloud_notm}}, and only from explicitly permitted networks in an account or with cross-account access.
 
-Do not remove or modify the DNS records created by the load balancer service. Doing so can result in your private DNS and load balancer configurations becoming out of sync, which can cause data path issues.
+Do not remove or modify the DNS records created by the load balancer. Doing so can result in your private DNS and load balancer configurations becoming out of sync, which can cause data path issues.
 {: attention}
 
 For more information about linking your own private DNS record name to a load balancer, refer to the solution tutorial [Team based privacy using IAM, VPC, Transit Gateway and DNS](/docs/vpc?topic=vpc-vpc-tg-dns-iam&interface=ui).
@@ -29,7 +29,7 @@ For more information about linking your own private DNS record name to a load ba
 ## Before you begin
 {: #prerequisite-integration-with-dns-service}
 
-Before binding DNS zones to load balancers, you must first create DNS zones and grant load balancer service access.
+Before binding DNS zones to load balancers, you must first create DNS zones and grant load balancer access.
 
 1. DNS zones must be created before they can be bound to a load balancer. For more information, see [Managing DNS zones](/docs/dns-svcs?topic=dns-svcs-managing-dns-zones).
 

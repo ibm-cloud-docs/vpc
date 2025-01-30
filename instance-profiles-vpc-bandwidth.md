@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2024-10-03"
+lastupdated: "2025-01-29"
 
 keywords: compute, virtual private cloud, virtual server instance, instance, bandwidth
 
@@ -41,8 +41,8 @@ The allocation of the instance's total bandwidth can be adjusted, balancing betw
 
 For example, to allow more volume bandwidth, you might apportion the previous example in equal allocations:
 
-* Volumes: 2,000 Mb/s
-* Network: 2,000 Mb/s
+* Volumes: 2,000 MBps
+* Network: 2,000 MBps
 
 The volume bandwidth available to the instance is apportioned on a per-volume basis. The bandwidth is assigned per volume, not shared between volumes. For example, if four identical volumes are attached to an instance but are using only one volume, then that volume can get only the bandwidth assigned to it. The volume in use can't access the bandwidth that is assigned to the unused volumes. For more information, see [Bandwidth allocation for Block Storage volumes](/docs/vpc?topic=vpc-block-storage-bandwidth).
 {: note}
