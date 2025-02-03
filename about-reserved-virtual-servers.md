@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-11-18"
+  years: 2023, 2025
+lastupdated: "2025-02-03"
 
 keywords:
 
@@ -67,7 +67,7 @@ All [Gen 2 and Gen 3 bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-
 A reservation attachment policy determines whether a resource is automatically or manually attached to a reservation. If you select automatic, the server automatically attaches to a compatible reservation. If you select manual, you need to manually attach the server to a compatible reservation.
 
 ### Automatic attachments
-{: #automatic-reservation-vpc}
+{: #reservation-automatic-reservation-vpc}
 
 If a server is configured to enable automatic attachments, the system attempts to automatically attach the resource to a reservation in the same account that allows automatic attachments. The reservation must be configured to support automatic attachments and must contain matching properties (account, profile, zone) with available capacity.
 
@@ -88,7 +88,7 @@ The billing discount for the attached compute resource is applied immediately an
 {: note}
 
 #### Limitations
-{: #automatic-reservations-limitations-vpc}
+{: #reservation-automatic-reservations-limitations-vpc}
 
 * You can't target a specific reservation and configure a resource automatically. They are mutually exclusive.
 
@@ -119,7 +119,7 @@ To manually attach a resource to a reservation, the following settings must be t
 The target reservation can't be enabled as an automatic reservation.
 
 ### Quotas and reservations
-{: #quotas-and-reservations}
+{: #reservation-quotas-and-reservations}
 
 Reservations count against the appropriate quota for the resource type. So bare metal reservations count against the bare metal server quota and virtual server reservations count against instance quotas. However, compute resources that are attached to a reservation don't count against quotas.
 
