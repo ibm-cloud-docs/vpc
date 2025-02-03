@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-01-27"
+lastupdated: "2025-02-03"
 
 keywords:
 
@@ -38,7 +38,7 @@ The instance inherits the access rights that are defined in the default trusted 
 
 1. Configure a floating IP so that you can ping the virtual servers over the floating IP address and SSH into them.
 
-1. Create a trusted profile. For more information, see [Establishing trust with compute resources](/docs/secure-enterprise?topic=secure-enterprise-create-trusted-profile&interface=ui#create-profile-compute).
+1. Create a trusted profile. For more information, see [Managing access for apps in compute resources](/docs/account?topic=account-trustedprofile-compute-tutorial#trusted-profile-compute-create).
 
 ## IAM authorizations for linking trusted profiles
 {: #imd-iam-auth}

@@ -165,7 +165,7 @@ You can optionally use a serial console to access ESXi DCUI. You must first manu
 
 6. Press **ESC** if ESXi DCUI doesn’t show up in the terminal. You see ESXi DCUI in your terminal.
 
-You can use other methods to enable the serial console. For more information, see [VMware Docs Home](https://docs.vmware.com/){: external}.
+You can use other methods to enable the serial console. For more information, see [VMware Docs Home](https://techdocs.broadcom.com/us/en/vmware-cis.html){: external}.
 {: note}
 
 ## Accessing the ESXi web client by using floating IP

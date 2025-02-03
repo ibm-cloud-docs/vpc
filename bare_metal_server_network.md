@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-01-09"
+lastupdated: "2025-02-03"
 
 keywords: bare metal server network, bare metal network, nics, pci, vlan, network overview
 
@@ -24,7 +24,7 @@ The following information is an overview of the networking features of Bare Meta
 
 * For more information about managing network interfaces, see [Managing network interfaces for a bare metal server](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers).
 
-* If you're using VMWare vSphere networking, see [Introduction to vSphere Networking](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.networking.doc/GUID-8CDF29B2-ABA8-4F34-9FEF-14987BC13265.html){: external}.
+* If you're using VMWare vSphere networking, see [Introduction to vSphere Networking](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/7-0/vsphere-networking-7-0.html){: external}.
 
 ## Bare metal server network interfaces
 {: #bare-metal-servers-nics-intro}
@@ -141,7 +141,7 @@ You can now migrate the VM by using vMotion.
 The VLAN interface that is used by the VM is migrated to the destination host.
 {: note}
 
-You can set up network topologies that are more complicated than the example, which is beyond the scope of this information. For more information, see the [VMware vSphere documentation](https://docs.vmware.com/en/VMware-vSphere/index.html).
+You can set up network topologies that are more complicated than the example, which is beyond the scope of this information. For more information, see the [VMware vSphere documentation](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere.html).
 
 ### Configuration tips for VMware vSphere network interfaces
 {: #nic-config-tips}

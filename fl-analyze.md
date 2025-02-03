@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-10-10"
+  years: 2020, 2025
+lastupdated: "2025-02-03"
 
 keywords: flow logs, viewing objects, analyze
 
@@ -24,7 +24,7 @@ Currently, flow logs collect Transmission Control Protocol (TCP) and User Datagr
 
 Each flow log object contains individual flow logs. To view or analyze the flow logs, use the IBM Analytics Engine. For more information, see the IBM Analytics Engine [Getting started tutoral](/docs/AnalyticsEngine?topic=AnalyticsEngine-getting-started).
 
-IBM Cloud Data Engine is depreciated and will no longer be supported after 19 January 2025. If you currently use existing instances of Data Engine, it is recommended that you [migrate your worloads to IBM Analytics Engine](/docs/sql-query?topic=sql-query-deprecation#migrate-analytics-engine).
+IBM Cloud Data Engine is depreciated and will no longer be supported after 19 January 2025. If you currently use existing instances of Data Engine, it is recommended that you migrate your worloads to [IBM Analytics Engine](/docs/AnalyticsEngine?topic=AnalyticsEngine-getting-started).
 {: deprecated}
 
 ## Flow log data format
