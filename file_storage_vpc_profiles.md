@@ -29,7 +29,7 @@ The following tables show the characteristics and performance levels of the avai
 
 Current file share profile:
 
-| Family   | Profile         | IOPS[^tabletext1] | IOPS per share | Max throughput  | Share size   |
+| Family   | Profile         | IOPS | IOPS per share | Max throughput  | Share size   |
 |----------|-----------------|--------------:|---------------:|---------------------|-------------:|
 | `defined_performance`|`dp2`| 1-100 IOPS/GB |     100-96,000 |  1024 MBps (8192 Mbps) | 10-32,000 GB |
 {: caption="Comparison of file share profiles and performance levels." caption-side="top"}
@@ -38,10 +38,10 @@ Previous file share profiles:
 
 | Family   | Profile         | IOPS[^tabletext1] | IOPS per share | Max throughput[^tabletext2]  | Share size   |
 |----------|-----------------|--------------:|---------------:|---------------------|-------------:|
-| `tiered` | `tier-3iops`    |     3 IOPS/GB |   3,000-96,000 |  670 MBps (5360 Mbps) | 10-32,000 GB | 
-| `tiered` | `tier-5iops`    |     5 IOPS/GB |   3,000-48,000 |  768 MBps (6144 Mbps) |  10-9,600 GB | 
-| `tiered` | `tier-10iops`   |    10 IOPS/GB |   3,000-48,000 |  1024 MBps (8192 Mbps)|  10-4,800 GB | 
-| `custom` | `custom`        | 1-100 IOPS/GB |   3,000-48,000 |  1024 MBps (8192 Mbps) | 10-16,000 GB | 
+| `tiered` | `tier-3iops`    |     3 IOPS/GB |   3,000-96,000 |  670 MBps (5360 Mbps) | 10-32,000 GB |
+| `tiered` | `tier-5iops`    |     5 IOPS/GB |   3,000-48,000 |  768 MBps (6144 Mbps) |  10-9,600 GB |
+| `tiered` | `tier-10iops`   |    10 IOPS/GB |   3,000-48,000 |  1024 MBps (8192 Mbps)|  10-4,800 GB |
+| `custom` | `custom`        | 1-100 IOPS/GB |   3,000-48,000 |  1024 MBps (8192 Mbps) | 10-16,000 GB |
 {: caption="Comparison of file share profiles and performance levels." caption-side="top"}
 
 [^tabletext1]: IOPS values are based on 16k I/O size.
