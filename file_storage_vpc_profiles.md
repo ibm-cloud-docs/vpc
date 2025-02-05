@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2025
-lastupdated: "2025-01-29"
+lastupdated: "2025-02-05"
 
 keywords: file storage, file share, performance, IOPS, block size, capacity, range
 
@@ -25,11 +25,19 @@ When you [create a file share](/docs/vpc?topic=vpc-file-storage-create), you sel
 
 File shares that were created during the beta and limited availability phases with either one of the [tiered](#fs-tiers) profiles or the [custom](#fs-custom) profile can continue to operate based on these profiles. You can also update these file shares to use the `dp2` profile or switch to another previous generation profile. However, you cannot use the previous profiles when you create a file share, and only the file shares with the `dp2` profile can use new features like encryption-in-transit, cross-zone mounting, cross-account sharing, and snapshots.
 
-The following table shows the characteristics and performance levels of the available profiles.
+The following tables show the characteristics and performance levels of the available profiles.
+
+Current file share profile:
+
+| Family   | Profile         | IOPS[^tabletext1] | IOPS per share | Max throughput  | Share size   |
+|----------|-----------------|--------------:|---------------:|---------------------|-------------:|
+| `defined_performance`|`dp2`| 1-100 IOPS/GB |     100-96,000 |  1024 MBps (8192 Mbps) | 10-32,000 GB |
+{: caption="Comparison of file share profiles and performance levels." caption-side="top"}
+
+Previous file share profiles:
 
 | Family   | Profile         | IOPS[^tabletext1] | IOPS per share | Max throughput[^tabletext2]  | Share size   |
 |----------|-----------------|--------------:|---------------:|---------------------|-------------:|
-| `defined_performance`|`dp2`| 1-100 IOPS/GB |     100-96,000 |  1024 MBps (8192 Mbps) | 10-32,000 GB |
 | `tiered` | `tier-3iops`    |     3 IOPS/GB |   3,000-96,000 |  670 MBps (5360 Mbps) | 10-32,000 GB | 
 | `tiered` | `tier-5iops`    |     5 IOPS/GB |   3,000-48,000 |  768 MBps (6144 Mbps) |  10-9,600 GB | 
 | `tiered` | `tier-10iops`   |    10 IOPS/GB |   3,000-48,000 |  1024 MBps (8192 Mbps)|  10-4,800 GB | 
