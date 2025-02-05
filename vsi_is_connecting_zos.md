@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-09-23"
+  years: 2022, 2025
+lastupdated: "2025-02-05"
 
 keywords: connecting, zos, s390x, zosmf, virtual server instance
 
@@ -200,7 +200,7 @@ To allow others to access your z/OS virtual server instance by using their own z
 1. You can use one of the following methods to create a new z/OS user ID in the RACF (Resource access control facility):
   
     * Issuing the `ADDUSER` command.
-    * Enrolling the user through the TSO/E Information Center Facility (ICF) panels. For more information about administering the Information Center Facility, see [z/OS TSO/E Administration](https://www.ibm.com/docs/en/zos/2.5.0?topic=tsoe-zos-administration){: external}.
+    * Enrolling the user through the TSO/E Information Center Facility (ICF) panels. For more information about administering the Information Center Facility, see [z/OS TSO/E Administration](https://www.ibm.com/docs/en/zos/3.1.0?topic=tsoe-zos-administration){: external}.
 
    Here is an example of using the `ADDUSER` command to create a user profile. Suppose you want to create a user profile for user Steve H., a member of Department A. You want to assign the following values:
     * `STEVEH` for the user ID

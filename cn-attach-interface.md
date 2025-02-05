@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-12-10"
+  years: 2024, 2025
+lastupdated: "2025-02-05"
 
 keywords:
 
@@ -98,7 +98,7 @@ To attach cluster network interfaces to an instance with the API, follow these s
    ```
    {: codeblock}
 
-To view the complete set of cluster network APIs, see the [VPC API reference](/apidocs/vpc-scoped?code=go#list-cluster-network-profiles).
+To view the complete set of cluster network APIs, see the [VPC API reference](/apidocs/vpc/latest#list-cluster-network-profiles).
 
 ## Attaching cluster network interfaces to an instance with Terraform
 {: #attach-interfaces-cluster-network-terraform}

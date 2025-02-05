@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-12-10"
+  years: 2024, 2025
+lastupdated: "2025-02-05"
 
 keywords:
 
@@ -118,7 +118,7 @@ To create a cluster network subnet with the API, follow these steps:
    ```
    {: codeblock}
 
-To view the complete set of cluster network APIs, see the [VPC API reference](/apidocs/vpc-scoped?code=go#list-cluster-network-profiles).
+To view the complete set of cluster network APIs, see the [VPC API reference](/apidocs/vpc/latest#list-cluster-network-profiles).
 
 ## Creating a cluster network subnet with Terraform
 {: #create-cluster-network-subnet-terraform}
