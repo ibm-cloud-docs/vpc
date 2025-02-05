@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-01-17"
+lastupdated: "2025-02-05"
 
 keywords: Backup, backup snapshot, create backups, backup service, backup plan, backup policy, restore, restore volume, restore data, restore share
 
@@ -285,8 +285,6 @@ For more information about available command options, see [`ibmcloud is backup-p
 
 ### Creating a backup policy for file shares from the CLI
 {: #backup-create-policy-noplan-share}
-
-
 
 Run the `ibmcloud is backup-policy-create` command to create a backup policy without a backup plan. Use the options `--match-resource-type`, `--match-tags`, and `--name` to give your policy a name and identify the tag that you want to use for your target resources. After the policy is created, you can [add backup plans](#backup-create-plan-cli) to it later on.
 
