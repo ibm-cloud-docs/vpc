@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-12-17"
+  years: 2022, 2025
+lastupdated: "2025-02-10"
 
 keywords: Backup, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -67,6 +67,8 @@ After you provisioned a backup policy and created a backup plan, you can edit th
 2. Select **Edit**. The plan details appear in the side panel. You can modify the same information that you specified when you created the plan, such as the name and backup frequency. For individual volume backups, you can enable or disable fast restore, or change which regions fast restore is available in. You can also enable or disable the creation and retention of copies in other regions. Fast restore and cross-region copy features are not supported for multi-volume or file share backups.
 
 3. Confirm your selections when you're finished.
+
+Changes in the policy plan apply to future backups. For example, if you enable the creation of copies in a remote region, then the Backup snapshots that existed before the change are not copied to the remote location. The next time that the plan triggers the creation of a backup snapshot, a copy of that snapshot is created in the remote region.
 
 ## Managing backup policies and plans from the CLI
 {: #backup-manage-policy-cli}
@@ -317,6 +319,8 @@ Resource type        backup_policy_plan
 ```
 {: codeblock}
 
+The next time that the policy plan triggers the creation of backups, the backup snapshot is copied to the specified remote region. Backup snapshots that existed before the change in the backup policy plan are not copied to the remote location.
+
 For more information about available command options, see [`ibmcloud is backup-policy-plan-update`](/docs/cli?topic=cli-vpc-reference#backup-policy-plan-update){: external}.
 
 Fast restore and cross-region copy features are not supported for multi-volume or file share backups.
@@ -512,6 +516,8 @@ A successful response shows that the remote region policy is created.
 }
 ```
 {: codeblock}
+
+The next time that the policy plan triggers the creation of backups, the backup snapshot is copied to the specified remote region. Backup snapshots that existed before the change in the backup policy plan are not copied to the remote location.
 
 Fast restore and cross-region copy features are not supported for multi-volume or file share backups.
 {: note}
