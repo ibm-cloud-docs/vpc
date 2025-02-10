@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-11-05"
+  years: 2022, 2025
+lastupdated: "2025-02-10"
 
 keywords: Block Storage, snapshots, cross-regional copy, fast restore, backup, restore volume
 
@@ -41,6 +41,22 @@ A bootable snapshot is a copy of a boot volume. You can use this snapshot to cre
 {: #faq-snapshot-fr}
 
 A [fast restore snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-use-fast-restore) is a clone of a snapshot that is stored within one or more zones of a VPC region. The original snapshot is stored in {{site.data.keyword.cos_full_notm}}. When you perform a restore, data can be restored faster from a clone than from the snapshot in {{site.data.keyword.cos_short}}.
+
+## What is a cross-regional copy of a snapshot?
+{: faq}
+{: #faq-snapshot-crc}
+
+You can copy a snapshot from one region to another region, and later use that snapshot to restore a volume in the new region. This feature can be used in disaster recovery scenarios when you need to start your virtual server instance and data volumes in a different region. Or you can use the remote copy to create storage volumes in a new region to expand your VPC. For more information, see [Cross-regional snapshot copies](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#snapshots_vpc_crossregion_copy).
+
+## What is the retention policy for cross-regional copies?
+{: faq}
+{: #faq-snapshot-crc-retention}
+
+How long the copy is kept in another regions depends on how often your backup plan generates backup snapshots and the number of copies that you chose to keep. When you create your backup policy plan with the option to create remote clones, you have to specify where you want to create those copies and the maximum number of snapshot copies to keep.
+
+For example, if your backup plan takes snapshots daily and you specified 5 remote copies to keep, then at any time the oldest remote copy is less than 5 days old. If you already have 5 remote copies in a region, then the system deletes the oldest one to make room for the new snapshot copy. 
+
+Manually created copies remain in the other region until you delete it.
 
 ## How many snapshots can I take?
 {: faq}

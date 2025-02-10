@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-01-16"
+lastupdated: "2025-02-10"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, faqs
 
@@ -124,6 +124,20 @@ Backups of a file share are automatically replicated to the other zone if the fi
 You can copy a backup snapshot of a Block storage volume from one region to another region, and later use that snapshot to restore a volume in the new region. Only one copy of the backup snapshot can exist in each region. You can't create a copy of the backup snapshot in the source (local) region.
 
 You can't create independent copies of file share backups in another region because file share snapshots and backups are tied to their source shares.
+
+## When I enable cross-regional copies are my existing backup snapshots copied to the selected region?
+{: faq}
+{: #faq-baas-crc-existing-snapshot}
+
+No. If you update your backup policy plan to create copies of your automated backup snapshot in another region, that action applies to upcoming backup snapshots. The next time the backup service creates a snapshot, that snapshot is copied to the remote region.
+
+## How does the retention policy affect my remote copies?
+{: faq}
+{: #faq-baas-cross-regional-retention}
+
+How long the copy is kept depends on how often your backup plan generates backup snapshots and the number you chose to keep. For example, if your plan takes snapshots daily and you specified 5 remote copies to keep, then at any time the oldest remote copy is less than 5 days old. If you already have 5 remote copies in a region, then the system deletes the oldest one to make space for the new snapshot copy.
+
+Keep in mind, a remote snapshot copy is independent from the source volume or the parent snapshot. If those resources are inaccessible or deleted, the snapshot copy in the remote region is not affected. If a backup snapshots is deleted due to reaching the end of its retention period, its remote copy is not deleted automatically.
 
 ## What is a consistency group for backups?
 {: faq}

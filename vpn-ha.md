@@ -2,7 +2,7 @@
 
 copyright:
   years:  2022, 2025
-lastupdated: "2025-01-13"
+lastupdated: "2025-02-09"
 
 keywords: VPN, vpn gateways, HA, High availability, Redundancy
 
@@ -27,17 +27,16 @@ This section provides an overview of the high availability architecture for a VP
 ### VPN gateway high availability in a single-zone
 {: #vpn-ha-in-single-zone}
 
-A VPN gateway is composed of two back-end instances within the same zone to ensure high availability. The VPN service continuously monitors these instances and automatically fails over to the other instance in the event of a failure. Routine maintenance of the VPN is conducted through rolling upgrades of the two back-end instances. During maintenance, the VPN’s private IP address may change, but the public IP addresses remain unaffected, and your VPN connections will automatically switch to the available instance.
+A VPN gateway is composed of two back-end instances within the same zone to ensure high availability. The VPN service continuously monitors these instances and automatically fails over to the other instance in the event of a failure. Routine maintenance of the VPN is conducted through rolling upgrades of the two back-end instances. During maintenance, the VPN’s private IP address might change, but the public IP addresses remain unaffected, and your VPN connections will automatically switch to the available instance.
 
 ![VPN gateway HA in single zone](images/vpn-gateway-ha.png "VPN gateway HA in single zone"){: caption="VPN gateway HA in single zone" caption-side="bottom"}
 
 ### VPN gateway high availability in a multizone region
 {: #vpn-gateway-ha-in-multiple-zones}
 
-When a network outage occurs in a [zone](#x2070723){: term},
-
-In the event of a network outage in a specific [zone](#x2070723){: term}, you may lose network access to all resources within that zone, including the VPN gateway. To ensure high availability, it is recommended to distribute your workload across multiple zones, with a VPN gateway in each zone, and implement load balancing between zones.
+In the event of a network outage in a specific [zone](#x2070723){: term}, you might lose network access to all resources within that zone, including the VPN gateway. To ensure high availability, it is recommended to distribute your workload across multiple zones, with a VPN gateway in each zone, and implement load balancing between zones.
 
 The following diagram illustrates how to distribute your workload across [multizone regions](#x9774820){: term}. ach VPN gateway is dedicated to providing access to the VPC network within the same zone, ensuring resilience and minimizing the impact of localized outages.
 
 ![VPN gateway HA in multiple zones](images/vpn-gateway-ha-in-multiple-zones.png "VPN gateway HA in multiple zones"){: caption="VPN gateway HA in multiple zones" caption-side="bottom"}
+ 
