@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-01-21"
+lastupdated: "2025-02-11"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -51,6 +51,7 @@ Look at the `reason_codes` property in the response. It might be an internal err
 
 - If you see an internal error, contact IBM support. 
 - If the backup snapshot limit is reached, delete the oldest snapshots so new ones can be created. You can create up to 100 backup snapshots of a volume.
+- If the snapshot rate is too high, consider increasing the time between backups. That change allows the service to complete the creation of the backup snapshots and loading them into {{site.data.keyword.cos_full_notm}} before a new snapshot is triggered.
 {: tsResolve}
 
 ## Backup policy is not created due to incorrect authorizations

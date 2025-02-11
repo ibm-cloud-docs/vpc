@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2025
-lastupdated: "2025-02-10"
+lastupdated: "2025-02-11"
 
 keywords: Block Storage, snapshots, cross-regional copy, fast restore, backup, restore volume
 
@@ -56,7 +56,7 @@ How long the copy is kept in another regions depends on how often your backup pl
 
 For example, if your backup plan takes snapshots daily and you specified 5 remote copies to keep, then at any time the oldest remote copy is less than 5 days old. If you already have 5 remote copies in a region, then the system deletes the oldest one to make room for the new snapshot copy. 
 
-Manually created copies remain in the other region until you delete it.
+Manually created copies remain in the other region until you delete them.
 
 ## How many snapshots can I take?
 {: faq}
