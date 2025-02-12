@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-01-18"
+lastupdated: "2025-02-12"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -309,7 +309,7 @@ The GPU profile family includes `-v100`, `-a100`, `-l4`, and `-l40S` and `-h100`
 - [Select availability]{: tag-green} GPU `-a100` profiles includes 8 NVIDIA A100 NVlink 80 GB GPUs. The a100 offering is available to select customers. This GPU profile supports only Linux OS images Ubuntu or RHEL.
 - GPU `-l4` profiles include NVIDIA L4 24 GB GPUs.
 - GPU `-l40S` profiles include NVIDIA L40S 48 GB GPUs.
-- GPU `-h100`  profiles include [NVIDIA](https://www.nvidia.com/en-us/data-center/hgx/){: external} GPUs. The system is an HGX design. The H100 offering is available in the following regions and zones: London (eu-gb-2), Sydney (au-syd-2), Toronto (ca-tor-3), Madrid (eu-es-3), Washington DC (us-east-3), Tokyo (jp-tok-3), Sao Paulo (br-sao-1), Dallas (us-south-1), and Frankfurt (eu-de-2).  
+- GPU `-h100` and `-h200` profiles include [NVIDIA](https://www.nvidia.com/en-us/data-center/hgx/){: external} GPUs. The system is an HGX design. The H100 offering is available in the following regions and zones: London (eu-gb-2), Sydney (au-syd-2), Toronto (ca-tor-3), Madrid (eu-es-3), Washington DC (us-east-3), Tokyo (jp-tok-3), Sao Paulo (br-sao-1), Dallas (us-south-1), and Frankfurt (eu-de-2). [Select availability]{: tag-green} The H200 offering is available in Washington DC (us-east-3) and Frankfurt (eu-de-2). 
 
 See [Download drivers](https://www.nvidia.com/en-us/drivers/) to review the most current versions that are supported. NVIDIA GPU drivers must be installed separately.
 
@@ -321,6 +321,7 @@ See [Download drivers](https://www.nvidia.com/en-us/drivers/) to review the most
 | gx3-24x120x1l40s | 24 / 12 | 120 | l40s / 1 | 50 | - |
 | gx3-48x240x2l40s | 48 / 24 | 240 | l40s / 2  | 100 | - |
 | gx3d-160x1792x8h100 | 160 / 80 | 1792 | h100 / 8 | 200 | 8x7680 |
+| gx3d-160x1792x8h200 | 160 / 80 | 1792 | h200 / 8 | 200 | 8x7680 |
 {: caption="GPU gx3 24 GB profile options for Intel x86-64 instances" caption-side="bottom"}
 {: #gpu-intel-x86-64}
 {: tab-title="gx3"}

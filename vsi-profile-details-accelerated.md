@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024, 2025
-lastupdated: "2025-01-18"
+lastupdated: "2025-02-12"
 
 keywords: vsi, virtual server, virtual server instances, profile, profiles, gpu, accelerated, h100, l4, l40s
 
@@ -44,6 +44,7 @@ cluster throughput of 3.2 Tbps. The solution also provides RoCEv2 to support RDM
 {: #hopper-hgx-accelerator}
 
 - NVIDIA H100 SXM5 (80 GB)
+- NVIDIA H200 SXM5 (141 GB)
 
 ### Availability
 {: #hopper-hgx-availability}
@@ -69,7 +70,17 @@ Status: Select Availability
 
 For more information about regions and universal zones, see [Regions](/docs/overview?topic=overview-locations#regions). 
 
- 
+#### NVIDIA H200 SXM5 (141 GB)
+{: #hopper-hgx-availability-H200}
+
+Status: Select Availability
+
+| Region                    | Universal zone    | 
+| ------------------------  | -------------     | 
+| Washington DC (`us-east`) | `us-east-wdc07-a` | 
+| Frankfurt (`eu-de`)       | `eu-de-fra04-a`   | 
+{: caption="Table 1. Supported regions and zones" caption-side="bottom"}
+
 
 ### Capabilities
 {: #hopper-hgx-capabilities}
@@ -105,6 +116,7 @@ For more information about regions and universal zones, see [Regions](/docs/over
 | Instance profile | vCPU / Cores | Memory (GiB)  | Bandwidth cap (Gbps) | Dedicated cluster network bandwidth | Accelerators | Instance storage (GB) |
 |---------|---------|---------|---------|---------|--------- | ---------|
 | gx3d-160x1792x8h100 | 160 / 80 | 1792 | 200 | 3.2 Tbps (8x 400 Gbps Dedicated NVIDIA CX-7) | 8x NVIDIA H100 (80 GB) | 8 x 7.68 TB |
+| gx3d-160x1792x8h200 | 160 / 80 | 1792 | 200 | N/A | 8x NVIDIA H200 (141 GB) | 8 x 7.68 TB |
 {: caption="Accelerated NVIDIA Hopper HGX profile options" caption-side="bottom"}
 
 

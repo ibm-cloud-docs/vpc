@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-01-21"
+lastupdated: "2025-02-12"
 
 keywords:
 
@@ -23,6 +23,13 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 For more information about changes to the {{site.data.keyword.vpc_short}} API, see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command-line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
+
+### 12 February 2025
+{: #vpc-feb1225}
+{: release-note}
+
+GPU H200 profile now available in Washington DC (`us-east`) and Frankfurt (`eu-de`) regions (select availability)
+:   The GPU H200 profile is now available in the Washington DC (`us-east`) and Frankfurt (`eu-de`) regions. The GPU H200 profile is available on the latest generation GPU-enabled infrastructure for running machine learning (ML) and deep learning (DL) frameworks in support of AI initiatives. When you use the H200 virtual server profile, it runs on an [NVIDIA Hopper-based HGX](https://www.nvidia.com/en-us/data-center/hgx/){: external} server and is the sole tenant running on the host. For more information about the `gx3d-160x1792x8h200` profile, see [GPU](/docs/vpc?topic=vpc-profiles&interface=ui#gpu) profiles.
 
 ## January 2025
 {: #vpc-jan25}
