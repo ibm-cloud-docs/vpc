@@ -81,7 +81,6 @@ Status: Select Availability
 | Frankfurt (`eu-de`)       | `eu-de-fra04-a`   | 
 {: caption="Table 1. Supported regions and zones" caption-side="bottom"}
 
-
 ### Capabilities
 {: #hopper-hgx-capabilities}
 
@@ -119,6 +118,11 @@ Status: Select Availability
 | gx3d-160x1792x8h200 | 160 / 80 | 1792 | 200 | N/A | 8x NVIDIA H200 (141 GB) | 8 x 7.68 TB |
 {: caption="Accelerated NVIDIA Hopper HGX profile options" caption-side="bottom"}
 
+The large profiles likely require that you open a support ticket to request a
+[quota increase](/docs/vpc?topic=vpc-quotas). Please review your quota levels,
+and determine if the account provisioning the resource requires a change to the quotas. Note that
+this server utilizes vCPU, RAM, instance storage and GPU quotas.
+{: important} 
 
 ### Limits
 {: #hopper-hgx-vsi-limits}
