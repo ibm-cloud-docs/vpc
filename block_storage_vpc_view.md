@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-01-22"
+lastupdated: "2025-02-14"
 
 keywords:
 
@@ -204,37 +204,36 @@ See the following example.
 ```sh
 $ ibmcloud is volume demo-volume-update
 Getting volume demo-volume-update under account Test Account as user test.user@ibm.com...
-                                          
-ID                                     r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   
-Name                                   demo-volume-update   
-CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a1234567::volume:r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac   
-Status                                 available   
-Attachment state                       attached   
-Capacity                               100   
-IOPS                                   3000   
-Bandwidth(Mbps)                        393   
-Profile                                general-purpose   
-Encryption key                         -   
-Encryption                             provider_managed   
-Resource group                         defaults   
-Created                                2023-06-29T16:14:59+00:00   
-Zone                                   us-east-1   
-Health State                           ok   
-Volume Attachment Instance Reference   Attachment type   Instance ID                                 Instance name   Auto delete   Attachment ID                               Attachment name      
-                                       data              0757_11f5db7f-35a1-4678-bcbd-c85204e09507   kj-test-ro      false         0757-4dfc4384-c4b5-497e-bab3-6415f9c4d44b   otp      
-                                          
-Active                                 true   
-Adjustable Capacity States             attached 
+
+ID                                     r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac
+Name                                   demo-volume-update
+CRN                                    crn:v1:bluemix:public:is:us-east-1:a/a1234567::volume:r014-dee9736d-08ee-4992-ba8d-3b64a4f0baac
+Status                                 available
+Attachment state                       attached
+Capacity                               100
+IOPS                                   3000
+Bandwidth(Mbps)                        393
+Profile                                general-purpose
+Encryption key                         -
+Encryption                             provider_managed
+Resource group                         defaults
+Created                                2023-06-29T16:14:59+00:00
+Zone                                   us-east-1
+Health State                           ok
+Volume Attachment Instance Reference   Attachment type   Instance ID                                 Instance name   Auto delete   Attachment ID                               Attachment name
+                                       data              0757_11f5db7f-35a1-4678-bcbd-c85204e09507   kj-test-ro      false         0757-4dfc4384-c4b5-497e-bab3-6415f9c4d44b   otp
+
+Active                                 true
+Adjustable Capacity States             attached
 Adjustable IOPS States                     
-Busy                                   false   
-Tags                                   -  
+Busy                                   false
+Tags                                   -
 ```
 {: screen}
 
 In the example, the volume is attached to a virtual server instance, so the names and IDs of the volume attachment and instance are also displayed in the command output. The Active property is `true` because the virtual server instance to which the volume is attached is running. The `busy` property with the value `false` indicates that this volume is not performing an operation that must be serialized.
 
 For more information about available command options, see [`ibmcloud is volume`](/docs/cli?topic=cli-vpc-reference#volume-view).
-
 
 ## Viewing {{site.data.keyword.block_storage_is_short}} volumes with the API
 {: #viewing-block-storage-api}

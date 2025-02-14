@@ -752,7 +752,7 @@ toc:
             - link:
                label: Reference
                href: https://{DomainName}/apidocs/vpc-metadata-beta
-            - api-metadata-beta-change-log.md    
+            - api-metadata-beta-change-log.md
         - topicgroup:
             label: High availability and disaster recovery
             topics:

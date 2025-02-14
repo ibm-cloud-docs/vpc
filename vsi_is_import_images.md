@@ -70,7 +70,7 @@ When you have an image available in {{site.data.keyword.cos_full_notm}}, you can
 {: #import-custom-image-cloud-object-storage-cli}
 {: cli}
 
-Make sure that your compatible custom image is available in {{site.data.keyword.cos_full_notm}}. For more information, see [Creating a Linux custom image](/docs/vpc?topic=vpc-create-linux-custom-image), [Creating a Windows custom image](/docs/vpc?topic=vpc-create-windows-custom-image), [Creating a generic operating system custom image](/docs/vpc?topic=vpc-create-generic-os-custom-image), [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about) and [Uploading data](/docs/cloud-object-storage?topic=cloud-object-storage-upload) to {{site.data.keyword.cos_full_notm}}.
+Make sure that your compatible custom image is available in {{site.data.keyword.cos_full_notm}}. For more information, see [Creating a Linux custom image](/docs/vpc?topic=vpc-create-linux-custom-image), [Creating a Windows custom image](/docs/vpc?topic=vpc-create-windows-custom-image), [Creating a generic operating system custom image](/docs/vpc?topic=vpc-create-generic-os-custom-image), [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about) and [Uploading data](/docs/cloud-object-storage?topic=cloud-object-storage-upload) to {{site.data.keyword.cos_full_notm}}. 
 
 When you have an image available in {{site.data.keyword.cos_full_notm}}, you can import it to {{site.data.keyword.vpc_short}} infrastructure by using the command-line interface (CLI).
 
@@ -129,7 +129,7 @@ For more information, see [ibmcloud is image-create](/docs/vpc?topic=vpc-vpc-ref
 {: #import-custom-image-cloud-object-storage-api}
 {: api}
 
-Make sure that your compatible custom image is available in {{site.data.keyword.cos_full_notm}}. For more information, see [Creating a Linux custom image](/docs/vpc?topic=vpc-create-linux-custom-image), [Creating a Windows custom image](/docs/vpc?topic=vpc-create-windows-custom-image), [Creating a generic operating system custom image](/docs/vpc?topic=vpc-create-generic-os-custom-image), [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about), and [Uploading data](/docs/cloud-object-storage?topic=cloud-object-storage-upload) to {{site.data.keyword.cos_full_notm}}.
+Make sure that your compatible custom image is available in {{site.data.keyword.cos_full_notm}}. For more information, see [Creating a Linux custom image](/docs/vpc?topic=vpc-create-linux-custom-image), [Creating a Windows custom image](/docs/vpc?topic=vpc-create-windows-custom-image), [Creating a generic operating system custom image](/docs/vpc?topic=vpc-create-generic-os-custom-image), [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about), and [Uploading data](/docs/cloud-object-storage?topic=cloud-object-storage-upload) to {{site.data.keyword.cos_full_notm}}. 
 
 When you have an image available in {{site.data.keyword.cos_full_notm}}, you can import it to {{site.data.keyword.vpc_short}} infrastructure by using the application programming interface (API).
 
@@ -354,6 +354,6 @@ After you validate the Checksum (SHA256), use the image to create a virtual serv
 ## Next steps
 {: #next-validate-custom-image}
 
-After you validate the custom images, you can deploy and manage your custom images. For more information, see [Managing custom images](/docs/vpc?topic=vpc-managing-custom-images&interface=ui). 
+After you validate the custom images, you can deploy and manage your custom images. For more information, see [Managing custom images](/docs/vpc?topic=vpc-managing-custom-images&interface=ui).
 
 If you plan to manage your custom images with a private catalog, see [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui). If you plan to publish your images through the Global Catalog and bill users by using a software plan, see [Onboarding a virtual server for VPC with a plan](/docs/account?topic=account-working-catalog-vsivpc-tutorial&interface=ui).
