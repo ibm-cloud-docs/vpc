@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-02-12"
+lastupdated: "2025-02-14"
 
 keywords:
 
@@ -23,6 +23,14 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 For more information about changes to the {{site.data.keyword.vpc_short}} API, see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command-line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
+
+
+### 14 February 2025
+{: #vpc-feb1425}
+{: release-note}
+
+Storage optimized profiles are now available in all regions
+:   Storage optimized profiles (ox2) are now available in all regions. For more information on Storage optimized profiles, see [x86-64 instance profiles: Storage Optimized](/docs/vpc?topic=vpc-profiles&interface=ui#storageopt).
 
 ### 12 February 2025
 {: #vpc-feb1225}
