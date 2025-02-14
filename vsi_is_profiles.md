@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-02-12"
+lastupdated: "2025-02-14"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, very high memory, ultra high memory, gpu storage optimized, confidential compute
 
@@ -359,9 +359,6 @@ When you create a `-v100`, `-a100`, `-h100`, `l4`, or `l40S` GPU profile, keep t
 Storage Optimized profiles are hosted exclusively on Intel® Xeon® Platinum Cascade Lake servers. This profile family offers our highest vCPU to [instance storage](/docs/vpc?topic=vpc-instance-storage) ratio with 300 GB of storage for every 1 vCPU and is optimized for running data lake and other workloads that require more intensive data capabilities. All storage optimized profiles are provisioned with temporary SSD-backed instance storage at no additional charge. For more information, see [Lifecycle of instance storage](/docs/vpc?topic=vpc-instance-storage#instance-storage-lifecycle).
 
 Storage Optimized profiles use the `Storage optimized (ox2) instance storage` quota, for instance, storage quota tracking. Unlike other profiles, which use the `Instance storage` quota. For more information, see [Quotas](/docs/vpc?topic=vpc-quotas#vpcquotas).
-
-Storage Optimized profiles are available in the US South (Dallas), US East (Washington DC), United Kingdom (London), Germany (Frankfurt), EU Spain (Madrid), Japan (Tokyo), and Japan (Osaka) regions.
-{: preview}
 
 The following Storage Optimized profiles are available for x86-64 processors:
 
