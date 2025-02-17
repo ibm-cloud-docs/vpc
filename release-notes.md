@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-02-14"
+lastupdated: "2025-02-17"
 
 keywords:
 
@@ -23,7 +23,6 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 For more information about changes to the {{site.data.keyword.vpc_short}} API, see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command-line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
-
 
 ### 14 February 2025
 {: #vpc-feb1425}
@@ -76,7 +75,7 @@ IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1
    - [Intermediate certificate](/docs/vpc?topic=vpc-cert_validate#download_cert)
 
 Base 64 support for rsyslog configuration
-:  The syslog certificates and the key can be given in base64 format. 
+:  The syslog certificates and the key can be given in base64 format.
 For more information, see [Syslog](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc#syslog).
 
 Updated `workload` section for Hyper Protect Secure Build
