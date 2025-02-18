@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2025
-lastupdated: "2025-02-17"
+lastupdated: "2025-02-18"
 
 keywords:
 
@@ -23,6 +23,16 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 For more information about changes to the {{site.data.keyword.vpc_short}} API, see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command-line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-vpc-cli-rn).
+
+## February 2025
+{: #vpc-feb25}
+
+### 18 February 2025
+{: #vpc-feb1825}
+{: release-note}
+
+Mount Helper utility - new region values
+:   After you install the Mount Helper on your virtual server instance, you must specify the region where you want to use the utility to mount file shares. The accepted values for the region are changed to match the VPC region names. The old values are still accepted on existing instances. For more information, see the [IBM Cloud File Share Mount Helper utility](/docs/vpc?topic=vpc-fs-mount-helper-utility).
 
 ### 14 February 2025
 {: #vpc-feb1425}

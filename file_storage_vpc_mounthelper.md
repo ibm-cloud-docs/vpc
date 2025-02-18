@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2025-01-21"
+lastupdated: "2025-02-18"
 
 keywords: file share, file storage, encryption in transit, Mount Helper, IPsec, secure connection, mount share
 
@@ -87,18 +87,18 @@ For more information, see the [readme file](https://github.com/IBM/vpc-file-stor
 
     The `region` argument is used to copy region-specific root CA cert to the strongSwan certificate location. If no region is specified, then the utility copies all the root CA certs. The following table shows the values that you can use to specify the region.
 
-   | Location / Region                 | Value |
+   | Location            | [New]{: tag-new} value | Previous Value |
    |-----------------------------------|-------|
-   | Australia (Sydney) / `au-syd`     | `syd` |
-   | Brazil (Sao Paulo) / `br-sao`     | `sao` |
-   | Canada (Toronto) / `ca-tor`       | `tor` |
-   | Germany (Frankfurt) / `eu-de`     | `fra` | 
-   | Japan (Osaka)/ `jp-osa`           | `osa` | 
-   | Japan (Tokyo) / `jp-tok`          | `tok` |   
-   | Spain (Madrid) / `eu-mad`         | `mad` |
-   | United Kingdom (London) / `eu-gb` | `lon` | 
-   | US East (Washington, DC) / `us-east`| `wdc` |
-   | US South (Dallas, TX) / `us-south`  | `dal` |
+   | Australia - Sydney  | `au-syd`    | `syd` |
+   | Brazil - Sao Paulo  | `br-sao`    | `sao` |
+   | Canada - Toronto    | `ca-tor`    | `tor` |
+   | Germany - Frankfurt | `eu-de`     | `fra` | 
+   | Japan - Osaka       | `jp-osa`    | `osa` | 
+   | Japan - Tokyo       | `jp-tok`    | `tok` |   
+   | Spain - Madrid      | `eu-mad`    | `mad` |
+   | United Kingdom - London | `eu-gb` | `lon` | 
+   | United States - Washington, DC | `us-east`| `wdc` |
+   | United States - Dallas, TX | `us-south`  | `dal` |
    {: caption="This table shows the region values that the script accepts." caption-side="bottom"}
 
 1. Optional - Every installation image is accompanied by a file that contains the checksum value for the image file. For example, the image file ibmshare-0.0.1.tar.gz is accompanied by the ibmshare-0.0.1.tar.gz.sha256 file that contains the checksum value. To verify the integrity of the downloaded package, use the following commands.
